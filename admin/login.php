@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             session_regenerate_id(true);
             $_SESSION[$ipKey] = ['count' => 0, 'first' => time()]; // reset on success
             $_SESSION['admin_logged_in'] = true;
+            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             header('Location: index.php');
             exit;
         } else {

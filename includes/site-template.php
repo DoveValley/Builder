@@ -180,7 +180,6 @@ $infoItems = $header['info_items']      ?? [];
 <main class="site-main">
     <?php
     // These block types need full-width rendering (no container wrapper)
-    $fullWidthTypes = ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','block_split_cta'];
     foreach ($contentBlocks as $block):
         $btype = $block['type'] ?? '';
         $isFullWidth = in_array($btype, ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','cta_card','map_info','hero_split']);

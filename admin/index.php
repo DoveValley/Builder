@@ -8,6 +8,12 @@ if (empty($_SESSION['admin_logged_in'])) {
     exit;
 }
 
+// Ensure CSRF token exists (in case session was started before login.php generated one)
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+$csrfToken = $_SESSION['csrf_token'];
+
 $data    = load_data();
 $theme   = $data['theme'];
 $header  = $data['header'];
@@ -90,6 +96,24 @@ foreach ($footer['columns'] as $ci => $column) {
                 editor.save();
             });
         }
+    });
+    </script>
+    <script>
+    // Inject CSRF token into every form on submit
+    const CSRF_TOKEN = <?= json_encode($csrfToken) ?>;
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('form[action="save.php"]').forEach(function(form) {
+            form.addEventListener('submit', function() {
+                var inp = form.querySelector('input[name="csrf_token"]');
+                if (!inp) {
+                    inp = document.createElement('input');
+                    inp.type = 'hidden';
+                    inp.name = 'csrf_token';
+                    form.appendChild(inp);
+                }
+                inp.value = CSRF_TOKEN;
+            });
+        });
     });
     </script>
 </head>

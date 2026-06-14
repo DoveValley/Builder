@@ -5,6 +5,13 @@ require_once __DIR__ . '/../includes/functions.php';
 if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: index.php'); exit; }
 
+// CSRF check
+$token = $_POST['csrf_token'] ?? '';
+if (!hash_equals($_SESSION['csrf_token'] ?? '', $token)) {
+    header('Location: index.php?msg=error:Invalid+request+token');
+    exit;
+}
+
 $data    = load_data();
 $section = $_POST['section'] ?? '';
 $message = '';
@@ -123,6 +130,7 @@ switch ($section) {
 
                 case 'image_left':
                 case 'image_right':
+                    $block['ir_layout'] = ($_POST['ir_layout'][$i] ?? 'side') === 'stacked' ? 'stacked' : 'side';
                     $block['text']  = trim($_POST['block_text'][$i] ?? '');
                     $block['photo'] = trim($_POST['block_existing_photo'][$i] ?? '');
                     $block['photo_alt'] = trim($_POST['block_photo_alt'][$i] ?? '');
@@ -166,6 +174,7 @@ switch ($section) {
                     $up = upload_image_indexed('hs_photo', $i, 'hs_photo');
                     if ($up === false) $uploadError = true;
                     elseif ($up !== null) $block['hs_photo'] = $up;
+                    $block['hs_bg_photo'] = trim($_POST['hs_bg_photo_existing'][$i] ?? '');
                     if ($block['hs_heading'] === '' && $block['hs_photo'] === '') continue 2;
                     break;
 
@@ -179,6 +188,7 @@ switch ($section) {
                     $acc = trim($_POST['fs_accent'][$i] ?? '#fd783b');
                     $block['fs_accent']    = preg_match('/^#[0-9a-fA-F]{3,6}$/', $acc) ? $acc : '#fd783b';
                     // Main photo
+                    $block['fs_image_side'] = ($_POST['fs_image_side'][$i] ?? 'right') === 'left' ? 'left' : 'right';
                     $block['fs_photo'] = trim($_POST['fs_photo_existing'][$i] ?? '');
                     $up = upload_image_indexed('fs_photo', $i, 'fs_photo');
                     if ($up === false) $uploadError = true;
@@ -435,11 +445,15 @@ switch ($section) {
                 case 'wide_banner':
                     $block['wb_badge']     = trim($_POST['wb_badge'][$i]     ?? '');
                     $block['wb_heading']   = trim($_POST['wb_heading'][$i]   ?? '');
+                    $block['wb_subtext']   = trim($_POST['wb_subtext'][$i]   ?? '');
                     $block['wb_btn_text']  = trim($_POST['wb_btn_text'][$i]  ?? '');
                     $block['wb_btn_url']   = trim($_POST['wb_btn_url'][$i]   ?? '');
                     $block['wb_btn_style'] = ($_POST['wb_btn_style'][$i] ?? 'filled') === 'outline' ? 'outline' : 'filled';
+                    $block['wb_centered']  = !empty($_POST['wb_centered'][$i]);
                     $block['wb_photo_alt'] = trim($_POST['wb_photo_alt'][$i] ?? '');
                     $block['wb_overlay']   = number_format(max(0, min(0.9, (float)($_POST['wb_overlay'][$i] ?? 0.55))), 2);
+                    $wbBgCol = trim($_POST['wb_bg_color'][$i] ?? '#1a1a2e');
+                    $block['wb_bg_color']  = preg_match('/^#[0-9a-fA-F]{3,6}$/', $wbBgCol) ? $wbBgCol : '#1a1a2e';
                     $wbBg = in_array($_POST['wb_badge_bg'][$i] ?? '', ['accent','header','custom']) ? $_POST['wb_badge_bg'][$i] : 'accent';
                     $block['wb_badge_bg'] = $wbBg;
                     $wbc = trim($_POST['wb_badge_bg_custom'][$i] ?? '#fd783b');
@@ -677,14 +691,13 @@ switch ($section) {
             'meta_keywords'      => trim($_POST['meta_keywords']      ?? ''),
             'og_title'           => trim($_POST['og_title']           ?? ''),
             'og_description'     => trim($_POST['og_description']     ?? ''),
-            'og_image'           => '',
+            'og_image'           => trim($_POST['og_image_existing']   ?? ''),
             'service_name'       => trim($_POST['service_name']       ?? ''),
             'service_type'       => trim($_POST['service_type']       ?? ''),
             'service_area'       => trim($_POST['service_area']       ?? ''),
             'service_description'=> trim($_POST['service_description']?? ''),
         ];
         $existingSeo = $isLandingPage ? $data['pages'][$pageId]['seo'] : $data['seo'];
-        $seoData['og_image'] = $existingSeo['og_image'] ?? '';
         $schema = trim($_POST['schema'] ?? '');
         if ($schema === '') {
             $seoData['schema'] = '';
@@ -838,7 +851,6 @@ switch ($section) {
             'lb_type'        => trim($_POST['lb_type']        ?? 'LocalBusiness'),
         ];
         $data['local_business'] = $lb;
-        save_data($data);
         $message = 'success:Local business info saved.';
         break;
 

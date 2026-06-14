@@ -163,6 +163,8 @@ function default_page_data() {
         'seo' => [
             'meta_keywords' => '', 'meta_description' => '',
             'og_title' => '', 'og_description' => '', 'og_image' => '', 'schema' => '',
+            'canonical_url' => '', 'service_name' => '', 'service_type' => '',
+            'service_area' => '', 'service_description' => '',
         ],
     ];
 }
@@ -498,16 +500,13 @@ function render_content_block($block, $pathPrefix = '') {
         case 'feature_split':
             $heading     = $block['fs_heading']    ?? '';
             $subtext     = $block['fs_subtext']    ?? '';
-            $trailing    = $block['fs_trailing']   ?? '';
             $photo       = $block['fs_photo']      ?? '';
             $photoAlt    = $block['fs_photo_alt']  ?? '';
             $starText    = $block['fs_star_text']  ?? '';
             $bgColor     = $block['fs_bg_color']   ?? '#f3f6f7';
             $accentColor = $block['fs_accent']     ?? '#fd783b';
             $items       = $block['fs_items']      ?? [];
-            $imgSide     = $block['fs_image_side'] ?? 'right'; // left | right
-            $fsPhone     = $block['fs_phone']      ?? '';
-            $fsPhoneLabel= $block['fs_phone_label']?? 'Call Us 24/7';
+            $imgSide     = $block['fs_image_side'] ?? 'right';
             $photoSrc    = '';
             if ($photo) {
                 $photoSrc = (str_starts_with($photo, 'http') || str_starts_with($photo, '//'))
@@ -560,15 +559,6 @@ function render_content_block($block, $pathPrefix = '') {
                 echo '</ul>';
             }
 
-            if ($trailing) echo '<p class="fs-trailing">'.h($trailing).'</p>';
-
-            if ($fsPhone) {
-                echo '<div class="fs-phone-cta">';
-                echo '<div class="fs-phone-icon" style="background:'.h($accentColor).';">📞</div>';
-                echo '<div class="fs-phone-info"><span class="fs-phone-label">'.h($fsPhoneLabel).'</span>';
-                echo '<a href="tel:'.h(preg_replace('/[^0-9+]/','',$fsPhone)).'" class="fs-phone-num" style="color:'.h($accentColor).';">'.h($fsPhone).'</a></div>';
-                echo '</div>';
-            }
 
             echo '</div>';
 
@@ -1047,18 +1037,15 @@ function render_content_block($block, $pathPrefix = '') {
             if ($heading) echo '<h2 class="svc-heading" style="color:'.$headColorStyle.';">'.h($heading).'</h2>';
             echo '<div class="svc-grid svc-grid-'.$cols.'">';
             foreach ($items as $item) {
-                $iIcon  = $item['icon']       ?? '';
-                $iEmoji = $item['icon_emoji'] ?? '';
-                $iAlt   = $item['alt']        ?? '';
-                $iHead  = $item['heading']    ?? '';
-                $iText  = $item['text']       ?? '';
+                $iIcon  = $item['icon']    ?? '';
+                $iAlt   = $item['alt']     ?? '';
+                $iHead  = $item['heading'] ?? '';
+                $iText  = $item['text']    ?? '';
                 $iIconSrc = '';
                 if ($iIcon) $iIconSrc = (str_starts_with($iIcon,'http') || str_starts_with($iIcon,'//')) ? $iIcon : $pathPrefix.$iIcon;
                 echo '<div class="svc-card">';
                 if ($iIconSrc) {
                     echo '<div class="svc-icon-wrap" style="background:'.h($iconBg).';"><img src="'.h($iIconSrc).'" alt="'.h($iAlt).'" class="svc-icon" loading="lazy"></div>';
-                } elseif ($iEmoji) {
-                    echo '<div class="svc-icon-wrap" style="background:'.h($iconBg).';font-size:2rem;line-height:1;"><span>'.h($iEmoji).'</span></div>';
                 }
                 if ($iHead) echo '<h3 class="svc-card-heading">'.h($iHead).'</h3>';
                 if ($iText) echo '<p class="svc-card-text">'.h($iText).'</p>';
@@ -1389,8 +1376,15 @@ function render_content_blocks_editor($blocks) {
                 <?php /* ---- IMAGE LEFT / RIGHT FIELDS (legacy) ---- */ ?>
                 <div class="block-fields block-fields-image_left block-fields-image_right <?= !in_array($type, ['image_left','image_right']) ? 'is-hidden' : '' ?>">
                     <div class="form-group">
+                        <label>Layout</label>
+                        <select name="ir_layout[]">
+                            <option value="side"    <?= ($block['ir_layout'] ?? 'side') === 'side'    ? 'selected' : '' ?>>Side by side (image + text)</option>
+                            <option value="stacked" <?= ($block['ir_layout'] ?? 'side') === 'stacked' ? 'selected' : '' ?>>Stacked (text above, image below)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label>Text</label>
-                        <textarea name="block_text[]" rows="4"><?= h($block['text'] ?? '') ?></textarea>
+                        <textarea name="block_text[]" rows="4" class="rich-editor"><?= h($block['text'] ?? '') ?></textarea>
                     </div>
                     <?php render_photo_upload_fields('block_photo', $block['photo'] ?? '', $block['photo_ratio'] ?? 'landscape', $block['photo_position'] ?? 'center', $block['photo_alt'] ?? '', $i); ?>
                 </div>
@@ -1455,10 +1449,21 @@ function render_content_blocks_editor($blocks) {
                             <input type="text" name="hs_btn_url[]" value="<?= h($block['hs_btn_url'] ?? '') ?>" placeholder="e.g. tel:+12812150160">
                         </div>
                     </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:1 1 160px;">
+                            <label>Background color</label>
+                            <input type="color" name="hs_bg_color[]" value="<?= h($block['hs_bg_color'] ?? '#f3f6f7') ?>">
+                            <span class="hint">Light gray (#f3f6f7) matches katypestpros.com</span>
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <label>Background color</label>
-                        <input type="color" name="hs_bg_color[]" value="<?= h($block['hs_bg_color'] ?? '#f3f6f7') ?>">
-                        <span class="hint">Light gray (#f3f6f7) matches katypestpros.com</span>
+                        <label>Background texture / pattern (optional — overlays on color)</label>
+                        <?php if (!empty($block['hs_bg_photo'])): ?>
+                            <img src="/<?= h($block['hs_bg_photo']) ?>" style="max-height:60px;border-radius:4px;margin-bottom:6px;display:block;" onerror="this.style.display='none'">
+                        <?php endif; ?>
+                        <input type="hidden" name="hs_bg_photo_existing[]" value="<?= h($block['hs_bg_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('hs_bg_photo_existing[]'); ?>
+                        <span class="hint">Use a vector/texture image for a full-width background effect.</span>
                     </div>
                     <div class="form-group">
                         <label>Right-side image</label>
@@ -1542,9 +1547,16 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <button type="button" class="btn btn-secondary btn-small" onclick="addFsItem(this, <?= $i ?>)">+ Add item</button>
 
-                    <h4 style="margin:20px 0 8px;font-size:0.95rem;">Right Side Image</h4>
+                    <h4 style="margin:20px 0 8px;font-size:0.95rem;">Side Image</h4>
                     <div class="form-group">
-                        <label>Image (shown in arched frame on right)</label>
+                        <label>Image side</label>
+                        <select name="fs_image_side[]">
+                            <option value="right" <?= ($block['fs_image_side'] ?? 'right') === 'right' ? 'selected' : '' ?>>Image on right</option>
+                            <option value="left"  <?= ($block['fs_image_side'] ?? 'right') === 'left'  ? 'selected' : '' ?>>Image on left</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Image</label>
                         <?php if (!empty($block['fs_photo'])): ?>
                             <img src="<?= str_starts_with($block['fs_photo'], 'http') ? h($block['fs_photo']) : '/'.h($block['fs_photo']) ?>" style="max-height:80px;border-radius:6px;margin-bottom:6px;display:block;" onerror="this.style.display='none'">
                         <?php endif; ?>
@@ -2175,6 +2187,10 @@ function render_content_blocks_editor($blocks) {
                         <label>Heading (H2)</label>
                         <input type="text" name="wb_heading[]" value="<?= h($block['wb_heading'] ?? '') ?>" placeholder="e.g. Your First Choice For Katy Pest Pros in Katy, TX">
                     </div>
+                    <div class="form-group">
+                        <label>Subtext (optional — shown below heading)</label>
+                        <textarea name="wb_subtext[]" rows="2"><?= h($block['wb_subtext'] ?? '') ?></textarea>
+                    </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">
                             <label>Button text</label>
@@ -2201,8 +2217,18 @@ function render_content_blocks_editor($blocks) {
                         </select>
                         <input type="color" name="wb_badge_bg_custom[]" value="<?= h($block['wb_badge_bg_custom'] ?? '#fd783b') ?>" style="margin-top:4px;">
                     </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:1 1 160px;">
+                            <label>Solid background color (if no image)</label>
+                            <input type="color" name="wb_bg_color[]" value="<?= h($block['wb_bg_color'] ?? '#1a1a2e') ?>">
+                            <span class="hint">Used when no background image is set.</span>
+                        </div>
+                        <div class="form-group" style="flex:1 1 160px;padding-top:22px;">
+                            <label><input type="checkbox" name="wb_centered[]" value="1" <?= !empty($block['wb_centered']) ? 'checked' : '' ?>> Center all text</label>
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <label>Background image</label>
+                        <label>Background image (optional — overrides solid color)</label>
                         <?php if (!empty($block['wb_photo'])): ?>
                             <img src="<?= str_starts_with($block['wb_photo'],'http') ? h($block['wb_photo']) : '/'.h($block['wb_photo']) ?>" style="max-height:60px;border-radius:4px;margin-bottom:6px;display:block;" onerror="this.style.display='none'">
                         <?php endif; ?>
@@ -2881,6 +2907,15 @@ function render_seo_editor($seo) {
             <span class="hint">Shown when someone shares this page on social media.</span>
         </div>
         <div class="form-group">
+            <label for="og_image">Social share image (og:image)</label>
+            <?php if (!empty($seo['og_image'])): ?>
+                <img src="/<?= h($seo['og_image']) ?>" style="max-height:80px;border-radius:4px;margin-bottom:6px;display:block;" onerror="this.style.display='none'">
+            <?php endif; ?>
+            <input type="hidden" name="og_image_existing" value="<?= h($seo['og_image'] ?? '') ?>">
+            <?php photo_picker_btn('og_image_existing'); ?>
+            <span class="hint">Recommended 1200×630px. Shown when sharing on Facebook, iMessage, Slack, etc.</span>
+        </div>
+        <div class="form-group">
             <label for="schema">Schema markup (JSON-LD)</label>
             <textarea id="schema" name="schema" rows="8" style="font-family:monospace;font-size:0.85rem;"><?= h($seo['schema'] ?? '') ?></textarea>
             <span class="hint">Optional structured data from <a href="https://schema.org" target="_blank" rel="noopener">schema.org</a>. Must be valid JSON.</span>
@@ -3064,7 +3099,10 @@ function content_editor_scripts() {
                 </div>
                 <div class="fs-items-editor" id="fs_items_new_${idx}"></div>
                 <button type="button" class="btn btn-secondary btn-small" onclick="addFsItem(this, 'new_${idx}')">+ Add item</button>
-                <div class="form-group" style="margin-top:16px;"><label>Right-side image</label>
+                <div class="form-group" style="margin-top:16px;"><label>Image side</label>
+                    <select name="fs_image_side[]"><option value="right" selected>Image on right</option><option value="left">Image on left</option></select>
+                </div>
+                <div class="form-group"><label>Image</label>
                     <input type="file" name="fs_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
                     <input type="hidden" name="fs_photo_existing[]" value="">
                 </div>
@@ -3158,6 +3196,9 @@ function content_editor_scripts() {
                         <input type="color" name="cc_bg_custom[]" value="#fd783b" style="margin-top:4px;">
                     </div>
                     <div class="form-group" style="flex:1 1 100px;"><label>Border radius (px)</label><input type="number" name="cc_radius[]" value="12" min="0" max="40"></div>
+                    <div class="form-group" style="flex:1 1 100px;"><label>Layout</label>
+                        <select name="cc_align[]"><option value="split" selected>Split</option><option value="center">Centered</option></select>
+                    </div>
                 </div>
             </div>
             <div class="block-fields block-fields-map_info is-hidden">
@@ -3178,8 +3219,24 @@ function content_editor_scripts() {
                 <div class="form-group"><label>Photo alt text</label><input type="text" name="mi_info_alt[]"></div>
             </div>
             <div class="block-fields block-fields-links_grid is-hidden">
+                <div class="form-group"><label>Style</label>
+                    <select name="lg_style[]" onchange="this.closest('.block-fields').querySelectorAll('.lg-dark-only,.lg-light-only').forEach(el=>el.style.display=this.value==='dark'?'':'none');this.closest('.block-fields').querySelectorAll('.lg-light-only').forEach(el=>el.style.display=this.value==='light'?'':'none')">
+                        <option value="dark" selected>Dark (bg image + overlay)</option>
+                        <option value="light">Light (white/colored bg)</option>
+                    </select>
+                </div>
+                <div class="lg-light-only" style="display:none;">
+                    <div class="form-group"><label>Small label text</label><input type="text" name="lg_sublabel[]" placeholder="e.g. Top Rated Katy, TX Pest Experts"></div>
+                    <div class="form-group"><label>Background color</label><input type="color" name="lg_bg_color[]" value="#ffffff"></div>
+                    <div class="form-group"><label>Accent color</label>
+                        <select name="lg_accent[]"><option value="accent" selected>Accent (global)</option><option value="header">Header (global)</option><option value="custom">Custom</option></select>
+                        <input type="color" name="lg_accent_custom[]" value="#fd783b" style="margin-top:4px;">
+                    </div>
+                </div>
                 <div class="form-group"><label>Heading</label><input type="text" name="lg_heading[]" placeholder="Our Pest Control Services in Katy, TX"></div>
-                <div class="form-group"><label>Subtext</label><textarea name="lg_subtext[]" rows="2"></textarea></div>
+                <div class="lg-dark-only">
+                    <div class="form-group"><label>Subtext</label><textarea name="lg_subtext[]" rows="2"></textarea></div>
+                </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 140px;"><label>Columns</label>
                         <select name="lg_cols[]"><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5" selected>5</option><option value="6">6</option></select>
@@ -3269,6 +3326,7 @@ function content_editor_scripts() {
             <div class="block-fields block-fields-wide_banner is-hidden">
                 <div class="form-group"><label>Badge text</label><input type="text" name="wb_badge[]" placeholder="e.g. KATY, TEXAS'S SPECIALISTS"></div>
                 <div class="form-group"><label>Heading</label><input type="text" name="wb_heading[]" placeholder="Your First Choice For Katy Pest Pros in Katy, TX"></div>
+                <div class="form-group"><label>Subtext (optional)</label><textarea name="wb_subtext[]" rows="2"></textarea></div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 160px;"><label>Button text</label><input type="text" name="wb_btn_text[]" placeholder="e.g. Call Us"></div>
                     <div class="form-group" style="flex:1 1 160px;"><label>Button link</label><input type="text" name="wb_btn_url[]" placeholder="tel:+1..."></div>
@@ -3280,7 +3338,16 @@ function content_editor_scripts() {
                     <select name="wb_badge_bg[]"><option value="accent" selected>Accent (global)</option><option value="header">Header (global)</option><option value="custom">Custom</option></select>
                     <input type="color" name="wb_badge_bg_custom[]" value="#fd783b" style="margin-top:4px;">
                 </div>
-                <div class="form-group"><label>Background image</label>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:1 1 160px;"><label>Solid background color</label>
+                        <input type="color" name="wb_bg_color[]" value="#1a1a2e">
+                        <span class="hint">Used when no image is set.</span>
+                    </div>
+                    <div class="form-group" style="flex:1 1 160px;padding-top:22px;">
+                        <label><input type="checkbox" name="wb_centered[]" value="1"> Center all text</label>
+                    </div>
+                </div>
+                <div class="form-group"><label>Background image (overrides solid color)</label>
                     <input type="file" name="wb_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
                     <input type="hidden" name="wb_photo_existing[]" value="">
                 </div>
@@ -3323,6 +3390,7 @@ function content_editor_scripts() {
                     <input type="file" name="hg_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
                     <input type="hidden" name="hg_photo_existing[]" value="">
                 </div>
+                <div class="form-group"><label>Image alt text</label><input type="text" name="hg_photo_alt[]" placeholder="e.g. Pest control technician Katy TX"></div>
                 <div class="form-group"><label>Odd tile color</label>
                     <select name="hg_color1[]"><option value="accent" selected>Accent (global)</option><option value="header">Header (global)</option><option value="custom">Custom</option></select>
                     <input type="color" name="hg_color1_custom[]" value="#fd783b" style="margin-top:4px;">
