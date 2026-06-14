@@ -1,0 +1,771 @@
+{
+    "theme": {
+        "header_bg": "#120575",
+        "header_text": "#ffffff",
+        "content_bg": "#ffffff",
+        "content_text": "#888c92",
+        "footer_bg": "#120575",
+        "footer_text": "#ffffff",
+        "accent_color": "#fd783b",
+        "primary_font": "Inclusive Sans, sans-serif",
+        "button_radius": "5",
+        "analytics_head": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap\" rel=\"stylesheet\">",
+        "facebook_pixel": "",
+        "font_family": "Inclusive Sans, sans-serif",
+        "header_top_bg": "#ffffff"
+    },
+    "header": {
+        "logo": "",
+        "phone": "(281) 215-0160",
+        "city": "Katy, TX",
+        "topbar_text": "",
+        "topbar_link": "",
+        "menu": [
+            {
+                "label": "Home",
+                "url": "/",
+                "children": []
+            },
+            {
+                "label": "Pest Services",
+                "url": "#pest_services",
+                "children": []
+            }
+        ],
+        "socials": {
+            "facebook": "",
+            "instagram": "",
+            "twitter": "",
+            "youtube": "",
+            "linkedin": "",
+            "tiktok": "",
+            "yelp": ""
+        },
+        "nav_bg": "#fd783b",
+        "nav_text": "#ffffff",
+        "phone_btn_style": "outline",
+        "sticky": true,
+        "info_items": [
+            {
+                "icon": "🇺🇸",
+                "text": "Proudly American"
+            },
+            {
+                "icon": "",
+                "text": "Call for Great Service!"
+            }
+        ],
+        "logo_max_height": 72
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "Trusted Local Pest Control in Katy, TX",
+            "hs_subtext": "Keep pests out of your Home all year long!  Our goal is great customer satisfaction. Our advertising partners provide fast, reliable pest control services in Katy, TX. We connect you with these independent providers.",
+            "hs_btn_text": "(281) 215-0160",
+            "hs_btn_url": "tel:+12812150160",
+            "hs_bg_color": "#f3f6f7",
+            "hs_photo": "https://katypestpros.com/images/home/about-katy.webp",
+            "hs_photo_alt": "Pest control services in Katy TX",
+            "hs_caption1": "Pest Control",
+            "hs_caption2": "Katy, TX"
+        },
+        {
+            "type": "feature_split",
+            "fs_heading": "Full-Service Pest Management for Common Katy Pests",
+            "fs_subtext": "Katy's warm, humid climate attracts a wide range of pests. That's why we offer treatment and prevention services for all major infestations, including:",
+            "fs_bg_color": "#f3f6f7",
+            "fs_accent": "#fd783b",
+            "fs_photo": "https://katypestpros.com/images/home/about-katy.webp",
+            "fs_photo_alt": "Pest control technician in Katy TX",
+            "fs_star_text": "5 Star Services",
+            "fs_items": [
+                {
+                    "icon": "",
+                    "alt": "Ants pest control Katy TX",
+                    "heading": "Ants",
+                    "text": "Social insects that form colonies and enter homes in search of food and moisture."
+                },
+                {
+                    "icon": "",
+                    "alt": "Cockroaches pest control Katy TX",
+                    "heading": "Cockroaches",
+                    "text": "Nocturnal pests that spread bacteria and trigger allergies, often hiding in kitchens and bathrooms."
+                },
+                {
+                    "icon": "",
+                    "alt": "Termites pest control Katy TX",
+                    "heading": "Termites",
+                    "text": "Wood-destroying insects that silently cause structural damage by feeding on cellulose-based materials."
+                },
+                {
+                    "icon": "",
+                    "alt": "Rodents pest control Katy TX",
+                    "heading": "Rodents (Mice and Rats)",
+                    "text": "Disease-carrying mammals that gnaw through wires, contaminate food, and reproduce quickly."
+                },
+                {
+                    "icon": "",
+                    "alt": "Spiders pest control Katy TX",
+                    "heading": "Spiders",
+                    "text": "Arachnids that often enter homes in search of insects to prey on; some species can bite."
+                },
+                {
+                    "icon": "",
+                    "alt": "Bed bugs pest control Katy TX",
+                    "heading": "Bed Bugs",
+                    "text": "Blood-feeding insects that hide in mattresses and furniture, causing itchy bites and sleep disruption."
+                }
+            ]
+        },
+        {
+            "type": "split_cta",
+            "sc_left_heading": "Serving the Greater Katy, TX Area",
+            "sc_left_text": "Whether you're a homeowner, business owner, or property manager, we offer solutions that fit your property and your budget. Every job is backed by clear communication, transparent pricing, and high-quality workmanship.",
+            "sc_left_bg": "accent",
+            "sc_left_bg_custom": "#fd783b",
+            "sc_right_label": "Call The Katy Pest Pros Team",
+            "sc_right_phone": "(281) 215-0160",
+            "sc_right_phone_url": "tel:+12812150160",
+            "sc_right_bg": "header",
+            "sc_right_bg_custom": "#120575"
+        },
+        {
+            "type": "tab_services",
+            "ts_badge1": "KATY PEST PROS",
+            "ts_badge2": "SERVICES KATY, TX",
+            "ts_heading": "Professional Katy Pest Pros Team in Katy, TX",
+            "ts_active_bg": "header",
+            "ts_active_bg_custom": "#120575",
+            "ts_tabs": [
+                {
+                    "label": "Fleas",
+                    "icon": "https://katypestpros.com/images/icons/tab-icon-katy.png",
+                    "photo": "https://katypestpros.com/images/home/about-katy.webp",
+                    "alt": "Flea pest control Katy TX",
+                    "desc": "Small, jumping parasites that feed on pets and humans, causing skin irritation and spreading disease."
+                },
+                {
+                    "label": "Ticks",
+                    "icon": "https://katypestpros.com/images/icons/tab-icon-2-katy.png",
+                    "photo": "https://katypestpros.com/images/home/about-katy.webp",
+                    "alt": "Tick pest control Katy TX",
+                    "desc": "Blood-feeding arachnids that latch onto skin and can transmit Lyme disease and other illnesses."
+                },
+                {
+                    "label": "Wasps",
+                    "icon": "https://katypestpros.com/images/icons/tab-icon-3-katy.png",
+                    "photo": "https://katypestpros.com/images/home/about-katy.webp",
+                    "alt": "Wasp pest control Katy TX",
+                    "desc": "Stinging insects that build nests around homes and can be aggressive when threatened."
+                },
+                {
+                    "label": "Mosquitoes",
+                    "icon": "https://katypestpros.com/images/icons/tab-icon-4-katy.png",
+                    "photo": "https://katypestpros.com/images/home/about-katy.webp",
+                    "alt": "Mosquito pest control Katy TX",
+                    "desc": "Flying insects known for their itchy bites and ability to transmit diseases like West Nile Virus."
+                }
+            ]
+        },
+        {
+            "type": "hero_grid",
+            "hg_label": "Katy Pest Pros",
+            "hg_heading": "Top-Notch Katy Pest Pros in Katy, TX",
+            "hg_body": "Our experienced pest control providers will tailor a solution based on the pest type, severity of the infestation, and the specific needs of your home to restore comfort and safety.\n\nOur technicians are trained professionals who follow integrated pest management strategies for long-term results and minimal disruption to your household or operations.",
+            "hg_btn_text": "Call Us",
+            "hg_btn_url": "tel:+12812150160",
+            "hg_photo": "https://katypestpros.com/images/home/fleas-katy.webp",
+            "hg_photo_alt": "Top-notch pest control in Katy TX",
+            "hg_color1": "accent",
+            "hg_color1_custom": "#fd783b",
+            "hg_color2": "header",
+            "hg_color2_custom": "#120575",
+            "hg_items": [
+                {
+                    "icon": "",
+                    "label": "Carpenter Ants",
+                    "alt": "Carpenter ant control Katy TX"
+                },
+                {
+                    "icon": "",
+                    "label": "Silverfish",
+                    "alt": "Silverfish control Katy TX"
+                },
+                {
+                    "icon": "",
+                    "label": "Earwigs",
+                    "alt": "Earwig control Katy TX"
+                },
+                {
+                    "icon": "",
+                    "label": "Pantry Pests (e.g., Indian Meal Moths)",
+                    "alt": "Pantry pest control Katy TX"
+                },
+                {
+                    "icon": "",
+                    "label": "Centipedes",
+                    "alt": "Centipede control Katy TX"
+                },
+                {
+                    "icon": "",
+                    "label": "Carpet Beetles",
+                    "alt": "Carpet beetle control Katy TX"
+                }
+            ]
+        },
+        {
+            "type": "service_cards",
+            "sc_badge": "PROFESSIONAL KATY, TX COMPANY",
+            "sc_heading": "Local Experts in Katy, TX",
+            "sc_cols": 3,
+            "sc_badge_bg": "accent",
+            "sc_badge_bg_custom": "#fd783b",
+            "sc_head_color": "header",
+            "sc_head_color_custom": "#120575",
+            "sc_icon_bg": "#fef0e7",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Roach control Katy TX",
+                    "heading": "Roach Control & Extermination in Katy, TX",
+                    "text": "Cockroaches are stubborn invaders. Our experts use gel baiting, perimeter sprays, and entry-point sealing to eliminate them safely and effectively.",
+                    "icon_emoji": "🪳"
+                },
+                {
+                    "icon": "",
+                    "alt": "Ant control Katy TX",
+                    "heading": "Ant Control & Removal Solutions in Katy, TX",
+                    "text": "We identify ant colonies and use proven baiting and barrier methods for lasting protection against fire ants, carpenter ants, and more.",
+                    "icon_emoji": "🐜"
+                },
+                {
+                    "icon": "",
+                    "alt": "Termite treatment Katy TX",
+                    "heading": "Termite Treatment & Prevention in Katy, TX",
+                    "text": "Our termite specialists provide detailed inspections, baiting systems, and barrier applications to stop damage and prevent future infestations.",
+                    "icon_emoji": "🪲"
+                },
+                {
+                    "icon": "",
+                    "alt": "Rodent control Katy TX",
+                    "heading": "Rodent Control for Homes & Businesses in Katy, TX",
+                    "text": "We offer trapping, exclusion, and sanitation to remove mice and rats, protecting your property and health from costly and unsafe damage.",
+                    "icon_emoji": "🐀"
+                },
+                {
+                    "icon": "",
+                    "alt": "Mosquito control Katy TX",
+                    "heading": "Mosquito Reduction Services in Katy, TX",
+                    "text": "Using barrier sprays and larvicide treatments, we target breeding areas to cut mosquito populations and improve outdoor comfort.",
+                    "icon_emoji": "🦟"
+                },
+                {
+                    "icon": "",
+                    "alt": "Bed bug treatment Katy TX",
+                    "heading": "Bed Bug Inspection & Treatment in Katy, TX",
+                    "text": "Our team uses heat and chemical treatments to completely remove bed bugs, ensuring your home is pest-free and your rest uninterrupted.",
+                    "icon_emoji": "🐛"
+                },
+                {
+                    "icon": "",
+                    "alt": "Flea tick control Katy TX",
+                    "heading": "Flea & Tick Removal Services in Katy, TX",
+                    "text": "We apply indoor and outdoor treatments to eliminate fleas and ticks, keeping your pets and family safe all year long.",
+                    "icon_emoji": "🦟"
+                },
+                {
+                    "icon": "",
+                    "alt": "Wasp spider control Katy TX",
+                    "heading": "Wasp, Hornet & Spider Control in Katy, TX",
+                    "text": "Our trained professionals remove nests and seal entry points to protect your home from stinging insects and venomous spiders.",
+                    "icon_emoji": "🐝"
+                },
+                {
+                    "icon": "",
+                    "alt": "Wildlife removal Katy TX",
+                    "heading": "Wildlife Removal & Exclusion in Katy, TX",
+                    "text": "We humanely remove raccoons, opossums, and other wildlife, repairing and sealing entry areas to prevent their return.",
+                    "icon_emoji": "🦝"
+                }
+            ]
+        },
+        {
+            "type": "wide_banner",
+            "wb_badge": "KATY, TEXAS'S SPECIALISTS",
+            "wb_heading": "Your First Choice For Katy Pest Pros in Katy, TX",
+            "wb_btn_text": "Call Us",
+            "wb_btn_url": "tel:+12812150160",
+            "wb_btn_style": "filled",
+            "wb_badge_bg": "accent",
+            "wb_badge_bg_custom": "#fd783b",
+            "wb_photo": "https://katypestpros.com/images/home/fleas-katy.webp",
+            "wb_photo_alt": "Pest control services in Katy TX",
+            "wb_overlay": "0.5"
+        },
+        {
+            "type": "image_features",
+            "if_bg_color": "#f3f6f7",
+            "if_check_color": "accent",
+            "if_check_color_custom": "#fd783b",
+            "if_head_color": "header",
+            "if_head_color_custom": "#120575",
+            "if_photo": "https://katypestpros.com/images/home/about-katy.webp",
+            "if_photo_alt": "Quality pest prevention in Katy TX",
+            "if_heading": "Quality Pest Prevention",
+            "if_intro": "Effective pest control is an ongoing process, not a one-time event. Our comprehensive services provide continuous protection by creating a durable defensive barrier around your home to stop pests before they enter.",
+            "if_features": [
+                "Exterior treatments",
+                "Emergency services",
+                "Specialty pest services",
+                "Entry point inspections and sealing"
+            ],
+            "if_closing": "Services are delivered by a reliable and thoroughly trained technician team, giving you peace of mind throughout every season.",
+            "if_phone_label": "Call Us 24/7",
+            "if_phone": "(281) 215-0160",
+            "if_phone_url": "tel:+12812150160"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "FAQs – Pest Control in Katy",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#f0f2f8",
+            "fq_head_color": "header",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg": "accent",
+            "fq_icon_bg_custom": "#fd783b",
+            "fq_items": [
+                {
+                    "question": "What types of pests do you treat with pest control in Katy?",
+                    "answer": "We treat a wide range of pests including ants, roaches, termites, rodents, bed bugs, mosquitoes, spiders, wasps, fleas, ticks, and more. Our technicians tailor each treatment plan to the specific pest and severity of the infestation."
+                },
+                {
+                    "question": "How much does pest control in Katy typically cost?",
+                    "answer": "Pricing varies based on the type of pest, size of your property, and treatment needed. Our advertising partners offer competitive rates and many provide free inspections or estimates before any work begins."
+                },
+                {
+                    "question": "Do you offer same-day pest control in Katy?",
+                    "answer": "Yes, many of our partner providers offer same-day or next-day service depending on availability in your area. Call us to check current availability."
+                },
+                {
+                    "question": "Is your pest control in Katy safe for pets and children?",
+                    "answer": "Our partner technicians use EPA-approved treatments and follow all safety protocols. They will advise you on any precautions to take before, during, and after treatment to keep your family and pets safe."
+                },
+                {
+                    "question": "What areas around Katy, TX do you service?",
+                    "answer": "We serve Katy and surrounding areas including Sugar Land, Richmond, Fulshear, Cinco Ranch, Cypress, and other communities in the Greater Houston area."
+                },
+                {
+                    "question": "How often should I schedule pest control in Katy?",
+                    "answer": "For most homes, quarterly treatments provide the best ongoing protection. However, some infestations may require monthly visits initially, followed by a maintenance schedule once the problem is under control."
+                },
+                {
+                    "question": "What is included in your pest control treatment in Katy?",
+                    "answer": "Treatments typically include a thorough inspection, interior and exterior treatment, sealing of common entry points, and a follow-up plan. Specific services depend on the pest type and provider."
+                },
+                {
+                    "question": "Do you offer termite inspections and treatments in Katy?",
+                    "answer": "Yes, termite inspections and treatments are among our most requested services. Our partners use baiting systems, liquid treatments, and barrier applications for comprehensive termite control."
+                },
+                {
+                    "question": "Can you help with rodent problems in Katy homes?",
+                    "answer": "Absolutely. Our providers offer full rodent control including trapping, exclusion work, sanitation advice, and follow-up to ensure mice and rats are fully removed and cannot re-enter."
+                },
+                {
+                    "question": "Why choose your company for pest control in Katy?",
+                    "answer": "We connect you with experienced, licensed local pest control professionals who know the Katy area and its unique pest challenges. Our network is vetted, responsive, and committed to your satisfaction."
+                }
+            ]
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "24/7 Pest Control Services in Katy, TX",
+            "cb_subtext": "",
+            "cb_btn_text": "",
+            "cb_btn_url": "",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#fd783b",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Our Pest Control Services in Katy, TX",
+            "lg_subtext": "We offer a full range of pest control services in Katy, TX, including treatments for cockroaches, termites, mosquitoes, fleas, rodents, ants, spiders, and bed bugs. Our local exterminators provide fast and effective solutions to remove pests and prevent them from returning, keeping your property safe and pest-free all year long.",
+            "lg_photo": "https://katypestpros.com/images/home/fleas-katy.webp",
+            "lg_photo_alt": "Pest control services Katy TX",
+            "lg_cols": 5,
+            "lg_overlay": "0.75",
+            "lg_links": [
+                {
+                    "label": "Cockroach Exterminator",
+                    "url": "/cockroach-exterminator-katy-tx"
+                },
+                {
+                    "label": "Termite Treatment",
+                    "url": "/termite-treatment-katy-tx"
+                },
+                {
+                    "label": "Mosquito Control",
+                    "url": "/mosquito-control-katy-tx"
+                },
+                {
+                    "label": "Flea Control",
+                    "url": "/flea-control-katy-tx"
+                },
+                {
+                    "label": "Flea Treatment",
+                    "url": "/flea-treatment-katy-tx"
+                },
+                {
+                    "label": "Flea Exterminator",
+                    "url": "/flea-exterminator-katy-tx"
+                },
+                {
+                    "label": "Bed Bug Treatment",
+                    "url": "/bed-bug-treatment-katy-tx"
+                },
+                {
+                    "label": "Rat Exterminator",
+                    "url": "/rat-exterminator-katy-tx"
+                },
+                {
+                    "label": "Ant Exterminator",
+                    "url": "/ant-exterminator-katy-tx"
+                },
+                {
+                    "label": "Mosquito Treatment",
+                    "url": "/mosquito-treatment-katy-tx"
+                },
+                {
+                    "label": "Tick Control",
+                    "url": "/tick-control-katy-tx"
+                },
+                {
+                    "label": "Roach Control",
+                    "url": "/roach-control-katy-tx"
+                },
+                {
+                    "label": "Mouse Exterminator",
+                    "url": "/mouse-exterminator-katy-tx"
+                },
+                {
+                    "label": "Mouse Control",
+                    "url": "/mouse-control-katy-tx"
+                },
+                {
+                    "label": "Pest Inspection",
+                    "url": "/pest-inspection-katy-tx"
+                },
+                {
+                    "label": "Spider Exterminator",
+                    "url": "/spider-exterminator-katy-tx"
+                },
+                {
+                    "label": "Spider Pest Control",
+                    "url": "/spider-pest-control-katy-tx"
+                },
+                {
+                    "label": "Earwig Control",
+                    "url": "/earwig-control-katy-tx"
+                },
+                {
+                    "label": "Pest Exterminator",
+                    "url": "/pest-exterminator-katy-tx"
+                },
+                {
+                    "label": "Bed Bug Exterminator",
+                    "url": "/bed-bug-exterminator-katy-tx"
+                },
+                {
+                    "label": "Mosquito Exterminator",
+                    "url": "/mosquito-exterminator-katy-tx"
+                },
+                {
+                    "label": "Bat Exterminator",
+                    "url": "/bat-exterminator-katy-tx"
+                },
+                {
+                    "label": "Mice Exterminator",
+                    "url": "/mice-exterminator-katy-tx"
+                },
+                {
+                    "label": "Commercial Pest Exterminator",
+                    "url": "/commercial-pest-exterminator-katy-tx"
+                },
+                {
+                    "label": "Residential Pest",
+                    "url": "/residential-pest-katy-tx"
+                },
+                {
+                    "label": "Rodent Exterminator",
+                    "url": "/rodent-exterminator-katy-tx"
+                },
+                {
+                    "label": "Wasp Exterminator",
+                    "url": "/wasp-exterminator-katy-tx"
+                },
+                {
+                    "label": "Termite Exterminator",
+                    "url": "/termite-exterminator-katy-tx"
+                },
+                {
+                    "label": "Emergency Exterminator",
+                    "url": "/emergency-exterminator-katy-tx"
+                },
+                {
+                    "label": "24 Hour Pest Control",
+                    "url": "/24-hour-pest-control-katy-tx"
+                },
+                {
+                    "label": "Yellow Jacket Exterminator",
+                    "url": "/yellow-jacket-exterminator-katy-tx"
+                },
+                {
+                    "label": "Rodent Control",
+                    "url": "/rodent-control-katy-tx"
+                },
+                {
+                    "label": "Termite Control",
+                    "url": "/termite-control-katy-tx"
+                },
+                {
+                    "label": "Rat Control",
+                    "url": "/rat-control-katy-tx"
+                },
+                {
+                    "label": "Bed Bug Pest Control",
+                    "url": "/bed-bug-pest-control-katy-tx"
+                },
+                {
+                    "label": "Mice Control",
+                    "url": "/mice-control-katy-tx"
+                },
+                {
+                    "label": "Ant Control",
+                    "url": "/ant-control-katy-tx"
+                },
+                {
+                    "label": "Cockroach Pest Control",
+                    "url": "/cockroach-pest-control-katy-tx"
+                },
+                {
+                    "label": "Silverfish Control",
+                    "url": "/silverfish-control-katy-tx"
+                },
+                {
+                    "label": "Commercial Pest Control",
+                    "url": "/commercial-pest-control-katy-tx"
+                },
+                {
+                    "label": "Wasp Pest Control",
+                    "url": "/wasp-pest-control-katy-tx"
+                },
+                {
+                    "label": "Tick Treatment For Yard",
+                    "url": "/tick-treatment-for-yard-katy-tx"
+                },
+                {
+                    "label": "Cockroach Treatment",
+                    "url": "/cockroach-treatment-katy-tx"
+                },
+                {
+                    "label": "Grub Treatment",
+                    "url": "/grub-treatment-katy-tx"
+                },
+                {
+                    "label": "Thrips Treatment",
+                    "url": "/thrips-treatment-katy-tx"
+                },
+                {
+                    "label": "Whitefly Treatment",
+                    "url": "/whitefly-treatment-katy-tx"
+                },
+                {
+                    "label": "Termite Inspection",
+                    "url": "/termite-inspection-katy-tx"
+                },
+                {
+                    "label": "WDI Inspection",
+                    "url": "/wdi-inspection-katy-tx"
+                },
+                {
+                    "label": "Rat Inspection",
+                    "url": "/rat-inspection-katy-tx"
+                },
+                {
+                    "label": "Pest Control Services",
+                    "url": "/pest-control-services-katy-tx"
+                }
+            ],
+            "lg_style": "dark"
+        },
+        {
+            "type": "cta_card",
+            "cc_heading": "Contact Katy's Top Pest Control Company Today",
+            "cc_text": "Don't wait for pests to take over. Call Katy Pest Pros today to schedule your timely inspection. With hundreds of successful treatments and our 5-star service for customers, we're the go-to pest control provider in Katy, TX.",
+            "cc_btn_text": "(281) 215-0160",
+            "cc_btn_url": "tel:+12812150160",
+            "cc_btn_style": "outline",
+            "cc_bg": "accent",
+            "cc_bg_custom": "#fd783b",
+            "cc_radius": "12"
+        },
+        {
+            "type": "map_info",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_map_heading": "Katy, Texas Map",
+            "mi_map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111217.46591830737!2d-95.89688!3d29.785489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8641188adec6eab5%3A0x7add8e9b81b4c22!2sKaty%2C%20TX%2C%20USA!5e0!3m2!1sen!2sus!4v1718000000000!5m2!1sen!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_info_heading": "Katy, TX Information",
+            "mi_info_text": "Katy is a city in the U. S. state of Texas. It is in the Greater Katy area, itself forming the western part of the Greater Houston metropolitan area. Homes and businesses may have Katy postal addresses without being in the City of Katy.",
+            "mi_info_photo": "https://katypestpros.com/images/home/about-katy.webp",
+            "mi_info_alt": "Katy TX shopping center"
+        },
+        {
+            "type": "cta_card",
+            "cc_heading": "The Values That Make Us Katy’s Most Trusted Pest Control Experts",
+            "cc_text": "We’re known in Katy for more than just effective pest control we’re trusted for how we do it. With reliable service, honest pricing, and safe, family-friendly treatments, we deliver results you can count on. Our trained professionals uphold the highest standards of professionalism, and your satisfaction is always our top priority. That’s why so many local homeowners choose us—and stay with us.",
+            "cc_btn_text": "",
+            "cc_btn_url": "",
+            "cc_btn_style": "outline",
+            "cc_bg": "accent",
+            "cc_bg_custom": "#fd783b",
+            "cc_radius": "0",
+            "cc_align": "center"
+        },
+        {
+            "type": "links_grid",
+            "lg_style": "light",
+            "lg_sublabel": "Top Rated Katy, TX Pest Experts",
+            "lg_heading": "Professional Katy Pest Pros in Katy, TX",
+            "lg_subtext": "",
+            "lg_bg_color": "#ffffff",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "lg_cols": 4,
+            "lg_overlay": "0.0",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_links": [
+                {
+                    "label": "Termite Treatment",
+                    "url": "/termite-treatment-katy-tx"
+                },
+                {
+                    "label": "Mosquito Control",
+                    "url": "/mosquito-control-katy-tx"
+                },
+                {
+                    "label": "Bed Bug Treatment",
+                    "url": "/bed-bug-treatment-katy-tx"
+                },
+                {
+                    "label": "Flea Control",
+                    "url": "/flea-control-katy-tx"
+                },
+                {
+                    "label": "Flea Treatment",
+                    "url": "/flea-treatment-katy-tx"
+                },
+                {
+                    "label": "Flea Exterminator",
+                    "url": "/flea-exterminator-katy-tx"
+                },
+                {
+                    "label": "Rat Exterminator",
+                    "url": "/rat-exterminator-katy-tx"
+                },
+                {
+                    "label": "Ant Exterminator",
+                    "url": "/ant-exterminator-katy-tx"
+                }
+            ]
+        }
+    ],
+    "seo": {
+        "meta_description": "Protect your home with expert pest control in Katy, TX. Our local team provides fast, eco-friendly solutions for roaches, ants, termites, rodents, and more. Trusted by homeowners for safe, effective service.",
+        "meta_keywords": "pest control Katy TX, exterminator Katy TX, roach control Katy, termite treatment Katy TX",
+        "og_title": "Katy Pest Control | Local Pest Exterminator in Katy, TX",
+        "og_description": "Protect your home with expert pest control in Katy, TX. Our local team provides fast, eco-friendly solutions for roaches, ants, termites, rodents, and more. Trusted by homeowners for safe, effective service.",
+        "og_image": "",
+        "schema": "{\"@context\":\"https://schema.org\",\"@type\":\"LocalBusiness\",\"name\":\"Katy Pest Pros\",\"description\":\"Local pest control services in Katy, TX. Fast, eco-friendly solutions for roaches, ants, termites, rodents, and more.\",\"telephone\":\"(281) 215-0160\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Katy\",\"addressRegion\":\"TX\",\"addressCountry\":\"US\"},\"areaServed\":{\"@type\":\"City\",\"name\":\"Katy\"},\"openingHours\":\"Mo-Su 00:00-23:59\"}"
+    },
+    "footer": {
+        "logo": "",
+        "tagline": "We connect homeowners with trained, experienced Katy pest control specialists through our advertising network.",
+        "highlight": "",
+        "phone": "(281) 215-0160",
+        "email": "",
+        "columns": [
+            {
+                "type": "text",
+                "title": "About Katy Pest Pros",
+                "text": "We connect homeowners with trained, experienced Katy pest control specialists through our advertising network. Our providers have years of on-the-job experience in safe, effective long-standing solutions to homes and businesses in Katy. Whether it is ants and roaches, rodents and termites, we take it with care, precision and professionalism. We believe in honest service, upfront pricing, and long-term results — because your peace of mind is our priority."
+            },
+            {
+                "type": "links",
+                "title": "Quick Link",
+                "links": [
+                    {
+                        "label": "Termite Treatment",
+                        "url": "/termite-treatment-katy-tx"
+                    },
+                    {
+                        "label": "Mosquito Control",
+                        "url": "/mosquito-control-katy-tx"
+                    },
+                    {
+                        "label": "Bed Bug Treatment",
+                        "url": "/bed-bug-treatment-katy-tx"
+                    },
+                    {
+                        "label": "Rat Exterminator",
+                        "url": "/rat-exterminator-katy-tx"
+                    },
+                    {
+                        "label": "Privacy Policy",
+                        "url": "/privacy-policy"
+                    },
+                    {
+                        "label": "Terms and Conditions",
+                        "url": "/terms-and-conditions"
+                    },
+                    {
+                        "label": "Contact Us & Advertising",
+                        "url": "/contact-us"
+                    }
+                ]
+            },
+            {
+                "type": "contact",
+                "title": "Contact Info",
+                "contact_extras": []
+            }
+        ],
+        "copyright": "© Copyright Katy Pest Pros. All Rights Reserved.",
+        "bottom_links": [
+            {
+                "label": "Privacy Policy",
+                "url": "/privacy-policy"
+            },
+            {
+                "label": "Terms and Conditions",
+                "url": "/terms-and-conditions"
+            }
+        ],
+        "disclaimer": "Disclaimer: katypestpros.com is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and katypestpros.com does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. It is the responsibility of the homeowner to ask the pest control contractor about the pest control solution to ensure it meets the homeowner's family and pet safety requirements. All persons depicted in a photo or video are actors or models and not contractors listed on katypestpros.com. Any advertiser relationships are clearly marked as \"Sponsored\" or \"Ad\". See Terms and Conditions for further details.",
+        "sticky_bar_text": "24/7 Support Line - Call Now",
+        "sticky_bar_info": "Calls are answered by our advertising partners who can help match you with a suitable provider.",
+        "logo_in_copyright_bar": true
+    },
+    "pages": {},
+    "popups": {
+        "info": {
+            "enabled": true,
+            "heading": "How Your Calls Are Handled",
+            "image": "",
+            "body": "We offer a free, 24/7 confidential helpline to connect you with trusted pest control professionals tailored to your needs.\n\nThis call routing service is sponsored advertising. katypestpros.com does not provide pest control services.\n\nCalls to our main helpline are answered by one of our advertising partners who can help match you with a suitable provider.\n\nBy using katypestpros.com and calling, you agree to our terms and conditions. You'll never be charged for these calls or pressured to choose any particular service. Neither we nor our partners earn commissions from your choices.\n\n**Notice of Call Recording and Data Use:** By using katypestpros.com and calling, you agree to our Privacy Policy.\n\nTo explore more pest control options, visit our katypestpros.com or call us anytime at (281) 215-0160."
+        }
+    }
+}

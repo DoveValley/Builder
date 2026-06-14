@@ -1,0 +1,19 @@
+# Optional: pretty URLs for landing pages.
+# With this enabled, a page with slug "about-us" is reachable at
+# /about-us in addition to /page.php?slug=about-us.
+#
+# If your host doesn't support .htaccess rewrites (or this causes issues),
+# you can safely delete this file - landing pages will still work via
+# /page.php?slug=your-slug.
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Don't rewrite requests for real files or directories
+    # (e.g. /admin, /assets, /uploads, /data, /index.php, /page.php).
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # /some-slug -> /page.php?slug=some-slug
+    RewriteRule ^([a-zA-Z0-9-]+)/?$ page.php?slug=$1 [L,QSA]
+</IfModule>
