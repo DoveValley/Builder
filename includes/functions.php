@@ -63,6 +63,23 @@ function default_data() {
             'og_image'         => '',
             'schema'           => '',
         ],
+        'local_business' => [
+            'lb_name'        => '',
+            'lb_url'         => '',
+            'lb_phone'       => '',
+            'lb_street'      => '',
+            'lb_city'        => '',
+            'lb_state'       => '',
+            'lb_zip'         => '',
+            'lb_country'     => 'US',
+            'lb_lat'         => '',
+            'lb_lng'         => '',
+            'lb_price_range' => '$$',
+            'lb_hours'       => '',
+            'lb_description' => '',
+            'lb_logo'        => '',
+            'lb_type'        => 'LocalBusiness',
+        ],
         'footer' => [
             'logo'                  => '',
             'logo_in_copyright_bar' => false,
@@ -246,6 +263,7 @@ function theme_css_vars($theme) {
         '--color-header-text'   => $theme['header_text']   ?? '#ffffff',
         '--color-content-bg'    => $theme['content_bg']    ?? '#ffffff',
         '--color-content-text'  => $theme['content_text']  ?? '#000000',
+        '--color-heading'       => $theme['heading_color'] ?? '#000000',
         '--color-footer-bg'     => $theme['footer_bg']     ?? '#120575',
         '--color-footer-text'   => $theme['footer_text']   ?? '#ffffff',
         '--color-accent'        => $theme['accent_color']  ?? '#fd783b',
@@ -317,7 +335,7 @@ function render_content_photo($photo, $ratio, $position, $alt = '', $pathPrefix 
     }
     $altAttr = h($alt ?: '');
     $html  = '<div class="' . $class . '"' . ($style !== '' ? ' style="' . h($style) . '"' : '') . '>';
-    $html .= '<img src="' . h($pathPrefix . $photo) . '" alt="' . $altAttr . '" style="object-position:' . h($position) . ';">';
+    $html .= '<img src="' . h($pathPrefix . $photo) . '" alt="' . $altAttr . '" loading="lazy" style="object-position:' . h($position) . ';">';
     $html .= '</div>';
     return $html;
 }
@@ -400,11 +418,13 @@ function render_content_block($block, $pathPrefix = '') {
         /* ---- IMAGE LEFT / RIGHT (legacy) ---- */
         case 'image_left':
         case 'image_right':
-            $layout = ($type === 'image_left') ? 'image-left' : 'image-right';
-            echo '<div class="content-block ' . $layout . '"' . $anchorAttr . '>';
-            if ($type === 'image_left' && $photo) echo render_content_photo($photo, $ratio, $position, $alt, $pathPrefix);
+            $layout   = ($type === 'image_left') ? 'image-left' : 'image-right';
+            $irLayout = $block['ir_layout'] ?? 'side';
+            $extraClass = ($irLayout === 'stacked') ? ' layout-stacked' : '';
+            echo '<div class="content-block ' . $layout . $extraClass . '"' . $anchorAttr . '>';
+            if ($type === 'image_left' && $photo && $irLayout !== 'stacked') echo render_content_photo($photo, $ratio, $position, $alt, $pathPrefix);
             echo '<div class="content-text">' . text_to_html($text) . '</div>';
-            if ($type === 'image_right' && $photo) echo render_content_photo($photo, $ratio, $position, $alt, $pathPrefix);
+            if ($photo && ($type === 'image_right' || $irLayout === 'stacked')) echo render_content_photo($photo, $ratio, $position, $alt, $pathPrefix);
             echo '</div>';
             break;
 
@@ -439,8 +459,16 @@ function render_content_block($block, $pathPrefix = '') {
             $caption1   = $block['hs_caption1']    ?? '';
             $caption2   = $block['hs_caption2']    ?? '';
             $bgColor    = $block['hs_bg_color']    ?? '#f3f6f7';
+            $bgPhoto    = $block['hs_bg_photo']    ?? '';
             $anchorOut  = $anchorAttr;
-            echo '<div class="content-block block-hero-split"'.$anchorOut.' style="background:'.h($bgColor).';">';
+            if ($bgPhoto) {
+                $bgPhotoSrc = (str_starts_with($bgPhoto, 'http') || str_starts_with($bgPhoto, '//'))
+                    ? $bgPhoto : $pathPrefix . $bgPhoto;
+                $bgStyle = 'background:'.h($bgColor).';background-image:url('.h($bgPhotoSrc).');background-size:cover;background-position:center;';
+            } else {
+                $bgStyle = 'background:'.h($bgColor).';';
+            }
+            echo '<div class="content-block block-hero-split"'.$anchorOut.' style="'.$bgStyle.'">';
             echo '<div class="container hs-inner">';
             // Left: text
             echo '<div class="hs-text">';
@@ -468,53 +496,84 @@ function render_content_block($block, $pathPrefix = '') {
 
         /* ---- FEATURE SPLIT (icon grid left, arched image right) ---- */
         case 'feature_split':
-            $heading     = $block['fs_heading']   ?? '';
-            $subtext     = $block['fs_subtext']   ?? '';
-            $photo       = $block['fs_photo']     ?? '';
-            $photoAlt    = $block['fs_photo_alt'] ?? '';
-            $starText    = $block['fs_star_text'] ?? '';
-            $bgColor     = $block['fs_bg_color']  ?? '#f3f6f7';
-            $accentColor = $block['fs_accent']    ?? '#fd783b';
-            $items       = $block['fs_items']     ?? [];
+            $heading     = $block['fs_heading']    ?? '';
+            $subtext     = $block['fs_subtext']    ?? '';
+            $trailing    = $block['fs_trailing']   ?? '';
+            $photo       = $block['fs_photo']      ?? '';
+            $photoAlt    = $block['fs_photo_alt']  ?? '';
+            $starText    = $block['fs_star_text']  ?? '';
+            $bgColor     = $block['fs_bg_color']   ?? '#f3f6f7';
+            $accentColor = $block['fs_accent']     ?? '#fd783b';
+            $items       = $block['fs_items']      ?? [];
+            $imgSide     = $block['fs_image_side'] ?? 'right'; // left | right
+            $fsPhone     = $block['fs_phone']      ?? '';
+            $fsPhoneLabel= $block['fs_phone_label']?? 'Call Us 24/7';
             $photoSrc    = '';
             if ($photo) {
                 $photoSrc = (str_starts_with($photo, 'http') || str_starts_with($photo, '//'))
                     ? $photo : $pathPrefix . $photo;
             }
+            $hasIcons = !empty(array_filter($items, fn($i) => !empty($i['icon'])));
+
+            $imgCol = '<div class="fs-right">';
+            if ($photoSrc) $imgCol .= '<div class="fs-arch-wrap"><img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="fs-arch-img" loading="lazy"></div>';
+            if ($starText) $imgCol .= '<div class="fs-star-badge"><span class="fs-stars">★★★★★</span><span class="fs-star-text">'.h($starText).'</span></div>';
+            $imgCol .= '</div>';
+
+            $wrapClass = $imgSide === 'left' ? 'fs-inner fs-img-left' : 'fs-inner';
             echo '<div class="content-block block-feature-split"'.$anchorAttr.' style="background:'.h($bgColor).';">';
-            echo '<div class="container fs-inner">';
-            // LEFT: heading + intro + icon grid
+            echo '<div class="container '.$wrapClass.'">';
+
+            if ($imgSide === 'left') echo $imgCol;
+
+            // Content column
             echo '<div class="fs-left">';
-            if ($heading) echo '<h2 class="fs-heading">'.h($heading).'</h2>';
+            if ($heading) echo '<h2 class="fs-heading block-heading">'.h($heading).'</h2>';
             if ($subtext) echo '<p class="fs-subtext">'.h($subtext).'</p>';
-            echo '<div class="fs-grid">';
-            foreach ($items as $item) {
-                $iIcon = $item['icon'] ?? '';
-                $iHead = $item['heading'] ?? '';
-                $iText = $item['text']    ?? '';
-                $iAlt  = $item['alt']     ?? '';
-                $iIconSrc = '';
-                if ($iIcon) {
-                    $iIconSrc = (str_starts_with($iIcon, 'http') || str_starts_with($iIcon, '//'))
-                        ? $iIcon : $pathPrefix . $iIcon;
+
+            if ($hasIcons) {
+                // Icon card grid
+                echo '<div class="fs-grid">';
+                foreach ($items as $item) {
+                    $iIcon = $item['icon'] ?? ''; $iHead = $item['heading'] ?? '';
+                    $iText = $item['text'] ?? ''; $iAlt  = $item['alt'] ?? '';
+                    $iIconSrc = $iIcon ? ((str_starts_with($iIcon,'http')||str_starts_with($iIcon,'//')) ? $iIcon : $pathPrefix.$iIcon) : '';
+                    echo '<div class="fs-item">';
+                    if ($iIconSrc) echo '<img class="fs-item-icon" src="'.h($iIconSrc).'" alt="'.h($iAlt).'" loading="lazy">';
+                    echo '<div class="fs-item-body">';
+                    if ($iHead) echo '<h3 class="fs-item-heading" style="color:'.h($accentColor).';">'.h($iHead).'</h3>';
+                    if ($iText) echo '<p class="fs-item-text">'.h($iText).'</p>';
+                    echo '</div></div>';
                 }
-                echo '<div class="fs-item">';
-                if ($iIconSrc) echo '<img class="fs-item-icon" src="'.h($iIconSrc).'" alt="'.h($iAlt).'">';
-                echo '<div class="fs-item-body">';
-                if ($iHead) echo '<h3 class="fs-item-heading" style="color:'.h($accentColor).';">'.h($iHead).'</h3>';
-                if ($iText) echo '<p class="fs-item-text">'.h($iText).'</p>';
-                echo '</div></div>';
+                echo '</div>';
+            } else {
+                // Bullet list (no icons)
+                echo '<ul class="fs-bullet-list">';
+                foreach ($items as $item) {
+                    $iHead = $item['heading'] ?? ''; $iText = $item['text'] ?? '';
+                    echo '<li>';
+                    if ($iHead) echo '<strong>'.h($iHead).'</strong>';
+                    if ($iHead && $iText) echo ' – ';
+                    if ($iText) echo h($iText);
+                    echo '</li>';
+                }
+                echo '</ul>';
             }
-            echo '</div></div>';
-            // RIGHT: arched image + star badge
-            echo '<div class="fs-right">';
-            if ($photoSrc) {
-                echo '<div class="fs-arch-wrap"><img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="fs-arch-img"></div>';
+
+            if ($trailing) echo '<p class="fs-trailing">'.h($trailing).'</p>';
+
+            if ($fsPhone) {
+                echo '<div class="fs-phone-cta">';
+                echo '<div class="fs-phone-icon" style="background:'.h($accentColor).';">📞</div>';
+                echo '<div class="fs-phone-info"><span class="fs-phone-label">'.h($fsPhoneLabel).'</span>';
+                echo '<a href="tel:'.h(preg_replace('/[^0-9+]/','',$fsPhone)).'" class="fs-phone-num" style="color:'.h($accentColor).';">'.h($fsPhone).'</a></div>';
+                echo '</div>';
             }
-            if ($starText) {
-                echo '<div class="fs-star-badge"><span class="fs-stars">★★★★★</span><span class="fs-star-text">'.h($starText).'</span></div>';
-            }
+
             echo '</div>';
+
+            if ($imgSide !== 'left') echo $imgCol;
+
             echo '</div></div>';
             break;
 
@@ -531,7 +590,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $colText = $col['text']    ?? '';
                 $colAlt  = $col['alt']     ?? '';
                 echo '<div class="feature-col">';
-                if ($colImg) echo '<img class="feature-icon" src="' . h($pathPrefix . $colImg) . '" alt="' . h($colAlt) . '">';
+                if ($colImg) echo '<img class="feature-icon" src="' . h($pathPrefix . $colImg) . '" alt="' . h($colAlt) . '" loading="lazy">';
                 if ($colHead) echo '<h3 class="feature-col-heading">' . h($colHead) . '</h3>';
                 if ($colText) echo '<p class="feature-col-text">' . h($colText) . '</p>';
                 echo '</div>';
@@ -709,7 +768,7 @@ function render_content_block($block, $pathPrefix = '') {
             echo '<div class="mi-panel mi-info-panel">';
             if ($infoHeading) echo '<h2 class="mi-heading" style="color:'.$headStyle.';">'.h($infoHeading).'</h2>';
             if ($infoText)    echo '<p class="mi-text">'.h($infoText).'</p>';
-            if ($infoPhotoSrc) echo '<img src="'.h($infoPhotoSrc).'" alt="'.h($infoAlt).'" class="mi-photo">';
+            if ($infoPhotoSrc) echo '<img src="'.h($infoPhotoSrc).'" alt="'.h($infoAlt).'" class="mi-photo" loading="lazy">';
             echo '</div>';
 
             echo '</div></div>';
@@ -873,7 +932,7 @@ function render_content_block($block, $pathPrefix = '') {
             // LEFT: photo
             if ($photoSrc) {
                 echo '<div class="if-photo-wrap">';
-                echo '<img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="if-photo">';
+                echo '<img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="if-photo" loading="lazy">';
                 echo '</div>';
             }
 
@@ -913,6 +972,7 @@ function render_content_block($block, $pathPrefix = '') {
         case 'wide_banner':
             $badge      = $block['wb_badge']      ?? '';
             $heading    = $block['wb_heading']    ?? '';
+            $subtext    = $block['wb_subtext']    ?? '';
             $btnText    = $block['wb_btn_text']   ?? '';
             $btnUrl     = $block['wb_btn_url']    ?? '#';
             $photo      = $block['wb_photo']      ?? '';
@@ -924,24 +984,35 @@ function render_content_block($block, $pathPrefix = '') {
 
             $badgeBgStyle = resolve_color($badgeBg, $badgeBgC);
 
+            $bgColor    = $block['wb_bg_color'] ?? '';
+
             $photoSrc = '';
             if ($photo) {
                 $photoSrc = (str_starts_with($photo,'http') || str_starts_with($photo,'//'))
                     ? $photo : $pathPrefix.$photo;
             }
 
-            $bgStyle = $photoSrc
-                ? 'background-image:url('.h($photoSrc).');background-size:cover;background-position:center;'
-                : 'background:#1a1a2e;';
+            if ($photoSrc) {
+                $bgStyle = 'background-image:url('.h($photoSrc).');background-size:cover;background-position:center;';
+                $overlayStyle = 'background:rgba(0,0,0,'.h($overlayOpacity).');';
+            } elseif ($bgColor) {
+                $bgStyle = 'background:'.h($bgColor).';';
+                $overlayStyle = '';
+            } else {
+                $bgStyle = 'background:#1a1a2e;';
+                $overlayStyle = 'background:rgba(0,0,0,'.h($overlayOpacity).');';
+            }
 
+            $wbCentered = ($block['wb_centered'] ?? false) || !$btnText;
             echo '<div class="content-block block-wide-banner"'.$anchorAttr.' style="'.$bgStyle.'">';
-            echo '<div class="wb-overlay" style="background:rgba(0,0,0,'.h($overlayOpacity).');">';
-            echo '<div class="container wb-inner">';
+            echo '<div class="wb-overlay"'.($overlayStyle ? ' style="'.$overlayStyle.'"' : '').'>';
+            echo '<div class="container wb-inner'.($wbCentered ? ' wb-centered' : '').'">';
 
-            // Left: badge + heading
+            // Left: badge + heading + subtext
             echo '<div class="wb-left">';
             if ($badge)   echo '<span class="wb-badge" style="background:'.$badgeBgStyle.';color:#fff;">'.h($badge).'</span>';
             if ($heading) echo '<h2 class="wb-heading">'.h($heading).'</h2>';
+            if ($subtext) echo '<p class="wb-subtext">'.h($subtext).'</p>';
             echo '</div>';
 
             // Right: button
@@ -985,7 +1056,7 @@ function render_content_block($block, $pathPrefix = '') {
                 if ($iIcon) $iIconSrc = (str_starts_with($iIcon,'http') || str_starts_with($iIcon,'//')) ? $iIcon : $pathPrefix.$iIcon;
                 echo '<div class="svc-card">';
                 if ($iIconSrc) {
-                    echo '<div class="svc-icon-wrap" style="background:'.h($iconBg).';"><img src="'.h($iIconSrc).'" alt="'.h($iAlt).'" class="svc-icon"></div>';
+                    echo '<div class="svc-icon-wrap" style="background:'.h($iconBg).';"><img src="'.h($iIconSrc).'" alt="'.h($iAlt).'" class="svc-icon" loading="lazy"></div>';
                 } elseif ($iEmoji) {
                     echo '<div class="svc-icon-wrap" style="background:'.h($iconBg).';font-size:2rem;line-height:1;"><span>'.h($iEmoji).'</span></div>';
                 }
@@ -1050,7 +1121,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $tileBg = ($gi % 2 === 0) ? $c1 : $c2;
                 echo '<div class="hg-tile" style="background:'.$tileBg.';">';
                 if ($iIconSrc) {
-                    echo '<img src="'.h($iIconSrc).'" alt="'.h($iAlt).'" class="hg-tile-icon">';
+                    echo '<img src="'.h($iIconSrc).'" alt="'.h($iAlt).'" class="hg-tile-icon" loading="lazy">';
                 }
                 if ($iLabel) echo '<span class="hg-tile-label">'.h($iLabel).'</span>';
                 echo '</div>';
@@ -1099,7 +1170,7 @@ function render_content_block($block, $pathPrefix = '') {
                      .' onclick="switchTab(this)"'
                      .($activeInlineStyle ? ' style="'.$activeInlineStyle.'"' : '')
                      .' data-active-bg="'.$activeBgStyle.'">';
-                if ($iconSrc) echo '<img src="'.h($iconSrc).'" class="ts-tab-icon" alt="'.h($label).'">';
+                if ($iconSrc) echo '<img src="'.h($iconSrc).'" class="ts-tab-icon" alt="'.h($label).'" loading="lazy">';
                 echo '<span>'.h($label).'</span>';
                 echo '</button>';
             }
@@ -1157,7 +1228,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $stepAlt  = $step['alt']     ?? '';
                 echo '<div class="step-item">';
                 if ($stepImg) {
-                    echo '<img class="step-icon" src="' . h($pathPrefix . $stepImg) . '" alt="' . h($stepAlt) . '">';
+                    echo '<img class="step-icon" src="' . h($pathPrefix . $stepImg) . '" alt="' . h($stepAlt) . '" loading="lazy">';
                 } else {
                     echo '<div class="step-number">' . ($n + 1) . '</div>';
                 }
@@ -1396,6 +1467,7 @@ function render_content_blocks_editor($blocks) {
                         <?php endif; ?>
                         <input type="file" name="hs_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
                         <input type="hidden" name="hs_photo_existing[]" value="<?= h($block['hs_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('hs_photo_existing[]'); ?>
                     </div>
                     <div class="form-group">
                         <label>Image alt text (SEO)</label>
@@ -1478,6 +1550,7 @@ function render_content_blocks_editor($blocks) {
                         <?php endif; ?>
                         <input type="file" name="fs_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
                         <input type="hidden" name="fs_photo_existing[]" value="<?= h($block['fs_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('fs_photo_existing[]'); ?>
                     </div>
                     <div class="form-group">
                         <label>Image alt text</label>
@@ -1658,6 +1731,7 @@ function render_content_blocks_editor($blocks) {
                         <?php endif; ?>
                         <input type="file" name="it_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
                         <input type="hidden" name="it_photo_existing[]" value="<?= h($block['it_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('it_photo_existing[]'); ?>
                     </div>
                     <div class="form-group">
                         <label>Image alt text (SEO)</label>
@@ -1799,6 +1873,7 @@ function render_content_blocks_editor($blocks) {
                         <?php endif; ?>
                         <input type="file" name="mi_info_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
                         <input type="hidden" name="mi_info_photo_existing[]" value="<?= h($block['mi_info_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('mi_info_photo_existing[]'); ?>
                     </div>
                     <div class="form-group">
                         <label>Photo alt text</label>
@@ -1874,6 +1949,7 @@ function render_content_blocks_editor($blocks) {
                         <?php endif; ?>
                         <input type="file" name="lg_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
                         <input type="hidden" name="lg_photo_existing[]" value="<?= h($block['lg_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('lg_photo_existing[]'); ?>
                     </div>
                     <div class="form-group">
                         <label>Image alt text</label>
@@ -2039,6 +2115,7 @@ function render_content_blocks_editor($blocks) {
                         <?php endif; ?>
                         <input type="file" name="if_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
                         <input type="hidden" name="if_photo_existing[]" value="<?= h($block['if_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('if_photo_existing[]'); ?>
                     </div>
                     <div class="form-group">
                         <label>Photo alt text</label>
@@ -2131,6 +2208,7 @@ function render_content_blocks_editor($blocks) {
                         <?php endif; ?>
                         <input type="file" name="wb_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
                         <input type="hidden" name="wb_photo_existing[]" value="<?= h($block['wb_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('wb_photo_existing[]'); ?>
                     </div>
                     <div class="form-group">
                         <label>Image alt text</label>
@@ -2578,22 +2656,36 @@ function render_content_blocks_editor($blocks) {
 }
 
 /* helper: photo upload sub-form (used inside image_left/right fields) */
+function photo_picker_btn(string $hiddenName, string $previewId = ''): void {
+    $safe = htmlspecialchars($hiddenName, ENT_QUOTES, 'UTF-8');
+    $pid  = $previewId ? htmlspecialchars($previewId, ENT_QUOTES, 'UTF-8') : '';
+    $js = "openImgPicker(function(url,alt){"
+        . "var i=document.querySelector('[name=\"{$safe}\"]');if(i)i.value=url;"
+        . ($pid ? "var p=document.getElementById('{$pid}');if(p){p.innerHTML='<img src=\"../'+url+'\" style=\"max-height:80px;border-radius:4px;margin-bottom:6px;display:block;\">';}" : "")
+        . "})";
+    echo '<button type="button" class="btn btn-small btn-secondary" style="margin-left:8px;" onclick="' . htmlspecialchars($js, ENT_QUOTES, 'UTF-8') . '">📷 Library</button>';
+}
+
 function render_photo_upload_fields($fieldBaseName, $existingPhoto, $ratio, $position, $alt, $index) {
+    $uid = 'pf_' . $index . '_' . substr(md5($fieldBaseName.$index), 0, 4);
     ?>
     <div class="form-group">
         <label>Image alt text (SEO)</label>
         <input type="text" name="block_photo_alt[]" value="<?= h($alt) ?>" placeholder="Describe the image">
     </div>
-    <div class="current-image">
+    <div class="current-image" id="preview_<?= h($uid) ?>">
         <?php if (!empty($existingPhoto)): ?>
             <img src="../<?= h($existingPhoto) ?>" alt="Block image">
         <?php else: ?>
             <span class="none">No image uploaded yet.</span>
         <?php endif; ?>
     </div>
-    <label>Upload image</label>
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap;">
+        <label style="margin:0;">Upload image</label>
+        <button type="button" class="btn btn-small btn-secondary" onclick="openImgPicker(function(url,alt){setBlockPhoto('<?= h($uid) ?>',url,alt)})">📷 Pick from Library</button>
+    </div>
     <input type="file" name="<?= $fieldBaseName ?>[]" accept="image/png,image/jpeg,image/gif,image/webp">
-    <input type="hidden" name="block_existing_photo[]" value="<?= h($existingPhoto) ?>">
+    <input type="hidden" id="existing_<?= h($uid) ?>" name="block_existing_photo[]" value="<?= h($existingPhoto) ?>">
     <?php if (!empty($existingPhoto)): ?>
         <label style="margin-top:8px;font-weight:400;">
             <input type="checkbox" name="block_remove_photo[]" value="1"> Remove current image
@@ -2615,6 +2707,148 @@ function render_photo_upload_fields($fieldBaseName, $existingPhoto, $ratio, $pos
 }
 
 /* ============================================================
+   SCHEMA: Generate LocalBusiness JSON-LD
+   ============================================================ */
+function generate_local_business_schema(array $lb): string {
+    if (empty($lb['lb_name'])) return '';
+    $schema = [
+        '@context' => 'https://schema.org',
+        '@type'    => $lb['lb_type'] ?: 'LocalBusiness',
+        'name'     => $lb['lb_name'],
+    ];
+    if (!empty($lb['lb_url']))         $schema['url']         = $lb['lb_url'];
+    if (!empty($lb['lb_phone']))       $schema['telephone']   = $lb['lb_phone'];
+    if (!empty($lb['lb_price_range'])) $schema['priceRange']  = $lb['lb_price_range'];
+    if (!empty($lb['lb_description'])) $schema['description'] = $lb['lb_description'];
+    if (!empty($lb['lb_logo']))        $schema['logo']        = $lb['lb_logo'];
+    if (!empty($lb['lb_hours']))       $schema['openingHours'] = $lb['lb_hours'];
+
+    $addr = [];
+    if (!empty($lb['lb_street']))  $addr['streetAddress']   = $lb['lb_street'];
+    if (!empty($lb['lb_city']))    $addr['addressLocality'] = $lb['lb_city'];
+    if (!empty($lb['lb_state']))   $addr['addressRegion']   = $lb['lb_state'];
+    if (!empty($lb['lb_zip']))     $addr['postalCode']      = $lb['lb_zip'];
+    if (!empty($lb['lb_country'])) $addr['addressCountry']  = $lb['lb_country'];
+    if ($addr) {
+        $addr['@type'] = 'PostalAddress';
+        $schema['address'] = $addr;
+    }
+    if (!empty($lb['lb_lat']) && !empty($lb['lb_lng'])) {
+        $schema['geo'] = [
+            '@type'     => 'GeoCoordinates',
+            'latitude'  => $lb['lb_lat'],
+            'longitude' => $lb['lb_lng'],
+        ];
+    }
+    return json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+}
+
+/* ============================================================
+   SCHEMA: Generate Service JSON-LD (per-page)
+   ============================================================ */
+function generate_service_schema(array $seo, array $lb): string {
+    $name = $seo['service_name'] ?? '';
+    if (empty($name)) return '';
+    $schema = [
+        '@context'    => 'https://schema.org',
+        '@type'       => 'Service',
+        'name'        => $name,
+        'serviceType' => $seo['service_type'] ?? $name,
+    ];
+    if (!empty($seo['service_description'])) $schema['description'] = $seo['service_description'];
+    if (!empty($seo['canonical_url']))        $schema['url']         = $seo['canonical_url'];
+    if (!empty($seo['service_area'])) {
+        $schema['areaServed'] = ['@type' => 'City', 'name' => $seo['service_area']];
+    }
+    if (!empty($lb['lb_name'])) {
+        $provider = ['@type' => 'LocalBusiness', 'name' => $lb['lb_name']];
+        if (!empty($lb['lb_url']))   $provider['url']       = $lb['lb_url'];
+        if (!empty($lb['lb_phone'])) $provider['telephone'] = $lb['lb_phone'];
+        $schema['provider'] = $provider;
+    }
+    return json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+}
+
+/* ============================================================
+   ADMIN: Local Business editor
+   ============================================================ */
+function render_local_business_editor(array $lb) {
+    $types = ['LocalBusiness','PestControlService','HomeAndConstructionBusiness','Plumber','Electrician','GeneralContractor'];
+    ?>
+    <div class="card">
+        <h2>Local Business Info</h2>
+        <p class="hint" style="margin-bottom:18px;">Used to generate <strong>LocalBusiness</strong> schema markup on every page. Helps Google show your business in local search results.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+                <label>Business name</label>
+                <input type="text" name="lb_name" value="<?= h($lb['lb_name'] ?? '') ?>" placeholder="e.g. Katy Pest Pros">
+            </div>
+            <div class="form-group">
+                <label>Business type</label>
+                <select name="lb_type">
+                    <?php foreach ($types as $t): ?>
+                    <option value="<?= h($t) ?>" <?= ($lb['lb_type'] ?? '') === $t ? 'selected' : '' ?>><?= h($t) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Website URL</label>
+                <input type="text" name="lb_url" value="<?= h($lb['lb_url'] ?? '') ?>" placeholder="https://katypestpros.com">
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" name="lb_phone" value="<?= h($lb['lb_phone'] ?? '') ?>" placeholder="(281) 215-0160">
+            </div>
+            <div class="form-group" style="grid-column:1/-1;">
+                <label>Street address</label>
+                <input type="text" name="lb_street" value="<?= h($lb['lb_street'] ?? '') ?>" placeholder="123 Main St">
+            </div>
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" name="lb_city" value="<?= h($lb['lb_city'] ?? '') ?>" placeholder="Katy">
+            </div>
+            <div class="form-group">
+                <label>State</label>
+                <input type="text" name="lb_state" value="<?= h($lb['lb_state'] ?? '') ?>" placeholder="TX">
+            </div>
+            <div class="form-group">
+                <label>ZIP code</label>
+                <input type="text" name="lb_zip" value="<?= h($lb['lb_zip'] ?? '') ?>" placeholder="77494">
+            </div>
+            <div class="form-group">
+                <label>Country</label>
+                <input type="text" name="lb_country" value="<?= h($lb['lb_country'] ?? 'US') ?>">
+            </div>
+            <div class="form-group">
+                <label>Latitude</label>
+                <input type="text" name="lb_lat" value="<?= h($lb['lb_lat'] ?? '') ?>" placeholder="29.7858">
+            </div>
+            <div class="form-group">
+                <label>Longitude</label>
+                <input type="text" name="lb_lng" value="<?= h($lb['lb_lng'] ?? '') ?>" placeholder="-95.8245">
+            </div>
+            <div class="form-group">
+                <label>Price range</label>
+                <input type="text" name="lb_price_range" value="<?= h($lb['lb_price_range'] ?? '$$') ?>" placeholder="$$">
+            </div>
+            <div class="form-group">
+                <label>Opening hours <span class="hint">(schema format)</span></label>
+                <input type="text" name="lb_hours" value="<?= h($lb['lb_hours'] ?? '') ?>" placeholder="Mo-Fr 08:00-18:00, Sa 09:00-13:00">
+            </div>
+            <div class="form-group" style="grid-column:1/-1;">
+                <label>Logo URL</label>
+                <input type="text" name="lb_logo" value="<?= h($lb['lb_logo'] ?? '') ?>" placeholder="https://katypestpros.com/images/logo/logo-katy-pest-pros.png">
+            </div>
+            <div class="form-group" style="grid-column:1/-1;">
+                <label>Business description</label>
+                <textarea name="lb_description" rows="3"><?= h($lb['lb_description'] ?? '') ?></textarea>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
+/* ============================================================
    ADMIN: SEO editor
    ============================================================ */
 function render_seo_editor($seo) {
@@ -2623,6 +2857,11 @@ function render_seo_editor($seo) {
         <h2>SEO &amp; Metadata</h2>
         <p class="hint" style="margin-bottom:18px;">These fields help search engines and social media understand your page.</p>
 
+        <div class="form-group">
+            <label for="canonical_url">Canonical URL</label>
+            <input type="text" id="canonical_url" name="canonical_url" value="<?= h($seo['canonical_url'] ?? '') ?>" placeholder="e.g. https://katypestpros.com/cockroach-exterminator-katy-tx/">
+            <span class="hint">Tells search engines the preferred URL for this page. Use the live site URL.</span>
+        </div>
         <div class="form-group">
             <label for="meta_description">Meta description</label>
             <textarea id="meta_description" name="meta_description" rows="3"><?= h($seo['meta_description'] ?? '') ?></textarea>
@@ -2645,6 +2884,25 @@ function render_seo_editor($seo) {
             <label for="schema">Schema markup (JSON-LD)</label>
             <textarea id="schema" name="schema" rows="8" style="font-family:monospace;font-size:0.85rem;"><?= h($seo['schema'] ?? '') ?></textarea>
             <span class="hint">Optional structured data from <a href="https://schema.org" target="_blank" rel="noopener">schema.org</a>. Must be valid JSON.</span>
+        </div>
+        <hr style="margin: 24px 0; border-color: #e5e7eb;">
+        <h3 style="margin: 0 0 16px; font-size: 1rem;">Service Schema (per-page)</h3>
+        <p class="hint" style="margin-bottom:16px;">Auto-generates a Service schema for this page using the global business info.</p>
+        <div class="form-group">
+            <label for="service_name">Service name</label>
+            <input type="text" id="service_name" name="service_name" value="<?= h($seo['service_name'] ?? '') ?>" placeholder="e.g. Cockroach Exterminator in Katy, TX">
+        </div>
+        <div class="form-group">
+            <label for="service_type">Service type</label>
+            <input type="text" id="service_type" name="service_type" value="<?= h($seo['service_type'] ?? '') ?>" placeholder="e.g. Cockroach Extermination">
+        </div>
+        <div class="form-group">
+            <label for="service_area">Area served</label>
+            <input type="text" id="service_area" name="service_area" value="<?= h($seo['service_area'] ?? '') ?>" placeholder="e.g. Katy, TX">
+        </div>
+        <div class="form-group">
+            <label for="service_description">Service description</label>
+            <textarea id="service_description" name="service_description" rows="2"><?= h($seo['service_description'] ?? '') ?></textarea>
         </div>
     </div>
     <?php

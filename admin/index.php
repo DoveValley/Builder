@@ -18,7 +18,7 @@ $pages   = $data['pages'];
 
 // Active tab
 $tab = $_GET['tab'] ?? 'header';
-if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'footer', 'popups'], true)) {
+if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'footer', 'popups', 'media', 'seo'], true)) {
     $tab = 'header';
 }
 
@@ -68,7 +68,7 @@ foreach ($footer['columns'] as $ci => $column) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - <?= h(SITE_TITLE) ?></title>
     <link rel="stylesheet" href="../assets/css/style.css?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/style.css') ?>">
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/qeuo7izgoglstixfe9merx5vdkfu7nfuvl1nhyc98p6qej0p/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
     tinymce.init({
         selector: '.rich-editor',
@@ -117,6 +117,8 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'pages' ? 'active' : '' ?>" href="?tab=pages">Landing Pages</a>
         <a class="tab-link <?= $tab === 'footer' ? 'active' : '' ?>" href="?tab=footer">Footer</a>
         <a class="tab-link <?= $tab === 'popups' ? 'active' : '' ?>" href="?tab=popups">Popups</a>
+        <a class="tab-link <?= $tab === 'media' ? 'active' : '' ?>" href="?tab=media">Media Library</a>
+        <a class="tab-link <?= $tab === 'seo' ? 'active' : '' ?>" href="?tab=seo">SEO / Schema</a>
     </div>
 
     <!-- ================= HEADER TAB ================= -->
@@ -318,8 +320,9 @@ foreach ($footer['columns'] as $ci => $column) {
                     'header_text' => 'Text & menu color',
                 ],
                 'Main Content' => [
-                    'content_bg'   => 'Background color',
-                    'content_text' => 'Text color',
+                    'content_bg'    => 'Background color',
+                    'content_text'  => 'Text color',
+                    'heading_color' => 'Heading color',
                 ],
                 'Footer' => [
                     'footer_bg'   => 'Background color',
@@ -744,6 +747,39 @@ foreach ($footer['columns'] as $ci => $column) {
         </form>
     </div>
 
+    <!-- ================= MEDIA LIBRARY TAB ================= -->
+    <div class="tab-content" style="<?= $tab === 'media' ? '' : 'display:none;' ?>">
+        <div class="card">
+            <h2>Media Library</h2>
+            <p class="hint" style="margin-bottom:16px;">All images available to use in your blocks. Drag &amp; drop or click to upload. Click an image to copy its URL.</p>
+
+            <div id="media-dropzone" style="border:2px dashed #d1d5db;border-radius:8px;padding:28px;text-align:center;cursor:pointer;margin-bottom:20px;transition:border-color .2s,background .2s;">
+                <input id="media-file-input" type="file" accept="image/jpeg,image/png,image/gif,image/webp" multiple style="display:none;">
+                <div style="font-size:2rem;margin-bottom:8px;">📁</div>
+                <div style="font-weight:600;color:#374151;">Drop images here or click to upload</div>
+                <div class="hint" style="margin-top:4px;">JPG, PNG, GIF, WebP — auto-optimized to WebP on save</div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+                <input id="media-search" type="text" placeholder="Search by filename or alt text…" style="flex:1;padding:9px 12px;border:1px solid #d1d5db;border-radius:6px;">
+                <span id="media-count" style="font-size:.85rem;color:#6b7280;white-space:nowrap;"></span>
+            </div>
+
+            <div id="media-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;"></div>
+        </div>
+    </div>
+
+    <!-- ================= SEO / SCHEMA TAB ================= -->
+    <div class="tab-content" style="<?= $tab === 'seo' ? '' : 'display:none;' ?>">
+        <form method="post" action="save.php">
+            <input type="hidden" name="section" value="local_business">
+            <?php render_local_business_editor($data['local_business'] ?? []); ?>
+            <div style="margin-top:24px;">
+                <button type="submit" class="btn">Save Local Business Info</button>
+            </div>
+        </form>
+    </div>
+
 </div>
 
 ?>
@@ -752,6 +788,22 @@ foreach ($footer['columns'] as $ci => $column) {
 /* ---------------------------------------------------------
    Generic row helpers (menu items, bottom links)
    --------------------------------------------------------- */
+/* ── media library helpers ── */
+function setBlockPhoto(uid, url, alt) {
+    const existing = document.getElementById('existing_' + uid);
+    const preview  = document.getElementById('preview_'  + uid);
+    if (existing) existing.value = url;
+    if (preview)  preview.innerHTML = '<img src="../' + url + '" alt="' + alt + '" style="max-width:100%;max-height:200px;border-radius:4px;">';
+    // also fill nearby alt input if empty
+    if (alt && preview) {
+        const card = preview.closest('.form-group') || preview.parentElement;
+        if (card) {
+            const altInput = card.querySelector ? card.closest('.block-field-group, .card, form')?.querySelector('input[name="block_photo_alt[]"]') : null;
+            if (altInput && !altInput.value) altInput.value = alt;
+        }
+    }
+}
+
 function removeRow(button, containerId) {
     const row = button.closest('.repeat-row');
     const container = containerId ? document.getElementById(containerId) : row.parentElement;
@@ -944,6 +996,194 @@ function addLink(button) {
 </script>
 
 <?php content_editor_scripts(); ?>
+
+<!-- ===================== MEDIA LIBRARY TAB ===================== -->
+<?php if ($tab === 'media'): ?>
+<script>
+(function() {
+    const api = 'media_api.php';
+
+    /* ── state ── */
+    let allMedia = [];
+    let searchQ  = '';
+
+    /* ── elements ── */
+    const grid     = document.getElementById('media-grid');
+    const searchEl = document.getElementById('media-search');
+    const countEl  = document.getElementById('media-count');
+    const dropzone = document.getElementById('media-dropzone');
+    const fileInp  = document.getElementById('media-file-input');
+
+    /* ── load ── */
+    async function loadMedia() {
+        const res  = await fetch(api + '?action=list');
+        allMedia   = await res.json();
+        renderGrid();
+    }
+
+    function renderGrid() {
+        const q    = searchQ.toLowerCase();
+        const items = allMedia.filter(m =>
+            !q || m.filename.toLowerCase().includes(q) || (m.alt||'').toLowerCase().includes(q)
+        );
+        countEl.textContent = items.length + ' image' + (items.length !== 1 ? 's' : '');
+        grid.innerHTML = items.map(m => `
+            <div class="ml-card" data-fn="${escHtml(m.filename)}">
+                <div class="ml-thumb" onclick="copyUrl('${escHtml(m.url)}')">
+                    <img src="../${escHtml(m.url)}" alt="${escHtml(m.alt||'')}">
+                    <div class="ml-thumb-overlay">Click to copy URL</div>
+                </div>
+                <div class="ml-info">
+                    <div class="ml-name" title="${escHtml(m.filename)}">${escHtml(m.filename.replace('.webp',''))}</div>
+                    <div class="ml-dims">${m.width}×${m.height} &nbsp;·&nbsp; ${fmtSize(m.size)}</div>
+                    <input class="ml-alt-input" type="text" value="${escHtml(m.alt||'')}" placeholder="Alt text…" onchange="updateAlt('${escHtml(m.filename)}', this.value)">
+                    <div class="ml-actions">
+                        <button class="btn btn-small btn-secondary" onclick="copyUrl('${escHtml(m.url)}')">Copy URL</button>
+                        <button class="btn btn-small btn-danger" onclick="deleteMedia('${escHtml(m.filename)}')">Delete</button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+    function fmtSize(b) { return b > 1048576 ? (b/1048576).toFixed(1)+' MB' : Math.round(b/1024)+' KB'; }
+
+    window.copyUrl = function(url) {
+        navigator.clipboard.writeText(url).then(() => {
+            showToast('URL copied: ' + url);
+        });
+    };
+
+    window.deleteMedia = async function(filename) {
+        if (!confirm('Delete ' + filename + '?')) return;
+        const fd = new FormData();
+        fd.append('action', 'delete');
+        fd.append('filename', filename);
+        await fetch(api, { method:'POST', body: fd });
+        allMedia = allMedia.filter(m => m.filename !== filename);
+        renderGrid();
+    };
+
+    window.updateAlt = async function(filename, alt) {
+        const fd = new FormData();
+        fd.append('action', 'update');
+        fd.append('filename', filename);
+        fd.append('alt', alt);
+        await fetch(api, { method:'POST', body: fd });
+    };
+
+    /* ── upload ── */
+    async function uploadFiles(files) {
+        for (const file of files) {
+            const fd = new FormData();
+            fd.append('action', 'upload');
+            fd.append('file', file);
+            const res  = await fetch(api, { method:'POST', body: fd });
+            const data = await res.json();
+            if (data.item) {
+                allMedia.unshift(data.item);
+                showToast('Uploaded: ' + data.item.filename);
+            } else {
+                showToast('Error: ' + (data.error || 'unknown'));
+            }
+        }
+        renderGrid();
+    }
+
+    dropzone.addEventListener('click', () => fileInp.click());
+    fileInp.addEventListener('change', () => { uploadFiles(fileInp.files); fileInp.value = ''; });
+    dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('drag-over'); });
+    dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag-over'));
+    dropzone.addEventListener('drop', e => {
+        e.preventDefault();
+        dropzone.classList.remove('drag-over');
+        uploadFiles(e.dataTransfer.files);
+    });
+
+    searchEl.addEventListener('input', () => { searchQ = searchEl.value; renderGrid(); });
+
+    function showToast(msg) {
+        const t = document.createElement('div');
+        t.className = 'ml-toast';
+        t.textContent = msg;
+        document.body.appendChild(t);
+        setTimeout(() => t.remove(), 3000);
+    }
+
+    loadMedia();
+})();
+</script>
+<?php endif; ?>
+
+<!-- ===================== IMAGE PICKER MODAL ===================== -->
+<div id="img-picker-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.6);overflow-y:auto;">
+    <div style="background:#fff;max-width:960px;margin:40px auto;border-radius:8px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.3);">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #e5e7eb;">
+            <h2 style="margin:0;font-size:1.1rem;">Pick from Media Library</h2>
+            <button onclick="closeImgPicker()" style="background:none;border:none;font-size:1.5rem;cursor:pointer;line-height:1;">&times;</button>
+        </div>
+        <div style="padding:16px 20px;">
+            <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;">
+                <input id="picker-search" type="text" placeholder="Search images…" style="flex:1;padding:8px 12px;border:1px solid #d1d5db;border-radius:6px;">
+                <span id="picker-count" style="font-size:.85rem;color:#6b7280;white-space:nowrap;"></span>
+            </div>
+            <div id="picker-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;max-height:500px;overflow-y:auto;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    let pickerCallback = null;
+    let pickerMedia    = [];
+
+    window.openImgPicker = function(callback) {
+        pickerCallback = callback;
+        document.getElementById('img-picker-modal').style.display = 'block';
+        loadPickerMedia();
+    };
+
+    window.closeImgPicker = function() {
+        document.getElementById('img-picker-modal').style.display = 'none';
+        pickerCallback = null;
+    };
+
+    document.getElementById('img-picker-modal').addEventListener('click', function(e) {
+        if (e.target === this) closeImgPicker();
+    });
+
+    document.getElementById('picker-search').addEventListener('input', function() {
+        renderPickerGrid(this.value.toLowerCase());
+    });
+
+    async function loadPickerMedia() {
+        const res   = await fetch('media_api.php?action=list');
+        pickerMedia = await res.json();
+        renderPickerGrid('');
+    }
+
+    function renderPickerGrid(q) {
+        const items = pickerMedia.filter(m =>
+            !q || m.filename.toLowerCase().includes(q) || (m.alt||'').toLowerCase().includes(q)
+        );
+        document.getElementById('picker-count').textContent = items.length + ' images';
+        document.getElementById('picker-grid').innerHTML = items.map(m => `
+            <div onclick="pickImage('${esc(m.url)}','${esc(m.alt||'')}')" style="cursor:pointer;border:2px solid transparent;border-radius:6px;overflow:hidden;background:#f9fafb;transition:border-color .15s;" onmouseover="this.style.borderColor='#fd783b'" onmouseout="this.style.borderColor='transparent'">
+                <img src="../${esc(m.url)}" alt="${esc(m.alt||m.filename)}" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;">
+                <div style="padding:4px 6px;font-size:.7rem;color:#4b5563;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(m.filename.replace('.webp',''))}</div>
+            </div>
+        `).join('');
+    }
+
+    window.pickImage = function(url, alt) {
+        if (pickerCallback) pickerCallback(url, alt);
+        closeImgPicker();
+    };
+
+    function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+})();
+</script>
 
 </body>
 </html>

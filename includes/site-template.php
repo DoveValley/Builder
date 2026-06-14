@@ -29,6 +29,9 @@ $pageTitle = !empty($pageTitle) ? $pageTitle : SITE_TITLE;
     <?php if (!empty($seo['meta_keywords'])): ?>
     <meta name="keywords" content="<?= h($seo['meta_keywords']) ?>">
     <?php endif; ?>
+    <?php if (!empty($seo['canonical_url'])): ?>
+    <link rel="canonical" href="<?= h($seo['canonical_url']) ?>">
+    <?php endif; ?>
     <?php
     $ogTitle = !empty($seo['og_title']) ? $seo['og_title'] : $pageTitle;
     $ogDesc  = !empty($seo['og_description']) ? $seo['og_description'] : ($seo['meta_description'] ?? '');
@@ -37,6 +40,8 @@ $pageTitle = !empty($pageTitle) ? $pageTitle : SITE_TITLE;
     <meta property="og:title" content="<?= h($ogTitle) ?>">
     <?php if ($ogDesc): ?><meta property="og:description" content="<?= h($ogDesc) ?>"><?php endif; ?>
     <?php if (!empty($seo['og_image'])): ?><meta property="og:image" content="<?= h($seo['og_image']) ?>"><?php endif; ?>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= h($assetPathPrefix ?? '') ?>assets/css/style.css?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/style.css') ?>">
     <style><?= theme_css_vars($theme) ?>
     body { font-family: var(--font-primary, sans-serif); }
@@ -48,6 +53,13 @@ $pageTitle = !empty($pageTitle) ? $pageTitle : SITE_TITLE;
             echo '<script type="application/ld+json">' . json_encode($schemaData, JSON_PRETTY_PRINT) . '</script>' . "\n";
         }
     }
+    // Global LocalBusiness schema
+    $lb = $data['local_business'] ?? [];
+    $lbSchema = generate_local_business_schema($lb);
+    if ($lbSchema) echo '<script type="application/ld+json">' . $lbSchema . '</script>' . "\n";
+    // Per-page Service schema
+    $serviceSchema = generate_service_schema($seo, $lb);
+    if ($serviceSchema) echo '<script type="application/ld+json">' . $serviceSchema . '</script>' . "\n";
     // Analytics — output raw (admin-entered, trusted)
     if (!empty($theme['analytics_head'])) echo $theme['analytics_head'] . "\n";
     if (!empty($theme['facebook_pixel'])) echo $theme['facebook_pixel'] . "\n";
@@ -171,7 +183,7 @@ $infoItems = $header['info_items']      ?? [];
     $fullWidthTypes = ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','block_split_cta'];
     foreach ($contentBlocks as $block):
         $btype = $block['type'] ?? '';
-        $isFullWidth = in_array($btype, ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','cta_card','map_info']);
+        $isFullWidth = in_array($btype, ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','cta_card','map_info','hero_split']);
     ?>
         <?php if (!$isFullWidth): ?>
         <div class="container">

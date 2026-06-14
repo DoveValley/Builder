@@ -672,11 +672,16 @@ switch ($section) {
 
         // SEO
         $seoData = [
-            'meta_description' => trim($_POST['meta_description'] ?? ''),
-            'meta_keywords'    => trim($_POST['meta_keywords']    ?? ''),
-            'og_title'         => trim($_POST['og_title']         ?? ''),
-            'og_description'   => trim($_POST['og_description']   ?? ''),
-            'og_image'         => '',
+            'canonical_url'      => trim($_POST['canonical_url']      ?? ''),
+            'meta_description'   => trim($_POST['meta_description']   ?? ''),
+            'meta_keywords'      => trim($_POST['meta_keywords']      ?? ''),
+            'og_title'           => trim($_POST['og_title']           ?? ''),
+            'og_description'     => trim($_POST['og_description']     ?? ''),
+            'og_image'           => '',
+            'service_name'       => trim($_POST['service_name']       ?? ''),
+            'service_type'       => trim($_POST['service_type']       ?? ''),
+            'service_area'       => trim($_POST['service_area']       ?? ''),
+            'service_description'=> trim($_POST['service_description']?? ''),
         ];
         $existingSeo = $isLandingPage ? $data['pages'][$pageId]['seo'] : $data['seo'];
         $seoData['og_image'] = $existingSeo['og_image'] ?? '';
@@ -810,6 +815,31 @@ switch ($section) {
             'image'   => $imgPath,
             'body'    => $body,
         ];
+        break;
+
+    /* ---- LOCAL BUSINESS ---- */
+    case 'local_business':
+        $activeTab = 'seo';
+        $lb = [
+            'lb_name'        => trim($_POST['lb_name']        ?? ''),
+            'lb_url'         => trim($_POST['lb_url']         ?? ''),
+            'lb_phone'       => trim($_POST['lb_phone']       ?? ''),
+            'lb_street'      => trim($_POST['lb_street']      ?? ''),
+            'lb_city'        => trim($_POST['lb_city']        ?? ''),
+            'lb_state'       => trim($_POST['lb_state']       ?? ''),
+            'lb_zip'         => trim($_POST['lb_zip']         ?? ''),
+            'lb_country'     => trim($_POST['lb_country']     ?? 'US'),
+            'lb_lat'         => trim($_POST['lb_lat']         ?? ''),
+            'lb_lng'         => trim($_POST['lb_lng']         ?? ''),
+            'lb_price_range' => trim($_POST['lb_price_range'] ?? '$$'),
+            'lb_hours'       => trim($_POST['lb_hours']       ?? ''),
+            'lb_description' => trim($_POST['lb_description'] ?? ''),
+            'lb_logo'        => trim($_POST['lb_logo']        ?? ''),
+            'lb_type'        => trim($_POST['lb_type']        ?? 'LocalBusiness'),
+        ];
+        $data['local_business'] = $lb;
+        save_data($data);
+        $message = 'success:Local business info saved.';
         break;
 
     default:
