@@ -12,10 +12,13 @@
  */
 
 $theme  = $data['theme'];
-$header = $data['header'];
-$footer = $data['footer'];
+$header = apply_shortcodes_to_block($data['header']);
+$footer = apply_shortcodes_to_block($data['footer']);
 
-$pageTitle = !empty($pageTitle) ? $pageTitle : SITE_TITLE;
+$pageTitle = resolve_shortcodes(!empty($pageTitle) ? $pageTitle : SITE_TITLE);
+if (isset($seo['meta_description'])) $seo['meta_description'] = resolve_shortcodes($seo['meta_description']);
+if (isset($seo['og_title']))         $seo['og_title']         = resolve_shortcodes($seo['og_title']);
+if (isset($seo['og_description']))   $seo['og_description']   = resolve_shortcodes($seo['og_description']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -156,9 +159,11 @@ $infoItems = $header['info_items']      ?? [];
                         <span class="helpline-label" style="color:<?= h($navText) ?>;">Helpline:</span>
                         <span class="helpline-sponsored" style="color:<?= h($navText) ?>;">
                             <?php if (!empty($data['popups']['info']['enabled'])): ?>
-                                <button class="info-trigger" onclick="openInfoPopup()" aria-label="Info" style="color:<?= h($navText) ?>;">&#9432;</button>
+                                <button class="info-trigger" onclick="openInfoPopup()" aria-label="Info" style="color:<?= h($navText) ?>;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2ZM11 7h2v2h-2zm0 4h2v6h-2z"/></svg>
+                                </button>
                             <?php else: ?>
-                                &#9432;
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2ZM11 7h2v2h-2zm0 4h2v6h-2z"/></svg>
                             <?php endif; ?>
                             Sponsored
                         </span>
@@ -168,6 +173,9 @@ $infoItems = $header['info_items']      ?? [];
                        style="<?= $btnStyle === 'outline'
                            ? 'border-color:'.h($navText).';color:'.h($navText).';'
                            : 'background:'.h($navBg).';color:'.h($navText).';' ?>">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex-shrink:0;">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C7.61 21 1 14.39 1 6c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
                         <?= h($header['phone']) ?>
                     </a>
                 </div>
@@ -294,13 +302,20 @@ $infoItems = $header['info_items']      ?? [];
                 <button class="info-trigger sticky-info-trigger"
                         onclick="openInfoPopup()"
                         title="<?= h($footer['sticky_bar_info'] ?? '') ?>"
-                        style="color:<?= h($header['nav_text'] ?? '#ffffff') ?>;">&#9432;</button>
+                        style="color:<?= h($header['nav_text'] ?? '#ffffff') ?>;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2ZM11 7h2v2h-2zm0 4h2v6h-2z"/></svg>
+                </button>
             <?php endif; ?>
         </span>
         <?php if (!empty($footer['phone'])): ?>
         <a href="tel:<?= h(preg_replace('/[^0-9+]/', '', $footer['phone'])) ?>"
            class="sticky-bar-phone" style="color:<?= h($header['nav_text'] ?? '#ffffff') ?>;">
-            📞 <?= h($footer['phone']) ?>
+            <span class="sticky-phone-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C7.61 21 1 14.39 1 6c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+            </span>
+            <span class="sticky-phone-number"><?= h($footer['phone']) ?></span>
         </a>
         <?php endif; ?>
     </div>
@@ -323,9 +338,27 @@ if (!empty($infoPopup['enabled']) && (!empty($infoPopup['heading']) || !empty($i
         if (preg_match('/<[a-z][\s\S]*>/i', $text)) {
             return $text;
         }
-        // Plain text — convert **bold** and wrap paragraphs
+        // Plain text — convert **bold**, auto-link URLs and phones, wrap paragraphs
         $safe = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
         $safe = preg_replace('/\*\*(.+?)\*\*/s', '<strong>$1</strong>', $safe);
+        // Auto-link https?:// URLs
+        $safe = preg_replace(
+            '/\bhttps?:\/\/[^\s<>"]+/i',
+            '<a href="$0" target="_blank" rel="noopener">$0</a>',
+            $safe
+        );
+        // Auto-link bare domains like katypestpros.com
+        $safe = preg_replace(
+            '/\b(?<!href=["\'])(?<!\/\/)([a-z0-9][a-z0-9\-]*\.[a-z]{2,}(?:\/[^\s<"]*)?)\b/i',
+            '<a href="https://$1" target="_blank" rel="noopener">$1</a>',
+            $safe
+        );
+        // Auto-link phone numbers
+        $safe = preg_replace(
+            '/\((\d{3})\)\s*(\d{3})-(\d{4})/',
+            '<a href="tel:+1$1$2$3">($1) $2-$3</a>',
+            $safe
+        );
         $paras = preg_split('/\n\s*\n/', trim($safe));
         $html = '';
         foreach ($paras as $p) { $p = trim($p); if ($p !== '') $html .= '<p>' . nl2br($p) . '</p>'; }
@@ -339,8 +372,8 @@ if (!empty($infoPopup['enabled']) && (!empty($infoPopup['heading']) || !empty($i
             <img class="info-popup-image" src="<?= h(($assetPathPrefix ?? '') . $infoPopup['image']) ?>" alt="">
         <?php endif; ?>
         <div class="info-popup-content">
-            <h2 class="info-popup-heading"><?= h($infoPopup['heading']) ?></h2>
-            <div class="info-popup-body"><?= renderPopupBody($infoPopup['body']) ?></div>
+            <h2 class="info-popup-heading"><?= h(resolve_shortcodes($infoPopup['heading'] ?? '')) ?></h2>
+            <div class="info-popup-body"><?= renderPopupBody(resolve_shortcodes($infoPopup['body'] ?? '')) ?></div>
         </div>
     </div>
 </div>

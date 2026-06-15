@@ -7,9 +7,11 @@ function default_data() {
     return [
         'theme' => [
             'header_bg'      => '#ffffff',
+            'header_top_bg'  => '#ffffff',
             'header_text'    => '#000000',
             'content_bg'     => '#ffffff',
             'content_text'   => '#000000',
+            'heading_color'  => '#000000',
             'footer_bg'      => '#ffffff',
             'footer_text'    => '#000000',
             'accent_color'   => '#2563eb',
@@ -80,13 +82,20 @@ function default_data() {
             'lb_logo'        => '',
             'lb_type'        => 'LocalBusiness',
         ],
+        'site_vars' => [
+            'city'      => '',
+            'state'     => '',
+            'SS'        => '',
+            'city_slug' => '',
+            'business'  => '',
+            'phone'     => '',
+            'zip'       => '',
+            'website'   => '',
+        ],
         'footer' => [
             'logo'                  => '',
             'logo_in_copyright_bar' => false,
-            'tagline'               => 'Tell visitors what makes you different.',
-            'highlight'       => '',
             'phone'           => '+1 (555) 123-4567',
-            'email'           => 'info@example.com',
             'disclaimer'      => '',
             'sticky_bar_text' => '24/7 Support Line - Call Now',
             'sticky_bar_info' => '',
@@ -169,6 +178,46 @@ function default_page_data() {
     ];
 }
 
+/* ============================================================
+   SHORTCODE SYSTEM
+   Tokens: {city} {state} {SS} {city_state} {city_slug} {business} {phone} {zip} {website}
+   Values stored in $data['site_vars']. Applied at render time.
+   ============================================================ */
+function resolve_shortcodes(string $text): string {
+    global $data;
+    $v          = $data['site_vars'] ?? [];
+    $city       = $v['city']      ?? '';
+    $state      = $v['state']     ?? '';
+    $SS         = $v['SS']        ?? '';
+    $city_slug  = $v['city_slug'] ?? '';
+    $business   = $v['business']  ?? '';
+    $phone      = $v['phone']     ?? '';
+    $zip        = $v['zip']       ?? '';
+    $website    = $v['website']   ?? '';
+    $city_state = $city && $SS ? $city . ', ' . $SS : $city . $SS;
+    return str_replace(
+        ['{city}', '{state}', '{SS}', '{city_state}', '{city_slug}', '{business}', '{phone}', '{zip}', '{website}'],
+        [$city,    $state,    $SS,    $city_state,    $city_slug,    $business,    $phone,    $zip,    $website],
+        $text
+    );
+}
+
+function apply_shortcodes_to_block(array $block): array {
+    static $skipKeys = ['photo','image','logo','icon','src','bg_photo','color','type','anchor','heading_level','ratio','position','align','style','layout','side'];
+    foreach ($block as $key => $value) {
+        if (is_string($value)) {
+            $skip = false;
+            foreach ($skipKeys as $sk) {
+                if (stripos($key, $sk) !== false) { $skip = true; break; }
+            }
+            if (!$skip) $block[$key] = resolve_shortcodes($value);
+        } elseif (is_array($value)) {
+            $block[$key] = apply_shortcodes_to_block($value);
+        }
+    }
+    return $block;
+}
+
 function slugify($text) {
     $text = strtolower((string) $text);
     $text = preg_replace('/[^a-z0-9]+/', '-', $text);
@@ -202,8 +251,12 @@ function find_page_by_slug($pages, $slug) {
 }
 
 function save_data($data) {
-    if (!is_dir(dirname(DATA_FILE))) mkdir(dirname(DATA_FILE), 0775, true);
-    file_put_contents(DATA_FILE, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE), LOCK_EX);
+    $dir = dirname(DATA_FILE);
+    if (!is_dir($dir)) mkdir($dir, 0775, true);
+    $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    $tmp  = DATA_FILE . '.tmp.' . getmypid();
+    if (file_put_contents($tmp, $json, LOCK_EX) === false) return;
+    rename($tmp, DATA_FILE);
 }
 
 function upload_image($fieldName, $prefix) {
@@ -384,6 +437,7 @@ function heading_level_options() {
    FRONTEND: render a single block
    ============================================================ */
 function render_content_block($block, $pathPrefix = '') {
+    $block = apply_shortcodes_to_block($block);
     $type  = $block['type'] ?? 'text';
     $text  = $block['text'] ?? '';
     $photo = $block['photo'] ?? '';
@@ -462,6 +516,7 @@ function render_content_block($block, $pathPrefix = '') {
             $caption2   = $block['hs_caption2']    ?? '';
             $bgColor    = $block['hs_bg_color']    ?? '#f3f6f7';
             $bgPhoto    = $block['hs_bg_photo']    ?? '';
+            $imgSide    = $block['hs_image_side']  ?? 'right';
             $anchorOut  = $anchorAttr;
             if ($bgPhoto) {
                 $bgPhotoSrc = (str_starts_with($bgPhoto, 'http') || str_starts_with($bgPhoto, '//'))
@@ -472,27 +527,29 @@ function render_content_block($block, $pathPrefix = '') {
             }
             echo '<div class="content-block block-hero-split"'.$anchorOut.' style="'.$bgStyle.'">';
             echo '<div class="container hs-inner">';
-            // Left: text
+            // Build image column HTML
+            $hsImgCol = '';
+            if ($photo) {
+                $photoSrc = (str_starts_with($photo, 'http') || str_starts_with($photo, '//'))
+                    ? $photo : $pathPrefix . $photo;
+                $hsImgCol .= '<div class="hs-image-wrap">';
+                $hsImgCol .= '<img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="hs-image">';
+                if ($caption1 || $caption2) {
+                    $hsImgCol .= '<div class="hs-caption">';
+                    if ($caption1) $hsImgCol .= '<div class="hs-caption-title">'.h($caption1).'</div>';
+                    if ($caption2) $hsImgCol .= '<div class="hs-caption-sub">'.h($caption2).'</div>';
+                    $hsImgCol .= '</div>';
+                }
+                $hsImgCol .= '</div>';
+            }
+            if ($imgSide === 'left') echo $hsImgCol;
+            // Text column
             echo '<div class="hs-text">';
             if ($heading) echo '<h1 class="hs-heading">'.h($heading).'</h1>';
             if ($subtext) echo '<p class="hs-subtext">'.h($subtext).'</p>';
             if ($btnText) echo '<a href="'.h($btnUrl).'" class="hs-btn">'.h($btnText).'</a>';
             echo '</div>';
-            // Right: image with caption overlay
-            if ($photo) {
-                $photoSrc = (str_starts_with($photo, 'http') || str_starts_with($photo, '//'))
-                    ? $photo
-                    : $pathPrefix . $photo;
-                echo '<div class="hs-image-wrap">';
-                echo '<img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="hs-image">';
-                if ($caption1 || $caption2) {
-                    echo '<div class="hs-caption">';
-                    if ($caption1) echo '<div class="hs-caption-title">'.h($caption1).'</div>';
-                    if ($caption2) echo '<div class="hs-caption-sub">'.h($caption2).'</div>';
-                    echo '</div>';
-                }
-                echo '</div>';
-            }
+            if ($imgSide !== 'left') echo $hsImgCol;
             echo '</div></div>';
             break;
 
@@ -847,7 +904,8 @@ function render_content_block($block, $pathPrefix = '') {
 
             echo '<div class="content-block block-cta-banner"'.$anchorAttr
                 .' style="background:'.$bgStyle.';padding:'.$paddingStyle.';text-align:center;">';
-            if ($text)    echo '<div class="container"><p class="cb-text" style="color:'.h($textColor).';">'.h($text).'</p>';
+            echo '<div class="container">';
+            if ($text)    echo '<p class="cb-text" style="color:'.h($textColor).';">'.h($text).'</p>';
             if ($subtext) echo '<p class="cb-subtext" style="color:'.h($textColor).';">'.h($subtext).'</p>';
             if ($btnText) echo '<a href="'.h($btnUrl).'" class="cb-btn" style="color:'.h($bgStyle).';background:'.h($textColor).';">'.h($btnText).'</a>';
             echo '</div></div>';
@@ -1277,7 +1335,6 @@ function render_content_block($block, $pathPrefix = '') {
             break;
 
         default:
-            echo '<div class="content-block text-only"><div class="content-text">' . text_to_html($text) . '</div></div>';
             break;
     }
 }
@@ -1425,7 +1482,8 @@ function render_content_blocks_editor($blocks) {
                             <img src="/<?= h($block['hero_bg_image']) ?>" style="max-height:80px;border-radius:4px;margin-bottom:6px;display:block;" onerror="this.style.display='none'">
                         <?php endif; ?>
                         <input type="file" name="hero_bg_image[]" accept="image/png,image/jpeg,image/gif,image/webp">
-                        <input type="hidden" name="hero_bg_image_existing[]" value="<?= h($block['hero_bg_image'] ?? '') ?>">
+                        <input type="hidden" id="hero_bg_image_existing_<?= $i ?>" name="hero_bg_image_existing[]" value="<?= h($block['hero_bg_image'] ?? '') ?>">
+                        <?php photo_picker_btn('hero_bg_image_existing[]', '', 'hero_bg_image_existing_' . $i); ?>
                     </div>
                 </div>
 
@@ -1461,18 +1519,27 @@ function render_content_blocks_editor($blocks) {
                         <?php if (!empty($block['hs_bg_photo'])): ?>
                             <img src="/<?= h($block['hs_bg_photo']) ?>" style="max-height:60px;border-radius:4px;margin-bottom:6px;display:block;" onerror="this.style.display='none'">
                         <?php endif; ?>
-                        <input type="hidden" name="hs_bg_photo_existing[]" value="<?= h($block['hs_bg_photo'] ?? '') ?>">
-                        <?php photo_picker_btn('hs_bg_photo_existing[]'); ?>
+                        <input type="hidden" id="hs_bg_photo_existing_<?= $i ?>" name="hs_bg_photo_existing[]" value="<?= h($block['hs_bg_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('hs_bg_photo_existing[]', '', 'hs_bg_photo_existing_' . $i); ?>
                         <span class="hint">Use a vector/texture image for a full-width background effect.</span>
                     </div>
                     <div class="form-group">
-                        <label>Right-side image</label>
+                        <label>Image position</label>
+                        <select name="hs_image_side[]">
+                            <option value="right" <?= ($block['hs_image_side'] ?? 'right') === 'right' ? 'selected' : '' ?>>Text left, image right</option>
+                            <option value="left"  <?= ($block['hs_image_side'] ?? 'right') === 'left'  ? 'selected' : '' ?>>Image left, text right</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Image</label>
+                        <div id="hs_photo_preview_<?= $i ?>">
                         <?php if (!empty($block['hs_photo'])): ?>
                             <img src="/<?= h($block['hs_photo']) ?>" style="max-height:80px;border-radius:4px;margin-bottom:6px;display:block;" onerror="this.style.display='none'">
                         <?php endif; ?>
+                        </div>
                         <input type="file" name="hs_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
-                        <input type="hidden" name="hs_photo_existing[]" value="<?= h($block['hs_photo'] ?? '') ?>">
-                        <?php photo_picker_btn('hs_photo_existing[]'); ?>
+                        <input type="hidden" id="hs_photo_existing_<?= $i ?>" name="hs_photo_existing[]" value="<?= h($block['hs_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('hs_photo_existing[]', 'hs_photo_preview_' . $i, 'hs_photo_existing_' . $i); ?>
                     </div>
                     <div class="form-group">
                         <label>Image alt text (SEO)</label>
@@ -1561,8 +1628,8 @@ function render_content_blocks_editor($blocks) {
                             <img src="<?= str_starts_with($block['fs_photo'], 'http') ? h($block['fs_photo']) : '/'.h($block['fs_photo']) ?>" style="max-height:80px;border-radius:6px;margin-bottom:6px;display:block;" onerror="this.style.display='none'">
                         <?php endif; ?>
                         <input type="file" name="fs_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
-                        <input type="hidden" name="fs_photo_existing[]" value="<?= h($block['fs_photo'] ?? '') ?>">
-                        <?php photo_picker_btn('fs_photo_existing[]'); ?>
+                        <input type="hidden" id="fs_photo_existing_<?= $i ?>" name="fs_photo_existing[]" value="<?= h($block['fs_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('fs_photo_existing[]', '', 'fs_photo_existing_' . $i); ?>
                     </div>
                     <div class="form-group">
                         <label>Image alt text</label>
@@ -1600,7 +1667,8 @@ function render_content_blocks_editor($blocks) {
                                         <img src="../<?= h($col['image']) ?>" style="max-height:48px;display:block;margin-bottom:4px;">
                                     <?php endif; ?>
                                     <input type="file" name="fc_col_image[<?= $i ?>][]" accept="image/png,image/jpeg,image/gif,image/webp" style="font-size:0.78rem;">
-                                    <input type="hidden" name="fc_col_image_existing[<?= $i ?>][]" value="<?= h($col['image'] ?? '') ?>">
+                                    <input type="hidden" id="fc_col_img_<?= $i ?>_<?= $ci ?>" name="fc_col_image_existing[<?= $i ?>][]" value="<?= h($col['image'] ?? '') ?>">
+                                    <button type="button" class="btn btn-small btn-secondary" style="margin-top:4px;" onclick="openImgPicker(function(url){var i=document.getElementById('fc_col_img_<?= $i ?>_<?= $ci ?>');if(i)i.value=url;})">📷 Library</button>
                                 </div>
                                 <div style="flex:1 1 160px;">
                                     <div class="form-group">
@@ -1742,8 +1810,8 @@ function render_content_blocks_editor($blocks) {
                             <img src="../<?= h($block['it_photo']) ?>" style="max-height:80px;border-radius:4px;margin-bottom:6px;display:block;">
                         <?php endif; ?>
                         <input type="file" name="it_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
-                        <input type="hidden" name="it_photo_existing[]" value="<?= h($block['it_photo'] ?? '') ?>">
-                        <?php photo_picker_btn('it_photo_existing[]'); ?>
+                        <input type="hidden" id="it_photo_existing_<?= $i ?>" name="it_photo_existing[]" value="<?= h($block['it_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('it_photo_existing[]', '', 'it_photo_existing_' . $i); ?>
                     </div>
                     <div class="form-group">
                         <label>Image alt text (SEO)</label>
@@ -1884,8 +1952,8 @@ function render_content_blocks_editor($blocks) {
                             <img src="<?= str_starts_with($block['mi_info_photo'],'http') ? h($block['mi_info_photo']) : '/'.h($block['mi_info_photo']) ?>" style="max-height:80px;border-radius:4px;margin-bottom:6px;display:block;" onerror="this.style.display='none'">
                         <?php endif; ?>
                         <input type="file" name="mi_info_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
-                        <input type="hidden" name="mi_info_photo_existing[]" value="<?= h($block['mi_info_photo'] ?? '') ?>">
-                        <?php photo_picker_btn('mi_info_photo_existing[]'); ?>
+                        <input type="hidden" id="mi_info_photo_existing_<?= $i ?>" name="mi_info_photo_existing[]" value="<?= h($block['mi_info_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('mi_info_photo_existing[]', '', 'mi_info_photo_existing_' . $i); ?>
                     </div>
                     <div class="form-group">
                         <label>Photo alt text</label>
@@ -1960,8 +2028,8 @@ function render_content_blocks_editor($blocks) {
                             <img src="<?= str_starts_with($block['lg_photo'],'http') ? h($block['lg_photo']) : '/'.h($block['lg_photo']) ?>" style="max-height:60px;border-radius:4px;margin-bottom:6px;display:block;" onerror="this.style.display='none'">
                         <?php endif; ?>
                         <input type="file" name="lg_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
-                        <input type="hidden" name="lg_photo_existing[]" value="<?= h($block['lg_photo'] ?? '') ?>">
-                        <?php photo_picker_btn('lg_photo_existing[]'); ?>
+                        <input type="hidden" id="lg_photo_existing_<?= $i ?>" name="lg_photo_existing[]" value="<?= h($block['lg_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('lg_photo_existing[]', '', 'lg_photo_existing_' . $i); ?>
                     </div>
                     <div class="form-group">
                         <label>Image alt text</label>
@@ -2126,8 +2194,8 @@ function render_content_blocks_editor($blocks) {
                             <img src="<?= str_starts_with($block['if_photo'],'http') ? h($block['if_photo']) : '/'.h($block['if_photo']) ?>" style="max-height:80px;border-radius:4px;margin-bottom:6px;display:block;" onerror="this.style.display='none'">
                         <?php endif; ?>
                         <input type="file" name="if_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
-                        <input type="hidden" name="if_photo_existing[]" value="<?= h($block['if_photo'] ?? '') ?>">
-                        <?php photo_picker_btn('if_photo_existing[]'); ?>
+                        <input type="hidden" id="if_photo_existing_<?= $i ?>" name="if_photo_existing[]" value="<?= h($block['if_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('if_photo_existing[]', '', 'if_photo_existing_' . $i); ?>
                     </div>
                     <div class="form-group">
                         <label>Photo alt text</label>
@@ -2233,8 +2301,8 @@ function render_content_blocks_editor($blocks) {
                             <img src="<?= str_starts_with($block['wb_photo'],'http') ? h($block['wb_photo']) : '/'.h($block['wb_photo']) ?>" style="max-height:60px;border-radius:4px;margin-bottom:6px;display:block;" onerror="this.style.display='none'">
                         <?php endif; ?>
                         <input type="file" name="wb_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
-                        <input type="hidden" name="wb_photo_existing[]" value="<?= h($block['wb_photo'] ?? '') ?>">
-                        <?php photo_picker_btn('wb_photo_existing[]'); ?>
+                        <input type="hidden" id="wb_photo_existing_<?= $i ?>" name="wb_photo_existing[]" value="<?= h($block['wb_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('wb_photo_existing[]', '', 'wb_photo_existing_' . $i); ?>
                     </div>
                     <div class="form-group">
                         <label>Image alt text</label>
@@ -2305,8 +2373,9 @@ function render_content_blocks_editor($blocks) {
                                         <?php if (!empty($sitem['icon'])): ?>
                                             <img src="<?= str_starts_with($sitem['icon'],'http') ? h($sitem['icon']) : '/'.h($sitem['icon']) ?>" style="max-height:40px;display:block;margin-bottom:4px;" onerror="this.style.display='none'">
                                         <?php endif; ?>
-                                        <input type="file" name="sc_item_icon[<?= $i ?>][]" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" style="font-size:0.75rem;">
-                                        <input type="hidden" name="sc_item_icon_existing[<?= $i ?>][]" value="<?= h($sitem['icon'] ?? '') ?>">
+                                                        <input type="file" name="sc_item_icon[<?= $i ?>][]" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" style="font-size:0.75rem;">
+                                        <input type="hidden" id="sc_icon_<?= $i ?>_<?= $si ?>" name="sc_item_icon_existing[<?= $i ?>][]" value="<?= h($sitem['icon'] ?? '') ?>">
+                                        <button type="button" class="btn btn-small btn-secondary" style="margin-top:4px;" onclick="openImgPicker(function(url){var i=document.getElementById('sc_icon_<?= $i ?>_<?= $si ?>');if(i)i.value=url;})">📷 Library</button>
                                     </div>
                                     <div class="form-group">
                                         <label>Alt text</label>
@@ -2364,7 +2433,8 @@ function render_content_blocks_editor($blocks) {
                             <img src="<?= str_starts_with($block['hg_photo'],'http') ? h($block['hg_photo']) : '/'.h($block['hg_photo']) ?>" style="max-height:60px;border-radius:4px;margin-bottom:6px;display:block;" onerror="this.style.display='none'">
                         <?php endif; ?>
                         <input type="file" name="hg_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
-                        <input type="hidden" name="hg_photo_existing[]" value="<?= h($block['hg_photo'] ?? '') ?>">
+                        <input type="hidden" id="hg_photo_existing_<?= $i ?>" name="hg_photo_existing[]" value="<?= h($block['hg_photo'] ?? '') ?>">
+                        <?php photo_picker_btn('hg_photo_existing[]', '', 'hg_photo_existing_' . $i); ?>
                     </div>
                     <div class="form-group">
                         <label>Image alt text</label>
@@ -2552,7 +2622,8 @@ function render_content_blocks_editor($blocks) {
                                             <img src="/<?= h($step['image']) ?>" style="max-height:48px;display:block;margin-bottom:4px;" onerror="this.style.display='none'">
                                         <?php endif; ?>
                                         <input type="file" name="steps_image[<?= $i ?>][]" accept="image/png,image/jpeg,image/gif,image/webp" style="font-size:0.78rem;">
-                                        <input type="hidden" name="steps_image_existing[<?= $i ?>][]" value="<?= h($step['image'] ?? '') ?>">
+                                        <input type="hidden" id="steps_img_<?= $i ?>_<?= $si ?>" name="steps_image_existing[<?= $i ?>][]" value="<?= h($step['image'] ?? '') ?>">
+                                        <button type="button" class="btn btn-small btn-secondary" style="margin-top:4px;" onclick="openImgPicker(function(url){var i=document.getElementById('steps_img_<?= $i ?>_<?= $si ?>');if(i)i.value=url;})">📷 Library</button>
                                     </div>
                                     <div class="form-group">
                                         <label>Alt text</label>
@@ -2628,7 +2699,7 @@ function render_content_blocks_editor($blocks) {
                         </select>
                     </div>
                     <div class="cards-items-editor" id="cards_items_<?= $i ?>">
-                        <?php foreach (($block['cards_items'] ?? []) as $card): ?>
+                        <?php foreach (($block['cards_items'] ?? []) as $ci => $card): ?>
                         <div class="card-item-row">
                             <div style="display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;border:1px solid #e5e7eb;border-radius:6px;padding:12px;margin-bottom:8px;background:#f9fafb;">
                                 <div style="flex:0 0 100px;">
@@ -2638,7 +2709,8 @@ function render_content_blocks_editor($blocks) {
                                             <img src="/<?= h($card['image']) ?>" style="max-height:60px;display:block;margin-bottom:4px;" onerror="this.style.display='none'">
                                         <?php endif; ?>
                                         <input type="file" name="cards_image[<?= $i ?>][]" accept="image/png,image/jpeg,image/gif,image/webp" style="font-size:0.78rem;">
-                                        <input type="hidden" name="cards_image_existing[<?= $i ?>][]" value="<?= h($card['image'] ?? '') ?>">
+                                        <input type="hidden" id="cards_img_<?= $i ?>_<?= $ci ?>" name="cards_image_existing[<?= $i ?>][]" value="<?= h($card['image'] ?? '') ?>">
+                                        <button type="button" class="btn btn-small btn-secondary" style="margin-top:4px;" onclick="openImgPicker(function(url){var i=document.getElementById('cards_img_<?= $i ?>_<?= $ci ?>');if(i)i.value=url;})">📷 Library</button>
                                     </div>
                                     <div class="form-group">
                                         <label>Alt text</label>
@@ -2682,11 +2754,17 @@ function render_content_blocks_editor($blocks) {
 }
 
 /* helper: photo upload sub-form (used inside image_left/right fields) */
-function photo_picker_btn(string $hiddenName, string $previewId = ''): void {
+function photo_picker_btn(string $hiddenName, string $previewId = '', string $inputId = ''): void {
     $safe = htmlspecialchars($hiddenName, ENT_QUOTES, 'UTF-8');
     $pid  = $previewId ? htmlspecialchars($previewId, ENT_QUOTES, 'UTF-8') : '';
+    $iid  = $inputId   ? htmlspecialchars($inputId,   ENT_QUOTES, 'UTF-8') : '';
+    // Use getElementById when an inputId is provided (precise targeting for repeated block fields).
+    // Fall back to querySelector for unique names like popup_info_image_existing.
+    $setInput = $iid
+        ? "var i=document.getElementById('{$iid}');if(i)i.value=url;"
+        : "var i=document.querySelector('[name=\"{$safe}\"]');if(i)i.value=url;";
     $js = "openImgPicker(function(url,alt){"
-        . "var i=document.querySelector('[name=\"{$safe}\"]');if(i)i.value=url;"
+        . $setInput
         . ($pid ? "var p=document.getElementById('{$pid}');if(p){p.innerHTML='<img src=\"../'+url+'\" style=\"max-height:80px;border-radius:4px;margin-bottom:6px;display:block;\">';}" : "")
         . "})";
     echo '<button type="button" class="btn btn-small btn-secondary" style="margin-left:8px;" onclick="' . htmlspecialchars($js, ENT_QUOTES, 'UTF-8') . '">📷 Library</button>';
@@ -3485,6 +3563,7 @@ function content_editor_scripts() {
     /* ---- Feature Columns helpers ---- */
     function addFcCol(btn, blockIdx) {
         const editor = document.getElementById('fc_cols_' + blockIdx);
+        const uid = 'fc_col_img_' + blockIdx + '_' + Date.now();
         const row = document.createElement('div');
         row.className = 'fc-col-row';
         row.innerHTML = `
@@ -3492,7 +3571,8 @@ function content_editor_scripts() {
                 <div class="form-group" style="flex:0 0 80px;">
                     <label>Icon/image</label>
                     <input type="file" name="fc_col_image[${blockIdx}][]" accept="image/png,image/jpeg,image/gif,image/webp" style="font-size:0.78rem;">
-                    <input type="hidden" name="fc_col_image_existing[${blockIdx}][]" value="">
+                    <input type="hidden" id="${uid}" name="fc_col_image_existing[${blockIdx}][]" value="">
+                    <button type="button" class="btn btn-small btn-secondary" style="margin-top:4px;" onclick="openImgPicker(function(url){var i=document.getElementById('${uid}');if(i)i.value=url;})">📷 Library</button>
                 </div>
                 <div style="flex:1 1 160px;">
                     <div class="form-group"><label>Heading (H3)</label><input type="text" name="fc_col_heading[${blockIdx}][]" placeholder="e.g. Ants"></div>
@@ -3604,6 +3684,7 @@ function content_editor_scripts() {
     /* ---- Service Cards helpers ---- */
     function addScItem(btn, blockIdx) {
         const editor = document.getElementById('sc_items_' + blockIdx);
+        const uid = 'sc_icon_' + blockIdx + '_' + Date.now();
         const row = document.createElement('div');
         row.className = 'sc-item-row';
         row.style.cssText = 'border:1px solid #e5e7eb;border-radius:6px;padding:12px;margin-bottom:8px;background:#f9fafb;';
@@ -3612,7 +3693,8 @@ function content_editor_scripts() {
                 <div style="flex:0 0 100px;">
                     <div class="form-group"><label>Icon image</label>
                         <input type="file" name="sc_item_icon[${blockIdx}][]" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" style="font-size:0.75rem;">
-                        <input type="hidden" name="sc_item_icon_existing[${blockIdx}][]" value="">
+                        <input type="hidden" id="${uid}" name="sc_item_icon_existing[${blockIdx}][]" value="">
+                        <button type="button" class="btn btn-small btn-secondary" style="margin-top:4px;" onclick="openImgPicker(function(url){var i=document.getElementById('${uid}');if(i)i.value=url;})">📷 Library</button>
                     </div>
                     <div class="form-group"><label>Alt text</label>
                         <input type="text" name="sc_item_alt[${blockIdx}][]" style="font-size:0.8rem;">
@@ -3757,6 +3839,7 @@ function content_editor_scripts() {
     /* ---- Steps helpers ---- */
     function addStepItem(btn, blockIdx) {
         const editor = document.getElementById('steps_items_' + blockIdx);
+        const uid = 'steps_img_' + blockIdx + '_' + Date.now();
         const row = document.createElement('div');
         row.className = 'step-item-row';
         row.innerHTML = `
@@ -3764,7 +3847,8 @@ function content_editor_scripts() {
                 <div style="flex:0 0 100px;">
                     <div class="form-group"><label>Icon/image (optional)</label>
                         <input type="file" name="steps_image[${blockIdx}][]" accept="image/png,image/jpeg,image/gif,image/webp" style="font-size:0.78rem;">
-                        <input type="hidden" name="steps_image_existing[${blockIdx}][]" value="">
+                        <input type="hidden" id="${uid}" name="steps_image_existing[${blockIdx}][]" value="">
+                        <button type="button" class="btn btn-small btn-secondary" style="margin-top:4px;" onclick="openImgPicker(function(url){var i=document.getElementById('${uid}');if(i)i.value=url;})">📷 Library</button>
                     </div>
                     <div class="form-group"><label>Alt text</label>
                         <input type="text" name="steps_alt[${blockIdx}][]" placeholder="Step icon description" style="font-size:0.82rem;">
@@ -3806,6 +3890,7 @@ function content_editor_scripts() {
     /* ---- Cards helpers ---- */
     function addCardItem(btn, blockIdx) {
         const editor = document.getElementById('cards_items_' + blockIdx);
+        const uid = 'cards_img_' + blockIdx + '_' + Date.now();
         const row = document.createElement('div');
         row.className = 'card-item-row';
         row.innerHTML = `
@@ -3813,7 +3898,8 @@ function content_editor_scripts() {
                 <div style="flex:0 0 100px;">
                     <div class="form-group"><label>Image</label>
                         <input type="file" name="cards_image[${blockIdx}][]" accept="image/png,image/jpeg,image/gif,image/webp" style="font-size:0.78rem;">
-                        <input type="hidden" name="cards_image_existing[${blockIdx}][]" value="">
+                        <input type="hidden" id="${uid}" name="cards_image_existing[${blockIdx}][]" value="">
+                        <button type="button" class="btn btn-small btn-secondary" style="margin-top:4px;" onclick="openImgPicker(function(url){var i=document.getElementById('${uid}');if(i)i.value=url;})">📷 Library</button>
                     </div>
                     <div class="form-group"><label>Alt text</label>
                         <input type="text" name="cards_alt[${blockIdx}][]" placeholder="Image description" style="font-size:0.82rem;">

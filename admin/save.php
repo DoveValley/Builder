@@ -69,12 +69,21 @@ switch ($section) {
         $logo = upload_image('logo', 'logo');
         if ($logo === false) $message = 'error:Logo upload failed.';        elseif ($logo !== null) $data['header']['logo'] = $logo;
         if (!empty($_POST['remove_logo'])) $data['header']['logo'] = '';
+        // Site variables (shortcodes)
+        $data['site_vars']['city']      = trim($_POST['site_vars_city']      ?? '');
+        $data['site_vars']['state']     = trim($_POST['site_vars_state']     ?? '');
+        $data['site_vars']['SS']        = trim($_POST['site_vars_SS']        ?? '');
+        $data['site_vars']['city_slug'] = trim($_POST['site_vars_city_slug'] ?? '');
+        $data['site_vars']['business']  = trim($_POST['site_vars_business']  ?? '');
+        $data['site_vars']['phone']     = trim($_POST['site_vars_phone']     ?? '');
+        $data['site_vars']['zip']       = trim($_POST['site_vars_zip']       ?? '');
+        $data['site_vars']['website']   = trim($_POST['site_vars_website']   ?? '');
         break;
 
     /* ---- THEME ---- */
     case 'theme':
         $activeTab = 'theme';
-        $colorKeys = ['header_bg','header_top_bg','header_text','content_bg','content_text','footer_bg','footer_text','accent_color'];
+        $colorKeys = ['header_bg','header_top_bg','header_text','content_bg','content_text','heading_color','footer_bg','footer_text','accent_color'];
         foreach ($colorKeys as $key) {
             $value = trim($_POST[$key] ?? '');
             if (preg_match('/^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/', $value)) $data['theme'][$key] = $value;
@@ -167,7 +176,9 @@ switch ($section) {
                     $block['hs_btn_url']   = trim($_POST['hs_btn_url'][$i]   ?? '');
                     $block['hs_caption1']  = trim($_POST['hs_caption1'][$i]  ?? '');
                     $block['hs_caption2']  = trim($_POST['hs_caption2'][$i]  ?? '');
-                    $block['hs_photo_alt'] = trim($_POST['hs_photo_alt'][$i] ?? '');
+                    $block['hs_photo_alt']   = trim($_POST['hs_photo_alt'][$i]   ?? '');
+                    $imgSideVal = trim($_POST['hs_image_side'][$i] ?? 'right');
+                    $block['hs_image_side'] = in_array($imgSideVal, ['left','right']) ? $imgSideVal : 'right';
                     $bgColor = trim($_POST['hs_bg_color'][$i] ?? '#f3f6f7');
                     $block['hs_bg_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $bgColor) ? $bgColor : '#f3f6f7';
                     $block['hs_photo'] = trim($_POST['hs_photo_existing'][$i] ?? '');
@@ -324,8 +335,9 @@ switch ($section) {
                     $block['mi_info_heading'] = trim($_POST['mi_info_heading'][$i] ?? '');
                     $block['mi_info_text']    = trim($_POST['mi_info_text'][$i]    ?? '');
                     $block['mi_info_alt']     = trim($_POST['mi_info_alt'][$i]     ?? '');
-                    // Sanitize map embed — only allow iframe tag
+                    // Sanitize map embed — only allow iframe tag, strip event attributes
                     $rawEmbed = trim($_POST['mi_map_embed'][$i] ?? '');
+                    $rawEmbed = preg_replace('/\s+on\w+\s*=\s*("[^"]*"|\'[^\']*\'|[^\s>]*)/i', '', $rawEmbed);
                     $block['mi_map_embed'] = preg_match('/<iframe[^>]*>.*<\/iframe>/is', $rawEmbed) ? $rawEmbed : '';
                     $mhc = in_array($_POST['mi_head_color'][$i] ?? '', ['accent','header','custom']) ? $_POST['mi_head_color'][$i] : 'header';
                     $block['mi_head_color'] = $mhc;
@@ -424,7 +436,8 @@ switch ($section) {
                     $ibc = trim($_POST['if_bg_color'][$i] ?? '#f3f6f7');
                     $block['if_bg_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $ibc) ? $ibc : '#f3f6f7';
                     foreach (['if_check_color','if_head_color'] as $ck) {
-                        $cv = in_array($_POST[$ck][$i] ?? '', ['accent','header','custom']) ? $_POST[$ck][$i] : 'accent';
+                        $default = $ck === 'if_head_color' ? 'header' : 'accent';
+                        $cv = in_array($_POST[$ck][$i] ?? '', ['accent','header','custom']) ? $_POST[$ck][$i] : $default;
                         $block[$ck] = $cv;
                     }
                     $cc = trim($_POST['if_check_color_custom'][$i] ?? '#fd783b');
@@ -631,8 +644,10 @@ switch ($section) {
 
                 case 'stats':
                     $block['stats_heading']    = trim($_POST['stats_heading'][$i]    ?? '');
-                    $block['stats_bg_color']   = trim($_POST['stats_bg_color'][$i]   ?? '#1e3a5f');
-                    $block['stats_text_color'] = trim($_POST['stats_text_color'][$i] ?? '#ffffff');
+                    $sbc = trim($_POST['stats_bg_color'][$i]   ?? '#1e3a5f');
+                    $stc = trim($_POST['stats_text_color'][$i] ?? '#ffffff');
+                    $block['stats_bg_color']   = preg_match('/^#[0-9a-fA-F]{3,6}$/', $sbc) ? $sbc : '#1e3a5f';
+                    $block['stats_text_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $stc) ? $stc : '#ffffff';
                     $numbers = $_POST['stats_number'][$i] ?? [];
                     $labels  = $_POST['stats_label'][$i]  ?? [];
                     $statItems = [];
@@ -746,10 +761,7 @@ switch ($section) {
     /* ---- FOOTER ---- */
     case 'footer':
         $activeTab = 'footer';
-        $data['footer']['tagline']              = trim($_POST['tagline']         ?? '');
-        $data['footer']['highlight']            = trim($_POST['highlight']       ?? '');
         $data['footer']['phone']                = trim($_POST['footer_phone']    ?? '');
-        $data['footer']['email']                = trim($_POST['email']           ?? '');
         $data['footer']['copyright']            = trim($_POST['copyright']       ?? '');
         $data['footer']['disclaimer']           = trim($_POST['disclaimer']      ?? '');
         $data['footer']['sticky_bar_text']      = trim($_POST['sticky_bar_text'] ?? '');

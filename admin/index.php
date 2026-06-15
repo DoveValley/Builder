@@ -15,11 +15,12 @@ if (empty($_SESSION['csrf_token'])) {
 $csrfToken = $_SESSION['csrf_token'];
 
 $data    = load_data();
-$theme   = $data['theme'];
-$header  = $data['header'];
-$blocks  = $data['content_blocks'];
-$footer  = $data['footer'];
-$seo     = $data['seo'];
+$theme    = $data['theme'];
+$header   = $data['header'];
+$siteVars = $data['site_vars'];
+$blocks   = $data['content_blocks'];
+$footer   = $data['footer'];
+$seo      = $data['seo'];
 $pages   = $data['pages'];
 
 // Active tab
@@ -104,6 +105,7 @@ foreach ($footer['columns'] as $ci => $column) {
     document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('form[action="save.php"]').forEach(function(form) {
             form.addEventListener('submit', function() {
+                // CSRF token
                 var inp = form.querySelector('input[name="csrf_token"]');
                 if (!inp) {
                     inp = document.createElement('input');
@@ -149,6 +151,54 @@ foreach ($footer['columns'] as $ci => $column) {
     <div class="tab-content" style="<?= $tab === 'header' ? '' : 'display:none;' ?>">
         <form action="save.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="section" value="header">
+            <div style="margin-bottom:16px;"><button type="submit" class="btn">Save Header</button></div>
+
+            <div class="card">
+                <h2>Site Variables</h2>
+                <p class="hint" style="margin-bottom:16px;">
+                    Use these tokens anywhere in your content or SEO fields:
+                    <code>{city}</code> <code>{state}</code> <code>{SS}</code> <code>{city_state}</code>
+                    <code>{business}</code> <code>{phone}</code> <code>{zip}</code>
+                </p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                    <div class="form-group" style="margin:0;">
+                        <label>City</label>
+                        <input type="text" name="site_vars_city" value="<?= h($siteVars['city'] ?? '') ?>" placeholder="e.g. Katy">
+                    </div>
+                    <div class="form-group" style="margin:0;">
+                        <label>Full state <code>{state}</code></label>
+                        <input type="text" name="site_vars_state" value="<?= h($siteVars['state'] ?? '') ?>" placeholder="e.g. Texas">
+                    </div>
+                    <div class="form-group" style="margin:0;">
+                        <label>State abbreviation <code>{SS}</code></label>
+                        <input type="text" name="site_vars_SS" value="<?= h($siteVars['SS'] ?? '') ?>" placeholder="e.g. TX" maxlength="5">
+                    </div>
+                    <div class="form-group" style="margin:0;">
+                        <label>City slug <code>{city_slug}</code></label>
+                        <input type="text" name="site_vars_city_slug" value="<?= h($siteVars['city_slug'] ?? '') ?>" placeholder="e.g. katy-tx">
+                        <span class="hint">Used in page URLs. Lowercase, hyphenated.</span>
+                    </div>
+                    <div class="form-group" style="margin:0;">
+                        <label>Zip code <code>{zip}</code></label>
+                        <input type="text" name="site_vars_zip" value="<?= h($siteVars['zip'] ?? '') ?>" placeholder="e.g. 77449" maxlength="10">
+                    </div>
+                    <div class="form-group" style="margin:0;">
+                        <label>Business name <code>{business}</code></label>
+                        <input type="text" name="site_vars_business" value="<?= h($siteVars['business'] ?? '') ?>" placeholder="e.g. Katy Pest Pros">
+                    </div>
+                    <div class="form-group" style="margin:0;">
+                        <label>Phone <code>{phone}</code></label>
+                        <input type="tel" name="site_vars_phone" value="<?= h($siteVars['phone'] ?? '') ?>" placeholder="e.g. (281) 555-1234">
+                    </div>
+                    <div class="form-group" style="margin:0;">
+                        <label>Website <code>{website}</code></label>
+                        <input type="text" name="site_vars_website" value="<?= h($siteVars['website'] ?? '') ?>" placeholder="e.g. katypestpros.com">
+                    </div>
+                </div>
+                <p class="hint" style="margin-top:12px;">
+                    <strong>{city_state}</strong> is auto-built from City + State abbreviation (e.g. "Katy, TX").
+                </p>
+            </div>
 
             <div class="card">
                 <h2>Logo (top left)</h2>
@@ -336,12 +386,14 @@ foreach ($footer['columns'] as $ci => $column) {
     <div class="tab-content" style="<?= $tab === 'theme' ? '' : 'display:none;' ?>">
         <form action="save.php" method="post">
             <input type="hidden" name="section" value="theme">
+            <div style="margin-bottom:16px;"><button type="submit" class="btn">Save Theme</button></div>
 
             <?php
             $colorGroups = [
                 'Header' => [
-                    'header_bg'   => 'Background color',
-                    'header_text' => 'Text & menu color',
+                    'header_bg'     => 'Nav bar background color',
+                    'header_top_bg' => 'Top announcement bar background',
+                    'header_text'   => 'Text & menu color',
                 ],
                 'Main Content' => [
                     'content_bg'    => 'Background color',
@@ -447,17 +499,25 @@ foreach ($footer['columns'] as $ci => $column) {
     <div class="tab-content" style="<?= $tab === 'content' ? '' : 'display:none;' ?>">
         <form action="save.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="section" value="content">
+            <div style="margin-bottom:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+                <button type="submit" class="btn">Save Content</button>
+                <a href="../index.php" target="_blank" class="btn btn-secondary">Preview Home Page &rarr;</a>
+            </div>
 
+            <?php if ($tab === 'content'): ?>
             <?php render_content_blocks_editor($blocks); ?>
 
             <?php render_seo_editor($seo); ?>
-                </div>
-            </div>
+            <?php endif; ?>
 
             <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
                 <button type="submit" class="btn">Save Content</button>
                 <a href="../index.php" target="_blank" class="btn btn-secondary">Preview Home Page &rarr;</a>
             </div>
+        </form>
+    </div>
+
+    <!-- ================= PAGES TAB ================= -->
     <div class="tab-content" style="<?= $tab === 'pages' ? '' : 'display:none;' ?>">
         <?php if ($editingPage === null): ?>
 
@@ -516,6 +576,10 @@ foreach ($footer['columns'] as $ci => $column) {
             <form action="save.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="section" value="content">
                 <input type="hidden" name="page_id" value="<?= h($editingPageId) ?>">
+                <div style="margin-bottom:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+                    <button type="submit" class="btn">Save Page</button>
+                    <a href="../page.php?slug=<?= h($editingPage['slug'] ?? '') ?>" target="_blank" class="btn btn-secondary">Preview Page &rarr;</a>
+                </div>
 
                 <div class="card">
                     <h2>Page Settings</h2>
@@ -558,6 +622,7 @@ foreach ($footer['columns'] as $ci => $column) {
     <div class="tab-content" style="<?= $tab === 'footer' ? '' : 'display:none;' ?>">
         <form action="save.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="section" value="footer">
+            <div style="margin-bottom:16px;"><button type="submit" class="btn">Save Footer</button></div>
 
             <div class="card">
                 <h2>Footer Logo &amp; Phone</h2>
@@ -724,6 +789,7 @@ foreach ($footer['columns'] as $ci => $column) {
         ?>
         <form action="save.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="section" value="popups">
+            <div style="margin-bottom:16px;"><button type="submit" class="btn">Save Popup</button></div>
 
             <div class="card">
                 <h2>Info Popup</h2>
@@ -749,6 +815,7 @@ foreach ($footer['columns'] as $ci => $column) {
                     <?php endif; ?>
                     <input type="file" name="popup_info_image" accept="image/png,image/jpeg,image/gif,image/webp">
                     <input type="hidden" name="popup_info_image_existing" value="<?= h($infoPopup['image'] ?? '') ?>">
+                    <?php photo_picker_btn('popup_info_image_existing'); ?>
                 </div>
 
                 <div class="form-group">
