@@ -595,7 +595,7 @@
                             'alt'      => trim($cardAlts[$ci] ?? ''),
                             'heading'  => $ch,
                             'text'     => $ct,
-                            'link'     => trim($cardLinks[$ci] ?? ''),
+                            'link'     => sanitize_url($cardLinks[$ci] ?? ''),
                             'btn_text' => trim($cardBtns[$ci] ?? 'Read More') ?: 'Read More',
                         ];
                     }
