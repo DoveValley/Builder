@@ -82,6 +82,49 @@ function allowed_block_types() {
     ];
 }
 
+function grouped_block_types(): array {
+    return [
+        'Hero / Banner' => [
+            'hero'        => 'Full width',
+            'hero_split'  => 'Split (image right)',
+            'hero_grid'   => 'Grid (image left, icon grid right)',
+            'wide_banner' => 'Wide (full-width bg image)',
+        ],
+        'Content' => [
+            'text'          => 'Text only',
+            'image_left'    => 'Image left, text right',
+            'image_right'   => 'Text left, image right',
+            'image_text'    => 'Image & text side by side',
+            'feature_split' => 'Feature split (image left, icon grid right)',
+        ],
+        'Features & Services' => [
+            'service_cards'   => 'Service cards grid',
+            'tab_services'    => 'Tabbed services',
+            'feature_columns' => 'Feature columns',
+            'image_features'  => 'Image + feature checklist',
+            'steps'           => 'Process steps',
+            'stats'           => 'Stats / counters',
+            'cards'           => 'Cards grid',
+            'gallery'         => 'Photo gallery',
+        ],
+        'FAQ & Links' => [
+            'faq'         => 'Accordion',
+            'faq_two_col' => 'Two-column accordion',
+            'links_grid'  => 'Links grid',
+        ],
+        'CTA' => [
+            'cta_banner' => 'Solid color banner',
+            'cta_card'   => 'CTA card (heading + phone)',
+            'split_cta'  => 'Split panel (colored + phone)',
+            'cta_button' => 'Button only',
+        ],
+        'Utility' => [
+            'map_info'    => 'Map + info',
+            'custom_html' => 'Custom HTML',
+        ],
+    ];
+}
+
 function heading_level_options() {
     return ['h1' => 'H1 (Page title — use once)', 'h2' => 'H2 (Section heading)', 'h3' => 'H3 (Sub-section)', 'p' => 'Paragraph (no heading)'];
 }

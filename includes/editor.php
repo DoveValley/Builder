@@ -34,10 +34,6 @@ function heading_level_options_html($selected = 'h2') {
    ============================================================ */
 function render_content_blocks_editor($blocks) {
     $blockList = $blocks ?: [['type' => 'text', 'heading_level' => 'h2', 'text' => '', 'photo' => '']];
-    $blockTypeOptions = '';
-    foreach (allowed_block_types() as $key => $label) {
-        $blockTypeOptions .= '<option value="' . h($key) . '">' . h($label) . '</option>';
-    }
     ?>
     <div class="card">
         <h2>Content Blocks</h2>
@@ -53,8 +49,12 @@ function render_content_blocks_editor($blocks) {
                 <div class="block-card-header">
                     <span class="block-label">Block <?= $i + 1 ?></span>
                     <select name="block_type[]" class="block-type-select" onchange="switchBlockType(this)">
-                        <?php foreach (allowed_block_types() as $key => $label): ?>
-                            <option value="<?= h($key) ?>" <?= $key === $type ? 'selected' : '' ?>><?= h($label) ?></option>
+                        <?php foreach (grouped_block_types() as $groupLabel => $groupItems): ?>
+                            <optgroup label="<?= h($groupLabel) ?>">
+                                <?php foreach ($groupItems as $key => $label): ?>
+                                    <option value="<?= h($key) ?>" <?= $key === $type ? 'selected' : '' ?>><?= h($label) ?></option>
+                                <?php endforeach; ?>
+                            </optgroup>
                         <?php endforeach; ?>
                     </select>
                     <input type="text" name="block_anchor[]"

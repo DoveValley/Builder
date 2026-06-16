@@ -45,8 +45,12 @@ function content_editor_scripts() {
         card.dataset.blockType = 'text';
 
         let typeOptions = '';
-        <?php foreach (allowed_block_types() as $k => $l): ?>
+        <?php foreach (grouped_block_types() as $groupLabel => $groupItems): ?>
+        typeOptions += `<optgroup label="<?= h($groupLabel) ?>">`;
+        <?php foreach ($groupItems as $k => $l): ?>
         typeOptions += `<option value="<?= h($k) ?>"><?= h($l) ?></option>`;
+        <?php endforeach; ?>
+        typeOptions += `</optgroup>`;
         <?php endforeach; ?>
 
         card.innerHTML = `
