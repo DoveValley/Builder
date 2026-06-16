@@ -19,8 +19,11 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Protect per-site data directories from direct web access
+    # Protect per-site data directories and meta files from direct web access
     RewriteRule ^sites/[^/]+/data(/.*)?$ - [F,L]
+    RewriteRule ^sites/[^/]+/meta\.json$ - [F,L]
+    # Block directory listing of sites/ root
+    RewriteRule ^sites/?$ - [F,L]
 
     # Serve sitemap.xml and robots.txt via PHP so shortcodes resolve automatically
     RewriteRule ^sitemap\.xml$ sitemap.php [L]

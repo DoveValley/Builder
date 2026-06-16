@@ -190,7 +190,12 @@ function fmt_date(string $iso): string {
             </div>
             <div class="site-card-actions">
                 <button class="btn-open" onclick="openSite('<?= h($s['id']) ?>')">Open &rarr;</button>
-                <a href="site_api.php?action=export&site_id=<?= urlencode($s['id']) ?>" class="btn-sm-outline">Export</a>
+                <form method="post" action="site_api.php" style="display:contents;">
+                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                    <input type="hidden" name="action" value="export">
+                    <input type="hidden" name="site_id" value="<?= h($s['id']) ?>">
+                    <button type="submit" class="btn-sm-outline">Export</button>
+                </form>
                 <button class="btn-sm-outline" onclick="cloneSite('<?= h($s['id']) ?>', '<?= h(addslashes($s['name'])) ?>')">Clone</button>
                 <button class="btn-sm-danger" onclick="deleteSite('<?= h($s['id']) ?>', '<?= h(addslashes($s['name'])) ?>')">Delete</button>
             </div>

@@ -9,27 +9,30 @@ if (empty($_SESSION['admin_logged_in'])) {
     exit;
 }
 
-$action = $_GET['action'] ?? $_POST['action'] ?? '';
+$action = $_POST['action'] ?? $_GET['action'] ?? '';
+
+// All state-changing actions (including export) require CSRF
+$token = $_POST['csrf_token'] ?? '';
+if (!hash_equals($_SESSION['csrf_token'] ?? '', $token)) {
+    http_response_code(403);
+    // Export streams a file — send plain text error before any output
+    if ($action === 'export') {
+        echo 'Invalid request token';
+    } else {
+        header('Content-Type: application/json');
+        echo json_encode(['error' => 'Invalid request token']);
+    }
+    exit;
+}
 
 // Export streams a file — handle before JSON header
 if ($action === 'export') {
-    $siteId = trim($_GET['site_id'] ?? '');
+    $siteId = trim($_POST['site_id'] ?? '');
     site_export($siteId);
     exit;
 }
 
 header('Content-Type: application/json');
-
-// CSRF required for all state-changing POST actions
-$mutating = ['create', 'clone', 'delete', 'rename', 'select', 'deselect', 'import'];
-if (in_array($action, $mutating, true)) {
-    $token = $_POST['csrf_token'] ?? '';
-    if (!hash_equals($_SESSION['csrf_token'] ?? '', $token)) {
-        http_response_code(403);
-        echo json_encode(['error' => 'Invalid request token']);
-        exit;
-    }
-}
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -259,7 +262,10 @@ switch ($action) {
         }
         $id = make_site_id($name);
         scaffold_site_dir($id);
-        copy($legacyData, sites_dir() . $id . '/data/site.json');
+        // Rewrite upload paths from legacy format (uploads/) to per-site format
+        $json = file_get_contents($legacyData);
+        $json = str_replace('"uploads/', '"sites/' . $id . '/uploads/', $json);
+        file_put_contents(sites_dir() . $id . '/data/site.json', $json);
         if (is_dir($legacyUploads)) {
             copy_dir($legacyUploads, sites_dir() . $id . '/uploads');
         }
