@@ -1398,6 +1398,7 @@ function addLink(button) {
         const fd = new FormData();
         fd.append('action', 'delete');
         fd.append('filename', filename);
+        fd.append('csrf_token', CSRF_TOKEN);
         await fetch(api, { method:'POST', body: fd });
         if (item) delete mediaUsage[item.url];
         allMedia = allMedia.filter(m => m.filename !== filename);
@@ -1409,6 +1410,7 @@ function addLink(button) {
         fd.append('action', 'update');
         fd.append('filename', filename);
         fd.append('alt', alt);
+        fd.append('csrf_token', CSRF_TOKEN);
         await fetch(api, { method:'POST', body: fd });
     };
 
@@ -1418,6 +1420,7 @@ function addLink(button) {
             const fd = new FormData();
             fd.append('action', 'upload');
             fd.append('file', file);
+            fd.append('csrf_token', CSRF_TOKEN);
             const res  = await fetch(api, { method:'POST', body: fd });
             const data = await res.json();
             if (data.item) {
@@ -1473,6 +1476,7 @@ function addLink(button) {
         const fd = new FormData();
         fd.append('action', 'vary_batch');
         fd.append('seed',   seed);
+        fd.append('csrf_token', CSRF_TOKEN);
         const res  = await fetch(api, { method: 'POST', body: fd });
         const data = await res.json();
 
@@ -1497,7 +1501,7 @@ function addLink(button) {
         btn.textContent = 'Scanning…';
 
         // Backfill hashes for any new images
-        const hfd = new FormData(); hfd.append('action', 'hash_all');
+        const hfd = new FormData(); hfd.append('action', 'hash_all'); hfd.append('csrf_token', CSRF_TOKEN);
         await fetch(api, { method: 'POST', body: hfd });
 
         // Get duplicate groups
@@ -1524,6 +1528,7 @@ function addLink(button) {
         const fd = new FormData();
         fd.append('action', 'delete');
         fd.append('filename', filename);
+        fd.append('csrf_token', CSRF_TOKEN);
         await fetch(api, { method: 'POST', body: fd });
 
         if (item) delete mediaUsage[item.url];
@@ -1630,6 +1635,7 @@ function addLink(button) {
         fd.append('filename', focalFilename);
         fd.append('focal_x',  focalX.toFixed(1));
         fd.append('focal_y',  focalY.toFixed(1));
+        fd.append('csrf_token', CSRF_TOKEN);
         const res  = await fetch(api, { method:'POST', body: fd });
         const data = await res.json();
         if (data.success) {
@@ -1684,6 +1690,7 @@ function addLink(button) {
         fd.append('y',        d.y);
         fd.append('width',    d.width);
         fd.append('height',   d.height);
+        fd.append('csrf_token', CSRF_TOKEN);
         const btn = document.getElementById('crop-apply-btn');
         btn.disabled = true;
         btn.textContent = 'Saving…';

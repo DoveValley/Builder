@@ -235,6 +235,43 @@ function apply_shortcodes_to_block(array $block): array {
     return $block;
 }
 
+/**
+ * Sanitize a user-supplied URL (button links, menu links, canonical URLs, etc.)
+ * Only allows http(s), tel, mailto, in-page anchors, and relative/site-internal paths.
+ * Blocks javascript:, data:, vbscript:, and other dangerous schemes.
+ */
+function sanitize_url(string $raw): string {
+    $raw = trim($raw);
+    if ($raw === '') return '';
+    return preg_match('/^(https?:\/\/|tel:|mailto:|\/|#)/i', $raw) ? $raw : '';
+}
+
+/**
+ * Strip executable content from an uploaded SVG before saving it: <script> tags,
+ * on*="..." event handlers, and javascript: URIs. Returns false if the file
+ * doesn't parse as valid XML (rejects it rather than saving something unverified).
+ */
+function sanitize_svg(string $svg): string|false {
+    libxml_use_internal_errors(true);
+    $doc = new DOMDocument();
+    $ok  = $doc->loadXML($svg, LIBXML_NONET | LIBXML_NOENT);
+    libxml_clear_errors();
+    if (!$ok) return false;
+
+    $xpath = new DOMXPath($doc);
+    foreach ($xpath->query('//*[translate(local-name(),"SCRIPT","script")="script"]') as $node) {
+        $node->parentNode->removeChild($node);
+    }
+    foreach ($xpath->query('//@*') as $attr) {
+        $name = strtolower($attr->nodeName);
+        $value = trim($attr->nodeValue);
+        if (str_starts_with($name, 'on') || stripos($value, 'javascript:') === 0) {
+            $attr->ownerElement->removeAttribute($attr->nodeName);
+        }
+    }
+    return $doc->saveXML();
+}
+
 function slugify($text) {
     $text = strtolower((string) $text);
     $text = preg_replace('/[^a-z0-9]+/', '-', $text);
@@ -336,10 +373,18 @@ function save_uploaded_file($tmpPath, $prefix) {
 
     if (!is_dir(UPLOAD_DIR)) mkdir(UPLOAD_DIR, 0775, true);
 
-    // GIF / SVG — move as-is, no processing
-    if (isset($passthru[$mime])) {
-        $filename = $prefix . '_' . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.' . $passthru[$mime];
+    // GIF — move as-is, no processing
+    if ($mime === 'image/gif') {
+        $filename = $prefix . '_' . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.gif';
         return move_uploaded_file($tmpPath, UPLOAD_DIR . $filename) ? UPLOAD_URL . $filename : false;
+    }
+
+    // SVG — strip scripts/event handlers before saving (SVGs can carry embedded JS)
+    if ($mime === 'image/svg+xml') {
+        $svg = sanitize_svg(file_get_contents($tmpPath));
+        if ($svg === false) return false;
+        $filename = $prefix . '_' . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.svg';
+        return file_put_contents(UPLOAD_DIR . $filename, $svg) !== false ? UPLOAD_URL . $filename : false;
     }
 
     // Raster — resize to max 1800px wide and convert to WebP via GD

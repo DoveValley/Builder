@@ -39,20 +39,19 @@ switch ($section) {
         }
         $data['header']['info_items'] = $infoItems;
         $data['header']['topbar_text'] = trim($_POST['topbar_text'] ?? '');
-        $rawTopbarLink = trim($_POST['topbar_link'] ?? '');
         // Only allow safe URL schemes: https, http, tel, mailto — block javascript: etc.
-        $data['header']['topbar_link'] = preg_match('/^(https?:\/\/|tel:|mailto:|\/|#)/', $rawTopbarLink) ? $rawTopbarLink : '';
+        $data['header']['topbar_link'] = sanitize_url($_POST['topbar_link'] ?? '');
         $labels = $_POST['menu_label'] ?? [];
         $urls   = $_POST['menu_url']   ?? [];
         $menu   = [];
         foreach ($labels as $i => $label) {
-            $label = trim($label); $url = trim($urls[$i] ?? '');
+            $label = trim($label); $url = sanitize_url($urls[$i] ?? '');
             if ($label === '' && $url === '') continue;
             $childLabels = $_POST['menu_child_label'][$i] ?? [];
             $childUrls   = $_POST['menu_child_url'][$i]   ?? [];
             $children = [];
             foreach ($childLabels as $ci => $cl) {
-                $cl = trim($cl); $cu = trim($childUrls[$ci] ?? '');
+                $cl = trim($cl); $cu = sanitize_url($childUrls[$ci] ?? '');
                 if ($cl === '' && $cu === '') continue;
                 $children[] = ['label' => $cl, 'url' => $cu !== '' ? $cu : '#'];
             }
@@ -161,7 +160,7 @@ switch ($section) {
                     $block['hero_heading']    = trim($_POST['hero_heading'][$i]    ?? '');
                     $block['hero_subtext']    = trim($_POST['hero_subtext'][$i]    ?? '');
                     $block['hero_btn_text']   = trim($_POST['hero_btn_text'][$i]   ?? '');
-                    $block['hero_btn_url']    = trim($_POST['hero_btn_url'][$i]    ?? '');
+                    $block['hero_btn_url']    = sanitize_url($_POST['hero_btn_url'][$i]    ?? '');
                     $block['hero_text_color'] = trim($_POST['hero_text_color'][$i] ?? '#ffffff');
                     $bgColor = trim($_POST['hero_bg_color'][$i] ?? '');
                     $block['hero_bg_color'] = preg_match('/^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/', $bgColor) ? $bgColor : '#1e3a5f';
@@ -176,7 +175,7 @@ switch ($section) {
                     $block['hs_heading']   = trim($_POST['hs_heading'][$i]   ?? '');
                     $block['hs_subtext']   = trim($_POST['hs_subtext'][$i]   ?? '');
                     $block['hs_btn_text']  = trim($_POST['hs_btn_text'][$i]  ?? '');
-                    $block['hs_btn_url']   = trim($_POST['hs_btn_url'][$i]   ?? '');
+                    $block['hs_btn_url']   = sanitize_url($_POST['hs_btn_url'][$i]   ?? '');
                     $block['hs_caption1']  = trim($_POST['hs_caption1'][$i]  ?? '');
                     $block['hs_caption2']  = trim($_POST['hs_caption2'][$i]  ?? '');
                     $block['hs_photo_alt']   = trim($_POST['hs_photo_alt'][$i]   ?? '');
@@ -264,7 +263,7 @@ switch ($section) {
                     $block['sc_left_text']      = trim($_POST['sc_left_text'][$i]      ?? '');
                     $block['sc_right_label']    = trim($_POST['sc_right_label'][$i]    ?? '');
                     $block['sc_right_phone']    = trim($_POST['sc_right_phone'][$i]    ?? '');
-                    $block['sc_right_phone_url']= trim($_POST['sc_right_phone_url'][$i]?? '');
+                    $block['sc_right_phone_url']= sanitize_url($_POST['sc_right_phone_url'][$i]?? '');
                     $scLeftBg  = in_array($_POST['sc_left_bg'][$i]  ?? '', ['accent','header','custom']) ? $_POST['sc_left_bg'][$i]  : 'accent';
                     $scRightBg = in_array($_POST['sc_right_bg'][$i] ?? '', ['accent','header','custom']) ? $_POST['sc_right_bg'][$i] : 'header';
                     $block['sc_left_bg']        = $scLeftBg;
@@ -278,7 +277,7 @@ switch ($section) {
 
                 case 'cta_button':
                     $block['cta_text']    = trim($_POST['cta_text'][$i]    ?? 'Contact Us');
-                    $block['cta_url']     = trim($_POST['cta_url'][$i]     ?? '#');
+                    $block['cta_url']     = sanitize_url($_POST['cta_url'][$i]     ?? '') ?: '#';
                     $block['cta_subtext'] = trim($_POST['cta_subtext'][$i] ?? '');
                     $block['cta_align']   = in_array($_POST['cta_align'][$i] ?? '', ['left','center','right'])
                         ? $_POST['cta_align'][$i] : 'center';
@@ -292,7 +291,7 @@ switch ($section) {
                     $block['it_heading'] = trim($_POST['it_heading'][$i] ?? '');
                     $block['it_text']    = trim($_POST['it_text'][$i]    ?? '');
                     $block['it_btn_text']= trim($_POST['it_btn_text'][$i]?? '');
-                    $block['it_btn_url'] = trim($_POST['it_btn_url'][$i] ?? '');
+                    $block['it_btn_url'] = sanitize_url($_POST['it_btn_url'][$i] ?? '');
                     $block['it_alt']     = trim($_POST['it_alt'][$i]     ?? '');
                     $block['it_photo']   = trim($_POST['it_photo_existing'][$i] ?? '');
                     $up = upload_image_indexed('it_photo', $i, 'it_photo');
@@ -326,7 +325,7 @@ switch ($section) {
                     $block['cc_heading']  = trim($_POST['cc_heading'][$i]  ?? '');
                     $block['cc_text']     = trim($_POST['cc_text'][$i]     ?? '');
                     $block['cc_btn_text'] = trim($_POST['cc_btn_text'][$i] ?? '');
-                    $block['cc_btn_url']  = trim($_POST['cc_btn_url'][$i]  ?? '');
+                    $block['cc_btn_url']  = sanitize_url($_POST['cc_btn_url'][$i]  ?? '');
                     $block['cc_btn_style']= ($_POST['cc_btn_style'][$i] ?? 'outline') === 'filled' ? 'filled' : 'outline';
                     $block['cc_align']    = ($_POST['cc_align'][$i] ?? 'split') === 'center' ? 'center' : 'split';
                     $ccBg = in_array($_POST['cc_bg'][$i] ?? '', ['accent','header','custom']) ? $_POST['cc_bg'][$i] : 'accent';
@@ -383,7 +382,7 @@ switch ($section) {
                     foreach ($lgLabels as $li => $ll) {
                         $ll = trim($ll);
                         if ($ll === '') continue;
-                        $lgLinks[] = ['label' => $ll, 'url' => trim($lgUrls[$li] ?? '#') ?: '#'];
+                        $lgLinks[] = ['label' => $ll, 'url' => sanitize_url($lgUrls[$li] ?? '#') ?: '#'];
                     }
                     $block['lg_links'] = $lgLinks;
                     if (empty($lgLinks) && $block['lg_heading'] === '') continue 2;
@@ -393,7 +392,7 @@ switch ($section) {
                     $block['cb_text']    = trim($_POST['cb_text'][$i]    ?? '');
                     $block['cb_subtext'] = trim($_POST['cb_subtext'][$i] ?? '');
                     $block['cb_btn_text']= trim($_POST['cb_btn_text'][$i]?? '');
-                    $block['cb_btn_url'] = trim($_POST['cb_btn_url'][$i] ?? '');
+                    $block['cb_btn_url'] = sanitize_url($_POST['cb_btn_url'][$i] ?? '');
                     $cbBg = in_array($_POST['cb_bg'][$i] ?? '', ['accent','header','custom']) ? $_POST['cb_bg'][$i] : 'accent';
                     $block['cb_bg'] = $cbBg;
                     $cbc = trim($_POST['cb_bg_custom'][$i] ?? '#fd783b');
@@ -438,7 +437,7 @@ switch ($section) {
                     $block['if_closing']     = trim($_POST['if_closing'][$i]     ?? '');
                     $block['if_phone_label'] = trim($_POST['if_phone_label'][$i] ?? '');
                     $block['if_phone']       = trim($_POST['if_phone'][$i]       ?? '');
-                    $block['if_phone_url']   = trim($_POST['if_phone_url'][$i]   ?? '');
+                    $block['if_phone_url']   = sanitize_url($_POST['if_phone_url'][$i]   ?? '');
                     $block['if_photo_alt']   = trim($_POST['if_photo_alt'][$i]   ?? '');
                     $ibc = trim($_POST['if_bg_color'][$i] ?? '#f3f6f7');
                     $block['if_bg_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $ibc) ? $ibc : '#f3f6f7';
@@ -467,7 +466,7 @@ switch ($section) {
                     $block['wb_heading']   = trim($_POST['wb_heading'][$i]   ?? '');
                     $block['wb_subtext']   = trim($_POST['wb_subtext'][$i]   ?? '');
                     $block['wb_btn_text']  = trim($_POST['wb_btn_text'][$i]  ?? '');
-                    $block['wb_btn_url']   = trim($_POST['wb_btn_url'][$i]   ?? '');
+                    $block['wb_btn_url']   = sanitize_url($_POST['wb_btn_url'][$i]   ?? '');
                     $block['wb_btn_style'] = ($_POST['wb_btn_style'][$i] ?? 'filled') === 'outline' ? 'outline' : 'filled';
                     $block['wb_centered']  = !empty($_POST['wb_centered'][$i]);
                     $block['wb_photo_alt'] = trim($_POST['wb_photo_alt'][$i] ?? '');
@@ -515,7 +514,7 @@ switch ($section) {
                         }
                         $sh = trim($sh); $st = trim($scTexts[$si] ?? '');
                         if ($sh === '' && $st === '' && !$iconPath) continue;
-                        $scItems[] = ['icon' => $iconPath, 'alt' => trim($scAlts[$si] ?? ''), 'heading' => $sh, 'text' => $st, 'url' => trim($scUrls[$si] ?? '')];
+                        $scItems[] = ['icon' => $iconPath, 'alt' => trim($scAlts[$si] ?? ''), 'heading' => $sh, 'text' => $st, 'url' => sanitize_url($scUrls[$si] ?? '')];
                     }
                     $block['sc_items'] = $scItems;
                     if (empty($scItems) && $block['sc_heading'] === '') continue 2;
@@ -526,7 +525,7 @@ switch ($section) {
                     $block['hg_heading']   = trim($_POST['hg_heading'][$i]   ?? '');
                     $block['hg_body']      = trim($_POST['hg_body'][$i]      ?? '');
                     $block['hg_btn_text']  = trim($_POST['hg_btn_text'][$i]  ?? '');
-                    $block['hg_btn_url']   = trim($_POST['hg_btn_url'][$i]   ?? '');
+                    $block['hg_btn_url']   = sanitize_url($_POST['hg_btn_url'][$i]   ?? '');
                     $block['hg_photo_alt'] = trim($_POST['hg_photo_alt'][$i] ?? '');
                     $block['hg_photo'] = trim($_POST['hg_photo_existing'][$i] ?? '');
                     $up = upload_image_indexed('hg_photo', $i, 'hg_photo');
@@ -725,7 +724,7 @@ switch ($section) {
         // SEO
         $seoData = [
             'seo_title'          => trim($_POST['seo_title']          ?? ''),
-            'canonical_url'      => trim($_POST['canonical_url']      ?? ''),
+            'canonical_url'      => sanitize_url($_POST['canonical_url']      ?? ''),
             'meta_description'   => trim($_POST['meta_description']   ?? ''),
             'meta_keywords'      => trim($_POST['meta_keywords']      ?? ''),
             'og_title'           => trim($_POST['og_title']           ?? ''),
@@ -737,7 +736,7 @@ switch ($section) {
             'service_description'=> trim($_POST['service_description']?? ''),
             'bc_label'           => trim($_POST['bc_label']           ?? ''),
             'bc_mid_label'       => trim($_POST['bc_mid_label']       ?? ''),
-            'bc_mid_url'         => trim($_POST['bc_mid_url']         ?? ''),
+            'bc_mid_url'         => sanitize_url($_POST['bc_mid_url']         ?? ''),
         ];
         $existingSeo = $isLandingPage ? $data['pages'][$pageId]['seo'] : ($isPost ? $data['posts'][$postId]['seo'] : $data['seo']);
         $schema = trim($_POST['schema'] ?? '');
@@ -862,7 +861,7 @@ switch ($section) {
                 foreach (($col['links'] ?? []) as $link) {
                     $label = trim($link['label'] ?? ''); $url = trim($link['url'] ?? '');
                     if ($label === '' && $url === '') continue;
-                    $links[] = ['label' => $label, 'url' => $url ?: '#'];
+                    $links[] = ['label' => $label, 'url' => sanitize_url($url) ?: '#'];
                 }
                 if ($title === '' && empty($links)) continue;
                 $columns[] = ['type' => 'links', 'title' => $title, 'links' => $links];
@@ -892,7 +891,7 @@ switch ($section) {
         $bottomUrls   = $_POST['bottom_link_url']   ?? [];
         $bottomLinks  = [];
         foreach ($bottomLabels as $i => $label) {
-            $label = trim($label); $url = trim($bottomUrls[$i] ?? '');
+            $label = trim($label); $url = sanitize_url($bottomUrls[$i] ?? '');
             if ($label === '' && $url === '') continue;
             $bottomLinks[] = ['label' => $label, 'url' => $url ?: '#'];
         }
@@ -927,7 +926,7 @@ switch ($section) {
         $activeTab = 'seo';
         $lb = [
             'lb_name'        => trim($_POST['lb_name']        ?? ''),
-            'lb_url'         => trim($_POST['lb_url']         ?? ''),
+            'lb_url'         => sanitize_url($_POST['lb_url']         ?? ''),
             'lb_phone'       => trim($_POST['lb_phone']       ?? ''),
             'lb_street'      => trim($_POST['lb_street']      ?? ''),
             'lb_city'        => trim($_POST['lb_city']        ?? ''),

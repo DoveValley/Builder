@@ -1,3 +1,13 @@
+# Block direct access to .git and other dotfiles/dotfolders if this repo
+# was ever deployed with .git still present (it should be removed before
+# going live, but this is a safety net).
+<IfModule mod_rewrite.c>
+    RewriteRule "(^|/)\.(?!well-known)" - [F,L]
+</IfModule>
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
 # Optional: pretty URLs for landing pages.
 # With this enabled, a page with slug "about-us" is reachable at
 # /about-us in addition to /page.php?slug=about-us.

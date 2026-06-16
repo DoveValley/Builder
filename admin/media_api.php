@@ -16,6 +16,16 @@ if (empty($_SESSION['admin_logged_in'])) {
     exit;
 }
 
+// CSRF check on all state-changing requests (anything that isn't a plain GET list/lookup)
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $token = $_POST['csrf_token'] ?? '';
+    if (!hash_equals($_SESSION['csrf_token'] ?? '', $token)) {
+        http_response_code(403);
+        echo json_encode(['error' => 'Invalid request token']);
+        exit;
+    }
+}
+
 define('MEDIA_DIR',  BASE_DIR . '/uploads/media/');
 define('MEDIA_JSON', BASE_DIR . '/data/media.json');
 define('MAX_WIDTH',  1800);

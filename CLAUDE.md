@@ -91,3 +91,11 @@ Before uploading anything new, check `uploads/media/` for an existing topically-
 ## Breadcrumbs
 
 `site-template.php` builds two separate breadcrumb arrays whenever `$slug` is set: `$bcItems` (relative URLs, used by the visible `<nav class="breadcrumb-bar">`) and `$bcSchemaItems` (absolute URLs, used only for the `BreadcrumbList` JSON-LD, since schema.org requires absolute URLs there). Keep these separate — reusing one absolute-URL array for both was a past bug that sent visible breadcrumb clicks off-site.
+
+## Security notes
+
+- **All admin AJAX endpoints require CSRF tokens.** `admin/save.php` and `admin/media_api.php` both check `$_SESSION['csrf_token']` against a `csrf_token` field on every POST. If you add a new POST endpoint, give it the same check.
+- **All user-entered URLs go through `sanitize_url()`** (`includes/functions.php`) before being stored — it only allows `http(s)://`, `tel:`, `mailto:`, and relative/in-page links, blocking `javascript:` and other dangerous schemes. Every `*_url`/`*_btn_url` field in `admin/save.php` must use it; don't add a new link field that stores `trim($_POST[...])` directly.
+- **Uploaded SVGs are sanitized** via `sanitize_svg()` (`includes/functions.php`) — strips `<script>` tags, `on*` event handlers, and `javascript:` URIs before saving. GIFs are still passed through unprocessed (raster format, no script risk).
+- **Never deploy this repo with `.git/` present in the webroot.** The root `.htaccess` now blocks direct access to dotfiles/dotfolders as a safety net, but the correct practice is to not upload `.git/` to a live host at all — it would otherwise expose full commit history, including old credential hashes.
+- **Change the default admin password before any site goes live** — `config.php` ships with a placeholder bcrypt hash for `admin123`.
