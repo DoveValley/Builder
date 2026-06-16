@@ -8,6 +8,12 @@ if (empty($_SESSION['admin_logged_in'])) {
     exit;
 }
 
+// Require an active site to be selected
+if (!ACTIVE_SITE_ID) {
+    header('Location: sites.php');
+    exit;
+}
+
 // Ensure CSRF token exists (in case session was started before login.php generated one)
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -142,7 +148,10 @@ foreach ($footer['columns'] as $ci => $column) {
 <div class="admin-wrapper">
 
     <div class="admin-header">
-        <h1>Homepage Admin Panel</h1>
+        <h1>
+            <a href="sites.php" style="color:inherit;text-decoration:none;font-size:0.75em;opacity:0.7;margin-right:10px;" title="All Sites">&#8592; Sites</a>
+            <?= h($data['local_business']['lb_name'] ?? SITE_TITLE) ?>
+        </h1>
         <div>
             <a href="../index.php" target="_blank" class="preview-link">View site &rarr;</a>
             &nbsp;|&nbsp;

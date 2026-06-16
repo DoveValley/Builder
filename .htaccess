@@ -19,6 +19,9 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # Protect per-site data directories from direct web access
+    RewriteRule ^sites/[^/]+/data(/.*)?$ - [F,L]
+
     # Serve sitemap.xml and robots.txt via PHP so shortcodes resolve automatically
     RewriteRule ^sitemap\.xml$ sitemap.php [L]
     RewriteRule ^robots\.txt$  robots.php  [L]

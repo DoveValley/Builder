@@ -27,6 +27,23 @@ define('SITE_TITLE', 'Katy Pest Pros');
 
 // File paths
 define('BASE_DIR', __DIR__);
-define('DATA_FILE', BASE_DIR . '/data/site.json');
-define('UPLOAD_DIR', BASE_DIR . '/uploads/');
-define('UPLOAD_URL', 'uploads/');
+
+// Multi-site routing: if a valid site is selected in session, use its paths.
+// Otherwise fall back to the legacy single-site paths (data/ + uploads/).
+$_activeSiteId = $_SESSION['active_site'] ?? '';
+if ($_activeSiteId
+    && preg_match('/^[a-z0-9][a-z0-9-]{0,59}$/', $_activeSiteId)
+    && is_dir(BASE_DIR . '/sites/' . $_activeSiteId)) {
+    define('ACTIVE_SITE_ID',  $_activeSiteId);
+    define('ACTIVE_SITE_DIR', BASE_DIR . '/sites/' . $_activeSiteId);
+    define('DATA_FILE',       BASE_DIR . '/sites/' . $_activeSiteId . '/data/site.json');
+    define('UPLOAD_DIR',      BASE_DIR . '/sites/' . $_activeSiteId . '/uploads/');
+    define('UPLOAD_URL',      'sites/' . $_activeSiteId . '/uploads/');
+} else {
+    define('ACTIVE_SITE_ID',  '');
+    define('ACTIVE_SITE_DIR', '');
+    define('DATA_FILE',       BASE_DIR . '/data/site.json');
+    define('UPLOAD_DIR',      BASE_DIR . '/uploads/');
+    define('UPLOAD_URL',      'uploads/');
+}
+unset($_activeSiteId);

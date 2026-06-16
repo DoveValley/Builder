@@ -40,7 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION[$ipKey] = ['count' => 0, 'first' => time()]; // reset on success
             $_SESSION['admin_logged_in'] = true;
             $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-            header('Location: index.php');
+            unset($_SESSION['active_site']); // always start at site picker after fresh login
+            header('Location: sites.php');
             exit;
         } else {
             $attempts['count']++;
