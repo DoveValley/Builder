@@ -602,6 +602,38 @@
                     $block['cards_items'] = $cardItems;
                     if (empty($cardItems) && $block['cards_heading'] === '') continue 2;
                     break;
+
+                case 'testimonials':
+                    $block['tm_heading']       = trim($_POST['tm_heading'][$i]       ?? '');
+                    $block['tm_cols']          = in_array($_POST['tm_cols'][$i] ?? '3', ['2','3']) ? (int)$_POST['tm_cols'][$i] : 3;
+                    $tmbg  = trim($_POST['tm_bg_color'][$i]      ?? '#f8fafc');
+                    $block['tm_bg_color']      = preg_match('/^#[0-9a-fA-F]{3,6}$/', $tmbg)  ? $tmbg  : '#f8fafc';
+                    $tmtc  = trim($_POST['tm_text_color'][$i]    ?? '#374151');
+                    $block['tm_text_color']    = preg_match('/^#[0-9a-fA-F]{3,6}$/', $tmtc)  ? $tmtc  : '#374151';
+                    $tmac  = in_array($_POST['tm_accent'][$i] ?? '', ['accent','header','custom']) ? $_POST['tm_accent'][$i] : 'accent';
+                    $block['tm_accent']        = $tmac;
+                    $tmacc = trim($_POST['tm_accent_custom'][$i] ?? '#f59e0b');
+                    $block['tm_accent_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $tmacc) ? $tmacc : '#f59e0b';
+                    $tmQuotes    = $_POST['tm_quote'][$i]    ?? [];
+                    $tmNames     = $_POST['tm_name'][$i]     ?? [];
+                    $tmLocations = $_POST['tm_location'][$i] ?? [];
+                    $tmItems = [];
+                    foreach ($tmQuotes as $ti => $tq) {
+                        $tq = trim($tq); $tn = trim($tmNames[$ti] ?? ''); $tl = trim($tmLocations[$ti] ?? '');
+                        if ($tq === '' && $tn === '') continue;
+                        $tmItems[] = ['quote' => $tq, 'name' => $tn, 'location' => $tl];
+                    }
+                    $block['tm_items'] = $tmItems;
+                    if (empty($tmItems) && $block['tm_heading'] === '') continue 2;
+                    break;
+
+                case 'video':
+                    $block['vid_heading'] = trim($_POST['vid_heading'][$i] ?? '');
+                    $block['vid_url']     = trim($_POST['vid_url'][$i]     ?? '');
+                    $block['vid_caption'] = trim($_POST['vid_caption'][$i] ?? '');
+                    $block['vid_width']   = ($_POST['vid_width'][$i] ?? 'contained') === 'full' ? 'full' : 'contained';
+                    if ($block['vid_url'] === '') continue 2;
+                    break;
             }
 
             $blocks[] = $block;

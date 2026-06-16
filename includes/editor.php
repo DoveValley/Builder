@@ -1461,6 +1461,87 @@ function render_content_blocks_editor($blocks) {
                     <button type="button" class="btn btn-secondary btn-small" onclick="addCardItem(this, <?= $i ?>)">+ Add card</button>
                 </div>
 
+                <?php /* ---- TESTIMONIALS FIELDS ---- */ ?>
+                <div class="block-fields block-fields-testimonials <?= $type !== 'testimonials' ? 'is-hidden' : '' ?>">
+                    <div class="form-group">
+                        <label>Section heading (optional)</label>
+                        <input type="text" name="tm_heading[]" value="<?= h($block['tm_heading'] ?? '') ?>" placeholder="e.g. What Our Customers Say">
+                    </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:1 1 130px;">
+                            <label>Background color</label>
+                            <input type="color" name="tm_bg_color[]" value="<?= h($block['tm_bg_color'] ?? '#f8fafc') ?>">
+                        </div>
+                        <div class="form-group" style="flex:1 1 130px;">
+                            <label>Text color</label>
+                            <input type="color" name="tm_text_color[]" value="<?= h($block['tm_text_color'] ?? '#374151') ?>">
+                        </div>
+                        <div class="form-group" style="flex:1 1 130px;">
+                            <label>Star color</label>
+                            <select name="tm_accent[]">
+                                <option value="accent" <?= ($block['tm_accent'] ?? 'accent') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
+                                <option value="header" <?= ($block['tm_accent'] ?? '') === 'header' ? 'selected' : '' ?>>Header (global)</option>
+                                <option value="custom" <?= ($block['tm_accent'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
+                            </select>
+                            <input type="color" name="tm_accent_custom[]" value="<?= h($block['tm_accent_custom'] ?? '#f59e0b') ?>" style="margin-top:4px;">
+                        </div>
+                        <div class="form-group" style="flex:0 0 90px;">
+                            <label>Columns</label>
+                            <select name="tm_cols[]">
+                                <option value="2" <?= (int)($block['tm_cols'] ?? 3) === 2 ? 'selected' : '' ?>>2</option>
+                                <option value="3" <?= (int)($block['tm_cols'] ?? 3) === 3 ? 'selected' : '' ?>>3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="tm-items-editor" id="tm_items_<?= $i ?>">
+                        <?php $tmItems = $block['tm_items'] ?? [['quote' => '', 'name' => '', 'location' => '']]; ?>
+                        <?php foreach ($tmItems as $titem): ?>
+                        <div class="faq-item-row">
+                            <div class="form-group">
+                                <label>Review text</label>
+                                <textarea name="tm_quote[<?= $i ?>][]" rows="3" placeholder="e.g. Fast, professional service. Got rid of our ant problem in one visit."><?= h($titem['quote'] ?? '') ?></textarea>
+                            </div>
+                            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                                <div class="form-group" style="flex:1 1 160px;">
+                                    <label>Customer name</label>
+                                    <input type="text" name="tm_name[<?= $i ?>][]" value="<?= h($titem['name'] ?? '') ?>" placeholder="e.g. Sarah M.">
+                                </div>
+                                <div class="form-group" style="flex:1 1 160px;">
+                                    <label>Location (optional)</label>
+                                    <input type="text" name="tm_location[<?= $i ?>][]" value="<?= h($titem['location'] ?? '') ?>" placeholder="e.g. Katy, TX">
+                                </div>
+                            </div>
+                            <button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)" style="margin-bottom:12px;">Remove review</button>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-small" onclick="addTmItem(this, <?= $i ?>)">+ Add review</button>
+                </div>
+
+                <?php /* ---- VIDEO FIELDS ---- */ ?>
+                <div class="block-fields block-fields-video <?= $type !== 'video' ? 'is-hidden' : '' ?>">
+                    <div class="form-group">
+                        <label>Heading (optional)</label>
+                        <input type="text" name="vid_heading[]" value="<?= h($block['vid_heading'] ?? '') ?>" placeholder="e.g. See Us In Action">
+                    </div>
+                    <div class="form-group">
+                        <label>YouTube or Vimeo URL</label>
+                        <input type="url" name="vid_url[]" value="<?= h($block['vid_url'] ?? '') ?>" placeholder="https://www.youtube.com/watch?v=...">
+                        <span class="hint">Paste a YouTube or Vimeo link — the embed is generated automatically.</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Caption (optional)</label>
+                        <input type="text" name="vid_caption[]" value="<?= h($block['vid_caption'] ?? '') ?>" placeholder="Optional text shown below the video">
+                    </div>
+                    <div class="form-group">
+                        <label>Width</label>
+                        <select name="vid_width[]">
+                            <option value="contained" <?= ($block['vid_width'] ?? 'contained') === 'contained' ? 'selected' : '' ?>>Contained (800px max)</option>
+                            <option value="full"      <?= ($block['vid_width'] ?? '') === 'full' ? 'selected' : '' ?>>Full width</option>
+                        </select>
+                    </div>
+                </div>
+
             </div><!-- .block-card -->
             <?php endforeach; ?>
         </div>

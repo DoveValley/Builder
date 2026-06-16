@@ -79,6 +79,8 @@ function allowed_block_types() {
         'cards'           => 'Cards Grid (image + heading + text + link)',
         'gallery'         => 'Photo Gallery / Image Grid',
         'cta_button'      => 'CTA Button',
+        'testimonials'    => 'Testimonials (customer reviews)',
+        'video'           => 'Video embed (YouTube / Vimeo)',
     ];
 }
 
@@ -96,6 +98,7 @@ function grouped_block_types(): array {
             'image_right'   => 'Text left, image right',
             'image_text'    => 'Image & text side by side',
             'feature_split' => 'Feature split (image left, icon grid right)',
+            'video'         => 'Video embed',
         ],
         'Features & Services' => [
             'service_cards'   => 'Service cards grid',
@@ -106,6 +109,7 @@ function grouped_block_types(): array {
             'stats'           => 'Stats / counters',
             'cards'           => 'Cards grid',
             'gallery'         => 'Photo gallery',
+            'testimonials'    => 'Customer reviews',
         ],
         'FAQ & Links' => [
             'faq'         => 'Accordion',
@@ -123,6 +127,17 @@ function grouped_block_types(): array {
             'custom_html' => 'Custom HTML',
         ],
     ];
+}
+
+function parse_video_embed_url(string $url): string {
+    $url = trim($url);
+    if (preg_match('/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $url, $m)) {
+        return 'https://www.youtube-nocookie.com/embed/' . $m[1];
+    }
+    if (preg_match('/vimeo\.com\/(\d+)/', $url, $m)) {
+        return 'https://player.vimeo.com/video/' . $m[1];
+    }
+    return '';
 }
 
 function heading_level_options() {
@@ -1145,6 +1160,55 @@ function render_content_block($block, $pathPrefix = '') {
                 echo '</div>';
             }
             echo '</div></div>';
+            break;
+
+        /* ---- TESTIMONIALS ---- */
+        case 'testimonials':
+            $heading     = $block['tm_heading']       ?? '';
+            $bgColor     = $block['tm_bg_color']      ?? '#f8fafc';
+            $textColor   = $block['tm_text_color']    ?? '#374151';
+            $accent      = $block['tm_accent']        ?? 'accent';
+            $accentC     = $block['tm_accent_custom'] ?? '#f59e0b';
+            $cols        = max(2, min(3, (int)($block['tm_cols'] ?? 3)));
+            $items       = $block['tm_items']         ?? [];
+            $accentStyle = resolve_color($accent, $accentC);
+            echo '<div class="content-block block-testimonials"'.$anchorAttr.' style="background:'.h($bgColor).';">';
+            echo '<div class="container">';
+            if ($heading) echo '<h2 class="tm-heading" style="color:'.h($textColor).';">'.h($heading).'</h2>';
+            echo '<div class="tm-grid tm-grid-'.$cols.'">';
+            foreach ($items as $item) {
+                $quote    = $item['quote']    ?? '';
+                $name     = $item['name']     ?? '';
+                $location = $item['location'] ?? '';
+                if (!$quote && !$name) continue;
+                echo '<div class="tm-card">';
+                echo '<div class="tm-stars" style="color:'.$accentStyle.';">&#9733;&#9733;&#9733;&#9733;&#9733;</div>';
+                if ($quote) echo '<p class="tm-quote" style="color:'.h($textColor).';">&ldquo;'.h($quote).'&rdquo;</p>';
+                echo '<div class="tm-author">';
+                if ($name)     echo '<span class="tm-name" style="color:'.h($textColor).';">'.h($name).'</span>';
+                if ($location) echo '<span class="tm-location">'.h($location).'</span>';
+                echo '</div></div>';
+            }
+            echo '</div></div></div>';
+            break;
+
+        /* ---- VIDEO EMBED ---- */
+        case 'video':
+            $heading  = $block['vid_heading'] ?? '';
+            $url      = $block['vid_url']     ?? '';
+            $caption  = $block['vid_caption'] ?? '';
+            $width    = ($block['vid_width']  ?? 'contained') === 'full' ? 'full' : 'contained';
+            $embedUrl = parse_video_embed_url($url);
+            if (!$embedUrl) break;
+            echo '<div class="content-block block-video"'.$anchorAttr.'>';
+            echo '<div class="container">';
+            if ($heading) echo '<h2 class="vid-heading">'.h($heading).'</h2>';
+            echo '<div class="vid-'.$width.'">';
+            echo '<div class="vid-wrap">';
+            echo '<iframe src="'.h($embedUrl).'" allowfullscreen loading="lazy" title="'.h($heading ?: 'Video').'"></iframe>';
+            echo '</div>';
+            if ($caption) echo '<p class="vid-caption">'.h($caption).'</p>';
+            echo '</div></div></div>';
             break;
 
         default:

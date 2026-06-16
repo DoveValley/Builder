@@ -819,6 +819,22 @@ function content_editor_scripts() {
         btn.closest('.faq-item-row').remove();
     }
 
+    /* ---- Testimonials helpers ---- */
+    function addTmItem(btn, blockIdx) {
+        const editor = document.getElementById('tm_items_' + blockIdx);
+        const row = document.createElement('div');
+        row.className = 'faq-item-row';
+        row.innerHTML = `
+            <div class="form-group"><label>Review text</label><textarea name="tm_quote[${blockIdx}][]" rows="3" placeholder="e.g. Fast, professional service. Got rid of our ant problem in one visit."></textarea></div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <div class="form-group" style="flex:1 1 160px;"><label>Customer name</label><input type="text" name="tm_name[${blockIdx}][]" placeholder="e.g. Sarah M."></div>
+                <div class="form-group" style="flex:1 1 160px;"><label>Location (optional)</label><input type="text" name="tm_location[${blockIdx}][]" placeholder="e.g. Katy, TX"></div>
+            </div>
+            <button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)" style="margin-bottom:12px;">Remove review</button>
+        `;
+        editor.appendChild(row);
+    }
+
     /* ---- Gallery helpers ---- */
     function addGalleryImg(btn, blockIdx) {
         const editor = document.getElementById('gallery_imgs_' + blockIdx);
