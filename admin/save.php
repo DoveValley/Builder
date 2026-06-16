@@ -76,6 +76,7 @@ switch ($section) {
         $data['site_vars']['city_slug'] = trim($_POST['site_vars_city_slug'] ?? '');
         $data['site_vars']['business']  = trim($_POST['site_vars_business']  ?? '');
         $data['site_vars']['phone']     = trim($_POST['site_vars_phone']     ?? '');
+        $data['site_vars']['tel']       = trim($_POST['site_vars_tel']       ?? '');
         $data['site_vars']['zip']       = trim($_POST['site_vars_zip']       ?? '');
         $data['site_vars']['website']   = trim($_POST['site_vars_website']   ?? '');
         break;
@@ -112,7 +113,9 @@ switch ($section) {
     case 'content':
         $pageId = trim($_POST['page_id'] ?? '');
         $isLandingPage = ($pageId !== '' && isset($data['pages'][$pageId]));
-        $activeTab = $isLandingPage ? 'pages' : 'content';
+        $postId = trim($_POST['post_id'] ?? '');
+        $isPost = (!$isLandingPage && $postId !== '' && isset($data['posts'][$postId]));
+        $activeTab = $isLandingPage ? 'pages' : ($isPost ? 'blog' : 'content');
 
         $types = $_POST['block_type'] ?? [];
         $blocks = [];
@@ -186,6 +189,8 @@ switch ($section) {
                     if ($up === false) $uploadError = true;
                     elseif ($up !== null) $block['hs_photo'] = $up;
                     $block['hs_bg_photo'] = trim($_POST['hs_bg_photo_existing'][$i] ?? '');
+                    $mob = trim($_POST['hs_mobile_order'][$i] ?? '');
+                    $block['hs_mobile_order'] = in_array($mob, ['img_first','text_first']) ? $mob : '';
                     if ($block['hs_heading'] === '' && $block['hs_photo'] === '') continue 2;
                     break;
 
@@ -200,6 +205,8 @@ switch ($section) {
                     $block['fs_accent']    = preg_match('/^#[0-9a-fA-F]{3,6}$/', $acc) ? $acc : '#fd783b';
                     // Main photo
                     $block['fs_image_side'] = ($_POST['fs_image_side'][$i] ?? 'right') === 'left' ? 'left' : 'right';
+                    $fsMob = trim($_POST['fs_mobile_order'][$i] ?? '');
+                    $block['fs_mobile_order'] = in_array($fsMob, ['img_first','text_first']) ? $fsMob : '';
                     $block['fs_photo'] = trim($_POST['fs_photo_existing'][$i] ?? '');
                     $up = upload_image_indexed('fs_photo', $i, 'fs_photo');
                     if ($up === false) $uploadError = true;
@@ -496,6 +503,7 @@ switch ($section) {
                     $scHeadings = $_POST['sc_item_heading'][$i]       ?? [];
                     $scTexts    = $_POST['sc_item_text'][$i]          ?? [];
                     $scAlts     = $_POST['sc_item_alt'][$i]           ?? [];
+                    $scUrls     = $_POST['sc_item_url'][$i]           ?? [];
                     $scExisting = $_POST['sc_item_icon_existing'][$i] ?? [];
                     $scItems = [];
                     foreach ($scHeadings as $si => $sh) {
@@ -507,7 +515,7 @@ switch ($section) {
                         }
                         $sh = trim($sh); $st = trim($scTexts[$si] ?? '');
                         if ($sh === '' && $st === '' && !$iconPath) continue;
-                        $scItems[] = ['icon' => $iconPath, 'alt' => trim($scAlts[$si] ?? ''), 'heading' => $sh, 'text' => $st];
+                        $scItems[] = ['icon' => $iconPath, 'alt' => trim($scAlts[$si] ?? ''), 'heading' => $sh, 'text' => $st, 'url' => trim($scUrls[$si] ?? '')];
                     }
                     $block['sc_items'] = $scItems;
                     if (empty($scItems) && $block['sc_heading'] === '') continue 2;
@@ -663,6 +671,21 @@ switch ($section) {
                 case 'cards':
                     $block['cards_heading'] = trim($_POST['cards_heading'][$i] ?? '');
                     $block['cards_cols']    = max(2, min(4, (int)($_POST['cards_cols'][$i] ?? 3)));
+                    // Colors — read directly from color picker inputs
+                    $cbg = trim($_POST['cards_bg'][$i] ?? '');
+                    $block['cards_bg'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $cbg) ? $cbg : '';
+                    $ccbg = trim($_POST['cards_card_bg'][$i] ?? '');
+                    $block['cards_card_bg'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $ccbg) ? $ccbg : '';
+                    $ctc = trim($_POST['cards_text_color'][$i] ?? '');
+                    $block['cards_text_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $ctc) ? $ctc : '';
+                    $chc = in_array($_POST['cards_head_color'][$i] ?? '', ['accent','header','custom']) ? $_POST['cards_head_color'][$i] : 'header';
+                    $block['cards_head_color'] = $chc;
+                    $chcc = trim($_POST['cards_head_color_custom'][$i] ?? '#1a1a2e');
+                    $block['cards_head_color_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $chcc) ? $chcc : '#1a1a2e';
+                    $cihc = in_array($_POST['cards_item_head_color'][$i] ?? '', ['accent','header','custom']) ? $_POST['cards_item_head_color'][$i] : 'header';
+                    $block['cards_item_head_color'] = $cihc;
+                    $cihcc = trim($_POST['cards_item_head_color_custom'][$i] ?? '#1a1a2e');
+                    $block['cards_item_head_color_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $cihcc) ? $cihcc : '#1a1a2e';
                     $cardHeadings  = $_POST['cards_heading_item'][$i] ?? [];
                     $cardTexts     = $_POST['cards_text'][$i]         ?? [];
                     $cardLinks     = $_POST['cards_link'][$i]         ?? [];
@@ -701,6 +724,7 @@ switch ($section) {
 
         // SEO
         $seoData = [
+            'seo_title'          => trim($_POST['seo_title']          ?? ''),
             'canonical_url'      => trim($_POST['canonical_url']      ?? ''),
             'meta_description'   => trim($_POST['meta_description']   ?? ''),
             'meta_keywords'      => trim($_POST['meta_keywords']      ?? ''),
@@ -711,8 +735,11 @@ switch ($section) {
             'service_type'       => trim($_POST['service_type']       ?? ''),
             'service_area'       => trim($_POST['service_area']       ?? ''),
             'service_description'=> trim($_POST['service_description']?? ''),
+            'bc_label'           => trim($_POST['bc_label']           ?? ''),
+            'bc_mid_label'       => trim($_POST['bc_mid_label']       ?? ''),
+            'bc_mid_url'         => trim($_POST['bc_mid_url']         ?? ''),
         ];
-        $existingSeo = $isLandingPage ? $data['pages'][$pageId]['seo'] : $data['seo'];
+        $existingSeo = $isLandingPage ? $data['pages'][$pageId]['seo'] : ($isPost ? $data['posts'][$postId]['seo'] : $data['seo']);
         $schema = trim($_POST['schema'] ?? '');
         if ($schema === '') {
             $seoData['schema'] = '';
@@ -729,6 +756,25 @@ switch ($section) {
             $data['pages'][$pageId]['title'] = trim($_POST['page_title'] ?? '');
             $requestedSlug = trim($_POST['page_slug'] ?? '') ?: $data['pages'][$pageId]['title'];
             $data['pages'][$pageId]['slug'] = unique_slug($requestedSlug, $data['pages'], $pageId);
+        } elseif ($isPost) {
+            $data['posts'][$postId]['content_blocks'] = $blocks;
+            $data['posts'][$postId]['seo'] = $seoData;
+            $data['posts'][$postId]['title'] = trim($_POST['post_title'] ?? '');
+            $requestedSlug = trim($_POST['post_slug'] ?? '') ?: $data['posts'][$postId]['title'];
+            $data['posts'][$postId]['slug'] = unique_slug($requestedSlug, $data['posts'], $postId);
+            $data['posts'][$postId]['status'] = ($_POST['post_status'] ?? 'draft') === 'published' ? 'published' : 'draft';
+            $publishedAt = trim($_POST['post_published_at'] ?? '');
+            $data['posts'][$postId]['published_at'] = preg_match('/^\d{4}-\d{2}-\d{2}$/', $publishedAt) ? $publishedAt : date('Y-m-d');
+            $data['posts'][$postId]['updated_at'] = date('Y-m-d');
+            $data['posts'][$postId]['author'] = trim($_POST['post_author'] ?? '') ?: '{business} Team';
+            $data['posts'][$postId]['tag'] = trim($_POST['post_tag'] ?? '');
+            $data['posts'][$postId]['excerpt'] = trim($_POST['post_excerpt'] ?? '');
+            $data['posts'][$postId]['featured_image'] = trim($_POST['post_featured_image_existing'] ?? '');
+            $data['posts'][$postId]['featured_image_alt'] = trim($_POST['post_featured_image_alt'] ?? '');
+            if (!empty($_POST['post_remove_featured_image'])) $data['posts'][$postId]['featured_image'] = '';
+            $up = upload_image('post_featured_image', 'post_featured');
+            if ($up === false) { $uploadError = true; $message = 'error:Featured image upload failed.'; }
+            elseif ($up !== null) $data['posts'][$postId]['featured_image'] = $up;
         } else {
             $data['content_blocks'] = $blocks;
             $data['seo'] = $seoData;
@@ -744,6 +790,7 @@ switch ($section) {
         $newPage   = default_page_data();
         $newPage['title'] = $title;
         $newPage['slug']  = unique_slug($slugInput, $data['pages']);
+        $newPage['page_type'] = ($_POST['page_type'] ?? 'landing') === 'other' ? 'other' : 'landing';
         $data['pages'][$newId] = $newPage;
         save_data($data);
         header('Location: index.php?tab=pages&page=' . urlencode($newId));
@@ -757,6 +804,39 @@ switch ($section) {
         save_data($data);
         header('Location: index.php?tab=pages&msg=' . urlencode('success:Page deleted.'));
         exit;
+
+    /* ---- POST ADD ---- */
+    case 'post_add':
+        $activeTab = 'blog';
+        $title     = trim($_POST['title'] ?? '');
+        $slugInput = trim($_POST['slug']  ?? '') ?: $title;
+        $newId     = 'post_' . uniqid();
+        $newPost   = default_post_data();
+        $newPost['title'] = $title;
+        $newPost['slug']  = unique_slug($slugInput, $data['posts']);
+        save_data($data);
+        $data['posts'][$newId] = $newPost;
+        save_data($data);
+        header('Location: index.php?tab=blog&post=' . urlencode($newId));
+        exit;
+
+    /* ---- POST DELETE ---- */
+    case 'post_delete':
+        $activeTab = 'blog';
+        $postIdToDelete = trim($_POST['post_id'] ?? '');
+        if (isset($data['posts'][$postIdToDelete])) unset($data['posts'][$postIdToDelete]);
+        save_data($data);
+        header('Location: index.php?tab=blog&msg=' . urlencode('success:Post deleted.'));
+        exit;
+
+    /* ---- BLOG SETTINGS ---- */
+    case 'blog_settings':
+        $activeTab = 'blog';
+        $data['blog_settings']['blog_heading']   = trim($_POST['blog_heading']  ?? '');
+        $data['blog_settings']['blog_intro']     = trim($_POST['blog_intro']    ?? '');
+        $data['blog_settings']['posts_per_page'] = max(1, min(50, (int)($_POST['posts_per_page'] ?? 9)));
+        $message = 'success:Blog settings saved.';
+        break;
 
     /* ---- FOOTER ---- */
     case 'footer':
@@ -858,9 +938,11 @@ switch ($section) {
             'lb_lng'         => trim($_POST['lb_lng']         ?? ''),
             'lb_price_range' => trim($_POST['lb_price_range'] ?? '$$'),
             'lb_hours'       => trim($_POST['lb_hours']       ?? ''),
-            'lb_description' => trim($_POST['lb_description'] ?? ''),
-            'lb_logo'        => trim($_POST['lb_logo']        ?? ''),
-            'lb_type'        => trim($_POST['lb_type']        ?? 'LocalBusiness'),
+            'lb_description'  => trim($_POST['lb_description']  ?? ''),
+            'lb_logo'         => trim($_POST['lb_logo']         ?? ''),
+            'lb_type'         => trim($_POST['lb_type']         ?? 'LocalBusiness'),
+            'lb_rating'       => trim($_POST['lb_rating']       ?? ''),
+            'lb_review_count' => trim($_POST['lb_review_count'] ?? ''),
         ];
         $data['local_business'] = $lb;
         $message = 'success:Local business info saved.';
@@ -875,6 +957,7 @@ save_data($data);
 if ($message === '') $message = 'success:Changes saved successfully.';
 $redirect = 'index.php?tab=' . urlencode($activeTab);
 if (!empty($pageId) && isset($data['pages'][$pageId])) $redirect .= '&page=' . urlencode($pageId);
+if (!empty($postId) && isset($data['posts'][$postId])) $redirect .= '&post=' . urlencode($postId);
 $redirect .= '&msg=' . urlencode($message);
 header('Location: ' . $redirect);
 exit;

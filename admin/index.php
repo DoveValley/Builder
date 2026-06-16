@@ -22,10 +22,12 @@ $blocks   = $data['content_blocks'];
 $footer   = $data['footer'];
 $seo      = $data['seo'];
 $pages   = $data['pages'];
+$posts   = $data['posts'];
+$blogSettings = $data['blog_settings'];
 
 // Active tab
 $tab = $_GET['tab'] ?? 'header';
-if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'footer', 'popups', 'media', 'seo'], true)) {
+if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'footer', 'popups', 'media', 'seo', 'blog'], true)) {
     $tab = 'header';
 }
 
@@ -35,6 +37,14 @@ $editingPage   = null;
 if ($tab === 'pages' && !empty($_GET['page']) && isset($pages[$_GET['page']])) {
     $editingPageId = $_GET['page'];
     $editingPage   = $pages[$editingPageId];
+}
+
+// If on the Blog tab, are we viewing the list or editing one post?
+$editingPostId = null;
+$editingPost   = null;
+if ($tab === 'blog' && !empty($_GET['post']) && isset($posts[$_GET['post']])) {
+    $editingPostId = $_GET['post'];
+    $editingPost   = $posts[$editingPostId];
 }
 
 // Flash message (format: "success:..." or "error:...")
@@ -141,6 +151,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'theme' ? 'active' : '' ?>" href="?tab=theme">Theme / Colors</a>
         <a class="tab-link <?= $tab === 'content' ? 'active' : '' ?>" href="?tab=content">Home Page</a>
         <a class="tab-link <?= $tab === 'pages' ? 'active' : '' ?>" href="?tab=pages">Landing Pages</a>
+        <a class="tab-link <?= $tab === 'blog' ? 'active' : '' ?>" href="?tab=blog">Blog</a>
         <a class="tab-link <?= $tab === 'footer' ? 'active' : '' ?>" href="?tab=footer">Footer</a>
         <a class="tab-link <?= $tab === 'popups' ? 'active' : '' ?>" href="?tab=popups">Popups</a>
         <a class="tab-link <?= $tab === 'media' ? 'active' : '' ?>" href="?tab=media">Media Library</a>
@@ -189,6 +200,11 @@ foreach ($footer['columns'] as $ci => $column) {
                     <div class="form-group" style="margin:0;">
                         <label>Phone <code>{phone}</code></label>
                         <input type="tel" name="site_vars_phone" value="<?= h($siteVars['phone'] ?? '') ?>" placeholder="e.g. (281) 555-1234">
+                    </div>
+                    <div class="form-group" style="margin:0;">
+                        <label>Tracking / dial number <code>{tel}</code></label>
+                        <input type="text" name="site_vars_tel" value="<?= h($siteVars['tel'] ?? '') ?>" placeholder="e.g. +12812150160">
+                        <span class="hint">E.164 format used in <code>tel:</code> links. Can differ from the display phone.</span>
                     </div>
                     <div class="form-group" style="margin:0;">
                         <label>Website <code>{website}</code></label>
@@ -522,9 +538,9 @@ foreach ($footer['columns'] as $ci => $column) {
         <?php if ($editingPage === null): ?>
 
             <div class="card">
-                <h2>Add a New Landing Page</h2>
+                <h2>Add a New Page</h2>
                 <p class="hint" style="margin-bottom:18px;">
-                    Landing pages share the same header, footer, and colors as your home page,
+                    All pages share the same header, footer, and colors as your home page,
                     but have their own content and SEO settings.
                 </p>
                 <form action="save.php" method="post">
@@ -538,35 +554,47 @@ foreach ($footer['columns'] as $ci => $column) {
                         <input type="text" id="new_page_slug" name="slug" placeholder="e.g. about-us">
                         <span class="hint">Letters, numbers, and hyphens only. Leave blank to generate one automatically from the title.</span>
                     </div>
+                    <div class="form-group">
+                        <label for="new_page_type">Page type</label>
+                        <select id="new_page_type" name="page_type">
+                            <option value="landing">Landing Page</option>
+                            <option value="other">Other Page</option>
+                        </select>
+                        <span class="hint">Landing pages are city/service pages built for SEO cloning. Other pages are things like Privacy Policy, Terms, Contact.</span>
+                    </div>
                     <button type="submit" class="btn">Add Page</button>
                 </form>
             </div>
 
+            <?php
+            $landingPages = array_filter($pages, fn($p) => ($p['page_type'] ?? 'landing') !== 'other');
+            $otherPages   = array_filter($pages, fn($p) => ($p['page_type'] ?? 'landing') === 'other');
+            $renderPageList = function($list) {
+                if (empty($list)) { echo '<p class="hint">None yet.</p>'; return; }
+                echo '<div class="repeat-items">';
+                foreach ($list as $pid => $p) {
+                    echo '<div class="repeat-row" style="align-items:center;">';
+                    echo '<div style="flex:1;"><strong>' . h($p['title'] !== '' ? $p['title'] : '(untitled)') . '</strong><br>';
+                    echo '<span class="hint">/' . h($p['slug']) . ' &mdash; <a href="../page.php?slug=' . h($p['slug']) . '" target="_blank" rel="noopener">preview</a></span></div>';
+                    echo '<a class="btn btn-secondary btn-small" href="?tab=pages&page=' . h($pid) . '">Edit</a>';
+                    echo '<form action="save.php" method="post" style="display:inline;" onsubmit="return confirm(\'Delete this page? This cannot be undone.\');">';
+                    echo '<input type="hidden" name="section" value="page_delete">';
+                    echo '<input type="hidden" name="page_id" value="' . h($pid) . '">';
+                    echo '<button type="submit" class="remove-row" title="Delete page">&times;</button>';
+                    echo '</form></div>';
+                }
+                echo '</div>';
+            };
+            ?>
+
             <div class="card">
-                <h2>Your Landing Pages</h2>
-                <?php if (empty($pages)): ?>
-                    <p class="hint">You haven't added any landing pages yet.</p>
-                <?php else: ?>
-                    <div class="repeat-items">
-                        <?php foreach ($pages as $pid => $p): ?>
-                            <div class="repeat-row" style="align-items:center;">
-                                <div style="flex:1;">
-                                    <strong><?= h($p['title'] !== '' ? $p['title'] : '(untitled)') ?></strong><br>
-                                    <span class="hint">
-                                        /<?= h($p['slug']) ?>
-                                        &mdash; <a href="../page.php?slug=<?= h($p['slug']) ?>" target="_blank" rel="noopener">preview</a>
-                                    </span>
-                                </div>
-                                <a class="btn btn-secondary btn-small" href="?tab=pages&page=<?= h($pid) ?>">Edit</a>
-                                <form action="save.php" method="post" style="display:inline;" onsubmit="return confirm('Delete this landing page? This cannot be undone.');">
-                                    <input type="hidden" name="section" value="page_delete">
-                                    <input type="hidden" name="page_id" value="<?= h($pid) ?>">
-                                    <button type="submit" class="remove-row" title="Delete page">&times;</button>
-                                </form>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endif; ?>
+                <h2>Landing Pages</h2>
+                <?php $renderPageList($landingPages); ?>
+            </div>
+
+            <div class="card">
+                <h2>Other Pages</h2>
+                <?php $renderPageList($otherPages); ?>
             </div>
 
         <?php else: ?>
@@ -613,6 +641,155 @@ foreach ($footer['columns'] as $ci => $column) {
                 <input type="hidden" name="section" value="page_delete">
                 <input type="hidden" name="page_id" value="<?= h($editingPageId) ?>">
                 <button type="submit" class="btn btn-danger">Delete This Page</button>
+            </form>
+
+        <?php endif; ?>
+    </div>
+
+    <!-- ================= BLOG TAB ================= -->
+    <div class="tab-content" style="<?= $tab === 'blog' ? '' : 'display:none;' ?>">
+        <?php if ($editingPost === null): ?>
+
+            <div class="card">
+                <h2>Blog Settings</h2>
+                <form action="save.php" method="post">
+                    <input type="hidden" name="section" value="blog_settings">
+                    <div class="form-group">
+                        <label for="blog_heading">Blog page heading</label>
+                        <input type="text" id="blog_heading" name="blog_heading" value="<?= h($blogSettings['blog_heading']) ?>">
+                        <span class="hint">Shown at the top of /blog. Shortcodes like {city} are supported.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="blog_intro">Blog intro text</label>
+                        <textarea id="blog_intro" name="blog_intro" rows="2"><?= h($blogSettings['blog_intro']) ?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="posts_per_page">Posts per page</label>
+                        <input type="number" id="posts_per_page" name="posts_per_page" min="1" max="50" value="<?= h($blogSettings['posts_per_page']) ?>">
+                    </div>
+                    <button type="submit" class="btn">Save Blog Settings</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>Add a New Post</h2>
+                <form action="save.php" method="post">
+                    <input type="hidden" name="section" value="post_add">
+                    <div class="form-group">
+                        <label for="new_post_title">Post title</label>
+                        <input type="text" id="new_post_title" name="title" placeholder="e.g. 5 Signs You Have a Termite Problem" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new_post_slug">URL slug (optional)</label>
+                        <input type="text" id="new_post_slug" name="slug" placeholder="e.g. signs-of-termites">
+                        <span class="hint">Leave blank to generate one automatically from the title.</span>
+                    </div>
+                    <button type="submit" class="btn">Add Post</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>Posts</h2>
+                <?php
+                if (empty($posts)) {
+                    echo '<p class="hint">None yet.</p>';
+                } else {
+                    $sortedPosts = $posts;
+                    uasort($sortedPosts, fn($a, $b) => strcmp($b['published_at'] ?? '', $a['published_at'] ?? ''));
+                    echo '<div class="repeat-items">';
+                    foreach ($sortedPosts as $pid => $p) {
+                        echo '<div class="repeat-row" style="align-items:center;">';
+                        echo '<div style="flex:1;"><strong>' . h($p['title'] !== '' ? $p['title'] : '(untitled)') . '</strong> ';
+                        echo '<span class="hint">(' . h($p['status']) . ')</span><br>';
+                        echo '<span class="hint">/blog/' . h($p['slug']) . ' &mdash; ' . h($p['published_at']) . ' &mdash; <a href="../blog.php?slug=' . h($p['slug']) . '" target="_blank" rel="noopener">preview</a></span></div>';
+                        echo '<a class="btn btn-secondary btn-small" href="?tab=blog&post=' . h($pid) . '">Edit</a>';
+                        echo '<form action="save.php" method="post" style="display:inline;" onsubmit="return confirm(\'Delete this post? This cannot be undone.\');">';
+                        echo '<input type="hidden" name="section" value="post_delete">';
+                        echo '<input type="hidden" name="post_id" value="' . h($pid) . '">';
+                        echo '<button type="submit" class="remove-row" title="Delete post">&times;</button>';
+                        echo '</form></div>';
+                    }
+                    echo '</div>';
+                }
+                ?>
+            </div>
+
+        <?php else: ?>
+
+            <p style="margin-bottom:16px;"><a href="?tab=blog">&larr; Back to all posts</a></p>
+
+            <form action="save.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="section" value="content">
+                <input type="hidden" name="post_id" value="<?= h($editingPostId) ?>">
+                <div style="margin-bottom:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+                    <button type="submit" class="btn">Save Post</button>
+                    <a href="../blog.php?slug=<?= h($editingPost['slug'] ?? '') ?>" target="_blank" class="btn btn-secondary">Preview Post &rarr;</a>
+                </div>
+
+                <div class="card">
+                    <h2>Post Settings</h2>
+                    <div class="form-group">
+                        <label for="post_title">Post title</label>
+                        <input type="text" id="post_title" name="post_title" value="<?= h($editingPost['title']) ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="post_slug">URL slug</label>
+                        <input type="text" id="post_slug" name="post_slug" value="<?= h($editingPost['slug']) ?>">
+                        <span class="hint">This post is available at <code>/blog/<?= h($editingPost['slug']) ?></code>.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="post_status">Status</label>
+                        <select id="post_status" name="post_status">
+                            <option value="draft" <?= $editingPost['status'] === 'draft' ? 'selected' : '' ?>>Draft</option>
+                            <option value="published" <?= $editingPost['status'] === 'published' ? 'selected' : '' ?>>Published</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="post_published_at">Published date</label>
+                        <input type="date" id="post_published_at" name="post_published_at" value="<?= h($editingPost['published_at']) ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="post_author">Author</label>
+                        <input type="text" id="post_author" name="post_author" value="<?= h($editingPost['author']) ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="post_tag">Tag</label>
+                        <input type="text" id="post_tag" name="post_tag" value="<?= h($editingPost['tag']) ?>" placeholder="e.g. Termites">
+                        <span class="hint">Readers can click this tag to filter the blog list to posts with the same tag.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="post_excerpt">Excerpt</label>
+                        <textarea id="post_excerpt" name="post_excerpt" rows="2"><?= h($editingPost['excerpt']) ?></textarea>
+                        <span class="hint">Shown on the blog list card. Falls back to meta description if blank.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="post_featured_image">Featured image</label>
+                        <?php if (!empty($editingPost['featured_image'])): ?>
+                            <p><img src="../<?= h($editingPost['featured_image']) ?>" style="max-width:200px;border-radius:8px;" alt=""></p>
+                        <?php endif; ?>
+                        <input type="file" id="post_featured_image" name="post_featured_image" accept="image/*">
+                        <input type="hidden" name="post_featured_image_existing" value="<?= h($editingPost['featured_image']) ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="post_featured_image_alt">Featured image alt text</label>
+                        <input type="text" id="post_featured_image_alt" name="post_featured_image_alt" value="<?= h($editingPost['featured_image_alt']) ?>">
+                    </div>
+                </div>
+
+                <?php render_content_blocks_editor($editingPost['content_blocks']); ?>
+
+                <?php render_seo_editor($editingPost['seo']); ?>
+
+                <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+                    <button type="submit" class="btn">Save Post</button>
+                    <a href="../blog.php?slug=<?= h($editingPost['slug']) ?>" target="_blank" class="btn btn-secondary">Preview Post &rarr;</a>
+                </div>
+            </form>
+
+            <form action="save.php" method="post" style="margin-top:12px;" onsubmit="return confirm('Delete this post? This cannot be undone.');">
+                <input type="hidden" name="section" value="post_delete">
+                <input type="hidden" name="post_id" value="<?= h($editingPostId) ?>">
+                <button type="submit" class="btn btn-danger">Delete This Post</button>
             </form>
 
         <?php endif; ?>
@@ -851,9 +1028,36 @@ foreach ($footer['columns'] as $ci => $column) {
                 <div class="hint" style="margin-top:4px;">JPG, PNG, GIF, WebP — auto-optimized to WebP on save</div>
             </div>
 
-            <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
-                <input id="media-search" type="text" placeholder="Search by filename or alt text…" style="flex:1;padding:9px 12px;border:1px solid #d1d5db;border-radius:6px;">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;">
+                <input id="media-search" type="text" placeholder="Search by filename or alt text…" style="flex:1;min-width:180px;padding:9px 12px;border:1px solid #d1d5db;border-radius:6px;">
                 <span id="media-count" style="font-size:.85rem;color:#6b7280;white-space:nowrap;"></span>
+                <button id="dupe-btn" class="btn btn-secondary btn-small" onclick="findDuplicates()" style="white-space:nowrap;">Find Duplicates</button>
+            </div>
+
+            <div id="dupe-panel" style="display:none;"></div>
+
+            <?php
+            $varFile  = BASE_DIR . '/data/variation.json';
+            $varData  = file_exists($varFile) ? (json_decode(file_get_contents($varFile), true) ?? []) : [];
+            $varSeed  = (int) ($varData['seed']       ?? 0);
+            $varDate  = $varData['applied_at']  ?? '';
+            $varCount = (int) ($varData['count'] ?? 0);
+            ?>
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:12px 16px;margin-bottom:16px;">
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                    <span style="font-size:.85rem;font-weight:600;color:#374151;">Site Variation Seed</span>
+                    <span style="font-size:.78rem;color:#6b7280;">Makes every image unique per city deployment</span>
+                    <input id="var-seed" type="number" min="1" max="9999" placeholder="1–9999"
+                        value="<?= $varSeed ?: '' ?>"
+                        style="width:90px;padding:5px 8px;border:1px solid #d1d5db;border-radius:4px;font-size:.85rem;">
+                    <button id="var-apply-btn" class="btn btn-small" onclick="applyVariation()" style="white-space:nowrap;">Apply to All Images</button>
+                    <?php if ($varSeed): ?>
+                    <span style="font-size:.75rem;color:#6b7280;">
+                        Seed <strong><?= $varSeed ?></strong> applied <?= h($varDate) ?> &mdash; <?= $varCount ?> images varied
+                    </span>
+                    <?php endif; ?>
+                </div>
+                <div id="var-result" style="margin-top:6px;font-size:.8rem;min-height:1.2em;"></div>
             </div>
 
             <div id="media-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;"></div>
@@ -1090,13 +1294,28 @@ function addLink(button) {
 
 <!-- ===================== MEDIA LIBRARY TAB ===================== -->
 <?php if ($tab === 'media'): ?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs@1.6.2/dist/cropper.min.css">
+<script src="https://cdn.jsdelivr.net/npm/cropperjs@1.6.2/dist/cropper.min.js"></script>
+<style>
+.ml-usage { font-size:.76rem; margin:5px 0 3px; line-height:1.3; }
+.ml-unused { color:#9ca3af; }
+.ml-in-use { color:#15803d; cursor:pointer; user-select:none; position:relative; }
+.ml-in-use:hover { color:#166534; }
+.ml-usage-list { display:none; margin:3px 0 0; padding:0; list-style:none; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:4px; overflow:hidden; }
+.ml-in-use.ml-open .ml-usage-list { display:block; }
+.ml-usage-list li { padding:3px 8px; font-size:.73rem; color:#166534; border-bottom:1px solid #dcfce7; }
+.ml-usage-list li:last-child { border-bottom:none; }
+</style>
 <script>
 (function() {
     const api = 'media_api.php';
 
     /* ── state ── */
-    let allMedia = [];
-    let searchQ  = '';
+    let allMedia    = [];
+    let searchQ     = '';
+    let mediaUsage  = {};
+    let usageLoaded = false;
+    let dupeGroups  = [];
 
     /* ── elements ── */
     const grid     = document.getElementById('media-grid');
@@ -1110,6 +1329,23 @@ function addLink(button) {
         const res  = await fetch(api + '?action=list');
         allMedia   = await res.json();
         renderGrid();
+    }
+
+    async function loadUsage() {
+        const res  = await fetch(api + '?action=usage');
+        mediaUsage = await res.json();
+        usageLoaded = true;
+        renderGrid();
+    }
+
+    function usageBadge(url) {
+        if (!usageLoaded) return '';
+        const list = mediaUsage[url] || [];
+        if (list.length === 0) return '<div class="ml-usage ml-unused">Unused</div>';
+        const items = list.map(u => `<li>${escHtml(u)}</li>`).join('');
+        return `<div class="ml-usage ml-in-use" onclick="this.classList.toggle('ml-open')">`
+             + `${list.length} place${list.length > 1 ? 's' : ''} &#9662;`
+             + `<ul class="ml-usage-list">${items}</ul></div>`;
     }
 
     function renderGrid() {
@@ -1128,8 +1364,11 @@ function addLink(button) {
                     <div class="ml-name" title="${escHtml(m.filename)}">${escHtml(m.filename.replace('.webp',''))}</div>
                     <div class="ml-dims">${m.width}×${m.height} &nbsp;·&nbsp; ${fmtSize(m.size)}</div>
                     <input class="ml-alt-input" type="text" value="${escHtml(m.alt||'')}" placeholder="Alt text…" onchange="updateAlt('${escHtml(m.filename)}', this.value)">
+                    ${usageBadge(m.url)}
                     <div class="ml-actions">
                         <button class="btn btn-small btn-secondary" onclick="copyUrl('${escHtml(m.url)}')">Copy URL</button>
+                        <button class="btn btn-small btn-secondary" onclick="openCropper('${escHtml(m.filename)}','../${escHtml(m.url)}')">&#9986; Crop</button>
+                        <button class="btn btn-small btn-secondary" onclick="openFocal('${escHtml(m.filename)}','../${escHtml(m.url)}',${m.focal_x!=null?m.focal_x:50},${m.focal_y!=null?m.focal_y:50})">&#10753; Focal</button>
                         <button class="btn btn-small btn-danger" onclick="deleteMedia('${escHtml(m.filename)}')">Delete</button>
                     </div>
                 </div>
@@ -1147,11 +1386,20 @@ function addLink(button) {
     };
 
     window.deleteMedia = async function(filename) {
-        if (!confirm('Delete ' + filename + '?')) return;
+        const item   = allMedia.find(m => m.filename === filename);
+        const used   = item ? (mediaUsage[item.url] || []) : [];
+        let msg = 'Delete ' + filename + '?';
+        if (used.length > 0) {
+            msg = '⚠ This image is used in ' + used.length + ' place(s):\n'
+                + used.join('\n')
+                + '\n\nDeleting it will break those pages. Continue?';
+        }
+        if (!confirm(msg)) return;
         const fd = new FormData();
         fd.append('action', 'delete');
         fd.append('filename', filename);
         await fetch(api, { method:'POST', body: fd });
+        if (item) delete mediaUsage[item.url];
         allMedia = allMedia.filter(m => m.filename !== filename);
         renderGrid();
     };
@@ -1202,9 +1450,317 @@ function addLink(button) {
         setTimeout(() => t.remove(), 3000);
     }
 
+    /* ── image variation ── */
+    window.applyVariation = async function() {
+        const seed = parseInt(document.getElementById('var-seed').value, 10);
+        if (!seed || seed < 1 || seed > 9999) {
+            alert('Enter a seed number between 1 and 9999.\n\nUse a different number for each city site.');
+            return;
+        }
+        const result = document.getElementById('var-result');
+        const btn    = document.getElementById('var-apply-btn');
+        const n      = allMedia.filter(m => !m.varied_seed || m.varied_seed !== seed).length;
+        if (!confirm(
+            'Apply variation seed ' + seed + ' to ' + n + ' image' + (n !== 1 ? 's' : '') + '?\n\n' +
+            'This permanently modifies the image files. Use a different seed number for each city site.\n\n' +
+            'Already-varied images with this seed are skipped automatically.'
+        )) return;
+
+        btn.disabled = true;
+        btn.textContent = 'Applying…';
+        result.innerHTML = '';
+
+        const fd = new FormData();
+        fd.append('action', 'vary_batch');
+        fd.append('seed',   seed);
+        const res  = await fetch(api, { method: 'POST', body: fd });
+        const data = await res.json();
+
+        btn.disabled = false;
+        btn.textContent = 'Apply to All Images';
+
+        if (data.success) {
+            result.innerHTML = `<span style="color:#166534;">&#10003; ${data.varied} image${data.varied !== 1 ? 's' : ''} varied`
+                + (data.skipped ? ` &nbsp;&middot;&nbsp; ${data.skipped} already done` : '')
+                + (data.failed  ? ` &nbsp;&middot;&nbsp; <span style="color:#dc2626;">${data.failed} failed</span>` : '')
+                + '</span>';
+            await loadMedia(); // refresh dimensions/sizes
+        } else {
+            result.innerHTML = `<span style="color:#dc2626;">Error: ${escHtml(data.error || 'unknown')}</span>`;
+        }
+    };
+
+    /* ── duplicate detector ── */
+    window.findDuplicates = async function() {
+        const btn = document.getElementById('dupe-btn');
+        btn.disabled = true;
+        btn.textContent = 'Scanning…';
+
+        // Backfill hashes for any new images
+        const hfd = new FormData(); hfd.append('action', 'hash_all');
+        await fetch(api, { method: 'POST', body: hfd });
+
+        // Get duplicate groups
+        const res = await fetch(api + '?action=dupes');
+        dupeGroups = await res.json();
+
+        btn.disabled = false;
+        btn.textContent = 'Find Duplicates';
+        renderDupePanel();
+    };
+
+    window.closeDupePanel = function() {
+        document.getElementById('dupe-panel').style.display = 'none';
+        dupeGroups = [];
+    };
+
+    window.dupeDelete = async function(filename, gi) {
+        const item = allMedia.find(m => m.filename === filename);
+        const used = item ? (mediaUsage[item.url] || []) : [];
+        let msg = 'Delete ' + filename + '?';
+        if (used.length) msg = '⚠ Used in ' + used.length + ' place(s):\n' + used.join('\n') + '\n\nDelete anyway?';
+        if (!confirm(msg)) return;
+
+        const fd = new FormData();
+        fd.append('action', 'delete');
+        fd.append('filename', filename);
+        await fetch(api, { method: 'POST', body: fd });
+
+        if (item) delete mediaUsage[item.url];
+        allMedia     = allMedia.filter(m => m.filename !== filename);
+        dupeGroups[gi] = dupeGroups[gi].filter(i => i.filename !== filename);
+        if (dupeGroups[gi].length <= 1) dupeGroups.splice(gi, 1);
+
+        renderGrid();
+        renderDupePanel();
+    };
+
+    function renderDupePanel() {
+        const panel = document.getElementById('dupe-panel');
+
+        if (dupeGroups.length === 0) {
+            panel.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:12px 16px;margin-bottom:16px;">
+                <span style="color:#166534;font-weight:500;">&#10003; No duplicate images found</span>
+                <button onclick="closeDupePanel()" style="background:none;border:none;cursor:pointer;color:#6b7280;font-size:1.1rem;line-height:1;">&#10005;</button>
+            </div>`;
+            panel.style.display = 'block';
+            return;
+        }
+
+        const groupsHtml = dupeGroups.map((group, gi) => {
+            // Sort: most-used first, then largest file
+            const sorted = [...group].sort((a, b) => {
+                const ua = (mediaUsage[a.url] || []).length;
+                const ub = (mediaUsage[b.url] || []).length;
+                return ub - ua || b.size - a.size;
+            });
+
+            const cards = sorted.map((img, ii) => {
+                const usages  = mediaUsage[img.url] || [];
+                const uLabel  = usages.length ? usages.length + ' place' + (usages.length > 1 ? 's' : '') : 'Unused';
+                const uColor  = usages.length ? '#15803d' : '#9ca3af';
+                const action  = ii === 0
+                    ? `<div style="font-size:.71rem;color:#1d4ed8;font-weight:600;margin-top:4px;">&#9733; Keep</div>`
+                    : `<button class="btn btn-small btn-danger" style="margin-top:5px;width:100%;font-size:.72rem;" onclick="dupeDelete('${escHtml(img.filename)}',${gi})">Delete</button>`;
+                return `<div style="min-width:110px;max-width:150px;">
+                    <img src="../${escHtml(img.url)}" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;display:block;border:${ii===0?'2px solid #1d4ed8':'1px solid #e5e7eb'};">
+                    <div style="font-size:.71rem;color:#374151;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${escHtml(img.filename)}">${escHtml(img.filename.replace('.webp','').replace('.svg','').replace('.gif',''))}</div>
+                    <div style="font-size:.69rem;color:#6b7280;">${img.width}&#215;${img.height} &middot; ${fmtSize(img.size)}</div>
+                    <div style="font-size:.69rem;color:${uColor};">${uLabel}</div>
+                    ${action}
+                </div>`;
+            }).join('');
+
+            return `<div style="margin-bottom:12px;padding:12px;background:#fffbeb;border:1px solid #fde68a;border-radius:6px;">
+                <div style="font-size:.8rem;font-weight:600;color:#92400e;margin-bottom:8px;">${group.length} similar images</div>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;">${cards}</div>
+            </div>`;
+        }).join('');
+
+        panel.innerHTML = `<div style="background:#fff7ed;border:1px solid #f59e0b;border-radius:6px;padding:14px 16px;margin-bottom:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                <span style="font-weight:600;color:#92400e;">&#9888; ${dupeGroups.length} duplicate group${dupeGroups.length > 1 ? 's' : ''} found &mdash; keep one, delete the rest</span>
+                <button onclick="closeDupePanel()" style="background:none;border:none;cursor:pointer;color:#6b7280;font-size:1.1rem;line-height:1;">&#10005;</button>
+            </div>
+            ${groupsHtml}
+        </div>`;
+        panel.style.display = 'block';
+    }
+
+    /* ── focal point tool ── */
+    let focalFilename = '';
+    let focalX = 50, focalY = 50;
+
+    window.openFocal = function(filename, url, fx, fy) {
+        focalFilename = filename;
+        focalX = fx != null ? fx : 50;
+        focalY = fy != null ? fy : 50;
+        const modal = document.getElementById('focal-modal');
+        const img   = document.getElementById('focal-image');
+        const dot   = document.getElementById('focal-dot');
+        const info  = document.getElementById('focal-info');
+        img.src = '';
+        modal.style.display = 'block';
+        img.onload = function() {
+            dot.style.left = focalX + '%';
+            dot.style.top  = focalY + '%';
+            info.textContent = 'Left: ' + Math.round(focalX) + '%, Top: ' + Math.round(focalY) + '%';
+        };
+        img.src = url;
+    };
+
+    window.closeFocal = function() {
+        document.getElementById('focal-modal').style.display = 'none';
+        document.getElementById('focal-image').src = '';
+        focalFilename = '';
+    };
+
+    window.clickFocal = async function(e) {
+        const img  = document.getElementById('focal-image');
+        const rect = img.getBoundingClientRect();
+        focalX = Math.min(100, Math.max(0, ((e.clientX - rect.left) / rect.width)  * 100));
+        focalY = Math.min(100, Math.max(0, ((e.clientY - rect.top)  / rect.height) * 100));
+        const dot  = document.getElementById('focal-dot');
+        const info = document.getElementById('focal-info');
+        dot.style.left = focalX + '%';
+        dot.style.top  = focalY + '%';
+        info.textContent = 'Left: ' + Math.round(focalX) + '%, Top: ' + Math.round(focalY) + '%';
+        const fd = new FormData();
+        fd.append('action',   'focal');
+        fd.append('filename', focalFilename);
+        fd.append('focal_x',  focalX.toFixed(1));
+        fd.append('focal_y',  focalY.toFixed(1));
+        const res  = await fetch(api, { method:'POST', body: fd });
+        const data = await res.json();
+        if (data.success) {
+            const idx = allMedia.findIndex(m => m.filename === focalFilename);
+            if (idx !== -1) { allMedia[idx].focal_x = data.focal_x; allMedia[idx].focal_y = data.focal_y; }
+            showToast('Focal point saved');
+        } else {
+            showToast('Error: ' + (data.error || 'save failed'));
+        }
+    };
+
+    /* ── crop tool ── */
+    let cropperInstance = null;
+    let cropFilename    = '';
+
+    window.openCropper = function(filename, url) {
+        cropFilename = filename;
+        const modal = document.getElementById('crop-modal');
+        const img   = document.getElementById('crop-image');
+        if (cropperInstance) { cropperInstance.destroy(); cropperInstance = null; }
+        img.src = '';
+        modal.style.display = 'block';
+        img.onload = function() {
+            cropperInstance = new Cropper(img, {
+                viewMode: 1,
+                autoCropArea: 1,
+                responsive: true,
+                checkCrossOrigin: false,
+            });
+        };
+        img.src = url;
+    };
+
+    window.closeCropper = function() {
+        document.getElementById('crop-modal').style.display = 'none';
+        if (cropperInstance) { cropperInstance.destroy(); cropperInstance = null; }
+        document.getElementById('crop-image').src = '';
+        cropFilename = '';
+    };
+
+    window.setCropRatio = function(ratio) {
+        if (cropperInstance) cropperInstance.setAspectRatio(ratio);
+    };
+
+    window.applyCrop = async function() {
+        if (!cropperInstance || !cropFilename) return;
+        const d  = cropperInstance.getData(true);
+        const fd = new FormData();
+        fd.append('action',   'crop');
+        fd.append('filename', cropFilename);
+        fd.append('x',        d.x);
+        fd.append('y',        d.y);
+        fd.append('width',    d.width);
+        fd.append('height',   d.height);
+        const btn = document.getElementById('crop-apply-btn');
+        btn.disabled = true;
+        btn.textContent = 'Saving…';
+        const res  = await fetch(api, { method:'POST', body: fd });
+        const data = await res.json();
+        btn.disabled = false;
+        btn.textContent = 'Apply Crop';
+        if (data.success) {
+            const idx = allMedia.findIndex(m => m.filename === cropFilename);
+            if (idx !== -1) {
+                allMedia[idx].width  = data.width;
+                allMedia[idx].height = data.height;
+                allMedia[idx].size   = data.size;
+            }
+            window.closeCropper();
+            renderGrid();
+            showToast('Cropped and saved');
+        } else {
+            showToast('Error: ' + (data.error || 'crop failed'));
+        }
+    };
+
     loadMedia();
+    loadUsage();
 })();
 </script>
+
+<!-- ===================== FOCAL POINT MODAL ===================== -->
+<div id="focal-modal" style="display:none;position:fixed;inset:0;z-index:10001;background:rgba(0,0,0,0.85);overflow-y:auto;">
+    <div style="background:#fff;max-width:860px;margin:40px auto;border-radius:8px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.4);">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #e5e7eb;">
+            <h2 style="margin:0;font-size:1.1rem;">Set Focal Point</h2>
+            <button onclick="closeFocal()" style="background:none;border:none;font-size:1.5rem;cursor:pointer;line-height:1;">&times;</button>
+        </div>
+        <div style="padding:16px 20px;">
+            <p style="margin:0 0 10px;font-size:.85rem;color:#6b7280;">Click the most important part of the image — the crop will stay centered on that point.</p>
+            <div style="border-radius:4px;overflow:hidden;background:#111;max-height:58vh;overflow-y:auto;">
+                <div id="focal-img-wrap" style="position:relative;cursor:crosshair;line-height:0;" onclick="clickFocal(event)">
+                    <img id="focal-image" src="" style="width:100%;height:auto;display:block;">
+                    <div id="focal-dot" style="position:absolute;left:50%;top:50%;width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px #fd783b,0 2px 8px rgba(0,0,0,0.6);transform:translate(-50%,-50%);pointer-events:none;transition:left .08s,top .08s;"></div>
+                </div>
+            </div>
+            <div id="focal-info" style="margin-top:8px;font-size:.82rem;color:#6b7280;text-align:center;">Click image to set focal point</div>
+        </div>
+        <div style="padding:16px 20px;border-top:1px solid #e5e7eb;display:flex;gap:10px;justify-content:flex-end;">
+            <button class="btn" onclick="closeFocal()">Done</button>
+        </div>
+    </div>
+</div>
+
+<!-- ===================== CROP MODAL ===================== -->
+<div id="crop-modal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.85);overflow-y:auto;">
+    <div style="background:#fff;max-width:920px;margin:40px auto;border-radius:8px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.4);">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #e5e7eb;">
+            <h2 style="margin:0;font-size:1.1rem;">Crop Image</h2>
+            <button onclick="closeCropper()" style="background:none;border:none;font-size:1.5rem;cursor:pointer;line-height:1;">&times;</button>
+        </div>
+        <div style="padding:16px 20px;">
+            <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;">
+                <span style="font-size:.85rem;color:#6b7280;margin-right:4px;">Aspect ratio:</span>
+                <button class="btn btn-small btn-secondary" onclick="setCropRatio(NaN)">Free</button>
+                <button class="btn btn-small btn-secondary" onclick="setCropRatio(16/9)">16:9</button>
+                <button class="btn btn-small btn-secondary" onclick="setCropRatio(4/3)">4:3</button>
+                <button class="btn btn-small btn-secondary" onclick="setCropRatio(3/2)">3:2</button>
+                <button class="btn btn-small btn-secondary" onclick="setCropRatio(1)">1:1</button>
+                <button class="btn btn-small btn-secondary" onclick="setCropRatio(9/16)">9:16</button>
+            </div>
+            <div style="max-height:520px;overflow:hidden;background:#111;border-radius:4px;">
+                <img id="crop-image" src="" style="max-width:100%;display:block;">
+            </div>
+        </div>
+        <div style="padding:16px 20px;border-top:1px solid #e5e7eb;display:flex;gap:10px;justify-content:flex-end;">
+            <button class="btn btn-secondary" onclick="closeCropper()">Cancel</button>
+            <button id="crop-apply-btn" class="btn" onclick="applyCrop()">Apply Crop</button>
+        </div>
+    </div>
+</div>
 <?php endif; ?>
 
 <!-- ===================== IMAGE PICKER MODAL ===================== -->

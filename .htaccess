@@ -9,6 +9,14 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # Serve sitemap.xml and robots.txt via PHP so shortcodes resolve automatically
+    RewriteRule ^sitemap\.xml$ sitemap.php [L]
+    RewriteRule ^robots\.txt$  robots.php  [L]
+
+    # Blog listing (with optional ?tag=&p=) and single posts
+    RewriteRule ^blog/?$ blog.php [L,QSA]
+    RewriteRule ^blog/([a-zA-Z0-9-]+)/?$ blog.php?slug=$1 [L,QSA]
+
     # Don't rewrite requests for real files or directories
     # (e.g. /admin, /assets, /uploads, /data, /index.php, /page.php).
     RewriteCond %{REQUEST_FILENAME} !-f

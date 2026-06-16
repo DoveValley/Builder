@@ -66,21 +66,23 @@ function default_data() {
             'schema'           => '',
         ],
         'local_business' => [
-            'lb_name'        => '',
-            'lb_url'         => '',
-            'lb_phone'       => '',
-            'lb_street'      => '',
-            'lb_city'        => '',
-            'lb_state'       => '',
-            'lb_zip'         => '',
-            'lb_country'     => 'US',
-            'lb_lat'         => '',
-            'lb_lng'         => '',
-            'lb_price_range' => '$$',
-            'lb_hours'       => '',
-            'lb_description' => '',
-            'lb_logo'        => '',
-            'lb_type'        => 'LocalBusiness',
+            'lb_name'         => '',
+            'lb_url'          => '',
+            'lb_phone'        => '',
+            'lb_street'       => '',
+            'lb_city'         => '',
+            'lb_state'        => '',
+            'lb_zip'          => '',
+            'lb_country'      => 'US',
+            'lb_lat'          => '',
+            'lb_lng'          => '',
+            'lb_price_range'  => '$$',
+            'lb_hours'        => '',
+            'lb_description'  => '',
+            'lb_logo'         => '',
+            'lb_type'         => 'LocalBusiness',
+            'lb_rating'       => '',
+            'lb_review_count' => '',
         ],
         'site_vars' => [
             'city'      => '',
@@ -115,6 +117,12 @@ function default_data() {
             ],
         ],
         'pages'  => [],
+        'posts'  => [],
+        'blog_settings' => [
+            'blog_heading'    => 'Pest Control Tips & News for {city}',
+            'blog_intro'      => '',
+            'posts_per_page'  => 9,
+        ],
         'popups' => [
             'info' => [
                 'enabled' => false,
@@ -165,6 +173,7 @@ function default_page_data() {
     return [
         'title' => '',
         'slug'  => '',
+        'page_type' => 'landing',
         'content_blocks' => [
             ['type' => 'text', 'heading_level' => 'h2', 'text' => '',
              'photo' => '', 'photo_ratio' => 'landscape', 'photo_position' => 'center', 'photo_alt' => ''],
@@ -174,30 +183,36 @@ function default_page_data() {
             'og_title' => '', 'og_description' => '', 'og_image' => '', 'schema' => '',
             'canonical_url' => '', 'service_name' => '', 'service_type' => '',
             'service_area' => '', 'service_description' => '',
+            'bc_label' => '', 'bc_mid_label' => '', 'bc_mid_url' => '',
         ],
     ];
 }
 
 /* ============================================================
    SHORTCODE SYSTEM
-   Tokens: {city} {state} {SS} {city_state} {city_slug} {business} {phone} {zip} {website}
+   Tokens: {city} {state} {SS} {city_state} {city_slug} {business} {phone} {zip} {website} {business_domain} {rating} {review_count}
    Values stored in $data['site_vars']. Applied at render time.
    ============================================================ */
 function resolve_shortcodes(string $text): string {
     global $data;
-    $v          = $data['site_vars'] ?? [];
-    $city       = $v['city']      ?? '';
-    $state      = $v['state']     ?? '';
-    $SS         = $v['SS']        ?? '';
-    $city_slug  = $v['city_slug'] ?? '';
-    $business   = $v['business']  ?? '';
-    $phone      = $v['phone']     ?? '';
-    $zip        = $v['zip']       ?? '';
-    $website    = $v['website']   ?? '';
-    $city_state = $city && $SS ? $city . ', ' . $SS : $city . $SS;
+    $v            = $data['site_vars']     ?? [];
+    $lb           = $data['local_business'] ?? [];
+    $city         = $v['city']      ?? '';
+    $state        = $v['state']     ?? '';
+    $SS           = $v['SS']        ?? '';
+    $city_slug    = $v['city_slug'] ?? '';
+    $business     = $v['business']  ?? '';
+    $phone        = $v['phone']     ?? '';
+    $tel          = $v['tel']       ?? '';
+    $zip          = $v['zip']       ?? '';
+    $website      = $v['website']   ?? '';
+    $business_domain = parse_url($website, PHP_URL_HOST) ?: $website;
+    $rating       = $lb['lb_rating']       ?? '';
+    $review_count = $lb['lb_review_count'] ?? '';
+    $city_state   = $city && $SS ? $city . ', ' . $SS : $city . $SS;
     return str_replace(
-        ['{city}', '{state}', '{SS}', '{city_state}', '{city_slug}', '{business}', '{phone}', '{zip}', '{website}'],
-        [$city,    $state,    $SS,    $city_state,    $city_slug,    $business,    $phone,    $zip,    $website],
+        ['{city}', '{state}', '{SS}', '{city_state}', '{city_slug}', '{business}', '{phone}', '{tel}', '{zip}', '{website}', '{business_domain}', '{rating}', '{review_count}'],
+        [$city,    $state,    $SS,    $city_state,    $city_slug,    $business,    $phone,    $tel,    $zip,    $website,    $business_domain,    $rating,    $review_count],
         $text
     );
 }
@@ -207,8 +222,10 @@ function apply_shortcodes_to_block(array $block): array {
     foreach ($block as $key => $value) {
         if (is_string($value)) {
             $skip = false;
-            foreach ($skipKeys as $sk) {
-                if (stripos($key, $sk) !== false) { $skip = true; break; }
+            if (!str_ends_with($key, '_alt')) {
+                foreach ($skipKeys as $sk) {
+                    if (stripos($key, $sk) !== false) { $skip = true; break; }
+                }
             }
             if (!$skip) $block[$key] = resolve_shortcodes($value);
         } elseif (is_array($value)) {
@@ -225,7 +242,7 @@ function slugify($text) {
 }
 
 function reserved_slugs() {
-    return ['', 'admin', 'assets', 'data', 'includes', 'uploads', 'index', 'page', 'home'];
+    return ['', 'admin', 'assets', 'data', 'includes', 'uploads', 'index', 'page', 'home', 'blog'];
 }
 
 function unique_slug($slug, $pages, $excludeId = null) {
@@ -250,6 +267,39 @@ function find_page_by_slug($pages, $slug) {
     return [null, null];
 }
 
+function find_post_by_slug($posts, $slug) {
+    foreach ($posts as $pid => $post) {
+        if (($post['slug'] ?? '') === $slug) return [$pid, $post];
+    }
+    return [null, null];
+}
+
+function default_post_data() {
+    return [
+        'title'              => '',
+        'slug'               => '',
+        'status'             => 'draft',
+        'published_at'       => date('Y-m-d'),
+        'updated_at'         => date('Y-m-d'),
+        'author'             => '{business} Team',
+        'tag'                => '',
+        'excerpt'            => '',
+        'featured_image'     => '',
+        'featured_image_alt' => '',
+        'content_blocks' => [
+            ['type' => 'text', 'heading_level' => 'h2', 'text' => '',
+             'photo' => '', 'photo_ratio' => 'landscape', 'photo_position' => 'center', 'photo_alt' => ''],
+        ],
+        'seo' => [
+            'meta_keywords' => '', 'meta_description' => '',
+            'og_title' => '', 'og_description' => '', 'og_image' => '', 'schema' => '',
+            'canonical_url' => '', 'service_name' => '', 'service_type' => '',
+            'service_area' => '', 'service_description' => '',
+            'bc_label' => '', 'bc_mid_label' => 'Blog', 'bc_mid_url' => '/blog',
+        ],
+    ];
+}
+
 function save_data($data) {
     $dir = dirname(DATA_FILE);
     if (!is_dir($dir)) mkdir($dir, 0775, true);
@@ -272,21 +322,60 @@ function upload_image_indexed($fieldName, $index, $prefix) {
 }
 
 function save_uploaded_file($tmpPath, $prefix) {
-    $allowed = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/gif' => 'gif', 'image/webp' => 'webp'];
+    // Raster types get converted → WebP. GIF and SVG are passed through unchanged.
+    $raster    = ['image/jpeg', 'image/png', 'image/webp'];
+    $passthru  = ['image/gif' => 'gif', 'image/svg+xml' => 'svg'];
 
-    // Max 8MB per upload
     $maxBytes = 8 * 1024 * 1024;
     if (filesize($tmpPath) > $maxBytes) return false;
 
     $finfo = finfo_open(FILEINFO_MIME_TYPE);
-    $mime = finfo_file($finfo, $tmpPath);
+    $mime  = finfo_file($finfo, $tmpPath);
     finfo_close($finfo);
-    if (!isset($allowed[$mime])) return false;
+    if (!in_array($mime, $raster) && !isset($passthru[$mime])) return false;
+
     if (!is_dir(UPLOAD_DIR)) mkdir(UPLOAD_DIR, 0775, true);
-    $ext = $allowed[$mime];
-    $filename = $prefix . '_' . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.' . $ext;
-    $destination = UPLOAD_DIR . $filename;
-    return move_uploaded_file($tmpPath, $destination) ? UPLOAD_URL . $filename : false;
+
+    // GIF / SVG — move as-is, no processing
+    if (isset($passthru[$mime])) {
+        $filename = $prefix . '_' . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.' . $passthru[$mime];
+        return move_uploaded_file($tmpPath, UPLOAD_DIR . $filename) ? UPLOAD_URL . $filename : false;
+    }
+
+    // Raster — resize to max 1800px wide and convert to WebP via GD
+    $filename = $prefix . '_' . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.webp';
+    $dest     = UPLOAD_DIR . $filename;
+
+    if (extension_loaded('gd') && function_exists('imagewebp')) {
+        $src = match($mime) {
+            'image/jpeg' => @imagecreatefromjpeg($tmpPath),
+            'image/png'  => @imagecreatefrompng($tmpPath),
+            'image/webp' => @imagecreatefromwebp($tmpPath),
+            default      => false,
+        };
+        if ($src) {
+            $ow = imagesx($src); $oh = imagesy($src);
+            if ($ow > 1800) {
+                $nw  = 1800;
+                $nh  = (int) round($oh * 1800 / $ow);
+                $dst = imagecreatetruecolor($nw, $nh);
+                imagealphablending($dst, false);
+                imagesavealpha($dst, true);
+                imagefill($dst, 0, 0, imagecolorallocatealpha($dst, 0, 0, 0, 127));
+                imagecopyresampled($dst, $src, 0, 0, 0, 0, $nw, $nh, $ow, $oh);
+                imagedestroy($src);
+                $src = $dst;
+            }
+            $ok = imagewebp($src, $dest, 82);
+            imagedestroy($src);
+            if ($ok) return UPLOAD_URL . $filename;
+        }
+    }
+
+    // GD fallback — move original file without processing
+    $origExt  = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp'][$mime];
+    $fallback = $prefix . '_' . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.' . $origExt;
+    return move_uploaded_file($tmpPath, UPLOAD_DIR . $fallback) ? UPLOAD_URL . $fallback : false;
 }
 
 function h($string) {
@@ -395,6 +484,21 @@ function render_content_photo($photo, $ratio, $position, $alt = '', $pathPrefix 
     return $html;
 }
 
+function get_focal_point(string $url): string {
+    static $index = null;
+    if ($index === null) {
+        $path  = defined('BASE_DIR') ? BASE_DIR . '/data/media.json' : '';
+        $items = ($path && file_exists($path)) ? (json_decode(file_get_contents($path), true) ?? []) : [];
+        $index = [];
+        foreach ($items as $item) {
+            if (!empty($item['url'])) $index[$item['url']] = $item;
+        }
+    }
+    $item = $index[$url] ?? null;
+    if (!$item || !isset($item['focal_x'])) return '50% 50%';
+    return round($item['focal_x'], 1) . '% ' . round($item['focal_y'], 1) . '%';
+}
+
 /* ============================================================
    BLOCK TYPES
    ============================================================ */
@@ -404,8 +508,8 @@ function allowed_block_types() {
         'image_left'      => 'Image left, text right',
         'image_right'     => 'Text left, image right',
         'hero'            => 'Hero / Banner (full width)',
-        'hero_split'      => 'Hero Split (text left, image right)',
-        'feature_split'   => 'Feature Split (icon grid left, image right)',
+        'hero_split'      => 'Hero Split (default image right)',
+        'feature_split'   => 'Feature Split (default image left, icon grid right)',
         'split_cta'       => 'Split CTA (colored left panel + phone right panel)',
         'tab_services'    => 'Tab Services (vertical tabs left, image right)',
         'hero_grid'       => 'Hero Grid (image left, icon grid right)',
@@ -494,7 +598,7 @@ function render_content_block($block, $pathPrefix = '') {
             $bgColor    = $block['hero_bg_color']   ?? '';
             $textColor  = $block['hero_text_color'] ?? '#ffffff';
             $style = '';
-            if ($bgImage) $style .= 'background-image:url(' . h($pathPrefix . $bgImage) . ');background-size:cover;background-position:center;';
+            if ($bgImage) $style .= 'background-image:url(' . h($pathPrefix . $bgImage) . ');background-size:cover;background-position:'.h(get_focal_point($bgImage)).';';
             if ($bgColor) $style .= 'background-color:' . h($bgColor) . ';';
             echo '<div class="content-block block-hero" style="' . $style . 'color:' . h($textColor) . ';"' . $anchorAttr . '>';
             echo '<div class="hero-inner">';
@@ -516,24 +620,26 @@ function render_content_block($block, $pathPrefix = '') {
             $caption2   = $block['hs_caption2']    ?? '';
             $bgColor    = $block['hs_bg_color']    ?? '#f3f6f7';
             $bgPhoto    = $block['hs_bg_photo']    ?? '';
-            $imgSide    = $block['hs_image_side']  ?? 'right';
-            $anchorOut  = $anchorAttr;
+            $imgSide      = $block['hs_image_side']    ?? 'right';
+            $mobileOrder  = $block['hs_mobile_order']  ?? '';
+            $anchorOut    = $anchorAttr;
             if ($bgPhoto) {
                 $bgPhotoSrc = (str_starts_with($bgPhoto, 'http') || str_starts_with($bgPhoto, '//'))
                     ? $bgPhoto : $pathPrefix . $bgPhoto;
-                $bgStyle = 'background:'.h($bgColor).';background-image:url('.h($bgPhotoSrc).');background-size:cover;background-position:center;';
+                $bgStyle = 'background:'.h($bgColor).';background-image:url('.h($bgPhotoSrc).');background-size:cover;background-position:'.h(get_focal_point($bgPhoto)).';';
             } else {
                 $bgStyle = 'background:'.h($bgColor).';';
             }
+            $hsExtraClass = $mobileOrder === 'img_first' ? ' hs-mobile-img-first' : ($mobileOrder === 'text_first' ? ' hs-mobile-text-first' : '');
             echo '<div class="content-block block-hero-split"'.$anchorOut.' style="'.$bgStyle.'">';
-            echo '<div class="container hs-inner">';
+            echo '<div class="container hs-inner'.$hsExtraClass.'">';
             // Build image column HTML
             $hsImgCol = '';
             if ($photo) {
                 $photoSrc = (str_starts_with($photo, 'http') || str_starts_with($photo, '//'))
                     ? $photo : $pathPrefix . $photo;
                 $hsImgCol .= '<div class="hs-image-wrap">';
-                $hsImgCol .= '<img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="hs-image">';
+                $hsImgCol .= '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="hs-image" style="object-position:'.h(get_focal_point($photo)).';">';
                 if ($caption1 || $caption2) {
                     $hsImgCol .= '<div class="hs-caption">';
                     if ($caption1) $hsImgCol .= '<div class="hs-caption-title">'.h($caption1).'</div>';
@@ -546,7 +652,7 @@ function render_content_block($block, $pathPrefix = '') {
             // Text column
             echo '<div class="hs-text">';
             if ($heading) echo '<h1 class="hs-heading">'.h($heading).'</h1>';
-            if ($subtext) echo '<p class="hs-subtext">'.h($subtext).'</p>';
+            if ($subtext) echo '<div class="hs-subtext">'.resolve_shortcodes($subtext).'</div>';
             if ($btnText) echo '<a href="'.h($btnUrl).'" class="hs-btn">'.h($btnText).'</a>';
             echo '</div>';
             if ($imgSide !== 'left') echo $hsImgCol;
@@ -563,7 +669,8 @@ function render_content_block($block, $pathPrefix = '') {
             $bgColor     = $block['fs_bg_color']   ?? '#f3f6f7';
             $accentColor = $block['fs_accent']     ?? '#fd783b';
             $items       = $block['fs_items']      ?? [];
-            $imgSide     = $block['fs_image_side'] ?? 'right';
+            $imgSide     = $block['fs_image_side']   ?? 'right';
+            $fsMobOrder  = $block['fs_mobile_order'] ?? '';
             $photoSrc    = '';
             if ($photo) {
                 $photoSrc = (str_starts_with($photo, 'http') || str_starts_with($photo, '//'))
@@ -572,11 +679,12 @@ function render_content_block($block, $pathPrefix = '') {
             $hasIcons = !empty(array_filter($items, fn($i) => !empty($i['icon'])));
 
             $imgCol = '<div class="fs-right">';
-            if ($photoSrc) $imgCol .= '<div class="fs-arch-wrap"><img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="fs-arch-img" loading="lazy"></div>';
+            if ($photoSrc) $imgCol .= '<div class="fs-arch-wrap"><img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="fs-arch-img" loading="lazy" style="object-position:'.h(get_focal_point($photo)).';"></div>';
             if ($starText) $imgCol .= '<div class="fs-star-badge"><span class="fs-stars">★★★★★</span><span class="fs-star-text">'.h($starText).'</span></div>';
             $imgCol .= '</div>';
 
-            $wrapClass = $imgSide === 'left' ? 'fs-inner fs-img-left' : 'fs-inner';
+            $fsMobClass = $fsMobOrder === 'img_first' ? ' fs-mobile-img-first' : ($fsMobOrder === 'text_first' ? ' fs-mobile-text-first' : '');
+            $wrapClass = ($imgSide === 'left' ? 'fs-inner fs-img-left' : 'fs-inner') . $fsMobClass;
             echo '<div class="content-block block-feature-split"'.$anchorAttr.' style="background:'.h($bgColor).';">';
             echo '<div class="container '.$wrapClass.'">';
 
@@ -980,14 +1088,14 @@ function render_content_block($block, $pathPrefix = '') {
             // LEFT: photo
             if ($photoSrc) {
                 echo '<div class="if-photo-wrap">';
-                echo '<img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="if-photo" loading="lazy">';
+                echo '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="if-photo" loading="lazy" style="object-position:'.h(get_focal_point($photo)).';">';
                 echo '</div>';
             }
 
             // RIGHT: content
             echo '<div class="if-content">';
             if ($heading) echo '<h2 class="if-heading" style="color:'.$headStyle.';">'.h($heading).'</h2>';
-            if ($intro)   echo '<p class="if-intro">'.h($intro).'</p>';
+            if ($intro)   echo '<div class="if-intro">'.resolve_shortcodes($intro).'</div>';
 
             // 2×2 feature grid
             if (!empty($features)) {
@@ -1001,7 +1109,7 @@ function render_content_block($block, $pathPrefix = '') {
                 echo '</div>';
             }
 
-            if ($closing) echo '<p class="if-closing">'.h($closing).'</p>';
+            if ($closing) echo '<p class="if-closing">'.h(resolve_shortcodes($closing)).'</p>';
 
             // Phone CTA row
             if ($phone) {
@@ -1041,7 +1149,7 @@ function render_content_block($block, $pathPrefix = '') {
             }
 
             if ($photoSrc) {
-                $bgStyle = 'background-image:url('.h($photoSrc).');background-size:cover;background-position:center;';
+                $bgStyle = 'background-image:url('.h($photoSrc).');background-size:cover;background-position:'.h(get_focal_point($photo)).';';
                 $overlayStyle = 'background:rgba(0,0,0,'.h($overlayOpacity).');';
             } elseif ($bgColor) {
                 $bgStyle = 'background:'.h($bgColor).';';
@@ -1099,15 +1207,18 @@ function render_content_block($block, $pathPrefix = '') {
                 $iAlt   = $item['alt']     ?? '';
                 $iHead  = $item['heading'] ?? '';
                 $iText  = $item['text']    ?? '';
+                $iUrl   = $item['url']     ?? '';
                 $iIconSrc = '';
                 if ($iIcon) $iIconSrc = (str_starts_with($iIcon,'http') || str_starts_with($iIcon,'//')) ? $iIcon : $pathPrefix.$iIcon;
-                echo '<div class="svc-card">';
+                $tag    = $iUrl ? 'a' : 'div';
+                $tagAttr = $iUrl ? ' href="'.h($iUrl).'"' : '';
+                echo '<'.$tag.' class="svc-card"'.$tagAttr.'>';
                 if ($iIconSrc) {
                     echo '<div class="svc-icon-wrap" style="background:'.h($iconBg).';"><img src="'.h($iIconSrc).'" alt="'.h($iAlt).'" class="svc-icon" loading="lazy"></div>';
                 }
                 if ($iHead) echo '<h3 class="svc-card-heading">'.h($iHead).'</h3>';
                 if ($iText) echo '<p class="svc-card-text">'.h($iText).'</p>';
-                echo '</div>';
+                echo '</'.$tag.'>';
             }
             echo '</div></div></div>';
             break;
@@ -1144,7 +1255,7 @@ function render_content_block($block, $pathPrefix = '') {
             echo '<div class="content-block block-hero-grid"'.$anchorAttr.'>';
 
             // LEFT: image with overlay + text
-            echo '<div class="hg-left" style="'.($photoSrc ? 'background-image:url('.h($photoSrc).');' : 'background:#1a1a2e;').'">';
+            echo '<div class="hg-left" style="'.($photoSrc ? 'background-image:url('.h($photoSrc).');background-size:cover;background-position:'.h(get_focal_point($photo)).';' : 'background:#1a1a2e;').'">';
             echo '<div class="hg-overlay">';
             if ($label)   echo '<div class="hg-label">'.h($label).'</div>';
             if ($heading) echo '<h2 class="hg-heading">'.h($heading).'</h2>';
@@ -1263,6 +1374,21 @@ function render_content_block($block, $pathPrefix = '') {
         case 'steps':
             $heading = $block['steps_heading'] ?? '';
             $items   = $block['steps_items']   ?? [];
+            // HowTo schema
+            if ($heading && !empty($items)) {
+                $howToSteps = [];
+                foreach ($items as $n => $step) {
+                    $sHead = trim($step['heading'] ?? '');
+                    $sText = trim($step['text']    ?? '');
+                    if ($sHead || $sText) {
+                        $howToSteps[] = ['@type' => 'HowToStep', 'name' => $sHead, 'text' => $sText, 'position' => $n + 1];
+                    }
+                }
+                if ($howToSteps) {
+                    $howTo = ['@context' => 'https://schema.org', '@type' => 'HowTo', 'name' => resolve_shortcodes($heading), 'step' => $howToSteps];
+                    echo '<script type="application/ld+json">' . json_encode($howTo, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+                }
+            }
             echo '<div class="content-block block-steps"' . $anchorAttr . '>';
             if ($heading) echo '<h2 class="section-heading">' . h($heading) . '</h2>';
             echo '<div class="steps-grid">';
@@ -1310,11 +1436,25 @@ function render_content_block($block, $pathPrefix = '') {
 
         /* ---- CARDS GRID (image + heading + text + link) ---- */
         case 'cards':
-            $heading  = $block['cards_heading']  ?? '';
-            $cols     = max(2, min(4, (int)($block['cards_cols'] ?? 3)));
-            $items    = $block['cards_items']    ?? [];
-            echo '<div class="content-block block-cards"' . $anchorAttr . '>';
-            if ($heading) echo '<h2 class="section-heading">' . h($heading) . '</h2>';
+            $heading      = $block['cards_heading']               ?? '';
+            $cols         = max(2, min(4, (int)($block['cards_cols'] ?? 3)));
+            $items        = $block['cards_items']                 ?? [];
+            $bgColor      = $block['cards_bg']                    ?? '';
+            $headColor    = $block['cards_head_color']            ?? '';
+            $headColorC   = $block['cards_head_color_custom']     ?? '#1a1a2e';
+            $cardBg       = $block['cards_card_bg']               ?? '';
+            $itemHeadC    = $block['cards_item_head_color']       ?? '';
+            $itemHeadCC   = $block['cards_item_head_color_custom'] ?? '#1a1a2e';
+            $textColor    = $block['cards_text_color']            ?? '';
+
+            $blockStyle    = $bgColor    ? ' style="background:'.h($bgColor).';"' : '';
+            $headStyle     = $headColor  ? ' style="color:'.resolve_color($headColor, $headColorC).';"' : '';
+            $itemHeadStyle = $itemHeadC  ? ' style="color:'.resolve_color($itemHeadC, $itemHeadCC).';"' : '';
+            $textStyle     = $textColor  ? ' style="color:'.h($textColor).';"' : '';
+            $cardBgStyle   = $cardBg     ? ' style="background:'.h($cardBg).';"' : '';
+
+            echo '<div class="content-block block-cards"' . $anchorAttr . $blockStyle . '>';
+            if ($heading) echo '<h2 class="section-heading"' . $headStyle . '>' . h($heading) . '</h2>';
             echo '<div class="cards-grid cards-grid-' . $cols . '">';
             foreach ($items as $card) {
                 $cardImg  = $card['image']    ?? '';
@@ -1323,13 +1463,94 @@ function render_content_block($block, $pathPrefix = '') {
                 $cardText = $card['text']     ?? '';
                 $cardLink = $card['link']     ?? '';
                 $cardBtn  = $card['btn_text'] ?? 'Read More';
-                echo '<div class="card-item">';
+                echo '<div class="card-item"' . $cardBgStyle . '>';
                 if ($cardImg) echo '<img class="card-image" src="' . h($pathPrefix . $cardImg) . '" alt="' . h($cardAlt) . '" loading="lazy">';
                 echo '<div class="card-body">';
-                if ($cardHead) echo '<h3 class="card-heading">' . h($cardHead) . '</h3>';
-                if ($cardText) echo '<p class="card-text">' . h($cardText) . '</p>';
+                if ($cardHead) echo '<h3 class="card-heading"' . $itemHeadStyle . '>' . h($cardHead) . '</h3>';
+                if ($cardText) echo '<p class="card-text"' . $textStyle . '>' . h($cardText) . '</p>';
                 if ($cardLink) echo '<a href="' . h($cardLink) . '" class="card-link">' . h($cardBtn) . '</a>';
                 echo '</div></div>';
+            }
+            echo '</div></div>';
+            break;
+
+        /* ---- POST META (byline / date / tag / featured image — blog posts only) ---- */
+        case 'post_meta':
+            $postHeading = $block['title']      ?? '';
+            $author      = $block['author']     ?? '';
+            $publishedAt = $block['published_at'] ?? '';
+            $tag         = $block['tag']        ?? '';
+            $featImg     = $block['featured_image'] ?? '';
+            $featAlt     = $block['featured_image_alt'] ?? '';
+            echo '<div class="content-block block-post-meta">';
+            if ($postHeading) echo '<h1 class="post-meta-heading">' . h($postHeading) . '</h1>';
+            echo '<div class="post-meta-row">';
+            if ($publishedAt) echo '<span class="post-meta-date">' . h($publishedAt) . '</span>';
+            if ($author)      echo '<span class="post-meta-author">By ' . h($author) . '</span>';
+            if ($tag)         echo '<a class="post-meta-tag" href="/blog?tag=' . h(slugify($tag)) . '">' . h($tag) . '</a>';
+            echo '</div>';
+            if ($featImg) {
+                $featSrc = (str_starts_with($featImg,'http') || str_starts_with($featImg,'//')) ? $featImg : $pathPrefix . $featImg;
+                echo '<img class="post-meta-image" src="' . h($featSrc) . '" alt="' . h($featAlt) . '" loading="lazy">';
+            }
+            echo '</div>';
+            break;
+
+        /* ---- BLOG LIST (post cards grid + tag filter + pagination) ---- */
+        case 'blog_list':
+            $blHeading  = $block['heading']  ?? '';
+            $blIntro    = $block['intro']    ?? '';
+            $blPosts    = $block['posts']    ?? [];
+            $activeTag      = $block['active_tag']       ?? '';
+            $activeTagLabel = $block['active_tag_label'] ?? '';
+            $allTags        = $block['all_tags']          ?? [];
+            $pagination     = $block['pagination']        ?? null;
+            echo '<div class="content-block block-blog-list"><div class="container">';
+            if ($blHeading) echo '<h1 class="blog-list-heading">' . h($blHeading) . '</h1>';
+            if ($blIntro)   echo '<p class="blog-list-intro">' . h($blIntro) . '</p>';
+            if (!empty($allTags)) {
+                echo '<div class="blog-tags-bar">';
+                echo '<a class="blog-tag-pill' . ($activeTag === '' ? ' is-active' : '') . '" href="/blog">All</a>';
+                foreach ($allTags as $t) {
+                    $tSlug = slugify($t);
+                    $isActive = ($activeTag !== '' && slugify($activeTag) === $tSlug);
+                    echo '<a class="blog-tag-pill' . ($isActive ? ' is-active' : '') . '" href="/blog?tag=' . h($tSlug) . '">' . h($t) . '</a>';
+                }
+                echo '</div>';
+            }
+            if (empty($blPosts)) {
+                echo '<p class="blog-empty">No posts yet.</p>';
+            } else {
+                echo '<div class="blog-card-grid">';
+                foreach ($blPosts as $bp) {
+                    $bpImg = $bp['featured_image'] ?? '';
+                    echo '<a class="blog-card" href="/blog/' . h($bp['slug'] ?? '') . '">';
+                    if ($bpImg) {
+                        $bpSrc = (str_starts_with($bpImg,'http') || str_starts_with($bpImg,'//')) ? $bpImg : $pathPrefix . $bpImg;
+                        echo '<img class="blog-card-image" src="' . h($bpSrc) . '" alt="' . h($bp['featured_image_alt'] ?? '') . '" loading="lazy">';
+                    }
+                    echo '<div class="blog-card-body">';
+                    if (!empty($bp['published_at']) || !empty($bp['tag'])) {
+                        echo '<div class="blog-card-meta-row">';
+                        if (!empty($bp['published_at'])) echo '<span class="blog-card-date">' . h($bp['published_at']) . '</span>';
+                        if (!empty($bp['tag']))          echo '<span class="blog-card-tag">' . h($bp['tag']) . '</span>';
+                        echo '</div>';
+                    }
+                    echo '<h2 class="blog-card-heading">' . h($bp['title'] ?? '') . '</h2>';
+                    if (!empty($bp['excerpt'])) echo '<p class="blog-card-excerpt">' . h($bp['excerpt']) . '</p>';
+                    echo '</div></a>';
+                }
+                echo '</div>';
+            }
+            if ($pagination && (int)$pagination['total'] > 1) {
+                echo '<div class="blog-pagination">';
+                for ($pg = 1; $pg <= (int)$pagination['total']; $pg++) {
+                    $sep = str_contains($pagination['base_url'], '?') ? '&' : '?';
+                    $url = $pg > 1 ? $pagination['base_url'] . $sep . 'p=' . $pg : $pagination['base_url'];
+                    $cls = $pg === (int)$pagination['current'] ? ' blog-page-active' : '';
+                    echo '<a class="blog-page-link' . $cls . '" href="' . h($url) . '">' . $pg . '</a>';
+                }
+                echo '</div>';
             }
             echo '</div></div>';
             break;
@@ -1555,6 +1776,14 @@ function render_content_blocks_editor($blocks) {
                             <input type="text" name="hs_caption2[]" value="<?= h($block['hs_caption2'] ?? '') ?>" placeholder="e.g. Katy, TX">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label>Mobile stacking order</label>
+                        <select name="hs_mobile_order[]">
+                            <option value=""           <?= ($block['hs_mobile_order'] ?? '') === ''           ? 'selected' : '' ?>>Default (HTML source order)</option>
+                            <option value="img_first"  <?= ($block['hs_mobile_order'] ?? '') === 'img_first'  ? 'selected' : '' ?>>Image first</option>
+                            <option value="text_first" <?= ($block['hs_mobile_order'] ?? '') === 'text_first' ? 'selected' : '' ?>>Text first</option>
+                        </select>
+                    </div>
                 </div>
 
                 <?php /* ---- FEATURE SPLIT FIELDS ---- */ ?>
@@ -1639,6 +1868,14 @@ function render_content_blocks_editor($blocks) {
                         <label>Star badge text (shown below image)</label>
                         <input type="text" name="fs_star_text[]" value="<?= h($block['fs_star_text'] ?? '') ?>" placeholder="e.g. 5 Star Services">
                         <span class="hint">★★★★★ stars are shown automatically. Leave blank to hide the badge.</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile stacking order</label>
+                        <select name="fs_mobile_order[]">
+                            <option value=""           <?= ($block['fs_mobile_order'] ?? '') === ''           ? 'selected' : '' ?>>Default (HTML source order)</option>
+                            <option value="img_first"  <?= ($block['fs_mobile_order'] ?? '') === 'img_first'  ? 'selected' : '' ?>>Image first</option>
+                            <option value="text_first" <?= ($block['fs_mobile_order'] ?? '') === 'text_first' ? 'selected' : '' ?>>Text / icon grid first</option>
+                        </select>
                     </div>
                 </div>
 
@@ -2391,6 +2628,10 @@ function render_content_blocks_editor($blocks) {
                                         <label>Description</label>
                                         <textarea name="sc_item_text[<?= $i ?>][]" rows="2"><?= h($sitem['text'] ?? '') ?></textarea>
                                     </div>
+                                    <div class="form-group">
+                                        <label>Link URL <span class="hint">(optional — makes the card clickable)</span></label>
+                                        <input type="text" name="sc_item_url[<?= $i ?>][]" value="<?= h($sitem['url'] ?? '') ?>" placeholder="e.g. /cockroach-exterminator-katy-tx">
+                                    </div>
                                 </div>
                                 <button type="button" class="remove-row" onclick="removeScItem(this)" style="align-self:flex-start;margin-top:22px;">&times;</button>
                             </div>
@@ -2698,6 +2939,42 @@ function render_content_blocks_editor($blocks) {
                             <?php endforeach; ?>
                         </select>
                     </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+                        <?php $cbgVal = h($block['cards_bg'] ?? '#f3f6f7'); $ccbgVal = h($block['cards_card_bg'] ?? '#ffffff'); $ctcVal = h($block['cards_text_color'] ?? '#333333'); ?>
+                        <div class="form-group">
+                            <label>Block background color</label>
+                            <input type="color" name="cards_bg[]" value="<?= $cbgVal ?>" oninput="this.nextElementSibling.value=this.value;">
+                            <input type="text" value="<?= $cbgVal ?>" placeholder="#f3f6f7" style="width:90px;margin-left:6px;font-size:0.82rem;" oninput="var c=this.previousElementSibling;if(/^#[0-9a-fA-F]{6}$/.test(this.value))c.value=this.value;">
+                        </div>
+                        <div class="form-group">
+                            <label>Card background color</label>
+                            <input type="color" name="cards_card_bg[]" value="<?= $ccbgVal ?>" oninput="this.nextElementSibling.value=this.value;">
+                            <input type="text" value="<?= $ccbgVal ?>" placeholder="#ffffff" style="width:90px;margin-left:6px;font-size:0.82rem;" oninput="var c=this.previousElementSibling;if(/^#[0-9a-fA-F]{6}$/.test(this.value))c.value=this.value;">
+                        </div>
+                        <div class="form-group">
+                            <label>Section heading color</label>
+                            <select name="cards_head_color[]" onchange="toggleCustomColor(this, 'cards_head_color_custom_<?= $i ?>')">
+                                <?php foreach (['accent'=>'Accent','header'=>'Header/Navy','custom'=>'Custom'] as $v=>$l): ?>
+                                <option value="<?= $v ?>" <?= ($block['cards_head_color'] ?? 'header') === $v ? 'selected' : '' ?>><?= $l ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <input type="color" id="cards_head_color_custom_<?= $i ?>" name="cards_head_color_custom[]" value="<?= h($block['cards_head_color_custom'] ?? '#1a1a2e') ?>" style="display:<?= ($block['cards_head_color'] ?? 'header') === 'custom' ? 'inline-block' : 'none' ?>;">
+                        </div>
+                        <div class="form-group">
+                            <label>Card heading color</label>
+                            <select name="cards_item_head_color[]" onchange="toggleCustomColor(this, 'cards_item_head_color_custom_<?= $i ?>')">
+                                <?php foreach (['accent'=>'Accent','header'=>'Header/Navy','custom'=>'Custom'] as $v=>$l): ?>
+                                <option value="<?= $v ?>" <?= ($block['cards_item_head_color'] ?? 'header') === $v ? 'selected' : '' ?>><?= $l ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <input type="color" id="cards_item_head_color_custom_<?= $i ?>" name="cards_item_head_color_custom[]" value="<?= h($block['cards_item_head_color_custom'] ?? '#1a1a2e') ?>" style="display:<?= ($block['cards_item_head_color'] ?? 'header') === 'custom' ? 'inline-block' : 'none' ?>;">
+                        </div>
+                        <div class="form-group">
+                            <label>Card text color</label>
+                            <input type="color" name="cards_text_color[]" value="<?= $ctcVal ?>" oninput="this.nextElementSibling.value=this.value;">
+                            <input type="text" value="<?= $ctcVal ?>" placeholder="#333333" style="width:90px;margin-left:6px;font-size:0.82rem;" oninput="var c=this.previousElementSibling;if(/^#[0-9a-fA-F]{6}$/.test(this.value))c.value=this.value;">
+                        </div>
+                    </div>
                     <div class="cards-items-editor" id="cards_items_<?= $i ?>">
                         <?php foreach (($block['cards_items'] ?? []) as $ci => $card): ?>
                         <div class="card-item-row">
@@ -2813,6 +3090,28 @@ function render_photo_upload_fields($fieldBaseName, $existingPhoto, $ratio, $pos
 /* ============================================================
    SCHEMA: Generate LocalBusiness JSON-LD
    ============================================================ */
+function generate_faq_schema(array $contentBlocks): string {
+    $pairs = [];
+    foreach ($contentBlocks as $block) {
+        if (($block['type'] ?? '') !== 'faq_two_col') continue;
+        foreach ($block['fq_items'] ?? [] as $item) {
+            $q = html_entity_decode(resolve_shortcodes(trim($item['question'] ?? '')), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+            $a = html_entity_decode(resolve_shortcodes(trim(strip_tags($item['answer'] ?? ''))), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+            if ($q && $a) $pairs[] = [
+                '@type'          => 'Question',
+                'name'           => $q,
+                'acceptedAnswer' => ['@type' => 'Answer', 'text' => $a],
+            ];
+        }
+    }
+    if (empty($pairs)) return '';
+    return json_encode([
+        '@context'   => 'https://schema.org',
+        '@type'      => 'FAQPage',
+        'mainEntity' => $pairs,
+    ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+}
+
 function generate_local_business_schema(array $lb): string {
     if (empty($lb['lb_name'])) return '';
     $schema = [
@@ -2821,9 +3120,9 @@ function generate_local_business_schema(array $lb): string {
         'name'     => $lb['lb_name'],
     ];
     if (!empty($lb['lb_url']))         $schema['url']         = $lb['lb_url'];
-    if (!empty($lb['lb_phone']))       $schema['telephone']   = $lb['lb_phone'];
+    if (!empty($lb['lb_phone']))       $schema['telephone']   = resolve_shortcodes($lb['lb_phone']);
     if (!empty($lb['lb_price_range'])) $schema['priceRange']  = $lb['lb_price_range'];
-    if (!empty($lb['lb_description'])) $schema['description'] = $lb['lb_description'];
+    if (!empty($lb['lb_description'])) $schema['description'] = resolve_shortcodes($lb['lb_description']);
     if (!empty($lb['lb_logo']))        $schema['logo']        = $lb['lb_logo'];
     if (!empty($lb['lb_hours']))       $schema['openingHours'] = $lb['lb_hours'];
 
@@ -2844,6 +3143,21 @@ function generate_local_business_schema(array $lb): string {
             'longitude' => $lb['lb_lng'],
         ];
     }
+    // areaServed signals to Google this is a service-area business (no streetAddress is intentional)
+    if (!empty($lb['lb_city'])) {
+        $cityName = $lb['lb_city'];
+        if (!empty($lb['lb_state'])) $cityName .= ', ' . $lb['lb_state'];
+        $schema['areaServed'] = ['@type' => 'City', 'name' => $cityName];
+    }
+    if (!empty($lb['lb_rating']) && !empty($lb['lb_review_count'])) {
+        $schema['aggregateRating'] = [
+            '@type'       => 'AggregateRating',
+            'ratingValue' => $lb['lb_rating'],
+            'reviewCount' => $lb['lb_review_count'],
+            'bestRating'  => '5',
+            'worstRating' => '1',
+        ];
+    }
     return json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 }
 
@@ -2851,23 +3165,23 @@ function generate_local_business_schema(array $lb): string {
    SCHEMA: Generate Service JSON-LD (per-page)
    ============================================================ */
 function generate_service_schema(array $seo, array $lb): string {
-    $name = $seo['service_name'] ?? '';
+    $name = resolve_shortcodes($seo['service_name'] ?? '');
     if (empty($name)) return '';
     $schema = [
         '@context'    => 'https://schema.org',
         '@type'       => 'Service',
         'name'        => $name,
-        'serviceType' => $seo['service_type'] ?? $name,
+        'serviceType' => resolve_shortcodes($seo['service_type'] ?? $name),
     ];
-    if (!empty($seo['service_description'])) $schema['description'] = $seo['service_description'];
+    if (!empty($seo['service_description'])) $schema['description'] = resolve_shortcodes($seo['service_description']);
     if (!empty($seo['canonical_url']))        $schema['url']         = $seo['canonical_url'];
     if (!empty($seo['service_area'])) {
-        $schema['areaServed'] = ['@type' => 'City', 'name' => $seo['service_area']];
+        $schema['areaServed'] = ['@type' => 'City', 'name' => resolve_shortcodes($seo['service_area'])];
     }
     if (!empty($lb['lb_name'])) {
         $provider = ['@type' => 'LocalBusiness', 'name' => $lb['lb_name']];
         if (!empty($lb['lb_url']))   $provider['url']       = $lb['lb_url'];
-        if (!empty($lb['lb_phone'])) $provider['telephone'] = $lb['lb_phone'];
+        if (!empty($lb['lb_phone'])) $provider['telephone'] = resolve_shortcodes($lb['lb_phone']);
         $schema['provider'] = $provider;
     }
     return json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
@@ -2947,6 +3261,14 @@ function render_local_business_editor(array $lb) {
                 <label>Business description</label>
                 <textarea name="lb_description" rows="3"><?= h($lb['lb_description'] ?? '') ?></textarea>
             </div>
+            <div class="form-group">
+                <label for="lb_rating">Average rating <span class="hint">(1–5) — use shortcode <code>{rating}</code></span></label>
+                <input type="text" id="lb_rating" name="lb_rating" value="<?= h($lb['lb_rating'] ?? '') ?>" placeholder="e.g. 4.8">
+            </div>
+            <div class="form-group">
+                <label for="lb_review_count">Total review count — use shortcode <code>{review_count}</code></label>
+                <input type="text" id="lb_review_count" name="lb_review_count" value="<?= h($lb['lb_review_count'] ?? '') ?>" placeholder="e.g. 534">
+            </div>
         </div>
     </div>
     <?php
@@ -2961,6 +3283,11 @@ function render_seo_editor($seo) {
         <h2>SEO &amp; Metadata</h2>
         <p class="hint" style="margin-bottom:18px;">These fields help search engines and social media understand your page.</p>
 
+        <div class="form-group">
+            <label for="seo_title">Page title (browser tab &amp; Google result)</label>
+            <input type="text" id="seo_title" name="seo_title" value="<?= h($seo['seo_title'] ?? '') ?>" placeholder="e.g. Pest Control Katy TX | Local Exterminator | Katy Pest Pros">
+            <span class="hint">Leave blank to use the site name. Supports shortcodes. Aim for 50–60 characters. Put your primary keyword first.</span>
+        </div>
         <div class="form-group">
             <label for="canonical_url">Canonical URL</label>
             <input type="text" id="canonical_url" name="canonical_url" value="<?= h($seo['canonical_url'] ?? '') ?>" placeholder="e.g. https://katypestpros.com/cockroach-exterminator-katy-tx/">
@@ -3016,6 +3343,23 @@ function render_seo_editor($seo) {
         <div class="form-group">
             <label for="service_description">Service description</label>
             <textarea id="service_description" name="service_description" rows="2"><?= h($seo['service_description'] ?? '') ?></textarea>
+        </div>
+        <hr style="margin: 24px 0; border-color: #e5e7eb;">
+        <h3 style="margin: 0 0 6px; font-size: 1rem;">Breadcrumbs</h3>
+        <p class="hint" style="margin-bottom:16px;">Auto-generates <code>Home › Page Title</code> from the page title. Add an optional middle crumb (e.g. "Pest Control Services") or override the current page label.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="form-group" style="grid-column:1/-1;">
+                <label for="bc_label">Current page crumb label <span class="hint">(leave blank to use page title)</span></label>
+                <input type="text" id="bc_label" name="bc_label" value="<?= h($seo['bc_label'] ?? '') ?>" placeholder="e.g. Cockroach Exterminator">
+            </div>
+            <div class="form-group">
+                <label for="bc_mid_label">Middle crumb label <span class="hint">(optional)</span></label>
+                <input type="text" id="bc_mid_label" name="bc_mid_label" value="<?= h($seo['bc_mid_label'] ?? '') ?>" placeholder="e.g. Pest Control Services">
+            </div>
+            <div class="form-group">
+                <label for="bc_mid_url">Middle crumb URL</label>
+                <input type="text" id="bc_mid_url" name="bc_mid_url" value="<?= h($seo['bc_mid_url'] ?? '') ?>" placeholder="e.g. /pest-control-katy-tx">
+            </div>
         </div>
     </div>
     <?php
@@ -3532,6 +3876,26 @@ function content_editor_scripts() {
                 <div class="form-group"><label>Number of columns</label>
                     <select name="cards_cols[]"><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option></select>
                 </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+                    <div class="form-group"><label>Block background color</label>
+                        <input type="color" name="cards_bg[]" value="#f3f6f7" oninput="var t=this.nextElementSibling;if(t)t.value=this.value;">
+                        <input type="text" value="#f3f6f7" placeholder="#f3f6f7" style="width:90px;margin-left:6px;font-size:0.82rem;" oninput="var c=this.previousElementSibling;if(c&&/^#[0-9a-fA-F]{6}$/.test(this.value))c.value=this.value;">
+                    </div>
+                    <div class="form-group"><label>Card background color</label>
+                        <input type="color" name="cards_card_bg[]" value="#ffffff" oninput="var t=this.nextElementSibling;if(t)t.value=this.value;">
+                        <input type="text" value="#ffffff" placeholder="#ffffff" style="width:90px;margin-left:6px;font-size:0.82rem;" oninput="var c=this.previousElementSibling;if(c&&/^#[0-9a-fA-F]{6}$/.test(this.value))c.value=this.value;">
+                    </div>
+                    <div class="form-group"><label>Section heading color</label>
+                        <select name="cards_head_color[]"><option value="accent">Accent</option><option value="header" selected>Header/Navy</option><option value="custom">Custom</option></select>
+                    </div>
+                    <div class="form-group"><label>Card heading color</label>
+                        <select name="cards_item_head_color[]"><option value="accent">Accent</option><option value="header" selected>Header/Navy</option><option value="custom">Custom</option></select>
+                    </div>
+                    <div class="form-group"><label>Card text color</label>
+                        <input type="color" name="cards_text_color[]" value="#333333" oninput="var t=this.nextElementSibling;if(t)t.value=this.value;">
+                        <input type="text" value="#333333" placeholder="#333333" style="width:90px;margin-left:6px;font-size:0.82rem;" oninput="var c=this.previousElementSibling;if(c&&/^#[0-9a-fA-F]{6}$/.test(this.value))c.value=this.value;">
+                    </div>
+                </div>
                 <div class="cards-items-editor" id="cards_items_new_${idx}"></div>
                 <button type="button" class="btn btn-secondary btn-small" onclick="addCardItem(this, 'new_${idx}')">+ Add card</button>
             </div>
@@ -3706,6 +4070,9 @@ function content_editor_scripts() {
                     </div>
                     <div class="form-group"><label>Description</label>
                         <textarea name="sc_item_text[${blockIdx}][]" rows="2"></textarea>
+                    </div>
+                    <div class="form-group"><label>Link URL <span class="hint">(optional — makes the card clickable)</span></label>
+                        <input type="text" name="sc_item_url[${blockIdx}][]" placeholder="e.g. /cockroach-exterminator-katy-tx">
                     </div>
                 </div>
                 <button type="button" class="remove-row" onclick="removeScItem(this)" style="align-self:flex-start;margin-top:22px;">&times;</button>

@@ -14,17 +14,46 @@
 $theme  = $data['theme'];
 $header = apply_shortcodes_to_block($data['header']);
 $footer = apply_shortcodes_to_block($data['footer']);
+// {tel} = E.164 tracking number; fall back to stripping display phone
+$telHref = resolve_shortcodes('{tel}') ?: preg_replace('/[^0-9+]/', '', $header['phone'] ?? '');
 
 $pageTitle = resolve_shortcodes(!empty($pageTitle) ? $pageTitle : SITE_TITLE);
 if (isset($seo['meta_description'])) $seo['meta_description'] = resolve_shortcodes($seo['meta_description']);
+if (isset($seo['meta_keywords']))    $seo['meta_keywords']    = resolve_shortcodes($seo['meta_keywords']);
 if (isset($seo['og_title']))         $seo['og_title']         = resolve_shortcodes($seo['og_title']);
 if (isset($seo['og_description']))   $seo['og_description']   = resolve_shortcodes($seo['og_description']);
+// OG image fallback: hero block photo → global site og_image
+if (empty($seo['og_image'])) {
+    foreach ($contentBlocks as $_b) {
+        $_t = $_b['type'] ?? '';
+        if ($_t === 'hero_split' && !empty($_b['hs_photo']))      { $seo['og_image'] = $_b['hs_photo'];      break; }
+        if ($_t === 'hero'       && !empty($_b['hero_bg_image'])) { $seo['og_image'] = $_b['hero_bg_image']; break; }
+        if ($_t === 'hero_grid'  && !empty($_b['hg_photo']))      { $seo['og_image'] = $_b['hg_photo'];      break; }
+        if ($_t === 'post_meta'  && !empty($_b['featured_image'])){ $seo['og_image'] = $_b['featured_image']; break; }
+    }
+    if (empty($seo['og_image'])) $seo['og_image'] = $data['seo']['og_image'] ?? '';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php
+    $heroPreloadSrc = null;
+    foreach ($contentBlocks as $_b) {
+        $_t = $_b['type'] ?? '';
+        if ($_t === 'hero'       && !empty($_b['hero_bg_image'])) { $heroPreloadSrc = $_b['hero_bg_image']; break; }
+        if ($_t === 'hero_split' && !empty($_b['hs_photo']))      { $heroPreloadSrc = $_b['hs_photo'];      break; }
+        if ($_t === 'hero_grid'  && !empty($_b['hg_photo']))      { $heroPreloadSrc = $_b['hg_photo'];      break; }
+    }
+    if ($heroPreloadSrc && !str_starts_with($heroPreloadSrc, 'http') && !str_starts_with($heroPreloadSrc, '//')) {
+        $heroPreloadSrc = ($assetPathPrefix ?? '/') . $heroPreloadSrc;
+    }
+    ?>
+    <?php if ($heroPreloadSrc): ?>
+    <link rel="preload" as="image" href="<?= h($heroPreloadSrc) ?>" fetchpriority="high">
+    <?php endif; ?>
     <title><?= h($pageTitle) ?></title>
     <?php if (!empty($seo['meta_description'])): ?>
     <meta name="description" content="<?= h($seo['meta_description']) ?>">
@@ -32,8 +61,16 @@ if (isset($seo['og_description']))   $seo['og_description']   = resolve_shortcod
     <?php if (!empty($seo['meta_keywords'])): ?>
     <meta name="keywords" content="<?= h($seo['meta_keywords']) ?>">
     <?php endif; ?>
-    <?php if (!empty($seo['canonical_url'])): ?>
-    <link rel="canonical" href="<?= h($seo['canonical_url']) ?>">
+    <?php
+    $canonicalUrl = resolve_shortcodes($seo['canonical_url'] ?? '');
+    if (empty($canonicalUrl)) {
+        $lbUrl = rtrim(resolve_shortcodes($data['local_business']['lb_url'] ?? ''), '/');
+        if ($lbUrl && isset($slug)) {
+            $canonicalUrl = $slug ? $lbUrl . '/' . $slug : $lbUrl . '/';
+        }
+    }
+    if ($canonicalUrl): ?>
+    <link rel="canonical" href="<?= h($canonicalUrl) ?>">
     <?php endif; ?>
     <?php
     $ogTitle = !empty($seo['og_title']) ? $seo['og_title'] : $pageTitle;
@@ -42,7 +79,7 @@ if (isset($seo['og_description']))   $seo['og_description']   = resolve_shortcod
     <meta property="og:type"  content="website">
     <meta property="og:title" content="<?= h($ogTitle) ?>">
     <?php if ($ogDesc): ?><meta property="og:description" content="<?= h($ogDesc) ?>"><?php endif; ?>
-    <?php if (!empty($seo['og_image'])): ?><meta property="og:image" content="<?= h($seo['og_image']) ?>"><?php endif; ?>
+    <?php if (!empty($seo['og_image'])): ?><meta property="og:image" content="<?= h(rtrim(resolve_shortcodes('{website}'), '/') . '/' . ltrim($seo['og_image'], '/')) ?>"><?php endif; ?>
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= h($assetPathPrefix ?? '') ?>assets/css/style.css?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/style.css') ?>">
@@ -63,6 +100,40 @@ if (isset($seo['og_description']))   $seo['og_description']   = resolve_shortcod
     // Per-page Service schema
     $serviceSchema = generate_service_schema($seo, $lb);
     if ($serviceSchema) echo '<script type="application/ld+json">' . $serviceSchema . '</script>' . "\n";
+    // Per-page FAQ schema (reads faq_two_col blocks on this page)
+    $faqSchema = generate_faq_schema($contentBlocks ?? []);
+    if ($faqSchema) echo '<script type="application/ld+json">' . $faqSchema . '</script>' . "\n";
+    // Breadcrumb schema — only on slug pages (not homepage)
+    if (!empty($slug)) {
+        $lbUrl = rtrim($lb['lb_url'] ?? '', '/');
+
+        // Relative URLs for the on-page breadcrumb nav (always stays on the current host)
+        $bcItems = [['name' => 'Home', 'url' => '/']];
+        if (!empty($seo['bc_mid_label'])) {
+            $midUrlRel = trim($seo['bc_mid_url'] ?? '');
+            $bcItems[] = ['name' => resolve_shortcodes($seo['bc_mid_label']), 'url' => $midUrlRel];
+        }
+        $bcLabel = !empty($seo['bc_label']) ? resolve_shortcodes($seo['bc_label']) : preg_replace('/\s*[|\-–—].*$/', '', $pageTitle);
+        $bcItems[] = ['name' => $bcLabel, 'url' => '/' . ltrim($slug, '/')];
+
+        // Absolute URLs for the BreadcrumbList JSON-LD (schema.org requires absolute URLs)
+        $bcSchemaItems = [['name' => 'Home', 'url' => $lbUrl ?: '/']];
+        if (!empty($seo['bc_mid_label'])) {
+            $midUrl = trim($seo['bc_mid_url'] ?? '');
+            if ($midUrl && !str_starts_with($midUrl, 'http')) $midUrl = $lbUrl . $midUrl;
+            $bcSchemaItems[] = ['name' => resolve_shortcodes($seo['bc_mid_label']), 'url' => $midUrl];
+        }
+        $bcCurrentUrl = $canonicalUrl ?: ($lbUrl ? $lbUrl . '/' . $slug : '');
+        $bcSchemaItems[] = ['name' => $bcLabel, 'url' => $bcCurrentUrl];
+
+        $bcSchema = ['@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'itemListElement' => []];
+        foreach ($bcSchemaItems as $pos => $crumb) {
+            $entry = ['@type' => 'ListItem', 'position' => $pos + 1, 'name' => $crumb['name']];
+            if ($crumb['url']) $entry['item'] = $crumb['url'];
+            $bcSchema['itemListElement'][] = $entry;
+        }
+        echo '<script type="application/ld+json">' . json_encode($bcSchema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+    }
     // Analytics — output raw (admin-entered, trusted)
     if (!empty($theme['analytics_head'])) echo $theme['analytics_head'] . "\n";
     if (!empty($theme['facebook_pixel'])) echo $theme['facebook_pixel'] . "\n";
@@ -168,7 +239,7 @@ $infoItems = $header['info_items']      ?? [];
                             Sponsored
                         </span>
                     </div>
-                    <a href="tel:<?= h(preg_replace('/[^0-9+]/', '', $header['phone'])) ?>"
+                    <a href="tel:<?= h($telHref) ?>"
                        class="header-phone-btn <?= $btnStyle === 'outline' ? 'header-phone-btn-outline' : 'header-phone-btn-filled' ?>"
                        style="<?= $btnStyle === 'outline'
                            ? 'border-color:'.h($navText).';color:'.h($navText).';'
@@ -186,11 +257,31 @@ $infoItems = $header['info_items']      ?? [];
 
 </header>
 <main class="site-main">
+    <?php if (!empty($slug) && isset($bcItems)): ?>
+    <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <?php foreach ($bcItems as $pos => $crumb):
+                    $isLast = $pos === count($bcItems) - 1; ?>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <?php if (!$isLast && $crumb['url']): ?>
+                        <a itemprop="item" href="<?= h($crumb['url']) ?>"><span itemprop="name"><?= h($crumb['name']) ?></span></a>
+                    <?php else: ?>
+                        <span itemprop="name" aria-current="page"><?= h($crumb['name']) ?></span>
+                    <?php endif; ?>
+                    <meta itemprop="position" content="<?= $pos + 1 ?>">
+                    <?php if (!$isLast): ?><span class="breadcrumb-sep" aria-hidden="true">›</span><?php endif; ?>
+                </li>
+                <?php endforeach; ?>
+            </ol>
+        </div>
+    </nav>
+    <?php endif; ?>
     <?php
     // These block types need full-width rendering (no container wrapper)
     foreach ($contentBlocks as $block):
         $btype = $block['type'] ?? '';
-        $isFullWidth = in_array($btype, ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','cta_card','map_info','hero_split']);
+        $isFullWidth = in_array($btype, ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','cta_card','map_info','hero_split','feature_split','faq_two_col','image_features','service_cards','tab_services','blog_list']);
     ?>
         <?php if (!$isFullWidth): ?>
         <div class="container">
@@ -232,7 +323,7 @@ $infoItems = $header['info_items']      ?? [];
                         <?php if (!empty($footer['phone'])): ?>
                             <li class="footer-contact-item">
                                 <span class="contact-icon">📞</span>
-                                <a href="tel:<?= h(preg_replace('/[^0-9+]/', '', $footer['phone'])) ?>"><?= h($footer['phone']) ?></a>
+                                <a href="tel:<?= h($telHref) ?>"><?= h($footer['phone']) ?></a>
                             </li>
                         <?php endif; ?>
                         <?php if (!empty($header['city'])): ?>
@@ -308,7 +399,7 @@ $infoItems = $header['info_items']      ?? [];
             <?php endif; ?>
         </span>
         <?php if (!empty($footer['phone'])): ?>
-        <a href="tel:<?= h(preg_replace('/[^0-9+]/', '', $footer['phone'])) ?>"
+        <a href="tel:<?= h($telHref) ?>"
            class="sticky-bar-phone" style="color:<?= h($header['nav_text'] ?? '#ffffff') ?>;">
             <span class="sticky-phone-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true">
@@ -325,7 +416,7 @@ $infoItems = $header['info_items']      ?? [];
 <!-- SCROLL TO TOP BUTTON -->
 <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"
         style="background:<?= h($header['nav_bg'] ?? '#fd783b') ?>;color:<?= h($header['nav_text'] ?? '#ffffff') ?>;">
-    ↑
+    ⬆
 </button>
 
 <?php
@@ -369,7 +460,7 @@ if (!empty($infoPopup['enabled']) && (!empty($infoPopup['heading']) || !empty($i
     <div class="info-popup-box" role="dialog" aria-modal="true">
         <button class="info-popup-close" onclick="closeInfoPopup()" aria-label="Close">&times;</button>
         <?php if (!empty($infoPopup['image'])): ?>
-            <img class="info-popup-image" src="<?= h(($assetPathPrefix ?? '') . $infoPopup['image']) ?>" alt="">
+            <img class="info-popup-image" src="<?= h(($assetPathPrefix ?? '') . $infoPopup['image']) ?>" alt="<?= h(resolve_shortcodes($infoPopup['heading'] ?? '')) ?>">
         <?php endif; ?>
         <div class="info-popup-content">
             <h2 class="info-popup-heading"><?= h(resolve_shortcodes($infoPopup['heading'] ?? '')) ?></h2>

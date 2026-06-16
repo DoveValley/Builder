@@ -6,7 +6,7 @@ $data = load_data();
 
 $contentBlocks  = $data['content_blocks'];
 $seo            = $data['seo'];
-$pageTitle      = SITE_TITLE;
+$pageTitle      = !empty($data['seo']['seo_title']) ? $data['seo']['seo_title'] : SITE_TITLE;
 $assetPathPrefix = '/';
 $homeUrl        = '/';
 
