@@ -1,0 +1,3 @@
+# These scripts are command-line only (php tools/import_pages.php ...).
+# Block all web access as defense-in-depth.
+Require all denied

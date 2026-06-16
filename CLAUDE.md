@@ -47,6 +47,8 @@ Current block types: `text`, `image_left`, `image_right`, `hero`, `hero_split`, 
 2. Add a `case` in `render_content_block()` in `functions.php`
 3. Add the admin editing UI in `admin/index.php` (block editor section)
 
+Both `render_content_block()` and `render_content_blocks_editor()` (in `admin/index.php`'s save path / `functions.php`) are large switch statements — each `case` label matches its block type name 1:1, so grep for `case 'block_type'` to jump straight to it. When a new case needs a link/button URL field, save it through `sanitize_url()` (don't write `trim($_POST[...])` directly) — see "Security notes" below. When it needs a photo upload field, reuse `render_photo_upload_fields()` rather than hand-rolling the markup.
+
 ## Theme / colors
 
 `theme_css_vars()` converts the `theme` section of `site.json` into CSS custom properties injected inline into every page (`--color-header-bg`, `--color-accent`, `--btn-radius`, `--font-primary`, etc.).

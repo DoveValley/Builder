@@ -14,6 +14,15 @@ if (empty($_SESSION['csrf_token'])) {
 }
 $csrfToken = $_SESSION['csrf_token'];
 
+// Detect a corrupted data file before load_data() silently falls back to defaults
+$dataFileCorrupt = false;
+if (file_exists(DATA_FILE)) {
+    $rawJson = file_get_contents(DATA_FILE);
+    if (trim((string)$rawJson) !== '' && !is_array(json_decode($rawJson, true))) {
+        $dataFileCorrupt = true;
+    }
+}
+
 $data    = load_data();
 $theme    = $data['theme'];
 $header   = $data['header'];
@@ -140,6 +149,12 @@ foreach ($footer['columns'] as $ci => $column) {
             <a href="logout.php">Log out</a>
         </div>
     </div>
+
+    <?php if ($dataFileCorrupt): ?>
+        <div class="alert alert-error">
+            &#9888; <strong>Warning:</strong> <?= h(basename(DATA_FILE)) ?> could not be read as valid data and the site is currently showing default placeholder content instead of your saved content. Do not make further changes until this is fixed — check the file manually or restore from a backup.
+        </div>
+    <?php endif; ?>
 
     <?php if ($alert): ?>
         <div class="alert alert-<?= h($alert['type']) ?>"><?= h($alert['text']) ?></div>

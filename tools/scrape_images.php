@@ -7,8 +7,13 @@
  *   php scrape_images.php https://katypestpros.com --dry-run
  */
 
-define('MEDIA_DIR',  __DIR__ . '/uploads/media/');
-define('MEDIA_JSON', __DIR__ . '/data/media.json');
+if (php_sapi_name() !== 'cli') {
+    http_response_code(403);
+    exit('This script can only be run from the command line.');
+}
+
+define('MEDIA_DIR',  __DIR__ . '/../uploads/media/');
+define('MEDIA_JSON', __DIR__ . '/../data/media.json');
 define('MAX_WIDTH',  1600);
 define('MAX_BYTES',  20 * 1024 * 1024); // 20 MB source limit
 

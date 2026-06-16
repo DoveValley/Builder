@@ -10,6 +10,12 @@ if (!empty($_SESSION['admin_logged_in'])) {
 
 $error = '';
 
+// CSRF token for the login form itself
+if (empty($_SESSION['login_csrf_token'])) {
+    $_SESSION['login_csrf_token'] = bin2hex(random_bytes(32));
+}
+$loginCsrfToken = $_SESSION['login_csrf_token'];
+
 // Brute-force protection: max 10 attempts per 15 min per IP
 $ipKey   = 'login_attempts_' . md5($_SERVER['REMOTE_ADDR'] ?? '');
 $attempts = $_SESSION[$ipKey] ?? ['count' => 0, 'first' => time()];
@@ -19,7 +25,11 @@ if (time() - $attempts['first'] > 900) {
 $locked = $attempts['count'] >= 10;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if ($locked) {
+    if (!hash_equals($_SESSION['login_csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
+        $error = 'Your session expired — please try again.';
+        $_SESSION['login_csrf_token'] = bin2hex(random_bytes(32));
+        $loginCsrfToken = $_SESSION['login_csrf_token'];
+    } elseif ($locked) {
         $error = 'Too many failed attempts. Please wait 15 minutes before trying again.';
     } else {
         $username = trim($_POST['username'] ?? '');
@@ -64,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p style="text-align:center;color:#888;font-size:0.9rem;">Login is temporarily locked.</p>
             <?php else: ?>
             <form method="post">
+                <input type="hidden" name="csrf_token" value="<?= h($loginCsrfToken) ?>">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required autofocus autocomplete="username">

@@ -139,7 +139,12 @@ function load_data() {
     if (!file_exists(DATA_FILE)) return $defaults;
     $json = file_get_contents(DATA_FILE);
     $data = json_decode($json, true);
-    if (!is_array($data)) return $defaults;
+    if (!is_array($data)) {
+        if (trim((string)$json) !== '') {
+            error_log('homepage-builder: ' . DATA_FILE . ' failed to decode as JSON (' . json_last_error_msg() . ') — falling back to default content. The file may be corrupted; check it manually.');
+        }
+        return $defaults;
+    }
     foreach ($defaults as $section => $values) {
         if (!isset($data[$section])) { $data[$section] = $values; continue; }
         if (is_array($values) && is_array($data[$section])) {
@@ -337,13 +342,20 @@ function default_post_data() {
     ];
 }
 
-function save_data($data) {
+function save_data($data): bool {
     $dir = dirname(DATA_FILE);
     if (!is_dir($dir)) mkdir($dir, 0775, true);
     $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     $tmp  = DATA_FILE . '.tmp.' . getmypid();
-    if (file_put_contents($tmp, $json, LOCK_EX) === false) return;
-    rename($tmp, DATA_FILE);
+    if (file_put_contents($tmp, $json, LOCK_EX) === false) {
+        error_log('homepage-builder: failed to write ' . $tmp . ' — check disk space and permissions on ' . $dir);
+        return false;
+    }
+    if (!rename($tmp, DATA_FILE)) {
+        error_log('homepage-builder: failed to rename ' . $tmp . ' to ' . DATA_FILE);
+        return false;
+    }
+    return true;
 }
 
 function upload_image($fieldName, $prefix) {

@@ -7,7 +7,12 @@
  *   php import_pages.php --dry-run https://katypestpros.com/some-page/
  */
 
-define('DATA_FILE', __DIR__ . '/data/site.json');
+if (php_sapi_name() !== 'cli') {
+    http_response_code(403);
+    exit('This script can only be run from the command line.');
+}
+
+define('DATA_FILE', __DIR__ . '/../data/site.json');
 
 function fetch_html(string $url): string {
     $ctx = stream_context_create(['http' => [

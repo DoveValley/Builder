@@ -791,7 +791,10 @@ switch ($section) {
         $newPage['slug']  = unique_slug($slugInput, $data['pages']);
         $newPage['page_type'] = ($_POST['page_type'] ?? 'landing') === 'other' ? 'other' : 'landing';
         $data['pages'][$newId] = $newPage;
-        save_data($data);
+        if (!save_data($data)) {
+            header('Location: index.php?tab=pages&msg=' . urlencode('error:Could not save — the data file could not be written.'));
+            exit;
+        }
         header('Location: index.php?tab=pages&page=' . urlencode($newId));
         exit;
 
@@ -800,8 +803,8 @@ switch ($section) {
         $activeTab = 'pages';
         $pageId = trim($_POST['page_id'] ?? '');
         if (isset($data['pages'][$pageId])) unset($data['pages'][$pageId]);
-        save_data($data);
-        header('Location: index.php?tab=pages&msg=' . urlencode('success:Page deleted.'));
+        $msg = save_data($data) ? 'success:Page deleted.' : 'error:Could not save — the data file could not be written.';
+        header('Location: index.php?tab=pages&msg=' . urlencode($msg));
         exit;
 
     /* ---- POST ADD ---- */
@@ -813,9 +816,11 @@ switch ($section) {
         $newPost   = default_post_data();
         $newPost['title'] = $title;
         $newPost['slug']  = unique_slug($slugInput, $data['posts']);
-        save_data($data);
         $data['posts'][$newId] = $newPost;
-        save_data($data);
+        if (!save_data($data)) {
+            header('Location: index.php?tab=blog&msg=' . urlencode('error:Could not save — the data file could not be written.'));
+            exit;
+        }
         header('Location: index.php?tab=blog&post=' . urlencode($newId));
         exit;
 
@@ -824,8 +829,8 @@ switch ($section) {
         $activeTab = 'blog';
         $postIdToDelete = trim($_POST['post_id'] ?? '');
         if (isset($data['posts'][$postIdToDelete])) unset($data['posts'][$postIdToDelete]);
-        save_data($data);
-        header('Location: index.php?tab=blog&msg=' . urlencode('success:Post deleted.'));
+        $msg = save_data($data) ? 'success:Post deleted.' : 'error:Could not save — the data file could not be written.';
+        header('Location: index.php?tab=blog&msg=' . urlencode($msg));
         exit;
 
     /* ---- BLOG SETTINGS ---- */
@@ -952,8 +957,12 @@ switch ($section) {
         exit;
 }
 
-save_data($data);
-if ($message === '') $message = 'success:Changes saved successfully.';
+$saved = save_data($data);
+if (!$saved) {
+    $message = 'error:Could not save changes — the data file could not be written. Check server disk space and folder permissions.';
+} elseif ($message === '') {
+    $message = 'success:Changes saved successfully.';
+}
 $redirect = 'index.php?tab=' . urlencode($activeTab);
 if (!empty($pageId) && isset($data['pages'][$pageId])) $redirect .= '&page=' . urlencode($pageId);
 if (!empty($postId) && isset($data['posts'][$postId])) $redirect .= '&post=' . urlencode($postId);
