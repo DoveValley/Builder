@@ -1,5 +1,6 @@
 <?php
-if ($tab !== 'schedule') return;
+// Rendered inside the Plugins tab by plugins.php when $activePlugin === 'schedule'.
+// Do not require directly from index.php.
 
 function _admin_load_courses(): array {
     if (!defined('COURSES_FILE') || !file_exists(COURSES_FILE)) return [];
@@ -22,14 +23,13 @@ if ($scheduleAction === 'edit' && $editId > 0) {
 }
 ?>
 
-<div class="tab-content" style="<?= $tab === 'schedule' ? '' : 'display:none;' ?>">
 <div class="admin-section">
 
 <?php if ($scheduleAction === 'list'): ?>
 
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
         <h2 class="section-title" style="margin:0;">Course Schedule</h2>
-        <a href="?tab=schedule&action=add" class="btn btn-small">+ Add Course</a>
+        <a href="?tab=plugins&plugin=schedule&action=add" class="btn btn-small">+ Add Course</a>
     </div>
 
     <p style="color:#6b7280;font-size:.85rem;margin-bottom:16px;">
@@ -66,7 +66,7 @@ if ($scheduleAction === 'edit' && $editId > 0) {
                         </td>
                         <td style="padding:8px 12px;text-align:center;"><?= !empty($c['guaranteed']) ? '✓' : '' ?></td>
                         <td style="padding:8px 12px;white-space:nowrap;">
-                            <a href="?tab=schedule&action=edit&id=<?= (int)$c['id'] ?>" style="color:#2563eb;text-decoration:none;margin-right:10px;">Edit</a>
+                            <a href="?tab=plugins&plugin=schedule&action=edit&id=<?= (int)$c['id'] ?>" style="color:#2563eb;text-decoration:none;margin-right:10px;">Edit</a>
                             <form method="post" action="schedule_save.php" style="display:inline;" onsubmit="return confirm('Delete this course?');">
                                 <input type="hidden" name="csrf_token" value="<?= h($_SESSION['csrf_token']) ?>">
                                 <input type="hidden" name="action" value="delete">
@@ -110,7 +110,7 @@ if ($scheduleAction === 'edit' && $editId > 0) {
     ?>
 
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
-        <a href="?tab=schedule" style="color:#6b7280;text-decoration:none;font-size:.875rem;">&larr; Back to list</a>
+        <a href="?tab=plugins&plugin=schedule" style="color:#6b7280;text-decoration:none;font-size:.875rem;">&larr; Back to list</a>
         <h2 class="section-title" style="margin:0;"><?= $scheduleAction === 'add' ? 'Add Course' : 'Edit Course' ?></h2>
     </div>
 
@@ -219,11 +219,10 @@ if ($scheduleAction === 'edit' && $editId > 0) {
 
         <div style="display:flex;gap:12px;margin-top:20px;">
             <button type="submit" class="btn">Save Course</button>
-            <a href="?tab=schedule" class="btn btn-secondary">Cancel</a>
+            <a href="?tab=plugins&plugin=schedule" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
 
 <?php endif; ?>
 
-</div>
 </div>

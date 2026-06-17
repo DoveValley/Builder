@@ -42,9 +42,18 @@ $blogSettings = $data['blog_settings'];
 
 // Active tab
 $tab = $_GET['tab'] ?? 'header';
-if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule'], true)) {
+if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins'], true)) {
     $tab = 'header';
 }
+// Redirect legacy ?tab=schedule links (including those from schedule_save.php) into the Plugins tab.
+if ($tab === 'schedule') {
+    $params = $_GET;
+    $params['tab']    = 'plugins';
+    $params['plugin'] = 'schedule';
+    header('Location: index.php?' . http_build_query($params));
+    exit;
+}
+$activePlugin = $_GET['plugin'] ?? '';
 
 // If on the Landing Pages tab, are we viewing the list or editing one page?
 $editingPageId = null;
@@ -225,7 +234,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'popups' ? 'active' : '' ?>" href="?tab=popups">Popups</a>
         <a class="tab-link <?= $tab === 'media' ? 'active' : '' ?>" href="?tab=media">Media Library</a>
         <a class="tab-link <?= $tab === 'seo' ? 'active' : '' ?>" href="?tab=seo">SEO / Schema</a>
-        <a class="tab-link <?= $tab === 'schedule' ? 'active' : '' ?>" href="?tab=schedule">Schedule</a>
+        <a class="tab-link <?= $tab === 'plugins' ? 'active' : '' ?>" href="?tab=plugins">Plugins</a>
     </div>
 
     <!-- ================= HEADER TAB ================= -->
@@ -261,8 +270,8 @@ foreach ($footer['columns'] as $ci => $column) {
     <!-- ================= MEDIA LIBRARY TAB ================= -->
     <?php require __DIR__ . '/tabs/media.php'; ?>
 
-    <!-- ================= SCHEDULE TAB ================= -->
-    <?php require __DIR__ . '/tabs/schedule.php'; ?>
+    <!-- ================= PLUGINS TAB ================= -->
+    <?php require __DIR__ . '/tabs/plugins.php'; ?>
 
     <!-- ================= SEO / SCHEMA TAB ================= -->
     <?php require __DIR__ . '/tabs/seo.php'; ?>
