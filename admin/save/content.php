@@ -212,6 +212,14 @@
                     if ($block['html'] === '') continue 2;
                     break;
 
+                case 'html_two_col':
+                    $block['htc_left']  = $_POST['htc_left'][$i]  ?? '';
+                    $block['htc_right'] = $_POST['htc_right'][$i] ?? '';
+                    $rawHtcBg = trim($_POST['htc_bg'][$i] ?? '');
+                    $block['htc_bg'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $rawHtcBg) ? $rawHtcBg : '';
+                    if ($block['htc_left'] === '' && $block['htc_right'] === '') continue 2;
+                    break;
+
                 case 'cta_card':
                     $block['cc_heading']  = trim($_POST['cc_heading'][$i]  ?? '');
                     $block['cc_text']     = trim($_POST['cc_text'][$i]     ?? '');

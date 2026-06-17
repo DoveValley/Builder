@@ -317,6 +317,20 @@ function content_editor_scripts() {
                     <span class="hint">Paste maps, widgets, scripts, etc.</span>
                 </div>
             </div>
+            <div class="block-fields block-fields-html_two_col is-hidden">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:1 1 240px;"><label>Left column HTML</label>
+                        <textarea name="htc_left[]" rows="8" style="font-family:monospace;font-size:0.83rem;"></textarea>
+                    </div>
+                    <div class="form-group" style="flex:1 1 240px;"><label>Right column HTML</label>
+                        <textarea name="htc_right[]" rows="8" style="font-family:monospace;font-size:0.83rem;"></textarea>
+                    </div>
+                </div>
+                <div class="form-group" style="max-width:200px;">
+                    <label>Background color <span class="hint">(optional)</span></label>
+                    <input type="color" name="htc_bg[]" value="#ffffff">
+                </div>
+            </div>
             <div class="block-fields block-fields-cta_card is-hidden">
                 <div class="form-group"><label>Heading</label><input type="text" name="cc_heading[]" placeholder="e.g. Contact Katy's Top Pest Control Company Today"></div>
                 <div class="form-group"><label>Text</label><textarea name="cc_text[]" rows="3"></textarea></div>

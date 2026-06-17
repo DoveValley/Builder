@@ -82,6 +82,7 @@ function allowed_block_types() {
         'testimonials'    => 'Testimonials (customer reviews)',
         'video'           => 'Video embed (YouTube / Vimeo)',
         'buttons_grid'    => 'Buttons Grid (plain link button grid)',
+        'html_two_col'    => 'Two-column HTML (50/50 split)',
     ];
 }
 
@@ -96,31 +97,32 @@ function grouped_block_types(): array {
             'text'          => 'Text only',
             'image_left'    => 'Image + Text (choose side)',
             'image_text'    => 'Image & text side by side',
-            'feature_split' => 'Feature split (image left, icon grid right)',
             'video'         => 'Video embed',
+            'custom_html'   => 'Custom HTML',
+            'html_two_col'  => 'Two-column HTML',
         ],
-        'Features & Services' => [
+        'Features' => [
+            'feature_split'   => 'Feature split (image left, icon grid right)',
+            'feature_columns' => 'Feature columns',
             'service_cards'   => 'Service cards grid',
             'tab_services'    => 'Tabbed services',
-            'feature_columns' => 'Feature columns',
-            'image_features'  => 'Image + feature checklist',
             'steps'           => 'Process steps',
             'stats'           => 'Stats / counters',
-            'cards'           => 'Cards grid',
-            'gallery'         => 'Photo gallery',
-            'testimonials'    => 'Customer reviews',
+            'image_features'  => 'Image + feature checklist',
         ],
-        'FAQ & Links' => [
-            'faq'        => 'Accordion (1 or 2 cols)',
-            'links_grid' => 'Links grid',
+        'Social Proof' => [
+            'testimonials' => 'Customer reviews',
+            'cards'        => 'Cards grid',
+            'gallery'      => 'Photo gallery',
         ],
-        'CTA' => [
+        'FAQ & CTA' => [
+            'faq'          => 'Accordion (1 or 2 cols)',
+            'links_grid'   => 'Links grid',
             'buttons_grid' => 'Button grid',
             'cta_banner'   => 'Solid color banner',
         ],
         'Utility' => [
-            'map_info'    => 'Map + info',
-            'custom_html' => 'Custom HTML',
+            'map_info' => 'Map + info',
         ],
     ];
 }
@@ -156,6 +158,7 @@ function block_thumbnails(): array {
         'split_cta'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="60" height="76" fill="#fd783b" rx="3"/><rect x="5" y="22" width="48" height="7" rx="2" fill="#fff" opacity=".9"/><rect x="5" y="33" width="38" height="4" rx="2" fill="#fff" opacity=".55"/><rect x="62" y="0" width="58" height="76" fill="#1e3a5f" rx="3"/><rect x="68" y="28" width="44" height="8" rx="2" fill="#fff" opacity=".5"/><rect x="68" y="42" width="44" height="12" rx="3" fill="#fd783b"/></svg>',
         'map_info'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="5" y="8" width="52" height="60" rx="3" fill="#e8eff5"/><line x1="5" y1="28" x2="57" y2="28" stroke="#c8d8e8" stroke-width="1"/><line x1="5" y1="48" x2="57" y2="48" stroke="#c8d8e8" stroke-width="1"/><line x1="25" y1="8" x2="25" y2="68" stroke="#c8d8e8" stroke-width="1"/><line x1="42" y1="8" x2="42" y2="68" stroke="#c8d8e8" stroke-width="1"/><circle cx="33" cy="38" r="6" fill="#fd783b"/><rect x="63" y="12" width="52" height="7" rx="2" fill="#475569"/><rect x="63" y="24" width="48" height="3" rx="2" fill="#cbd5e1"/><rect x="63" y="31" width="44" height="3" rx="2" fill="#cbd5e1"/><rect x="63" y="44" width="50" height="18" rx="3" fill="#dde3ef"/></svg>',
         'custom_html'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#1e293b" rx="3"/><rect x="8" y="11" width="36" height="4" rx="1" fill="#7dd3fc"/><rect x="8" y="20" width="18" height="4" rx="1" fill="#86efac"/><rect x="20" y="29" width="60" height="4" rx="1" fill="#fde68a"/><rect x="20" y="38" width="50" height="4" rx="1" fill="#fde68a"/><rect x="8" y="47" width="22" height="4" rx="1" fill="#7dd3fc"/><rect x="8" y="56" width="32" height="4" rx="1" fill="#94a3b8" opacity=".5"/></svg>',
+        'html_two_col'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#1e293b" rx="3"/><rect x="4" y="6" width="54" height="64" rx="2" fill="#0f172a"/><rect x="8" y="11" width="26" height="3" rx="1" fill="#7dd3fc"/><rect x="8" y="19" width="18" height="3" rx="1" fill="#86efac"/><rect x="16" y="27" width="38" height="3" rx="1" fill="#fde68a"/><rect x="16" y="35" width="32" height="3" rx="1" fill="#fde68a"/><rect x="8" y="43" width="22" height="3" rx="1" fill="#7dd3fc"/><rect x="62" y="6" width="54" height="64" rx="2" fill="#0f172a"/><rect x="66" y="11" width="26" height="3" rx="1" fill="#7dd3fc"/><rect x="66" y="19" width="18" height="3" rx="1" fill="#86efac"/><rect x="74" y="27" width="38" height="3" rx="1" fill="#fde68a"/><rect x="74" y="35" width="32" height="3" rx="1" fill="#fde68a"/><rect x="66" y="43" width="22" height="3" rx="1" fill="#7dd3fc"/></svg>',
     ];
 }
 
@@ -498,6 +501,19 @@ function render_content_block($block, $pathPrefix = '') {
                 echo $html;
                 echo '</div>';
             }
+            break;
+
+        /* ---- TWO-COLUMN HTML ---- */
+        case 'html_two_col':
+            $leftHtml  = $block['htc_left']  ?? '';
+            $rightHtml = $block['htc_right'] ?? '';
+            $htcBg     = $block['htc_bg']    ?? '';
+            $bgStyle   = $htcBg ? ' style="background:' . h($htcBg) . ';"' : '';
+            echo '<div class="content-block block-html-two-col"' . $anchorAttr . $bgStyle . '>';
+            echo '<div class="htc-grid">';
+            echo '<div class="htc-col">' . $leftHtml . '</div>';
+            echo '<div class="htc-col">' . $rightHtml . '</div>';
+            echo '</div></div>';
             break;
 
         /* ---- CTA CARD ---- */

@@ -577,6 +577,24 @@ function render_content_blocks_editor($blocks) {
                     </div>
                 </div>
 
+                <?php /* ---- TWO-COLUMN HTML FIELDS ---- */ ?>
+                <div class="block-fields block-fields-html_two_col <?= $type !== 'html_two_col' ? 'is-hidden' : '' ?>">
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:1 1 240px;">
+                            <label>Left column HTML</label>
+                            <textarea name="htc_left[]" rows="8" style="font-family:monospace;font-size:0.83rem;"><?= h($block['htc_left'] ?? '') ?></textarea>
+                        </div>
+                        <div class="form-group" style="flex:1 1 240px;">
+                            <label>Right column HTML</label>
+                            <textarea name="htc_right[]" rows="8" style="font-family:monospace;font-size:0.83rem;"><?= h($block['htc_right'] ?? '') ?></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group" style="max-width:200px;">
+                        <label>Background color <span class="hint">(optional)</span></label>
+                        <input type="color" name="htc_bg[]" value="<?= h($block['htc_bg'] ?? '#ffffff') ?>">
+                    </div>
+                </div>
+
                 <?php /* ---- CTA CARD FIELDS ---- */ ?>
                 <div class="block-fields block-fields-cta_card <?= $type !== 'cta_card' ? 'is-hidden' : '' ?>">
                     <div class="form-group">

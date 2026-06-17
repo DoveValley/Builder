@@ -811,6 +811,11 @@ a:hover {
 /* ---- Custom HTML ---- */
 .block-custom-html { padding: 24px; }
 
+/* ---- Two-column HTML ---- */
+.block-html-two-col { padding: 40px 24px; }
+.htc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 1200px; margin: 0 auto; }
+.htc-col { min-width: 0; }
+
 /* ---- Admin: block type panels ---- */
 .block-fields { margin-top: 12px; }
 .is-hidden { display: none !important; }
@@ -1343,6 +1348,9 @@ html, body {
 
     /* Custom HTML — constrain embeds */
     .block-custom-html { padding: 16px; overflow-x: auto; }
+
+    /* Two-column HTML — stack on mobile */
+    .htc-grid { grid-template-columns: 1fr; gap: 20px; }
 
     /* Feature columns — single col on very small screens */
     .feature-grid-2 { grid-template-columns: 1fr 1fr; }
