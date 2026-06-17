@@ -102,6 +102,128 @@ Session-based. `config.php` calls `session_start()`. Every admin page checks `$_
 
 The tag is a single string per post; `/blog?tag=slug` filters by `slugify()` match. The blog listing page renders a persistent tag-pill bar (an "All" pill plus one pill per distinct tag) under its heading — this lives on the listing page only, not on individual post pages.
 
+## Site-building methodology
+
+Building a site directly into `site.json` should be done in phases, slowly and verifiably. Never generate all content at once — it produces placeholder-filled, structurally wrong output that takes longer to fix than to build correctly from the start.
+
+### Phase 1 — Research before touching any JSON
+
+Before writing a single field, fetch the real site and extract:
+- Business name, phone (exact format), email, physical address
+- Tagline / hero headline (use their actual words, not invented ones)
+- Nav menu structure and what pages exist
+- Real stats and numbers (pass rates, years in business, students trained, certifications offered) — never invent stats
+- Testimonials (real names, real quotes if available, or clearly paraphrased)
+- Brand colors (check CSS or screenshot)
+- All images needed — logo especially; download it immediately with `curl -L`
+
+Commands:
+```bash
+# Download logo directly into the site's uploads folder
+curl -L -o sites/{id}/uploads/logo.png "https://client.com/path/to/logo.png"
+# Check dimensions before assigning
+sips -g pixelWidth -g pixelHeight sites/{id}/uploads/logo.png
+```
+
+### Phase 2 — Foundation (site_vars, theme, header, footer)
+
+Set these before any content blocks. Every block that uses `{phone}`, `{business}`, `{website}` etc. depends on `site_vars` being correct first.
+
+**site_vars checklist:**
+```json
+{
+  "business": "Exact Business Name",
+  "phone": "555-555-5555",          // display format
+  "tel": "+15555555555",            // E.164 for tel: links
+  "email": "contact@domain.com",
+  "website": "https://domain.com",
+  "city": "City Name",
+  "state": "State Name",
+  "SS": "ST",                       // 2-letter state abbrev
+  "city_slug": "city-name-st",
+  "zip": "00000"
+}
+```
+
+**header checklist:**
+- `site_name` — set explicitly (not left blank)
+- `logo` — path to downloaded logo file
+- `phone` — use `{phone}` shortcode so it pulls from site_vars
+- `menu` — build the real nav, with real slugs (not hardcoded city names)
+
+**footer checklist:**
+- `phone`, `email` — use shortcodes
+- `copyright` — `© {year} {business}. All rights reserved.`
+- `columns` — address, quick links, contact info
+
+Take a screenshot and confirm header/footer look correct before proceeding.
+
+### Phase 3 — Homepage, one block at a time
+
+Build blocks in order. After each block, take a screenshot and confirm before adding the next.
+
+**Block order that works well for most service businesses:**
+1. `hero_split` or `hero` — headline, subtext, primary CTA, hero image
+2. `feature_columns` — 3–4 key differentiators with icons/images
+3. `stats` — real numbers only (pass rates, years, customers, etc.)
+4. `pricing_cards` or `service_cards` — main offerings
+5. `testimonials` — real quotes with real names
+6. `faq_two_col` — 6–10 real FAQs
+7. `cta_banner` — closing call to action
+8. `contact_form` — if needed
+
+**Hero block rules:**
+- Use the client's actual headline, not a generated one
+- Do NOT put `{city}` or `{city_state}` shortcodes in the homepage hero — those only work inside city landing pages
+- The homepage is a national/local page; city shortcodes will render literally
+
+**Stats block rules:**
+- Only use numbers found on the real site or verifiable facts
+- Never invent a pass rate, years in business, or student count
+- If a real number isn't available, use a factual claim instead (e.g., "PMI Premier ATP" not "98% pass rate")
+
+Screenshot command (swap PORT and adjust window size as needed):
+```bash
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless=new --disable-gpu --screenshot=/tmp/block_check.png --window-size=1400,900 "http://localhost:PORT/"
+```
+
+### Phase 4 — Landing pages, one at a time
+
+Build each landing page (`pages` array in `site.json`) in sequence. Most important page first (usually the primary service).
+
+For each page:
+1. Fetch the corresponding page on the real site to extract real content
+2. Write the `content_blocks` array for that page
+3. Set the `seo` fields (title, meta description, canonical)
+4. Screenshot via `page.php?slug=the-slug` and review
+5. Move to the next page
+
+**Page URL slugs** — never hardcode a city name into a slug unless this is explicitly a city-specific site. Use generic service slugs:
+- `pmp-certification-training` not `pmp-certification-training-san-antonio-tx`
+
+### Phase 5 — Images
+
+For each block that has a `photo` field:
+1. Check `sites/{id}/uploads/media/` for an existing relevant image first
+2. If none exists, search for and download an appropriate image
+3. Check dimensions with `sips` before assigning
+4. Assign the path directly in the JSON: `"photo": "sites/{id}/uploads/media/filename.webp"`
+
+Never leave a photo field blank if the block type prominently features an image — it will render broken or empty.
+
+### Phase 6 — Course schedule (for training businesses)
+
+Populate `courses.json` last, once the site structure is solid. Real course dates, prices, and registration URLs from the client's live schedule. Use the admin Schedule tab or write directly to the JSON.
+
+### Common mistakes to avoid
+
+- **`{city}` on the homepage** — city shortcodes only resolve inside city landing pages generated by the city page system. On the main site they render literally.
+- **Hardcoded city names in slugs** — nav menu URLs like `/pmp-certification-san-antonio-tx` will break if the site serves multiple cities or moves.
+- **Invented stats** — made-up pass rates and student counts are worse than no stats. Use only real numbers.
+- **Empty `site_name`** — always set `header.site_name`; it's used in the `<title>` tag and breadcrumbs.
+- **Placeholder phone** — `(210) 555-0190` style numbers in `site_vars` will appear everywhere. Set the real phone before any content.
+- **Skipping screenshots** — always take a screenshot after each phase. Problems found early are cheap; problems found after 10 blocks take much longer to untangle.
+
 ## Writing blog/legal page content
 
 Don't reproduce another site's copyrighted text verbatim, even when adapting a real competitor or reference page (e.g. cloning a business's own blog or legal pages) and even when swapping in `{business}`/`{business_domain}` shortcodes — a find/replace pass over someone else's text is still a copy. Instead, write fully original copy that covers the same topics/structure (same section headings, same substantive points), in original wording.

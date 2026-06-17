@@ -54,6 +54,11 @@ if (!is_dir($outputBase)) {
 function gen_write(string $filePath, string $html): bool {
     $dir = dirname($filePath);
     if (!is_dir($dir)) mkdir($dir, 0755, true);
+    // Rewrite multi-site upload URLs to flat /uploads/ so the static output
+    // doesn't expose the internal sites/{id}/ path structure.
+    if (UPLOAD_URL !== 'uploads/') {
+        $html = str_replace('/' . UPLOAD_URL, '/uploads/', $html);
+    }
     return file_put_contents($filePath, $html) !== false;
 }
 
@@ -307,7 +312,7 @@ sse("Assets: {$assetCount} files copied.");
 
 // ── 7. Copy uploads ───────────────────────────────────────────────────────────
 sse('Copying uploads…');
-$uploadCount = gen_copy_dir(UPLOAD_DIR, $outputBase . UPLOAD_URL);
+$uploadCount = gen_copy_dir(UPLOAD_DIR, $outputBase . 'uploads/');
 sse("Uploads: {$uploadCount} files copied.");
 
 // ── 8. sitemap.xml ────────────────────────────────────────────────────────────
