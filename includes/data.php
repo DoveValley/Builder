@@ -24,6 +24,10 @@ function default_data() {
             'nav_bg'          => '#fd783b',
             'nav_text'        => '#ffffff',
             'phone_btn_style' => 'outline',
+            'phone_label'     => 'Helpline:',
+            'show_sponsored'  => true,
+            'cta_text'        => '',
+            'cta_url'         => '',
             'sticky'          => true,
             'info_items'      => [
                 ['icon' => '🌐', 'text' => ''],

@@ -186,6 +186,15 @@ $infoItems = $header['info_items']      ?? [];
                     </div>
                 <?php endforeach; ?>
             </div>
+            <?php $headerSocials = array_filter($header['socials'] ?? []); ?>
+            <?php if (!empty($headerSocials)): ?>
+            <div class="header-socials">
+                <?php $socialLabels = ['facebook'=>'Facebook','instagram'=>'Instagram','twitter'=>'X','youtube'=>'YouTube','linkedin'=>'LinkedIn','tiktok'=>'TikTok','yelp'=>'Yelp']; ?>
+                <?php foreach ($headerSocials as $platform => $url): ?>
+                    <a href="<?= h($url) ?>" class="header-social-link" target="_blank" rel="noopener noreferrer"><?= h($socialLabels[$platform] ?? ucfirst($platform)) ?></a>
+                <?php endforeach; ?>
+            </div>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -224,10 +233,20 @@ $infoItems = $header['info_items']      ?? [];
                 </ul>
             </nav>
 
+            <?php
+                $phoneLabel    = trim($header['phone_label']   ?? 'Helpline:');
+                $showSponsored = !empty($header['show_sponsored']);
+                $ctaText       = trim($header['cta_text']      ?? '');
+                $ctaUrl        = trim($header['cta_url']       ?? '#');
+            ?>
             <?php if (!empty($header['phone'])): ?>
                 <div class="header-phone-wrap">
+                    <?php if ($phoneLabel || $showSponsored): ?>
                     <div class="header-helpline">
-                        <span class="helpline-label" style="color:<?= h($navText) ?>;">Helpline:</span>
+                        <?php if ($phoneLabel): ?>
+                            <span class="helpline-label" style="color:<?= h($navText) ?>;"><?= h($phoneLabel) ?></span>
+                        <?php endif; ?>
+                        <?php if ($showSponsored): ?>
                         <span class="helpline-sponsored" style="color:<?= h($navText) ?>;">
                             <?php if (!empty($data['popups']['info']['enabled'])): ?>
                                 <button class="info-trigger" onclick="openInfoPopup()" aria-label="Info" style="color:<?= h($navText) ?>;">
@@ -238,7 +257,9 @@ $infoItems = $header['info_items']      ?? [];
                             <?php endif; ?>
                             Sponsored
                         </span>
+                        <?php endif; ?>
                     </div>
+                    <?php endif; ?>
                     <a href="tel:<?= h($telHref) ?>"
                        class="header-phone-btn <?= $btnStyle === 'outline' ? 'header-phone-btn-outline' : 'header-phone-btn-filled' ?>"
                        style="<?= $btnStyle === 'outline'
@@ -250,6 +271,9 @@ $infoItems = $header['info_items']      ?? [];
                         <?= h($header['phone']) ?>
                     </a>
                 </div>
+            <?php endif; ?>
+            <?php if ($ctaText): ?>
+                <a href="<?= h($ctaUrl) ?>" class="header-cta-btn" style="border-color:<?= h($navText) ?>;color:<?= h($navText) ?>;"><?= h($ctaText) ?></a>
             <?php endif; ?>
 
         </div>

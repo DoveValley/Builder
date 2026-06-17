@@ -179,11 +179,39 @@
                         <option value="filled"  <?= ($header['phone_btn_style'] ?? 'outline') === 'filled'  ? 'selected' : '' ?>>Filled (solid background)</option>
                     </select>
                 </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                    <div class="form-group" style="flex:1 1 180px;">
+                        <label for="phone_label">Label above phone button <span class="hint">(leave blank to hide)</span></label>
+                        <input type="text" id="phone_label" name="phone_label" value="<?= h($header['phone_label'] ?? 'Helpline:') ?>" placeholder="e.g. Helpline: or Call us:">
+                    </div>
+                    <div class="form-group" style="flex:0 0 auto;padding-bottom:4px;">
+                        <label>
+                            <input type="checkbox" name="show_sponsored" value="1" <?= !empty($header['show_sponsored']) ? 'checked' : '' ?>>
+                            Show "Sponsored" badge
+                        </label>
+                        <span class="hint">Uncheck for non-lead-gen sites.</span>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label>
                         <input type="checkbox" name="sticky" value="1" <?= !empty($header['sticky']) ? 'checked' : '' ?>>
                         Sticky header (stays at top of page when scrolling)
                     </label>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Nav CTA Button <span class="hint">(optional)</span></h2>
+                <p class="hint" style="margin-bottom:14px;">A secondary button in the nav bar — e.g. "Enroll Now", "Get a Quote", "Book Online". Appears alongside the phone button. Leave blank to hide.</p>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:1 1 160px;">
+                        <label for="cta_text">Button text</label>
+                        <input type="text" id="cta_text" name="cta_text" value="<?= h($header['cta_text'] ?? '') ?>" placeholder="e.g. Enroll Now">
+                    </div>
+                    <div class="form-group" style="flex:2 1 220px;">
+                        <label for="cta_url">Button URL</label>
+                        <input type="text" id="cta_url" name="cta_url" value="<?= h($header['cta_url'] ?? '') ?>" placeholder="e.g. /enroll or https://...">
+                    </div>
                 </div>
             </div>
 
@@ -211,7 +239,7 @@
 
             <div class="card">
                 <h2>Social Media Links</h2>
-                <p class="hint" style="margin-bottom:14px;">Add links to your social profiles. Leave blank to hide.</p>
+                <p class="hint" style="margin-bottom:14px;">Add links to your social profiles. Shown in the header top row when set. Leave blank to hide.</p>
                 <?php
                 $socials = [
                     'facebook'  => 'Facebook',

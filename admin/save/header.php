@@ -5,7 +5,11 @@
         $data['header']['nav_bg']          = trim($_POST['nav_bg']          ?? '#fd783b');
         $data['header']['nav_text']        = trim($_POST['nav_text']        ?? '#ffffff');
         $data['header']['phone_btn_style'] = ($_POST['phone_btn_style'] ?? 'outline') === 'filled' ? 'filled' : 'outline';
-        $data['header']['sticky']          = !empty($_POST['sticky']);
+        $data['header']['phone_label']    = trim($_POST['phone_label']   ?? 'Helpline:');
+        $data['header']['show_sponsored'] = !empty($_POST['show_sponsored']);
+        $data['header']['cta_text']       = trim($_POST['cta_text']      ?? '');
+        $data['header']['cta_url']        = sanitize_url($_POST['cta_url'] ?? '');
+        $data['header']['sticky']         = !empty($_POST['sticky']);
         // Info items
         $infoIcons = $_POST['info_icon'] ?? [];
         $infoTexts = $_POST['info_text'] ?? [];
