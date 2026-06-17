@@ -83,6 +83,7 @@ function allowed_block_types() {
         'video'           => 'Video embed (YouTube / Vimeo)',
         'buttons_grid'    => 'Buttons Grid (plain link button grid)',
         'html_two_col'    => 'Two-column HTML (50/50 split)',
+        'pricing_cards'   => 'Pricing / Course Cards (badge, checklist, CTA)',
     ];
 }
 
@@ -109,6 +110,7 @@ function grouped_block_types(): array {
             'steps'           => 'Process steps',
             'stats'           => 'Stats / counters',
             'image_features'  => 'Image + feature checklist',
+            'pricing_cards'   => 'Pricing / course cards',
         ],
         'Social Proof' => [
             'testimonials' => 'Customer reviews',
@@ -159,6 +161,7 @@ function block_thumbnails(): array {
         'map_info'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="5" y="8" width="52" height="60" rx="3" fill="#e8eff5"/><line x1="5" y1="28" x2="57" y2="28" stroke="#c8d8e8" stroke-width="1"/><line x1="5" y1="48" x2="57" y2="48" stroke="#c8d8e8" stroke-width="1"/><line x1="25" y1="8" x2="25" y2="68" stroke="#c8d8e8" stroke-width="1"/><line x1="42" y1="8" x2="42" y2="68" stroke="#c8d8e8" stroke-width="1"/><circle cx="33" cy="38" r="6" fill="#fd783b"/><rect x="63" y="12" width="52" height="7" rx="2" fill="#475569"/><rect x="63" y="24" width="48" height="3" rx="2" fill="#cbd5e1"/><rect x="63" y="31" width="44" height="3" rx="2" fill="#cbd5e1"/><rect x="63" y="44" width="50" height="18" rx="3" fill="#dde3ef"/></svg>',
         'custom_html'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#1e293b" rx="3"/><rect x="8" y="11" width="36" height="4" rx="1" fill="#7dd3fc"/><rect x="8" y="20" width="18" height="4" rx="1" fill="#86efac"/><rect x="20" y="29" width="60" height="4" rx="1" fill="#fde68a"/><rect x="20" y="38" width="50" height="4" rx="1" fill="#fde68a"/><rect x="8" y="47" width="22" height="4" rx="1" fill="#7dd3fc"/><rect x="8" y="56" width="32" height="4" rx="1" fill="#94a3b8" opacity=".5"/></svg>',
         'html_two_col'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#1e293b" rx="3"/><rect x="4" y="6" width="54" height="64" rx="2" fill="#0f172a"/><rect x="8" y="11" width="26" height="3" rx="1" fill="#7dd3fc"/><rect x="8" y="19" width="18" height="3" rx="1" fill="#86efac"/><rect x="16" y="27" width="38" height="3" rx="1" fill="#fde68a"/><rect x="16" y="35" width="32" height="3" rx="1" fill="#fde68a"/><rect x="8" y="43" width="22" height="3" rx="1" fill="#7dd3fc"/><rect x="62" y="6" width="54" height="64" rx="2" fill="#0f172a"/><rect x="66" y="11" width="26" height="3" rx="1" fill="#7dd3fc"/><rect x="66" y="19" width="18" height="3" rx="1" fill="#86efac"/><rect x="74" y="27" width="38" height="3" rx="1" fill="#fde68a"/><rect x="74" y="35" width="32" height="3" rx="1" fill="#fde68a"/><rect x="66" y="43" width="22" height="3" rx="1" fill="#7dd3fc"/></svg>',
+        'pricing_cards'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="4" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#fd783b" stroke-width="1.5"/><rect x="4" y="4" width="34" height="10" rx="3" fill="#fd783b"/><rect x="8" y="18" width="26" height="4" rx="2" fill="#1e3a5f"/><rect x="8" y="26" width="5" height="3" rx="1" fill="#fd783b"/><rect x="15" y="26" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="8" y="33" width="5" height="3" rx="1" fill="#fd783b"/><rect x="15" y="33" width="16" height="3" rx="1" fill="#cbd5e1"/><rect x="8" y="40" width="5" height="3" rx="1" fill="#fd783b"/><rect x="15" y="40" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="8" y="60" width="26" height="8" rx="2" fill="#fd783b"/><rect x="43" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="43" y="4" width="34" height="10" rx="3" fill="#475569"/><rect x="47" y="18" width="26" height="4" rx="2" fill="#1e3a5f"/><rect x="47" y="26" width="5" height="3" rx="1" fill="#fd783b"/><rect x="54" y="26" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="47" y="33" width="5" height="3" rx="1" fill="#fd783b"/><rect x="54" y="33" width="16" height="3" rx="1" fill="#cbd5e1"/><rect x="47" y="40" width="5" height="3" rx="1" fill="#fd783b"/><rect x="54" y="40" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="47" y="60" width="26" height="8" rx="2" fill="#475569"/><rect x="82" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="82" y="4" width="34" height="10" rx="3" fill="#475569"/><rect x="86" y="18" width="26" height="4" rx="2" fill="#1e3a5f"/><rect x="86" y="26" width="5" height="3" rx="1" fill="#fd783b"/><rect x="93" y="26" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="86" y="33" width="5" height="3" rx="1" fill="#fd783b"/><rect x="93" y="33" width="16" height="3" rx="1" fill="#cbd5e1"/><rect x="86" y="40" width="5" height="3" rx="1" fill="#fd783b"/><rect x="93" y="40" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="86" y="60" width="26" height="8" rx="2" fill="#475569"/></svg>',
     ];
 }
 
@@ -1132,6 +1135,45 @@ function render_content_block($block, $pathPrefix = '') {
                 if ($cardText) echo '<p class="card-text"' . $textStyle . '>' . h($cardText) . '</p>';
                 if ($cardLink) echo '<a href="' . h($cardLink) . '" class="card-link">' . h($cardBtn) . '</a>';
                 echo '</div></div>';
+            }
+            echo '</div></div>';
+            break;
+
+        /* ---- PRICING / COURSE CARDS ---- */
+        case 'pricing_cards':
+            $pcHeading = $block['pc_heading'] ?? '';
+            $pcCols    = max(2, min(4, (int)($block['pc_cols'] ?? 3)));
+            $pcBg      = $block['pc_bg'] ?? '';
+            $pcItems   = $block['pc_items'] ?? [];
+            $blockStyle = $pcBg ? ' style="background:' . h($pcBg) . ';"' : '';
+            echo '<div class="content-block block-pricing-cards"' . $anchorAttr . $blockStyle . '>';
+            if ($pcHeading) echo '<h2 class="section-heading">' . h($pcHeading) . '</h2>';
+            echo '<div class="pc-grid pc-grid-' . $pcCols . '">';
+            foreach ($pcItems as $card) {
+                $featured = !empty($card['featured']);
+                $badge    = $card['badge']    ?? '';
+                $sublabel = $card['sublabel'] ?? '';
+                $name     = $card['name']     ?? '';
+                $desc     = $card['desc']     ?? '';
+                $features = $card['features'] ?? '';
+                $meta     = $card['meta']     ?? '';
+                $btnText  = $card['btn_text'] ?? 'Get Started';
+                $btnUrl   = $card['btn_url']  ?? '#';
+                echo '<div class="pc-card' . ($featured ? ' pc-card--featured' : '') . '">';
+                if ($badge)    echo '<span class="pc-badge">' . h($badge) . '</span>';
+                if ($sublabel) echo '<span class="pc-sublabel">' . h($sublabel) . '</span>';
+                if ($name)     echo '<h3 class="pc-name">' . h($name) . '</h3>';
+                if ($desc)     echo '<p class="pc-desc">' . h($desc) . '</p>';
+                if ($features) {
+                    echo '<ul class="pc-features">';
+                    foreach (array_filter(array_map('trim', explode("\n", $features))) as $f) {
+                        echo '<li>' . h($f) . '</li>';
+                    }
+                    echo '</ul>';
+                }
+                if ($meta) echo '<p class="pc-meta">' . h($meta) . '</p>';
+                echo '<a href="' . h($btnUrl) . '" class="pc-btn">' . h($btnText) . '</a>';
+                echo '</div>';
             }
             echo '</div></div>';
             break;

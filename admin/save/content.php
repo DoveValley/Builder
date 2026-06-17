@@ -614,6 +614,40 @@
                     if (empty($cardItems) && $block['cards_heading'] === '') continue 2;
                     break;
 
+                case 'pricing_cards':
+                    $block['pc_heading'] = trim($_POST['pc_heading'][$i] ?? '');
+                    $block['pc_cols']    = max(2, min(4, (int)($_POST['pc_cols'][$i] ?? 3)));
+                    $rawPcBg = trim($_POST['pc_bg'][$i] ?? '');
+                    $block['pc_bg'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $rawPcBg) ? $rawPcBg : '';
+                    $pcNames     = $_POST['pc_name'][$i]     ?? [];
+                    $pcBadges    = $_POST['pc_badge'][$i]    ?? [];
+                    $pcSublabels = $_POST['pc_sublabel'][$i] ?? [];
+                    $pcDescs     = $_POST['pc_desc'][$i]     ?? [];
+                    $pcFeatures  = $_POST['pc_features'][$i] ?? [];
+                    $pcMetas     = $_POST['pc_meta'][$i]     ?? [];
+                    $pcBtnTexts  = $_POST['pc_btn_text'][$i] ?? [];
+                    $pcBtnUrls   = $_POST['pc_btn_url'][$i]  ?? [];
+                    $pcFeatured  = $_POST['pc_featured'][$i] ?? [];
+                    $pcItems = [];
+                    foreach ($pcNames as $ci => $pcName) {
+                        $pcName = trim($pcName);
+                        if ($pcName === '') continue;
+                        $pcItems[] = [
+                            'name'     => $pcName,
+                            'badge'    => trim($pcBadges[$ci]    ?? ''),
+                            'sublabel' => trim($pcSublabels[$ci] ?? ''),
+                            'desc'     => trim($pcDescs[$ci]     ?? ''),
+                            'features' => trim($pcFeatures[$ci]  ?? ''),
+                            'meta'     => trim($pcMetas[$ci]     ?? ''),
+                            'btn_text' => trim($pcBtnTexts[$ci]  ?? '') ?: 'Get Started',
+                            'btn_url'  => sanitize_url($pcBtnUrls[$ci] ?? ''),
+                            'featured' => in_array((string)$ci, array_map('strval', $pcFeatured)),
+                        ];
+                    }
+                    $block['pc_items'] = $pcItems;
+                    if (empty($pcItems) && $block['pc_heading'] === '') continue 2;
+                    break;
+
                 case 'buttons_grid':
                     $block['bg_heading']  = trim($_POST['bg_heading'][$i]  ?? '');
                     $block['bg_cols']     = in_array($_POST['bg_cols'][$i] ?? '3', ['2','3','4']) ? (int)$_POST['bg_cols'][$i] : 3;

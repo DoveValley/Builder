@@ -1517,6 +1517,71 @@ function render_content_blocks_editor($blocks) {
                     <button type="button" class="btn btn-secondary btn-small" onclick="addCardItem(this, <?= $i ?>)">+ Add card</button>
                 </div>
 
+                <?php /* ---- PRICING CARDS FIELDS ---- */ ?>
+                <div class="block-fields block-fields-pricing_cards <?= $type !== 'pricing_cards' ? 'is-hidden' : '' ?>">
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:8px;">
+                        <div class="form-group" style="flex:1 1 220px;">
+                            <label>Section heading (optional)</label>
+                            <input type="text" name="pc_heading[]" value="<?= h($block['pc_heading'] ?? '') ?>" placeholder="e.g. Six Classes. Every Career Stage.">
+                        </div>
+                        <div class="form-group" style="flex:0 0 120px;">
+                            <label>Columns</label>
+                            <select name="pc_cols[]">
+                                <?php foreach ([2,3,4] as $n): ?>
+                                    <option value="<?= $n ?>" <?= ($block['pc_cols'] ?? 3) == $n ? 'selected' : '' ?>><?= $n ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="form-group" style="flex:0 0 140px;">
+                            <label>Background color</label>
+                            <input type="color" name="pc_bg[]" value="<?= h($block['pc_bg'] ?? '#f8fafc') ?>">
+                        </div>
+                    </div>
+                    <div class="pc-items-editor" id="pc_items_<?= $i ?>">
+                        <?php foreach (($block['pc_items'] ?? []) as $ci => $card): ?>
+                        <div class="pc-item-row" style="border:1px solid #e5e7eb;border-radius:6px;padding:12px;margin-bottom:8px;background:#f9fafb;">
+                            <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;">
+                                <div style="flex:1 1 180px;">
+                                    <div class="form-group"><label>Card name / title</label>
+                                        <input type="text" name="pc_name[<?= $i ?>][]" value="<?= h($card['name'] ?? '') ?>" placeholder="e.g. PMP®">
+                                    </div>
+                                    <div class="form-group"><label>Badge text <span class="hint">(optional — shown at top)</span></label>
+                                        <input type="text" name="pc_badge[<?= $i ?>][]" value="<?= h($card['badge'] ?? '') ?>" placeholder="e.g. MOST POPULAR">
+                                    </div>
+                                    <div class="form-group"><label>Sub-label <span class="hint">(optional)</span></label>
+                                        <input type="text" name="pc_sublabel[<?= $i ?>][]" value="<?= h($card['sublabel'] ?? '') ?>" placeholder="e.g. PMI FLAGSHIP CREDENTIAL">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><input type="checkbox" name="pc_featured[<?= $i ?>][]" value="<?= $ci ?>" <?= !empty($card['featured']) ? 'checked' : '' ?> style="width:auto;margin-right:6px;">Featured / highlighted card</label>
+                                    </div>
+                                </div>
+                                <div style="flex:2 1 240px;">
+                                    <div class="form-group"><label>Description</label>
+                                        <textarea name="pc_desc[<?= $i ?>][]" rows="2"><?= h($card['desc'] ?? '') ?></textarea>
+                                    </div>
+                                    <div class="form-group"><label>Feature checklist <span class="hint">(one item per line)</span></label>
+                                        <textarea name="pc_features[<?= $i ?>][]" rows="4" style="font-size:0.85rem;"><?= h($card['features'] ?? '') ?></textarea>
+                                    </div>
+                                    <div class="form-group"><label>Meta line <span class="hint">(e.g. 4 Days · Live online)</span></label>
+                                        <input type="text" name="pc_meta[<?= $i ?>][]" value="<?= h($card['meta'] ?? '') ?>" placeholder="4 Days · Live online · Flexible scheduling">
+                                    </div>
+                                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                                        <div class="form-group" style="flex:1 1 100px;"><label>Button text</label>
+                                            <input type="text" name="pc_btn_text[<?= $i ?>][]" value="<?= h($card['btn_text'] ?? 'Get Started') ?>">
+                                        </div>
+                                        <div class="form-group" style="flex:2 1 160px;"><label>Button URL</label>
+                                            <input type="text" name="pc_btn_url[<?= $i ?>][]" value="<?= h($card['btn_url'] ?? '') ?>" placeholder="/enroll">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="remove-row" onclick="this.closest('.pc-item-row').remove()" style="align-self:flex-start;">&times;</button>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-small" onclick="addPcItem(this, <?= $i ?>)">+ Add card</button>
+                </div>
+
                 <?php /* ---- BUTTONS GRID FIELDS ---- */ ?>
                 <div class="block-fields block-fields-buttons_grid <?= $type !== 'buttons_grid' ? 'is-hidden' : '' ?>">
                     <div class="form-group">

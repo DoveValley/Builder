@@ -598,6 +598,21 @@ function content_editor_scripts() {
                 <div class="stats-items-editor" id="stats_items_new_${idx}"></div>
                 <button type="button" class="btn btn-secondary btn-small" onclick="addStatItem(this, 'new_${idx}')">+ Add stat</button>
             </div>
+            <div class="block-fields block-fields-pricing_cards is-hidden">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:8px;">
+                    <div class="form-group" style="flex:1 1 220px;"><label>Section heading (optional)</label>
+                        <input type="text" name="pc_heading[]" placeholder="e.g. Six Classes. Every Career Stage.">
+                    </div>
+                    <div class="form-group" style="flex:0 0 120px;"><label>Columns</label>
+                        <select name="pc_cols[]"><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option></select>
+                    </div>
+                    <div class="form-group" style="flex:0 0 140px;"><label>Background color</label>
+                        <input type="color" name="pc_bg[]" value="#f8fafc">
+                    </div>
+                </div>
+                <div class="pc-items-editor" id="pc_items_new_${idx}"></div>
+                <button type="button" class="btn btn-secondary btn-small" onclick="addPcItem(this, 'new_${idx}')">+ Add card</button>
+            </div>
             <div class="block-fields block-fields-cards is-hidden">
                 <div class="form-group"><label>Section heading (optional)</label>
                     <input type="text" name="cards_heading[]" placeholder="e.g. Our Services">
@@ -1034,6 +1049,53 @@ function content_editor_scripts() {
         editor.appendChild(row);
     }
     function removeCardItem(btn) { btn.closest('.card-item-row').remove(); }
+
+    /* ---- Pricing Cards helpers ---- */
+    function addPcItem(btn, blockIdx) {
+        const editor = document.getElementById('pc_items_' + blockIdx);
+        const ci = editor.children.length;
+        const row = document.createElement('div');
+        row.className = 'pc-item-row';
+        row.style.cssText = 'border:1px solid #e5e7eb;border-radius:6px;padding:12px;margin-bottom:8px;background:#f9fafb;';
+        row.innerHTML = `
+            <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;">
+                <div style="flex:1 1 180px;">
+                    <div class="form-group"><label>Card name / title</label>
+                        <input type="text" name="pc_name[${blockIdx}][]" placeholder="e.g. PMP®">
+                    </div>
+                    <div class="form-group"><label>Badge text <span class="hint">(optional)</span></label>
+                        <input type="text" name="pc_badge[${blockIdx}][]" placeholder="e.g. MOST POPULAR">
+                    </div>
+                    <div class="form-group"><label>Sub-label <span class="hint">(optional)</span></label>
+                        <input type="text" name="pc_sublabel[${blockIdx}][]" placeholder="e.g. PMI FLAGSHIP CREDENTIAL">
+                    </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" name="pc_featured[${blockIdx}][]" value="${ci}" style="width:auto;margin-right:6px;">Featured / highlighted</label>
+                    </div>
+                </div>
+                <div style="flex:2 1 240px;">
+                    <div class="form-group"><label>Description</label>
+                        <textarea name="pc_desc[${blockIdx}][]" rows="2"></textarea>
+                    </div>
+                    <div class="form-group"><label>Feature checklist <span class="hint">(one item per line)</span></label>
+                        <textarea name="pc_features[${blockIdx}][]" rows="4" style="font-size:0.85rem;"></textarea>
+                    </div>
+                    <div class="form-group"><label>Meta line</label>
+                        <input type="text" name="pc_meta[${blockIdx}][]" placeholder="4 Days · Live online · Flexible scheduling">
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:1 1 100px;"><label>Button text</label>
+                            <input type="text" name="pc_btn_text[${blockIdx}][]" value="Get Started">
+                        </div>
+                        <div class="form-group" style="flex:2 1 160px;"><label>Button URL</label>
+                            <input type="text" name="pc_btn_url[${blockIdx}][]" placeholder="/enroll">
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="remove-row" onclick="this.closest('.pc-item-row').remove()" style="align-self:flex-start;">&times;</button>
+            </div>`;
+        editor.appendChild(row);
+    }
 
     /* ---- FAQ Two Col frontend toggle ---- */
     function toggleFq(id) {

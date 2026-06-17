@@ -808,6 +808,25 @@ a:hover {
 .faq-answer { padding: 4px 20px 16px; font-size: 0.96rem; line-height: 1.65; }
 .faq-answer p { margin: 8px 0 0; }
 
+/* ---- Pricing / Course Cards ---- */
+.block-pricing-cards { padding: 48px 24px; background: #f8fafc; }
+.pc-grid { display: grid; gap: 24px; max-width: 1100px; margin: 0 auto; }
+.pc-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.pc-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.pc-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.pc-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 0; }
+.pc-card--featured { border-color: var(--color-accent); box-shadow: 0 4px 24px rgba(0,0,0,.1); }
+.pc-badge { display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #fff; background: var(--color-accent); padding: 3px 9px; border-radius: 3px; margin-bottom: 10px; }
+.pc-sublabel { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--color-accent); margin-bottom: 6px; }
+.pc-name { font-size: 1.35rem; font-weight: 700; color: var(--color-header-bg); margin: 0 0 10px; }
+.pc-desc { font-size: 0.875rem; color: #475569; margin: 0 0 16px; line-height: 1.55; }
+.pc-features { list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 6px; }
+.pc-features li { font-size: 0.85rem; color: #334155; padding-left: 20px; position: relative; }
+.pc-features li::before { content: "✓"; position: absolute; left: 0; color: var(--color-accent); font-weight: 700; }
+.pc-meta { font-size: 0.78rem; color: #64748b; margin: auto 0 16px; padding-top: 12px; border-top: 1px solid #f1f5f9; }
+.pc-btn { display: block; text-align: center; background: var(--color-accent); color: #fff; padding: 11px 20px; border-radius: var(--btn-radius, 4px); text-decoration: none; font-weight: 600; font-size: 0.9rem; margin-top: auto; transition: opacity .15s; }
+.pc-btn:hover { opacity: .88; }
+
 /* ---- Custom HTML ---- */
 .block-custom-html { padding: 24px; }
 
@@ -1351,6 +1370,9 @@ html, body {
 
     /* Two-column HTML — stack on mobile */
     .htc-grid { grid-template-columns: 1fr; gap: 20px; }
+
+    /* Pricing cards — single column on mobile */
+    .pc-grid-2, .pc-grid-3, .pc-grid-4 { grid-template-columns: 1fr; }
 
     /* Feature columns — single col on very small screens */
     .feature-grid-2 { grid-template-columns: 1fr 1fr; }
