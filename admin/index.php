@@ -42,7 +42,7 @@ $blogSettings = $data['blog_settings'];
 
 // Active tab
 $tab = $_GET['tab'] ?? 'header';
-if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'footer', 'popups', 'media', 'seo', 'blog'], true)) {
+if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'footer', 'popups', 'media', 'seo', 'blog', 'schedule'], true)) {
     $tab = 'header';
 }
 
@@ -186,6 +186,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'popups' ? 'active' : '' ?>" href="?tab=popups">Popups</a>
         <a class="tab-link <?= $tab === 'media' ? 'active' : '' ?>" href="?tab=media">Media Library</a>
         <a class="tab-link <?= $tab === 'seo' ? 'active' : '' ?>" href="?tab=seo">SEO / Schema</a>
+        <a class="tab-link <?= $tab === 'schedule' ? 'active' : '' ?>" href="?tab=schedule">Schedule</a>
     </div>
 
     <!-- ================= HEADER TAB ================= -->
@@ -211,6 +212,9 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- ================= MEDIA LIBRARY TAB ================= -->
     <?php require __DIR__ . '/tabs/media.php'; ?>
+
+    <!-- ================= SCHEDULE TAB ================= -->
+    <?php require __DIR__ . '/tabs/schedule.php'; ?>
 
     <!-- ================= SEO / SCHEMA TAB ================= -->
     <?php require __DIR__ . '/tabs/seo.php'; ?>

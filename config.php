@@ -37,12 +37,14 @@ if ($_activeSiteId
     define('ACTIVE_SITE_ID',  $_activeSiteId);
     define('ACTIVE_SITE_DIR', BASE_DIR . '/sites/' . $_activeSiteId);
     define('DATA_FILE',       BASE_DIR . '/sites/' . $_activeSiteId . '/data/site.json');
+    define('COURSES_FILE',    BASE_DIR . '/sites/' . $_activeSiteId . '/data/courses.json');
     define('UPLOAD_DIR',      BASE_DIR . '/sites/' . $_activeSiteId . '/uploads/');
     define('UPLOAD_URL',      'sites/' . $_activeSiteId . '/uploads/');
 } else {
     define('ACTIVE_SITE_ID',  '');
     define('ACTIVE_SITE_DIR', '');
     define('DATA_FILE',       BASE_DIR . '/data/site.json');
+    define('COURSES_FILE',    BASE_DIR . '/data/courses.json');
     define('UPLOAD_DIR',      BASE_DIR . '/uploads/');
     define('UPLOAD_URL',      'uploads/');
 }

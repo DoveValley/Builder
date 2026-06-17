@@ -1,0 +1,2357 @@
+{
+    "theme": {
+        "header_bg": "#120575",
+        "header_text": "#ffffff",
+        "content_bg": "#ffffff",
+        "content_text": "#888c92",
+        "footer_bg": "#120575",
+        "footer_text": "#ffffff",
+        "accent_color": "#fd783b",
+        "primary_font": "Inclusive Sans, sans-serif",
+        "button_radius": "5",
+        "analytics_head": "",
+        "facebook_pixel": "",
+        "font_family": "Inclusive Sans, sans-serif",
+        "header_top_bg": "#ffffff",
+        "heading_color": "#120575"
+    },
+    "header": {
+        "logo": "sites/pest-template/uploads/logo_1781487556_80cb06.png",
+        "phone": "{phone}",
+        "city": "{city_state}",
+        "topbar_text": "",
+        "topbar_link": "",
+        "menu": [
+            {
+                "label": "Home",
+                "url": "/",
+                "children": []
+            },
+            {
+                "label": "Pest Services",
+                "url": "#pest_services",
+                "children": []
+            }
+        ],
+        "socials": {
+            "facebook": "",
+            "instagram": "",
+            "twitter": "",
+            "youtube": "",
+            "linkedin": "",
+            "tiktok": "",
+            "yelp": ""
+        },
+        "nav_bg": "#fd783b",
+        "nav_text": "#ffffff",
+        "phone_btn_style": "outline",
+        "sticky": true,
+        "info_items": [
+            {
+                "icon": "🇺🇸",
+                "text": "Proudly American"
+            },
+            {
+                "icon": "",
+                "text": "Call for Great Service!"
+            }
+        ],
+        "logo_max_height": 72
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "Trusted Local Pest Control in {city_state}",
+            "hs_subtext": "<p>Our advertising partners provide fast, reliable pest control services in {city_state}. We connect homeowners with trusted, licensed local providers for same-day treatment of cockroaches, ants, termites, rodents, and more.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Pest control services in {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f3f6f7",
+            "hs_photo": "sites/pest-template/uploads/media/about-whitefly-treatment-katy_93c79d.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+            "hs_mobile_order": ""
+        },
+        {
+            "type": "feature_split",
+            "fs_heading": "Full-Service Pest Management for Common {city} Pests",
+            "fs_subtext": "{city}'s warm, humid climate attracts a wide range of pests. That's why we offer treatment and prevention services for all major infestations, including:",
+            "fs_photo_alt": "Pest control technician in {city} {SS}",
+            "fs_star_text": "5 Star Services",
+            "fs_bg_color": "#f3f6f7",
+            "fs_accent": "#fd783b",
+            "fs_image_side": "left",
+            "fs_mobile_order": "text_first",
+            "fs_photo": "sites/pest-template/uploads/media/about-katy_7007ec.webp",
+            "fs_items": [
+                {
+                    "icon": "",
+                    "alt": "Ants pest control {city} {SS}",
+                    "heading": "Ants",
+                    "text": "Social insects that form colonies and enter homes in search of food and moisture."
+                },
+                {
+                    "icon": "",
+                    "alt": "Cockroaches pest control {city} {SS}",
+                    "heading": "Cockroaches",
+                    "text": "Nocturnal pests that spread bacteria and trigger allergies, often hiding in kitchens and bathrooms."
+                },
+                {
+                    "icon": "",
+                    "alt": "Termites pest control {city} {SS}",
+                    "heading": "Termites",
+                    "text": "Wood-destroying insects that silently cause structural damage by feeding on cellulose-based materials."
+                },
+                {
+                    "icon": "",
+                    "alt": "Rodents pest control {city} {SS}",
+                    "heading": "Rodents (Mice and Rats)",
+                    "text": "Disease-carrying mammals that gnaw through wires, contaminate food, and reproduce quickly."
+                },
+                {
+                    "icon": "",
+                    "alt": "Spiders pest control {city} {SS}",
+                    "heading": "Spiders",
+                    "text": "Arachnids that often enter homes in search of insects to prey on; some species can bite."
+                },
+                {
+                    "icon": "",
+                    "alt": "Bed bugs pest control {city} {SS}",
+                    "heading": "Bed Bugs",
+                    "text": "Blood-feeding insects that hide in mattresses and furniture, causing itchy bites and sleep disruption."
+                }
+            ]
+        },
+        {
+            "type": "split_cta",
+            "sc_left_heading": "Serving the Greater {city_state} Area",
+            "sc_left_text": "Whether you're a homeowner, business owner, or property manager, we offer solutions that fit your property and your budget. Every job is backed by clear communication, transparent pricing, and high-quality workmanship.",
+            "sc_right_label": "Call The {city} Pest Pros Team",
+            "sc_right_phone": "{phone}",
+            "sc_right_phone_url": "tel:{tel}",
+            "sc_left_bg": "accent",
+            "sc_right_bg": "header",
+            "sc_left_bg_custom": "#fd783b",
+            "sc_right_bg_custom": "#120575"
+        },
+        {
+            "type": "tab_services",
+            "ts_badge1": "{business}",
+            "ts_badge2": "SERVICES {city}, {SS}",
+            "ts_heading": "Professional Pest Control Team Serving {city_state}",
+            "ts_active_bg": "header",
+            "ts_active_bg_custom": "#120575",
+            "ts_tabs": [
+                {
+                    "label": "Fleas",
+                    "icon": "sites/pest-template/uploads/media/tab-icon-fleas.png",
+                    "photo": "sites/pest-template/uploads/media/fleas-katy_1eca46.webp",
+                    "alt": "Flea pest control {city} {SS}",
+                    "desc": "Small, jumping parasites that feed on pets and humans, causing skin irritation and spreading disease."
+                },
+                {
+                    "label": "Ticks",
+                    "icon": "sites/pest-template/uploads/media/tab-icon-ticks.png",
+                    "photo": "sites/pest-template/uploads/media/ticks-katy_fd2b60.webp",
+                    "alt": "Tick pest control {city} {SS}",
+                    "desc": "Blood-feeding arachnids that latch onto skin and can transmit Lyme disease and other illnesses."
+                },
+                {
+                    "label": "Wasps",
+                    "icon": "sites/pest-template/uploads/media/tab-icon-wasps.png",
+                    "photo": "sites/pest-template/uploads/media/wasps-katy_cbff6b.webp",
+                    "alt": "Wasp pest control {city} {SS}",
+                    "desc": "Stinging insects that build nests around homes and can be aggressive when threatened."
+                },
+                {
+                    "label": "Mosquitoes",
+                    "icon": "sites/pest-template/uploads/media/tab-icon-mosquitoes.png",
+                    "photo": "sites/pest-template/uploads/media/mosquito-katy_aa45f9.webp",
+                    "alt": "Mosquito pest control {city} {SS}",
+                    "desc": "Flying insects known for their itchy bites and ability to transmit diseases like West Nile Virus."
+                }
+            ]
+        },
+        {
+            "type": "hero_grid",
+            "hg_label": "{city} Pest Pros",
+            "hg_heading": "Top-Notch Pest Control in {city_state}",
+            "hg_body": "<p>Our experienced pest control providers will tailor a solution based on the pest type, severity of the infestation, and the specific needs of your home to restore comfort and safety. Our technicians are trained professionals who follow integrated pest management strategies for long-term results and minimal disruption to your household or operations.</p>",
+            "hg_btn_text": "Call Us",
+            "hg_btn_url": "tel:{tel}",
+            "hg_photo_alt": "Top-notch pest control in {city} {SS}",
+            "hg_photo": "sites/pest-template/uploads/media/top-notch-pest-control-katy_e7cc66.webp",
+            "hg_color1": "accent",
+            "hg_color2": "header",
+            "hg_color1_custom": "#fd783b",
+            "hg_color2_custom": "#120575",
+            "hg_items": [
+                {
+                    "icon": "",
+                    "label": "Carpenter Ants",
+                    "alt": "Carpenter ant control {city} {SS}"
+                },
+                {
+                    "icon": "",
+                    "label": "Silverfish",
+                    "alt": "Silverfish control {city} {SS}"
+                },
+                {
+                    "icon": "",
+                    "label": "Earwigs",
+                    "alt": "Earwig control {city} {SS}"
+                },
+                {
+                    "icon": "",
+                    "label": "Pantry Pests (e.g., Indian Meal Moths)",
+                    "alt": "Pantry pest control {city} {SS}"
+                },
+                {
+                    "icon": "",
+                    "label": "Centipedes",
+                    "alt": "Centipede control {city} {SS}"
+                },
+                {
+                    "icon": "",
+                    "label": "Carpet Beetles",
+                    "alt": "Carpet beetle control {city} {SS}"
+                }
+            ]
+        },
+        {
+            "type": "service_cards",
+            "sc_badge": "PROFESSIONAL {city}, {SS} COMPANY",
+            "sc_heading": "Local Experts in {city_state}",
+            "sc_cols": 3,
+            "sc_badge_bg": "accent",
+            "sc_head_color": "header",
+            "sc_badge_bg_custom": "#fd783b",
+            "sc_head_color_custom": "#120575",
+            "sc_icon_bg": "#fef0e7",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Roach control {city} {SS}",
+                    "heading": "Roach Control & Extermination in {city_state}",
+                    "text": "Cockroaches are stubborn invaders. Our experts use gel baiting, perimeter sprays, and entry-point sealing to eliminate them safely and effectively.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Ant control {city} {SS}",
+                    "heading": "Ant Control & Removal Solutions in {city_state}",
+                    "text": "We identify ant colonies and use proven baiting and barrier methods for lasting protection against fire ants, carpenter ants, and more.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Termite treatment {city} {SS}",
+                    "heading": "Termite Treatment & Prevention in {city_state}",
+                    "text": "Our termite specialists provide detailed inspections, baiting systems, and barrier applications to stop damage and prevent future infestations.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Rodent control {city} {SS}",
+                    "heading": "Rodent Control for Homes & Businesses in {city_state}",
+                    "text": "We offer trapping, exclusion, and sanitation to remove mice and rats, protecting your property and health from costly and unsafe damage.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Mosquito control {city} {SS}",
+                    "heading": "Mosquito Reduction Services in {city_state}",
+                    "text": "Using barrier sprays and larvicide treatments, we target breeding areas to cut mosquito populations and improve outdoor comfort.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Bed bug treatment {city} {SS}",
+                    "heading": "Bed Bug Inspection & Treatment in {city_state}",
+                    "text": "Our team uses heat and chemical treatments to completely remove bed bugs, ensuring your home is pest-free and your rest uninterrupted.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Flea tick control {city} {SS}",
+                    "heading": "Flea & Tick Removal Services in {city_state}",
+                    "text": "We apply indoor and outdoor treatments to eliminate fleas and ticks, keeping your pets and family safe all year long.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Wasp spider control {city} {SS}",
+                    "heading": "Wasp, Hornet & Spider Control in {city_state}",
+                    "text": "Our trained professionals remove nests and seal entry points to protect your home from stinging insects and venomous spiders.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Wildlife removal {city} {SS}",
+                    "heading": "Wildlife Removal & Exclusion in {city_state}",
+                    "text": "We humanely remove raccoons, opossums, and other wildlife, repairing and sealing entry areas to prevent their return.",
+                    "url": ""
+                }
+            ]
+        },
+        {
+            "type": "wide_banner",
+            "wb_badge": "{city}, TEXAS'S SPECIALISTS",
+            "wb_heading": "Your First Choice for Pest Control in {city_state}",
+            "wb_subtext": "",
+            "wb_btn_text": "Call Us",
+            "wb_btn_url": "tel:{tel}",
+            "wb_btn_style": "filled",
+            "wb_centered": false,
+            "wb_photo_alt": "Pest control services in {city} {SS}",
+            "wb_overlay": "0.50",
+            "wb_bg_color": "#1a1a2e",
+            "wb_badge_bg": "accent",
+            "wb_badge_bg_custom": "#fd783b",
+            "wb_photo": "sites/pest-template/uploads/media/bg-4-katy_home.webp"
+        },
+        {
+            "type": "image_features",
+            "if_heading": "Quality Pest Prevention",
+            "if_intro": "<p>Effective pest control is an ongoing process, not a one-time event. Our comprehensive services provide continuous protection by creating a durable defensive barrier around your home to stop pests before they enter.</p>",
+            "if_closing": "Services are delivered by a reliable and thoroughly trained technician team, giving you peace of mind throughout every season.",
+            "if_phone_label": "Call Us 24/7",
+            "if_phone": "{phone}",
+            "if_phone_url": "tel:{tel}",
+            "if_photo_alt": "Quality pest prevention in {city} {SS}",
+            "if_bg_color": "#f3f6f7",
+            "if_check_color": "accent",
+            "if_head_color": "header",
+            "if_check_color_custom": "#fd783b",
+            "if_head_color_custom": "#120575",
+            "if_photo": "sites/pest-template/uploads/media/about-big-katy_260678.webp",
+            "if_features": [
+                "Exterior treatments",
+                "Emergency services",
+                "Specialty pest services",
+                "Entry point inspections and sealing"
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "FAQs – Pest Control in {city}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#f0f2f8",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "fq_items": [
+                {
+                    "question": "What types of pests do you treat with pest control in {city}?",
+                    "answer": "<p>We treat a wide range of pests including ants, roaches, termites, rodents, bed bugs, mosquitoes, spiders, wasps, fleas, ticks, and more. Our technicians tailor each treatment plan to the specific pest and severity of the infestation.</p>"
+                },
+                {
+                    "question": "How much does pest control in {city} typically cost?",
+                    "answer": "<p>Pricing varies based on the type of pest, size of your property, and treatment needed. Our advertising partners offer competitive rates and many provide free inspections or estimates before any work begins.</p>"
+                },
+                {
+                    "question": "Do you offer same-day pest control in {city}?",
+                    "answer": "<p>Yes, many of our partner providers offer same-day or next-day service depending on availability in your area. Call us to check current availability.</p>"
+                },
+                {
+                    "question": "Is your pest control in {city} safe for pets and children?",
+                    "answer": "<p>Our partner technicians use EPA-approved treatments and follow all safety protocols. They will advise you on any precautions to take before, during, and after treatment to keep your family and pets safe.</p>"
+                },
+                {
+                    "question": "What areas around {city_state} do you service?",
+                    "answer": "<p>We serve {city} and surrounding areas including Sugar Land, Richmond, Fulshear, Cinco Ranch, Cypress, and other communities in the Greater Houston area.</p>"
+                },
+                {
+                    "question": "How often should I schedule pest control in {city}?",
+                    "answer": "<p>For most homes, quarterly treatments provide the best ongoing protection. However, some infestations may require monthly visits initially, followed by a maintenance schedule once the problem is under control.</p>"
+                },
+                {
+                    "question": "What is included in your pest control treatment in {city}?",
+                    "answer": "<p>Treatments typically include a thorough inspection, interior and exterior treatment, sealing of common entry points, and a follow-up plan. Specific services depend on the pest type and provider.</p>"
+                },
+                {
+                    "question": "Do you offer termite inspections and treatments in {city}?",
+                    "answer": "<p>Yes, termite inspections and treatments are among our most requested services. Our partners use baiting systems, liquid treatments, and barrier applications for comprehensive termite control.</p>"
+                },
+                {
+                    "question": "Can you help with rodent problems in {city} homes?",
+                    "answer": "<p>Absolutely. Our providers offer full rodent control including trapping, exclusion work, sanitation advice, and follow-up to ensure mice and rats are fully removed and cannot re-enter.</p>"
+                },
+                {
+                    "question": "Why choose your company for pest control in {city}?",
+                    "answer": "<p>We connect you with experienced, licensed local pest control professionals who know the {city} area and its unique pest challenges. Our network is vetted, responsive, and committed to your satisfaction.</p>"
+                }
+            ]
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "24/7 Pest Control Services in {city_state}",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#fd783b",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        },
+        {
+            "type": "links_grid",
+            "anchor": "pest_services",
+            "lg_heading": "Our Pest Control Services in {city_state}",
+            "lg_subtext": "We offer a full range of pest control services in {city_state}, including treatments for cockroaches, termites, mosquitoes, fleas, rodents, ants, spiders, and bed bugs. Our local exterminators provide fast and effective solutions to remove pests and prevent them from returning, keeping your property safe and pest-free all year long.",
+            "lg_sublabel": "",
+            "lg_photo_alt": "Pest control services {city} {SS}",
+            "lg_style": "dark",
+            "lg_cols": 5,
+            "lg_overlay": "0.20",
+            "lg_bg_color": "#ffffff",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "lg_photo": "sites/pest-template/uploads/media/pest-katy_home_a1b2c3.webp",
+            "lg_links": [
+                {
+                    "label": "Cockroach Exterminator",
+                    "url": "/cockroach-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Termite Treatment",
+                    "url": "/termite-treatment-{city_slug}"
+                },
+                {
+                    "label": "Mosquito Control",
+                    "url": "/mosquito-control-{city_slug}"
+                },
+                {
+                    "label": "Flea Control",
+                    "url": "/flea-control-{city_slug}"
+                },
+                {
+                    "label": "Flea Treatment",
+                    "url": "/flea-treatment-{city_slug}"
+                },
+                {
+                    "label": "Flea Exterminator",
+                    "url": "/flea-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Bed Bug Treatment",
+                    "url": "/bed-bug-treatment-{city_slug}"
+                },
+                {
+                    "label": "Rat Exterminator",
+                    "url": "/rat-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Ant Exterminator",
+                    "url": "/ant-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Mosquito Treatment",
+                    "url": "/mosquito-treatment-{city_slug}"
+                },
+                {
+                    "label": "Tick Control",
+                    "url": "/tick-control-{city_slug}"
+                },
+                {
+                    "label": "Roach Control",
+                    "url": "/roach-control-{city_slug}"
+                },
+                {
+                    "label": "Mouse Exterminator",
+                    "url": "/mouse-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Mouse Control",
+                    "url": "/mouse-control-{city_slug}"
+                },
+                {
+                    "label": "Pest Inspection",
+                    "url": "/pest-inspection-{city_slug}"
+                },
+                {
+                    "label": "Spider Exterminator",
+                    "url": "/spider-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Spider Pest Control",
+                    "url": "/spider-pest-control-{city_slug}"
+                },
+                {
+                    "label": "Earwig Control",
+                    "url": "/earwig-control-{city_slug}"
+                },
+                {
+                    "label": "Pest Exterminator",
+                    "url": "/pest-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Bed Bug Exterminator",
+                    "url": "/bed-bug-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Mosquito Exterminator",
+                    "url": "/mosquito-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Bat Exterminator",
+                    "url": "/bat-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Mice Exterminator",
+                    "url": "/mice-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Commercial Pest Exterminator",
+                    "url": "/commercial-pest-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Residential Pest",
+                    "url": "/residential-pest-{city_slug}"
+                },
+                {
+                    "label": "Rodent Exterminator",
+                    "url": "/rodent-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Wasp Exterminator",
+                    "url": "/wasp-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Termite Exterminator",
+                    "url": "/termite-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Emergency Exterminator",
+                    "url": "/emergency-exterminator-{city_slug}"
+                },
+                {
+                    "label": "24 Hour Pest Control",
+                    "url": "/24-hour-pest-control-{city_slug}"
+                },
+                {
+                    "label": "Yellow Jacket Exterminator",
+                    "url": "/yellow-jacket-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Rodent Control",
+                    "url": "/rodent-control-{city_slug}"
+                },
+                {
+                    "label": "Termite Control",
+                    "url": "/termite-control-{city_slug}"
+                },
+                {
+                    "label": "Rat Control",
+                    "url": "/rat-control-{city_slug}"
+                },
+                {
+                    "label": "Bed Bug Pest Control",
+                    "url": "/bed-bug-pest-control-{city_slug}"
+                },
+                {
+                    "label": "Mice Control",
+                    "url": "/mice-control-{city_slug}"
+                },
+                {
+                    "label": "Ant Control",
+                    "url": "/ant-control-{city_slug}"
+                },
+                {
+                    "label": "Cockroach Pest Control",
+                    "url": "/cockroach-pest-control-{city_slug}"
+                },
+                {
+                    "label": "Silverfish Control",
+                    "url": "/silverfish-control-{city_slug}"
+                },
+                {
+                    "label": "Commercial Pest Control",
+                    "url": "/commercial-pest-control-{city_slug}"
+                },
+                {
+                    "label": "Wasp Pest Control",
+                    "url": "/wasp-pest-control-{city_slug}"
+                },
+                {
+                    "label": "Tick Treatment For Yard",
+                    "url": "/tick-treatment-for-yard-{city_slug}"
+                },
+                {
+                    "label": "Cockroach Treatment",
+                    "url": "/cockroach-treatment-{city_slug}"
+                },
+                {
+                    "label": "Grub Treatment",
+                    "url": "/grub-treatment-{city_slug}"
+                },
+                {
+                    "label": "Thrips Treatment",
+                    "url": "/thrips-treatment-{city_slug}"
+                },
+                {
+                    "label": "Whitefly Treatment",
+                    "url": "/whitefly-treatment-{city_slug}"
+                },
+                {
+                    "label": "Termite Inspection",
+                    "url": "/termite-inspection-{city_slug}"
+                },
+                {
+                    "label": "WDI Inspection",
+                    "url": "/wdi-inspection-{city_slug}"
+                },
+                {
+                    "label": "Rat Inspection",
+                    "url": "/rat-inspection-{city_slug}"
+                },
+                {
+                    "label": "Pest Control Services",
+                    "url": "/pest-control-services-{city_slug}"
+                }
+            ]
+        },
+        {
+            "type": "cta_card",
+            "cc_heading": "Contact {city}'s Top Pest Control Company Today",
+            "cc_text": "Don't wait for pests to take over. Call {city} Pest Pros today to schedule your timely inspection. With hundreds of successful treatments and our 5-star service for customers, we're the go-to pest control provider in {city_state}.",
+            "cc_btn_text": "{phone}",
+            "cc_btn_url": "tel:{tel}",
+            "cc_btn_style": "outline",
+            "cc_align": "split",
+            "cc_bg": "accent",
+            "cc_bg_custom": "#fd783b",
+            "cc_radius": 12
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>{city} is a city in the U. S. state of {state}. It is in the Greater {city} area, itself forming the western part of the Greater Houston metropolitan area. Homes and businesses may have {city} postal addresses without being in the City of {city}.</p>",
+            "mi_info_alt": "{city} {SS} shopping center",
+            "mi_map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111217.46591830737!2d-95.89688!3d29.785489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8641188adec6eab5%3A0x7add8e9b81b4c22!2sKaty%2C%20TX%2C%20USA!5e0!3m2!1sen!2sus!4v1718000000000!5m2!1sen!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "sites/pest-template/uploads/media/500px-2019-07-20_08_32_24_palm_trees_along_kingsland_boulevard_in_katy-2c_fort_bend_county-2c_texas_5a04bb.webp"
+        },
+        {
+            "type": "cta_card",
+            "cc_heading": "The Values That Make Us {city}’s Most Trusted Pest Control Experts",
+            "cc_text": "We’re known in {city} for more than just effective pest control — we’re trusted for how we do it. With reliable service, honest pricing, and safe, family-friendly treatments, we deliver results you can count on. Our trained professionals uphold the highest standards of professionalism, and your satisfaction is always our top priority. That’s why so many local homeowners choose us—and stay with us.",
+            "cc_btn_text": "",
+            "cc_btn_url": "",
+            "cc_btn_style": "outline",
+            "cc_align": "center",
+            "cc_bg": "accent",
+            "cc_bg_custom": "#fd783b",
+            "cc_radius": 0
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Professional Pest Control in {city_state}",
+            "lg_subtext": "",
+            "lg_sublabel": "Top Rated {city_state} Pest Experts",
+            "lg_photo_alt": "",
+            "lg_style": "light",
+            "lg_cols": 4,
+            "lg_overlay": "0.00",
+            "lg_bg_color": "#ffffff",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "lg_photo": "sites/pest-template/uploads/media/pest-katy_home_a1b2c3.webp",
+            "lg_links": [
+                {
+                    "label": "Termite Treatment",
+                    "url": "/termite-treatment-{city_slug}"
+                },
+                {
+                    "label": "Mosquito Control",
+                    "url": "/mosquito-control-{city_slug}"
+                },
+                {
+                    "label": "Bed Bug Treatment",
+                    "url": "/bed-bug-treatment-{city_slug}"
+                },
+                {
+                    "label": "Flea Control",
+                    "url": "/flea-control-{city_slug}"
+                },
+                {
+                    "label": "Flea Treatment",
+                    "url": "/flea-treatment-{city_slug}"
+                },
+                {
+                    "label": "Flea Exterminator",
+                    "url": "/flea-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Rat Exterminator",
+                    "url": "/rat-exterminator-{city_slug}"
+                },
+                {
+                    "label": "Ant Exterminator",
+                    "url": "/ant-exterminator-{city_slug}"
+                }
+            ]
+        }
+    ],
+    "seo": {
+        "seo_title": "Pest Control {city} {SS} | Local Exterminator | {business}",
+        "canonical_url": "{website}/",
+        "meta_description": "Expert pest control in {city_state}. Fast, eco-friendly solutions for roaches, ants, termites, rodents & more. Trusted, licensed local exterminators ready 24/7.",
+        "meta_keywords": "pest control {city} {SS}, exterminator {city} {SS}, roach control {city}, termite treatment {city} {SS}",
+        "og_title": "{city} Pest Control | Local Pest Exterminator in {city_state}",
+        "og_description": "Protect your home with expert pest control in {city_state}. Our local team provides fast, eco-friendly solutions for roaches, ants, termites, rodents, and more. Trusted by homeowners for safe, effective service.",
+        "og_image": "sites/pest-template/uploads/media/about-big-katy_260678.webp",
+        "service_name": "",
+        "service_type": "",
+        "service_area": "",
+        "service_description": "",
+        "bc_label": "",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": ""
+    },
+    "footer": {
+        "logo": "",
+        "phone": "{phone}",
+        "columns": [
+            {
+                "type": "text",
+                "title": "About {business}",
+                "text": "<p>We connect homeowners with trained, experienced {city} pest control specialists through our advertising network. Our providers have years of on-the-job experience in safe, effective long-standing solutions to homes and businesses in {city}. Whether it’s ants and roaches, rodents, or termites, we handle every infestation with precision, care, and professionalism. We believe in honest service, upfront pricing, and long-term results &mdash; because your peace of mind is our priority.</p>"
+            },
+            {
+                "type": "links",
+                "title": "Quick Link",
+                "links": [
+                    {
+                        "label": "Termite Treatment",
+                        "url": "/termite-treatment-{city_slug}"
+                    },
+                    {
+                        "label": "Mosquito Control",
+                        "url": "/mosquito-control-{city_slug}"
+                    },
+                    {
+                        "label": "Bed Bug Treatment",
+                        "url": "/bed-bug-treatment-{city_slug}"
+                    },
+                    {
+                        "label": "Rat Exterminator",
+                        "url": "/rat-exterminator-{city_slug}"
+                    },
+                    {
+                        "label": "Privacy Policy",
+                        "url": "/privacy-policy"
+                    },
+                    {
+                        "label": "Terms and Conditions",
+                        "url": "/terms-and-conditions"
+                    },
+                    {
+                        "label": "Contact Us & Advertising",
+                        "url": "/contact-us"
+                    },
+                    {
+                        "label": "Blog",
+                        "url": "/blog"
+                    }
+                ],
+                "text": ""
+            },
+            {
+                "type": "contact",
+                "title": "Contact Info",
+                "contact_extras": [],
+                "text": ""
+            }
+        ],
+        "copyright": "© Copyright {business}. All Rights Reserved.",
+        "bottom_links": [
+            {
+                "label": "Privacy Policy",
+                "url": "/privacy-policy"
+            },
+            {
+                "label": "Terms and Conditions",
+                "url": "/terms-and-conditions"
+            }
+        ],
+        "disclaimer": "<p>Disclaimer: {business_domain} is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and {business_domain} does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. It is the responsibility of the homeowner to ask the pest control contractor about the pest control solution to ensure it meets the homeowner's family and pet safety requirements. All persons depicted in a photo or video are actors or models and not contractors listed on {business_domain}. Any advertiser relationships are clearly marked as \"Sponsored\" or \"Ad\". See Terms and Conditions for further details.</p>",
+        "sticky_bar_text": "24/7 Support Line - Call Now",
+        "sticky_bar_info": "Calls are answered by our advertising partners who can help match you with a suitable provider.",
+        "logo_in_copyright_bar": true
+    },
+    "pages": {
+        "p6a2ed2c3ce92d6.08421439": {
+            "title": "OLD - Cockroach Exterminator in {city_state}",
+            "slug": "old-cockroach-exterminator-katy-tx",
+            "content_blocks": [
+                {
+                    "type": "hero_split",
+                    "hs_heading": "Cockroach Exterminator in {city_state}",
+                    "hs_subtext": "Fast and Reliable Cockroach Exterminator in {city_state} for Safe, Long-Lasting Roach Control.",
+                    "hs_btn_text": "Call Us",
+                    "hs_btn_url": "tel:{tel}",
+                    "hs_photo": "sites/pest-template/uploads/media/cockroach-exterminator-katy-tx_9f04b6.webp",
+                    "hs_photo_alt": " Cockroach Exterminator {city_state}",
+                    "hs_caption1": "Cockroach Exterminator",
+                    "hs_caption2": "{city_state}",
+                    "hs_bg_color": "#f3f6f7",
+                    "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp"
+                },
+                {
+                    "type": "feature_split",
+                    "fs_heading": "Targeting All Common Cockroach Species in {city}",
+                    "fs_subtext": "Our team is trained to identify and eliminate all major roach species found in the {city} area, including:",
+                    "fs_photo": "sites/pest-template/uploads/media/about-cockroach-exterminator-katy_ec03fd.webp",
+                    "fs_photo_alt": "About Cockroach Exterminator {city}",
+                    "fs_star_text": "",
+                    "fs_bg_color": "#f3f6f7",
+                    "fs_accent": "#fd783b",
+                    "fs_items": [
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "German cockroaches",
+                            "text": "Known for infesting kitchens and multiplying rapidly"
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "American cockroaches",
+                            "text": "Large, reddish-brown roaches often found in basements and drains"
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Oriental cockroaches",
+                            "text": "Prefer cool, damp environments like crawl spaces"
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Smoky brown cockroaches",
+                            "text": "Common in attics and tree-shaded properties"
+                        }
+                    ],
+                    "fs_image_side": "left",
+                    "fs_trailing": "Each treatment plan is tailored to the specific species and severity of the infestation, ensuring maximum effectiveness with minimal disruption.",
+                    "fs_phone": "{phone}",
+                    "fs_phone_label": "Call Us 24/7"
+                },
+                {
+                    "type": "image_right",
+                    "text": "<h2>Professional Roach Control Services Backed by Experience</h2>\n<p>When searching for a cockroach exterminator in {city}, you need a team with proven experience and a track record of results. At {city} Pest Pros, we bring years of hands-on expertise in identifying, eliminating, and preventing cockroach infestations in homes and businesses across {city_state}. Our trained technicians are vetted through strict hiring practices and receive ongoing professional development to ensure they apply the most effective techniques available.</p>",
+                    "photo": "sites/pest-template/uploads/media/cockroach-exterminator-katy_dabfee.webp",
+                    "photo_alt": "cockroach-exterminator in {city_state}",
+                    "photo_ratio": 41,
+                    "photo_position": "center"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "Why Cockroach Infestations in {city} Require Immediate Action\n\n<p>Cockroaches are more than just unsightly they carry harmful bacteria, contaminate food, and can trigger asthma and allergy symptoms, especially in children and the elderly. {city}’s warm, humid climate provides the ideal environment for roaches to thrive, making them one of the most common pests in the area. Our {city}-based cockroach exterminators respond quickly with advanced tools and treatments to stop infestations before they spread.</p>",
+                    "photo": "",
+                    "photo_alt": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "Safe and Eco-Conscious Roach Treatments\n\n<p>We believe that protecting your family and pets is just as important as eliminating pests. That’s why our cockroach exterminator services in {city} rely on environmentally responsible methods. In addition to our <a href=\"/termite-treatment-{city_slug}/\"><strong>Termite Treatment</strong></a> expertise, we use targeted gel baits, perimeter sprays, insect growth regulators, and non-toxic barrier treatments that are safe for children and pets, yet lethal to roaches. Our technicians are trained in application techniques and committed to safety at every step.</p>",
+                    "photo": "",
+                    "photo_alt": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center"
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_text": "Call the Most Trusted Cockroach Exterminator in {city_state}",
+                    "cb_subtext": "Don’t wait until roaches take over your home or business. Call {city} Pest Pros, the trusted cockroach exterminator in {city}, and get the fast, effective, and safe pest control you deserve. We offer timely inspections, flexible scheduling, and service backed by customer satisfaction.",
+                    "cb_btn_text": "Call Now",
+                    "cb_btn_url": "tel:{tel}",
+                    "cb_bg": "accent",
+                    "cb_bg_custom": "#fd783b"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "Thorough Inspection and Customized Treatment Plans\n\n<p>Every roach infestation is different. Our process begins with a comprehensive on-site inspection to locate entry points, breeding sites, and high-activity areas. From there, we create a customized treatment plan that may include:</p><ul>\r\n\t<li>Interior and exterior treatments</li>\r\n\t<li>Crack and crevice injections</li>\r\n\t<li>Gel bait placements</li>\r\n\t<li>Sanitation and exclusion recommendations</li>\r\n\t<li>Follow-up treatments as needed</li>\r\n</ul><p>Our team documents every step and explains the process in detail so you’re never left in the dark.</p>",
+                    "photo": "",
+                    "photo_alt": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "Highly Trained and Trustworthy Technicians\n\n<p>When you choose us as your cockroach exterminator in {city}, you’re getting more than just pest control you’re getting peace of mind. All of our technicians are professionally qualified, team trained, and held to the highest standards of integrity. Every member of our team is trained in both technical skills and customer service to ensure your satisfaction.</p>",
+                    "photo": "",
+                    "photo_alt": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "Serving {city} Homes and Businesses with Confidence\n\n<p>We proudly serve both residential and commercial clients in {city}, including restaurants, apartment complexes, schools, warehouses, and office spaces. Our team understands the importance of discretion and cleanliness in commercial environments, especially in the food service industry. We provide after-hours and weekend services upon request to minimize disruption to your operations.</p>",
+                    "photo": "",
+                    "photo_alt": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center"
+                },
+                {
+                    "type": "image_right",
+                    "text": "<h2>Prevent Future Roach Infestations in {city}</h2>\n<p>The key to long-term success is prevention. In addition to eliminating active roaches, we offer ongoing maintenance plans designed to keep your property protected year-round. These plans include quarterly or bi-monthly treatments, routine inspections, and proactive sealing of potential entry points. With our help, you can enjoy a pest-free environment without the worry of a future outbreak.</p>",
+                    "photo": "sites/pest-template/uploads/media/best-cockroach-exterminator-katy_980b04.webp",
+                    "photo_alt": "Prevent Future Roach Infestations {city_state}",
+                    "photo_ratio": 41,
+                    "photo_position": "center",
+                    "ir_layout": "stacked"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "Local {city} Experts Committed to Your Safety\n\n<p>As a locally operated company, we understand the unique pest challenges facing {city} residents. Our team lives and works in the same neighborhoods we serve, and we’re proud to support our community by offering reliable, fair-priced cockroach exterminator services that stand up to the heat, humidity, and pest pressure of our region.</p>",
+                    "photo": "",
+                    "photo_alt": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center"
+                },
+                {
+                    "type": "map_info",
+                    "mi_map_heading": "{city} Map",
+                    "mi_map_embed": "<iframe frameborder=\"0\" height=\"450\" marginheight=\"0\" marginwidth=\"0\" scrolling=\"no\" src=\"https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Katy%20Texas&amp;ie=UTF8&amp;t=&amp;z=12&amp;iwloc=B&amp;output=embed\" width=\"100%\">km radius map</iframe>",
+                    "mi_info_heading": "{city} Information",
+                    "mi_info_text": "{city} is a city in the U. S. state of {state}. It is in the Greater {city} area, itself forming the western part of the Greater Houston metropolitan area. Homes and businesses may have {city} postal addresses without being in the City of {city}.",
+                    "mi_info_photo": "sites/pest-template/uploads/media/500px-2019-07-20_08_32_24_palm_trees_along_kingsland_boulevard_in_katy-2c_fort_bend_county-2c_texas_5a04bb.webp",
+                    "mi_info_alt": "{city}",
+                    "mi_head_color": "custom",
+                    "mi_head_color_custom": "#27477d"
+                },
+                {
+                    "type": "split_cta",
+                    "sc_left_heading": "Pest Control Services Across {city_state}",
+                    "sc_left_text": "We provide fast, reliable, and affordable pest control in {city_state} for homes and businesses. Our team delivers honest pricing, clear communication, and lasting results to keep your property pest-free year-round.",
+                    "sc_left_bg": "accent",
+                    "sc_left_bg_custom": "#fd783b",
+                    "sc_right_label": "Call Your Local Pest Control Experts Today",
+                    "sc_right_phone": "{phone}",
+                    "sc_right_phone_url": "tel:{tel}",
+                    "sc_right_bg": "header",
+                    "sc_right_bg_custom": "#120575"
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "FAQs – Cockroach Exterminator in {city}",
+                    "fq_items": [
+                        {
+                            "question": "What does a cockroach exterminator in {city} do?",
+                            "answer": "A cockroach exterminator in {city} inspects your home or business, identifies the species of roaches present, and applies safe and effective treatments to eliminate the infestation. This may include gel baits, perimeter sprays, growth regulators, and sanitation guidance for long-term prevention."
+                        },
+                        {
+                            "question": "How much does it cost to hire a cockroach exterminator in {city}?",
+                            "answer": "The cost of hiring a cockroach exterminator in {city} typically ranges from $100 to $300, depending on the severity of the infestation, the size of the property, and the treatment method used. Ongoing service plans may reduce future costs and help prevent re-infestations."
+                        },
+                        {
+                            "question": "Are the treatments used by cockroach exterminators in {city} safe for pets and kids?",
+                            "answer": "Yes, most cockroach exterminators in {city} utilize low-toxicity or eco-friendly treatment options that are designed to be safer for children and pets when applied properly. It is the responsibility of the homeowner to ask the assigned technician about the specific treatment being used. Pest control professionals are trained in proper application methods and will provide clear guidance regarding any temporary precautions that may be required."
+                        },
+                        {
+                            "question": "What types of cockroaches are common in {city_state}?",
+                            "answer": "The most common roach species found in {city} include: German cockroaches (often indoors in kitchens and bathrooms) American cockroaches (larger, often in basements or sewers) Oriental cockroaches Smoky brown cockroaches A professional cockroach exterminator in {city} can identify and treat each type effectively."
+                        },
+                        {
+                            "question": "How long does it take to get rid of cockroaches?",
+                            "answer": "While results can begin within hours, completely eliminating cockroaches may take several days to a few weeks depending on the infestation level. Most {city} cockroach exterminators recommend follow-up visits to ensure all breeding cycles are disrupted."
+                        },
+                        {
+                            "question": "Can cockroach exterminators in {city} treat both homes and businesses?",
+                            "answer": "Yes! Our cockroach exterminator services in {city} are available for both residential and commercial properties, including restaurants, apartments, offices, warehouses, and more. We offer discreet scheduling and treatment options to minimize disruptions."
+                        },
+                        {
+                            "question": "Do I need ongoing pest control after roaches are gone?",
+                            "answer": "Yes, ongoing pest control in {city} is highly recommended to prevent future infestations. Cockroach eggs can be hidden in walls and dark corners, so follow-up treatments and quarterly maintenance plans help ensure long-term protection."
+                        },
+                        {
+                            "question": "What should I do before a cockroach exterminator visits my {city} home?",
+                            "answer": "Before your appointment, clear out kitchen cabinets, remove food and trash, and vacuum floors to improve access and maximize treatment effectiveness. Your cockroach exterminator in {city} will provide specific prep instructions before the visit."
+                        },
+                        {
+                            "question": "Are your cockroach exterminators in {city} trained and trustworthy?",
+                            "answer": "Absolutely. Our technicians are professionally trained and vetted through a thorough hiring process. We only send qualified and courteous professionals to your home or business, ensuring a safe and respectful experience."
+                        },
+                        {
+                            "question": "How do I schedule a cockroach exterminator in {city}?",
+                            "answer": "Scheduling a cockroach exterminator in {city} is easy. Simply call {city} Pest Pros at {phone} or fill out our online form to request a timely inspection or same-day service. We’re here to help 7 days a week!"
+                        }
+                    ],
+                    "fq_bg_color": "#ffffff",
+                    "fq_head_color": "custom",
+                    "fq_head_color_custom": "#27477d",
+                    "fq_icon_bg": "accent",
+                    "fq_icon_bg_custom": "#fd783b",
+                    "fq_item_bg": "#ffffff"
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_text": "24/7 Cockroach Exterminator in {city_state}",
+                    "cb_subtext": "",
+                    "cb_btn_text": "",
+                    "cb_btn_url": "",
+                    "cb_bg": "accent",
+                    "cb_bg_custom": "#fd783b"
+                },
+                {
+                    "type": "links_grid",
+                    "lg_heading": "Our Pest Control Services in {city_state}",
+                    "lg_subtext": "We offer a full range of pest control services in {city_state}, including treatments for cockroaches, termites, mosquitoes, fleas, rodents, ants, spiders, and bed bugs. Our local exterminators provide fast and effective solutions to remove pests and prevent them from returning, keeping your property safe and pest-free all year long.",
+                    "lg_sublabel": "",
+                    "lg_photo": "sites/pest-template/uploads/media/pest-katy_home_a1b2c3.webp",
+                    "lg_photo_alt": "Pest control services {city} {SS}",
+                    "lg_cols": 5,
+                    "lg_overlay": "0.2",
+                    "lg_links": [
+                        {
+                            "label": "Cockroach Exterminator",
+                            "url": "/cockroach-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Termite Treatment",
+                            "url": "/termite-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Mosquito Control",
+                            "url": "/mosquito-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Flea Control",
+                            "url": "/flea-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Flea Treatment",
+                            "url": "/flea-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Flea Exterminator",
+                            "url": "/flea-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Bed Bug Treatment",
+                            "url": "/bed-bug-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Rat Exterminator",
+                            "url": "/rat-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Ant Exterminator",
+                            "url": "/ant-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Mosquito Treatment",
+                            "url": "/mosquito-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Tick Control",
+                            "url": "/tick-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Roach Control",
+                            "url": "/roach-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Mouse Exterminator",
+                            "url": "/mouse-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Mouse Control",
+                            "url": "/mouse-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Pest Inspection",
+                            "url": "/pest-inspection-{city_slug}/"
+                        },
+                        {
+                            "label": "Spider Exterminator",
+                            "url": "/spider-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Spider Pest Control",
+                            "url": "/spider-pest-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Earwig Control",
+                            "url": "/earwig-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Pest Exterminator",
+                            "url": "/pest-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Bed Bug Exterminator",
+                            "url": "/bed-bug-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Mosquito Exterminator",
+                            "url": "/mosquito-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Bat Exterminator",
+                            "url": "/bat-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Mice Exterminator",
+                            "url": "/mice-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Commercial Pest Exterminator",
+                            "url": "/commercial-pest-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Residential Pest",
+                            "url": "/residential-pest-{city_slug}/"
+                        },
+                        {
+                            "label": "Rodent Exterminator",
+                            "url": "/rodent-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Wasp Exterminator",
+                            "url": "/wasp-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Termite Exterminator",
+                            "url": "/termite-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Emergency Exterminator",
+                            "url": "/emergency-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "24 Hour Pest Control",
+                            "url": "/24-hour-pest-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Yellow Jacket Exterminator",
+                            "url": "/yellow-jacket-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Rodent Control",
+                            "url": "/rodent-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Termite Control",
+                            "url": "/termite-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Rat Control",
+                            "url": "/rat-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Bed Bug Pest Control",
+                            "url": "/bed-bug-pest-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Mice Control",
+                            "url": "/mice-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Ant Control",
+                            "url": "/ant-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Cockroach Pest Control",
+                            "url": "/cockroach-pest-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Silverfish Control",
+                            "url": "/silverfish-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Commercial Pest Control",
+                            "url": "/commercial-pest-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Wasp Pest Control",
+                            "url": "/wasp-pest-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Tick Treatment For Yard",
+                            "url": "/tick-treatment-for-yard-{city_slug}/"
+                        },
+                        {
+                            "label": "Cockroach Treatment",
+                            "url": "/cockroach-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Grub Treatment",
+                            "url": "/grub-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Thrips Treatment",
+                            "url": "/thrips-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Whitefly Treatment",
+                            "url": "/whitefly-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Termite Inspection",
+                            "url": "/termite-inspection-{city_slug}/"
+                        },
+                        {
+                            "label": "WDI Inspection",
+                            "url": "/wdi-inspection-{city_slug}/"
+                        },
+                        {
+                            "label": "Rat Inspection",
+                            "url": "/rat-inspection-{city_slug}/"
+                        }
+                    ],
+                    "lg_style": "dark",
+                    "lg_bg_color": "#ffffff",
+                    "lg_accent": "accent",
+                    "lg_accent_custom": "#fd783b",
+                    "anchor": "pest_services"
+                },
+                {
+                    "type": "wide_banner",
+                    "wb_badge": "",
+                    "wb_heading": "The Values That Make Us {city}’s Most Trusted Pest Control Experts",
+                    "wb_btn_text": "",
+                    "wb_btn_url": "",
+                    "wb_photo": "",
+                    "wb_photo_alt": "{city} Pest Control Values",
+                    "wb_overlay": "0.45",
+                    "wb_badge_bg": "accent",
+                    "wb_badge_bg_custom": "#fd783b",
+                    "wb_btn_style": "filled",
+                    "wb_subtext": "We're known in {city} for more than just effective pest control we're trusted for how we do it. With reliable service, honest pricing, and safe, family-friendly treatments, we deliver results you can count on. Our licensed professionals uphold the highest standards of professionalism, and your satisfaction is always our top priority. That's why so many local homeowners choose us—and stay with us.",
+                    "wb_bg_color": "#fd783b"
+                },
+                {
+                    "type": "service_cards",
+                    "sc_badge": "Top Rated {city_state} Pest Experts",
+                    "sc_heading": "Professional {city} Pest Pros in {city_state}",
+                    "sc_cols": 4,
+                    "sc_items": [
+                        {
+                            "icon": "",
+                            "icon_emoji": "🛡️",
+                            "alt": "",
+                            "heading": "Termite Treatment",
+                            "text": ""
+                        },
+                        {
+                            "icon": "",
+                            "icon_emoji": "🛡️",
+                            "alt": "",
+                            "heading": "Mosquito Control",
+                            "text": ""
+                        },
+                        {
+                            "icon": "",
+                            "icon_emoji": "🛡️",
+                            "alt": "",
+                            "heading": "Bed Bug Treatment",
+                            "text": ""
+                        },
+                        {
+                            "icon": "",
+                            "icon_emoji": "🛡️",
+                            "alt": "",
+                            "heading": "Flea Control",
+                            "text": ""
+                        },
+                        {
+                            "icon": "",
+                            "icon_emoji": "🛡️",
+                            "alt": "",
+                            "heading": "Flea Treatment",
+                            "text": ""
+                        },
+                        {
+                            "icon": "",
+                            "icon_emoji": "🛡️",
+                            "alt": "",
+                            "heading": "Flea Exterminator",
+                            "text": ""
+                        },
+                        {
+                            "icon": "",
+                            "icon_emoji": "🛡️",
+                            "alt": "",
+                            "heading": "Rat Exterminator",
+                            "text": ""
+                        },
+                        {
+                            "icon": "",
+                            "icon_emoji": "🛡️",
+                            "alt": "",
+                            "heading": "Ant Exterminator",
+                            "text": ""
+                        }
+                    ],
+                    "sc_badge_bg": "accent",
+                    "sc_badge_bg_custom": "#fd783b",
+                    "sc_head_color": "custom",
+                    "sc_head_color_custom": "#27477d",
+                    "sc_icon_bg": "#fef0e7"
+                }
+            ],
+            "seo": {
+                "meta_description": "Eliminate roaches fast with expert cockroach exterminators in {city_state}. We provide safe, eco-friendly roach control for homes and businesses. Call today for a free inspection!",
+                "meta_keywords": "",
+                "og_title": "Cockroach Exterminator in {city_state} | Fast, Safe Roach Control for Homes & Businesses",
+                "og_description": "Eliminate roaches fast with expert cockroach exterminators in {city_state}. We provide safe, eco-friendly roach control for homes and businesses. Call today for a free inspection!",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "{website}/cockroach-exterminator-{city_slug}/",
+                "service_name": "Cockroach Exterminator in {city_state}",
+                "service_type": "Cockroach Extermination",
+                "service_area": "{city_state}",
+                "service_description": "Professional cockroach exterminator services in {city_state}. Safe, eco-friendly roach control for homes and businesses. Fast response, guaranteed results.",
+                "bc_label": "",
+                "bc_mid_label": "",
+                "bc_mid_url": ""
+            },
+            "page_type": "landing"
+        },
+        "p5360b42959ac382a": {
+            "title": "Cockroach Exterminator in {city_state} | Fast, Safe Roach Control",
+            "slug": "cockroach-exterminator-katy-tx",
+            "content_blocks": [
+                {
+                    "type": "hero_split",
+                    "hs_heading": "Cockroach Exterminator in {city_state}",
+                    "hs_subtext": "<p>Our technicians provide fast, reliable cockroach extermination in {city} &mdash; professional results you can count on.</p>",
+                    "hs_btn_text": "{phone}",
+                    "hs_btn_url": "tel:{tel}",
+                    "hs_caption1": "Cockroach",
+                    "hs_caption2": "Exterminator",
+                    "hs_photo_alt": "Cockroach exterminator in {city_state}",
+                    "hs_image_side": "right",
+                    "hs_bg_color": "#f3f6f7",
+                    "hs_photo": "sites/pest-template/uploads/media/cockroach-treatment-katy_21bbaa.webp",
+                    "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+                    "hs_mobile_order": "text_first"
+                },
+                {
+                    "type": "feature_split",
+                    "fs_heading": "Cockroach Exterminator Serving {city} Neighborhoods",
+                    "fs_subtext": "",
+                    "fs_photo_alt": "Pest control technician treating cockroach infestation in {city_state} home",
+                    "fs_star_text": "",
+                    "fs_bg_color": "#ffffff",
+                    "fs_accent": "#fd783b",
+                    "fs_image_side": "left",
+                    "fs_mobile_order": "text_first",
+                    "fs_photo": "sites/pest-template/uploads/media/best-termite-inspection-katy_347d82.webp",
+                    "fs_items": [
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Cinco Ranch",
+                            "text": "High activity near the lake — our technicians treat moisture-driven cockroach infestations in this area year-round."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Grand Lakes",
+                            "text": "Retention ponds create humid conditions ideal for American cockroach breeding — our team knows the entry points."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Firethorne",
+                            "text": "New construction disturbs colonies — our technicians seal gaps and apply barrier treatments to stop them entering homes."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Seven Meadows",
+                            "text": "Slab foundations here give cockroaches direct pathways indoors — our team targets plumbing penetrations and expansion joints."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Kelliwood",
+                            "text": "Mature trees and mulch beds provide harborage — our technicians treat exterior perimeters and remove conditions that attract roaches."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Cane Island",
+                            "text": "Active development pushes colonies into homes — our team provides preventive barrier treatments during construction phases."
+                        }
+                    ]
+                },
+                {
+                    "type": "feature_columns",
+                    "fc_heading": "Why {city} Homeowners Choose Us",
+                    "fc_num_cols": 3,
+                    "columns": [
+                        {
+                            "image": "sites/pest-template/uploads/media/icon-proven-results.svg",
+                            "heading": "Proven Results",
+                            "text": "Our technicians stand behind every treatment — if cockroaches return, we come back at no extra charge.",
+                            "alt": "Proven Results"
+                        },
+                        {
+                            "image": "sites/pest-template/uploads/media/icon-trained-experienced.svg",
+                            "heading": "Trained & Experienced",
+                            "text": "Our technicians are fully professionally trained and experienced in the latest cockroach extermination methods.",
+                            "alt": "Trained & Experienced"
+                        },
+                        {
+                            "image": "sites/pest-template/uploads/media/icon-prompt-response.svg",
+                            "heading": "Prompt Response",
+                            "text": "Our technicians are available for prompt appointments in {city} — call before noon for prompt service.",
+                            "alt": "Prompt Response"
+                        },
+                        {
+                            "image": "sites/pest-template/uploads/media/icon-local-experts.svg",
+                            "heading": "Local {city} Experts",
+                            "text": "Our team lives and works in {city} — we know the neighborhoods, the pest seasons, and the most effective local treatments.",
+                            "alt": "Local {city} Experts"
+                        }
+                    ]
+                },
+                {
+                    "type": "image_features",
+                    "if_heading": "Why {city} Homes Are Vulnerable to Cockroaches",
+                    "if_intro": "<p>The Houston area's climate and construction style create ideal conditions for cockroach infestations year-round.</p>",
+                    "if_closing": "Our technicians know {city} conditions and target treatments where cockroaches hide, breed, and enter.",
+                    "if_phone_label": "Call for same-day service",
+                    "if_phone": "{phone}",
+                    "if_phone_url": "tel:{tel}",
+                    "if_photo_alt": "Cockroach exterminator treating a {city} home",
+                    "if_bg_color": "#d9d9d9",
+                    "if_check_color": "accent",
+                    "if_head_color": "header",
+                    "if_check_color_custom": "#fd783b",
+                    "if_head_color_custom": "#120575",
+                    "if_photo": "sites/pest-template/uploads/media/best-cockroach-treatment-katy_4fa7ca.webp",
+                    "if_features": [
+                        "Slab foundations create direct entry points for American cockroaches",
+                        "Humidity from bayous and retention ponds accelerates breeding cycles",
+                        "Year-round warm temperatures — no cold season to reduce populations",
+                        "New construction near your home disturbs colonies and drives them indoors"
+                    ]
+                },
+                {
+                    "type": "steps",
+                    "steps_heading": "How Our Cockroach Treatment Works",
+                    "steps_items": [
+                        {
+                            "image": "sites/pest-template/uploads/media/icon-step-call.svg",
+                            "alt": "Call our {city} cockroach exterminator team",
+                            "heading": "Call Our {city} Team",
+                            "text": "Tell us about your cockroach problem. Our team is available 7 days a week and work to get you scheduled quickly."
+                        },
+                        {
+                            "image": "sites/pest-template/uploads/media/icon-step-inspect.svg",
+                            "alt": "Cockroach inspection and assessment",
+                            "heading": "Inspection & Assessment",
+                            "text": "Our technician inspects your home, identifies the species and harborage points, and builds a treatment plan."
+                        },
+                        {
+                            "image": "sites/pest-template/uploads/media/icon-step-treat.svg",
+                            "alt": "Cockroach treatment and follow-up",
+                            "heading": "Treatment & Follow-Up",
+                            "text": "Our technician applies targeted treatments and schedules a follow-up to confirm the infestation is fully eliminated."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_text": "Cockroach problem in {city}? Our technicians respond fast — same-day service available.",
+                    "cb_subtext": "",
+                    "cb_btn_text": "Call {phone}",
+                    "cb_btn_url": "tel:{tel}",
+                    "cb_bg": "accent",
+                    "cb_bg_custom": "#fd783b",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "compact"
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "Cockroach Exterminator FAQ — {city_state}",
+                    "fq_bg_color": "#ffffff",
+                    "fq_item_bg": "#d9d9d9",
+                    "fq_head_color": "header",
+                    "fq_icon_bg": "accent",
+                    "fq_head_color_custom": "#120575",
+                    "fq_icon_bg_custom": "#fd783b",
+                    "fq_items": [
+                        {
+                            "question": "What types of cockroaches do your technicians treat in {city}, {SS}?",
+                            "answer": "<p>Our technicians treat all common {city} species &mdash; German cockroaches (Blattella germanica), which infest kitchens and bathrooms, and American cockroaches (water bugs) that come through drains and slab cracks. We identify the species first to apply the most effective treatment.</p>"
+                        },
+                        {
+                            "question": "How quickly can your technicians get to my home in {city}?",
+                            "answer": "<p>Our technicians offer prompt appointments across {city}. Call to check current availability &mdash; we'll confirm your appointment window when you call.</p>"
+                        },
+                        {
+                            "question": "How long does cockroach extermination take?",
+                            "answer": "<p>Initial treatment typically takes 1&ndash;2 hours. Most infestations require 2&ndash;3 visits spaced 2&ndash;4 weeks apart for full elimination. Our technician will provide a specific treatment plan at the inspection.</p>"
+                        },
+                        {
+                            "question": "Is your cockroach treatment safe for my family and pets?",
+                            "answer": "<p>Our technicians use EPA-approved treatments and follow all safety protocols. We'll advise you on any preparation needed and how long to stay out of treated areas to keep your family and pets safe.</p>"
+                        },
+                        {
+                            "question": "Do your technicians guarantee their cockroach treatments?",
+                            "answer": "<p>Yes &mdash; our technicians stand behind their work. If cockroaches return within the service window, we come back and re-treat at no extra charge. Ask about our specific commitment when you call.</p>"
+                        },
+                        {
+                            "question": "What neighborhoods in {city} do your technicians serve?",
+                            "answer": "<p>Our technicians serve all of {city} including Cinco Ranch, Grand Lakes, Firethorne, Seven Meadows, Kelliwood, Cane Island, the Mason Road corridor, and surrounding communities in Fort Bend and Harris counties.</p>"
+                        },
+                        {
+                            "question": "How much does cockroach extermination cost in {city}, {SS}?",
+                            "answer": "<p>Most {city} homeowners pay $150&ndash;$400 for initial treatment depending on infestation size and home square footage. Our technician provides an exact quote after the inspection &mdash; no surprises.</p>"
+                        },
+                        {
+                            "question": "Why are cockroaches so common in {city} homes?",
+                            "answer": "<p>{city}'s humidity, bayou system, and slab construction create ideal conditions for cockroaches year-round. Our technicians know the local entry points and harborage areas specific to {city} neighborhoods.</p>"
+                        },
+                        {
+                            "question": "Is professional cockroach extermination worth it vs. DIY products?",
+                            "answer": "<p>Store-bought sprays and traps treat the surface &mdash; they rarely eliminate the colony or reach eggs hidden inside walls, cabinets, and plumbing voids. Our technicians identify harborage points, apply targeted gel baits and growth regulators, and follow up to confirm the infestation is fully eliminated. Most {city} homeowners who try DIY first end up calling a professional anyway &mdash; after spending money on products that didn't work.</p>"
+                        },
+                        {
+                            "question": "What should I do to prepare before your technician arrives?",
+                            "answer": "<p>Clear under sinks and behind appliances, remove items from kitchen cabinet shelves, empty and wipe out trash cans, and keep pets out of the treatment areas during the visit. Our technician will walk you through any specific prep steps when you call to schedule.</p>"
+                        },
+                        {
+                            "question": "How can I prevent cockroaches from coming back after treatment?",
+                            "answer": "<p>Seal cracks around plumbing penetrations and expansion joints, fix any moisture leaks under sinks, store food in sealed containers, and take trash out regularly. Our technicians treat the exterior perimeter as part of the service to create a barrier &mdash; and we recommend a quarterly maintenance visit to keep {city} cockroaches from re-establishing.</p>"
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_text": "Trusted by {city} homeowners — licensed, insured, and guaranteed results.",
+                    "cb_subtext": "",
+                    "cb_btn_text": "Get a Free Quote",
+                    "cb_btn_url": "tel:{tel}",
+                    "cb_bg": "header",
+                    "cb_bg_custom": "#120575",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "compact"
+                },
+                {
+                    "type": "cards",
+                    "cards_heading": "What Our {city} Customers Say",
+                    "cards_cols": 3,
+                    "cards_bg": "#ffffff",
+                    "cards_card_bg": "#d9d9d9",
+                    "cards_text_color": "#333333",
+                    "cards_head_color": "header",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_item_head_color": "header",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_items": [
+                        {
+                            "image": "",
+                            "alt": "",
+                            "heading": "Jennifer M. — Cinco Ranch",
+                            "text": "“Called at 8am and the technician was at my house by noon. German roaches in the kitchen — completely gone after 2 visits. Professional, fast, and the treatment worked.”",
+                            "link": "",
+                            "btn_text": "Read More"
+                        },
+                        {
+                            "image": "",
+                            "alt": "",
+                            "heading": "David R. — Grand Lakes",
+                            "text": "“Water bugs were coming up through our master bath drain. The technician found the entry point, sealed it, and treated the perimeter. Haven’t seen one since.”",
+                            "link": "",
+                            "btn_text": "Read More"
+                        },
+                        {
+                            "image": "",
+                            "alt": "",
+                            "heading": "Maria T. — Firethorne",
+                            "text": "“New construction next door stirred up cockroaches in our garage. Technician came quickly, identified the problem, treated it completely. Problem is gone.”",
+                            "link": "",
+                            "btn_text": "Read More"
+                        }
+                    ]
+                },
+                {
+                    "type": "service_cards",
+                    "sc_badge": "",
+                    "sc_heading": "Our Pest Control Services in {city_state}",
+                    "sc_cols": 3,
+                    "sc_badge_bg": "accent",
+                    "sc_head_color": "header",
+                    "sc_badge_bg_custom": "#fd783b",
+                    "sc_head_color_custom": "#120575",
+                    "sc_icon_bg": "#fef0e7",
+                    "sc_items": [
+                        {
+                            "icon": "sites/pest-template/uploads/media/icon-pest-cockroach.svg",
+                            "alt": "Cockroach exterminator {city}",
+                            "heading": "Roach Control & Extermination in {city_state}",
+                            "text": "Cockroaches are stubborn invaders. Our experts use gel baiting, perimeter sprays, and entry-point sealing to eliminate them safely and effectively.",
+                            "url": ""
+                        },
+                        {
+                            "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
+                            "alt": "Ant control {city}",
+                            "heading": "Ant Control & Removal Solutions in {city_state}",
+                            "text": "We identify ant colonies and use proven baiting and barrier methods for lasting protection against fire ants, carpenter ants, and more.",
+                            "url": ""
+                        },
+                        {
+                            "icon": "sites/pest-template/uploads/media/icon-pest-termite.svg",
+                            "alt": "Termite treatment {city}",
+                            "heading": "Termite Treatment & Prevention in {city_state}",
+                            "text": "Our termite specialists provide detailed inspections, baiting systems, and barrier applications to stop damage and prevent future infestations.",
+                            "url": ""
+                        },
+                        {
+                            "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
+                            "alt": "Rodent control {city}",
+                            "heading": "Rodent Control for Homes & Businesses in {city_state}",
+                            "text": "We offer trapping, exclusion, and sanitation to remove mice and rats, protecting your property and health from costly and unsafe damage.",
+                            "url": ""
+                        },
+                        {
+                            "icon": "sites/pest-template/uploads/media/icon-pest-mosquito.svg",
+                            "alt": "Mosquito control {city}",
+                            "heading": "Mosquito Reduction Services in {city_state}",
+                            "text": "Using barrier sprays and larvicide treatments, we target breeding areas to cut mosquito populations and improve outdoor comfort.",
+                            "url": ""
+                        },
+                        {
+                            "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
+                            "alt": "Bed bug treatment {city}",
+                            "heading": "Bed Bug Inspection & Treatment in {city_state}",
+                            "text": "Our team uses heat and chemical treatments to completely remove bed bugs, ensuring your home is pest-free and your rest uninterrupted.",
+                            "url": ""
+                        },
+                        {
+                            "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
+                            "alt": "Flea and tick removal {city}",
+                            "heading": "Flea & Tick Removal Services in {city_state}",
+                            "text": "We apply indoor and outdoor treatments to eliminate fleas and ticks, keeping your pets and family safe all year long.",
+                            "url": ""
+                        },
+                        {
+                            "icon": "sites/pest-template/uploads/media/icon-pest-wasp.svg",
+                            "alt": "Wasp and spider control {city}",
+                            "heading": "Wasp, Hornet & Spider Control in {city_state}",
+                            "text": "Our trained professionals remove nests and seal entry points to protect your home from stinging insects and venomous spiders.",
+                            "url": ""
+                        },
+                        {
+                            "icon": "sites/pest-template/uploads/media/icon-pest-wildlife.svg",
+                            "alt": "Wildlife removal {city}",
+                            "heading": "Wildlife Removal & Exclusion in {city_state}",
+                            "text": "We humanely remove raccoons, opossums, and other wildlife, repairing and sealing entry areas to prevent their return.",
+                            "url": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "links_grid",
+                    "anchor": "pest_services",
+                    "lg_heading": "More Pest Control Services in {city_state}",
+                    "lg_subtext": "We offer a full range of pest control services in {city_state}, including treatments for cockroaches, termites, mosquitoes, fleas, rodents, ants, spiders, and bed bugs. Our local exterminators provide fast and effective solutions to remove pests and prevent them from returning, keeping your property safe and pest-free all year long.",
+                    "lg_sublabel": "",
+                    "lg_photo_alt": "Pest control services {city} {SS}",
+                    "lg_style": "dark",
+                    "lg_cols": 5,
+                    "lg_overlay": "0.20",
+                    "lg_bg_color": "#ffffff",
+                    "lg_accent": "accent",
+                    "lg_accent_custom": "#fd783b",
+                    "lg_photo": "sites/pest-template/uploads/media/pest-katy_home_a1b2c3.webp",
+                    "lg_links": [
+                        {
+                            "label": "Cockroach Exterminator",
+                            "url": "/cockroach-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Termite Treatment",
+                            "url": "/termite-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Mosquito Control",
+                            "url": "/mosquito-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Flea Control",
+                            "url": "/flea-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Flea Treatment",
+                            "url": "/flea-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Flea Exterminator",
+                            "url": "/flea-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Bed Bug Treatment",
+                            "url": "/bed-bug-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Rat Exterminator",
+                            "url": "/rat-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Ant Exterminator",
+                            "url": "/ant-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Mosquito Treatment",
+                            "url": "/mosquito-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Tick Control",
+                            "url": "/tick-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Roach Control",
+                            "url": "/roach-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Mouse Exterminator",
+                            "url": "/mouse-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Mouse Control",
+                            "url": "/mouse-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Pest Inspection",
+                            "url": "/pest-inspection-{city_slug}/"
+                        },
+                        {
+                            "label": "Spider Exterminator",
+                            "url": "/spider-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Spider Pest Control",
+                            "url": "/spider-pest-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Earwig Control",
+                            "url": "/earwig-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Pest Exterminator",
+                            "url": "/pest-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Bed Bug Exterminator",
+                            "url": "/bed-bug-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Mosquito Exterminator",
+                            "url": "/mosquito-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Bat Exterminator",
+                            "url": "/bat-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Mice Exterminator",
+                            "url": "/mice-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Commercial Pest Exterminator",
+                            "url": "/commercial-pest-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Residential Pest",
+                            "url": "/residential-pest-{city_slug}/"
+                        },
+                        {
+                            "label": "Rodent Exterminator",
+                            "url": "/rodent-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Wasp Exterminator",
+                            "url": "/wasp-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Termite Exterminator",
+                            "url": "/termite-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Emergency Exterminator",
+                            "url": "/emergency-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "24 Hour Pest Control",
+                            "url": "/24-hour-pest-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Yellow Jacket Exterminator",
+                            "url": "/yellow-jacket-exterminator-{city_slug}/"
+                        },
+                        {
+                            "label": "Rodent Control",
+                            "url": "/rodent-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Termite Control",
+                            "url": "/termite-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Rat Control",
+                            "url": "/rat-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Bed Bug Pest Control",
+                            "url": "/bed-bug-pest-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Mice Control",
+                            "url": "/mice-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Ant Control",
+                            "url": "/ant-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Cockroach Pest Control",
+                            "url": "/cockroach-pest-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Silverfish Control",
+                            "url": "/silverfish-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Commercial Pest Control",
+                            "url": "/commercial-pest-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Wasp Pest Control",
+                            "url": "/wasp-pest-control-{city_slug}/"
+                        },
+                        {
+                            "label": "Tick Treatment For Yard",
+                            "url": "/tick-treatment-for-yard-{city_slug}/"
+                        },
+                        {
+                            "label": "Cockroach Treatment",
+                            "url": "/cockroach-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Grub Treatment",
+                            "url": "/grub-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Thrips Treatment",
+                            "url": "/thrips-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Whitefly Treatment",
+                            "url": "/whitefly-treatment-{city_slug}/"
+                        },
+                        {
+                            "label": "Termite Inspection",
+                            "url": "/termite-inspection-{city_slug}/"
+                        },
+                        {
+                            "label": "WDI Inspection",
+                            "url": "/wdi-inspection-{city_slug}/"
+                        },
+                        {
+                            "label": "Rat Inspection",
+                            "url": "/rat-inspection-{city_slug}/"
+                        }
+                    ]
+                }
+            ],
+            "seo": {
+                "canonical_url": "{website}/cockroach-exterminator-{city_slug}/",
+                "meta_description": "Find an expert cockroach exterminator in {city_state}. Free referral service connecting {city} homeowners with vetted, same-day pest control companies. Call {phone}.",
+                "meta_keywords": "",
+                "og_title": "Cockroach Exterminator in {city_state} | Free Referral Service",
+                "og_description": "Free referral service connecting {city} homeowners with trained, same-day cockroach exterminators. Serving Cinco Ranch, Grand Lakes, Firethorne, and all of {city}, {SS}.",
+                "og_image": "",
+                "service_name": "Cockroach Exterminator in {city_state}",
+                "service_type": "Cockroach Extermination",
+                "service_area": "{city}, {SS}",
+                "service_description": "Professional cockroach exterminator services in {city_state}. Safe, eco-friendly roach control for homes and businesses. Fast response, guaranteed results.",
+                "schema": "",
+                "bc_label": "",
+                "bc_mid_label": "",
+                "bc_mid_url": ""
+            },
+            "page_type": "landing"
+        },
+        "page_8845f40cd5d04": {
+            "title": "Privacy Policy | {business}",
+            "slug": "privacy-policy",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h1",
+                    "text": "Privacy Policy\n<p>{business} respects your privacy and is committed to protecting it. This Privacy Policy explains what information we collect when you use {website} (the &ldquo;Website&rdquo;), how we use and share that information, and the choices available to you. The Website connects homeowners with independent pest control providers and does not itself perform pest control services.</p><p>By accessing or using the Website, you agree to the practices described in this policy. We may update this policy from time to time; continuing to use the Website after changes are posted means you accept the updated policy.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "A. Information We Collect\n<p>We collect information in a few different ways: information you give us directly, information collected automatically as you browse, and information generated when you call a number listed on the Website.</p><p><strong>Information you provide:</strong> name, phone number, address, email, and any details you submit through a form or request on the Website.</p><p><strong>Automatically collected information:</strong> browser type, device type, IP address, approximate location, pages viewed, search terms, and the date and time of your visit.</p><p><strong>Call information:</strong> if you call a number displayed on the Website, we and our call-tracking partners may record the date, time, duration, and content of that call for quality assurance and to route you to an appropriate provider.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "B. How We Use Information\n<p>We use the information we collect to operate and improve the Website, connect you with relevant pest control providers, respond to your inquiries, personalize the content and offers you see, measure and improve the performance of our advertising, detect and prevent fraud or abuse, and comply with legal obligations.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "C. Cookies and Similar Technologies\n<p>The Website uses cookies and similar tracking technologies (such as web beacons and pixel tags) for purposes including:</p><ul><li><strong>Functionality</strong> &mdash; remembering your preferences and keeping the Website working correctly</li><li><strong>Security</strong> &mdash; detecting and preventing fraudulent or unauthorized activity</li><li><strong>Analytics</strong> &mdash; understanding how visitors use the Website so we can improve it</li><li><strong>Advertising</strong> &mdash; showing you relevant ads on this Website and others, and measuring how well our ads perform</li></ul><p>Most browsers let you block or delete cookies through their settings. Doing so may limit some features of the Website. If your browser sends a \"do not track\" signal, please note we do not currently respond differently to that signal.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "D. How We Share Information\n<p>We may share information about you with:</p><ul><li><strong>Pest control providers</strong> &mdash; so they can respond to your request or call</li><li><strong>Service vendors</strong> &mdash; companies that host the Website, track and route calls, support our advertising, or otherwise help us operate the Website, under obligations to protect your information</li><li><strong>Advertising partners</strong> &mdash; who may use cookies to show you relevant ads based on your visit to the Website</li><li><strong>Successors</strong> &mdash; if {business} is involved in a merger, acquisition, or sale of assets, your information may transfer as part of that transaction</li><li><strong>Legal authorities</strong> &mdash; when required by law, subpoena, or other legal process, or to protect the rights, safety, or property of {business}, our users, or the public</li></ul><p>We do not sell your personal information to third parties for them to market their own unrelated products or services without your consent.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "E. Data Security\n<p>We use reasonable administrative and technical safeguards to protect the information we collect. However, no method of transmitting or storing data over the internet is completely secure, and we cannot guarantee absolute security. You share information with us at your own risk.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "F. Data Retention\n<p>We keep information for as long as needed to provide the Website, fulfill the purposes described in this policy, and meet our legal and accounting obligations. When information is no longer needed for these purposes, we take reasonable steps to delete or anonymize it.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "G. Children's Privacy\n<p>The Website is intended for adults and is not directed to children under 18. We do not knowingly collect personal information from anyone under 18. If you believe a child has provided us with personal information, please contact us at info@{business_domain} so we can remove it.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "H. International Visitors\n<p>The Website is intended for use by residents of the United States. If you access the Website from outside the United States, your information may be transferred to and processed in the United States, which may not provide the same level of data protection as your home country. By using the Website, you consent to this transfer.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "I. Your Privacy Rights\n<p>Depending on where you live, you may have rights to know what personal information we hold about you, request a copy of it, ask us to correct or delete it, and opt out of certain uses such as targeted advertising or the sale of personal information. To exercise any of these rights, contact us at info@{business_domain}. We will respond to verified requests consistent with applicable law.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "J. Contact Us\n<p>Questions or concerns about this Privacy Policy can be sent to info@{business_domain} or by calling {phone}.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "K. Changes to This Policy\n<p>We may revise this Privacy Policy periodically. The version posted on the Website is always the most current, and changes take effect as soon as they are posted. We encourage you to review this page from time to time.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "meta_keywords": "",
+                "meta_description": "Read the {business} Privacy Policy to learn how we collect, use, and protect your information when you visit {website} or call our helpline.",
+                "og_title": "Privacy Policy | {business}",
+                "og_description": "How {business} collects, uses, and protects your information.",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "{website}/privacy-policy/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "Privacy Policy",
+                "bc_mid_label": "",
+                "bc_mid_url": ""
+            }
+        },
+        "page_5ecf42631f084": {
+            "title": "Terms and Conditions | {business}",
+            "slug": "terms-and-conditions",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h1",
+                    "text": "Terms and Conditions\n<p>These Terms and Conditions (the &ldquo;Terms&rdquo;) govern your use of {website} (the &ldquo;Website&rdquo;). By accessing or using the Website, you agree to be bound by these Terms. If you do not agree, please do not use the Website.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "A. Who We Are\n<p>{business} operates the Website as a free service that helps homeowners find independent pest control providers in their area. We do not own, operate, or control any pest control business, and we do not perform pest control services ourselves. Any photos or videos of technicians shown on the Website are for illustration only and may depict models or stock imagery rather than an actual provider.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "B. Eligibility and Acceptance\n<p>The Website is intended for use by individuals 18 years of age or older who reside in the United States. By using the Website, you represent that you meet these requirements and agree to be bound by these Terms.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "C. Content Is Informational Only\n<p>Content on the Website &mdash; including articles, service descriptions, and pricing information &mdash; is provided for general informational purposes only and is not a substitute for advice from a licensed pest control professional. We make reasonable efforts to keep information accurate and current, but it may not always reflect the latest pricing, availability, or local regulations. You should confirm details directly with any provider before hiring them.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "D. Connecting You With Providers\n<p>When you call a number listed on the Website or submit a request, you direct us to share your information with one or more pest control providers so they can contact you about your request. {business} may receive compensation from providers for these introductions. This compensation does not affect the price you pay or the quality of service you receive, and you are never charged anything by {business} for using the Website.</p><p>We make no guarantee about the suitability, licensing, insurance, or quality of any provider. It is your responsibility to verify a provider's credentials, licensing, and insurance before hiring them. {business} is not a party to any agreement between you and a provider and is not responsible for the services a provider performs or fails to perform.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "E. Prohibited Conduct\n<p>When using the Website, you agree not to:</p><ul><li>Use the Website for any unlawful, fraudulent, or misleading purpose</li><li>Post or submit fake reviews, or offer or accept payment in exchange for reviews</li><li>Attempt to interfere with, disable, or gain unauthorized access to the Website or its systems</li><li>Use automated tools to scrape, crawl, or copy content from the Website without our written permission</li><li>Upload or transmit viruses, malicious code, or content that infringes another person's rights</li><li>Impersonate any person or misrepresent your affiliation with any person or entity</li></ul><p>We may suspend or terminate your access to the Website if we believe, in our reasonable judgment, that you have violated these Terms.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "F. Disclaimer of Warranties\n<p>The Website is provided \"as is\" and \"as available,\" without warranties of any kind, whether express or implied. We do not warrant that the Website will be uninterrupted, error-free, or that any information on it is complete or accurate. Your use of the Website is at your own risk.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "G. Limitation of Liability\n<p>To the fullest extent permitted by law, {business} and its officers, employees, and affiliates will not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Website, or from the acts or omissions of any pest control provider you connect with through the Website. Our total liability for any claim relating to the Website is limited to $150. Any claim must be brought within one year of the event giving rise to it.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "H. Indemnification\n<p>You agree to defend and hold {business} harmless from any claims, losses, or damages arising from your misuse of the Website, your violation of these Terms, or content you submit through the Website.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "I. Intellectual Property\n<p>All content on the Website &mdash; including text, graphics, logos, and images &mdash; is owned by {business} or its licensors and protected by copyright and trademark law. You may view and print pages from the Website for your own personal, non-commercial use. You may not copy, republish, modify, or create derivative works from any part of the Website, or use it for any commercial purpose, without our prior written consent.</p><p>If you believe content on the Website infringes your copyright, please contact us at info@{business_domain} with details of the alleged infringement so we can investigate.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "J. Relationship to Our Privacy Policy\n<p>Your use of the Website is also governed by our <a href=\"/privacy-policy\">Privacy Policy</a>, which explains how we collect, use, and share information about you.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "K. Governing Law\n<p>These Terms are governed by the laws of the State of Texas, without regard to conflict-of-law rules that would apply the law of any other jurisdiction.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "L. Dispute Resolution\n<p>If a dispute arises out of your use of the Website, we encourage you to contact us first at info@{business_domain} so we can try to resolve it informally. If a dispute cannot be resolved informally within 45 days, you and {business} agree that it will be resolved by binding individual arbitration rather than in court, except that either party may bring a claim in small claims court if it qualifies. You and {business} each waive the right to a jury trial and to participate in any class, mass, or representative action against the other.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "M. Changes to These Terms\n<p>We may update these Terms from time to time by posting a revised version on the Website. Continuing to use the Website after a revised version is posted means you accept the updated Terms. If any provision of these Terms is found unenforceable, the remaining provisions will remain in effect.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "N. Contact Us\n<p>Questions about these Terms can be directed to info@{business_domain} or by calling {phone}.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "meta_keywords": "",
+                "meta_description": "Read the {business} Terms and Conditions governing your use of {website}, our advertising network, and our helpline.",
+                "og_title": "Terms and Conditions | {business}",
+                "og_description": "The terms governing your use of {website}.",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "{website}/terms-and-conditions/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "Terms and Conditions",
+                "bc_mid_label": "",
+                "bc_mid_url": ""
+            }
+        },
+        "page_6a30c3339c03d": {
+            "title": "Contact Us",
+            "slug": "contact-us",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h1",
+                    "text": "Contact Us\n<p>If you are interested in becoming part of our advertising network or have questions, give us a call or send us an email below.</p><p style=\"margin-top:24px;\"><a href=\"tel:{tel}\" class=\"cta-btn\">Call {phone}</a></p><p>Email: <a href=\"mailto:info@{business_domain}\">info@{business_domain}</a></p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "meta_keywords": "",
+                "meta_description": "Contact {business} — call our free 24/7 helpline or email us to connect with a trusted pest control specialist in {city_state}.",
+                "og_title": "Contact Us | {business}",
+                "og_description": "Get in touch with {business} — call our free 24/7 helpline or send us an email.",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "{website}/contact-us/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "Contact Us",
+                "bc_mid_label": "",
+                "bc_mid_url": ""
+            }
+        }
+    },
+    "popups": {
+        "info": {
+            "enabled": true,
+            "heading": "How Your Calls Are Handled",
+            "image": "sites/pest-template/uploads/media/how-your-calls-are-handled_f90e0e.webp",
+            "body": "<p>We offer a free, 24/7 confidential helpline to connect you with trusted pest control professionals tailored to your needs. This call routing service is sponsored advertising. {website} does not provide pest control services. Calls to our main helpline are answered by one of our advertising partners who can help match you with a suitable provider. By using {website} and calling, you agree to our terms and conditions. You'll never be charged for these calls or pressured to choose any particular service. Neither we nor our partners earn commissions from your choices. <strong>Notice of Call Recording and Data Use:</strong> By using {website} and calling, you agree to our Privacy Policy. To explore more pest control options, visit our {website} or call us anytime at {phone}.</p>"
+        }
+    },
+    "local_business": {
+        "lb_name": "Katy Pest Pros",
+        "lb_type": "PestControlService",
+        "lb_url": "https://katypestpros.com",
+        "lb_phone": "{phone}",
+        "lb_street": "",
+        "lb_city": "Katy",
+        "lb_state": "TX",
+        "lb_zip": "77494",
+        "lb_country": "US",
+        "lb_lat": "29.7858",
+        "lb_lng": "-95.8245",
+        "lb_price_range": "$$",
+        "lb_hours": "Mo-Fr 08:00-18:00, Sa 09:00-13:00",
+        "lb_description": "{business} provides professional pest control services in {city_state} including cockroach extermination, termite treatment, mosquito control, and more.",
+        "lb_logo": "https://katypestpros.com/images/logo/logo-katy-pest-pros.png",
+        "lb_rating": "4.8",
+        "lb_review_count": "534"
+    },
+    "site_vars": {
+        "city": "Katy",
+        "state": "Texas",
+        "SS": "TX",
+        "city_slug": "katy-tx",
+        "business": "Katy Pest Pros",
+        "phone": "(281) 888-8888",
+        "zip": "77449",
+        "website": "https://katypestpros.com",
+        "tel": "+12812150160"
+    },
+    "posts": {
+        "post_6a30bb2590334": {
+            "title": "Fire Ant Control in {city}: How to Get Rid of Fire Ants for Good",
+            "slug": "fire-ant-control-katy",
+            "status": "published",
+            "published_at": "2026-06-16",
+            "updated_at": "2026-06-16",
+            "author": "{business} Team",
+            "tag": "Fire Ant Control",
+            "excerpt": "How to identify, treat, and prevent fire ant mounds in {city} — plus why professional fire ant control outlasts DIY mound treatments.",
+            "featured_image": "sites/pest-template/uploads/media/ant-control-katy_41c015.webp",
+            "featured_image_alt": "Fire ants swarming on a leaf in a {city} yard",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "Why Fire Ants Are Such a Problem in {city}\n\n<p>Fire ants thrive in the warm, humid climate of {city_state}, building mounds in lawns, flower beds, and along sidewalks. Unlike many household pests, fire ants are an outdoor threat that can turn a yard, playground, or patio into a hazard &mdash; their sting is painful, and for some people, dangerous.</p><p>Because fire ant colonies can quickly spread across a property and rebuild after a disturbed mound, getting rid of them usually takes more than a single store-bought treatment.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "How to Identify a Fire Ant Infestation\n\n<p>Signs that fire ants have moved into your {city} yard include:</p><ul><li>Dome-shaped dirt mounds in the lawn, often near sidewalks, patios, or the base of trees</li><li>Mounds that appear suddenly after rain, when ants move closer to the surface</li><li>Aggressive swarming when a mound is disturbed</li><li>Painful, burning stings that leave small white blisters</li><li>Reddish-brown ants about 1/8 to 1/4 inch long, smaller than most other ant species</li></ul><p>If you notice mounds appearing in multiple areas of the yard, it's a sign of an established colony rather than a single isolated nest.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "Why Fire Ant Stings Are More Than Just an Inconvenience\n\n<p>Fire ants attack in groups, often stinging multiple times within seconds of a mound being disturbed. For most people, this means painful welts that itch and burn for several days. For children, pets, and anyone with a sting allergy, fire ant encounters can be far more serious, sometimes requiring medical attention.</p><p>This is one of the main reasons fire ant control isn't something to put off &mdash; especially in yards where kids or pets spend time outdoors.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "image_right",
+                    "heading_level": "h2",
+                    "text": "<h2 class=\"block-heading\">How Professional Fire Ant Control Works</h2><p>{business} treats fire ant infestations in {city} using a two-part approach:</p><ul><li><strong>Broadcast bait treatment</strong> across the lawn, which worker ants carry back to the colony and queen, eliminating the nest from the inside out</li><li><strong>Direct mound treatment</strong> for active or visible mounds, for faster knockdown of aggressive colonies</li></ul><p>This combination controls existing mounds while also preventing new colonies from establishing elsewhere on the property &mdash; something DIY mound-by-mound treatments usually miss.</p>",
+                    "photo": "sites/pest-template/uploads/media/best-ant-control-katy_5c655c.webp",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": "Pest control technician applying an ant control treatment along a baseboard in a Katy home"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "DIY Fire Ant Treatments vs. Professional Control\n\n<p>Mound-killer powders and home remedies can knock down a single visible mound, but fire ant colonies often have satellite nests connected underground that never get treated. Disturbing a mound without eliminating the queen can even cause the colony to split and spread further across the yard.</p><p>Professional treatments are formulated to reach the entire colony, including nests that aren't visible above ground, which is why professional fire ant control tends to last far longer than DIY options.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "How Often Should {city} Yards Be Treated for Fire Ants?\n\n<p>Most {city} properties benefit from fire ant treatments every 60 to 90 days, since new colonies can move in from neighboring yards or undeveloped land at any time. Pairing fire ant control with a broader <a href=\"/blog/perimeter-pest-control-katy\">perimeter pest control plan</a> helps keep both the yard and the home itself protected year-round.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "Get Fire Ant Control in {city} Today\n\n<p>{business} provides fast, effective fire ant control throughout {city_state}, knocking down active mounds and treating colonies at the source so they don't come back. Call <a href=\"tel:{tel}\">{phone}</a> today to schedule a free yard inspection.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "meta_keywords": "fire ant control {city}, fire ant treatment {city}, fire ant exterminator {city}",
+                "meta_description": "Fire ant control in {city}: how to spot mounds, why stings are dangerous, and how professional treatment gets rid of colonies for good.",
+                "og_title": "Fire Ant Control in {city}: How to Get Rid of Fire Ants for Good",
+                "og_description": "Stop fire ant mounds from taking over your {city} yard. See how professional treatment works and how often to treat.",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "",
+                "bc_mid_label": "Blog",
+                "bc_mid_url": "/blog"
+            }
+        }
+    },
+    "blog_settings": {
+        "blog_heading": "Pest Control Tips & News for {city}",
+        "blog_intro": "",
+        "posts_per_page": 9
+    }
+}

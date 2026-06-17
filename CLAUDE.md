@@ -21,33 +21,60 @@ Paste the result into `config.php` as `ADMIN_PASSWORD_HASH`.
 
 ## Architecture
 
-**No database.** All site content lives in `data/site.json`. `config.php` defines path constants (`DATA_FILE`, `UPLOAD_DIR`, etc.) and admin credentials.
+**No database.** All site content lives in `data/site.json` (single-site) or `sites/{id}/data/site.json` (multi-site). Course schedule data lives in a parallel file: `data/courses.json` / `sites/{id}/data/courses.json`. `config.php` defines path constants (`DATA_FILE`, `COURSES_FILE`, `UPLOAD_DIR`, etc.) and admin credentials.
 
 **Data flow:**
-1. `load_data()` reads `data/site.json` and deep-merges it with `default_data()` so any newly-added keys get their defaults automatically.
+1. `load_data()` reads `site.json` and deep-merges it with `default_data()` so any newly-added keys get their defaults automatically.
 2. Public pages (`index.php`, `page.php`) call `load_data()`, set `$contentBlocks`, `$seo`, `$pageTitle`, and `$assetPathPrefix = '/'`, then `require` `includes/site-template.php`.
-3. `site-template.php` renders the full HTML page: shared header, then loops `$contentBlocks` calling `render_content_block()` for each, then shared footer.
-4. Admin saves go to `admin/save.php` (POST only), keyed by `$_POST['section']` (`header`, `theme`, `content`, `footer`, `pages`, `popups`). After saving it redirects back with `?msg=success:...` or `?msg=error:...`.
+3. `site-template.php` renders the full HTML page: shared header, then loops `$contentBlocks` calling `render_content_block($block, $pathPrefix)` for each, then shared footer.
+4. Admin saves go to `admin/save.php` (POST only, keyed by `$_POST['section']`: `header`, `theme`, `content`, `footer`, `pages`, `popups`) or `admin/schedule_save.php` (course schedule CRUD). Both redirect back with `?msg=success:...` or `?msg=error:...`.
 
-**Key files:**
-- `includes/functions.php` — all business logic: `load_data()`, `save_data()`, `render_content_block()`, `theme_css_vars()`, `resolve_color()`, image upload helpers, `slugify()`, `unique_slug()`
-- `includes/site-template.php` — shared HTML template (header, content loop, footer, JS)
-- `admin/index.php` — admin UI (tab-based: header, theme, content, pages, footer, popups)
-- `admin/save.php` — handles all admin form POSTs
-- `assets/css/style.css` — all styles for both public site and admin panel
+**Multi-site:** `$_SESSION['active_site']` selects the active site. `site_api.php` handles site switching via FormData POST (`action=select&site_id=...`). Admin redirects to `sites.php` when no site is selected.
+
+**`includes/` structure** — `functions.php` is a loader only; logic lives in focused files:
+- `data.php` — `load_data()`, `save_data()`, `default_data()`, `default_post_data()`
+- `helpers.php` — `sanitize_url()`, `save_uploaded_file()`, `sanitize_svg()`, `slugify()`, `unique_slug()`
+- `theme.php` — `theme_css_vars()`, `resolve_color()`
+- `blocks.php` — `allowed_block_types()`, `render_content_block($block, $pathPrefix = '')`
+- `editor.php` — `render_content_blocks_editor()`, per-block admin panel UI
+- `scripts.php` — JS templates for new-block scaffolding in the admin
+- `shortcodes.php` — `apply_shortcodes_to_block()`, `apply_course_shortcodes()`, `course_shortcode_inline_script()`, course data loaders
+- `schema.php` — JSON-LD schema helpers
+- `seo-editor.php` — SEO admin panel rendering
+- `site-template.php` — shared HTML template (head, content loop, footer, inline scripts)
 
 ## Content blocks
 
-All block types are registered in `allowed_block_types()` in `functions.php`. Each block is a PHP associative array stored in `data/site.json`. The `render_content_block()` switch statement in `functions.php` handles rendering every type.
+All block types are registered in `allowed_block_types()` in `includes/blocks.php`. Each block is a PHP associative array stored in `site.json`. The `render_content_block($block, $pathPrefix = '')` switch statement in `includes/blocks.php` handles rendering every type.
 
-Current block types: `text`, `image_left`, `image_right`, `hero`, `hero_split`, `feature_split`, `split_cta`, `tab_services`, `hero_grid`, `service_cards`, `wide_banner`, `image_features`, `faq_two_col`, `cta_banner`, `links_grid`, `cta_card`, `map_info`, `image_text`, `faq`, `feature_columns`, `custom_html`, `steps`, `stats`, `cards`, `gallery`, `cta_button`.
+**Current block types (33):** `text`, `image_left`, `image_right`, `hero`, `hero_split`, `feature_split`, `split_cta`, `tab_services`, `hero_grid`, `service_cards`, `wide_banner`, `image_features`, `faq_two_col`, `cta_banner`, `links_grid`, `cta_card`, `map_info`, `image_text`, `faq`, `feature_columns`, `custom_html`, `steps`, `stats`, `cards`, `gallery`, `cta_button`, `testimonials`, `video`, `buttons_grid`, `html_two_col`, `pricing_cards`, `logo_bar`, `stage_cards`
 
-**Adding a new block type** requires three changes:
-1. Add entry to `allowed_block_types()` in `functions.php`
-2. Add a `case` in `render_content_block()` in `functions.php`
-3. Add the admin editing UI in `admin/index.php` (block editor section)
+**Adding a new block type** requires changes across four files:
+1. `includes/blocks.php` — add entry to `allowed_block_types()`, add `case` in `render_content_block()`
+2. `includes/editor.php` — add admin panel UI for editing the block's fields
+3. `includes/scripts.php` — add the new-block JS template (default field values when block is added)
+4. `admin/save.php` — add the `case` in the `content` section that reads `$_POST` and builds the block array
 
-Both `render_content_block()` and `render_content_blocks_editor()` (in `admin/index.php`'s save path / `functions.php`) are large switch statements — each `case` label matches its block type name 1:1, so grep for `case 'block_type'` to jump straight to it. When a new case needs a link/button URL field, save it through `sanitize_url()` (don't write `trim($_POST[...])` directly) — see "Security notes" below. When it needs a photo upload field, reuse `render_photo_upload_fields()` rather than hand-rolling the markup.
+Both `render_content_block()` and `render_content_blocks_editor()` are large switch statements — each `case` label matches the block type name 1:1, so grep for `case 'block_type'` to jump to it. When a new case needs a link/button URL field, save it through `sanitize_url()` — see "Security notes" below. When it needs a photo upload field, reuse `render_photo_upload_fields()`.
+
+`post_meta` and `blog_list` are pseudo block types — handled in `render_content_block()` but deliberately left out of `allowed_block_types()` since they're only ever generated by `blog.php`, never picked from the admin block editor.
+
+## Course schedule system
+
+Course data lives in `COURSES_FILE` (defined in `config.php`, parallel to `DATA_FILE`). Each course has: `id` (auto-increment), `course_type`, `delivery` (Live-Virtual / On-Demand), `dates`, `time_est` (time range string like `"8:30am-5:00pm"` or `"Self-paced"`), `price`, `old_price`, `register_url`, `availability_note`, `guaranteed`, `sort_order`.
+
+**Shortcodes** — resolved inside `custom_html` blocks by `apply_course_shortcodes()` in `includes/shortcodes.php`:
+- `[course_schedule type="PMP Certification"]` — Widget 1 filterable table (schedule.js / schedule.css)
+- `[course_card type="PMP Certification" start_tab="1"]` — Widget 2 compact card widget (card.js / card.css)
+- Both shortcodes accept `type="All"` to show all course types
+
+**Inline data pattern** — `course_shortcode_inline_script()` outputs `<script>var csmAllData={...}; var csm2AllData={...};</script>` before `</body>`, keyed by instance ID (e.g. `csm1_inst_1`). This replaces WP's `wp_localize_script`. Scripts and CSS are only injected when at least one shortcode was actually used on the page (checked via `$GLOBALS['_csm_w1_data']`/`$GLOBALS['_csm_w2_data']`).
+
+**DOMContentLoaded ordering (critical):** `<script src="schedule.js">` runs while `readyState === 'loading'` and defers `initAll()` to DOMContentLoaded. Any filter trigger scripts on test pages must be registered as DOMContentLoaded listeners placed *after* the `<script src="schedule.js">` tag — this puts them second in the listener queue (after schedule.js's own listener), so widgets initialize before filters fire. An inline IIFE immediately after the script tag does not work.
+
+**Admin:** `admin/tabs/schedule.php` provides list/add/edit UI. `admin/schedule_save.php` handles CRUD POSTs (actions: `save`, `delete`, `duplicate`). Same CSRF pattern as `save.php`.
+
+**Asset files:** `assets/css/schedule.css`, `assets/css/card.css`, `assets/js/schedule.js`, `assets/js/card.js` — ported from the course-schedule-manager WP plugin.
 
 ## Theme / colors
 
@@ -67,11 +94,11 @@ Landing pages are at `page.php?slug=your-slug`. An `.htaccess` rewrite maps `/yo
 
 Session-based. `config.php` calls `session_start()`. Every admin page checks `$_SESSION['admin_logged_in']` and redirects to `login.php` if not set. Password is verified with `password_verify()` against the bcrypt hash in `ADMIN_PASSWORD_HASH`.
 
+**Admin tabs:** header, theme, content, pages, blog, footer, popups, media, seo, schedule
+
 ## Blog system
 
 `data['posts']` is an id-keyed array (`default_post_data()` schema: title, slug, status, published_at, updated_at, author, tag, excerpt, featured_image, featured_image_alt, content_blocks, seo). `data['blog_settings']` holds `blog_heading`, `blog_intro`, `posts_per_page`. `blog.php` is the router: `/blog` (listing, supports `?tag=` and `?p=` pagination) and `/blog/{slug}` (single post). It builds synthetic `$contentBlocks` (a `post_meta` block followed by the post's own blocks for single posts, or a `blog_list` block for the listing) and `require`s `includes/site-template.php`, the same as `page.php`.
-
-`post_meta` and `blog_list` are pseudo block types — handled in `render_content_block()` but deliberately left out of `allowed_block_types()` since they're only ever generated by `blog.php`, never picked from the admin block editor.
 
 The tag is a single string per post; `/blog?tag=slug` filters by `slugify()` match. The blog listing page renders a persistent tag-pill bar (an "All" pill plus one pill per distinct tag) under its heading — this lives on the listing page only, not on individual post pages.
 
@@ -96,8 +123,8 @@ Before uploading anything new, check `uploads/media/` for an existing topically-
 
 ## Security notes
 
-- **All admin AJAX endpoints require CSRF tokens.** `admin/save.php` and `admin/media_api.php` both check `$_SESSION['csrf_token']` against a `csrf_token` field on every POST. If you add a new POST endpoint, give it the same check.
-- **All user-entered URLs go through `sanitize_url()`** (`includes/functions.php`) before being stored — it only allows `http(s)://`, `tel:`, `mailto:`, and relative/in-page links, blocking `javascript:` and other dangerous schemes. Every `*_url`/`*_btn_url` field in `admin/save.php` must use it; don't add a new link field that stores `trim($_POST[...])` directly.
-- **Uploaded SVGs are sanitized** via `sanitize_svg()` (`includes/functions.php`) — strips `<script>` tags, `on*` event handlers, and `javascript:` URIs before saving. GIFs are still passed through unprocessed (raster format, no script risk).
+- **All admin POST endpoints require CSRF tokens.** `admin/save.php`, `admin/media_api.php`, and `admin/schedule_save.php` all check `$_SESSION['csrf_token']` against a `csrf_token` field on every POST via `hash_equals()`. If you add a new POST endpoint, give it the same check.
+- **All user-entered URLs go through `sanitize_url()`** (`includes/helpers.php`) before being stored — it only allows `http(s)://`, `tel:`, `mailto:`, and relative/in-page links, blocking `javascript:` and other dangerous schemes. Every `*_url`/`*_btn_url` field in any save handler must use it; don't store `trim($_POST[...])` directly.
+- **Uploaded SVGs are sanitized** via `sanitize_svg()` (`includes/helpers.php`) — strips `<script>` tags, `on*` event handlers, and `javascript:` URIs before saving. GIFs are still passed through unprocessed (raster format, no script risk).
 - **Never deploy this repo with `.git/` present in the webroot.** The root `.htaccess` now blocks direct access to dotfiles/dotfolders as a safety net, but the correct practice is to not upload `.git/` to a live host at all — it would otherwise expose full commit history, including old credential hashes.
 - **Change the default admin password before any site goes live** — `config.php` ships with a placeholder bcrypt hash for `admin123`.

@@ -504,7 +504,7 @@ function render_content_block($block, $pathPrefix = '') {
 
         /* ---- CUSTOM HTML ---- */
         case 'custom_html':
-            $html = $block['html'] ?? '';
+            $html = apply_course_shortcodes($block['html'] ?? '');
             if ($html !== '') {
                 echo '<div class="content-block block-custom-html"' . $anchorAttr . '>';
                 echo $html;

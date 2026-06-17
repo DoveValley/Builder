@@ -83,6 +83,8 @@ if (empty($seo['og_image'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= h($assetPathPrefix ?? '') ?>assets/css/style.css?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/style.css') ?>">
+    <link rel="stylesheet" href="<?= h($assetPathPrefix ?? '') ?>assets/css/schedule.css">
+    <link rel="stylesheet" href="<?= h($assetPathPrefix ?? '') ?>assets/css/card.css">
     <style><?= theme_css_vars($theme) ?>
     body { font-family: var(--font-primary, sans-serif); }
     </style>
@@ -633,5 +635,14 @@ if (!empty($infoPopup['enabled']) && (!empty($infoPopup['heading']) || !empty($i
     });
 })();
 </script>
+<?php
+$_csmScript = course_shortcode_inline_script();
+if ($_csmScript !== '') {
+    echo $_csmScript;
+    $pfx = h($assetPathPrefix ?? '');
+    echo '<script src="' . $pfx . 'assets/js/schedule.js"></script>';
+    echo '<script src="' . $pfx . 'assets/js/card.js"></script>';
+}
+?>
 </body>
 </html>
