@@ -85,6 +85,7 @@ function allowed_block_types() {
         'html_two_col'    => 'Two-column HTML (50/50 split)',
         'pricing_cards'   => 'Pricing / Course Cards (badge, checklist, CTA)',
         'logo_bar'        => 'Logo / Trust Bar (partner logos with optional links)',
+        'stage_cards'     => 'Stage / Career Path Cards (numbered columns with item lists)',
     ];
 }
 
@@ -112,6 +113,7 @@ function grouped_block_types(): array {
             'stats'           => 'Stats / counters',
             'image_features'  => 'Image + feature checklist',
             'pricing_cards'   => 'Pricing / course cards',
+            'stage_cards'     => 'Stage / career path',
         ],
         'Social Proof' => [
             'testimonials' => 'Customer reviews',
@@ -165,6 +167,7 @@ function block_thumbnails(): array {
         'html_two_col'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#1e293b" rx="3"/><rect x="4" y="6" width="54" height="64" rx="2" fill="#0f172a"/><rect x="8" y="11" width="26" height="3" rx="1" fill="#7dd3fc"/><rect x="8" y="19" width="18" height="3" rx="1" fill="#86efac"/><rect x="16" y="27" width="38" height="3" rx="1" fill="#fde68a"/><rect x="16" y="35" width="32" height="3" rx="1" fill="#fde68a"/><rect x="8" y="43" width="22" height="3" rx="1" fill="#7dd3fc"/><rect x="62" y="6" width="54" height="64" rx="2" fill="#0f172a"/><rect x="66" y="11" width="26" height="3" rx="1" fill="#7dd3fc"/><rect x="66" y="19" width="18" height="3" rx="1" fill="#86efac"/><rect x="74" y="27" width="38" height="3" rx="1" fill="#fde68a"/><rect x="74" y="35" width="32" height="3" rx="1" fill="#fde68a"/><rect x="66" y="43" width="22" height="3" rx="1" fill="#7dd3fc"/></svg>',
         'pricing_cards'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="4" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#fd783b" stroke-width="1.5"/><rect x="4" y="4" width="34" height="10" rx="3" fill="#fd783b"/><rect x="8" y="18" width="26" height="4" rx="2" fill="#1e3a5f"/><rect x="8" y="26" width="5" height="3" rx="1" fill="#fd783b"/><rect x="15" y="26" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="8" y="33" width="5" height="3" rx="1" fill="#fd783b"/><rect x="15" y="33" width="16" height="3" rx="1" fill="#cbd5e1"/><rect x="8" y="40" width="5" height="3" rx="1" fill="#fd783b"/><rect x="15" y="40" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="8" y="60" width="26" height="8" rx="2" fill="#fd783b"/><rect x="43" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="43" y="4" width="34" height="10" rx="3" fill="#475569"/><rect x="47" y="18" width="26" height="4" rx="2" fill="#1e3a5f"/><rect x="47" y="26" width="5" height="3" rx="1" fill="#fd783b"/><rect x="54" y="26" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="47" y="33" width="5" height="3" rx="1" fill="#fd783b"/><rect x="54" y="33" width="16" height="3" rx="1" fill="#cbd5e1"/><rect x="47" y="40" width="5" height="3" rx="1" fill="#fd783b"/><rect x="54" y="40" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="47" y="60" width="26" height="8" rx="2" fill="#475569"/><rect x="82" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="82" y="4" width="34" height="10" rx="3" fill="#475569"/><rect x="86" y="18" width="26" height="4" rx="2" fill="#1e3a5f"/><rect x="86" y="26" width="5" height="3" rx="1" fill="#fd783b"/><rect x="93" y="26" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="86" y="33" width="5" height="3" rx="1" fill="#fd783b"/><rect x="93" y="33" width="16" height="3" rx="1" fill="#cbd5e1"/><rect x="86" y="40" width="5" height="3" rx="1" fill="#fd783b"/><rect x="93" y="40" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="86" y="60" width="26" height="8" rx="2" fill="#475569"/></svg>',
         'logo_bar'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="30" y="14" width="60" height="4" rx="2" fill="#cbd5e1"/><rect x="6" y="26" width="23" height="18" rx="3" fill="#e2e8f0"/><rect x="35" y="26" width="23" height="18" rx="3" fill="#e2e8f0"/><rect x="64" y="26" width="23" height="18" rx="3" fill="#e2e8f0"/><rect x="93" y="26" width="21" height="18" rx="3" fill="#e2e8f0"/><rect x="10" y="31" width="15" height="8" rx="1" fill="#94a3b8"/><rect x="39" y="31" width="15" height="8" rx="1" fill="#94a3b8"/><rect x="68" y="31" width="15" height="8" rx="1" fill="#94a3b8"/><rect x="96" y="31" width="14" height="8" rx="1" fill="#94a3b8"/><rect x="20" y="54" width="80" height="3" rx="1" fill="#e2e8f0"/></svg>',
+        'stage_cards'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="4" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="4" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="4" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="11" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="4" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="11" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/><rect x="4" y="34" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="11" y="34" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="33" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="33" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="33" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="40" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="33" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="40" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/><rect x="33" y="34" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="40" y="34" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="62" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="62" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="62" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="69" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="62" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="69" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/><rect x="91" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="91" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="91" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="98" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="91" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="98" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/></svg>',
     ];
 }
 
@@ -1323,6 +1326,52 @@ function render_content_block($block, $pathPrefix = '') {
                 echo '</span>';
                 echo '</div>';
                 if ($resultBadge) echo '<div class="tm-result-badge" style="border-color:'.h($accentStyle).';color:'.h($accentStyle).';">'.h($resultBadge).'</div>';
+                echo '</div>';
+            }
+            echo '</div></div></div>';
+            break;
+
+        /* ---- STAGE / CAREER PATH CARDS ---- */
+        case 'stage_cards':
+            $scHeading  = $block['sc_heading']      ?? '';
+            $scSubtext  = $block['sc_subtext']      ?? '';
+            $scBg       = $block['sc_bg']           ?? '#f8fafc';
+            $scCols     = max(2, min(5, (int)($block['sc_cols'] ?? 4)));
+            $scAccent   = $block['sc_accent']       ?? 'accent';
+            $scAccentC  = $block['sc_accent_custom']?? '';
+            $scStages   = $block['sc_stages']       ?? [];
+            $scColor    = resolve_color($scAccent, $scAccentC);
+            echo '<div class="content-block block-stage-cards"'.$anchorAttr.' style="background:'.h($scBg).';">';
+            echo '<div class="container">';
+            if ($scHeading) echo '<h2 class="sc-section-heading">'.h($scHeading).'</h2>';
+            if ($scSubtext) echo '<p class="sc-section-subtext">'.h($scSubtext).'</p>';
+            echo '<div class="sc-stages-grid sc-cols-'.$scCols.'">';
+            foreach ($scStages as $stage) {
+                $stNum   = $stage['number']  ?? '';
+                $stLabel = $stage['label']   ?? '';
+                $stHead  = $stage['heading'] ?? '';
+                $stItems = $stage['items']   ?? '';
+                echo '<div class="sc-stage-col">';
+                if ($stNum)   echo '<div class="sc-stage-num" style="color:'.h($scColor).';">'.h($stNum).'</div>';
+                if ($stLabel) echo '<div class="sc-stage-label">'.h($stLabel).'</div>';
+                if ($stHead)  echo '<h3 class="sc-stage-heading">'.h($stHead).'</h3>';
+                if ($stItems) {
+                    echo '<ul class="sc-items-list">';
+                    foreach (array_filter(array_map('trim', explode("\n", $stItems))) as $line) {
+                        $parts   = explode('|', $line, 2);
+                        $itemTxt = h(trim($parts[0]));
+                        $itemUrl = isset($parts[1]) ? h(trim($parts[1])) : '';
+                        if (!$itemTxt) continue;
+                        echo '<li class="sc-item">';
+                        if ($itemUrl) {
+                            echo '<a href="'.$itemUrl.'" class="sc-item-link">'.$itemTxt.'</a>';
+                        } else {
+                            echo '<span class="sc-item-text">'.$itemTxt.'</span>';
+                        }
+                        echo '</li>';
+                    }
+                    echo '</ul>';
+                }
                 echo '</div>';
             }
             echo '</div></div></div>';

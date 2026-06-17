@@ -1755,6 +1755,67 @@ function render_content_blocks_editor($blocks) {
                     <button type="button" class="btn btn-secondary btn-small" onclick="addLbItem(this, <?= $i ?>)">+ Add logo</button>
                 </div>
 
+                <?php /* ---- STAGE CARDS FIELDS ---- */ ?>
+                <div class="block-fields block-fields-stage_cards <?= $type !== 'stage_cards' ? 'is-hidden' : '' ?>">
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Section heading (optional)</label>
+                            <input type="text" name="sc_heading[]" value="<?= h($block['sc_heading'] ?? '') ?>" placeholder="e.g. Every stage of your career.">
+                        </div>
+                        <div class="form-group" style="flex:0 0 80px;">
+                            <label>Columns</label>
+                            <select name="sc_cols[]">
+                                <?php foreach ([2,3,4,5] as $n): ?>
+                                <option value="<?= $n ?>" <?= ($block['sc_cols'] ?? 4) == $n ? 'selected' : '' ?>><?= $n ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="form-group" style="flex:0 0 100px;">
+                            <label>Background</label>
+                            <input type="color" name="sc_bg[]" value="<?= h($block['sc_bg'] ?? '#f8fafc') ?>">
+                        </div>
+                        <div class="form-group" style="flex:1 1 120px;">
+                            <label>Number color</label>
+                            <select name="sc_accent[]">
+                                <option value="accent" <?= ($block['sc_accent'] ?? 'accent') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
+                                <option value="header" <?= ($block['sc_accent'] ?? '') === 'header' ? 'selected' : '' ?>>Header (global)</option>
+                                <option value="custom" <?= ($block['sc_accent'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
+                            </select>
+                            <input type="color" name="sc_accent_custom[]" value="<?= h($block['sc_accent_custom'] ?? '') ?>" style="margin-top:4px;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Intro text (optional)</label>
+                        <input type="text" name="sc_subtext[]" value="<?= h($block['sc_subtext'] ?? '') ?>" placeholder="Optional sentence below the heading">
+                    </div>
+                    <div class="sc-stages-editor" id="sc_stages_<?= $i ?>">
+                        <?php foreach (($block['sc_stages'] ?? []) as $stage): ?>
+                        <div class="sc-stage-row" style="border:1px solid #e5e7eb;border-radius:6px;padding:12px;margin-bottom:8px;background:#f9fafb;">
+                            <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;">
+                                <div class="form-group" style="flex:0 0 56px;">
+                                    <label>No.</label>
+                                    <input type="text" name="sc_num[<?= $i ?>][]" value="<?= h($stage['number'] ?? '') ?>" placeholder="01" maxlength="4" style="font-weight:700;">
+                                </div>
+                                <div class="form-group" style="flex:1 1 140px;">
+                                    <label>Stage label</label>
+                                    <input type="text" name="sc_label[<?= $i ?>][]" value="<?= h($stage['label'] ?? '') ?>" placeholder="e.g. Starting Out">
+                                </div>
+                                <div class="form-group" style="flex:2 1 200px;">
+                                    <label>Stage heading</label>
+                                    <input type="text" name="sc_shead[<?= $i ?>][]" value="<?= h($stage['heading'] ?? '') ?>" placeholder="e.g. Project Fundamentals">
+                                </div>
+                                <button type="button" class="remove-row" onclick="this.closest('.sc-stage-row').remove()" style="align-self:flex-start;">&times;</button>
+                            </div>
+                            <div class="form-group">
+                                <label>Course / item list <span class="hint">(one per line — add <code>| /url</code> to make a link)</span></label>
+                                <textarea name="sc_items[<?= $i ?>][]" rows="5" style="font-family:monospace;font-size:.85rem;" placeholder="CAPM® Exam Prep | /capm&#10;PM Foundations&#10;Agile Basics | /agile"><?= h($stage['items'] ?? '') ?></textarea>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-small" onclick="addStageCard(this, <?= $i ?>)">+ Add stage</button>
+                </div>
+
                 <?php /* ---- VIDEO FIELDS ---- */ ?>
                 <div class="block-fields block-fields-video <?= $type !== 'video' ? 'is-hidden' : '' ?>">
                     <div class="form-group">

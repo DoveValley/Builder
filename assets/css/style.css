@@ -3492,6 +3492,35 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 }
 
 /* ============================================================
+   STAGE / CAREER PATH CARDS BLOCK
+   ============================================================ */
+.block-stage-cards { padding: 56px 0; }
+.sc-section-heading { text-align: center; margin-bottom: 12px; font-size: 2rem; }
+.sc-section-subtext { text-align: center; margin-bottom: 40px; font-size: 1rem; color: #6b7280; max-width: 680px; margin-left: auto; margin-right: auto; }
+.sc-stages-grid { display: grid; gap: 32px 24px; }
+.sc-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.sc-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.sc-cols-4 { grid-template-columns: repeat(4, 1fr); }
+.sc-cols-5 { grid-template-columns: repeat(5, 1fr); }
+.sc-stage-col { padding: 0; }
+.sc-stage-num { font-size: 2.5rem; font-weight: 800; line-height: 1; margin-bottom: 4px; }
+.sc-stage-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #9ca3af; margin-bottom: 10px; }
+.sc-stage-heading { font-size: 1rem; font-weight: 700; margin: 0 0 16px; line-height: 1.35; }
+.sc-items-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.sc-item { display: flex; align-items: baseline; gap: 6px; font-size: .9rem; }
+.sc-item-link { color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(0,0,0,.25); transition: text-decoration-color .15s; }
+.sc-item-link:hover { text-decoration-color: currentColor; }
+@media (max-width: 900px) {
+    .sc-cols-4, .sc-cols-5 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .sc-cols-2, .sc-cols-3, .sc-cols-4, .sc-cols-5 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+    .sc-cols-2, .sc-cols-3, .sc-cols-4, .sc-cols-5 { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    LOGO / TRUST BAR BLOCK
    ============================================================ */
 .block-logo-bar { padding: 36px 0; }

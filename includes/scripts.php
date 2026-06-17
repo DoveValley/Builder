@@ -613,6 +613,28 @@ function content_editor_scripts() {
                 <div class="pc-items-editor" id="pc_items_new_${idx}"></div>
                 <button type="button" class="btn btn-secondary btn-small" onclick="addPcItem(this, 'new_${idx}')">+ Add card</button>
             </div>
+            <div class="block-fields block-fields-stage_cards is-hidden">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                    <div class="form-group" style="flex:2 1 220px;"><label>Section heading (optional)</label>
+                        <input type="text" name="sc_heading[]" placeholder="e.g. Every stage of your career.">
+                    </div>
+                    <div class="form-group" style="flex:0 0 80px;"><label>Columns</label>
+                        <select name="sc_cols[]"><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option><option value="5">5</option></select>
+                    </div>
+                    <div class="form-group" style="flex:0 0 100px;"><label>Background</label>
+                        <input type="color" name="sc_bg[]" value="#f8fafc">
+                    </div>
+                    <div class="form-group" style="flex:1 1 120px;"><label>Number color</label>
+                        <select name="sc_accent[]"><option value="accent" selected>Accent (global)</option><option value="header">Header (global)</option><option value="custom">Custom</option></select>
+                        <input type="color" name="sc_accent_custom[]" value="" style="margin-top:4px;">
+                    </div>
+                </div>
+                <div class="form-group"><label>Intro text (optional)</label>
+                    <input type="text" name="sc_subtext[]" placeholder="Optional sentence below the heading">
+                </div>
+                <div class="sc-stages-editor" id="sc_stages_new_${idx}"></div>
+                <button type="button" class="btn btn-secondary btn-small" onclick="addStageCard(this, 'new_${idx}')">+ Add stage</button>
+            </div>
             <div class="block-fields block-fields-logo_bar is-hidden">
                 <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
                     <div class="form-group" style="flex:2 1 200px;"><label>Label (optional)</label>
@@ -956,6 +978,31 @@ function content_editor_scripts() {
             </div>
             <div class="form-group"><label>Result badge (optional)</label><input type="text" name="tm_result_badge[${blockIdx}][]" placeholder="e.g. ✓ PMP® — Passed first attempt"><span class="hint">Shown as a bordered pill below the reviewer name.</span></div>
             <button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)" style="margin-bottom:12px;">Remove review</button>
+        `;
+        editor.appendChild(row);
+    }
+
+    function addStageCard(btn, blockIdx) {
+        const editor = document.getElementById('sc_stages_' + blockIdx);
+        const row = document.createElement('div');
+        row.className = 'sc-stage-row';
+        row.style.cssText = 'border:1px solid #e5e7eb;border-radius:6px;padding:12px;margin-bottom:8px;background:#f9fafb;';
+        row.innerHTML = `
+            <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;">
+                <div class="form-group" style="flex:0 0 56px;"><label>No.</label>
+                    <input type="text" name="sc_num[${blockIdx}][]" placeholder="01" maxlength="4" style="font-weight:700;">
+                </div>
+                <div class="form-group" style="flex:1 1 140px;"><label>Stage label</label>
+                    <input type="text" name="sc_label[${blockIdx}][]" placeholder="e.g. Starting Out">
+                </div>
+                <div class="form-group" style="flex:2 1 200px;"><label>Stage heading</label>
+                    <input type="text" name="sc_shead[${blockIdx}][]" placeholder="e.g. Project Fundamentals">
+                </div>
+                <button type="button" class="remove-row" onclick="this.closest('.sc-stage-row').remove()" style="align-self:flex-start;">&times;</button>
+            </div>
+            <div class="form-group"><label>Course / item list <span class="hint">(one per line — add | /url to make a link)</span></label>
+                <textarea name="sc_items[${blockIdx}][]" rows="5" style="font-family:monospace;font-size:.85rem;" placeholder="CAPM® Exam Prep | /capm&#10;PM Foundations&#10;Agile Basics | /agile"></textarea>
+            </div>
         `;
         editor.appendChild(row);
     }

@@ -648,6 +648,33 @@
                     if (empty($pcItems) && $block['pc_heading'] === '') continue 2;
                     break;
 
+                case 'stage_cards':
+                    $block['sc_heading'] = trim($_POST['sc_heading'][$i] ?? '');
+                    $block['sc_subtext'] = trim($_POST['sc_subtext'][$i] ?? '');
+                    $rawScBg = trim($_POST['sc_bg'][$i] ?? '#f8fafc');
+                    $block['sc_bg']    = preg_match('/^#[0-9a-fA-F]{3,6}$/', $rawScBg) ? $rawScBg : '#f8fafc';
+                    $block['sc_cols']  = max(2, min(5, (int)($_POST['sc_cols'][$i] ?? 4)));
+                    $scAcc = $_POST['sc_accent'][$i] ?? 'accent';
+                    $block['sc_accent'] = in_array($scAcc, ['accent','header','custom']) ? $scAcc : 'accent';
+                    $rawScAcc = trim($_POST['sc_accent_custom'][$i] ?? '');
+                    $block['sc_accent_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $rawScAcc) ? $rawScAcc : '';
+                    $scNums   = $_POST['sc_num'][$i]   ?? [];
+                    $scLabels = $_POST['sc_label'][$i] ?? [];
+                    $scSheads = $_POST['sc_shead'][$i] ?? [];
+                    $scItems  = $_POST['sc_items'][$i] ?? [];
+                    $scStages = [];
+                    foreach ($scNums as $si => $scNum) {
+                        $scNum  = trim($scNum);
+                        $scLbl  = trim($scLabels[$si] ?? '');
+                        $scShd  = trim($scSheads[$si] ?? '');
+                        $scIts  = trim($scItems[$si]  ?? '');
+                        if ($scNum === '' && $scLbl === '' && $scShd === '' && $scIts === '') continue;
+                        $scStages[] = ['number' => $scNum, 'label' => $scLbl, 'heading' => $scShd, 'items' => $scIts];
+                    }
+                    $block['sc_stages'] = $scStages;
+                    if (empty($scStages) && $block['sc_heading'] === '') continue 2;
+                    break;
+
                 case 'buttons_grid':
                     $block['bg_heading']  = trim($_POST['bg_heading'][$i]  ?? '');
                     $block['bg_cols']     = in_array($_POST['bg_cols'][$i] ?? '3', ['2','3','4']) ? (int)$_POST['bg_cols'][$i] : 3;
