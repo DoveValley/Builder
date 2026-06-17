@@ -42,7 +42,7 @@ $blogSettings = $data['blog_settings'];
 
 // Active tab
 $tab = $_GET['tab'] ?? 'header';
-if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule'], true)) {
+if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule'], true)) {
     $tab = 'header';
 }
 
@@ -67,6 +67,24 @@ if ($tab === 'templates' && !empty($_GET['template'])) {
         if ($tpl['id'] === $_GET['template']) {
             $editingTemplateId = $tpl['id'];
             $editingTemplate   = $tpl;
+            break;
+        }
+    }
+}
+
+// Load cities; detect editing state for Cities tab
+$cities        = [];
+$editingCityId = null;
+$editingCity   = null;
+if (file_exists(CITIES_FILE)) {
+    $raw = json_decode(file_get_contents(CITIES_FILE), true);
+    $cities = is_array($raw) ? $raw : [];
+}
+if ($tab === 'cities' && !empty($_GET['city'])) {
+    foreach ($cities as $c) {
+        if ($c['id'] === $_GET['city']) {
+            $editingCityId = $c['id'];
+            $editingCity   = $c;
             break;
         }
     }
@@ -200,6 +218,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'content' ? 'active' : '' ?>" href="?tab=content">Home Page</a>
         <a class="tab-link <?= $tab === 'pages' ? 'active' : '' ?>" href="?tab=pages">Landing Pages</a>
         <a class="tab-link <?= $tab === 'templates' ? 'active' : '' ?>" href="?tab=templates">Templates</a>
+        <a class="tab-link <?= $tab === 'cities' ? 'active' : '' ?>" href="?tab=cities">Cities</a>
         <a class="tab-link <?= $tab === 'blog' ? 'active' : '' ?>" href="?tab=blog">Blog</a>
         <a class="tab-link <?= $tab === 'footer' ? 'active' : '' ?>" href="?tab=footer">Footer</a>
         <a class="tab-link <?= $tab === 'popups' ? 'active' : '' ?>" href="?tab=popups">Popups</a>
@@ -222,6 +241,9 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- ================= TEMPLATES TAB ================= -->
     <?php require __DIR__ . '/tabs/templates.php'; ?>
+
+    <!-- ================= CITIES TAB ================= -->
+    <?php require __DIR__ . '/tabs/cities.php'; ?>
 
     <!-- ================= BLOG TAB ================= -->
     <?php require __DIR__ . '/tabs/blog.php'; ?>
