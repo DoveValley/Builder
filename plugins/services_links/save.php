@@ -33,7 +33,7 @@ $overlay = max(0.0, min(1.0, (float)($_POST['overlay'] ?? 0.20)));
 
 $data['services_links'] = [
     'services'      => $services,
-    'url_pattern'   => trim($_POST['url_pattern']   ?? '/{service_slug}-{city_slug}'),
+    'url_pattern'   => sanitize_url(trim($_POST['url_pattern'] ?? '/{service_slug}-{city_slug}')),
     'heading'       => trim($_POST['heading']        ?? ''),
     'sublabel'      => trim($_POST['sublabel']       ?? ''),
     'subtext'       => trim($_POST['subtext']        ?? ''),

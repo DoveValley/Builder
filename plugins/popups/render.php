@@ -7,7 +7,7 @@ if (!function_exists('renderPopupBody')) {
         $text = trim($text);
         if ($text === '') return '';
         if (preg_match('/<[a-z][\s\S]*>/i', $text)) {
-            return $text;
+            return sanitize_rich_html($text);
         }
         $safe = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
         $safe = preg_replace('/\*\*(.+?)\*\*/s', '<strong>$1</strong>', $safe);
