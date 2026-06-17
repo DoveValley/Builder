@@ -47,7 +47,7 @@ Paste the result into `config.php` as `ADMIN_PASSWORD_HASH`.
 
 All block types are registered in `allowed_block_types()` in `includes/blocks.php`. Each block is a PHP associative array stored in `site.json`. The `render_content_block($block, $pathPrefix = '')` switch statement in `includes/blocks.php` handles rendering every type.
 
-**Current block types (33):** `text`, `image_left`, `image_right`, `hero`, `hero_split`, `feature_split`, `split_cta`, `tab_services`, `hero_grid`, `service_cards`, `wide_banner`, `image_features`, `faq_two_col`, `cta_banner`, `links_grid`, `cta_card`, `map_info`, `image_text`, `faq`, `feature_columns`, `custom_html`, `steps`, `stats`, `cards`, `gallery`, `cta_button`, `testimonials`, `video`, `buttons_grid`, `html_two_col`, `pricing_cards`, `logo_bar`, `stage_cards`
+**Current block types (34):** `text`, `image_left`, `image_right`, `hero`, `hero_split`, `feature_split`, `split_cta`, `tab_services`, `hero_grid`, `service_cards`, `wide_banner`, `image_features`, `faq_two_col`, `cta_banner`, `links_grid`, `cta_card`, `map_info`, `image_text`, `faq`, `feature_columns`, `custom_html`, `steps`, `stats`, `cards`, `gallery`, `cta_button`, `testimonials`, `video`, `buttons_grid`, `html_two_col`, `pricing_cards`, `logo_bar`, `stage_cards`, `contact_form`
 
 **Adding a new block type** requires changes across four files:
 1. `includes/blocks.php` — add entry to `allowed_block_types()`, add `case` in `render_content_block()`
@@ -128,3 +128,4 @@ Before uploading anything new, check `uploads/media/` for an existing topically-
 - **Uploaded SVGs are sanitized** via `sanitize_svg()` (`includes/helpers.php`) — strips `<script>` tags, `on*` event handlers, and `javascript:` URIs before saving. GIFs are still passed through unprocessed (raster format, no script risk).
 - **Never deploy this repo with `.git/` present in the webroot.** The root `.htaccess` now blocks direct access to dotfiles/dotfolders as a safety net, but the correct practice is to not upload `.git/` to a live host at all — it would otherwise expose full commit history, including old credential hashes.
 - **Change the default admin password before any site goes live** — `config.php` ships with a placeholder bcrypt hash for `admin123`.
+- **Set `CONTACT_EMAIL` in `config.php`** before deploying the contact form — it defaults to `hello@yoursite.com`. The `contact_form` block renders via `contact_send.php` (public POST handler with CSRF, honeypot, and rate limiting). Session CSRF token is `$_SESSION['cf_csrf_token']` (separate from the admin token).

@@ -763,6 +763,13 @@
                     $block['vid_width']   = ($_POST['vid_width'][$i] ?? 'contained') === 'full' ? 'full' : 'contained';
                     if ($block['vid_url'] === '') continue 2;
                     break;
+
+                case 'contact_form':
+                    $block['cf_heading']   = trim($_POST['cf_heading'][$i]  ?? 'Contact Us');
+                    $block['cf_subtext']   = trim($_POST['cf_subtext'][$i]  ?? '');
+                    $block['cf_btn_text']  = trim($_POST['cf_btn_text'][$i] ?? 'Send Message') ?: 'Send Message';
+                    $block['cf_show_phone'] = !empty($_POST['cf_show_phone'][$i]);
+                    break;
             }
 
             $blocks[] = $block;

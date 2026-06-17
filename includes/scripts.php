@@ -685,6 +685,13 @@ function content_editor_scripts() {
                 <div class="cards-items-editor" id="cards_items_new_${idx}"></div>
                 <button type="button" class="btn btn-secondary btn-small" onclick="addCardItem(this, 'new_${idx}')">+ Add card</button>
             </div>
+            <div class="block-fields block-fields-contact_form is-hidden">
+                <div class="form-group"><label>Heading</label><input type="text" name="cf_heading[]" value="Contact Us"></div>
+                <div class="form-group"><label>Subtext (optional)</label><input type="text" name="cf_subtext[]" value=""></div>
+                <div class="form-group"><label>Submit button text</label><input type="text" name="cf_btn_text[]" value="Send Message"></div>
+                <div class="form-group"><label><input type="checkbox" name="cf_show_phone[]" value="1" style="width:auto;margin-right:6px;">Show phone number field</label></div>
+                <p class="hint" style="margin-top:8px;">Submissions go to <code>CONTACT_EMAIL</code> in <code>config.php</code>.</p>
+            </div>
         `;
         container.appendChild(card);
         const sel = card.querySelector('.block-type-select');

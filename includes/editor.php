@@ -1840,6 +1840,26 @@ function render_content_blocks_editor($blocks) {
                     </div>
                 </div>
 
+                <?php /* ---- CONTACT FORM FIELDS ---- */ ?>
+                <div class="block-fields block-fields-contact_form <?= $type !== 'contact_form' ? 'is-hidden' : '' ?>">
+                    <div class="form-group">
+                        <label>Heading</label>
+                        <input type="text" name="cf_heading[]" value="<?= h($block['cf_heading'] ?? 'Contact Us') ?>" placeholder="e.g. Get in Touch">
+                    </div>
+                    <div class="form-group">
+                        <label>Subtext (optional)</label>
+                        <input type="text" name="cf_subtext[]" value="<?= h($block['cf_subtext'] ?? '') ?>" placeholder="e.g. Fill out the form and we'll respond within one business day.">
+                    </div>
+                    <div class="form-group">
+                        <label>Submit button text</label>
+                        <input type="text" name="cf_btn_text[]" value="<?= h($block['cf_btn_text'] ?? 'Send Message') ?>">
+                    </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" name="cf_show_phone[]" value="1" <?= !empty($block['cf_show_phone']) ? 'checked' : '' ?> style="width:auto;margin-right:6px;">Show phone number field</label>
+                    </div>
+                    <p class="hint" style="margin-top:8px;">Submissions are emailed to the address set in <code>CONTACT_EMAIL</code> in <code>config.php</code>.</p>
+                </div>
+
             </div><!-- .block-card -->
             <?php endforeach; ?>
         </div>

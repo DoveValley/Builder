@@ -86,6 +86,7 @@ function allowed_block_types() {
         'pricing_cards'   => 'Pricing / Course Cards (badge, checklist, CTA)',
         'logo_bar'        => 'Logo / Trust Bar (partner logos with optional links)',
         'stage_cards'     => 'Stage / Career Path Cards (numbered columns with item lists)',
+        'contact_form'    => 'Contact Form (name, email, phone, message)',
     ];
 }
 
@@ -128,7 +129,8 @@ function grouped_block_types(): array {
             'cta_banner'   => 'Solid color banner',
         ],
         'Utility' => [
-            'map_info' => 'Map + info',
+            'map_info'     => 'Map + info',
+            'contact_form' => 'Contact form',
         ],
     ];
 }
@@ -167,6 +169,7 @@ function block_thumbnails(): array {
         'html_two_col'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#1e293b" rx="3"/><rect x="4" y="6" width="54" height="64" rx="2" fill="#0f172a"/><rect x="8" y="11" width="26" height="3" rx="1" fill="#7dd3fc"/><rect x="8" y="19" width="18" height="3" rx="1" fill="#86efac"/><rect x="16" y="27" width="38" height="3" rx="1" fill="#fde68a"/><rect x="16" y="35" width="32" height="3" rx="1" fill="#fde68a"/><rect x="8" y="43" width="22" height="3" rx="1" fill="#7dd3fc"/><rect x="62" y="6" width="54" height="64" rx="2" fill="#0f172a"/><rect x="66" y="11" width="26" height="3" rx="1" fill="#7dd3fc"/><rect x="66" y="19" width="18" height="3" rx="1" fill="#86efac"/><rect x="74" y="27" width="38" height="3" rx="1" fill="#fde68a"/><rect x="74" y="35" width="32" height="3" rx="1" fill="#fde68a"/><rect x="66" y="43" width="22" height="3" rx="1" fill="#7dd3fc"/></svg>',
         'pricing_cards'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="4" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#fd783b" stroke-width="1.5"/><rect x="4" y="4" width="34" height="10" rx="3" fill="#fd783b"/><rect x="8" y="18" width="26" height="4" rx="2" fill="#1e3a5f"/><rect x="8" y="26" width="5" height="3" rx="1" fill="#fd783b"/><rect x="15" y="26" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="8" y="33" width="5" height="3" rx="1" fill="#fd783b"/><rect x="15" y="33" width="16" height="3" rx="1" fill="#cbd5e1"/><rect x="8" y="40" width="5" height="3" rx="1" fill="#fd783b"/><rect x="15" y="40" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="8" y="60" width="26" height="8" rx="2" fill="#fd783b"/><rect x="43" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="43" y="4" width="34" height="10" rx="3" fill="#475569"/><rect x="47" y="18" width="26" height="4" rx="2" fill="#1e3a5f"/><rect x="47" y="26" width="5" height="3" rx="1" fill="#fd783b"/><rect x="54" y="26" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="47" y="33" width="5" height="3" rx="1" fill="#fd783b"/><rect x="54" y="33" width="16" height="3" rx="1" fill="#cbd5e1"/><rect x="47" y="40" width="5" height="3" rx="1" fill="#fd783b"/><rect x="54" y="40" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="47" y="60" width="26" height="8" rx="2" fill="#475569"/><rect x="82" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="82" y="4" width="34" height="10" rx="3" fill="#475569"/><rect x="86" y="18" width="26" height="4" rx="2" fill="#1e3a5f"/><rect x="86" y="26" width="5" height="3" rx="1" fill="#fd783b"/><rect x="93" y="26" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="86" y="33" width="5" height="3" rx="1" fill="#fd783b"/><rect x="93" y="33" width="16" height="3" rx="1" fill="#cbd5e1"/><rect x="86" y="40" width="5" height="3" rx="1" fill="#fd783b"/><rect x="93" y="40" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="86" y="60" width="26" height="8" rx="2" fill="#475569"/></svg>',
         'logo_bar'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="30" y="14" width="60" height="4" rx="2" fill="#cbd5e1"/><rect x="6" y="26" width="23" height="18" rx="3" fill="#e2e8f0"/><rect x="35" y="26" width="23" height="18" rx="3" fill="#e2e8f0"/><rect x="64" y="26" width="23" height="18" rx="3" fill="#e2e8f0"/><rect x="93" y="26" width="21" height="18" rx="3" fill="#e2e8f0"/><rect x="10" y="31" width="15" height="8" rx="1" fill="#94a3b8"/><rect x="39" y="31" width="15" height="8" rx="1" fill="#94a3b8"/><rect x="68" y="31" width="15" height="8" rx="1" fill="#94a3b8"/><rect x="96" y="31" width="14" height="8" rx="1" fill="#94a3b8"/><rect x="20" y="54" width="80" height="3" rx="1" fill="#e2e8f0"/></svg>',
+        'contact_form'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="10" y="10" width="100" height="8" rx="2" fill="#475569"/><rect x="10" y="25" width="100" height="10" rx="2" fill="#e2e8f0"/><rect x="10" y="39" width="100" height="10" rx="2" fill="#e2e8f0"/><rect x="10" y="53" width="100" height="10" rx="2" fill="#e2e8f0"/><rect x="10" y="67" width="40" height="8" rx="2" fill="#fd783b"/></svg>',
         'stage_cards'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="4" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="4" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="4" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="11" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="4" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="11" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/><rect x="4" y="34" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="11" y="34" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="33" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="33" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="33" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="40" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="33" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="40" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/><rect x="33" y="34" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="40" y="34" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="62" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="62" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="62" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="69" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="62" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="69" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/><rect x="91" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="91" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="91" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="98" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="91" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="98" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/></svg>',
     ];
 }
@@ -1421,6 +1424,51 @@ function render_content_block($block, $pathPrefix = '') {
             echo '</div>';
             if ($caption) echo '<p class="vid-caption">'.h($caption).'</p>';
             echo '</div></div></div>';
+            break;
+
+        /* ---- CONTACT FORM ---- */
+        case 'contact_form':
+            $cfHeading   = resolve_shortcodes($block['cf_heading']  ?? '');
+            $cfSubtext   = resolve_shortcodes($block['cf_subtext']  ?? '');
+            $cfBtnText   = $block['cf_btn_text']  ?? 'Send Message';
+            $cfShowPhone = !empty($block['cf_show_phone']);
+
+            if (empty($_SESSION['cf_csrf_token'])) {
+                $_SESSION['cf_csrf_token'] = bin2hex(random_bytes(32));
+            }
+            $cfCsrf    = $_SESSION['cf_csrf_token'];
+            $cfMsg     = $_GET['cf_msg'] ?? '';
+            $returnUrl = strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
+
+            echo '<div class="content-block block-contact-form"' . $anchorAttr . '>';
+            echo '<div class="container">';
+            if ($cfHeading) echo '<h2 class="section-heading">' . h($cfHeading) . '</h2>';
+            if ($cfSubtext) echo '<p class="section-subtext">' . h($cfSubtext) . '</p>';
+
+            if ($cfMsg === 'success') {
+                echo '<div class="cf-notice cf-success">Thank you! Your message has been sent — we\'ll be in touch shortly.</div>';
+            } elseif ($cfMsg === 'limit') {
+                echo '<div class="cf-notice cf-error">Too many submissions. Please try again in an hour.</div>';
+            } elseif ($cfMsg === 'error') {
+                echo '<div class="cf-notice cf-error">Something went wrong. Please check your details and try again.</div>';
+            }
+
+            echo '<form class="cf-form" method="post" action="' . h($pathPrefix) . 'contact_send.php">';
+            echo '<input type="hidden" name="cf_csrf" value="' . h($cfCsrf) . '">';
+            echo '<input type="hidden" name="return_url" value="' . h($returnUrl) . '">';
+            echo '<div style="display:none;"><input type="text" name="cf_hp" tabindex="-1" autocomplete="off"></div>';
+
+            echo '<div class="cf-row">';
+            echo '<div class="form-group cf-field"><label>Name <span class="cf-req">*</span></label><input type="text" name="cf_name" required placeholder="Your name"></div>';
+            echo '<div class="form-group cf-field"><label>Email <span class="cf-req">*</span></label><input type="email" name="cf_email" required placeholder="your@email.com"></div>';
+            echo '</div>';
+            if ($cfShowPhone) {
+                echo '<div class="form-group cf-field"><label>Phone</label><input type="tel" name="cf_phone" placeholder="(555) 000-0000"></div>';
+            }
+            echo '<div class="form-group cf-field"><label>Message <span class="cf-req">*</span></label><textarea name="cf_message" rows="5" required placeholder="How can we help?"></textarea></div>';
+            echo '<button type="submit" class="cta-btn">' . h($cfBtnText) . '</button>';
+            echo '</form>';
+            echo '</div></div>';
             break;
 
         default:

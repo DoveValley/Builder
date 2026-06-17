@@ -25,6 +25,9 @@ define('ADMIN_PASSWORD_HASH', '$2y$10$SK7tZX6VPaweb2Tzaj.rHeIxNrjR4qkHTkCHJsq1aK
 // Site name shown in the admin panel
 define('SITE_TITLE', 'Katy Pest Pros');
 
+// Email address where contact form submissions are delivered
+define('CONTACT_EMAIL', 'hello@yoursite.com');
+
 // File paths
 define('BASE_DIR', __DIR__);
 

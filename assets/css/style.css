@@ -3661,3 +3661,24 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 .bp-trigger-thumb svg { width: 36px; height: auto; display: block; }
 .bp-trigger-label { flex: 1; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .bp-trigger-arrow { color: #999; font-size: .65rem; flex-shrink: 0; }
+
+/* ---- Contact Form block ---- */
+.block-contact-form { padding: 60px 20px; background: var(--color-content-bg, #fff); }
+.block-contact-form .section-heading { text-align: center; margin-bottom: 8px; }
+.block-contact-form .section-subtext { text-align: center; color: #64748b; margin-bottom: 28px; }
+.cf-form { max-width: 640px; margin: 0 auto; }
+.cf-row { display: flex; gap: 16px; }
+.cf-row .cf-field { flex: 1 1 0; }
+.cf-field { display: flex; flex-direction: column; margin-bottom: 16px; }
+.cf-field label { font-size: .875rem; font-weight: 600; margin-bottom: 5px; color: #374151; }
+.cf-field input,
+.cf-field textarea { width: 100%; padding: 10px 14px; border: 1px solid #d1d5db; border-radius: 6px; font-size: .95rem; font-family: inherit; background: #fff; transition: border-color .15s; box-sizing: border-box; }
+.cf-field input:focus,
+.cf-field textarea:focus { outline: none; border-color: var(--color-accent, #fd783b); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent, #fd783b) 15%, transparent); }
+.cf-field textarea { resize: vertical; min-height: 120px; }
+.cf-req { color: #ef4444; }
+.cf-notice { max-width: 640px; margin: 0 auto 20px; padding: 14px 18px; border-radius: 6px; font-size: .92rem; }
+.cf-success { background: #f0fdf4; border: 1px solid #86efac; color: #166534; }
+.cf-error   { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.cf-form .cta-btn { margin-top: 8px; }
+@media (max-width: 560px) { .cf-row { flex-direction: column; gap: 0; } }
