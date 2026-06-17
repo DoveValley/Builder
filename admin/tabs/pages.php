@@ -22,9 +22,9 @@
                         <label for="new_page_type">Page type</label>
                         <select id="new_page_type" name="page_type">
                             <option value="landing">Landing Page</option>
-                            <option value="other">Other Page</option>
+                            <option value="other">Core Page</option>
                         </select>
-                        <span class="hint">Landing pages are city/service pages built for SEO cloning. Other pages are things like Privacy Policy, Terms, Contact.</span>
+                        <span class="hint">Landing pages are city/service pages built for SEO cloning. Core pages are things like Privacy Policy, Terms, Contact.</span>
                     </div>
                     <button type="submit" class="btn">Add Page</button>
                 </form>
@@ -57,7 +57,7 @@
             </div>
 
             <div class="card">
-                <h2>Other Pages</h2>
+                <h2>Core Pages</h2>
                 <?php $renderPageList($otherPages); ?>
             </div>
 

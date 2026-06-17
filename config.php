@@ -37,18 +37,28 @@ $_activeSiteId = $_SESSION['active_site'] ?? '';
 if ($_activeSiteId
     && preg_match('/^[a-z0-9][a-z0-9-]{0,59}$/', $_activeSiteId)
     && is_dir(BASE_DIR . '/sites/' . $_activeSiteId)) {
-    define('ACTIVE_SITE_ID',  $_activeSiteId);
-    define('ACTIVE_SITE_DIR', BASE_DIR . '/sites/' . $_activeSiteId);
-    define('DATA_FILE',       BASE_DIR . '/sites/' . $_activeSiteId . '/data/site.json');
-    define('COURSES_FILE',    BASE_DIR . '/sites/' . $_activeSiteId . '/data/courses.json');
-    define('UPLOAD_DIR',      BASE_DIR . '/sites/' . $_activeSiteId . '/uploads/');
-    define('UPLOAD_URL',      'sites/' . $_activeSiteId . '/uploads/');
+    define('ACTIVE_SITE_ID',   $_activeSiteId);
+    define('ACTIVE_SITE_DIR',  BASE_DIR . '/sites/' . $_activeSiteId);
+    define('DATA_FILE',        BASE_DIR . '/sites/' . $_activeSiteId . '/data/site.json');
+    define('COURSES_FILE',     BASE_DIR . '/sites/' . $_activeSiteId . '/data/courses.json');
+    define('UPLOAD_DIR',       BASE_DIR . '/sites/' . $_activeSiteId . '/uploads/');
+    define('UPLOAD_URL',       'sites/' . $_activeSiteId . '/uploads/');
+    define('TEMPLATES_FILE',   BASE_DIR . '/sites/' . $_activeSiteId . '/data/templates.json');
+    define('CITIES_FILE',      BASE_DIR . '/sites/' . $_activeSiteId . '/data/cities.json');
+    define('PAGE_INDEX_FILE',  BASE_DIR . '/sites/' . $_activeSiteId . '/data/page-index.json');
+    define('PAGES_DIR',        BASE_DIR . '/sites/' . $_activeSiteId . '/data/pages/');
+    define('GEN_LOG_FILE',     BASE_DIR . '/sites/' . $_activeSiteId . '/data/generation_log.json');
 } else {
-    define('ACTIVE_SITE_ID',  '');
-    define('ACTIVE_SITE_DIR', '');
-    define('DATA_FILE',       BASE_DIR . '/data/site.json');
-    define('COURSES_FILE',    BASE_DIR . '/data/courses.json');
-    define('UPLOAD_DIR',      BASE_DIR . '/uploads/');
-    define('UPLOAD_URL',      'uploads/');
+    define('ACTIVE_SITE_ID',   '');
+    define('ACTIVE_SITE_DIR',  '');
+    define('DATA_FILE',        BASE_DIR . '/data/site.json');
+    define('COURSES_FILE',     BASE_DIR . '/data/courses.json');
+    define('UPLOAD_DIR',       BASE_DIR . '/uploads/');
+    define('UPLOAD_URL',       'uploads/');
+    define('TEMPLATES_FILE',   BASE_DIR . '/data/templates.json');
+    define('CITIES_FILE',      BASE_DIR . '/data/cities.json');
+    define('PAGE_INDEX_FILE',  BASE_DIR . '/data/page-index.json');
+    define('PAGES_DIR',        BASE_DIR . '/data/pages/');
+    define('GEN_LOG_FILE',     BASE_DIR . '/data/generation_log.json');
 }
 unset($_activeSiteId);
