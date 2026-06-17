@@ -195,5 +195,53 @@ if ($action === 'delete') {
     exit;
 }
 
+// ── migrate_from_page — promote a landing page from site.json into templates ──
+if ($action === 'migrate_from_page') {
+    $pageId      = trim($_POST['page_id']      ?? '');
+    $tplTitle    = trim($_POST['tpl_title']    ?? '');
+    $slugPattern = trim($_POST['slug_pattern'] ?? '');
+    $keepOrig    = !empty($_POST['keep_original']);
+
+    $siteData = load_data();
+    $page = $siteData['pages'][$pageId] ?? null;
+
+    if ($page === null || ($page['page_type'] ?? '') !== 'landing') {
+        header('Location: index.php?tab=pages&msg=error:Landing+page+not+found');
+        exit;
+    }
+
+    if ($tplTitle    === '') $tplTitle    = $page['title'];
+    if ($slugPattern === '') $slugPattern = $page['slug'];
+
+    $templates = _tpl_load();
+    $id = _tpl_make_id($tplTitle, $templates);
+
+    $templates[] = [
+        'id'               => $id,
+        'title'            => $tplTitle,
+        'slug_pattern'     => $slugPattern,
+        'page_type'        => 'template',
+        'generation_steps' => [['step' => 'city_vars']],
+        'content_blocks'   => $page['content_blocks'] ?? [],
+        'seo'              => $page['seo']             ?? [],
+    ];
+
+    if (!_tpl_save($templates)) {
+        header('Location: index.php?tab=pages&msg=error:Could+not+save+template');
+        exit;
+    }
+
+    if (!$keepOrig) {
+        unset($siteData['pages'][$pageId]);
+        save_data($siteData);
+    }
+
+    $msg = $keepOrig
+        ? 'success:Template+created.+Original+page+kept+in+Landing+Pages.'
+        : 'success:Page+promoted+to+template.+Original+landing+page+removed.';
+    header('Location: index.php?tab=templates&template=' . urlencode($id) . '&msg=' . $msg);
+    exit;
+}
+
 header('Location: index.php?tab=templates');
 exit;
