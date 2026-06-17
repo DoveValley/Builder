@@ -1330,6 +1330,28 @@
                 "bc_mid_label": "",
                 "bc_mid_url": ""
             }
+        },
+        "page_locations": {
+            "title": "Training Locations",
+            "slug": "locations",
+            "page_type": "landing",
+            "content_blocks": [
+                {
+                    "type": "custom_html",
+                    "anchor": "",
+                    "html": "[locations]"
+                }
+            ],
+            "seo": {
+                "title": "Training Locations | {business}",
+                "description": "Find {business} project management certification training near you. PMP, CAPM, and CPMAI courses available in cities across the US."
+            }
         }
+    },
+    "landing_links": {
+        "format": "by_state",
+        "cols": 3,
+        "link_text": "{template_title} in {city}, {SS}",
+        "template_filter": ""
     }
 }
