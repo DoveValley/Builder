@@ -279,8 +279,6 @@ foreach ($footer['columns'] as $ci => $column) {
 
 </div>
 
-?>
-
 <script>
 /* ---------------------------------------------------------
    Generic row helpers (menu items, bottom links)
