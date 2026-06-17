@@ -1439,30 +1439,42 @@ function render_content_block($block, $pathPrefix = '') {
             $cfBtnText   = $block['cf_btn_text']  ?? 'Send Message';
             $cfShowPhone = !empty($block['cf_show_phone']);
 
-            if (empty($_SESSION['cf_csrf_token'])) {
-                $_SESSION['cf_csrf_token'] = bin2hex(random_bytes(32));
-            }
-            $cfCsrf    = $_SESSION['cf_csrf_token'];
-            $cfMsg     = $_GET['cf_msg'] ?? '';
-            $returnUrl = strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
-
             echo '<div class="content-block block-contact-form"' . $anchorAttr . '>';
             echo '<div class="container">';
             if ($cfHeading) echo '<h2 class="section-heading">' . h($cfHeading) . '</h2>';
             if ($cfSubtext) echo '<p class="section-subtext">' . h($cfSubtext) . '</p>';
 
-            if ($cfMsg === 'success') {
-                echo '<div class="cf-notice cf-success">Thank you! Your message has been sent — we\'ll be in touch shortly.</div>';
-            } elseif ($cfMsg === 'limit') {
-                echo '<div class="cf-notice cf-error">Too many submissions. Please try again in an hour.</div>';
-            } elseif ($cfMsg === 'error') {
-                echo '<div class="cf-notice cf-error">Something went wrong. Please check your details and try again.</div>';
-            }
+            if (defined('STATIC_BUILD') && STATIC_BUILD) {
+                $w3fKey = $GLOBALS['_static_web3forms_key'] ?? '';
+                if ($w3fKey !== '') {
+                    echo '<form class="cf-form" method="post" action="https://api.web3forms.com/submit">';
+                    echo '<input type="hidden" name="access_key" value="' . h($w3fKey) . '">';
+                    echo '<input type="hidden" name="redirect" value="' . h(resolve_shortcodes('{website}')) . '?submitted=1">';
+                    echo '<input type="checkbox" name="botcheck" style="display:none;" tabindex="-1">';
+                } else {
+                    echo '<p style="color:#9ca3af;font-style:italic;">Contact form requires a Web3Forms key — set it in the Deploy tab.</p>';
+                }
+            } else {
+                if (empty($_SESSION['cf_csrf_token'])) {
+                    $_SESSION['cf_csrf_token'] = bin2hex(random_bytes(32));
+                }
+                $cfCsrf    = $_SESSION['cf_csrf_token'];
+                $cfMsg     = $_GET['cf_msg'] ?? '';
+                $returnUrl = strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
 
-            echo '<form class="cf-form" method="post" action="' . h($pathPrefix) . 'contact_send.php">';
-            echo '<input type="hidden" name="cf_csrf" value="' . h($cfCsrf) . '">';
-            echo '<input type="hidden" name="return_url" value="' . h($returnUrl) . '">';
-            echo '<div style="display:none;"><input type="text" name="cf_hp" tabindex="-1" autocomplete="off"></div>';
+                if ($cfMsg === 'success') {
+                    echo '<div class="cf-notice cf-success">Thank you! Your message has been sent — we\'ll be in touch shortly.</div>';
+                } elseif ($cfMsg === 'limit') {
+                    echo '<div class="cf-notice cf-error">Too many submissions. Please try again in an hour.</div>';
+                } elseif ($cfMsg === 'error') {
+                    echo '<div class="cf-notice cf-error">Something went wrong. Please check your details and try again.</div>';
+                }
+
+                echo '<form class="cf-form" method="post" action="' . h($pathPrefix) . 'contact_send.php">';
+                echo '<input type="hidden" name="cf_csrf" value="' . h($cfCsrf) . '">';
+                echo '<input type="hidden" name="return_url" value="' . h($returnUrl) . '">';
+                echo '<div style="display:none;"><input type="text" name="cf_hp" tabindex="-1" autocomplete="off"></div>';
+            }
 
             echo '<div class="cf-row">';
             echo '<div class="form-group cf-field"><label>Name <span class="cf-req">*</span></label><input type="text" name="cf_name" required placeholder="Your name"></div>';
@@ -1472,8 +1484,12 @@ function render_content_block($block, $pathPrefix = '') {
                 echo '<div class="form-group cf-field"><label>Phone</label><input type="tel" name="cf_phone" placeholder="(555) 000-0000"></div>';
             }
             echo '<div class="form-group cf-field"><label>Message <span class="cf-req">*</span></label><textarea name="cf_message" rows="5" required placeholder="How can we help?"></textarea></div>';
-            echo '<button type="submit" class="cta-btn">' . h($cfBtnText) . '</button>';
-            echo '</form>';
+
+            if (!(defined('STATIC_BUILD') && STATIC_BUILD) || ($GLOBALS['_static_web3forms_key'] ?? '') !== '') {
+                echo '<button type="submit" class="cta-btn">' . h($cfBtnText) . '</button>';
+                echo '</form>';
+            }
+
             echo '</div></div>';
             break;
 

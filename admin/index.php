@@ -42,7 +42,7 @@ $blogSettings = $data['blog_settings'];
 
 // Active tab
 $tab = $_GET['tab'] ?? 'header';
-if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins'], true)) {
+if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy'], true)) {
     $tab = 'header';
 }
 // Redirect legacy tab links into the Plugins tab.
@@ -235,6 +235,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'media' ? 'active' : '' ?>" href="?tab=media">Media Library</a>
         <a class="tab-link <?= $tab === 'seo' ? 'active' : '' ?>" href="?tab=seo">SEO / Schema</a>
         <a class="tab-link <?= $tab === 'plugins' ? 'active' : '' ?>" href="?tab=plugins">Plugins</a>
+        <a class="tab-link <?= $tab === 'deploy' ? 'active' : '' ?>" href="?tab=deploy" style="margin-left:auto;">&#128640; Deploy</a>
     </div>
 
     <!-- ================= HEADER TAB ================= -->
@@ -273,6 +274,8 @@ foreach ($footer['columns'] as $ci => $column) {
     <!-- ================= SEO / SCHEMA TAB ================= -->
     <?php require __DIR__ . '/tabs/seo.php'; ?>
 
+    <!-- ================= DEPLOY TAB ================= -->
+    <?php require __DIR__ . '/tabs/deploy.php'; ?>
 
 </div>
 

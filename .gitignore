@@ -1,3 +1,10 @@
 uploads/*
 !uploads/.htaccess
 !uploads/README.txt
+
+# Static site output — generated, not committed
+output/
+
+# Per-site deploy credentials — never committed
+sites/*/deploy.json
+sites/*/deploy_manifest.json
