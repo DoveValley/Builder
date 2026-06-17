@@ -5,7 +5,7 @@
 
 register_plugin(
     'landing_links',
-    'Landing Links: Multi-City',
+    'Service Links: Multi-City',
     'Use [locations] in any Custom HTML block to list all generated city landing pages, grouped by city and state.',
     '&#127758;',
     __DIR__
