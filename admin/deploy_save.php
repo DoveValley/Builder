@@ -20,7 +20,7 @@ if ($section === 'build') {
     $cfg['canonical_domain'] = rtrim(trim($_POST['canonical_domain'] ?? ''), '/');
     $cfg['web3forms_key']    = trim($_POST['web3forms_key'] ?? '');
 } elseif ($section === 'ftp') {
-    $cfg['ftp_host']    = trim($_POST['ftp_host'] ?? '');
+    $cfg['ftp_host']    = preg_replace('#^ftps?://#i', '', trim($_POST['ftp_host'] ?? ''));
     $cfg['ftp_port']    = max(1, min(65535, (int)($_POST['ftp_port'] ?? 21)));
     $cfg['ftp_user']    = trim($_POST['ftp_user'] ?? '');
     if (trim($_POST['ftp_pass'] ?? '') !== '') {

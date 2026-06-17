@@ -41,7 +41,7 @@ if (!file_exists($deployFile)) {
 }
 $cfg = json_decode(file_get_contents($deployFile), true) ?: [];
 
-$host    = $cfg['ftp_host'] ?? '';
+$host    = preg_replace('#^ftps?://#i', '', trim($cfg['ftp_host'] ?? ''));
 $port    = (int)($cfg['ftp_port'] ?? 21);
 $user    = $cfg['ftp_user'] ?? '';
 $pass    = $cfg['ftp_pass'] ?? '';
