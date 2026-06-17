@@ -35,10 +35,35 @@
             </div>
 
             <div class="card">
-                <h2>3 Footer Columns</h2>
-                <p class="hint" style="margin-bottom:18px;">
-                    Column type: <strong>Text</strong> = heading + paragraph &nbsp;|&nbsp; <strong>Links</strong> = heading + link list &nbsp;|&nbsp; <strong>Contact</strong> = phone + city + optional extras.
-                </p>
+                <h2>Social Media Links</h2>
+                <p class="hint" style="margin-bottom:18px;">Leave blank to hide. Links appear in the footer bottom bar.</p>
+                <?php
+                $socials = $footer['socials'] ?? [];
+                $socialFields = ['facebook'=>'Facebook','instagram'=>'Instagram','linkedin'=>'LinkedIn','youtube'=>'YouTube','twitter'=>'X / Twitter'];
+                ?>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                    <?php foreach ($socialFields as $key => $label): ?>
+                    <div class="form-group">
+                        <label><?= $label ?></label>
+                        <input type="url" name="social_<?= $key ?>" value="<?= h($socials[$key] ?? '') ?>" placeholder="https://<?= $key ?>.com/yourpage">
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Footer Columns</h2>
+                <div style="display:flex;align-items:center;gap:16px;margin-bottom:18px;">
+                    <div class="form-group" style="margin:0;flex:0 0 auto;">
+                        <label>Number of columns</label>
+                        <select name="footer_col_count" style="width:auto;padding:8px 12px;">
+                            <?php foreach ([2,3,4] as $n): ?>
+                                <option value="<?= $n ?>" <?= ($footer['col_count'] ?? 3) == $n ? 'selected' : '' ?>><?= $n ?> columns</option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <p class="hint" style="margin:0;">Column type: <strong>Text</strong> = heading + paragraph &nbsp;|&nbsp; <strong>Links</strong> = heading + link list &nbsp;|&nbsp; <strong>Contact</strong> = phone + city + optional extras.</p>
+                </div>
 
                 <div id="footer-columns">
                     <?php foreach ($footer['columns'] as $ci => $column):

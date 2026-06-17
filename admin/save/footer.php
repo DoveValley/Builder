@@ -5,6 +5,11 @@
         $data['footer']['sticky_bar_text']      = trim($_POST['sticky_bar_text'] ?? '');
         $data['footer']['sticky_bar_info']      = trim($_POST['sticky_bar_info'] ?? '');
         $data['footer']['logo_in_copyright_bar']= !empty($_POST['logo_in_copyright_bar']);
+        $data['footer']['col_count'] = max(2, min(4, (int)($_POST['footer_col_count'] ?? 3)));
+        $socialKeys = ['facebook','instagram','linkedin','youtube','twitter'];
+        foreach ($socialKeys as $sk) {
+            $data['footer']['socials'][$sk] = sanitize_url(trim($_POST['social_' . $sk] ?? ''));
+        }
         $fl = upload_image('footer_logo','footerlogo');
         if ($fl === false) $message = 'error:Footer logo upload failed.';
         elseif ($fl !== null) $data['footer']['logo'] = $fl;

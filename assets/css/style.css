@@ -1843,12 +1843,16 @@ body { padding-bottom: 70px; }
 /* ============================================================
    SIMPLE 3-COLUMN FOOTER
    ============================================================ */
-.footer-cols-3 {
+.footer-cols-2,
+.footer-cols-3,
+.footer-cols-4 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     padding: 48px 20px 40px;
 }
+.footer-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.footer-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.footer-cols-4 { grid-template-columns: repeat(4, 1fr); }
 .footer-col {}
 .footer-col-title {
     font-size: 1rem;
@@ -1886,7 +1890,9 @@ body { padding-bottom: 70px; }
 .footer-col-links li a:hover { opacity: 1; }
 
 @media (max-width: 768px) {
-    .footer-cols-3 {
+    .footer-cols-2,
+    .footer-cols-3,
+    .footer-cols-4 {
         grid-template-columns: 1fr;
         gap: 28px;
         padding: 32px 16px 28px;

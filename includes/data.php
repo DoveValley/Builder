@@ -94,9 +94,17 @@ function default_data() {
             'logo'                  => '',
             'logo_in_copyright_bar' => false,
             'phone'           => '+1 (555) 123-4567',
+            'col_count'       => 3,
             'disclaimer'      => '',
             'sticky_bar_text' => '24/7 Support Line - Call Now',
             'sticky_bar_info' => '',
+            'socials'         => [
+                'facebook'  => '',
+                'instagram' => '',
+                'linkedin'  => '',
+                'youtube'   => '',
+                'twitter'   => '',
+            ],
             'columns'         => [
                 [
                     'title' => 'Company',

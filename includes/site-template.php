@@ -295,9 +295,10 @@ $infoItems = $header['info_items']      ?? [];
 
 <footer class="site-footer">
 
-    <!-- 3 EQUAL COLUMNS -->
+    <!-- FOOTER COLUMNS -->
     <div class="footer-main">
-        <div class="container footer-cols-3">
+        <?php $footerColCount = max(2, min(4, (int)($footer['col_count'] ?? 3))); ?>
+        <div class="container footer-cols-<?= $footerColCount ?>">
             <?php foreach ($footer['columns'] as $column):
                 $colType = $column['type'] ?? 'links';
             ?>
@@ -367,6 +368,16 @@ $infoItems = $header['info_items']      ?? [];
                 <img class="footer-bottom-logo" src="<?= h(($assetPathPrefix ?? '') . $footer['logo']) ?>" alt="Logo">
             <?php endif; ?>
             <div class="footer-copyright"><?= h($footer['copyright']) ?></div>
+            <?php $footerSocials = array_filter($footer['socials'] ?? []); ?>
+            <?php if (!empty($footerSocials)): ?>
+                <div class="footer-socials" style="margin-top:0;">
+                    <?php
+                    $socialLabels = ['facebook'=>'Facebook','instagram'=>'Instagram','linkedin'=>'LinkedIn','youtube'=>'YouTube','twitter'=>'X / Twitter'];
+                    foreach ($footerSocials as $platform => $url): ?>
+                        <a href="<?= h($url) ?>" class="social-link" target="_blank" rel="noopener noreferrer"><?= h($socialLabels[$platform] ?? ucfirst($platform)) ?></a>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
             <?php if (!empty($footer['bottom_links'])): ?>
                 <div class="footer-bottom-links">
                     <?php $first = true;
