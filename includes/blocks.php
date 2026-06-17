@@ -89,14 +89,12 @@ function grouped_block_types(): array {
     return [
         'Hero / Banner' => [
             'hero'        => 'Full width',
-            'hero_split'  => 'Split (image right)',
             'hero_grid'   => 'Grid (image left, icon grid right)',
             'wide_banner' => 'Wide (full-width bg image)',
         ],
         'Content' => [
             'text'          => 'Text only',
-            'image_left'    => 'Image left, text right',
-            'image_right'   => 'Text left, image right',
+            'image_left'    => 'Image + Text (choose side)',
             'image_text'    => 'Image & text side by side',
             'feature_split' => 'Feature split (image left, icon grid right)',
             'video'         => 'Video embed',
@@ -113,16 +111,12 @@ function grouped_block_types(): array {
             'testimonials'    => 'Customer reviews',
         ],
         'FAQ & Links' => [
-            'faq'         => 'Accordion',
-            'faq_two_col' => 'Two-column accordion',
-            'links_grid'  => 'Links grid',
+            'faq'        => 'Accordion (1 or 2 cols)',
+            'links_grid' => 'Links grid',
         ],
         'CTA' => [
             'buttons_grid' => 'Button grid',
-            'cta_banner' => 'Solid color banner',
-            'cta_card'   => 'CTA card (heading + phone)',
-            'split_cta'  => 'Split panel (colored + phone)',
-            'cta_button' => 'Button only',
+            'cta_banner'   => 'Solid color banner',
         ],
         'Utility' => [
             'map_info'    => 'Map + info',
@@ -189,16 +183,18 @@ function render_content_block($block, $pathPrefix = '') {
             echo '</div></div>';
             break;
 
-        /* ---- IMAGE LEFT / RIGHT (legacy) ---- */
+        /* ---- IMAGE LEFT / RIGHT ---- */
         case 'image_left':
         case 'image_right':
-            $layout   = ($type === 'image_left') ? 'image-left' : 'image-right';
+            // image_left uses image_side field; legacy image_right blocks default to right
+            $imgSide  = ($type === 'image_right') ? 'right' : ($block['image_side'] ?? 'left');
+            $layout   = ($imgSide === 'right') ? 'image-right' : 'image-left';
             $irLayout = $block['ir_layout'] ?? 'side';
             $extraClass = ($irLayout === 'stacked') ? ' layout-stacked' : '';
             echo '<div class="content-block ' . $layout . $extraClass . '"' . $anchorAttr . '>';
-            if ($type === 'image_left' && $photo && $irLayout !== 'stacked') echo render_content_photo($photo, $ratio, $position, $alt, $pathPrefix);
+            if ($imgSide === 'left' && $photo && $irLayout !== 'stacked') echo render_content_photo($photo, $ratio, $position, $alt, $pathPrefix);
             echo '<div class="content-text">' . text_to_html($text) . '</div>';
-            if ($photo && ($type === 'image_right' || $irLayout === 'stacked')) echo render_content_photo($photo, $ratio, $position, $alt, $pathPrefix);
+            if ($photo && ($imgSide === 'right' || $irLayout === 'stacked')) echo render_content_photo($photo, $ratio, $position, $alt, $pathPrefix);
             echo '</div>';
             break;
 
@@ -440,10 +436,12 @@ function render_content_block($block, $pathPrefix = '') {
         case 'faq':
             $heading = $block['faq_heading'] ?? '';
             $items   = $block['faq_items']   ?? [];
+            $faqCols = (int)($block['faq_cols'] ?? 1);
             $faqId   = 'faq_' . substr(md5(serialize($block)), 0, 6);
             echo '<div class="content-block block-faq"' . $anchorAttr . '>';
             if ($heading) echo '<h2 class="section-heading">' . h($heading) . '</h2>';
-            echo '<div class="faq-list" id="' . $faqId . '">';
+            $listClass = $faqCols === 2 ? 'faq-list faq-two-col' : 'faq-list';
+            echo '<div class="' . $listClass . '" id="' . $faqId . '">';
             foreach ($items as $idx => $item) {
                 $q = $item['question'] ?? '';
                 $a = $item['answer']   ?? '';

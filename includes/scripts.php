@@ -96,6 +96,20 @@ function content_editor_scripts() {
                 </div>
             </div>
             <div class="block-fields block-fields-image_left block-fields-image_right is-hidden">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:1 1 180px;"><label>Image side</label>
+                        <select name="image_side[]">
+                            <option value="left" selected>Image left, text right</option>
+                            <option value="right">Text left, image right</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex:1 1 180px;"><label>Layout</label>
+                        <select name="ir_layout[]">
+                            <option value="side" selected>Side by side</option>
+                            <option value="stacked">Stacked (text above, image below)</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="form-group"><label>Text</label><textarea name="block_text[]" rows="4" class="rich-editor"></textarea></div>
                 <div class="form-group"><label>Image alt text</label><input type="text" name="block_photo_alt[]" placeholder="Describe the image"></div>
                 <div class="current-image"><span class="none">No image uploaded yet.</span></div>

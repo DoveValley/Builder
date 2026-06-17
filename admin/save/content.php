@@ -30,6 +30,7 @@
 
                 case 'image_left':
                 case 'image_right':
+                    $block['image_side'] = ($_POST['image_side'][$i] ?? 'left') === 'right' ? 'right' : 'left';
                     $block['ir_layout'] = ($_POST['ir_layout'][$i] ?? 'side') === 'stacked' ? 'stacked' : 'side';
                     $block['text']  = sanitize_rich_html($_POST['block_text'][$i] ?? '');
                     $block['photo'] = trim($_POST['block_existing_photo'][$i] ?? '');
@@ -193,6 +194,7 @@
 
                 case 'faq':
                     $block['faq_heading'] = trim($_POST['faq_heading'][$i] ?? '');
+                    $block['faq_cols'] = (int)($_POST['faq_cols'][$i] ?? 1) === 2 ? 2 : 1;
                     $questions = $_POST['faq_question'][$i] ?? [];
                     $answers   = $_POST['faq_answer'][$i]   ?? [];
                     $items = [];

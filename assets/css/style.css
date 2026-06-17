@@ -787,6 +787,7 @@ a:hover {
 /* ---- FAQ / Accordion ---- */
 .block-faq { padding: 48px 24px; max-width: 860px; margin: 0 auto; }
 .faq-list { display: flex; flex-direction: column; gap: 8px; }
+.faq-list.faq-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 28px; max-width: 1200px; }
 .faq-item { border: 1px solid #e2e8f0; border-radius: 6px; overflow: hidden; }
 .faq-question {
     width: 100%;
@@ -1338,6 +1339,7 @@ html, body {
     /* FAQ touch friendliness */
     .faq-question { padding: 14px 16px; }
     .block-faq    { padding: 32px 16px; }
+    .faq-list.faq-two-col { grid-template-columns: 1fr; }
 
     /* Custom HTML — constrain embeds */
     .block-custom-html { padding: 16px; overflow-x: auto; }

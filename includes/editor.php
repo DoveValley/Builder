@@ -49,7 +49,17 @@ function render_content_blocks_editor($blocks) {
                 <div class="block-card-header">
                     <span class="block-label">Block <?= $i + 1 ?></span>
                     <select name="block_type[]" class="block-type-select" onchange="switchBlockType(this)">
-                        <?php foreach (grouped_block_types() as $groupLabel => $groupItems): ?>
+                        <?php
+                        $grouped = grouped_block_types();
+                        $inGrouped = false;
+                        foreach ($grouped as $gItems) { if (array_key_exists($type, $gItems)) { $inGrouped = true; break; } }
+                        if (!$inGrouped && array_key_exists($type, allowed_block_types())):
+                        ?>
+                            <optgroup label="Existing (legacy)">
+                                <option value="<?= h($type) ?>" selected><?= h(allowed_block_types()[$type]) ?></option>
+                            </optgroup>
+                        <?php endif; ?>
+                        <?php foreach ($grouped as $groupLabel => $groupItems): ?>
                             <optgroup label="<?= h($groupLabel) ?>">
                                 <?php foreach ($groupItems as $key => $label): ?>
                                     <option value="<?= h($key) ?>" <?= $key === $type ? 'selected' : '' ?>><?= h($label) ?></option>
@@ -94,14 +104,23 @@ function render_content_blocks_editor($blocks) {
                     </div>
                 </div>
 
-                <?php /* ---- IMAGE LEFT / RIGHT FIELDS (legacy) ---- */ ?>
+                <?php /* ---- IMAGE LEFT / RIGHT FIELDS ---- */ ?>
                 <div class="block-fields block-fields-image_left block-fields-image_right <?= !in_array($type, ['image_left','image_right']) ? 'is-hidden' : '' ?>">
-                    <div class="form-group">
-                        <label>Layout</label>
-                        <select name="ir_layout[]">
-                            <option value="side"    <?= ($block['ir_layout'] ?? 'side') === 'side'    ? 'selected' : '' ?>>Side by side (image + text)</option>
-                            <option value="stacked" <?= ($block['ir_layout'] ?? 'side') === 'stacked' ? 'selected' : '' ?>>Stacked (text above, image below)</option>
-                        </select>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:1 1 180px;">
+                            <label>Image side</label>
+                            <select name="image_side[]">
+                                <option value="left"  <?= ($block['image_side'] ?? ($type === 'image_right' ? 'right' : 'left')) === 'left'  ? 'selected' : '' ?>>Image left, text right</option>
+                                <option value="right" <?= ($block['image_side'] ?? ($type === 'image_right' ? 'right' : 'left')) === 'right' ? 'selected' : '' ?>>Text left, image right</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="flex:1 1 180px;">
+                            <label>Layout</label>
+                            <select name="ir_layout[]">
+                                <option value="side"    <?= ($block['ir_layout'] ?? 'side') === 'side'    ? 'selected' : '' ?>>Side by side</option>
+                                <option value="stacked" <?= ($block['ir_layout'] ?? 'side') === 'stacked' ? 'selected' : '' ?>>Stacked (text above, image below)</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Text</label>
@@ -511,9 +530,18 @@ function render_content_blocks_editor($blocks) {
 
                 <?php /* ---- FAQ FIELDS ---- */ ?>
                 <div class="block-fields block-fields-faq <?= $type !== 'faq' ? 'is-hidden' : '' ?>">
-                    <div class="form-group">
-                        <label>Section heading (H2)</label>
-                        <input type="text" name="faq_heading[]" value="<?= h($block['faq_heading'] ?? '') ?>" placeholder="e.g. Frequently Asked Questions">
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:1 1 200px;">
+                            <label>Section heading (H2)</label>
+                            <input type="text" name="faq_heading[]" value="<?= h($block['faq_heading'] ?? '') ?>" placeholder="e.g. Frequently Asked Questions">
+                        </div>
+                        <div class="form-group" style="flex:0 0 160px;">
+                            <label>Columns</label>
+                            <select name="faq_cols[]">
+                                <option value="1" <?= ($block['faq_cols'] ?? 1) != 2 ? 'selected' : '' ?>>Single column</option>
+                                <option value="2" <?= ($block['faq_cols'] ?? 1) == 2 ? 'selected' : '' ?>>Two columns</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="faq-items-editor" id="faq_items_<?= $i ?>">
                         <?php $faqItems = $block['faq_items'] ?? [['question'=>'','answer'=>'']]; ?>
