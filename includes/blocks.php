@@ -508,10 +508,16 @@ function render_content_block($block, $pathPrefix = '') {
         /* ---- CUSTOM HTML ---- */
         case 'custom_html':
             $html = apply_course_shortcodes($block['html'] ?? '');
+            $html = filter_hook('shortcode_content', $html, $pathPrefix);
             if ($html !== '') {
-                echo '<div class="content-block block-custom-html"' . $anchorAttr . '>';
-                echo $html;
-                echo '</div>';
+                // If a plugin returned a full content-block, echo it raw to avoid wrapper nesting.
+                if (preg_match('/^\s*<div[^>]*class="[^"]*\bcontent-block\b/', $html)) {
+                    echo $html;
+                } else {
+                    echo '<div class="content-block block-custom-html"' . $anchorAttr . '>';
+                    echo $html;
+                    echo '</div>';
+                }
             }
             break;
 
