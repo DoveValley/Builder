@@ -42,7 +42,7 @@ $blogSettings = $data['blog_settings'];
 
 // Active tab
 $tab = $_GET['tab'] ?? 'header';
-if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'footer', 'popups', 'media', 'seo', 'blog', 'schedule'], true)) {
+if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule'], true)) {
     $tab = 'header';
 }
 
@@ -52,6 +52,24 @@ $editingPage   = null;
 if ($tab === 'pages' && !empty($_GET['page']) && isset($pages[$_GET['page']])) {
     $editingPageId = $_GET['page'];
     $editingPage   = $pages[$editingPageId];
+}
+
+// If on the Templates tab, are we viewing the list or editing one template?
+$templates          = [];
+$editingTemplateId  = null;
+$editingTemplate    = null;
+if (file_exists(TEMPLATES_FILE)) {
+    $raw = json_decode(file_get_contents(TEMPLATES_FILE), true);
+    $templates = is_array($raw) ? $raw : [];
+}
+if ($tab === 'templates' && !empty($_GET['template'])) {
+    foreach ($templates as $tpl) {
+        if ($tpl['id'] === $_GET['template']) {
+            $editingTemplateId = $tpl['id'];
+            $editingTemplate   = $tpl;
+            break;
+        }
+    }
 }
 
 // If on the Blog tab, are we viewing the list or editing one post?
@@ -181,6 +199,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'theme' ? 'active' : '' ?>" href="?tab=theme">Theme / Colors</a>
         <a class="tab-link <?= $tab === 'content' ? 'active' : '' ?>" href="?tab=content">Home Page</a>
         <a class="tab-link <?= $tab === 'pages' ? 'active' : '' ?>" href="?tab=pages">Landing Pages</a>
+        <a class="tab-link <?= $tab === 'templates' ? 'active' : '' ?>" href="?tab=templates">Templates</a>
         <a class="tab-link <?= $tab === 'blog' ? 'active' : '' ?>" href="?tab=blog">Blog</a>
         <a class="tab-link <?= $tab === 'footer' ? 'active' : '' ?>" href="?tab=footer">Footer</a>
         <a class="tab-link <?= $tab === 'popups' ? 'active' : '' ?>" href="?tab=popups">Popups</a>
@@ -200,6 +219,9 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- ================= PAGES TAB ================= -->
     <?php require __DIR__ . '/tabs/pages.php'; ?>
+
+    <!-- ================= TEMPLATES TAB ================= -->
+    <?php require __DIR__ . '/tabs/templates.php'; ?>
 
     <!-- ================= BLOG TAB ================= -->
     <?php require __DIR__ . '/tabs/blog.php'; ?>
