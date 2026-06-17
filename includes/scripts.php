@@ -4,9 +4,13 @@
    ============================================================ */
 function content_editor_scripts() {
     $blockTypes = json_encode(array_keys(allowed_block_types()));
+    $bpThumbs   = json_encode(block_thumbnails());
+    $bpLabels   = json_encode(allowed_block_types());
     ?>
     <script>
     const BLOCK_TYPES = <?= $blockTypes ?>;
+    const BP_THUMBS   = <?= $bpThumbs ?>;
+    const BP_LABELS   = <?= $bpLabels ?>;
 
     /* Show only the fields panel matching the selected block type */
     function switchBlockType(select) {
@@ -36,13 +40,58 @@ function content_editor_scripts() {
         if (container.children.length > 1) card.remove();
     }
 
-    /* Add a new blank block */
-    function addBlock() {
+    /* Block picker state */
+    let _bpTargetSelect = null, _bpTargetCard = null, _bpNewBlock = false;
+
+    function openBlockPicker(triggerBtn) {
+        _bpTargetSelect = triggerBtn.previousElementSibling;
+        _bpTargetCard   = triggerBtn;
+        _bpNewBlock     = false;
+        _highlightPicker(_bpTargetSelect ? _bpTargetSelect.value : null);
+        document.getElementById('block-picker-modal').classList.add('is-open');
+    }
+
+    function _openPickerForNew() {
+        _bpTargetSelect = null; _bpTargetCard = null; _bpNewBlock = true;
+        _highlightPicker(null);
+        document.getElementById('block-picker-modal').classList.add('is-open');
+    }
+
+    function _highlightPicker(currentType) {
+        document.querySelectorAll('#block-picker-modal .bp-card').forEach(c => {
+            c.classList.toggle('is-selected', c.dataset.type === currentType);
+        });
+    }
+
+    function selectBlockType(type) {
+        if (_bpNewBlock) {
+            closeBlockPicker();
+            _createBlock(type);
+        } else if (_bpTargetSelect) {
+            _bpTargetSelect.value = type;
+            switchBlockType(_bpTargetSelect);
+            if (_bpTargetCard) {
+                _bpTargetCard.querySelector('.bp-trigger-thumb').innerHTML = BP_THUMBS[type] || BP_THUMBS['text'] || '';
+                _bpTargetCard.querySelector('.bp-trigger-label').textContent = BP_LABELS[type] || type;
+            }
+            closeBlockPicker();
+        }
+    }
+
+    function closeBlockPicker() {
+        document.getElementById('block-picker-modal').classList.remove('is-open');
+        _bpTargetSelect = null; _bpTargetCard = null; _bpNewBlock = false;
+    }
+
+    /* Add a new blank block — opens the picker first */
+    function addBlock() { _openPickerForNew(); }
+
+    function _createBlock(type) {
         const container = document.getElementById('content-blocks');
         const idx = container.children.length;
         const card = document.createElement('div');
         card.className = 'block-card';
-        card.dataset.blockType = 'text';
+        card.dataset.blockType = type;
 
         let typeOptions = '';
         <?php foreach (grouped_block_types() as $groupLabel => $groupItems): ?>
@@ -52,13 +101,22 @@ function content_editor_scripts() {
         <?php endforeach; ?>
         typeOptions += `</optgroup>`;
         <?php endforeach; ?>
+        typeOptions = typeOptions.replace(`value="${type}"`, `value="${type}" selected`);
+
+        const thumbHtml = BP_THUMBS[type] || BP_THUMBS['text'] || '';
+        const typeLabel  = BP_LABELS[type]  || type;
 
         card.innerHTML = `
             <div class="block-card-header">
                 <span class="block-label">New block</span>
-                <select name="block_type[]" class="block-type-select" onchange="switchBlockType(this)">
+                <select name="block_type[]" class="block-type-select" style="display:none;" onchange="switchBlockType(this)">
                     ${typeOptions}
                 </select>
+                <button type="button" class="bp-trigger" onclick="openBlockPicker(this)">
+                    <span class="bp-trigger-thumb">${thumbHtml}</span>
+                    <span class="bp-trigger-label">${typeLabel}</span>
+                    <span class="bp-trigger-arrow">&#9660;</span>
+                </button>
                 <input type="text" name="block_anchor[]"
                        placeholder="Section ID (e.g. about)"
                        title="Anchor ID — use in menu links as #about"
@@ -69,7 +127,7 @@ function content_editor_scripts() {
                     <button type="button" class="icon-btn remove-row" onclick="removeBlock(this)">Remove</button>
                 </div>
             </div>
-            <div class="block-fields block-fields-text">
+            <div class="block-fields block-fields-text is-hidden">
                 <input type="hidden" name="block_photo_alt[]" value="">
                 <input type="hidden" name="block_existing_photo[]" value="">
                 <input type="hidden" name="block_photo_ratio[]" value="landscape">
@@ -558,6 +616,8 @@ function content_editor_scripts() {
             </div>
         `;
         container.appendChild(card);
+        const sel = card.querySelector('.block-type-select');
+        if (sel) switchBlockType(sel);
         if (typeof initRichEditors === 'function') initRichEditors(card);
     }
 

@@ -48,7 +48,7 @@ function render_content_blocks_editor($blocks) {
             <div class="block-card" data-block-type="<?= h($type) ?>">
                 <div class="block-card-header">
                     <span class="block-label">Block <?= $i + 1 ?></span>
-                    <select name="block_type[]" class="block-type-select" onchange="switchBlockType(this)">
+                    <select name="block_type[]" class="block-type-select" style="display:none;" onchange="switchBlockType(this)">
                         <?php
                         $grouped = grouped_block_types();
                         $inGrouped = false;
@@ -67,6 +67,12 @@ function render_content_blocks_editor($blocks) {
                             </optgroup>
                         <?php endforeach; ?>
                     </select>
+                    <?php $thumbs = block_thumbnails(); ?>
+                    <button type="button" class="bp-trigger" onclick="openBlockPicker(this)">
+                        <span class="bp-trigger-thumb"><?= $thumbs[$type] ?? $thumbs['text'] ?></span>
+                        <span class="bp-trigger-label"><?= h(allowed_block_types()[$type] ?? $type) ?></span>
+                        <span class="bp-trigger-arrow">&#9660;</span>
+                    </button>
                     <input type="text" name="block_anchor[]"
                            value="<?= h($block['anchor'] ?? '') ?>"
                            placeholder="Section ID (e.g. pest_services)"
@@ -1626,6 +1632,33 @@ function render_content_blocks_editor($blocks) {
             <?php endforeach; ?>
         </div>
         <button type="button" class="btn btn-secondary btn-small" onclick="addBlock()">+ Add content block</button>
+    </div>
+
+    <?php /* ---- BLOCK PICKER MODAL ---- */ ?>
+    <div id="block-picker-modal" role="dialog" aria-modal="true" aria-label="Choose block type">
+        <div class="bp-overlay" onclick="closeBlockPicker()"></div>
+        <div class="bp-panel">
+            <button type="button" class="bp-close" onclick="closeBlockPicker()" aria-label="Close">&times;</button>
+            <h3 style="margin:0 0 18px;font-size:1.1rem;">Choose a block type</h3>
+            <?php foreach (grouped_block_types() as $gLabel => $gItems): ?>
+            <div class="bp-group">
+                <div class="bp-group-label"><?= h($gLabel) ?></div>
+                <div class="bp-grid">
+                    <?php foreach ($gItems as $bKey => $bLabel):
+                        $svg = $thumbs[$bKey] ?? $thumbs['text'];
+                    ?>
+                    <div class="bp-card" data-type="<?= h($bKey) ?>"
+                         onclick="selectBlockType('<?= h($bKey) ?>')"
+                         onkeydown="if(event.key==='Enter'||event.key===' ')selectBlockType('<?= h($bKey) ?>')"
+                         role="button" tabindex="0">
+                        <span class="bp-card-thumb"><?= $svg ?></span>
+                        <div class="bp-card-name"><?= h($bLabel) ?></div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
     <?php
 }
