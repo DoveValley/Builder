@@ -1,0 +1,1335 @@
+{
+    "theme": {
+        "header_bg": "#1a2e5a",
+        "header_text": "#ffffff",
+        "content_bg": "#ffffff",
+        "content_text": "#555e6d",
+        "footer_bg": "#1a2e5a",
+        "footer_text": "#ffffff",
+        "accent_color": "#c8960a",
+        "primary_font": "Roboto, sans-serif",
+        "button_radius": "6",
+        "analytics_head": "",
+        "facebook_pixel": "",
+        "font_family": "Roboto, sans-serif",
+        "header_top_bg": "#f0f4f8",
+        "heading_color": "#1a2e5a"
+    },
+    "header": {
+        "logo": "",
+        "phone": "{phone}",
+        "city": "{city_state}",
+        "topbar_text": "PMI Authorized Training Partner — {city}, {SS}",
+        "topbar_link": "",
+        "menu": [
+            {
+                "label": "Home",
+                "url": "/",
+                "children": []
+            },
+            {
+                "label": "Programs",
+                "url": "#",
+                "children": [
+                    {
+                        "label": "PMP Certification Training",
+                        "url": "/pmp-certification-training-san-antonio-tx"
+                    },
+                    {
+                        "label": "PMP Exam Prep Bootcamp",
+                        "url": "/pmp-bootcamp-san-antonio"
+                    },
+                    {
+                        "label": "CAPM Certification Training",
+                        "url": "/capm-certification-training-san-antonio-tx"
+                    },
+                    {
+                        "label": "CAPM Bootcamp",
+                        "url": "/capm-bootcamp-san-antonio"
+                    },
+                    {
+                        "label": "CPMAI Certification Training",
+                        "url": "/cpmai-certification-training-san-antonio"
+                    }
+                ]
+            },
+            {
+                "label": "Schedule",
+                "url": "/#course_schedule",
+                "children": []
+            },
+            {
+                "label": "Contact",
+                "url": "/contact-us",
+                "children": []
+            }
+        ],
+        "socials": {
+            "facebook": "",
+            "instagram": "",
+            "twitter": "",
+            "youtube": "",
+            "linkedin": "",
+            "tiktok": "",
+            "yelp": ""
+        },
+        "nav_bg": "#1a2e5a",
+        "nav_text": "#ffffff",
+        "phone_btn_style": "solid",
+        "sticky": true,
+        "info_items": [
+            {
+                "icon": "",
+                "text": "PMP ® CAPM ® CPMAI ® Training"
+            },
+            {
+                "icon": "",
+                "text": "Live-Virtual & On-Demand"
+            }
+        ],
+        "logo_max_height": 72
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "Project Management Certification Training in {city}, {SS}",
+            "hs_subtext": "<p>Granite PM Academy equips project managers in {city_state} with the credentials and skills to lead with confidence. Our PMI-aligned PMP®, CAPM®, and CPMAI® programs are taught by certified practitioners with real-world project leadership experience.</p>",
+            "hs_btn_text": "View Programs",
+            "hs_btn_url": "/pmp-certification-training-san-antonio-tx",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Project management training in {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "",
+            "hs_bg_photo": "",
+            "hs_mobile_order": ""
+        },
+        {
+            "type": "feature_columns",
+            "fc_heading": "Why {city} Project Managers Choose Granite PM Academy",
+            "fc_num_cols": "4",
+            "columns": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "PMI-Aligned Curriculum",
+                    "text": "Every program is built around PMI’s current exam content outline and satisfies the education hour requirements for PMP and CAPM applications."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Instructors Who Practice PM",
+                    "text": "Our instructors are active certified project managers who bring field experience into every session — not just academic theory."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Live-Virtual and On-Demand",
+                    "text": "Attend a scheduled live-virtual cohort or learn at your own pace with on-demand access. Both formats include the same materials and instructor support."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Exam Strategy Built In",
+                    "text": "Practice exams, study guides, and test-taking coaching are included in every program to maximize your odds of passing on the first attempt."
+                }
+            ]
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "header",
+            "stats_text_color": "#ffffff",
+            "stats_items": [
+                {
+                    "number": "92%",
+                    "label": "First-attempt PMP pass rate"
+                },
+                {
+                    "number": "1,200+",
+                    "label": "Project managers trained"
+                },
+                {
+                    "number": "15+",
+                    "label": "Years serving {city} professionals"
+                },
+                {
+                    "number": "4.9★",
+                    "label": "Average instructor rating"
+                }
+            ]
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "Choose Your Certification Path",
+            "pc_cols": "3",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "PMP Certification Training",
+                    "badge": "MOST POPULAR",
+                    "sublabel": "PMI FLAGSHIP CREDENTIAL",
+                    "featured": true,
+                    "desc": "The global standard for experienced project managers. Demonstrate your ability to lead projects using predictive, agile, and hybrid approaches.",
+                    "features": "35 PMI education hours included\nFull exam prep and practice tests\nLive-virtual or on-demand format\nStudy materials for 90 days\nInstructor Q&A support",
+                    "meta": "4 Days · Live-Virtual · From $1,995",
+                    "btn_text": "View Schedule",
+                    "btn_url": "/pmp-certification-training-san-antonio-tx"
+                },
+                {
+                    "name": "CAPM Certification Training",
+                    "badge": "",
+                    "sublabel": "ENTRY-LEVEL CREDENTIAL",
+                    "featured": false,
+                    "desc": "The ideal starting point for aspiring project managers. Build a solid PM foundation and open the door to career advancement.",
+                    "features": "23 PMI education hours included\nExam prep and practice tests\nLive-virtual or on-demand format\nStudy materials included\nSmall-cohort instruction",
+                    "meta": "2 Days · Live-Virtual · From $795",
+                    "btn_text": "View Schedule",
+                    "btn_url": "/capm-certification-training-san-antonio-tx"
+                },
+                {
+                    "name": "CPMAI Certification Training",
+                    "badge": "NEW",
+                    "sublabel": "AI PROJECT MANAGEMENT",
+                    "featured": false,
+                    "desc": "A forward-looking credential for project managers overseeing AI-driven initiatives. Learn to plan, execute, and govern AI projects effectively.",
+                    "features": "Recognized by Cognilytica\nAI project lifecycle and data governance\nLive-virtual cohorts\nCase studies and hands-on exercises\nPost-course instructor access",
+                    "meta": "2 Days · Live-Virtual · From $1,495",
+                    "btn_text": "View Schedule",
+                    "btn_url": "/cpmai-certification-training-san-antonio"
+                }
+            ]
+        },
+        {
+            "type": "testimonials",
+            "tm_heading": "What Our Graduates Say",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "custom",
+            "tm_accent_custom": "#c8960a",
+            "tm_cols": "3",
+            "tm_items": [
+                {
+                    "quote": "After years of managing projects without a credential, Granite PM Academy gave me the structure and confidence to pass the PMP on my first try. The instructors spoke from genuine field experience, not just textbook knowledge.",
+                    "name": "Marcus T.",
+                    "location": "{city}, TX",
+                    "initials": "MT",
+                    "avatar_color": "#1a2e5a",
+                    "result_badge": "PMP Certified"
+                },
+                {
+                    "quote": "I wasn’t sure I had the background to sit for the CAPM, but the course made everything approachable. Within three weeks of finishing the training, I passed the exam and landed a junior PM role at a local firm.",
+                    "name": "Diana R.",
+                    "location": "{city}, TX",
+                    "initials": "DR",
+                    "avatar_color": "#c8960a",
+                    "result_badge": "CAPM Certified"
+                },
+                {
+                    "quote": "I chose the on-demand PMP option because my schedule is unpredictable. The content was well-organized, the practice exams were thorough, and the instructor responded quickly whenever I had questions.",
+                    "name": "Kevin L.",
+                    "location": "{city}, TX",
+                    "initials": "KL",
+                    "avatar_color": "#1a2e5a",
+                    "result_badge": "PMP Certified"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"course_schedule\"></div>[course_schedule type=\"All\"]"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "Frequently Asked Questions",
+            "fq_bg_color": "#f0f4f8",
+            "fq_head_color": "header",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg": "accent",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_item_bg": "#ffffff",
+            "fq_items": [
+                {
+                    "question": "What are the eligibility requirements for the PMP exam?",
+                    "answer": "PMI requires a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants also need 35 hours of PM education, which our PMP Certification Training satisfies."
+                },
+                {
+                    "question": "How long does it take to get PMP certified?",
+                    "answer": "After completing your training, PMI typically approves your application within 5–10 business days. Once approved, you have one year to schedule and pass the exam. Most candidates take 4–8 weeks to study after their course."
+                },
+                {
+                    "question": "What is the CAPM and who should pursue it?",
+                    "answer": "The Certified Associate in Project Management is designed for professionals early in their PM career or transitioning into project management. It requires only secondary education and 23 hours of training — no professional experience is required."
+                },
+                {
+                    "question": "What is CPMAI and how does it differ from PMP?",
+                    "answer": "The CPMAI credential, offered by Cognilytica, focuses on managing projects that involve artificial intelligence. It covers the AI project lifecycle, data strategy, and governance. It complements rather than replaces the PMP."
+                },
+                {
+                    "question": "Do your courses satisfy PMI’s education hour requirement?",
+                    "answer": "Yes. Our PMP training provides the 35 contact hours required for the PMP exam application. Our CAPM training provides the 23 hours required for the CAPM application. You receive a certificate of completion to submit to PMI."
+                },
+                {
+                    "question": "Are the courses available entirely online?",
+                    "answer": "Yes. All of our programs are offered as live-virtual cohorts conducted via video conference — no travel required. We also offer self-paced on-demand access for PMP and CAPM courses. Both formats include the same study materials and instructor support."
+                }
+            ]
+        },
+        {
+            "type": "contact_form",
+            "cf_heading": "Questions About Our Programs? We’re Here to Help.",
+            "cf_subtext": "Our team typically responds within one business day.",
+            "cf_btn_text": "Send Message",
+            "cf_show_phone": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Ready to Advance Your Project Management Career?",
+            "cb_subtext": "Join the hundreds of {city} professionals who have earned their credentials through Granite PM Academy.",
+            "cb_btn_text": "Browse Programs",
+            "cb_btn_url": "/pmp-certification-training-san-antonio-tx",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
+    ],
+    "seo": {
+        "seo_title": "PMP & Project Management Certification Training {city} {SS} | {business}",
+        "canonical_url": "{website}/",
+        "meta_description": "PMI-aligned PMP, CAPM, and CPMAI certification training in {city_state}. Live-virtual and on-demand courses taught by certified practitioners. 92% first-attempt pass rate.",
+        "meta_keywords": "PMP certification training {city} TX, CAPM certification {city} TX, project management training {city} {SS}, PMP bootcamp {city}, CPMAI training {city}",
+        "og_title": "Project Management Certification Training in {city}, {SS} | {business}",
+        "og_description": "Earn your PMP, CAPM, or CPMAI credential with Granite PM Academy in {city}, TX. PMI-aligned courses led by active practitioners. Live-virtual and on-demand formats available.",
+        "og_image": "",
+        "service_name": "Project Management Certification Training",
+        "service_type": "EducationalOrganization",
+        "service_area": "{city}, TX",
+        "service_description": "PMI-aligned PMP, CAPM, and CPMAI project management certification training for professionals in {city_state}.",
+        "schema": "",
+        "bc_label": "",
+        "bc_mid_label": "",
+        "bc_mid_url": ""
+    },
+    "local_business": {
+        "lb_name": "Granite PM Academy",
+        "lb_type": "EducationalOrganization",
+        "lb_url": "https://granitepmacademy.com",
+        "lb_phone": "(210) 555-0190",
+        "lb_street": "100 W Houston St Suite 200",
+        "lb_city": "San Antonio",
+        "lb_state": "TX",
+        "lb_zip": "78201",
+        "lb_country": "US",
+        "lb_lat": "29.4241",
+        "lb_lng": "-98.4936",
+        "lb_price_range": "$$",
+        "lb_hours": "Mo-Fr 08:00-17:00",
+        "lb_description": "Granite PM Academy provides PMI-authorized PMP, CAPM, and CPMAI project management certification training in San Antonio, TX.",
+        "lb_logo": "",
+        "lb_rating": "4.9",
+        "lb_review_count": "87"
+    },
+    "site_vars": {
+        "city": "San Antonio",
+        "state": "Texas",
+        "SS": "TX",
+        "city_slug": "san-antonio-tx",
+        "business": "Granite PM Academy",
+        "phone": "(210) 555-0190",
+        "zip": "78201",
+        "website": "https://granitepmacademy.com",
+        "tel": "+12105550190"
+    },
+    "footer": {
+        "logo": "",
+        "phone": "{phone}",
+        "copyright": "© {year} {business}. All rights reserved.",
+        "disclaimer": "PMI, PMP, and CAPM are registered marks of the Project Management Institute. CPMAI is a trademark of Cognilytica. Granite PM Academy is an independent training provider aligned with PMI standards.",
+        "sticky_bar_text": "Questions? Call {phone}",
+        "sticky_bar_info": "",
+        "logo_in_copyright_bar": false,
+        "bottom_links": [
+            {
+                "label": "Privacy Policy",
+                "url": "/privacy-policy"
+            },
+            {
+                "label": "Terms and Conditions",
+                "url": "/terms-and-conditions"
+            },
+            {
+                "label": "Contact Us",
+                "url": "/contact-us"
+            }
+        ],
+        "columns": [
+            {
+                "type": "text",
+                "title": "Granite PM Academy",
+                "text": "<p>Providing PMI-aligned project management certification training in {city_state}. PMP®, CAPM®, and CPMAI® programs taught by certified practitioners with real-world experience.</p>"
+            },
+            {
+                "type": "links",
+                "title": "Programs",
+                "links": [
+                    {
+                        "label": "PMP Certification Training",
+                        "url": "/pmp-certification-training-san-antonio-tx"
+                    },
+                    {
+                        "label": "PMP Exam Prep Bootcamp",
+                        "url": "/pmp-bootcamp-san-antonio"
+                    },
+                    {
+                        "label": "CAPM Certification Training",
+                        "url": "/capm-certification-training-san-antonio-tx"
+                    },
+                    {
+                        "label": "CAPM Bootcamp",
+                        "url": "/capm-bootcamp-san-antonio"
+                    },
+                    {
+                        "label": "CPMAI Certification Training",
+                        "url": "/cpmai-certification-training-san-antonio"
+                    }
+                ]
+            },
+            {
+                "type": "links",
+                "title": "Quick Links",
+                "links": [
+                    {
+                        "label": "Home",
+                        "url": "/"
+                    },
+                    {
+                        "label": "Course Schedule",
+                        "url": "/#course_schedule"
+                    },
+                    {
+                        "label": "Contact Us",
+                        "url": "/contact-us"
+                    },
+                    {
+                        "label": "Privacy Policy",
+                        "url": "/privacy-policy"
+                    },
+                    {
+                        "label": "Terms and Conditions",
+                        "url": "/terms-and-conditions"
+                    }
+                ]
+            }
+        ]
+    },
+    "popups": [],
+    "posts": {},
+    "blog_settings": {
+        "blog_heading": "Blog",
+        "blog_intro": "",
+        "posts_per_page": 10
+    },
+    "pages": {
+        "page_pmp_cert": {
+            "title": "PMP Certification Training San Antonio TX",
+            "slug": "pmp-certification-training-san-antonio-tx",
+            "page_type": "landing",
+            "content_blocks": [
+                {
+                    "type": "hero_split",
+                    "hs_heading": "PMP Certification Training in {city}, {SS}",
+                    "hs_subtext": "<p>Granite PM Academy’s PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam and advance your career. Our four-day program satisfies PMI’s 35 education hour requirement and is taught by active, certified practitioners.</p>",
+                    "hs_btn_text": "See Upcoming Dates",
+                    "hs_btn_url": "#pmp_schedule",
+                    "hs_caption1": "",
+                    "hs_caption2": "",
+                    "hs_photo_alt": "PMP certification training {city} {SS}",
+                    "hs_image_side": "right",
+                    "hs_bg_color": "#f0f4f8",
+                    "hs_photo": "",
+                    "hs_bg_photo": "",
+                    "hs_mobile_order": ""
+                },
+                {
+                    "type": "feature_split",
+                    "fs_heading": "What Our PMP Training Covers",
+                    "fs_subtext": "Our curriculum is built around PMI’s current Examination Content Outline and covers all three project management domains — People, Process, and Business Environment — across predictive, agile, and hybrid approaches.",
+                    "fs_photo_alt": "PMP exam prep {city} TX",
+                    "fs_star_text": "PMI-Aligned Curriculum",
+                    "fs_bg_color": "#ffffff",
+                    "fs_accent": "#c8960a",
+                    "fs_image_side": "right",
+                    "fs_mobile_order": "text_first",
+                    "fs_photo": "",
+                    "fs_btn_text": "",
+                    "fs_btn_url": "",
+                    "fs_items": [
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Project Leadership and Teams",
+                            "text": "Stakeholder engagement, team development, conflict resolution, and servant leadership principles across project environments."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Planning and Execution",
+                            "text": "Scope, schedule, budget, risk, quality, and procurement management across predictive and agile delivery frameworks."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Agile and Hybrid Methods",
+                            "text": "Scrum, Kanban, and hybrid approaches as tested on the current PMP exam, including agile planning and iteration management."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Exam Strategy and Practice",
+                            "text": "Full-length practice exams, question walkthroughs, and proven test-taking strategies to help you pass on the first attempt."
+                        }
+                    ]
+                },
+                {
+                    "type": "steps",
+                    "steps_heading": "Your Path to PMP Certification",
+                    "steps_items": [
+                        {
+                            "heading": "Verify Your Eligibility",
+                            "text": "Confirm you meet PMI’s requirements: a degree plus 36 months of project leadership experience (or 60 months without a degree) and 35 hours of PM education."
+                        },
+                        {
+                            "heading": "Complete the Training",
+                            "text": "Attend our four-day live-virtual course or work through the on-demand version at your own pace. Both satisfy PMI’s 35 contact hour requirement."
+                        },
+                        {
+                            "heading": "Submit Your PMI Application",
+                            "text": "Use your certificate of completion and project experience documentation to complete the PMI exam application. Approval typically takes 5–10 business days."
+                        },
+                        {
+                            "heading": "Pass the PMP Exam",
+                            "text": "Schedule and sit for the 180-question PMP exam at a Pearson VUE testing center or online. Our practice exams and coaching prepare you to succeed."
+                        }
+                    ]
+                },
+                {
+                    "type": "custom_html",
+                    "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+                },
+                {
+                    "type": "pricing_cards",
+                    "pc_heading": "PMP Training Options",
+                    "pc_cols": "2",
+                    "pc_bg": "#f0f4f8",
+                    "pc_items": [
+                        {
+                            "name": "Live-Virtual PMP Training",
+                            "badge": "INSTRUCTOR-LED",
+                            "sublabel": "SCHEDULED COHORTS",
+                            "featured": true,
+                            "desc": "Join a live cohort led by an active PMP practitioner. Ask questions in real time, collaborate with peers, and follow a structured four-day program.",
+                            "features": "4 days of live instruction (8am–5pm)\nReal-time Q&A with your instructor\n35 contact hours for PMI application\nFull exam prep and practice tests\nStudy materials included",
+                            "meta": "4 Days · Live-Virtual · $1,995",
+                            "btn_text": "View Schedule",
+                            "btn_url": "#pmp_schedule"
+                        },
+                        {
+                            "name": "On-Demand PMP Training",
+                            "badge": "SELF-PACED",
+                            "sublabel": "START ANYTIME",
+                            "featured": false,
+                            "desc": "Access the full PMP curriculum on your schedule. Study at the pace that works for you with recorded sessions, practice exams, and instructor support.",
+                            "features": "Lifetime access to course recordings\nSelf-paced — start any day\n35 contact hours for PMI application\nFull practice exam bank\nInstructor email support",
+                            "meta": "Self-Paced · On-Demand · $995",
+                            "btn_text": "Enroll Now",
+                            "btn_url": "https://granitepmacademy.com/register"
+                        }
+                    ]
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "PMP Certification FAQs",
+                    "fq_bg_color": "#f0f4f8",
+                    "fq_head_color": "header",
+                    "fq_head_color_custom": "#1a2e5a",
+                    "fq_icon_bg": "accent",
+                    "fq_icon_bg_custom": "#c8960a",
+                    "fq_item_bg": "#ffffff",
+                    "fq_items": [
+                        {
+                            "question": "How many education hours does your PMP course provide?",
+                            "answer": "Our PMP Certification Training provides 35 contact hours, which is exactly what PMI requires for the PMP exam application. You will receive a certificate of completion documenting these hours."
+                        },
+                        {
+                            "question": "Is the PMP exam included in the course fee?",
+                            "answer": "The exam fee is paid separately to PMI. PMI members pay $405 and non-members pay $555. We focus on making sure you are fully prepared to pass when you sit for the exam."
+                        },
+                        {
+                            "question": "How current is your curriculum?",
+                            "answer": "Our curriculum is updated to reflect PMI’s current Examination Content Outline. The PMP exam now covers both predictive and agile methods — our training addresses both thoroughly."
+                        },
+                        {
+                            "question": "What pass rate do your students achieve?",
+                            "answer": "Our students achieve a first-attempt pass rate of approximately 92%. We attribute this to our instructor experience, comprehensive practice exams, and the test-taking strategy coaching built into every session."
+                        },
+                        {
+                            "question": "Can I take the PMP exam online instead of at a test center?",
+                            "answer": "Yes. PMI offers the PMP exam in an online proctored format. Our training prepares you for the exam regardless of whether you test at a Pearson VUE center or online from home."
+                        },
+                        {
+                            "question": "What if I need to reschedule or transfer my course?",
+                            "answer": "Contact our team at least 7 days before your course start date and we will work with you on rescheduling. Please review our registration terms for full details on transfers and cancellations."
+                        }
+                    ]
+                },
+                {
+                    "type": "contact_form",
+                    "cf_heading": "Questions About PMP Training? Ask Us.",
+                    "cf_subtext": "We’re happy to help you figure out which program and format is the right fit.",
+                    "cf_btn_text": "Send Message",
+                    "cf_show_phone": true
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_text": "Start Your PMP Journey in {city}",
+                    "cb_subtext": "Join a scheduled cohort or enroll in on-demand access today. Our team is here to help you choose the right path.",
+                    "cb_btn_text": "See Upcoming Dates",
+                    "cb_btn_url": "#pmp_schedule",
+                    "cb_bg": "custom",
+                    "cb_bg_custom": "#1a2e5a",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal"
+                }
+            ],
+            "seo": {
+                "seo_title": "PMP Certification Training {city} TX | PMI Exam Prep | {business}",
+                "canonical_url": "{website}/pmp-certification-training-san-antonio-tx",
+                "meta_description": "PMP certification training in {city}, TX. PMI-aligned 4-day course satisfies the 35 education hour requirement. Live-virtual and on-demand options. 92% first-attempt pass rate.",
+                "meta_keywords": "PMP certification training {city} TX, PMP exam prep {city}, project management professional training San Antonio",
+                "og_title": "PMP Certification Training in {city}, {SS} | {business}",
+                "og_description": "Earn your PMP in {city}, TX with Granite PM Academy. PMI-aligned training from active practitioners. Live-virtual and on-demand formats available.",
+                "og_image": "",
+                "service_name": "PMP Certification Training",
+                "service_type": "Course",
+                "service_area": "{city}, TX",
+                "service_description": "PMI-aligned PMP certification training for project managers in {city_state}.",
+                "schema": "",
+                "bc_label": "PMP Certification Training",
+                "bc_mid_label": "",
+                "bc_mid_url": ""
+            }
+        },
+        "page_pmp_boot": {
+            "title": "PMP Exam Prep Bootcamp San Antonio",
+            "slug": "pmp-bootcamp-san-antonio",
+            "page_type": "landing",
+            "content_blocks": [
+                {
+                    "type": "hero_split",
+                    "hs_heading": "PMP Exam Prep Bootcamp in {city}, {SS}",
+                    "hs_subtext": "<p>Our intensive five-day PMP Bootcamp in {city_state} combines the full 35 education hours of PMP training with deep exam prep in one focused program. Ideal for experienced project managers who want to fast-track to exam day.</p>",
+                    "hs_btn_text": "View Bootcamp Dates",
+                    "hs_btn_url": "#bootcamp_schedule",
+                    "hs_caption1": "",
+                    "hs_caption2": "",
+                    "hs_photo_alt": "PMP bootcamp {city} TX",
+                    "hs_image_side": "right",
+                    "hs_bg_color": "#f0f4f8",
+                    "hs_photo": "",
+                    "hs_bg_photo": "",
+                    "hs_mobile_order": ""
+                },
+                {
+                    "type": "feature_split",
+                    "fs_heading": "What the PMP Bootcamp Includes",
+                    "fs_subtext": "The PMP Bootcamp is our most intensive preparation program. Over five days, you cover the full PMP curriculum and complete a focused exam readiness session, leaving you prepared to schedule your exam immediately after.",
+                    "fs_photo_alt": "PMP bootcamp instructor {city}",
+                    "fs_star_text": "Intensive 5-Day Format",
+                    "fs_bg_color": "#ffffff",
+                    "fs_accent": "#c8960a",
+                    "fs_image_side": "right",
+                    "fs_mobile_order": "text_first",
+                    "fs_photo": "",
+                    "fs_btn_text": "",
+                    "fs_btn_url": "",
+                    "fs_items": [
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Complete PMP Curriculum",
+                            "text": "Days 1–4 cover all PMI exam content domains: predictive, agile, and hybrid project management across People, Process, and Business Environment."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Dedicated Exam Prep Day",
+                            "text": "Day 5 focuses exclusively on exam strategy, question analysis, and full-length practice exam review so you leave ready to schedule your test."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "35 Education Hours Satisfied",
+                            "text": "The bootcamp satisfies PMI’s 35 contact hour requirement in full. Your certificate of completion is ready immediately after the program."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Small Group Format",
+                            "text": "Bootcamp cohorts are kept deliberately small so instructors can address individual questions and tailor the pace to the group’s needs."
+                        }
+                    ]
+                },
+                {
+                    "type": "custom_html",
+                    "html": "<div id=\"bootcamp_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "PMP Bootcamp FAQs",
+                    "fq_bg_color": "#f0f4f8",
+                    "fq_head_color": "header",
+                    "fq_head_color_custom": "#1a2e5a",
+                    "fq_icon_bg": "accent",
+                    "fq_icon_bg_custom": "#c8960a",
+                    "fq_item_bg": "#ffffff",
+                    "fq_items": [
+                        {
+                            "question": "Who is the PMP Bootcamp designed for?",
+                            "answer": "The bootcamp is best suited for experienced project managers who already have a working knowledge of project management and want to complete both training and exam prep in a single, intensive program."
+                        },
+                        {
+                            "question": "How is the bootcamp different from the 4-day PMP training?",
+                            "answer": "The bootcamp adds a fifth day dedicated entirely to exam readiness — full-length practice exams, question analysis, and test-taking strategy coaching. The 4-day PMP training includes exam prep integrated throughout but is less intensive."
+                        },
+                        {
+                            "question": "Does the bootcamp satisfy PMI’s education hour requirement?",
+                            "answer": "Yes. The PMP Bootcamp provides 35 contact hours, satisfying PMI’s full education requirement for the PMP exam application."
+                        },
+                        {
+                            "question": "What days of the week is the bootcamp held?",
+                            "answer": "Our bootcamp cohorts run Monday through Friday, 8:00am–6:00pm Central Time, via live video conference. See the schedule above for upcoming dates."
+                        },
+                        {
+                            "question": "Can I apply for my PMI exam the day after bootcamp?",
+                            "answer": "Yes. You can submit your PMI application as soon as you have your certificate of completion in hand. Most candidates submit their application the same week they complete the bootcamp."
+                        },
+                        {
+                            "question": "What materials are included?",
+                            "answer": "Bootcamp registration includes the full digital study guide, practice exam access, and any additional reference materials used during the program. All materials are accessible after the bootcamp ends."
+                        }
+                    ]
+                },
+                {
+                    "type": "contact_form",
+                    "cf_heading": "Ready to Register or Have Questions?",
+                    "cf_subtext": "Our team can help you find the right fit.",
+                    "cf_btn_text": "Send Message",
+                    "cf_show_phone": true
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_text": "Fast-Track Your PMP in {city}",
+                    "cb_subtext": "The PMP Bootcamp is our most efficient path to exam day. Five focused days and you’re ready to test.",
+                    "cb_btn_text": "View Bootcamp Dates",
+                    "cb_btn_url": "#bootcamp_schedule",
+                    "cb_bg": "custom",
+                    "cb_bg_custom": "#1a2e5a",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal"
+                }
+            ],
+            "seo": {
+                "seo_title": "PMP Bootcamp {city} TX | 5-Day PMP Exam Prep | {business}",
+                "canonical_url": "{website}/pmp-bootcamp-san-antonio",
+                "meta_description": "Intensive 5-day PMP Exam Prep Bootcamp in {city}, TX. Covers full PMP curriculum plus dedicated exam readiness day. Satisfies PMI’s 35 education hour requirement.",
+                "meta_keywords": "PMP bootcamp {city} TX, PMP exam prep bootcamp San Antonio, intensive PMP training {city}",
+                "og_title": "PMP Bootcamp in {city}, {SS} | 5-Day Intensive | {business}",
+                "og_description": "Five-day PMP bootcamp in {city}, TX. Full curriculum and exam readiness in one focused program. Guaranteed-to-run cohorts available.",
+                "og_image": "",
+                "service_name": "PMP Exam Prep Bootcamp",
+                "service_type": "Course",
+                "service_area": "{city}, TX",
+                "service_description": "Intensive five-day PMP exam prep bootcamp for project managers in {city_state}.",
+                "schema": "",
+                "bc_label": "PMP Bootcamp",
+                "bc_mid_label": "",
+                "bc_mid_url": ""
+            }
+        },
+        "page_capm_cert": {
+            "title": "CAPM Certification Training San Antonio TX",
+            "slug": "capm-certification-training-san-antonio-tx",
+            "page_type": "landing",
+            "content_blocks": [
+                {
+                    "type": "hero_split",
+                    "hs_heading": "CAPM Certification Training in {city}, {SS}",
+                    "hs_subtext": "<p>Granite PM Academy’s CAPM Certification Training gives aspiring project managers in {city_state} the foundational knowledge and PMI education hours to earn the Certified Associate in Project Management credential. Our two-day program is instructor-led, practical, and exam-focused.</p>",
+                    "hs_btn_text": "View Upcoming Dates",
+                    "hs_btn_url": "#capm_schedule",
+                    "hs_caption1": "",
+                    "hs_caption2": "",
+                    "hs_photo_alt": "CAPM certification training {city} {SS}",
+                    "hs_image_side": "right",
+                    "hs_bg_color": "#f0f4f8",
+                    "hs_photo": "",
+                    "hs_bg_photo": "",
+                    "hs_mobile_order": ""
+                },
+                {
+                    "type": "feature_split",
+                    "fs_heading": "What Our CAPM Training Covers",
+                    "fs_subtext": "Our CAPM program is aligned with PMI’s current CAPM Exam Content Outline and covers the core domains of project management — giving you the knowledge to speak confidently about PM principles, processes, and methodologies.",
+                    "fs_photo_alt": "CAPM exam prep {city} TX",
+                    "fs_star_text": "PMI-Aligned Content",
+                    "fs_bg_color": "#ffffff",
+                    "fs_accent": "#c8960a",
+                    "fs_image_side": "right",
+                    "fs_mobile_order": "text_first",
+                    "fs_photo": "",
+                    "fs_btn_text": "",
+                    "fs_btn_url": "",
+                    "fs_items": [
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Project Management Fundamentals",
+                            "text": "Core concepts including project lifecycle, stakeholder identification, and the relationship between projects, programs, and portfolios."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Predictive Project Approaches",
+                            "text": "Initiating, planning, executing, monitoring, and closing a project using traditional plan-driven methods."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Agile and Hybrid Frameworks",
+                            "text": "Introduction to Scrum, Kanban, and hybrid approaches as covered on the current CAPM exam."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Exam Prep and Practice",
+                            "text": "CAPM practice questions, exam-style walkthroughs, and strategy coaching designed to help you pass on the first attempt."
+                        }
+                    ]
+                },
+                {
+                    "type": "steps",
+                    "steps_heading": "Steps to CAPM Certification",
+                    "steps_items": [
+                        {
+                            "heading": "Confirm Your Eligibility",
+                            "text": "The CAPM requires a high school diploma or secondary education credential. No professional experience is required — just 23 hours of project management education."
+                        },
+                        {
+                            "heading": "Complete the Training",
+                            "text": "Attend our two-day live-virtual CAPM course or complete the on-demand version at your own pace. Both satisfy PMI’s 23 contact hour requirement."
+                        },
+                        {
+                            "heading": "Submit Your PMI Application",
+                            "text": "Use your certificate of completion to submit the CAPM application to PMI. Most applications are approved within 5–10 business days."
+                        },
+                        {
+                            "heading": "Pass the CAPM Exam",
+                            "text": "Sit for the 150-question CAPM exam at a Pearson VUE location or online. Our practice exams and exam coaching prepare you thoroughly."
+                        }
+                    ]
+                },
+                {
+                    "type": "custom_html",
+                    "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
+                },
+                {
+                    "type": "pricing_cards",
+                    "pc_heading": "CAPM Training Options",
+                    "pc_cols": "2",
+                    "pc_bg": "#f0f4f8",
+                    "pc_items": [
+                        {
+                            "name": "Live-Virtual CAPM Training",
+                            "badge": "INSTRUCTOR-LED",
+                            "sublabel": "SCHEDULED COHORTS",
+                            "featured": true,
+                            "desc": "Two days of live, interactive instruction led by a certified project manager. Get your questions answered in real time and study with a peer cohort.",
+                            "features": "2 days of live instruction (8am–5pm)\nReal-time instructor Q&A\n23 contact hours for PMI application\nExam prep and practice questions\nCertificate of completion",
+                            "meta": "2 Days · Live-Virtual · $795",
+                            "btn_text": "View Schedule",
+                            "btn_url": "#capm_schedule"
+                        },
+                        {
+                            "name": "On-Demand CAPM Training",
+                            "badge": "SELF-PACED",
+                            "sublabel": "START ANYTIME",
+                            "featured": false,
+                            "desc": "Complete the full CAPM curriculum at your own pace with recorded sessions, practice questions, and instructor email support.",
+                            "features": "On-demand access to all content\nSelf-paced — start any day\n23 contact hours for PMI application\nPractice exam bank included\nInstructor email support",
+                            "meta": "Self-Paced · On-Demand · $495",
+                            "btn_text": "Enroll Now",
+                            "btn_url": "https://granitepmacademy.com/register"
+                        }
+                    ]
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "CAPM Certification FAQs",
+                    "fq_bg_color": "#f0f4f8",
+                    "fq_head_color": "header",
+                    "fq_head_color_custom": "#1a2e5a",
+                    "fq_icon_bg": "accent",
+                    "fq_icon_bg_custom": "#c8960a",
+                    "fq_item_bg": "#ffffff",
+                    "fq_items": [
+                        {
+                            "question": "Do I need work experience to apply for the CAPM?",
+                            "answer": "No. Unlike the PMP, the CAPM does not require professional project management experience. You only need a secondary education (high school diploma or equivalent) and 23 hours of PM education."
+                        },
+                        {
+                            "question": "How many education hours does your CAPM course provide?",
+                            "answer": "Our CAPM Certification Training provides 23 contact hours, satisfying PMI’s full education requirement. You will receive a certificate of completion to include in your PMI application."
+                        },
+                        {
+                            "question": "How long is the CAPM exam?",
+                            "answer": "The CAPM exam consists of 150 questions and must be completed within three hours. Questions cover predictive, agile, and business analysis content areas."
+                        },
+                        {
+                            "question": "Is the CAPM worth pursuing if I plan to get the PMP later?",
+                            "answer": "Yes. The CAPM builds the foundational knowledge that underpins the PMP and gives you a recognized PMI credential to show employers while you accumulate the project leadership experience needed for the PMP."
+                        },
+                        {
+                            "question": "Can I take the CAPM exam online?",
+                            "answer": "Yes. PMI offers the CAPM in an online proctored format. Our training prepares you for the exam regardless of whether you test at a Pearson VUE center or from home."
+                        },
+                        {
+                            "question": "How soon after the training can I apply to PMI?",
+                            "answer": "You can submit your PMI application as soon as you complete the course and receive your certificate of completion. Many students submit the same day they finish training."
+                        }
+                    ]
+                },
+                {
+                    "type": "contact_form",
+                    "cf_heading": "Questions About CAPM Certification? Let’s Talk.",
+                    "cf_subtext": "We’re happy to help you determine if the CAPM is the right credential for where you are in your career.",
+                    "cf_btn_text": "Send Message",
+                    "cf_show_phone": true
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_text": "Start Your CAPM Journey in {city}",
+                    "cb_subtext": "Two days of focused training and you’ll have everything you need to apply for the exam.",
+                    "cb_btn_text": "View CAPM Schedule",
+                    "cb_btn_url": "#capm_schedule",
+                    "cb_bg": "custom",
+                    "cb_bg_custom": "#1a2e5a",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal"
+                }
+            ],
+            "seo": {
+                "seo_title": "CAPM Certification Training {city} TX | PMI Exam Prep | {business}",
+                "canonical_url": "{website}/capm-certification-training-san-antonio-tx",
+                "meta_description": "CAPM certification training in {city}, TX. PMI-aligned 2-day course provides 23 education hours. Live-virtual and on-demand options for aspiring project managers.",
+                "meta_keywords": "CAPM certification training {city} TX, CAPM exam prep San Antonio, certified associate project management training {city}",
+                "og_title": "CAPM Certification Training in {city}, {SS} | {business}",
+                "og_description": "Earn your CAPM in {city}, TX. PMI-aligned training for aspiring project managers. No experience required — just 23 education hours.",
+                "og_image": "",
+                "service_name": "CAPM Certification Training",
+                "service_type": "Course",
+                "service_area": "{city}, TX",
+                "service_description": "PMI-aligned CAPM certification training for aspiring project managers in {city_state}.",
+                "schema": "",
+                "bc_label": "CAPM Certification Training",
+                "bc_mid_label": "",
+                "bc_mid_url": ""
+            }
+        },
+        "page_capm_boot": {
+            "title": "CAPM Bootcamp San Antonio",
+            "slug": "capm-bootcamp-san-antonio",
+            "page_type": "landing",
+            "content_blocks": [
+                {
+                    "type": "hero_split",
+                    "hs_heading": "CAPM Exam Prep Bootcamp in {city}, {SS}",
+                    "hs_subtext": "<p>Our CAPM Bootcamp in {city_state} condenses the full two-day CAPM curriculum with additional exam readiness coaching into an intensive, focused program. Ideal for candidates who want to be exam-ready as quickly as possible.</p>",
+                    "hs_btn_text": "View Bootcamp Dates",
+                    "hs_btn_url": "#capm_boot_schedule",
+                    "hs_caption1": "",
+                    "hs_caption2": "",
+                    "hs_photo_alt": "CAPM bootcamp {city} TX",
+                    "hs_image_side": "right",
+                    "hs_bg_color": "#f0f4f8",
+                    "hs_photo": "",
+                    "hs_bg_photo": "",
+                    "hs_mobile_order": ""
+                },
+                {
+                    "type": "feature_split",
+                    "fs_heading": "Everything Included in the CAPM Bootcamp",
+                    "fs_subtext": "The CAPM Bootcamp pairs the core two-day training with an extended exam prep session so candidates leave fully prepared to schedule and pass the CAPM exam.",
+                    "fs_photo_alt": "CAPM exam prep bootcamp {city}",
+                    "fs_star_text": "Intensive Format",
+                    "fs_bg_color": "#ffffff",
+                    "fs_accent": "#c8960a",
+                    "fs_image_side": "right",
+                    "fs_mobile_order": "text_first",
+                    "fs_photo": "",
+                    "fs_btn_text": "",
+                    "fs_btn_url": "",
+                    "fs_items": [
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Full CAPM Curriculum",
+                            "text": "Covers all PMI CAPM exam domains — predictive and agile project management, stakeholder and risk management, and business analysis."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Extended Exam Prep",
+                            "text": "Practice questions, question walkthroughs, and exam-taking strategy coaching beyond what the standard two-day format includes."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "23 Contact Hours Included",
+                            "text": "The bootcamp satisfies PMI’s 23 education hour requirement in full. Your certificate of completion is issued immediately after the program."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Small Cohort Experience",
+                            "text": "Bootcamp groups are intentionally small so instructors can address individual questions and give every candidate focused attention."
+                        }
+                    ]
+                },
+                {
+                    "type": "custom_html",
+                    "html": "<div id=\"capm_boot_schedule\"></div>[course_schedule type=\"CAPM Bootcamp\"]"
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "CAPM Bootcamp FAQs",
+                    "fq_bg_color": "#f0f4f8",
+                    "fq_head_color": "header",
+                    "fq_head_color_custom": "#1a2e5a",
+                    "fq_icon_bg": "accent",
+                    "fq_icon_bg_custom": "#c8960a",
+                    "fq_item_bg": "#ffffff",
+                    "fq_items": [
+                        {
+                            "question": "Who is the CAPM Bootcamp best suited for?",
+                            "answer": "The bootcamp is ideal for candidates who want to complete training and exam prep in a single, condensed program rather than spreading the preparation over several weeks."
+                        },
+                        {
+                            "question": "How is the bootcamp different from the standard CAPM training?",
+                            "answer": "The bootcamp includes additional exam readiness time built into the schedule — extended practice exam review, question analysis sessions, and individual coaching — beyond the standard two-day course."
+                        },
+                        {
+                            "question": "Does the bootcamp satisfy PMI’s contact hour requirement?",
+                            "answer": "Yes. The CAPM Bootcamp provides the full 23 contact hours required for the PMI CAPM exam application."
+                        },
+                        {
+                            "question": "When are bootcamp sessions held?",
+                            "answer": "CAPM Bootcamp cohorts run on scheduled dates via live video conference. See the schedule above for upcoming dates and times."
+                        },
+                        {
+                            "question": "What is included with bootcamp registration?",
+                            "answer": "Registration includes all course materials, practice exam access, and your certificate of completion. All digital materials remain accessible after the bootcamp ends."
+                        }
+                    ]
+                },
+                {
+                    "type": "contact_form",
+                    "cf_heading": "Questions About the CAPM Bootcamp?",
+                    "cf_subtext": "Our team responds within one business day.",
+                    "cf_btn_text": "Send Message",
+                    "cf_show_phone": true
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_text": "Get CAPM-Ready in {city}",
+                    "cb_subtext": "An intensive bootcamp is the fastest path to your exam application. See upcoming dates and reserve your seat.",
+                    "cb_btn_text": "View CAPM Bootcamp Dates",
+                    "cb_btn_url": "#capm_boot_schedule",
+                    "cb_bg": "custom",
+                    "cb_bg_custom": "#1a2e5a",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal"
+                }
+            ],
+            "seo": {
+                "seo_title": "CAPM Bootcamp {city} TX | Intensive CAPM Exam Prep | {business}",
+                "canonical_url": "{website}/capm-bootcamp-san-antonio",
+                "meta_description": "Intensive CAPM Bootcamp in {city}, TX. Full curriculum plus extended exam prep in a focused, small-cohort format. Satisfies PMI’s 23 contact hour requirement.",
+                "meta_keywords": "CAPM bootcamp {city} TX, CAPM exam prep bootcamp San Antonio, intensive CAPM training {city}",
+                "og_title": "CAPM Bootcamp in {city}, {SS} | {business}",
+                "og_description": "Intensive CAPM bootcamp in {city}, TX. Full training and exam prep in one program. Small cohorts with instructor-led instruction.",
+                "og_image": "",
+                "service_name": "CAPM Exam Prep Bootcamp",
+                "service_type": "Course",
+                "service_area": "{city}, TX",
+                "service_description": "Intensive CAPM certification bootcamp for aspiring project managers in {city_state}.",
+                "schema": "",
+                "bc_label": "CAPM Bootcamp",
+                "bc_mid_label": "",
+                "bc_mid_url": ""
+            }
+        },
+        "page_cpmai_cert": {
+            "title": "CPMAI Certification Training San Antonio",
+            "slug": "cpmai-certification-training-san-antonio",
+            "page_type": "landing",
+            "content_blocks": [
+                {
+                    "type": "hero_split",
+                    "hs_heading": "CPMAI Certification Training in {city}, {SS}",
+                    "hs_subtext": "<p>The Certified Project Manager AI (CPMAI) credential from Cognilytica is designed for project managers leading artificial intelligence initiatives. Granite PM Academy’s CPMAI training in {city_state} prepares you to manage AI projects with structure, confidence, and recognized credentials.</p>",
+                    "hs_btn_text": "View CPMAI Dates",
+                    "hs_btn_url": "#cpmai_schedule",
+                    "hs_caption1": "",
+                    "hs_caption2": "",
+                    "hs_photo_alt": "CPMAI AI certification training {city} TX",
+                    "hs_image_side": "right",
+                    "hs_bg_color": "#f0f4f8",
+                    "hs_photo": "",
+                    "hs_bg_photo": "",
+                    "hs_mobile_order": ""
+                },
+                {
+                    "type": "feature_split",
+                    "fs_heading": "What the CPMAI Training Covers",
+                    "fs_subtext": "The CPMAI curriculum is built on Cognilytica’s CPMAI methodology — a framework for planning, executing, and governing artificial intelligence projects from business case through deployment.",
+                    "fs_photo_alt": "CPMAI AI project management {city}",
+                    "fs_star_text": "Cognilytica-Recognized",
+                    "fs_bg_color": "#ffffff",
+                    "fs_accent": "#c8960a",
+                    "fs_image_side": "right",
+                    "fs_mobile_order": "text_first",
+                    "fs_photo": "",
+                    "fs_btn_text": "",
+                    "fs_btn_url": "",
+                    "fs_items": [
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "AI Project Lifecycle",
+                            "text": "The six-phase CPMAI lifecycle: Define, Collect, Build, Evaluate, Implement, and Monitor — applied to real AI initiatives."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Data Strategy and Governance",
+                            "text": "How to plan for data sourcing, quality, labeling, and compliance as core components of any AI project plan."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "AI Tool and Vendor Assessment",
+                            "text": "Frameworks for evaluating AI platforms, build-vs-buy decisions, and managing relationships with AI technology vendors."
+                        },
+                        {
+                            "icon": "",
+                            "alt": "",
+                            "heading": "Risk and Ethics in AI Projects",
+                            "text": "Managing algorithmic bias, explainability requirements, regulatory considerations, and stakeholder concerns in AI-driven work."
+                        }
+                    ]
+                },
+                {
+                    "type": "custom_html",
+                    "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "CPMAI Certification FAQs",
+                    "fq_bg_color": "#f0f4f8",
+                    "fq_head_color": "header",
+                    "fq_head_color_custom": "#1a2e5a",
+                    "fq_icon_bg": "accent",
+                    "fq_icon_bg_custom": "#c8960a",
+                    "fq_item_bg": "#ffffff",
+                    "fq_items": [
+                        {
+                            "question": "What is the CPMAI credential?",
+                            "answer": "The Certified Project Manager AI (CPMAI) is a credential offered by Cognilytica that recognizes professionals who are qualified to manage projects involving artificial intelligence. It focuses on the unique challenges of planning, executing, and governing AI initiatives."
+                        },
+                        {
+                            "question": "Do I need a PMP to pursue the CPMAI?",
+                            "answer": "No. The CPMAI is a standalone credential. While project management experience is helpful, you do not need to hold the PMP or any other PMI certification to enroll in our CPMAI training or to pursue the CPMAI credential."
+                        },
+                        {
+                            "question": "What kind of professionals benefit most from CPMAI training?",
+                            "answer": "Project managers, business analysts, product managers, and technology leaders who are overseeing or expect to work on AI-related projects. It’s also valuable for IT leaders responsible for AI tool selection and governance."
+                        },
+                        {
+                            "question": "Is CPMAI recognized by employers?",
+                            "answer": "Awareness of the CPMAI is growing rapidly as organizations build out AI project portfolios. It demonstrates a specific and relevant skill set that distinguishes candidates in roles involving AI initiative management."
+                        },
+                        {
+                            "question": "How long is the CPMAI training?",
+                            "answer": "Our CPMAI program is a two-day course offered in live-virtual cohort format. On-demand access is also available for those who prefer to work through the material at their own pace."
+                        },
+                        {
+                            "question": "Is there an exam after the training?",
+                            "answer": "Yes. The CPMAI credential requires passing a Cognilytica examination. Our training prepares you for that exam and covers the content areas included in the Cognilytica CPMAI exam framework."
+                        }
+                    ]
+                },
+                {
+                    "type": "contact_form",
+                    "cf_heading": "Questions About CPMAI Training?",
+                    "cf_subtext": "Our team can help you determine if CPMAI is the right fit for your role and goals.",
+                    "cf_btn_text": "Send Message",
+                    "cf_show_phone": true
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_text": "Lead AI Projects with Recognized Credentials",
+                    "cb_subtext": "CPMAI training in {city} prepares you to manage artificial intelligence initiatives with a structured, proven framework.",
+                    "cb_btn_text": "View CPMAI Schedule",
+                    "cb_btn_url": "#cpmai_schedule",
+                    "cb_bg": "custom",
+                    "cb_bg_custom": "#1a2e5a",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal"
+                }
+            ],
+            "seo": {
+                "seo_title": "CPMAI Certification Training {city} TX | AI Project Management | {business}",
+                "canonical_url": "{website}/cpmai-certification-training-san-antonio",
+                "meta_description": "CPMAI AI project management certification training in {city}, TX. Learn to lead AI initiatives with Cognilytica’s recognized CPMAI framework. Live-virtual and on-demand options.",
+                "meta_keywords": "CPMAI certification training {city} TX, AI project management training San Antonio, Cognilytica CPMAI {city}",
+                "og_title": "CPMAI Certification Training in {city}, {SS} | {business}",
+                "og_description": "Earn your CPMAI credential in {city}, TX. Lead AI projects with structure and confidence using Cognilytica’s proven methodology.",
+                "og_image": "",
+                "service_name": "CPMAI Certification Training",
+                "service_type": "Course",
+                "service_area": "{city}, TX",
+                "service_description": "CPMAI AI project management certification training in {city_state}.",
+                "schema": "",
+                "bc_label": "CPMAI Certification Training",
+                "bc_mid_label": "",
+                "bc_mid_url": ""
+            }
+        },
+        "page_contact": {
+            "title": "Contact Us",
+            "slug": "contact-us",
+            "page_type": "page",
+            "content_blocks": [
+                {
+                    "type": "hero_split",
+                    "hs_heading": "Contact Granite PM Academy",
+                    "hs_subtext": "<p>Have questions about our certification programs, upcoming dates, or registration? We’re happy to help. Reach out using the form below or call us directly and a member of our team will get back to you promptly.</p>",
+                    "hs_btn_text": "",
+                    "hs_btn_url": "",
+                    "hs_caption1": "",
+                    "hs_caption2": "",
+                    "hs_photo_alt": "",
+                    "hs_image_side": "right",
+                    "hs_bg_color": "#f0f4f8",
+                    "hs_photo": "",
+                    "hs_bg_photo": "",
+                    "hs_mobile_order": ""
+                },
+                {
+                    "type": "split_cta",
+                    "sc_left_heading": "Send Us a Message",
+                    "sc_left_text": "Use the form below to ask about programs, pricing, group training, or anything else. We typically respond within one business day.",
+                    "sc_right_label": "Call Our Team",
+                    "sc_right_phone": "{phone}",
+                    "sc_right_phone_url": "tel:{tel}",
+                    "sc_left_bg": "accent",
+                    "sc_right_bg": "header",
+                    "sc_left_bg_custom": "#c8960a",
+                    "sc_right_bg_custom": "#1a2e5a"
+                },
+                {
+                    "type": "contact_form",
+                    "cf_heading": "Get in Touch",
+                    "cf_subtext": "Fill out the form and a member of our team will respond within one business day.",
+                    "cf_btn_text": "Send Message",
+                    "cf_show_phone": true
+                }
+            ],
+            "seo": {
+                "seo_title": "Contact Granite PM Academy | {city} TX",
+                "canonical_url": "{website}/contact-us",
+                "meta_description": "Contact Granite PM Academy in {city}, TX with questions about PMP, CAPM, or CPMAI certification training. We respond within one business day.",
+                "meta_keywords": "contact Granite PM Academy, project management training contact {city}",
+                "og_title": "Contact Granite PM Academy | {city}, {SS}",
+                "og_description": "Reach our team with questions about certification training in {city}, TX.",
+                "og_image": "",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "schema": "",
+                "bc_label": "Contact Us",
+                "bc_mid_label": "",
+                "bc_mid_url": ""
+            }
+        },
+        "page_privacy": {
+            "title": "Privacy Policy",
+            "slug": "privacy-policy",
+            "page_type": "page",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "html": "<h1>Privacy Policy</h1>\n<p><strong>Effective Date: June 17, 2026</strong></p>\n<p>Granite PM Academy (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) operates the website located at granitepmacademy.com. This Privacy Policy describes how we collect, use, and protect information when you visit our site or interact with our services.</p>\n\n<h2>Information We Collect</h2>\n<p>We collect information you provide directly when you submit an inquiry through our contact form, including your name, email address, phone number (if provided), and the content of your message. We also automatically collect limited technical data when you visit our site, such as your IP address, browser type, and pages visited, through standard web server logs and analytics tools.</p>\n\n<h2>How We Use Your Information</h2>\n<p>We use the information you provide to respond to your inquiries, deliver course information you request, and communicate about programs and services that may be relevant to you. We do not sell or rent your personal information to third parties.</p>\n\n<h2>Cookies and Analytics</h2>\n<p>Our website may use cookies or similar tracking technologies to understand how visitors use the site and to improve the user experience. You can configure your browser to refuse cookies, though some features of the site may not function as intended if you do so. We may use a third-party analytics service (such as Google Analytics) that collects anonymized usage data on our behalf.</p>\n\n<h2>Third-Party Services</h2>\n<p>We may use third-party platforms for course registration, payment processing, or email delivery. These providers operate under their own privacy policies and are responsible for their own data handling practices. We choose vendors who maintain appropriate data security standards.</p>\n\n<h2>Data Security</h2>\n<p>We take reasonable technical and organizational measures to protect the information we collect from unauthorized access, use, or disclosure. No method of transmission over the internet is completely secure, and we cannot guarantee absolute security.</p>\n\n<h2>Data Retention</h2>\n<p>We retain contact form submissions and related communications for as long as necessary to respond to your inquiry or fulfill the purpose for which the information was provided. You may contact us to request deletion of your information.</p>\n\n<h2>Your Rights</h2>\n<p>Depending on where you are located, you may have certain rights regarding your personal information, including the right to access, correct, or request deletion of data we hold about you. To exercise these rights, contact us at the address below.</p>\n\n<h2>Children&rsquo;s Privacy</h2>\n<p>Our website and services are intended for adults. We do not knowingly collect personal information from individuals under 13 years of age.</p>\n\n<h2>Changes to This Policy</h2>\n<p>We may update this Privacy Policy from time to time. When we do, we will post the revised version on this page with an updated effective date. Your continued use of the site after changes are posted constitutes acceptance of the revised policy.</p>\n\n<h2>Contact Us</h2>\n<p>If you have questions about this Privacy Policy or how we handle your information, please contact us at <a href=\"/contact-us\">granitepmacademy.com/contact-us</a>.</p>"
+                }
+            ],
+            "seo": {
+                "seo_title": "Privacy Policy | {business}",
+                "canonical_url": "{website}/privacy-policy",
+                "meta_description": "Privacy policy for Granite PM Academy.",
+                "meta_keywords": "",
+                "og_title": "Privacy Policy | {business}",
+                "og_description": "",
+                "og_image": "",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "schema": "",
+                "bc_label": "Privacy Policy",
+                "bc_mid_label": "",
+                "bc_mid_url": ""
+            }
+        },
+        "page_terms": {
+            "title": "Terms and Conditions",
+            "slug": "terms-and-conditions",
+            "page_type": "page",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "html": "<h1>Terms and Conditions</h1>\n<p><strong>Effective Date: June 17, 2026</strong></p>\n<p>By accessing or using the Granite PM Academy website at granitepmacademy.com (the &ldquo;Site&rdquo;), you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use the Site.</p>\n\n<h2>Use of the Site</h2>\n<p>You may use this Site for lawful purposes only. You agree not to use the Site in any way that violates applicable local, state, national, or international law, or in any manner that could damage, disable, or impair the Site or interfere with other users&rsquo; access to it.</p>\n\n<h2>Intellectual Property</h2>\n<p>All content on this Site, including text, graphics, logos, and course materials, is the property of Granite PM Academy or its content suppliers and is protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works from any content on this Site without our prior written consent.</p>\n\n<h2>Course Enrollment and Payments</h2>\n<p>Registration for courses constitutes a binding agreement to pay the applicable fees. All fees are stated in U.S. dollars. Payment terms, refund eligibility, and transfer policies are provided at the time of registration and govern your enrollment. Please review those terms carefully before completing your purchase.</p>\n\n<h2>Accuracy of Information</h2>\n<p>We make reasonable efforts to ensure that course dates, pricing, and program information on this Site are current and accurate. However, we reserve the right to correct errors and update information at any time. Confirmed information provided directly by our team at the time of registration supersedes general website content in the event of a discrepancy.</p>\n\n<h2>Third-Party Links</h2>\n<p>This Site may contain links to third-party websites, including PMI.org and exam registration platforms. These links are provided for your convenience only. We have no control over the content or practices of those sites and accept no responsibility for them.</p>\n\n<h2>Disclaimer of Warranties</h2>\n<p>This Site is provided &ldquo;as is&rdquo; and &ldquo;as available&rdquo; without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not warrant that the Site will be uninterrupted, error-free, or free of harmful components.</p>\n\n<h2>Limitation of Liability</h2>\n<p>To the maximum extent permitted by applicable law, Granite PM Academy shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Site or our services, even if we have been advised of the possibility of such damages. Our total liability for any claim arising from your use of the Site shall not exceed the amount you paid to us, if any, in the three months preceding the claim.</p>\n\n<h2>Governing Law</h2>\n<p>These Terms and Conditions are governed by the laws of the State of Texas, without regard to its conflict of law provisions. Any disputes arising under these terms shall be resolved in the appropriate courts located in Bexar County, Texas.</p>\n\n<h2>Changes to These Terms</h2>\n<p>We may revise these Terms and Conditions at any time by posting an updated version on this page. Your continued use of the Site following any changes constitutes acceptance of the revised terms.</p>\n\n<h2>Contact</h2>\n<p>If you have questions about these Terms and Conditions, please contact us at <a href=\"/contact-us\">granitepmacademy.com/contact-us</a>.</p>"
+                }
+            ],
+            "seo": {
+                "seo_title": "Terms and Conditions | {business}",
+                "canonical_url": "{website}/terms-and-conditions",
+                "meta_description": "Terms and conditions for using the Granite PM Academy website.",
+                "meta_keywords": "",
+                "og_title": "Terms and Conditions | {business}",
+                "og_description": "",
+                "og_image": "",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "schema": "",
+                "bc_label": "Terms and Conditions",
+                "bc_mid_label": "",
+                "bc_mid_url": ""
+            }
+        }
+    }
+}
