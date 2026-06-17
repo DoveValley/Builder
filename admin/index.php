@@ -45,11 +45,11 @@ $tab = $_GET['tab'] ?? 'header';
 if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins'], true)) {
     $tab = 'header';
 }
-// Redirect legacy ?tab=schedule links into the Plugins tab.
-if ($tab === 'schedule') {
+// Redirect legacy tab links into the Plugins tab.
+if ($tab === 'schedule' || $tab === 'popups') {
     $params = $_GET;
     $params['tab']    = 'plugins';
-    $params['plugin'] = 'schedule';
+    $params['plugin'] = $tab;
     header('Location: index.php?' . http_build_query($params));
     exit;
 }
@@ -232,7 +232,6 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'citypages' ? 'active' : '' ?>" href="?tab=citypages">City Pages</a>
         <a class="tab-link <?= $tab === 'blog' ? 'active' : '' ?>" href="?tab=blog">Blog</a>
         <a class="tab-link <?= $tab === 'footer' ? 'active' : '' ?>" href="?tab=footer">Footer</a>
-        <a class="tab-link <?= $tab === 'popups' ? 'active' : '' ?>" href="?tab=popups">Popups</a>
         <a class="tab-link <?= $tab === 'media' ? 'active' : '' ?>" href="?tab=media">Media Library</a>
         <a class="tab-link <?= $tab === 'seo' ? 'active' : '' ?>" href="?tab=seo">SEO / Schema</a>
         <a class="tab-link <?= $tab === 'plugins' ? 'active' : '' ?>" href="?tab=plugins">Plugins</a>
@@ -264,9 +263,6 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- ================= FOOTER TAB ================= -->
     <?php require __DIR__ . '/tabs/footer.php'; ?>
-
-    <!-- ================= POPUPS TAB ================= -->
-    <?php require __DIR__ . '/tabs/popups.php'; ?>
 
     <!-- ================= MEDIA LIBRARY TAB ================= -->
     <?php require __DIR__ . '/tabs/media.php'; ?>
