@@ -42,7 +42,7 @@ $blogSettings = $data['blog_settings'];
 
 // Active tab
 $tab = $_GET['tab'] ?? 'header';
-if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule'], true)) {
+if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule'], true)) {
     $tab = 'header';
 }
 
@@ -219,6 +219,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'pages' ? 'active' : '' ?>" href="?tab=pages">Landing Pages</a>
         <a class="tab-link <?= $tab === 'templates' ? 'active' : '' ?>" href="?tab=templates">Templates</a>
         <a class="tab-link <?= $tab === 'cities' ? 'active' : '' ?>" href="?tab=cities">Cities</a>
+        <a class="tab-link <?= $tab === 'citypages' ? 'active' : '' ?>" href="?tab=citypages">City Pages</a>
         <a class="tab-link <?= $tab === 'blog' ? 'active' : '' ?>" href="?tab=blog">Blog</a>
         <a class="tab-link <?= $tab === 'footer' ? 'active' : '' ?>" href="?tab=footer">Footer</a>
         <a class="tab-link <?= $tab === 'popups' ? 'active' : '' ?>" href="?tab=popups">Popups</a>
@@ -244,6 +245,9 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- ================= CITIES TAB ================= -->
     <?php require __DIR__ . '/tabs/cities.php'; ?>
+
+    <!-- ================= CITY PAGES TAB ================= -->
+    <?php require __DIR__ . '/tabs/citypages.php'; ?>
 
     <!-- ================= BLOG TAB ================= -->
     <?php require __DIR__ . '/tabs/blog.php'; ?>
