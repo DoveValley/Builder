@@ -3,7 +3,7 @@
 
 register_plugin(
     'services_links',
-    'Services Links',
+    'Service Links: 1-City',
     'Manage your service page list. Use [services_links] in any Custom HTML block to render a city-resolved grid of service links.',
     '&#128279;',
     __DIR__
