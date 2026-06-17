@@ -3466,9 +3466,46 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 }
 .tm-stars { font-size: 1.15rem; letter-spacing: 2px; }
 .tm-quote { font-size: .97rem; line-height: 1.65; flex: 1; margin: 0; }
-.tm-author { margin-top: auto; display: flex; flex-direction: column; gap: 2px; }
+.tm-author { margin-top: auto; display: flex; align-items: center; gap: 12px; }
+.tm-avatar {
+    flex-shrink: 0;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: .88rem;
+    letter-spacing: .5px;
+}
+.tm-author-text { display: flex; flex-direction: column; gap: 2px; }
 .tm-name { font-weight: 700; font-size: .9rem; }
 .tm-location { font-size: .82rem; color: #9ca3af; }
+.tm-result-badge {
+    margin-top: 4px;
+    display: inline-block;
+    font-size: .8rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1.5px solid;
+    align-self: flex-start;
+}
+
+/* ============================================================
+   LOGO / TRUST BAR BLOCK
+   ============================================================ */
+.block-logo-bar { padding: 36px 0; }
+.lb-label { text-align: center; font-size: .85rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: #9ca3af; margin-bottom: 24px; }
+.lb-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 32px 48px;
+}
+.lb-item { display: flex; align-items: center; }
+.lb-logo { display: block; object-fit: contain; transition: opacity .2s, filter .2s; }
+a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 
 /* ============================================================
    VIDEO EMBED BLOCK

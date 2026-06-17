@@ -84,6 +84,7 @@ function allowed_block_types() {
         'buttons_grid'    => 'Buttons Grid (plain link button grid)',
         'html_two_col'    => 'Two-column HTML (50/50 split)',
         'pricing_cards'   => 'Pricing / Course Cards (badge, checklist, CTA)',
+        'logo_bar'        => 'Logo / Trust Bar (partner logos with optional links)',
     ];
 }
 
@@ -114,6 +115,7 @@ function grouped_block_types(): array {
         ],
         'Social Proof' => [
             'testimonials' => 'Customer reviews',
+            'logo_bar'     => 'Logo / trust bar',
             'cards'        => 'Cards grid',
             'gallery'      => 'Photo gallery',
         ],
@@ -162,6 +164,7 @@ function block_thumbnails(): array {
         'custom_html'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#1e293b" rx="3"/><rect x="8" y="11" width="36" height="4" rx="1" fill="#7dd3fc"/><rect x="8" y="20" width="18" height="4" rx="1" fill="#86efac"/><rect x="20" y="29" width="60" height="4" rx="1" fill="#fde68a"/><rect x="20" y="38" width="50" height="4" rx="1" fill="#fde68a"/><rect x="8" y="47" width="22" height="4" rx="1" fill="#7dd3fc"/><rect x="8" y="56" width="32" height="4" rx="1" fill="#94a3b8" opacity=".5"/></svg>',
         'html_two_col'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#1e293b" rx="3"/><rect x="4" y="6" width="54" height="64" rx="2" fill="#0f172a"/><rect x="8" y="11" width="26" height="3" rx="1" fill="#7dd3fc"/><rect x="8" y="19" width="18" height="3" rx="1" fill="#86efac"/><rect x="16" y="27" width="38" height="3" rx="1" fill="#fde68a"/><rect x="16" y="35" width="32" height="3" rx="1" fill="#fde68a"/><rect x="8" y="43" width="22" height="3" rx="1" fill="#7dd3fc"/><rect x="62" y="6" width="54" height="64" rx="2" fill="#0f172a"/><rect x="66" y="11" width="26" height="3" rx="1" fill="#7dd3fc"/><rect x="66" y="19" width="18" height="3" rx="1" fill="#86efac"/><rect x="74" y="27" width="38" height="3" rx="1" fill="#fde68a"/><rect x="74" y="35" width="32" height="3" rx="1" fill="#fde68a"/><rect x="66" y="43" width="22" height="3" rx="1" fill="#7dd3fc"/></svg>',
         'pricing_cards'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="4" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#fd783b" stroke-width="1.5"/><rect x="4" y="4" width="34" height="10" rx="3" fill="#fd783b"/><rect x="8" y="18" width="26" height="4" rx="2" fill="#1e3a5f"/><rect x="8" y="26" width="5" height="3" rx="1" fill="#fd783b"/><rect x="15" y="26" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="8" y="33" width="5" height="3" rx="1" fill="#fd783b"/><rect x="15" y="33" width="16" height="3" rx="1" fill="#cbd5e1"/><rect x="8" y="40" width="5" height="3" rx="1" fill="#fd783b"/><rect x="15" y="40" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="8" y="60" width="26" height="8" rx="2" fill="#fd783b"/><rect x="43" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="43" y="4" width="34" height="10" rx="3" fill="#475569"/><rect x="47" y="18" width="26" height="4" rx="2" fill="#1e3a5f"/><rect x="47" y="26" width="5" height="3" rx="1" fill="#fd783b"/><rect x="54" y="26" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="47" y="33" width="5" height="3" rx="1" fill="#fd783b"/><rect x="54" y="33" width="16" height="3" rx="1" fill="#cbd5e1"/><rect x="47" y="40" width="5" height="3" rx="1" fill="#fd783b"/><rect x="54" y="40" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="47" y="60" width="26" height="8" rx="2" fill="#475569"/><rect x="82" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="82" y="4" width="34" height="10" rx="3" fill="#475569"/><rect x="86" y="18" width="26" height="4" rx="2" fill="#1e3a5f"/><rect x="86" y="26" width="5" height="3" rx="1" fill="#fd783b"/><rect x="93" y="26" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="86" y="33" width="5" height="3" rx="1" fill="#fd783b"/><rect x="93" y="33" width="16" height="3" rx="1" fill="#cbd5e1"/><rect x="86" y="40" width="5" height="3" rx="1" fill="#fd783b"/><rect x="93" y="40" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="86" y="60" width="26" height="8" rx="2" fill="#475569"/></svg>',
+        'logo_bar'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="30" y="14" width="60" height="4" rx="2" fill="#cbd5e1"/><rect x="6" y="26" width="23" height="18" rx="3" fill="#e2e8f0"/><rect x="35" y="26" width="23" height="18" rx="3" fill="#e2e8f0"/><rect x="64" y="26" width="23" height="18" rx="3" fill="#e2e8f0"/><rect x="93" y="26" width="21" height="18" rx="3" fill="#e2e8f0"/><rect x="10" y="31" width="15" height="8" rx="1" fill="#94a3b8"/><rect x="39" y="31" width="15" height="8" rx="1" fill="#94a3b8"/><rect x="68" y="31" width="15" height="8" rx="1" fill="#94a3b8"/><rect x="96" y="31" width="14" height="8" rx="1" fill="#94a3b8"/><rect x="20" y="54" width="80" height="3" rx="1" fill="#e2e8f0"/></svg>',
     ];
 }
 
@@ -1302,17 +1305,52 @@ function render_content_block($block, $pathPrefix = '') {
             if ($heading) echo '<h2 class="tm-heading" style="color:'.h($textColor).';">'.h($heading).'</h2>';
             echo '<div class="tm-grid tm-grid-'.$cols.'">';
             foreach ($items as $item) {
-                $quote    = $item['quote']    ?? '';
-                $name     = $item['name']     ?? '';
-                $location = $item['location'] ?? '';
+                $quote       = $item['quote']        ?? '';
+                $name        = $item['name']         ?? '';
+                $location    = $item['location']     ?? '';
+                $initials    = strtoupper(substr(trim($item['initials'] ?? ''), 0, 2));
+                $avatarColor = $item['avatar_color'] ?? '#2563eb';
+                $resultBadge = trim($item['result_badge'] ?? '');
                 if (!$quote && !$name) continue;
                 echo '<div class="tm-card">';
                 echo '<div class="tm-stars" style="color:'.$accentStyle.';">&#9733;&#9733;&#9733;&#9733;&#9733;</div>';
                 if ($quote) echo '<p class="tm-quote" style="color:'.h($textColor).';">&ldquo;'.h($quote).'&rdquo;</p>';
                 echo '<div class="tm-author">';
+                if ($initials) echo '<span class="tm-avatar" style="background:'.h($avatarColor).';">'.h($initials).'</span>';
+                echo '<span class="tm-author-text">';
                 if ($name)     echo '<span class="tm-name" style="color:'.h($textColor).';">'.h($name).'</span>';
                 if ($location) echo '<span class="tm-location">'.h($location).'</span>';
-                echo '</div></div>';
+                echo '</span>';
+                echo '</div>';
+                if ($resultBadge) echo '<div class="tm-result-badge" style="border-color:'.h($accentStyle).';color:'.h($accentStyle).';">'.h($resultBadge).'</div>';
+                echo '</div>';
+            }
+            echo '</div></div></div>';
+            break;
+
+        /* ---- LOGO / TRUST BAR ---- */
+        case 'logo_bar':
+            $lbHeading   = $block['lb_heading']   ?? '';
+            $lbBg        = $block['lb_bg']        ?? '#ffffff';
+            $lbHeight    = max(30, min(160, (int)($block['lb_height'] ?? 60)));
+            $lbGrayscale = !empty($block['lb_grayscale']);
+            $lbItems     = $block['lb_items']     ?? [];
+            $imgStyle    = 'max-height:'.h($lbHeight).'px;width:auto;'.($lbGrayscale ? 'filter:grayscale(100%);opacity:.7;' : '');
+            echo '<div class="content-block block-logo-bar"'.$anchorAttr.' style="background:'.h($lbBg).';">';
+            echo '<div class="container">';
+            if ($lbHeading) echo '<p class="lb-label">'.h($lbHeading).'</p>';
+            echo '<div class="lb-grid">';
+            foreach ($lbItems as $item) {
+                $img = $item['image'] ?? '';
+                $alt = $item['alt']   ?? '';
+                $url = $item['url']   ?? '';
+                if (!$img) continue;
+                $imgTag = '<img src="'.h($pathPrefix.$img).'" alt="'.h($alt).'" class="lb-logo" style="'.h($imgStyle).'" loading="lazy">';
+                if ($url) {
+                    echo '<a href="'.h($url).'" class="lb-item" target="_blank" rel="noopener noreferrer">'.$imgTag.'</a>';
+                } else {
+                    echo '<span class="lb-item">'.$imgTag.'</span>';
+                }
             }
             echo '</div></div></div>';
             break;

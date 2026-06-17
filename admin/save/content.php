@@ -681,17 +681,52 @@
                     $block['tm_accent']        = $tmac;
                     $tmacc = trim($_POST['tm_accent_custom'][$i] ?? '#f59e0b');
                     $block['tm_accent_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $tmacc) ? $tmacc : '#f59e0b';
-                    $tmQuotes    = $_POST['tm_quote'][$i]    ?? [];
-                    $tmNames     = $_POST['tm_name'][$i]     ?? [];
-                    $tmLocations = $_POST['tm_location'][$i] ?? [];
+                    $tmQuotes      = $_POST['tm_quote'][$i]        ?? [];
+                    $tmNames       = $_POST['tm_name'][$i]         ?? [];
+                    $tmLocations   = $_POST['tm_location'][$i]     ?? [];
+                    $tmInitials    = $_POST['tm_initials'][$i]     ?? [];
+                    $tmAvatarColors= $_POST['tm_avatar_color'][$i] ?? [];
+                    $tmBadges      = $_POST['tm_result_badge'][$i] ?? [];
                     $tmItems = [];
                     foreach ($tmQuotes as $ti => $tq) {
-                        $tq = trim($tq); $tn = trim($tmNames[$ti] ?? ''); $tl = trim($tmLocations[$ti] ?? '');
+                        $tq  = trim($tq);
+                        $tn  = trim($tmNames[$ti]    ?? '');
+                        $tl  = trim($tmLocations[$ti]   ?? '');
+                        $ini = strtoupper(substr(trim($tmInitials[$ti] ?? ''), 0, 2));
+                        $tac = trim($tmAvatarColors[$ti] ?? '#2563eb');
+                        if (!preg_match('/^#[0-9a-fA-F]{3,6}$/', $tac)) $tac = '#2563eb';
+                        $tbadge = trim($tmBadges[$ti] ?? '');
                         if ($tq === '' && $tn === '') continue;
-                        $tmItems[] = ['quote' => $tq, 'name' => $tn, 'location' => $tl];
+                        $tmItems[] = ['quote' => $tq, 'name' => $tn, 'location' => $tl, 'initials' => $ini, 'avatar_color' => $tac, 'result_badge' => $tbadge];
                     }
                     $block['tm_items'] = $tmItems;
                     if (empty($tmItems) && $block['tm_heading'] === '') continue 2;
+                    break;
+
+                case 'logo_bar':
+                    $block['lb_heading']   = trim($_POST['lb_heading'][$i] ?? '');
+                    $lbbg = trim($_POST['lb_bg'][$i] ?? '#ffffff');
+                    $block['lb_bg']        = preg_match('/^#[0-9a-fA-F]{3,6}$/', $lbbg) ? $lbbg : '#ffffff';
+                    $block['lb_height']    = max(30, min(160, (int)($_POST['lb_height'][$i] ?? 60)));
+                    $block['lb_grayscale'] = !empty($_POST['lb_grayscale'][$i]);
+                    $lbExisting = $_POST['lb_photo_existing'][$i] ?? [];
+                    $lbAlts     = $_POST['lb_alt'][$i]            ?? [];
+                    $lbUrls     = $_POST['lb_url'][$i]            ?? [];
+                    $lbLogoItems = [];
+                    foreach ($lbExisting as $li => $existingPath) {
+                        $imgPath = trim($existingPath);
+                        if (isset($_FILES['lb_photo']['error'][$i][$li]) &&
+                            $_FILES['lb_photo']['error'][$i][$li] === UPLOAD_ERR_OK) {
+                            $up = save_uploaded_file($_FILES['lb_photo']['tmp_name'][$i][$li], 'logo');
+                            if ($up) $imgPath = $up;
+                            elseif ($up === false) $uploadError = true;
+                        }
+                        $lbAlt = trim($lbAlts[$li] ?? '');
+                        $lbUrl = sanitize_url($lbUrls[$li] ?? '');
+                        if ($imgPath) $lbLogoItems[] = ['image' => $imgPath, 'alt' => $lbAlt, 'url' => $lbUrl];
+                    }
+                    $block['lb_items'] = $lbLogoItems;
+                    if (empty($lbLogoItems) && $block['lb_heading'] === '') continue 2;
                     break;
 
                 case 'video':

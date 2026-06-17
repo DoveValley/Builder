@@ -613,6 +613,26 @@ function content_editor_scripts() {
                 <div class="pc-items-editor" id="pc_items_new_${idx}"></div>
                 <button type="button" class="btn btn-secondary btn-small" onclick="addPcItem(this, 'new_${idx}')">+ Add card</button>
             </div>
+            <div class="block-fields block-fields-logo_bar is-hidden">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                    <div class="form-group" style="flex:2 1 200px;"><label>Label (optional)</label>
+                        <input type="text" name="lb_heading[]" placeholder="e.g. Trusted by, As seen in, Our Partners">
+                    </div>
+                    <div class="form-group" style="flex:0 0 100px;"><label>Background</label>
+                        <input type="color" name="lb_bg[]" value="#ffffff">
+                    </div>
+                    <div class="form-group" style="flex:1 1 120px;"><label>Logo height: <strong id="lb_height_val_new_${idx}">60px</strong></label>
+                        <input type="range" name="lb_height[]" min="30" max="160" step="5" value="60"
+                               oninput="document.getElementById('lb_height_val_new_${idx}').textContent=this.value+'px'"
+                               style="width:100%;accent-color:var(--color-accent,#2563eb);">
+                    </div>
+                    <div class="form-group" style="flex:0 0 auto;padding-bottom:4px;"><label>
+                        <input type="checkbox" name="lb_grayscale[new_${idx}]" value="1"> Grayscale logos
+                    </label></div>
+                </div>
+                <div class="lb-items-editor" id="lb_items_new_${idx}"></div>
+                <button type="button" class="btn btn-secondary btn-small" onclick="addLbItem(this, 'new_${idx}')">+ Add logo</button>
+            </div>
             <div class="block-fields block-fields-cards is-hidden">
                 <div class="form-group"><label>Section heading (optional)</label>
                     <input type="text" name="cards_heading[]" placeholder="e.g. Our Services">
@@ -930,9 +950,29 @@ function content_editor_scripts() {
             <div class="form-group"><label>Review text</label><textarea name="tm_quote[${blockIdx}][]" rows="3" placeholder="e.g. Fast, professional service. Got rid of our ant problem in one visit."></textarea></div>
             <div style="display:flex;gap:12px;flex-wrap:wrap;">
                 <div class="form-group" style="flex:1 1 160px;"><label>Customer name</label><input type="text" name="tm_name[${blockIdx}][]" placeholder="e.g. Sarah M."></div>
-                <div class="form-group" style="flex:1 1 160px;"><label>Location (optional)</label><input type="text" name="tm_location[${blockIdx}][]" placeholder="e.g. Katy, TX"></div>
+                <div class="form-group" style="flex:1 1 160px;"><label>Location / role (optional)</label><input type="text" name="tm_location[${blockIdx}][]" placeholder="e.g. Katy, TX or IT Project Lead"></div>
+                <div class="form-group" style="flex:0 0 80px;"><label>Initials</label><input type="text" name="tm_initials[${blockIdx}][]" placeholder="MR" maxlength="2" style="font-weight:700;text-transform:uppercase;"><span class="hint">Avatar</span></div>
+                <div class="form-group" style="flex:0 0 80px;"><label>Avatar color</label><input type="color" name="tm_avatar_color[${blockIdx}][]" value="#2563eb"></div>
             </div>
+            <div class="form-group"><label>Result badge (optional)</label><input type="text" name="tm_result_badge[${blockIdx}][]" placeholder="e.g. ✓ PMP® — Passed first attempt"><span class="hint">Shown as a bordered pill below the reviewer name.</span></div>
             <button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)" style="margin-bottom:12px;">Remove review</button>
+        `;
+        editor.appendChild(row);
+    }
+
+    function addLbItem(btn, blockIdx) {
+        const editor = document.getElementById('lb_items_' + blockIdx);
+        const row = document.createElement('div');
+        row.className = 'faq-item-row';
+        row.style.cssText = 'display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;';
+        row.innerHTML = `
+            <div class="form-group" style="flex:1 1 160px;"><label>Logo image</label>
+                <input type="file" name="lb_photo[${blockIdx}][]" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml">
+                <input type="hidden" name="lb_photo_existing[${blockIdx}][]" value="">
+            </div>
+            <div class="form-group" style="flex:1 1 160px;"><label>Alt text</label><input type="text" name="lb_alt[${blockIdx}][]" placeholder="e.g. PMI Premier ATP Partner"></div>
+            <div class="form-group" style="flex:1 1 160px;"><label>Link (optional)</label><input type="text" name="lb_url[${blockIdx}][]" placeholder="https://..."></div>
+            <div style="padding-top:22px;"><button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)">&times; Remove</button></div>
         `;
         editor.appendChild(row);
     }

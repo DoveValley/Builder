@@ -1663,7 +1663,7 @@ function render_content_blocks_editor($blocks) {
                         </div>
                     </div>
                     <div class="tm-items-editor" id="tm_items_<?= $i ?>">
-                        <?php $tmItems = $block['tm_items'] ?? [['quote' => '', 'name' => '', 'location' => '']]; ?>
+                        <?php $tmItems = $block['tm_items'] ?? [['quote' => '', 'name' => '', 'location' => '', 'initials' => '', 'avatar_color' => '#2563eb', 'result_badge' => '']]; ?>
                         <?php foreach ($tmItems as $titem): ?>
                         <div class="faq-item-row">
                             <div class="form-group">
@@ -1676,15 +1676,83 @@ function render_content_blocks_editor($blocks) {
                                     <input type="text" name="tm_name[<?= $i ?>][]" value="<?= h($titem['name'] ?? '') ?>" placeholder="e.g. Sarah M.">
                                 </div>
                                 <div class="form-group" style="flex:1 1 160px;">
-                                    <label>Location (optional)</label>
-                                    <input type="text" name="tm_location[<?= $i ?>][]" value="<?= h($titem['location'] ?? '') ?>" placeholder="e.g. Katy, TX">
+                                    <label>Location / role (optional)</label>
+                                    <input type="text" name="tm_location[<?= $i ?>][]" value="<?= h($titem['location'] ?? '') ?>" placeholder="e.g. Katy, TX or IT Project Lead">
                                 </div>
+                                <div class="form-group" style="flex:0 0 80px;">
+                                    <label>Initials</label>
+                                    <input type="text" name="tm_initials[<?= $i ?>][]" value="<?= h($titem['initials'] ?? '') ?>" placeholder="MR" maxlength="2" style="font-weight:700;text-transform:uppercase;">
+                                    <span class="hint">Avatar</span>
+                                </div>
+                                <div class="form-group" style="flex:0 0 80px;">
+                                    <label>Avatar color</label>
+                                    <input type="color" name="tm_avatar_color[<?= $i ?>][]" value="<?= h($titem['avatar_color'] ?? '#2563eb') ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Result badge (optional)</label>
+                                <input type="text" name="tm_result_badge[<?= $i ?>][]" value="<?= h($titem['result_badge'] ?? '') ?>" placeholder="e.g. ✓ PMP® — Passed first attempt">
+                                <span class="hint">Shown as a bordered pill below the reviewer name.</span>
                             </div>
                             <button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)" style="margin-bottom:12px;">Remove review</button>
                         </div>
                         <?php endforeach; ?>
                     </div>
                     <button type="button" class="btn btn-secondary btn-small" onclick="addTmItem(this, <?= $i ?>)">+ Add review</button>
+                </div>
+
+                <?php /* ---- LOGO BAR FIELDS ---- */ ?>
+                <div class="block-fields block-fields-logo_bar <?= $type !== 'logo_bar' ? 'is-hidden' : '' ?>">
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                        <div class="form-group" style="flex:2 1 200px;">
+                            <label>Label (optional)</label>
+                            <input type="text" name="lb_heading[]" value="<?= h($block['lb_heading'] ?? '') ?>" placeholder="e.g. Trusted by, As seen in, Our Partners">
+                        </div>
+                        <div class="form-group" style="flex:0 0 100px;">
+                            <label>Background</label>
+                            <input type="color" name="lb_bg[]" value="<?= h($block['lb_bg'] ?? '#ffffff') ?>">
+                        </div>
+                        <div class="form-group" style="flex:1 1 120px;">
+                            <label>Logo height: <strong id="lb_height_val_<?= $i ?>"><?= h($block['lb_height'] ?? '60') ?>px</strong></label>
+                            <input type="range" name="lb_height[]" min="30" max="160" step="5"
+                                   value="<?= h($block['lb_height'] ?? '60') ?>"
+                                   oninput="document.getElementById('lb_height_val_<?= $i ?>').textContent=this.value+'px'"
+                                   style="width:100%;accent-color:var(--color-accent,#2563eb);">
+                        </div>
+                        <div class="form-group" style="flex:0 0 auto;padding-bottom:4px;">
+                            <label>
+                                <input type="checkbox" name="lb_grayscale[<?= $i ?>]" value="1" <?= !empty($block['lb_grayscale']) ? 'checked' : '' ?>>
+                                Grayscale logos
+                            </label>
+                        </div>
+                    </div>
+                    <div class="lb-items-editor" id="lb_items_<?= $i ?>">
+                        <?php $lbItems = $block['lb_items'] ?? [['image'=>'','alt'=>'','url'=>'']]; ?>
+                        <?php foreach ($lbItems as $litem): ?>
+                        <div class="faq-item-row" style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;">
+                            <div class="form-group" style="flex:1 1 160px;">
+                                <label>Logo image</label>
+                                <input type="file" name="lb_photo[<?= $i ?>][]" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml">
+                                <input type="hidden" name="lb_photo_existing[<?= $i ?>][]" value="<?= h($litem['image'] ?? '') ?>">
+                                <?php if (!empty($litem['image'])): ?>
+                                    <img src="../<?= h($litem['image']) ?>" style="max-height:48px;margin-top:6px;opacity:.8;">
+                                <?php endif; ?>
+                            </div>
+                            <div class="form-group" style="flex:1 1 160px;">
+                                <label>Alt text</label>
+                                <input type="text" name="lb_alt[<?= $i ?>][]" value="<?= h($litem['alt'] ?? '') ?>" placeholder="e.g. PMI Premier ATP Partner">
+                            </div>
+                            <div class="form-group" style="flex:1 1 160px;">
+                                <label>Link (optional)</label>
+                                <input type="text" name="lb_url[<?= $i ?>][]" value="<?= h($litem['url'] ?? '') ?>" placeholder="https://...">
+                            </div>
+                            <div style="padding-top:22px;">
+                                <button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)">&times; Remove</button>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-small" onclick="addLbItem(this, <?= $i ?>)">+ Add logo</button>
                 </div>
 
                 <?php /* ---- VIDEO FIELDS ---- */ ?>
