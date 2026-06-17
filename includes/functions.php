@@ -13,3 +13,12 @@ require_once __DIR__ . '/editor.php';
 require_once __DIR__ . '/schema.php';
 require_once __DIR__ . '/seo-editor.php';
 require_once __DIR__ . '/scripts.php';
+require_once __DIR__ . '/hooks.php';
+require_once __DIR__ . '/plugins.php';
+
+// Auto-load all plugins. Each plugins/{id}/plugin.php calls register_plugin()
+// and add_hook() to attach to the system.
+foreach (glob(BASE_DIR . '/plugins/*/plugin.php') as $_pluginFile) {
+    require_once $_pluginFile;
+}
+unset($_pluginFile);

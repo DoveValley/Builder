@@ -45,7 +45,7 @@ $tab = $_GET['tab'] ?? 'header';
 if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins'], true)) {
     $tab = 'header';
 }
-// Redirect legacy ?tab=schedule links (including those from schedule_save.php) into the Plugins tab.
+// Redirect legacy ?tab=schedule links into the Plugins tab.
 if ($tab === 'schedule') {
     $params = $_GET;
     $params['tab']    = 'plugins';
@@ -53,7 +53,8 @@ if ($tab === 'schedule') {
     header('Location: index.php?' . http_build_query($params));
     exit;
 }
-$activePlugin = $_GET['plugin'] ?? '';
+
+$activePlugin     = preg_replace('/[^a-z0-9_-]/', '', $_GET['plugin'] ?? '');
 
 // If on the Landing Pages tab, are we viewing the list or editing one page?
 $editingPageId = null;
