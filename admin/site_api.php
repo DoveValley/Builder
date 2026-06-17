@@ -256,7 +256,7 @@ switch ($action) {
         // Import the legacy single-site data/site.json into a new site
         $name = trim($_POST['name'] ?? 'My Site');
         $legacyData    = BASE_DIR . '/data/site.json';
-        $legacyUploads = BASE_DIR . '/uploads/';
+        $legacyUploads = BASE_DIR . '/uploads';
         if (!file_exists($legacyData)) {
             echo json_encode(['error' => 'No legacy site.json found']); exit;
         }
