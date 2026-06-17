@@ -76,17 +76,21 @@ function render_content_blocks_editor($blocks) {
                     <input type="hidden" name="block_photo_ratio[]" value="landscape">
                     <input type="hidden" name="block_photo_position[]" value="center">
                     <input type="checkbox" name="block_remove_photo[]" value="1" style="display:none;">
-                    <div class="form-group">
-                        <label>Heading level</label>
-                        <select name="block_heading_level[]">
-                            <?= heading_level_options_html($block['heading_level'] ?? 'h2') ?>
-                        </select>
-                        <span class="hint">The first line of the text below will become this heading.</span>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                        <div class="form-group" style="flex:1 1 200px;">
+                            <label>Heading text (optional)</label>
+                            <input type="text" name="block_heading_text[]" value="<?= h($block['heading_text'] ?? '') ?>" placeholder="e.g. Why Choose Us">
+                        </div>
+                        <div class="form-group" style="flex:0 0 180px;">
+                            <label>Heading level</label>
+                            <select name="block_heading_level[]">
+                                <?= heading_level_options_html($block['heading_level'] ?? 'h2') ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label>Text</label>
-                        <textarea name="block_text[]" rows="5" class="rich-editor"><?= h($block['text'] ?? '') ?></textarea>
-                        <span class="hint">First line = heading (if heading level chosen). Leave a blank line between paragraphs.</span>
+                        <label>Body text</label>
+                        <textarea name="block_text[]" rows="5" class="rich-editor"><?= $block['text'] ?? '' ?></textarea>
                     </div>
                 </div>
 
@@ -1459,6 +1463,54 @@ function render_content_blocks_editor($blocks) {
                         <?php endforeach; ?>
                     </div>
                     <button type="button" class="btn btn-secondary btn-small" onclick="addCardItem(this, <?= $i ?>)">+ Add card</button>
+                </div>
+
+                <?php /* ---- BUTTONS GRID FIELDS ---- */ ?>
+                <div class="block-fields block-fields-buttons_grid <?= $type !== 'buttons_grid' ? 'is-hidden' : '' ?>">
+                    <div class="form-group">
+                        <label>Heading (optional)</label>
+                        <input type="text" name="bg_heading[]" value="<?= h($block['bg_heading'] ?? '') ?>" placeholder="e.g. Our Services">
+                    </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:1 1 130px;">
+                            <label>Background color</label>
+                            <input type="color" name="bg_bg_color[]" value="<?= h($block['bg_bg_color'] ?? '#ffffff') ?>">
+                        </div>
+                        <div class="form-group" style="flex:0 0 100px;">
+                            <label>Columns</label>
+                            <select name="bg_cols[]">
+                                <option value="2" <?= (int)($block['bg_cols'] ?? 3) === 2 ? 'selected' : '' ?>>2</option>
+                                <option value="3" <?= (int)($block['bg_cols'] ?? 3) === 3 ? 'selected' : '' ?>>3</option>
+                                <option value="4" <?= (int)($block['bg_cols'] ?? 3) === 4 ? 'selected' : '' ?>>4</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="flex:0 0 120px;">
+                            <label>Button style</label>
+                            <select name="bg_style[]">
+                                <option value="filled"  <?= ($block['bg_style'] ?? 'filled') === 'filled'  ? 'selected' : '' ?>>Filled</option>
+                                <option value="outline" <?= ($block['bg_style'] ?? '') === 'outline' ? 'selected' : '' ?>>Outline</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="flex:0 0 140px;">
+                            <label>Button color</label>
+                            <select name="bg_color[]">
+                                <option value="accent" <?= ($block['bg_color'] ?? 'accent') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
+                                <option value="header" <?= ($block['bg_color'] ?? '') === 'header' ? 'selected' : '' ?>>Header (global)</option>
+                                <option value="custom" <?= ($block['bg_color'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
+                            </select>
+                            <input type="color" name="bg_color_custom[]" value="<?= h($block['bg_color_custom'] ?? '#fd783b') ?>" style="margin-top:4px;">
+                        </div>
+                    </div>
+                    <div id="bg_items_<?= $i ?>">
+                        <?php foreach (($block['bg_items'] ?? [['label'=>'','url'=>'']]) as $bitem): ?>
+                        <div class="repeat-row" style="display:flex;gap:10px;align-items:center;margin-bottom:8px;">
+                            <input type="text" name="bg_label[<?= $i ?>][]" value="<?= h($bitem['label'] ?? '') ?>" placeholder="e.g. Termite Treatment" style="flex:1;">
+                            <input type="text" name="bg_url[<?= $i ?>][]"   value="<?= h($bitem['url']   ?? '') ?>" placeholder="/termite-treatment" style="flex:1;">
+                            <button type="button" class="remove-row" onclick="removeRow(this, null)">&times;</button>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-small" onclick="addBgItem(this, <?= $i ?>)">+ Add button</button>
                 </div>
 
                 <?php /* ---- TESTIMONIALS FIELDS ---- */ ?>

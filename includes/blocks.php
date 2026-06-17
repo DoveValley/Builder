@@ -81,6 +81,7 @@ function allowed_block_types() {
         'cta_button'      => 'CTA Button',
         'testimonials'    => 'Testimonials (customer reviews)',
         'video'           => 'Video embed (YouTube / Vimeo)',
+        'buttons_grid'    => 'Buttons Grid (plain link button grid)',
     ];
 }
 
@@ -117,6 +118,7 @@ function grouped_block_types(): array {
             'links_grid'  => 'Links grid',
         ],
         'CTA' => [
+            'buttons_grid' => 'Button grid',
             'cta_banner' => 'Solid color banner',
             'cta_card'   => 'CTA card (heading + phone)',
             'split_cta'  => 'Split panel (colored + phone)',
@@ -170,15 +172,20 @@ function render_content_block($block, $pathPrefix = '') {
         case 'text':
             echo '<div class="content-block text-only"' . $anchorAttr . '>';
             echo '<div class="content-text">';
-            if ($headingLevel !== 'p' && $text !== '') {
+            // New data has explicit heading_text; old data extracts first line of plain text
+            if (array_key_exists('heading_text', $block)) {
+                $headingText = $block['heading_text'];
+            } elseif ($headingLevel !== 'p' && $text !== '' && !preg_match('/<[a-z]/i', $text)) {
                 $lines = explode("\n", trim($text));
-                $heading = array_shift($lines);
-                $rest = implode("\n", $lines);
-                echo '<' . h($headingLevel) . ' class="block-heading">' . h($heading) . '</' . h($headingLevel) . '>';
-                if (trim($rest) !== '') echo text_to_html($rest);
+                $headingText = array_shift($lines);
+                $text = implode("\n", $lines);
             } else {
-                echo text_to_html($text);
+                $headingText = '';
             }
+            if ($headingText !== '' && $headingLevel !== 'p') {
+                echo '<' . h($headingLevel) . ' class="block-heading">' . h($headingText) . '</' . h($headingLevel) . '>';
+            }
+            if ($text !== '') echo text_to_html($text);
             echo '</div></div>';
             break;
 
@@ -1160,6 +1167,34 @@ function render_content_block($block, $pathPrefix = '') {
                 echo '</div>';
             }
             echo '</div></div>';
+            break;
+
+        /* ---- BUTTONS GRID ---- */
+        case 'buttons_grid':
+            $bgHeading  = $block['bg_heading']      ?? '';
+            $bgBg       = $block['bg_bg_color']     ?? '#ffffff';
+            $bgCols     = max(2, min(4, (int)($block['bg_cols'] ?? 3)));
+            $bgStyle    = ($block['bg_style']       ?? 'filled') === 'outline' ? 'outline' : 'filled';
+            $bgColor    = $block['bg_color']        ?? 'accent';
+            $bgColorC   = $block['bg_color_custom'] ?? '#fd783b';
+            $bgItems    = $block['bg_items']        ?? [];
+            $colorStyle = resolve_color($bgColor, $bgColorC);
+            echo '<div class="content-block block-buttons-grid"'.$anchorAttr.' style="background:'.h($bgBg).';">';
+            echo '<div class="container">';
+            if ($bgHeading) echo '<h2 class="bg-heading">'.h($bgHeading).'</h2>';
+            echo '<div class="bg-grid bg-grid-'.$bgCols.'">';
+            foreach ($bgItems as $item) {
+                $label = $item['label'] ?? '';
+                $url   = $item['url']   ?? '#';
+                if (!$label) continue;
+                if ($bgStyle === 'filled') {
+                    $btnStyle = 'background:'.$colorStyle.';color:#fff;border:2px solid '.$colorStyle.';';
+                } else {
+                    $btnStyle = 'background:transparent;color:'.$colorStyle.';border:2px solid '.$colorStyle.';';
+                }
+                echo '<a href="'.h($url).'" class="bg-btn bg-btn-'.$bgStyle.'" style="'.$btnStyle.'">'.h($label).'</a>';
+            }
+            echo '</div></div></div>';
             break;
 
         /* ---- TESTIMONIALS ---- */

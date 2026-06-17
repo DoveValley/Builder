@@ -23,14 +23,15 @@
                 case 'text':
                     $block['heading_level'] = in_array($_POST['block_heading_level'][$i] ?? '', array_keys(heading_level_options()))
                         ? $_POST['block_heading_level'][$i] : 'h2';
-                    $block['text'] = trim($_POST['block_text'][$i] ?? '');
-                    if ($block['text'] === '') continue 2;
+                    $block['heading_text'] = trim($_POST['block_heading_text'][$i] ?? '');
+                    $block['text'] = sanitize_rich_html($_POST['block_text'][$i] ?? '');
+                    if ($block['text'] === '' && $block['heading_text'] === '') continue 2;
                     break;
 
                 case 'image_left':
                 case 'image_right':
                     $block['ir_layout'] = ($_POST['ir_layout'][$i] ?? 'side') === 'stacked' ? 'stacked' : 'side';
-                    $block['text']  = trim($_POST['block_text'][$i] ?? '');
+                    $block['text']  = sanitize_rich_html($_POST['block_text'][$i] ?? '');
                     $block['photo'] = trim($_POST['block_existing_photo'][$i] ?? '');
                     $block['photo_alt'] = trim($_POST['block_photo_alt'][$i] ?? '');
                     if (!empty($_POST['block_remove_photo'][$i])) $block['photo'] = '';
@@ -46,7 +47,7 @@
 
                 case 'hero':
                     $block['hero_heading']    = trim($_POST['hero_heading'][$i]    ?? '');
-                    $block['hero_subtext']    = trim($_POST['hero_subtext'][$i]    ?? '');
+                    $block['hero_subtext']    = sanitize_rich_html($_POST['hero_subtext'][$i]    ?? '');
                     $block['hero_btn_text']   = trim($_POST['hero_btn_text'][$i]   ?? '');
                     $block['hero_btn_url']    = sanitize_url($_POST['hero_btn_url'][$i]    ?? '');
                     $block['hero_text_color'] = trim($_POST['hero_text_color'][$i] ?? '#ffffff');
@@ -196,7 +197,7 @@
                     $answers   = $_POST['faq_answer'][$i]   ?? [];
                     $items = [];
                     foreach ($questions as $fi => $q) {
-                        $q = trim($q); $a = trim($answers[$fi] ?? '');
+                        $q = trim($q); $a = sanitize_rich_html($answers[$fi] ?? '');
                         if ($q === '' && $a === '') continue;
                         $items[] = ['question' => $q, 'answer' => $a];
                     }
@@ -601,6 +602,28 @@
                     }
                     $block['cards_items'] = $cardItems;
                     if (empty($cardItems) && $block['cards_heading'] === '') continue 2;
+                    break;
+
+                case 'buttons_grid':
+                    $block['bg_heading']  = trim($_POST['bg_heading'][$i]  ?? '');
+                    $block['bg_cols']     = in_array($_POST['bg_cols'][$i] ?? '3', ['2','3','4']) ? (int)$_POST['bg_cols'][$i] : 3;
+                    $block['bg_style']    = ($_POST['bg_style'][$i] ?? 'filled') === 'outline' ? 'outline' : 'filled';
+                    $bgc  = in_array($_POST['bg_color'][$i] ?? '', ['accent','header','custom']) ? $_POST['bg_color'][$i] : 'accent';
+                    $block['bg_color']    = $bgc;
+                    $bgcc = trim($_POST['bg_color_custom'][$i] ?? '#fd783b');
+                    $block['bg_color_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $bgcc) ? $bgcc : '#fd783b';
+                    $bgbg = trim($_POST['bg_bg_color'][$i] ?? '#ffffff');
+                    $block['bg_bg_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $bgbg) ? $bgbg : '#ffffff';
+                    $bgLabels = $_POST['bg_label'][$i] ?? [];
+                    $bgUrls   = $_POST['bg_url'][$i]   ?? [];
+                    $bgItems  = [];
+                    foreach ($bgLabels as $bi => $bl) {
+                        $bl = trim($bl); $bu = sanitize_url($bgUrls[$bi] ?? '');
+                        if ($bl === '') continue;
+                        $bgItems[] = ['label' => $bl, 'url' => $bu ?: '#'];
+                    }
+                    $block['bg_items'] = $bgItems;
+                    if (empty($bgItems) && $block['bg_heading'] === '') continue 2;
                     break;
 
                 case 'testimonials':

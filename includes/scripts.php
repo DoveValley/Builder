@@ -75,23 +75,28 @@ function content_editor_scripts() {
                 <input type="hidden" name="block_photo_ratio[]" value="landscape">
                 <input type="hidden" name="block_photo_position[]" value="center">
                 <input type="checkbox" name="block_remove_photo[]" value="1" style="display:none;">
-                <div class="form-group">
-                    <label>Heading level</label>
-                    <select name="block_heading_level[]">
-                        <option value="h1">H1 (Page title)</option>
-                        <option value="h2" selected>H2 (Section heading)</option>
-                        <option value="h3">H3 (Sub-section)</option>
-                        <option value="p">Paragraph (no heading)</option>
-                    </select>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                    <div class="form-group" style="flex:1 1 200px;">
+                        <label>Heading text (optional)</label>
+                        <input type="text" name="block_heading_text[]" placeholder="e.g. Why Choose Us">
+                    </div>
+                    <div class="form-group" style="flex:0 0 180px;">
+                        <label>Heading level</label>
+                        <select name="block_heading_level[]">
+                            <option value="h1">H1 (Page title)</option>
+                            <option value="h2" selected>H2 (Section heading)</option>
+                            <option value="h3">H3 (Sub-section)</option>
+                            <option value="p">Paragraph (no heading)</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label>Text</label>
-                    <textarea name="block_text[]" rows="5" placeholder="Write the text for this block..."></textarea>
-                    <span class="hint">First line = heading. Leave a blank line between paragraphs.</span>
+                    <label>Body text</label>
+                    <textarea name="block_text[]" rows="5" class="rich-editor" placeholder="Write the body text for this block..."></textarea>
                 </div>
             </div>
             <div class="block-fields block-fields-image_left block-fields-image_right is-hidden">
-                <div class="form-group"><label>Text</label><textarea name="block_text[]" rows="4"></textarea></div>
+                <div class="form-group"><label>Text</label><textarea name="block_text[]" rows="4" class="rich-editor"></textarea></div>
                 <div class="form-group"><label>Image alt text</label><input type="text" name="block_photo_alt[]" placeholder="Describe the image"></div>
                 <div class="current-image"><span class="none">No image uploaded yet.</span></div>
                 <label>Upload image</label>
@@ -539,27 +544,7 @@ function content_editor_scripts() {
             </div>
         `;
         container.appendChild(card);
-        // Init TinyMCE on any new rich-editor textareas in this card
-        if (typeof tinymce !== 'undefined') {
-            card.querySelectorAll('.rich-editor').forEach(function(ta) {
-                if (!tinymce.get(ta.id)) {
-                    tinymce.init({
-                        target: ta,
-                        menubar: false,
-                        plugins: 'link lists autolink',
-                        toolbar: 'bold italic underline | link | bullist numlist | removeformat',
-                        height: 200,
-                        branding: false,
-                        promotion: false,
-                        statusbar: false,
-                        skin: 'oxide',
-                        content_css: false,
-                        content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 14px; color: #1a1a1a; margin: 8px; }',
-                        setup: function(editor) { editor.on('change input', function() { editor.save(); }); }
-                    });
-                }
-            });
-        }
+        if (typeof initRichEditors === 'function') initRichEditors(card);
     }
 
     /* ---- Feature Columns helpers ---- */
@@ -817,6 +802,20 @@ function content_editor_scripts() {
     }
     function removeFaqItem(btn) {
         btn.closest('.faq-item-row').remove();
+    }
+
+    /* ---- Buttons Grid helpers ---- */
+    function addBgItem(btn, blockIdx) {
+        const editor = document.getElementById('bg_items_' + blockIdx);
+        const row = document.createElement('div');
+        row.className = 'repeat-row';
+        row.style = 'display:flex;gap:10px;align-items:center;margin-bottom:8px;';
+        row.innerHTML = `
+            <input type="text" name="bg_label[${blockIdx}][]" placeholder="e.g. Termite Treatment" style="flex:1;">
+            <input type="text" name="bg_url[${blockIdx}][]" placeholder="/termite-treatment" style="flex:1;">
+            <button type="button" class="remove-row" onclick="removeRow(this, null)">&times;</button>
+        `;
+        editor.appendChild(row);
     }
 
     /* ---- Testimonials helpers ---- */

@@ -156,6 +156,22 @@ function h($string) {
     return htmlspecialchars((string) $string, ENT_QUOTES, 'UTF-8');
 }
 
+function sanitize_rich_html(string $html): string {
+    $html = trim($html);
+    if ($html === '') return '';
+    $html = strip_tags($html, '<p><br><strong><b><em><i><ul><ol><li><a><blockquote><h2><h3>');
+    $html = preg_replace_callback('/<a\b([^>]*)>/i', function($m) {
+        if (preg_match('/\bhref=["\']([^"\']*)["\']/', $m[1], $href)) {
+            $url = sanitize_url(html_entity_decode($href[1], ENT_QUOTES, 'UTF-8'));
+            $ext = $url && preg_match('/^https?:\/\//i', $url) ? ' rel="noopener"' : '';
+            return $url ? '<a href="' . htmlspecialchars($url, ENT_QUOTES, 'UTF-8') . '"' . $ext . '>' : '<a>';
+        }
+        return '<a>';
+    }, $html);
+    $html = preg_replace('/<(p|br|strong|b|em|i|ul|ol|li|blockquote|h2|h3)\b[^>]*>/i', '<$1>', $html);
+    return $html;
+}
+
 function text_to_html($text) {
     $text = trim((string) $text);
     if ($text === '') return '';

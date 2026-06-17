@@ -102,8 +102,7 @@ foreach ($footer['columns'] as $ci => $column) {
     <link rel="stylesheet" href="../assets/css/style.css?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/style.css') ?>">
     <script src="https://cdn.tiny.cloud/1/qeuo7izgoglstixfe9merx5vdkfu7nfuvl1nhyc98p6qej0p/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
-    tinymce.init({
-        selector: '.rich-editor',
+    const TINYMCE_OPTS = {
         menubar: false,
         plugins: 'link lists autolink',
         toolbar: 'bold italic underline | link | bullist numlist | removeformat',
@@ -117,12 +116,19 @@ foreach ($footer['columns'] as $ci => $column) {
         content_css: false,
         content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 14px; color: #1a1a1a; margin: 8px; }',
         setup: function(editor) {
-            // Sync back to textarea on any change so form saves correctly
-            editor.on('change input', function() {
-                editor.save();
-            });
+            editor.on('change input', function() { editor.save(); });
         }
-    });
+    };
+    tinymce.init(Object.assign({ selector: '.rich-editor' }, TINYMCE_OPTS));
+
+    function initRichEditors(root) {
+        (root || document).querySelectorAll('textarea.rich-editor').forEach(function(ta) {
+            if (!ta.id) ta.id = 'mce_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
+            if (!tinymce.get(ta.id)) {
+                tinymce.init(Object.assign({ selector: '#' + ta.id }, TINYMCE_OPTS));
+            }
+        });
+    }
     </script>
     <script>
     // Inject CSRF token into every form on submit
