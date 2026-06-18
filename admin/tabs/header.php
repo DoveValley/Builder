@@ -227,6 +227,7 @@
                     <select id="phone_btn_style" name="phone_btn_style">
                         <option value="outline" <?= ($header['phone_btn_style'] ?? 'outline') === 'outline' ? 'selected' : '' ?>>Outline (border only)</option>
                         <option value="filled"  <?= ($header['phone_btn_style'] ?? 'outline') === 'filled'  ? 'selected' : '' ?>>Filled (solid background)</option>
+                        <option value="plain"   <?= ($header['phone_btn_style'] ?? 'outline') === 'plain'   ? 'selected' : '' ?>>Plain (text only, no border)</option>
                     </select>
                 </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">

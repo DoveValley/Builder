@@ -23,12 +23,12 @@
     "topbar_link": "tel:+18774387671",
     "menu": [
       {
-        "label": "Home",
-        "url": "/",
+        "label": "PMP Certification Training",
+        "url": "/pmp-certification-training",
         "children": []
       },
       {
-        "label": "Programs",
+        "label": "Courses",
         "url": "#",
         "children": [
           {
@@ -87,6 +87,16 @@
             "url": "/training-locations"
           }
         ]
+      },
+      {
+        "label": "Login",
+        "url": "https://authority.learnworlds.com/home",
+        "children": []
+      },
+      {
+        "label": "CART",
+        "url": "https://authority.learnworlds.com/cart",
+        "children": []
       }
     ],
     "socials": {
@@ -100,7 +110,7 @@
     },
     "nav_bg": "#1a2e5a",
     "nav_text": "#ffffff",
-    "phone_btn_style": "outline",
+    "phone_btn_style": "plain",
     "sticky": true,
     "info_items": [
       {

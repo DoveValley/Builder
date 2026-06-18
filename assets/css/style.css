@@ -1587,6 +1587,13 @@ body.has-fixed-header main {
 .header-phone-btn-filled {
     border: none;
 }
+.header-phone-btn-plain {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
 
 /* ============================================================
    MOBILE: two-row header

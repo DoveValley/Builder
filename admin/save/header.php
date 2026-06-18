@@ -8,7 +8,7 @@
         $data['header']['logo_max_height'] = max(32, min(120, (int)($_POST['logo_max_height'] ?? 56)));
         $data['header']['nav_bg']          = trim($_POST['nav_bg']          ?? '#fd783b');
         $data['header']['nav_text']        = trim($_POST['nav_text']        ?? '#ffffff');
-        $data['header']['phone_btn_style'] = ($_POST['phone_btn_style'] ?? 'outline') === 'filled' ? 'filled' : 'outline';
+        $data['header']['phone_btn_style'] = in_array($_POST['phone_btn_style'] ?? '', ['outline','filled','plain']) ? $_POST['phone_btn_style'] : 'outline';
         $data['header']['phone_label']    = trim($_POST['phone_label']   ?? 'Helpline:');
         $data['header']['show_sponsored'] = !empty($_POST['show_sponsored']);
         $data['header']['cta_text']       = trim($_POST['cta_text']      ?? '');
