@@ -59,7 +59,7 @@ if (file_exists(GEN_LOG_FILE)) {
             <span class="hint" style="margin:0 4px;">Tag filter:</span>
             <button class="btn btn-secondary btn-small cp-tag-btn active-tag" data-tag="" onclick="cpSetTag(this,'')">All</button>
             <?php foreach ($allCityTags as $tag => $_): ?>
-            <button class="btn btn-secondary btn-small cp-tag-btn" data-tag="<?= h($tag) ?>" onclick="cpSetTag(this,<?= json_encode($tag) ?>)"><?= h($tag) ?></button>
+            <button class="btn btn-secondary btn-small cp-tag-btn" data-tag="<?= h($tag) ?>" onclick='cpSetTag(this,<?= json_encode($tag) ?>)'><?= h($tag) ?></button>
             <?php endforeach; ?>
             <?php endif; ?>
 
