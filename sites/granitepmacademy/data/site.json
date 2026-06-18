@@ -1,10 +1,10 @@
 {
   "theme": {
-    "header_bg": "#1a2e5a",
+    "header_bg": "#0d1f3c",
     "header_text": "#ffffff",
     "content_bg": "#ffffff",
     "content_text": "#555e6d",
-    "footer_bg": "#1a2e5a",
+    "footer_bg": "#0d1f3c",
     "footer_text": "#ffffff",
     "accent_color": "#c8960a",
     "primary_font": "Roboto, sans-serif",
@@ -108,7 +108,7 @@
       "tiktok": "",
       "yelp": ""
     },
-    "nav_bg": "#1a2e5a",
+    "nav_bg": "#0d1f3c",
     "nav_text": "#ffffff",
     "phone_btn_style": "plain",
     "sticky": true,
@@ -426,10 +426,10 @@
     "logo": "sites/granitepmacademy/uploads/logo_granite.png",
     "phone": "{phone}",
     "copyright": "© {year} {business}. All rights reserved.",
-    "disclaimer": "PMI, PMP, CAPM, PMI-ACP, PMI-RMP, PgMP, and PMI-PBA are registered marks of the Project Management Institute, Inc. CPMAI is a trademark of Cognilytica. Granite PM Academy is a PMI Premier Authorized Training Partner.",
+    "disclaimer": "",
     "sticky_bar_text": "Questions? Call {phone}",
     "sticky_bar_info": "",
-    "logo_in_copyright_bar": false,
+    "logo_in_copyright_bar": true,
     "bottom_links": [
       {
         "label": "Privacy Policy",
@@ -444,7 +444,7 @@
       {
         "type": "text",
         "title": "",
-        "text": "<p>PMI Premier Authorized Training Partner offering live-virtual PMP®, CAPM®, and CPMAI® certification programs. Pass guaranteed.</p><p style=\"margin-top:0.75rem;\"><strong>PMP® &nbsp;CAPM® &nbsp;PMI-ACP®<br>PMI-RMP® &nbsp;PgMP® &nbsp;PMI-PBA®</strong></p><p style=\"margin-top:0.75rem;\"><a href=\"tel:+18779438761\" style=\"color:inherit;\">📞 877-GET-PMP1</a></p><p><a href=\"mailto:contact@GranitePMAcademy.com\" style=\"color:inherit;\">✉ contact@GranitePMAcademy.com</a></p>"
+        "text": "<p>PMI Premier Authorized Training Partner offering live-virtual PMP&reg;, CAPM&reg;, and CPMAI&reg; certification programs. Pass guaranteed.</p>\r\n<p>&nbsp;</p>\r\n<p style=\"margin-top: 0.75rem;\"><a style=\"color: inherit;\" href=\"tel:+18779438761\">📞 877-GET-PMP1</a></p>\r\n<p><a style=\"color: inherit;\" href=\"mailto:contact@GranitePMAcademy.com\">✉ contact@GranitePMAcademy.com</a></p>"
       },
       {
         "type": "links",
