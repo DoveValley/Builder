@@ -18,11 +18,15 @@ function theme_css_vars($theme) {
         $safe = preg_replace('/[^#a-zA-Z0-9(),.%\s\-_]/', '', $value);
         $css .= "    {$var}: {$safe};\n";
     }
-    // Font family
+    // Font families
     if (preg_match('/^[a-zA-Z0-9\s,\-]+$/', $font)) {
         $css .= "    --font-primary: {$font};\n";
     } else {
         $css .= "    --font-primary: sans-serif;\n";
+    }
+    $headingFont = $theme['heading_font'] ?? '';
+    if ($headingFont !== '' && preg_match('/^[a-zA-Z0-9\s,\-]+$/', $headingFont)) {
+        $css .= "    --font-heading: {$headingFont};\n";
     }
     // Font sizes (rem for headings, px for body)
     $bodyPx = max(12, min(24, (int)($theme['font_size_body'] ?? 16)));

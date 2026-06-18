@@ -80,12 +80,43 @@ if (empty($seo['og_image'])) {
     <meta property="og:title" content="<?= h($ogTitle) ?>">
     <?php if ($ogDesc): ?><meta property="og:description" content="<?= h($ogDesc) ?>"><?php endif; ?>
     <?php if (!empty($seo['og_image'])): ?><meta property="og:image" content="<?= h(rtrim(resolve_shortcodes('{website}'), '/') . '/' . ltrim($seo['og_image'], '/')) ?>"><?php endif; ?>
+    <?php
+    // Google Fonts loader — only requests fonts that need network loading
+    $gfSystemFonts = ['sans-serif','serif','monospace','Arial, sans-serif','Helvetica, sans-serif','Verdana, sans-serif','Trebuchet MS, sans-serif','Georgia, serif'];
+    $gfMap = [
+        'Open Sans'    => 'Open+Sans:wght@400;600;700',
+        'Noto Serif'   => 'Noto+Serif:wght@400;700',
+        'Roboto'       => 'Roboto:wght@400;500;700',
+        'Lato'         => 'Lato:wght@400;700',
+        'Montserrat'   => 'Montserrat:wght@400;600;700',
+        'Raleway'      => 'Raleway:wght@400;600;700',
+        'Poppins'      => 'Poppins:wght@400;600;700',
+        'Nunito'       => 'Nunito:wght@400;600;700',
+        'Mulish'       => 'Mulish:wght@400;600;700',
+        'Inter'        => 'Inter:wght@400;500;600;700',
+        'Source Sans Pro' => 'Source+Sans+3:wght@400;600;700',
+        'Inclusive Sans'  => 'Inclusive+Sans:ital@0;1',
+        'Playfair Display'=> 'Playfair+Display:wght@400;700',
+        'Merriweather' => 'Merriweather:wght@400;700',
+    ];
+    $gfFamilies = [];
+    foreach ([$theme['primary_font'] ?? '', $theme['heading_font'] ?? ''] as $fontStr) {
+        if ($fontStr === '' || in_array($fontStr, $gfSystemFonts)) continue;
+        $baseName = trim(explode(',', $fontStr)[0], " '\"");
+        if (isset($gfMap[$baseName]) && !in_array($gfMap[$baseName], $gfFamilies)) {
+            $gfFamilies[] = $gfMap[$baseName];
+        }
+    }
+    if ($gfFamilies):
+    ?>
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?<?= implode('&', array_map(fn($f) => 'family=' . $f, $gfFamilies)) ?>&display=swap" rel="stylesheet">
+    <?php endif; ?>
     <link rel="stylesheet" href="<?= h($assetPathPrefix ?? '') ?>assets/css/style.css?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/style.css') ?>">
     <?php run_hook('head_styles', $assetPathPrefix ?? ''); ?>
     <style><?= theme_css_vars($theme) ?>
     body { font-family: var(--font-primary, sans-serif); }
+    h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading, var(--font-primary, sans-serif)); }
     </style>
     <?php
     if (!empty($seo['schema'])) {

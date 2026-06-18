@@ -56,6 +56,11 @@ if ($tab === 'schedule' || $tab === 'popups') {
 
 $activePlugin     = preg_replace('/[^a-z0-9_-]/', '', $_GET['plugin'] ?? '');
 
+// Load site meta (name set via sites.php Rename)
+$_metaFile  = ACTIVE_SITE_DIR . '/meta.json';
+$_siteMeta  = file_exists($_metaFile) ? (json_decode(file_get_contents($_metaFile), true) ?? []) : [];
+$_siteDisplayName = $_siteMeta['name'] ?? ($data['local_business']['lb_name'] ?? SITE_TITLE);
+
 // If on the Landing Pages tab, are we viewing the list or editing one page?
 $editingPageId = null;
 $editingPage   = null;
@@ -144,7 +149,7 @@ foreach ($footer['columns'] as $ci => $column) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - <?= h(SITE_TITLE) ?></title>
+    <title>Admin Panel - <?= h($_siteDisplayName) ?></title>
     <link rel="stylesheet" href="../assets/css/style.css?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/style.css') ?>">
     <script src="https://cdn.tiny.cloud/1/qeuo7izgoglstixfe9merx5vdkfu7nfuvl1nhyc98p6qej0p/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
@@ -202,7 +207,7 @@ foreach ($footer['columns'] as $ci => $column) {
     <div class="admin-header">
         <h1>
             <a href="sites.php" style="color:inherit;text-decoration:none;font-size:0.75em;opacity:0.7;margin-right:10px;" title="All Sites">&#8592; Sites</a>
-            <?= h($data['local_business']['lb_name'] ?? SITE_TITLE) ?>
+            <?= h($_siteDisplayName) ?>
         </h1>
         <div>
             <a href="../index.php" target="_blank" class="preview-link">View site &rarr;</a>

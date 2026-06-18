@@ -57,22 +57,72 @@
             <div class="card">
                 <h2>Typography &amp; Buttons</h2>
                 <div class="form-group">
-                    <label for="primary_font">Primary font</label>
+                    <label for="primary_font">Body / nav font</label>
                     <select id="primary_font" name="primary_font">
                         <?php
                         $currentFont = $theme['primary_font'] ?? 'sans-serif';
                         $fonts = [
-                            'sans-serif'             => 'System sans-serif (default)',
-                            'Arial, sans-serif'      => 'Arial',
-                            'Helvetica, sans-serif'  => 'Helvetica',
-                            'Verdana, sans-serif'    => 'Verdana',
+                            '— System fonts —'         => null,
+                            'sans-serif'               => 'System sans-serif (default)',
+                            'Arial, sans-serif'        => 'Arial',
+                            'Helvetica, sans-serif'    => 'Helvetica',
+                            'Verdana, sans-serif'      => 'Verdana',
                             'Trebuchet MS, sans-serif' => 'Trebuchet MS',
-                            'Georgia, serif'         => 'Georgia (serif)',
-                            'serif'                  => 'System serif',
+                            'Georgia, serif'           => 'Georgia (serif)',
+                            'serif'                    => 'System serif',
+                            '— Google Fonts (sans-serif) —' => null,
+                            'Open Sans, sans-serif'    => 'Open Sans ★',
+                            'Roboto, sans-serif'       => 'Roboto ★',
+                            'Lato, sans-serif'         => 'Lato',
+                            'Montserrat, sans-serif'   => 'Montserrat ★',
+                            'Raleway, sans-serif'      => 'Raleway',
+                            'Poppins, sans-serif'      => 'Poppins ★',
+                            'Nunito, sans-serif'       => 'Nunito',
+                            'Mulish, sans-serif'       => 'Mulish',
+                            'Inter, sans-serif'        => 'Inter ★',
+                            'Inclusive Sans, sans-serif' => 'Inclusive Sans',
+                            '— Google Fonts (serif) —' => null,
+                            'Noto Serif, serif'        => 'Noto Serif ★',
+                            'Playfair Display, serif'  => 'Playfair Display',
+                            'Merriweather, serif'      => 'Merriweather',
                         ];
                         foreach ($fonts as $val => $label):
+                            if ($label === null): ?>
+                            <optgroup label="<?= h($val) ?>"></optgroup>
+                            <?php continue; endif;
                         ?>
                             <option value="<?= h($val) ?>" <?= $val === $currentFont ? 'selected' : '' ?>><?= h($label) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="heading_font">Heading font <span class="hint">(leave blank to use same as body)</span></label>
+                    <select id="heading_font" name="heading_font">
+                        <?php
+                        $currentHFont = $theme['heading_font'] ?? '';
+                        $hfonts = [
+                            ''                         => '— Same as body font —',
+                            '— System fonts —'         => null,
+                            'serif'                    => 'System serif',
+                            'Georgia, serif'           => 'Georgia',
+                            'sans-serif'               => 'System sans-serif',
+                            '— Google Fonts (serif) —' => null,
+                            'Noto Serif, serif'        => 'Noto Serif ★',
+                            'Playfair Display, serif'  => 'Playfair Display',
+                            'Merriweather, serif'      => 'Merriweather',
+                            '— Google Fonts (sans-serif) —' => null,
+                            'Open Sans, sans-serif'    => 'Open Sans ★',
+                            'Roboto, sans-serif'       => 'Roboto ★',
+                            'Montserrat, sans-serif'   => 'Montserrat ★',
+                            'Poppins, sans-serif'      => 'Poppins ★',
+                            'Inter, sans-serif'        => 'Inter ★',
+                        ];
+                        foreach ($hfonts as $val => $label):
+                            if ($label === null): ?>
+                            <optgroup label="<?= h($val) ?>"></optgroup>
+                            <?php continue; endif;
+                        ?>
+                            <option value="<?= h($val) ?>" <?= $val === $currentHFont ? 'selected' : '' ?>><?= h($label) ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>

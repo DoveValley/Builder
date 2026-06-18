@@ -12,6 +12,7 @@ function default_data() {
             'footer_text'    => '#000000',
             'accent_color'   => '#2563eb',
             'primary_font'   => 'sans-serif',
+            'heading_font'   => '',
             'font_size_body' => '16',
             'font_size_h1'   => '2.5',
             'font_size_h2'   => '2',

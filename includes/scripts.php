@@ -37,7 +37,10 @@ function content_editor_scripts() {
     function removeBlock(btn) {
         const container = document.getElementById('content-blocks');
         const card = btn.closest('.block-card');
-        if (container.children.length > 1) card.remove();
+        if (container.children.length > 1) {
+            if (!confirm('Remove this block? Click Save to make it permanent.')) return;
+            card.remove();
+        }
     }
 
     /* Block picker state */
