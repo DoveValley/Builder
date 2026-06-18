@@ -271,7 +271,7 @@ include file_exists($_hFile) ? $_hFile : __DIR__ . '/headers/standard.php';
             <?php if (!empty($footer['logo']) && !empty($footer['logo_in_copyright_bar'])): ?>
                 <img class="footer-bottom-logo" src="<?= h(($assetPathPrefix ?? '') . $footer['logo']) ?>" alt="Logo">
             <?php endif; ?>
-            <div class="footer-copyright"><?= h($footer['copyright']) ?></div>
+            <div class="footer-copyright"><?= h(str_replace('{year}', date('Y'), resolve_shortcodes($footer['copyright'] ?? ''))) ?></div>
             <?php $footerSocials = array_filter($footer['socials'] ?? []); ?>
             <?php if (!empty($footerSocials)): ?>
                 <div class="footer-socials" style="margin-top:0;">

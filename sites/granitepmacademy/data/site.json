@@ -436,31 +436,23 @@
         "url": "/privacy-policy"
       },
       {
-        "label": "Terms and Conditions",
+        "label": "Terms of Service",
         "url": "/terms-and-conditions"
-      },
-      {
-        "label": "Contact Us",
-        "url": "/contact-us"
       }
     ],
     "columns": [
       {
         "type": "text",
-        "title": "Granite PM Academy",
-        "text": "<p>Granite PM Academy is a PMI Premier Authorized Training Partner offering live-virtual PMP®, CAPM®, and CPMAI® certification programs. Live instruction. Real results. Guaranteed.</p>"
+        "title": "",
+        "text": "<p>PMI Premier Authorized Training Partner offering live-virtual PMP®, CAPM®, and CPMAI® certification programs. Pass guaranteed.</p><p style=\"margin-top:0.75rem;\"><strong>PMP® &nbsp;CAPM® &nbsp;PMI-ACP®<br>PMI-RMP® &nbsp;PgMP® &nbsp;PMI-PBA®</strong></p><p style=\"margin-top:0.75rem;\"><a href=\"tel:+18779438761\" style=\"color:inherit;\">📞 877-GET-PMP1</a></p><p><a href=\"mailto:contact@GranitePMAcademy.com\" style=\"color:inherit;\">✉ contact@GranitePMAcademy.com</a></p>"
       },
       {
         "type": "links",
-        "title": "Programs",
+        "title": "Courses",
         "links": [
           {
             "label": "PMP Certification Training",
             "url": "/pmp-certification-training"
-          },
-          {
-            "label": "PMP Exam Prep Bootcamp",
-            "url": "/pmp-bootcamp"
           },
           {
             "label": "CAPM Certification Training",
@@ -469,42 +461,68 @@
           {
             "label": "CPMAI Certification Training",
             "url": "/cpmai-certification-training"
+          },
+          {
+            "label": "PDU Courses",
+            "url": "/pmi-pdu-renewal"
           }
         ]
       },
       {
         "type": "links",
-        "title": "Quick Links",
+        "title": "Company",
         "links": [
           {
-            "label": "Home",
-            "url": "/"
+            "label": "About Us",
+            "url": "/about"
           },
           {
-            "label": "Course Schedule",
-            "url": "/#course_schedule"
+            "label": "FAQs",
+            "url": "/faqs"
           },
           {
             "label": "Blog",
             "url": "/blog"
           },
           {
+            "label": "Training Locations",
+            "url": "/training-locations"
+          },
+          {
             "label": "Contact Us",
             "url": "/contact-us"
+          }
+        ]
+      },
+      {
+        "type": "links",
+        "title": "Cities",
+        "links": [
+          {
+            "label": "PMP Training – San Antonio",
+            "url": "/pmp-certification-training-san-antonio"
           },
           {
-            "label": "Privacy Policy",
-            "url": "/privacy-policy"
+            "label": "PMP Bootcamp – San Antonio",
+            "url": "/pmp-bootcamp-san-antonio"
           },
           {
-            "label": "Terms and Conditions",
-            "url": "/terms-and-conditions"
+            "label": "CAPM Training – San Antonio",
+            "url": "/capm-certification-training-san-antonio"
+          },
+          {
+            "label": "CAPM Bootcamp – San Antonio",
+            "url": "/capm-bootcamp-san-antonio"
+          },
+          {
+            "label": "CPMAI Training – San Antonio",
+            "url": "/cpmai-certification-training-san-antonio"
           }
         ]
       }
     ],
     "email": "contact@GranitePMAcademy.com",
-    "col_count": 3,
+    "col_count": 4,
     "socials": {
       "facebook": "",
       "instagram": "",
