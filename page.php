@@ -64,6 +64,6 @@ if ($page === null) {
 
 $contentBlocks = $page['content_blocks'];
 $seo           = $page['seo'];
-$pageTitle     = $page['title'] !== '' ? $page['title'] : SITE_TITLE;
+$pageTitle     = !empty($page['seo']['seo_title']) ? $page['seo']['seo_title'] : ($page['title'] !== '' ? $page['title'] : SITE_TITLE);
 
 require __DIR__ . '/includes/site-template.php';

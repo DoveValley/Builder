@@ -80,7 +80,7 @@
                     },
                     {
                         "label": "Contact Us",
-                        "url": "/contact"
+                        "url": "/contact-us"
                     },
                     {
                         "label": "Training Locations",
@@ -112,7 +112,8 @@
                 "text": "Live-Virtual & On-Demand"
             }
         ],
-        "logo_max_height": 72
+        "logo_max_height": 72,
+        "site_name": "Granite PM Academy"
     },
     "content_blocks": [
         {
@@ -359,12 +360,12 @@
         }
     ],
     "seo": {
-        "seo_title": "PMP & Project Management Certification Training {city} {SS} | {business}",
+        "seo_title": "PMP & Project Management Certification Training | {business}",
         "canonical_url": "{website}/",
-        "meta_description": "PMI-aligned PMP, CAPM, and CPMAI certification training in {city_state}. Live-virtual and on-demand courses taught by certified practitioners. 92% first-attempt pass rate.",
-        "meta_keywords": "PMP certification training {city} TX, CAPM certification {city} TX, project management training {city} {SS}, PMP bootcamp {city}, CPMAI training {city}",
-        "og_title": "Project Management Certification Training in {city}, {SS} | {business}",
-        "og_description": "Earn your PMP, CAPM, or CPMAI credential with Granite PM Academy in {city}, TX. PMI-aligned courses led by active practitioners. Live-virtual and on-demand formats available.",
+        "meta_description": "PMI-aligned PMP, CAPM, and CPMAI certification training from a PMI Premier Authorized Training Partner. Live-virtual and on-demand courses taught by certified practitioners. 90-day pass guarantee included.",
+        "meta_keywords": "PMP certification training online, CAPM certification training, CPMAI certification, project management training, PMI authorized training partner",
+        "og_title": "PMP, CAPM & CPMAI Certification Training | {business}",
+        "og_description": "Earn your PMP, CAPM, or CPMAI credential with Granite PM Academy — a PMI Premier Authorized Training Partner. Live-virtual and on-demand formats available nationwide.",
         "og_image": "",
         "service_name": "Project Management Certification Training",
         "service_type": "EducationalOrganization",
@@ -379,8 +380,8 @@
         "lb_name": "Granite PM Academy",
         "lb_type": "EducationalOrganization",
         "lb_url": "https://granitepmacademy.com",
-        "lb_phone": "(210) 555-0190",
-        "lb_street": "100 W Houston St Suite 200",
+        "lb_phone": "{phone}",
+        "lb_street": "",
         "lb_city": "San Antonio",
         "lb_state": "TX",
         "lb_zip": "78201",
@@ -389,10 +390,10 @@
         "lb_lng": "-98.4936",
         "lb_price_range": "$$",
         "lb_hours": "Mo-Fr 08:00-17:00",
-        "lb_description": "Granite PM Academy provides PMI-authorized PMP, CAPM, and CPMAI project management certification training in San Antonio, TX.",
-        "lb_logo": "",
-        "lb_rating": "4.9",
-        "lb_review_count": "87"
+        "lb_description": "Granite PM Academy is a PMI Premier Authorized Training Partner offering PMP, CAPM, and CPMAI certification training via live-virtual and on-demand courses nationwide.",
+        "lb_logo": "https://granitepmacademy.com/uploads/logo_granite.png",
+        "lb_rating": "",
+        "lb_review_count": ""
     },
     "site_vars": {
         "city": "San Antonio",
@@ -444,7 +445,7 @@
                     },
                     {
                         "label": "PMP Exam Prep Bootcamp",
-                        "url": "/pmp-exam-prep-bootcamp"
+                        "url": "/pmp-bootcamp"
                     },
                     {
                         "label": "CAPM Certification Training",
@@ -486,7 +487,8 @@
                     }
                 ]
             }
-        ]
+        ],
+        "email": "contact@GranitePMAcademy.com"
     },
     "popups": [],
     "posts": {
@@ -1872,7 +1874,7 @@
         },
         "page_contact": {
             "title": "Contact Us",
-            "slug": "contact",
+            "slug": "contact-us",
             "page_type": "page",
             "content_blocks": [
                 {
@@ -1930,7 +1932,7 @@
         },
         "page_privacy": {
             "title": "Privacy Policy",
-            "slug": "privacy",
+            "slug": "privacy-policy",
             "page_type": "page",
             "content_blocks": [
                 {
@@ -1958,7 +1960,7 @@
         },
         "page_terms": {
             "title": "Terms and Conditions",
-            "slug": "terms",
+            "slug": "terms-and-conditions",
             "page_type": "page",
             "content_blocks": [
                 {
