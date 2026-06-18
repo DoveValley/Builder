@@ -416,16 +416,34 @@ include file_exists($_hFile) ? $_hFile : __DIR__ . '/headers/standard.php';
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 
-    // Mobile dropdown toggles
+    // Dropdown toggle: mobile = click accordion; desktop = click closes others, Esc closes
     nav.querySelectorAll('li.has-dropdown > a').forEach(function(a) {
         a.addEventListener('click', function(e) {
+            var li = a.closest('li.has-dropdown');
             if (window.innerWidth <= 768) {
                 e.preventDefault();
-                var li = a.closest('li.has-dropdown');
-                li.classList.toggle('open');
-                a.setAttribute('aria-expanded', li.classList.contains('open') ? 'true' : 'false');
+                var isOpen = li.classList.toggle('open');
+                a.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            } else {
+                // On desktop: blur so hover takes over; prevent the # href jump
+                if (a.getAttribute('href') === '#') e.preventDefault();
+                a.blur();
             }
         });
+    });
+
+    // Close all dropdowns when clicking outside the nav
+    document.addEventListener('click', function(e) {
+        if (!nav.contains(e.target)) {
+            nav.querySelectorAll('li.has-dropdown').forEach(function(li) { li.classList.remove('open'); });
+        }
+    });
+
+    // Esc key closes all dropdowns
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            nav.querySelectorAll('li.has-dropdown').forEach(function(li) { li.classList.remove('open'); });
+        }
     });
 
     // Close everything when a leaf link is clicked
