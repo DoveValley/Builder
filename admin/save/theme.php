@@ -11,6 +11,12 @@
             $data['theme']['primary_font'] = $font;
             $data['theme']['font_family']  = $font; // keep alias in sync
         }
+        // Font sizes
+        $data['theme']['font_size_body'] = max(12, min(24, (int)($_POST['font_size_body'] ?? 16)));
+        foreach (['h1','h2','h3','h4'] as $tag) {
+            $val = (float)($_POST['font_size_'.$tag] ?? 0);
+            if ($val > 0) $data['theme']['font_size_'.$tag] = max(0.5, min(6.0, round($val, 2)));
+        }
         // Button radius
         $radius = (int)($_POST['button_radius'] ?? 4);
         $data['theme']['button_radius'] = max(0, min(50, $radius));

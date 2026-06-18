@@ -18,11 +18,21 @@ function theme_css_vars($theme) {
         $safe = preg_replace('/[^#a-zA-Z0-9(),.%\s\-_]/', '', $value);
         $css .= "    {$var}: {$safe};\n";
     }
-    // Font — allow Google Fonts or safe system fonts
+    // Font family
     if (preg_match('/^[a-zA-Z0-9\s,\-]+$/', $font)) {
         $css .= "    --font-primary: {$font};\n";
     } else {
         $css .= "    --font-primary: sans-serif;\n";
+    }
+    // Font sizes (rem for headings, px for body)
+    $bodyPx = max(12, min(24, (int)($theme['font_size_body'] ?? 16)));
+    $css .= "    --font-size-body: {$bodyPx}px;\n";
+    foreach (['h1'=>'2.5','h2'=>'2','h3'=>'1.75','h4'=>'1.5'] as $tag => $def) {
+        $val = $theme["font_size_{$tag}"] ?? $def;
+        $num = preg_replace('/[^0-9.]/', '', (string)$val);
+        $num = $num !== '' ? (float)$num : (float)$def;
+        $num = max(0.5, min(6.0, $num));
+        $css .= "    --font-size-{$tag}: {$num}rem;\n";
     }
     $css .= "}\n";
     return $css;
