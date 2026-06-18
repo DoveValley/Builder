@@ -4,6 +4,56 @@
             <div style="margin-bottom:16px;"><button type="submit" class="btn">Save Header</button></div>
 
             <div class="card">
+                <h2>Header Layout</h2>
+                <p class="hint" style="margin-bottom:16px;">Choose the overall structure of your header. All other settings (logo, phone, colors, nav) apply to whichever layout is selected.</p>
+                <?php
+                $headerLayouts = [
+                    'standard'   => ['label' => 'Standard',   'desc' => '2-row: logo + info bar on top, colored nav bar below'],
+                    'single_row' => ['label' => 'Single Row', 'desc' => '1-row: logo, nav, and phone all in one colored bar'],
+                ];
+                $currentLayout = $header['header_layout'] ?? 'standard';
+                ?>
+                <div class="header-layout-picker">
+                    <?php foreach ($headerLayouts as $layoutKey => $layoutInfo): ?>
+                    <label class="layout-option<?= $currentLayout === $layoutKey ? ' layout-option-selected' : '' ?>">
+                        <input type="radio" name="header_layout" value="<?= h($layoutKey) ?>"
+                               <?= $currentLayout === $layoutKey ? 'checked' : '' ?>
+                               onchange="onHeaderLayoutChange(this.value)">
+                        <div class="layout-thumb layout-thumb-<?= h($layoutKey) ?>">
+                            <?php if ($layoutKey === 'standard'): ?>
+                                <div class="lt-row lt-top-row"><div class="lt-logo-block"></div><div class="lt-info-dots"><span></span><span></span></div></div>
+                                <div class="lt-row lt-nav-row"><div class="lt-nav-dots"><span></span><span></span><span></span></div><div class="lt-phone-block"></div></div>
+                            <?php else: ?>
+                                <div class="lt-row lt-nav-row lt-single"><div class="lt-logo-block lt-logo-sm"></div><div class="lt-nav-dots"><span></span><span></span><span></span></div><div class="lt-phone-block"></div></div>
+                            <?php endif; ?>
+                        </div>
+                        <strong><?= h($layoutInfo['label']) ?></strong>
+                        <span class="hint"><?= h($layoutInfo['desc']) ?></span>
+                    </label>
+                    <?php endforeach; ?>
+                </div>
+                <style>
+                .header-layout-picker { display:flex; gap:16px; flex-wrap:wrap; margin-top:8px; }
+                .layout-option { display:flex; flex-direction:column; gap:6px; padding:14px; border:2px solid #e2e8f0; border-radius:8px; cursor:pointer; min-width:200px; flex:1; transition:border-color .15s; }
+                .layout-option:hover { border-color:#94a3b8; }
+                .layout-option-selected { border-color:var(--color-accent,#2563eb) !important; background:#f0f7ff; }
+                .layout-option input[type=radio] { display:none; }
+                .layout-thumb { background:#f1f5f9; border-radius:4px; padding:8px; display:flex; flex-direction:column; gap:4px; height:60px; justify-content:center; }
+                .lt-row { display:flex; align-items:center; gap:6px; }
+                .lt-top-row { background:#ffffff; border-radius:3px; padding:4px 6px; }
+                .lt-nav-row { background:#94a3b8; border-radius:3px; padding:4px 6px; }
+                .lt-single { height:100%; }
+                .lt-logo-block { width:28px; height:10px; background:#334155; border-radius:2px; flex-shrink:0; }
+                .lt-logo-sm { width:20px; height:8px; background:#e2e8f0; }
+                .lt-info-dots { display:flex; gap:4px; flex:1; }
+                .lt-info-dots span { height:6px; background:#cbd5e1; border-radius:2px; flex:1; }
+                .lt-nav-dots { display:flex; gap:4px; flex:1; }
+                .lt-nav-dots span { height:6px; background:rgba(255,255,255,0.6); border-radius:2px; flex:1; }
+                .lt-phone-block { width:36px; height:10px; background:rgba(255,255,255,0.9); border-radius:10px; flex-shrink:0; }
+                </style>
+            </div>
+
+            <div class="card">
                 <h2>Site Variables</h2>
                 <p class="hint" style="margin-bottom:16px;">
                     Use these tokens anywhere in your content or SEO fields:
@@ -215,6 +265,7 @@
                 </div>
             </div>
 
+            <div id="header-info-items-card" style="<?= ($currentLayout === 'single_row') ? 'display:none;' : '' ?>">
             <div class="card">
                 <h2>Header Info Items</h2>
                 <p class="hint" style="margin-bottom:14px;">Small icon + text items shown in the top row beside the logo (e.g. "Proudly American", "Call for Great Service!"). Leave text blank to hide an item.</p>
@@ -236,6 +287,7 @@
                 <button type="button" class="btn btn-secondary btn-small" onclick="addInfoItem()">+ Add info item</button>
                 <div id="extra-info-items"></div>
             </div>
+            </div><!-- /header-info-items-card -->
 
             <div class="card">
                 <h2>Social Media Links</h2>
@@ -264,3 +316,14 @@
             <button type="submit" class="btn">Save Header</button>
         </form>
     </div>
+<script>
+function onHeaderLayoutChange(layout) {
+    var infoCard = document.getElementById('header-info-items-card');
+    if (infoCard) infoCard.style.display = (layout === 'single_row') ? 'none' : '';
+    document.querySelectorAll('.layout-option').forEach(function(el) {
+        el.classList.remove('layout-option-selected');
+    });
+    var selected = document.querySelector('.layout-option input[value="' + layout + '"]');
+    if (selected) selected.closest('.layout-option').classList.add('layout-option-selected');
+}
+</script>

@@ -1,4 +1,7 @@
         $activeTab = 'header';
+        $validLayouts = ['standard', 'single_row'];
+        $postedLayout = $_POST['header_layout'] ?? 'standard';
+        $data['header']['header_layout']   = in_array($postedLayout, $validLayouts) ? $postedLayout : 'standard';
         $data['header']['phone']           = trim($_POST['phone']           ?? '');
         $data['header']['city']            = trim($_POST['city']            ?? '');
         $data['header']['logo_max_height'] = max(32, min(120, (int)($_POST['logo_max_height'] ?? 56)));

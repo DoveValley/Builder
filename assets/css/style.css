@@ -1662,6 +1662,106 @@ body.has-fixed-header main {
 }
 
 /* ============================================================
+   HEADER LAYOUT: Single Row
+   ============================================================ */
+.site-header-single-row .header-sr-bar { /* bg set inline */ }
+.site-header-single-row .header-sr-inner {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 0 20px;
+    min-height: 64px;
+}
+.site-header-single-row .site-logo-sr {
+    flex-shrink: 0;
+    margin-right: 24px;
+}
+.site-header-single-row .site-logo-sr img {
+    display: block;
+    width: auto;
+}
+.site-header-single-row .logo-text {
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.site-header-single-row .site-nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+.site-header-single-row .site-nav ul {
+    display: flex;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.site-header-single-row .site-nav ul li a {
+    display: block;
+    padding: 20px 18px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.site-header-single-row .site-nav ul li a:hover {
+    background: rgba(0,0,0,0.12);
+    text-decoration: none;
+}
+.site-header-single-row .dropdown-menu {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.12);
+}
+.site-header-single-row .dropdown-menu li a {
+    color: #333 !important;
+    padding: 9px 18px;
+}
+.site-header-single-row .header-phone-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+.site-header-single-row .nav-toggle { display: none; }
+
+@media (max-width: 768px) {
+    .site-header-single-row .header-sr-inner {
+        flex-wrap: wrap;
+        padding: 0 12px;
+        min-height: 52px;
+        position: relative;
+    }
+    .site-header-single-row .site-logo-sr { margin-right: 0; }
+    .site-header-single-row .nav-toggle { display: flex; order: 1; }
+    .site-header-single-row .header-phone-wrap { order: 2; margin-left: auto; }
+    .site-header-single-row .site-nav {
+        display: none;
+        width: 100%;
+        order: 10;
+        background: rgba(0,0,0,0.15);
+    }
+    .site-header-single-row .site-nav.is-open { display: block; }
+    .site-header-single-row .site-nav ul { flex-direction: column; gap: 0; }
+    .site-header-single-row .site-nav ul li a {
+        padding: 12px 16px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .site-header-single-row .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: rgba(0,0,0,0.1);
+        padding: 0;
+    }
+    .site-header-single-row .site-nav ul li.has-dropdown.open > .dropdown-menu { display: block; }
+    .site-header-single-row .dropdown-menu li a { color: #fff !important; padding: 10px 28px; }
+}
+
+/* ============================================================
    SMOOTH SCROLL + ANCHOR OFFSET FOR STICKY HEADER
    ============================================================ */
 
