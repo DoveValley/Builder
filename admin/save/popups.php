@@ -1,3 +1,4 @@
+<?php
         $activeTab = 'popups';
         if (!isset($data['popups'])) $data['popups'] = [];
 

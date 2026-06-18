@@ -1,3 +1,4 @@
+<?php
         $activeTab = 'footer';
         $data['footer']['phone']                = trim($_POST['footer_phone']    ?? '');
         $data['footer']['copyright']            = trim($_POST['copyright']       ?? '');

@@ -1,3 +1,4 @@
+<?php
         $pageId = trim($_POST['page_id'] ?? '');
         $isLandingPage = ($pageId !== '' && isset($data['pages'][$pageId]));
         $postId = trim($_POST['post_id'] ?? '');

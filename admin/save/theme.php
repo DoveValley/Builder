@@ -1,3 +1,4 @@
+<?php
         $activeTab = 'theme';
         $colorKeys = ['header_bg','header_top_bg','header_text','content_bg','content_text','heading_color','footer_bg','footer_text','accent_color'];
         foreach ($colorKeys as $key) {

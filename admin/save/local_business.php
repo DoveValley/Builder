@@ -1,3 +1,4 @@
+<?php
         $activeTab = 'seo';
         $lb = [
             'lb_name'        => trim($_POST['lb_name']        ?? ''),

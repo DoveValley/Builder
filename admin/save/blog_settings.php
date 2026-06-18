@@ -1,3 +1,4 @@
+<?php
         $activeTab = 'blog';
         $data['blog_settings']['blog_heading']   = trim($_POST['blog_heading']  ?? '');
         $data['blog_settings']['blog_intro']     = trim($_POST['blog_intro']    ?? '');

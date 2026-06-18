@@ -1,3 +1,4 @@
+<?php
         $activeTab = 'header';
         $validLayouts = ['standard', 'single_row'];
         $postedLayout = $_POST['header_layout'] ?? 'standard';

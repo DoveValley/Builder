@@ -1,3 +1,4 @@
+<?php
         $activeTab = 'blog';
         $postIdToDelete = trim($_POST['post_id'] ?? '');
         if (isset($data['posts'][$postIdToDelete])) unset($data['posts'][$postIdToDelete]);

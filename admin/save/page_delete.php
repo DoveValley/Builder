@@ -1,3 +1,4 @@
+<?php
         $activeTab = 'pages';
         $pageId = trim($_POST['page_id'] ?? '');
         if (isset($data['pages'][$pageId])) unset($data['pages'][$pageId]);

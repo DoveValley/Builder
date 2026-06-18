@@ -1,3 +1,4 @@
+<?php
         $activeTab = 'blog';
         $title     = trim($_POST['title'] ?? '');
         $slugInput = trim($_POST['slug']  ?? '') ?: $title;
