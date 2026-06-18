@@ -18,7 +18,8 @@
         "font_size_h1": 3,
         "font_size_h2": 2.25,
         "font_size_h3": 1.63,
-        "font_size_h4": 1.5
+        "font_size_h4": 1.5,
+        "heading_font": ""
     },
     "header": {
         "logo": "sites/pest-template/uploads/logo_1781487556_80cb06.png",
@@ -61,7 +62,11 @@
                 "text": "Call for Great Service!"
             }
         ],
-        "logo_max_height": 72
+        "logo_max_height": 72,
+        "phone_label": "Helpline:",
+        "show_sponsored": true,
+        "cta_text": "",
+        "cta_url": ""
     },
     "content_blocks": [
         {
@@ -228,8 +233,8 @@
         {
             "type": "service_cards",
             "sc_badge": "PROFESSIONAL {city}, {SS} COMPANY",
-            "sc_heading": "Local Experts in {city_state}",
-            "sc_cols": 3,
+            "sc_heading": "",
+            "sc_cols": 4,
             "sc_badge_bg": "accent",
             "sc_head_color": "header",
             "sc_badge_bg_custom": "#fd783b",
@@ -404,7 +409,6 @@
         },
         {
             "type": "custom_html",
-            "anchor": "",
             "html": "[services_links]"
         },
         {
@@ -493,7 +497,7 @@
     ],
     "seo": {
         "seo_title": "Pest Control {city} {SS} | Local Exterminator | {business}",
-        "canonical_url": "{website}/",
+        "canonical_url": "",
         "meta_description": "Expert pest control in {city_state}. Fast, eco-friendly solutions for roaches, ants, termites, rodents & more. Trusted, licensed local exterminators ready 24/7.",
         "meta_keywords": "pest control {city} {SS}, exterminator {city} {SS}, roach control {city}, termite treatment {city} {SS}",
         "og_title": "{city} Pest Control | Local Pest Exterminator in {city_state}",
@@ -577,7 +581,15 @@
         "disclaimer": "<p>Disclaimer: {business_domain} is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and {business_domain} does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. It is the responsibility of the homeowner to ask the pest control contractor about the pest control solution to ensure it meets the homeowner's family and pet safety requirements. All persons depicted in a photo or video are actors or models and not contractors listed on {business_domain}. Any advertiser relationships are clearly marked as \"Sponsored\" or \"Ad\". See Terms and Conditions for further details.</p>",
         "sticky_bar_text": "24/7 Support Line - Call Now",
         "sticky_bar_info": "Calls are answered by our advertising partners who can help match you with a suitable provider.",
-        "logo_in_copyright_bar": true
+        "logo_in_copyright_bar": true,
+        "col_count": 3,
+        "socials": {
+            "facebook": "",
+            "instagram": "",
+            "linkedin": "",
+            "youtube": "",
+            "twitter": ""
+        }
     },
     "pages": {
         "page_8845f40cd5d04": {

@@ -99,11 +99,11 @@ if (file_exists(GEN_LOG_FILE)) {
             </div>
             <div style="display:flex;gap:8px;flex-shrink:0;">
                 <button class="btn btn-small"
-                    onclick="cpGenerate({template_ids:<?= json_encode([$tpl['id']]) ?>})">
+                    onclick='cpGenerate({template_ids:<?= json_encode([$tpl['id']]) ?>})'>
                     &#9654; Regen Template
                 </button>
                 <button class="btn btn-secondary btn-small"
-                    onclick="cpGenerate({template_ids:<?= json_encode([$tpl['id']]) ?>,force_locked:1})"
+                    onclick='cpGenerate({template_ids:<?= json_encode([$tpl['id']]) ?>,force_locked:1})'
                     title="Regenerate including locked blocks">
                     Force Regen
                 </button>
@@ -127,20 +127,39 @@ if (file_exists(GEN_LOG_FILE)) {
                     try { $dateLabel = (new DateTime($genAt))->format('M j'); } catch(Exception $e) {}
                 }
             ?>
+            <?php
+                $previewSlug = '';
+                if ($st !== 'missing') {
+                    $pattern = $tpl['slug_pattern'] ?? '';
+                    $vars = [
+                        '{city}'      => strtolower(preg_replace('/[^a-z0-9]+/i', '-', $city['city'] ?? '')),
+                        '{SS}'        => strtolower($city['SS'] ?? ''),
+                        '{state}'     => strtolower(preg_replace('/[^a-z0-9]+/i', '-', $city['state'] ?? '')),
+                        '{city_slug}' => $city['city_slug'] ?? strtolower(preg_replace('/[^a-z0-9]+/i', '-', ($city['city'] ?? '') . '-' . ($city['SS'] ?? ''))),
+                        '{zip}'       => $city['zip'] ?? '',
+                    ];
+                    $previewSlug = trim(preg_replace('/[^a-z0-9-]+/', '-', strtolower(str_replace(array_keys($vars), array_values($vars), $pattern))), '-');
+                }
+            ?>
             <div class="cp-city-cell" data-tags="<?= h(json_encode($tags)) ?>"
                  style="background:<?= $bg ?>;border:1px solid <?= $st === 'generated' ? '#bbf7d0' : ($st === 'stale' ? '#fde68a' : '#fecaca') ?>;border-radius:6px;padding:8px 10px;">
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:4px;">
-                    <div>
+                    <div style="min-width:0;">
                         <div style="font-size:13px;font-weight:600;color:#1f2937;">
                             <?= $icon ?> <?= h($city['city']) ?>, <?= h($city['SS']) ?>
                         </div>
                         <div style="font-size:11px;color:<?= $color ?>;margin-top:1px;">
                             <?= $label ?><?= $dateLabel ? ' · ' . $dateLabel : '' ?>
                         </div>
+                        <?php if ($previewSlug): ?>
+                        <a href="../page.php?slug=<?= h($previewSlug) ?>" target="_blank"
+                           style="font-size:11px;color:#2563eb;text-decoration:none;display:inline-block;margin-top:3px;"
+                           title="/<?= h($previewSlug) ?>">Preview ↗</a>
+                        <?php endif; ?>
                     </div>
                     <button class="btn btn-secondary btn-small"
                         style="font-size:11px;padding:2px 7px;flex-shrink:0;"
-                        onclick="cpGenerate({template_ids:<?= json_encode([$tpl['id']]) ?>,city_ids:<?= json_encode([$city['id']]) ?>})"
+                        onclick='cpGenerate({template_ids:<?= json_encode([$tpl['id']]) ?>,city_ids:<?= json_encode([$city['id']]) ?>})'
                         title="Regenerate this page">↺</button>
                 </div>
             </div>

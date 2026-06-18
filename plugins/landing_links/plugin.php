@@ -48,10 +48,18 @@ function _landing_links_render(array $cfg): string {
 
     foreach ($pageIndex as $slug => $filename) {
         $base = basename($filename, '.json');
-        // Split on _city_ — everything before is template_id, after is city id part
-        if (!preg_match('/^(.+?)_city_(.+)$/', $base, $m)) continue;
-        $templateId = $m[1];
-        $cityId     = 'city_' . $m[2];
+        // Match against known template IDs to find the correct split point
+        $templateId = null;
+        $cityId     = null;
+        foreach ($templatesMap as $tplId => $_) {
+            $prefix = $tplId . '_';
+            if (str_starts_with($base, $prefix)) {
+                $templateId = $tplId;
+                $cityId     = substr($base, strlen($prefix));
+                break;
+            }
+        }
+        if ($templateId === null) continue;
 
         if ($tplFilter !== '' && $templateId !== $tplFilter) continue;
 

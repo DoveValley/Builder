@@ -271,8 +271,8 @@
             {
                 "type": "service_cards",
                 "sc_badge": "",
-                "sc_heading": "Our Pest Control Services in {city_state}",
-                "sc_cols": 3,
+                "sc_heading": "",
+                "sc_cols": 4,
                 "sc_badge_bg": "accent",
                 "sc_head_color": "header",
                 "sc_badge_bg_custom": "#fd783b",
@@ -345,221 +345,14 @@
                 ]
             },
             {
-                "type": "links_grid",
+                "type": "custom_html",
                 "anchor": "pest_services",
-                "lg_heading": "More Pest Control Services in {city_state}",
-                "lg_subtext": "We offer a full range of pest control services in {city_state}, including treatments for cockroaches, termites, mosquitoes, fleas, rodents, ants, spiders, and bed bugs. Our local exterminators provide fast and effective solutions to remove pests and prevent them from returning, keeping your property safe and pest-free all year long.",
-                "lg_sublabel": "",
-                "lg_photo_alt": "Pest control services {city} {SS}",
-                "lg_style": "dark",
-                "lg_cols": 5,
-                "lg_overlay": "0.20",
-                "lg_bg_color": "#ffffff",
-                "lg_accent": "accent",
-                "lg_accent_custom": "#fd783b",
-                "lg_photo": "sites/pest-template/uploads/media/pest-katy_home_a1b2c3.webp",
-                "lg_links": [
-                    {
-                        "label": "Cockroach Exterminator",
-                        "url": "/cockroach-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Termite Treatment",
-                        "url": "/termite-treatment-{city_slug}/"
-                    },
-                    {
-                        "label": "Mosquito Control",
-                        "url": "/mosquito-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Flea Control",
-                        "url": "/flea-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Flea Treatment",
-                        "url": "/flea-treatment-{city_slug}/"
-                    },
-                    {
-                        "label": "Flea Exterminator",
-                        "url": "/flea-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Bed Bug Treatment",
-                        "url": "/bed-bug-treatment-{city_slug}/"
-                    },
-                    {
-                        "label": "Rat Exterminator",
-                        "url": "/rat-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Ant Exterminator",
-                        "url": "/ant-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Mosquito Treatment",
-                        "url": "/mosquito-treatment-{city_slug}/"
-                    },
-                    {
-                        "label": "Tick Control",
-                        "url": "/tick-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Roach Control",
-                        "url": "/roach-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Mouse Exterminator",
-                        "url": "/mouse-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Mouse Control",
-                        "url": "/mouse-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Pest Inspection",
-                        "url": "/pest-inspection-{city_slug}/"
-                    },
-                    {
-                        "label": "Spider Exterminator",
-                        "url": "/spider-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Spider Pest Control",
-                        "url": "/spider-pest-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Earwig Control",
-                        "url": "/earwig-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Pest Exterminator",
-                        "url": "/pest-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Bed Bug Exterminator",
-                        "url": "/bed-bug-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Mosquito Exterminator",
-                        "url": "/mosquito-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Bat Exterminator",
-                        "url": "/bat-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Mice Exterminator",
-                        "url": "/mice-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Commercial Pest Exterminator",
-                        "url": "/commercial-pest-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Residential Pest",
-                        "url": "/residential-pest-{city_slug}/"
-                    },
-                    {
-                        "label": "Rodent Exterminator",
-                        "url": "/rodent-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Wasp Exterminator",
-                        "url": "/wasp-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Termite Exterminator",
-                        "url": "/termite-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Emergency Exterminator",
-                        "url": "/emergency-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "24 Hour Pest Control",
-                        "url": "/24-hour-pest-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Yellow Jacket Exterminator",
-                        "url": "/yellow-jacket-exterminator-{city_slug}/"
-                    },
-                    {
-                        "label": "Rodent Control",
-                        "url": "/rodent-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Termite Control",
-                        "url": "/termite-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Rat Control",
-                        "url": "/rat-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Bed Bug Pest Control",
-                        "url": "/bed-bug-pest-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Mice Control",
-                        "url": "/mice-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Ant Control",
-                        "url": "/ant-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Cockroach Pest Control",
-                        "url": "/cockroach-pest-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Silverfish Control",
-                        "url": "/silverfish-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Commercial Pest Control",
-                        "url": "/commercial-pest-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Wasp Pest Control",
-                        "url": "/wasp-pest-control-{city_slug}/"
-                    },
-                    {
-                        "label": "Tick Treatment For Yard",
-                        "url": "/tick-treatment-for-yard-{city_slug}/"
-                    },
-                    {
-                        "label": "Cockroach Treatment",
-                        "url": "/cockroach-treatment-{city_slug}/"
-                    },
-                    {
-                        "label": "Grub Treatment",
-                        "url": "/grub-treatment-{city_slug}/"
-                    },
-                    {
-                        "label": "Thrips Treatment",
-                        "url": "/thrips-treatment-{city_slug}/"
-                    },
-                    {
-                        "label": "Whitefly Treatment",
-                        "url": "/whitefly-treatment-{city_slug}/"
-                    },
-                    {
-                        "label": "Termite Inspection",
-                        "url": "/termite-inspection-{city_slug}/"
-                    },
-                    {
-                        "label": "WDI Inspection",
-                        "url": "/wdi-inspection-{city_slug}/"
-                    },
-                    {
-                        "label": "Rat Inspection",
-                        "url": "/rat-inspection-{city_slug}/"
-                    }
-                ]
+                "html": "[services_links]"
             }
         ],
         "seo": {
-            "canonical_url": "{website}/cockroach-exterminator-{city_slug}/",
+            "seo_title": "",
+            "canonical_url": "",
             "meta_description": "Find an expert cockroach exterminator in {city_state}. Free referral service connecting {city} homeowners with vetted, same-day pest control companies. Call {phone}.",
             "meta_keywords": "",
             "og_title": "Cockroach Exterminator in {city_state} | Free Referral Service",
@@ -569,10 +362,10 @@
             "service_type": "Cockroach Extermination",
             "service_area": "{city}, {SS}",
             "service_description": "Professional cockroach exterminator services in {city_state}. Safe, eco-friendly roach control for homes and businesses. Fast response, guaranteed results.",
-            "schema": "",
             "bc_label": "",
             "bc_mid_label": "",
-            "bc_mid_url": ""
+            "bc_mid_url": "",
+            "schema": ""
         }
     }
 ]
