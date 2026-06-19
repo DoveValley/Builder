@@ -617,6 +617,11 @@ function parse_blocks_from_post(): array {
                 $block['cards_accent_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $caccc) ? $caccc : '';
                 $cbc2 = trim($_POST['cards_border'][$i] ?? '');
                 $block['cards_border'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $cbc2) ? $cbc2 : '';
+                $cbac = in_array($_POST['cards_badge_accent'][$i] ?? '', ['accent','header','custom']) ? $_POST['cards_badge_accent'][$i] : '';
+                $block['cards_badge_accent'] = $cbac;
+                $cbacc = trim($_POST['cards_badge_accent_custom'][$i] ?? '');
+                $block['cards_badge_accent_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $cbacc) ? $cbacc : '';
+                $block['cards_centered'] = !empty($_POST['cards_centered'][$i]);
                 $cardHeadings  = $_POST['cards_heading_item'][$i] ?? [];
                 $cardTexts     = $_POST['cards_text'][$i]         ?? [];
                 $cardLinks     = $_POST['cards_link'][$i]         ?? [];

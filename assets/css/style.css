@@ -1196,8 +1196,13 @@ a:hover {
     flex: 1;
     line-height: 1.6;
 }
-.card-badge { display: inline-block; font-size: 0.72rem; font-weight: 600; background: transparent; border: 1.5px solid var(--color-accent); color: var(--color-accent); border-radius: 4px; padding: 4px 10px; margin-top: auto; align-self: flex-start; }
-.card-icon-plain { font-size: 2rem; line-height: 1; margin-bottom: 16px; display: block; }
+.card-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 12px; }
+.card-badge { display: inline-block; font-size: 0.72rem; font-weight: 600; background: transparent; border: 1.5px solid var(--color-accent); color: var(--color-accent); border-radius: 4px; padding: 4px 10px; }
+.card-icon-plain { font-size: 2.2rem; line-height: 1; margin-bottom: 16px; display: block; }
+.card-item-centered { text-align: center; }
+.card-item-centered .card-icon { margin-left: auto; margin-right: auto; }
+.card-item-centered .card-icon-plain { text-align: center; }
+.card-item-centered .card-badges { justify-content: center; }
 .card-link {
     display: inline-block;
     padding: 8px 18px;
