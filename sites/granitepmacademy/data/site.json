@@ -166,32 +166,36 @@
           "image": "",
           "alt": "",
           "heading": "Live Instruction Only",
-          "text": "Every session is taught live by a PMI-certified practitioner. We never pre-record and replay — you get real-time Q&A and expert guidance from start to finish."
+          "text": "Every session is taught live by a PMI-certified practitioner. We never pre-record and replay — you get real-time Q&A and expert guidance from start to finish.",
+          "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"7\" width=\"13\" height=\"10\" rx=\"2\"/><path d=\"M22 8l-5 4 5 4V8z\"/></svg>"
         },
         {
-          "image": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-          "alt": "PMI Premier Authorized Training Partner badge",
+          "image": "",
+          "alt": "",
           "heading": "PMI Premier Authorized Partner",
-          "text": "Fewer than 1% of training organizations hold PMI’s Premier ATP designation — the highest tier awarded. Only Premier ATPs can legally award the 35 contact hours required for your PMP application."
+          "text": "Fewer than 1% of providers earn PMI’s Premier ATP designation — the highest tier available and the only credential that authorizes awarding the 35 contact hours your PMP application requires.",
+          "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\"/></svg>"
         },
         {
           "image": "",
           "alt": "",
           "heading": "90-Day Pass Guarantee",
-          "text": "Attend all sessions and don’t pass your exam within 90 days — we give you full access to the next course, free. No fine print, no runaround."
+          "text": "Attend all sessions and don’t pass your exam within 90 days — we give you full access to the next course, free. No fine print, no runaround.",
+          "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/><polyline points=\"9 12 11 14 15 10\"/></svg>"
         },
         {
           "image": "",
           "alt": "",
           "heading": "Always Current Materials",
-          "text": "Our curriculum is continuously updated to reflect PMI’s current Examination Content Outline. You study what’s actually on today’s exam — not last year’s version."
+          "text": "Our curriculum is continuously updated to reflect PMI’s current Examination Content Outline. You study what’s actually on today’s exam — not last year’s version.",
+          "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 19.5A2.5 2.5 0 016.5 17H20\"/><path d=\"M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z\"/></svg>"
         }
       ]
     },
     {
       "type": "stats",
       "stats_heading": "",
-      "stats_bg_color": "header",
+      "stats_bg_color": "custom",
       "stats_text_color": "#ffffff",
       "stats_items": [
         {
@@ -210,80 +214,137 @@
           "number": "90",
           "label": "Day pass guarantee — or your next course is free"
         }
-      ]
+      ],
+      "stats_bg_custom": "#2563eb"
     },
     {
       "type": "pricing_cards",
-      "pc_heading": "Choose Your Certification Path",
-      "pc_subheading": "6 PMI credentials. Live-virtual and on-demand. All taught by active certified practitioners.",
+      "pc_heading": "Six Classes. Every Career Stage.<br><span style=\"color:#2563eb\">One Trusted Source.</span>",
+      "pc_subheading": "Whether you’re earning your first credential or reaching for program leadership, Granite PM Academy has the live online PMI class for your next step — taught by certified instructors, backed by PMI’s highest designation.",
       "pc_cols": "3",
       "pc_bg": "#f0f4f8",
       "pc_items": [
         {
           "name": "PMP®",
-          "badge": "MOST POPULAR",
-          "sublabel": "PROJECT MANAGEMENT PROFESSIONAL",
+          "badge": "MOST POPULAR · #1 IN DEMAND",
+          "badge_color": "#2563eb",
+          "inner_badge": "PMI FLAGSHIP CREDENTIAL",
+          "sublabel": "Project Management Professional",
           "featured": true,
-          "desc": "The global standard for experienced project managers. Lead projects using predictive, agile, and hybrid approaches.",
-          "features": "35 PMI contact hours included\n4-day live-virtual bootcamp\n500+ practice questions\n90-day pass guarantee\nLive-virtual or on-demand",
-          "meta": "4 Days · 35 Contact Hours",
-          "btn_text": "Learn More",
+          "desc": "The world’s most recognized project management certification. Our 4-day live bootcamp gives you everything needed to pass on the first try — intensive, focused, and built around how the exam actually thinks.",
+          "features": "Live 4-day Mon–Thu bootcamp\nAll 35 PMI contact hours included\n2026 PMI exam materials\n500+ practice questions\n90-day pass guarantee",
+          "meta": "4 days · Live online",
+          "meta2": "Mon–Thu · 9AM–5PM",
+          "btn_text": "Enroll →",
           "btn_url": "/pmp-certification-training"
         },
         {
           "name": "CAPM®",
-          "badge": "",
-          "sublabel": "CERTIFIED ASSOCIATE IN PROJECT MANAGEMENT",
+          "badge": "ENTRY LEVEL",
+          "badge_color": "#0d9488",
+          "inner_badge": "",
+          "sublabel": "Certified Associate in Project Management",
           "featured": false,
-          "desc": "The ideal starting credential for aspiring project managers. Build a solid PM foundation and open doors to advancement.",
-          "features": "23 PMI contact hours included\n3-day live-virtual class\nExam prep and practice tests\nLive-virtual or on-demand",
-          "meta": "3 Days · 23 Contact Hours",
-          "btn_text": "Learn More",
+          "desc": "The ideal first PMI credential for aspiring project managers. Demonstrate your commitment to the profession before you have the experience required for PMP — and fast-track your career from day one.",
+          "features": "Live 3-day online class\n23 PMI contact hours\nNo work experience required\nPass guarantee included",
+          "meta": "3 days · Live online",
+          "meta2": "Flexible scheduling",
+          "btn_text": "Enroll →",
           "btn_url": "/capm-certification-training"
         },
         {
           "name": "PMI-ACP®",
-          "badge": "",
-          "sublabel": "AGILE CERTIFIED PRACTITIONER",
+          "badge": "FASTEST GROWING",
+          "badge_color": "#7c3aed",
+          "inner_badge": "",
+          "sublabel": "Agile Certified Practitioner",
           "featured": false,
-          "desc": "Demonstrate your agile expertise across frameworks. Covers Scrum, Kanban, SAFe, and hybrid delivery methods.",
-          "features": "23 PMI contact hours included\n3-day live-virtual class\nCovers Scrum, Kanban, SAFe\nLive-virtual or on-demand",
-          "meta": "3 Days · 23 Contact Hours",
-          "btn_text": "Learn More",
+          "desc": "Prove your agile expertise across Scrum, Kanban, SAFe, Lean, and more. The PMI-ACP is the credential most demanded by tech companies and increasingly required for senior PM roles in every industry.",
+          "features": "Live 3-day online class\n23 PMI contact hours\nScrum, Kanban, SAFe covered\nPass guarantee included",
+          "meta": "3 days · Live online",
+          "meta2": "Flexible scheduling",
+          "btn_text": "Enroll →",
           "btn_url": "/all-courses"
         },
         {
           "name": "PMI-RMP®",
-          "badge": "",
-          "sublabel": "RISK MANAGEMENT PROFESSIONAL",
+          "badge": "SPECIALIST TRACK",
+          "badge_color": "#e11d48",
+          "inner_badge": "",
+          "sublabel": "Risk Management Professional",
           "featured": false,
-          "desc": "Specialize in risk identification, assessment, and response. One of the most in-demand niche credentials in project management.",
-          "features": "30 PMI contact hours included\n3-day live-virtual class\nRisk frameworks and tools\nLive-virtual or on-demand",
-          "meta": "3 Days · 30 Contact Hours",
-          "btn_text": "Learn More",
+          "desc": "Become the go-to risk expert in your organization. The PMI-RMP validates your ability to identify, assess, and mitigate project risk — and commands a measurable salary premium over PMP alone.",
+          "features": "Live 3-day online class\n30 PMI contact hours\nRisk identification & mitigation\nPass guarantee included",
+          "meta": "3 days · Live online",
+          "meta2": "Flexible scheduling",
+          "btn_text": "Enroll →",
           "btn_url": "/all-courses"
         },
         {
           "name": "PgMP®",
-          "badge": "",
-          "sublabel": "PROGRAM MANAGEMENT PROFESSIONAL",
+          "badge": "LEADERSHIP LEVEL",
+          "badge_color": "#d97706",
+          "inner_badge": "",
+          "sublabel": "Program Management Professional",
           "featured": false,
-          "desc": "For senior leaders managing multiple related projects. Validates your ability to align programs with organizational strategy.",
-          "features": "35 PMI contact hours included\n4-day live-virtual class\nStrategic alignment and governance\nLive-virtual or on-demand",
-          "meta": "4 Days · 35 Contact Hours",
-          "btn_text": "Learn More",
+          "desc": "For senior PMs ready to lead multiple related projects as a unified program. The PgMP is one of PMI’s most advanced credentials — it signals strategic leadership to executives and positions you for PMO director roles.",
+          "features": "Live 4-day online class\n35 PMI contact hours\nStrategic program alignment\nPass guarantee included",
+          "meta": "4 days · Live online",
+          "meta2": "Flexible scheduling",
+          "btn_text": "Enroll →",
           "btn_url": "/all-courses"
         },
         {
           "name": "PMI-PBA®",
-          "badge": "",
-          "sublabel": "PROFESSIONAL IN BUSINESS ANALYSIS",
+          "badge": "CROSS-FUNCTIONAL",
+          "badge_color": "#059669",
+          "inner_badge": "",
+          "sublabel": "Professional in Business Analysis",
           "featured": false,
-          "desc": "Bridge the gap between business needs and project delivery. Validates your ability to work with stakeholders to define requirements.",
-          "features": "~35 PMI contact hours included\n3-day live-virtual class\nRequirements and stakeholder tools\nLive-virtual or on-demand",
-          "meta": "3 Days · ~35 Contact Hours",
-          "btn_text": "Learn More",
+          "desc": "Bridge the gap between project management and business strategy. The PMI-PBA validates your ability to define requirements, align stakeholders, and drive outcomes — a powerful complement to PMP or PgMP.",
+          "features": "Live 3-day online class\n35 PMI contact hours\nRequirements & stakeholder mgmt\nPass guarantee included",
+          "meta": "3 days · Live online",
+          "meta2": "Flexible scheduling",
+          "btn_text": "Enroll →",
           "btn_url": "/all-courses"
+        }
+      ],
+      "pc_label": "ALL PMI CERTIFICATIONS"
+    },
+    {
+      "type": "stage_cards",
+      "sc_section_label": "FIND YOUR PATH",
+      "sc_heading": "Every stage of your career.",
+      "sc_subhead": "We have the right class.",
+      "sc_subtext": "Not sure which PMI certification is right for you? Here’s how project managers typically grow their credentials with Granite PM Academy.",
+      "sc_bg": "#ffffff",
+      "sc_cols": 4,
+      "sc_accent": "custom",
+      "sc_accent_custom": "#f5a623",
+      "sc_stages": [
+        {
+          "number": "STAGE 01",
+          "label": "",
+          "heading": "Starting Out",
+          "items": "CAPM® Certification::The entry-level PMI credential. No experience required.|/capm-certification-training\nPM Foundations::Build core project management skills from day one.|/all-courses"
+        },
+        {
+          "number": "STAGE 02",
+          "label": "",
+          "heading": "Project Management Pro",
+          "items": "PMP® Certification::The global gold standard. Required for senior PM roles.|/pmp-certification-training\nPMP® Boot Camp::Intensive 3-day prep. Pass on your first try—guaranteed.|/pmp-certification-training"
+        },
+        {
+          "number": "STAGE 03",
+          "label": "",
+          "heading": "Expanding Your Expertise",
+          "items": "PMI-ACP®::Agile expertise across all frameworks. Essential for tech and digital roles.|/all-courses\nPMI-RMP®::Become the risk authority in your organization. Proven salary premium.|/all-courses\nPMI-PBA®::Bridge project management and business analysis strategy.|/all-courses"
+        },
+        {
+          "number": "STAGE 04",
+          "label": "",
+          "heading": "Leading Programs",
+          "items": "PgMP®::Direct multiple related projects and deliver enterprise-level outcomes.|/all-courses\nOrganizational Agility::Advance your team’s agile maturity at scale.|/all-courses"
         }
       ]
     },

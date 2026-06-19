@@ -124,16 +124,19 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'feature_columns':
-                $block['fc_heading']  = trim($_POST['fc_heading'][$i]  ?? '');
-                $block['fc_num_cols'] = max(2, min(4, (int)($_POST['fc_num_cols'][$i] ?? 3)));
+                $block['fc_heading']    = trim($_POST['fc_heading'][$i]    ?? '');
+                $block['fc_subheading'] = trim($_POST['fc_subheading'][$i] ?? '');
+                $block['fc_num_cols']   = max(2, min(4, (int)($_POST['fc_num_cols'][$i] ?? 3)));
+                $bgc = trim($_POST['fc_bg_color'][$i] ?? '#f3f6f7');
+                $block['fc_bg_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $bgc) ? $bgc : '#f3f6f7';
                 $headings  = $_POST['fc_col_heading'][$i]         ?? [];
                 $texts     = $_POST['fc_col_text'][$i]            ?? [];
                 $alts      = $_POST['fc_col_alt'][$i]             ?? [];
+                $icons     = $_POST['fc_col_icon'][$i]            ?? [];
                 $existing  = $_POST['fc_col_image_existing'][$i]  ?? [];
                 $cols = [];
                 foreach ($headings as $ci => $ch) {
                     $colImg = trim($existing[$ci] ?? '');
-                    // Handle file upload for fc col images
                     if (isset($_FILES['fc_col_image']['error'][$i][$ci]) &&
                         $_FILES['fc_col_image']['error'][$i][$ci] === UPLOAD_ERR_OK) {
                         $up = save_uploaded_file($_FILES['fc_col_image']['tmp_name'][$i][$ci], 'fc_icon');
@@ -141,9 +144,10 @@ function parse_blocks_from_post(): array {
                     }
                     $colHead = trim($ch);
                     $colText = trim($texts[$ci] ?? '');
-                    $colAlt  = trim($alts[$ci] ?? '');
-                    if ($colHead === '' && $colText === '' && $colImg === '') continue;
-                    $cols[] = ['image' => $colImg, 'heading' => $colHead, 'text' => $colText, 'alt' => $colAlt];
+                    $colAlt  = trim($alts[$ci]  ?? '');
+                    $colIcon = trim($icons[$ci]  ?? '');
+                    if ($colHead === '' && $colText === '' && $colImg === '' && $colIcon === '') continue;
+                    $cols[] = ['icon' => $colIcon, 'image' => $colImg, 'heading' => $colHead, 'text' => $colText, 'alt' => $colAlt];
                 }
                 $block['columns'] = $cols;
                 if (empty($cols) && $block['fc_heading'] === '') continue 2;
@@ -616,33 +620,42 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'pricing_cards':
-                $block['pc_heading'] = trim($_POST['pc_heading'][$i] ?? '');
-                $block['pc_cols']    = max(2, min(4, (int)($_POST['pc_cols'][$i] ?? 3)));
+                $block['pc_label']      = trim($_POST['pc_label'][$i]      ?? '');
+                $block['pc_heading']    = trim($_POST['pc_heading'][$i]     ?? '');
+                $block['pc_subheading'] = trim($_POST['pc_subheading'][$i]  ?? '');
+                $block['pc_cols']       = max(2, min(4, (int)($_POST['pc_cols'][$i] ?? 3)));
                 $rawPcBg = trim($_POST['pc_bg'][$i] ?? '');
                 $block['pc_bg'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $rawPcBg) ? $rawPcBg : '';
-                $pcNames     = $_POST['pc_name'][$i]     ?? [];
-                $pcBadges    = $_POST['pc_badge'][$i]    ?? [];
-                $pcSublabels = $_POST['pc_sublabel'][$i] ?? [];
-                $pcDescs     = $_POST['pc_desc'][$i]     ?? [];
-                $pcFeatures  = $_POST['pc_features'][$i] ?? [];
-                $pcMetas     = $_POST['pc_meta'][$i]     ?? [];
-                $pcBtnTexts  = $_POST['pc_btn_text'][$i] ?? [];
-                $pcBtnUrls   = $_POST['pc_btn_url'][$i]  ?? [];
-                $pcFeatured  = $_POST['pc_featured'][$i] ?? [];
+                $pcNames       = $_POST['pc_name'][$i]         ?? [];
+                $pcBadges      = $_POST['pc_badge'][$i]        ?? [];
+                $pcBadgeColors = $_POST['pc_badge_color'][$i]  ?? [];
+                $pcInnerBadges = $_POST['pc_inner_badge'][$i]  ?? [];
+                $pcSublabels   = $_POST['pc_sublabel'][$i]     ?? [];
+                $pcDescs       = $_POST['pc_desc'][$i]         ?? [];
+                $pcFeatures    = $_POST['pc_features'][$i]     ?? [];
+                $pcMetas       = $_POST['pc_meta'][$i]         ?? [];
+                $pcMeta2s      = $_POST['pc_meta2'][$i]        ?? [];
+                $pcBtnTexts    = $_POST['pc_btn_text'][$i]     ?? [];
+                $pcBtnUrls     = $_POST['pc_btn_url'][$i]      ?? [];
+                $pcFeatured    = $_POST['pc_featured'][$i]     ?? [];
                 $pcItems = [];
                 foreach ($pcNames as $ci => $pcName) {
                     $pcName = trim($pcName);
                     if ($pcName === '') continue;
+                    $rawBadgeColor = trim($pcBadgeColors[$ci] ?? '');
                     $pcItems[] = [
-                        'name'     => $pcName,
-                        'badge'    => trim($pcBadges[$ci]    ?? ''),
-                        'sublabel' => trim($pcSublabels[$ci] ?? ''),
-                        'desc'     => trim($pcDescs[$ci]     ?? ''),
-                        'features' => trim($pcFeatures[$ci]  ?? ''),
-                        'meta'     => trim($pcMetas[$ci]     ?? ''),
-                        'btn_text' => trim($pcBtnTexts[$ci]  ?? '') ?: 'Get Started',
-                        'btn_url'  => sanitize_url($pcBtnUrls[$ci] ?? ''),
-                        'featured' => in_array((string)$ci, array_map('strval', $pcFeatured)),
+                        'name'        => $pcName,
+                        'badge'       => trim($pcBadges[$ci]      ?? ''),
+                        'badge_color' => preg_match('/^#[0-9a-fA-F]{3,6}$/', $rawBadgeColor) ? $rawBadgeColor : '',
+                        'inner_badge' => trim($pcInnerBadges[$ci] ?? ''),
+                        'sublabel'    => trim($pcSublabels[$ci]   ?? ''),
+                        'desc'        => trim($pcDescs[$ci]       ?? ''),
+                        'features'    => trim($pcFeatures[$ci]    ?? ''),
+                        'meta'        => trim($pcMetas[$ci]       ?? ''),
+                        'meta2'       => trim($pcMeta2s[$ci]      ?? ''),
+                        'btn_text'    => trim($pcBtnTexts[$ci]    ?? '') ?: 'Enroll →',
+                        'btn_url'     => sanitize_url($pcBtnUrls[$ci] ?? ''),
+                        'featured'    => in_array((string)$ci, array_map('strval', $pcFeatured)),
                     ];
                 }
                 $block['pc_items'] = $pcItems;
@@ -650,7 +663,9 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'stage_cards':
+                $block['sc_section_label'] = trim($_POST['sc_section_label'][$i] ?? '');
                 $block['sc_heading'] = trim($_POST['sc_heading'][$i] ?? '');
+                $block['sc_subhead'] = trim($_POST['sc_subhead'][$i] ?? '');
                 $block['sc_subtext'] = trim($_POST['sc_subtext'][$i] ?? '');
                 $rawScBg = trim($_POST['sc_bg'][$i] ?? '#f8fafc');
                 $block['sc_bg']    = preg_match('/^#[0-9a-fA-F]{3,6}$/', $rawScBg) ? $rawScBg : '#f8fafc';

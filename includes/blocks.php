@@ -406,19 +406,24 @@ function render_content_block($block, $pathPrefix = '') {
             break;
 
         case 'feature_columns':
-            $heading = $block['fc_heading'] ?? '';
-            $cols    = $block['columns']    ?? [];
-            $numCols = max(2, min(4, (int)($block['fc_num_cols'] ?? 3)));
-            echo '<div class="content-block block-feature-columns"' . $anchorAttr . '>';
+            $heading    = $block['fc_heading']    ?? '';
+            $subheading = $block['fc_subheading'] ?? '';
+            $cols       = $block['columns']       ?? [];
+            $numCols    = max(2, min(4, (int)($block['fc_num_cols'] ?? 3)));
+            $fcBg       = $block['fc_bg_color']   ?? '#f3f6f7';
+            echo '<div class="content-block block-feature-columns"' . $anchorAttr . ' style="background:'.h($fcBg).';">';
             if ($heading) echo '<h2 class="section-heading">' . h($heading) . '</h2>';
+            if ($subheading) echo '<p class="section-subheading">' . h($subheading) . '</p>';
             echo '<div class="feature-grid feature-grid-' . $numCols . '">';
             foreach ($cols as $col) {
+                $colIcon = $col['icon']    ?? '';
                 $colImg  = $col['image']   ?? '';
                 $colHead = $col['heading'] ?? '';
                 $colText = $col['text']    ?? '';
                 $colAlt  = $col['alt']     ?? '';
                 echo '<div class="feature-col">';
-                if ($colImg) echo '<img class="feature-icon" src="' . h($pathPrefix . $colImg) . '" alt="' . h($colAlt) . '" loading="lazy">';
+                if ($colIcon) echo '<div class="feature-col-icon">' . $colIcon . '</div>';
+                elseif ($colImg) echo '<img class="feature-icon" src="' . h($pathPrefix . $colImg) . '" alt="' . h($colAlt) . '" loading="lazy">';
                 if ($colHead) echo '<h3 class="feature-col-heading">' . h($colHead) . '</h3>';
                 if ($colText) echo '<p class="feature-col-text">' . h($colText) . '</p>';
                 echo '</div>';
@@ -1106,14 +1111,15 @@ function render_content_block($block, $pathPrefix = '') {
 
         /* ---- STATS / COUNTERS ---- */
         case 'stats':
-            $heading = $block['stats_heading'] ?? '';
-            $items   = $block['stats_items']   ?? [];
-            $bgColor = $block['stats_bg_color'] ?? '';
-            $textColor = $block['stats_text_color'] ?? '';
-            $style = '';
-            if ($bgColor)   $style .= 'background-color:' . h($bgColor) . ';';
-            if ($textColor) $style .= 'color:' . h($textColor) . ';';
-            echo '<div class="content-block block-stats"' . ($style ? ' style="' . $style . '"' : '') . $anchorAttr . '>';
+            $heading   = $block['stats_heading']   ?? '';
+            $items     = $block['stats_items']     ?? [];
+            $bgMode    = $block['stats_bg_color']  ?? 'custom';
+            $bgCustom  = $block['stats_bg_custom'] ?? '#1e3a5f';
+            $textColor = $block['stats_text_color'] ?? '#ffffff';
+            $bgColor   = resolve_color($bgMode, $bgCustom);
+            $style = 'background:' . h($bgColor) . ';color:' . h($textColor) . ';';
+            echo '<div class="content-block block-stats" style="' . $style . '"' . $anchorAttr . '>';
+            echo '<div class="container">';
             if ($heading) echo '<h2 class="section-heading">' . h($heading) . '</h2>';
             echo '<div class="stats-grid">';
             foreach ($items as $stat) {
@@ -1125,7 +1131,7 @@ function render_content_block($block, $pathPrefix = '') {
                 if ($label)  echo '<div class="stat-label">'  . h($label)  . '</div>';
                 echo '</div>';
             }
-            echo '</div></div>';
+            echo '</div></div></div>';
             break;
 
         /* ---- CARDS GRID (image + heading + text + link) ---- */
@@ -1170,29 +1176,42 @@ function render_content_block($block, $pathPrefix = '') {
 
         /* ---- PRICING / COURSE CARDS ---- */
         case 'pricing_cards':
-            $pcHeading = $block['pc_heading'] ?? '';
+            $pcLabel   = $block['pc_label']      ?? '';
+            $pcHeading = $block['pc_heading']     ?? '';
+            $pcSubhead = $block['pc_subheading']  ?? '';
             $pcCols    = max(2, min(4, (int)($block['pc_cols'] ?? 3)));
-            $pcBg      = $block['pc_bg'] ?? '';
-            $pcItems   = $block['pc_items'] ?? [];
+            $pcBg      = $block['pc_bg']          ?? '';
+            $pcItems   = $block['pc_items']       ?? [];
             $blockStyle = $pcBg ? ' style="background:' . h($pcBg) . ';"' : '';
             echo '<div class="content-block block-pricing-cards"' . $anchorAttr . $blockStyle . '>';
-            if ($pcHeading) echo '<h2 class="section-heading">' . h($pcHeading) . '</h2>';
+            if ($pcLabel || $pcHeading || $pcSubhead) {
+                echo '<div class="pc-intro">';
+                if ($pcLabel)   echo '<p class="pc-label">'    . h($pcLabel)   . '</p>';
+                if ($pcHeading) echo '<h2 class="pc-heading">' . resolve_shortcodes($pcHeading) . '</h2>';
+                if ($pcSubhead) echo '<p class="pc-subhead">'  . h($pcSubhead) . '</p>';
+                echo '</div>';
+            }
             echo '<div class="pc-grid pc-grid-' . $pcCols . '">';
             foreach ($pcItems as $card) {
-                $featured = !empty($card['featured']);
-                $badge    = $card['badge']    ?? '';
-                $sublabel = $card['sublabel'] ?? '';
-                $name     = $card['name']     ?? '';
-                $desc     = $card['desc']     ?? '';
-                $features = $card['features'] ?? '';
-                $meta     = $card['meta']     ?? '';
-                $btnText  = $card['btn_text'] ?? 'Get Started';
-                $btnUrl   = $card['btn_url']  ?? '#';
+                $featured   = !empty($card['featured']);
+                $badge      = $card['badge']       ?? '';
+                $badgeColor = $card['badge_color'] ?? '';
+                $innerBadge = $card['inner_badge'] ?? '';
+                $sublabel   = $card['sublabel']    ?? '';
+                $name       = $card['name']        ?? '';
+                $desc       = $card['desc']        ?? '';
+                $features   = $card['features']    ?? '';
+                $meta       = $card['meta']        ?? '';
+                $meta2      = $card['meta2']       ?? '';
+                $btnText    = $card['btn_text']    ?? 'Enroll →';
+                $btnUrl     = $card['btn_url']     ?? '#';
+                $badgeStyle = $badgeColor ? ' style="background:' . h($badgeColor) . ';"' : '';
                 echo '<div class="pc-card' . ($featured ? ' pc-card--featured' : '') . '">';
-                if ($badge)    echo '<span class="pc-badge">' . h($badge) . '</span>';
-                if ($sublabel) echo '<span class="pc-sublabel">' . h($sublabel) . '</span>';
-                if ($name)     echo '<h3 class="pc-name">' . h($name) . '</h3>';
-                if ($desc)     echo '<p class="pc-desc">' . h($desc) . '</p>';
+                if ($badge)      echo '<span class="pc-badge"' . $badgeStyle . '>' . h($badge) . '</span>';
+                if ($innerBadge) echo '<span class="pc-inner-badge">' . h($innerBadge) . '</span>';
+                if ($name)       echo '<h3 class="pc-name">' . h($name) . '</h3>';
+                if ($sublabel)   echo '<p class="pc-sublabel">' . h($sublabel) . '</p>';
+                if ($desc)       echo '<p class="pc-desc">' . h($desc) . '</p>';
                 if ($features) {
                     echo '<ul class="pc-features">';
                     foreach (array_filter(array_map('trim', explode("\n", $features))) as $f) {
@@ -1200,8 +1219,15 @@ function render_content_block($block, $pathPrefix = '') {
                     }
                     echo '</ul>';
                 }
-                if ($meta) echo '<p class="pc-meta">' . h($meta) . '</p>';
+                echo '<div class="pc-card-footer">';
+                if ($meta || $meta2) {
+                    echo '<div class="pc-meta-wrap">';
+                    if ($meta)  echo '<p class="pc-meta">'  . h($meta)  . '</p>';
+                    if ($meta2) echo '<p class="pc-meta2">' . h($meta2) . '</p>';
+                    echo '</div>';
+                }
                 echo '<a href="' . h($btnUrl) . '" class="pc-btn">' . h($btnText) . '</a>';
+                echo '</div>';
                 echo '</div>';
             }
             echo '</div></div>';
@@ -1356,19 +1382,27 @@ function render_content_block($block, $pathPrefix = '') {
 
         /* ---- STAGE / CAREER PATH CARDS ---- */
         case 'stage_cards':
-            $scHeading  = $block['sc_heading']      ?? '';
-            $scSubtext  = $block['sc_subtext']      ?? '';
-            $scBg       = $block['sc_bg']           ?? '#f8fafc';
+            $scSectionLabel = $block['sc_section_label'] ?? '';
+            $scHeading  = $block['sc_heading']       ?? '';
+            $scSubhead  = $block['sc_subhead']       ?? '';
+            $scSubtext  = $block['sc_subtext']       ?? '';
+            $scBg       = $block['sc_bg']            ?? '#f8fafc';
             $scCols     = max(2, min(5, (int)($block['sc_cols'] ?? 4)));
-            $scAccent   = $block['sc_accent']       ?? 'accent';
-            $scAccentC  = $block['sc_accent_custom']?? '';
-            $scStages   = $block['sc_stages']       ?? [];
+            $scAccent   = $block['sc_accent']        ?? 'accent';
+            $scAccentC  = $block['sc_accent_custom'] ?? '';
+            $scStages   = $block['sc_stages']        ?? [];
             $scColor    = resolve_color($scAccent, $scAccentC);
             echo '<div class="content-block block-stage-cards"'.$anchorAttr.' style="background:'.h($scBg).';">';
             echo '<div class="container">';
-            if ($scHeading) echo '<h2 class="sc-section-heading">'.h($scHeading).'</h2>';
-            if ($scSubtext) echo '<p class="sc-section-subtext">'.h($scSubtext).'</p>';
-            echo '<div class="sc-stages-grid sc-cols-'.$scCols.'">';
+            if ($scSectionLabel || $scHeading || $scSubhead || $scSubtext) {
+                echo '<div class="sc-section-intro">';
+                if ($scSectionLabel) echo '<p class="sc-section-label" style="color:'.h($scColor).';">'.h($scSectionLabel).'</p>';
+                if ($scHeading) echo '<h2 class="sc-section-heading">'.resolve_shortcodes($scHeading).'</h2>';
+                if ($scSubhead) echo '<p class="sc-section-subhead" style="color:'.h($scColor).';">'.h($scSubhead).'</p>';
+                if ($scSubtext) echo '<p class="sc-section-subtext">'.h($scSubtext).'</p>';
+                echo '</div>';
+            }
+            echo '<div class="sc-grid-container"><div class="sc-stages-grid sc-cols-'.$scCols.'">';
             foreach ($scStages as $stage) {
                 $stNum   = $stage['number']  ?? '';
                 $stLabel = $stage['label']   ?? '';
@@ -1381,23 +1415,26 @@ function render_content_block($block, $pathPrefix = '') {
                 if ($stItems) {
                     echo '<ul class="sc-items-list">';
                     foreach (array_filter(array_map('trim', explode("\n", $stItems))) as $line) {
-                        $parts   = explode('|', $line, 2);
-                        $itemTxt = h(trim($parts[0]));
-                        $itemUrl = isset($parts[1]) ? h(trim($parts[1])) : '';
-                        if (!$itemTxt) continue;
+                        $urlParts  = explode('|', $line, 2);
+                        $mainPart  = trim($urlParts[0]);
+                        $itemUrl   = isset($urlParts[1]) ? h(trim($urlParts[1])) : '';
+                        $descParts = explode('::', $mainPart, 2);
+                        $itemTitle = h(trim($descParts[0]));
+                        $itemDesc  = isset($descParts[1]) ? h(trim($descParts[1])) : '';
+                        if (!$itemTitle) continue;
                         echo '<li class="sc-item">';
-                        if ($itemUrl) {
-                            echo '<a href="'.$itemUrl.'" class="sc-item-link">'.$itemTxt.'</a>';
-                        } else {
-                            echo '<span class="sc-item-text">'.$itemTxt.'</span>';
-                        }
-                        echo '</li>';
+                        $tag = $itemUrl ? 'a href="'.$itemUrl.'"' : 'div';
+                        $closeTag = $itemUrl ? 'a' : 'div';
+                        echo '<'.$tag.' class="sc-item-inner">';
+                        echo '<span class="sc-item-title">'.$itemTitle.'</span>';
+                        if ($itemDesc) echo '<span class="sc-item-desc">'.$itemDesc.'</span>';
+                        echo '</'.$closeTag.'></li>';
                     }
                     echo '</ul>';
                 }
                 echo '</div>';
             }
-            echo '</div></div></div>';
+            echo '</div></div></div></div>';
             break;
 
         /* ---- LOGO / TRUST BAR ---- */

@@ -368,6 +368,14 @@ function render_content_blocks_editor($blocks) {
                         <input type="text" name="fc_heading[]" value="<?= h($block['fc_heading'] ?? '') ?>" placeholder="e.g. Our Pest Control Services">
                     </div>
                     <div class="form-group">
+                        <label>Subheading <span class="hint">(optional — appears below the heading)</span></label>
+                        <input type="text" name="fc_subheading[]" value="<?= h($block['fc_subheading'] ?? '') ?>" placeholder="e.g. 6 PMI certifications. Live instruction. Guaranteed results.">
+                    </div>
+                    <div class="form-group">
+                        <label>Background color</label>
+                        <input type="color" name="fc_bg_color[]" value="<?= h($block['fc_bg_color'] ?? '#f3f6f7') ?>">
+                    </div>
+                    <div class="form-group">
                         <label>Number of columns</label>
                         <select name="fc_num_cols[]">
                             <?php foreach ([2,3,4] as $n): ?>
@@ -380,8 +388,12 @@ function render_content_blocks_editor($blocks) {
                         <?php foreach ($cols as $ci => $col): ?>
                         <div class="fc-col-row">
                             <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;">
+                                <div class="form-group" style="flex:0 0 120px;">
+                                    <label>SVG icon <span class="hint">(paste inline SVG)</span></label>
+                                    <textarea name="fc_col_icon[<?= $i ?>][]" rows="3" style="font-size:0.72rem;font-family:monospace;"><?= h($col['icon'] ?? '') ?></textarea>
+                                </div>
                                 <div class="form-group" style="flex:0 0 80px;">
-                                    <label>Icon/image</label>
+                                    <label>Photo</label>
                                     <?php if (!empty($col['image'])): ?>
                                         <img src="../<?= h($col['image']) ?>" style="max-height:48px;display:block;margin-bottom:4px;">
                                     <?php endif; ?>
@@ -1533,11 +1545,21 @@ function render_content_blocks_editor($blocks) {
 
                 <?php /* ---- PRICING CARDS FIELDS ---- */ ?>
                 <div class="block-fields block-fields-pricing_cards <?= $type !== 'pricing_cards' ? 'is-hidden' : '' ?>">
+                    <div class="form-group">
+                        <label>Section label <span class="hint">(small caps above heading — e.g. ALL PMI CERTIFICATIONS)</span></label>
+                        <input type="text" name="pc_label[]" value="<?= h($block['pc_label'] ?? '') ?>" placeholder="e.g. ALL PMI CERTIFICATIONS">
+                    </div>
+                    <div class="form-group">
+                        <label>Section heading <span class="hint">(supports &lt;span style="color:#hex"&gt; for colored words)</span></label>
+                        <input type="text" name="pc_heading[]" value="<?= h($block['pc_heading'] ?? '') ?>" placeholder="e.g. Six Classes. Every Career Stage.">
+                    </div>
+                    <div class="form-group">
+                        <label>Intro paragraph <span class="hint">(appears below heading)</span></label>
+                        <textarea name="pc_subheading[]" rows="2"><?= h($block['pc_subheading'] ?? '') ?></textarea>
+                    </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:8px;">
                         <div class="form-group" style="flex:1 1 220px;">
-                            <label>Section heading (optional)</label>
-                            <input type="text" name="pc_heading[]" value="<?= h($block['pc_heading'] ?? '') ?>" placeholder="e.g. Six Classes. Every Career Stage.">
-                        </div>
+                            <label>&nbsp;</label>
                         <div class="form-group" style="flex:0 0 120px;">
                             <label>Columns</label>
                             <select name="pc_cols[]">
@@ -1559,11 +1581,19 @@ function render_content_blocks_editor($blocks) {
                                     <div class="form-group"><label>Card name / title</label>
                                         <input type="text" name="pc_name[<?= $i ?>][]" value="<?= h($card['name'] ?? '') ?>" placeholder="e.g. PMP®">
                                     </div>
-                                    <div class="form-group"><label>Badge text <span class="hint">(optional — shown at top)</span></label>
-                                        <input type="text" name="pc_badge[<?= $i ?>][]" value="<?= h($card['badge'] ?? '') ?>" placeholder="e.g. MOST POPULAR">
+                                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                                        <div class="form-group" style="flex:1 1 120px;"><label>Badge text</label>
+                                            <input type="text" name="pc_badge[<?= $i ?>][]" value="<?= h($card['badge'] ?? '') ?>" placeholder="e.g. MOST POPULAR">
+                                        </div>
+                                        <div class="form-group" style="flex:0 0 60px;"><label>Color</label>
+                                            <input type="color" name="pc_badge_color[<?= $i ?>][]" value="<?= h($card['badge_color'] ?? '#2563eb') ?>">
+                                        </div>
                                     </div>
-                                    <div class="form-group"><label>Sub-label <span class="hint">(optional)</span></label>
-                                        <input type="text" name="pc_sublabel[<?= $i ?>][]" value="<?= h($card['sublabel'] ?? '') ?>" placeholder="e.g. PMI FLAGSHIP CREDENTIAL">
+                                    <div class="form-group"><label>Inner badge <span class="hint">(gray pill inside card)</span></label>
+                                        <input type="text" name="pc_inner_badge[<?= $i ?>][]" value="<?= h($card['inner_badge'] ?? '') ?>" placeholder="e.g. PMI FLAGSHIP CREDENTIAL">
+                                    </div>
+                                    <div class="form-group"><label>Sub-label <span class="hint">(below card name)</span></label>
+                                        <input type="text" name="pc_sublabel[<?= $i ?>][]" value="<?= h($card['sublabel'] ?? '') ?>" placeholder="e.g. Project Management Professional">
                                     </div>
                                     <div class="form-group">
                                         <label><input type="checkbox" name="pc_featured[<?= $i ?>][]" value="<?= $ci ?>" <?= !empty($card['featured']) ? 'checked' : '' ?> style="width:auto;margin-right:6px;">Featured / highlighted card</label>
@@ -1576,8 +1606,11 @@ function render_content_blocks_editor($blocks) {
                                     <div class="form-group"><label>Feature checklist <span class="hint">(one item per line)</span></label>
                                         <textarea name="pc_features[<?= $i ?>][]" rows="4" style="font-size:0.85rem;"><?= h($card['features'] ?? '') ?></textarea>
                                     </div>
-                                    <div class="form-group"><label>Meta line <span class="hint">(e.g. 4 Days · Live online)</span></label>
-                                        <input type="text" name="pc_meta[<?= $i ?>][]" value="<?= h($card['meta'] ?? '') ?>" placeholder="4 Days · Live online · Flexible scheduling">
+                                    <div class="form-group"><label>Meta line 1 <span class="hint">(e.g. 4 days · Live online)</span></label>
+                                        <input type="text" name="pc_meta[<?= $i ?>][]" value="<?= h($card['meta'] ?? '') ?>" placeholder="4 days · Live online">
+                                    </div>
+                                    <div class="form-group"><label>Meta line 2 <span class="hint">(e.g. Mon–Thu · 9AM–5PM)</span></label>
+                                        <input type="text" name="pc_meta2[<?= $i ?>][]" value="<?= h($card['meta2'] ?? '') ?>" placeholder="Flexible scheduling">
                                     </div>
                                     <div style="display:flex;gap:8px;flex-wrap:wrap;">
                                         <div class="form-group" style="flex:1 1 100px;"><label>Button text</label>
@@ -1772,9 +1805,19 @@ function render_content_blocks_editor($blocks) {
                 <?php /* ---- STAGE CARDS FIELDS ---- */ ?>
                 <div class="block-fields block-fields-stage_cards <?= $type !== 'stage_cards' ? 'is-hidden' : '' ?>">
                     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                        <div class="form-group" style="flex:1 1 160px;">
+                            <label>Label (small caps above heading)</label>
+                            <input type="text" name="sc_section_label[]" value="<?= h($block['sc_section_label'] ?? '') ?>" placeholder="FIND YOUR PATH">
+                        </div>
                         <div class="form-group" style="flex:2 1 220px;">
-                            <label>Section heading (optional)</label>
+                            <label>Main heading</label>
                             <input type="text" name="sc_heading[]" value="<?= h($block['sc_heading'] ?? '') ?>" placeholder="e.g. Every stage of your career.">
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Colored sub-heading line (accent color)</label>
+                            <input type="text" name="sc_subhead[]" value="<?= h($block['sc_subhead'] ?? '') ?>" placeholder="e.g. We have the right class.">
                         </div>
                         <div class="form-group" style="flex:0 0 80px;">
                             <label>Columns</label>
@@ -1821,8 +1864,8 @@ function render_content_blocks_editor($blocks) {
                                 <button type="button" class="remove-row" onclick="this.closest('.sc-stage-row').remove()" style="align-self:flex-start;">&times;</button>
                             </div>
                             <div class="form-group">
-                                <label>Course / item list <span class="hint">(one per line — add <code>| /url</code> to make a link)</span></label>
-                                <textarea name="sc_items[<?= $i ?>][]" rows="5" style="font-family:monospace;font-size:.85rem;" placeholder="CAPM® Exam Prep | /capm&#10;PM Foundations&#10;Agile Basics | /agile"><?= h($stage['items'] ?? '') ?></textarea>
+                                <label>Course / item list <span class="hint">(one per line — <code>Title::Description | /url</code>)</span></label>
+                                <textarea name="sc_items[<?= $i ?>][]" rows="5" style="font-family:monospace;font-size:.85rem;" placeholder="CAPM® Exam Prep::Your first PMI credential | /capm&#10;PM Foundations::No experience needed&#10;Agile Basics | /agile"><?= h($stage['items'] ?? '') ?></textarea>
                             </div>
                         </div>
                         <?php endforeach; ?>
