@@ -1197,6 +1197,7 @@ function render_content_block($block, $pathPrefix = '') {
             $cardBgStyle   = $cardStyles ? ' style="'.implode(';', $cardStyles).'"' : '';
 
             echo '<div class="content-block block-cards"' . $anchorAttr . $blockStyle . '>';
+            echo '<div class="container">';
             if ($cardLabel || $heading || $cardSubhead || $cardSubtext) {
                 echo '<div class="cards-intro">';
                 if ($cardLabel)   echo '<p class="cards-label" style="color:'.h($accentColor).';">' . h($cardLabel) . '</p>';
@@ -1233,7 +1234,7 @@ function render_content_block($block, $pathPrefix = '') {
                 if ($cardLink)  echo '<a href="' . h($cardLink) . '" class="card-link">' . h($cardBtn) . '</a>';
                 echo '</div></div>';
             }
-            echo '</div></div>';
+            echo '</div></div></div>';
             break;
 
         /* ---- PRICING / COURSE CARDS ---- */

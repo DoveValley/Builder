@@ -1137,7 +1137,7 @@ a:hover {
 /* ============================================================
    CARDS GRID
    ============================================================ */
-.block-cards { padding: 56px 0; background: #f8fafc; }
+.block-cards { padding: 56px 0; }
 .block-cards > .container { /* inherited from site-template wrapping */ }
 .cards-intro { margin-bottom: 40px; }
 .cards-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-accent, #2563eb); margin: 0 0 10px; }
