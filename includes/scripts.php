@@ -28,15 +28,24 @@ function content_editor_scripts() {
     /* Move block up/down */
     function moveBlock(btn, dir) {
         const card = btn.closest('.block-card');
+        if (!card) return;
         const container = card.parentElement;
-        if (dir < 0) { const prev = card.previousElementSibling; if (prev) container.insertBefore(card, prev); }
-        else         { const next = card.nextElementSibling;     if (next) container.insertBefore(next, card); }
+        if (!container) return;
+        if (dir < 0) {
+            const prev = card.previousElementSibling;
+            if (prev) { container.insertBefore(card, prev); card.style.outline = '2px solid var(--color-accent,#2563eb)'; setTimeout(() => card.style.outline = '', 600); }
+        } else {
+            const next = card.nextElementSibling;
+            if (next) { container.insertBefore(next, card); card.style.outline = '2px solid var(--color-accent,#2563eb)'; setTimeout(() => card.style.outline = '', 600); }
+        }
     }
 
     /* Remove a block */
     function removeBlock(btn) {
-        const container = document.getElementById('content-blocks');
         const card = btn.closest('.block-card');
+        if (!card) return;
+        const container = card.parentElement;
+        if (!container) return;
         if (container.children.length > 1) {
             if (!confirm('Remove this block? Click Save to make it permanent.')) return;
             card.remove();

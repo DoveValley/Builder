@@ -3662,6 +3662,10 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
    TESTIMONIALS BLOCK
    ============================================================ */
 .block-testimonials { padding: 56px 0; }
+.tm-intro { margin-bottom: 40px; text-align: center; }
+.tm-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 10px; }
+.tm-main-heading { font-size: 2.6rem; font-family: var(--font-heading); font-weight: 900; margin: 0 0 12px; line-height: 1.15; }
+.tm-subtext { font-size: 1rem; color: #4b5563; margin: 0; }
 .tm-heading { text-align: center; margin-bottom: 36px; font-size: 2rem; }
 .tm-grid { display: grid; gap: 24px; }
 .tm-grid-2 { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
@@ -3673,10 +3677,11 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
     box-shadow: 0 2px 12px rgba(0,0,0,.07);
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 12px;
 }
 .tm-stars { font-size: 1.15rem; letter-spacing: 2px; }
-.tm-quote { font-size: .97rem; line-height: 1.65; flex: 1; margin: 0; }
+.tm-quote { font-size: .97rem; line-height: 1.65; flex: 1; margin: 0; text-align: center; width: 100%; }
 .tm-author { margin-top: auto; display: flex; align-items: center; gap: 12px; }
 .tm-avatar {
     flex-shrink: 0;
@@ -3688,18 +3693,19 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
     font-size: .88rem;
     letter-spacing: .5px;
 }
-.tm-author-text { display: flex; flex-direction: column; gap: 2px; }
+.tm-author-text { display: flex; flex-direction: column; gap: 2px; text-align: left; }
 .tm-name { font-weight: 700; font-size: .9rem; }
 .tm-location { font-size: .82rem; color: #9ca3af; }
 .tm-result-badge {
     margin-top: 4px;
-    display: inline-block;
+    display: block;
+    align-self: center;
     font-size: .8rem;
     font-weight: 600;
-    padding: 5px 12px;
+    padding: 5px 14px;
     border-radius: 20px;
     border: 1.5px solid;
-    align-self: flex-start;
+    white-space: nowrap;
 }
 
 /* ============================================================

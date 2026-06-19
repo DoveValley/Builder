@@ -1419,16 +1419,29 @@ function render_content_block($block, $pathPrefix = '') {
         /* ---- TESTIMONIALS ---- */
         case 'testimonials':
             $heading     = $block['tm_heading']       ?? '';
+            $tmLabel     = $block['tm_label']         ?? '';
+            $tmMainHead  = $block['tm_main_heading']  ?? '';
+            $tmSubtext   = $block['tm_subtext']       ?? '';
             $bgColor     = $block['tm_bg_color']      ?? '#f8fafc';
             $textColor   = $block['tm_text_color']    ?? '#374151';
             $accent      = $block['tm_accent']        ?? 'accent';
             $accentC     = $block['tm_accent_custom'] ?? '#f59e0b';
+            $badgeAccent = $block['tm_badge_accent']  ?? 'accent';
+            $badgeAccentC= $block['tm_badge_accent_custom'] ?? '#10b981';
             $cols        = max(2, min(3, (int)($block['tm_cols'] ?? 3)));
             $items       = $block['tm_items']         ?? [];
             $accentStyle = resolve_color($accent, $accentC);
+            $badgeStyle  = resolve_color($badgeAccent, $badgeAccentC);
             echo '<div class="content-block block-testimonials"'.$anchorAttr.' style="background:'.h($bgColor).';">';
             echo '<div class="container">';
-            if ($heading) echo '<h2 class="tm-heading" style="color:'.h($textColor).';">'.h($heading).'</h2>';
+            if ($tmLabel || $tmMainHead || $tmSubtext || $heading) {
+                echo '<div class="tm-intro">';
+                if ($tmLabel)   echo '<p class="tm-label" style="color:'.h($accentStyle).';">'.h($tmLabel).'</p>';
+                if ($tmMainHead) echo '<h2 class="tm-main-heading" style="color:'.h($textColor).';">'.h($tmMainHead).'</h2>';
+                if ($heading)   echo '<h2 class="tm-heading" style="color:'.h($textColor).';">'.h($heading).'</h2>';
+                if ($tmSubtext) echo '<p class="tm-subtext" style="color:'.h($textColor).';">'.h($tmSubtext).'</p>';
+                echo '</div>';
+            }
             echo '<div class="tm-grid tm-grid-'.$cols.'">';
             foreach ($items as $item) {
                 $quote       = $item['quote']        ?? '';
@@ -1448,7 +1461,7 @@ function render_content_block($block, $pathPrefix = '') {
                 if ($location) echo '<span class="tm-location">'.h($location).'</span>';
                 echo '</span>';
                 echo '</div>';
-                if ($resultBadge) echo '<div class="tm-result-badge" style="border-color:'.h($accentStyle).';color:'.h($accentStyle).';">'.h($resultBadge).'</div>';
+                if ($resultBadge) echo '<div class="tm-result-badge" style="border-color:'.h($badgeStyle).';color:'.h($badgeStyle).';">'.h($resultBadge).'</div>';
                 echo '</div>';
             }
             echo '</div></div></div>';

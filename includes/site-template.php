@@ -191,7 +191,8 @@ $_hLayout = preg_replace('/[^a-z0-9_]/', '', $header['header_layout'] ?? 'standa
 $_hFile   = __DIR__ . '/headers/' . $_hLayout . '.php';
 include file_exists($_hFile) ? $_hFile : __DIR__ . '/headers/standard.php';
 ?>
-<main class="site-main">
+<?php $lastBlockType = end($contentBlocks)['type'] ?? ''; ?>
+<main class="site-main"<?= $lastBlockType === 'custom_html' ? ' style="padding-bottom:0"' : '' ?>>
     <?php if (!empty($slug) && isset($bcItems)): ?>
     <nav class="breadcrumb-bar" aria-label="Breadcrumb">
         <div class="container">
@@ -216,7 +217,7 @@ include file_exists($_hFile) ? $_hFile : __DIR__ . '/headers/standard.php';
     // These block types need full-width rendering (no container wrapper)
     foreach ($contentBlocks as $block):
         $btype = $block['type'] ?? '';
-        $isFullWidth = in_array($btype, ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','cta_card','map_info','hero_split','feature_split','faq_two_col','image_features','service_cards','tab_services','blog_list','stats','email_banner','cards']);
+        $isFullWidth = in_array($btype, ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','cta_card','map_info','hero_split','feature_split','faq_two_col','image_features','service_cards','tab_services','blog_list','stats','email_banner','cards','custom_html']);
     ?>
         <?php if (!$isFullWidth): ?>
         <div class="container">
@@ -228,7 +229,7 @@ include file_exists($_hFile) ? $_hFile : __DIR__ . '/headers/standard.php';
     <?php endforeach; ?>
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer"<?= $lastBlockType === 'custom_html' ? ' style="margin-top:0"' : '' ?>>
 
     <!-- FOOTER COLUMNS -->
     <div class="footer-main">

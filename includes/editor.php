@@ -1911,7 +1911,7 @@ function render_content_blocks_editor($blocks) {
                                 <option value="header" <?= ($block['sc_accent'] ?? '') === 'header' ? 'selected' : '' ?>>Header (global)</option>
                                 <option value="custom" <?= ($block['sc_accent'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
                             </select>
-                            <input type="color" name="sc_accent_custom[]" value="<?= h($block['sc_accent_custom'] ?? '') ?>" style="margin-top:4px;">
+                            <input type="color" name="sc_accent_custom[]" value="<?= h($block['sc_accent_custom'] ?? '#f5a623') ?>" style="margin-top:4px;">
                         </div>
                     </div>
                     <div class="form-group">
