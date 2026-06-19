@@ -282,12 +282,17 @@ function render_content_block($block, $pathPrefix = '') {
             $imgSide      = $block['hs_image_side']    ?? 'right';
             $mobileOrder  = $block['hs_mobile_order']  ?? '';
             $anchorOut    = $anchorAttr;
+            $textColor = '#fff';
+            if (preg_match('/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i', $bgColor, $bgm)) {
+                $lum = (hexdec($bgm[1]) * 299 + hexdec($bgm[2]) * 587 + hexdec($bgm[3]) * 114) / 255000;
+                $textColor = $lum < 0.5 ? '#fff' : 'var(--color-heading,#111)';
+            }
             if ($bgPhoto) {
                 $bgPhotoSrc = (str_starts_with($bgPhoto, 'http') || str_starts_with($bgPhoto, '//'))
                     ? $bgPhoto : $pathPrefix . $bgPhoto;
-                $bgStyle = 'background:'.h($bgColor).';background-image:url('.h($bgPhotoSrc).');background-size:cover;background-position:'.h(get_focal_point($bgPhoto)).';';
+                $bgStyle = 'background:'.h($bgColor).';background-image:url('.h($bgPhotoSrc).');background-size:cover;background-position:'.h(get_focal_point($bgPhoto)).';color:'.$textColor.';';
             } else {
-                $bgStyle = 'background:'.h($bgColor).';';
+                $bgStyle = 'background:'.h($bgColor).';color:'.$textColor.';';
             }
             $hsExtraClass = $mobileOrder === 'img_first' ? ' hs-mobile-img-first' : ($mobileOrder === 'text_first' ? ' hs-mobile-text-first' : '');
             echo '<div class="content-block block-hero-split"'.$anchorOut.' style="'.$bgStyle.'">';
@@ -310,9 +315,18 @@ function render_content_block($block, $pathPrefix = '') {
             if ($imgSide === 'left') echo $hsImgCol;
             // Text column
             echo '<div class="hs-text">';
-            if ($heading) echo '<h1 class="hs-heading">'.h($heading).'</h1>';
+            $tagline = $block['hs_tagline'] ?? '';
+            if ($heading) echo '<h1 class="hs-heading">'.resolve_shortcodes($heading).'</h1>';
+            if ($tagline) echo '<div class="hs-tagline">'.resolve_shortcodes($tagline).'</div>';
             if ($subtext) echo '<div class="hs-subtext">'.resolve_shortcodes($subtext).'</div>';
-            if ($btnText) echo '<a href="'.h($btnUrl).'" class="hs-btn">'.h($btnText).'</a>';
+            $btn2Text = $block['hs_btn2_text'] ?? '';
+            $btn2Url  = $block['hs_btn2_url']  ?? '#';
+            if ($btnText || $btn2Text) {
+                echo '<div class="hs-btn-row">';
+                if ($btnText) echo '<a href="'.h($btnUrl).'" class="hs-btn">'.h($btnText).'</a>';
+                if ($btn2Text) echo '<a href="'.h($btn2Url).'" class="hs-btn2">'.h($btn2Text).'</a>';
+                echo '</div>';
+            }
             echo '</div>';
             if ($imgSide !== 'left') echo $hsImgCol;
             echo '</div></div>';

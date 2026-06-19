@@ -214,10 +214,15 @@ function content_editor_scripts() {
             </div>
             <div class="block-fields block-fields-hero_split is-hidden">
                 <div class="form-group"><label>H1 Headline</label><input type="text" name="hs_heading[]" placeholder="e.g. Trusted Local Pest Control in Katy, TX"></div>
+                <div class="form-group"><label>Tagline</label><input type="text" name="hs_tagline[]" placeholder="e.g. 6 PMI Certifications. Live Online."></div>
                 <div class="form-group"><label>Paragraph text</label><textarea name="hs_subtext[]" rows="3"></textarea></div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
-                    <div class="form-group" style="flex:1 1 180px;"><label>Button text</label><input type="text" name="hs_btn_text[]"></div>
-                    <div class="form-group" style="flex:1 1 180px;"><label>Button link</label><input type="text" name="hs_btn_url[]" placeholder="tel:+1..."></div>
+                    <div class="form-group" style="flex:1 1 180px;"><label>Button 1 text</label><input type="text" name="hs_btn_text[]"></div>
+                    <div class="form-group" style="flex:1 1 180px;"><label>Button 1 link</label><input type="text" name="hs_btn_url[]" placeholder="e.g. /#courses"></div>
+                </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:1 1 180px;"><label>Button 2 text (outline)</label><input type="text" name="hs_btn2_text[]"></div>
+                    <div class="form-group" style="flex:1 1 180px;"><label>Button 2 link</label><input type="text" name="hs_btn2_url[]" placeholder="e.g. /about"></div>
                 </div>
                 <div class="form-group"><label>Background color</label><input type="color" name="hs_bg_color[]" value="#f3f6f7"></div>
                 <div class="form-group"><label>Right-side image</label>

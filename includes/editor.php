@@ -183,17 +183,31 @@ function render_content_blocks_editor($blocks) {
                         <input type="text" name="hs_heading[]" value="<?= h($block['hs_heading'] ?? '') ?>" placeholder="e.g. Trusted Local Pest Control in Katy, TX">
                     </div>
                     <div class="form-group">
+                        <label>Tagline <span class="hint">(small line below headline — supports HTML spans for color)</span></label>
+                        <input type="text" name="hs_tagline[]" value="<?= h($block['hs_tagline'] ?? '') ?>" placeholder='e.g. 6 PMI Certifications. Live Online. <span style="color:#f76a0c">Pass Guaranteed.</span>'>
+                    </div>
+                    <div class="form-group">
                         <label>Paragraph text</label>
                         <textarea name="hs_subtext[]" rows="3" class="rich-editor"><?= h($block['hs_subtext'] ?? '') ?></textarea>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 180px;">
-                            <label>Button text</label>
-                            <input type="text" name="hs_btn_text[]" value="<?= h($block['hs_btn_text'] ?? '') ?>" placeholder="e.g. (281) 215-0160">
+                            <label>Button 1 text</label>
+                            <input type="text" name="hs_btn_text[]" value="<?= h($block['hs_btn_text'] ?? '') ?>" placeholder="e.g. View Courses">
                         </div>
                         <div class="form-group" style="flex:1 1 180px;">
-                            <label>Button link</label>
-                            <input type="text" name="hs_btn_url[]" value="<?= h($block['hs_btn_url'] ?? '') ?>" placeholder="e.g. tel:+12812150160">
+                            <label>Button 1 link</label>
+                            <input type="text" name="hs_btn_url[]" value="<?= h($block['hs_btn_url'] ?? '') ?>" placeholder="e.g. /#courses">
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:1 1 180px;">
+                            <label>Button 2 text <span class="hint">(outline style)</span></label>
+                            <input type="text" name="hs_btn2_text[]" value="<?= h($block['hs_btn2_text'] ?? '') ?>" placeholder="e.g. Learn More">
+                        </div>
+                        <div class="form-group" style="flex:1 1 180px;">
+                            <label>Button 2 link</label>
+                            <input type="text" name="hs_btn2_url[]" value="<?= h($block['hs_btn2_url'] ?? '') ?>" placeholder="e.g. /about">
                         </div>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">

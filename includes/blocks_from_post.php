@@ -61,9 +61,12 @@ function parse_blocks_from_post(): array {
 
             case 'hero_split':
                 $block['hs_heading']   = trim($_POST['hs_heading'][$i]   ?? '');
+                $block['hs_tagline']   = trim($_POST['hs_tagline'][$i]   ?? '');
                 $block['hs_subtext']   = trim($_POST['hs_subtext'][$i]   ?? '');
                 $block['hs_btn_text']  = trim($_POST['hs_btn_text'][$i]  ?? '');
                 $block['hs_btn_url']   = sanitize_url($_POST['hs_btn_url'][$i]   ?? '');
+                $block['hs_btn2_text'] = trim($_POST['hs_btn2_text'][$i] ?? '');
+                $block['hs_btn2_url']  = sanitize_url($_POST['hs_btn2_url'][$i]  ?? '');
                 $block['hs_caption1']  = trim($_POST['hs_caption1'][$i]  ?? '');
                 $block['hs_caption2']  = trim($_POST['hs_caption2'][$i]  ?? '');
                 $block['hs_photo_alt']   = trim($_POST['hs_photo_alt'][$i]   ?? '');
