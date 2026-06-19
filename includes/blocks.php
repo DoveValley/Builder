@@ -1179,23 +1179,30 @@ function render_content_block($block, $pathPrefix = '') {
             $headColor    = $block['cards_head_color']            ?? '';
             $headColorC   = $block['cards_head_color_custom']     ?? '#1a1a2e';
             $cardBg       = $block['cards_card_bg']               ?? '';
+            $cardBorder   = $block['cards_border']                ?? '';
             $itemHeadC    = $block['cards_item_head_color']       ?? '';
             $itemHeadCC   = $block['cards_item_head_color_custom'] ?? '#1a1a2e';
             $textColor    = $block['cards_text_color']            ?? '';
+            $accentMode   = $block['cards_accent']                ?? 'accent';
+            $accentCustom = $block['cards_accent_custom']         ?? '';
+            $accentColor  = resolve_color($accentMode, $accentCustom);
 
             $blockStyle    = $bgColor    ? ' style="background:'.h($bgColor).';"' : '';
             $headStyle     = $headColor  ? ' style="color:'.resolve_color($headColor, $headColorC).';"' : '';
             $itemHeadStyle = $itemHeadC  ? ' style="color:'.resolve_color($itemHeadC, $itemHeadCC).';"' : '';
             $textStyle     = $textColor  ? ' style="color:'.h($textColor).';"' : '';
-            $cardBgStyle   = $cardBg     ? ' style="background:'.h($cardBg).';"' : '';
+            $cardStyles    = [];
+            if ($cardBg)     $cardStyles[] = 'background:'.h($cardBg);
+            if ($cardBorder) $cardStyles[] = 'border-color:'.h($cardBorder);
+            $cardBgStyle   = $cardStyles ? ' style="'.implode(';', $cardStyles).'"' : '';
 
             echo '<div class="content-block block-cards"' . $anchorAttr . $blockStyle . '>';
             if ($cardLabel || $heading || $cardSubhead || $cardSubtext) {
                 echo '<div class="cards-intro">';
-                if ($cardLabel)   echo '<p class="cards-label">' . h($cardLabel) . '</p>';
+                if ($cardLabel)   echo '<p class="cards-label" style="color:'.h($accentColor).';">' . h($cardLabel) . '</p>';
                 if ($heading)     echo '<h2 class="cards-main-heading"' . $headStyle . '>' . resolve_shortcodes($heading) . '</h2>';
-                if ($cardSubhead) echo '<p class="cards-subhead">' . h($cardSubhead) . '</p>';
-                if ($cardSubtext) echo '<p class="cards-subtext">' . h($cardSubtext) . '</p>';
+                if ($cardSubhead) echo '<p class="cards-subhead" style="color:'.h($accentColor).';">' . h($cardSubhead) . '</p>';
+                if ($cardSubtext) echo '<p class="cards-subtext"' . $textStyle . '>' . h($cardSubtext) . '</p>';
                 echo '</div>';
             }
             echo '<div class="cards-grid cards-grid-' . $cols . '">';
@@ -1209,12 +1216,20 @@ function render_content_block($block, $pathPrefix = '') {
                 $cardLink  = $card['link']     ?? '';
                 $cardBtn   = $card['btn_text'] ?? 'Read More';
                 echo '<div class="card-item"' . $cardBgStyle . '>';
-                if ($cardIcon)    echo '<div class="card-icon">' . $cardIcon . '</div>';
-                elseif ($cardImg) echo '<img class="card-image" src="' . h($pathPrefix . $cardImg) . '" alt="' . h($cardAlt) . '" loading="lazy">';
+                if ($cardIcon) {
+                    $isSvg = strpos(trim($cardIcon), '<svg') === 0;
+                    if ($isSvg) {
+                        echo '<div class="card-icon" style="background:'.h($accentColor).';">' . $cardIcon . '</div>';
+                    } else {
+                        echo '<div class="card-icon-plain">' . h($cardIcon) . '</div>';
+                    }
+                } elseif ($cardImg) {
+                    echo '<img class="card-image" src="' . h($pathPrefix . $cardImg) . '" alt="' . h($cardAlt) . '" loading="lazy">';
+                }
                 echo '<div class="card-body">';
                 if ($cardHead)  echo '<h3 class="card-heading"' . $itemHeadStyle . '>' . h($cardHead) . '</h3>';
                 if ($cardText)  echo '<p class="card-text"' . $textStyle . '>' . h($cardText) . '</p>';
-                if ($cardBadge) echo '<span class="card-badge">' . h($cardBadge) . '</span>';
+                if ($cardBadge) echo '<span class="card-badge" style="border-color:'.h($accentColor).';color:'.h($accentColor).';">' . h($cardBadge) . '</span>';
                 if ($cardLink)  echo '<a href="' . h($cardLink) . '" class="card-link">' . h($cardBtn) . '</a>';
                 echo '</div></div>';
             }

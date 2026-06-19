@@ -611,6 +611,12 @@ function parse_blocks_from_post(): array {
                 $block['cards_item_head_color'] = $cihc;
                 $cihcc = trim($_POST['cards_item_head_color_custom'][$i] ?? '#1a1a2e');
                 $block['cards_item_head_color_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $cihcc) ? $cihcc : '#1a1a2e';
+                $cacc = in_array($_POST['cards_accent'][$i] ?? '', ['accent','header','custom']) ? $_POST['cards_accent'][$i] : 'accent';
+                $block['cards_accent'] = $cacc;
+                $caccc = trim($_POST['cards_accent_custom'][$i] ?? '');
+                $block['cards_accent_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $caccc) ? $caccc : '';
+                $cbc2 = trim($_POST['cards_border'][$i] ?? '');
+                $block['cards_border'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $cbc2) ? $cbc2 : '';
                 $cardHeadings  = $_POST['cards_heading_item'][$i] ?? [];
                 $cardTexts     = $_POST['cards_text'][$i]         ?? [];
                 $cardLinks     = $_POST['cards_link'][$i]         ?? [];
