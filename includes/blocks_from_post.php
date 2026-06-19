@@ -292,6 +292,25 @@ function parse_blocks_from_post(): array {
                 if (empty($lgLinks) && $block['lg_heading'] === '') continue 2;
                 break;
 
+            case 'email_banner':
+                $block['eb_heading']     = trim($_POST['eb_heading'][$i]     ?? '');
+                $block['eb_subtext']     = trim($_POST['eb_subtext'][$i]     ?? '');
+                $ebBgRaw = trim($_POST['eb_bg'][$i] ?? '#2563eb');
+                $block['eb_bg']          = preg_match('/^#[0-9a-fA-F]{3,6}$/', $ebBgRaw) ? $ebBgRaw : '#2563eb';
+                $block['eb_placeholder'] = trim($_POST['eb_placeholder'][$i] ?? 'Enter your email');
+                $block['eb_btn_text']    = trim($_POST['eb_btn_text'][$i]    ?? 'Get My Free Exam →');
+                $block['eb_btn_url']     = sanitize_url($_POST['eb_btn_url'][$i] ?? '#');
+                $block['eb_form_action'] = sanitize_url($_POST['eb_form_action'][$i] ?? '');
+                $block['eb_badge_text']  = trim($_POST['eb_badge_text'][$i]  ?? '');
+                $ebBadgeExisting = trim($_POST['eb_badge_existing'][$i] ?? '');
+                if (isset($_FILES['eb_badge_image']['error'][$i]) && $_FILES['eb_badge_image']['error'][$i] === UPLOAD_ERR_OK) {
+                    $up = save_uploaded_file($_FILES['eb_badge_image']['tmp_name'][$i], 'badge');
+                    $ebBadgeExisting = $up ?: $ebBadgeExisting;
+                }
+                $block['eb_badge_image'] = $ebBadgeExisting;
+                if ($block['eb_heading'] === '') continue 2;
+                break;
+
             case 'cta_banner':
                 $block['cb_text']    = trim($_POST['cb_text'][$i]    ?? '');
                 $block['cb_subtext'] = trim($_POST['cb_subtext'][$i] ?? '');

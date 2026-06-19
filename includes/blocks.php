@@ -86,6 +86,7 @@ function allowed_block_types() {
         'pricing_cards'   => 'Pricing / Course Cards (badge, checklist, CTA)',
         'logo_bar'        => 'Logo / Trust Bar (partner logos with optional links)',
         'stage_cards'     => 'Stage / Career Path Cards (numbered columns with item lists)',
+        'email_banner'    => 'Email Capture Banner (split: heading left, email form right)',
         'contact_form'    => 'Contact Form (name, email, phone, message)',
     ];
 }
@@ -694,6 +695,38 @@ function render_content_block($block, $pathPrefix = '') {
             break;
 
         /* ---- CTA BANNER ---- */
+        case 'email_banner':
+            $ebHeading     = $block['eb_heading']       ?? '';
+            $ebSubtext     = $block['eb_subtext']       ?? '';
+            $ebBg          = $block['eb_bg']            ?? '#2563eb';
+            $ebPlaceholder = $block['eb_placeholder']   ?? 'Enter your email';
+            $ebBtnText     = $block['eb_btn_text']      ?? 'Get My Free Exam →';
+            $ebBtnUrl      = $block['eb_btn_url']       ?? '#';
+            $ebFormAction  = $block['eb_form_action']   ?? '';
+            $ebBadgeImg    = $block['eb_badge_image']   ?? '';
+            $ebBadgeText   = $block['eb_badge_text']    ?? '';
+            echo '<div class="content-block block-email-banner"'.$anchorAttr.' style="background:'.h($ebBg).';">';
+            echo '<div class="container">';
+            echo '<div class="eb-inner">';
+            echo '<div class="eb-left">';
+            if ($ebHeading) echo '<h2 class="eb-heading">'.resolve_shortcodes($ebHeading).'</h2>';
+            if ($ebSubtext) echo '<p class="eb-subtext">'.h($ebSubtext).'</p>';
+            echo '</div>';
+            echo '<div class="eb-right">';
+            $formAction = $ebFormAction ?: h($ebBtnUrl);
+            echo '<form class="eb-form" action="'.h($ebFormAction).'" method="post" target="_blank">';
+            echo '<input class="eb-input" type="email" name="email" placeholder="'.h($ebPlaceholder).'" required>';
+            echo '<a href="'.h($ebBtnUrl).'" class="eb-btn">'.h($ebBtnText).'</a>';
+            echo '</form>';
+            if ($ebBadgeImg || $ebBadgeText) {
+                echo '<div class="eb-trust">';
+                if ($ebBadgeImg) echo '<img class="eb-badge-img" src="'.h($pathPrefix.$ebBadgeImg).'" alt="PMI badge" loading="lazy">';
+                if ($ebBadgeText) echo '<span class="eb-badge-text">'.h($ebBadgeText).'</span>';
+                echo '</div>';
+            }
+            echo '</div></div></div></div>';
+            break;
+
         case 'cta_banner':
             $text      = $block['cb_text']       ?? '';
             $subtext   = $block['cb_subtext']    ?? '';

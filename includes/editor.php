@@ -815,6 +815,55 @@ function render_content_blocks_editor($blocks) {
                 </div>
 
                 <?php /* ---- CTA BANNER FIELDS ---- */ ?>
+                <div class="block-fields block-fields-email_banner <?= $type !== 'email_banner' ? 'is-hidden' : '' ?>">
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Heading</label>
+                            <input type="text" name="eb_heading[]" value="<?= h($block['eb_heading'] ?? '') ?>" placeholder="Free PMP Practice Exam — See If You're Ready">
+                        </div>
+                        <div class="form-group" style="flex:0 0 100px;">
+                            <label>Background</label>
+                            <input type="color" name="eb_bg[]" value="<?= h($block['eb_bg'] ?? '#2563eb') ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Subtext (below heading)</label>
+                        <input type="text" name="eb_subtext[]" value="<?= h($block['eb_subtext'] ?? '') ?>" placeholder="50 questions, instant scoring, personalized study plan.">
+                    </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                        <div class="form-group" style="flex:1 1 180px;">
+                            <label>Email input placeholder</label>
+                            <input type="text" name="eb_placeholder[]" value="<?= h($block['eb_placeholder'] ?? 'Enter your email') ?>">
+                        </div>
+                        <div class="form-group" style="flex:1 1 180px;">
+                            <label>Button text</label>
+                            <input type="text" name="eb_btn_text[]" value="<?= h($block['eb_btn_text'] ?? 'Get My Free Exam →') ?>">
+                        </div>
+                        <div class="form-group" style="flex:1 1 180px;">
+                            <label>Button URL</label>
+                            <input type="text" name="eb_btn_url[]" value="<?= h($block['eb_btn_url'] ?? '#') ?>" placeholder="https://...">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Form action URL <span class="hint">(optional — leave blank to use button URL)</span></label>
+                        <input type="text" name="eb_form_action[]" value="<?= h($block['eb_form_action'] ?? '') ?>" placeholder="https://your-email-service.com/subscribe">
+                    </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;">
+                        <div class="form-group" style="flex:0 0 120px;">
+                            <label>Trust badge image</label>
+                            <?php if (!empty($block['eb_badge_image'])): ?>
+                                <img src="/<?= h($block['eb_badge_image']) ?>" style="max-height:50px;display:block;margin-bottom:4px;" onerror="this.style.display='none'">
+                            <?php endif; ?>
+                            <input type="file" name="eb_badge_image[<?= $i ?>]" accept="image/png,image/jpeg,image/gif,image/webp" style="font-size:0.78rem;">
+                            <input type="hidden" name="eb_badge_existing[]" value="<?= h($block['eb_badge_image'] ?? '') ?>">
+                        </div>
+                        <div class="form-group" style="flex:1 1 220px;">
+                            <label>Trust badge text</label>
+                            <input type="text" name="eb_badge_text[]" value="<?= h($block['eb_badge_text'] ?? '') ?>" placeholder="Premier Authorized Training Partner (ATP) of the Project Management Institute®">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="block-fields block-fields-cta_banner <?= $type !== 'cta_banner' ? 'is-hidden' : '' ?>">
                     <div class="form-group">
                         <label>Banner text (centered, bold)</label>

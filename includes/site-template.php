@@ -216,7 +216,7 @@ include file_exists($_hFile) ? $_hFile : __DIR__ . '/headers/standard.php';
     // These block types need full-width rendering (no container wrapper)
     foreach ($contentBlocks as $block):
         $btype = $block['type'] ?? '';
-        $isFullWidth = in_array($btype, ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','cta_card','map_info','hero_split','feature_split','faq_two_col','image_features','service_cards','tab_services','blog_list','stats']);
+        $isFullWidth = in_array($btype, ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','cta_card','map_info','hero_split','feature_split','faq_two_col','image_features','service_cards','tab_services','blog_list','stats','email_banner']);
     ?>
         <?php if (!$isFullWidth): ?>
         <div class="container">
