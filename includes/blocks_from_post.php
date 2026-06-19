@@ -572,7 +572,10 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'cards':
-                $block['cards_heading'] = trim($_POST['cards_heading'][$i] ?? '');
+                $block['cards_label']   = trim($_POST['cards_label'][$i]   ?? '');
+                $block['cards_heading'] = trim($_POST['cards_heading'][$i]  ?? '');
+                $block['cards_subhead'] = trim($_POST['cards_subhead'][$i]  ?? '');
+                $block['cards_subtext'] = trim($_POST['cards_subtext'][$i]  ?? '');
                 $block['cards_cols']    = max(2, min(4, (int)($_POST['cards_cols'][$i] ?? 3)));
                 // Colors — read directly from color picker inputs
                 $cbg = trim($_POST['cards_bg'][$i] ?? '');
@@ -605,12 +608,18 @@ function parse_blocks_from_post(): array {
                         elseif ($up === false) $uploadError = true;
                     }
                     $ch = trim($ch); $ct = trim($cardTexts[$ci] ?? '');
-                    if ($ch === '' && $ct === '' && !$imgPath) continue;
+                    $cardIconsArr  = $_POST['cards_icon'][$i]  ?? [];
+                    $cardBadgesArr = $_POST['cards_badge'][$i] ?? [];
+                    $cardIcon  = trim($cardIconsArr[$ci]  ?? '');
+                    $cardBadge = trim($cardBadgesArr[$ci] ?? '');
+                    if ($ch === '' && $ct === '' && !$imgPath && !$cardIcon) continue;
                     $cardItems[] = [
+                        'icon'     => $cardIcon,
                         'image'    => $imgPath,
                         'alt'      => trim($cardAlts[$ci] ?? ''),
                         'heading'  => $ch,
                         'text'     => $ct,
+                        'badge'    => $cardBadge,
                         'link'     => sanitize_url($cardLinks[$ci] ?? ''),
                         'btn_text' => trim($cardBtns[$ci] ?? 'Read More') ?: 'Read More',
                     ];

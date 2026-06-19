@@ -1448,9 +1448,23 @@ function render_content_blocks_editor($blocks) {
 
                 <?php /* ---- CARDS GRID FIELDS ---- */ ?>
                 <div class="block-fields block-fields-cards <?= $type !== 'cards' ? 'is-hidden' : '' ?>">
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:1 1 160px;">
+                            <label>Label (small caps above heading)</label>
+                            <input type="text" name="cards_label[]" value="<?= h($block['cards_label'] ?? '') ?>" placeholder="WHY CHOOSE US">
+                        </div>
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Main heading</label>
+                            <input type="text" name="cards_heading[]" value="<?= h($block['cards_heading'] ?? '') ?>" placeholder="e.g. Our Services">
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <label>Section heading (optional)</label>
-                        <input type="text" name="cards_heading[]" value="<?= h($block['cards_heading'] ?? '') ?>" placeholder="e.g. Our Services">
+                        <label>Blue sub-heading line (accent color)</label>
+                        <input type="text" name="cards_subhead[]" value="<?= h($block['cards_subhead'] ?? '') ?>" placeholder="e.g. The authority.">
+                    </div>
+                    <div class="form-group">
+                        <label>Intro paragraph (optional)</label>
+                        <textarea name="cards_subtext[]" rows="2"><?= h($block['cards_subtext'] ?? '') ?></textarea>
                     </div>
                     <div class="form-group">
                         <label>Number of columns</label>
@@ -1523,6 +1537,16 @@ function render_content_blocks_editor($blocks) {
                                     <div class="form-group">
                                         <label>Description</label>
                                         <textarea name="cards_text[<?= $i ?>][]" rows="2"><?= h($card['text'] ?? '') ?></textarea>
+                                    </div>
+                                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                                        <div class="form-group" style="flex:2 1 180px;">
+                                            <label>Icon SVG <span class="hint">(inline SVG — shows in blue box above title)</span></label>
+                                            <textarea name="cards_icon[<?= $i ?>][]" rows="2" style="font-family:monospace;font-size:.78rem;"><?= h($card['icon'] ?? '') ?></textarea>
+                                        </div>
+                                        <div class="form-group" style="flex:1 1 120px;">
+                                            <label>Badge pill text</label>
+                                            <input type="text" name="cards_badge[<?= $i ?>][]" value="<?= h($card['badge'] ?? '') ?>" placeholder="e.g. Guaranteed">
+                                        </div>
                                     </div>
                                     <div style="display:flex;gap:8px;flex-wrap:wrap;">
                                         <div class="form-group" style="flex:1 1 140px;">

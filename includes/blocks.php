@@ -1136,7 +1136,10 @@ function render_content_block($block, $pathPrefix = '') {
 
         /* ---- CARDS GRID (image + heading + text + link) ---- */
         case 'cards':
+            $cardLabel    = $block['cards_label']                 ?? '';
             $heading      = $block['cards_heading']               ?? '';
+            $cardSubhead  = $block['cards_subhead']               ?? '';
+            $cardSubtext  = $block['cards_subtext']               ?? '';
             $cols         = max(2, min(4, (int)($block['cards_cols'] ?? 3)));
             $items        = $block['cards_items']                 ?? [];
             $bgColor      = $block['cards_bg']                    ?? '';
@@ -1154,21 +1157,32 @@ function render_content_block($block, $pathPrefix = '') {
             $cardBgStyle   = $cardBg     ? ' style="background:'.h($cardBg).';"' : '';
 
             echo '<div class="content-block block-cards"' . $anchorAttr . $blockStyle . '>';
-            if ($heading) echo '<h2 class="section-heading"' . $headStyle . '>' . h($heading) . '</h2>';
+            if ($cardLabel || $heading || $cardSubhead || $cardSubtext) {
+                echo '<div class="cards-intro">';
+                if ($cardLabel)   echo '<p class="cards-label">' . h($cardLabel) . '</p>';
+                if ($heading)     echo '<h2 class="cards-main-heading"' . $headStyle . '>' . resolve_shortcodes($heading) . '</h2>';
+                if ($cardSubhead) echo '<p class="cards-subhead">' . h($cardSubhead) . '</p>';
+                if ($cardSubtext) echo '<p class="cards-subtext">' . h($cardSubtext) . '</p>';
+                echo '</div>';
+            }
             echo '<div class="cards-grid cards-grid-' . $cols . '">';
             foreach ($items as $card) {
-                $cardImg  = $card['image']    ?? '';
-                $cardAlt  = $card['alt']      ?? '';
-                $cardHead = $card['heading']  ?? '';
-                $cardText = $card['text']     ?? '';
-                $cardLink = $card['link']     ?? '';
-                $cardBtn  = $card['btn_text'] ?? 'Read More';
+                $cardIcon  = $card['icon']     ?? '';
+                $cardImg   = $card['image']    ?? '';
+                $cardAlt   = $card['alt']      ?? '';
+                $cardHead  = $card['heading']  ?? '';
+                $cardText  = $card['text']     ?? '';
+                $cardBadge = $card['badge']    ?? '';
+                $cardLink  = $card['link']     ?? '';
+                $cardBtn   = $card['btn_text'] ?? 'Read More';
                 echo '<div class="card-item"' . $cardBgStyle . '>';
-                if ($cardImg) echo '<img class="card-image" src="' . h($pathPrefix . $cardImg) . '" alt="' . h($cardAlt) . '" loading="lazy">';
+                if ($cardIcon)    echo '<div class="card-icon">' . $cardIcon . '</div>';
+                elseif ($cardImg) echo '<img class="card-image" src="' . h($pathPrefix . $cardImg) . '" alt="' . h($cardAlt) . '" loading="lazy">';
                 echo '<div class="card-body">';
-                if ($cardHead) echo '<h3 class="card-heading"' . $itemHeadStyle . '>' . h($cardHead) . '</h3>';
-                if ($cardText) echo '<p class="card-text"' . $textStyle . '>' . h($cardText) . '</p>';
-                if ($cardLink) echo '<a href="' . h($cardLink) . '" class="card-link">' . h($cardBtn) . '</a>';
+                if ($cardHead)  echo '<h3 class="card-heading"' . $itemHeadStyle . '>' . h($cardHead) . '</h3>';
+                if ($cardText)  echo '<p class="card-text"' . $textStyle . '>' . h($cardText) . '</p>';
+                if ($cardBadge) echo '<span class="card-badge">' . h($cardBadge) . '</span>';
+                if ($cardLink)  echo '<a href="' . h($cardLink) . '" class="card-link">' . h($cardBtn) . '</a>';
                 echo '</div></div>';
             }
             echo '</div></div>';
