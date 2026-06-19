@@ -3660,9 +3660,9 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
    ============================================================ */
 .block-stage-cards { padding: 56px 0; }
 .sc-section-intro { margin-bottom: 36px; }
-.sc-section-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 10px; }
+.sc-section-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 10px; color: var(--color-accent, #2563eb); }
 .sc-section-heading { text-align: left; margin: 0 0 4px; font-size: 2.4rem; font-family: var(--font-heading, inherit); font-weight: 900; line-height: 1.1; color: var(--color-heading, #1a2e5a); }
-.sc-section-subhead { text-align: left; font-size: 2.4rem; font-family: var(--font-heading, inherit); font-weight: 900; line-height: 1.1; margin: 0 0 18px; }
+.sc-section-subhead { text-align: left; font-size: 2.4rem; font-family: var(--font-heading, inherit); font-weight: 900; line-height: 1.1; margin: 0 0 18px; color: var(--color-accent, #2563eb); }
 .sc-section-subtext { text-align: left; margin: 0; font-size: 1rem; color: #4b5563; line-height: 1.7; max-width: none; }
 .sc-grid-container { border: 1.5px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #fff; }
 .sc-stages-grid { display: grid; gap: 0; }

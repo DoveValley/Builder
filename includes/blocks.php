@@ -1396,9 +1396,9 @@ function render_content_block($block, $pathPrefix = '') {
             echo '<div class="container">';
             if ($scSectionLabel || $scHeading || $scSubhead || $scSubtext) {
                 echo '<div class="sc-section-intro">';
-                if ($scSectionLabel) echo '<p class="sc-section-label" style="color:'.h($scColor).';">'.h($scSectionLabel).'</p>';
+                if ($scSectionLabel) echo '<p class="sc-section-label">'.h($scSectionLabel).'</p>';
                 if ($scHeading) echo '<h2 class="sc-section-heading">'.resolve_shortcodes($scHeading).'</h2>';
-                if ($scSubhead) echo '<p class="sc-section-subhead" style="color:'.h($scColor).';">'.h($scSubhead).'</p>';
+                if ($scSubhead) echo '<p class="sc-section-subhead">'.h($scSubhead).'</p>';
                 if ($scSubtext) echo '<p class="sc-section-subtext">'.h($scSubtext).'</p>';
                 echo '</div>';
             }
