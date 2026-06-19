@@ -183,6 +183,11 @@ a:hover {
 .content-block:last-child {
     margin-bottom: 0;
 }
+.block-stats, .block-cards, .block-email-banner, .block-cta-banner, .block-split-cta,
+.block-wide-banner, .block-faq-two-col, .block-image-features, .block-service-cards,
+.block-tab-services, .block-hero, .block-hero-split, .block-feature-split,
+.block-links-grid, .block-hero-grid, .block-cta-card, .block-map-info,
+.block-stage-cards { margin-bottom: 0; }
 
 .content-block .content-photo {
     flex: 3 1 380px;
