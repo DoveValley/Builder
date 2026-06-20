@@ -37,9 +37,13 @@ function render_content_blocks_editor($blocks) {
     ?>
     <div class="card">
         <h2>Content Blocks</h2>
-        <p class="hint" style="margin-bottom:18px;">
+        <p class="hint" style="margin-bottom:12px;">
             Build this page from any number of blocks. Choose a block type and fill in the fields.
         </p>
+        <div style="margin-bottom:14px;display:flex;gap:8px;">
+            <button type="button" class="btn btn-secondary btn-small" onclick="document.querySelectorAll('#content-blocks .block-card').forEach(d=>d.open=true)">Expand All</button>
+            <button type="button" class="btn btn-secondary btn-small" onclick="document.querySelectorAll('#content-blocks .block-card').forEach(d=>d.open=false)">Collapse All</button>
+        </div>
         <div id="content-blocks">
             <?php foreach ($blockList as $i => $block):
                 $type = $block['type'] ?? 'text';
