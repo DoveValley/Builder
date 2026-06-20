@@ -26,25 +26,26 @@ function content_editor_scripts() {
     function toggleBlockImage(select) { switchBlockType(select); }
 
     /* Move block up/down — auto-saves immediately to avoid data loss */
-    function moveBlock(btn, dir) {
-        event.stopPropagation();
+    function moveBlock(e, btn, dir) {
+        e.stopPropagation();
         const card = btn.closest('.block-card');
         if (!card) return;
         const container = card.parentElement;
         if (!container) return;
+        let moved = false;
         if (dir < 0) {
             const prev = card.previousElementSibling;
-            if (prev) container.insertBefore(card, prev);
+            if (prev) { container.insertBefore(card, prev); moved = true; }
         } else {
             const next = card.nextElementSibling;
-            if (next) container.insertBefore(next, card);
+            if (next) { container.insertBefore(next, card); moved = true; }
         }
-        btn.closest('form').submit();
+        if (moved) btn.closest('form').submit();
     }
 
     /* Remove a block */
-    function removeBlock(btn) {
-        event.stopPropagation();
+    function removeBlock(e, btn) {
+        e.stopPropagation();
         const card = btn.closest('.block-card');
         if (!card) return;
         const container = card.parentElement;
@@ -138,9 +139,9 @@ function content_editor_scripts() {
                        title="Anchor ID — use in menu links as #about"
                        style="flex:1 1 160px;max-width:200px;font-size:0.82rem;padding:6px 10px;">
                 <div class="block-actions">
-                    <button type="button" class="icon-btn" onclick="moveBlock(this,-1)">&uarr;</button>
-                    <button type="button" class="icon-btn" onclick="moveBlock(this,1)">&darr;</button>
-                    <button type="button" class="icon-btn remove-row" onclick="removeBlock(this)">Remove</button>
+                    <button type="button" class="icon-btn" onclick="moveBlock(event,this,-1)">&uarr;</button>
+                    <button type="button" class="icon-btn" onclick="moveBlock(event,this,1)">&darr;</button>
+                    <button type="button" class="icon-btn remove-row" onclick="removeBlock(event,this)">Remove</button>
                 </div>
             </summary>
             <div class="block-fields block-fields-text is-hidden">

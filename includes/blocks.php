@@ -1656,8 +1656,8 @@ function render_content_block($block, $pathPrefix = '') {
         case 'comparison_table':
             $ctHeading  = $block['ct_heading']     ?? '';
             $ctLabel    = $block['ct_label']       ?? '';
-            $ctCol1Head = $block['ct_col1_header'] ?? 'Other Online Courses';
-            $ctCol2Head = $block['ct_col2_header'] ?? 'Granite PM Academy';
+            $ctCol1Head = $block['ct_col1_header'] ?? '';
+            $ctCol2Head = $block['ct_col2_header'] ?? '';
             $ctRowsRaw  = $block['ct_rows_raw']    ?? '';
             $ctCallout  = $block['ct_callout']     ?? '';
             $ctBg       = $block['ct_bg']          ?? '#ffffff';
@@ -1673,13 +1673,13 @@ function render_content_block($block, $pathPrefix = '') {
                 if (count($ctParts) < 2) continue;
                 $ctRows[] = ['feature' => $ctParts[0], 'col1' => $ctParts[1] ?? '', 'col2' => $ctParts[2] ?? ''];
             }
-            if (empty($ctRows) && $ctHeading === '') break;
+            if (empty($ctRows) && $ctHeading === '' && $ctLabel === '' && $ctCallout === '') break;
 
             echo '<div class="content-block block-comparison-table"'.$anchorAttr.'>';
             echo '<div class="container">';
             echo '<div style="background:'.h($ctBg).';border-radius:12px;padding:48px 0;">';
-            if ($ctLabel)   echo '<p style="text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:'.$ctAccent.';font-weight:700;margin:0 0 8px;">' . h($ctLabel) . '</p>';
-            if ($ctHeading) echo '<h2 style="font-size:clamp(1.4rem,3vw,2rem);color:'.$ctHeader.';margin:0 0 32px;">' . h($ctHeading) . '</h2>';
+            if ($ctLabel)   echo '<p style="text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:'.h($ctAccent).';font-weight:700;margin:0 0 8px;">' . h($ctLabel) . '</p>';
+            if ($ctHeading) echo '<h2 style="font-size:clamp(1.4rem,3vw,2rem);color:'.h($ctHeader).';margin:0 0 32px;">' . h($ctHeading) . '</h2>';
 
             if (!empty($ctRows)) {
                 echo '<div style="overflow-x:auto;">';
@@ -1687,7 +1687,7 @@ function render_content_block($block, $pathPrefix = '') {
                 echo '<thead><tr>';
                 echo '<th style="text-align:left;padding:12px 16px;border-bottom:2px solid #e5e7eb;width:34%;color:#6b7280;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;"></th>';
                 echo '<th style="text-align:center;padding:12px 16px;border-bottom:2px solid #e5e7eb;background:#f9fafb;color:#6b7280;font-weight:600;font-size:.9rem;">' . h($ctCol1Head) . '</th>';
-                echo '<th style="text-align:center;padding:12px 16px;background:'.$ctAccent.';color:#ffffff;font-weight:700;font-size:.95rem;border-radius:8px 8px 0 0;">' . h($ctCol2Head) . '</th>';
+                echo '<th style="text-align:center;padding:12px 16px;background:'.h($ctAccent).';color:#ffffff;font-weight:700;font-size:.95rem;border-radius:8px 8px 0 0;">' . h($ctCol2Head) . '</th>';
                 echo '</tr></thead><tbody>';
                 foreach ($ctRows as $ri => $ctRow) {
                     $rowBg   = $ri % 2 === 0 ? '#ffffff' : '#f9fafb';
@@ -1702,7 +1702,7 @@ function render_content_block($block, $pathPrefix = '') {
             }
 
             if ($ctCallout) {
-                echo '<p style="margin:24px 0 0;padding:16px 20px;background:#f0fdf4;border-left:4px solid '.$ctAccent.';color:#374151;font-size:.92rem;border-radius:0 6px 6px 0;">' . h($ctCallout) . '</p>';
+                echo '<p style="margin:24px 0 0;padding:16px 20px;background:#f0fdf4;border-left:4px solid '.h($ctAccent).';color:#374151;font-size:.92rem;border-radius:0 6px 6px 0;">' . h($ctCallout) . '</p>';
             }
             echo '</div></div></div>';
             break;

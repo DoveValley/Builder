@@ -173,7 +173,7 @@
                 <input type="hidden" name="page_id" value="<?= h($editingPageId) ?>">
                 <div style="margin-bottom:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
                     <button type="submit" class="btn">Save Page</button>
-                    <a href="../page.php?slug=<?= h($editingPage['slug'] ?? '') ?>&show_blocks=1" target="_blank" class="btn btn-secondary">Preview Page &rarr;</a>
+                    <a href="../page.php?slug=<?= h($editingPage['slug'] ?? '') ?>" target="_blank" class="btn btn-secondary">Preview Page &rarr;</a>
                     <?php if (($editingPage['page_type'] ?? '') === 'landing'): ?>
                     <a href="?tab=pages&page=<?= h($editingPageId) ?>&action=promote" class="btn btn-secondary">&rarr; Promote to Template</a>
                     <?php endif; ?>
