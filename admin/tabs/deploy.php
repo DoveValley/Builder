@@ -157,12 +157,14 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
         };
     }
 
+    const csrfToken = <?= json_encode($csrfToken) ?>;
+
     window.startGenerate = function() {
-        runSSE('generate_static.php', document.getElementById('gen-btn'), document.getElementById('gen-log'));
+        runSSE('generate_static.php?token=' + encodeURIComponent(csrfToken), document.getElementById('gen-btn'), document.getElementById('gen-log'));
     };
 
     window.startPush = function() {
-        runSSE('deploy_ftp.php', document.getElementById('push-btn'), document.getElementById('push-log'));
+        runSSE('deploy_ftp.php?token=' + encodeURIComponent(csrfToken), document.getElementById('push-btn'), document.getElementById('push-log'));
     };
 })();
 </script>

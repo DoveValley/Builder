@@ -17,6 +17,12 @@ if (!ACTIVE_SITE_ID) {
     echo "data: " . json_encode(['type' => 'fatal', 'msg' => 'No active site selected.']) . "\n\n";
     exit;
 }
+// SSE uses GET so the token is passed in the query string; validate before releasing session.
+if (!hash_equals($_SESSION['csrf_token'] ?? '', $_GET['token'] ?? '')) {
+    http_response_code(403);
+    echo "data: " . json_encode(['type' => 'fatal', 'msg' => 'Invalid security token.']) . "\n\n";
+    exit;
+}
 
 session_write_close();
 
@@ -113,8 +119,8 @@ if (!ftp_login($conn, $user, $pass)) {
     exit;
 }
 
-if ($passive) {
-    ftp_pasv($conn, true);
+if ($passive && !ftp_pasv($conn, true)) {
+    ftp_sse('Warning: could not enable passive mode — uploads may fail behind NAT/firewall.', 'warn');
 }
 
 ftp_sse('Connected.');
@@ -143,7 +149,7 @@ $failed   = 0;
 $newManifest = $manifest;
 
 foreach ($toUpload as $rel => $info) {
-    $remoteDir  = $path . '/' . (dirname($rel) !== '.' ? dirname($rel) : '');
+    $remoteDir  = rtrim($path . '/' . (dirname($rel) !== '.' ? dirname($rel) : ''), '/');
     $remoteFile = $path . '/' . $rel;
 
     ftp_ensure_dir($conn, $remoteDir);
@@ -171,7 +177,14 @@ foreach (array_keys($newManifest) as $rel) {
     if (!isset($files[$rel])) unset($newManifest[$rel]);
 }
 
-file_put_contents($manifestFile, json_encode($newManifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+$manifestJson = json_encode($newManifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+$manifestTmp  = $manifestFile . '.tmp.' . getmypid();
+if (file_put_contents($manifestTmp, $manifestJson) !== false) {
+    rename($manifestTmp, $manifestFile);
+} else {
+    @unlink($manifestTmp);
+    ftp_sse('Warning: could not save deploy manifest — next push will re-upload all files.', 'warn');
+}
 
 $summary = "Deploy complete — {$uploaded} uploaded";
 if ($failed > 0) $summary .= ", {$failed} failed";

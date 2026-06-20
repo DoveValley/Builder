@@ -17,7 +17,7 @@ $cfg = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile), t
 $section = $_POST['section'] ?? 'build';
 
 if ($section === 'build') {
-    $cfg['canonical_domain'] = rtrim(trim($_POST['canonical_domain'] ?? ''), '/');
+    $cfg['canonical_domain'] = rtrim(sanitize_url(trim($_POST['canonical_domain'] ?? '')), '/');
     $cfg['web3forms_key']    = trim($_POST['web3forms_key'] ?? '');
 } elseif ($section === 'ftp') {
     $cfg['ftp_host']    = preg_replace('#^ftps?://#i', '', trim($_POST['ftp_host'] ?? ''));
@@ -30,7 +30,13 @@ if ($section === 'build') {
     $cfg['ftp_passive'] = !empty($_POST['ftp_passive']);
 }
 
-file_put_contents($deployFile, json_encode($cfg, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+$deployJson = json_encode($cfg, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+$deployTmp  = $deployFile . '.tmp.' . getmypid();
+if (file_put_contents($deployTmp, $deployJson) === false || !rename($deployTmp, $deployFile)) {
+    @unlink($deployTmp);
+    header('Location: index.php?tab=deploy&msg=error:Could+not+save+settings+-+check+file+permissions.');
+    exit;
+}
 
 header('Location: index.php?tab=deploy&msg=success:Settings+saved.');
 exit;

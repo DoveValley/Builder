@@ -19,6 +19,12 @@ if (!ACTIVE_SITE_ID) {
     echo "data: " . json_encode(['type' => 'fatal', 'msg' => 'No active site selected.']) . "\n\n";
     exit;
 }
+// SSE uses GET so the token is passed in the query string; validate before releasing session.
+if (!hash_equals($_SESSION['csrf_token'] ?? '', $_GET['token'] ?? '')) {
+    http_response_code(403);
+    echo "data: " . json_encode(['type' => 'fatal', 'msg' => 'Invalid security token.']) . "\n\n";
+    exit;
+}
 
 // Release session lock — generation is read-only after this point.
 session_write_close();
@@ -67,9 +73,9 @@ function gen_reset_shortcode_globals(): void {
     $GLOBALS['_csm_w2_data'] = [];
 }
 
-function gen_copy_dir(string $src, string $dst): int {
-    $count = 0;
-    if (!is_dir($src)) return 0;
+function gen_copy_dir(string $src, string $dst): array {
+    $copied = 0; $failed = 0;
+    if (!is_dir($src)) return [$copied, $failed];
     if (!is_dir($dst)) mkdir($dst, 0755, true);
     $items = new RecursiveIteratorIterator(
         new RecursiveDirectoryIterator($src, FilesystemIterator::SKIP_DOTS),
@@ -80,12 +86,13 @@ function gen_copy_dir(string $src, string $dst): int {
         $dest = $dst . $rel;
         if ($item->isDir()) {
             if (!is_dir($dest)) mkdir($dest, 0755, true);
+        } elseif (copy($item->getPathname(), $dest)) {
+            $copied++;
         } else {
-            copy($item->getPathname(), $dest);
-            $count++;
+            $failed++;
         }
     }
-    return $count;
+    return [$copied, $failed];
 }
 
 // Shared render variables — set before each require of site-template.php
@@ -96,10 +103,13 @@ $_SERVER['REQUEST_URI'] = '/';
 
 $siteUrls = []; // Collected for sitemap
 
+// Load site data once — reused for every page render; city pages merge city_vars per-iteration.
+$siteData = load_data();
+
 // ── 1. Homepage ───────────────────────────────────────────────────────────────
 sse('Generating homepage…');
 gen_reset_shortcode_globals();
-$data = load_data();
+$data = $siteData;
 $contentBlocks  = $data['content_blocks'];
 $seo            = $data['seo'];
 $pageTitle      = !empty($data['seo']['seo_title']) ? $data['seo']['seo_title'] : SITE_TITLE;
@@ -114,15 +124,14 @@ gen_write($outputBase . 'index.html', $html);
 $siteUrls[] = ['loc' => '/', 'priority' => '1.0'];
 
 // ── 2. Landing pages ──────────────────────────────────────────────────────────
-$data = load_data();
-$pages = $data['pages'] ?? [];
+$pages = $siteData['pages'] ?? [];
 $pageCount = 0;
 foreach ($pages as $pageId => $page) {
     $pageSlug = $page['slug'] ?? '';
     if ($pageSlug === '') continue;
 
     gen_reset_shortcode_globals();
-    $data = load_data();
+    $data = $siteData;
     $contentBlocks   = $page['content_blocks'] ?? [];
     $seo             = $page['seo'] ?? [];
     $pageTitle       = ($page['title'] ?? '') !== '' ? $page['title'] : SITE_TITLE;
@@ -153,7 +162,7 @@ if (file_exists(PAGE_INDEX_FILE)) {
         if (!is_array($gen)) continue;
 
         gen_reset_shortcode_globals();
-        $data = load_data();
+        $data = $siteData;
         $data['site_vars'] = array_merge($data['site_vars'] ?? [], $gen['city_vars'] ?? []);
         $contentBlocks   = $gen['content_blocks'] ?? [];
         $seo             = $gen['seo'] ?? [];
@@ -175,21 +184,22 @@ if (file_exists(PAGE_INDEX_FILE)) {
 sse("City pages: {$cityCount} generated.");
 
 // ── 4. Blog pages ─────────────────────────────────────────────────────────────
-$data = load_data();
-$posts = $data['posts'] ?? [];
-$blogSettings = $data['blog_settings'] ?? [];
+$posts = $siteData['posts'] ?? [];
+$blogSettings = $siteData['blog_settings'] ?? [];
 $perPage = max(1, (int)($blogSettings['posts_per_page'] ?? 9));
 
 $allPosts = array_values(array_filter($posts, fn($p) => ($p['status'] ?? 'draft') === 'published'));
 usort($allPosts, fn($a, $b) => strcmp($b['published_at'] ?? '', $a['published_at'] ?? ''));
 
 // Blog listing (page 1)
+$postCount  = 0;
+$totalPages = 0;
 if (!empty($allPosts)) {
     $totalPages = max(1, (int)ceil(count($allPosts) / $perPage));
 
     for ($pageNum = 1; $pageNum <= $totalPages; $pageNum++) {
         gen_reset_shortcode_globals();
-        $data = load_data();
+        $data = $siteData;
         $pagePosts = array_slice($allPosts, ($pageNum - 1) * $perPage, $perPage);
         $cardPosts = [];
         foreach ($pagePosts as $p) {
@@ -245,7 +255,7 @@ if (!empty($allPosts)) {
         if ($postSlug === '') continue;
 
         gen_reset_shortcode_globals();
-        $data = load_data();
+        $data = $siteData;
 
         $metaBlock = [
             'type'               => 'post_meta',
@@ -262,7 +272,10 @@ if (!empty($allPosts)) {
             $seo['bc_mid_label'] = 'Blog';
             $seo['bc_mid_url']   = '/blog';
         }
-        $pageTitle       = ($post['title'] ?? '') !== '' ? $post['title'] : SITE_TITLE;
+        $pageTitle       = !empty($seo['seo_title']) ? $seo['seo_title'] : (($post['title'] ?? '') !== '' ? $post['title'] : SITE_TITLE);
+        if (empty($seo['canonical_url'])) {
+            $seo['canonical_url'] = '{website}/blog/' . $postSlug;
+        }
         $assetPathPrefix = '/';
         $homeUrl         = '/';
         $slug            = 'blog/' . $postSlug;
@@ -283,7 +296,7 @@ if (!empty($allPosts)) {
 
 // ── 5. 404 page ───────────────────────────────────────────────────────────────
 gen_reset_shortcode_globals();
-$data = load_data();
+$data = $siteData;
 $contentBlocks = [[
     'type'           => 'text',
     'heading_level'  => 'h1',
@@ -307,13 +320,13 @@ gen_write($outputBase . '404.html', $html);
 
 // ── 6. Copy assets ────────────────────────────────────────────────────────────
 sse('Copying assets…');
-$assetCount = gen_copy_dir(BASE_DIR . '/assets', $outputBase . 'assets');
-sse("Assets: {$assetCount} files copied.");
+[$assetCount, $assetFailed] = gen_copy_dir(BASE_DIR . '/assets', $outputBase . 'assets');
+sse("Assets: {$assetCount} files copied." . ($assetFailed ? " ({$assetFailed} failed)" : ''), $assetFailed ? 'warn' : 'log');
 
 // ── 7. Copy uploads ───────────────────────────────────────────────────────────
 sse('Copying uploads…');
-$uploadCount = gen_copy_dir(UPLOAD_DIR, $outputBase . 'uploads/');
-sse("Uploads: {$uploadCount} files copied.");
+[$uploadCount, $uploadFailed] = gen_copy_dir(UPLOAD_DIR, $outputBase . 'uploads/');
+sse("Uploads: {$uploadCount} files copied." . ($uploadFailed ? " ({$uploadFailed} failed)" : ''));
 
 // ── 8. sitemap.xml ────────────────────────────────────────────────────────────
 if ($canonicalDomain !== '') {
