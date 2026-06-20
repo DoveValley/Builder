@@ -351,6 +351,7 @@ function content_editor_scripts() {
             <div class="block-fields block-fields-cta_card is-hidden">
                 <div class="form-group"><label>Heading</label><input type="text" name="cc_heading[]" placeholder="e.g. Contact Katy's Top Pest Control Company Today"></div>
                 <div class="form-group"><label>Text</label><textarea name="cc_text[]" rows="3"></textarea></div>
+                <div class="form-group"><label>Checklist items <span class="hint">(optional — one item per line, shown with ✓)</span></label><textarea name="cc_checklist[]" rows="4" placeholder="Free re-enrollment in the next available course&#10;No additional charge — $0 out of pocket"></textarea></div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 140px;"><label>Button text</label><input type="text" name="cc_btn_text[]"></div>
                     <div class="form-group" style="flex:1 1 140px;"><label>Button link</label><input type="text" name="cc_btn_url[]" placeholder="tel:+1..."></div>
@@ -708,6 +709,33 @@ function content_editor_scripts() {
                 <div class="form-group"><label>Submit button text</label><input type="text" name="cf_btn_text[]" value="Send Message"></div>
                 <div class="form-group"><label><input type="checkbox" name="cf_show_phone[]" value="1" style="width:auto;margin-right:6px;">Show phone number field</label></div>
                 <p class="hint" style="margin-top:8px;">Submissions go to <code>CONTACT_EMAIL</code> in <code>config.php</code>.</p>
+            </div>
+            <div class="block-fields block-fields-comparison_table is-hidden">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:2 1 220px;"><label>Section heading</label>
+                        <input type="text" name="ct_heading[]" placeholder="e.g. Not All PMP Certification Training Is Equal">
+                    </div>
+                    <div class="form-group" style="flex:0 0 120px;"><label>Background</label>
+                        <input type="color" name="ct_bg[]" value="#ffffff">
+                    </div>
+                </div>
+                <div class="form-group"><label>Eyebrow label <span class="hint">(optional)</span></label>
+                    <input type="text" name="ct_label[]" placeholder="e.g. WHY GRANITE PM">
+                </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:1 1 200px;"><label>Column 1 header <span class="hint">(competitor)</span></label>
+                        <input type="text" name="ct_col1_header[]" value="Other Online Courses">
+                    </div>
+                    <div class="form-group" style="flex:1 1 200px;"><label>Column 2 header <span class="hint">(your brand)</span></label>
+                        <input type="text" name="ct_col2_header[]" value="Granite PM Academy">
+                    </div>
+                </div>
+                <div class="form-group"><label>Rows <span class="hint">(one per line: Feature | Competitor value | Your value)</span></label>
+                    <textarea name="ct_rows_raw[]" rows="8" style="font-family:monospace;font-size:0.85rem;" placeholder="PMI Authorization | ATP or none | Premier ATP — highest tier&#10;Instruction | Pre-recorded video | Live, instructor-led daily"></textarea>
+                </div>
+                <div class="form-group"><label>Callout note <span class="hint">(optional)</span></label>
+                    <textarea name="ct_callout[]" rows="2" placeholder="PMI's Premier ATP designation is held by fewer than 1% of training providers worldwide."></textarea>
+                </div>
             </div>
         `;
         container.appendChild(card);

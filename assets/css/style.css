@@ -3276,6 +3276,9 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 .cc-centered {
     padding: 48px 10%;
     border-radius: 0 !important;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 .cc-centered .cc-heading {
     font-size: 1.7rem;

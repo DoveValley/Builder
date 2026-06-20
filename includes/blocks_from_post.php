@@ -226,17 +226,18 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'cta_card':
-                $block['cc_heading']  = trim($_POST['cc_heading'][$i]  ?? '');
-                $block['cc_text']     = trim($_POST['cc_text'][$i]     ?? '');
-                $block['cc_btn_text'] = trim($_POST['cc_btn_text'][$i] ?? '');
-                $block['cc_btn_url']  = sanitize_url($_POST['cc_btn_url'][$i]  ?? '');
-                $block['cc_btn_style']= ($_POST['cc_btn_style'][$i] ?? 'outline') === 'filled' ? 'filled' : 'outline';
-                $block['cc_align']    = ($_POST['cc_align'][$i] ?? 'split') === 'center' ? 'center' : 'split';
+                $block['cc_heading']   = trim($_POST['cc_heading'][$i]   ?? '');
+                $block['cc_text']      = trim($_POST['cc_text'][$i]      ?? '');
+                $block['cc_checklist'] = trim($_POST['cc_checklist'][$i] ?? '');
+                $block['cc_btn_text']  = trim($_POST['cc_btn_text'][$i]  ?? '');
+                $block['cc_btn_url']   = sanitize_url($_POST['cc_btn_url'][$i]  ?? '');
+                $block['cc_btn_style'] = ($_POST['cc_btn_style'][$i] ?? 'outline') === 'filled' ? 'filled' : 'outline';
+                $block['cc_align']     = ($_POST['cc_align'][$i] ?? 'split') === 'center' ? 'center' : 'split';
                 $ccBg = in_array($_POST['cc_bg'][$i] ?? '', ['accent','header','custom']) ? $_POST['cc_bg'][$i] : 'accent';
                 $block['cc_bg'] = $ccBg;
                 $cbc = trim($_POST['cc_bg_custom'][$i] ?? '#fd783b');
                 $block['cc_bg_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $cbc) ? $cbc : '#fd783b';
-                $block['cc_radius']   = max(0, min(40, (int)($_POST['cc_radius'][$i] ?? 12)));
+                $block['cc_radius']    = max(0, min(40, (int)($_POST['cc_radius'][$i] ?? 12)));
                 if ($block['cc_heading'] === '' && $block['cc_text'] === '') continue 2;
                 break;
 
@@ -824,6 +825,18 @@ function parse_blocks_from_post(): array {
                 $block['cf_subtext']   = trim($_POST['cf_subtext'][$i]  ?? '');
                 $block['cf_btn_text']  = trim($_POST['cf_btn_text'][$i] ?? 'Send Message') ?: 'Send Message';
                 $block['cf_show_phone'] = !empty($_POST['cf_show_phone'][$i]);
+                break;
+
+            case 'comparison_table':
+                $block['ct_heading']     = trim($_POST['ct_heading'][$i]     ?? '');
+                $block['ct_label']       = trim($_POST['ct_label'][$i]       ?? '');
+                $block['ct_col1_header'] = trim($_POST['ct_col1_header'][$i] ?? 'Other Online Courses');
+                $block['ct_col2_header'] = trim($_POST['ct_col2_header'][$i] ?? 'Granite PM Academy');
+                $block['ct_rows_raw']    = trim($_POST['ct_rows_raw'][$i]    ?? '');
+                $block['ct_callout']     = trim($_POST['ct_callout'][$i]     ?? '');
+                $ctBgRaw = trim($_POST['ct_bg'][$i] ?? '#ffffff');
+                $block['ct_bg'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $ctBgRaw) ? $ctBgRaw : '#ffffff';
+                if ($block['ct_heading'] === '' && $block['ct_rows_raw'] === '') continue 2;
                 break;
         }
 

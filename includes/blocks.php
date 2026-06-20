@@ -88,6 +88,7 @@ function allowed_block_types() {
         'stage_cards'     => 'Stage / Career Path Cards (numbered columns with item lists)',
         'email_banner'    => 'Email Capture Banner (split: heading left, email form right)',
         'contact_form'    => 'Contact Form (name, email, phone, message)',
+        'comparison_table'=> 'Comparison Table (feature vs. competitor)',
     ];
 }
 
@@ -130,8 +131,9 @@ function grouped_block_types(): array {
             'cta_banner'   => 'Solid color banner',
         ],
         'Utility' => [
-            'map_info'     => 'Map + info',
-            'contact_form' => 'Contact form',
+            'map_info'         => 'Map + info',
+            'contact_form'     => 'Contact form',
+            'comparison_table' => 'Comparison table',
         ],
     ];
 }
@@ -171,6 +173,7 @@ function block_thumbnails(): array {
         'pricing_cards'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="4" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#fd783b" stroke-width="1.5"/><rect x="4" y="4" width="34" height="10" rx="3" fill="#fd783b"/><rect x="8" y="18" width="26" height="4" rx="2" fill="#1e3a5f"/><rect x="8" y="26" width="5" height="3" rx="1" fill="#fd783b"/><rect x="15" y="26" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="8" y="33" width="5" height="3" rx="1" fill="#fd783b"/><rect x="15" y="33" width="16" height="3" rx="1" fill="#cbd5e1"/><rect x="8" y="40" width="5" height="3" rx="1" fill="#fd783b"/><rect x="15" y="40" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="8" y="60" width="26" height="8" rx="2" fill="#fd783b"/><rect x="43" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="43" y="4" width="34" height="10" rx="3" fill="#475569"/><rect x="47" y="18" width="26" height="4" rx="2" fill="#1e3a5f"/><rect x="47" y="26" width="5" height="3" rx="1" fill="#fd783b"/><rect x="54" y="26" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="47" y="33" width="5" height="3" rx="1" fill="#fd783b"/><rect x="54" y="33" width="16" height="3" rx="1" fill="#cbd5e1"/><rect x="47" y="40" width="5" height="3" rx="1" fill="#fd783b"/><rect x="54" y="40" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="47" y="60" width="26" height="8" rx="2" fill="#475569"/><rect x="82" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="82" y="4" width="34" height="10" rx="3" fill="#475569"/><rect x="86" y="18" width="26" height="4" rx="2" fill="#1e3a5f"/><rect x="86" y="26" width="5" height="3" rx="1" fill="#fd783b"/><rect x="93" y="26" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="86" y="33" width="5" height="3" rx="1" fill="#fd783b"/><rect x="93" y="33" width="16" height="3" rx="1" fill="#cbd5e1"/><rect x="86" y="40" width="5" height="3" rx="1" fill="#fd783b"/><rect x="93" y="40" width="18" height="3" rx="1" fill="#cbd5e1"/><rect x="86" y="60" width="26" height="8" rx="2" fill="#475569"/></svg>',
         'logo_bar'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="30" y="14" width="60" height="4" rx="2" fill="#cbd5e1"/><rect x="6" y="26" width="23" height="18" rx="3" fill="#e2e8f0"/><rect x="35" y="26" width="23" height="18" rx="3" fill="#e2e8f0"/><rect x="64" y="26" width="23" height="18" rx="3" fill="#e2e8f0"/><rect x="93" y="26" width="21" height="18" rx="3" fill="#e2e8f0"/><rect x="10" y="31" width="15" height="8" rx="1" fill="#94a3b8"/><rect x="39" y="31" width="15" height="8" rx="1" fill="#94a3b8"/><rect x="68" y="31" width="15" height="8" rx="1" fill="#94a3b8"/><rect x="96" y="31" width="14" height="8" rx="1" fill="#94a3b8"/><rect x="20" y="54" width="80" height="3" rx="1" fill="#e2e8f0"/></svg>',
         'contact_form'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="10" y="10" width="100" height="8" rx="2" fill="#475569"/><rect x="10" y="25" width="100" height="10" rx="2" fill="#e2e8f0"/><rect x="10" y="39" width="100" height="10" rx="2" fill="#e2e8f0"/><rect x="10" y="53" width="100" height="10" rx="2" fill="#e2e8f0"/><rect x="10" y="67" width="40" height="8" rx="2" fill="#fd783b"/></svg>',
+        'comparison_table'=> '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="5" y="5" width="40" height="8" rx="2" fill="#475569"/><rect x="48" y="5" width="30" height="8" rx="2" fill="#e2e8f0"/><rect x="82" y="5" width="33" height="8" rx="2" fill="#fd783b"/><rect x="5" y="16" width="40" height="7" rx="1" fill="#cbd5e1"/><rect x="48" y="16" width="30" height="7" rx="1" fill="#f1f5f9"/><rect x="82" y="16" width="33" height="7" rx="1" fill="#dcfce7"/><rect x="5" y="26" width="40" height="7" rx="1" fill="#cbd5e1"/><rect x="48" y="26" width="30" height="7" rx="1" fill="#f8fafc"/><rect x="82" y="26" width="33" height="7" rx="1" fill="#dcfce7"/><rect x="5" y="36" width="40" height="7" rx="1" fill="#cbd5e1"/><rect x="48" y="36" width="30" height="7" rx="1" fill="#f1f5f9"/><rect x="82" y="36" width="33" height="7" rx="1" fill="#dcfce7"/><rect x="5" y="46" width="40" height="7" rx="1" fill="#cbd5e1"/><rect x="48" y="46" width="30" height="7" rx="1" fill="#f8fafc"/><rect x="82" y="46" width="33" height="7" rx="1" fill="#dcfce7"/><rect x="5" y="57" width="40" height="7" rx="1" fill="#cbd5e1"/><rect x="48" y="57" width="30" height="7" rx="1" fill="#f1f5f9"/><rect x="82" y="57" width="33" height="7" rx="1" fill="#dcfce7"/></svg>',
         'stage_cards'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="4" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="4" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="4" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="11" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="4" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="11" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/><rect x="4" y="34" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="11" y="34" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="33" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="33" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="33" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="40" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="33" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="40" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/><rect x="33" y="34" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="40" y="34" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="62" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="62" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="62" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="69" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="62" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="69" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/><rect x="91" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="91" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="91" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="98" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="91" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="98" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/></svg>',
     ];
 }
@@ -558,6 +561,7 @@ function render_content_block($block, $pathPrefix = '') {
         case 'cta_card':
             $heading   = $block['cc_heading']   ?? '';
             $text      = $block['cc_text']      ?? '';
+            $checklist = $block['cc_checklist'] ?? '';
             $btnText   = $block['cc_btn_text']  ?? '';
             $btnUrl    = $block['cc_btn_url']   ?? '#';
             $btnStyle  = $block['cc_btn_style'] ?? 'outline';
@@ -568,11 +572,27 @@ function render_content_block($block, $pathPrefix = '') {
 
             $bgStyle = resolve_color($bg, $bgCustom);
 
+            $ccChecklistHtml = '';
+            if ($checklist) {
+                $ccItems = array_filter(array_map('trim', explode("\n", $checklist)));
+                if ($ccItems) {
+                    $ccChecklistHtml = '<ul style="list-style:none;padding:0;margin:16px 0 0;text-align:left;">';
+                    foreach ($ccItems as $ccItem) {
+                        $ccChecklistHtml .= '<li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">'
+                            . '<span style="color:#22c55e;font-size:1.15rem;flex-shrink:0;line-height:1.4;">✓</span>'
+                            . '<span>' . h($ccItem) . '</span>'
+                            . '</li>';
+                    }
+                    $ccChecklistHtml .= '</ul>';
+                }
+            }
+
             if ($align === 'center') {
                 echo '<div class="content-block block-cta-card"'.$anchorAttr.'>';
                 echo '<div class="cc-box cc-centered" style="background:'.$bgStyle.';border-radius:'.h($radius).'px;text-align:center;">';
                 if ($heading) echo '<h2 class="cc-heading">'.h($heading).'</h2>';
                 if ($text)    echo '<p class="cc-text" style="max-width:860px;margin:0 auto;">'.h($text).'</p>';
+                if ($ccChecklistHtml) echo '<div style="max-width:560px;margin:0 auto;">'.$ccChecklistHtml.'</div>';
                 if ($btnText) echo '<a href="'.h($btnUrl).'" class="cc-btn cc-btn-'.h($btnStyle).'" style="margin-top:20px;">'.h($btnText).'</a>';
                 echo '</div></div>';
             } else {
@@ -582,6 +602,7 @@ function render_content_block($block, $pathPrefix = '') {
                 echo '<div class="cc-left">';
                 if ($heading) echo '<h2 class="cc-heading">'.h($heading).'</h2>';
                 if ($text)    echo '<p class="cc-text">'.h($text).'</p>';
+                if ($ccChecklistHtml) echo $ccChecklistHtml;
                 echo '</div>';
                 if ($btnText) {
                     $btnClass = $btnStyle === 'filled' ? 'cc-btn cc-btn-filled' : 'cc-btn cc-btn-outline';
@@ -1629,6 +1650,61 @@ function render_content_block($block, $pathPrefix = '') {
             }
 
             echo '</div></div>';
+            break;
+
+        /* ---- COMPARISON TABLE ---- */
+        case 'comparison_table':
+            $ctHeading  = $block['ct_heading']     ?? '';
+            $ctLabel    = $block['ct_label']       ?? '';
+            $ctCol1Head = $block['ct_col1_header'] ?? 'Other Online Courses';
+            $ctCol2Head = $block['ct_col2_header'] ?? 'Granite PM Academy';
+            $ctRowsRaw  = $block['ct_rows_raw']    ?? '';
+            $ctCallout  = $block['ct_callout']     ?? '';
+            $ctBg       = $block['ct_bg']          ?? '#ffffff';
+
+            $ctAccent = resolve_color('accent', '#fd783b');
+            $ctHeader = resolve_color('header', '#1e3a5f');
+
+            $ctRows = [];
+            foreach (explode("\n", $ctRowsRaw) as $ctLine) {
+                $ctLine = trim($ctLine);
+                if ($ctLine === '') continue;
+                $ctParts = array_map('trim', explode('|', $ctLine, 3));
+                if (count($ctParts) < 2) continue;
+                $ctRows[] = ['feature' => $ctParts[0], 'col1' => $ctParts[1] ?? '', 'col2' => $ctParts[2] ?? ''];
+            }
+            if (empty($ctRows) && $ctHeading === '') break;
+
+            echo '<div class="content-block block-comparison-table"'.$anchorAttr.'>';
+            echo '<div class="container">';
+            echo '<div style="background:'.h($ctBg).';border-radius:12px;padding:48px 0;">';
+            if ($ctLabel)   echo '<p style="text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:'.$ctAccent.';font-weight:700;margin:0 0 8px;">' . h($ctLabel) . '</p>';
+            if ($ctHeading) echo '<h2 style="font-size:clamp(1.4rem,3vw,2rem);color:'.$ctHeader.';margin:0 0 32px;">' . h($ctHeading) . '</h2>';
+
+            if (!empty($ctRows)) {
+                echo '<div style="overflow-x:auto;">';
+                echo '<table style="width:100%;border-collapse:collapse;font-size:0.95rem;">';
+                echo '<thead><tr>';
+                echo '<th style="text-align:left;padding:12px 16px;border-bottom:2px solid #e5e7eb;width:34%;color:#6b7280;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;"></th>';
+                echo '<th style="text-align:center;padding:12px 16px;border-bottom:2px solid #e5e7eb;background:#f9fafb;color:#6b7280;font-weight:600;font-size:.9rem;">' . h($ctCol1Head) . '</th>';
+                echo '<th style="text-align:center;padding:12px 16px;background:'.$ctAccent.';color:#ffffff;font-weight:700;font-size:.95rem;border-radius:8px 8px 0 0;">' . h($ctCol2Head) . '</th>';
+                echo '</tr></thead><tbody>';
+                foreach ($ctRows as $ri => $ctRow) {
+                    $rowBg   = $ri % 2 === 0 ? '#ffffff' : '#f9fafb';
+                    $col2Bg  = $ri % 2 === 0 ? '#f0fdf4' : '#dcfce7';
+                    echo '<tr>';
+                    echo '<td style="padding:14px 16px;color:#374151;font-weight:600;border-bottom:1px solid #e5e7eb;background:'.$rowBg.';">' . h($ctRow['feature']) . '</td>';
+                    echo '<td style="padding:14px 16px;text-align:center;color:#6b7280;border-bottom:1px solid #e5e7eb;background:'.($ri % 2 === 0 ? '#f9fafb' : '#f3f4f6').';">' . h($ctRow['col1']) . '</td>';
+                    echo '<td style="padding:14px 16px;text-align:center;color:#15803d;font-weight:600;border-bottom:1px solid #d1fae5;background:'.$col2Bg.';">' . h($ctRow['col2']) . '</td>';
+                    echo '</tr>';
+                }
+                echo '</tbody></table></div>';
+            }
+
+            if ($ctCallout) {
+                echo '<p style="margin:24px 0 0;padding:16px 20px;background:#f0fdf4;border-left:4px solid '.$ctAccent.';color:#374151;font-size:.92rem;border-radius:0 6px 6px 0;">' . h($ctCallout) . '</p>';
+            }
+            echo '</div></div></div>';
             break;
 
         default:

@@ -631,6 +631,10 @@ function render_content_blocks_editor($blocks) {
                         <label>Paragraph text</label>
                         <textarea name="cc_text[]" rows="3"><?= h($block['cc_text'] ?? '') ?></textarea>
                     </div>
+                    <div class="form-group">
+                        <label>Checklist items <span class="hint">(optional — one item per line, shown with ✓)</span></label>
+                        <textarea name="cc_checklist[]" rows="4" placeholder="Free re-enrollment in the next available course&#10;No additional charge — $0 out of pocket&#10;90-day exam window from course completion"><?= h($block['cc_checklist'] ?? '') ?></textarea>
+                    </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">
                             <label>Button text</label>
@@ -1988,6 +1992,42 @@ function render_content_blocks_editor($blocks) {
                         <label><input type="checkbox" name="cf_show_phone[]" value="1" <?= !empty($block['cf_show_phone']) ? 'checked' : '' ?> style="width:auto;margin-right:6px;">Show phone number field</label>
                     </div>
                     <p class="hint" style="margin-top:8px;">Submissions are emailed to the address set in <code>CONTACT_EMAIL</code> in <code>config.php</code>.</p>
+                </div>
+
+                <?php /* ---- COMPARISON TABLE FIELDS ---- */ ?>
+                <div class="block-fields block-fields-comparison_table <?= $type !== 'comparison_table' ? 'is-hidden' : '' ?>">
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Section heading</label>
+                            <input type="text" name="ct_heading[]" value="<?= h($block['ct_heading'] ?? '') ?>" placeholder="e.g. Not All PMP Certification Training Is Equal">
+                        </div>
+                        <div class="form-group" style="flex:0 0 120px;">
+                            <label>Background</label>
+                            <input type="color" name="ct_bg[]" value="<?= h($block['ct_bg'] ?? '#ffffff') ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Eyebrow label <span class="hint">(optional, accent color)</span></label>
+                        <input type="text" name="ct_label[]" value="<?= h($block['ct_label'] ?? '') ?>" placeholder="e.g. WHY GRANITE PM">
+                    </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:1 1 200px;">
+                            <label>Column 1 header <span class="hint">(competitor)</span></label>
+                            <input type="text" name="ct_col1_header[]" value="<?= h($block['ct_col1_header'] ?? 'Other Online Courses') ?>">
+                        </div>
+                        <div class="form-group" style="flex:1 1 200px;">
+                            <label>Column 2 header <span class="hint">(your brand — accent bg)</span></label>
+                            <input type="text" name="ct_col2_header[]" value="<?= h($block['ct_col2_header'] ?? 'Granite PM Academy') ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Rows <span class="hint">(one per line: Feature | Competitor value | Your value)</span></label>
+                        <textarea name="ct_rows_raw[]" rows="8" style="font-family:monospace;font-size:0.85rem;" placeholder="PMI Authorization | ATP or none | Premier ATP — highest tier&#10;Instruction | Pre-recorded video | Live, instructor-led daily&#10;Pass rate | Unverified | 95%+ first attempt"><?= h($block['ct_rows_raw'] ?? '') ?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Callout note <span class="hint">(optional — shown below table with left accent border)</span></label>
+                        <textarea name="ct_callout[]" rows="2" placeholder="PMI's Premier ATP designation is held by fewer than 1% of training providers worldwide."><?= h($block['ct_callout'] ?? '') ?></textarea>
+                    </div>
                 </div>
 
             </div><!-- .block-card -->
