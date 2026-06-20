@@ -215,10 +215,17 @@ include file_exists($_hFile) ? $_hFile : __DIR__ . '/headers/standard.php';
     <?php endif; ?>
     <?php
     // These block types need full-width rendering (no container wrapper)
+    $showBlocks = !empty($_GET['show_blocks']);
+    $blockIdx = 0;
     foreach ($contentBlocks as $block):
         $btype = $block['type'] ?? '';
         $isFullWidth = in_array($btype, ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','cta_card','map_info','hero_split','feature_split','faq_two_col','image_features','service_cards','tab_services','blog_list','stats','email_banner','cards','custom_html']);
+        $blockIdx++;
     ?>
+        <?php if ($showBlocks): ?>
+        <div style="outline:2px dashed #e11d48;position:relative;z-index:0;">
+        <span style="position:absolute;top:0;left:0;background:#e11d48;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;z-index:9999;font-family:monospace;pointer-events:none;"><?= $blockIdx ?>: <?= h($btype) ?></span>
+        <?php endif; ?>
         <?php if (!$isFullWidth): ?>
         <div class="container">
         <?php endif; ?>
@@ -226,6 +233,7 @@ include file_exists($_hFile) ? $_hFile : __DIR__ . '/headers/standard.php';
         <?php if (!$isFullWidth): ?>
         </div>
         <?php endif; ?>
+        <?php if ($showBlocks): ?></div><?php endif; ?>
     <?php endforeach; ?>
 </main>
 
