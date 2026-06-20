@@ -185,6 +185,22 @@ function load_data() {
             $data['pages'][$pid] = $page;
         }
     }
+    if (!empty($data['posts']) && is_array($data['posts'])) {
+        $postDefaults = default_post_data();
+        foreach ($data['posts'] as $pid => $post) {
+            if (!is_array($post)) $post = [];
+            foreach ($postDefaults as $key => $val) {
+                if (!array_key_exists($key, $post)) {
+                    $post[$key] = $val;
+                } elseif ($key === 'seo' && is_array($val) && is_array($post[$key])) {
+                    foreach ($val as $sk => $sv) {
+                        if (!array_key_exists($sk, $post[$key])) $post[$key][$sk] = $sv;
+                    }
+                }
+            }
+            $data['posts'][$pid] = $post;
+        }
+    }
     return $data;
 }
 

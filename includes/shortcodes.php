@@ -45,7 +45,10 @@ function load_courses(): array {
 function save_courses(array $courses): bool {
     $dir = dirname(COURSES_FILE);
     if (!is_dir($dir)) mkdir($dir, 0755, true);
-    return file_put_contents(COURSES_FILE, json_encode(array_values($courses), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)) !== false;
+    $json = json_encode(array_values($courses), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    $tmp  = COURSES_FILE . '.tmp.' . getmypid();
+    if (file_put_contents($tmp, $json) === false) return false;
+    return rename($tmp, COURSES_FILE);
 }
 
 function _csm_parse_sc_attrs(string $tag): array {

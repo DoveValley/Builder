@@ -7,7 +7,8 @@
 function sanitize_url(string $raw): string {
     $raw = trim($raw);
     if ($raw === '') return '';
-    return preg_match('/^(https?:\/\/|tel:|mailto:|\/|#)/i', $raw) ? $raw : '';
+    // Allow https/http, tel, mailto, absolute paths, anchors, and relative upload paths
+    return preg_match('/^(https?:\/\/|tel:|mailto:|\/|#|uploads\/)/i', $raw) ? $raw : '';
 }
 
 /**
@@ -46,9 +47,12 @@ function reserved_slugs() {
     return ['', 'admin', 'assets', 'data', 'includes', 'uploads', 'index', 'page', 'home', 'blog'];
 }
 
-function unique_slug($slug, $pages, $excludeId = null) {
+function unique_slug($slug, $pages, $excludeId = null, $skipReserved = false) {
     $slug = slugify($slug);
-    if ($slug === '' || in_array($slug, reserved_slugs(), true)) $slug = 'page';
+    // Blog posts live at /blog/{slug}, not top-level, so reserved top-level route names
+    // don't conflict with them. Pass $skipReserved=true for post slugs.
+    if (!$skipReserved && ($slug === '' || in_array($slug, reserved_slugs(), true))) $slug = 'page';
+    if ($skipReserved && $slug === '') $slug = 'post';
     $base = $slug; $i = 2;
     while (true) {
         $collision = false;

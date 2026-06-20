@@ -5,6 +5,7 @@
                 <h2>Blog Settings</h2>
                 <form action="save.php" method="post">
                     <input type="hidden" name="section" value="blog_settings">
+                    <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
                     <div class="form-group">
                         <label for="blog_heading">Blog page heading</label>
                         <input type="text" id="blog_heading" name="blog_heading" value="<?= h($blogSettings['blog_heading']) ?>">
@@ -26,6 +27,7 @@
                 <h2>Add a New Post</h2>
                 <form action="save.php" method="post">
                     <input type="hidden" name="section" value="post_add">
+                    <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
                     <div class="form-group">
                         <label for="new_post_title">Post title</label>
                         <input type="text" id="new_post_title" name="title" placeholder="e.g. 5 Signs You Have a Termite Problem" required>
@@ -56,6 +58,7 @@
                         echo '<a class="btn btn-secondary btn-small" href="?tab=blog&post=' . h($pid) . '">Edit</a>';
                         echo '<form action="save.php" method="post" style="display:inline;" onsubmit="return confirm(\'Delete this post? This cannot be undone.\');">';
                         echo '<input type="hidden" name="section" value="post_delete">';
+                        echo '<input type="hidden" name="csrf_token" value="' . h($csrfToken) . '">';
                         echo '<input type="hidden" name="post_id" value="' . h($pid) . '">';
                         echo '<button type="submit" class="remove-row" title="Delete post">&times;</button>';
                         echo '</form></div>';
@@ -71,6 +74,7 @@
 
             <form action="save.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="section" value="content">
+                <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
                 <input type="hidden" name="post_id" value="<?= h($editingPostId) ?>">
                 <div style="margin-bottom:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
                     <button type="submit" class="btn">Save Post</button>
@@ -139,6 +143,7 @@
 
             <form action="save.php" method="post" style="margin-top:12px;" onsubmit="return confirm('Delete this post? This cannot be undone.');">
                 <input type="hidden" name="section" value="post_delete">
+                <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
                 <input type="hidden" name="post_id" value="<?= h($editingPostId) ?>">
                 <button type="submit" class="btn btn-danger">Delete This Post</button>
             </form>

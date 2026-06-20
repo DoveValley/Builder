@@ -3,7 +3,7 @@ require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/functions.php';
 
 $data = load_data();
-$slug = isset($_GET['slug']) ? slugify($_GET['slug']) : '';
+$slug = (isset($_GET['slug']) && is_string($_GET['slug'])) ? slugify($_GET['slug']) : '';
 
 $assetPathPrefix = '/';
 $homeUrl         = '/';
@@ -64,14 +64,18 @@ if ($slug !== '') {
         $seo['schema'] = json_encode($schemaArr);
     }
 
-    $pageTitle = $post['title'] !== '' ? $post['title'] : SITE_TITLE;
+    $pageTitle = !empty($seo['seo_title']) ? $seo['seo_title'] : ($post['title'] !== '' ? $post['title'] : SITE_TITLE);
+    // Ensure single-post canonical includes the /blog/ prefix
+    if (empty($seo['canonical_url'])) {
+        $seo['canonical_url'] = '{website}/blog/' . $slug;
+    }
 
     require __DIR__ . '/includes/site-template.php';
     exit;
 }
 
 /* ---------------- BLOG LISTING ---------------- */
-$tag     = isset($_GET['tag']) ? trim($_GET['tag']) : '';
+$tag     = (isset($_GET['tag']) && is_string($_GET['tag'])) ? trim($_GET['tag']) : '';
 $pageNum = max(1, (int)($_GET['p'] ?? 1));
 $perPage = max(1, (int)($data['blog_settings']['posts_per_page'] ?? 9));
 

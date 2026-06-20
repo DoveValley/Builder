@@ -3,6 +3,12 @@
         $isLandingPage = ($pageId !== '' && isset($data['pages'][$pageId]));
         $postId = trim($_POST['post_id'] ?? '');
         $isPost = (!$isLandingPage && $postId !== '' && isset($data['posts'][$postId]));
+        // Guard: a non-empty post_id that doesn't resolve must not fall through to the
+        // main site content update — that would silently overwrite the homepage blocks.
+        if (!$isLandingPage && !$isPost && $postId !== '') {
+            header('Location: index.php?tab=blog&msg=' . urlencode('error:Post not found — it may have been deleted. Please refresh and try again.'));
+            exit;
+        }
         $activeTab = $isLandingPage ? 'pages' : ($isPost ? 'blog' : 'content');
 
         require_once BASE_DIR . '/includes/blocks_from_post.php';
@@ -19,7 +25,7 @@
             'meta_keywords'      => trim($_POST['meta_keywords']      ?? ''),
             'og_title'           => trim($_POST['og_title']           ?? ''),
             'og_description'     => trim($_POST['og_description']     ?? ''),
-            'og_image'           => trim($_POST['og_image_existing']   ?? ''),
+            'og_image'           => sanitize_url($_POST['og_image_existing'] ?? ''),
             'service_name'       => trim($_POST['service_name']       ?? ''),
             'service_type'       => trim($_POST['service_type']       ?? ''),
             'service_area'       => trim($_POST['service_area']       ?? ''),
@@ -50,10 +56,10 @@
             $data['posts'][$postId]['seo'] = $seoData;
             $data['posts'][$postId]['title'] = trim($_POST['post_title'] ?? '');
             $requestedSlug = trim($_POST['post_slug'] ?? '') ?: $data['posts'][$postId]['title'];
-            $data['posts'][$postId]['slug'] = unique_slug($requestedSlug, $data['posts'], $postId);
+            $data['posts'][$postId]['slug'] = unique_slug($requestedSlug, $data['posts'], $postId, true);
             $data['posts'][$postId]['status'] = ($_POST['post_status'] ?? 'draft') === 'published' ? 'published' : 'draft';
             $publishedAt = trim($_POST['post_published_at'] ?? '');
-            $data['posts'][$postId]['published_at'] = preg_match('/^\d{4}-\d{2}-\d{2}$/', $publishedAt) ? $publishedAt : date('Y-m-d');
+            $data['posts'][$postId]['published_at'] = preg_match('/^\d{4}-\d{2}-\d{2}$/', $publishedAt) ? $publishedAt : ($data['posts'][$postId]['published_at'] ?? date('Y-m-d'));
             $data['posts'][$postId]['updated_at'] = date('Y-m-d');
             $data['posts'][$postId]['author'] = trim($_POST['post_author'] ?? '') ?: '{business} Team';
             $data['posts'][$postId]['tag'] = trim($_POST['post_tag'] ?? '');
