@@ -17,13 +17,16 @@ function resolve_shortcodes(string $text): string {
     $tel          = $v['tel']       ?? '';
     $zip          = $v['zip']       ?? '';
     $website      = $v['website']   ?? '';
+    $address      = $v['address']   ?? '';
+    $lat          = $v['lat']       ?? '';
+    $lng          = $v['lng']       ?? '';
     $business_domain = parse_url($website, PHP_URL_HOST) ?: $website;
     $rating       = $lb['lb_rating']       ?? '';
     $review_count = $lb['lb_review_count'] ?? '';
     $city_state   = $city && $SS ? $city . ', ' . $SS : $city . $SS;
     return str_replace(
-        ['{city}', '{state}', '{SS}', '{city_state}', '{city_slug}', '{business}', '{phone}', '{tel}', '{zip}', '{website}', '{business_domain}', '{rating}', '{review_count}'],
-        [$city,    $state,    $SS,    $city_state,    $city_slug,    $business,    $phone,    $tel,    $zip,    $website,    $business_domain,    $rating,    $review_count],
+        ['{city}', '{state}', '{SS}', '{city_state}', '{city_slug}', '{business}', '{phone}', '{tel}', '{zip}', '{website}', '{business_domain}', '{rating}', '{review_count}', '{address}', '{lat}', '{lng}'],
+        [$city,    $state,    $SS,    $city_state,    $city_slug,    $business,    $phone,    $tel,    $zip,    $website,    $business_domain,    $rating,    $review_count,    $address,    $lat,    $lng],
         $text
     );
 }

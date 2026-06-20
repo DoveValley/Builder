@@ -2,6 +2,8 @@
 // City Pages tab — template × city status matrix + generation controls + log
 // $tab, $templates, $cities, $csrfToken available from index.php
 
+require_once __DIR__ . '/../../includes/generation/engine.php';
+
 // ── Status computation ────────────────────────────────────────────────────────
 // Returns ['generated'|'stale'|'missing', generated_at|null]
 
@@ -14,10 +16,6 @@ function _cp_page_status(array $tpl, array $city, string $tplVersion): array {
     $generatedAt  = $raw['generated_at']     ?? null;
     $status = ($pageVersion === $tplVersion) ? 'generated' : 'stale';
     return [$status, $generatedAt];
-}
-
-function _cp_tpl_version(array $tpl): string {
-    return md5(json_encode($tpl['content_blocks'] ?? []) . json_encode($tpl['seo'] ?? []) . ($tpl['slug_pattern'] ?? ''));
 }
 
 // Pre-compute all tags for the filter bar
@@ -59,7 +57,7 @@ if (file_exists(GEN_LOG_FILE)) {
             <span class="hint" style="margin:0 4px;">Tag filter:</span>
             <button class="btn btn-secondary btn-small cp-tag-btn active-tag" data-tag="" onclick="cpSetTag(this,'')">All</button>
             <?php foreach ($allCityTags as $tag => $_): ?>
-            <button class="btn btn-secondary btn-small cp-tag-btn" data-tag="<?= h($tag) ?>" onclick='cpSetTag(this,<?= json_encode($tag) ?>)'><?= h($tag) ?></button>
+            <button class="btn btn-secondary btn-small cp-tag-btn" data-tag="<?= h($tag) ?>" onclick='cpSetTag(this,<?= h(json_encode($tag)) ?>)'><?= h($tag) ?></button>
             <?php endforeach; ?>
             <?php endif; ?>
 
@@ -71,7 +69,7 @@ if (file_exists(GEN_LOG_FILE)) {
 
     <!-- ── Per-template status cards ─────────────────────────────────────── -->
     <?php foreach ($templates as $tpl):
-        $tplVersion  = _cp_tpl_version($tpl);
+        $tplVersion  = _gen_template_version($tpl);
         $countTotal  = count($cities);
         $countOk     = 0; $countStale = 0; $countMissing = 0;
 
@@ -128,18 +126,7 @@ if (file_exists(GEN_LOG_FILE)) {
                 }
             ?>
             <?php
-                $previewSlug = '';
-                if ($st !== 'missing') {
-                    $pattern = $tpl['slug_pattern'] ?? '';
-                    $vars = [
-                        '{city}'      => strtolower(preg_replace('/[^a-z0-9]+/i', '-', $city['city'] ?? '')),
-                        '{SS}'        => strtolower($city['SS'] ?? ''),
-                        '{state}'     => strtolower(preg_replace('/[^a-z0-9]+/i', '-', $city['state'] ?? '')),
-                        '{city_slug}' => $city['city_slug'] ?? strtolower(preg_replace('/[^a-z0-9]+/i', '-', ($city['city'] ?? '') . '-' . ($city['SS'] ?? ''))),
-                        '{zip}'       => $city['zip'] ?? '',
-                    ];
-                    $previewSlug = trim(preg_replace('/[^a-z0-9-]+/', '-', strtolower(str_replace(array_keys($vars), array_values($vars), $pattern))), '-');
-                }
+                $previewSlug = ($st !== 'missing') ? _gen_resolve_slug($tpl['slug_pattern'] ?? '', $city) : '';
             ?>
             <div class="cp-city-cell" data-tags="<?= h(json_encode($tags)) ?>"
                  style="background:<?= $bg ?>;border:1px solid <?= $st === 'generated' ? '#bbf7d0' : ($st === 'stale' ? '#fde68a' : '#fecaca') ?>;border-radius:6px;padding:8px 10px;">

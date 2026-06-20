@@ -22,11 +22,32 @@ function _city_load(): array {
 function _city_save(array $cities): bool {
     $dir = dirname(CITIES_FILE);
     if (!is_dir($dir)) mkdir($dir, 0755, true);
-    $result = file_put_contents(
-        CITIES_FILE,
-        json_encode(array_values($cities), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
-    );
-    return $result !== false;
+    $content = json_encode(array_values($cities), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    $tmp = CITIES_FILE . '.tmp.' . getmypid();
+    if (file_put_contents($tmp, $content) === false) return false;
+    return rename($tmp, CITIES_FILE);
+}
+
+function _city_cleanup_pages(string $cityId): void {
+    if (!defined('PAGES_DIR') || !defined('PAGE_INDEX_FILE')) return;
+    $suffix  = '_' . $cityId . '.json';
+    $deleted = [];
+    foreach (glob(PAGES_DIR . '*.json') ?: [] as $f) {
+        if (str_ends_with(basename($f), $suffix)) {
+            @unlink($f);
+            if (file_exists($f . '.bak')) @unlink($f . '.bak');
+            $deleted[basename($f)] = true;
+        }
+    }
+    if (!empty($deleted) && file_exists(PAGE_INDEX_FILE)) {
+        $raw = json_decode(file_get_contents(PAGE_INDEX_FILE), true);
+        if (is_array($raw)) {
+            $raw = array_filter($raw, fn($fn) => !isset($deleted[$fn]));
+            $tmp = PAGE_INDEX_FILE . '.tmp.' . getmypid();
+            file_put_contents($tmp, json_encode($raw, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+            rename($tmp, PAGE_INDEX_FILE);
+        }
+    }
 }
 
 function _city_make_id(string $city, string $ss, array $cities): string {
@@ -56,7 +77,7 @@ function _city_parse_post(string $prefix = ''): array {
         'address' => trim($_POST[$prefix . 'address'] ?? ''),
         'lat'     => trim($_POST[$prefix . 'lat']     ?? ''),
         'lng'     => trim($_POST[$prefix . 'lng']     ?? ''),
-        'website' => trim($_POST[$prefix . 'website'] ?? ''),
+        'website' => sanitize_url($_POST[$prefix . 'website'] ?? ''),
         'tags'    => $tags,
     ];
 }
@@ -131,6 +152,7 @@ if ($action === 'delete') {
         header('Location: index.php?tab=cities&msg=error:Could+not+delete+city');
         exit;
     }
+    _city_cleanup_pages($id);
     header('Location: index.php?tab=cities&msg=success:City+deleted');
     exit;
 }
@@ -190,8 +212,13 @@ if ($action === 'import_csv') {
             $citySlug = trim($citySlug, '-');
         }
 
-        $tags = array_values(array_filter(array_map('trim', preg_split('/[\s|]+/', $data['tags'] ?? ''))));
-        $id   = _city_make_id($city, $SS, $cities);
+        $tags = array_values(array_filter(array_map('trim', preg_split('/[\s,|]+/', $data['tags'] ?? ''))));
+
+        // Skip rows whose base ID already existed before this import started
+        $baseId = trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($city . '-' . $SS)), '-');
+        if ($baseId !== '' && in_array($baseId, $existing, true)) { $skipped++; continue; }
+
+        $id = _city_make_id($city, $SS, $cities);
 
         $cities[] = [
             'id'        => $id,
@@ -205,7 +232,7 @@ if ($action === 'import_csv') {
             'address'   => $data['address'] ?? '',
             'lat'       => $data['lat']     ?? '',
             'lng'       => $data['lng']     ?? '',
-            'website'   => $data['website'] ?? '',
+            'website'   => sanitize_url($data['website'] ?? ''),
             'tags'      => $tags,
         ];
         $added++;

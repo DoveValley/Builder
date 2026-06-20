@@ -23,11 +23,29 @@ function _tpl_load(): array {
 function _tpl_save(array $templates): bool {
     $dir = dirname(TEMPLATES_FILE);
     if (!is_dir($dir)) mkdir($dir, 0755, true);
-    $result = file_put_contents(
-        TEMPLATES_FILE,
-        json_encode(array_values($templates), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
-    );
-    return $result !== false;
+    $content = json_encode(array_values($templates), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    $tmp = TEMPLATES_FILE . '.tmp.' . getmypid();
+    if (file_put_contents($tmp, $content) === false) return false;
+    return rename($tmp, TEMPLATES_FILE);
+}
+
+function _tpl_cleanup_pages(string $tplId): void {
+    if (!defined('PAGES_DIR') || !defined('PAGE_INDEX_FILE')) return;
+    $deleted = [];
+    foreach (glob(PAGES_DIR . $tplId . '_*.json') ?: [] as $f) {
+        @unlink($f);
+        if (file_exists($f . '.bak')) @unlink($f . '.bak');
+        $deleted[basename($f)] = true;
+    }
+    if (!empty($deleted) && file_exists(PAGE_INDEX_FILE)) {
+        $raw = json_decode(file_get_contents(PAGE_INDEX_FILE), true);
+        if (is_array($raw)) {
+            $raw = array_filter($raw, fn($fn) => !isset($deleted[$fn]));
+            $tmp = PAGE_INDEX_FILE . '.tmp.' . getmypid();
+            file_put_contents($tmp, json_encode($raw, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+            rename($tmp, PAGE_INDEX_FILE);
+        }
+    }
 }
 
 function _tpl_make_id(string $title, array $templates): string {
@@ -191,6 +209,7 @@ if ($action === 'delete') {
         header('Location: index.php?tab=templates&msg=error:Could+not+delete+template');
         exit;
     }
+    _tpl_cleanup_pages($id);
     header('Location: index.php?tab=templates&msg=success:Template+deleted');
     exit;
 }

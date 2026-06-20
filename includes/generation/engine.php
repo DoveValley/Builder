@@ -167,12 +167,14 @@ function generate_city_pages(array $options = []): array {
                 'template_version' => $tplVersion,
             ];
 
-            // Load existing page — needed for locked_blocks + backup
+            // Load existing page — needed for locked_blocks, backup, and old-slug cleanup
             $existingPage = null;
+            $existingSlug = '';
             if (file_exists($pageFile)) {
                 $raw = json_decode(file_get_contents($pageFile), true);
                 if (is_array($raw)) {
                     $existingPage = $raw;
+                    $existingSlug = $raw['slug'] ?? '';
                     $page['locked_blocks'] = $raw['locked_blocks'] ?? [];
                 }
             }
@@ -222,17 +224,24 @@ function generate_city_pages(array $options = []): array {
 
             // ── Backup existing file (one-version rollback) ───────────────────
             if (file_exists($pageFile)) {
-                copy($pageFile, $pageFile . '.bak');
+                if (!copy($pageFile, $pageFile . '.bak')) {
+                    $errors[] = [
+                        'template_id' => $tpl['id'],
+                        'city_id'     => $city['id'],
+                        'error'       => 'Could not back up ' . $filename . '; skipping write to preserve original.',
+                    ];
+                    $skipped++;
+                    continue;
+                }
                 $backedUp++;
             }
 
-            // ── Write page file ───────────────────────────────────────────────
-            $ok = file_put_contents(
-                $pageFile,
-                json_encode($page, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
-            );
-
-            if ($ok === false) {
+            // ── Write page file (atomic: tmp → rename) ───────────────────────
+            $pageJson = json_encode($page, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+            $pageTmp  = $pageFile . '.tmp.' . getmypid();
+            $ok       = file_put_contents($pageTmp, $pageJson) !== false && rename($pageTmp, $pageFile);
+            if (!$ok) {
+                @unlink($pageTmp);
                 $errors[] = [
                     'template_id' => $tpl['id'],
                     'city_id'     => $city['id'],
@@ -241,19 +250,35 @@ function generate_city_pages(array $options = []): array {
                 $skipped++;
             } else {
                 if ($page['slug'] !== '') {
-                    $pageIndex[$page['slug']] = $filename;
+                    // Remove the old slug entry if this page's slug changed
+                    if ($existingSlug !== '' && $existingSlug !== $page['slug']) {
+                        unset($pageIndex[$existingSlug]);
+                    }
+                    // Guard against slug collision with a different page
+                    if (isset($pageIndex[$page['slug']]) && $pageIndex[$page['slug']] !== $filename) {
+                        $errors[] = [
+                            'template_id' => $tpl['id'],
+                            'city_id'     => $city['id'],
+                            'error'       => 'Slug collision: /' . $page['slug'] . ' already used by ' . $pageIndex[$page['slug']] . '; this page will not be indexed.',
+                        ];
+                    } else {
+                        $pageIndex[$page['slug']] = $filename;
+                    }
                 }
                 $written++;
             }
         }
     }
 
-    // ── Rebuild page-index.json ───────────────────────────────────────────────
+    // ── Rebuild page-index.json (atomic) ─────────────────────────────────────
     if (!$dryRun) {
-        file_put_contents(
-            PAGE_INDEX_FILE,
-            json_encode($pageIndex, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
-        );
+        $idxJson = json_encode($pageIndex, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        $idxTmp  = PAGE_INDEX_FILE . '.tmp.' . getmypid();
+        if (file_put_contents($idxTmp, $idxJson) !== false) {
+            rename($idxTmp, PAGE_INDEX_FILE);
+        } else {
+            @unlink($idxTmp);
+        }
     }
 
     // ── Write generation log (keep last 50 runs) ──────────────────────────────
@@ -286,10 +311,13 @@ function generate_city_pages(array $options = []): array {
         }
         $log[] = $logEntry;
         if (count($log) > 50) $log = array_slice($log, -50);
-        file_put_contents(
-            GEN_LOG_FILE,
-            json_encode($log, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
-        );
+        $logJson = json_encode($log, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        $logTmp  = GEN_LOG_FILE . '.tmp.' . getmypid();
+        if (file_put_contents($logTmp, $logJson) !== false) {
+            rename($logTmp, GEN_LOG_FILE);
+        } else {
+            @unlink($logTmp);
+        }
     }
 
     return [
