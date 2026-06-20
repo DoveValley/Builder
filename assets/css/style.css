@@ -357,6 +357,17 @@ a:hover {
     padding: 24px 20px 60px;
 }
 
+.admin-wrapper h2 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #dc2626;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 28px 0 14px;
+    border-bottom: 2px solid #fca5a5;
+    padding-bottom: 6px;
+}
+
 .admin-header {
     display: flex;
     justify-content: space-between;
@@ -575,12 +586,13 @@ a:hover {
 
 /* Content blocks editor */
 .block-card {
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 18px;
-    margin-bottom: 16px;
-    background: #fcfcfd;
+    border-top: 2px solid #e5e7eb;
+    padding: 16px 0;
+    margin-bottom: 0;
 }
+.block-card:first-of-type { border-top: none; }
+summary.block-card-header { list-style: none; }
+summary.block-card-header::-webkit-details-marker { display: none; }
 
 .block-card-header {
     display: flex;
@@ -588,19 +600,38 @@ a:hover {
     gap: 10px;
     margin-bottom: 14px;
     flex-wrap: wrap;
+    background: #1e40af;
+    border-radius: 6px;
+    padding: 8px 12px;
 }
 
 .block-card-header .block-type-select {
     flex: 1 1 220px;
 }
 
+.block-card-header .icon-btn {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.35);
+    color: #fff;
+}
+.block-card-header .icon-btn:hover {
+    background: rgba(255,255,255,0.3);
+}
+
 .block-card-header .block-label {
     font-weight: 700;
-    color: #6b7280;
-    font-size: 0.85rem;
+    color: #1e40af;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
+    background: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    flex-shrink: 0;
 }
+.block-card-header .block-label:hover { background: #dbeafe; }
 
 .block-actions {
     display: flex;

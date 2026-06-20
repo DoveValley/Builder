@@ -101,9 +101,10 @@ function content_editor_scripts() {
     function _createBlock(type) {
         const container = document.getElementById('content-blocks');
         const idx = container.children.length;
-        const card = document.createElement('div');
+        const card = document.createElement('details');
         card.className = 'block-card';
         card.dataset.blockType = type;
+        card.open = true;
 
         let typeOptions = '';
         <?php foreach (grouped_block_types() as $groupLabel => $groupItems): ?>
@@ -119,7 +120,7 @@ function content_editor_scripts() {
         const typeLabel  = BP_LABELS[type]  || type;
 
         card.innerHTML = `
-            <div class="block-card-header">
+            <summary class="block-card-header">
                 <span class="block-label">New block</span>
                 <select name="block_type[]" class="block-type-select" style="display:none;" onchange="switchBlockType(this)">
                     ${typeOptions}
@@ -138,7 +139,7 @@ function content_editor_scripts() {
                     <button type="button" class="icon-btn" onclick="moveBlock(this,1)">&darr;</button>
                     <button type="button" class="icon-btn remove-row" onclick="removeBlock(this)">Remove</button>
                 </div>
-            </div>
+            </summary>
             <div class="block-fields block-fields-text is-hidden">
                 <input type="hidden" name="block_photo_alt[]" value="">
                 <input type="hidden" name="block_existing_photo[]" value="">

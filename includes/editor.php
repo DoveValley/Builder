@@ -45,8 +45,8 @@ function render_content_blocks_editor($blocks) {
                 $type = $block['type'] ?? 'text';
                 if (!array_key_exists($type, allowed_block_types())) $type = 'text';
             ?>
-            <div class="block-card" data-block-type="<?= h($type) ?>">
-                <div class="block-card-header">
+            <details class="block-card" data-block-type="<?= h($type) ?>">
+                <summary class="block-card-header">
                     <span class="block-label">Block <?= $i + 1 ?></span>
                     <select name="block_type[]" class="block-type-select" style="display:none;" onchange="switchBlockType(this)">
                         <?php
@@ -83,7 +83,7 @@ function render_content_blocks_editor($blocks) {
                         <button type="button" class="icon-btn" onclick="moveBlock(this,1)"  title="Move down">&darr;</button>
                         <button type="button" class="icon-btn remove-row" onclick="removeBlock(this)" title="Remove">Remove</button>
                     </div>
-                </div>
+                </summary>
 
                 <?php /* ---- TEXT ONLY FIELDS ---- */ ?>
                 <div class="block-fields block-fields-text <?= $type !== 'text' ? 'is-hidden' : '' ?>">
@@ -2030,7 +2030,7 @@ function render_content_blocks_editor($blocks) {
                     </div>
                 </div>
 
-            </div><!-- .block-card -->
+            </details><!-- .block-card -->
             <?php endforeach; ?>
         </div>
         <button type="button" class="btn btn-secondary btn-small" onclick="addBlock()">+ Add content block</button>
