@@ -25,23 +25,53 @@ function content_editor_scripts() {
     /* Legacy alias */
     function toggleBlockImage(select) { switchBlockType(select); }
 
+    /* Snapshot / restore all field values in a block (guards against
+       browsers resetting textarea .value when a <details> is moved) */
+    function _snapFields(card) {
+        const snap = [];
+        card.querySelectorAll('input, textarea, select').forEach(f => {
+            snap.push({ el: f, value: f.value, checked: f.checked });
+        });
+        return snap;
+    }
+    function _restoreFields(snap) {
+        snap.forEach(({ el, value, checked }) => {
+            el.value = value;
+            if (el.type === 'checkbox' || el.type === 'radio') el.checked = checked;
+        });
+    }
+
     /* Move block up/down */
     function moveBlock(btn, dir) {
+        event.stopPropagation(); // prevent <summary> toggle firing
         const card = btn.closest('.block-card');
         if (!card) return;
         const container = card.parentElement;
         if (!container) return;
         if (dir < 0) {
             const prev = card.previousElementSibling;
-            if (prev) { container.insertBefore(card, prev); card.style.outline = '2px solid var(--color-accent,#2563eb)'; setTimeout(() => card.style.outline = '', 600); }
+            if (prev) {
+                const s1 = _snapFields(card), s2 = _snapFields(prev);
+                container.insertBefore(card, prev);
+                _restoreFields(s1); _restoreFields(s2);
+                card.style.outline = '2px solid var(--color-accent,#2563eb)';
+                setTimeout(() => card.style.outline = '', 600);
+            }
         } else {
             const next = card.nextElementSibling;
-            if (next) { container.insertBefore(next, card); card.style.outline = '2px solid var(--color-accent,#2563eb)'; setTimeout(() => card.style.outline = '', 600); }
+            if (next) {
+                const s1 = _snapFields(card), s2 = _snapFields(next);
+                container.insertBefore(next, card);
+                _restoreFields(s1); _restoreFields(s2);
+                card.style.outline = '2px solid var(--color-accent,#2563eb)';
+                setTimeout(() => card.style.outline = '', 600);
+            }
         }
     }
 
     /* Remove a block */
     function removeBlock(btn) {
+        event.stopPropagation();
         const card = btn.closest('.block-card');
         if (!card) return;
         const container = card.parentElement;
