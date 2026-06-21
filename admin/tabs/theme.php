@@ -10,22 +10,34 @@
                     'header_top_bg' => 'Top announcement bar background',
                     'header_text'   => 'Text & menu color',
                 ],
-                'Main Content' => [
-                    'content_bg'    => 'Background color',
-                    'content_text'  => 'Text color',
-                    'heading_color' => 'Heading color',
+                'Site Defaults' => [
+                    'content_bg'   => 'Page background color',
+                    'border_color' => 'Border / divider color',
                 ],
                 'Footer' => [
                     'footer_bg'   => 'Background color',
                     'footer_text' => 'Text & link color',
                 ],
             ];
+            $colorHints = [
+                'content_bg'   => 'The base background of the page itself (behind all blocks). Usually white.',
+                'border_color' => 'Footer divider lines and structural borders. Use as <code>var(--color-border)</code> in custom HTML.',
+            ];
+            $colorDefaults = [
+                'content_bg'   => '#ffffff',
+                'border_color' => '#e5e7eb',
+                'header_bg'    => '#120575',
+                'header_top_bg'=> '#ffffff',
+                'header_text'  => '#ffffff',
+                'footer_bg'    => '#120575',
+                'footer_text'  => '#ffffff',
+            ];
             foreach ($colorGroups as $groupLabel => $fields):
             ?>
                 <div class="card">
                     <h2><?= h($groupLabel) ?></h2>
                     <?php foreach ($fields as $key => $label):
-                        $value = $theme[$key] ?? '#000000';
+                        $value = $theme[$key] ?? ($colorDefaults[$key] ?? '#000000');
                     ?>
                         <div class="form-group">
                             <label for="<?= $key ?>"><?= h($label) ?></label>
@@ -35,24 +47,85 @@
                                 <input type="text" id="<?= $key ?>" name="<?= $key ?>" value="<?= h($value) ?>"
                                        oninput="document.getElementById('<?= $key ?>_picker').value = this.value;">
                             </div>
+                            <?php if (isset($colorHints[$key])): ?>
+                            <span class="hint"><?= $colorHints[$key] ?></span>
+                            <?php endif; ?>
                         </div>
                     <?php endforeach; ?>
                 </div>
             <?php endforeach; ?>
 
             <div class="card">
-                <h2>Accent Color</h2>
+                <h2>Accent &amp; Buttons</h2>
+                <?php
+                $accentFields = [
+                    'accent_color'  => ['Primary accent',   'Drives links, icon backgrounds, badges, buttons, and the Accent skin background — all from one color.', '#2563eb'],
+                    'accent2_color' => ['Highlight color',  'A contrasting brand color for standout words, badges, or decorative elements. Use as <code>var(--color-highlight)</code> in custom HTML.', '#f5a623'],
+                    'btn_text'      => ['Button text color', 'Almost always white. Change only if your accent color is light enough that white text is unreadable.', '#ffffff'],
+                ];
+                foreach ($accentFields as $key => [$label, $hint, $default]):
+                    $value = $theme[$key] ?? $default;
+                ?>
                 <div class="form-group">
-                    <label for="accent_color">Accent color</label>
+                    <label for="<?= $key ?>"><?= $label ?></label>
                     <div class="color-field">
-                        <input type="color" id="accent_color_picker" value="<?= h($theme['accent_color'] ?? '#2563eb') ?>"
-                               oninput="document.getElementById('accent_color').value = this.value;">
-                        <input type="text" id="accent_color" name="accent_color" value="<?= h($theme['accent_color'] ?? '#2563eb') ?>"
-                               oninput="document.getElementById('accent_color_picker').value = this.value;">
+                        <input type="color" id="<?= $key ?>_picker" value="<?= h($value) ?>"
+                               oninput="document.getElementById('<?= $key ?>').value = this.value;">
+                        <input type="text" id="<?= $key ?>" name="<?= $key ?>" value="<?= h($value) ?>"
+                               oninput="document.getElementById('<?= $key ?>_picker').value = this.value;">
                     </div>
-                    <span class="hint">Used for links and buttons across the header, main content, and footer.</span>
+                    <span class="hint"><?= $hint ?></span>
+                </div>
+                <?php endforeach; ?>
+            </div>
+
+            <?php
+            $skinDefs = [
+                'light'  => ['Light',  'White background — standard content sections.',       ['bg'=>'#ffffff','heading'=>'#1a2e5a','text'=>'#555e6d'], ['bg','heading','text']],
+                'subtle' => ['Subtle', 'Off-white — soft alternating sections.',              ['bg'=>'#f8fafc','heading'=>'#1a2e5a','text'=>'#555e6d'], ['bg','heading','text']],
+                'accent' => ['Accent', 'Brand color background — CTA and featured sections.', ['bg'=>'#2563eb','heading'=>'#ffffff', 'text'=>'#dbeafe'], ['heading','text']],
+                'dark'   => ['Dark',   'Dark background — hero and dramatic sections.',        ['bg'=>'#0d1f3c','heading'=>'#ffffff', 'text'=>'#e2e8f0'], ['bg','heading','text']],
+            ];
+            $skinFieldLabels = ['bg'=>'Background','heading'=>'Heading text','text'=>'Body text'];
+            foreach ($skinDefs as $skinKey => [$skinLabel, $skinHint, $skinDefaults, $editableProps]):
+                $skinData = $theme['skins'][$skinKey] ?? $skinDefaults;
+            ?>
+            <div class="card">
+                <h2>Skin: <?= $skinLabel ?></h2>
+                <p class="hint" style="margin-bottom:14px;"><?= $skinHint ?> Pick this skin on any block from the <strong>Section skin</strong> picker.</p>
+                <?php if ($skinKey === 'accent'): ?>
+                <p class="hint" style="margin-bottom:14px;color:#2563eb;">Background automatically follows <strong>Primary accent</strong> above — no separate field needed.</p>
+                <?php endif; ?>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;">
+                    <div class="skin-swatch skin-swatch-<?= $skinKey ?>" style="width:56px;height:56px;border-radius:8px;border:1px solid rgba(0,0,0,.12);flex-shrink:0;margin-top:4px;"></div>
+                    <div style="flex:1;min-width:260px;">
+                        <?php foreach ($editableProps as $prop):
+                            $fkey  = "skin_{$skinKey}_{$prop}";
+                            $fval  = $skinData[$prop] ?? $skinDefaults[$prop];
+                        ?>
+                        <div class="form-group" style="margin-bottom:10px;">
+                            <label for="<?= $fkey ?>" style="font-size:0.82rem;"><?= $skinFieldLabels[$prop] ?></label>
+                            <div class="color-field">
+                                <input type="color" id="<?= $fkey ?>_picker" value="<?= h($fval) ?>"
+                                       oninput="document.getElementById('<?= $fkey ?>').value=this.value;updateSkinSwatch('<?= $skinKey ?>');">
+                                <input type="text"  id="<?= $fkey ?>" name="<?= $fkey ?>" value="<?= h($fval) ?>"
+                                       oninput="document.getElementById('<?= $fkey ?>_picker').value=this.value;updateSkinSwatch('<?= $skinKey ?>');">
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
+            <?php endforeach; ?>
+
+            <script>
+            function updateSkinSwatch(skinKey) {
+                var bg = document.getElementById('skin_'+skinKey+'_bg')?.value || '';
+                document.querySelectorAll('.skin-swatch-'+skinKey).forEach(function(el) {
+                    el.style.background = bg;
+                });
+            }
+            </script>
 
             <div class="card">
                 <h2>Typography &amp; Buttons</h2>

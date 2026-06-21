@@ -224,10 +224,15 @@ include file_exists($_hFile) ? $_hFile : __DIR__ . '/headers/standard.php';
         $isFullWidth = in_array($btype, ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','cta_card','map_info','hero_split','feature_split','faq_two_col','image_features','service_cards','tab_services','blog_list','stats','email_banner','cards','custom_html','comparison_table']);
         $blockIdx++;
     ?>
+        <?php
+        $bskin = $block['skin'] ?? '';
+        $skinClass = in_array($bskin, ['light','dark','accent','subtle']) ? " skin-{$bskin}" : '';
+        ?>
         <?php if ($showBlocks): ?>
         <div style="outline:2px dashed #e11d48;">
-        <div style="background:#e11d48;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;font-family:monospace;display:inline-block;"><?= $blockIdx ?>: <?= h($btype) ?></div>
+        <div style="background:#e11d48;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;font-family:monospace;display:inline-block;"><?= $blockIdx ?>: <?= h($btype) ?><?= $skinClass ? " [{$bskin}]" : '' ?></div>
         <?php endif; ?>
+        <section class="block-section<?= $skinClass ?>">
         <?php if (!$isFullWidth): ?>
         <div class="container">
         <?php endif; ?>
@@ -235,6 +240,7 @@ include file_exists($_hFile) ? $_hFile : __DIR__ . '/headers/standard.php';
         <?php if (!$isFullWidth): ?>
         </div>
         <?php endif; ?>
+        </section>
         <?php if ($showBlocks): ?></div><?php endif; ?>
     <?php endforeach; ?>
 </main>

@@ -3949,3 +3949,26 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 .cf-error   { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
 .cf-form .cta-btn { margin-top: 8px; }
 @media (max-width: 560px) { .cf-row { flex-direction: column; gap: 0; } }
+
+/* ── Block skin system ─────────────────────────────────────────────────────── */
+.block-section { display: block; }
+.block-section.skin-light  { background: var(--skin-light-bg);  color: var(--skin-light-text); }
+.block-section.skin-dark   { background: var(--skin-dark-bg);   color: var(--skin-dark-text); }
+.block-section.skin-accent { background: var(--skin-accent-bg); color: var(--skin-accent-text); }
+.block-section.skin-subtle { background: var(--skin-subtle-bg); color: var(--skin-subtle-text); }
+.block-section.skin-light  h1,.block-section.skin-light  h2,.block-section.skin-light  h3,.block-section.skin-light  h4 { color: var(--skin-light-heading); }
+.block-section.skin-dark   h1,.block-section.skin-dark   h2,.block-section.skin-dark   h3,.block-section.skin-dark   h4 { color: var(--skin-dark-heading); }
+.block-section.skin-accent h1,.block-section.skin-accent h2,.block-section.skin-accent h3,.block-section.skin-accent h4 { color: var(--skin-accent-heading); }
+.block-section.skin-subtle h1,.block-section.skin-subtle h2,.block-section.skin-subtle h3,.block-section.skin-subtle h4 { color: var(--skin-subtle-heading); }
+
+/* Skin picker UI (admin editor) */
+.skin-picker { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.skin-opt { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 2px solid #e5e7eb; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 500; color: #374151; transition: border-color .15s; user-select: none; }
+.skin-opt:has(input:checked) { border-color: #2563eb; background: #eff6ff; }
+.skin-opt input { display: none; }
+.skin-swatch { width: 18px; height: 18px; border-radius: 3px; border: 1px solid rgba(0,0,0,.12); flex-shrink: 0; }
+.skin-swatch-default { background: repeating-linear-gradient(45deg,#e5e7eb 0,#e5e7eb 3px,#fff 3px,#fff 6px); }
+.skin-swatch-light   { background: var(--skin-light-bg,  #ffffff); }
+.skin-swatch-subtle  { background: var(--skin-subtle-bg, #f8fafc); }
+.skin-swatch-accent  { background: var(--skin-accent-bg, #2563eb); }
+.skin-swatch-dark    { background: var(--skin-dark-bg,   #0d1f3c); }

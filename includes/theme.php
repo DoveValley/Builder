@@ -5,11 +5,15 @@ function theme_css_vars($theme) {
         '--color-header-top-bg' => $theme['header_top_bg'] ?? '#ffffff',
         '--color-header-text'   => $theme['header_text']   ?? '#ffffff',
         '--color-content-bg'    => $theme['content_bg']    ?? '#ffffff',
-        '--color-content-text'  => $theme['content_text']  ?? '#000000',
-        '--color-heading'       => $theme['heading_color'] ?? '#000000',
+        '--color-content-text'  => 'var(--skin-light-text)',    // cascades from Light skin
+        '--color-heading'       => 'var(--skin-light-heading)', // cascades from Light skin
+        '--color-section-alt'   => 'var(--skin-subtle-bg)',     // cascades from Subtle skin
         '--color-footer-bg'     => $theme['footer_bg']     ?? '#120575',
         '--color-footer-text'   => $theme['footer_text']   ?? '#ffffff',
         '--color-accent'        => $theme['accent_color']  ?? '#fd783b',
+        '--color-highlight'     => $theme['accent2_color'] ?? '#f5a623',
+        '--color-btn-text'      => $theme['btn_text']      ?? '#ffffff',
+        '--color-border'        => $theme['border_color']  ?? '#e5e7eb',
         '--btn-radius'          => ($theme['button_radius'] ?? '5') . 'px',
     ];
     $font = $theme['primary_font'] ?? ($theme['font_family'] ?? 'sans-serif');
@@ -37,6 +41,27 @@ function theme_css_vars($theme) {
         $num = $num !== '' ? (float)$num : (float)$def;
         $num = max(0.5, min(6.0, $num));
         $css .= "    --font-size-{$tag}: {$num}rem;\n";
+    }
+    // Skin system — 4 named section palettes
+    $skinDefaults = [
+        'light'  => ['bg' => '#ffffff', 'heading' => '#1a2e5a', 'text' => '#555e6d'],
+        'dark'   => ['bg' => '#0d1f3c', 'heading' => '#ffffff',  'text' => '#e2e8f0'],
+        'accent' => ['bg' => '#2563eb', 'heading' => '#ffffff',  'text' => '#dbeafe'],
+        'subtle' => ['bg' => '#f8fafc', 'heading' => '#1a2e5a',  'text' => '#555e6d'],
+    ];
+    $skins = $theme['skins'] ?? [];
+    foreach ($skinDefaults as $name => $defaults) {
+        $s = $skins[$name] ?? [];
+        foreach (['bg', 'heading', 'text'] as $prop) {
+            // Accent skin background tracks the primary accent color automatically
+            if ($name === 'accent' && $prop === 'bg') {
+                $css .= "    --skin-accent-bg: var(--color-accent);\n";
+                continue;
+            }
+            $val = $s[$prop] ?? $defaults[$prop];
+            $safe = preg_replace('/[^#a-zA-Z0-9(),.%\s\-_]/', '', $val);
+            $css .= "    --skin-{$name}-{$prop}: {$safe};\n";
+        }
     }
     $css .= "}\n";
     return $css;

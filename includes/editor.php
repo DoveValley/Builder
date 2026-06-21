@@ -89,6 +89,32 @@ function render_content_blocks_editor($blocks) {
                     </div>
                 </summary>
 
+                <?php /* ---- SKIN PICKER (universal — shown for all block types) ---- */ ?>
+                <div style="padding:10px 16px 0;border-bottom:1px solid #f1f5f9;">
+                    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                        <span style="font-size:0.8rem;font-weight:600;color:#6b7280;white-space:nowrap;">Section skin:</span>
+                        <div class="skin-picker">
+                            <?php
+                            $curSkin = $block['skin'] ?? '';
+                            $skinOpts = [
+                                ''       => ['Default',    'skin-swatch-default'],
+                                'light'  => ['Light',      'skin-swatch-light'],
+                                'subtle' => ['Subtle',     'skin-swatch-subtle'],
+                                'accent' => ['Accent',     'skin-swatch-accent'],
+                                'dark'   => ['Dark',       'skin-swatch-dark'],
+                            ];
+                            foreach ($skinOpts as $val => [$label, $swatchClass]):
+                            ?>
+                            <label class="skin-opt">
+                                <input type="radio" name="block_skin[]" value="<?= h($val) ?>" <?= $curSkin === $val ? 'checked' : '' ?>>
+                                <span class="skin-swatch <?= $swatchClass ?>"></span>
+                                <?= $label ?>
+                            </label>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+
                 <?php /* ---- TEXT ONLY FIELDS ---- */ ?>
                 <div class="block-fields block-fields-text <?= $type !== 'text' ? 'is-hidden' : '' ?>">
                     <input type="hidden" name="block_photo_alt[]" value="">

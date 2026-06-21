@@ -21,6 +21,12 @@ function default_data() {
             'button_radius'  => '4',
             'analytics_head' => '',
             'facebook_pixel' => '',
+            'skins' => [
+                'light'  => ['bg' => '#ffffff', 'heading' => '#1a2e5a', 'text' => '#555e6d'],
+                'dark'   => ['bg' => '#0d1f3c', 'heading' => '#ffffff',  'text' => '#e2e8f0'],
+                'accent' => ['bg' => '#2563eb', 'heading' => '#ffffff',  'text' => '#dbeafe'],
+                'subtle' => ['bg' => '#f8fafc', 'heading' => '#1a2e5a',  'text' => '#555e6d'],
+            ],
         ],
         'header' => [
             'logo'            => '',

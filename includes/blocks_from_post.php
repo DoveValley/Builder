@@ -10,6 +10,12 @@ function parse_blocks_from_post(): array {
         if (!array_key_exists($type, allowed_block_types())) $type = 'text';
         $block = ['type' => $type];
 
+        // Skin — universal field, same for every block type
+        $skinVal = trim($_POST['block_skin'][$i] ?? '');
+        if (in_array($skinVal, ['light','dark','accent','subtle'])) {
+            $block['skin'] = $skinVal;
+        }
+
         // Anchor ID — sanitize to safe slug characters only
         $rawAnchor = trim($_POST['block_anchor'][$i] ?? '');
         if ($rawAnchor !== '') {

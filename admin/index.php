@@ -151,6 +151,7 @@ foreach ($footer['columns'] as $ci => $column) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - <?= h($_siteDisplayName) ?></title>
     <link rel="stylesheet" href="../assets/css/style.css?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/style.css') ?>">
+    <style><?= theme_css_vars($data['theme'] ?? []) ?></style>
     <script src="https://cdn.tiny.cloud/1/qeuo7izgoglstixfe9merx5vdkfu7nfuvl1nhyc98p6qej0p/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
     const TINYMCE_OPTS = {

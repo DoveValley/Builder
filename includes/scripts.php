@@ -144,6 +144,18 @@ function content_editor_scripts() {
                     <button type="button" class="icon-btn remove-row" onclick="removeBlock(event,this)">Remove</button>
                 </div>
             </summary>
+            <div style="padding:10px 16px 0;border-bottom:1px solid #f1f5f9;">
+                <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                    <span style="font-size:0.8rem;font-weight:600;color:#6b7280;white-space:nowrap;">Section skin:</span>
+                    <div class="skin-picker">
+                        <label class="skin-opt"><input type="radio" name="block_skin[]" value="" checked><span class="skin-swatch skin-swatch-default"></span>Default</label>
+                        <label class="skin-opt"><input type="radio" name="block_skin[]" value="light"><span class="skin-swatch skin-swatch-light"></span>Light</label>
+                        <label class="skin-opt"><input type="radio" name="block_skin[]" value="subtle"><span class="skin-swatch skin-swatch-subtle"></span>Subtle</label>
+                        <label class="skin-opt"><input type="radio" name="block_skin[]" value="accent"><span class="skin-swatch skin-swatch-accent"></span>Accent</label>
+                        <label class="skin-opt"><input type="radio" name="block_skin[]" value="dark"><span class="skin-swatch skin-swatch-dark"></span>Dark</label>
+                    </div>
+                </div>
+            </div>
             <div class="block-fields block-fields-text is-hidden">
                 <input type="hidden" name="block_photo_alt[]" value="">
                 <input type="hidden" name="block_existing_photo[]" value="">
