@@ -1,5 +1,5 @@
     <div class="tab-content" style="<?= $tab === 'theme' ? '' : 'display:none;' ?>">
-        <form action="save.php" method="post">
+        <form action="save.php" method="post" id="theme-form">
             <input type="hidden" name="section" value="theme">
             <div style="margin-bottom:16px;"><button type="submit" class="btn">Save Theme</button></div>
 
@@ -43,9 +43,10 @@
                             <label for="<?= $key ?>"><?= h($label) ?></label>
                             <div class="color-field">
                                 <input type="color" id="<?= $key ?>_picker" value="<?= h($value) ?>"
-                                       oninput="document.getElementById('<?= $key ?>').value = this.value;">
+                                       oninput="document.getElementById('<?= $key ?>').value=this.value;"
+                                       onchange="document.getElementById('<?= $key ?>').value=this.value;">
                                 <input type="text" id="<?= $key ?>" name="<?= $key ?>" value="<?= h($value) ?>"
-                                       oninput="document.getElementById('<?= $key ?>_picker').value = this.value;">
+                                       oninput="document.getElementById('<?= $key ?>_picker').value=this.value;">
                             </div>
                             <?php if (isset($colorHints[$key])): ?>
                             <span class="hint"><?= $colorHints[$key] ?></span>
@@ -70,9 +71,10 @@
                     <label for="<?= $key ?>"><?= $label ?></label>
                     <div class="color-field">
                         <input type="color" id="<?= $key ?>_picker" value="<?= h($value) ?>"
-                               oninput="document.getElementById('<?= $key ?>').value = this.value;">
+                               oninput="document.getElementById('<?= $key ?>').value=this.value;"
+                               onchange="document.getElementById('<?= $key ?>').value=this.value;">
                         <input type="text" id="<?= $key ?>" name="<?= $key ?>" value="<?= h($value) ?>"
-                               oninput="document.getElementById('<?= $key ?>_picker').value = this.value;">
+                               oninput="document.getElementById('<?= $key ?>_picker').value=this.value;">
                     </div>
                     <span class="hint"><?= $hint ?></span>
                 </div>
@@ -107,7 +109,8 @@
                             <label for="<?= $fkey ?>" style="font-size:0.82rem;"><?= $skinFieldLabels[$prop] ?></label>
                             <div class="color-field">
                                 <input type="color" id="<?= $fkey ?>_picker" value="<?= h($fval) ?>"
-                                       oninput="document.getElementById('<?= $fkey ?>').value=this.value;updateSkinSwatch('<?= $skinKey ?>');">
+                                       oninput="document.getElementById('<?= $fkey ?>').value=this.value;updateSkinSwatch('<?= $skinKey ?>');"
+                                       onchange="document.getElementById('<?= $fkey ?>').value=this.value;updateSkinSwatch('<?= $skinKey ?>');">
                                 <input type="text"  id="<?= $fkey ?>" name="<?= $fkey ?>" value="<?= h($fval) ?>"
                                        oninput="document.getElementById('<?= $fkey ?>_picker').value=this.value;updateSkinSwatch('<?= $skinKey ?>');">
                             </div>
@@ -125,6 +128,15 @@
                     el.style.background = bg;
                 });
             }
+            // Ensure all color picker values are synced to their text inputs before submit.
+            // Handles browsers that fire 'change' late or not at all during picker interaction.
+            document.getElementById('theme-form').addEventListener('submit', function() {
+                this.querySelectorAll('input[type="color"]').forEach(function(picker) {
+                    var textId = picker.id.replace(/_picker$/, '');
+                    var textInput = document.getElementById(textId);
+                    if (textInput) textInput.value = picker.value;
+                });
+            });
             </script>
 
             <div class="card">
