@@ -92,14 +92,14 @@
             ?>
 
             <div class="card">
-                <h2>Landing Pages</h2>
-                <p class="hint" style="margin-bottom:12px;">Use <strong>&rarr; Template</strong> to promote a landing page into the Templates system for multi-city generation.</p>
-                <?php $renderPageList($landingPages, true); ?>
+                <h2>Core Pages</h2>
+                <?php $renderPageList($otherPages, false); ?>
             </div>
 
             <div class="card">
-                <h2>Core Pages</h2>
-                <?php $renderPageList($otherPages, false); ?>
+                <h2>Landing Pages</h2>
+                <p class="hint" style="margin-bottom:12px;">Use <strong>&rarr; Template</strong> to promote a landing page into the Templates system for multi-city generation.</p>
+                <?php $renderPageList($landingPages, true); ?>
             </div>
 
         <?php elseif ($promoting): ?>
