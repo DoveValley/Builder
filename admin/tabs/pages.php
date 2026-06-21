@@ -99,7 +99,7 @@
             <?php
             $landingPages = array_filter($pages, fn($p) => ($p['page_type'] ?? 'landing') === 'landing');
             $otherPages   = array_filter($pages, fn($p) => ($p['page_type'] ?? 'landing') !== 'landing');
-            $renderPageList = function($list, bool $showPromote = false) {
+            $renderPageList = function($list, bool $showPromote = false) use ($csrfToken) {
                 if (empty($list)) { echo '<p class="hint">None yet.</p>'; return; }
                 echo '<div class="repeat-items">';
                 foreach ($list as $pid => $p) {
