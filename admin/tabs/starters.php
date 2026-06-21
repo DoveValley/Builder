@@ -1,10 +1,10 @@
 <?php
 // Page Starters tab — list view + edit view
-// $tab, $editingStarter, $editingStarterId set by index.php
 $allBlockTypes = [];
 foreach (grouped_block_types() as $gLabel => $gItems) {
     foreach ($gItems as $k => $v) $allBlockTypes[$k] = "$gLabel › $v";
 }
+$cats = starter_categories();
 ?>
 <div class="tab-content" style="<?= $tab === 'starters' ? '' : 'display:none;' ?>">
 
@@ -21,11 +21,19 @@ foreach (grouped_block_types() as $gLabel => $gItems) {
             <input type="hidden" name="action" value="add">
             <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
             <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
-                <div class="form-group" style="flex:1 1 200px;margin:0;">
+                <div class="form-group" style="flex:1 1 160px;margin:0;">
                     <label>Starter name</label>
                     <input type="text" name="label" placeholder="e.g. Service page" required>
                 </div>
-                <div class="form-group" style="flex:2 1 280px;margin:0;">
+                <div class="form-group" style="flex:1 1 160px;margin:0;">
+                    <label>Category</label>
+                    <select name="category">
+                        <?php foreach ($cats as $k => $v): ?>
+                        <option value="<?= h($k) ?>"><?= h($v) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="form-group" style="flex:2 1 220px;margin:0;">
                     <label>Short description <span style="font-weight:400;color:#888;">(optional)</span></label>
                     <input type="text" name="desc" placeholder="e.g. Hero · Features · Pricing · CTA">
                 </div>
@@ -34,14 +42,36 @@ foreach (grouped_block_types() as $gLabel => $gItems) {
         </form>
     </div>
 
+    <?php
+    $starters   = starters_load();
+    $activeCat  = $_GET['cat'] ?? 'training';
+    if (!array_key_exists($activeCat, $cats)) $activeCat = array_key_first($cats);
+    $byCat = [];
+    foreach ($starters as $s) {
+        $c = $s['category'] ?? 'universal';
+        $byCat[$c][] = $s;
+    }
+    ?>
+
     <div class="card">
         <h2>Page Starters</h2>
-        <?php $starters = starters_load(); ?>
-        <?php if (empty($starters)): ?>
-            <p class="hint">No starters yet. Add one above.</p>
+
+        <!-- Category tab strip -->
+        <div class="inner-tabs" style="margin-bottom:18px;">
+            <?php foreach ($cats as $k => $v): ?>
+            <a class="inner-tab <?= $k === $activeCat ? 'active' : '' ?>"
+               href="?tab=starters&cat=<?= h($k) ?>"><?= h($v) ?>
+               <span style="font-weight:400;color:<?= $k === $activeCat ? 'rgba(255,255,255,.7)' : '#9ca3af' ?>;font-size:.75rem;margin-left:4px;">(<?= count($byCat[$k] ?? []) ?>)</span>
+            </a>
+            <?php endforeach; ?>
+        </div>
+
+        <?php $list = $byCat[$activeCat] ?? []; ?>
+        <?php if (empty($list)): ?>
+            <p class="hint">No starters in this category yet. Add one above.</p>
         <?php else: ?>
             <div class="repeat-items">
-            <?php foreach ($starters as $s): ?>
+            <?php foreach ($list as $s): ?>
                 <div class="repeat-row" style="align-items:center;">
                     <div style="flex:1;">
                         <strong><?= h($s['label']) ?></strong>
@@ -59,12 +89,13 @@ foreach (grouped_block_types() as $gLabel => $gItems) {
                             <?php endif; ?>
                         </span>
                     </div>
-                    <a class="btn btn-secondary btn-small" href="?tab=starters&starter=<?= h($s['id']) ?>">Edit</a>
+                    <a class="btn btn-secondary btn-small" href="?tab=starters&starter=<?= h($s['id']) ?>&cat=<?= h($activeCat) ?>">Edit</a>
 
                     <form action="starters_save.php" method="post" style="display:inline;">
                         <input type="hidden" name="action" value="duplicate">
                         <input type="hidden" name="starter_id" value="<?= h($s['id']) ?>">
                         <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+                        <input type="hidden" name="return_cat" value="<?= h($activeCat) ?>">
                         <button type="submit" class="btn btn-secondary btn-small">Duplicate</button>
                     </form>
 
@@ -73,6 +104,7 @@ foreach (grouped_block_types() as $gLabel => $gItems) {
                         <input type="hidden" name="action" value="delete">
                         <input type="hidden" name="starter_id" value="<?= h($s['id']) ?>">
                         <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+                        <input type="hidden" name="return_cat" value="<?= h($activeCat) ?>">
                         <button type="submit" class="remove-row" title="Delete">&times;</button>
                     </form>
                 </div>
@@ -84,23 +116,35 @@ foreach (grouped_block_types() as $gLabel => $gItems) {
 <?php else: ?>
 
     <!-- ── Edit view ─────────────────────────────────────────────────────── -->
-    <p style="margin-bottom:16px;"><a href="?tab=starters">&larr; Back to all starters</a></p>
+    <?php $returnCat = $_GET['cat'] ?? 'training'; ?>
+    <p style="margin-bottom:16px;"><a href="?tab=starters&cat=<?= h($returnCat) ?>">&larr; Back to starters</a></p>
 
     <form action="starters_save.php" method="post">
         <input type="hidden" name="action" value="save">
         <input type="hidden" name="starter_id" value="<?= h($editingStarterId) ?>">
         <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+        <input type="hidden" name="return_cat" value="<?= h($returnCat) ?>">
 
         <div style="display:flex;gap:12px;margin-bottom:16px;">
             <button type="submit" class="btn">Save Starter</button>
-            <a href="?tab=starters" class="btn btn-secondary">Cancel</a>
+            <a href="?tab=starters&cat=<?= h($returnCat) ?>" class="btn btn-secondary">Cancel</a>
         </div>
 
         <div class="card">
             <h2>Starter Settings</h2>
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" name="label" value="<?= h($editingStarter['label'] ?? '') ?>" required>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <div class="form-group" style="flex:2 1 200px;">
+                    <label>Name</label>
+                    <input type="text" name="label" value="<?= h($editingStarter['label'] ?? '') ?>" required>
+                </div>
+                <div class="form-group" style="flex:1 1 160px;">
+                    <label>Category</label>
+                    <select name="category">
+                        <?php foreach ($cats as $k => $v): ?>
+                        <option value="<?= h($k) ?>"<?= ($editingStarter['category'] ?? '') === $k ? ' selected' : '' ?>><?= h($v) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
             </div>
             <div class="form-group">
                 <label>Description <span style="font-weight:400;color:#888;">(shown in the Add Page picker)</span></label>
@@ -136,7 +180,7 @@ foreach (grouped_block_types() as $gLabel => $gItems) {
 
         <div style="display:flex;gap:12px;margin-top:4px;">
             <button type="submit" class="btn">Save Starter</button>
-            <a href="?tab=starters" class="btn btn-secondary">Cancel</a>
+            <a href="?tab=starters&cat=<?= h($returnCat) ?>" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
 
@@ -145,6 +189,7 @@ foreach (grouped_block_types() as $gLabel => $gItems) {
         <input type="hidden" name="action" value="delete">
         <input type="hidden" name="starter_id" value="<?= h($editingStarterId) ?>">
         <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+        <input type="hidden" name="return_cat" value="<?= h($returnCat) ?>">
         <button type="submit" class="btn btn-danger">Delete This Starter</button>
     </form>
 

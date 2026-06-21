@@ -3948,6 +3948,24 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 .bp-trigger-label { flex: 1; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .bp-trigger-arrow { color: #999; font-size: .65rem; flex-shrink: 0; }
 
+/* ---- Inner tab strip (used in Starters tab + Add Page picker) ---- */
+.inner-tabs { display: flex; flex-wrap: wrap; gap: 4px; }
+.inner-tab {
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: .8rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: #f1f5f9;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+    text-decoration: none;
+    transition: background .15s, color .15s;
+    white-space: nowrap;
+}
+.inner-tab:hover { background: #e0e7ff; color: #3730a3; border-color: #c7d2fe; }
+.inner-tab.active { background: #4f46e5; color: #fff; border-color: #4f46e5; }
+
 /* ---- Starter picker (Add Page form) ---- */
 .starter-picker {
     display: flex;

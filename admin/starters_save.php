@@ -24,38 +24,42 @@ function _str_make_id(string $label, array $starters): string {
 
 // ── add ───────────────────────────────────────────────────────────────────────
 if ($action === 'add') {
-    $label = trim($_POST['label'] ?? '');
-    $desc  = trim($_POST['desc']  ?? '');
+    $label    = trim($_POST['label']    ?? '');
+    $desc     = trim($_POST['desc']     ?? '');
+    $category = trim($_POST['category'] ?? 'universal');
     if ($label === '') {
         header('Location: index.php?tab=starters&msg=error:Starter+name+is+required');
         exit;
     }
     $starters = starters_load();
     $id = _str_make_id($label, $starters);
-    $starters[] = ['id' => $id, 'label' => $label, 'desc' => $desc, 'blocks' => []];
+    $starters[] = ['id' => $id, 'label' => $label, 'desc' => $desc, 'category' => $category, 'blocks' => []];
     if (!starters_save($starters)) {
         header('Location: index.php?tab=starters&msg=error:Could+not+save');
         exit;
     }
-    header('Location: index.php?tab=starters&starter=' . urlencode($id) . '&msg=success:Starter+created');
+    header('Location: index.php?tab=starters&starter=' . urlencode($id) . '&cat=' . urlencode($category) . '&msg=success:Starter+created');
     exit;
 }
 
 // ── save ──────────────────────────────────────────────────────────────────────
 if ($action === 'save') {
-    $id     = trim($_POST['starter_id'] ?? '');
-    $label  = trim($_POST['label']      ?? '');
-    $desc   = trim($_POST['desc']       ?? '');
+    $id        = trim($_POST['starter_id'] ?? '');
+    $label     = trim($_POST['label']      ?? '');
+    $desc      = trim($_POST['desc']       ?? '');
+    $category  = trim($_POST['category']   ?? 'universal');
+    $returnCat = trim($_POST['return_cat'] ?? $category);
     $rawBlocks = $_POST['starter_blocks'] ?? [];
-    $blocks = array_values(array_filter(array_map('trim', (array)$rawBlocks)));
+    $blocks    = array_values(array_filter(array_map('trim', (array)$rawBlocks)));
 
     $starters = starters_load();
     $found = false;
     foreach ($starters as &$s) {
         if ($s['id'] === $id) {
             if ($label !== '') $s['label'] = $label;
-            $s['desc']   = $desc;
-            $s['blocks'] = $blocks;
+            $s['desc']     = $desc;
+            $s['category'] = $category;
+            $s['blocks']   = $blocks;
             $found = true;
             break;
         }
@@ -67,21 +71,22 @@ if ($action === 'save') {
         exit;
     }
     if (!starters_save($starters)) {
-        header('Location: index.php?tab=starters&starter=' . urlencode($id) . '&msg=error:Could+not+save');
+        header('Location: index.php?tab=starters&starter=' . urlencode($id) . '&cat=' . urlencode($returnCat) . '&msg=error:Could+not+save');
         exit;
     }
-    header('Location: index.php?tab=starters&starter=' . urlencode($id) . '&msg=success:Starter+saved');
+    header('Location: index.php?tab=starters&starter=' . urlencode($id) . '&cat=' . urlencode($category) . '&msg=success:Starter+saved');
     exit;
 }
 
 // ── duplicate ─────────────────────────────────────────────────────────────────
 if ($action === 'duplicate') {
-    $id = trim($_POST['starter_id'] ?? '');
-    $starters = starters_load();
-    $source = null;
+    $id        = trim($_POST['starter_id'] ?? '');
+    $returnCat = trim($_POST['return_cat'] ?? 'training');
+    $starters  = starters_load();
+    $source    = null;
     foreach ($starters as $s) { if ($s['id'] === $id) { $source = $s; break; } }
     if (!$source) {
-        header('Location: index.php?tab=starters&msg=error:Starter+not+found');
+        header('Location: index.php?tab=starters&cat=' . urlencode($returnCat) . '&msg=error:Starter+not+found');
         exit;
     }
     $newLabel = $source['label'] . ' (Copy)';
@@ -90,23 +95,24 @@ if ($action === 'duplicate') {
     $copy['id'] = $newId; $copy['label'] = $newLabel;
     $starters[] = $copy;
     if (!starters_save($starters)) {
-        header('Location: index.php?tab=starters&msg=error:Could+not+duplicate');
+        header('Location: index.php?tab=starters&cat=' . urlencode($returnCat) . '&msg=error:Could+not+duplicate');
         exit;
     }
-    header('Location: index.php?tab=starters&starter=' . urlencode($newId) . '&msg=success:Starter+duplicated');
+    header('Location: index.php?tab=starters&starter=' . urlencode($newId) . '&cat=' . urlencode($returnCat) . '&msg=success:Starter+duplicated');
     exit;
 }
 
 // ── delete ────────────────────────────────────────────────────────────────────
 if ($action === 'delete') {
-    $id = trim($_POST['starter_id'] ?? '');
-    $starters = starters_load();
-    $starters = array_values(array_filter($starters, fn($s) => $s['id'] !== $id));
+    $id        = trim($_POST['starter_id'] ?? '');
+    $returnCat = trim($_POST['return_cat'] ?? 'training');
+    $starters  = starters_load();
+    $starters  = array_values(array_filter($starters, fn($s) => $s['id'] !== $id));
     if (!starters_save($starters)) {
-        header('Location: index.php?tab=starters&msg=error:Could+not+delete');
+        header('Location: index.php?tab=starters&cat=' . urlencode($returnCat) . '&msg=error:Could+not+delete');
         exit;
     }
-    header('Location: index.php?tab=starters&msg=success:Starter+deleted');
+    header('Location: index.php?tab=starters&cat=' . urlencode($returnCat) . '&msg=success:Starter+deleted');
     exit;
 }
 

@@ -48,18 +48,38 @@
                     <input type="hidden" name="section" value="page_add">
                     <input type="hidden" name="starter" id="selected_starter" value="">
 
+                    <?php
+                    $spStarters = starters_load();
+                    $spCats     = starter_categories();
+                    $spByCat    = [];
+                    foreach ($spStarters as $s) { $spByCat[$s['category'] ?? 'universal'][] = $s; }
+                    $spFirstCat = array_key_first($spCats);
+                    ?>
                     <div class="form-group">
                         <label>Start from a template</label>
-                        <div class="starter-picker" id="starter-picker">
-                            <?php foreach (starters_load() as $s): ?>
+
+                        <!-- Category tab strip -->
+                        <div class="inner-tabs" style="margin-bottom:10px;" id="sp-tabs">
+                            <?php foreach ($spCats as $k => $v): ?>
+                            <button type="button" class="inner-tab <?= $k === $spFirstCat ? 'active' : '' ?>"
+                                    onclick="spShowCat('<?= h($k) ?>')"><?= h($v) ?></button>
+                            <?php endforeach; ?>
+                        </div>
+
+                        <?php foreach ($spCats as $k => $v): ?>
+                        <div class="starter-picker sp-cat-panel" id="sp-cat-<?= h($k) ?>" style="<?= $k !== $spFirstCat ? 'display:none;' : '' ?>">
+                            <?php foreach ($spByCat[$k] ?? [] as $s): ?>
                             <div class="starter-card" data-starter-id="<?= h($s['id']) ?>"
-                                 onclick="selectStarter(this)"
-                                 title="<?= h($s['desc']) ?>">
+                                 onclick="selectStarter(this)" title="<?= h($s['desc']) ?>">
                                 <div class="starter-card-label"><?= h($s['label']) ?></div>
                                 <div class="starter-card-desc"><?= h($s['desc']) ?></div>
                             </div>
                             <?php endforeach; ?>
+                            <?php if (empty($spByCat[$k])): ?>
+                            <span class="hint">No starters in this category yet.</span>
+                            <?php endif; ?>
                         </div>
+                        <?php endforeach; ?>
                     </div>
 
                     <div class="form-group">
@@ -84,14 +104,25 @@
 
                 <script>
                 function selectStarter(card) {
-                    document.querySelectorAll('#starter-picker .starter-card').forEach(c => c.classList.remove('is-selected'));
+                    document.querySelectorAll('.starter-card').forEach(c => c.classList.remove('is-selected'));
                     card.classList.add('is-selected');
                     document.getElementById('selected_starter').value = card.dataset.starterId;
                 }
-                // Auto-select "blank" if present
+                function spShowCat(cat) {
+                    document.querySelectorAll('.sp-cat-panel').forEach(p => p.style.display = 'none');
+                    document.querySelectorAll('#sp-tabs .inner-tab').forEach(t => t.classList.remove('active'));
+                    const panel = document.getElementById('sp-cat-' + cat);
+                    if (panel) panel.style.display = '';
+                    const btn = document.querySelector('#sp-tabs .inner-tab[onclick*="\'' + cat + '\'"]');
+                    if (btn) btn.classList.add('active');
+                    // auto-select first card in this panel
+                    const first = panel && panel.querySelector('.starter-card');
+                    if (first) selectStarter(first);
+                }
+                // Auto-select first card in first category on load
                 (function() {
-                    const blank = document.querySelector('#starter-picker .starter-card[data-starter-id="blank"]');
-                    if (blank) selectStarter(blank);
+                    const first = document.querySelector('.sp-cat-panel:not([style*="none"]) .starter-card');
+                    if (first) selectStarter(first);
                 })();
                 </script>
             </div>
