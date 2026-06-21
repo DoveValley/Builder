@@ -8,8 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Resolve the return path — must be a relative URL on this server
+// Strip query string and fragment; block backslash second char (browser normalises /\host → //host)
 $rawReturn  = trim($_POST['return_url'] ?? '/');
-$returnPath = preg_match('#^/[^/]#', $rawReturn) ? strtok($rawReturn, '?') : '/';
+$_noFrag    = explode('#', $rawReturn, 2)[0];
+$_noQuery   = explode('?', $_noFrag, 2)[0];
+$returnPath = preg_match('#^/[^/\\\\]#', $rawReturn) ? $_noQuery : '/';
+unset($_noFrag, $_noQuery);
 
 function cf_redirect(string $path, string $msg): void {
     header('Location: ' . $path . '?cf_msg=' . $msg);
@@ -25,7 +29,7 @@ if (!hash_equals($_SESSION['cf_csrf_token'] ?? '', $token)) {
 $_SESSION['cf_csrf_token'] = bin2hex(random_bytes(32));
 
 // Honeypot — bots fill this, humans don't
-if ($_POST['cf_hp'] ?? '' !== '') {
+if (($_POST['cf_hp'] ?? '') !== '') {
     cf_redirect($returnPath, 'success'); // silent discard
 }
 
@@ -57,8 +61,16 @@ $email   = substr(strip_tags($email),   0, 200);
 $phone   = substr(strip_tags($phone),   0, 50);
 $message = substr(strip_tags($message), 0, 5000);
 
-$to      = defined('CONTACT_EMAIL') ? CONTACT_EMAIL : '';
-$subject = 'New inquiry from ' . $name;
+$to = defined('CONTACT_EMAIL') && CONTACT_EMAIL !== '' ? CONTACT_EMAIL : '';
+if ($to === '') {
+    cf_redirect($returnPath, 'error');
+}
+
+// Strip CR/LF from any value that will go into a mail header (prevents header injection)
+$safeName  = str_replace(["\r", "\n"], '', $name);
+$safeEmail = str_replace(["\r", "\n"], '', $email);
+
+$subject = 'New inquiry from ' . $safeName;
 $body    = "Name: $name\nEmail: $email\n";
 if ($phone !== '') $body .= "Phone: $phone\n";
 $body   .= "\nMessage:\n$message\n";
@@ -66,13 +78,13 @@ $body   .= "\nMessage:\n$message\n";
 $host    = preg_replace('/[^a-z0-9.\-]/i', '', $_SERVER['HTTP_HOST'] ?? 'localhost');
 $headers = implode("\r\n", [
     'From: noreply@' . $host,
-    'Reply-To: ' . $email,
+    'Reply-To: ' . $safeEmail,
     'Content-Type: text/plain; charset=UTF-8',
     'X-Mailer: PHP/' . PHP_VERSION,
 ]);
 
-if ($to !== '') {
-    mail($to, $subject, $body, $headers);
+if (!mail($to, $subject, $body, $headers)) {
+    cf_redirect($returnPath, 'error');
 }
 
 cf_redirect($returnPath, 'success');

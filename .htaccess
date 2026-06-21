@@ -26,6 +26,8 @@
     RewriteRule ^sites/[^/]+/deploy_manifest\.json$ - [F,L]
     # Block directory listing of sites/ root
     RewriteRule ^sites/?$ - [F,L]
+    # Block root-level data/ directory (media.json, variation.json, site.json, etc.)
+    RewriteRule ^data(/.*)?$ - [F,L]
 
     # Serve sitemap.xml and robots.txt via PHP so shortcodes resolve automatically
     RewriteRule ^sitemap\.xml$ sitemap.php [L]

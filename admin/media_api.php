@@ -26,8 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-define('MEDIA_DIR',  BASE_DIR . '/uploads/media/');
-define('MEDIA_JSON', BASE_DIR . '/data/media.json');
+// Use per-site paths when a site is active; fall back to root-level for single-site installs
+$_mediaSiteRoot = (ACTIVE_SITE_DIR !== '' ? ACTIVE_SITE_DIR : BASE_DIR);
+define('MEDIA_DIR',  $_mediaSiteRoot . '/uploads/media/');
+define('MEDIA_JSON', $_mediaSiteRoot . '/data/media.json');
+unset($_mediaSiteRoot);
 define('MAX_WIDTH',  1800);
 
 header('Content-Type: application/json');
@@ -39,7 +42,13 @@ function media_load(): array {
 }
 
 function media_save(array $items): void {
-    file_put_contents(MEDIA_JSON, json_encode(array_values($items), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    $json = json_encode(array_values($items), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    $tmp  = MEDIA_JSON . '.tmp.' . getmypid();
+    if (file_put_contents($tmp, $json) !== false) {
+        rename($tmp, MEDIA_JSON);
+    } else {
+        @unlink($tmp);
+    }
 }
 
 function img_optimize(string $tmp, string $dest, string $mime): bool {
@@ -301,10 +310,14 @@ if ($action === 'vary_batch') {
     unset($item);
     media_save($items);
 
-    file_put_contents(
-        BASE_DIR . '/data/variation.json',
-        json_encode(['seed' => $seed, 'applied_at' => date('Y-m-d H:i:s'), 'count' => $varied], JSON_PRETTY_PRINT)
-    );
+    $varJson = json_encode(['seed' => $seed, 'applied_at' => date('Y-m-d H:i:s'), 'count' => $varied], JSON_PRETTY_PRINT);
+    $varFile = (ACTIVE_SITE_DIR !== '' ? ACTIVE_SITE_DIR : BASE_DIR) . '/data/variation.json';
+    $varTmp  = $varFile . '.tmp.' . getmypid();
+    if (file_put_contents($varTmp, $varJson) !== false) {
+        rename($varTmp, $varFile);
+    } else {
+        @unlink($varTmp);
+    }
 
     echo json_encode(['success' => true, 'varied' => $varied, 'skipped' => $skipped, 'failed' => $failed]);
     exit;

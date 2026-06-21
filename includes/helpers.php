@@ -12,28 +12,58 @@ function sanitize_url(string $raw): string {
 }
 
 /**
- * Strip executable content from an uploaded SVG before saving it: <script> tags,
- * on*="..." event handlers, and javascript: URIs. Returns false if the file
- * doesn't parse as valid XML (rejects it rather than saving something unverified).
+ * Strip executable content from an uploaded SVG before saving it. Returns false
+ * if the file doesn't parse as valid XML (rejects rather than saving unverified).
+ *
+ * Removes: <script>, <use>, <image>, <foreignObject>, <animate>, <set>, <animateTransform>
+ * Removes: on* handlers, href/xlink:href/src with javascript:/data:/vbscript:,
+ *          style attributes containing url(javascript:), expression()
+ * Does NOT use LIBXML_NOENT (avoids XXE via SYSTEM entity expansion).
  */
 function sanitize_svg(string $svg): string|false {
     libxml_use_internal_errors(true);
     $doc = new DOMDocument();
-    $ok  = $doc->loadXML($svg, LIBXML_NONET | LIBXML_NOENT);
+    $ok  = $doc->loadXML($svg, LIBXML_NONET);
     libxml_clear_errors();
     if (!$ok) return false;
 
     $xpath = new DOMXPath($doc);
-    foreach ($xpath->query('//*[translate(local-name(),"SCRIPT","script")="script"]') as $node) {
-        $node->parentNode->removeChild($node);
-    }
-    foreach ($xpath->query('//@*') as $attr) {
-        $name = strtolower($attr->nodeName);
-        $value = trim($attr->nodeValue);
-        if (str_starts_with($name, 'on') || stripos($value, 'javascript:') === 0) {
-            $attr->ownerElement->removeAttribute($attr->nodeName);
+
+    // Collect dangerous elements first to avoid modifying the tree while iterating
+    $dangerousTags = ['script', 'use', 'image', 'foreignobject', 'animate',
+                      'set', 'animatetransform', 'animatemotion', 'discard', 'handler'];
+    $toRemove = [];
+    foreach ($xpath->query('//*') as $node) {
+        if (in_array(strtolower($node->localName ?? ''), $dangerousTags, true)) {
+            $toRemove[] = $node;
         }
     }
+    foreach ($toRemove as $node) {
+        if ($node->parentNode) $node->parentNode->removeChild($node);
+    }
+
+    // Collect dangerous attributes before removing them
+    $hrefAttrs   = ['href', 'xlink:href', 'src', 'action'];
+    $dangerScheme = '/^\s*(javascript|data|vbscript)\s*:/i';
+    $toRemoveAttrs = [];
+    foreach ($xpath->query('//@*') as $attr) {
+        $name  = strtolower($attr->nodeName);
+        $value = trim($attr->nodeValue);
+        $remove = false;
+        if (str_starts_with($name, 'on')) {
+            $remove = true;
+        } elseif (in_array($name, $hrefAttrs, true)) {
+            if (preg_match($dangerScheme, $value)) $remove = true;
+        } elseif ($name === 'style') {
+            if (preg_match('/url\s*\(\s*["\']?\s*(javascript|data|vbscript)\s*:/i', $value)) $remove = true;
+            if (stripos($value, 'expression(') !== false) $remove = true;
+        }
+        if ($remove) $toRemoveAttrs[] = $attr;
+    }
+    foreach ($toRemoveAttrs as $attr) {
+        $attr->ownerElement->removeAttribute($attr->nodeName);
+    }
+
     return $doc->saveXML();
 }
 
