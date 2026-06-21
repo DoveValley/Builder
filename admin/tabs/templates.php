@@ -77,6 +77,16 @@
         <a href="?tab=templates">&larr; Back to all templates</a>
     </p>
 
+    <?php
+    // Find first generated page for this template to enable a preview link
+    $tplPreviewSlug = '';
+    if (defined('PAGES_DIR') && is_dir(PAGES_DIR)) {
+        foreach (glob(PAGES_DIR . $editingTemplateId . '_*.json') ?: [] as $pf) {
+            $pd = json_decode(file_get_contents($pf), true);
+            if (!empty($pd['slug'])) { $tplPreviewSlug = $pd['slug']; break; }
+        }
+    }
+    ?>
     <form action="templates_save.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="action" value="save">
         <input type="hidden" name="template_id" value="<?= h($editingTemplateId) ?>">
@@ -84,6 +94,10 @@
 
         <div style="margin-bottom:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
             <button type="submit" class="btn">Save Template</button>
+            <?php if ($tplPreviewSlug): ?>
+            <a href="../page.php?slug=<?= h($tplPreviewSlug) ?>&show_blocks=1" target="_blank" class="btn btn-secondary">Preview Blocks &rarr;</a>
+            <a href="../page.php?slug=<?= h($tplPreviewSlug) ?>" target="_blank" class="btn btn-secondary">Preview Page &rarr;</a>
+            <?php endif; ?>
         </div>
 
         <!-- Template settings -->
@@ -121,6 +135,10 @@
 
         <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:16px;">
             <button type="submit" class="btn">Save Template</button>
+            <?php if ($tplPreviewSlug): ?>
+            <a href="../page.php?slug=<?= h($tplPreviewSlug) ?>&show_blocks=1" target="_blank" class="btn btn-secondary">Preview Blocks &rarr;</a>
+            <a href="../page.php?slug=<?= h($tplPreviewSlug) ?>" target="_blank" class="btn btn-secondary">Preview Page &rarr;</a>
+            <?php endif; ?>
         </div>
     </form>
 
