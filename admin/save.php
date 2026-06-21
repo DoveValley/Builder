@@ -45,6 +45,11 @@ switch ($section) {
         require __DIR__ . '/save/page_add.php';
         break;
 
+    /* ---- PAGE CLONE ---- */
+    case 'page_clone':
+        require __DIR__ . '/save/page_clone.php';
+        break;
+
     /* ---- PAGE DELETE ---- */
     case 'page_delete':
         require __DIR__ . '/save/page_delete.php';

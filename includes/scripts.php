@@ -43,6 +43,17 @@ function content_editor_scripts() {
         if (moved) btn.closest('form').submit();
     }
 
+    /* Clone a block — deep-copies the block accordion and inserts it below */
+    function cloneBlock(e, btn) {
+        e.stopPropagation();
+        const card  = btn.closest('.block-card');
+        if (!card) return;
+        const clone = card.cloneNode(true);
+        clone.open  = true;
+        card.parentElement.insertBefore(clone, card.nextSibling);
+        clone.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
     /* Remove a block */
     function removeBlock(e, btn) {
         e.stopPropagation();
@@ -158,6 +169,7 @@ function content_editor_scripts() {
                 <div class="block-actions">
                     <button type="button" class="icon-btn" onclick="moveBlock(event,this,-1)">&uarr;</button>
                     <button type="button" class="icon-btn" onclick="moveBlock(event,this,1)">&darr;</button>
+                    <button type="button" class="icon-btn" onclick="cloneBlock(event,this)" title="Clone block">Clone</button>
                     <button type="button" class="icon-btn remove-row" onclick="removeBlock(event,this)">Remove</button>
                 </div>
             </summary>

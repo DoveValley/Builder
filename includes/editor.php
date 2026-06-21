@@ -83,8 +83,9 @@ function render_content_blocks_editor($blocks) {
                            title="Anchor ID — use in menu links as #pest_services"
                            style="flex:1 1 160px;max-width:200px;font-size:0.82rem;padding:6px 10px;">
                     <div class="block-actions">
-                        <button type="button" class="icon-btn" onclick="moveBlock(event,this,-1)" title="Move up">&uarr;</button>
-                        <button type="button" class="icon-btn" onclick="moveBlock(event,this,1)"  title="Move down">&darr;</button>
+                        <button type="button" class="icon-btn" onclick="moveBlock(event,this,-1)"  title="Move up">&uarr;</button>
+                        <button type="button" class="icon-btn" onclick="moveBlock(event,this,1)"   title="Move down">&darr;</button>
+                        <button type="button" class="icon-btn" onclick="cloneBlock(event,this)"    title="Clone block">Clone</button>
                         <button type="button" class="icon-btn remove-row" onclick="removeBlock(event,this)" title="Remove">Remove</button>
                     </div>
                 </summary>

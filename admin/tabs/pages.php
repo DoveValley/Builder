@@ -107,6 +107,12 @@
                     echo '<div style="flex:1;"><strong>' . h($p['title'] !== '' ? $p['title'] : '(untitled)') . '</strong><br>';
                     echo '<span class="hint">/' . h($p['slug']) . ' &mdash; <a href="../page.php?slug=' . h($p['slug']) . '" target="_blank" rel="noopener">preview</a></span></div>';
                     echo '<a class="btn btn-secondary btn-small" href="?tab=pages&page=' . h($pid) . '">Edit</a>';
+                    echo '<form action="save.php" method="post" style="display:inline;">';
+                    echo '<input type="hidden" name="section" value="page_clone">';
+                    echo '<input type="hidden" name="page_id" value="' . h($pid) . '">';
+                    echo '<input type="hidden" name="csrf_token" value="' . h($csrfToken) . '">';
+                    echo '<button type="submit" class="btn btn-secondary btn-small" title="Clone this page">Clone</button>';
+                    echo '</form>';
                     if ($showPromote) {
                         echo '<a class="btn btn-secondary btn-small" href="?tab=pages&page=' . h($pid) . '&action=promote" title="Copy this page into Templates for multi-city generation">&rarr; Template</a>';
                     }
