@@ -2131,20 +2131,26 @@ function render_content_blocks_editor($blocks) {
         <div class="bp-overlay" onclick="closeBlockPicker()"></div>
         <div class="bp-panel">
             <button type="button" class="bp-close" onclick="closeBlockPicker()" aria-label="Close">&times;</button>
-            <h3 style="margin:0 0 18px;font-size:1.1rem;">Choose a block type</h3>
-            <?php foreach (grouped_block_types() as $gLabel => $gItems): ?>
+            <h3 style="margin:0 0 10px;font-size:1.1rem;">Choose a block type</h3>
+            <input type="search" id="bp-search" class="bp-search" placeholder="Filter blocks…" autocomplete="off" oninput="filterBlockPicker(this.value)">
+            <?php
+            $descs = block_descriptions();
+            foreach (grouped_block_types() as $gLabel => $gItems):
+            ?>
             <div class="bp-group">
                 <div class="bp-group-label"><?= h($gLabel) ?></div>
                 <div class="bp-grid">
                     <?php foreach ($gItems as $bKey => $bLabel):
-                        $svg = $thumbs[$bKey] ?? $thumbs['text'];
+                        $svg  = $thumbs[$bKey] ?? $thumbs['text'];
+                        $desc = $descs[$bKey] ?? '';
                     ?>
-                    <div class="bp-card" data-type="<?= h($bKey) ?>"
+                    <div class="bp-card" data-type="<?= h($bKey) ?>" data-name="<?= h(strtolower($bLabel)) ?>" data-desc="<?= h(strtolower($desc)) ?>"
                          onclick="selectBlockType('<?= h($bKey) ?>')"
                          onkeydown="if(event.key==='Enter'||event.key===' ')selectBlockType('<?= h($bKey) ?>')"
                          role="button" tabindex="0">
                         <span class="bp-card-thumb"><?= $svg ?></span>
                         <div class="bp-card-name"><?= h($bLabel) ?></div>
+                        <?php if ($desc): ?><div class="bp-card-desc"><?= h($desc) ?></div><?php endif; ?>
                     </div>
                     <?php endforeach; ?>
                 </div>

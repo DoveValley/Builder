@@ -65,12 +65,14 @@ function content_editor_scripts() {
         _bpNewBlock     = false;
         _highlightPicker(_bpTargetSelect ? _bpTargetSelect.value : null);
         document.getElementById('block-picker-modal').classList.add('is-open');
+        setTimeout(() => { const s = document.getElementById('bp-search'); if (s) s.focus(); }, 50);
     }
 
     function _openPickerForNew() {
         _bpTargetSelect = null; _bpTargetCard = null; _bpNewBlock = true;
         _highlightPicker(null);
         document.getElementById('block-picker-modal').classList.add('is-open');
+        setTimeout(() => { const s = document.getElementById('bp-search'); if (s) s.focus(); }, 50);
     }
 
     function _highlightPicker(currentType) {
@@ -97,6 +99,21 @@ function content_editor_scripts() {
     function closeBlockPicker() {
         document.getElementById('block-picker-modal').classList.remove('is-open');
         _bpTargetSelect = null; _bpTargetCard = null; _bpNewBlock = false;
+        const s = document.getElementById('bp-search');
+        if (s) { s.value = ''; filterBlockPicker(''); }
+    }
+
+    function filterBlockPicker(q) {
+        q = q.trim().toLowerCase();
+        document.querySelectorAll('#block-picker-modal .bp-group').forEach(group => {
+            let any = false;
+            group.querySelectorAll('.bp-card').forEach(card => {
+                const match = !q || card.dataset.name.includes(q) || card.dataset.desc.includes(q) || card.dataset.type.includes(q);
+                card.style.display = match ? '' : 'none';
+                if (match) any = true;
+            });
+            group.style.display = any ? '' : 'none';
+        });
     }
 
     /* Add a new blank block — opens the picker first */

@@ -137,6 +137,43 @@ function grouped_block_types(): array {
     ];
 }
 
+function block_descriptions(): array {
+    return [
+        'hero'             => 'Full-width headline, subtext & CTA over a background image',
+        'hero_split'       => 'Large headline on left, photo on right, with CTA button',
+        'hero_grid'        => 'Headline left + icon grid right + background image',
+        'wide_banner'      => 'Edge-to-edge image with text overlay',
+        'text'             => 'Rich text — paragraphs, headings & inline formatting',
+        'image_right'      => 'Photo beside a text block; choose left or right side',
+        'video'            => 'YouTube or Vimeo embed with optional caption',
+        'custom_html'      => 'Paste raw HTML for full control over markup',
+        'feature_split'    => 'Large image left, icon + text feature list right',
+        'feature_columns'  => '3–4 column icon + headline + text layout',
+        'service_cards'    => 'Grid of cards with icon, title & short description',
+        'tab_services'     => 'Tabbed panel — one tab per service or topic',
+        'steps'            => 'Numbered step-by-step process list',
+        'stats'            => 'Big-number stat counters in a row',
+        'image_features'   => 'Photo with a checkmark feature list alongside',
+        'pricing_cards'    => 'Side-by-side pricing or course offering cards',
+        'stage_cards'      => 'Sequential stage or career path cards',
+        'comparison_table' => 'Feature comparison table across two or more plans',
+        'testimonials'     => 'Review cards with quote, name & avatar',
+        'team'             => 'Grid of team members with photo, title & bio',
+        'logo_bar'         => 'Horizontal row of trust or partner logos',
+        'cards'            => 'Generic cards grid with image, heading & text',
+        'gallery'          => 'Grid photo gallery with lightbox',
+        'faq_two_col'      => 'Accordion FAQ laid out in two columns',
+        'links_grid'       => 'Grid of text links — useful for city landing pages',
+        'cta_banner'       => 'Solid color strip with headline & button',
+        'cta_card'         => 'Centered card with headline, text & button',
+        'split_cta'        => 'Two-column CTA: text left, button or form right',
+        'email_banner'     => 'Email capture strip with input & submit button',
+        'cta_button'       => 'Single centered button link',
+        'map_info'         => 'Embedded map with address & contact details',
+        'contact_form'     => 'Name / email / message form with spam protection',
+    ];
+}
+
 function block_thumbnails(): array {
     return [
         'hero'            => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#1e3a5f" rx="3"/><rect x="25" y="17" width="70" height="8" rx="2" fill="#fff" opacity=".85"/><rect x="35" y="29" width="50" height="5" rx="2" fill="#fff" opacity=".45"/><rect x="40" y="40" width="40" height="11" rx="3" fill="#fd783b"/></svg>',
