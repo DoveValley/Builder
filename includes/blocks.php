@@ -346,6 +346,7 @@ function render_content_block($block, $pathPrefix = '') {
             $starText    = $block['fs_star_text']  ?? '';
             $bgColor     = $block['fs_bg_color']   ?? '#f3f6f7';
             $accentColor = $block['fs_accent']     ?? '#fd783b';
+            if ($accentColor === 'highlight') $accentColor = 'var(--color-highlight)';
             $items       = $block['fs_items']      ?? [];
             $imgSide     = $block['fs_image_side']   ?? 'right';
             $fsMobOrder  = $block['fs_mobile_order'] ?? '';
@@ -1324,6 +1325,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $featured   = !empty($card['featured']);
                 $badge      = $card['badge']       ?? '';
                 $badgeColor = $card['badge_color'] ?? '';
+                if ($badgeColor === 'highlight') $badgeColor = 'var(--color-highlight)';
                 $innerBadge = $card['inner_badge'] ?? '';
                 $sublabel   = $card['sublabel']    ?? '';
                 $name       = $card['name']        ?? '';
@@ -1503,6 +1505,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $location    = $item['location']     ?? '';
                 $initials    = strtoupper(substr(trim($item['initials'] ?? ''), 0, 2));
                 $avatarColor = $item['avatar_color'] ?? '#2563eb';
+                if ($avatarColor === 'highlight') $avatarColor = 'var(--color-highlight)';
                 $resultBadge = trim($item['result_badge'] ?? '');
                 if (!$quote && !$name) continue;
                 echo '<div class="tm-card">';
