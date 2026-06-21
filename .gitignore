@@ -11,3 +11,7 @@ output/
 # Per-site deploy credentials — never committed
 sites/*/deploy.json
 sites/*/deploy_manifest.json
+
+# City page generator backups
+sites/*/data/pages/*.bak
+data/pages/*.bak
