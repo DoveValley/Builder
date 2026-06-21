@@ -1525,67 +1525,8 @@
           ]
         },
         {
-          "type": "cards",
-          "cards_label": "",
-          "cards_heading": "The Full 4-Day PMP Certification Curriculum",
-          "cards_subhead": "Every topic on the PMI Exam Content Outline — covered across 4 focused days.",
-          "cards_subtext": "",
-          "cards_cols": 4,
-          "cards_bg": "#ffffff",
-          "cards_card_bg": "#f8fafc",
-          "cards_text_color": "#374151",
-          "cards_head_color": "header",
-          "cards_head_color_custom": "#0d1f3c",
-          "cards_item_head_color": "header",
-          "cards_item_head_color_custom": "#0d1f3c",
-          "cards_accent": "accent",
-          "cards_accent_custom": "",
-          "cards_border": "#e5e7eb",
-          "cards_badge_accent": "",
-          "cards_badge_accent_custom": "",
-          "cards_centered": false,
-          "cards_items": [
-            {
-              "icon": "",
-              "image": "",
-              "alt": "",
-              "heading": "Day 1 — Monday",
-              "text": "People Domain: PMP exam format, PMI mindset, team leadership, conflict resolution, Agile principles.",
-              "badge": "Exam Strategy\nPMI Mindset\nTeam Leadership\nAgile Principles\n60-Question Quiz",
-              "link": "",
-              "btn_text": ""
-            },
-            {
-              "icon": "",
-              "image": "",
-              "alt": "",
-              "heading": "Day 2 — Tuesday",
-              "text": "Process Domain: Predictive lifecycle, scope, schedule, cost, risk, quality, procurement, hybrid methods.",
-              "badge": "Scope & Schedule\nCost Management\nRisk Planning\nHybrid Methods\n60-Question Quiz",
-              "link": "",
-              "btn_text": ""
-            },
-            {
-              "icon": "",
-              "image": "",
-              "alt": "",
-              "heading": "Day 3 — Wednesday",
-              "text": "Business Environment + Agile: Strategy, benefits realization, change management, Scrum, Kanban, SAFe.",
-              "badge": "Org Strategy\nChange Management\nScrum & Kanban\nSAFe Framework\n60-Question Quiz",
-              "link": "",
-              "btn_text": ""
-            },
-            {
-              "icon": "",
-              "image": "",
-              "alt": "",
-              "heading": "Day 4 — Thursday",
-              "text": "Exam Simulation: Full 180-question mock exam, scored results by domain, Q&A, certificate issued.",
-              "badge": "180-Question Exam\nDomain Scoring\nExam Strategy\nLive Q&A\nCertificate Issued",
-              "link": "",
-              "btn_text": ""
-            }
-          ]
+          "type": "custom_html",
+          "html": "<div class=\"content-block\" style=\"padding:0;margin:0;display:block;\">\n  <div style=\"background:#0d1f3c;padding:64px 24px;\">\n    <div style=\"max-width:1140px;margin:0 auto;\">\n\n      <div style=\"margin-bottom:40px;\">\n        <p style=\"color:#f5a623;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 8px;\">The 4-Day Format</p>\n        <h2 style=\"color:#fff;font-size:2.5rem;font-weight:800;line-height:1.2;margin:0 0 16px;\"><span style=\"color:#f5a623;\">4 Days.</span> Mon&ndash;Thu, Fully Live</h2>\n        <p style=\"color:#94a3b8;font-size:1rem;line-height:1.6;margin:0;max-width:800px;\">Each day is purpose-built around the PMI exam domains. You arrive as a candidate &mdash; you leave exam-ready. 100% live online &mdash; join from anywhere.</p>\n      </div>\n\n      <div style=\"display:grid;grid-template-columns:repeat(4,1fr);gap:20px;\">\n\n        <div style=\"border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:28px 24px;\">\n          <div style=\"color:#f5a623;font-size:2rem;font-weight:800;line-height:1;margin-bottom:12px;\">01</div>\n          <span style=\"display:inline-block;background:#f5a623;color:#0d1f3c;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:4px;margin-bottom:14px;\">Monday</span>\n          <h3 style=\"color:#fff;font-size:1rem;font-weight:700;margin:0 0 16px;\">Foundation &amp; People</h3>\n          <div style=\"color:#94a3b8;font-size:0.9rem;line-height:1.5;\">\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">PMP exam format &amp; strategy</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">PMI mindset &amp; Agile principles</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Team leadership domain</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Stakeholder engagement</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Quiz: 60 questions</div>\n          </div>\n        </div>\n\n        <div style=\"border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:28px 24px;\">\n          <div style=\"color:#f5a623;font-size:2rem;font-weight:800;line-height:1;margin-bottom:12px;\">02</div>\n          <span style=\"display:inline-block;background:#f5a623;color:#0d1f3c;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:4px;margin-bottom:14px;\">Tuesday</span>\n          <h3 style=\"color:#fff;font-size:1rem;font-weight:700;margin:0 0 16px;\">Process &amp; Delivery</h3>\n          <div style=\"color:#94a3b8;font-size:0.9rem;line-height:1.5;\">\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Predictive project lifecycle</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Scope, schedule, cost</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Risk &amp; quality management</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Hybrid delivery methods</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Quiz: 60 questions</div>\n          </div>\n        </div>\n\n        <div style=\"border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:28px 24px;\">\n          <div style=\"color:#f5a623;font-size:2rem;font-weight:800;line-height:1;margin-bottom:12px;\">03</div>\n          <span style=\"display:inline-block;background:#f5a623;color:#0d1f3c;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:4px;margin-bottom:14px;\">Wednesday</span>\n          <h3 style=\"color:#fff;font-size:1rem;font-weight:700;margin:0 0 16px;\">Business &amp; Agile</h3>\n          <div style=\"color:#94a3b8;font-size:0.9rem;line-height:1.5;\">\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Business environment domain</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Benefits realization</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Agile / Scrum deep dive</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Change management</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Quiz: 60 questions</div>\n          </div>\n        </div>\n\n        <div style=\"border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:28px 24px;\">\n          <div style=\"color:#f5a623;font-size:2rem;font-weight:800;line-height:1;margin-bottom:12px;\">04</div>\n          <span style=\"display:inline-block;background:#f5a623;color:#0d1f3c;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:4px;margin-bottom:14px;\">Thursday</span>\n          <h3 style=\"color:#fff;font-size:1rem;font-weight:700;margin:0 0 16px;\">Exam Day Prep</h3>\n          <div style=\"color:#94a3b8;font-size:0.9rem;line-height:1.5;\">\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Full 180-question mock exam</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Timed exam simulation</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Question dissection strategy</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Last-minute review</div>\n            <div style=\"padding:8px 0;border-bottom:1px solid #2563eb;\">Live Q&amp;A with instructor</div>\n          </div>\n        </div>\n\n      </div>\n    </div>\n  </div>\n</div>"
         },
         {
           "type": "feature_columns",
