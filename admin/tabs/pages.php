@@ -46,6 +46,22 @@
                 </p>
                 <form action="save.php" method="post">
                     <input type="hidden" name="section" value="page_add">
+                    <input type="hidden" name="starter" id="selected_starter" value="">
+
+                    <div class="form-group">
+                        <label>Start from a template</label>
+                        <div class="starter-picker" id="starter-picker">
+                            <?php foreach (starters_load() as $s): ?>
+                            <div class="starter-card" data-starter-id="<?= h($s['id']) ?>"
+                                 onclick="selectStarter(this)"
+                                 title="<?= h($s['desc']) ?>">
+                                <div class="starter-card-label"><?= h($s['label']) ?></div>
+                                <div class="starter-card-desc"><?= h($s['desc']) ?></div>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="new_page_title">Page title</label>
                         <input type="text" id="new_page_title" name="title" placeholder="e.g. About Us" required>
@@ -65,6 +81,19 @@
                     </div>
                     <button type="submit" class="btn">Add Page</button>
                 </form>
+
+                <script>
+                function selectStarter(card) {
+                    document.querySelectorAll('#starter-picker .starter-card').forEach(c => c.classList.remove('is-selected'));
+                    card.classList.add('is-selected');
+                    document.getElementById('selected_starter').value = card.dataset.starterId;
+                }
+                // Auto-select "blank" if present
+                (function() {
+                    const blank = document.querySelector('#starter-picker .starter-card[data-starter-id="blank"]');
+                    if (blank) selectStarter(blank);
+                })();
+                </script>
             </div>
 
             <?php

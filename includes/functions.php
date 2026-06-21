@@ -5,6 +5,7 @@
  */
 
 require_once __DIR__ . '/data.php';
+require_once __DIR__ . '/page_starters.php';
 require_once __DIR__ . '/shortcodes.php';
 require_once __DIR__ . '/helpers.php';
 require_once __DIR__ . '/theme.php';

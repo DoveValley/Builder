@@ -42,7 +42,7 @@ $blogSettings = $data['blog_settings'];
 
 // Active tab
 $tab = $_GET['tab'] ?? 'header';
-if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy'], true)) {
+if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters'], true)) {
     $tab = 'header';
 }
 // Redirect legacy tab links into the Plugins tab.
@@ -82,6 +82,19 @@ if ($tab === 'templates' && !empty($_GET['template'])) {
         if ($tpl['id'] === $_GET['template']) {
             $editingTemplateId = $tpl['id'];
             $editingTemplate   = $tpl;
+            break;
+        }
+    }
+}
+
+// Page starters editing state
+$editingStarterId = null;
+$editingStarter   = null;
+if ($tab === 'starters' && !empty($_GET['starter'])) {
+    foreach (starters_load() as $s) {
+        if ($s['id'] === $_GET['starter']) {
+            $editingStarterId = $s['id'];
+            $editingStarter   = $s;
             break;
         }
     }
@@ -239,6 +252,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <span style="flex-basis:100%;height:0;border-top:1px solid #e5e7eb;margin:0 -4px;"></span>
         <a class="tab-link <?= $tab === 'content' ? 'active' : '' ?>" href="?tab=content">Home Page</a>
         <a class="tab-link <?= $tab === 'pages' ? 'active' : '' ?>" href="?tab=pages">Core/Temp Pages</a>
+        <a class="tab-link <?= $tab === 'starters' ? 'active' : '' ?>" href="?tab=starters">Page Starters</a>
         <a class="tab-link <?= $tab === 'templates' ? 'active' : '' ?>" href="?tab=templates">Landing Templates</a>
         <a class="tab-link <?= $tab === 'cities' ? 'active' : '' ?>" href="?tab=cities">Landing Cities</a>
         <a class="tab-link <?= $tab === 'citypages' ? 'active' : '' ?>" href="?tab=citypages">Landing City Pages</a>
@@ -257,6 +271,9 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- ================= PAGES TAB ================= -->
     <?php require __DIR__ . '/tabs/pages.php'; ?>
+
+    <!-- ================= PAGE STARTERS TAB ================= -->
+    <?php require __DIR__ . '/tabs/starters.php'; ?>
 
     <!-- ================= TEMPLATES TAB ================= -->
     <?php require __DIR__ . '/tabs/templates.php'; ?>

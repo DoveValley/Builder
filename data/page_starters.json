@@ -1,0 +1,72 @@
+[
+    {
+        "id": "service",
+        "label": "Service page",
+        "desc": "Hero · Features · Pricing · FAQ · CTA",
+        "blocks": [
+            "hero_split",
+            "feature_columns",
+            "pricing_cards",
+            "faq_two_col",
+            "cta_banner"
+        ]
+    },
+    {
+        "id": "about",
+        "label": "About page",
+        "desc": "Hero · Stats · Team · Testimonials · CTA",
+        "blocks": [
+            "hero",
+            "stats",
+            "team",
+            "testimonials",
+            "cta_banner"
+        ]
+    },
+    {
+        "id": "landing",
+        "label": "Landing page",
+        "desc": "Hero · Feature split · Service cards · CTA",
+        "blocks": [
+            "hero_split",
+            "feature_split",
+            "service_cards",
+            "cta_banner"
+        ]
+    },
+    {
+        "id": "city",
+        "label": "City landing page",
+        "desc": "Hero · Features · Links grid · CTA",
+        "blocks": [
+            "hero_split",
+            "feature_columns",
+            "links_grid",
+            "cta_banner"
+        ]
+    },
+    {
+        "id": "contact",
+        "label": "Contact page",
+        "desc": "Hero · Map & info · Contact form",
+        "blocks": [
+            "hero",
+            "map_info",
+            "contact_form"
+        ]
+    },
+    {
+        "id": "legal",
+        "label": "Legal / policy page",
+        "desc": "Text only",
+        "blocks": [
+            "text"
+        ]
+    },
+    {
+        "id": "blank",
+        "label": "Blank page",
+        "desc": "Start with no blocks",
+        "blocks": []
+    }
+]

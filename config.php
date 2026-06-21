@@ -62,3 +62,6 @@ if ($_activeSiteId
     define('GEN_LOG_FILE',     BASE_DIR . '/data/generation_log.json');
 }
 unset($_activeSiteId);
+
+// Page starters are global (shared across all sites)
+define('STARTERS_FILE', BASE_DIR . '/data/page_starters.json');
