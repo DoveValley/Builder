@@ -21,7 +21,7 @@ function generate_faq_schema(array $contentBlocks): string {
         '@context'   => 'https://schema.org',
         '@type'      => 'FAQPage',
         'mainEntity' => $pairs,
-    ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG);
 }
 
 function generate_local_business_schema(array $lb): string {
@@ -70,7 +70,7 @@ function generate_local_business_schema(array $lb): string {
             'worstRating' => '1',
         ];
     }
-    return json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    return json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG);
 }
 
 /* ============================================================
@@ -96,5 +96,5 @@ function generate_service_schema(array $seo, array $lb): string {
         if (!empty($lb['lb_phone'])) $provider['telephone'] = resolve_shortcodes($lb['lb_phone']);
         $schema['provider'] = $provider;
     }
-    return json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    return json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG);
 }

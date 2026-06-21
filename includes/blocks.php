@@ -36,7 +36,8 @@ function render_content_photo($photo, $ratio, $position, $alt = '', $pathPrefix 
 function get_focal_point(string $url): string {
     static $index = null;
     if ($index === null) {
-        $path  = defined('BASE_DIR') ? BASE_DIR . '/data/media.json' : '';
+        $siteDir = (defined('ACTIVE_SITE_DIR') && ACTIVE_SITE_DIR !== '') ? ACTIVE_SITE_DIR : (defined('BASE_DIR') ? BASE_DIR : '');
+        $path  = $siteDir ? $siteDir . '/data/media.json' : '';
         $items = ($path && file_exists($path)) ? (json_decode(file_get_contents($path), true) ?? []) : [];
         $index = [];
         foreach ($items as $item) {
@@ -320,9 +321,9 @@ function render_content_block($block, $pathPrefix = '') {
             // Text column
             echo '<div class="hs-text">';
             $tagline = $block['hs_tagline'] ?? '';
-            if ($heading) echo '<h1 class="hs-heading">'.resolve_shortcodes($heading).'</h1>';
-            if ($tagline) echo '<div class="hs-tagline">'.resolve_shortcodes($tagline).'</div>';
-            if ($subtext) echo '<div class="hs-subtext">'.resolve_shortcodes($subtext).'</div>';
+            if ($heading) echo '<h1 class="hs-heading">'.h(resolve_shortcodes($heading)).'</h1>';
+            if ($tagline) echo '<div class="hs-tagline">'.h(resolve_shortcodes($tagline)).'</div>';
+            if ($subtext) echo '<div class="hs-subtext">'.h(resolve_shortcodes($subtext)).'</div>';
             $btn2Text = $block['hs_btn2_text'] ?? '';
             $btn2Url  = $block['hs_btn2_url']  ?? '#';
             if ($btnText || $btn2Text) {
@@ -426,7 +427,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $colText = $col['text']    ?? '';
                 $colAlt  = $col['alt']     ?? '';
                 echo '<div class="feature-col">';
-                if ($colIcon) echo '<div class="feature-col-icon">' . $colIcon . '</div>';
+                if ($colIcon) echo '<div class="feature-col-icon">' . h($colIcon) . '</div>';
                 elseif ($colImg) echo '<img class="feature-icon" src="' . h($pathPrefix . $colImg) . '" alt="' . h($colAlt) . '" loading="lazy">';
                 if ($colHead) echo '<h3 class="feature-col-heading">' . h($colHead) . '</h3>';
                 if ($colText) echo '<p class="feature-col-text">' . h($colText) . '</p>';
@@ -730,7 +731,7 @@ function render_content_block($block, $pathPrefix = '') {
             echo '<div class="container">';
             echo '<div class="eb-inner">';
             echo '<div class="eb-left">';
-            if ($ebHeading) echo '<h2 class="eb-heading">'.resolve_shortcodes($ebHeading).'</h2>';
+            if ($ebHeading) echo '<h2 class="eb-heading">'.h(resolve_shortcodes($ebHeading)).'</h2>';
             if ($ebSubtext) echo '<p class="eb-subtext">'.h($ebSubtext).'</p>';
             echo '</div>';
             echo '<div class="eb-right">';
@@ -848,7 +849,7 @@ function render_content_block($block, $pathPrefix = '') {
             // RIGHT: content
             echo '<div class="if-content">';
             if ($heading) echo '<h2 class="if-heading" style="color:'.$headStyle.';">'.h($heading).'</h2>';
-            if ($intro)   echo '<div class="if-intro">'.resolve_shortcodes($intro).'</div>';
+            if ($intro)   echo '<div class="if-intro">'.h(resolve_shortcodes($intro)).'</div>';
 
             // 2×2 feature grid
             if (!empty($features)) {
@@ -1139,7 +1140,7 @@ function render_content_block($block, $pathPrefix = '') {
                 }
                 if ($howToSteps) {
                     $howTo = ['@context' => 'https://schema.org', '@type' => 'HowTo', 'name' => resolve_shortcodes($heading), 'step' => $howToSteps];
-                    echo '<script type="application/ld+json">' . json_encode($howTo, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+                    echo '<script type="application/ld+json">' . json_encode($howTo, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) . '</script>' . "\n";
                 }
             }
             echo '<div class="content-block block-steps"' . $anchorAttr . '>';
@@ -1226,7 +1227,7 @@ function render_content_block($block, $pathPrefix = '') {
             if ($cardLabel || $heading || $cardSubhead || $cardSubtext) {
                 echo '<div class="cards-intro">';
                 if ($cardLabel)   echo '<p class="cards-label" style="color:'.h($accentColor).';">' . h($cardLabel) . '</p>';
-                if ($heading)     echo '<h2 class="cards-main-heading"' . $headStyle . '>' . resolve_shortcodes($heading) . '</h2>';
+                if ($heading)     echo '<h2 class="cards-main-heading"' . $headStyle . '>' . h(resolve_shortcodes($heading)) . '</h2>';
                 if ($cardSubhead) echo '<p class="cards-subhead" style="color:'.h($accentColor).';">' . h($cardSubhead) . '</p>';
                 if ($cardSubtext) echo '<p class="cards-subtext"' . $textStyle . '>' . h($cardSubtext) . '</p>';
                 echo '</div>';
@@ -1246,7 +1247,7 @@ function render_content_block($block, $pathPrefix = '') {
                 if ($cardIcon) {
                     $isSvg = strpos(trim($cardIcon), '<svg') === 0;
                     if ($isSvg) {
-                        echo '<div class="card-icon" style="background:'.h($accentColor).';">' . $cardIcon . '</div>';
+                        echo '<div class="card-icon" style="background:'.h($accentColor).';">' . sanitize_svg($cardIcon) . '</div>';
                     } else {
                         echo '<div class="card-icon-plain">' . h($cardIcon) . '</div>';
                     }
@@ -1282,7 +1283,7 @@ function render_content_block($block, $pathPrefix = '') {
             if ($pcLabel || $pcHeading || $pcSubhead) {
                 echo '<div class="pc-intro">';
                 if ($pcLabel)   echo '<p class="pc-label">'    . h($pcLabel)   . '</p>';
-                if ($pcHeading) echo '<h2 class="pc-heading">' . resolve_shortcodes($pcHeading) . '</h2>';
+                if ($pcHeading) echo '<h2 class="pc-heading">' . h(resolve_shortcodes($pcHeading)) . '</h2>';
                 if ($pcSubhead) echo '<p class="pc-subhead">'  . h($pcSubhead) . '</p>';
                 echo '</div>';
             }
@@ -1505,7 +1506,7 @@ function render_content_block($block, $pathPrefix = '') {
             if ($scSectionLabel || $scHeading || $scSubhead || $scSubtext) {
                 echo '<div class="sc-section-intro">';
                 if ($scSectionLabel) echo '<p class="sc-section-label">'.h($scSectionLabel).'</p>';
-                if ($scHeading) echo '<h2 class="sc-section-heading">'.resolve_shortcodes($scHeading).'</h2>';
+                if ($scHeading) echo '<h2 class="sc-section-heading">'.h(resolve_shortcodes($scHeading)).'</h2>';
                 if ($scSubhead) echo '<p class="sc-section-subhead">'.h($scSubhead).'</p>';
                 if ($scSubtext) echo '<p class="sc-section-subtext">'.h($scSubtext).'</p>';
                 echo '</div>';
@@ -1525,13 +1526,13 @@ function render_content_block($block, $pathPrefix = '') {
                     foreach (array_filter(array_map('trim', explode("\n", $stItems))) as $line) {
                         $urlParts  = explode('|', $line, 2);
                         $mainPart  = trim($urlParts[0]);
-                        $itemUrl   = isset($urlParts[1]) ? h(trim($urlParts[1])) : '';
+                        $itemUrl   = isset($urlParts[1]) ? sanitize_url(trim($urlParts[1])) : '';
                         $descParts = explode('::', $mainPart, 2);
                         $itemTitle = h(trim($descParts[0]));
                         $itemDesc  = isset($descParts[1]) ? h(trim($descParts[1])) : '';
                         if (!$itemTitle) continue;
                         echo '<li class="sc-item">';
-                        $tag = $itemUrl ? 'a href="'.$itemUrl.'"' : 'div';
+                        $tag = $itemUrl ? 'a href="'.h($itemUrl).'"' : 'div';
                         $closeTag = $itemUrl ? 'a' : 'div';
                         echo '<'.$tag.' class="sc-item-inner">';
                         echo '<span class="sc-item-title">'.$itemTitle.'</span>';

@@ -3,7 +3,8 @@ require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/functions.php';
 
 $data = load_data();
-$slug = isset($_GET['slug']) ? slugify($_GET['slug']) : '';
+$raw  = $_GET['slug'] ?? '';
+$slug = is_string($raw) ? slugify($raw) : '';
 
 $assetPathPrefix = '/';
 $homeUrl         = '/';
@@ -18,9 +19,11 @@ if (file_exists(PAGE_INDEX_FILE)) {
     $pageIndex = json_decode(file_get_contents(PAGE_INDEX_FILE), true) ?: [];
 
     if (isset($pageIndex[$slug])) {
-        $pageFile = PAGES_DIR . $pageIndex[$slug];
+        $pageFile     = PAGES_DIR . $pageIndex[$slug];
+        $realPagesDir = realpath(PAGES_DIR) ?: PAGES_DIR;
+        $realPage     = realpath($pageFile);
 
-        if (file_exists($pageFile)) {
+        if ($realPage !== false && strncmp($realPage, $realPagesDir . DIRECTORY_SEPARATOR, strlen($realPagesDir) + 1) === 0) {
             $gen = json_decode(file_get_contents($pageFile), true);
 
             // Merge city vars over site vars so shortcodes resolve correctly
@@ -62,8 +65,8 @@ if ($page === null) {
     exit;
 }
 
-$contentBlocks = $page['content_blocks'];
-$seo           = $page['seo'];
+$contentBlocks = $page['content_blocks'] ?? [];
+$seo           = $page['seo'] ?? [];
 $pageTitle     = !empty($page['seo']['seo_title']) ? $page['seo']['seo_title'] : ($page['title'] !== '' ? $page['title'] : SITE_TITLE);
 
 require __DIR__ . '/includes/site-template.php';

@@ -122,7 +122,7 @@ if (empty($seo['og_image'])) {
     if (!empty($seo['schema'])) {
         $schemaData = json_decode($seo['schema']);
         if ($schemaData !== null) {
-            echo '<script type="application/ld+json">' . json_encode($schemaData, JSON_PRETTY_PRINT) . '</script>' . "\n";
+            echo '<script type="application/ld+json">' . json_encode($schemaData, JSON_PRETTY_PRINT | JSON_HEX_TAG) . '</script>' . "\n";
         }
     }
     // Global LocalBusiness schema
@@ -155,7 +155,7 @@ if (empty($seo['og_image'])) {
             if ($midUrl && !str_starts_with($midUrl, 'http')) $midUrl = $lbUrl . $midUrl;
             $bcSchemaItems[] = ['name' => resolve_shortcodes($seo['bc_mid_label']), 'url' => $midUrl];
         }
-        $bcCurrentUrl = $canonicalUrl ?: ($lbUrl ? $lbUrl . '/' . $slug : '');
+        $bcCurrentUrl = sanitize_url($canonicalUrl) ?: ($lbUrl ? $lbUrl . '/' . $slug : '');
         $bcSchemaItems[] = ['name' => $bcLabel, 'url' => $bcCurrentUrl];
 
         $bcSchema = ['@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'itemListElement' => []];
@@ -164,7 +164,7 @@ if (empty($seo['og_image'])) {
             if ($crumb['url']) $entry['item'] = $crumb['url'];
             $bcSchema['itemListElement'][] = $entry;
         }
-        echo '<script type="application/ld+json">' . json_encode($bcSchema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+        echo '<script type="application/ld+json">' . json_encode($bcSchema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) . '</script>' . "\n";
     }
     // Analytics — output raw (admin-entered, trusted)
     if (!empty($theme['analytics_head'])) echo $theme['analytics_head'] . "\n";

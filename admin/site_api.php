@@ -63,8 +63,10 @@ function site_meta(string $id): array {
 
 function save_site_meta(string $id, array $meta): void {
     $meta['updated_at'] = date('c');
-    file_put_contents(sites_dir() . $id . '/meta.json',
-        json_encode($meta, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    $path = sites_dir() . $id . '/meta.json';
+    $json = json_encode($meta, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    $tmp  = $path . '.tmp.' . getmypid();
+    if (file_put_contents($tmp, $json) !== false) { rename($tmp, $path); } else { @unlink($tmp); }
 }
 
 function list_sites(): array {
@@ -207,8 +209,12 @@ switch ($action) {
             if (file_exists($dataFile)) {
                 $json = file_get_contents($dataFile);
                 $json = str_replace('sites/' . $cloneFrom . '/uploads/', 'sites/' . $id . '/uploads/', $json);
-                file_put_contents($dataFile, $json);
+                $tmp  = $dataFile . '.tmp.' . getmypid();
+                if (file_put_contents($tmp, $json) !== false) { rename($tmp, $dataFile); } else { @unlink($tmp); }
             }
+            // Do not carry FTP credentials into the cloned site
+            $cloneDeployJson = sites_dir() . $id . '/data/deploy.json';
+            if (file_exists($cloneDeployJson)) @unlink($cloneDeployJson);
             // Re-protect data dir .htaccess (may have been overwritten)
             file_put_contents(sites_dir() . $id . '/data/.htaccess', "Require all denied\n");
         }
@@ -263,9 +269,11 @@ switch ($action) {
         $id = make_site_id($name);
         scaffold_site_dir($id);
         // Rewrite upload paths from legacy format (uploads/) to per-site format
-        $json = file_get_contents($legacyData);
-        $json = str_replace('"uploads/', '"sites/' . $id . '/uploads/', $json);
-        file_put_contents(sites_dir() . $id . '/data/site.json', $json);
+        $json     = file_get_contents($legacyData);
+        $json     = str_replace('"uploads/', '"sites/' . $id . '/uploads/', $json);
+        $impFile  = sites_dir() . $id . '/data/site.json';
+        $impTmp   = $impFile . '.tmp.' . getmypid();
+        if (file_put_contents($impTmp, $json) !== false) { rename($impTmp, $impFile); } else { @unlink($impTmp); }
         if (is_dir($legacyUploads)) {
             copy_dir($legacyUploads, sites_dir() . $id . '/uploads');
         }

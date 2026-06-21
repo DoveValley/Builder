@@ -814,7 +814,7 @@ function parse_blocks_from_post(): array {
 
             case 'video':
                 $block['vid_heading'] = trim($_POST['vid_heading'][$i] ?? '');
-                $block['vid_url']     = trim($_POST['vid_url'][$i]     ?? '');
+                $block['vid_url']     = sanitize_url(trim($_POST['vid_url'][$i] ?? ''));
                 $block['vid_caption'] = trim($_POST['vid_caption'][$i] ?? '');
                 $block['vid_width']   = ($_POST['vid_width'][$i] ?? 'contained') === 'full' ? 'full' : 'contained';
                 if ($block['vid_url'] === '') continue 2;

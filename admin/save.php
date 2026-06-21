@@ -12,6 +12,8 @@ if (!hash_equals($_SESSION['csrf_token'] ?? '', $token)) {
     exit;
 }
 
+if (!ACTIVE_SITE_ID) { header('Location: sites.php'); exit; }
+
 $data    = load_data();
 $section = $_POST['section'] ?? '';
 $message = '';
