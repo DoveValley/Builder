@@ -916,24 +916,36 @@ function render_content_block($block, $pathPrefix = '') {
             $wbCentered = ($block['wb_centered'] ?? false) || !$btnText;
             echo '<div class="content-block block-wide-banner"'.$anchorAttr.' style="'.$bgStyle.'">';
             echo '<div class="wb-overlay"'.($overlayStyle ? ' style="'.$overlayStyle.'"' : '').'>';
-            echo '<div class="container wb-inner'.($wbCentered ? ' wb-centered' : '').'">';
 
-            // Left: badge + heading + subtext
-            echo '<div class="wb-left">';
-            if ($badge)   echo '<span class="wb-badge" style="background:'.$badgeBgStyle.';color:#fff;">'.h($badge).'</span>';
-            if ($heading) echo '<h2 class="wb-heading">'.h($heading).'</h2>';
-            if ($subtext) echo '<p class="wb-subtext">'.h($subtext).'</p>';
-            echo '</div>';
-
-            // Right: button
-            if ($btnText) {
-                $btnClass = $btnStyle === 'outline' ? 'wb-btn wb-btn-outline' : 'wb-btn wb-btn-filled';
-                echo '<div class="wb-right">';
-                echo '<a href="'.h($btnUrl).'" class="'.$btnClass.'" style="'.($btnStyle === 'filled' ? 'background:'.h($badgeBgStyle).';' : 'border-color:'.h($badgeBgStyle).';color:'.h($badgeBgStyle).';').'">'.h($btnText).'</a>';
+            if ($wbCentered) {
+                // Centered layout: single column, all content centered
+                echo '<div class="container" style="text-align:center;">';
+                if ($badge)   echo '<span class="wb-badge" style="background:'.$badgeBgStyle.';color:#fff;">'.h($badge).'</span>';
+                if ($heading) echo '<h2 class="wb-heading" style="text-align:center;">'.h($heading).'</h2>';
+                if ($subtext) echo '<p class="wb-subtext" style="max-width:780px;margin:0 auto;">'.h($subtext).'</p>';
+                if ($btnText) {
+                    $btnClass = $btnStyle === 'filled' ? 'wb-btn wb-btn-filled' : 'wb-btn wb-btn-outline';
+                    $btnInlineStyle = $btnStyle === 'filled' ? 'background:'.h($badgeBgStyle).';' : '';
+                    echo '<div style="margin-top:24px;"><a href="'.h($btnUrl).'" class="'.$btnClass.'" style="'.$btnInlineStyle.'">'.h($btnText).'</a></div>';
+                }
+                echo '</div>';
+            } else {
+                // Split layout: text left, button right
+                echo '<div class="container wb-inner">';
+                echo '<div class="wb-left">';
+                if ($badge)   echo '<span class="wb-badge" style="background:'.$badgeBgStyle.';color:#fff;">'.h($badge).'</span>';
+                if ($heading) echo '<h2 class="wb-heading">'.h($heading).'</h2>';
+                if ($subtext) echo '<p class="wb-subtext">'.h($subtext).'</p>';
+                echo '</div>';
+                if ($btnText) {
+                    $btnClass = $btnStyle === 'filled' ? 'wb-btn wb-btn-filled' : 'wb-btn wb-btn-outline';
+                    $btnInlineStyle = $btnStyle === 'filled' ? 'background:'.h($badgeBgStyle).';' : '';
+                    echo '<div class="wb-right"><a href="'.h($btnUrl).'" class="'.$btnClass.'" style="'.$btnInlineStyle.'">'.h($btnText).'</a></div>';
+                }
                 echo '</div>';
             }
 
-            echo '</div></div></div>';
+            echo '</div></div>';
             break;
 
         /* ---- SERVICE CARDS GRID ---- */
