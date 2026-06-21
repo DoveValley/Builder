@@ -128,7 +128,7 @@ $pages = $siteData['pages'] ?? [];
 $pageCount = 0;
 foreach ($pages as $pageId => $page) {
     $pageSlug = $page['slug'] ?? '';
-    if ($pageSlug === '') continue;
+    if ($pageSlug === '' || !preg_match('/^[a-z0-9][a-z0-9-]*$/', $pageSlug)) continue;
 
     gen_reset_shortcode_globals();
     $data = $siteData;
@@ -155,6 +155,7 @@ $cityCount = 0;
 if (file_exists(PAGE_INDEX_FILE)) {
     $pageIndex = json_decode(file_get_contents(PAGE_INDEX_FILE), true) ?: [];
     foreach ($pageIndex as $citySlug => $filename) {
+        if (!preg_match('/^[a-z0-9][a-z0-9-]*$/', (string)$citySlug)) continue;
         $pageFile = PAGES_DIR . $filename;
         if (!file_exists($pageFile)) continue;
 
@@ -252,7 +253,7 @@ if (!empty($allPosts)) {
     $postCount = 0;
     foreach ($allPosts as $post) {
         $postSlug = $post['slug'] ?? '';
-        if ($postSlug === '') continue;
+        if ($postSlug === '' || !preg_match('/^[a-z0-9][a-z0-9-]*$/', $postSlug)) continue;
 
         gen_reset_shortcode_globals();
         $data = $siteData;

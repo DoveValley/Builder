@@ -12,6 +12,8 @@ if (!hash_equals($_SESSION['csrf_token'] ?? '', $token)) {
     exit;
 }
 
+if (!ACTIVE_SITE_ID) { header('Location: sites.php'); exit; }
+
 $action = $_POST['action'] ?? '';
 
 function _tpl_load(): array {

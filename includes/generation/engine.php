@@ -150,7 +150,14 @@ function generate_city_pages(array $options = []): array {
         $tplVersion = _gen_template_version($tpl);
 
         foreach ($cities as $city) {
-            $filename = $tpl['id'] . '_' . $city['id'] . '.json';
+            $tplId  = $tpl['id']  ?? '';
+            $cityId = $city['id'] ?? '';
+            if (!preg_match('/^[a-z0-9][a-z0-9-]*$/', $tplId) || !preg_match('/^[a-z0-9][a-z0-9-]*$/', $cityId)) {
+                $errors[] = "Skipped: unsafe template/city ID '{$tplId}'/'{$cityId}'";
+                $skipped++;
+                continue;
+            }
+            $filename = $tplId . '_' . $cityId . '.json';
             $pageFile = PAGES_DIR . $filename;
 
             // Build base page — steps can modify any field
