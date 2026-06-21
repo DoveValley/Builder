@@ -212,8 +212,6 @@ foreach ($footer['columns'] as $ci => $column) {
         <div>
             <a href="../index.php" target="_blank" class="preview-link">View site &rarr;</a>
             &nbsp;|&nbsp;
-            <a href="../index.php?show_blocks=1" target="_blank" class="preview-link" title="View site with each block outlined and labelled">Preview blocks</a>
-            &nbsp;|&nbsp;
             <a href="logout.php">Log out</a>
         </div>
     </div>
