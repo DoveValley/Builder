@@ -1372,20 +1372,8 @@
           "hs_mobile_order": ""
         },
         {
-          "type": "wide_banner",
-          "wb_badge": "PMI Premier Authorized Training Partner",
-          "wb_heading": "Granite PM Academy is a PMI Premier Authorized Training Partner — the highest tier PMI awards. Fewer than 1% of training providers worldwide hold this designation.",
-          "wb_subtext": "",
-          "wb_btn_text": "Verify at pmi.org →",
-          "wb_btn_url": "https://www.pmi.org/certifications/certification-resources/registry",
-          "wb_btn_style": "outline",
-          "wb_centered": true,
-          "wb_photo": "",
-          "wb_photo_alt": "",
-          "wb_bg_color": "#2563eb",
-          "wb_badge_bg": "accent",
-          "wb_badge_bg_custom": "#fd783b",
-          "wb_overlay": "0.55"
+          "type": "custom_html",
+          "html": "<div class=\"content-block\" style=\"padding:0;margin:0;display:block;\">\n  <div style=\"flex:1 0 100%;background:#2563eb;padding:56px 24px;\">\n    <div style=\"max-width:860px;margin:0 auto;text-align:center;\">\n      <span style=\"display:inline-block;background:rgba(255,255,255,0.2);color:#fff;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:4px 12px;border-radius:4px;margin-bottom:14px;\">PMI Premier Authorized Training Partner</span>\n      <h2 style=\"color:#fff;font-size:2rem;font-weight:800;line-height:1.25;margin:0 0 24px;\">Granite PM Academy is a PMI Premier Authorized Training Partner &#8212; the highest tier PMI awards. Fewer than 1% of training providers worldwide hold this designation.</h2>\n      <a href=\"https://www.pmi.org/certifications/certification-resources/registry\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:13px 32px;font-weight:700;font-size:1rem;border-radius:6px;border:2px solid #fff;color:#fff;text-decoration:none;\">Verify at pmi.org &rarr;</a>\n    </div>\n  </div>\n</div>"
         },
         {
           "type": "cards",
