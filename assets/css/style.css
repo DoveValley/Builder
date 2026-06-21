@@ -2837,7 +2837,7 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 }
 .wb-left { flex: 1 1 400px; }
 .wb-inner.wb-centered { justify-content: center; text-align: center; flex-direction: column; align-items: center; }
-.wb-inner.wb-centered .wb-left { flex: 0 0 auto; max-width: 860px; }
+.wb-inner.wb-centered .wb-left { width: 100%; max-width: 860px; }
 .wb-inner.wb-centered .wb-subtext { max-width: 780px; margin-left: auto; margin-right: auto; }
 .wb-inner.wb-centered .wb-right { flex-shrink: 0; }
 .wb-badge {
