@@ -2316,6 +2316,8 @@ body { padding-bottom: 70px; }
     .hs-inner { gap: 28px; flex-direction: column; align-items: stretch; }
     .hs-heading { font-size: 2rem; }
     .hs-image-wrap { max-width: 100%; }
+    .hs-btn-row { flex-wrap: wrap; }
+    .hs-btn, .hs-btn2 { flex: 1 1 auto; text-align: center; }
     .hs-mobile-img-first { flex-direction: column; }
     .hs-mobile-img-first .hs-image-wrap { order: -1; }
     .hs-mobile-text-first { flex-direction: column; }

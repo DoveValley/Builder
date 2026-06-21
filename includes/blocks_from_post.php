@@ -60,9 +60,9 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'hero_split':
-                $block['hs_heading']   = trim($_POST['hs_heading'][$i]   ?? '');
-                $block['hs_tagline']   = trim($_POST['hs_tagline'][$i]   ?? '');
-                $block['hs_subtext']   = trim($_POST['hs_subtext'][$i]   ?? '');
+                $block['hs_heading']   = sanitize_rich_html($_POST['hs_heading'][$i]   ?? '');
+                $block['hs_tagline']   = sanitize_rich_html($_POST['hs_tagline'][$i]   ?? '');
+                $block['hs_subtext']   = sanitize_rich_html($_POST['hs_subtext'][$i]   ?? '');
                 $block['hs_btn_text']  = trim($_POST['hs_btn_text'][$i]  ?? '');
                 $block['hs_btn_url']   = sanitize_url($_POST['hs_btn_url'][$i]   ?? '');
                 $block['hs_btn2_text'] = trim($_POST['hs_btn2_text'][$i] ?? '');
@@ -145,7 +145,7 @@ function parse_blocks_from_post(): array {
                     $colHead = trim($ch);
                     $colText = trim($texts[$ci] ?? '');
                     $colAlt  = trim($alts[$ci]  ?? '');
-                    $colIcon = trim($icons[$ci]  ?? '');
+                    $colIcon = sanitize_svg(trim($icons[$ci] ?? '')) ?: '';
                     if ($colHead === '' && $colText === '' && $colImg === '' && $colIcon === '') continue;
                     $cols[] = ['icon' => $colIcon, 'image' => $colImg, 'heading' => $colHead, 'text' => $colText, 'alt' => $colAlt];
                 }
@@ -593,7 +593,7 @@ function parse_blocks_from_post(): array {
 
             case 'cards':
                 $block['cards_label']   = trim($_POST['cards_label'][$i]   ?? '');
-                $block['cards_heading'] = trim($_POST['cards_heading'][$i]  ?? '');
+                $block['cards_heading'] = sanitize_rich_html($_POST['cards_heading'][$i]  ?? '');
                 $block['cards_subhead'] = trim($_POST['cards_subhead'][$i]  ?? '');
                 $block['cards_subtext'] = trim($_POST['cards_subtext'][$i]  ?? '');
                 $block['cards_cols']    = max(2, min(4, (int)($_POST['cards_cols'][$i] ?? 3)));
@@ -661,7 +661,7 @@ function parse_blocks_from_post(): array {
 
             case 'pricing_cards':
                 $block['pc_label']      = trim($_POST['pc_label'][$i]      ?? '');
-                $block['pc_heading']    = trim($_POST['pc_heading'][$i]     ?? '');
+                $block['pc_heading']    = sanitize_rich_html($_POST['pc_heading'][$i]     ?? '');
                 $block['pc_subheading'] = trim($_POST['pc_subheading'][$i]  ?? '');
                 $block['pc_cols']       = max(2, min(4, (int)($_POST['pc_cols'][$i] ?? 3)));
                 $rawPcBg = trim($_POST['pc_bg'][$i] ?? '');

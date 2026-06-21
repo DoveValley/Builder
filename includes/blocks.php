@@ -321,9 +321,9 @@ function render_content_block($block, $pathPrefix = '') {
             // Text column
             echo '<div class="hs-text">';
             $tagline = $block['hs_tagline'] ?? '';
-            if ($heading) echo '<h1 class="hs-heading">'.h(resolve_shortcodes($heading)).'</h1>';
-            if ($tagline) echo '<div class="hs-tagline">'.h(resolve_shortcodes($tagline)).'</div>';
-            if ($subtext) echo '<div class="hs-subtext">'.h(resolve_shortcodes($subtext)).'</div>';
+            if ($heading) echo '<h1 class="hs-heading">'.resolve_shortcodes($heading).'</h1>';
+            if ($tagline) echo '<div class="hs-tagline">'.resolve_shortcodes($tagline).'</div>';
+            if ($subtext) echo '<div class="hs-subtext">'.text_to_html(resolve_shortcodes($subtext)).'</div>';
             $btn2Text = $block['hs_btn2_text'] ?? '';
             $btn2Url  = $block['hs_btn2_url']  ?? '#';
             if ($btnText || $btn2Text) {
@@ -427,7 +427,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $colText = $col['text']    ?? '';
                 $colAlt  = $col['alt']     ?? '';
                 echo '<div class="feature-col">';
-                if ($colIcon) echo '<div class="feature-col-icon">' . h($colIcon) . '</div>';
+                if ($colIcon) { $svg = sanitize_svg($colIcon); echo '<div class="feature-col-icon">' . ($svg !== false ? $svg : '') . '</div>'; }
                 elseif ($colImg) echo '<img class="feature-icon" src="' . h($pathPrefix . $colImg) . '" alt="' . h($colAlt) . '" loading="lazy">';
                 if ($colHead) echo '<h3 class="feature-col-heading">' . h($colHead) . '</h3>';
                 if ($colText) echo '<p class="feature-col-text">' . h($colText) . '</p>';
@@ -1227,7 +1227,7 @@ function render_content_block($block, $pathPrefix = '') {
             if ($cardLabel || $heading || $cardSubhead || $cardSubtext) {
                 echo '<div class="cards-intro">';
                 if ($cardLabel)   echo '<p class="cards-label" style="color:'.h($accentColor).';">' . h($cardLabel) . '</p>';
-                if ($heading)     echo '<h2 class="cards-main-heading"' . $headStyle . '>' . h(resolve_shortcodes($heading)) . '</h2>';
+                if ($heading)     echo '<h2 class="cards-main-heading"' . $headStyle . '>' . resolve_shortcodes($heading) . '</h2>';
                 if ($cardSubhead) echo '<p class="cards-subhead" style="color:'.h($accentColor).';">' . h($cardSubhead) . '</p>';
                 if ($cardSubtext) echo '<p class="cards-subtext"' . $textStyle . '>' . h($cardSubtext) . '</p>';
                 echo '</div>';
@@ -1283,7 +1283,7 @@ function render_content_block($block, $pathPrefix = '') {
             if ($pcLabel || $pcHeading || $pcSubhead) {
                 echo '<div class="pc-intro">';
                 if ($pcLabel)   echo '<p class="pc-label">'    . h($pcLabel)   . '</p>';
-                if ($pcHeading) echo '<h2 class="pc-heading">' . h(resolve_shortcodes($pcHeading)) . '</h2>';
+                if ($pcHeading) echo '<h2 class="pc-heading">' . resolve_shortcodes($pcHeading) . '</h2>';
                 if ($pcSubhead) echo '<p class="pc-subhead">'  . h($pcSubhead) . '</p>';
                 echo '</div>';
             }
