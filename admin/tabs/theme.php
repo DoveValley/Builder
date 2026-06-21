@@ -226,7 +226,7 @@
                         <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
                             <label for="font_size_<?= $tag ?>" style="font-weight:600;font-size:0.85rem;margin:0;"><?= $lbl ?></label>
                             <input type="number" id="font_size_<?= $tag ?>" name="font_size_<?= $tag ?>"
-                                   min="0.5" max="6" step="0.05"
+                                   min="0.5" max="6" step="0.01"
                                    value="<?= h($theme['font_size_'.$tag] ?? $def) ?>"
                                    style="width:72px;">
                         </div>
