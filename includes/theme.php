@@ -84,6 +84,8 @@ function resolve_color($which, $custom = '#333333') {
     }
     if ($which === 'accent')    return $themeCache['accent_color']  ?? '#fd783b';
     if ($which === 'highlight') return 'var(--color-highlight)';
+    if ($which === 'heading')   return 'var(--color-heading)';
+    if ($which === 'dark')      return 'var(--skin-dark-bg)';
     if ($which === 'header')   return $themeCache['header_bg']    ?? '#120575';
     if ($which === 'footer')   return $themeCache['footer_bg']    ?? '#120575';
     return $custom ?: '#333333';

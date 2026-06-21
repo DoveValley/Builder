@@ -282,7 +282,7 @@ function render_content_block($block, $pathPrefix = '') {
             $photoAlt   = $block['hs_photo_alt']   ?? '';
             $caption1   = $block['hs_caption1']    ?? '';
             $caption2   = $block['hs_caption2']    ?? '';
-            $bgColor    = $block['hs_bg_color']    ?? '#f3f6f7';
+            $bgColor    = resolve_color($block['hs_bg_color'] ?? '#f3f6f7', $block['hs_bg_color'] ?? '#f3f6f7');
             $bgPhoto    = $block['hs_bg_photo']    ?? '';
             $imgSide      = $block['hs_image_side']    ?? 'right';
             $mobileOrder  = $block['hs_mobile_order']  ?? '';
@@ -347,6 +347,7 @@ function render_content_block($block, $pathPrefix = '') {
             $bgColor     = $block['fs_bg_color']   ?? '#f3f6f7';
             $accentColor = $block['fs_accent']     ?? '#fd783b';
             if ($accentColor === 'highlight') $accentColor = 'var(--color-highlight)';
+            if ($accentColor === 'accent')    $accentColor = 'var(--color-accent)';
             $items       = $block['fs_items']      ?? [];
             $imgSide     = $block['fs_image_side']   ?? 'right';
             $fsMobOrder  = $block['fs_mobile_order'] ?? '';
@@ -1246,12 +1247,12 @@ function render_content_block($block, $pathPrefix = '') {
             $badgeColor       = resolve_color($badgeAccentMode, $badgeAccentC);
             $isCentered       = !empty($block['cards_centered']);
 
-            $blockStyle    = $bgColor    ? ' style="background:'.h($bgColor).';"' : '';
+            $blockStyle    = $bgColor    ? ' style="background:'.resolve_color($bgColor, $bgColor).';"' : '';
             $headStyle     = $headColor  ? ' style="color:'.resolve_color($headColor, $headColorC).';"' : '';
             $itemHeadStyle = $itemHeadC  ? ' style="color:'.resolve_color($itemHeadC, $itemHeadCC).';"' : '';
             $textStyle     = $textColor  ? ' style="color:'.h($textColor).';"' : '';
             $cardStyles    = [];
-            if ($cardBg)     $cardStyles[] = 'background:'.h($cardBg);
+            if ($cardBg)     $cardStyles[] = 'background:'.resolve_color($cardBg, $cardBg);
             if ($cardBorder) $cardStyles[] = 'border-color:'.h($cardBorder);
             $cardBgStyle   = $cardStyles ? ' style="'.implode(';', $cardStyles).'"' : '';
 
@@ -1326,6 +1327,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $badge      = $card['badge']       ?? '';
                 $badgeColor = $card['badge_color'] ?? '';
                 if ($badgeColor === 'highlight') $badgeColor = 'var(--color-highlight)';
+                if ($badgeColor === 'accent')    $badgeColor = 'var(--color-accent)';
                 $innerBadge = $card['inner_badge'] ?? '';
                 $sublabel   = $card['sublabel']    ?? '';
                 $name       = $card['name']        ?? '';
@@ -1506,6 +1508,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $initials    = strtoupper(substr(trim($item['initials'] ?? ''), 0, 2));
                 $avatarColor = $item['avatar_color'] ?? '#2563eb';
                 if ($avatarColor === 'highlight') $avatarColor = 'var(--color-highlight)';
+                if ($avatarColor === 'accent')    $avatarColor = 'var(--color-accent)';
                 $resultBadge = trim($item['result_badge'] ?? '');
                 if (!$quote && !$name) continue;
                 echo '<div class="tm-card">';
