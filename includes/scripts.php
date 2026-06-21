@@ -1033,6 +1033,31 @@ function content_editor_scripts() {
     }
 
     /* ---- Testimonials helpers ---- */
+    function addTeamMember(btn, blockIdx) {
+        const editor = document.getElementById('team_members_' + blockIdx);
+        const row = document.createElement('div');
+        row.className = 'faq-item-row';
+        row.style.cssText = 'background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:12px;margin-bottom:8px;';
+        row.innerHTML = `
+            <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;">
+                <div class="form-group" style="flex:1 1 180px;">
+                    <label>Photo</label>
+                    <input type="file" name="team_photo[${blockIdx}][]" accept="image/png,image/jpeg,image/gif,image/webp">
+                    <input type="hidden" name="team_photo_existing[${blockIdx}][]" value="">
+                    <button type="button" class="btn btn-small btn-secondary" style="margin-top:4px;" onclick="openImgPicker(function(url){var ins=this.closest('.faq-item-row').querySelectorAll('input[type=hidden]');ins[ins.length-1].value=url;}.bind(this))">Library</button>
+                </div>
+                <div style="flex:2 1 260px;">
+                    <div class="form-group"><label>Name</label><input type="text" name="team_name[${blockIdx}][]" placeholder="e.g. Sarah Chen, PMP"></div>
+                    <div class="form-group"><label>Title / Role</label><input type="text" name="team_title[${blockIdx}][]" placeholder="e.g. Senior PMP Instructor"></div>
+                    <div class="form-group"><label>Photo alt text</label><input type="text" name="team_photo_alt[${blockIdx}][]" placeholder="e.g. Sarah Chen headshot"></div>
+                </div>
+            </div>
+            <div class="form-group"><label>Bio (optional)</label><textarea name="team_bio[${blockIdx}][]" rows="2" placeholder="Short bio — 1-2 sentences."></textarea></div>
+            <button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)">Remove person</button>
+        `;
+        editor.appendChild(row);
+    }
+
     function addTmItem(btn, blockIdx) {
         const editor = document.getElementById('tm_items_' + blockIdx);
         const row = document.createElement('div');

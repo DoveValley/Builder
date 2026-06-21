@@ -1855,6 +1855,66 @@ function render_content_blocks_editor($blocks) {
                     <button type="button" class="btn btn-secondary btn-small" onclick="addTmItem(this, <?= $i ?>)">+ Add review</button>
                 </div>
 
+                <?php /* ---- TEAM FIELDS ---- */ ?>
+                <div class="block-fields block-fields-team <?= $type !== 'team' ? 'is-hidden' : '' ?>">
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Section heading</label>
+                            <input type="text" name="team_heading[]" value="<?= h($block['team_heading'] ?? '') ?>" placeholder="e.g. Meet Our Instructors">
+                        </div>
+                        <div class="form-group" style="flex:0 0 80px;">
+                            <label>Columns</label>
+                            <select name="team_cols[]">
+                                <option value="2" <?= (int)($block['team_cols'] ?? 3) === 2 ? 'selected' : '' ?>>2</option>
+                                <option value="3" <?= (int)($block['team_cols'] ?? 3) === 3 ? 'selected' : '' ?>>3</option>
+                                <option value="4" <?= (int)($block['team_cols'] ?? 3) === 4 ? 'selected' : '' ?>>4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Section subheading (optional)</label>
+                        <input type="text" name="team_subheading[]" value="<?= h($block['team_subheading'] ?? '') ?>" placeholder="e.g. PMI-certified instructors with real-world PM experience">
+                    </div>
+                    <div class="team-members-editor" id="team_members_<?= $i ?>">
+                        <?php $teamMembers = $block['team_members'] ?? [['photo'=>'','photo_alt'=>'','name'=>'','title'=>'','bio'=>'']]; ?>
+                        <?php foreach ($teamMembers as $tmember): ?>
+                        <div class="faq-item-row" style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:12px;margin-bottom:8px;">
+                            <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;">
+                                <div class="form-group" style="flex:1 1 180px;">
+                                    <label>Photo</label>
+                                    <input type="file" name="team_photo[<?= $i ?>][]" accept="image/png,image/jpeg,image/gif,image/webp">
+                                    <input type="hidden" name="team_photo_existing[<?= $i ?>][]" value="<?= h($tmember['photo'] ?? '') ?>">
+                                    <?php if (!empty($tmember['photo'])): ?>
+                                        <img src="../<?= h($tmember['photo']) ?>" style="width:56px;height:56px;border-radius:50%;object-fit:cover;margin-top:6px;">
+                                    <?php endif; ?>
+                                    <button type="button" class="btn btn-small btn-secondary" style="margin-top:4px;" onclick="openImgPicker(function(url){var ins=this.closest('.faq-item-row').querySelectorAll('input[type=hidden]');ins[ins.length-1].value=url;}.bind(this))">Library</button>
+                                </div>
+                                <div style="flex:2 1 260px;">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" name="team_name[<?= $i ?>][]" value="<?= h($tmember['name'] ?? '') ?>" placeholder="e.g. Sarah Chen, PMP">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Title / Role</label>
+                                        <input type="text" name="team_title[<?= $i ?>][]" value="<?= h($tmember['title'] ?? '') ?>" placeholder="e.g. Senior PMP Instructor">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Photo alt text</label>
+                                        <input type="text" name="team_photo_alt[<?= $i ?>][]" value="<?= h($tmember['photo_alt'] ?? '') ?>" placeholder="e.g. Sarah Chen headshot">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Bio (optional)</label>
+                                <textarea name="team_bio[<?= $i ?>][]" rows="2" placeholder="Short bio — 1-2 sentences about background or credentials."><?= h($tmember['bio'] ?? '') ?></textarea>
+                            </div>
+                            <button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)">Remove person</button>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-small" onclick="addTeamMember(this, <?= $i ?>)">+ Add person</button>
+                </div>
+
                 <?php /* ---- LOGO BAR FIELDS ---- */ ?>
                 <div class="block-fields block-fields-logo_bar <?= $type !== 'logo_bar' ? 'is-hidden' : '' ?>">
                     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">

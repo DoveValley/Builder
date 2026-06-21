@@ -55,9 +55,7 @@ function get_focal_point(string $url): string {
 function allowed_block_types() {
     return [
         'text'            => 'Text only',
-        'image_left'      => 'Image left, text right',
-        'image_right'     => 'Text left, image right',
-        'hero'            => 'Hero / Banner (full width)',
+        'image_right'     => 'Image + Text (choose side)',
         'hero_split'      => 'Hero Split (default image right)',
         'feature_split'   => 'Feature Split (default image left, icon grid right)',
         'split_cta'       => 'Split CTA (colored left panel + phone right panel)',
@@ -71,8 +69,6 @@ function allowed_block_types() {
         'links_grid'      => 'Links Grid (bg image, heading, link buttons grid)',
         'cta_card'        => 'CTA Card (colored box, heading left, phone button right)',
         'map_info'        => 'Map + Info (Google map left, text + photo right)',
-        'image_text'      => 'Image & Text (side by side)',
-        'faq'             => 'FAQ / Accordion',
         'feature_columns' => 'Feature Columns (icon + heading + text)',
         'custom_html'     => 'Custom HTML',
         'steps'           => 'Process Steps (Step 1, 2, 3…)',
@@ -81,9 +77,8 @@ function allowed_block_types() {
         'gallery'         => 'Photo Gallery / Image Grid',
         'cta_button'      => 'CTA Button',
         'testimonials'    => 'Testimonials (customer reviews)',
+        'team'            => 'Team / People (photo + name + title + bio grid)',
         'video'           => 'Video embed (YouTube / Vimeo)',
-        'buttons_grid'    => 'Buttons Grid (plain link button grid)',
-        'html_two_col'    => 'Two-column HTML (50/50 split)',
         'pricing_cards'   => 'Pricing / Course Cards (badge, checklist, CTA)',
         'logo_bar'        => 'Logo / Trust Bar (partner logos with optional links)',
         'stage_cards'     => 'Stage / Career Path Cards (numbered columns with item lists)',
@@ -97,16 +92,15 @@ function grouped_block_types(): array {
     return [
         'Hero / Banner' => [
             'hero'        => 'Full width',
+            'hero_split'  => 'Split (image right)',
             'hero_grid'   => 'Grid (image left, icon grid right)',
             'wide_banner' => 'Wide (full-width bg image)',
         ],
         'Content' => [
             'text'          => 'Text only',
-            'image_left'    => 'Image + Text (choose side)',
-            'image_text'    => 'Image & text side by side',
+            'image_right'   => 'Image + Text (choose side)',
             'video'         => 'Video embed',
             'custom_html'   => 'Custom HTML',
-            'html_two_col'  => 'Two-column HTML',
         ],
         'Features' => [
             'feature_split'   => 'Feature split (image left, icon grid right)',
@@ -118,23 +112,27 @@ function grouped_block_types(): array {
             'image_features'  => 'Image + feature checklist',
             'pricing_cards'   => 'Pricing / course cards',
             'stage_cards'     => 'Stage / career path',
+            'comparison_table'=> 'Comparison table',
         ],
         'Social Proof' => [
             'testimonials' => 'Customer reviews',
+            'team'         => 'Team / people grid',
             'logo_bar'     => 'Logo / trust bar',
             'cards'        => 'Cards grid',
             'gallery'      => 'Photo gallery',
         ],
         'FAQ & CTA' => [
-            'faq'          => 'Accordion (1 or 2 cols)',
+            'faq_two_col'  => 'FAQ (2-col accordion)',
             'links_grid'   => 'Links grid',
-            'buttons_grid' => 'Button grid',
             'cta_banner'   => 'Solid color banner',
+            'cta_card'     => 'CTA card',
+            'split_cta'    => 'Split CTA',
+            'email_banner' => 'Email capture banner',
+            'cta_button'   => 'CTA button',
         ],
         'Utility' => [
             'map_info'         => 'Map + info',
             'contact_form'     => 'Contact form',
-            'comparison_table' => 'Comparison table',
         ],
     ];
 }
@@ -159,6 +157,7 @@ function block_thumbnails(): array {
         'stats'           => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="8" y="14" width="28" height="22" rx="3" fill="#fd783b" opacity=".8"/><rect x="8" y="44" width="28" height="5" rx="2" fill="#cbd5e1"/><rect x="46" y="14" width="28" height="22" rx="3" fill="#fd783b" opacity=".8"/><rect x="46" y="44" width="28" height="5" rx="2" fill="#cbd5e1"/><rect x="84" y="14" width="28" height="22" rx="3" fill="#fd783b" opacity=".8"/><rect x="84" y="44" width="28" height="5" rx="2" fill="#cbd5e1"/></svg>',
         'cards'           => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="4" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="4" y="4" width="34" height="28" rx="3" fill="#dde3ef"/><rect x="8" y="36" width="26" height="5" rx="2" fill="#475569"/><rect x="8" y="45" width="26" height="3" rx="2" fill="#cbd5e1"/><rect x="8" y="52" width="20" height="3" rx="2" fill="#cbd5e1"/><rect x="43" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="43" y="4" width="34" height="28" rx="3" fill="#dde3ef"/><rect x="47" y="36" width="26" height="5" rx="2" fill="#475569"/><rect x="47" y="45" width="26" height="3" rx="2" fill="#cbd5e1"/><rect x="47" y="52" width="20" height="3" rx="2" fill="#cbd5e1"/><rect x="82" y="4" width="34" height="68" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="82" y="4" width="34" height="28" rx="3" fill="#dde3ef"/><rect x="86" y="36" width="26" height="5" rx="2" fill="#475569"/><rect x="86" y="45" width="26" height="3" rx="2" fill="#cbd5e1"/><rect x="86" y="52" width="20" height="3" rx="2" fill="#cbd5e1"/></svg>',
         'gallery'         => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="4" y="4" width="35" height="32" rx="2" fill="#dde3ef"/><rect x="43" y="4" width="35" height="32" rx="2" fill="#cbd5e1"/><rect x="82" y="4" width="34" height="32" rx="2" fill="#dde3ef"/><rect x="4" y="40" width="35" height="32" rx="2" fill="#cbd5e1"/><rect x="43" y="40" width="35" height="32" rx="2" fill="#dde3ef"/><rect x="82" y="40" width="34" height="32" rx="2" fill="#cbd5e1"/></svg>',
+        'team'            => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><circle cx="22" cy="24" r="10" fill="#dde3ef"/><rect x="10" y="38" width="24" height="4" rx="2" fill="#475569"/><rect x="13" y="46" width="18" height="3" rx="2" fill="#fd783b"/><rect x="10" y="53" width="24" height="3" rx="2" fill="#cbd5e1"/><circle cx="60" cy="24" r="10" fill="#dde3ef"/><rect x="48" y="38" width="24" height="4" rx="2" fill="#475569"/><rect x="51" y="46" width="18" height="3" rx="2" fill="#fd783b"/><rect x="48" y="53" width="24" height="3" rx="2" fill="#cbd5e1"/><circle cx="98" cy="24" r="10" fill="#dde3ef"/><rect x="86" y="38" width="24" height="4" rx="2" fill="#475569"/><rect x="89" y="46" width="18" height="3" rx="2" fill="#fd783b"/><rect x="86" y="53" width="24" height="3" rx="2" fill="#cbd5e1"/></svg>',
         'testimonials'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="4" y="6" width="34" height="64" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="8" y="13" width="26" height="5" rx="2" fill="#fd783b" opacity=".8"/><rect x="8" y="23" width="26" height="3" rx="2" fill="#cbd5e1"/><rect x="8" y="30" width="23" height="3" rx="2" fill="#cbd5e1"/><rect x="8" y="37" width="26" height="3" rx="2" fill="#cbd5e1"/><rect x="8" y="52" width="18" height="4" rx="2" fill="#94a3b8"/><rect x="43" y="6" width="34" height="64" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="47" y="13" width="26" height="5" rx="2" fill="#fd783b" opacity=".8"/><rect x="47" y="23" width="26" height="3" rx="2" fill="#cbd5e1"/><rect x="47" y="30" width="23" height="3" rx="2" fill="#cbd5e1"/><rect x="47" y="37" width="26" height="3" rx="2" fill="#cbd5e1"/><rect x="47" y="52" width="18" height="4" rx="2" fill="#94a3b8"/><rect x="82" y="6" width="34" height="64" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="86" y="13" width="26" height="5" rx="2" fill="#fd783b" opacity=".8"/><rect x="86" y="23" width="26" height="3" rx="2" fill="#cbd5e1"/><rect x="86" y="30" width="23" height="3" rx="2" fill="#cbd5e1"/><rect x="86" y="37" width="26" height="3" rx="2" fill="#cbd5e1"/><rect x="86" y="52" width="18" height="4" rx="2" fill="#94a3b8"/></svg>',
         'faq'             => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="5" y="8" width="110" height="16" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="10" y="13" width="65" height="4" rx="2" fill="#475569"/><rect x="107" y="11" width="4" height="12" rx="1" fill="#fd783b"/><rect x="103" y="15" width="12" height="4" rx="1" fill="#fd783b"/><rect x="5" y="28" width="110" height="16" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="10" y="33" width="55" height="4" rx="2" fill="#475569"/><rect x="107" y="31" width="4" height="12" rx="1" fill="#fd783b"/><rect x="103" y="35" width="12" height="4" rx="1" fill="#fd783b"/><rect x="5" y="48" width="110" height="16" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><rect x="10" y="53" width="60" height="4" rx="2" fill="#475569"/><rect x="107" y="51" width="4" height="12" rx="1" fill="#fd783b"/><rect x="103" y="55" width="12" height="4" rx="1" fill="#fd783b"/></svg>',
         'faq_two_col'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="5" y="8" width="52" height="14" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><circle cx="13" cy="15" r="5" fill="#fd783b"/><rect x="22" y="12" width="30" height="3" rx="2" fill="#475569"/><rect x="5" y="26" width="52" height="14" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><circle cx="13" cy="33" r="5" fill="#fd783b"/><rect x="22" y="30" width="28" height="3" rx="2" fill="#475569"/><rect x="5" y="44" width="52" height="14" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><circle cx="13" cy="51" r="5" fill="#fd783b"/><rect x="22" y="48" width="30" height="3" rx="2" fill="#475569"/><rect x="63" y="8" width="52" height="14" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><circle cx="71" cy="15" r="5" fill="#fd783b"/><rect x="80" y="12" width="30" height="3" rx="2" fill="#475569"/><rect x="63" y="26" width="52" height="14" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><circle cx="71" cy="33" r="5" fill="#fd783b"/><rect x="80" y="30" width="28" height="3" rx="2" fill="#475569"/><rect x="63" y="44" width="52" height="14" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/><circle cx="71" cy="51" r="5" fill="#fd783b"/><rect x="80" y="48" width="30" height="3" rx="2" fill="#475569"/></svg>',
@@ -1744,6 +1743,35 @@ function render_content_block($block, $pathPrefix = '') {
                 echo '<p style="margin:24px 0 0;padding:16px 20px;background:#f0fdf4;border-left:4px solid '.h($ctAccent).';color:#374151;font-size:.92rem;border-radius:0 6px 6px 0;">' . h($ctCallout) . '</p>';
             }
             echo '</div></div></div>';
+            break;
+
+        /* ---- TEAM / PEOPLE ---- */
+        case 'team':
+            $teamHeading = $block['team_heading']    ?? '';
+            $teamSub     = $block['team_subheading'] ?? '';
+            $teamCols    = max(2, min(4, (int)($block['team_cols'] ?? 3)));
+            $teamMembers = $block['team_members']    ?? [];
+            echo '<div class="content-block block-team"' . $anchorAttr . '>';
+            if ($teamHeading) echo '<h2 class="section-heading">' . h($teamHeading) . '</h2>';
+            if ($teamSub)     echo '<p class="section-subheading">' . h($teamSub) . '</p>';
+            echo '<div class="team-grid team-grid-' . $teamCols . '">';
+            foreach ($teamMembers as $member) {
+                $mPhoto = $member['photo']     ?? '';
+                $mAlt   = $member['photo_alt'] ?? '';
+                $mName  = $member['name']      ?? '';
+                $mTitle = $member['title']     ?? '';
+                $mBio   = $member['bio']       ?? '';
+                if (!$mName && !$mPhoto) continue;
+                echo '<div class="team-member">';
+                echo '<div class="team-member-photo">';
+                if ($mPhoto) echo '<img src="' . h($pathPrefix . $mPhoto) . '" alt="' . h($mAlt ?: $mName) . '" loading="lazy">';
+                echo '</div>';
+                if ($mName)  echo '<h3 class="team-member-name">'  . h($mName)  . '</h3>';
+                if ($mTitle) echo '<p class="team-member-title">'   . h($mTitle) . '</p>';
+                if ($mBio)   echo '<p class="team-member-bio">'     . h($mBio)   . '</p>';
+                echo '</div>';
+            }
+            echo '</div></div>';
             break;
 
         default:

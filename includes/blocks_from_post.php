@@ -833,6 +833,35 @@ function parse_blocks_from_post(): array {
                 $block['cf_show_phone'] = !empty($_POST['cf_show_phone'][$i]);
                 break;
 
+            case 'team':
+                $block['team_heading']    = trim($_POST['team_heading'][$i]    ?? '');
+                $block['team_subheading'] = trim($_POST['team_subheading'][$i] ?? '');
+                $block['team_cols']       = in_array((int)($_POST['team_cols'][$i] ?? 3), [2,3,4]) ? (int)$_POST['team_cols'][$i] : 3;
+                $teamExisting  = $_POST['team_photo_existing'][$i] ?? [];
+                $teamNames     = $_POST['team_name'][$i]            ?? [];
+                $teamTitles    = $_POST['team_title'][$i]           ?? [];
+                $teamAlts      = $_POST['team_photo_alt'][$i]       ?? [];
+                $teamBios      = $_POST['team_bio'][$i]             ?? [];
+                $teamMembersOut = [];
+                foreach ($teamExisting as $ti => $existingPath) {
+                    $imgPath = trim($existingPath);
+                    if (isset($_FILES['team_photo']['error'][$i][$ti]) &&
+                        $_FILES['team_photo']['error'][$i][$ti] === UPLOAD_ERR_OK) {
+                        $up = save_uploaded_file($_FILES['team_photo']['tmp_name'][$i][$ti], 'team');
+                        if ($up) $imgPath = $up;
+                        elseif ($up === false) $uploadError = true;
+                    }
+                    $tName  = trim($teamNames[$ti]  ?? '');
+                    $tTitle = trim($teamTitles[$ti] ?? '');
+                    $tAlt   = trim($teamAlts[$ti]   ?? '');
+                    $tBio   = trim($teamBios[$ti]   ?? '');
+                    if (!$tName && !$imgPath) continue;
+                    $teamMembersOut[] = ['photo' => $imgPath, 'photo_alt' => $tAlt, 'name' => $tName, 'title' => $tTitle, 'bio' => $tBio];
+                }
+                $block['team_members'] = $teamMembersOut;
+                if (empty($teamMembersOut) && $block['team_heading'] === '') continue 2;
+                break;
+
             case 'comparison_table':
                 $block['ct_heading']     = trim($_POST['ct_heading'][$i]     ?? '');
                 $block['ct_label']       = trim($_POST['ct_label'][$i]       ?? '');
