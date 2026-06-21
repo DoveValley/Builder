@@ -571,7 +571,8 @@ function render_content_block($block, $pathPrefix = '') {
             $radius    = $block['cc_radius']    ?? '12';
             $align     = $block['cc_align']     ?? 'split'; // split | center
 
-            $bgStyle = resolve_color($bg, $bgCustom);
+            $ccSkin  = $block['skin'] ?? '';
+            $bgStyle = $ccSkin !== '' ? "var(--skin-{$ccSkin}-bg)" : resolve_color($bg, $bgCustom);
 
             $ccChecklistHtml = '';
             if ($checklist) {
@@ -727,7 +728,9 @@ function render_content_block($block, $pathPrefix = '') {
             $ebFormAction  = $block['eb_form_action']   ?? '';
             $ebBadgeImg    = $block['eb_badge_image']   ?? '';
             $ebBadgeText   = $block['eb_badge_text']    ?? '';
-            echo '<div class="content-block block-email-banner"'.$anchorAttr.' style="background:'.h($ebBg).';">';
+            $ebSkin  = $block['skin'] ?? '';
+            $ebBgOut = $ebSkin !== '' ? "var(--skin-{$ebSkin}-bg)" : h($ebBg);
+            echo '<div class="content-block block-email-banner"'.$anchorAttr.' style="background:'.$ebBgOut.';">';
             echo '<div class="container">';
             echo '<div class="eb-inner">';
             echo '<div class="eb-left">';
@@ -759,7 +762,17 @@ function render_content_block($block, $pathPrefix = '') {
             $textColor = $block['cb_text_color'] ?? '#ffffff';
             $padding   = $block['cb_padding']    ?? 'normal'; // compact | normal | large
 
-            $bgStyle = resolve_color($bg, $bgCustom);
+            $cbSkin = $block['skin'] ?? '';
+            if ($cbSkin !== '') {
+                $bgStyle   = "var(--skin-{$cbSkin}-bg)";
+                $textColor = "var(--skin-{$cbSkin}-text)";
+                $btnBg     = "var(--skin-{$cbSkin}-heading)";
+                $btnFg     = "var(--skin-{$cbSkin}-bg)";
+            } else {
+                $bgStyle = resolve_color($bg, $bgCustom);
+                $btnBg   = $textColor;
+                $btnFg   = $bgStyle;
+            }
 
             $paddingMap = ['compact' => '20px 0', 'normal' => '32px 0', 'large' => '56px 0'];
             $paddingStyle = $paddingMap[$padding] ?? '32px 0';
@@ -769,7 +782,7 @@ function render_content_block($block, $pathPrefix = '') {
             echo '<div class="container">';
             if ($text)    echo '<p class="cb-text" style="color:'.h($textColor).';">'.h($text).'</p>';
             if ($subtext) echo '<p class="cb-subtext" style="color:'.h($textColor).';">'.h($subtext).'</p>';
-            if ($btnText) echo '<a href="'.h($btnUrl).'" class="cb-btn" style="color:'.h($bgStyle).';background:'.h($textColor).';">'.h($btnText).'</a>';
+            if ($btnText) echo '<a href="'.h($btnUrl).'" class="cb-btn" style="color:'.h($btnFg).';background:'.h($btnBg).';">'.h($btnText).'</a>';
             echo '</div></div>';
             break;
 
@@ -789,7 +802,9 @@ function render_content_block($block, $pathPrefix = '') {
 
             $uid = 'fq_'.substr(md5(serialize($block)),0,6);
 
-            echo '<div class="content-block block-faq-two-col"'.$anchorAttr.' style="background:'.h($bgColor).';">';
+            $fqSkin   = $block['skin'] ?? '';
+            $fqBgOut  = $fqSkin !== '' ? "var(--skin-{$fqSkin}-bg)" : h($bgColor);
+            echo '<div class="content-block block-faq-two-col"'.$anchorAttr.' style="background:'.$fqBgOut.';">';
             echo '<div class="container">';
             if ($heading) echo '<h2 class="fq-heading" style="color:'.$headStyle.';">'.h($heading).'</h2>';
             echo '<div class="fq-grid" id="'.$uid.'">';
@@ -1183,8 +1198,13 @@ function render_content_block($block, $pathPrefix = '') {
             $bgMode    = $block['stats_bg_color']  ?? 'custom';
             $bgCustom  = $block['stats_bg_custom'] ?? '#1e3a5f';
             $textColor = $block['stats_text_color'] ?? '#ffffff';
-            $bgColor   = resolve_color($bgMode, $bgCustom);
-            $style = 'background:' . h($bgColor) . ';color:' . h($textColor) . ';';
+            $statsSkin = $block['skin'] ?? '';
+            if ($statsSkin !== '') {
+                $style = "background:var(--skin-{$statsSkin}-bg);color:var(--skin-{$statsSkin}-text);";
+            } else {
+                $bgColor = resolve_color($bgMode, $bgCustom);
+                $style   = 'background:' . h($bgColor) . ';color:' . h($textColor) . ';';
+            }
             echo '<div class="content-block block-stats" style="' . $style . '"' . $anchorAttr . '>';
             echo '<div class="container">';
             if ($heading) echo '<h2 class="section-heading">' . h($heading) . '</h2>';
