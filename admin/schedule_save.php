@@ -10,6 +10,7 @@ if (!hash_equals($_SESSION['csrf_token'] ?? '', $token)) {
     header('Location: index.php?tab=schedule&msg=error:Invalid+request+token');
     exit;
 }
+if (!ACTIVE_SITE_ID) { header('Location: sites.php'); exit; }
 
 $action = $_POST['action'] ?? '';
 
@@ -19,10 +20,16 @@ function _sched_load(): array {
     return is_array($raw) ? $raw : [];
 }
 
-function _sched_save(array $courses): void {
+function _sched_save(array $courses): bool {
     $dir = dirname(COURSES_FILE);
     if (!is_dir($dir)) mkdir($dir, 0755, true);
-    file_put_contents(COURSES_FILE, json_encode(array_values($courses), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+    $json = json_encode(array_values($courses), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    $tmp  = COURSES_FILE . '.tmp.' . getmypid();
+    if (file_put_contents($tmp, $json) !== false && rename($tmp, COURSES_FILE)) {
+        return true;
+    }
+    @unlink($tmp);
+    return false;
 }
 
 function _sched_next_id(array $courses): int {
@@ -87,7 +94,10 @@ switch ($action) {
         }
 
         usort($courses, fn($a, $b) => ($a['sort_order'] ?? 0) <=> ($b['sort_order'] ?? 0));
-        _sched_save($courses);
+        if (!_sched_save($courses)) {
+            header('Location: index.php?tab=schedule&msg=error:Could+not+save+-+check+file+permissions');
+            exit;
+        }
 
         header('Location: index.php?tab=schedule&msg=success:Course+saved');
         exit;
@@ -96,9 +106,15 @@ switch ($action) {
     case 'delete': {
         $id = (int)($_POST['id'] ?? 0);
         if ($id <= 0) { header('Location: index.php?tab=schedule&msg=error:Invalid+ID'); exit; }
-        $courses = _sched_load();
-        $courses = array_values(array_filter($courses, fn($c) => (int)($c['id'] ?? 0) !== $id));
-        _sched_save($courses);
+        $courses  = _sched_load();
+        $filtered = array_values(array_filter($courses, fn($c) => (int)($c['id'] ?? 0) !== $id));
+        if (count($filtered) === count($courses)) {
+            header('Location: index.php?tab=schedule&msg=error:Course+not+found'); exit;
+        }
+        if (!_sched_save($filtered)) {
+            header('Location: index.php?tab=schedule&msg=error:Could+not+save+-+check+file+permissions');
+            exit;
+        }
         header('Location: index.php?tab=schedule&msg=success:Course+deleted');
         exit;
     }
@@ -114,7 +130,10 @@ switch ($action) {
         $found['id'] = _sched_next_id($courses);
         $courses[] = $found;
         usort($courses, fn($a, $b) => ($a['sort_order'] ?? 0) <=> ($b['sort_order'] ?? 0));
-        _sched_save($courses);
+        if (!_sched_save($courses)) {
+            header('Location: index.php?tab=schedule&msg=error:Could+not+save+-+check+file+permissions');
+            exit;
+        }
         header('Location: index.php?tab=schedule&msg=success:Course+duplicated');
         exit;
     }

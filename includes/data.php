@@ -97,6 +97,8 @@ function default_data() {
             'city_slug' => '',
             'business'  => '',
             'phone'     => '',
+            'tel'       => '',
+            'email'     => '',
             'zip'       => '',
             'website'   => '',
         ],

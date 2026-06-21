@@ -47,7 +47,7 @@
         $socialKeys = ['facebook','instagram','twitter','youtube','linkedin','tiktok','yelp'];
         $socials = [];
         foreach ($socialKeys as $key) {
-            $socials[$key] = trim($_POST['social_' . $key] ?? '');
+            $socials[$key] = sanitize_url(trim($_POST['social_' . $key] ?? ''));
         }
         $data['header']['socials'] = $socials;
         $logo = upload_image('logo', 'logo');
@@ -62,4 +62,4 @@
         $data['site_vars']['phone']     = trim($_POST['site_vars_phone']     ?? '');
         $data['site_vars']['tel']       = trim($_POST['site_vars_tel']       ?? '');
         $data['site_vars']['zip']       = trim($_POST['site_vars_zip']       ?? '');
-        $data['site_vars']['website']   = trim($_POST['site_vars_website']   ?? '');
+        $data['site_vars']['website']   = sanitize_url(trim($_POST['site_vars_website']   ?? ''));

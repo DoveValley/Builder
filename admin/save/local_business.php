@@ -14,7 +14,7 @@
             'lb_price_range' => trim($_POST['lb_price_range'] ?? '$$'),
             'lb_hours'       => trim($_POST['lb_hours']       ?? ''),
             'lb_description'  => trim($_POST['lb_description']  ?? ''),
-            'lb_logo'         => trim($_POST['lb_logo']         ?? ''),
+            'lb_logo'         => sanitize_url(trim($_POST['lb_logo'] ?? '')),
             'lb_type'         => trim($_POST['lb_type']         ?? 'LocalBusiness'),
             'lb_rating'       => trim($_POST['lb_rating']       ?? ''),
             'lb_review_count' => trim($_POST['lb_review_count'] ?? ''),

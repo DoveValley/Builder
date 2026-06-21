@@ -44,7 +44,7 @@
                     $extras[] = [
                         'icon'  => trim($extra['icon']  ?? ''),
                         'label' => $label,
-                        'url'   => trim($extra['url']   ?? ''),
+                        'url'   => sanitize_url(trim($extra['url'] ?? '')),
                     ];
                 }
                 if ($title === '') continue;
