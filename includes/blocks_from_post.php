@@ -184,7 +184,7 @@ function parse_blocks_from_post(): array {
                 $block['it_heading_level'] = in_array($_POST['it_heading_level'][$i] ?? '', array_keys(heading_level_options()))
                     ? $_POST['it_heading_level'][$i] : 'h2';
                 $block['it_heading'] = trim($_POST['it_heading'][$i] ?? '');
-                $block['it_text']    = trim($_POST['it_text'][$i]    ?? '');
+                $block['it_text']    = sanitize_rich_html($_POST['it_text'][$i]    ?? '');
                 $block['it_btn_text']= trim($_POST['it_btn_text'][$i]?? '');
                 $block['it_btn_url'] = sanitize_url($_POST['it_btn_url'][$i] ?? '');
                 $block['it_alt']     = trim($_POST['it_alt'][$i]     ?? '');
@@ -347,7 +347,7 @@ function parse_blocks_from_post(): array {
                 $fqAs = $_POST['fq_answer'][$i]   ?? [];
                 $fqItems = [];
                 foreach ($fqQs as $fi => $fq) {
-                    $fq = trim($fq); $fa = trim($fqAs[$fi] ?? '');
+                    $fq = trim($fq); $fa = sanitize_rich_html($fqAs[$fi] ?? '');
                     if ($fq === '') continue;
                     $fqItems[] = ['question' => $fq, 'answer' => $fa];
                 }
@@ -447,7 +447,7 @@ function parse_blocks_from_post(): array {
             case 'hero_grid':
                 $block['hg_label']     = trim($_POST['hg_label'][$i]     ?? '');
                 $block['hg_heading']   = trim($_POST['hg_heading'][$i]   ?? '');
-                $block['hg_body']      = trim($_POST['hg_body'][$i]      ?? '');
+                $block['hg_body']      = sanitize_rich_html($_POST['hg_body'][$i]      ?? '');
                 $block['hg_btn_text']  = trim($_POST['hg_btn_text'][$i]  ?? '');
                 $block['hg_btn_url']   = sanitize_url($_POST['hg_btn_url'][$i]   ?? '');
                 $block['hg_photo_alt'] = trim($_POST['hg_photo_alt'][$i] ?? '');
