@@ -229,14 +229,14 @@ foreach ($footer['columns'] as $ci => $column) {
     <!-- Tabs -->
     <div class="tabs">
         <a class="tab-link <?= $tab === 'header' ? 'active' : '' ?>" href="?tab=header">Header</a>
+        <a class="tab-link <?= $tab === 'footer' ? 'active' : '' ?>" href="?tab=footer">Footer</a>
         <a class="tab-link <?= $tab === 'theme' ? 'active' : '' ?>" href="?tab=theme">Theme / Colors</a>
         <a class="tab-link <?= $tab === 'content' ? 'active' : '' ?>" href="?tab=content">Home Page</a>
-        <a class="tab-link <?= $tab === 'pages' ? 'active' : '' ?>" href="?tab=pages">Landing Pages</a>
-        <a class="tab-link <?= $tab === 'templates' ? 'active' : '' ?>" href="?tab=templates">Templates</a>
-        <a class="tab-link <?= $tab === 'cities' ? 'active' : '' ?>" href="?tab=cities">Cities</a>
-        <a class="tab-link <?= $tab === 'citypages' ? 'active' : '' ?>" href="?tab=citypages">City Pages</a>
+        <a class="tab-link <?= $tab === 'pages' ? 'active' : '' ?>" href="?tab=pages">Core Pages</a>
+        <a class="tab-link <?= $tab === 'templates' ? 'active' : '' ?>" href="?tab=templates">Landing Templates</a>
+        <a class="tab-link <?= $tab === 'cities' ? 'active' : '' ?>" href="?tab=cities">Landing Cities</a>
+        <a class="tab-link <?= $tab === 'citypages' ? 'active' : '' ?>" href="?tab=citypages">Landing City Pages</a>
         <a class="tab-link <?= $tab === 'blog' ? 'active' : '' ?>" href="?tab=blog">Blog</a>
-        <a class="tab-link <?= $tab === 'footer' ? 'active' : '' ?>" href="?tab=footer">Footer</a>
         <a class="tab-link <?= $tab === 'media' ? 'active' : '' ?>" href="?tab=media">Media Library</a>
         <a class="tab-link <?= $tab === 'seo' ? 'active' : '' ?>" href="?tab=seo">SEO / Schema</a>
         <a class="tab-link <?= $tab === 'plugins' ? 'active' : '' ?>" href="?tab=plugins">Plugins</a>
