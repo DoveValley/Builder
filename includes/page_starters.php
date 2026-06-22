@@ -1,6 +1,7 @@
 <?php
 function starter_categories(): array {
     return [
+        'homepage'     => 'Homepage',
         'training'     => 'Training / Course',
         'home_service' => 'Home Services',
         'prof_service' => 'Prof Services',
@@ -11,6 +12,35 @@ function starter_categories(): array {
 
 function default_starters(): array {
     return [
+        // ── Homepage ─────────────────────────────────────────────────────────
+        [
+            'id'       => 'hp_training',
+            'label'    => 'Training / Course',
+            'desc'     => 'Hero · Features · Stats · Pricing · Testimonials · CTA',
+            'category' => 'homepage',
+            'blocks'   => ['hero_split', 'feature_columns', 'stats', 'pricing_cards', 'testimonials', 'cta_banner'],
+        ],
+        [
+            'id'       => 'hp_home_service',
+            'label'    => 'Home Services',
+            'desc'     => 'Hero · Features · Service cards · Stats · Testimonials · CTA',
+            'category' => 'homepage',
+            'blocks'   => ['hero_split', 'feature_columns', 'service_cards', 'stats', 'testimonials', 'cta_banner'],
+        ],
+        [
+            'id'       => 'hp_prof_service',
+            'label'    => 'Prof Services',
+            'desc'     => 'Hero · Feature split · Stats · Team · Testimonials · CTA',
+            'category' => 'homepage',
+            'blocks'   => ['hero_split', 'feature_split', 'stats', 'team', 'testimonials', 'cta_banner'],
+        ],
+        [
+            'id'       => 'hp_ecommerce',
+            'label'    => 'E-Commerce',
+            'desc'     => 'Hero · Features · Cards · Logo bar · Testimonials · CTA',
+            'category' => 'homepage',
+            'blocks'   => ['hero_split', 'feature_columns', 'service_cards', 'logo_bar', 'testimonials', 'cta_banner'],
+        ],
         // ── Training / Course ────────────────────────────────────────────────
         [
             'id'       => 'training_course_service',

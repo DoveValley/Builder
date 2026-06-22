@@ -40,6 +40,11 @@ switch ($section) {
         require __DIR__ . '/save/content.php';
         break;
 
+    /* ---- HOMEPAGE LOAD STARTER ---- */
+    case 'homepage_load_starter':
+        require __DIR__ . '/save/homepage_load_starter.php';
+        break;
+
     /* ---- PAGE ADD ---- */
     case 'page_add':
         require __DIR__ . '/save/page_add.php';
