@@ -3708,8 +3708,11 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 .tm-subtext { font-size: 1rem; color: #4b5563; margin: 0; }
 .tm-heading { text-align: center; margin-bottom: 36px; font-size: 2rem; }
 .tm-grid { display: grid; gap: 24px; }
-.tm-grid-2 { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
-.tm-grid-3 { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.tm-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.tm-grid-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 768px) {
+    .tm-grid-2, .tm-grid-3 { grid-template-columns: 1fr; }
+}
 .tm-card {
     background: #fff;
     border-radius: 12px;
