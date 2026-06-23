@@ -4,8 +4,8 @@
         $src   = $data['pages'][$srcId] ?? null;
 
         if ($src === null) {
-            $message = 'error:Page not found.';
-            break;
+            header('Location: index.php?tab=pages&msg=' . urlencode('error:Page not found.'));
+            exit;
         }
 
         $newId   = 'page_' . uniqid();
