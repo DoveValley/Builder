@@ -973,13 +973,13 @@ function render_content_block($block, $pathPrefix = '') {
             if ($wbCentered) {
                 // Centered layout: single column, all content centered
                 echo '<div class="container" style="text-align:center;">';
-                if ($badge)   echo '<span class="wb-badge" style="background:'.$badgeBgStyle.';color:#fff;">'.h($badge).'</span>';
+                if ($badge)   echo '<span class="wb-badge" style="display:inline-block;margin-bottom:12px;background:'.$badgeBgStyle.';color:#fff;">'.h($badge).'</span>';
                 if ($heading) echo '<h2 class="wb-heading" style="text-align:center;">'.h($heading).'</h2>';
-                if ($subtext) echo '<p class="wb-subtext" style="max-width:780px;margin:0 auto;">'.h($subtext).'</p>';
+                if ($subtext) echo '<p class="wb-subtext" style="max-width:780px;margin:0 auto;text-align:center;">'.h($subtext).'</p>';
                 if ($btnText) {
                     $btnClass = $btnStyle === 'filled' ? 'wb-btn wb-btn-filled' : 'wb-btn wb-btn-outline';
                     $btnInlineStyle = $btnStyle === 'filled' ? 'background:'.h($badgeBgStyle).';' : '';
-                    echo '<div style="margin-top:24px;"><a href="'.h($btnUrl).'" class="'.$btnClass.'" style="'.$btnInlineStyle.'">'.h($btnText).'</a></div>';
+                    echo '<div style="margin-top:24px;text-align:center;"><a href="'.h($btnUrl).'" class="'.$btnClass.'" style="display:inline-block;'.$btnInlineStyle.'">'.h($btnText).'</a></div>';
                 }
                 echo '</div>';
             } else {
