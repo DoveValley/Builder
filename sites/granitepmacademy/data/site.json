@@ -15,11 +15,11 @@
     "header_top_bg": "#ffffff",
     "heading_color": "#1a2e5a",
     "font_size_body": 16,
-    "font_size_h1": 3.88,
+    "font_size_h1": "5.0",
     "font_size_h2": 2.88,
     "font_size_h3": 2.38,
     "font_size_h4": 1.62,
-    "heading_font": "Noto Serif, serif",
+    "heading_font": "Inter, sans-serif",
     "accent2_color": "#ffc000",
     "skins": {
       "dark": {
@@ -1874,7 +1874,7 @@
           "type": "hero_split",
           "hs_heading": "PMP Bootcamp",
           "hs_tagline": "PMI Premier Authorized Training Partner \u2014 Nationwide",
-          "hs_subtext": "Pass your PMP exam in 4 intensive days \u2014 or your money back. The most effective PMP bootcamp available, backed by 20+ years of training, a 99% first-attempt pass rate, and PMI's highest authorization tier.",
+          "hs_subtext": "Pass your PMP exam in 4 intensive days \u2014 or your money back. The most effective PMP bootcamp available, backed by 20+ years of training, a 99% first-attempt pass rate, and PMI's highest authorization tier.\n\n4-Day Intensive Format  \u00b7  99% First-Attempt Pass Rate  \u00b7  Money-Back Guarantee  \u00b7  35 PDUs  \u00b7  PMI Premier Authorized  \u00b7  Live & Virtual Nationwide",
           "hs_bg_color": "#0d1b3e",
           "hs_photo": "sites/granitepmacademy/uploads/media/hero_professional.webp",
           "hs_photo_alt": "PMP Bootcamp students in training",
@@ -1915,7 +1915,7 @@
           "type": "text",
           "heading_text": "What Is a PMP Bootcamp?",
           "heading_level": "h2",
-          "text": "A PMP bootcamp compresses months of self-study into 4 intensive, instructor-led days \u2014 satisfying PMI's 35-hour education requirement, covering every exam domain, and leaving you exam-ready by the time you walk out the door.\n\nOur 4-day PMP bootcamp is an immersive, expert-led training experience purpose-built for the PMP exam. Every session is structured to maximize retention and exam readiness \u2014 covering all three PMP domains with the exact blend of predictive and agile content that makes up the 2026 exam.\n\nUnlike self-study or on-demand video courses, our bootcamp puts a live PMI-certified expert in the room with you \u2014 answering questions in real time, resolving misconceptions before they become wrong answers on exam day, and teaching the critical skill that determines whether you pass: thinking the way PMI expects you to think.\n\nYou leave Day 4 with your 35 contact hours complete, your PMI application submitted, and a structured post-bootcamp study plan in hand. Most of our students sit the PMP exam within 30 days of completing the bootcamp.\n\nOur bootcamp students pass at nearly double the industry average. The national self-study pass rate hovers around 55%. Our method works \u2014 and we back it with a money-back guarantee.\n\n\ud83d\udca1 Application tip: We walk you through the PMI application on Day 4 of the bootcamp. Most students submit before they leave the room \u2014 meaning PMI approval starts that same day. Standard review takes 5\u201310 business days, putting you on track to sit the exam within 30 days of completing training."
+          "text": "A PMP bootcamp compresses months of self-study into 4 intensive, instructor-led days \u2014 satisfying PMI's 35-hour education requirement, covering every exam domain, and leaving you exam-ready by the time you walk out the door.\n\nOur 4-day PMP bootcamp is an immersive, expert-led training experience purpose-built for the PMP exam. Every session is structured to maximize retention and exam readiness \u2014 covering all three PMP domains with the exact blend of predictive and agile content that makes up the 2026 exam.\n\nUnlike self-study or on-demand video courses, our bootcamp puts a live PMI-certified expert in the room with you \u2014 answering questions in real time, resolving misconceptions before they become wrong answers on exam day, and teaching the critical skill that determines whether you pass: thinking the way PMI expects you to think.\n\nYou leave Day 4 with your 35 contact hours complete, your PMI application submitted, and a structured post-bootcamp study plan in hand. Most of our students sit the PMP exam within 30 days of completing the bootcamp.\n\n\ud83d\udca1 Application tip: We walk you through the PMI application on Day 4. Most students submit before they leave the room \u2014 meaning PMI approval starts that same day. Standard review takes 5\u201310 business days, putting you on track to sit the exam within 30 days of completing training."
         },
         {
           "type": "comparison_table",
@@ -1928,21 +1928,20 @@
           "ct_callout": "PMI Premier Authorized Training Partner \u2014 fewer than 1% of training providers worldwide achieve this tier."
         },
         {
-          "type": "cta_banner",
-          "cb_text": "Reserve Your Seat \u2014 Classes Filling Fast",
-          "cb_subtext": "Every bootcamp session is live, instructor-led, and backed by our Pass Guarantee. Pick the date that works for you and lock in your spot.",
-          "cb_btn_text": "View Bootcamp Schedules",
-          "cb_btn_url": "/schedule",
-          "cb_bg": "custom",
-          "cb_bg_custom": "#2563eb",
-          "cb_text_color": "#ffffff",
-          "cb_padding": "normal"
+          "type": "text",
+          "heading_text": "Reserve Your Seat \u2014 Classes Filling Fast",
+          "heading_level": "h2",
+          "text": "Every bootcamp session is live, instructor-led, and backed by our Pass Guarantee. Pick the date that works for you and lock in your spot."
+        },
+        {
+          "type": "custom_html",
+          "html": "[course_schedule type=\"PMP Certification\"]"
         },
         {
           "type": "feature_columns",
           "fc_heading": "Why Granite PM Academy",
           "fc_subheading": "What Makes Our PMP Bootcamp Different from Every Other Option",
-          "fc_bg_color": "#f8fafc",
+          "fc_bg_color": "#ffffff",
           "fc_num_cols": 3,
           "columns": [
             {
@@ -1963,11 +1962,11 @@
             },
             {
               "heading": "0 Risk \u2014 Money-Back Guarantee",
-              "text": "If you complete our bootcamp, follow our study plan, and don't pass on your first attempt, we enroll you in the next bootcamp session at no cost. Zero fine print. Zero exceptions. Zero risk to you."
+              "text": "If you complete our bootcamp, follow our study plan, and don't pass on your first attempt, we enroll you in the next bootcamp session at no cost. Zero fine print. Zero exceptions. Zero risk."
             },
             {
               "heading": "2026 Current Exam Content",
-              "text": "Fully updated to PMI's 2026 Exam Content Outline \u2014 including the ~50% agile/hybrid weighting that trips up students using outdated prep materials. We update our content with every PMI change."
+              "text": "Fully updated to PMI's 2026 Exam Content Outline \u2014 including the ~50% agile/hybrid weighting that trips up students using outdated prep materials. Updated with every PMI change."
             }
           ]
         },
@@ -1997,75 +1996,75 @@
         {
           "type": "cards",
           "cards_heading": "Every PMP Exam Domain \u2014 Fully Covered in 4 Days",
-          "cards_subtext": "Our bootcamp curriculum is built directly from PMI's 2026 Exam Content Outline. Every topic weighted by its actual impact on your exam score \u2014 no filler, no wasted time.",
+          "cards_subtext": "Our bootcamp curriculum is built directly from PMI's 2026 Exam Content Outline \u2014 no filler, no wasted time.",
           "cards_cols": 4,
-          "cards_bg": "#ffffff",
+          "cards_bg": "#f8fafc",
           "cards_items": [
             {
               "heading": "People Domain",
-              "text": "42% of Exam\n\nLeading and managing teams, conflict resolution, negotiation, emotional intelligence, and stakeholder engagement \u2014 the largest single domain on the PMP exam."
+              "text": "42% of Exam \u2014 Leading and managing teams, conflict resolution, negotiation, emotional intelligence, and stakeholder engagement."
             },
             {
               "heading": "Process Domain",
-              "text": "50% of Exam\n\nProject initiation, planning, execution, and control: scope, schedule, cost, quality, risk, procurement, and communications management."
+              "text": "50% of Exam \u2014 Scope, schedule, cost, quality, risk, procurement, and communications management."
             },
             {
-              "heading": "Business Environment Domain",
-              "text": "8% of Exam\n\nStrategic alignment, benefits realization, organizational change management, compliance, and business value delivery."
+              "heading": "Business Environment",
+              "text": "8% of Exam \u2014 Strategic alignment, benefits realization, organizational change management, and compliance."
             },
             {
               "heading": "Agile & Hybrid Frameworks",
-              "text": "~50% of Questions\n\nScrum, Kanban, SAFe, and hybrid approaches now make up roughly half of all PMP exam questions. We cover agile as deeply as predictive."
+              "text": "~50% of Questions \u2014 Scrum, Kanban, SAFe, and hybrid approaches covered as deeply as predictive methods."
             },
             {
               "heading": "PMI Mindset & Scenario Mastery",
-              "text": "The PMP tests how you think, not just what you know. We train you to recognize PMI's expected response pattern across every scenario type."
+              "text": "The PMP tests how you think, not just what you know. We train you to recognize PMI's expected response pattern."
             },
             {
               "heading": "800+ AI-Adaptive Practice Questions",
-              "text": "Full-length 180-question mock exams plus AI-targeted question sets that focus on your personal weak areas \u2014 calibrated to the real exam's difficulty."
+              "text": "Full-length 180-question mock exams plus AI-targeted sets that focus on your personal weak areas."
             },
             {
               "heading": "Earned Value & Quantitative Analysis",
-              "text": "EVM calculations, schedule performance index, cost variance, and quantitative scenario questions that appear consistently on every PMP exam."
+              "text": "EVM calculations, schedule performance index, cost variance \u2014 demystified and drilled."
             },
             {
               "heading": "PMI Application & Exam Registration",
-              "text": "Step-by-step application guidance so you leave Day 4 with your PMI application submitted, exam eligibility confirmed, and Pearson VUE scheduling underway."
+              "text": "Step-by-step guidance so you leave Day 4 with your application submitted and Pearson VUE scheduling underway."
             }
           ]
         },
         {
           "type": "cards",
           "cards_heading": "Who Should Attend?",
-          "cards_subtext": "Our PMP bootcamp is built for working professionals who need to get PMP-certified efficiently \u2014 without months of self-study disrupting their career and personal life.",
+          "cards_subtext": "Our PMP bootcamp is built for working professionals who need to get PMP-certified efficiently \u2014 without months of self-study disrupting their career.",
           "cards_cols": 3,
           "cards_centered": true,
           "cards_bg": "#f3f6f7",
           "cards_items": [
             {
               "heading": "Working Project Managers",
-              "text": "Full-time PMs who can't take months off to self-study. Thursday\u2013Sunday format means you're back at your desk Monday morning \u2014 exam-ready and fully credentialed."
+              "text": "Full-time PMs who can't take months off to self-study. Thursday\u2013Sunday format means you're back at your desk Monday morning \u2014 exam-ready."
             },
             {
               "heading": "Experienced PMs Ready to Formalize",
-              "text": "You've been managing projects for years and know the work. The bootcamp rapidly translates your real-world experience into PMP exam language."
+              "text": "You've been managing projects for years. The bootcamp rapidly translates your real-world experience into PMP exam language."
             },
             {
               "heading": "Military Veterans & Transitioning Service Members",
-              "text": "Officers and senior enlisted have deep qualifying PM experience. Our instructors specialize in helping veterans frame military leadership in PMP application terms."
+              "text": "Officers and senior enlisted have deep qualifying PM experience. GI Bill and DOD SkillBridge may apply."
             },
             {
               "heading": "IT & Technology Leaders",
-              "text": "Tech leads, Scrum Masters, and software project managers moving into formal PM roles. The bootcamp bridges technical expertise with PMI methodology."
+              "text": "Tech leads and Scrum Masters moving into formal PM roles. Bridges technical expertise with PMI methodology."
             },
             {
               "heading": "Failed a Previous PMP Attempt",
-              "text": "Self-study didn't work and you didn't pass. Our bootcamp teaches the exam mindset shift that's the root cause of most failures. 99% of our students pass first try."
+              "text": "Our bootcamp teaches the exam mindset shift that's the root cause of most failures. 99% of our students pass first try."
             },
             {
-              "heading": "Corporate Teams Needing Bulk Certification",
-              "text": "Organizations that need multiple PMs certified quickly. We offer group bootcamp pricing, dedicated corporate sessions, and streamlined enrollment for teams."
+              "heading": "Corporate Teams",
+              "text": "Group bootcamp pricing, dedicated corporate sessions, and streamlined enrollment for teams. Contact us for a custom quote."
             }
           ]
         },
@@ -2120,35 +2119,35 @@
           "fq_items": [
             {
               "question": "What exactly is a PMP bootcamp and how does it work?",
-              "answer": "A PMP bootcamp is an intensive, accelerated 4-day training program that compresses months of self-study into a structured, expert-led experience. Our bootcamp covers all three PMP exam domains, satisfies PMI's 35-hour education requirement, provides 800+ practice questions, and walks you through the PMI application \u2014 all in four days. Most students submit their PMI application on Day 4 and sit the exam within 30 days of completing training."
+              "answer": "A PMP bootcamp is an intensive, accelerated 4-day training program that compresses months of self-study into a structured, expert-led experience. Our bootcamp covers all three PMP exam domains, satisfies PMI's 35-hour education requirement, provides 800+ practice questions, and walks you through the PMI application \u2014 all in four days. Most students submit their PMI application on Day 4 and sit the exam within 30 days."
             },
             {
               "question": "Is a PMP bootcamp worth it compared to self-study?",
-              "answer": "The data makes a clear case for bootcamp. The industry first-attempt pass rate for self-study is approximately 55%. Our bootcamp achieves 99%. Beyond pass rates, a bootcamp satisfies your 35 contact hours, provides live expert instruction for real-time Q&A, and gets you exam-ready in 4 days instead of 4\u20136 months. For most working professionals, the time efficiency alone makes the bootcamp worth the investment \u2014 before accounting for the pass rate advantage and money-back guarantee."
+              "answer": "The industry first-attempt pass rate for self-study is approximately 55%. Our bootcamp achieves 99%. Beyond pass rates, a bootcamp satisfies your 35 contact hours, provides live expert instruction, and gets you exam-ready in 4 days instead of 4\u20136 months. For most working professionals, the time efficiency alone makes the bootcamp worth the investment."
             },
             {
               "question": "Does the bootcamp satisfy the 35-hour PMI education requirement?",
-              "answer": "Yes \u2014 completing our 4-day PMP bootcamp fully satisfies PMI's 35-contact-hour project management education requirement. You leave the bootcamp with this requirement met and are immediately eligible to submit your PMP application. We walk you through the application on Day 4 so you submit before you leave."
+              "answer": "Yes \u2014 completing our 4-day PMP bootcamp fully satisfies PMI's 35-contact-hour requirement. You leave the bootcamp with this requirement met and are immediately eligible to submit your PMP application. We walk you through the application on Day 4 so you submit before you leave."
             },
             {
               "question": "Is the PMP bootcamp available online?",
-              "answer": "Yes. We offer live virtual PMP bootcamps with a real PMI-certified instructor via video conference \u2014 not pre-recorded video or self-paced modules. We also offer live in-person bootcamps at locations across Texas and other cities nationwide. Both formats achieve the same 99% pass rate, satisfy the same 35-hour requirement, and include the same money-back guarantee."
+              "answer": "Yes. We offer live virtual PMP bootcamps with a real PMI-certified instructor via video conference \u2014 not pre-recorded video or self-paced modules. We also offer live in-person bootcamps at locations nationwide. Both formats achieve the same 99% pass rate and include the same money-back guarantee."
             },
             {
               "question": "What is included in the PMP bootcamp?",
-              "answer": "Our 4-day PMP bootcamp includes: 35 contact hours of live expert instruction covering all three PMP exam domains; 2026-aligned curriculum with full agile/hybrid coverage; 800+ AI-adaptive practice questions targeting your personal weak areas; full-length 180-question mock exams; PMI application walkthrough on Day 4; structured post-bootcamp 30-day study plan; post-class instructor Q&A access; and the money-back pass guarantee. The PMP exam fee ($405 for PMI members) is paid separately to PMI."
+              "answer": "35 contact hours of live expert instruction; 2026-aligned curriculum with full agile/hybrid coverage; 800+ AI-adaptive practice questions; full-length 180-question mock exams; PMI application walkthrough on Day 4; structured post-bootcamp 30-day study plan; post-class instructor Q&A access; and the money-back pass guarantee. The PMP exam fee ($405 for PMI members) is paid separately to PMI."
             },
             {
               "question": "What is the money-back pass guarantee?",
-              "answer": "If you attend our full 4-day bootcamp, follow our recommended post-bootcamp study activities, and don't pass the PMP exam on your first attempt, we will enroll you in the next available bootcamp session at no additional cost. There is no additional fine print beyond those two conditions \u2014 attend the bootcamp and follow the study plan."
+              "answer": "If you attend our full 4-day bootcamp, follow our recommended post-bootcamp study activities, and don't pass the PMP exam on your first attempt, we will enroll you in the next available bootcamp session at no additional cost. No fine print beyond those two conditions."
             },
             {
               "question": "How soon after the bootcamp can I take the PMP exam?",
-              "answer": "Most students sit the PMP exam within 30 days of completing the bootcamp. Submit your PMI application on Day 4 with instructor assistance. PMI approves applications in 5\u201310 business days for standard applications. Schedule your Pearson VUE exam within 1\u20132 weeks of approval. Our post-bootcamp study tools keep your preparation momentum active through the entire waiting and scheduling period."
+              "answer": "Most students sit the PMP exam within 30 days. Submit your PMI application on Day 4. PMI approves in 5\u201310 business days. Schedule Pearson VUE 1\u20132 weeks after approval. Our post-bootcamp study tools keep your momentum active through the entire waiting period."
             },
             {
               "question": "Can my employer pay for the PMP bootcamp?",
-              "answer": "Yes \u2014 many employers cover PMP bootcamp costs through professional development, tuition reimbursement, or L&D budgets. We provide formal invoicing, purchase orders, and group pricing for employer-sponsored enrollments. For qualifying veterans, GI Bill benefits and DOD SkillBridge programs may also apply. Contact us and we'll help you identify the right funding path."
+              "answer": "Yes \u2014 many employers cover PMP bootcamp costs through professional development or L&D budgets. We provide formal invoicing, purchase orders, and group pricing. For qualifying veterans, GI Bill benefits and DOD SkillBridge programs may also apply."
             }
           ]
         },
