@@ -90,6 +90,11 @@ switch ($section) {
         require __DIR__ . '/save/local_business.php';
         break;
 
+    /* ---- BREADCRUMBS ---- */
+    case 'breadcrumbs':
+        require __DIR__ . '/save/breadcrumbs.php';
+        break;
+
     default:
         header('Location: index.php');
         exit;

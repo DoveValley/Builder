@@ -80,6 +80,11 @@ function default_data() {
             'og_image'         => '',
             'schema'           => '',
         ],
+        'breadcrumbs' => [
+            'enabled'      => true,
+            'hero_bg_mode' => 'auto',
+            'hero_bg_color'=> '',
+        ],
         'local_business' => [
             'lb_name'         => '',
             'lb_url'          => '',

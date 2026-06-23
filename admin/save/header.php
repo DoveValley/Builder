@@ -6,6 +6,7 @@
         $data['header']['phone']           = trim($_POST['phone']           ?? '');
         $data['header']['city']            = trim($_POST['city']            ?? '');
         $data['header']['logo_max_height'] = max(32, min(120, (int)($_POST['logo_max_height'] ?? 56)));
+        $data['header']['sr_bar_height']   = max(48, min(120, (int)($_POST['sr_bar_height']   ?? 64)));
         $data['header']['nav_bg']          = trim($_POST['nav_bg']          ?? '#fd783b');
         $data['header']['nav_text']        = trim($_POST['nav_text']        ?? '#ffffff');
         $data['header']['phone_btn_style'] = in_array($_POST['phone_btn_style'] ?? '', ['outline','filled','plain']) ? $_POST['phone_btn_style'] : 'outline';

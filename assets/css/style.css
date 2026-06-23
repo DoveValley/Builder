@@ -148,7 +148,7 @@ a:hover {
    Public site main content / content blocks
    ========================================================= */
 .site-main {
-    padding: 48px 0;
+    padding: 0 0 48px;
 }
 .breadcrumb-bar {
     background: #f3f6f7;
@@ -171,6 +171,17 @@ a:hover {
 .breadcrumb-list a:hover { text-decoration: underline; }
 .breadcrumb-list [aria-current="page"] { color: #333; font-weight: 500; }
 .breadcrumb-sep { color: #aaa; font-size: 0.9rem; }
+
+/* Breadcrumb overlaid on hero blocks */
+.breadcrumb-bar--hero {
+    background: var(--color-header-bg, #0d1b3e);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.breadcrumb-bar--hero .breadcrumb-list { color: rgba(255,255,255,0.7); }
+.breadcrumb-bar--hero .breadcrumb-list a { color: rgba(255,255,255,0.75); }
+.breadcrumb-bar--hero .breadcrumb-list a:hover { color: #fff; }
+.breadcrumb-bar--hero .breadcrumb-list [aria-current="page"] { color: rgba(255,255,255,0.9); font-weight: 500; }
+.breadcrumb-bar--hero .breadcrumb-sep { color: rgba(255,255,255,0.4); }
 
 .content-block {
     display: flex;
@@ -938,6 +949,11 @@ summary.block-card-header::-webkit-details-marker { display: none; }
    TOP ANNOUNCEMENT BAR
    ============================================================ */
 .site-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 501;
     background: var(--color-accent, #fd783b);
     color: #fff;
     text-align: center;
@@ -1539,7 +1555,7 @@ html, body {
 /* Push page content down so it doesn't hide under the fixed header */
 .site-header-sticky ~ main,
 body.has-fixed-header main {
-    margin-top: var(--fixed-header-height, 120px);
+    padding-top: var(--fixed-header-height, 120px);
 }
 
 /* TOP ROW — always white, logo + info items */
@@ -1763,6 +1779,12 @@ body.has-fixed-header main {
 .site-header-single-row .site-logo-sr {
     flex-shrink: 0;
     margin-right: 24px;
+    display: flex;
+    align-items: center;
+}
+.site-header-single-row .site-logo-sr a {
+    display: flex;
+    align-items: center;
 }
 .site-header-single-row .site-logo-sr img {
     display: block;

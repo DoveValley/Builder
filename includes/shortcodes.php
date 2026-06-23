@@ -71,76 +71,80 @@ function _render_course_schedule_html(string $type, string $instanceId): string 
     }
     $GLOBALS['_csm_w1_data'][$instanceId] = ['courses' => $courses];
 
-    $typeOpts = '<option value="">All Course Types</option>';
+    $typeOptsHtml = '<option value="">All Course Types</option>';
     foreach ($courseTypes as $ct) {
-        $typeOpts .= '<option value="' . h($ct) . '">' . h($ct) . '</option>';
+        $typeOptsHtml .= '<option value="' . h($ct) . '">' . h($ct) . '</option>';
     }
 
     ob_start(); ?>
-<div class="csm-schedule-wrap" id="<?= h($instanceId) ?>" data-type="<?= h($type) ?>">
-    <div class="csm-filters">
+<div class="csm-schedule-wrap" id="<?= h($instanceId) ?>" data-type="<?= h($type) ?>" data-showall="<?= $showAll ? '1' : '0' ?>">
+    <div class="csm-filters" role="search" aria-label="Course filters">
+        <?php if ($showAll && !empty($courseTypes)) : ?>
         <div class="csm-filter-group">
-            <label>Course Type</label>
-            <select class="csm-filter" data-filter="course_type"><?= $typeOpts ?></select>
+            <label for="<?= h($instanceId) ?>_ct">Course Type</label>
+            <select id="<?= h($instanceId) ?>_ct" class="csm-filter" data-filter="course_type" aria-label="Filter by course type"><?= $typeOptsHtml ?></select>
         </div>
+        <?php endif; ?>
         <div class="csm-filter-group">
-            <label>Delivery</label>
-            <select class="csm-filter" data-filter="delivery">
+            <label for="<?= h($instanceId) ?>_del">Delivery</label>
+            <select id="<?= h($instanceId) ?>_del" class="csm-filter" data-filter="delivery" aria-label="Filter by delivery method">
                 <option value="">All</option>
                 <option value="Live-Virtual">Live-Virtual</option>
                 <option value="On-Demand">On-Demand</option>
             </select>
         </div>
         <div class="csm-filter-group">
-            <label>Timezone</label>
-            <select class="csm-filter" data-filter="timezone">
-                <option value="EST">EST</option>
-                <option value="CST">CST</option>
-                <option value="MST">MST</option>
-                <option value="PST">PST</option>
+            <label for="<?= h($instanceId) ?>_tz">Timezone</label>
+            <select id="<?= h($instanceId) ?>_tz" class="csm-filter" data-filter="timezone" aria-label="Select timezone">
+                <option value="EST">Eastern (EST)</option>
+                <option value="CST">Central (CST)</option>
+                <option value="MST">Mountain (MST)</option>
+                <option value="PST">Pacific (PST)</option>
             </select>
         </div>
         <div class="csm-filter-group csm-filter-reset">
-            <button type="button" class="csm-reset-btn">Reset</button>
+            <button class="csm-reset-btn" type="button" aria-label="Reset all filters">Reset Filters</button>
         </div>
     </div>
     <div class="csm-table-wrap">
-        <table class="csm-table">
+        <table class="csm-table" aria-label="Course schedule">
             <thead><tr>
-                <th>Course</th><th>Delivery</th><th>Dates</th>
-                <th>Time</th><th>Price</th><th>Register</th><th>Availability</th>
+                <th scope="col">Course Type</th><th scope="col">Delivered</th><th scope="col">Date</th>
+                <th scope="col">Time</th><th scope="col">Price</th><th scope="col"><span class="sr-only">Register</span></th><th scope="col">Availability</th>
             </tr></thead>
-            <tbody class="csm-tbody"><tr><td colspan="7" class="csm-loading">Loading&hellip;</td></tr></tbody>
+            <tbody class="csm-tbody"><tr><td colspan="7" class="csm-loading">Loading courses&#8230;</td></tr></tbody>
         </table>
     </div>
     <div class="csm-mobile-cards">
-        <div class="csm-mob-filters">
+        <div class="csm-mob-filters" role="search" aria-label="Course filters">
+            <?php if ($showAll && !empty($courseTypes)) : ?>
             <div class="csm-mob-filter-row">
-                <span class="csm-mob-filter-label">Course Type</span>
-                <select class="csm-mob-filter" data-mob-filter="course_type"><?= $typeOpts ?></select>
+                <label class="csm-mob-filter-label" for="<?= h($instanceId) ?>_m_ct">Course Type</label>
+                <select id="<?= h($instanceId) ?>_m_ct" class="csm-mob-filter" data-mob-filter="course_type" aria-label="Filter by course type"><?= $typeOptsHtml ?></select>
             </div>
+            <?php endif; ?>
             <div class="csm-mob-filter-row">
-                <span class="csm-mob-filter-label">Delivery</span>
-                <select class="csm-mob-filter" data-mob-filter="delivery">
+                <label class="csm-mob-filter-label" for="<?= h($instanceId) ?>_m_del">Delivery</label>
+                <select id="<?= h($instanceId) ?>_m_del" class="csm-mob-filter" data-mob-filter="delivery" aria-label="Filter by delivery method">
                     <option value="">All</option>
                     <option value="Live-Virtual">Live-Virtual</option>
                     <option value="On-Demand">On-Demand</option>
                 </select>
             </div>
             <div class="csm-mob-filter-row">
-                <span class="csm-mob-filter-label">Timezone</span>
-                <select class="csm-mob-filter" data-mob-filter="timezone">
-                    <option value="EST">EST</option>
-                    <option value="CST">CST</option>
-                    <option value="MST">MST</option>
-                    <option value="PST">PST</option>
+                <label class="csm-mob-filter-label" for="<?= h($instanceId) ?>_m_tz">Timezone</label>
+                <select id="<?= h($instanceId) ?>_m_tz" class="csm-mob-filter csm-mob-tz" data-mob-filter="timezone" aria-label="Select timezone">
+                    <option value="EST">Eastern (EST)</option>
+                    <option value="CST">Central (CST)</option>
+                    <option value="MST">Mountain (MST)</option>
+                    <option value="PST">Pacific (PST)</option>
                 </select>
             </div>
             <div class="csm-mob-reset-row">
-                <button type="button" class="csm-mob-reset-btn">Reset Filters</button>
+                <button class="csm-mob-reset-btn" type="button" aria-label="Reset all filters">Reset</button>
             </div>
         </div>
-        <div class="csm-mobile-scroll"><div class="csm-mcards"></div></div>
+        <div class="csm-mobile-scroll csm-mcards" aria-live="polite" aria-label="Course list"></div>
     </div>
 </div>
 <?php return ob_get_clean();
@@ -166,12 +170,12 @@ function _render_course_card_html(string $type, int $startTab, string $instanceI
         </div>
     </div>
     <div class="csm2-tz-row">
-        <label class="csm2-tz-label">Timezone</label>
-        <select class="csm2-tz-select">
-            <option value="EST">EST</option>
-            <option value="CST">CST</option>
-            <option value="MST">MST</option>
-            <option value="PST">PST</option>
+        <label class="csm2-tz-label" for="<?= h($instanceId) ?>_tz">Timezone</label>
+        <select id="<?= h($instanceId) ?>_tz" class="csm2-tz-select" aria-label="Select timezone">
+            <option value="EST">Eastern Standard Time (EST)</option>
+            <option value="CST">Central Standard Time (CST)</option>
+            <option value="MST">Mountain Standard Time (MST)</option>
+            <option value="PST">Pacific Standard Time (PST)</option>
         </select>
     </div>
     <div class="csm2-scroll-area">

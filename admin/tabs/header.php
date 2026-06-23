@@ -139,6 +139,19 @@
                         <span>32px (small)</span><span>76px (medium)</span><span>120px (large)</span>
                     </div>
                 </div>
+
+                <div class="form-group" id="sr-bar-height-row" style="<?= ($currentLayout === 'single_row') ? '' : 'display:none;' ?>">
+                    <label for="sr_bar_height">Header bar height: <strong id="sr_bar_height_val"><?= h($header['sr_bar_height'] ?? '64') ?>px</strong></label>
+                    <input type="range" id="sr_bar_height" name="sr_bar_height"
+                           min="48" max="120" step="4"
+                           value="<?= h($header['sr_bar_height'] ?? '64') ?>"
+                           oninput="document.getElementById('sr_bar_height_val').textContent = this.value + 'px'"
+                           style="width:100%;accent-color:var(--color-accent, #2563eb);">
+                    <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:#888;margin-top:2px;">
+                        <span>48px (compact)</span><span>80px (medium)</span><span>120px (tall)</span>
+                    </div>
+                </div>
+
             </div>
 
             <div class="card">
@@ -321,7 +334,9 @@
 function onHeaderLayoutChange(layout) {
     var infoCard = document.getElementById('header-info-items-card');
     if (infoCard) infoCard.style.display = (layout === 'single_row') ? 'none' : '';
-    document.querySelectorAll('.layout-option').forEach(function(el) {
+    var srHeight = document.getElementById('sr-bar-height-row');
+    if (srHeight) srHeight.style.display = (layout === 'single_row') ? '' : 'none';
+document.querySelectorAll('.layout-option').forEach(function(el) {
         el.classList.remove('layout-option-selected');
     });
     var selected = document.querySelector('.layout-option input[value="' + layout + '"]');

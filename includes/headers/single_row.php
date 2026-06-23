@@ -17,7 +17,8 @@
 
 <header class="site-header site-header-single-row<?= $isSticky ? ' site-header-sticky' : '' ?>">
     <div class="header-sr-bar" style="background:<?= h($navBg) ?>;">
-        <div class="container header-sr-inner">
+        <?php $srHeight = max(48, min(120, (int)($header['sr_bar_height'] ?? 64))); ?>
+        <div class="container header-sr-inner" style="min-height:<?= $srHeight ?>px;">
 
             <!-- Logo -->
             <div class="site-logo site-logo-sr">

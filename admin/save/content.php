@@ -30,9 +30,10 @@
             'service_type'       => trim($_POST['service_type']       ?? ''),
             'service_area'       => trim($_POST['service_area']       ?? ''),
             'service_description'=> trim($_POST['service_description']?? ''),
+            'bc_hide'            => !empty($_POST['bc_hide']),
             'bc_label'           => trim($_POST['bc_label']           ?? ''),
             'bc_mid_label'       => trim($_POST['bc_mid_label']       ?? ''),
-            'bc_mid_url'         => sanitize_url($_POST['bc_mid_url']         ?? ''),
+            'bc_mid_url'         => sanitize_url($_POST['bc_mid_url'] ?? ''),
         ];
         $existingSeo = $isLandingPage ? $data['pages'][$pageId]['seo'] : ($isPost ? $data['posts'][$postId]['seo'] : $data['seo']);
         $schema = trim($_POST['schema'] ?? '');

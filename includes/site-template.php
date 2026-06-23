@@ -11,9 +11,19 @@
  * The header, footer, and theme colors are shared (global) across every page.
  */
 
-$theme  = $data['theme'];
-$header = apply_shortcodes_to_block($data['header']);
-$footer = apply_shortcodes_to_block($data['footer']);
+$theme   = $data['theme'];
+$header  = apply_shortcodes_to_block($data['header']);
+$footer  = apply_shortcodes_to_block($data['footer']);
+$_hLayout = preg_replace('/[^a-z0-9_]/', '', $header['header_layout'] ?? 'standard');
+// Topbar is position:fixed — out of document flow, adds to total fixed area.
+$_hHasTopbar     = !empty($header['topbar_text']);
+$_hTopbarEst     = $_hHasTopbar ? 36 : 0;
+$_hSrBarHeight   = max(48, min(120, (int)($header['sr_bar_height'] ?? 64)));
+$_hInitialHeight = match($_hLayout) {
+    'single_row' => ($_hSrBarHeight + $_hTopbarEst) . 'px',
+    'standard'   => (120 + $_hTopbarEst) . 'px',
+    default      => (90 + $_hTopbarEst) . 'px',
+};
 // {tel} = E.164 tracking number; fall back to stripping display phone
 $telHref = resolve_shortcodes('{tel}') ?: preg_replace('/[^0-9+]/', '', $header['phone'] ?? '');
 
@@ -117,6 +127,7 @@ if (empty($seo['og_image'])) {
     <style><?= theme_css_vars($theme) ?>
     body { font-family: var(--font-primary, sans-serif); }
     h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading, var(--font-primary, sans-serif)); }
+    :root { --fixed-header-height: <?= $_hInitialHeight ?>; }
     </style>
     <?php
     if (!empty($seo['schema'])) {
@@ -187,14 +198,49 @@ $ctaText       = trim($header['cta_text']      ?? '');
 $ctaUrl        = trim($header['cta_url']       ?? '#');
 
 // ── Dispatch to the correct header layout partial ─────────────────────────
-$_hLayout = preg_replace('/[^a-z0-9_]/', '', $header['header_layout'] ?? 'standard');
-$_hFile   = __DIR__ . '/headers/' . $_hLayout . '.php';
+$_hFile = __DIR__ . '/headers/' . $_hLayout . '.php';
 include file_exists($_hFile) ? $_hFile : __DIR__ . '/headers/standard.php';
 ?>
-<?php $lastBlockType = end($contentBlocks)['type'] ?? ''; ?>
-<main class="site-main"<?= $lastBlockType === 'custom_html' ? ' style="padding-bottom:0"' : '' ?>>
-    <?php if (!empty($slug) && isset($bcItems)): ?>
-    <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+<?php
+$lastBlockType  = end($contentBlocks)['type'] ?? '';
+$firstBlockType = ($contentBlocks[0]['type'] ?? '');
+$lastBlockNoGap = in_array($lastBlockType,  ['custom_html','cta_banner','wide_banner','stats','hero','hero_split','hero_grid']);
+$firstBlockHero = in_array($firstBlockType, ['hero','hero_split','hero_grid','hero_video']);
+$bcSettings     = $data['breadcrumbs'] ?? [];
+$bcEnabled      = $bcSettings['enabled'] ?? true;
+$bcPageHide     = !empty($seo['bc_hide'] ?? false);
+$showBreadcrumb = $bcEnabled && !$bcPageHide && !empty($slug) && isset($bcItems);
+$bcHeroBgMode   = $bcSettings['hero_bg_mode']  ?? 'auto';
+$bcHeroBgColor  = $bcSettings['hero_bg_color'] ?? '';
+
+// Read first hero block's actual background color for seamless header→hero transition
+$firstHeroBg = '';
+if ($firstBlockHero) {
+    $fb = $contentBlocks[0];
+    $firstHeroBg = $fb['hs_bg_color'] ?? $fb['hero_bg_color'] ?? $fb['hg_bg_color'] ?? '#0d1b3e';
+    if ($firstHeroBg && !str_starts_with($firstHeroBg, '#')) $firstHeroBg = '#0d1b3e';
+}
+$mainStyle = [];
+if ($lastBlockNoGap) $mainStyle[] = 'padding-bottom:0';
+if ($firstHeroBg) {
+    // Color only the padding-top gap (header offset area) with the hero color.
+    // A solid gradient sized to --fixed-header-height avoids coloring the entire <main>.
+    $mainStyle[] = 'background-image:linear-gradient(' . h($firstHeroBg) . ',' . h($firstHeroBg) . ')';
+    $mainStyle[] = 'background-size:100% var(--fixed-header-height,' . $_hInitialHeight . ')';
+    $mainStyle[] = 'background-repeat:no-repeat';
+}
+$mainStyleAttr = $mainStyle ? ' style="' . implode(';', $mainStyle) . '"' : '';
+
+// Override breadcrumb bg with actual hero color when in custom mode, else use hero color directly
+$bcHeroInlineStyle = '';
+if ($firstBlockHero) {
+    $bcBg = ($bcHeroBgMode === 'custom' && $bcHeroBgColor) ? $bcHeroBgColor : $firstHeroBg;
+    if ($bcBg) $bcHeroInlineStyle = ' style="background:' . h($bcBg) . ';border-bottom-color:rgba(255,255,255,0.12);"';
+}
+?>
+<main class="site-main"<?= $mainStyleAttr ?>>
+    <?php if ($showBreadcrumb): ?>
+    <nav class="breadcrumb-bar<?= $firstBlockHero ? ' breadcrumb-bar--hero' : '' ?>"<?= $bcHeroInlineStyle ?> aria-label="Breadcrumb">
         <div class="container">
             <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
                 <?php foreach ($bcItems as $pos => $crumb):
@@ -245,7 +291,7 @@ include file_exists($_hFile) ? $_hFile : __DIR__ . '/headers/standard.php';
     <?php endforeach; ?>
 </main>
 
-<footer class="site-footer"<?= $lastBlockType === 'custom_html' ? ' style="margin-top:0"' : '' ?>>
+<footer class="site-footer"<?= $lastBlockNoGap ? ' style="margin-top:0"' : '' ?>>
 
     <!-- FOOTER COLUMNS -->
     <div class="footer-main">
@@ -384,14 +430,17 @@ include file_exists($_hFile) ? $_hFile : __DIR__ . '/headers/standard.php';
 
 <script>
 (function() {
-    // Fixed header offset — push content down by exact header height
+    // Fixed header offset — topbar (fixed) + header (fixed below topbar)
     var stickyHeader = document.querySelector('.site-header-sticky');
     if (stickyHeader) {
         function setOffset() {
-            var h = stickyHeader.offsetHeight;
-            document.documentElement.style.setProperty('--fixed-header-height', h + 'px');
+            var topbar = document.querySelector('.site-topbar');
+            var topbarH = topbar ? topbar.offsetHeight : 0;
+            stickyHeader.style.top = topbarH + 'px';
+            var totalH = topbarH + stickyHeader.offsetHeight;
+            document.documentElement.style.setProperty('--fixed-header-height', totalH + 'px');
             var main = document.querySelector('main');
-            if (main) main.style.marginTop = h + 'px';
+            if (main) main.style.paddingTop = totalH + 'px';
         }
         setOffset();
         window.addEventListener('resize', setOffset);

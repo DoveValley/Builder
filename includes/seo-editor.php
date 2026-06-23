@@ -161,6 +161,13 @@ function render_seo_editor($seo) {
         <p class="hint" style="margin-bottom:16px;">Auto-generates <code>Home › Page Title</code> from the page title. Add an optional middle crumb (e.g. "Pest Control Services") or override the current page label.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
             <div class="form-group" style="grid-column:1/-1;">
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                    <input type="checkbox" name="bc_hide" value="1" <?= !empty($seo['bc_hide']) ? 'checked' : '' ?>>
+                    Hide breadcrumb on this page
+                </label>
+                <span class="hint">Overrides the global breadcrumb setting for this page only.</span>
+            </div>
+            <div class="form-group" style="grid-column:1/-1;">
                 <label for="bc_label">Current page crumb label <span class="hint">(leave blank to use page title)</span></label>
                 <input type="text" id="bc_label" name="bc_label" value="<?= h($seo['bc_label'] ?? '') ?>" placeholder="e.g. Cockroach Exterminator">
             </div>
