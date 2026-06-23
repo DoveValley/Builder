@@ -21,6 +21,7 @@ function sanitize_url(string $raw): string {
  * Does NOT use LIBXML_NOENT (avoids XXE via SYSTEM entity expansion).
  */
 function sanitize_svg(string $svg): string|false {
+    if (trim($svg) === '') return false;
     libxml_use_internal_errors(true);
     $doc = new DOMDocument();
     $ok  = $doc->loadXML($svg, LIBXML_NONET);
