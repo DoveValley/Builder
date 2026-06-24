@@ -184,8 +184,6 @@ foreach ($footer['columns'] as $ci => $column) {
             editor.on('change input', function() { editor.save(); });
         }
     };
-    tinymce.init(Object.assign({ selector: '.rich-editor' }, TINYMCE_OPTS));
-
     const TINYMCE_HEADING_OPTS = {
         menubar: false,
         plugins: 'code',
@@ -202,8 +200,9 @@ foreach ($footer['columns'] as $ci => $column) {
             editor.on('change input', function() { editor.save(); });
         }
     };
-    tinymce.init(Object.assign({ selector: '.rich-editor-heading' }, TINYMCE_HEADING_OPTS));
 
+    // Lazy-init: attach TinyMCE only when a block-card <details> is opened.
+    // Initializing inside a closed <details> causes 0-height rendering bugs.
     function initRichEditors(root) {
         (root || document).querySelectorAll('textarea.rich-editor').forEach(function(ta) {
             if (!ta.id) ta.id = 'mce_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
@@ -218,6 +217,18 @@ foreach ($footer['columns'] as $ci => $column) {
             }
         });
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('details.block-card').forEach(function(details) {
+            details.addEventListener('toggle', function() {
+                if (details.open) initRichEditors(details);
+            });
+        });
+        // Also init any editors that start open (e.g. first block pre-expanded)
+        document.querySelectorAll('details.block-card[open]').forEach(function(details) {
+            initRichEditors(details);
+        });
+    });
     </script>
     <script>
     // Inject CSRF token into every form on submit
@@ -225,6 +236,8 @@ foreach ($footer['columns'] as $ci => $column) {
     document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('form[action="save.php"]').forEach(function(form) {
             form.addEventListener('submit', function() {
+                // Sync all TinyMCE editors to their textareas before submit
+                if (typeof tinymce !== 'undefined') tinymce.triggerSave();
                 // CSRF token
                 var inp = form.querySelector('input[name="csrf_token"]');
                 if (!inp) {
