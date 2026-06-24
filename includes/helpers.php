@@ -194,7 +194,10 @@ function h($string) {
 function sanitize_rich_html(string $html): string {
     $html = trim($html);
     if ($html === '') return '';
-    $html = strip_tags($html, '<p><br><strong><b><em><i><ul><ol><li><a><blockquote><h2><h3>');
+    $html = strip_tags($html, '<p><br><strong><b><em><i><ul><ol><li><a><span><blockquote><h2><h3>');
+    // Strip all attributes from block-level tags
+    $html = preg_replace('/<(p|br|strong|b|em|i|ul|ol|li|blockquote|h2|h3)\b[^>]*>/i', '<$1>', $html);
+    // Sanitize <a> — keep only href + target, validate URL
     $html = preg_replace_callback('/<a\b([^>]*)>/i', function($m) {
         if (preg_match('/\bhref=["\']([^"\']*)["\']/', $m[1], $href)) {
             $url = sanitize_url(html_entity_decode($href[1], ENT_QUOTES, 'UTF-8'));
@@ -203,7 +206,20 @@ function sanitize_rich_html(string $html): string {
         }
         return '<a>';
     }, $html);
-    $html = preg_replace('/<(p|br|strong|b|em|i|ul|ol|li|blockquote|h2|h3)\b[^>]*>/i', '<$1>', $html);
+    // Sanitize <span> — keep only safe inline style properties (color, background-color, font-weight, font-style, text-decoration)
+    $html = preg_replace_callback('/<span\b([^>]*)>/i', function($m) {
+        if (preg_match('/\bstyle=["\']([^"\']*)["\']/', $m[1], $sm)) {
+            $safe = [];
+            foreach (explode(';', $sm[1]) as $decl) {
+                $decl = trim($decl);
+                if ($decl !== '' && preg_match('/^(color|background-color|font-weight|font-style|text-decoration)\s*:\s*[^;<>]{1,80}$/i', $decl)) {
+                    $safe[] = $decl;
+                }
+            }
+            if ($safe) return '<span style="' . htmlspecialchars(implode(';', $safe), ENT_QUOTES) . '">';
+        }
+        return '<span>';
+    }, $html);
     return $html;
 }
 

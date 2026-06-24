@@ -302,7 +302,9 @@ function render_content_block($block, $pathPrefix = '') {
             if ($bgColor) $style .= 'background-color:' . h($bgColor) . ';';
             echo '<div class="content-block block-hero" style="' . $style . 'color:' . h($textColor) . ';"' . $anchorAttr . '>';
             echo '<div class="hero-inner">';
-            if ($heading) echo '<h1 class="hero-heading">' . h($heading) . '</h1>';
+            $heroHeadColor = $block['hero_heading_color'] ?? '';
+            $heroHeadStyle = $heroHeadColor ? ' style="color:'.h($heroHeadColor).'"' : '';
+            if ($heading) echo '<h1 class="hero-heading"'.$heroHeadStyle.'>' . $heading . '</h1>';
             if ($subtext) echo '<p class="hero-subtext">' . h($subtext) . '</p>';
             if ($btnText) echo '<a href="' . h($btnUrl ?: '#') . '" class="hero-btn">' . h($btnText) . '</a>';
             echo '</div></div>';
@@ -356,9 +358,13 @@ function render_content_block($block, $pathPrefix = '') {
             if ($imgSide === 'left') echo $hsImgCol;
             // Text column
             echo '<div class="hs-text">';
-            $tagline = $block['hs_tagline'] ?? '';
-            if ($heading) echo '<h1 class="hs-heading">'.resolve_shortcodes($heading).'</h1>';
-            if ($tagline) echo '<div class="hs-tagline">'.resolve_shortcodes($tagline).'</div>';
+            $tagline       = $block['hs_tagline']       ?? '';
+            $taglineColor  = $block['hs_tagline_color'] ?? '';
+            if ($heading) echo '<h1 class="hs-heading">'.$heading.'</h1>';
+            if ($tagline) {
+                $taglineStyle = $taglineColor ? ' style="color:'.h($taglineColor).'"' : '';
+                echo '<div class="hs-tagline"'.$taglineStyle.'>'.h(resolve_shortcodes($tagline)).'</div>';
+            }
             if ($subtext) echo '<div class="hs-subtext">'.text_to_html(resolve_shortcodes($subtext)).'</div>';
             $btn2Text = $block['hs_btn2_text'] ?? '';
             $btn2Url  = $block['hs_btn2_url']  ?? '#';
@@ -408,7 +414,7 @@ function render_content_block($block, $pathPrefix = '') {
 
             // Content column
             echo '<div class="fs-left">';
-            if ($heading) echo '<h2 class="fs-heading block-heading">'.h($heading).'</h2>';
+            if ($heading) echo '<h2 class="fs-heading block-heading">'.$heading.'</h2>';
             if ($subtext) echo '<p class="fs-subtext">'.h($subtext).'</p>';
 
             if ($hasIcons) {
@@ -455,7 +461,7 @@ function render_content_block($block, $pathPrefix = '') {
             $numCols    = max(2, min(4, (int)($block['fc_num_cols'] ?? 3)));
             $fcBg       = $block['fc_bg_color']   ?? '#f3f6f7';
             echo '<div class="content-block block-feature-columns"' . $anchorAttr . ' style="background:'.h($fcBg).';">';
-            if ($heading) echo '<h2 class="section-heading">' . h($heading) . '</h2>';
+            if ($heading) echo '<h2 class="section-heading">' . $heading . '</h2>';
             if ($subheading) echo '<p class="section-subheading">' . h($subheading) . '</p>';
             echo '<div class="feature-grid feature-grid-' . $numCols . '">';
             foreach ($cols as $col) {
@@ -493,7 +499,7 @@ function render_content_block($block, $pathPrefix = '') {
             echo '<div class="content-block block-split-cta"'.$anchorAttr.'>';
             // Left panel
             echo '<div class="sc-panel sc-left" style="'.$leftStyle.'">';
-            if ($leftHeading) echo '<h2 class="sc-heading">'.h($leftHeading).'</h2>';
+            if ($leftHeading) echo '<h2 class="sc-heading">'.$leftHeading.'</h2>';
             if ($leftText)    echo '<p class="sc-text">'.h($leftText).'</p>';
             echo '</div>';
             // Right panel
@@ -535,7 +541,7 @@ function render_content_block($block, $pathPrefix = '') {
             echo '<div class="content-block ' . $layout . '"' . $anchorAttr . '>';
             if ($imgSide === 'left' && $itPhoto)  echo render_content_photo($itPhoto, $itRatio, $itPos, $itAlt, $pathPrefix);
             echo '<div class="content-text">';
-            if ($itHead) echo '<' . h($itLevel) . ' class="block-heading">' . h($itHead) . '</' . h($itLevel) . '>';
+            if ($itHead) echo '<' . h($itLevel) . ' class="block-heading">' . $itHead . '</' . h($itLevel) . '>';
             if ($itText) echo text_to_html($itText);
             if ($itBtn)  echo '<a href="' . h($itBtnUrl ?: '#') . '" class="cta-btn cta-btn-sm">' . h($itBtn) . '</a>';
             echo '</div>';
@@ -550,7 +556,7 @@ function render_content_block($block, $pathPrefix = '') {
             $faqCols = (int)($block['faq_cols'] ?? 1);
             $faqId   = 'faq_' . substr(md5(serialize($block)), 0, 6);
             echo '<div class="content-block block-faq"' . $anchorAttr . '>';
-            if ($heading) echo '<h2 class="section-heading">' . h($heading) . '</h2>';
+            if ($heading) echo '<h2 class="section-heading">' . $heading . '</h2>';
             $listClass = $faqCols === 2 ? 'faq-list faq-two-col' : 'faq-list';
             echo '<div class="' . $listClass . '" id="' . $faqId . '">';
             foreach ($items as $idx => $item) {
@@ -630,7 +636,7 @@ function render_content_block($block, $pathPrefix = '') {
             if ($align === 'center') {
                 echo '<div class="content-block block-cta-card"'.$anchorAttr.'>';
                 echo '<div class="cc-box cc-centered" style="background:'.$bgStyle.';border-radius:'.h($radius).'px;text-align:center;">';
-                if ($heading) echo '<h2 class="cc-heading">'.h($heading).'</h2>';
+                if ($heading) echo '<h2 class="cc-heading">'.$heading.'</h2>';
                 if ($text)    echo '<p class="cc-text" style="max-width:860px;margin:0 auto;">'.h($text).'</p>';
                 if ($ccChecklistHtml) echo '<div style="max-width:560px;margin:0 auto;">'.$ccChecklistHtml.'</div>';
                 if ($btnText) echo '<a href="'.h($btnUrl).'" class="cc-btn cc-btn-'.h($btnStyle).'" style="margin-top:20px;">'.h($btnText).'</a>';
@@ -640,7 +646,7 @@ function render_content_block($block, $pathPrefix = '') {
                 echo '<div class="container">';
                 echo '<div class="cc-box" style="background:'.$bgStyle.';border-radius:'.h($radius).'px;">';
                 echo '<div class="cc-left">';
-                if ($heading) echo '<h2 class="cc-heading">'.h($heading).'</h2>';
+                if ($heading) echo '<h2 class="cc-heading">'.$heading.'</h2>';
                 if ($text)    echo '<p class="cc-text">'.h($text).'</p>';
                 if ($ccChecklistHtml) echo $ccChecklistHtml;
                 echo '</div>';
@@ -676,13 +682,13 @@ function render_content_block($block, $pathPrefix = '') {
 
             // LEFT: map
             echo '<div class="mi-panel mi-map-panel">';
-            if ($mapHeading) echo '<h2 class="mi-heading" style="color:'.$headStyle.';">'.h($mapHeading).'</h2>';
+            if ($mapHeading) echo '<h2 class="mi-heading" style="color:'.$headStyle.';">'.$mapHeading.'</h2>';
             if ($mapEmbed)   echo '<div class="mi-map-wrap">'.$mapEmbed.'</div>';
             echo '</div>';
 
             // RIGHT: info
             echo '<div class="mi-panel mi-info-panel">';
-            if ($infoHeading) echo '<h2 class="mi-heading" style="color:'.$headStyle.';">'.h($infoHeading).'</h2>';
+            if ($infoHeading) echo '<h2 class="mi-heading" style="color:'.$headStyle.';">'.$infoHeading.'</h2>';
             if ($infoText)    echo '<p class="mi-text">'.h($infoText).'</p>';
             if ($infoPhotoSrc) echo '<img src="'.h($infoPhotoSrc).'" alt="'.h($infoAlt).'" class="mi-photo" loading="lazy">';
             echo '</div>';
@@ -720,7 +726,7 @@ function render_content_block($block, $pathPrefix = '') {
                 if ($subLabel || $heading) {
                     echo '<div class="lg-light-header">';
                     if ($subLabel) echo '<div class="lg-sublabel" style="color:'.$accentStyle.';">'.h($subLabel).'</div>';
-                    if ($heading)  echo '<h2 class="lg-light-heading">'.h($heading).'</h2>';
+                    if ($heading)  echo '<h2 class="lg-light-heading">'.$heading.'</h2>';
                     echo '</div>';
                 }
                 echo '<div class="lg-grid lg-light-grid lg-cols-'.$cols.'">';
@@ -739,7 +745,7 @@ function render_content_block($block, $pathPrefix = '') {
                 echo '<div class="lg-overlay" style="background:rgba(0,0,0,'.h($overlay).');">';
                 if ($heading || $subtext) {
                     echo '<div class="lg-header container">';
-                    if ($heading) echo '<h2 class="lg-heading">'.h($heading).'</h2>';
+                    if ($heading) echo '<h2 class="lg-heading">'.$heading.'</h2>';
                     if ($subtext) echo '<p class="lg-subtext">'.h($subtext).'</p>';
                     echo '</div>';
                 }
@@ -772,7 +778,7 @@ function render_content_block($block, $pathPrefix = '') {
             echo '<div class="container">';
             echo '<div class="eb-inner">';
             echo '<div class="eb-left">';
-            if ($ebHeading) echo '<h2 class="eb-heading">'.h(resolve_shortcodes($ebHeading)).'</h2>';
+            if ($ebHeading) echo '<h2 class="eb-heading">'.resolve_shortcodes($ebHeading).'</h2>';
             if ($ebSubtext) echo '<p class="eb-subtext">'.h($ebSubtext).'</p>';
             echo '</div>';
             echo '<div class="eb-right">';
@@ -844,7 +850,7 @@ function render_content_block($block, $pathPrefix = '') {
             $fqBgOut  = $fqSkin !== '' ? "var(--skin-{$fqSkin}-bg)" : h($bgColor);
             echo '<div class="content-block block-faq-two-col"'.$anchorAttr.' style="background:'.$fqBgOut.';">';
             echo '<div class="container">';
-            if ($heading) echo '<h2 class="fq-heading" style="color:'.$headStyle.';">'.h($heading).'</h2>';
+            if ($heading) echo '<h2 class="fq-heading" style="color:'.$headStyle.';">'.$heading.'</h2>';
             echo '<div class="fq-grid" id="'.$uid.'">';
             foreach ($items as $qi => $item) {
                 $q = $item['question'] ?? '';
@@ -901,7 +907,7 @@ function render_content_block($block, $pathPrefix = '') {
 
             // RIGHT: content
             echo '<div class="if-content">';
-            if ($heading) echo '<h2 class="if-heading" style="color:'.$headStyle.';">'.h($heading).'</h2>';
+            if ($heading) echo '<h2 class="if-heading" style="color:'.$headStyle.';">'.$heading.'</h2>';
             if ($intro)   echo '<div class="if-intro">'.h(resolve_shortcodes($intro)).'</div>';
 
             // 2×2 feature grid
@@ -974,7 +980,7 @@ function render_content_block($block, $pathPrefix = '') {
                 // Centered layout: single column, all content centered
                 echo '<div class="container" style="text-align:center;">';
                 if ($badge)   echo '<span class="wb-badge" style="display:inline-block;margin-bottom:12px;background:'.$badgeBgStyle.';color:#fff;">'.h($badge).'</span>';
-                if ($heading) echo '<h2 class="wb-heading" style="text-align:center;">'.h($heading).'</h2>';
+                if ($heading) echo '<h2 class="wb-heading" style="text-align:center;">'.$heading.'</h2>';
                 if ($subtext) echo '<p class="wb-subtext" style="max-width:780px;margin:0 auto;text-align:center;">'.h($subtext).'</p>';
                 if ($btnText) {
                     $btnClass = $btnStyle === 'filled' ? 'wb-btn wb-btn-filled' : 'wb-btn wb-btn-outline';
@@ -987,7 +993,7 @@ function render_content_block($block, $pathPrefix = '') {
                 echo '<div class="container wb-inner">';
                 echo '<div class="wb-left">';
                 if ($badge)   echo '<span class="wb-badge" style="background:'.$badgeBgStyle.';color:#fff;">'.h($badge).'</span>';
-                if ($heading) echo '<h2 class="wb-heading">'.h($heading).'</h2>';
+                if ($heading) echo '<h2 class="wb-heading">'.$heading.'</h2>';
                 if ($subtext) echo '<p class="wb-subtext">'.h($subtext).'</p>';
                 echo '</div>';
                 if ($btnText) {
@@ -1019,7 +1025,7 @@ function render_content_block($block, $pathPrefix = '') {
             echo '<div class="content-block block-service-cards"'.$anchorAttr.'>';
             echo '<div class="container">';
             if ($badge)   echo '<div class="svc-badge-wrap"><span class="svc-badge" style="background:'.$badgeBgStyle.';color:#fff;">'.h($badge).'</span></div>';
-            if ($heading) echo '<h2 class="svc-heading" style="color:'.$headColorStyle.';">'.h($heading).'</h2>';
+            if ($heading) echo '<h2 class="svc-heading" style="color:'.$headColorStyle.';">'.$heading.'</h2>';
             echo '<div class="svc-grid svc-grid-'.$cols.'">';
             foreach ($items as $item) {
                 $iIcon  = $item['icon']    ?? '';
@@ -1077,7 +1083,9 @@ function render_content_block($block, $pathPrefix = '') {
             echo '<div class="hg-left" style="'.($photoSrc ? 'background-image:url('.h($photoSrc).');background-size:cover;background-position:'.h(get_focal_point($photo)).';' : 'background:#1a1a2e;').'">';
             echo '<div class="hg-overlay">';
             if ($label)   echo '<div class="hg-label">'.h($label).'</div>';
-            if ($heading) echo '<h2 class="hg-heading">'.h($heading).'</h2>';
+            $hgHeadColor = $block['hg_heading_color'] ?? '';
+            $hgHeadStyle = $hgHeadColor ? ' style="color:'.h($hgHeadColor).'"' : '';
+            if ($heading) echo '<h2 class="hg-heading"'.$hgHeadStyle.'>'.$heading.'</h2>';
             if ($body)    echo '<div class="hg-body">'.text_to_html($body).'</div>';
             if ($btnText) echo '<a href="'.h($btnUrl).'" class="hg-btn">'.h($btnText).'</a>';
             echo '</div></div>';
@@ -1127,7 +1135,7 @@ function render_content_block($block, $pathPrefix = '') {
                 if ($badge2) echo '<span class="ts-badge ts-badge-outline" style="border-color:'.$activeBgStyle.';color:'.$activeBgStyle.';">'.h($badge2).'</span>';
                 echo '</div>';
             }
-            if ($heading) echo '<h2 class="ts-heading">'.h($heading).'</h2>';
+            if ($heading) echo '<h2 class="ts-heading">'.$heading.'</h2>';
 
             echo '<div class="ts-layout" id="'.$uid.'">';
             // Left: tab list
@@ -1176,7 +1184,7 @@ function render_content_block($block, $pathPrefix = '') {
             $cols     = max(2, min(4, (int)($block['gallery_cols'] ?? 3)));
             $images   = $block['gallery_images'] ?? [];
             echo '<div class="content-block block-gallery"' . $anchorAttr . '>';
-            if ($heading) echo '<h2 class="section-heading">' . h($heading) . '</h2>';
+            if ($heading) echo '<h2 class="section-heading">' . $heading . '</h2>';
             echo '<div class="gallery-grid gallery-grid-' . $cols . '">';
             foreach ($images as $img) {
                 $src = $img['photo'] ?? '';
@@ -1209,7 +1217,7 @@ function render_content_block($block, $pathPrefix = '') {
                 }
             }
             echo '<div class="content-block block-steps"' . $anchorAttr . '>';
-            if ($heading) echo '<h2 class="section-heading">' . h($heading) . '</h2>';
+            if ($heading) echo '<h2 class="section-heading">' . $heading . '</h2>';
             echo '<div class="steps-grid">';
             foreach ($items as $n => $step) {
                 $stepImg  = $step['image']   ?? '';
@@ -1245,7 +1253,7 @@ function render_content_block($block, $pathPrefix = '') {
             }
             echo '<div class="content-block block-stats" style="' . $style . '"' . $anchorAttr . '>';
             echo '<div class="container">';
-            if ($heading) echo '<h2 class="section-heading">' . h($heading) . '</h2>';
+            if ($heading) echo '<h2 class="section-heading">' . $heading . '</h2>';
             echo '<div class="stats-grid">';
             foreach ($items as $stat) {
                 $number = $stat['number'] ?? '';
@@ -1494,7 +1502,7 @@ function render_content_block($block, $pathPrefix = '') {
             $colorStyle = resolve_color($bgColor, $bgColorC);
             echo '<div class="content-block block-buttons-grid"'.$anchorAttr.' style="background:'.h($bgBg).';">';
             echo '<div class="container">';
-            if ($bgHeading) echo '<h2 class="bg-heading">'.h($bgHeading).'</h2>';
+            if ($bgHeading) echo '<h2 class="bg-heading">'.$bgHeading.'</h2>';
             echo '<div class="bg-grid bg-grid-'.$bgCols.'">';
             foreach ($bgItems as $item) {
                 $label = $item['label'] ?? '';
@@ -1531,8 +1539,8 @@ function render_content_block($block, $pathPrefix = '') {
             if ($tmLabel || $tmMainHead || $tmSubtext || $heading) {
                 echo '<div class="tm-intro">';
                 if ($tmLabel)   echo '<p class="tm-label" style="color:'.h($accentStyle).';">'.h($tmLabel).'</p>';
-                if ($tmMainHead) echo '<h2 class="tm-main-heading" style="color:'.h($textColor).';">'.h($tmMainHead).'</h2>';
-                if ($heading)   echo '<h2 class="tm-heading" style="color:'.h($textColor).';">'.h($heading).'</h2>';
+                if ($tmMainHead) echo '<h2 class="tm-main-heading" style="color:'.h($textColor).';">'.$tmMainHead.'</h2>';
+                if ($heading)   echo '<h2 class="tm-heading" style="color:'.h($textColor).';">'.$heading.'</h2>';
                 if ($tmSubtext) echo '<p class="tm-subtext" style="color:'.h($textColor).';">'.h($tmSubtext).'</p>';
                 echo '</div>';
             }
@@ -1580,7 +1588,7 @@ function render_content_block($block, $pathPrefix = '') {
             if ($scSectionLabel || $scHeading || $scSubhead || $scSubtext) {
                 echo '<div class="sc-section-intro">';
                 if ($scSectionLabel) echo '<p class="sc-section-label">'.h($scSectionLabel).'</p>';
-                if ($scHeading) echo '<h2 class="sc-section-heading">'.h(resolve_shortcodes($scHeading)).'</h2>';
+                if ($scHeading) echo '<h2 class="sc-section-heading">'.resolve_shortcodes($scHeading).'</h2>';
                 if ($scSubhead) echo '<p class="sc-section-subhead">'.h($scSubhead).'</p>';
                 if ($scSubtext) echo '<p class="sc-section-subtext">'.h($scSubtext).'</p>';
                 echo '</div>';
@@ -1630,7 +1638,7 @@ function render_content_block($block, $pathPrefix = '') {
             $imgStyle    = 'max-height:'.h($lbHeight).'px;width:auto;'.($lbGrayscale ? 'filter:grayscale(100%);opacity:.7;' : '');
             echo '<div class="content-block block-logo-bar"'.$anchorAttr.' style="background:'.h($lbBg).';">';
             echo '<div class="container">';
-            if ($lbHeading) echo '<p class="lb-label">'.h($lbHeading).'</p>';
+            if ($lbHeading) echo '<p class="lb-label">'.$lbHeading.'</p>';
             echo '<div class="lb-grid">';
             foreach ($lbItems as $item) {
                 $img = $item['image'] ?? '';
@@ -1657,10 +1665,10 @@ function render_content_block($block, $pathPrefix = '') {
             if (!$embedUrl) break;
             echo '<div class="content-block block-video"'.$anchorAttr.'>';
             echo '<div class="container">';
-            if ($heading) echo '<h2 class="vid-heading">'.h($heading).'</h2>';
+            if ($heading) echo '<h2 class="vid-heading">'.$heading.'</h2>';
             echo '<div class="vid-'.$width.'">';
             echo '<div class="vid-wrap">';
-            echo '<iframe src="'.h($embedUrl).'" allowfullscreen loading="lazy" title="'.h($heading ?: 'Video').'"></iframe>';
+            echo '<iframe src="'.h($embedUrl).'" allowfullscreen loading="lazy" title="'.h(strip_tags($heading) ?: 'Video').'"></iframe>';
             echo '</div>';
             if ($caption) echo '<p class="vid-caption">'.h($caption).'</p>';
             echo '</div></div></div>';
@@ -1675,7 +1683,7 @@ function render_content_block($block, $pathPrefix = '') {
 
             echo '<div class="content-block block-contact-form"' . $anchorAttr . '>';
             echo '<div class="container">';
-            if ($cfHeading) echo '<h2 class="section-heading">' . h($cfHeading) . '</h2>';
+            if ($cfHeading) echo '<h2 class="section-heading">' . $cfHeading . '</h2>';
             if ($cfSubtext) echo '<p class="section-subtext">' . h($cfSubtext) . '</p>';
 
             if (defined('STATIC_BUILD') && STATIC_BUILD) {
@@ -1789,7 +1797,7 @@ function render_content_block($block, $pathPrefix = '') {
             $teamCols    = max(2, min(4, (int)($block['team_cols'] ?? 3)));
             $teamMembers = $block['team_members']    ?? [];
             echo '<div class="content-block block-team"' . $anchorAttr . '>';
-            if ($teamHeading) echo '<h2 class="section-heading">' . h($teamHeading) . '</h2>';
+            if ($teamHeading) echo '<h2 class="section-heading">' . $teamHeading . '</h2>';
             if ($teamSub)     echo '<p class="section-subheading">' . h($teamSub) . '</p>';
             echo '<div class="team-grid team-grid-' . $teamCols . '">';
             foreach ($teamMembers as $member) {

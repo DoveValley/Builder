@@ -169,8 +169,8 @@ foreach ($footer['columns'] as $ci => $column) {
     <script>
     const TINYMCE_OPTS = {
         menubar: false,
-        plugins: 'link lists autolink',
-        toolbar: 'bold italic underline | link | bullist numlist | removeformat',
+        plugins: 'link lists autolink code',
+        toolbar: 'bold italic underline | forecolor backcolor | link | bullist numlist | removeformat | code',
         height: 240,
         branding: false,
         promotion: false,
@@ -186,11 +186,35 @@ foreach ($footer['columns'] as $ci => $column) {
     };
     tinymce.init(Object.assign({ selector: '.rich-editor' }, TINYMCE_OPTS));
 
+    const TINYMCE_HEADING_OPTS = {
+        menubar: false,
+        plugins: 'code',
+        toolbar: 'bold italic | forecolor | removeformat | code',
+        height: 110,
+        branding: false,
+        promotion: false,
+        statusbar: false,
+        forced_root_block: false,
+        skin: 'oxide',
+        content_css: false,
+        content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 15px; font-weight: 600; color: #1a1a1a; margin: 6px 8px; line-height: 1.3; }',
+        setup: function(editor) {
+            editor.on('change input', function() { editor.save(); });
+        }
+    };
+    tinymce.init(Object.assign({ selector: '.rich-editor-heading' }, TINYMCE_HEADING_OPTS));
+
     function initRichEditors(root) {
         (root || document).querySelectorAll('textarea.rich-editor').forEach(function(ta) {
             if (!ta.id) ta.id = 'mce_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
             if (!tinymce.get(ta.id)) {
                 tinymce.init(Object.assign({ selector: '#' + ta.id }, TINYMCE_OPTS));
+            }
+        });
+        (root || document).querySelectorAll('textarea.rich-editor-heading').forEach(function(ta) {
+            if (!ta.id) ta.id = 'mce_h_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
+            if (!tinymce.get(ta.id)) {
+                tinymce.init(Object.assign({ selector: '#' + ta.id }, TINYMCE_HEADING_OPTS));
             }
         });
     }
