@@ -147,10 +147,25 @@ function fmt_dur(int $ms): string {
 <?php $apiKeyOk = defined('ANTHROPIC_API_KEY') && ANTHROPIC_API_KEY !== ''; ?>
 <div class="card" style="margin-bottom:24px;" id="ai-trigger-card">
     <h3 style="margin-top:0; margin-bottom:16px;">Run Generator</h3>
-    <?php if (!$apiKeyOk): ?>
-    <div class="ai-result-bar fail" style="display:block; margin-bottom:0;">
-        <strong>API key not configured.</strong> Set <code>ANTHROPIC_API_KEY</code> in <code>config.php</code> or as a server environment variable.
+
+    <!-- API key input — always visible -->
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #e5e7eb;flex-wrap:wrap;">
+        <label style="font-size:.8rem;font-weight:600;color:#374151;white-space:nowrap;">Anthropic API Key</label>
+        <input type="password" id="ai-key-input" autocomplete="off" spellcheck="false"
+               value="<?= $apiKeyOk ? '••••••••••••••••••••••••' : '' ?>"
+               placeholder="sk-ant-api03-…"
+               style="flex:1;min-width:220px;padding:7px 10px;border:1px solid <?= $apiKeyOk ? '#86efac' : '#fca5a5' ?>;border-radius:6px;font-size:.83rem;font-family:monospace;background:<?= $apiKeyOk ? '#f0fdf4' : '#fff' ?>;">
+        <button type="button" onclick="aiKeySave()" class="btn btn-secondary" style="font-size:.78rem;padding:6px 14px;white-space:nowrap;">Save Key</button>
+        <span id="ai-key-status" style="font-size:.78rem;color:#6b7280;"></span>
+        <?php if ($apiKeyOk): ?>
+        <span style="font-size:.75rem;color:#16a34a;font-weight:600;">&#10003; Configured</span>
+        <?php else: ?>
+        <span style="font-size:.75rem;color:#dc2626;font-weight:600;">Not configured</span>
+        <?php endif; ?>
     </div>
+
+    <?php if (!$apiKeyOk): ?>
+    <p class="hint" style="margin:0;">Enter your Anthropic API key above to enable the generator.</p>
     <?php else: ?>
     <form id="ai-trigger-form" autocomplete="off">
         <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
@@ -402,3 +417,35 @@ function fmt_dur(int $ms): string {
 })();
 </script>
 <?php endif; ?>
+
+<script>
+window.aiKeySave = function () {
+    var input  = document.getElementById('ai-key-input');
+    var status = document.getElementById('ai-key-status');
+    var key    = input.value.trim();
+
+    // Don't re-save the masked placeholder
+    if (key === '••••••••••••••••••••••••') { status.textContent = 'No change.'; return; }
+
+    status.textContent = 'Saving…';
+    var fd = new FormData();
+    fd.append('csrf_token', <?= json_encode($csrfToken) ?>);
+    fd.append('api_key', key);
+
+    fetch('ai_key_save.php', { method: 'POST', body: fd, credentials: 'same-origin' })
+    .then(function (r) { return r.json(); })
+    .then(function (res) {
+        if (res.success) {
+            status.textContent = 'Saved — reloading…';
+            setTimeout(function () { location.reload(); }, 800);
+        } else {
+            status.textContent = res.error || 'Save failed.';
+            status.style.color = '#dc2626';
+        }
+    })
+    .catch(function (err) {
+        status.textContent = 'Request failed: ' + err.message;
+        status.style.color = '#dc2626';
+    });
+};
+</script>
