@@ -279,7 +279,7 @@ function fmt_dur(int $ms): string {
         <?php foreach (array_slice($logEntries, 0, 25) as $e): ?>
             <?php
             $opts    = $e['options'] ?? [];
-            $scope   = $opts['all'] ? 'all' : ($opts['page'] ?? '?');
+            $scope   = !empty($opts['all']) ? 'all' : ($opts['page'] ?? '?');
             if (!empty($opts['file'])) $scope .= ' / ' . $opts['file'];
             $haserr  = ($e['errors'] ?? 0) > 0;
             $isdry   = !empty($e['dry_run']);

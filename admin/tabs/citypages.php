@@ -185,9 +185,9 @@ if (file_exists(GEN_LOG_FILE)) {
                     <td style="padding:6px 10px;"><?= (int)($run['pages_written'] ?? 0) ?></td>
                     <td style="padding:6px 10px;"><?= (int)($run['pages_backed_up'] ?? 0) ?></td>
                     <td style="padding:6px 10px;color:<?= $hasErrors ? '#dc2626' : '#166534' ?>;">
-                        <?= count($run['errors'] ?? []) ?>
+                        <?= is_array($run['errors'] ?? []) ? count($run['errors']) : (int)($run['errors'] ?? 0) ?>
                         <?php if ($hasErrors): ?>
-                            <span title="<?= h(json_encode($run['errors'], JSON_PRETTY_PRINT)) ?>">&#9432;</span>
+                            <span title="<?= h(is_array($run['errors']) ? json_encode($run['errors'], JSON_PRETTY_PRINT) : '') ?>">&#9432;</span>
                         <?php endif; ?>
                     </td>
                     <td style="padding:6px 10px;"><?= number_format(($run['duration_ms'] ?? 0) / 1000, 2) ?>s</td>
