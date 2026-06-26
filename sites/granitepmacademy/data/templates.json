@@ -11,6 +11,17 @@
         ],
         "content_blocks": [
             {
+                "type": "ai_block",
+                "ai_type_id": "hero_subtext",
+                "ai_mode": "inject",
+                "ai_render_as": null,
+                "ai_model": "claude-haiku-4-5-20251001",
+                "ai_inject_target": "next",
+                "ai_inject_field": "hs_subtext",
+                "ai_inject_mode": "replace",
+                "ai_prompt_override": ""
+            },
+            {
                 "type": "hero_split",
                 "hs_heading": "PMP Certification Training in {city}, {SS}",
                 "hs_subtext": "<p>Granite PM Academy's PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam. Our four-day live-virtual course is taught by active certified practitioners and satisfies PMI's 35 education hour requirement.</p>",
@@ -32,8 +43,30 @@
                 "columns": []
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_market_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "text",
+                "ai_model": "claude-haiku-4-5-20251001",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": ""
+            },
+            {
                 "type": "custom_html",
                 "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "faq_additions",
+                "ai_mode": "inject",
+                "ai_render_as": null,
+                "ai_model": "claude-haiku-4-5-20251001",
+                "ai_inject_target": "next",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "append",
+                "ai_prompt_override": ""
             },
             {
                 "type": "faq_two_col",
@@ -109,6 +142,17 @@
         ],
         "content_blocks": [
             {
+                "type": "ai_block",
+                "ai_type_id": "hero_subtext",
+                "ai_mode": "inject",
+                "ai_render_as": null,
+                "ai_model": "claude-haiku-4-5-20251001",
+                "ai_inject_target": "next",
+                "ai_inject_field": "hs_subtext",
+                "ai_inject_mode": "replace",
+                "ai_prompt_override": ""
+            },
+            {
                 "type": "hero_split",
                 "hs_heading": "PMP Exam Prep Bootcamp in {city}, {SS}",
                 "hs_subtext": "<p>Granite PM Academy's PMP Bootcamp in {city_state} is an intensive four-day program designed for professionals who need to prepare for the PMP exam efficiently. Live-virtual instruction, 500+ practice questions, and a 90-day pass guarantee.</p>",
@@ -122,6 +166,17 @@
                 "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
                 "hs_bg_photo": "",
                 "hs_mobile_order": ""
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "city_market_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "text",
+                "ai_model": "claude-haiku-4-5-20251001",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": ""
             },
             {
                 "type": "custom_html",
@@ -169,6 +224,17 @@
         ],
         "content_blocks": [
             {
+                "type": "ai_block",
+                "ai_type_id": "hero_subtext",
+                "ai_mode": "inject",
+                "ai_render_as": null,
+                "ai_model": "claude-haiku-4-5-20251001",
+                "ai_inject_target": "next",
+                "ai_inject_field": "hs_subtext",
+                "ai_inject_mode": "replace",
+                "ai_prompt_override": ""
+            },
+            {
                 "type": "hero_split",
                 "hs_heading": "CAPM Certification Training in {city}, {SS}",
                 "hs_subtext": "<p>Granite PM Academy's CAPM Certification Training in {city_state} prepares you to earn the Certified Associate in Project Management credential. Our three-day live-virtual course satisfies PMI's 23 contact hour requirement and is ideal for professionals launching or transitioning into project management.</p>",
@@ -184,8 +250,30 @@
                 "hs_mobile_order": ""
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_market_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "text",
+                "ai_model": "claude-haiku-4-5-20251001",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": ""
+            },
+            {
                 "type": "custom_html",
                 "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "faq_additions",
+                "ai_mode": "inject",
+                "ai_render_as": null,
+                "ai_model": "claude-haiku-4-5-20251001",
+                "ai_inject_target": "next",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "append",
+                "ai_prompt_override": ""
             },
             {
                 "type": "faq_two_col",
@@ -257,6 +345,17 @@
         ],
         "content_blocks": [
             {
+                "type": "ai_block",
+                "ai_type_id": "hero_subtext",
+                "ai_mode": "inject",
+                "ai_render_as": null,
+                "ai_model": "claude-haiku-4-5-20251001",
+                "ai_inject_target": "next",
+                "ai_inject_field": "hs_subtext",
+                "ai_inject_mode": "replace",
+                "ai_prompt_override": ""
+            },
+            {
                 "type": "hero_split",
                 "hs_heading": "CAPM Exam Prep Bootcamp in {city}, {SS}",
                 "hs_subtext": "<p>Granite PM Academy's CAPM Bootcamp in {city_state} is an intensive three-day live-virtual course designed for professionals who want to earn the Certified Associate in Project Management credential quickly. Satisfies PMI's 23 contact hour requirement.</p>",
@@ -270,6 +369,17 @@
                 "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
                 "hs_bg_photo": "",
                 "hs_mobile_order": ""
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "city_market_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "text",
+                "ai_model": "claude-haiku-4-5-20251001",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": ""
             },
             {
                 "type": "custom_html",
@@ -317,6 +427,17 @@
         ],
         "content_blocks": [
             {
+                "type": "ai_block",
+                "ai_type_id": "hero_subtext",
+                "ai_mode": "inject",
+                "ai_render_as": null,
+                "ai_model": "claude-haiku-4-5-20251001",
+                "ai_inject_target": "next",
+                "ai_inject_field": "hs_subtext",
+                "ai_inject_mode": "replace",
+                "ai_prompt_override": ""
+            },
+            {
                 "type": "hero_split",
                 "hs_heading": "CPMAI Certification Training in {city}, {SS}",
                 "hs_subtext": "<p>Granite PM Academy's CPMAI Certification Training in {city_state} prepares you to manage AI and machine learning projects using the Cognilytica CPMAI methodology. A growing credential for project managers working with AI initiatives.</p>",
@@ -330,6 +451,17 @@
                 "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
                 "hs_bg_photo": "",
                 "hs_mobile_order": ""
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "city_market_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "text",
+                "ai_model": "claude-haiku-4-5-20251001",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": ""
             },
             {
                 "type": "custom_html",

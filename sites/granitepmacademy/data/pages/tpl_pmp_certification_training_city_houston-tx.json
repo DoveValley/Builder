@@ -1,111 +1,139 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "houston-tx",
-    "slug": "pmp-certification-training-houston-tx",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "houston-tx",
-        "city": "Houston",
-        "state": "Texas",
-        "SS": "TX",
-        "city_slug": "houston-tx",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": []
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "houston-tx",
+  "slug": "pmp-certification-training-houston-tx",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "houston-tx",
+    "city": "Houston",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "houston-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": []
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "In Houston's energy and aerospace sectors, PMP certification distinguishes leaders managing complex, high-stakes projects at companies like ExxonMobil and NASA Johnson Space Center. Granite PM Academy's PMI-authorized live-virtual training delivers expert instruction aligned with current industry standards. Earn your credential and unlock competitive advancement opportunities with demonstrated salary improvements across Houston's premier organizations.",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": ""
     },
-    "content_blocks": [
+    {
+      "type": "feature_columns",
+      "fc_heading": "Why {city} Project Managers Choose Granite PM Academy",
+      "fc_num_cols": 3,
+      "columns": []
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Demand in Houston's Booming Project Market",
+      "text": "<p>Houston's status as the global energy capital, combined with its world-class medical and aerospace sectors, creates exceptional demand for PMP-certified project managers. Major employers like ExxonMbol, Chevron, and Shell USA rely on PMP certification to identify professionals capable of managing the complex, high-stakes projects that define the energy industry. Similarly, institutions across the Texas Medical Center and aerospace organizations at NASA Johnson Space Center increasingly require or strongly prefer PMP certification from candidates, recognizing that the credential signals mastery of proven project management methodologies essential for healthcare and aerospace environments where precision and risk management are non-negotiable.</p><p>The financial rewards for PMP certification in Houston reflect this strong market demand. Certified project managers in the city typically earn between $105,000 and $135,000 annually, with professionals in energy, engineering, and aerospace sectors often commanding salaries at the higher end of that range. Beyond immediate compensation, PMP certification opens doors to leadership roles, advanced responsibilities, and career mobility across Houston's diverse industries. As the city continues to attract major construction projects, healthcare expansion, and energy innovation, your PMP credential positions you to capitalize on sustained opportunities for meaningful advancement and competitive earnings.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-26T01:18:29.163919Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
         {
-            "type": "hero_split",
-            "hs_heading": "PMP Certification Training in {city}, {SS}",
-            "hs_subtext": "<p>Granite PM Academy's PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam. Our four-day live-virtual course is taught by active certified practitioners and satisfies PMI's 35 education hour requirement.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": ""
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
         },
         {
-            "type": "feature_columns",
-            "fc_heading": "Why {city} Project Managers Choose Granite PM Academy",
-            "fc_num_cols": 3,
-            "columns": []
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
         },
         {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
         },
         {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI's current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                }
-            ]
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
         },
         {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI's current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "How much do PMP-certified project managers earn in Houston, Texas?",
+          "answer": "PMP-certified project managers in Houston typically earn $105,000–$135,000 annually. Professionals in energy, engineering, and aerospace sectors—where Houston's major employers like ExxonMobil, Shell USA, Bechtel, and NASA Johnson Space Center operate—often command salaries at the higher end. Certification significantly boosts earning potential across all local industries."
+        },
+        {
+          "question": "Is PMP certification in demand at Houston's energy and engineering companies?",
+          "answer": "Yes. Houston's dominant industries—energy, engineering, construction, and aerospace—heavily employ PMP-certified professionals. Major employers like Chevron, KBR, and Bechtel prioritize certification for project leadership roles. The energy sector particularly values PMP credentials for managing complex, high-stakes projects, making certification essential for career advancement in Houston's job market."
         }
-    ],
-    "seo": {
-        "seo_title": "PMP Certification Training {city} {SS} | PMI Exam Prep | {business}",
-        "canonical_url": "",
-        "meta_description": "PMP certification training in {city}, {SS} from a PMI Premier ATP. 4-day live-virtual course satisfies 35 education hour requirement. Pass guarantee included.",
-        "meta_keywords": "PMP certification training {city} TX, PMP exam prep {city}, project management professional {city_state}",
-        "og_title": "PMP Certification Training in {city}, {SS} | {business}",
-        "og_description": "Earn your PMP in {city_state} with Granite PM Academy — PMI Premier ATP. Live-virtual instruction. 90-day pass guarantee.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Course",
-        "service_area": "{city}, {SS}",
-        "service_description": "PMI-aligned PMP certification training for project managers in {city_state}. Live-virtual delivery.",
-        "bc_label": "PMP Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": ""
+      ]
     },
-    "locked_blocks": [],
-    "generated_at": "2026-06-18T17:27:44+00:00",
-    "template_version": "002f217d5dfe5c5460380a03a1198a63"
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training {city} {SS} | PMI Exam Prep | {business}",
+    "canonical_url": "",
+    "meta_description": "PMP certification training in {city}, {SS} from a PMI Premier ATP. 4-day live-virtual course satisfies 35 education hour requirement. Pass guarantee included.",
+    "meta_keywords": "PMP certification training {city} TX, PMP exam prep {city}, project management professional {city_state}",
+    "og_title": "PMP Certification Training in {city}, {SS} | {business}",
+    "og_description": "Earn your PMP in {city_state} with Granite PM Academy — PMI Premier ATP. Live-virtual instruction. 90-day pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Course",
+    "service_area": "{city}, {SS}",
+    "service_description": "PMI-aligned PMP certification training for project managers in {city_state}. Live-virtual delivery.",
+    "bc_label": "PMP Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": ""
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-06-18T17:27:44+00:00",
+  "template_version": "002f217d5dfe5c5460380a03a1198a63"
 }

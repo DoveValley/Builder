@@ -106,6 +106,7 @@ def site_paths(base_dir, site_id):
         'cities':         os.path.join(site_dir, 'data', 'cities.json'),
         'pages_dir':      os.path.join(site_dir, 'data', 'pages'),
         'generation_log': os.path.join(site_dir, 'data', 'generation_log.json'),
+        'templates':      os.path.join(site_dir, 'data', 'templates.json'),
     }
 
 
@@ -595,6 +596,133 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None):
     return researched
 
 
+# ── Template sync ─────────────────────────────────────────────────────────────
+
+def _ai_block_ids(blocks: list) -> set:
+    """Return the set of ai_type_ids already present in a block list."""
+    return {b.get('ai_type_id') for b in blocks if b.get('type') == 'ai_block' and b.get('ai_type_id')}
+
+def _template_ai_blocks(tpl: dict) -> list:
+    """Return the ai_block entries from a template's content_blocks, in order."""
+    return [b for b in tpl.get('content_blocks', []) if b.get('type') == 'ai_block']
+
+def _insert_ai_block_at_natural_position(blocks: list, ai_block: dict) -> list:
+    """
+    Insert an ai_block at its natural position:
+    - inject blocks that target 'next' go immediately before the first block
+      matching the target field pattern (hero_split for hs_subtext, faq_two_col for fq_items)
+    - inject blocks that target 'previous' go immediately after the target block type
+    - standalone blocks go after feature_columns if present, else after hero_split
+    """
+    ai_type = ai_block.get('ai_type_id', '')
+    mode    = ai_block.get('ai_mode', 'standalone')
+    field   = ai_block.get('ai_inject_field', '')
+    target  = ai_block.get('ai_inject_target', 'next')
+
+    result = list(blocks)
+
+    if mode == 'inject' and target == 'next':
+        # Insert before the block that owns the target field
+        field_to_type = {
+            'hs_subtext': 'hero_split',
+            'fq_items':   'faq_two_col',
+        }
+        target_type = field_to_type.get(field)
+        if target_type:
+            for i, b in enumerate(result):
+                if b.get('type') == target_type:
+                    result.insert(i, ai_block)
+                    return result
+        result.insert(0, ai_block)  # fallback: prepend
+
+    elif mode == 'inject' and target == 'previous':
+        # Insert after the block that owns the target field
+        field_to_type = {'hs_subtext': 'hero_split'}
+        target_type = field_to_type.get(field)
+        if target_type:
+            for i, b in enumerate(result):
+                if b.get('type') == target_type:
+                    result.insert(i + 1, ai_block)
+                    return result
+        result.append(ai_block)  # fallback: append
+
+    else:
+        # Standalone: insert after feature_columns if present, else after hero_split
+        fc_idx = next((i for i, b in enumerate(result) if b.get('type') == 'feature_columns'), None)
+        hs_idx = next((i for i, b in enumerate(result) if b.get('type') == 'hero_split'),      None)
+        insert_after = fc_idx if fc_idx is not None else hs_idx
+        if insert_after is not None:
+            result.insert(insert_after + 1, ai_block)
+        else:
+            result.append(ai_block)
+
+    return result
+
+
+def sync_templates(paths, dry_run=False) -> dict:
+    """
+    For each page file in pages/, compare ai_blocks against the source template.
+    Insert any missing ai_blocks at their natural positions.
+    Returns stats dict with pages_updated, blocks_added.
+    """
+    templates_data = load_json(paths['templates'])
+    if not templates_data:
+        _warn('No templates.json found — nothing to sync')
+        return {'pages_updated': 0, 'blocks_added': 0}
+
+    # Index templates by id
+    tpl_by_id = {t['id']: t for t in templates_data if t.get('id')}
+
+    pages_dir = paths['pages_dir']
+    if not os.path.isdir(pages_dir):
+        _warn(f'pages/ directory not found: {pages_dir}')
+        return {'pages_updated': 0, 'blocks_added': 0}
+
+    pages_updated = 0
+    blocks_added  = 0
+
+    _log(f'\n── Template Sync ────────────────────────────────────')
+
+    for page_file in sorted(glob.glob(os.path.join(pages_dir, '*.json'))):
+        page = load_json(page_file)
+        if not isinstance(page, dict):
+            continue
+
+        tpl_id = page.get('template_id', '')
+        tpl    = tpl_by_id.get(tpl_id)
+        if not tpl:
+            continue
+
+        tpl_ai_blocks  = _template_ai_blocks(tpl)
+        page_ai_ids    = _ai_block_ids(page.get('content_blocks', []))
+        missing_blocks = [b for b in tpl_ai_blocks if b.get('ai_type_id') not in page_ai_ids]
+
+        if not missing_blocks:
+            continue
+
+        fname = os.path.basename(page_file)
+        _log(f'  {fname}')
+        for ab in missing_blocks:
+            tid = ab.get('ai_type_id', '?')
+            _log(f'    + {tid}')
+            if not dry_run:
+                page['content_blocks'] = _insert_ai_block_at_natural_position(
+                    page['content_blocks'], dict(ab)
+                )
+            blocks_added += 1
+
+        if not dry_run:
+            save_json(page_file, page)
+        pages_updated += 1
+
+    if pages_updated == 0:
+        _ok('All page files already have up-to-date ai_blocks')
+    else:
+        _ok(f'Synced {pages_updated} page file(s), inserted {blocks_added} ai_block(s)')
+
+    return {'pages_updated': pages_updated, 'blocks_added': blocks_added}
+
+
 # ── Generation log ────────────────────────────────────────────────────────────
 
 def write_generation_log(paths, args, total, researched, started_at_ts):
@@ -665,6 +793,8 @@ def main():
     ap.add_argument('--research',        action='store_true', help='Research missing city data before generating content')
     ap.add_argument('--research-only',   action='store_true', dest='research_only',
                     help='Only run the research step — do not generate content blocks')
+    ap.add_argument('--sync-templates',  action='store_true', dest='sync_templates',
+                    help='Insert missing ai_blocks from templates.json into existing page files, then exit')
     ap.add_argument('--dry-run',         action='store_true', dest='dry_run',
                     help='Preview without calling API or writing files')
     args = ap.parse_args()
@@ -676,11 +806,6 @@ def main():
     global _run_start
     _run_start = time.monotonic()
     _started_at_ts = time.time()
-
-    api_key = os.environ.get('ANTHROPIC_API_KEY')
-    if not api_key and not args.dry_run:
-        _err('ANTHROPIC_API_KEY environment variable not set')
-        sys.exit(1)
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
     paths    = site_paths(base_dir, args.site)
@@ -695,6 +820,16 @@ def main():
     _log(f'Scope    : {scope}' + (f' --file {args.file}' if args.file else ''))
     _log(f'Research : {args.research}  |  Refresh : {args.refresh}  |  Dry run : {args.dry_run}')
     _log(f'{"═"*54}')
+
+    # ── Template sync (no API key required) ───────────────────────────────────
+    if args.sync_templates:
+        sync_templates(paths, dry_run=args.dry_run)
+        return
+
+    api_key = os.environ.get('ANTHROPIC_API_KEY')
+    if not api_key and not args.dry_run:
+        _err('ANTHROPIC_API_KEY environment variable not set')
+        sys.exit(1)
 
     registry  = load_registry(paths)
     site_data = load_json(paths['site_json'])

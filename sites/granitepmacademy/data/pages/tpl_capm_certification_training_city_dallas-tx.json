@@ -1,101 +1,129 @@
 {
-    "template_id": "tpl_capm_certification_training_city",
-    "city_id": "dallas-tx",
-    "slug": "capm-certification-training-dallas-tx",
-    "title": "CAPM Certification Training {city}",
-    "city_vars": {
-        "id": "dallas-tx",
-        "city": "Dallas",
-        "state": "Texas",
-        "SS": "TX",
-        "city_slug": "dallas-tx",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": []
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "dallas-tx",
+  "slug": "capm-certification-training-dallas-tx",
+  "title": "CAPM Certification Training {city}",
+  "city_vars": {
+    "id": "dallas-tx",
+    "city": "Dallas",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "dallas-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": []
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "CAPM Certification Training in {city}, {SS}",
+      "hs_subtext": "Dallas's thriving technology and defense sectors demand skilled project managers who can deliver complex initiatives on time and budget. Granite PM Academy's PMI-authorized, live-virtual CAPM training equips you with industry-recognized credentials from experienced instructors. Graduates advance their careers faster and command higher salaries in competitive Dallas markets.",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": ""
     },
-    "content_blocks": [
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Why CAPM Certification Matters in Dallas's Growing PM Market",
+      "text": "<p>Dallas's booming project management landscape is driven by some of the nation's most demanding employers. Technology giants like AT&T and Texas Instruments, defense contractors including Lockheed Martin and Raytheon Technologies, and major financial institutions such as JPMorgan Chase and Bank of America all maintain significant operations in the Dallas area and actively seek certified project management talent. For professionals working in these industries, CAPM Certification Training equips you with the foundational competencies these employers expect, positioning you as a credible candidate for advancement and specialized project roles that require demonstrated expertise in project management fundamentals.</p><p>The financial incentive for CAPM certification in Dallas is substantial. PMP-certified project managers in the region earn between $105,000 and $135,000 annually, with professionals in defense, technology, and financial services often commanding salaries at the higher end of that spectrum. Pursuing CAPM Certification Training now builds the credential foundation that leads to these premium compensation levels and opens doors to mid-to-senior management opportunities across Dallas's fastest-growing industries. As the city continues its rapid expansion, certified project managers will remain in high demand.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-26T01:16:57.161055Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
         {
-            "type": "hero_split",
-            "hs_heading": "CAPM Certification Training in {city}, {SS}",
-            "hs_subtext": "<p>Granite PM Academy's CAPM Certification Training in {city_state} prepares you to earn the Certified Associate in Project Management credential. Our three-day live-virtual course satisfies PMI's 23 contact hour requirement and is ideal for professionals launching or transitioning into project management.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#capm_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CAPM certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": ""
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
         },
         {
-            "type": "custom_html",
-            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
         },
         {
-            "type": "faq_two_col",
-            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need project management experience to take the CAPM?",
-                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-                },
-                {
-                    "question": "Is the CAPM a good starting credential for {city} professionals?",
-                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-                },
-                {
-                    "question": "How does the CAPM differ from the PMP?",
-                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-                },
-                {
-                    "question": "Is this training delivered online?",
-                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-                }
-            ]
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
         },
         {
-            "type": "cta_banner",
-            "cb_text": "Launch Your PM Career from {city}",
-            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#capm_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "What salary can CAPM certification help me earn in Dallas, Texas?",
+          "answer": "PMP-certified project managers in Dallas earn $105,000–$135,000 annually, with defense, technology, and finance professionals at the higher end. CAPM certification positions you for advancement toward PMP status. Dallas employers like Lockheed Martin, AT&T, and JPMorgan Chase actively hire certified professionals, making certification a valuable investment in your earning potential."
+        },
+        {
+          "question": "How long does CAPM certification training take while working full-time in Dallas?",
+          "answer": "Granite PM Academy's CAPM training accommodates Dallas professionals' schedules with flexible formats. Most candidates complete classroom or online training in 2–3 weeks while maintaining full-time work, followed by self-study for exam prep. Many Dallas tech and finance professionals balance training alongside roles at companies like Texas Instruments and Bank of America."
         }
-    ],
-    "seo": {
-        "seo_title": "CAPM Certification Training {city} {SS} | PMI Exam Prep | {business}",
-        "canonical_url": "",
-        "meta_description": "CAPM certification training in {city}, {SS} from a PMI Premier ATP. 3-day live-virtual course satisfies the 23 contact hour requirement. Enroll online.",
-        "meta_keywords": "CAPM certification training {city} TX, CAPM exam prep {city}, certified associate project management {city_state}",
-        "og_title": "CAPM Certification Training in {city}, {SS} | {business}",
-        "og_description": "Earn your CAPM in {city_state} with Granite PM Academy — PMI Premier ATP. Live-virtual instruction, no experience required.",
-        "og_image": "",
-        "service_name": "CAPM Certification Training",
-        "service_type": "Course",
-        "service_area": "{city}, {SS}",
-        "service_description": "PMI-aligned CAPM certification training for aspiring project managers in {city_state}.",
-        "bc_label": "CAPM Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": ""
+      ]
     },
-    "locked_blocks": [],
-    "generated_at": "2026-06-18T17:27:44+00:00",
-    "template_version": "af6ed37967e8e49d9249205dee99e1c0"
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification Training {city} {SS} | PMI Exam Prep | {business}",
+    "canonical_url": "",
+    "meta_description": "CAPM certification training in {city}, {SS} from a PMI Premier ATP. 3-day live-virtual course satisfies the 23 contact hour requirement. Enroll online.",
+    "meta_keywords": "CAPM certification training {city} TX, CAPM exam prep {city}, certified associate project management {city_state}",
+    "og_title": "CAPM Certification Training in {city}, {SS} | {business}",
+    "og_description": "Earn your CAPM in {city_state} with Granite PM Academy — PMI Premier ATP. Live-virtual instruction, no experience required.",
+    "og_image": "",
+    "service_name": "CAPM Certification Training",
+    "service_type": "Course",
+    "service_area": "{city}, {SS}",
+    "service_description": "PMI-aligned CAPM certification training for aspiring project managers in {city_state}.",
+    "bc_label": "CAPM Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": ""
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-06-18T17:27:44+00:00",
+  "template_version": "af6ed37967e8e49d9249205dee99e1c0"
 }
