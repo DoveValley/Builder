@@ -264,5 +264,120 @@ if ($action === 'migrate_from_page') {
     exit;
 }
 
+// ── registry_add ─────────────────────────────────────────────────────────────
+if ($action === 'registry_add') {
+    $rid   = preg_replace('/[^a-z0-9_]/', '', strtolower(trim($_POST['registry_id'] ?? '')));
+    $label = trim($_POST['reg_label'] ?? '');
+
+    if (!ai_valid_type_id($rid)) {
+        header('Location: index.php?tab=templates&msg=error:Invalid+type+ID+(lowercase+letters%2C+numbers%2C+underscores+only)');
+        exit;
+    }
+    if ($label === '') {
+        header('Location: index.php?tab=templates&msg=error:Label+is+required');
+        exit;
+    }
+
+    $registry = ai_load_registry();
+    if (isset($registry[$rid])) {
+        header('Location: index.php?tab=templates&msg=error:A+registry+entry+with+that+ID+already+exists');
+        exit;
+    }
+
+    $registry[$rid] = [
+        'label'             => $label,
+        'description'       => '',
+        'ai_mode'           => 'standalone',
+        'ai_render_as'      => 'text',
+        'ai_model'          => 'claude-haiku-4-5-20251001',
+        'ai_inject_target'  => null,
+        'ai_inject_field'   => null,
+        'ai_inject_mode'    => null,
+        'ai_prompt'         => '',
+        'ai_output_schema'  => ['heading_text' => 'string', 'text' => 'html_string'],
+        'default_fields'    => [],
+    ];
+
+    if (!ai_save_registry($registry)) {
+        header('Location: index.php?tab=templates&msg=error:Could+not+save+registry');
+        exit;
+    }
+    header('Location: index.php?tab=templates&registry=' . urlencode($rid) . '&msg=success:Registry+entry+created');
+    exit;
+}
+
+// ── registry_save ─────────────────────────────────────────────────────────────
+if ($action === 'registry_save') {
+    $rid = preg_replace('/[^a-z0-9_]/', '', strtolower(trim($_POST['registry_id'] ?? '')));
+    if (!ai_valid_type_id($rid)) {
+        header('Location: index.php?tab=templates&msg=error:Invalid+registry+ID');
+        exit;
+    }
+
+    $registry = ai_load_registry();
+    if (!isset($registry[$rid])) {
+        header('Location: index.php?tab=templates&msg=error:Registry+entry+not+found');
+        exit;
+    }
+
+    $aiModeRaw = trim($_POST['reg_ai_mode'] ?? 'standalone');
+    $aiMode    = in_array($aiModeRaw, ['standalone', 'inject']) ? $aiModeRaw : 'standalone';
+
+    $aiModelRaw = trim($_POST['reg_ai_model'] ?? 'claude-haiku-4-5-20251001');
+    $aiModel    = in_array($aiModelRaw, ['claude-haiku-4-5-20251001', 'claude-sonnet-4-6', 'claude-opus-4-8']) ? $aiModelRaw : 'claude-haiku-4-5-20251001';
+
+    $aiInjectTargetRaw = trim($_POST['reg_ai_inject_target'] ?? '');
+    $aiInjectTarget    = in_array($aiInjectTargetRaw, ['previous', 'next']) ? $aiInjectTargetRaw : null;
+    $aiInjectModeRaw   = trim($_POST['reg_ai_inject_mode'] ?? '');
+    $aiInjectMode      = in_array($aiInjectModeRaw, ['replace', 'append', 'prepend']) ? $aiInjectModeRaw : null;
+
+    $rawSchema = trim($_POST['reg_ai_output_schema'] ?? '{}');
+    $schema = json_decode($rawSchema, true);
+    if (!is_array($schema)) {
+        header('Location: index.php?tab=templates&registry=' . urlencode($rid) . '&msg=error:Output+schema+must+be+valid+JSON');
+        exit;
+    }
+
+    $rawDefaults = trim($_POST['reg_default_fields'] ?? '{}');
+    $defaults = json_decode($rawDefaults, true);
+    if (!is_array($defaults)) {
+        header('Location: index.php?tab=templates&registry=' . urlencode($rid) . '&msg=error:Default+fields+must+be+valid+JSON');
+        exit;
+    }
+
+    $registry[$rid] = [
+        'label'             => trim($_POST['reg_label'] ?? $registry[$rid]['label']),
+        'description'       => trim($_POST['reg_description'] ?? ''),
+        'ai_mode'           => $aiMode,
+        'ai_render_as'      => $aiMode === 'standalone' ? trim($_POST['reg_ai_render_as'] ?? 'text') : null,
+        'ai_model'          => $aiModel,
+        'ai_inject_target'  => $aiMode === 'inject' ? $aiInjectTarget : null,
+        'ai_inject_field'   => $aiMode === 'inject' ? trim($_POST['reg_ai_inject_field'] ?? '') : null,
+        'ai_inject_mode'    => $aiMode === 'inject' ? $aiInjectMode : null,
+        'ai_prompt'         => trim($_POST['reg_ai_prompt'] ?? ''),
+        'ai_output_schema'  => $schema,
+        'default_fields'    => $defaults,
+    ];
+
+    if (!ai_save_registry($registry)) {
+        header('Location: index.php?tab=templates&registry=' . urlencode($rid) . '&msg=error:Could+not+save+registry');
+        exit;
+    }
+    header('Location: index.php?tab=templates&registry=' . urlencode($rid) . '&msg=success:Registry+entry+saved');
+    exit;
+}
+
+// ── registry_delete ───────────────────────────────────────────────────────────
+if ($action === 'registry_delete') {
+    $rid = preg_replace('/[^a-z0-9_]/', '', strtolower(trim($_POST['registry_id'] ?? '')));
+    $registry = ai_load_registry();
+    if (isset($registry[$rid])) {
+        unset($registry[$rid]);
+        ai_save_registry($registry);
+    }
+    header('Location: index.php?tab=templates&msg=success:Registry+entry+deleted');
+    exit;
+}
+
 header('Location: index.php?tab=templates');
 exit;

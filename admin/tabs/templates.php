@@ -4,7 +4,105 @@
 ?>
 <div class="tab-content" style="<?= $tab === 'templates' ? '' : 'display:none;' ?>">
 
-<?php if ($editingTemplate === null): ?>
+<?php if ($editingTemplate === null && $editingRegistryEntry !== null): ?>
+
+    <!-- ── Registry entry editor ────────────────────────────────────── -->
+    <p style="margin-bottom:16px;"><a href="?tab=templates">&larr; Back to templates &amp; registry</a></p>
+
+    <form action="templates_save.php" method="post">
+        <input type="hidden" name="action"      value="registry_save">
+        <input type="hidden" name="registry_id" value="<?= h($editingRegistryId) ?>">
+        <input type="hidden" name="csrf_token"  value="<?= h($csrfToken) ?>">
+
+        <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                <h2 style="margin:0;">Edit Registry Entry: <code><?= h($editingRegistryId) ?></code></h2>
+                <button type="submit" class="btn">Save Entry</button>
+            </div>
+
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <div class="form-group" style="flex:2 1 220px;">
+                    <label>Label <span class="hint">(shown in admin)</span></label>
+                    <input type="text" name="reg_label" value="<?= h($editingRegistryEntry['label'] ?? '') ?>" required>
+                </div>
+                <div class="form-group" style="flex:0 0 150px;">
+                    <label>Mode</label>
+                    <select name="reg_ai_mode">
+                        <option value="standalone" <?= ($editingRegistryEntry['ai_mode'] ?? '') === 'standalone' ? 'selected' : '' ?>>Standalone</option>
+                        <option value="inject"     <?= ($editingRegistryEntry['ai_mode'] ?? '') === 'inject'     ? 'selected' : '' ?>>Inject</option>
+                    </select>
+                </div>
+                <div class="form-group" style="flex:0 0 160px;">
+                    <label>Render as <span class="hint">(standalone)</span></label>
+                    <input type="text" name="reg_ai_render_as" value="<?= h($editingRegistryEntry['ai_render_as'] ?? '') ?>" placeholder="e.g. text, feature_columns">
+                </div>
+                <div class="form-group" style="flex:0 0 210px;">
+                    <label>AI model</label>
+                    <select name="reg_ai_model">
+                        <option value="claude-haiku-4-5-20251001" <?= ($editingRegistryEntry['ai_model'] ?? '') === 'claude-haiku-4-5-20251001' ? 'selected' : '' ?>>Haiku (fast, cheap)</option>
+                        <option value="claude-sonnet-4-6"          <?= ($editingRegistryEntry['ai_model'] ?? '') === 'claude-sonnet-4-6'          ? 'selected' : '' ?>>Sonnet (better quality)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Description <span class="hint">(shown in registry list)</span></label>
+                <input type="text" name="reg_description" value="<?= h($editingRegistryEntry['description'] ?? '') ?>">
+            </div>
+
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <div class="form-group" style="flex:0 0 160px;">
+                    <label>Inject target <span class="hint">(inject mode)</span></label>
+                    <select name="reg_ai_inject_target">
+                        <option value=""         <?= ($editingRegistryEntry['ai_inject_target'] ?? '') === ''         ? 'selected' : '' ?>>None</option>
+                        <option value="previous" <?= ($editingRegistryEntry['ai_inject_target'] ?? '') === 'previous' ? 'selected' : '' ?>>Previous block</option>
+                        <option value="next"     <?= ($editingRegistryEntry['ai_inject_target'] ?? '') === 'next'     ? 'selected' : '' ?>>Next block</option>
+                    </select>
+                </div>
+                <div class="form-group" style="flex:1 1 150px;">
+                    <label>Target field <span class="hint">(inject mode)</span></label>
+                    <input type="text" name="reg_ai_inject_field" value="<?= h($editingRegistryEntry['ai_inject_field'] ?? '') ?>" placeholder="e.g. hs_subtext, fq_items">
+                </div>
+                <div class="form-group" style="flex:0 0 150px;">
+                    <label>Inject mode</label>
+                    <select name="reg_ai_inject_mode">
+                        <option value=""        <?= ($editingRegistryEntry['ai_inject_mode'] ?? '') === ''        ? 'selected' : '' ?>>None</option>
+                        <option value="replace" <?= ($editingRegistryEntry['ai_inject_mode'] ?? '') === 'replace' ? 'selected' : '' ?>>Replace</option>
+                        <option value="append"  <?= ($editingRegistryEntry['ai_inject_mode'] ?? '') === 'append'  ? 'selected' : '' ?>>Append</option>
+                        <option value="prepend" <?= ($editingRegistryEntry['ai_inject_mode'] ?? '') === 'prepend' ? 'selected' : '' ?>>Prepend</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Prompt <span class="hint">Use {city}, {SS}, {industries}, {top_employers}, {salary_note}, {market_blurb}, {business}, {keyword} as variables</span></label>
+                <textarea name="reg_ai_prompt" rows="16" style="font-family:monospace;font-size:0.82rem;"><?= h($editingRegistryEntry['ai_prompt'] ?? '') ?></textarea>
+            </div>
+
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <div class="form-group" style="flex:1 1 220px;">
+                    <label>Output schema <span class="hint">(JSON — field name → type)</span></label>
+                    <textarea name="reg_ai_output_schema" rows="5" style="font-family:monospace;font-size:0.82rem;"><?= h(json_encode($editingRegistryEntry['ai_output_schema'] ?? new stdClass(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)) ?></textarea>
+                </div>
+                <div class="form-group" style="flex:1 1 220px;">
+                    <label>Default fields <span class="hint">(JSON — merged into generated block)</span></label>
+                    <textarea name="reg_default_fields" rows="5" style="font-family:monospace;font-size:0.82rem;"><?= h(json_encode($editingRegistryEntry['default_fields'] ?? new stdClass(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)) ?></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Save Entry</button>
+        </div>
+    </form>
+
+    <form action="templates_save.php" method="post" style="margin-top:8px;"
+          onsubmit="return confirm('Delete registry entry &quot;<?= h(addslashes($editingRegistryId)) ?>&quot;? This cannot be undone.');">
+        <input type="hidden" name="action"      value="registry_delete">
+        <input type="hidden" name="registry_id" value="<?= h($editingRegistryId) ?>">
+        <input type="hidden" name="csrf_token"  value="<?= h($csrfToken) ?>">
+        <button type="submit" class="btn btn-danger">Delete Entry</button>
+    </form>
+
+<?php elseif ($editingTemplate === null): ?>
 
     <!-- ── List view ─────────────────────────────────────────────────── -->
     <div class="card">
@@ -68,6 +166,65 @@
             <?php endforeach; ?>
             </div>
         <?php endif; ?>
+    </div>
+
+    <!-- ── Prompt Registry ─────────────────────────────────────────────── -->
+    <div class="card">
+        <h2>Prompt Registry</h2>
+        <p class="hint" style="margin-bottom:16px;">
+            Named AI block configurations. Each entry defines the prompt, mode, and output schema for one type of AI-generated content.
+            Templates reference these by <strong>Type ID</strong> — update the prompt here and all templates pick it up automatically.
+        </p>
+
+        <?php if (empty($aiRegistry)): ?>
+            <p class="hint">No registry file yet.</p>
+        <?php else: ?>
+            <div class="repeat-items">
+            <?php foreach ($aiRegistry as $rid => $rentry): ?>
+                <div class="repeat-row" style="align-items:flex-start;flex-wrap:wrap;gap:8px;">
+                    <div style="flex:1;min-width:220px;">
+                        <strong><?= h($rentry['label'] ?? $rid) ?></strong>
+                        &nbsp;<code style="font-size:.78rem;color:#64748b;"><?= h($rid) ?></code>
+                        &nbsp;<?php
+                            $modeClr = ($rentry['ai_mode'] ?? '') === 'inject' ? '#7c3aed' : '#0369a1';
+                            echo '<span style="display:inline-block;padding:1px 7px;background:'.h($modeClr).';color:#fff;border-radius:10px;font-size:.72rem;font-weight:700;">' . h(strtoupper($rentry['ai_mode'] ?? 'standalone')) . '</span>';
+                        ?>
+                        <?php if (!empty($rentry['ai_render_as'])): ?>
+                        &nbsp;<span style="font-size:.78rem;color:#64748b;">renders as <code><?= h($rentry['ai_render_as']) ?></code></span>
+                        <?php elseif (!empty($rentry['ai_inject_field'])): ?>
+                        &nbsp;<span style="font-size:.78rem;color:#64748b;">injects into <code><?= h($rentry['ai_inject_field']) ?></code></span>
+                        <?php endif; ?>
+                        <br><span class="hint"><?= h($rentry['description'] ?? '') ?></span>
+                    </div>
+                    <a class="btn btn-secondary btn-small" href="?tab=templates&registry=<?= h($rid) ?>">Edit</a>
+                    <form action="templates_save.php" method="post" style="display:inline;"
+                          onsubmit="return confirm('Delete registry entry &quot;<?= h(addslashes($rid)) ?>&quot;?');">
+                        <input type="hidden" name="action"      value="registry_delete">
+                        <input type="hidden" name="registry_id" value="<?= h($rid) ?>">
+                        <input type="hidden" name="csrf_token"  value="<?= h($csrfToken) ?>">
+                        <button type="submit" class="remove-row" title="Delete entry">&times;</button>
+                    </form>
+                </div>
+            <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+
+        <hr style="margin:20px 0;">
+        <h3 style="margin:0 0 12px;">Add Registry Entry</h3>
+        <form action="templates_save.php" method="post" style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+            <input type="hidden" name="action"     value="registry_add">
+            <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+            <div class="form-group" style="flex:1 1 180px;margin:0;">
+                <label>Type ID</label>
+                <input type="text" name="registry_id" placeholder="e.g. city_benefits_section" pattern="[a-z][a-z0-9_]{1,59}" required>
+                <span class="hint">Lowercase letters, numbers, underscores only</span>
+            </div>
+            <div class="form-group" style="flex:1 1 180px;margin:0;">
+                <label>Label</label>
+                <input type="text" name="reg_label" placeholder="e.g. City Benefits Section" required>
+            </div>
+            <button type="submit" class="btn" style="align-self:flex-end;margin-bottom:20px;">Add Entry</button>
+        </form>
     </div>
 
 <?php else: ?>

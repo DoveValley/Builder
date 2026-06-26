@@ -87,6 +87,21 @@ if ($tab === 'templates' && !empty($_GET['template'])) {
     }
 }
 
+// Registry editing state (AI Prompt Registry within Templates tab)
+$aiRegistry           = [];
+$editingRegistryId    = null;
+$editingRegistryEntry = null;
+if ($tab === 'templates') {
+    $aiRegistry = ai_load_registry();
+    if (!empty($_GET['registry'])) {
+        $rid = preg_replace('/[^a-z0-9_]/', '', $_GET['registry']);
+        if (isset($aiRegistry[$rid])) {
+            $editingRegistryId    = $rid;
+            $editingRegistryEntry = $aiRegistry[$rid];
+        }
+    }
+}
+
 // Page starters editing state
 $editingStarterId = null;
 $editingStarter   = null;

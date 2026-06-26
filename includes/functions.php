@@ -16,6 +16,7 @@ require_once __DIR__ . '/seo-editor.php';
 require_once __DIR__ . '/scripts.php';
 require_once __DIR__ . '/hooks.php';
 require_once __DIR__ . '/plugins.php';
+require_once __DIR__ . '/ai.php';
 
 // Auto-load all plugins. Each plugins/{id}/plugin.php calls register_plugin()
 // and add_hook() to attach to the system.
