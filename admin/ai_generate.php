@@ -85,7 +85,7 @@ if (!file_exists($script)) {
     exit;
 }
 
-$parts = [escapeshellarg($python), escapeshellarg($script), '--site', escapeshellarg(ACTIVE_SITE_ID)];
+$parts = [escapeshellarg($python), '-u', escapeshellarg($script), '--site', escapeshellarg(ACTIVE_SITE_ID)];
 
 switch ($action) {
     case 'sync':
@@ -187,6 +187,7 @@ function _build_env(string $apiKey): array {
     }
     // Ensure a sane PATH that includes common Python install locations
     $base['PATH'] = $base['PATH'] ?? '/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin';
+    $base['PYTHONUNBUFFERED'] = '1'; // force Python to flush stdout immediately (no pipe buffering)
     $base['ANTHROPIC_API_KEY'] = $apiKey;
     return $base;
 }
