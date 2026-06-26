@@ -2,7 +2,7 @@
 // Cities tab — list, add, edit, CSV import
 // $tab, $cities, $editingCity, $editingCityId set by index.php
 
-function _render_city_fields(array $city = [], string $prefix = ''): void {
+function _render_city_fields(array $city = [], string $prefix = '', string $cityId = ''): void {
     $v = fn(string $k) => h($city[$k] ?? '');
 ?>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px;">
@@ -60,7 +60,16 @@ function _render_city_fields(array $city = [], string $prefix = ''): void {
         <span class="hint">Tags let you generate pages for a subset of cities — e.g. generate only the "texas" tag.</span>
     </div>
 
-    <h3 style="margin:20px 0 4px;font-size:.9rem;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:.05em;border-top:1px solid #e5e7eb;padding-top:16px;">AI Research Context</h3>
+    <div style="display:flex;align-items:center;gap:12px;border-top:1px solid #e5e7eb;padding-top:16px;margin-top:20px;margin-bottom:4px;flex-wrap:wrap;">
+        <h3 style="margin:0;font-size:.9rem;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:.05em;">AI Research Context</h3>
+        <?php if ($cityId): ?>
+        <button type="button" class="ai-run-btn" id="city-research-btn"
+                style="font-size:.75rem;padding:5px 12px;"
+                onclick="cityResearch(<?= h(json_encode($cityId)) ?>)">&#128269; Research with AI</button>
+        <div class="ai-spinner" id="city-research-spinner"></div>
+        <span id="city-research-status" style="font-size:.78rem;color:#6b7280;"></span>
+        <?php endif; ?>
+    </div>
     <p class="hint" style="margin-bottom:12px;">Used by <code>generate.py</code> to write city-specific content. One item per line.</p>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px;">
@@ -221,7 +230,7 @@ Austin,Texas,TX,austin-tx,(512) 555-0100,+15125550100,78701,,30.2672,-97.7431,,t
             <input type="hidden" name="action" value="save">
             <input type="hidden" name="city_id" value="<?= h($editingCityId) ?>">
             <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
-            <?php _render_city_fields($editingCity); ?>
+            <?php _render_city_fields($editingCity, '', $editingCityId); ?>
             <button type="submit" class="btn">Save City</button>
         </form>
     </div>
@@ -236,3 +245,50 @@ Austin,Texas,TX,austin-tx,(512) 555-0100,+15125550100,78701,,30.2672,-97.7431,,t
 
 <?php endif; ?>
 </div>
+
+<?php if ($tab === 'cities' && $editingCityId): ?>
+<script>
+window.cityResearch = function (cityId) {
+    var btn     = document.getElementById('city-research-btn');
+    var spinner = document.getElementById('city-research-spinner');
+    var status  = document.getElementById('city-research-status');
+    if (!btn) return;
+
+    btn.disabled = true;
+    spinner.classList.add('on');
+    status.textContent = 'Researching…';
+
+    var startedAt = Date.now();
+    var ticker = setInterval(function () {
+        status.textContent = 'Researching… ' + ((Date.now() - startedAt) / 1000).toFixed(0) + 's';
+    }, 1000);
+
+    var fd = new FormData();
+    fd.append('csrf_token', <?= json_encode($csrfToken) ?>);
+    fd.append('action', 'research');
+    fd.append('city_id', cityId);
+
+    fetch('ai_generate.php', { method: 'POST', body: fd, credentials: 'same-origin' })
+    .then(function (r) { return r.json(); })
+    .then(function (res) {
+        clearInterval(ticker);
+        btn.disabled = false;
+        spinner.classList.remove('on');
+        if (res.success) {
+            status.textContent = 'Done — reloading…';
+            setTimeout(function () { location.reload(); }, 1200);
+        } else {
+            status.textContent = res.error || 'Research failed.';
+            status.style.color = '#dc2626';
+        }
+    })
+    .catch(function (err) {
+        clearInterval(ticker);
+        btn.disabled = false;
+        spinner.classList.remove('on');
+        status.textContent = 'Request failed: ' + err.message;
+        status.style.color = '#dc2626';
+    });
+};
+</script>
+<?php endif; ?>
