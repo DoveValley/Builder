@@ -7,8 +7,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 No build step. Serve with PHP's built-in server from the project root:
 
 ```bash
-php -S localhost:8080
+php -S localhost:8080 router.php
 ```
+
+The `router.php` argument is required for pretty URLs to work locally. Without it, every non-file URL silently falls back to `index.php` (the homepage) because `php -S` does not process `.htaccess` mod_rewrite.
 
 Admin panel: `http://localhost:8080/admin/login.php`  
 Default credentials: `admin` / `admin123`
