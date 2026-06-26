@@ -198,7 +198,7 @@
     "input_tokens": 0,
     "output_tokens": 0,
     "api_calls": 0,
-    "estimated_cost_usd": 0.0
+    "estimated_cost_usd": 0
   },
   {
     "run_id": "369999da-fec1-433b-a2f8-9f9918c0a53d",
@@ -223,6 +223,124 @@
     "input_tokens": 0,
     "output_tokens": 0,
     "api_calls": 0,
-    "estimated_cost_usd": 0.0
+    "estimated_cost_usd": 0
+  },
+  {
+    "run_id": "75db0399-2c0c-4514-981f-9e6bac555cd6",
+    "started_at": "2026-06-26T22:11:21.263130Z",
+    "finished_at": "2026-06-26T22:14:03.498020Z",
+    "duration_ms": 162235,
+    "dry_run": false,
+    "options": {
+      "site": "granitepmacademy",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": true,
+      "research": true
+    },
+    "pages_written": 50,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 50,
+    "cities_researched": 0,
+    "input_tokens": 21590,
+    "output_tokens": 13940,
+    "api_calls": 50,
+    "estimated_cost_usd": 0.073032
+  },
+  {
+    "run_id": "46b1608a-7320-42f4-bf46-ee5779164b3d",
+    "started_at": "2026-06-26T22:15:23.259418Z",
+    "finished_at": "2026-06-26T22:15:55.189811Z",
+    "duration_ms": 31930,
+    "dry_run": false,
+    "options": {
+      "site": "granitepmacademy",
+      "page": "landing",
+      "all": false,
+      "file": "san-antonio-tx",
+      "refresh": true,
+      "research": true
+    },
+    "pages_written": 10,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 10,
+    "cities_researched": 0,
+    "input_tokens": 3919,
+    "output_tokens": 2596,
+    "api_calls": 10,
+    "estimated_cost_usd": 0.013519
+  },
+  {
+    "run_id": "822f85b13e434826",
+    "started_at": "2026-06-26T22:23:52+00:00",
+    "finished_at": "2026-06-26T22:23:52+00:00",
+    "duration_ms": 4,
+    "dry_run": false,
+    "options": {
+      "template_ids": null,
+      "city_ids": null,
+      "tag_filter": "",
+      "force_locked": false
+    },
+    "pages_written": 0,
+    "pages_skipped": 25,
+    "pages_backed_up": 0,
+    "errors": [
+      "Skipped: unsafe template/city ID 'tpl_pmp_certification_training_city'/'san-antonio-tx'",
+      "Skipped: unsafe template/city ID 'tpl_pmp_certification_training_city'/'dallas-tx'",
+      "Skipped: unsafe template/city ID 'tpl_pmp_certification_training_city'/'houston-tx'",
+      "Skipped: unsafe template/city ID 'tpl_pmp_certification_training_city'/'austin-tx'",
+      "Skipped: unsafe template/city ID 'tpl_pmp_certification_training_city'/'southlake-tx'",
+      "Skipped: unsafe template/city ID 'tpl_pmp_bootcamp_city'/'san-antonio-tx'",
+      "Skipped: unsafe template/city ID 'tpl_pmp_bootcamp_city'/'dallas-tx'",
+      "Skipped: unsafe template/city ID 'tpl_pmp_bootcamp_city'/'houston-tx'",
+      "Skipped: unsafe template/city ID 'tpl_pmp_bootcamp_city'/'austin-tx'",
+      "Skipped: unsafe template/city ID 'tpl_pmp_bootcamp_city'/'southlake-tx'",
+      "Skipped: unsafe template/city ID 'tpl_capm_certification_training_city'/'san-antonio-tx'",
+      "Skipped: unsafe template/city ID 'tpl_capm_certification_training_city'/'dallas-tx'",
+      "Skipped: unsafe template/city ID 'tpl_capm_certification_training_city'/'houston-tx'",
+      "Skipped: unsafe template/city ID 'tpl_capm_certification_training_city'/'austin-tx'",
+      "Skipped: unsafe template/city ID 'tpl_capm_certification_training_city'/'southlake-tx'",
+      "Skipped: unsafe template/city ID 'tpl_capm_bootcamp_city'/'san-antonio-tx'",
+      "Skipped: unsafe template/city ID 'tpl_capm_bootcamp_city'/'dallas-tx'",
+      "Skipped: unsafe template/city ID 'tpl_capm_bootcamp_city'/'houston-tx'",
+      "Skipped: unsafe template/city ID 'tpl_capm_bootcamp_city'/'austin-tx'",
+      "Skipped: unsafe template/city ID 'tpl_capm_bootcamp_city'/'southlake-tx'",
+      "Skipped: unsafe template/city ID 'tpl_cpmai_certification_training_city'/'san-antonio-tx'",
+      "Skipped: unsafe template/city ID 'tpl_cpmai_certification_training_city'/'dallas-tx'",
+      "Skipped: unsafe template/city ID 'tpl_cpmai_certification_training_city'/'houston-tx'",
+      "Skipped: unsafe template/city ID 'tpl_cpmai_certification_training_city'/'austin-tx'",
+      "Skipped: unsafe template/city ID 'tpl_cpmai_certification_training_city'/'southlake-tx'"
+    ]
+  },
+  {
+    "run_id": "ab5b7ac1-ba0a-4e3a-b5f5-81259e44715d",
+    "started_at": "2026-06-26T23:06:31.048380Z",
+    "finished_at": "2026-06-26T23:11:01.502119Z",
+    "duration_ms": 270454,
+    "dry_run": false,
+    "options": {
+      "site": "granitepmacademy",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": true
+    },
+    "pages_written": 100,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 100,
+    "cities_researched": 0,
+    "input_tokens": 36680,
+    "output_tokens": 22154,
+    "api_calls": 100,
+    "estimated_cost_usd": 0.11796
   }
 ]

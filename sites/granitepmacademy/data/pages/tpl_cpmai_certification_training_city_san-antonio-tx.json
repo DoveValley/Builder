@@ -16,13 +16,35 @@
     "lat": "",
     "lng": "",
     "website": "",
-    "tags": []
+    "tags": [],
+    "industries": [
+      "defense/military",
+      "healthcare",
+      "finance/insurance",
+      "technology",
+      "energy",
+      "government"
+    ],
+    "top_employers": [
+      "USAA",
+      "H-E-B",
+      "Baptist Health System",
+      "Rackspace",
+      "Valero",
+      "CPS Energy",
+      "CHRISTUS Health",
+      "University Health",
+      "City of San Antonio",
+      "Joint Base San Antonio (JBSA)"
+    ],
+    "salary_note": "PMP-certified project managers in San Antonio average $105,000–$125,000 annually, with defense and healthcare sector roles frequently reaching $130,000+",
+    "market_blurb": "San Antonio is home to Joint Base San Antonio, one of the largest US military installations, alongside a major healthcare corridor and a growing tech sector anchored by USAA and Rackspace. All three sectors actively recruit PMP-certified project managers to lead infrastructure, IT, and operational initiatives."
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "CPMAI Certification Training in {city}, {SS}",
-      "hs_subtext": "San Antonio's defense and government sectors demand skilled project managers who can navigate complex, mission-critical initiatives. Granite PM Academy delivers PMI-authorized, live-virtual instructor-led CPMAI training designed for professionals ready to advance. Earn your certification and position yourself for career growth and increased earning potential in the region's thriving industries.",
+      "hs_subtext": "San Antonio's thriving defense, healthcare, and technology sectors demand skilled project managers who can deliver mission-critical initiatives. Granite PM Academy's PMI-authorized, live-virtual instructor-led CPMAI training equips you with recognized credentials that these major employers actively seek. Graduates advance their careers with competitive salaries and industry-leading pass rates.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#cpmai_schedule",
       "hs_caption1": "",
@@ -32,17 +54,27 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "fq_items": [
-        {
-          "question": "What salary can a PMP earn in San Antonio after certification?",
-          "answer": "PMP-certified project managers in San Antonio earn $105,000–$125,000 annually on average, with defense and healthcare sector roles frequently exceeding $130,000. Major employers like USAA, JBSA, Baptist Health System, and Valero actively seek certified professionals. Certification typically increases earning potential by 15–25% compared to non-certified peers."
-        },
-        {
-          "question": "How long does CPMAI certification training take while working full-time in San Antonio?",
-          "answer": "Granite PM Academy's CPMAI training fits working San Antonio professionals' schedules with flexible formats: online self-paced (4–6 weeks) or instructor-led options (2–3 weeks). Most full-time employees at employers like Rackspace, CPS Energy, and government agencies complete training while maintaining work responsibilities through evening and weekend sessions."
-        }
-      ]
+      "hs_mobile_order": ""
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "San Antonio's Growing Demand for Certified Project Managers",
+      "text": "<p>San Antonio's diverse economy—anchored by defense, healthcare, technology, and energy sectors—creates exceptional opportunities for CPMAI Certification Training graduates. Major employers like USAA, Rackspace, Baptist Health System, and Joint Base San Antonio actively recruit project managers with recognized credentials to lead complex IT infrastructure, healthcare operations, and military support initiatives. The CPMAI Certification Training equips professionals with the frameworks and skills these organizations demand, positioning you as a competitive candidate in a market where certified project management expertise directly impacts organizational success.</p><p>Earning your CPMAI Certification Training credentials in San Antonio translates into measurable career advancement and financial growth. PMP-certified project managers in the region command salaries ranging from $105,000 to $125,000 annually, with defense and healthcare sector roles frequently exceeding $130,000. As San Antonio continues to expand its technology and healthcare sectors alongside sustained defense investments, demand for certified project managers shows no signs of slowing. Completing CPMAI Certification Training positions you to capitalize on these high-growth opportunities and advance into senior leadership roles.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-26T23:08:59.909216Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -59,51 +91,170 @@
       "fc_num_cols": 4,
       "columns": [
         {
-          "heading": "Live Instructor-Led Training",
-          "text": "Learn from experienced professionals in real-time. Ask questions, engage directly, and receive immediate feedback throughout your CPMAI certification journey."
+          "heading": "Live Instructor-Led Expertise",
+          "text": "Learn from experienced instructors in real-time. Ask questions, gain insights, and master concepts through interactive live instruction designed for adult learners."
         },
         {
-          "heading": "PMI Premier ATP Authorization",
-          "text": "Train with a PMI-approved partner. Guarantee quality instruction aligned with PMI standards for your CPMAI certification and career advancement."
+          "heading": "PMI Premier ATP Credential",
+          "text": "Train with PMI's highest-authorized partner. Granite PM Academy's Premier ATP status ensures you receive the most rigorous, up-to-date CPMAI certification curriculum available."
         },
         {
-          "heading": "Comprehensive Exam Prep",
-          "text": "Master every exam domain with targeted study materials, practice tests, and proven strategies. Build confidence for certification success on test day."
+          "heading": "Flexible Live-Virtual Scheduling",
+          "text": "Attend classes online or in-person with flexible scheduling. Balance your career and studies with options designed for working professionals in San Antonio."
         },
         {
-          "heading": "Advance in San Antonio's Defense Sector",
-          "text": "CPMAI certification strengthens your credentials for roles at JBSA, defense contractors, and government agencies throughout San Antonio's thriving military community."
+          "heading": "Advance in San Antonio's Defense & Tech Sectors",
+          "text": "Boost your credentials for roles at JBSA, Rackspace, and USAA. CPMAI certification demonstrates project management excellence valued by San Antonio's largest employers."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:50:32.302493Z",
+      "_ai_generated_at": "2026-06-26T23:09:02.546984Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
     },
     {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Growing PM Demand in San Antonio's Key Industries",
-      "text": "<p>San Antonio's thriving defense, healthcare, and technology sectors are driving unprecedented demand for certified project managers. Major employers like USAA, Rackspace, Baptist Health System, and Joint Base San Antonio actively recruit professionals with advanced PM credentials to lead complex infrastructure, IT, and operational initiatives. The CPMAI Certification Training equips San Antonio professionals with the strategic and adaptive skills these organizations need, positioning you as a competitive candidate in a market where certification directly impacts hiring decisions and project leadership opportunities.</p><p>Earning your CPMAI Certification Training credential in San Antonio opens doors to significant career advancement and earning potential. Project managers in the region typically earn $105,000–$125,000 annually, with defense and healthcare roles frequently exceeding $130,000. As San Antonio continues to expand its presence in technology and defense contracting, CPMAI-certified professionals are increasingly valued for their ability to navigate complex, multi-stakeholder environments. Investing in your CPMAI Certification Training now positions you to capture these growing opportunities and command competitive compensation in San Antonio's dynamic job market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:50:35.304590Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_locked": true
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact"
+        }
+      ]
     },
     {
       "type": "custom_html",
       "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "What salary can a PMP-certified project manager expect in San Antonio?",
+          "answer": "PMP-certified project managers in San Antonio earn $105,000–$125,000 annually on average, with defense and healthcare roles often exceeding $130,000. Major employers like USAA, JBSA, Baptist Health System, and Valero actively recruit certified professionals. Your certification ROI is substantial in San Antonio's competitive market."
+        },
+        {
+          "question": "How long does CPMAI certification training take while working full-time in San Antonio?",
+          "answer": "Our CPMAI training program accommodates San Antonio professionals with flexible scheduling: typically 4–6 weeks part-time, or accelerated weekend options. Many local defense and healthcare professionals complete training while maintaining full-time roles. We structure courses around your schedule, not the other way around."
+        }
+      ]
     },
     {
       "type": "cta_banner",
@@ -135,6 +286,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-18T17:27:44+00:00",
-  "template_version": "0374d3178fa0740832bfa380b680a261"
+  "generated_at": "2026-06-26T23:05:50+00:00",
+  "template_version": "236d2a45abe2d2ec4bcbca0b57018b8a"
 }

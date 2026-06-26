@@ -16,13 +16,37 @@
     "lat": "",
     "lng": "",
     "website": "",
-    "tags": []
+    "tags": [],
+    "industries": [
+      "energy",
+      "healthcare",
+      "engineering/construction",
+      "aerospace",
+      "manufacturing",
+      "technology"
+    ],
+    "top_employers": [
+      "ExxonMobil",
+      "Chevron",
+      "Shell USA",
+      "Houston Methodist Hospital",
+      "Memorial Hermann Health System",
+      "Texas Medical Center",
+      "NASA Johnson Space Center",
+      "Bechtel",
+      "KBR",
+      "Hewlett Packard Enterprise",
+      "CenterPoint Energy",
+      "Port of Houston Authority"
+    ],
+    "salary_note": "PMP-certified project managers in Houston, Texas typically earn between $105,000 and $135,000 annually, with professionals in the energy, engineering, and aerospace sectors often commanding salaries at the higher end of that range.",
+    "market_blurb": "Houston is one of the most robust project management job markets in the United States, driven by its status as the global energy capital, a world-leading medical hub through the Texas Medical Center, and a major hub for aerospace and large-scale engineering and construction projects. The city's concentration of Fortune 500 companies, international energy firms, and major healthcare systems creates consistent, high-volume demand for skilled project managers across multiple sectors. PMP certification is particularly valued in Houston because employers in energy, engineering, and healthcare routinely require or strongly prefer it as a credential that signals a candidate's ability to manage complex, high-stakes projects in demanding environments."
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "Houston's energy and aerospace sectors demand project leaders who can manage complex, high-stakes initiatives. Granite PM Academy delivers PMI-authorized, live-virtual instructor-led training that equips you with proven methodologies recognized across ExxonMobil, Shell, and NASA Johnson Space Center. Our PMP certification prepares you for leadership roles while significantly advancing your career trajectory and earning potential.",
+      "hs_subtext": "In Houston's energy and aerospace sectors, project managers drive billion-dollar initiatives that require rigorous credential standards. Granite PM Academy delivers live-virtual instructor-led training as a PMI Premier Authorized Partner, ensuring you meet industry expectations. PMP certification positions you for leadership roles and competitive compensation in Houston's high-demand market.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#pmp_schedule",
       "hs_caption1": "",
@@ -35,10 +59,24 @@
       "hs_mobile_order": ""
     },
     {
-      "type": "feature_columns",
-      "fc_heading": "Why {city} Project Managers Choose Granite PM Academy",
-      "fc_num_cols": 3,
-      "columns": []
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Demand in Houston's Thriving Market",
+      "text": "<p>Houston's status as the global energy capital, combined with its world-class medical and aerospace sectors, creates exceptional demand for PMP-certified project managers. Energy giants like ExxonMobil, Chevron, and Shell USA rely on certified professionals to manage complex, mission-critical projects worth millions of dollars. Similarly, the Texas Medical Center and major healthcare systems including Houston Methodist Hospital and Memorial Hermann Health System increasingly require PMP certification for leadership roles. In Houston's competitive job market, PMP certification signals to employers that you possess the advanced skills needed to lead high-stakes initiatives in demanding environments.</p><p>PMP-certified project managers in Houston typically earn between $105,000 and $135,000 annually, with professionals in energy, engineering, and aerospace sectors often commanding salaries at the higher end of that range. The certification opens doors to accelerated career progression and higher-paying roles across Houston's Fortune 500 companies, international firms, and major healthcare systems. As Houston continues to drive global innovation in energy, healthcare, and engineering, earning your PMP certification positions you to capitalize on this sustained demand and build a lucrative, future-proof career.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-26T23:10:35.414465Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -56,50 +94,129 @@
       "columns": [
         {
           "heading": "Live Instructor-Led Training",
-          "text": "Learn directly from experienced PMP instructors in real-time. Ask questions, engage in discussions, and receive immediate feedback to deepen your project management expertise."
+          "text": "Interactive classroom instruction with certified PMP instructors who answer questions in real-time, ensuring deep understanding of project management concepts and exam strategies."
         },
         {
           "heading": "PMI Premier ATP Authorization",
-          "text": "Train with a PMI-recognized premier partner. Our curriculum meets the highest standards, ensuring you receive authentic, up-to-date PMP certification preparation."
+          "text": "Official PMI Premier Authorized Training Partner status guarantees curriculum alignment with current exam standards and eligibility for PMI contact hours toward PMP certification."
         },
         {
-          "heading": "Flexible Live-Virtual Scheduling",
-          "text": "Attend classes online or in-person with schedules designed for working professionals. Manage your certification training around your job and personal commitments."
+          "heading": "Proven High Pass Rate",
+          "text": "Our comprehensive exam prep methodology delivers consistently high pass rates, combining classroom mastery with targeted practice exams and personalized study guidance for certification success."
         },
         {
-          "heading": "Houston Energy Sector Advantage",
-          "text": "ExxonMobil, Shell USA, and Chevron prioritize PMP certification for project leaders. Gain the credential these major Houston employers demand for career advancement and leadership roles."
+          "heading": "Energy Sector Expertise",
+          "text": "Tailored training for Houston's energy professionals at ExxonMobil, Chevron, and Shell USA, with instructors experienced in large-scale project management within oil, gas, and renewable sectors."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:52:14.189888Z",
+      "_ai_generated_at": "2026-06-26T23:10:38.297734Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
     },
     {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Why PMP Certification Matters in Houston's Booming PM Market",
-      "text": "<p>Houston's position as the global energy capital, combined with its world-class medical and aerospace sectors, creates extraordinary demand for skilled project managers. Major employers like ExxonMobil, Chevron, and Shell USA rely on PMP-certified professionals to lead complex, high-stakes energy projects, while institutions across the Texas Medical Center and aerospace facilities at NASA Johnson Space Center actively seek PMP certification as a credential that demonstrates mastery of rigorous project management frameworks. In Houston, PMP certification isn't just a credential—it's a competitive requirement that signals your ability to manage multimillion-dollar initiatives in industries where precision and accountability are non-negotiable.</p><p>PMP-certified project managers in Houston command salaries between $105,000 and $135,000 annually, with professionals in energy, engineering, and aerospace sectors frequently earning at the higher end of that range. This earning potential reflects Houston's concentration of Fortune 500 companies and international firms that invest heavily in certified talent. Earning your PMP certification opens doors to advancement across Houston's diverse industries and positions you for leadership roles that drive career growth and long-term financial success in one of North America's most dynamic project management markets.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:43:19.759699Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_locked": true
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact"
+        }
+      ]
     },
     {
       "type": "custom_html",
       "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
     },
     {
       "type": "faq_two_col",
@@ -129,23 +246,15 @@
         },
         {
           "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI's current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "How much do PMP-certified project managers earn in Houston, Texas?",
-          "answer": "PMP-certified project managers in Houston typically earn $105,000–$135,000 annually. Professionals in energy, engineering, and aerospace sectors—where Houston's major employers like ExxonMobil, Shell USA, Bechtel, and NASA Johnson Space Center operate—often command salaries at the higher end. Certification significantly boosts earning potential across all local industries."
-        },
-        {
-          "question": "Is PMP certification in demand at Houston's energy and engineering companies?",
-          "answer": "Yes. Houston's dominant industries—energy, engineering, construction, and aerospace—heavily employ PMP-certified professionals. Major employers like Chevron, KBR, and Bechtel prioritize certification for project leadership roles. The energy sector particularly values PMP credentials for managing complex, high-stakes projects, making certification essential for career advancement in Houston's job market."
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
         },
         {
           "question": "What salary can PMP-certified project managers expect in Houston, Texas?",
-          "answer": "PMP-certified project managers in Houston typically earn $105,000–$135,000 annually. Professionals in energy, engineering, and aerospace sectors—including roles at ExxonMobil, Chevron, Shell USA, and NASA Johnson Space Center—often command salaries at the higher end. Certification significantly increases earning potential across Houston's major industries."
+          "answer": "PMP-certified project managers in Houston typically earn $105,000–$135,000 annually. Professionals in energy, engineering, and aerospace sectors—including roles at ExxonMobil, Chevron, Shell, and NASA Johnson Space Center—often command salaries at the higher end, reflecting Houston's concentration of these industries."
         },
         {
           "question": "How long does PMP certification training take while working full-time in Houston?",
-          "answer": "Most professionals complete PMP training in 4–6 weeks while maintaining full-time employment. Granite PM Academy offers flexible scheduling designed for Houston's busy workforce in energy, healthcare, and engineering sectors. Part-time options and weekend classes accommodate working professionals balancing demanding roles at major employers like Bechtel and HPE."
+          "answer": "Granite PM Academy's PMP training typically takes 4–6 weeks, designed for working professionals. Houston's demanding energy and construction sectors require flexible scheduling. Our classes accommodate full-time employment, allowing you to earn CAPM contact hours without sacrificing your current role at major employers like Bechtel or KBR."
         }
       ]
     },
@@ -179,6 +288,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-18T17:27:44+00:00",
-  "template_version": "002f217d5dfe5c5460380a03a1198a63"
+  "generated_at": "2026-06-26T23:05:50+00:00",
+  "template_version": "aad288a115a6cbedcca5609e7d00e686"
 }

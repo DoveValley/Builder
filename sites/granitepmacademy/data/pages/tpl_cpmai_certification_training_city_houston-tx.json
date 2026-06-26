@@ -16,13 +16,37 @@
     "lat": "",
     "lng": "",
     "website": "",
-    "tags": []
+    "tags": [],
+    "industries": [
+      "energy",
+      "healthcare",
+      "engineering/construction",
+      "aerospace",
+      "manufacturing",
+      "technology"
+    ],
+    "top_employers": [
+      "ExxonMobil",
+      "Chevron",
+      "Shell USA",
+      "Houston Methodist Hospital",
+      "Memorial Hermann Health System",
+      "Texas Medical Center",
+      "NASA Johnson Space Center",
+      "Bechtel",
+      "KBR",
+      "Hewlett Packard Enterprise",
+      "CenterPoint Energy",
+      "Port of Houston Authority"
+    ],
+    "salary_note": "PMP-certified project managers in Houston, Texas typically earn between $105,000 and $135,000 annually, with professionals in the energy, engineering, and aerospace sectors often commanding salaries at the higher end of that range.",
+    "market_blurb": "Houston is one of the most robust project management job markets in the United States, driven by its status as the global energy capital, a world-leading medical hub through the Texas Medical Center, and a major hub for aerospace and large-scale engineering and construction projects. The city's concentration of Fortune 500 companies, international energy firms, and major healthcare systems creates consistent, high-volume demand for skilled project managers across multiple sectors. PMP certification is particularly valued in Houston because employers in energy, engineering, and healthcare routinely require or strongly prefer it as a credential that signals a candidate's ability to manage complex, high-stakes projects in demanding environments."
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "CPMAI Certification Training in {city}, {SS}",
-      "hs_subtext": "In Houston's energy and aerospace sectors, CPMAI certification demonstrates advanced project management expertise that organizations like ExxonMobil and NASA Johnson Space Center actively seek. Granite PM Academy delivers PMI-authorized, live-virtual instructor-led training designed for working professionals. Our graduates report accelerated career progression and measurable salary increases within 12 months of certification.",
+      "hs_subtext": "Houston's energy and aerospace sectors demand skilled project managers who can lead complex, mission-critical initiatives. Granite PM Academy delivers PMI-authorized CPMAI training through live-virtual instruction, ensuring you master certification content without disrupting your schedule. Graduates advance their careers with competitive salaries and industry-leading pass rates.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#cpmai_schedule",
       "hs_caption1": "",
@@ -32,17 +56,27 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "fq_items": [
-        {
-          "question": "What salary can PMP-certified project managers expect in Houston?",
-          "answer": "PMP-certified project managers in Houston typically earn $105,000–$135,000 annually. Professionals in Houston's dominant sectors—energy, engineering, aerospace, and construction—often command salaries at the higher end. Major employers like ExxonMobil, Chevron, Shell USA, Bechtel, and NASA Johnson Space Center actively seek certified PMs, making Houston a competitive market for credentialed professionals."
-        },
-        {
-          "question": "How does CPMAI certification help energy sector professionals in Houston?",
-          "answer": "CPMAI certification is highly valued in Houston's energy industry, where giants like ExxonMobil, Chevron, and Shell USA manage complex, high-stakes projects. The credential demonstrates advanced competency in capital project management—critical for infrastructure, exploration, and operations projects. Energy companies prioritize certified PMs for leadership roles, making CPMAI a competitive advantage in Houston's largest employment sector."
-        }
-      ]
+      "hs_mobile_order": ""
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Houston's High-Demand Project Management Job Market",
+      "text": "<p>Houston's position as the global energy capital, combined with its world-class medical institutions and aerospace engineering hub, creates exceptional demand for certified project managers. Major employers like ExxonMobil, Chevron, Shell USA, and NASA Johnson Space Center actively seek professionals with advanced credentials to lead complex, high-stakes initiatives. The CPMAI Certification Training equips you with the specialized competencies these organizations demand, positioning you as a competitive candidate in a market where PMP certification is often required or strongly preferred. Whether you're targeting the energy sector, healthcare systems like Houston Methodist Hospital, or engineering firms managing large-scale construction projects, the CPMAI Certification Training demonstrates your mastery of critical project delivery methodologies.</p><p>Earning your CPMAI certification in Houston opens doors to significant career advancement and financial growth. Project managers with PMP certification in Houston typically earn between $105,000 and $135,000 annually, with professionals in energy, engineering, and aerospace sectors commanding salaries at the higher end of that range. Beyond immediate earning potential, the CPMAI Certification Training signals to Fortune 500 companies and international firms that you're ready for leadership roles managing multimillion-dollar initiatives. As Houston's job market continues to attract global investment in energy innovation, healthcare expansion, and aerospace development, your certified credentials position you for sustained career growth and competitive advantage.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-26T23:08:49.018359Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -59,51 +93,170 @@
       "fc_num_cols": 4,
       "columns": [
         {
-          "heading": "Live Instructor-Led Expert Training",
-          "text": "Learn directly from experienced PMs in interactive live sessions. Ask real-time questions, engage with instructors, and master concepts through hands-on discussion and practical scenarios."
+          "heading": "Live Instructor-Led Training",
+          "text": "Learn from certified professionals in real-time. Interactive sessions allow direct Q&A with experienced instructors who understand CPMAI requirements and exam strategies thoroughly."
         },
         {
-          "heading": "PMI Premier ATP Certification",
-          "text": "Train with PMI's highest-tier authorized partner. Guarantee quality instruction, official exam prep materials, and recognized credentials that advance your career in competitive markets."
+          "heading": "PMI Premier ATP Authorization",
+          "text": "Study with PMI's highest-tier authorized partner. Our premier status ensures curriculum excellence, instructor credentials, and training quality that meets the strictest PMI standards."
         },
         {
-          "heading": "Proven High Pass Rate Results",
-          "text": "Our comprehensive curriculum and expert instruction deliver consistently high CPMAI exam pass rates. Invest in training designed for your success from day one."
+          "heading": "Comprehensive Exam Preparation",
+          "text": "Master every exam domain with targeted practice. Our curriculum covers all CPMAI competencies through real-world scenarios, mock exams, and detailed study materials."
         },
         {
-          "heading": "Energy Industry Credential Advantage",
-          "text": "Houston's energy leaders—ExxonMobil, Chevron, Shell—prioritize certified project managers. CPMAI certification positions you competitively for advancement within major regional employers and energy sector roles."
+          "heading": "Advance Your Energy Sector Career",
+          "text": "CPMAI certification is highly valued by Houston's energy leaders including ExxonMobil and Shell USA. Enhance your credentials and visibility for advancement in project-critical roles."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:50:21.556943Z",
+      "_ai_generated_at": "2026-06-26T23:08:52.297292Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
     },
     {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Why CPMAI Certification Matters in Houston's Booming PM Market",
-      "text": "<p>Houston's status as the global energy capital, combined with its world-class medical and aerospace sectors, creates exceptional demand for certified project managers. Leading employers like ExxonMobil, Chevron, and Shell USA—along with major healthcare systems such as Houston Methodist Hospital and the Texas Medical Center—actively seek professionals with recognized project management credentials. CPMAI Certification Training equips you with the skills these organizations value most: the ability to lead complex, high-stakes initiatives in demanding environments where project success directly impacts operations and profitability.</p><p>In Houston, PMP-certified project managers typically earn between $105,000 and $135,000 annually, with professionals in energy, engineering, and aerospace sectors commanding salaries at the higher end of that range. CPMAI Certification positions you to compete for these premium roles and accelerates your advancement into senior project leadership positions. As Houston continues to attract Fortune 500 companies and major infrastructure investments, certified project managers remain among the most sought-after talent. Investing in CPMAI Certification Training now positions you to capitalize on the consistent, high-volume demand for skilled project professionals across Houston's thriving industries.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:50:24.928938Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_locked": true
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact"
+        }
+      ]
     },
     {
       "type": "custom_html",
       "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "What salary can PMP-certified project managers expect in Houston, Texas?",
+          "answer": "PMP-certified project managers in Houston typically earn $105,000–$135,000 annually. Professionals in energy, engineering, and aerospace sectors—major Houston industries with employers like ExxonMobil, Shell, Chevron, Bechtel, and NASA Johnson Space Center—often command salaries at the higher end, reflecting strong local demand for certified expertise."
+        },
+        {
+          "question": "How long does CPMAI certification training take while working full-time in Houston?",
+          "answer": "Granite PM Academy's CPMAI training accommodates Houston's working professionals with flexible scheduling options. Most full-time employees complete the program in 4–8 weeks through evening and weekend classes, allowing you to advance your career without sacrificing your current role in Houston's competitive energy, healthcare, and engineering sectors."
+        }
+      ]
     },
     {
       "type": "cta_banner",
@@ -135,6 +288,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-18T17:27:44+00:00",
-  "template_version": "0374d3178fa0740832bfa380b680a261"
+  "generated_at": "2026-06-26T23:05:50+00:00",
+  "template_version": "236d2a45abe2d2ec4bcbca0b57018b8a"
 }

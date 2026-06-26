@@ -16,13 +16,37 @@
     "lat": "",
     "lng": "",
     "website": "",
-    "tags": []
+    "tags": [],
+    "industries": [
+      "technology",
+      "finance",
+      "healthcare",
+      "telecommunications",
+      "energy",
+      "defense/government"
+    ],
+    "top_employers": [
+      "AT&T",
+      "Texas Instruments",
+      "Toyota Motor North America",
+      "Lockheed Martin",
+      "JPMorgan Chase",
+      "Bank of America",
+      "Parkland Health",
+      "UT Southwestern Medical Center",
+      "Raytheon Technologies",
+      "Southwest Airlines",
+      "Jacobs Engineering",
+      "Comerica Bank"
+    ],
+    "salary_note": "PMP-certified project managers in Dallas, Texas typically earn between $105,000 and $135,000 annually, with professionals in defense, technology, and financial services often commanding salaries at the higher end of that range.",
+    "market_blurb": "Dallas is one of the fastest-growing major metros in the United States, with a robust project management job market driven by its concentration of Fortune 500 headquarters, a booming technology sector, and major healthcare and defense employers. The city's finance, telecommunications, and energy industries generate strong and consistent demand for skilled project managers capable of leading large-scale, cross-functional initiatives. PMP certification is particularly valuable in Dallas because many of its dominant employers, including defense contractors and large financial institutions, use it as a baseline credential for mid-to-senior level project management roles."
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "CAPM Certification Training in {city}, {SS}",
-      "hs_subtext": "Dallas's thriving technology and defense sectors demand skilled project managers who can deliver complex initiatives on time and within budget. Granite PM Academy's PMI-authorized, live-virtual instruction ensures you master CAPM fundamentals with flexibility. Our proven training approach positions you for immediate career advancement and higher earning potential in Dallas's competitive job market.",
+      "hs_subtext": "Dallas's thriving technology and defense sectors—home to industry leaders like AT&T and Lockheed Martin—demand certified project managers who can deliver complex initiatives on time and within budget. Granite PM Academy's PMI-authorized, live-virtual instructor-led training ensures you gain practical skills recognized across these competitive markets. Graduates advance their careers faster and command higher salaries while achieving industry-leading pass rates on the CAPM exam.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#capm_schedule",
       "hs_caption1": "",
@@ -33,6 +57,26 @@
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
       "hs_mobile_order": ""
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification Demand in Dallas's Growing PM Market",
+      "text": "<p>Dallas is home to some of the nation's most prominent employers in technology, finance, defense, and healthcare—industries where project management expertise is mission-critical. Companies like AT&T, Texas Instruments, Lockheed Martin, and JPMorgan Chase actively hire certified project managers to lead complex, cross-functional initiatives. CAPM Certification Training positions Dallas professionals to meet the rigorous credential expectations these employers demand, particularly as the city's Fortune 500 presence and booming tech sector continue to expand. For anyone pursuing a career in Dallas's competitive PM landscape, CAPM Certification serves as a recognized entry point into roles with real advancement potential.</p><p>In Dallas, project managers with CAPM Certification can expect to command salaries between $105,000 and $135,000 annually, with professionals in defense, technology, and financial services often earning at the higher end of that range. The city's status as one of the fastest-growing major metros in the United States, combined with its concentration of large-scale employers, creates consistent demand for skilled project managers capable of delivering results on enterprise-level projects. By pursuing CAPM Certification Training in Dallas, you're positioning yourself to capitalize on a robust job market where certified credentials directly translate to career growth and competitive compensation.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-26T23:07:43.892701Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -50,50 +94,129 @@
       "columns": [
         {
           "heading": "Live Instructor-Led Training",
-          "text": "Learn directly from certified PMs in real-time. Ask questions, clarify concepts, and get personalized feedback throughout your CAPM preparation journey."
+          "text": "Learn directly from certified experts in real-time. Interactive sessions ensure immediate feedback, clarification of complex concepts, and personalized guidance throughout your CAPM journey."
         },
         {
           "heading": "PMI Premier ATP Certification",
-          "text": "Train with an official PMI Premier Authorized Training Partner. Gain credibility and access to exclusive resources designed by project management experts."
+          "text": "Train with a PMI-authorized partner meeting the highest industry standards. Granite PM Academy's official status guarantees curriculum quality and recognized credential preparation."
         },
         {
-          "heading": "Comprehensive Exam Preparation",
-          "text": "Master all CAPM domains through structured lessons, practice questions, and mock exams. Our curriculum ensures you're fully ready for certification success."
+          "heading": "Flexible Virtual Class Scheduling",
+          "text": "Balance work and study with live-virtual options fitting your schedule. Complete your CAPM training without commuting, ideal for Dallas professionals juggling demanding careers."
         },
         {
-          "heading": "Advance Your Dallas Tech Career",
-          "text": "AT&T, Texas Instruments, and other major Dallas employers prioritize CAPM-certified professionals. Earn your credential and compete for higher-paying project management roles."
+          "heading": "Dallas Tech & Defense Advantage",
+          "text": "Gain competitive edge in Dallas's booming tech and defense sectors. CAPM certification accelerates advancement at AT&T, Lockheed Martin, and Raytheon—major local employers valuing certified project managers."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:49:13.350708Z",
+      "_ai_generated_at": "2026-06-26T23:07:46.783314Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
     },
     {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "CAPM Certification Demand in Dallas's Growing PM Market",
-      "text": "<p>Dallas is home to some of the nation's most prestigious employers actively seeking certified project management professionals. Companies like AT&T, Lockheed Martin, and UT Southwestern Medical Center prioritize CAPM Certification as a foundation credential for career advancement. In a city where technology, defense, finance, and healthcare drive economic growth, earning your CAPM Certification signals to Dallas employers that you possess the standardized project management knowledge and discipline required to lead initiatives in these competitive industries. Whether you're working in telecommunications, government contracting, or healthcare administration, CAPM Certification Training equips you with PMI-recognized credentials that directly align with local hiring requirements.</p><p>Dallas project managers with CAPM Certification can expect significant salary growth and career mobility. Certified professionals in the Dallas market typically earn between $105,000 and $135,000 annually, with higher compensation in defense, technology, and financial services sectors where PMP and CAPM credentials are baseline expectations for promotion. As Dallas continues to attract Fortune 500 headquarters and expand its tech and innovation sectors, CAPM Certification positions you to compete for increasingly senior roles. Granite PM Academy's live-virtual CAPM Certification Training in Dallas gives you the edge to accelerate your career trajectory in this dynamic, high-opportunity market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:49:17.126255Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_locked": true
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual CAPM Training",
+          "badge": "BEST VALUE",
+          "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact"
+        }
+      ]
     },
     {
       "type": "custom_html",
       "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
     },
     {
       "type": "faq_two_col",
@@ -122,20 +245,12 @@
           "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
         },
         {
-          "question": "What salary can CAPM certification help me earn in Dallas, Texas?",
-          "answer": "PMP-certified project managers in Dallas earn $105,000–$135,000 annually, with defense, technology, and finance professionals at the higher end. CAPM certification positions you for advancement toward PMP status. Dallas employers like Lockheed Martin, AT&T, and JPMorgan Chase actively hire certified professionals, making certification a valuable investment in your earning potential."
-        },
-        {
-          "question": "How long does CAPM certification training take while working full-time in Dallas?",
-          "answer": "Granite PM Academy's CAPM training accommodates Dallas professionals' schedules with flexible formats. Most candidates complete classroom or online training in 2–3 weeks while maintaining full-time work, followed by self-study for exam prep. Many Dallas tech and finance professionals balance training alongside roles at companies like Texas Instruments and Bank of America."
-        },
-        {
-          "question": "What salary can CAPM-certified project managers expect in Dallas, Texas?",
-          "answer": "CAPM certification opens doors to roles across Dallas's thriving tech, finance, and defense sectors. While entry-level salaries start lower, many CAPM holders advance to PMP roles, earning $105,000–$135,000 annually. Professionals at major employers like AT&T, Texas Instruments, and Lockheed Martin often command higher salaries, especially in defense and financial services."
+          "question": "What salary can CAPM certification help me earn in Dallas tech and defense?",
+          "answer": "PMP-certified project managers in Dallas earn $105,000–$135,000 annually, with higher salaries in tech, defense, and finance. CAPM certification demonstrates foundational PM competency, positioning you for advancement at employers like AT&T, Texas Instruments, Lockheed Martin, and Raytheon Technologies—all major Dallas employers investing heavily in certified talent."
         },
         {
           "question": "How long does CAPM training take while working full-time in Dallas?",
-          "answer": "Granite PM Academy's flexible CAPM training accommodates Dallas professionals balancing full-time roles at companies like JPMorgan Chase and Southwest Airlines. Most programs complete in 4–6 weeks with evening and weekend classes. Self-paced options allow you to study around your schedule while preparing for certification and career advancement."
+          "answer": "Granite PM Academy's CAPM training typically requires 23–40 hours, completable in 4–6 weeks while maintaining full-time employment. Dallas professionals in finance, healthcare, and telecommunications benefit from flexible scheduling options designed around corporate work demands, allowing career advancement without workplace disruption."
         }
       ]
     },
@@ -169,6 +284,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-18T17:27:44+00:00",
-  "template_version": "af6ed37967e8e49d9249205dee99e1c0"
+  "generated_at": "2026-06-26T23:05:50+00:00",
+  "template_version": "50e255db4b266be1cd2bf216b825445b"
 }

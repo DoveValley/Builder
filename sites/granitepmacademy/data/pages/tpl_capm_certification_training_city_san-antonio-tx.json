@@ -16,13 +16,35 @@
     "lat": "",
     "lng": "",
     "website": "",
-    "tags": []
+    "tags": [],
+    "industries": [
+      "defense/military",
+      "healthcare",
+      "finance/insurance",
+      "technology",
+      "energy",
+      "government"
+    ],
+    "top_employers": [
+      "USAA",
+      "H-E-B",
+      "Baptist Health System",
+      "Rackspace",
+      "Valero",
+      "CPS Energy",
+      "CHRISTUS Health",
+      "University Health",
+      "City of San Antonio",
+      "Joint Base San Antonio (JBSA)"
+    ],
+    "salary_note": "PMP-certified project managers in San Antonio average $105,000–$125,000 annually, with defense and healthcare sector roles frequently reaching $130,000+",
+    "market_blurb": "San Antonio is home to Joint Base San Antonio, one of the largest US military installations, alongside a major healthcare corridor and a growing tech sector anchored by USAA and Rackspace. All three sectors actively recruit PMP-certified project managers to lead infrastructure, IT, and operational initiatives."
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "CAPM Certification Training in {city}, {SS}",
-      "hs_subtext": "San Antonio's defense, healthcare, and technology sectors demand skilled project managers who can drive mission-critical initiatives. Granite PM Academy's PMI-authorized, live-virtual instructor-led CAPM training equips you with the industry-recognized credentials these employers value. Graduates advance their careers faster and command higher salaries, backed by our proven pass rate.",
+      "hs_subtext": "San Antonio's defense and technology sectors demand skilled project managers who can drive mission-critical initiatives at organizations like JBSA and Rackspace. Granite PM Academy's PMI-authorized, live-virtual CAPM training equips you with foundational PM expertise recognized across industries. Earn your certification and position yourself for accelerated career growth and competitive salary advancement in San Antonio's thriving job market.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#capm_schedule",
       "hs_caption1": "",
@@ -33,6 +55,26 @@
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
       "hs_mobile_order": ""
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification Demand in San Antonio's Growing PM Market",
+      "text": "<p>San Antonio's diverse economy—anchored by defense, healthcare, and technology sectors—creates exceptional demand for certified project management professionals. Major employers like USAA, Rackspace, Baptist Health System, and Joint Base San Antonio actively recruit certified project managers to oversee complex infrastructure, IT, and operational initiatives. The CAPM Certification Training equips professionals with foundational PM competencies recognized across these high-growth industries, positioning you to compete for roles at organizations that prioritize structured project delivery and compliance-driven environments.</p><p>Career advancement in San Antonio rewards certified professionals with measurable financial gains. PMP-certified project managers in the region command salaries between $105,000 and $125,000 annually, with defense and healthcare sector roles frequently exceeding $130,000. Completing your CAPM Certification Training is a strategic first step toward these elevated earning brackets, signaling to employers your commitment to professional rigor and industry-standard practices. As San Antonio's tech ecosystem expands and military and healthcare sectors continue modernizing operations, certified project managers will remain in high demand, making now the ideal time to pursue this credential.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-26T23:08:04.679885Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -49,51 +91,130 @@
       "fc_num_cols": 4,
       "columns": [
         {
-          "heading": "Live Instructor-Led Training",
-          "text": "Learn from experienced instructors in real-time. Ask questions, get immediate feedback, and master CAPM concepts through interactive classroom instruction designed for adult learners."
+          "heading": "Live Instructors, Real Results",
+          "text": "Our experienced instructors deliver live, interactive CAPM training with immediate Q&A support, ensuring you master concepts effectively before exam day."
         },
         {
-          "heading": "PMI Premier ATP Certification",
-          "text": "Train with an official PMI Premier Authorized Training Partner. Guarantee quality instruction aligned with PMI standards and gain confidence before your certification exam."
+          "heading": "PMI Premier ATP Credibility",
+          "text": "Train with Granite PM Academy, a PMI Premier Authorized Training Partner. Receive official recognition and the highest standard of CAPM preparation."
         },
         {
-          "heading": "Comprehensive Exam Prep Materials",
-          "text": "Access complete study guides, practice exams, and review sessions covering all CAPM domains. Maximize your preparation and boost your pass rate with proven resources."
+          "heading": "Flexible Live-Virtual Scheduling",
+          "text": "Attend CAPM classes on your schedule with flexible live-virtual options. Balance work and certification prep without compromising your professional commitments."
         },
         {
-          "heading": "Advance Your Career at JBSA",
-          "text": "CAPM certification opens doors at Joint Base San Antonio and defense contractors. Stand out for project management roles supporting military operations and federal initiatives."
+          "heading": "Defense & Government Career Edge",
+          "text": "In San Antonio's defense and government sectors, CAPM certification from a Premier ATP opens doors at JBSA, federal agencies, and major contractors."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:49:35.166952Z",
+      "_ai_generated_at": "2026-06-26T23:08:07.547943Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
     },
     {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Demand in San Antonio's Growing Economy",
-      "text": "<p>San Antonio's diverse economy—anchored by defense, healthcare, and technology sectors—creates exceptional demand for certified project managers. Major employers like USAA, Rackspace, Baptist Health System, and Joint Base San Antonio actively recruit professionals with formal PM credentials to oversee complex infrastructure, IT, and operational projects. The CAPM Certification Training equips San Antonio professionals with PMI-recognized credentials that align directly with the skills these organizations require, making it a strategic investment for career advancement in a competitive regional market.</p><p>Earning your CAPM Certification Training credential opens doors to significant salary growth in San Antonio. Project managers with PMP certification in the region average $105,000–$125,000 annually, with roles in defense and healthcare sectors frequently commanding $130,000 or more. By completing CAPM Certification Training through Granite PM Academy, you build the foundation necessary to pursue PMP certification and leadership roles that command these premium salaries. As San Antonio's economy continues to expand across defense, healthcare, and technology, certified project managers are positioned for sustained career momentum and advancement opportunities.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:49:38.644869Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_locked": true
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual CAPM Training",
+          "badge": "BEST VALUE",
+          "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact"
+        }
+      ]
     },
     {
       "type": "custom_html",
       "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
     },
     {
       "type": "faq_two_col",
@@ -122,20 +243,12 @@
           "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
         },
         {
-          "question": "What salary can CAPM-certified project managers expect in San Antonio?",
-          "answer": "CAPM certification opens doors across San Antonio's key sectors—defense, healthcare, and finance. While entry-level CAPM salaries typically start at $55,000–$70,000, many professionals leverage CAPM as a stepping stone to PMP certification, where San Antonio averages $105,000–$125,000+. Defense and healthcare roles frequently exceed $130,000, especially at employers like JBSA and Baptist Health System."
+          "question": "What salary can CAPM certification help me earn in San Antonio's defense sector?",
+          "answer": "CAPM certification is highly valued at JBSA and defense contractors in San Antonio. PMP-certified project managers in the defense and aerospace industries earn $130,000+, with CAPM serving as your entry credential. The certification demonstrates PMI standards knowledge that defense employers actively seek, positioning you for faster advancement and higher starting salaries than non-certified peers."
         },
         {
           "question": "How long does CAPM training take while working full-time in San Antonio?",
-          "answer": "Granite PM Academy's CAPM training typically requires 23 contact hours, completable in 3–4 weeks through evening and weekend classes—ideal for San Antonio's working professionals. Our flexible San Antonio schedule accommodates full-time employees at USAA, Rackspace, CPS Energy, and other major employers, allowing you to earn certification without sacrificing your job."
-        },
-        {
-          "question": "What salary can CAPM certification earn me in San Antonio's defense sector?",
-          "answer": "CAPM certification positions you for roles at Joint Base San Antonio and defense contractors supporting USAA and government agencies. Project management roles in San Antonio's defense and government sectors typically range $95,000–$130,000+. CAPM serves as a stepping stone to PMP, where certified professionals average $105,000–$125,000 locally, with defense roles frequently exceeding $130,000."
-        },
-        {
-          "question": "How long does CAPM training take while working full-time in San Antonio?",
-          "answer": "Granite PM Academy's CAPM training typically requires 40 contact hours, completed over 4–6 weeks with evening and weekend classes designed for San Antonio working professionals. Most students balance training alongside full-time roles at employers like H-E-B, Rackspace, or healthcare systems. Self-study adds 20–30 hours, achievable during lunch breaks or weekends."
+          "answer": "Granite PM Academy's CAPM training accommodates San Antonio's working professionals with flexible scheduling. Most candidates complete training in 4–8 weeks while maintaining full-time employment at employers like USAA, Rackspace, or Baptist Health System. Self-paced options and evening/weekend classes let you earn your 23 required contact hours without disrupting your current role."
         }
       ]
     },
@@ -169,6 +282,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-18T17:27:44+00:00",
-  "template_version": "af6ed37967e8e49d9249205dee99e1c0"
+  "generated_at": "2026-06-26T23:05:50+00:00",
+  "template_version": "50e255db4b266be1cd2bf216b825445b"
 }

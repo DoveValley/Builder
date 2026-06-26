@@ -16,13 +16,37 @@
     "lat": "",
     "lng": "",
     "website": "",
-    "tags": []
+    "tags": [],
+    "industries": [
+      "technology",
+      "healthcare",
+      "government/public sector",
+      "finance",
+      "manufacturing",
+      "defense/military"
+    ],
+    "top_employers": [
+      "Dell Technologies",
+      "Apple",
+      "Tesla",
+      "Samsung Austin Semiconductor",
+      "Oracle",
+      "IBM",
+      "Ascension Seton",
+      "St. David's HealthCare",
+      "The University of Texas at Austin",
+      "City of Austin",
+      "Charles Schwab",
+      "Amazon Web Services"
+    ],
+    "salary_note": "PMP-certified project managers in Austin, Texas typically earn between $105,000 and $135,000 annually, with professionals in technology, semiconductor manufacturing, and finance often commanding salaries at the higher end of that range.",
+    "market_blurb": "Austin has emerged as one of the fastest-growing major metropolitan economies in the United States, driven by a booming technology sector, expanding healthcare systems, and significant investment in semiconductor manufacturing and financial services. The influx of major corporations such as Tesla, Apple, Oracle, and Samsung has created strong and sustained demand for skilled project managers capable of leading complex, cross-functional initiatives. PMP certification is particularly valuable in Austin's competitive job market, as it signals a standardized level of competency that large employers and government agencies increasingly require when screening candidates for senior project management roles."
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "In Austin's thriving tech and healthcare sectors, the PMP credential is essential for advancing into leadership roles at companies like Dell, Apple, and Ascension Seton. Granite PM Academy delivers live-virtual instructor-led training as a PMI Premier Authorized Partner, ensuring comprehensive preparation. Our students achieve industry-leading pass rates while positioning themselves for significant salary growth and career progression.",
+      "hs_subtext": "Austin's tech and healthcare sectors demand skilled project managers who can deliver complex initiatives on time and on budget. Granite PM Academy's PMI-authorized, live-virtual instructor-led training prepares you for PMP certification with flexible learning that fits your Austin lifestyle. Graduates report faster promotions and salary increases, with our program consistently delivering high pass rates.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#pmp_schedule",
       "hs_caption1": "",
@@ -35,10 +59,24 @@
       "hs_mobile_order": ""
     },
     {
-      "type": "feature_columns",
-      "fc_heading": "Why {city} Project Managers Choose Granite PM Academy",
-      "fc_num_cols": 3,
-      "columns": []
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Demand in Austin's Growing PM Market",
+      "text": "<p>Austin's explosive growth as a technology and innovation hub has created unprecedented demand for skilled project managers who can lead complex initiatives across Dell Technologies, Apple, Tesla, and Samsung Austin Semiconductor. The PMP Certification has become essential for professionals seeking advancement in Austin's competitive job market, where employers in tech, healthcare, and government sectors increasingly require this credential when screening candidates for senior leadership roles. Whether you're managing software deployments at a Fortune 500 tech company or healthcare transformation projects at Ascension Seton, the PMP Certification demonstrates standardized competency that Austin's major employers actively seek.</p><p>Earning your PMP Certification in Austin positions you for significant career advancement and financial growth. PMP-certified project managers in Austin typically earn between $105,000 and $135,000 annually, with technology, semiconductor, and finance professionals often commanding salaries at the higher end of that range. As Austin continues to attract major corporate investments and expand its presence in high-value industries, PMP Certification holders are well-positioned to capture leadership opportunities and command competitive compensation packages that reflect their demonstrated expertise and market value.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-26T23:10:15.106185Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -55,51 +93,130 @@
       "fc_num_cols": 4,
       "columns": [
         {
-          "heading": "Live Instructor-Led Training",
-          "text": "Learn directly from certified PMP experts in interactive sessions. Ask questions in real-time and get immediate feedback to deepen your project management knowledge."
+          "heading": "Live Expert Instructors",
+          "text": "Learn from certified PMP professionals with real-world experience. Our instructors bring practical insights from managing complex projects across industries."
         },
         {
-          "heading": "PMI Premier ATP Authorization",
-          "text": "Train with a PMI Premier Authorized Training Partner. Receive official PDUs, ensure content quality, and gain credibility recognized by employers worldwide."
+          "heading": "PMI Premier ATP Status",
+          "text": "Train with PMI's highest-tier authorized partner. Granite PM Academy meets rigorous standards for curriculum quality, instructor credentials, and student outcomes."
         },
         {
-          "heading": "Proven High Pass Rates",
-          "text": "Our structured curriculum and experienced instructors deliver consistently high PMP exam pass rates. Get comprehensive prep materials and practice exams included."
+          "heading": "Comprehensive Exam Prep",
+          "text": "Master all PMBOK domains with targeted practice exams, study materials, and focused coaching. Build confidence before your certification test."
         },
         {
-          "heading": "Austin Tech Industry Advantage",
-          "text": "Stand out to Dell, Apple, Tesla, and Oracle—major Austin employers actively seeking PMP-certified project managers. Advance your career in the region's booming tech sector."
+          "heading": "Austin Tech Leaders Choose Us",
+          "text": "Dell Technologies, Apple, and Oracle employees advance careers with PMP certification from Granite PM Academy, trusted by Austin's largest employers."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:51:47.059688Z",
+      "_ai_generated_at": "2026-06-26T23:10:17.698632Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
     },
     {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Demand in Austin's Growing Tech Market",
-      "text": "<p>Austin's rapid emergence as a technology and innovation hub has created unprecedented demand for skilled project managers who can lead complex initiatives across diverse industries. Companies like Dell Technologies, Apple, Tesla, and Samsung Austin Semiconductor are actively hiring PMP-certified professionals to manage their expanding operations, while government agencies and healthcare systems including Ascension Seton and St. David's HealthCare increasingly require PMP certification for senior PM roles. In Austin's competitive job market, the PMP Certification signals to employers that you possess the standardized, globally recognized competencies needed to manage high-stakes projects in these fast-growing sectors.</p><p>Earning your PMP Certification in Austin positions you for significant career advancement and financial growth. PMP-certified project managers in Austin typically earn between $105,000 and $135,000 annually, with professionals in technology, semiconductor manufacturing, and finance commanding salaries at the higher end of that range. As Austin continues to attract major corporate investments and expand its infrastructure, demand for credentialed project managers shows no signs of slowing. The PMP Certification is not just a credential—it's your competitive edge in one of America's fastest-growing metropolitan economies.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:51:50.537017Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_locked": true
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact"
+        }
+      ]
     },
     {
       "type": "custom_html",
       "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
     },
     {
       "type": "faq_two_col",
@@ -129,23 +246,15 @@
         },
         {
           "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI's current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
         },
         {
-          "question": "What salary can PMP certified professionals expect in Austin, Texas?",
-          "answer": "PMP-certified project managers in Austin typically earn $105,000–$135,000 annually. Tech, semiconductor, and finance professionals often command higher salaries. Major employers like Dell, Apple, Oracle, and AWS actively hire PMP-certified candidates, making certification a valuable investment for Austin's growing tech and defense sectors."
-        },
-        {
-          "question": "How long does PMP certification training take while working full-time in Austin?",
-          "answer": "Granite PM Academy's flexible training programs accommodate Austin's busy professionals. Most complete 35 required contact hours in 4–6 weeks through evening and weekend classes. This timeline works well for employees at Dell, Ascension Seton, UT Austin, and other major local employers managing demanding schedules."
-        },
-        {
-          "question": "What salary can PMP-certified project managers earn in Austin, Texas?",
-          "answer": "PMP-certified project managers in Austin typically earn $105,000–$135,000 annually. Professionals in high-demand sectors like technology, semiconductor manufacturing, and finance often command salaries at the higher end. Major employers including Dell Technologies, Apple, Tesla, and Oracle actively seek certified PMs, offering competitive compensation packages."
+          "question": "What salary can PMP-certified project managers expect in Austin, Texas?",
+          "answer": "PMP-certified project managers in Austin typically earn $105,000–$135,000 annually. Professionals in high-demand sectors like technology, semiconductor manufacturing (Samsung Austin, Apple), and finance command salaries at the higher end. Dell Technologies, Oracle, and AWS also offer competitive compensation packages for certified PMs."
         },
         {
           "question": "How long does PMP certification training take while working full-time in Austin?",
-          "answer": "Most Austin professionals complete PMP training in 4–8 weeks while maintaining full-time employment. Granite PM Academy offers flexible scheduling with evening and weekend classes designed for busy professionals at tech companies, healthcare systems, and government agencies. Online options provide additional convenience for working professionals."
+          "answer": "Granite PM Academy's flexible training accommodates Austin's busy professionals. Most complete PMP certification in 4–8 weeks through evening and weekend classes while maintaining full-time employment at local employers like Tesla, Ascension Seton, or government agencies, balancing study with work commitments."
         }
       ]
     },
@@ -179,6 +288,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-18T17:27:44+00:00",
-  "template_version": "002f217d5dfe5c5460380a03a1198a63"
+  "generated_at": "2026-06-26T23:05:50+00:00",
+  "template_version": "aad288a115a6cbedcca5609e7d00e686"
 }

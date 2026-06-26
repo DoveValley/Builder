@@ -16,13 +16,37 @@
     "lat": "",
     "lng": "",
     "website": "",
-    "tags": []
+    "tags": [],
+    "industries": [
+      "technology",
+      "finance",
+      "healthcare",
+      "telecommunications",
+      "energy",
+      "defense/government"
+    ],
+    "top_employers": [
+      "AT&T",
+      "Texas Instruments",
+      "Toyota Motor North America",
+      "Lockheed Martin",
+      "JPMorgan Chase",
+      "Bank of America",
+      "Parkland Health",
+      "UT Southwestern Medical Center",
+      "Raytheon Technologies",
+      "Southwest Airlines",
+      "Jacobs Engineering",
+      "Comerica Bank"
+    ],
+    "salary_note": "PMP-certified project managers in Dallas, Texas typically earn between $105,000 and $135,000 annually, with professionals in defense, technology, and financial services often commanding salaries at the higher end of that range.",
+    "market_blurb": "Dallas is one of the fastest-growing major metros in the United States, with a robust project management job market driven by its concentration of Fortune 500 headquarters, a booming technology sector, and major healthcare and defense employers. The city's finance, telecommunications, and energy industries generate strong and consistent demand for skilled project managers capable of leading large-scale, cross-functional initiatives. PMP certification is particularly valuable in Dallas because many of its dominant employers, including defense contractors and large financial institutions, use it as a baseline credential for mid-to-senior level project management roles."
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "Dallas's thriving technology and defense sectors demand skilled project managers who can lead complex initiatives across AT&T, Lockheed Martin, and Texas Instruments. Granite PM Academy delivers PMI Premier Authorized live-virtual instructor-led training designed for working professionals. Earn your PMP certification and position yourself for leadership roles and competitive salary advancement in Dallas's high-growth industries.",
+      "hs_subtext": "Dallas's thriving technology and defense sectors—home to industry leaders like AT&T and Lockheed Martin—demand skilled project managers who can lead complex initiatives. Granite PM Academy delivers PMI-authorized, live-virtual instructor-led training designed for working professionals. Earn your PMP certification and position yourself for advancement and competitive salary growth in Dallas's high-demand market.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#pmp_schedule",
       "hs_caption1": "",
@@ -35,10 +59,24 @@
       "hs_mobile_order": ""
     },
     {
-      "type": "feature_columns",
-      "fc_heading": "Why {city} Project Managers Choose Granite PM Academy",
-      "fc_num_cols": 3,
-      "columns": []
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Demand Across Dallas's Growing Market",
+      "text": "<p>Dallas is home to some of the nation's most demanding employers in defense, technology, and finance—companies like Lockheed Martin, AT&T, and JPMorgan Chase that actively seek PMP-certified project managers for leadership roles. The PMP Certification has become essential for professionals in Dallas who want to advance into mid-to-senior positions at these major corporations. Whether you're managing infrastructure projects at a telecom giant, coordinating healthcare initiatives at UT Southwestern Medical Center, or overseeing initiatives in the energy sector, PMP Certification demonstrates the structured, standards-based expertise that Dallas employers require and respect.</p><p>Earning your PMP Certification in Dallas directly impacts earning potential and career trajectory. PMP-certified project managers in Dallas typically command salaries between $105,000 and $135,000 annually, with professionals in defense, technology, and financial services often reaching the higher end of that range. As Dallas continues its rapid growth—driven by Fortune 500 headquarters, booming tech innovation, and major healthcare and defense investments—the demand for skilled, certified project managers shows no signs of slowing. Completing your PMP Certification training now positions you to capitalize on this expanding market and secure your competitive edge in one of America's fastest-growing metro economies.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-26T23:10:25.684600Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -56,50 +94,129 @@
       "columns": [
         {
           "heading": "Live Instructor-Led Training",
-          "text": "Learn directly from certified PMs in real-time. Ask questions, get instant feedback, and engage with peers in interactive classroom sessions designed for maximum comprehension."
+          "text": "Learn from certified PMs in real-time. Ask questions, get immediate feedback, and master complex concepts through interactive instruction with experienced professionals."
         },
         {
           "heading": "PMI Premier ATP Status",
-          "text": "Train with a PMI Premier Authorized Training Partner. Guarantee quality instruction aligned with PMI standards and earn professional development units toward PMP recertification requirements."
+          "text": "Train with an officially authorized PMI partner. Guarantee PMI-recognized instruction, current curriculum standards, and credentials that employers like AT&T and Lockheed Martin trust."
         },
         {
-          "heading": "Comprehensive Exam Prep",
-          "text": "Master all five process groups with targeted practice exams, detailed study materials, and proven strategies. Build confidence to pass the PMP on your first attempt."
+          "heading": "Small Classes, High Pass Rates",
+          "text": "Limited enrollment ensures personalized attention. Our candidates achieve industry-leading pass rates through focused instruction and comprehensive exam preparation tailored to your learning pace."
         },
         {
-          "heading": "Advance Your Dallas Tech Career",
-          "text": "PMP certification is in high demand at AT&T, Texas Instruments, and Dallas tech firms. Stand out to employers and unlock leadership roles with PMI's globally recognized credential."
+          "heading": "Dallas Tech & Defense Advantage",
+          "text": "Advance your career at major Dallas employers. PMP certification positions you for leadership roles at Lockheed Martin, Texas Instruments, and tech firms driving regional growth."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:51:57.816834Z",
+      "_ai_generated_at": "2026-06-26T23:10:28.554464Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
     },
     {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Demand in Dallas's Booming Job Market",
-      "text": "<p>Dallas stands as a powerhouse for project management professionals, with a thriving ecosystem of Fortune 500 companies and industry leaders actively seeking certified talent. Organizations like AT&T, Texas Instruments, Lockheed Martin, and JPMorgan Chase rely on skilled project managers to oversee mission-critical initiatives across technology, defense, finance, and telecommunications sectors. In this competitive landscape, PMP Certification has become more than a credential—it's a baseline expectation for advancement into mid-to-senior level roles. Dallas employers recognize that PMP-certified professionals bring standardized methodologies, proven risk management capabilities, and demonstrated expertise that directly impact project success and organizational growth.</p><p>The financial rewards for PMP Certification in Dallas reflect the city's robust demand and high-value project portfolio. Certified project managers in Dallas typically earn between $105,000 and $135,000 annually, with professionals in defense, technology, and financial services commanding salaries at the higher end of that range. As Dallas continues to expand its position as a global business hub, PMP Certification positions you to compete for increasingly senior roles with greater compensation and responsibility. Investing in your PMP Certification today opens doors to leadership opportunities and career acceleration across the region's most dynamic industries.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:52:01.507448Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_locked": true
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact"
+        }
+      ]
     },
     {
       "type": "custom_html",
       "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
     },
     {
       "type": "faq_two_col",
@@ -129,31 +246,15 @@
         },
         {
           "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI's current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "What is the average PMP salary for project managers in Dallas, Texas?",
-          "answer": "PMP-certified project managers in Dallas earn between $105,000 and $135,000 annually. Professionals in high-demand sectors—defense (Lockheed Martin, Raytheon), technology (AT&T, Texas Instruments), and finance (JPMorgan Chase, Bank of America)—typically command salaries at the higher end, making certification a valuable investment for career advancement."
-        },
-        {
-          "question": "How long does PMP training take while working full-time in Dallas?",
-          "answer": "Granite PM Academy's PMP training accommodates Dallas professionals' busy schedules with flexible formats: instructor-led courses typically span 4–5 days, while self-paced options allow you to study around work. Most full-time professionals complete prerequisites and exam prep within 8–12 weeks, balancing training with careers at major employers like Toyota, Southwest Airlines, or UT Southwestern."
-        },
-        {
-          "question": "What is the average PMP salary for project managers in Dallas, Texas?",
-          "answer": "PMP-certified project managers in Dallas earn $105,000–$135,000 annually. Professionals in defense, technology, and finance—industries dominated by employers like Lockheed Martin, AT&T, and JPMorgan Chase—typically command salaries at the higher end. Certification significantly boosts earning potential across all sectors."
-        },
-        {
-          "question": "How long does PMP training take while working full-time in Dallas?",
-          "answer": "Granite PM Academy's PMP training accommodates Dallas working professionals with flexible scheduling options. Most participants complete the 35-hour contact hours requirement in 4–6 weeks through evening and weekend classes, allowing you to study while maintaining your current role at local employers."
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
         },
         {
           "question": "What salary can PMP-certified project managers expect in Dallas, Texas?",
-          "answer": "PMP-certified project managers in Dallas typically earn $105,000–$135,000 annually. Professionals in high-demand sectors like defense (Lockheed Martin, Raytheon), technology (Texas Instruments), and finance (JPMorgan Chase, Bank of America) often command salaries at the higher end. Dallas's competitive market rewards certification significantly."
+          "answer": "PMP-certified project managers in Dallas typically earn $105,000–$135,000 annually. Professionals in high-demand sectors like defense (Lockheed Martin, Raytheon), technology (AT&T, Texas Instruments), and finance (JPMorgan Chase, Bank of America) often command salaries at the higher end, making certification a valuable investment for Dallas professionals."
         },
         {
           "question": "How long does PMP training take while working full-time in Dallas?",
-          "answer": "Granite PM Academy's PMP training typically takes 4–6 weeks for working professionals, with flexible scheduling options ideal for Dallas's demanding corporate environment. Most students complete coursework while maintaining full-time roles at major employers like AT&T, Southwest Airlines, or Parkland Health without sacrificing career momentum."
+          "answer": "Granite PM Academy offers flexible scheduling designed for Dallas professionals balancing full-time careers at major employers like Toyota, Southwest Airlines, and UT Southwestern. Most candidates complete training in 4–8 weeks through evening and weekend classes, allowing you to earn while you learn without disrupting your job."
         }
       ]
     },
@@ -187,6 +288,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-18T17:27:44+00:00",
-  "template_version": "002f217d5dfe5c5460380a03a1198a63"
+  "generated_at": "2026-06-26T23:05:50+00:00",
+  "template_version": "aad288a115a6cbedcca5609e7d00e686"
 }

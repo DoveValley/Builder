@@ -16,13 +16,37 @@
     "lat": "",
     "lng": "",
     "website": "",
-    "tags": []
+    "tags": [],
+    "industries": [
+      "technology",
+      "finance",
+      "healthcare",
+      "telecommunications",
+      "energy",
+      "defense/government"
+    ],
+    "top_employers": [
+      "AT&T",
+      "Texas Instruments",
+      "Toyota Motor North America",
+      "Lockheed Martin",
+      "JPMorgan Chase",
+      "Bank of America",
+      "Parkland Health",
+      "UT Southwestern Medical Center",
+      "Raytheon Technologies",
+      "Southwest Airlines",
+      "Jacobs Engineering",
+      "Comerica Bank"
+    ],
+    "salary_note": "PMP-certified project managers in Dallas, Texas typically earn between $105,000 and $135,000 annually, with professionals in defense, technology, and financial services often commanding salaries at the higher end of that range.",
+    "market_blurb": "Dallas is one of the fastest-growing major metros in the United States, with a robust project management job market driven by its concentration of Fortune 500 headquarters, a booming technology sector, and major healthcare and defense employers. The city's finance, telecommunications, and energy industries generate strong and consistent demand for skilled project managers capable of leading large-scale, cross-functional initiatives. PMP certification is particularly valuable in Dallas because many of its dominant employers, including defense contractors and large financial institutions, use it as a baseline credential for mid-to-senior level project management roles."
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "CPMAI Certification Training in {city}, {SS}",
-      "hs_subtext": "Dallas's thriving technology and defense sectors demand project managers who speak the language of enterprise-level delivery. Granite PM Academy's PMI-authorized, live-virtual instructor-led CPMAI training equips you with credentials recognized across AT&T, Lockheed Martin, and Texas Instruments. Our graduates consistently achieve high pass rates while advancing into senior PM roles commanding significantly higher compensation.",
+      "hs_subtext": "Dallas's thriving technology and defense sectors demand skilled project managers who can navigate complex initiatives at scale. Granite PM Academy delivers live-virtual instructor-led CPMAI training through PMI's premier network, ensuring you master certification content with expert guidance. Graduates advance rapidly into leadership roles with measurable salary gains and industry-leading pass rates.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#cpmai_schedule",
       "hs_caption1": "",
@@ -32,17 +56,27 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "fq_items": [
-        {
-          "question": "What salary can PMP-certified project managers expect in Dallas, Texas?",
-          "answer": "PMP-certified project managers in Dallas typically earn $105,000–$135,000 annually. Professionals in defense, technology, and financial services—sectors dominated by employers like Lockheed Martin, AT&T, and JPMorgan Chase—often command salaries at the higher end, making certification a valuable investment for career advancement."
-        },
-        {
-          "question": "How long does CPMAI certification training take while working full-time in Dallas?",
-          "answer": "Most professionals complete CPMAI certification training in 4–6 weeks while maintaining full-time employment. Our flexible scheduling accommodates Dallas's demanding work culture across tech, finance, and defense sectors, allowing you to earn your credential without sacrificing your current role or income."
-        }
-      ]
+      "hs_mobile_order": ""
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CPMAI Certification Demand in Dallas's Growing PM Market",
+      "text": "<p>Dallas is home to some of the nation's most demanding project management environments, with Fortune 500 headquarters, major defense contractors, and fast-growing technology firms all competing for skilled certified professionals. Companies like Lockheed Martin, AT&T, and Texas Instruments actively seek CPMAI-certified project managers to lead complex, mission-critical initiatives across defense, telecommunications, and manufacturing. In Dallas's finance sector, institutions including JPMorgan Chase and Bank of America depend on certified PMs to manage large-scale digital transformation and infrastructure projects. The CPMAI Certification demonstrates your mastery of agile and adaptive methodologies—exactly what Dallas employers need as they scale operations and innovate across competitive markets.</p><p>Earning your CPMAI Certification in Dallas positions you for significant career advancement and earning potential. Project management professionals holding this credential in Dallas typically command salaries between $105,000 and $135,000 annually, with defense, technology, and financial services roles often at the higher end. As Dallas continues its rapid growth and attracts even more major corporate investments, demand for certified project managers will only intensify. Your CPMAI Certification becomes the credential that unlocks senior-level roles, leadership opportunities, and the competitive edge you need to advance in one of America's most dynamic job markets.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-26T23:08:38.678410Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -60,50 +94,169 @@
       "columns": [
         {
           "heading": "Live Instructor-Led Training",
-          "text": "Learn directly from certified PMI instructors in interactive classroom settings. Real-time Q&A and personalized feedback accelerate your mastery of project management fundamentals."
+          "text": "Expert instructors deliver real-time instruction with interactive Q&A, ensuring you master CPMAI concepts through direct engagement and immediate feedback."
         },
         {
-          "heading": "PMI Premier ATP Certification",
-          "text": "Study with PMI's most trusted training partner. Our Premier Authorized Training Partner status ensures rigorous curriculum standards and recognized credential excellence."
+          "heading": "PMI Premier ATP Authorization",
+          "text": "Granite PM Academy's PMI Premier status guarantees alignment with latest exam standards and highest-quality curriculum recognized globally by employers."
         },
         {
-          "heading": "Comprehensive Exam Preparation",
-          "text": "Master every CPMA domain with targeted practice exams, study materials, and expert guidance. Our proven methodology delivers high pass rates on your first attempt."
+          "heading": "Small Classes, High Pass Rates",
+          "text": "Limited class sizes enable personalized attention from experienced instructors, driving consistently high certification pass rates and student success."
         },
         {
-          "heading": "Advance Your Dallas Tech Career",
-          "text": "CPMA certification is highly valued at AT&T, Texas Instruments, and other leading Dallas employers. Gain competitive advantage for promotions and leadership roles in technology and defense sectors."
+          "heading": "Essential for Dallas Tech Leaders",
+          "text": "CPMAI certification is highly valued by Dallas employers like AT&T and Texas Instruments seeking certified project management professionals for advancing careers."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:50:11.003881Z",
+      "_ai_generated_at": "2026-06-26T23:08:41.095125Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
     },
     {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Dallas Project Management Demand and CPMAI Growth",
-      "text": "<p>Dallas has emerged as a powerhouse for project management talent, driven by its concentration of Fortune 500 headquarters and thriving sectors in technology, finance, defense, and healthcare. Major employers like AT&T, Texas Instruments, Lockheed Martin, JPMorgan Chase, and UT Southwestern Medical Center actively seek certified project managers to lead complex, cross-functional initiatives. The CPMAI Certification Training in Dallas equips professionals with the advanced credentials these organizations demand, positioning you competitively in a market where certification has become the standard baseline for mid-to-senior level roles, particularly in defense contracting and financial services.</p><p>Dallas project managers with CPMAI Certification typically earn between $105,000 and $135,000 annually, with professionals in defense, technology, and financial services often commanding salaries at the higher end of that range. Beyond immediate compensation, the CPMAI Certification Training Dallas professionals pursue opens doors to leadership positions, expanded responsibility, and accelerated career advancement across the city's booming industries. As Dallas continues to attract major corporate investments and scale its infrastructure projects, certified professionals are positioned to capture the significant opportunities ahead in this dynamic, fast-growing market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:50:14.181207Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_locked": true
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact"
+        }
+      ]
     },
     {
       "type": "custom_html",
       "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "What salary can PMP-certified project managers expect in Dallas, Texas?",
+          "answer": "PMP-certified project managers in Dallas typically earn $105,000–$135,000 annually. Professionals in high-demand sectors like defense (Lockheed Martin, Raytheon), technology (Texas Instruments, AT&T), and finance (JPMorgan Chase, Bank of America) often command salaries at the higher end, with some exceeding $135,000 based on experience and expertise."
+        },
+        {
+          "question": "How long does CAPM certification training take while working full-time in Dallas?",
+          "answer": "Granite PM Academy's CAPM training typically requires 23 contact hours, completable in 3–4 weeks with evening and weekend classes—ideal for Dallas professionals balancing full-time roles at major employers like AT&T, Toyota, or Parkland Health. Self-paced options accommodate demanding schedules in Texas's competitive industries."
+        }
+      ]
     },
     {
       "type": "cta_banner",
@@ -135,6 +288,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-18T17:27:44+00:00",
-  "template_version": "0374d3178fa0740832bfa380b680a261"
+  "generated_at": "2026-06-26T23:05:50+00:00",
+  "template_version": "236d2a45abe2d2ec4bcbca0b57018b8a"
 }

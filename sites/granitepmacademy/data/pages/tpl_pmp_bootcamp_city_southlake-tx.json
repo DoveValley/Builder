@@ -16,13 +16,36 @@
     "lat": "",
     "lng": "",
     "website": "",
-    "tags": []
+    "tags": [],
+    "industries": [
+      "technology",
+      "finance",
+      "retail/corporate headquarters",
+      "healthcare",
+      "real estate/construction",
+      "professional services"
+    ],
+    "top_employers": [
+      "Sabre Corporation",
+      "TD Ameritrade (Charles Schwab)",
+      "Verizon Business",
+      "CardinalHealth",
+      "Sysco Corporation (regional offices)",
+      "Deloitte (regional offices)",
+      "Southlake Carroll Independent School District",
+      "City of Southlake",
+      "Texas Health Harris Methodist Hospital Southlake",
+      "Kimball Hill Homes",
+      "Fidelity Investments (regional offices)"
+    ],
+    "salary_note": "PMP-certified project managers in Southlake, Texas typically earn between $105,000 and $135,000 annually, with professionals in technology, finance, and corporate headquarters environments often commanding salaries at the higher end of that range.",
+    "market_blurb": "Southlake sits within the Dallas-Fort Worth metroplex, one of the fastest-growing business corridors in the country, and benefits from a concentration of corporate headquarters, financial services firms, and technology companies that consistently demand skilled project managers. The city's proximity to major DFW employers and its own thriving professional services and retail headquarters sector make project management a critical function across multiple industries. PMP certification is particularly valuable in Southlake's competitive job market, as employers in finance, technology, and corporate operations use it as a key differentiator when hiring and promoting project management professionals."
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "PMP Exam Prep Bootcamp in {city}, {SS}",
-      "hs_subtext": "In Southlake's thriving tech and finance sectors—home to Sabre, Charles Schwab, and major Deloitte operations—PMP certification distinguishes you as a strategic asset capable of managing complex, high-stakes projects. Granite PM Academy's PMI-authorized, live-virtual instructor-led bootcamp delivers flexible, rigorous preparation aligned with current exam standards. Our graduates consistently achieve above-industry pass rates while positioning themselves for senior leadership roles and measurable salary advancement.",
+      "hs_subtext": "In Southlake's thriving technology and finance sectors—home to Sabre, TD Ameritrade, and major corporate headquarters—project management expertise directly influences career trajectory and organizational impact. Granite PM Academy's PMI-authorized, live-virtual instructor-led bootcamp delivers exam-focused preparation designed for working professionals. Our students achieve high pass rates while gaining credentials that measurably advance compensation and leadership opportunities.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#pmp_boot_schedule",
       "hs_caption1": "",
@@ -32,17 +55,27 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "fq_items": [
-        {
-          "question": "What salary can PMP-certified project managers expect in Southlake, Texas?",
-          "answer": "PMP-certified project managers in Southlake typically earn $105,000–$135,000 annually. Professionals working at major tech, finance, and corporate headquarters like Sabre, Charles Schwab, and Deloitte often command salaries at the higher end. The certification demonstrates expertise that commands premium compensation in Southlake's competitive job market."
-        },
-        {
-          "question": "How long does PMP Bootcamp take while working full-time in Southlake?",
-          "answer": "Our intensive bootcamp completes in 4–5 days, ideal for Southlake's busy professionals balancing roles at Verizon, Cardinal Health, or Fidelity. Weekend and evening options accommodate full-time schedules, allowing you to earn your 35 contact hours without sacrificing your current job while preparing for PMP certification."
-        }
-      ]
+      "hs_mobile_order": ""
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Demand in Southlake's Growing Market",
+      "text": "<p>Southlake's thriving professional ecosystem demands skilled project managers across multiple sectors. Major employers like Sabre Corporation, TD Ameritrade (Charles Schwab), Verizon Business, and CardinalHealth actively seek PMP-certified professionals to lead mission-critical initiatives. The PMP certification has become a competitive requirement in Southlake's finance, technology, and corporate headquarters environments, where complex projects require demonstrated expertise in scope management, risk mitigation, and stakeholder coordination. Whether you're advancing within an established firm or positioning yourself for leadership roles across Southlake's expanding business landscape, the PMP credential signals to employers that you've mastered industry-standard methodologies and best practices.</p><p>The financial rewards of PMP certification in Southlake are substantial. Project managers holding the PMP certification in this region typically earn between $105,000 and $135,000 annually, with professionals in technology, finance, and corporate operations commanding salaries at the higher end of that range. As the Dallas-Fort Worth metroplex continues its rapid growth trajectory, Southlake's concentration of corporate headquarters and financial services firms creates unprecedented opportunities for certified professionals ready to take on larger, more complex project portfolios. Completing a PMP Exam Prep Bootcamp positions you to capitalize on these opportunities and advance your career in one of the country's fastest-growing business corridors.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-26T23:10:05.104919Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -59,51 +92,166 @@
       "fc_num_cols": 4,
       "columns": [
         {
-          "heading": "Live Instructor-Led Excellence",
-          "text": "Learn from experienced PMP trainers in real-time. Ask questions, engage directly, and gain insights that self-study cannot provide. Interactive sessions accelerate your mastery."
+          "heading": "Live Instructors, Real Results",
+          "text": "Expert PMP instructors deliver live, interactive instruction. Ask questions in real time. Gain clarity on complex concepts. Pass confident and prepared."
         },
         {
-          "heading": "PMI Premier ATP Guarantee",
-          "text": "Train with a PMI Premier Authorized Training Partner. You receive official PMI endorsement, recognized globally by employers and certification bodies worldwide."
+          "heading": "PMI Premier Partner Advantage",
+          "text": "Granite PM Academy is a PMI Premier Authorized Training Partner. Receive official PMI endorsement and quality assurance. Study with a trusted, accredited provider."
         },
         {
-          "heading": "Small Classes, Proven Results",
-          "text": "Personalized attention in intimate class sizes maximizes learning. Our small cohorts deliver higher pass rates and stronger exam performance than large bootcamps."
+          "heading": "Small Classes, Maximum Focus",
+          "text": "Intimate class sizes ensure personalized attention. Instructors know your learning style. Get targeted feedback. Achieve higher retention and exam readiness."
         },
         {
-          "heading": "Tech & Finance Career Advancement",
-          "text": "Southlake's leading employers—Sabre, TD Ameritrade, Verizon Business—prioritize PMP certification. Advance faster in project management roles across technology, finance, and enterprise sectors."
+          "heading": "Launch Your Tech Career Forward",
+          "text": "Southlake's tech leaders—Sabre, Verizon Business, and Fidelity—prioritize PMP certification. Boost your credentials for advancement. Compete confidently for senior project roles locally."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:51:39.211350Z",
+      "_ai_generated_at": "2026-06-26T23:10:07.929369Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
     },
     {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Demand in Southlake's Competitive Market",
-      "text": "<p>Southlake's thriving business landscape—home to corporate headquarters, financial services giants, and technology firms—creates exceptional demand for certified project managers. Companies like Sabre Corporation, TD Ameritrade (Charles Schwab), and Verizon Business actively recruit PMP-certified professionals to lead critical initiatives across their operations. In healthcare, finance, and construction sectors, the PMP certification has become a competitive requirement rather than a nice-to-have credential. Professionals in Southlake pursuing the PMP certification position themselves as credible leaders capable of managing complex projects in these high-stakes environments, directly addressing what employers in the area actively seek when building and promoting their project management teams.</p><p>The financial rewards of PMP certification in Southlake reflect the region's robust job market. PMP-certified project managers in Southlake typically earn between $105,000 and $135,000 annually, with those in technology, finance, and corporate operations commanding salaries at the higher end. Beyond base compensation, the PMP credential opens doors to advancement into senior project management and program leadership roles at major employers throughout the Dallas-Fort Worth metroplex. As Southlake continues to attract corporate investment and expand its professional services sector, the PMP certification becomes an increasingly valuable asset for advancing your career and earning potential in this dynamic market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T21:51:42.861476Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_locked": true
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Exam Prep Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact"
+        }
+      ]
     },
     {
       "type": "custom_html",
       "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "What salary can PMP-certified project managers expect in Southlake, Texas?",
+          "answer": "PMP-certified project managers in Southlake typically earn $105,000–$135,000 annually. Professionals working at major employers like Sabre, TD Ameritrade, Verizon Business, and Deloitte—concentrated in technology, finance, and corporate headquarters sectors—often command salaries at the higher end, with certification significantly boosting earning potential."
+        },
+        {
+          "question": "Is PMP certification in demand at Southlake's major employers?",
+          "answer": "Yes. Southlake's dominant employers—Sabre, CardinalHealth, Sysco, Deloitte, and regional offices of Fortune 500 companies—actively seek PMP-certified professionals to lead complex projects. Certification is especially valued in technology, finance, healthcare, and professional services, the region's strongest sectors, making it highly marketable locally."
+        }
+      ]
     },
     {
       "type": "cta_banner",
@@ -123,7 +271,7 @@
     "meta_description": "Intensive PMP exam prep bootcamp in {city}, {SS}. 4-day live-virtual course from a PMI Premier ATP. 500+ practice questions and 90-day pass guarantee.",
     "meta_keywords": "PMP bootcamp {city} TX, PMP exam prep bootcamp {city}, intensive PMP training {city_state}",
     "og_title": "PMP Bootcamp in {city}, {SS} | {business}",
-    "og_description": "Accelerate your PMP prep with Granite PM Academy's intensive bootcamp. Live-virtual from {city}. PMI Premier ATP.",
+    "og_description": "Accelerate your PMP prep with Granite PM Academy’s intensive bootcamp. Live-virtual from {city}. PMI Premier ATP.",
     "og_image": "",
     "service_name": "PMP Exam Prep Bootcamp",
     "service_type": "Course",
@@ -135,6 +283,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-18T17:27:44+00:00",
-  "template_version": "f0f2f1e9fa6cf4e8f6a3ef70f14b7695"
+  "generated_at": "2026-06-26T23:05:50+00:00",
+  "template_version": "6803e2ddbf6655641f5161e71edc25ba"
 }
