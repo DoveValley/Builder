@@ -70,9 +70,11 @@ define('STARTERS_FILE', BASE_DIR . '/data/page_starters.json');
 
 // Anthropic API key — set via admin AI tab, env var, or hardcode here.
 // Priority: env var → .ai_key file → empty string.
-define('ANTHROPIC_API_KEY', (function () {
-    if ($v = getenv('ANTHROPIC_API_KEY')) return $v;
-    $f = __DIR__ . '/.ai_key';
-    if (file_exists($f)) return trim(file_get_contents($f));
-    return '';
-})());
+$_aiKey = getenv('ANTHROPIC_API_KEY') ?: '';
+if (!$_aiKey) {
+    $_aiKeyFile = __DIR__ . '/.ai_key';
+    if (file_exists($_aiKeyFile)) $_aiKey = trim(file_get_contents($_aiKeyFile));
+    unset($_aiKeyFile);
+}
+define('ANTHROPIC_API_KEY', $_aiKey);
+unset($_aiKey);
