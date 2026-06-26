@@ -146,8 +146,12 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
                             <?= $label ?><?= $dateLabel ? ' · ' . $dateLabel : '' ?>
                         </div>
                         <?php if ($previewSlug): ?>
-                        <a href="#" onclick="cpPreview(<?= h(json_encode('../page.php?slug=' . $previewSlug)) ?>, <?= h(json_encode($city['city'] . ', ' . $city['SS'])) ?>); return false;"
-                           style="font-size:11px;color:#2563eb;text-decoration:none;display:inline-block;margin-top:3px;">&#128065; Preview</a>
+                        <div style="display:flex;gap:8px;margin-top:3px;">
+                            <a href="../page.php?slug=<?= h($previewSlug) ?>" target="_blank"
+                               style="font-size:11px;color:#2563eb;text-decoration:none;">Preview ↗</a>
+                            <a href="../page.php?slug=<?= h($previewSlug) ?>&show_blocks=1" target="_blank"
+                               style="font-size:11px;color:#7c3aed;text-decoration:none;">+ Blocks ↗</a>
+                        </div>
                         <?php endif; ?>
                     </div>
                     <button class="btn btn-secondary btn-small"
@@ -245,19 +249,6 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
 <?php endif; ?>
 </div>
 
-<!-- ── Page preview modal ─────────────────────────────────────────────────── -->
-<div id="cp-preview-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.6);backdrop-filter:blur(2px);" onclick="cpPreviewClose(event)">
-    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(1100px,94vw);height:88vh;background:#fff;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.35);">
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #e5e7eb;background:#f8fafc;flex-shrink:0;">
-            <div style="display:flex;align-items:center;gap:10px;">
-                <span style="font-size:.85rem;font-weight:600;color:#374151;" id="cp-preview-title"></span>
-                <a id="cp-preview-newtab" href="#" target="_blank" style="font-size:.75rem;color:#6b7280;text-decoration:none;">Open in new tab ↗</a>
-            </div>
-            <button onclick="cpPreviewClose()" style="background:none;border:none;font-size:1.3rem;color:#6b7280;cursor:pointer;padding:2px 6px;line-height:1;" title="Close">&times;</button>
-        </div>
-        <iframe id="cp-preview-frame" src="" style="flex:1;border:none;width:100%;"></iframe>
-    </div>
-</div>
 
 <style>
 .cp-city-grid {
@@ -280,32 +271,6 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
     var _cityNames   = <?= json_encode($_cityNames) ?>;
     var _totalTpls   = <?= count($templates) ?>;
     var _totalCities = <?= count($cities) ?>;
-
-    // ── Page preview modal ────────────────────────────────────────────────────
-    window.cpPreview = function(url, title) {
-        var modal = document.getElementById('cp-preview-modal');
-        var frame = document.getElementById('cp-preview-frame');
-        var label = document.getElementById('cp-preview-title');
-        var link  = document.getElementById('cp-preview-newtab');
-        frame.src         = url;
-        label.textContent = title;
-        link.href         = url;
-        modal.style.display = '';
-        document.addEventListener('keydown', _cpPreviewKeydown);
-    };
-
-    window.cpPreviewClose = function(e) {
-        if (e && e.target !== document.getElementById('cp-preview-modal')) return;
-        var modal = document.getElementById('cp-preview-modal');
-        var frame = document.getElementById('cp-preview-frame');
-        modal.style.display = 'none';
-        frame.src = '';
-        document.removeEventListener('keydown', _cpPreviewKeydown);
-    };
-
-    function _cpPreviewKeydown(e) {
-        if (e.key === 'Escape') cpPreviewClose();
-    }
 
     // ── Tag filter ────────────────────────────────────────────────────────────
     window.cpSetTag = function(btn, tag) {
