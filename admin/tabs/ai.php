@@ -1,0 +1,255 @@
+<?php
+// AI Generation tab — log history, city coverage, cost summary.
+// $tab, $csrfToken, ACTIVE_SITE_DIR, ACTIVE_SITE_ID available from index.php.
+
+$logFile = ACTIVE_SITE_DIR . '/data/generation_log.json';
+$logEntries = [];
+if (file_exists($logFile)) {
+    $raw = json_decode(file_get_contents($logFile), true);
+    if (is_array($raw)) {
+        $logEntries = array_reverse($raw); // newest first
+    }
+}
+
+// ── City coverage: scan pages/ for ai_blocks with _ai_generated ──────────────
+$pagesDir   = ACTIVE_SITE_DIR . '/data/pages';
+$cityCoverage = [];  // city_id => ['city' => name, 'ss' => ..., 'generated' => N, 'last_at' => ts]
+
+// Load cities.json for the city list
+$citiesFile = ACTIVE_SITE_DIR . '/data/cities.json';
+$cities = [];
+if (file_exists($citiesFile)) {
+    $cities = json_decode(file_get_contents($citiesFile), true) ?: [];
+    foreach ($cities as $c) {
+        $id = $c['id'] ?? '';
+        if (!$id) continue;
+        $cityCoverage[$id] = [
+            'city'       => $c['city'] ?? $id,
+            'ss'         => $c['SS']   ?? '',
+            'researched' => !empty($c['industries']) || !empty($c['top_employers']),
+            'generated'  => 0,
+            'last_at'    => '',
+            'pages'      => 0,
+        ];
+    }
+}
+
+// Walk page files to count generated blocks per city
+if (is_dir($pagesDir)) {
+    foreach (glob($pagesDir . '/*.json') as $pageFile) {
+        $page = json_decode(file_get_contents($pageFile), true);
+        if (!is_array($page)) continue;
+        $cityId = $page['city_id'] ?? '';
+        if (!$cityId || !isset($cityCoverage[$cityId])) continue;
+        $blocks = $page['content_blocks'] ?? [];
+        $genCount = 0;
+        $lastTs   = '';
+        foreach ($blocks as $b) {
+            if (!empty($b['_ai_generated'])) {
+                $genCount++;
+                $ts = $b['_ai_generated_at'] ?? '';
+                if ($ts > $lastTs) $lastTs = $ts;
+            }
+        }
+        if ($genCount) {
+            $cityCoverage[$cityId]['generated'] += $genCount;
+            $cityCoverage[$cityId]['pages']++;
+            if ($lastTs > $cityCoverage[$cityId]['last_at']) {
+                $cityCoverage[$cityId]['last_at'] = $lastTs;
+            }
+        }
+    }
+}
+
+// ── Totals ────────────────────────────────────────────────────────────────────
+$totalBlocks = array_sum(array_column($logEntries, 'blocks_generated'));
+$totalCost   = array_sum(array_column($logEntries, 'estimated_cost_usd'));
+$totalCalls  = array_sum(array_column($logEntries, 'api_calls'));
+$lastRun     = !empty($logEntries) ? ($logEntries[0]['started_at'] ?? '') : '';
+$citiesResearched = count(array_filter($cityCoverage, fn($c) => $c['researched']));
+$citiesGenerated  = count(array_filter($cityCoverage, fn($c) => $c['generated'] > 0));
+
+function fmt_ts_ai(string $iso): string {
+    if (!$iso) return '—';
+    $ts = strtotime($iso);
+    return $ts ? date('M j, Y H:i', $ts) : '—';
+}
+function fmt_dur(int $ms): string {
+    if ($ms < 1000) return $ms . 'ms';
+    return round($ms / 1000, 1) . 's';
+}
+?>
+<div class="tab-content" style="<?= $tab === 'ai' ? '' : 'display:none;' ?>">
+
+<h2 style="margin-bottom:6px;">AI Generation</h2>
+<p class="hint" style="margin-bottom:24px;">Run the generator from the terminal. This tab shows results, city coverage, and cost.</p>
+
+<style>
+.ai-stats-row    { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:28px; }
+.ai-stat-card    { flex:1; min-width:140px; background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 20px; }
+.ai-stat-val     { font-size:1.6rem; font-weight:700; color:#111; line-height:1; }
+.ai-stat-label   { font-size:.78rem; color:#6b7280; margin-top:4px; }
+.ai-table        { width:100%; border-collapse:collapse; font-size:.84rem; }
+.ai-table th     { text-align:left; padding:8px 10px; border-bottom:2px solid #e5e7eb; font-size:.76rem; font-weight:600; color:#6b7280; text-transform:uppercase; letter-spacing:.04em; background:#f8fafc; }
+.ai-table td     { padding:9px 10px; border-bottom:1px solid #f3f4f6; vertical-align:middle; }
+.ai-table tr:last-child td { border-bottom:none; }
+.ai-table tbody tr:hover td { background:#fafafa; }
+.ai-badge        { display:inline-block; padding:2px 7px; border-radius:4px; font-size:.72rem; font-weight:600; }
+.badge-ok        { background:#d1fae5; color:#065f46; }
+.badge-warn      { background:#fef3c7; color:#92400e; }
+.badge-none      { background:#f3f4f6; color:#9ca3af; }
+.cmd-box         { background:#1e293b; color:#e2e8f0; font-family:monospace; font-size:.82rem; padding:14px 16px; border-radius:8px; margin-bottom:24px; overflow-x:auto; white-space:pre-wrap; word-break:break-all; line-height:1.6; }
+.cmd-box .cmd-comment { color:#64748b; }
+</style>
+
+<!-- ── Summary cards ── -->
+<div class="ai-stats-row">
+    <div class="ai-stat-card">
+        <div class="ai-stat-val"><?= $citiesGenerated ?> / <?= count($cityCoverage) ?></div>
+        <div class="ai-stat-label">Cities with generated content</div>
+    </div>
+    <div class="ai-stat-card">
+        <div class="ai-stat-val"><?= $citiesResearched ?></div>
+        <div class="ai-stat-label">Cities researched</div>
+    </div>
+    <div class="ai-stat-card">
+        <div class="ai-stat-val"><?= number_format($totalBlocks) ?></div>
+        <div class="ai-stat-label">Blocks generated (all runs)</div>
+    </div>
+    <div class="ai-stat-card">
+        <div class="ai-stat-val">$<?= number_format($totalCost, 4) ?></div>
+        <div class="ai-stat-label">Est. total API cost</div>
+    </div>
+    <div class="ai-stat-card">
+        <div class="ai-stat-val"><?= count($logEntries) ?></div>
+        <div class="ai-stat-label">Total runs logged</div>
+    </div>
+</div>
+
+<!-- ── Quick commands ── -->
+<div class="card" style="margin-bottom:24px;">
+    <h3 style="margin-top:0; margin-bottom:12px;">Generator Commands</h3>
+    <div class="cmd-box"><span class="cmd-comment"># Research + generate all landing pages for a site</span>
+python3 generate.py --site <?= h(ACTIVE_SITE_ID) ?> --research --page landing
+
+<span class="cmd-comment"># Generate a single city's page</span>
+python3 generate.py --site <?= h(ACTIVE_SITE_ID) ?> --file &lt;city-slug&gt; --research
+
+<span class="cmd-comment"># Preview without API calls</span>
+python3 generate.py --site <?= h(ACTIVE_SITE_ID) ?> --all --dry-run
+
+<span class="cmd-comment"># Regenerate locked blocks</span>
+python3 generate.py --site <?= h(ACTIVE_SITE_ID) ?> --page landing --refresh</div>
+</div>
+
+<!-- ── City coverage ── -->
+<?php if (!empty($cityCoverage)): ?>
+<div class="card" style="margin-bottom:24px;">
+    <h3 style="margin-top:0; margin-bottom:16px;">City Coverage</h3>
+    <table class="ai-table">
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Researched</th>
+                <th>Content</th>
+                <th>Blocks</th>
+                <th>Pages</th>
+                <th>Last Generated</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($cityCoverage as $id => $c): ?>
+            <tr>
+                <td><strong><?= h($c['city']) ?></strong>, <?= h($c['ss']) ?></td>
+                <td>
+                    <?php if ($c['researched']): ?>
+                        <span class="ai-badge badge-ok">Yes</span>
+                    <?php else: ?>
+                        <span class="ai-badge badge-none">No</span>
+                    <?php endif; ?>
+                </td>
+                <td>
+                    <?php if ($c['generated'] > 0): ?>
+                        <span class="ai-badge badge-ok">Generated</span>
+                    <?php else: ?>
+                        <span class="ai-badge badge-warn">Pending</span>
+                    <?php endif; ?>
+                </td>
+                <td><?= $c['generated'] ?: '—' ?></td>
+                <td><?= $c['pages'] ?: '—' ?></td>
+                <td style="color:#6b7280; font-size:.8rem;"><?= h(fmt_ts_ai($c['last_at'])) ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<?php endif; ?>
+
+<!-- ── Generation log ── -->
+<div class="card">
+    <h3 style="margin-top:0; margin-bottom:16px;">Generation Log
+        <?php if (!empty($logEntries)): ?>
+        <span style="font-size:.78rem; font-weight:400; color:#9ca3af;">(<?= count($logEntries) ?> runs, newest first)</span>
+        <?php endif; ?>
+    </h3>
+    <?php if (empty($logEntries)): ?>
+    <p class="hint">No runs logged yet. Run generate.py to start generating content.</p>
+    <?php else: ?>
+    <div style="overflow-x:auto;">
+    <table class="ai-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Site</th>
+                <th>Scope</th>
+                <th>Research</th>
+                <th>Blocks</th>
+                <th>Skipped</th>
+                <th>Errors</th>
+                <th>API Calls</th>
+                <th>Tokens In/Out</th>
+                <th>Cost</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach (array_slice($logEntries, 0, 25) as $e): ?>
+            <?php
+            $opts    = $e['options'] ?? [];
+            $scope   = $opts['all'] ? 'all' : ($opts['page'] ?? '?');
+            if (!empty($opts['file'])) $scope .= ' / ' . $opts['file'];
+            $haserr  = ($e['errors'] ?? 0) > 0;
+            $isdry   = !empty($e['dry_run']);
+            ?>
+            <tr <?= $haserr ? 'style="background:#fff7f7;"' : '' ?>>
+                <td style="white-space:nowrap; font-size:.78rem; color:#6b7280;"><?= h(fmt_ts_ai($e['started_at'] ?? '')) ?></td>
+                <td style="font-size:.8rem;"><?= h($opts['site'] ?? '—') ?></td>
+                <td style="font-size:.8rem;"><?= h($scope) ?><?= $isdry ? ' <span style="color:#9ca3af;">[dry]</span>' : '' ?></td>
+                <td><?= !empty($opts['research']) ? '<span class="ai-badge badge-ok">Yes</span>' : '<span style="color:#d1d5db;">—</span>' ?></td>
+                <td><strong><?= (int)($e['blocks_generated'] ?? 0) ?></strong></td>
+                <td style="color:#6b7280;"><?= (int)($e['pages_skipped'] ?? 0) ?></td>
+                <td style="color:<?= $haserr ? '#dc2626' : '#9ca3af' ?>;"><?= (int)($e['errors'] ?? 0) ?></td>
+                <td style="color:#6b7280;"><?= (int)($e['api_calls'] ?? 0) ?></td>
+                <td style="font-size:.78rem; color:#6b7280; white-space:nowrap;">
+                    <?php
+                    $in  = (int)($e['input_tokens']  ?? 0);
+                    $out = (int)($e['output_tokens'] ?? 0);
+                    echo $in ? number_format($in) . ' / ' . number_format($out) : '—';
+                    ?>
+                </td>
+                <td style="font-size:.8rem; white-space:nowrap;">
+                    <?php
+                    $c = (float)($e['estimated_cost_usd'] ?? 0);
+                    echo $c ? '$' . number_format($c, 4) : '—';
+                    ?>
+                </td>
+                <td style="font-size:.78rem; color:#6b7280;"><?= isset($e['duration_ms']) ? fmt_dur((int)$e['duration_ms']) : '—' ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+    </div>
+    <?php endif; ?>
+</div>
+
+</div>

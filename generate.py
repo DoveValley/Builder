@@ -32,10 +32,41 @@ import json
 import os
 import re
 import sys
+import time
+import uuid
 from datetime import datetime, timezone
 
 MODEL_DEFAULT = 'claude-haiku-4-5-20251001'
 INDENT = 2
+
+# Pricing: (input $/M tokens, output $/M tokens)
+MODEL_PRICING = {
+    'claude-haiku-4-5-20251001': (0.80,  4.00),
+    'claude-sonnet-4-6':         (3.00, 15.00),
+}
+
+# Module-level usage accumulator keyed by model — avoids threading through every call signature
+_usage     = {'by_model': {}, 'api_calls': 0}
+_run_start = 0.0
+
+def _tally_usage(model: str, input_tokens: int, output_tokens: int):
+    bucket = _usage['by_model'].setdefault(model, {'input_tokens': 0, 'output_tokens': 0})
+    bucket['input_tokens']  += input_tokens
+    bucket['output_tokens'] += output_tokens
+    _usage['api_calls'] += 1
+
+def _total_tokens() -> tuple[int, int]:
+    total_in  = sum(v['input_tokens']  for v in _usage['by_model'].values())
+    total_out = sum(v['output_tokens'] for v in _usage['by_model'].values())
+    return total_in, total_out
+
+def _estimated_cost_usd() -> float:
+    total = 0.0
+    for model, counts in _usage['by_model'].items():
+        in_rate, out_rate = MODEL_PRICING.get(model, (0.80, 4.00))
+        total += (counts['input_tokens']  / 1_000_000) * in_rate
+        total += (counts['output_tokens'] / 1_000_000) * out_rate
+    return round(total, 6)
 
 # ANSI codes suppressed on non-TTY
 _TTY = sys.stdout.isatty()
@@ -69,11 +100,12 @@ def save_json(path, data):
 def site_paths(base_dir, site_id):
     site_dir = os.path.join(base_dir, 'sites', site_id)
     return {
-        'site_dir':  site_dir,
-        'site_json': os.path.join(site_dir, 'data', 'site.json'),
-        'registry':  os.path.join(site_dir, 'data', 'ai_block_types.json'),
-        'cities':    os.path.join(site_dir, 'data', 'cities.json'),
-        'pages_dir': os.path.join(site_dir, 'data', 'pages'),
+        'site_dir':       site_dir,
+        'site_json':      os.path.join(site_dir, 'data', 'site.json'),
+        'registry':       os.path.join(site_dir, 'data', 'ai_block_types.json'),
+        'cities':         os.path.join(site_dir, 'data', 'cities.json'),
+        'pages_dir':      os.path.join(site_dir, 'data', 'pages'),
+        'generation_log': os.path.join(site_dir, 'data', 'generation_log.json'),
     }
 
 
@@ -172,6 +204,7 @@ def call_claude(prompt, model, api_key, dry_run=False):
             messages=[{'role': 'user', 'content': prompt}],
         )
         raw = message.content[0].text.strip()
+        _tally_usage(model, message.usage.input_tokens, message.usage.output_tokens)
 
         # Strip markdown code fences if the model wraps its output
         if raw.startswith('```'):
@@ -562,9 +595,50 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None):
     return researched
 
 
+# ── Generation log ────────────────────────────────────────────────────────────
+
+def write_generation_log(paths, args, total, researched, started_at_ts):
+    log_path = paths.get('generation_log')
+    if not log_path:
+        return
+    in_tok, out_tok = _total_tokens()
+    entry = {
+        'run_id':            str(uuid.uuid4()),
+        'started_at':        datetime.fromtimestamp(started_at_ts, tz=timezone.utc).isoformat().replace('+00:00', 'Z'),
+        'finished_at':       datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
+        'duration_ms':       int((time.monotonic() - _run_start) * 1000),
+        'dry_run':           args.dry_run,
+        'options': {
+            'site':     args.site,
+            'page':     args.page,
+            'all':      args.all,
+            'file':     args.file,
+            'refresh':  args.refresh,
+            'research': getattr(args, 'research', False),
+        },
+        'pages_written':      total.get('processed', 0),
+        'pages_skipped':      total.get('skipped',   0),
+        'pages_backed_up':    0,
+        'errors':             total.get('errors',    0),
+        'blocks_generated':   total.get('processed', 0),
+        'cities_researched':  researched,
+        'input_tokens':       in_tok,
+        'output_tokens':      out_tok,
+        'api_calls':          _usage['api_calls'],
+        'estimated_cost_usd': _estimated_cost_usd(),
+    }
+    existing = load_json(log_path)
+    if not isinstance(existing, list):
+        existing = []
+    existing.append(entry)
+    save_json(log_path, existing)
+
+
 # ── Summary ───────────────────────────────────────────────────────────────────
 
 def print_summary(total, researched=0):
+    in_tok, out_tok = _total_tokens()
+    cost = _estimated_cost_usd()
     _log(f'\n{"═"*54}')
     if researched:
         _ok(f'Researched: {researched} city/cities enriched')
@@ -573,6 +647,9 @@ def print_summary(total, researched=0):
         _log(f'  Skipped  : {total["skipped"]} (locked — use --refresh to override)')
     if total['errors']:
         _warn(f'  Errors   : {total["errors"]}')
+    if _usage['api_calls']:
+        _log(f'  Tokens   : {in_tok:,} in / {out_tok:,} out  ({_usage["api_calls"]} calls)')
+        _log(f'  Est. cost: ${cost:.4f}')
     _log(f'{"═"*54}')
 
 
@@ -595,6 +672,10 @@ def main():
     # research-only implies --research
     if args.research_only:
         args.research = True
+
+    global _run_start
+    _run_start = time.monotonic()
+    _started_at_ts = time.time()
 
     api_key = os.environ.get('ANTHROPIC_API_KEY')
     if not api_key and not args.dry_run:
@@ -651,6 +732,8 @@ def main():
         _merge_stats(total, process_landing_pages(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, file_filter=args.file))
 
     print_summary(total, researched)
+    if not args.dry_run:
+        write_generation_log(paths, args, total, researched, _started_at_ts)
 
 
 if __name__ == '__main__':

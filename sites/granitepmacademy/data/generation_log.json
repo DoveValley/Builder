@@ -1,53 +1,78 @@
 [
-    {
-        "run_id": "bb3bbf7a5e16ef06",
-        "started_at": "2026-06-18T05:02:57+00:00",
-        "finished_at": "2026-06-18T05:02:57+00:00",
-        "duration_ms": 5,
-        "dry_run": false,
-        "options": {
-            "template_ids": null,
-            "city_ids": null,
-            "tag_filter": "",
-            "force_locked": false
-        },
-        "pages_written": 5,
-        "pages_skipped": 0,
-        "pages_backed_up": 0,
-        "errors": []
+  {
+    "run_id": "bb3bbf7a5e16ef06",
+    "started_at": "2026-06-18T05:02:57+00:00",
+    "finished_at": "2026-06-18T05:02:57+00:00",
+    "duration_ms": 5,
+    "dry_run": false,
+    "options": {
+      "template_ids": null,
+      "city_ids": null,
+      "tag_filter": "",
+      "force_locked": false
     },
-    {
-        "run_id": "d1d6464d475b6c07",
-        "started_at": "2026-06-18T16:49:08+00:00",
-        "finished_at": "2026-06-18T16:49:08+00:00",
-        "duration_ms": 13,
-        "dry_run": false,
-        "options": {
-            "template_ids": null,
-            "city_ids": null,
-            "tag_filter": "",
-            "force_locked": false
-        },
-        "pages_written": 20,
-        "pages_skipped": 0,
-        "pages_backed_up": 5,
-        "errors": []
+    "pages_written": 5,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": []
+  },
+  {
+    "run_id": "d1d6464d475b6c07",
+    "started_at": "2026-06-18T16:49:08+00:00",
+    "finished_at": "2026-06-18T16:49:08+00:00",
+    "duration_ms": 13,
+    "dry_run": false,
+    "options": {
+      "template_ids": null,
+      "city_ids": null,
+      "tag_filter": "",
+      "force_locked": false
     },
-    {
-        "run_id": "cd019c43439064ae",
-        "started_at": "2026-06-18T17:27:44+00:00",
-        "finished_at": "2026-06-18T17:27:44+00:00",
-        "duration_ms": 30,
-        "dry_run": false,
-        "options": {
-            "template_ids": null,
-            "city_ids": null,
-            "tag_filter": "",
-            "force_locked": false
-        },
-        "pages_written": 25,
-        "pages_skipped": 0,
-        "pages_backed_up": 20,
-        "errors": []
-    }
+    "pages_written": 20,
+    "pages_skipped": 0,
+    "pages_backed_up": 5,
+    "errors": []
+  },
+  {
+    "run_id": "cd019c43439064ae",
+    "started_at": "2026-06-18T17:27:44+00:00",
+    "finished_at": "2026-06-18T17:27:44+00:00",
+    "duration_ms": 30,
+    "dry_run": false,
+    "options": {
+      "template_ids": null,
+      "city_ids": null,
+      "tag_filter": "",
+      "force_locked": false
+    },
+    "pages_written": 25,
+    "pages_skipped": 0,
+    "pages_backed_up": 20,
+    "errors": []
+  },
+  {
+    "run_id": "cf552de6-e861-474a-a155-9a7043e2a966",
+    "started_at": "2026-06-26T01:07:51.549614Z",
+    "finished_at": "2026-06-26T01:07:55.240422Z",
+    "duration_ms": 3690,
+    "dry_run": false,
+    "options": {
+      "site": "granitepmacademy",
+      "page": "landing",
+      "all": false,
+      "file": "dallas-tx",
+      "refresh": true,
+      "research": false
+    },
+    "pages_written": 1,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 1,
+    "cities_researched": 0,
+    "input_tokens": 546,
+    "output_tokens": 314,
+    "api_calls": 1,
+    "estimated_cost_usd": 0.001693
+  }
 ]
