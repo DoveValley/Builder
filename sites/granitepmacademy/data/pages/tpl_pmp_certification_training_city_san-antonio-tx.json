@@ -1,111 +1,123 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "san-antonio-tx",
-    "slug": "pmp-certification-training-san-antonio",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "san-antonio-tx",
-        "city": "San Antonio",
-        "state": "Texas",
-        "SS": "TX",
-        "city_slug": "san-antonio",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": []
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "san-antonio-tx",
+  "slug": "pmp-certification-training-san-antonio",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "san-antonio-tx",
+    "city": "San Antonio",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "san-antonio",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": []
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Granite PM Academy's PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam. Our four-day live-virtual course is taught by active certified practitioners and satisfies PMI's 35 education hour requirement.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": ""
     },
-    "content_blocks": [
+    {
+      "type": "feature_columns",
+      "fc_heading": "Why {city} Project Managers Choose Granite PM Academy",
+      "fc_num_cols": 3,
+      "columns": []
+    },
+    {
+      "type": "text",
+      "heading_text": "PMP Certification Demand in San Antonio's Growing PM Market",
+      "heading_level": "h2",
+      "text": "<p>San Antonio's economy is uniquely positioned to reward PMP-certified project managers. The city is home to Joint Base San Antonio, one of the largest U.S. military installations, alongside major employers like USAA, Rackspace, and the Baptist Health System—all actively recruiting skilled project leaders. Defense, healthcare, technology, and energy sectors across San Antonio rely on PMP-certified professionals to manage complex infrastructure, IT transformation, and operational initiatives. Whether you work in government contracting, hospital administration, or cloud services, PMP certification demonstrates the technical and leadership competencies that San Antonio employers prioritize.</p><p>PMP-certified project managers in San Antonio typically earn between $105,000 and $125,000 annually, with specialized roles in defense and healthcare frequently commanding $130,000 or more. Beyond salary, PMP certification opens pathways to senior PM positions, program management roles, and leadership opportunities across the city's largest employers. As San Antonio continues to expand its defense, healthcare, and technology sectors, demand for credentialed project managers is expected to grow, making PMP certification a strategic investment in your career trajectory.</p>",
+      "skin": "light",
+      "_ai_generated": true,
+      "_ai_type": "city_market_intro",
+      "_ai_generated_at": "2026-06-26T00:23:15.277898Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
         {
-            "type": "hero_split",
-            "hs_heading": "PMP Certification Training in {city}, {SS}",
-            "hs_subtext": "<p>Granite PM Academy's PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam. Our four-day live-virtual course is taught by active certified practitioners and satisfies PMI's 35 education hour requirement.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": ""
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
         },
         {
-            "type": "feature_columns",
-            "fc_heading": "Why {city} Project Managers Choose Granite PM Academy",
-            "fc_num_cols": 3,
-            "columns": []
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
         },
         {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
         },
         {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI's current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                }
-            ]
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
         },
         {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI's current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
         }
-    ],
-    "seo": {
-        "seo_title": "PMP Certification Training {city} {SS} | PMI Exam Prep | {business}",
-        "canonical_url": "",
-        "meta_description": "PMP certification training in {city}, {SS} from a PMI Premier ATP. 4-day live-virtual course satisfies 35 education hour requirement. Pass guarantee included.",
-        "meta_keywords": "PMP certification training {city} TX, PMP exam prep {city}, project management professional {city_state}",
-        "og_title": "PMP Certification Training in {city}, {SS} | {business}",
-        "og_description": "Earn your PMP in {city_state} with Granite PM Academy — PMI Premier ATP. Live-virtual instruction. 90-day pass guarantee.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Course",
-        "service_area": "{city}, {SS}",
-        "service_description": "PMI-aligned PMP certification training for project managers in {city_state}. Live-virtual delivery.",
-        "bc_label": "PMP Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": ""
+      ]
     },
-    "locked_blocks": [],
-    "generated_at": "2026-06-18T17:27:44+00:00",
-    "template_version": "002f217d5dfe5c5460380a03a1198a63"
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training {city} {SS} | PMI Exam Prep | {business}",
+    "canonical_url": "",
+    "meta_description": "PMP certification training in {city}, {SS} from a PMI Premier ATP. 4-day live-virtual course satisfies 35 education hour requirement. Pass guarantee included.",
+    "meta_keywords": "PMP certification training {city} TX, PMP exam prep {city}, project management professional {city_state}",
+    "og_title": "PMP Certification Training in {city}, {SS} | {business}",
+    "og_description": "Earn your PMP in {city_state} with Granite PM Academy — PMI Premier ATP. Live-virtual instruction. 90-day pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Course",
+    "service_area": "{city}, {SS}",
+    "service_description": "PMI-aligned PMP certification training for project managers in {city_state}. Live-virtual delivery.",
+    "bc_label": "PMP Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": ""
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-06-18T17:27:44+00:00",
+  "template_version": "002f217d5dfe5c5460380a03a1198a63"
 }
