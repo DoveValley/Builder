@@ -443,10 +443,131 @@ def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, d
     return total
 
 
+# ── Research pre-processor ────────────────────────────────────────────────────
+
+RESEARCH_MODEL = 'claude-sonnet-4-6'
+
+RESEARCH_PROMPT = """Research the project management job market in {city}, {state} ({SS}).
+
+You are populating a database for a PMP certification training company. Provide accurate, specific information about {city}'s economy and PM job market.
+
+Return a JSON object with exactly four string/array fields:
+
+1. "industries" — array of 4-6 dominant industry sectors in {city} that employ significant numbers of project managers. Use concise sector names such as healthcare, defense/military, technology, finance, energy, manufacturing, government.
+
+2. "top_employers" — array of 10-12 major employers in {city} that actively hire project managers. Include large corporations, healthcare systems, government/defense contractors, and prominent local employers. Use exact company/organization names.
+
+3. "salary_note" — one sentence describing the typical annual salary range for PMP-certified project managers in {city}, {SS}. Include a specific dollar range (e.g. $110,000-$130,000 annually) and note any premium sectors if applicable.
+
+4. "market_blurb" — 2-3 sentences describing the PM job market in {city}. Reference the city by name, mention the dominant industries, and explain concretely why PMP certification is valuable for professionals there.
+
+Rules:
+- Only include verifiable facts — real employers with a significant physical presence in {city}
+- Do not invent statistics or companies
+- Salary range should reflect current market rates for certified PMs
+
+Return JSON only, no markdown fences, no explanation."""
+
+def _research_city(city_name, state_name, SS, api_key, dry_run=False):
+    """Call Claude to produce research fields for one city. Returns dict or None."""
+    ctx    = {'city': city_name, 'state': state_name, 'SS': SS}
+    prompt = substitute_vars(RESEARCH_PROMPT, ctx)
+
+    if dry_run:
+        _log(f'    [dry-run] Would call {RESEARCH_MODEL} ({len(prompt)} chars)')
+        return {
+            'industries':    ['technology', 'healthcare', 'finance', 'energy'],
+            'top_employers': ['Employer A', 'Employer B', 'Employer C', 'Employer D'],
+            'salary_note':   f'PMP-certified project managers in {city_name} average $110,000–$130,000 annually. [dry-run]',
+            'market_blurb':  f'{city_name} has a strong PM market. [dry-run placeholder]',
+        }
+
+    result = call_claude(prompt, RESEARCH_MODEL, api_key, dry_run=False)
+    if not result:
+        return None
+
+    # Validate the four required fields
+    errs = []
+    if not isinstance(result.get('industries'), list) or len(result['industries']) < 2:
+        errs.append('industries missing or too short')
+    if not isinstance(result.get('top_employers'), list) or len(result['top_employers']) < 3:
+        errs.append('top_employers missing or too short')
+    if not str(result.get('salary_note', '')).strip():
+        errs.append('salary_note empty')
+    if not str(result.get('market_blurb', '')).strip():
+        errs.append('market_blurb empty')
+    if errs:
+        _warn(f'    Research response invalid: {"; ".join(errs)}')
+        return None
+
+    return result
+
+def _needs_research(city_data):
+    return not city_data.get('industries') and not city_data.get('top_employers')
+
+def run_research_step(paths, api_key, dry_run=False, city_filter=None):
+    """
+    For every city in cities.json that lacks research fields, call Claude to fill them.
+    Writes results back to cities.json.  Returns number of cities researched.
+    """
+    _log('\n── Research Step ────────────────────────────────────')
+
+    raw = load_json(paths['cities'])
+    if not raw:
+        _warn('  No cities.json found')
+        return 0
+
+    cities    = list(raw)
+    researched = 0
+
+    for i, city in enumerate(cities):
+        city_name = city.get('city', '')
+        city_id   = city.get('id', '')
+
+        # City filter: match on id, city name, or city_slug
+        if city_filter:
+            haystack = f'{city_id} {city_name} {city.get("city_slug","")}'.lower()
+            if city_filter.lower() not in haystack:
+                continue
+
+        if not _needs_research(city):
+            _log(f'  {city_name} — research data present, skipping')
+            continue
+
+        _log(f'  {city_name}, {city.get("SS","?")} — researching...')
+        result = _research_city(
+            city_name  = city_name,
+            state_name = city.get('state', ''),
+            SS         = city.get('SS', ''),
+            api_key    = api_key,
+            dry_run    = dry_run,
+        )
+
+        if result:
+            cities[i] = {**city, **result}
+            _ok(f'  {city_name} — research complete')
+            _log(f'    industries    : {", ".join(result["industries"][:4])}')
+            _log(f'    top_employers : {", ".join(result["top_employers"][:4])}...')
+            _log(f'    salary_note   : {result["salary_note"][:80]}')
+            researched += 1
+        else:
+            _warn(f'  {city_name} — research failed, skipping')
+
+    if researched > 0 and not dry_run:
+        save_json(paths['cities'], cities)
+        _ok(f'  Saved cities.json ({researched} {"city" if researched == 1 else "cities"} enriched)')
+    elif researched == 0:
+        _log('  All cities already have research data (or none matched filter)')
+
+    return researched
+
+
 # ── Summary ───────────────────────────────────────────────────────────────────
 
-def print_summary(total):
+def print_summary(total, researched=0):
     _log(f'\n{"═"*54}')
+    if researched:
+        _ok(f'Researched: {researched} city/cities enriched')
     _ok(f'Generated : {total["processed"]} block(s)')
     if total['skipped']:
         _log(f'  Skipped  : {total["skipped"]} (locked — use --refresh to override)')
@@ -459,14 +580,21 @@ def print_summary(total):
 
 def main():
     ap = argparse.ArgumentParser(description='AI block content generator')
-    ap.add_argument('--site',    required=True,       help='Site ID, e.g. granitepmacademy')
-    ap.add_argument('--page',    default='landing',   help='homepage | core | landing (default: landing)')
-    ap.add_argument('--all',     action='store_true', help='Process homepage + core + landing pages')
-    ap.add_argument('--file',    default=None,        help='Limit to page files whose name contains this string')
-    ap.add_argument('--refresh', action='store_true', help='Regenerate even _ai_locked blocks')
-    ap.add_argument('--dry-run', action='store_true', dest='dry_run',
-                    help='Show what would be done without calling API or writing files')
+    ap.add_argument('--site',            required=True,       help='Site ID, e.g. granitepmacademy')
+    ap.add_argument('--page',            default='landing',   help='homepage | core | landing (default: landing)')
+    ap.add_argument('--all',             action='store_true', help='Process homepage + core + landing pages')
+    ap.add_argument('--file',            default=None,        help='Limit to page files whose name contains this string')
+    ap.add_argument('--refresh',         action='store_true', help='Regenerate even _ai_locked blocks')
+    ap.add_argument('--research',        action='store_true', help='Research missing city data before generating content')
+    ap.add_argument('--research-only',   action='store_true', dest='research_only',
+                    help='Only run the research step — do not generate content blocks')
+    ap.add_argument('--dry-run',         action='store_true', dest='dry_run',
+                    help='Preview without calling API or writing files')
     args = ap.parse_args()
+
+    # research-only implies --research
+    if args.research_only:
+        args.research = True
 
     api_key = os.environ.get('ANTHROPIC_API_KEY')
     if not api_key and not args.dry_run:
@@ -482,12 +610,12 @@ def main():
 
     _log(f'\n{"═"*54}')
     _log(f'generate.py · site={args.site}')
-    _log(f'Scope   : {"--all" if args.all else args.page}' + (f' --file {args.file}' if args.file else ''))
-    _log(f'Refresh : {args.refresh}  |  Dry run : {args.dry_run}')
+    scope = '--all' if args.all else ('--research-only' if args.research_only else args.page)
+    _log(f'Scope    : {scope}' + (f' --file {args.file}' if args.file else ''))
+    _log(f'Research : {args.research}  |  Refresh : {args.refresh}  |  Dry run : {args.dry_run}')
     _log(f'{"═"*54}')
 
     registry  = load_registry(paths)
-    c_idx     = cities_index(paths)
     site_data = load_json(paths['site_json'])
 
     if not site_data:
@@ -495,10 +623,24 @@ def main():
         sys.exit(1)
 
     city_count = len({c.get('id') for c in (load_json(paths['cities']) or []) if c.get('id')})
-    _log(f'Cities  : {city_count} in cities.json')
+    _log(f'Cities   : {city_count} in cities.json')
 
-    total = {'processed': 0, 'skipped': 0, 'errors': 0}
+    total      = {'processed': 0, 'skipped': 0, 'errors': 0}
+    researched = 0
 
+    # ── Step 1: Research (fills cities.json research fields) ──────────────────
+    if args.research:
+        researched = run_research_step(paths, api_key, dry_run=args.dry_run, city_filter=args.file)
+        if args.research_only:
+            _log(f'\n{"═"*54}')
+            _ok(f'Research complete: {researched} city/cities enriched')
+            _log(f'{"═"*54}')
+            return
+
+    # Reload city index after research may have written new data
+    c_idx = cities_index(paths)
+
+    # ── Step 2: Content generation ────────────────────────────────────────────
     if args.all or args.page == 'homepage':
         _merge_stats(total, process_homepage(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run))
 
@@ -508,7 +650,7 @@ def main():
     if args.all or args.page == 'landing':
         _merge_stats(total, process_landing_pages(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, file_filter=args.file))
 
-    print_summary(total)
+    print_summary(total, researched)
 
 
 if __name__ == '__main__':
