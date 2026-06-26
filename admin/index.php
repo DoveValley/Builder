@@ -165,79 +165,12 @@ foreach ($footer['columns'] as $ci => $column) {
     <title>Admin Panel - <?= h($_siteDisplayName) ?></title>
     <link rel="stylesheet" href="../assets/css/style.css?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/style.css') ?>">
     <style><?= theme_css_vars($data['theme'] ?? []) ?></style>
-    <script src="https://cdn.tiny.cloud/1/qeuo7izgoglstixfe9merx5vdkfu7nfuvl1nhyc98p6qej0p/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-    const TINYMCE_OPTS = {
-        menubar: false,
-        plugins: 'link lists autolink code',
-        toolbar: 'bold italic underline | forecolor backcolor | link | bullist numlist | removeformat | code',
-        height: 240,
-        branding: false,
-        promotion: false,
-        statusbar: false,
-        link_default_target: '_blank',
-        link_assume_external_targets: true,
-        skin: 'oxide',
-        content_css: false,
-        content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 14px; color: #1a1a1a; margin: 8px; }',
-        setup: function(editor) {
-            editor.on('change input', function() { editor.save(); });
-        }
-    };
-    const TINYMCE_HEADING_OPTS = {
-        menubar: false,
-        plugins: 'code',
-        toolbar: 'bold italic | forecolor | removeformat | code',
-        height: 110,
-        branding: false,
-        promotion: false,
-        statusbar: false,
-        forced_root_block: false,
-        skin: 'oxide',
-        content_css: false,
-        content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 15px; font-weight: 600; color: #1a1a1a; margin: 6px 8px; line-height: 1.3; }',
-        setup: function(editor) {
-            editor.on('change input', function() { editor.save(); });
-        }
-    };
-
-    // Lazy-init: attach TinyMCE only when a block-card <details> is opened.
-    // Initializing inside a closed <details> causes 0-height rendering bugs.
-    function initRichEditors(root) {
-        (root || document).querySelectorAll('textarea.rich-editor').forEach(function(ta) {
-            if (!ta.id) ta.id = 'mce_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
-            if (!tinymce.get(ta.id)) {
-                tinymce.init(Object.assign({ selector: '#' + ta.id }, TINYMCE_OPTS));
-            }
-        });
-        (root || document).querySelectorAll('textarea.rich-editor-heading').forEach(function(ta) {
-            if (!ta.id) ta.id = 'mce_h_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
-            if (!tinymce.get(ta.id)) {
-                tinymce.init(Object.assign({ selector: '#' + ta.id }, TINYMCE_HEADING_OPTS));
-            }
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('details.block-card').forEach(function(details) {
-            details.addEventListener('toggle', function() {
-                if (details.open) initRichEditors(details);
-            });
-        });
-        // Also init any editors that start open (e.g. first block pre-expanded)
-        document.querySelectorAll('details.block-card[open]').forEach(function(details) {
-            initRichEditors(details);
-        });
-    });
-    </script>
     <script>
     // Inject CSRF token into every form on submit
     const CSRF_TOKEN = <?= json_encode($csrfToken) ?>;
     document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('form[action="save.php"]').forEach(function(form) {
             form.addEventListener('submit', function() {
-                // Sync all TinyMCE editors to their textareas before submit
-                if (typeof tinymce !== 'undefined') tinymce.triggerSave();
                 // CSRF token
                 var inp = form.querySelector('input[name="csrf_token"]');
                 if (!inp) {

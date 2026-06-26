@@ -12,9 +12,7 @@ function parse_blocks_from_post(): array {
 
         // Skin — universal field, same for every block type
         $skinVal = trim($_POST['block_skin'][$i] ?? '');
-        if (in_array($skinVal, ['light','dark','accent','subtle'])) {
-            $block['skin'] = $skinVal;
-        }
+        $block['skin'] = in_array($skinVal, ['light','dark','accent','subtle']) ? $skinVal : '';
 
         // Anchor ID — sanitize to safe slug characters only
         $rawAnchor = trim($_POST['block_anchor'][$i] ?? '');
@@ -28,7 +26,7 @@ function parse_blocks_from_post(): array {
                 $block['heading_level'] = in_array($_POST['block_heading_level'][$i] ?? '', array_keys(heading_level_options()))
                     ? $_POST['block_heading_level'][$i] : 'h2';
                 $block['heading_text'] = trim($_POST['block_heading_text'][$i] ?? '');
-                $block['text'] = sanitize_rich_html($_POST['block_text'][$i] ?? '');
+                $block['text'] = trim($_POST['block_text'][$i] ?? '');
                 if ($block['text'] === '' && $block['heading_text'] === '') continue 2;
                 break;
 
@@ -36,7 +34,7 @@ function parse_blocks_from_post(): array {
             case 'image_right':
                 $block['image_side'] = ($_POST['image_side'][$i] ?? 'left') === 'right' ? 'right' : 'left';
                 $block['ir_layout'] = ($_POST['ir_layout'][$i] ?? 'side') === 'stacked' ? 'stacked' : 'side';
-                $block['text']  = sanitize_rich_html($_POST['block_text'][$i] ?? '');
+                $block['text']  = trim($_POST['ir_text'][$i] ?? '');
                 $block['photo'] = trim($_POST['block_existing_photo'][$i] ?? '');
                 $block['photo_alt'] = trim($_POST['block_photo_alt'][$i] ?? '');
                 if (!empty($_POST['block_remove_photo'][$i])) $block['photo'] = '';
@@ -51,9 +49,8 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'hero':
-                $block['hero_heading'] = sanitize_rich_html($_POST['hero_heading'][$i]    ?? '');
-                $hc = trim($_POST['hero_heading_color'][$i] ?? ''); $block['hero_heading_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $hc) ? $hc : '';
-                $block['hero_subtext']    = sanitize_rich_html($_POST['hero_subtext'][$i]    ?? '');
+                $block['hero_heading'] = trim($_POST['hero_heading'][$i]    ?? '');
+                $block['hero_subtext']    = trim($_POST['hero_subtext'][$i]    ?? '');
                 $block['hero_btn_text']   = trim($_POST['hero_btn_text'][$i]   ?? '');
                 $block['hero_btn_url']    = sanitize_url($_POST['hero_btn_url'][$i]    ?? '');
                 $block['hero_text_color'] = trim($_POST['hero_text_color'][$i] ?? '#ffffff');
@@ -67,10 +64,9 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'hero_split':
-                $block['hs_heading']      = sanitize_rich_html($_POST['hs_heading'][$i]   ?? '');
+                $block['hs_heading']      = trim($_POST['hs_heading'][$i]   ?? '');
                 $block['hs_tagline']      = trim($_POST['hs_tagline'][$i]        ?? '');
-                $tc = trim($_POST['hs_tagline_color'][$i] ?? ''); $block['hs_tagline_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $tc) ? $tc : '';
-                $block['hs_subtext']   = sanitize_rich_html($_POST['hs_subtext'][$i]   ?? '');
+                $block['hs_subtext']   = trim($_POST['hs_subtext'][$i]   ?? '');
                 $block['hs_btn_text']  = trim($_POST['hs_btn_text'][$i]  ?? '');
                 $block['hs_btn_url']   = sanitize_url($_POST['hs_btn_url'][$i]   ?? '');
                 $block['hs_btn2_text'] = trim($_POST['hs_btn2_text'][$i] ?? '');
@@ -93,8 +89,8 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'feature_split':
-                $block['fs_heading'] = sanitize_rich_html($_POST['fs_heading'][$i]   ?? '');
-                $block['fs_subtext']   = sanitize_rich_html($_POST['fs_subtext'][$i]   ?? '');
+                $block['fs_heading'] = trim($_POST['fs_heading'][$i]   ?? '');
+                $block['fs_subtext']   = trim($_POST['fs_subtext'][$i]   ?? '');
                 $block['fs_photo_alt'] = trim($_POST['fs_photo_alt'][$i] ?? '');
                 $block['fs_star_text'] = trim($_POST['fs_star_text'][$i] ?? '');
                 $bgc = trim($_POST['fs_bg_color'][$i] ?? '#f3f6f7');
@@ -123,7 +119,7 @@ function parse_blocks_from_post(): array {
                         if ($up2) $iconPath = $up2;
                         elseif ($up2 === false) $uploadError = true;
                     }
-                    $ih = trim($ih); $it = sanitize_rich_html($itemTexts[$fi] ?? '');
+                    $ih = trim($ih); $it = trim($itemTexts[$fi] ?? '');
                     if ($ih === '' && $it === '' && !$iconPath) continue;
                     $fsItems[] = ['icon' => $iconPath, 'alt' => trim($itemAlts[$fi] ?? ''), 'heading' => $ih, 'text' => $it];
                 }
@@ -132,7 +128,9 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'feature_columns':
-                $block['fc_heading'] = sanitize_rich_html($_POST['fc_heading'][$i]    ?? '');
+                $block['fc_heading'] = trim($_POST['fc_heading'][$i] ?? '');
+                $fcHlRaw = trim($_POST['fc_heading_level'][$i] ?? 'h2');
+                $block['fc_heading_level'] = in_array($fcHlRaw, ['h2','h3','h4']) ? $fcHlRaw : 'h2';
                 $block['fc_subheading'] = trim($_POST['fc_subheading'][$i] ?? '');
                 $block['fc_num_cols']   = max(2, min(4, (int)($_POST['fc_num_cols'][$i] ?? 3)));
                 $bgc = trim($_POST['fc_bg_color'][$i] ?? '#f3f6f7');
@@ -151,7 +149,7 @@ function parse_blocks_from_post(): array {
                         if ($up) $colImg = $up;
                     }
                     $colHead = trim($ch);
-                    $colText = sanitize_rich_html($texts[$ci] ?? '');
+                    $colText = trim($texts[$ci] ?? '');
                     $colAlt  = trim($alts[$ci]  ?? '');
                     $colIcon = sanitize_svg(trim($icons[$ci] ?? '')) ?: '';
                     if ($colHead === '' && $colText === '' && $colImg === '' && $colIcon === '') continue;
@@ -162,8 +160,8 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'split_cta':
-                $block['sc_left_heading'] = sanitize_rich_html($_POST['sc_left_heading'][$i]   ?? '');
-                $block['sc_left_text']      = sanitize_rich_html($_POST['sc_left_text'][$i]      ?? '');
+                $block['sc_left_heading'] = trim($_POST['sc_left_heading'][$i]   ?? '');
+                $block['sc_left_text']      = trim($_POST['sc_left_text'][$i]      ?? '');
                 $block['sc_right_label']    = trim($_POST['sc_right_label'][$i]    ?? '');
                 $block['sc_right_phone']    = trim($_POST['sc_right_phone'][$i]    ?? '');
                 $block['sc_right_phone_url']= sanitize_url($_POST['sc_right_phone_url'][$i]?? '');
@@ -191,8 +189,8 @@ function parse_blocks_from_post(): array {
                 $block['it_image_side']    = ($_POST['it_image_side'][$i] ?? 'left') === 'right' ? 'right' : 'left';
                 $block['it_heading_level'] = in_array($_POST['it_heading_level'][$i] ?? '', array_keys(heading_level_options()))
                     ? $_POST['it_heading_level'][$i] : 'h2';
-                $block['it_heading'] = sanitize_rich_html($_POST['it_heading'][$i] ?? '');
-                $block['it_text']    = sanitize_rich_html($_POST['it_text'][$i]    ?? '');
+                $block['it_heading'] = trim($_POST['it_heading'][$i] ?? '');
+                $block['it_text']    = trim($_POST['it_text'][$i]    ?? '');
                 $block['it_btn_text']= trim($_POST['it_btn_text'][$i]?? '');
                 $block['it_btn_url'] = sanitize_url($_POST['it_btn_url'][$i] ?? '');
                 $block['it_alt']     = trim($_POST['it_alt'][$i]     ?? '');
@@ -206,13 +204,13 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'faq':
-                $block['faq_heading'] = sanitize_rich_html($_POST['faq_heading'][$i] ?? '');
+                $block['faq_heading'] = trim($_POST['faq_heading'][$i] ?? '');
                 $block['faq_cols'] = (int)($_POST['faq_cols'][$i] ?? 1) === 2 ? 2 : 1;
                 $questions = $_POST['faq_question'][$i] ?? [];
                 $answers   = $_POST['faq_answer'][$i]   ?? [];
                 $items = [];
                 foreach ($questions as $fi => $q) {
-                    $q = trim($q); $a = sanitize_rich_html($answers[$fi] ?? '');
+                    $q = trim($q); $a = trim($answers[$fi] ?? '');
                     if ($q === '' && $a === '') continue;
                     $items[] = ['question' => $q, 'answer' => $a];
                 }
@@ -234,8 +232,8 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'cta_card':
-                $block['cc_heading'] = sanitize_rich_html($_POST['cc_heading'][$i]   ?? '');
-                $block['cc_text']      = sanitize_rich_html($_POST['cc_text'][$i]      ?? '');
+                $block['cc_heading'] = trim($_POST['cc_heading'][$i]   ?? '');
+                $block['cc_text']      = trim($_POST['cc_text'][$i]      ?? '');
                 $block['cc_checklist'] = trim($_POST['cc_checklist'][$i] ?? '');
                 $block['cc_btn_text']  = trim($_POST['cc_btn_text'][$i]  ?? '');
                 $block['cc_btn_url']   = sanitize_url($_POST['cc_btn_url'][$i]  ?? '');
@@ -250,8 +248,8 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'map_info':
-                $block['mi_map_heading'] = sanitize_rich_html($_POST['mi_map_heading'][$i]  ?? '');
-                $block['mi_info_heading'] = sanitize_rich_html($_POST['mi_info_heading'][$i] ?? '');
+                $block['mi_map_heading'] = trim($_POST['mi_map_heading'][$i]  ?? '');
+                $block['mi_info_heading'] = trim($_POST['mi_info_heading'][$i] ?? '');
                 $block['mi_info_text']    = trim($_POST['mi_info_text'][$i]    ?? '');
                 $block['mi_info_alt']     = trim($_POST['mi_info_alt'][$i]     ?? '');
                 // Sanitize map embed — only allow iframe tag, strip event attributes
@@ -271,7 +269,7 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'links_grid':
-                $block['lg_heading'] = sanitize_rich_html($_POST['lg_heading'][$i]  ?? '');
+                $block['lg_heading'] = trim($_POST['lg_heading'][$i]  ?? '');
                 $block['lg_subtext']  = trim($_POST['lg_subtext'][$i]  ?? '');
                 $block['lg_sublabel'] = trim($_POST['lg_sublabel'][$i] ?? '');
                 $block['lg_photo_alt']= trim($_POST['lg_photo_alt'][$i]?? '');
@@ -302,7 +300,7 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'email_banner':
-                $block['eb_heading'] = sanitize_rich_html($_POST['eb_heading'][$i]     ?? '');
+                $block['eb_heading'] = trim($_POST['eb_heading'][$i]     ?? '');
                 $block['eb_subtext']     = trim($_POST['eb_subtext'][$i]     ?? '');
                 $ebBgRaw = trim($_POST['eb_bg'][$i] ?? '#2563eb');
                 $block['eb_bg']          = preg_match('/^#[0-9a-fA-F]{3,6}$/', $ebBgRaw) ? $ebBgRaw : '#2563eb';
@@ -322,6 +320,8 @@ function parse_blocks_from_post(): array {
 
             case 'cta_banner':
                 $block['cb_text']    = trim($_POST['cb_text'][$i]    ?? '');
+                $cbHlRaw = trim($_POST['cb_heading_level'][$i] ?? 'h2');
+                $block['cb_heading_level'] = in_array($cbHlRaw, ['h2','h3','h4']) ? $cbHlRaw : 'h2';
                 $block['cb_subtext'] = trim($_POST['cb_subtext'][$i] ?? '');
                 $block['cb_btn_text']= trim($_POST['cb_btn_text'][$i]?? '');
                 $block['cb_btn_url'] = sanitize_url($_POST['cb_btn_url'][$i] ?? '');
@@ -337,7 +337,9 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'faq_two_col':
-                $block['fq_heading'] = sanitize_rich_html($_POST['fq_heading'][$i]  ?? '');
+                $block['fq_heading'] = trim($_POST['fq_heading'][$i]  ?? '');
+                $fqHlRaw = trim($_POST['fq_heading_level'][$i] ?? 'h2');
+                $block['fq_heading_level'] = in_array($fqHlRaw, ['h2','h3','h4']) ? $fqHlRaw : 'h2';
                 $bgc = trim($_POST['fq_bg_color'][$i]   ?? '#ffffff');
                 $block['fq_bg_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $bgc) ? $bgc : '#ffffff';
                 $ibc = trim($_POST['fq_item_bg'][$i]    ?? '#f0f2f8');
@@ -355,7 +357,7 @@ function parse_blocks_from_post(): array {
                 $fqAs = $_POST['fq_answer'][$i]   ?? [];
                 $fqItems = [];
                 foreach ($fqQs as $fi => $fq) {
-                    $fq = trim($fq); $fa = sanitize_rich_html($fqAs[$fi] ?? '');
+                    $fq = trim($fq); $fa = trim($fqAs[$fi] ?? '');
                     if ($fq === '') continue;
                     $fqItems[] = ['question' => $fq, 'answer' => $fa];
                 }
@@ -364,9 +366,9 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'image_features':
-                $block['if_heading'] = sanitize_rich_html($_POST['if_heading'][$i]     ?? '');
+                $block['if_heading'] = trim($_POST['if_heading'][$i]     ?? '');
                 $block['if_intro']       = trim($_POST['if_intro'][$i]       ?? '');
-                $block['if_closing']     = sanitize_rich_html($_POST['if_closing'][$i]     ?? '');
+                $block['if_closing']     = trim($_POST['if_closing'][$i]     ?? '');
                 $block['if_phone_label'] = trim($_POST['if_phone_label'][$i] ?? '');
                 $block['if_phone']       = trim($_POST['if_phone'][$i]       ?? '');
                 $block['if_phone_url']   = sanitize_url($_POST['if_phone_url'][$i]   ?? '');
@@ -395,8 +397,10 @@ function parse_blocks_from_post(): array {
 
             case 'wide_banner':
                 $block['wb_badge']     = trim($_POST['wb_badge'][$i]     ?? '');
-                $block['wb_heading'] = sanitize_rich_html($_POST['wb_heading'][$i]   ?? '');
-                $block['wb_subtext']   = sanitize_rich_html($_POST['wb_subtext'][$i]   ?? '');
+                $block['wb_heading'] = trim($_POST['wb_heading'][$i]   ?? '');
+                $wbHlRaw = trim($_POST['wb_heading_level'][$i] ?? 'h2');
+                $block['wb_heading_level'] = in_array($wbHlRaw, ['h2','h3','h4']) ? $wbHlRaw : 'h2';
+                $block['wb_subtext']   = trim($_POST['wb_subtext'][$i]   ?? '');
                 $block['wb_btn_text']  = trim($_POST['wb_btn_text'][$i]  ?? '');
                 $block['wb_btn_url']   = sanitize_url($_POST['wb_btn_url'][$i]   ?? '');
                 $block['wb_btn_style'] = ($_POST['wb_btn_style'][$i] ?? 'filled') === 'outline' ? 'outline' : 'filled';
@@ -418,7 +422,7 @@ function parse_blocks_from_post(): array {
 
             case 'service_cards':
                 $block['sc_badge']   = trim($_POST['sc_badge'][$i]   ?? '');
-                $block['sc_heading'] = sanitize_rich_html($_POST['sc_heading'][$i] ?? '');
+                $block['sc_heading'] = trim($_POST['sc_heading'][$i] ?? '');
                 $block['sc_cols']    = max(2, min(4, (int)($_POST['sc_cols'][$i] ?? 3)));
                 foreach (['sc_badge_bg','sc_head_color'] as $ck) {
                     $cv = in_array($_POST[$ck][$i] ?? '', ['accent','header','custom']) ? $_POST[$ck][$i] : 'accent';
@@ -444,7 +448,7 @@ function parse_blocks_from_post(): array {
                         $up = save_uploaded_file($_FILES['sc_item_icon']['tmp_name'][$i][$si], 'sc_icon');
                         if ($up) $iconPath = $up; elseif ($up === false) $uploadError = true;
                     }
-                    $sh = trim($sh); $st = sanitize_rich_html($scTexts[$si] ?? '');
+                    $sh = trim($sh); $st = trim($scTexts[$si] ?? '');
                     if ($sh === '' && $st === '' && !$iconPath) continue;
                     $scItems[] = ['icon' => $iconPath, 'alt' => trim($scAlts[$si] ?? ''), 'heading' => $sh, 'text' => $st, 'url' => sanitize_url($scUrls[$si] ?? '')];
                 }
@@ -454,9 +458,9 @@ function parse_blocks_from_post(): array {
 
             case 'hero_grid':
                 $block['hg_label']     = trim($_POST['hg_label'][$i]     ?? '');
-                $block['hg_heading'] = sanitize_rich_html($_POST['hg_heading'][$i]   ?? '');
+                $block['hg_heading'] = trim($_POST['hg_heading'][$i]   ?? '');
                 $hc = trim($_POST['hg_heading_color'][$i] ?? ''); $block['hg_heading_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $hc) ? $hc : '';
-                $block['hg_body']      = sanitize_rich_html($_POST['hg_body'][$i]      ?? '');
+                $block['hg_body']      = trim($_POST['hg_body'][$i]      ?? '');
                 $block['hg_btn_text']  = trim($_POST['hg_btn_text'][$i]  ?? '');
                 $block['hg_btn_url']   = sanitize_url($_POST['hg_btn_url'][$i]   ?? '');
                 $block['hg_photo_alt'] = trim($_POST['hg_photo_alt'][$i] ?? '');
@@ -496,7 +500,7 @@ function parse_blocks_from_post(): array {
             case 'tab_services':
                 $block['ts_badge1']   = trim($_POST['ts_badge1'][$i]  ?? '');
                 $block['ts_badge2']   = trim($_POST['ts_badge2'][$i]  ?? '');
-                $block['ts_heading'] = sanitize_rich_html($_POST['ts_heading'][$i] ?? '');
+                $block['ts_heading'] = trim($_POST['ts_heading'][$i] ?? '');
                 $tsActiveBg = in_array($_POST['ts_active_bg'][$i] ?? '', ['header','accent','custom'])
                     ? $_POST['ts_active_bg'][$i] : 'header';
                 $block['ts_active_bg'] = $tsActiveBg;
@@ -531,7 +535,7 @@ function parse_blocks_from_post(): array {
                         'icon'  => $iconPath,
                         'photo' => $photoPath,
                         'alt'   => trim($tabAlts[$ti] ?? ''),
-                        'desc'  => sanitize_rich_html($tabDescs[$ti] ?? ''),
+                        'desc'  => trim($tabDescs[$ti] ?? ''),
                     ];
                 }
                 $block['ts_tabs'] = $tsTabs;
@@ -539,7 +543,7 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'gallery':
-                $block['gallery_heading'] = sanitize_rich_html($_POST['gallery_heading'][$i] ?? '');
+                $block['gallery_heading'] = trim($_POST['gallery_heading'][$i] ?? '');
                 $block['gallery_cols']    = max(2, min(4, (int)($_POST['gallery_cols'][$i] ?? 3)));
                 $existingGallery = $_POST['gallery_photo_existing'][$i] ?? [];
                 $galleryAlts     = $_POST['gallery_alt'][$i]            ?? [];
@@ -560,7 +564,9 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'steps':
-                $block['steps_heading'] = sanitize_rich_html($_POST['steps_heading'][$i] ?? '');
+                $block['steps_heading'] = trim($_POST['steps_heading'][$i] ?? '');
+                $stHlRaw = trim($_POST['steps_heading_level'][$i] ?? 'h2');
+                $block['steps_heading_level'] = in_array($stHlRaw, ['h2','h3','h4']) ? $stHlRaw : 'h2';
                 $stepHeadings  = $_POST['steps_heading_item'][$i] ?? [];
                 $stepTexts     = $_POST['steps_text'][$i]          ?? [];
                 $stepAlts      = $_POST['steps_alt'][$i]           ?? [];
@@ -574,7 +580,7 @@ function parse_blocks_from_post(): array {
                         if ($up) $imgPath = $up;
                         elseif ($up === false) $uploadError = true;
                     }
-                    $sh = trim($sh); $st = sanitize_rich_html($stepTexts[$si] ?? '');
+                    $sh = trim($sh); $st = trim($stepTexts[$si] ?? '');
                     if ($sh === '' && $st === '' && !$imgPath) continue;
                     $stepItems[] = ['image' => $imgPath, 'alt' => trim($stepAlts[$si] ?? ''), 'heading' => $sh, 'text' => $st];
                 }
@@ -583,7 +589,9 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'stats':
-                $block['stats_heading'] = sanitize_rich_html($_POST['stats_heading'][$i]    ?? '');
+                $block['stats_heading'] = trim($_POST['stats_heading'][$i]    ?? '');
+                $saHlRaw = trim($_POST['stats_heading_level'][$i] ?? 'h2');
+                $block['stats_heading_level'] = in_array($saHlRaw, ['h2','h3','h4']) ? $saHlRaw : 'h2';
                 $sbc = trim($_POST['stats_bg_color'][$i]   ?? '#1e3a5f');
                 $stc = trim($_POST['stats_text_color'][$i] ?? '#ffffff');
                 $block['stats_bg_color']   = preg_match('/^#[0-9a-fA-F]{3,6}$/', $sbc) ? $sbc : '#1e3a5f';
@@ -602,9 +610,11 @@ function parse_blocks_from_post(): array {
 
             case 'cards':
                 $block['cards_label']   = trim($_POST['cards_label'][$i]   ?? '');
-                $block['cards_heading'] = sanitize_rich_html($_POST['cards_heading'][$i]  ?? '');
+                $block['cards_heading'] = trim($_POST['cards_heading'][$i]  ?? '');
+                $caHlRaw = trim($_POST['cards_heading_level'][$i] ?? 'h2');
+                $block['cards_heading_level'] = in_array($caHlRaw, ['h2','h3','h4']) ? $caHlRaw : 'h2';
                 $block['cards_subhead'] = trim($_POST['cards_subhead'][$i]  ?? '');
-                $block['cards_subtext'] = sanitize_rich_html($_POST['cards_subtext'][$i]  ?? '');
+                $block['cards_subtext'] = trim($_POST['cards_subtext'][$i]  ?? '');
                 $block['cards_cols']    = max(2, min(4, (int)($_POST['cards_cols'][$i] ?? 3)));
                 // Colors — read directly from color picker inputs
                 $cbg = trim($_POST['cards_bg'][$i] ?? '');
@@ -647,7 +657,7 @@ function parse_blocks_from_post(): array {
                         if ($up) $imgPath = $up;
                         elseif ($up === false) $uploadError = true;
                     }
-                    $ch = trim($ch); $ct = sanitize_rich_html($cardTexts[$ci] ?? '');
+                    $ch = trim($ch); $ct = trim($cardTexts[$ci] ?? '');
                     $cardIconsArr  = $_POST['cards_icon'][$i]  ?? [];
                     $cardBadgesArr = $_POST['cards_badge'][$i] ?? [];
                     $cardIcon  = trim($cardIconsArr[$ci]  ?? '');
@@ -670,7 +680,7 @@ function parse_blocks_from_post(): array {
 
             case 'pricing_cards':
                 $block['pc_label']      = trim($_POST['pc_label'][$i]      ?? '');
-                $block['pc_heading']    = sanitize_rich_html($_POST['pc_heading'][$i]     ?? '');
+                $block['pc_heading']    = trim($_POST['pc_heading'][$i]     ?? '');
                 $block['pc_subheading'] = trim($_POST['pc_subheading'][$i]  ?? '');
                 $block['pc_cols']       = max(2, min(4, (int)($_POST['pc_cols'][$i] ?? 3)));
                 $rawPcBg = trim($_POST['pc_bg'][$i] ?? '');
@@ -713,7 +723,7 @@ function parse_blocks_from_post(): array {
 
             case 'stage_cards':
                 $block['sc_section_label'] = trim($_POST['sc_section_label'][$i] ?? '');
-                $block['sc_heading'] = sanitize_rich_html($_POST['sc_heading'][$i] ?? '');
+                $block['sc_heading'] = trim($_POST['sc_heading'][$i] ?? '');
                 $block['sc_subhead'] = trim($_POST['sc_subhead'][$i] ?? '');
                 $block['sc_subtext'] = trim($_POST['sc_subtext'][$i] ?? '');
                 $rawScBg = trim($_POST['sc_bg'][$i] ?? '#f8fafc');
@@ -741,7 +751,7 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'buttons_grid':
-                $block['bg_heading'] = sanitize_rich_html($_POST['bg_heading'][$i]  ?? '');
+                $block['bg_heading'] = trim($_POST['bg_heading'][$i]  ?? '');
                 $block['bg_cols']     = in_array($_POST['bg_cols'][$i] ?? '3', ['2','3','4']) ? (int)$_POST['bg_cols'][$i] : 3;
                 $block['bg_style']    = ($_POST['bg_style'][$i] ?? 'filled') === 'outline' ? 'outline' : 'filled';
                 $bgc  = in_array($_POST['bg_color'][$i] ?? '', ['accent','header','custom']) ? $_POST['bg_color'][$i] : 'accent';
@@ -763,7 +773,9 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'testimonials':
-                $block['tm_heading'] = sanitize_rich_html($_POST['tm_heading'][$i]       ?? '');
+                $block['tm_heading'] = trim($_POST['tm_heading'][$i]       ?? '');
+                $tmHlRaw = trim($_POST['tm_heading_level'][$i] ?? 'h2');
+                $block['tm_heading_level'] = in_array($tmHlRaw, ['h2','h3','h4']) ? $tmHlRaw : 'h2';
                 $block['tm_cols']          = in_array($_POST['tm_cols'][$i] ?? '3', ['2','3']) ? (int)$_POST['tm_cols'][$i] : 3;
                 $tmbg  = trim($_POST['tm_bg_color'][$i]      ?? '#f8fafc');
                 $block['tm_bg_color']      = preg_match('/^#[0-9a-fA-F]{3,6}$/', $tmbg)  ? $tmbg  : '#f8fafc';
@@ -781,7 +793,7 @@ function parse_blocks_from_post(): array {
                 $tmBadges      = $_POST['tm_result_badge'][$i] ?? [];
                 $tmItems = [];
                 foreach ($tmQuotes as $ti => $tq) {
-                    $tq  = sanitize_rich_html($tq);
+                    $tq  = trim($tq);
                     $tn  = trim($tmNames[$ti]    ?? '');
                     $tl  = trim($tmLocations[$ti]   ?? '');
                     $ini = strtoupper(substr(trim($tmInitials[$ti] ?? ''), 0, 2));
@@ -796,7 +808,7 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'logo_bar':
-                $block['lb_heading'] = sanitize_rich_html($_POST['lb_heading'][$i] ?? '');
+                $block['lb_heading'] = trim($_POST['lb_heading'][$i] ?? '');
                 $lbbg = trim($_POST['lb_bg'][$i] ?? '#ffffff');
                 $block['lb_bg']        = preg_match('/^#[0-9a-fA-F]{3,6}$/', $lbbg) ? $lbbg : '#ffffff';
                 $block['lb_height']    = max(30, min(160, (int)($_POST['lb_height'][$i] ?? 60)));
@@ -822,7 +834,7 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'video':
-                $block['vid_heading'] = sanitize_rich_html($_POST['vid_heading'][$i] ?? '');
+                $block['vid_heading'] = trim($_POST['vid_heading'][$i] ?? '');
                 $block['vid_url']     = sanitize_url(trim($_POST['vid_url'][$i] ?? ''));
                 $block['vid_caption'] = trim($_POST['vid_caption'][$i] ?? '');
                 $block['vid_width']   = ($_POST['vid_width'][$i] ?? 'contained') === 'full' ? 'full' : 'contained';
@@ -830,14 +842,14 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'contact_form':
-                $block['cf_heading'] = sanitize_rich_html($_POST['cf_heading'][$i]  ?? 'Contact Us');
+                $block['cf_heading'] = trim($_POST['cf_heading'][$i]  ?? 'Contact Us');
                 $block['cf_subtext']   = trim($_POST['cf_subtext'][$i]  ?? '');
                 $block['cf_btn_text']  = trim($_POST['cf_btn_text'][$i] ?? 'Send Message') ?: 'Send Message';
                 $block['cf_show_phone'] = !empty($_POST['cf_show_phone'][$i]);
                 break;
 
             case 'team':
-                $block['team_heading'] = sanitize_rich_html($_POST['team_heading'][$i]    ?? '');
+                $block['team_heading'] = trim($_POST['team_heading'][$i]    ?? '');
                 $block['team_subheading'] = trim($_POST['team_subheading'][$i] ?? '');
                 $block['team_cols']       = in_array((int)($_POST['team_cols'][$i] ?? 3), [2,3,4]) ? (int)$_POST['team_cols'][$i] : 3;
                 $teamExisting  = $_POST['team_photo_existing'][$i] ?? [];
@@ -866,7 +878,9 @@ function parse_blocks_from_post(): array {
                 break;
 
             case 'comparison_table':
-                $block['ct_heading'] = sanitize_rich_html($_POST['ct_heading'][$i]     ?? '');
+                $block['ct_heading'] = trim($_POST['ct_heading'][$i] ?? '');
+                $ctHlRaw = trim($_POST['ct_heading_level'][$i] ?? 'h2');
+                $block['ct_heading_level'] = in_array($ctHlRaw, ['h2','h3','h4']) ? $ctHlRaw : 'h2';
                 $block['ct_label']       = trim($_POST['ct_label'][$i]       ?? '');
                 $block['ct_col1_header'] = trim($_POST['ct_col1_header'][$i] ?? 'Other Online Courses');
                 $block['ct_col2_header'] = trim($_POST['ct_col2_header'][$i] ?? 'Granite PM Academy');

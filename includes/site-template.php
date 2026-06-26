@@ -273,12 +273,14 @@ if ($firstBlockHero) {
         <?php
         $bskin = $block['skin'] ?? '';
         $skinClass = in_array($bskin, ['light','dark','accent','subtle']) ? " skin-{$bskin}" : '';
+        $pbVal = (int)($block['padding_bottom'] ?? 0);
+        $sectionStyle = $pbVal > 0 ? ' style="padding-bottom:' . $pbVal . 'px"' : '';
         ?>
         <?php if ($showBlocks): ?>
         <div style="outline:2px dashed #e11d48;">
         <div style="background:#e11d48;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;font-family:monospace;display:inline-block;"><?= $blockIdx ?>: <?= h($btype) ?><?= $skinClass ? " [{$bskin}]" : '' ?></div>
         <?php endif; ?>
-        <section class="block-section<?= $skinClass ?>">
+        <section class="block-section<?= $skinClass ?>"<?= $sectionStyle ?>>
         <?php if (!$isFullWidth): ?>
         <div class="container">
         <?php endif; ?>

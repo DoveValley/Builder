@@ -1,0 +1,101 @@
+{
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "austin-tx",
+  "slug": "capm-certification-training-austin-tx",
+  "title": "CAPM Certification Training {city}",
+  "city_vars": {
+    "id": "austin-tx",
+    "city": "Austin",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "austin-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": []
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "CAPM Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Granite PM Academy's CAPM Certification Training in {city_state} prepares you to earn the Certified Associate in Project Management credential. Our three-day live-virtual course satisfies PMI's 23 contact hour requirement and is ideal for professionals launching or transitioning into project management.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": ""
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification Training {city} {SS} | PMI Exam Prep | {business}",
+    "canonical_url": "",
+    "meta_description": "CAPM certification training in {city}, {SS} from a PMI Premier ATP. 3-day live-virtual course satisfies the 23 contact hour requirement. Enroll online.",
+    "meta_keywords": "CAPM certification training {city} TX, CAPM exam prep {city}, certified associate project management {city_state}",
+    "og_title": "CAPM Certification Training in {city}, {SS} | {business}",
+    "og_description": "Earn your CAPM in {city_state} with Granite PM Academy — PMI Premier ATP. Live-virtual instruction, no experience required.",
+    "og_image": "",
+    "service_name": "CAPM Certification Training",
+    "service_type": "Course",
+    "service_area": "{city}, {SS}",
+    "service_description": "PMI-aligned CAPM certification training for aspiring project managers in {city_state}.",
+    "bc_label": "CAPM Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": ""
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-06-18T17:27:44+00:00",
+  "template_version": "af6ed37967e8e49d9249205dee99e1c0"
+}

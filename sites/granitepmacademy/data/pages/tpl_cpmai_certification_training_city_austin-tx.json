@@ -1,0 +1,73 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "austin-tx",
+  "slug": "cpmai-certification-training-austin-tx",
+  "title": "CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "austin-tx",
+    "city": "Austin",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "austin-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": []
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "CPMAI Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Granite PM Academy's CPMAI Certification Training in {city_state} prepares you to manage AI and machine learning projects using the Cognilytica CPMAI methodology. A growing credential for project managers working with AI initiatives.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CPMAI AI project management training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": ""
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CPMAI Certification Training {city} {SS} | AI Project Management | {business}",
+    "canonical_url": "",
+    "meta_description": "CPMAI AI project management certification training in {city}, {SS}. Live-virtual course from Granite PM Academy. Cognilytica CPMAI methodology.",
+    "meta_keywords": "CPMAI certification training {city} TX, AI project management training {city_state}, Cognilytica CPMAI {city}",
+    "og_title": "CPMAI Certification Training in {city}, {SS} | {business}",
+    "og_description": "Earn the CPMAI credential in {city_state} with Granite PM Academy. Master AI project management from anywhere.",
+    "og_image": "",
+    "service_name": "CPMAI Certification Training",
+    "service_type": "Course",
+    "service_area": "{city}, {SS}",
+    "service_description": "CPMAI certification training for project managers working with AI initiatives in {city_state}.",
+    "bc_label": "CPMAI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": ""
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-06-18T17:27:44+00:00",
+  "template_version": "0374d3178fa0740832bfa380b680a261"
+}

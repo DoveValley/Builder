@@ -77,6 +77,9 @@ function render_content_blocks_editor($blocks) {
                         <span class="bp-trigger-label"><?= h(allowed_block_types()[$type] ?? $type) ?></span>
                         <span class="bp-trigger-arrow">&#9660;</span>
                     </button>
+                    <?php if (!empty($block['skin'])): ?>
+                    <span style="font-size:0.72rem;font-weight:700;padding:2px 8px;border-radius:4px;background:#2563eb;color:#fff;white-space:nowrap;"><?= h(ucfirst($block['skin'])) ?> skin</span>
+                    <?php endif; ?>
                     <input type="text" name="block_anchor[]"
                            value="<?= h($block['anchor'] ?? '') ?>"
                            placeholder="Section ID (e.g. pest_services)"
@@ -107,7 +110,7 @@ function render_content_blocks_editor($blocks) {
                             foreach ($skinOpts as $val => [$label, $swatchClass]):
                             ?>
                             <label class="skin-opt">
-                                <input type="radio" name="block_skin[]" value="<?= h($val) ?>" <?= $curSkin === $val ? 'checked' : '' ?>>
+                                <input type="radio" name="block_skin[<?= $i ?>]" value="<?= h($val) ?>" <?= $curSkin === $val ? 'checked' : '' ?>>
                                 <span class="skin-swatch <?= $swatchClass ?>"></span>
                                 <?= $label ?>
                             </label>
@@ -137,7 +140,7 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <div class="form-group">
                         <label>Body text</label>
-                        <textarea name="block_text[]" rows="5" class="rich-editor"><?= $block['text'] ?? '' ?></textarea>
+                        <textarea name="block_text[<?= $i ?>]" rows="5"><?= $block['text'] ?? '' ?></textarea>
                     </div>
                 </div>
 
@@ -161,7 +164,7 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <div class="form-group">
                         <label>Text</label>
-                        <textarea name="block_text[]" rows="4" class="rich-editor"><?= h($block['text'] ?? '') ?></textarea>
+                        <textarea name="ir_text[<?= $i ?>]" rows="4"><?= h($block['text'] ?? '') ?></textarea>
                     </div>
                     <?php render_photo_upload_fields('block_photo', $block['photo'] ?? '', $block['photo_ratio'] ?? 'landscape', $block['photo_position'] ?? 'center', $block['photo_alt'] ?? '', $i); ?>
                 </div>
@@ -170,11 +173,11 @@ function render_content_blocks_editor($blocks) {
                 <div class="block-fields block-fields-hero <?= $type !== 'hero' ? 'is-hidden' : '' ?>">
                     <div class="form-group">
                         <label>Main headline (H1)</label>
-                        <textarea name="hero_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Trusted Local Pest Control in Katy, TX"><?= h($block['hero_heading'] ?? '') ?></textarea>
+                        <input type="text" name="hero_heading[]" value="<?= h($block['hero_heading'] ?? '') ?>" placeholder="e.g. Trusted Local Pest Control in Katy, TX">
                     </div>
                     <div class="form-group">
                         <label>Subtext</label>
-                        <textarea name="hero_subtext[]" rows="2" class="rich-editor"><?= h($block['hero_subtext'] ?? '') ?></textarea>
+                        <textarea name="hero_subtext[]" rows="2"><?= h($block['hero_subtext'] ?? '') ?></textarea>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 180px;">
@@ -211,21 +214,15 @@ function render_content_blocks_editor($blocks) {
                 <div class="block-fields block-fields-hero_split <?= $type !== 'hero_split' ? 'is-hidden' : '' ?>">
                     <div class="form-group">
                         <label>H1 Headline</label>
-                        <textarea name="hs_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Trusted Local Pest Control in Katy, TX"><?= h($block['hs_heading'] ?? '') ?></textarea>
+                        <input type="text" name="hs_heading[]" value="<?= h($block['hs_heading'] ?? '') ?>" placeholder="e.g. Trusted Local Pest Control in Katy, TX">
                     </div>
                     <div class="form-group">
                         <label>Tagline</label>
-                        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
-                            <input type="text" name="hs_tagline[]" value="<?= h($block['hs_tagline'] ?? '') ?>" placeholder='e.g. PMI Premier ATP | Live Online | Pass Guaranteed' style="flex:1 1 200px;">
-                            <div style="display:flex;align-items:center;gap:6px;flex-shrink:0;background:#f3f4f6;padding:5px 8px;border-radius:5px;border:1px solid #e5e7eb;">
-                                <label style="margin:0;font-size:12px;white-space:nowrap;">Color:</label>
-                                <input type="color" name="hs_tagline_color[]" value="<?= h($block['hs_tagline_color'] ?? '#fd783b') ?>" style="width:36px;height:26px;padding:2px;border:1px solid #9ca3af;border-radius:4px;cursor:pointer;">
-                            </div>
-                        </div>
+                        <input type="text" name="hs_tagline[]" value="<?= h($block['hs_tagline'] ?? '') ?>" placeholder='e.g. 6 PMI Certifications. Live Online. <span style="color:#f76a0c">Pass Guaranteed.</span>'>
                     </div>
                     <div class="form-group">
                         <label>Paragraph text</label>
-                        <textarea name="hs_subtext[]" rows="3" class="rich-editor"><?= h($block['hs_subtext'] ?? '') ?></textarea>
+                        <textarea name="hs_subtext[]" rows="3"><?= h($block['hs_subtext'] ?? '') ?></textarea>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 180px;">
@@ -309,11 +306,11 @@ function render_content_blocks_editor($blocks) {
                 <div class="block-fields block-fields-feature_split <?= $type !== 'feature_split' ? 'is-hidden' : '' ?>">
                     <div class="form-group">
                         <label>Section heading (H2)</label>
-                        <textarea name="fs_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Full-Service Pest Management"><?= h($block['fs_heading'] ?? '') ?></textarea>
+                        <input type="text" name="fs_heading[]" value="<?= h($block['fs_heading'] ?? '') ?>" placeholder="e.g. Full-Service Pest Management">
                     </div>
                     <div class="form-group">
                         <label>Intro paragraph</label>
-                        <textarea name="fs_subtext[]" rows="3" class="rich-editor"><?= h($block['fs_subtext'] ?? '') ?></textarea>
+                        <textarea name="fs_subtext[]" rows="3"><?= h($block['fs_subtext'] ?? '') ?></textarea>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">
@@ -352,7 +349,7 @@ function render_content_blocks_editor($blocks) {
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea name="fs_item_text[<?= $i ?>][]" rows="2" class="rich-editor"><?= h($fitem['text'] ?? '') ?></textarea>
+                                        <textarea name="fs_item_text[<?= $i ?>][]" rows="2"><?= h($fitem['text'] ?? '') ?></textarea>
                                     </div>
                                 </div>
                                 <button type="button" class="remove-row" onclick="removeFsItem(this)" style="align-self:flex-start;margin-top:22px;">&times;</button>
@@ -400,9 +397,19 @@ function render_content_blocks_editor($blocks) {
 
                 <?php /* ---- FEATURE COLUMNS FIELDS ---- */ ?>
                 <div class="block-fields block-fields-feature_columns <?= $type !== 'feature_columns' ? 'is-hidden' : '' ?>">
-                    <div class="form-group">
-                        <label>Section heading (H2)</label>
-                        <textarea name="fc_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Our Pest Control Services"><?= h($block['fc_heading'] ?? '') ?></textarea>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Section heading</label>
+                            <input type="text" name="fc_heading[]" value="<?= h($block['fc_heading'] ?? '') ?>" placeholder="e.g. Our Pest Control Services">
+                        </div>
+                        <div class="form-group" style="flex:0 0 80px;">
+                            <label>Level</label>
+                            <select name="fc_heading_level[]">
+                                <?php foreach (['h2','h3','h4'] as $hl): ?>
+                                <option value="<?= $hl ?>" <?= ($block['fc_heading_level'] ?? 'h2') === $hl ? 'selected' : '' ?>><?= strtoupper($hl) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Subheading <span class="hint">(optional — appears below the heading)</span></label>
@@ -451,7 +458,7 @@ function render_content_blocks_editor($blocks) {
                                 <div style="flex:2 1 200px;">
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea name="fc_col_text[<?= $i ?>][]" rows="2" class="rich-editor"><?= h($col['text'] ?? '') ?></textarea>
+                                        <textarea name="fc_col_text[<?= $i ?>][]" rows="2"><?= h($col['text'] ?? '') ?></textarea>
                                     </div>
                                 </div>
                                 <button type="button" class="remove-row" onclick="removeFcCol(this)" style="align-self:flex-start;margin-top:24px;">&times;</button>
@@ -469,11 +476,11 @@ function render_content_blocks_editor($blocks) {
                     <h4 style="margin:0 0 10px;font-size:0.95rem;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">Left Panel</h4>
                     <div class="form-group">
                         <label>Heading</label>
-                        <textarea name="sc_left_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Serving the Greater Katy, TX Area"><?= h($block['sc_left_heading'] ?? '') ?></textarea>
+                        <input type="text" name="sc_left_heading[]" value="<?= h($block['sc_left_heading'] ?? '') ?>" placeholder="e.g. Serving the Greater Katy, TX Area">
                     </div>
                     <div class="form-group">
                         <label>Paragraph text</label>
-                        <textarea name="sc_left_text[]" rows="3" class="rich-editor"><?= h($block['sc_left_text'] ?? '') ?></textarea>
+                        <textarea name="sc_left_text[]" rows="3"><?= h($block['sc_left_text'] ?? '') ?></textarea>
                     </div>
                     <div class="form-group">
                         <label>Left panel background</label>
@@ -556,11 +563,11 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <div class="form-group">
                         <label>Heading</label>
-                        <textarea name="it_heading[]" class="rich-editor-heading" rows="2" placeholder="Section heading"><?= h($block['it_heading'] ?? '') ?></textarea>
+                        <input type="text" name="it_heading[]" value="<?= h($block['it_heading'] ?? '') ?>" placeholder="Section heading">
                     </div>
                     <div class="form-group">
                         <label>Text</label>
-                        <textarea name="it_text[]" rows="4" class="rich-editor"><?= h($block['it_text'] ?? '') ?></textarea>
+                        <textarea name="it_text[]" rows="4"><?= h($block['it_text'] ?? '') ?></textarea>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">
@@ -602,7 +609,7 @@ function render_content_blocks_editor($blocks) {
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 200px;">
                             <label>Section heading (H2)</label>
-                            <textarea name="faq_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Frequently Asked Questions"><?= h($block['faq_heading'] ?? '') ?></textarea>
+                            <input type="text" name="faq_heading[]" value="<?= h($block['faq_heading'] ?? '') ?>" placeholder="e.g. Frequently Asked Questions">
                         </div>
                         <div class="form-group" style="flex:0 0 160px;">
                             <label>Columns</label>
@@ -622,7 +629,7 @@ function render_content_blocks_editor($blocks) {
                             </div>
                             <div class="form-group">
                                 <label>Answer</label>
-                                <textarea name="faq_answer[<?= $i ?>][]" rows="2" class="rich-editor"><?= h($fitem['answer'] ?? '') ?></textarea>
+                                <textarea name="faq_answer[<?= $i ?>][]" rows="2"><?= h($fitem['answer'] ?? '') ?></textarea>
                             </div>
                             <button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)" style="margin-bottom:12px;">Remove Q&amp;A</button>
                         </div>
@@ -662,11 +669,11 @@ function render_content_blocks_editor($blocks) {
                 <div class="block-fields block-fields-cta_card <?= $type !== 'cta_card' ? 'is-hidden' : '' ?>">
                     <div class="form-group">
                         <label>Heading</label>
-                        <textarea name="cc_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Contact Katy's Top Pest Control Company Today"><?= h($block['cc_heading'] ?? '') ?></textarea>
+                        <input type="text" name="cc_heading[]" value="<?= h($block['cc_heading'] ?? '') ?>" placeholder="e.g. Contact Katy's Top Pest Control Company Today">
                     </div>
                     <div class="form-group">
                         <label>Paragraph text</label>
-                        <textarea name="cc_text[]" rows="3" class="rich-editor"><?= h($block['cc_text'] ?? '') ?></textarea>
+                        <textarea name="cc_text[]" rows="3"><?= h($block['cc_text'] ?? '') ?></textarea>
                     </div>
                     <div class="form-group">
                         <label>Checklist items <span class="hint">(optional — one item per line, shown with ✓)</span></label>
@@ -728,7 +735,7 @@ function render_content_blocks_editor($blocks) {
                     <h4 style="margin:14px 0 8px;font-size:0.95rem;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">Left Panel — Map</h4>
                     <div class="form-group">
                         <label>Map panel heading</label>
-                        <textarea name="mi_map_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Katy, Texas Map"><?= h($block['mi_map_heading'] ?? '') ?></textarea>
+                        <input type="text" name="mi_map_heading[]" value="<?= h($block['mi_map_heading'] ?? '') ?>" placeholder="e.g. Katy, Texas Map">
                     </div>
                     <div class="form-group">
                         <label>Google Maps embed code</label>
@@ -739,11 +746,11 @@ function render_content_blocks_editor($blocks) {
                     <h4 style="margin:14px 0 8px;font-size:0.95rem;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">Right Panel — Info</h4>
                     <div class="form-group">
                         <label>Info panel heading</label>
-                        <textarea name="mi_info_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Katy, TX Information"><?= h($block['mi_info_heading'] ?? '') ?></textarea>
+                        <input type="text" name="mi_info_heading[]" value="<?= h($block['mi_info_heading'] ?? '') ?>" placeholder="e.g. Katy, TX Information">
                     </div>
                     <div class="form-group">
                         <label>Info text</label>
-                        <textarea name="mi_info_text[]" rows="4" class="rich-editor"><?= h($block['mi_info_text'] ?? '') ?></textarea>
+                        <textarea name="mi_info_text[]" rows="4"><?= h($block['mi_info_text'] ?? '') ?></textarea>
                     </div>
                     <div class="form-group">
                         <label>Info photo (optional)</label>
@@ -793,7 +800,7 @@ function render_content_blocks_editor($blocks) {
 
                     <div class="form-group">
                         <label>Section heading</label>
-                        <textarea name="lg_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Our Pest Control Services in Katy, TX"><?= h($block['lg_heading'] ?? '') ?></textarea>
+                        <input type="text" name="lg_heading[]" value="<?= h($block['lg_heading'] ?? '') ?>" placeholder="e.g. Our Pest Control Services in Katy, TX">
                     </div>
 
                     <!-- Dark style only fields -->
@@ -860,7 +867,7 @@ function render_content_blocks_editor($blocks) {
                     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
                         <div class="form-group" style="flex:2 1 220px;">
                             <label>Heading</label>
-                            <textarea name="eb_heading[]" class="rich-editor-heading" rows="2" placeholder="Free PMP Practice Exam — See If You're Ready"><?= h($block['eb_heading'] ?? '') ?></textarea>
+                            <input type="text" name="eb_heading[]" value="<?= h($block['eb_heading'] ?? '') ?>" placeholder="Free PMP Practice Exam — See If You're Ready">
                         </div>
                         <div class="form-group" style="flex:0 0 100px;">
                             <label>Background</label>
@@ -906,10 +913,20 @@ function render_content_blocks_editor($blocks) {
                 </div>
 
                 <div class="block-fields block-fields-cta_banner <?= $type !== 'cta_banner' ? 'is-hidden' : '' ?>">
-                    <div class="form-group">
-                        <label>Banner text (centered, bold)</label>
-                        <input type="text" name="cb_text[]" value="<?= h($block['cb_text'] ?? '') ?>"
-                               placeholder="e.g. 24/7 Pest Control Services in Katy, TX">
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Banner heading (centered, bold)</label>
+                            <input type="text" name="cb_text[]" value="<?= h($block['cb_text'] ?? '') ?>"
+                                   placeholder="e.g. 24/7 Pest Control Services in Katy, TX">
+                        </div>
+                        <div class="form-group" style="flex:0 0 80px;">
+                            <label>Level</label>
+                            <select name="cb_heading_level[]">
+                                <?php foreach (['h2','h3','h4'] as $hl): ?>
+                                <option value="<?= $hl ?>" <?= ($block['cb_heading_level'] ?? 'h2') === $hl ? 'selected' : '' ?>><?= strtoupper($hl) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Subtext (optional, smaller below main text)</label>
@@ -953,9 +970,19 @@ function render_content_blocks_editor($blocks) {
 
                 <?php /* ---- FAQ TWO COLUMN FIELDS ---- */ ?>
                 <div class="block-fields block-fields-faq_two_col <?= $type !== 'faq_two_col' ? 'is-hidden' : '' ?>">
-                    <div class="form-group">
-                        <label>Section heading</label>
-                        <textarea name="fq_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. FAQs – Pest Control in Katy"><?= h($block['fq_heading'] ?? '') ?></textarea>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Section heading</label>
+                            <input type="text" name="fq_heading[]" value="<?= h($block['fq_heading'] ?? '') ?>" placeholder="e.g. FAQs – Pest Control in Katy">
+                        </div>
+                        <div class="form-group" style="flex:0 0 80px;">
+                            <label>Level</label>
+                            <select name="fq_heading_level[]">
+                                <?php foreach (['h2','h3','h4'] as $hl): ?>
+                                <option value="<?= $hl ?>" <?= ($block['fq_heading_level'] ?? 'h2') === $hl ? 'selected' : '' ?>><?= strtoupper($hl) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 140px;">
@@ -999,7 +1026,7 @@ function render_content_blocks_editor($blocks) {
                             </div>
                             <div class="form-group">
                                 <label>Answer</label>
-                                <textarea name="fq_answer[<?= $i ?>][]" rows="2" class="rich-editor"><?= h($fitem['answer'] ?? '') ?></textarea>
+                                <textarea name="fq_answer[<?= $i ?>][]" rows="2"><?= h($fitem['answer'] ?? '') ?></textarea>
                             </div>
                             <button type="button" class="remove-row btn-secondary btn-small" onclick="removeFqItem(this)" style="margin-bottom:4px;">Remove Q&amp;A</button>
                         </div>
@@ -1053,11 +1080,11 @@ function render_content_blocks_editor($blocks) {
                     <h4 style="margin:12px 0 8px;font-size:0.95rem;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">Right Content</h4>
                     <div class="form-group">
                         <label>Heading</label>
-                        <textarea name="if_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Quality Pest Prevention"><?= h($block['if_heading'] ?? '') ?></textarea>
+                        <input type="text" name="if_heading[]" value="<?= h($block['if_heading'] ?? '') ?>" placeholder="e.g. Quality Pest Prevention">
                     </div>
                     <div class="form-group">
                         <label>Intro paragraph</label>
-                        <textarea name="if_intro[]" rows="3" class="rich-editor"><?= h($block['if_intro'] ?? '') ?></textarea>
+                        <textarea name="if_intro[]" rows="3"><?= h($block['if_intro'] ?? '') ?></textarea>
                     </div>
 
                     <h4 style="margin:12px 0 8px;font-size:0.95rem;">Feature checkboxes (2 per row)</h4>
@@ -1073,7 +1100,7 @@ function render_content_blocks_editor($blocks) {
 
                     <div class="form-group" style="margin-top:14px;">
                         <label>Closing paragraph (below features)</label>
-                        <textarea name="if_closing[]" rows="2" class="rich-editor"><?= h($block['if_closing'] ?? '') ?></textarea>
+                        <textarea name="if_closing[]" rows="2"><?= h($block['if_closing'] ?? '') ?></textarea>
                     </div>
 
                     <h4 style="margin:12px 0 8px;font-size:0.95rem;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">Phone CTA Row</h4>
@@ -1099,13 +1126,23 @@ function render_content_blocks_editor($blocks) {
                         <label>Badge text (small pill, optional)</label>
                         <input type="text" name="wb_badge[]" value="<?= h($block['wb_badge'] ?? '') ?>" placeholder="e.g. KATY, TEXAS'S SPECIALISTS">
                     </div>
-                    <div class="form-group">
-                        <label>Heading (H2)</label>
-                        <textarea name="wb_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Your First Choice For Katy Pest Pros in Katy, TX"><?= h($block['wb_heading'] ?? '') ?></textarea>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Heading</label>
+                            <input type="text" name="wb_heading[]" value="<?= h($block['wb_heading'] ?? '') ?>" placeholder="e.g. Your First Choice For Katy Pest Pros in Katy, TX">
+                        </div>
+                        <div class="form-group" style="flex:0 0 80px;">
+                            <label>Level</label>
+                            <select name="wb_heading_level[]">
+                                <?php foreach (['h2','h3','h4'] as $hl): ?>
+                                <option value="<?= $hl ?>" <?= ($block['wb_heading_level'] ?? 'h2') === $hl ? 'selected' : '' ?>><?= strtoupper($hl) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Subtext (optional — shown below heading)</label>
-                        <textarea name="wb_subtext[]" rows="2" class="rich-editor"><?= h($block['wb_subtext'] ?? '') ?></textarea>
+                        <textarea name="wb_subtext[]" rows="2"><?= h($block['wb_subtext'] ?? '') ?></textarea>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">
@@ -1174,7 +1211,7 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <div class="form-group">
                         <label>Section heading</label>
-                        <textarea name="sc_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Local Experts in Katy, TX"><?= h($block['sc_heading'] ?? '') ?></textarea>
+                        <input type="text" name="sc_heading[]" value="<?= h($block['sc_heading'] ?? '') ?>" placeholder="e.g. Local Experts in Katy, TX">
                     </div>
                     <div class="form-group">
                         <label>Number of columns</label>
@@ -1237,7 +1274,7 @@ function render_content_blocks_editor($blocks) {
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea name="sc_item_text[<?= $i ?>][]" rows="2" class="rich-editor"><?= h($sitem['text'] ?? '') ?></textarea>
+                                        <textarea name="sc_item_text[<?= $i ?>][]" rows="2"><?= h($sitem['text'] ?? '') ?></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Link URL <span class="hint">(optional — makes the card clickable)</span></label>
@@ -1263,11 +1300,11 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <div class="form-group">
                         <label>Heading (H2)</label>
-                        <textarea name="hg_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Top-Notch Katy Pest Pros in Katy, TX"><?= h($block['hg_heading'] ?? '') ?></textarea>
+                        <input type="text" name="hg_heading[]" value="<?= h($block['hg_heading'] ?? '') ?>" placeholder="e.g. Top-Notch Katy Pest Pros in Katy, TX">
                     </div>
                     <div class="form-group">
                         <label>Body text (leave blank line between paragraphs)</label>
-                        <textarea name="hg_body[]" rows="4" class="rich-editor"><?= h($block['hg_body'] ?? '') ?></textarea>
+                        <textarea name="hg_body[]" rows="4"><?= h($block['hg_body'] ?? '') ?></textarea>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">
@@ -1354,7 +1391,7 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <div class="form-group">
                         <label>Section heading</label>
-                        <textarea name="ts_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Professional Katy Pest Pros Team in Katy, TX"><?= h($block['ts_heading'] ?? '') ?></textarea>
+                        <input type="text" name="ts_heading[]" value="<?= h($block['ts_heading'] ?? '') ?>" placeholder="e.g. Professional Katy Pest Pros Team in Katy, TX">
                     </div>
                     <div class="form-group">
                         <label>Active tab background color</label>
@@ -1391,7 +1428,7 @@ function render_content_blocks_editor($blocks) {
                                     </div>
                                     <div class="form-group">
                                         <label>Description (shown below photo)</label>
-                                        <textarea name="ts_tab_desc[<?= $i ?>][]" rows="2" class="rich-editor"><?= h($tab['desc'] ?? '') ?></textarea>
+                                        <textarea name="ts_tab_desc[<?= $i ?>][]" rows="2"><?= h($tab['desc'] ?? '') ?></textarea>
                                     </div>
                                 </div>
                                 <div style="flex:0 0 130px;">
@@ -1420,7 +1457,7 @@ function render_content_blocks_editor($blocks) {
                 <div class="block-fields block-fields-gallery <?= $type !== 'gallery' ? 'is-hidden' : '' ?>">
                     <div class="form-group">
                         <label>Section heading (optional)</label>
-                        <textarea name="gallery_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Gallery of Restoration Projects"><?= h($block['gallery_heading'] ?? '') ?></textarea>
+                        <input type="text" name="gallery_heading[]" value="<?= h($block['gallery_heading'] ?? '') ?>" placeholder="e.g. Gallery of Restoration Projects">
                     </div>
                     <div class="form-group">
                         <label>Number of columns</label>
@@ -1458,9 +1495,19 @@ function render_content_blocks_editor($blocks) {
 
                 <?php /* ---- STEPS FIELDS ---- */ ?>
                 <div class="block-fields block-fields-steps <?= $type !== 'steps' ? 'is-hidden' : '' ?>">
-                    <div class="form-group">
-                        <label>Section heading (optional)</label>
-                        <textarea name="steps_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Our Recovery Process"><?= h($block['steps_heading'] ?? '') ?></textarea>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Section heading (optional)</label>
+                            <input type="text" name="steps_heading[]" value="<?= h($block['steps_heading'] ?? '') ?>" placeholder="e.g. Our Recovery Process">
+                        </div>
+                        <div class="form-group" style="flex:0 0 80px;">
+                            <label>Level</label>
+                            <select name="steps_heading_level[]">
+                                <?php foreach (['h2','h3','h4'] as $hl): ?>
+                                <option value="<?= $hl ?>" <?= ($block['steps_heading_level'] ?? 'h2') === $hl ? 'selected' : '' ?>><?= strtoupper($hl) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
                     </div>
                     <span class="hint" style="display:block;margin-bottom:10px;">Leave the image blank to show an auto-numbered circle instead.</span>
                     <div class="steps-items-editor" id="steps_items_<?= $i ?>">
@@ -1489,7 +1536,7 @@ function render_content_blocks_editor($blocks) {
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea name="steps_text[<?= $i ?>][]" rows="2" class="rich-editor"><?= h($step['text'] ?? '') ?></textarea>
+                                        <textarea name="steps_text[<?= $i ?>][]" rows="2"><?= h($step['text'] ?? '') ?></textarea>
                                     </div>
                                 </div>
                                 <button type="button" class="remove-row" onclick="removeStepItem(this)" style="margin-top:24px;">&times;</button>
@@ -1502,9 +1549,19 @@ function render_content_blocks_editor($blocks) {
 
                 <?php /* ---- STATS FIELDS ---- */ ?>
                 <div class="block-fields block-fields-stats <?= $type !== 'stats' ? 'is-hidden' : '' ?>">
-                    <div class="form-group">
-                        <label>Section heading (optional)</label>
-                        <textarea name="stats_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Why Choose Us"><?= h($block['stats_heading'] ?? '') ?></textarea>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Section heading (optional)</label>
+                            <input type="text" name="stats_heading[]" value="<?= h($block['stats_heading'] ?? '') ?>" placeholder="e.g. Why Choose Us">
+                        </div>
+                        <div class="form-group" style="flex:0 0 80px;">
+                            <label>Level</label>
+                            <select name="stats_heading_level[]">
+                                <?php foreach (['h2','h3','h4'] as $hl): ?>
+                                <option value="<?= $hl ?>" <?= ($block['stats_heading_level'] ?? 'h2') === $hl ? 'selected' : '' ?>><?= strtoupper($hl) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">
@@ -1545,7 +1602,15 @@ function render_content_blocks_editor($blocks) {
                         </div>
                         <div class="form-group" style="flex:2 1 220px;">
                             <label>Main heading</label>
-                            <textarea name="cards_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Our Services"><?= h($block['cards_heading'] ?? '') ?></textarea>
+                            <input type="text" name="cards_heading[]" value="<?= h($block['cards_heading'] ?? '') ?>" placeholder="e.g. Our Services">
+                        </div>
+                        <div class="form-group" style="flex:0 0 80px;">
+                            <label>Level</label>
+                            <select name="cards_heading_level[]">
+                                <?php foreach (['h2','h3','h4'] as $hl): ?>
+                                <option value="<?= $hl ?>" <?= ($block['cards_heading_level'] ?? 'h2') === $hl ? 'selected' : '' ?>><?= strtoupper($hl) ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -1554,7 +1619,7 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <div class="form-group">
                         <label>Intro paragraph (optional)</label>
-                        <textarea name="cards_subtext[]" rows="2" class="rich-editor"><?= h($block['cards_subtext'] ?? '') ?></textarea>
+                        <textarea name="cards_subtext[]" rows="2"><?= h($block['cards_subtext'] ?? '') ?></textarea>
                     </div>
                     <div class="form-group">
                         <label>Number of columns</label>
@@ -1626,7 +1691,7 @@ function render_content_blocks_editor($blocks) {
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea name="cards_text[<?= $i ?>][]" rows="2" class="rich-editor"><?= h($card['text'] ?? '') ?></textarea>
+                                        <textarea name="cards_text[<?= $i ?>][]" rows="2"><?= h($card['text'] ?? '') ?></textarea>
                                     </div>
                                     <div style="display:flex;gap:8px;flex-wrap:wrap;">
                                         <div class="form-group" style="flex:2 1 180px;">
@@ -1665,7 +1730,7 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <div class="form-group">
                         <label>Section heading <span class="hint">(supports &lt;span style="color:#hex"&gt; for colored words)</span></label>
-                        <textarea name="pc_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Six Classes. Every Career Stage."><?= h($block['pc_heading'] ?? '') ?></textarea>
+                        <input type="text" name="pc_heading[]" value="<?= h($block['pc_heading'] ?? '') ?>" placeholder="e.g. Six Classes. Every Career Stage.">
                     </div>
                     <div class="form-group">
                         <label>Intro paragraph <span class="hint">(appears below heading)</span></label>
@@ -1742,12 +1807,13 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <button type="button" class="btn btn-secondary btn-small" onclick="addPcItem(this, <?= $i ?>)">+ Add card</button>
                 </div>
+                </div><!-- /block-fields-pricing_cards -->
 
                 <?php /* ---- BUTTONS GRID FIELDS ---- */ ?>
                 <div class="block-fields block-fields-buttons_grid <?= $type !== 'buttons_grid' ? 'is-hidden' : '' ?>">
                     <div class="form-group">
                         <label>Heading (optional)</label>
-                        <textarea name="bg_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Our Services"><?= h($block['bg_heading'] ?? '') ?></textarea>
+                        <input type="text" name="bg_heading[]" value="<?= h($block['bg_heading'] ?? '') ?>" placeholder="e.g. Our Services">
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 130px;">
@@ -1793,9 +1859,19 @@ function render_content_blocks_editor($blocks) {
 
                 <?php /* ---- TESTIMONIALS FIELDS ---- */ ?>
                 <div class="block-fields block-fields-testimonials <?= $type !== 'testimonials' ? 'is-hidden' : '' ?>">
-                    <div class="form-group">
-                        <label>Section heading (optional)</label>
-                        <textarea name="tm_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. What Our Customers Say"><?= h($block['tm_heading'] ?? '') ?></textarea>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Section heading (optional)</label>
+                            <input type="text" name="tm_heading[]" value="<?= h($block['tm_heading'] ?? '') ?>" placeholder="e.g. What Our Customers Say">
+                        </div>
+                        <div class="form-group" style="flex:0 0 80px;">
+                            <label>Level</label>
+                            <select name="tm_heading_level[]">
+                                <?php foreach (['h2','h3','h4'] as $hl): ?>
+                                <option value="<?= $hl ?>" <?= ($block['tm_heading_level'] ?? 'h2') === $hl ? 'selected' : '' ?>><?= strtoupper($hl) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 130px;">
@@ -1829,7 +1905,7 @@ function render_content_blocks_editor($blocks) {
                         <div class="faq-item-row">
                             <div class="form-group">
                                 <label>Review text</label>
-                                <textarea name="tm_quote[<?= $i ?>][]" rows="3" class="rich-editor" placeholder="e.g. Fast, professional service. Got rid of our ant problem in one visit."><?= h($titem['quote'] ?? '') ?></textarea>
+                                <textarea name="tm_quote[<?= $i ?>][]" rows="3" placeholder="e.g. Fast, professional service. Got rid of our ant problem in one visit."><?= h($titem['quote'] ?? '') ?></textarea>
                             </div>
                             <div style="display:flex;gap:12px;flex-wrap:wrap;">
                                 <div class="form-group" style="flex:1 1 160px;">
@@ -1867,7 +1943,7 @@ function render_content_blocks_editor($blocks) {
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:2 1 220px;">
                             <label>Section heading</label>
-                            <textarea name="team_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Meet Our Instructors"><?= h($block['team_heading'] ?? '') ?></textarea>
+                            <input type="text" name="team_heading[]" value="<?= h($block['team_heading'] ?? '') ?>" placeholder="e.g. Meet Our Instructors">
                         </div>
                         <div class="form-group" style="flex:0 0 80px;">
                             <label>Columns</label>
@@ -1927,7 +2003,7 @@ function render_content_blocks_editor($blocks) {
                     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
                         <div class="form-group" style="flex:2 1 200px;">
                             <label>Label (optional)</label>
-                            <textarea name="lb_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Trusted by, As seen in, Our Partners"><?= h($block['lb_heading'] ?? '') ?></textarea>
+                            <input type="text" name="lb_heading[]" value="<?= h($block['lb_heading'] ?? '') ?>" placeholder="e.g. Trusted by, As seen in, Our Partners">
                         </div>
                         <div class="form-group" style="flex:0 0 100px;">
                             <label>Background</label>
@@ -1985,7 +2061,7 @@ function render_content_blocks_editor($blocks) {
                         </div>
                         <div class="form-group" style="flex:2 1 220px;">
                             <label>Main heading</label>
-                            <textarea name="sc_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Every stage of your career."><?= h($block['sc_heading'] ?? '') ?></textarea>
+                            <input type="text" name="sc_heading[]" value="<?= h($block['sc_heading'] ?? '') ?>" placeholder="e.g. Every stage of your career.">
                         </div>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
@@ -2051,7 +2127,7 @@ function render_content_blocks_editor($blocks) {
                 <div class="block-fields block-fields-video <?= $type !== 'video' ? 'is-hidden' : '' ?>">
                     <div class="form-group">
                         <label>Heading (optional)</label>
-                        <textarea name="vid_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. See Us In Action"><?= h($block['vid_heading'] ?? '') ?></textarea>
+                        <input type="text" name="vid_heading[]" value="<?= h($block['vid_heading'] ?? '') ?>" placeholder="e.g. See Us In Action">
                     </div>
                     <div class="form-group">
                         <label>YouTube or Vimeo URL</label>
@@ -2075,7 +2151,7 @@ function render_content_blocks_editor($blocks) {
                 <div class="block-fields block-fields-contact_form <?= $type !== 'contact_form' ? 'is-hidden' : '' ?>">
                     <div class="form-group">
                         <label>Heading</label>
-                        <textarea name="cf_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Get in Touch"><?= h($block['cf_heading'] ?? 'Contact Us') ?></textarea>
+                        <input type="text" name="cf_heading[]" value="<?= h($block['cf_heading'] ?? 'Contact Us') ?>" placeholder="e.g. Get in Touch">
                     </div>
                     <div class="form-group">
                         <label>Subtext (optional)</label>
@@ -2096,7 +2172,15 @@ function render_content_blocks_editor($blocks) {
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:2 1 220px;">
                             <label>Section heading</label>
-                            <textarea name="ct_heading[]" class="rich-editor-heading" rows="2" placeholder="e.g. Not All PMP Certification Training Is Equal"><?= h($block['ct_heading'] ?? '') ?></textarea>
+                            <input type="text" name="ct_heading[]" value="<?= h($block['ct_heading'] ?? '') ?>" placeholder="e.g. Not All PMP Certification Training Is Equal">
+                        </div>
+                        <div class="form-group" style="flex:0 0 80px;">
+                            <label>Level</label>
+                            <select name="ct_heading_level[]">
+                                <?php foreach (['h2','h3','h4'] as $hl): ?>
+                                <option value="<?= $hl ?>" <?= ($block['ct_heading_level'] ?? 'h2') === $hl ? 'selected' : '' ?>><?= strtoupper($hl) ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                         <div class="form-group" style="flex:0 0 120px;">
                             <label>Background</label>
