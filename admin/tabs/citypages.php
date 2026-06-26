@@ -349,13 +349,16 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
         if (errCnt)   stats += '<div style="display:flex;flex-direction:column;"><span style="font-size:1.1rem;font-weight:700;color:#dc2626;">' + errCnt + '</span><span style="font-size:.72rem;color:#6b7280;">errors</span></div>';
         if (dur)      stats += '<div style="display:flex;flex-direction:column;"><span style="font-size:1.1rem;font-weight:700;">' + dur + '</span><span style="font-size:.72rem;color:#6b7280;">duration</span></div>';
 
+        var reloadNote = isDry ? '' : '<div style="margin-top:10px;font-size:.75rem;color:#6b7280;">Refreshing page status in 4 seconds…</div>';
         el.innerHTML =
             '<div style="background:' + bg + ';border:1px solid ' + border + ';border-radius:8px;padding:16px 20px;">' +
             '<div style="font-size:.95rem;font-weight:700;color:' + headColor + ';margin-bottom:10px;">' + head + '</div>' +
             '<div style="display:flex;flex-wrap:wrap;gap:12px 28px;">' + (stats || '<span style="color:#6b7280;font-size:.83rem;">Nothing to generate.</span>') + '</div>' +
             (isDry ? '<div style="margin-top:8px;font-size:.75rem;color:#6b7280;">No files were written — this was a dry run.</div>' : '') +
+            reloadNote +
             '</div>';
         el.style.display = '';
+        el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
     // ── Main generate function ────────────────────────────────────────────────
@@ -406,7 +409,7 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
 
             // Reload to refresh status cells (skip on dry run)
             if (!data.dry_run) {
-                setTimeout(function() { window.location.reload(); }, 2000);
+                setTimeout(function() { window.location.reload(); }, 4000);
             }
         })
         .catch(function(e) {
