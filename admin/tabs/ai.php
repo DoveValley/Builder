@@ -359,6 +359,30 @@ function fmt_dur(int $ms): string {
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
+
+        // Build confirmation summary
+        var action   = actionSel.value;
+        var cityEl   = document.getElementById('ai-city');
+        var scopeEl  = document.getElementById('ai-scope');
+        var research = document.getElementById('ai-research');
+        var refresh  = document.querySelector('[name="refresh"]');
+        var dryRun   = document.querySelector('[name="dry_run"]');
+
+        var actionLabels = { generate: 'Generate content', research: 'Research only', sync: 'Sync templates' };
+        var lines = [];
+        lines.push('Action:  ' + (actionLabels[action] || action));
+        if (action !== 'sync') {
+            lines.push('City:    ' + (cityEl && cityEl.value ? cityEl.options[cityEl.selectedIndex].text : 'All cities'));
+        }
+        if (action === 'generate') {
+            lines.push('Scope:   ' + (scopeEl ? scopeEl.options[scopeEl.selectedIndex].text : ''));
+            if (research && research.checked) lines.push('         + Research cities first');
+            if (refresh  && refresh.checked)  lines.push('         + Refresh locked blocks');
+        }
+        if (dryRun && dryRun.checked) lines.push('         DRY RUN — no API calls');
+
+        if (!confirm('Run generator?\n\n' + lines.join('\n'))) return;
+
         btn.disabled = true;
         spinner.classList.add('on');
         resultBar.className = 'ai-result-bar';
