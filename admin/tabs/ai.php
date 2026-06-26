@@ -100,6 +100,23 @@ function fmt_dur(int $ms): string {
 .badge-none      { background:#f3f4f6; color:#9ca3af; }
 .cmd-box         { background:#1e293b; color:#e2e8f0; font-family:monospace; font-size:.82rem; padding:14px 16px; border-radius:8px; margin-bottom:24px; overflow-x:auto; white-space:pre-wrap; word-break:break-all; line-height:1.6; }
 .cmd-box .cmd-comment { color:#64748b; }
+.ai-console      { background:#0f172a; color:#94a3b8; font-family:monospace; font-size:.78rem; line-height:1.6; padding:14px 16px; border-radius:8px; max-height:360px; overflow-y:auto; white-space:pre-wrap; word-break:break-all; display:none; margin-top:14px; }
+.ai-console.open { display:block; }
+.ai-console .ok  { color:#4ade80; }
+.ai-console .err { color:#f87171; }
+.ai-console .sep { color:#334155; }
+.ai-trigger-row  { display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap; }
+.ai-trigger-row .form-group { margin:0; }
+.ai-trigger-row label { font-size:.8rem; font-weight:600; color:#374151; display:block; margin-bottom:4px; }
+.ai-trigger-row select, .ai-trigger-row input[type=text] { padding:7px 10px; border:1px solid #d1d5db; border-radius:6px; font-size:.83rem; }
+.ai-spinner      { display:none; width:18px; height:18px; border:2px solid #e5e7eb; border-top-color:var(--color-accent,#fd783b); border-radius:50%; animation:ai-spin .7s linear infinite; flex-shrink:0; }
+.ai-spinner.on   { display:inline-block; }
+@keyframes ai-spin { to { transform:rotate(360deg); } }
+.ai-run-btn      { background:var(--color-accent,#fd783b); color:#fff; border:none; padding:8px 18px; border-radius:6px; font-size:.85rem; font-weight:600; cursor:pointer; white-space:nowrap; }
+.ai-run-btn:disabled { opacity:.55; cursor:not-allowed; }
+.ai-result-bar   { display:none; font-size:.82rem; margin-top:10px; padding:8px 12px; border-radius:6px; }
+.ai-result-bar.ok   { background:#d1fae5; color:#065f46; display:block; }
+.ai-result-bar.fail { background:#fee2e2; color:#991b1b; display:block; }
 </style>
 
 <!-- ── Summary cards ── -->
@@ -126,20 +143,66 @@ function fmt_dur(int $ms): string {
     </div>
 </div>
 
-<!-- ── Quick commands ── -->
-<div class="card" style="margin-bottom:24px;">
-    <h3 style="margin-top:0; margin-bottom:12px;">Generator Commands</h3>
-    <div class="cmd-box"><span class="cmd-comment"># Research + generate all landing pages for a site</span>
-python3 generate.py --site <?= h(ACTIVE_SITE_ID) ?> --research --page landing
-
-<span class="cmd-comment"># Generate a single city's page</span>
-python3 generate.py --site <?= h(ACTIVE_SITE_ID) ?> --file &lt;city-slug&gt; --research
-
-<span class="cmd-comment"># Preview without API calls</span>
-python3 generate.py --site <?= h(ACTIVE_SITE_ID) ?> --all --dry-run
-
-<span class="cmd-comment"># Regenerate locked blocks</span>
-python3 generate.py --site <?= h(ACTIVE_SITE_ID) ?> --page landing --refresh</div>
+<!-- ── AI Trigger ── -->
+<?php $apiKeyOk = defined('ANTHROPIC_API_KEY') && ANTHROPIC_API_KEY !== ''; ?>
+<div class="card" style="margin-bottom:24px;" id="ai-trigger-card">
+    <h3 style="margin-top:0; margin-bottom:16px;">Run Generator</h3>
+    <?php if (!$apiKeyOk): ?>
+    <div class="ai-result-bar fail" style="display:block; margin-bottom:0;">
+        <strong>API key not configured.</strong> Set <code>ANTHROPIC_API_KEY</code> in <code>config.php</code> or as a server environment variable.
+    </div>
+    <?php else: ?>
+    <form id="ai-trigger-form" autocomplete="off">
+        <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+        <div class="ai-trigger-row" style="margin-bottom:14px;">
+            <div class="form-group">
+                <label for="ai-action">Action</label>
+                <select name="action" id="ai-action">
+                    <option value="generate">Generate content</option>
+                    <option value="research">Research only</option>
+                    <option value="sync">Sync templates</option>
+                </select>
+            </div>
+            <div class="form-group" id="ai-city-wrap">
+                <label for="ai-city">City</label>
+                <select name="city_id" id="ai-city">
+                    <option value="">All cities</option>
+                    <?php foreach ($cities as $c): ?>
+                    <option value="<?= h($c['id'] ?? '') ?>"><?= h($c['city'] ?? ($c['id'] ?? '')) ?>, <?= h($c['SS'] ?? '') ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group" id="ai-scope-wrap">
+                <label for="ai-scope">Scope</label>
+                <select name="scope" id="ai-scope">
+                    <option value="landing">Landing pages</option>
+                    <option value="all">All pages</option>
+                </select>
+            </div>
+        </div>
+        <div class="ai-trigger-row" style="margin-bottom:16px; align-items:center; gap:20px;">
+            <label id="ai-research-wrap" style="display:flex;align-items:center;gap:6px;font-weight:500;font-size:.83rem;cursor:pointer;margin:0;">
+                <input type="checkbox" name="research" value="1" id="ai-research">
+                Research cities first
+            </label>
+            <label style="display:flex;align-items:center;gap:6px;font-weight:500;font-size:.83rem;cursor:pointer;margin:0;">
+                <input type="checkbox" name="refresh" value="1">
+                Refresh locked blocks
+            </label>
+            <label style="display:flex;align-items:center;gap:6px;font-weight:500;font-size:.83rem;cursor:pointer;margin:0;">
+                <input type="checkbox" name="dry_run" value="1">
+                Dry run (no API calls)
+            </label>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+            <button type="submit" class="ai-run-btn" id="ai-run-btn">&#9654; Run</button>
+            <div class="ai-spinner" id="ai-spinner"></div>
+            <span id="ai-status-text" style="font-size:.82rem;color:#6b7280;"></span>
+        </div>
+    </form>
+    <div class="ai-result-bar" id="ai-result-bar"></div>
+    <div class="ai-console" id="ai-console"></div>
+    <?php endif; ?>
 </div>
 
 <!-- ── City coverage ── -->
@@ -253,3 +316,89 @@ python3 generate.py --site <?= h(ACTIVE_SITE_ID) ?> --page landing --refresh</di
 </div>
 
 </div>
+
+<?php if ($apiKeyOk): ?>
+<script>
+(function () {
+    var form       = document.getElementById('ai-trigger-form');
+    var btn        = document.getElementById('ai-run-btn');
+    var spinner    = document.getElementById('ai-spinner');
+    var outputEl   = document.getElementById('ai-console');
+    var resultBar  = document.getElementById('ai-result-bar');
+    var statusText = document.getElementById('ai-status-text');
+    var actionSel  = document.getElementById('ai-action');
+    var cityWrap   = document.getElementById('ai-city-wrap');
+    var scopeWrap  = document.getElementById('ai-scope-wrap');
+    var researchWrap = document.getElementById('ai-research-wrap');
+
+    function updateVisibility() {
+        var action = actionSel.value;
+        cityWrap.style.display     = action === 'sync' ? 'none' : '';
+        scopeWrap.style.display    = action === 'generate' ? '' : 'none';
+        researchWrap.style.display = action === 'generate' ? '' : 'none';
+    }
+    actionSel.addEventListener('change', updateVisibility);
+    updateVisibility();
+
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        btn.disabled = true;
+        spinner.classList.add('on');
+        resultBar.className = 'ai-result-bar';
+        resultBar.textContent = '';
+        outputEl.textContent = '';
+        outputEl.classList.add('open');
+        statusText.textContent = 'Starting…';
+
+        var startedAt = Date.now();
+        var ticker = setInterval(function () {
+            var elapsed = ((Date.now() - startedAt) / 1000).toFixed(0);
+            statusText.textContent = 'Running… ' + elapsed + 's';
+        }, 1000);
+
+        fetch('ai_generate.php', {
+            method: 'POST',
+            body: new FormData(form),
+            credentials: 'same-origin',
+        })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+            clearInterval(ticker);
+            btn.disabled = false;
+            spinner.classList.remove('on');
+            statusText.textContent = '';
+
+            outputEl.textContent = res.output || '(no output)';
+            outputEl.scrollTop = outputEl.scrollHeight;
+
+            var dur = res.duration_ms ? (res.duration_ms / 1000).toFixed(1) + 's' : '';
+            if (res.success) {
+                var log = res.last_log;
+                var msg = 'Done';
+                if (dur) msg += ' in ' + dur;
+                if (log) {
+                    if (log.blocks_generated != null) msg += ' · ' + log.blocks_generated + ' blocks generated';
+                    if (log.estimated_cost_usd) msg += ' · $' + parseFloat(log.estimated_cost_usd).toFixed(4) + ' est. cost';
+                }
+                resultBar.textContent = msg;
+                resultBar.className = 'ai-result-bar ok';
+                setTimeout(function () { location.reload(); }, 2500);
+            } else {
+                resultBar.textContent = res.error || ('Exited with code ' + res.exit_code);
+                resultBar.className = 'ai-result-bar fail';
+            }
+        })
+        .catch(function (err) {
+            clearInterval(ticker);
+            btn.disabled = false;
+            spinner.classList.remove('on');
+            statusText.textContent = '';
+            resultBar.textContent = 'Request failed: ' + err.message;
+            resultBar.className = 'ai-result-bar fail';
+        });
+    });
+})();
+</script>
+<?php endif; ?>

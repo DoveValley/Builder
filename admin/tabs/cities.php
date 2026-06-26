@@ -59,6 +59,32 @@ function _render_city_fields(array $city = [], string $prefix = ''): void {
         <input type="text" name="<?= $prefix ?>tags" value="<?= h(implode(', ', $city['tags'] ?? [])) ?>" placeholder="texas, client-abc, priority">
         <span class="hint">Tags let you generate pages for a subset of cities — e.g. generate only the "texas" tag.</span>
     </div>
+
+    <h3 style="margin:20px 0 4px;font-size:.9rem;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:.05em;border-top:1px solid #e5e7eb;padding-top:16px;">AI Research Context</h3>
+    <p class="hint" style="margin-bottom:12px;">Used by <code>generate.py</code> to write city-specific content. One item per line.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px;">
+        <div class="form-group">
+            <label>Key industries</label>
+            <textarea name="<?= $prefix ?>industries" rows="4" placeholder="technology&#10;healthcare&#10;finance"><?= h(implode("\n", $city['industries'] ?? [])) ?></textarea>
+            <span class="hint">One industry per line — e.g. "defense/military", "technology"</span>
+        </div>
+        <div class="form-group">
+            <label>Top employers</label>
+            <textarea name="<?= $prefix ?>top_employers" rows="4" placeholder="USAA&#10;H-E-B&#10;Baptist Health System"><?= h(implode("\n", $city['top_employers'] ?? [])) ?></textarea>
+            <span class="hint">One employer per line. Used verbatim in AI prompts.</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Salary note</label>
+        <input type="text" name="<?= $prefix ?>salary_note" value="<?= h($city['salary_note'] ?? '') ?>" placeholder="PMP-certified PMs in [City] average $110,000–$130,000 annually">
+        <span class="hint">One sentence. Used in city market intro and FAQ blocks.</span>
+    </div>
+    <div class="form-group">
+        <label>Market blurb</label>
+        <textarea name="<?= $prefix ?>market_blurb" rows="3" placeholder="[City] is home to..."><?= h($city['market_blurb'] ?? '') ?></textarea>
+        <span class="hint">1–3 sentences on why the PM certification market is strong here. Referenced directly in AI prompts.</span>
+    </div>
 <?php
 }
 ?>
@@ -150,6 +176,11 @@ Austin,Texas,TX,austin-tx,(512) 555-0100,+15125550100,78701,,30.2672,-97.7431,,t
                             <?php foreach ($city['tags'] as $tag): ?>
                             <span style="display:inline-block;background:#e5e7eb;color:#374151;font-size:11px;padding:1px 7px;border-radius:10px;margin-left:4px;"><?= h($tag) ?></span>
                             <?php endforeach; ?>
+                        <?php endif; ?>
+                        <?php if (!empty($city['industries']) || !empty($city['top_employers'])): ?>
+                            <span style="display:inline-block;background:#d1fae5;color:#065f46;font-size:11px;padding:1px 7px;border-radius:10px;margin-left:4px;">Researched</span>
+                        <?php else: ?>
+                            <span style="display:inline-block;background:#fef3c7;color:#92400e;font-size:11px;padding:1px 7px;border-radius:10px;margin-left:4px;">No research</span>
                         <?php endif; ?>
                         <br>
                         <span class="hint">

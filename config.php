@@ -67,3 +67,8 @@ unset($_activeSiteId);
 
 // Page starters are global (shared across all sites)
 define('STARTERS_FILE', BASE_DIR . '/data/page_starters.json');
+
+// Anthropic API key — used by the admin AI generation trigger to run generate.py.
+// Set this to your key, or leave blank and set ANTHROPIC_API_KEY as a server
+// environment variable instead (the env var takes precedence).
+define('ANTHROPIC_API_KEY', getenv('ANTHROPIC_API_KEY') ?: '');

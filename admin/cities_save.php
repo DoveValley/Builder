@@ -63,24 +63,32 @@ function _city_make_id(string $city, string $ss, array $cities): string {
     return $id;
 }
 
+function _parse_lines(string $raw): array {
+    return array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", '', $raw)))));
+}
+
 function _city_parse_post(string $prefix = ''): array {
     $tags = array_values(array_filter(array_map(
         'trim',
         preg_split('/[\s,]+/', $_POST[$prefix . 'tags'] ?? '')
     )));
     return [
-        'city'    => trim($_POST[$prefix . 'city']    ?? ''),
-        'state'   => trim($_POST[$prefix . 'state']   ?? ''),
-        'SS'      => strtoupper(trim($_POST[$prefix . 'SS'] ?? '')),
-        'city_slug' => trim($_POST[$prefix . 'city_slug'] ?? ''),
-        'phone'   => trim($_POST[$prefix . 'phone']   ?? ''),
-        'tel'     => trim($_POST[$prefix . 'tel']     ?? ''),
-        'zip'     => trim($_POST[$prefix . 'zip']     ?? ''),
-        'address' => trim($_POST[$prefix . 'address'] ?? ''),
-        'lat'     => trim($_POST[$prefix . 'lat']     ?? ''),
-        'lng'     => trim($_POST[$prefix . 'lng']     ?? ''),
-        'website' => sanitize_url($_POST[$prefix . 'website'] ?? ''),
-        'tags'    => $tags,
+        'city'          => trim($_POST[$prefix . 'city']          ?? ''),
+        'state'         => trim($_POST[$prefix . 'state']         ?? ''),
+        'SS'            => strtoupper(trim($_POST[$prefix . 'SS'] ?? '')),
+        'city_slug'     => trim($_POST[$prefix . 'city_slug']     ?? ''),
+        'phone'         => trim($_POST[$prefix . 'phone']         ?? ''),
+        'tel'           => trim($_POST[$prefix . 'tel']           ?? ''),
+        'zip'           => trim($_POST[$prefix . 'zip']           ?? ''),
+        'address'       => trim($_POST[$prefix . 'address']       ?? ''),
+        'lat'           => trim($_POST[$prefix . 'lat']           ?? ''),
+        'lng'           => trim($_POST[$prefix . 'lng']           ?? ''),
+        'website'       => sanitize_url($_POST[$prefix . 'website'] ?? ''),
+        'tags'          => $tags,
+        'industries'    => _parse_lines($_POST[$prefix . 'industries']    ?? ''),
+        'top_employers' => _parse_lines($_POST[$prefix . 'top_employers'] ?? ''),
+        'salary_note'   => trim($_POST[$prefix . 'salary_note']   ?? ''),
+        'market_blurb'  => trim($_POST[$prefix . 'market_blurb']  ?? ''),
     ];
 }
 

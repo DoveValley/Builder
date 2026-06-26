@@ -42,7 +42,7 @@ $blogSettings = $data['blog_settings'];
 
 // Active tab
 $tab = $_GET['tab'] ?? 'header';
-if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai'], true)) {
+if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks'], true)) {
     $tab = 'header';
 }
 // Redirect legacy tab links into the Plugins tab.
@@ -130,6 +130,24 @@ if ($tab === 'cities' && !empty($_GET['city'])) {
             $editingCity   = $c;
             break;
         }
+    }
+}
+
+// Load AI block type registry; detect editing state for AI Blocks tab
+$aiBlockTypes   = [];
+$editingBlockId = null;
+$editingBlock   = null;
+$isAddingBlock  = false;
+if ($tab === 'ai_blocks' && file_exists(AI_REGISTRY_FILE)) {
+    $raw = json_decode(file_get_contents(AI_REGISTRY_FILE), true);
+    $aiBlockTypes = is_array($raw) ? $raw : [];
+}
+if ($tab === 'ai_blocks') {
+    if (!empty($_GET['edit']) && isset($aiBlockTypes[$_GET['edit']])) {
+        $editingBlockId = $_GET['edit'];
+        $editingBlock   = $aiBlockTypes[$editingBlockId];
+    } elseif (!empty($_GET['new'])) {
+        $isAddingBlock = true;
     }
 }
 
@@ -243,6 +261,8 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'citypages' ? 'active' : '' ?>" href="?tab=citypages">Landing City Pages</a>
         <span style="flex-basis:100%;height:0;border-top:1px solid #e5e7eb;margin:0 -4px;"></span>
         <a class="tab-link <?= $tab === 'ai' ? 'active' : '' ?>" href="?tab=ai">&#127916; AI Generation</a>
+        <a class="tab-link <?= $tab === 'ai_review' ? 'active' : '' ?>" href="?tab=ai_review">&#128269; Content Review</a>
+        <a class="tab-link <?= $tab === 'ai_blocks' ? 'active' : '' ?>" href="?tab=ai_blocks">&#129520; Block Registry</a>
         <a class="tab-link <?= $tab === 'deploy' ? 'active' : '' ?>" href="?tab=deploy">&#128640; Deploy</a>
     </div>
 
@@ -287,6 +307,12 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- ================= AI GENERATION TAB ================= -->
     <?php require __DIR__ . '/tabs/ai.php'; ?>
+
+    <!-- ================= AI CONTENT REVIEW TAB ================= -->
+    <?php require __DIR__ . '/tabs/ai_review.php'; ?>
+
+    <!-- ================= AI BLOCK REGISTRY TAB ================= -->
+    <?php require __DIR__ . '/tabs/ai_blocks.php'; ?>
 
     <!-- ================= DEPLOY TAB ================= -->
     <?php require __DIR__ . '/tabs/deploy.php'; ?>
