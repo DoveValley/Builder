@@ -85,6 +85,7 @@ function allowed_block_types() {
         'email_banner'    => 'Email Capture Banner (split: heading left, email form right)',
         'contact_form'    => 'Contact Form (name, email, phone, message)',
         'comparison_table'=> 'Comparison Table (feature vs. competitor)',
+        'ai_block'        => 'AI Block (city & service content)',
     ];
 }
 
@@ -134,6 +135,9 @@ function grouped_block_types(): array {
             'map_info'         => 'Map + info',
             'contact_form'     => 'Contact form',
         ],
+        'AI Generation' => [
+            'ai_block' => 'AI Block (city & service content)',
+        ],
     ];
 }
 
@@ -171,6 +175,7 @@ function block_descriptions(): array {
         'cta_button'       => 'Single centered button link',
         'map_info'         => 'Embedded map with address & contact details',
         'contact_form'     => 'Name / email / message form with spam protection',
+        'ai_block'         => 'Placeholder filled by the AI generator — renders as any block type once generated',
     ];
 }
 
@@ -1818,6 +1823,15 @@ function render_content_block($block, $pathPrefix = '') {
                 echo '</div>';
             }
             echo '</div></div>';
+            break;
+
+        /* ---- AI BLOCK ---- */
+        case 'ai_block':
+            if (!empty($block['_ai_generated']) && !empty($block['ai_render_as'])) {
+                $proxyBlock = $block;
+                $proxyBlock['type'] = $block['ai_render_as'];
+                render_content_block($proxyBlock, $pathPrefix);
+            }
             break;
 
         default:

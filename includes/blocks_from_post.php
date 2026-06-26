@@ -890,6 +890,36 @@ function parse_blocks_from_post(): array {
                 $block['ct_bg'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $ctBgRaw) ? $ctBgRaw : '#ffffff';
                 if ($block['ct_heading'] === '' && $block['ct_rows_raw'] === '') continue 2;
                 break;
+
+            case 'ai_block':
+                $block['ai_type_id'] = trim($_POST['ai_type_id'][$i] ?? '');
+                $aiModeRaw = trim($_POST['ai_mode'][$i] ?? 'standalone');
+                $block['ai_mode'] = in_array($aiModeRaw, ['standalone','inject']) ? $aiModeRaw : 'standalone';
+                $block['ai_render_as'] = trim($_POST['ai_render_as'][$i] ?? 'text');
+                $aiModelRaw = trim($_POST['ai_model'][$i] ?? 'claude-haiku-4-5-20251001');
+                $block['ai_model'] = in_array($aiModelRaw, ['claude-haiku-4-5-20251001','claude-sonnet-4-6','claude-opus-4-8']) ? $aiModelRaw : 'claude-haiku-4-5-20251001';
+                $block['ai_prompt_override'] = trim($_POST['ai_prompt_override'][$i] ?? '');
+                $aiInjectTargetRaw = trim($_POST['ai_inject_target'][$i] ?? 'previous');
+                $block['ai_inject_target'] = in_array($aiInjectTargetRaw, ['previous','next']) ? $aiInjectTargetRaw : 'previous';
+                $block['ai_inject_field']  = trim($_POST['ai_inject_field'][$i]  ?? '');
+                $aiInjectModeRaw = trim($_POST['ai_inject_mode'][$i] ?? 'append');
+                $block['ai_inject_mode']   = in_array($aiInjectModeRaw, ['replace','append','prepend']) ? $aiInjectModeRaw : 'append';
+                // Editable content fields (set by generator, editable in admin)
+                $block['heading_text']  = trim($_POST['ai_heading_text'][$i]  ?? '');
+                $aiHlRaw = trim($_POST['ai_heading_level'][$i] ?? 'h2');
+                $block['heading_level'] = in_array($aiHlRaw, ['h2','h3','h4']) ? $aiHlRaw : 'h2';
+                $block['text']          = trim($_POST['ai_text'][$i] ?? '');
+                $block['_ai_locked']    = !empty($_POST['ai_locked'][$i]);
+                // Round-trip AI meta from hidden fields
+                $aiGenRaw = trim($_POST['ai_meta_generated'][$i] ?? '');
+                if ($aiGenRaw === '1') {
+                    $block['_ai_generated']    = true;
+                    $block['_ai_generated_at'] = trim($_POST['ai_meta_generated_at'][$i] ?? '');
+                    $block['_ai_model']        = trim($_POST['ai_meta_model_used'][$i]   ?? '');
+                    $block['_ai_type']         = trim($_POST['ai_meta_ai_type'][$i]      ?? '');
+                }
+                if ($block['ai_type_id'] === '' && $block['heading_text'] === '') continue 2;
+                break;
         }
 
         $blocks[] = $block;

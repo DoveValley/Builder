@@ -783,6 +783,81 @@ function content_editor_scripts() {
                     <textarea name="ct_callout[]" rows="2" placeholder="PMI's Premier ATP designation is held by fewer than 1% of training providers worldwide."></textarea>
                 </div>
             </div>
+            <div class="block-fields block-fields-ai_block is-hidden">
+                <div style="display:inline-flex;align-items:center;gap:6px;padding:5px 10px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:20px;font-size:.78rem;font-weight:600;color:#6b7280;margin-bottom:12px;">
+                    <span style="width:7px;height:7px;border-radius:50%;background:#d1d5db;flex-shrink:0;"></span>
+                    Not generated yet
+                </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;">
+                    <div class="form-group" style="flex:1 1 180px;"><label>AI Block Type ID</label>
+                        <input type="text" name="ai_type_id[]" value="" placeholder="e.g. city_market_intro">
+                        <span class="hint">Key in ai_block_types.json registry</span>
+                    </div>
+                    <div class="form-group" style="flex:0 0 150px;"><label>Mode</label>
+                        <select name="ai_mode[]">
+                            <option value="standalone" selected>Standalone</option>
+                            <option value="inject">Inject into adjacent</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex:0 0 150px;"><label>Render as block type</label>
+                        <input type="text" name="ai_render_as[]" value="text" placeholder="e.g. text">
+                    </div>
+                    <div class="form-group" style="flex:0 0 210px;"><label>AI model</label>
+                        <select name="ai_model[]">
+                            <option value="claude-haiku-4-5-20251001" selected>Haiku (fast, cheap)</option>
+                            <option value="claude-sonnet-4-6">Sonnet (better quality)</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:0 0 150px;"><label>Inject target <span class="hint">(inject mode only)</span></label>
+                        <select name="ai_inject_target[]">
+                            <option value="previous" selected>Previous block</option>
+                            <option value="next">Next block</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex:1 1 140px;"><label>Target field <span class="hint">(inject mode only)</span></label>
+                        <input type="text" name="ai_inject_field[]" value="" placeholder="e.g. text">
+                    </div>
+                    <div class="form-group" style="flex:0 0 150px;"><label>Inject mode</label>
+                        <select name="ai_inject_mode[]">
+                            <option value="replace">Replace</option>
+                            <option value="append" selected>Append</option>
+                            <option value="prepend">Prepend</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group"><label>Prompt override <span class="hint">(optional — overrides registry prompt)</span></label>
+                    <textarea name="ai_prompt_override[]" rows="3" placeholder="Leave blank to use the prompt from ai_block_types.json for the selected type ID."></textarea>
+                </div>
+                <details>
+                    <summary style="cursor:pointer;font-weight:600;font-size:.85rem;padding:8px 0;">Generated content <span class="hint">(run the generator script first)</span></summary>
+                    <div style="margin-top:8px;padding:12px 14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;">
+                        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                            <div class="form-group" style="flex:2 1 220px;"><label>Heading</label>
+                                <input type="text" name="ai_heading_text[]" value="">
+                            </div>
+                            <div class="form-group" style="flex:0 0 80px;"><label>Level</label>
+                                <select name="ai_heading_level[]">
+                                    <option value="h2" selected>H2</option>
+                                    <option value="h3">H3</option>
+                                    <option value="h4">H4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group"><label>Body text <span class="hint">(HTML)</span></label>
+                            <textarea name="ai_text[]" rows="6"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label><input type="checkbox" name="ai_locked[]" value="1" style="width:auto;margin-right:6px;">Lock block — skip on regeneration</label>
+                        </div>
+                    </div>
+                </details>
+                <input type="hidden" name="ai_meta_generated[]" value="">
+                <input type="hidden" name="ai_meta_generated_at[]" value="">
+                <input type="hidden" name="ai_meta_model_used[]" value="">
+                <input type="hidden" name="ai_meta_ai_type[]" value="">
+            </div>
         `;
         container.appendChild(card);
         const sel = card.querySelector('.block-type-select');

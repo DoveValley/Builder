@@ -2211,6 +2211,119 @@ function render_content_blocks_editor($blocks) {
                     </div>
                 </div>
 
+                <?php
+                $aiGenerated = !empty($block['_ai_generated']);
+                $aiLocked    = !empty($block['_ai_locked']);
+                $aiTypeId    = $block['ai_type_id'] ?? '';
+                $aiMode      = $block['ai_mode']    ?? 'standalone';
+                $aiRenderAs  = $block['ai_render_as'] ?? 'text';
+                $aiModel     = $block['ai_model']   ?? 'claude-haiku-4-5-20251001';
+                $aiPromptOverride = $block['ai_prompt_override'] ?? '';
+                $aiInjectTarget   = $block['ai_inject_target']   ?? 'previous';
+                $aiInjectField    = $block['ai_inject_field']    ?? '';
+                $aiInjectMode     = $block['ai_inject_mode']     ?? 'append';
+                $aiGenAt     = $block['_ai_generated_at'] ?? '';
+                $aiModelUsed = $block['_ai_model']        ?? '';
+                $aiAiType    = $block['_ai_type']         ?? '';
+                ?>
+                <div class="block-fields block-fields-ai_block <?= $type !== 'ai_block' ? 'is-hidden' : '' ?>">
+                    <div style="padding:10px 0 4px;">
+                    <?php if ($aiGenerated): ?>
+                        <span style="display:inline-flex;align-items:center;gap:6px;padding:5px 10px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:20px;font-size:.78rem;font-weight:600;color:#15803d;">
+                            <span style="width:7px;height:7px;border-radius:50%;background:#16a34a;flex-shrink:0;"></span>
+                            AI Generated<?= $aiGenAt ? ' &middot; ' . h(date('M j', strtotime($aiGenAt))) : '' ?>
+                        </span>
+                    <?php else: ?>
+                        <span style="display:inline-flex;align-items:center;gap:6px;padding:5px 10px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:20px;font-size:.78rem;font-weight:600;color:#6b7280;">
+                            <span style="width:7px;height:7px;border-radius:50%;background:#d1d5db;flex-shrink:0;"></span>
+                            Not generated yet
+                        </span>
+                    <?php endif; ?>
+                    </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;">
+                        <div class="form-group" style="flex:1 1 180px;">
+                            <label>AI Block Type ID</label>
+                            <input type="text" name="ai_type_id[]" value="<?= h($aiTypeId) ?>" placeholder="e.g. city_market_intro">
+                            <span class="hint">Key in ai_block_types.json registry</span>
+                        </div>
+                        <div class="form-group" style="flex:0 0 150px;">
+                            <label>Mode</label>
+                            <select name="ai_mode[]">
+                                <option value="standalone" <?= $aiMode === 'standalone' ? 'selected' : '' ?>>Standalone</option>
+                                <option value="inject"     <?= $aiMode === 'inject'     ? 'selected' : '' ?>>Inject into adjacent</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="flex:0 0 150px;">
+                            <label>Render as block type</label>
+                            <input type="text" name="ai_render_as[]" value="<?= h($aiRenderAs) ?>" placeholder="e.g. text">
+                        </div>
+                        <div class="form-group" style="flex:0 0 210px;">
+                            <label>AI model</label>
+                            <select name="ai_model[]">
+                                <option value="claude-haiku-4-5-20251001" <?= $aiModel === 'claude-haiku-4-5-20251001' ? 'selected' : '' ?>>Haiku (fast, cheap)</option>
+                                <option value="claude-sonnet-4-6"          <?= $aiModel === 'claude-sonnet-4-6'          ? 'selected' : '' ?>>Sonnet (better quality)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:0 0 150px;">
+                            <label>Inject target <span class="hint">(inject mode only)</span></label>
+                            <select name="ai_inject_target[]">
+                                <option value="previous" <?= $aiInjectTarget === 'previous' ? 'selected' : '' ?>>Previous block</option>
+                                <option value="next"     <?= $aiInjectTarget === 'next'     ? 'selected' : '' ?>>Next block</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="flex:1 1 140px;">
+                            <label>Target field <span class="hint">(inject mode only)</span></label>
+                            <input type="text" name="ai_inject_field[]" value="<?= h($aiInjectField) ?>" placeholder="e.g. text">
+                        </div>
+                        <div class="form-group" style="flex:0 0 150px;">
+                            <label>Inject mode</label>
+                            <select name="ai_inject_mode[]">
+                                <option value="replace" <?= $aiInjectMode === 'replace' ? 'selected' : '' ?>>Replace</option>
+                                <option value="append"  <?= $aiInjectMode === 'append'  ? 'selected' : '' ?>>Append</option>
+                                <option value="prepend" <?= $aiInjectMode === 'prepend' ? 'selected' : '' ?>>Prepend</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Prompt override <span class="hint">(optional — overrides registry prompt)</span></label>
+                        <textarea name="ai_prompt_override[]" rows="3" placeholder="Leave blank to use the prompt from ai_block_types.json for the selected type ID."><?= h($aiPromptOverride) ?></textarea>
+                    </div>
+                    <details <?= $aiGenerated ? 'open' : '' ?>>
+                        <summary style="cursor:pointer;font-weight:600;font-size:.85rem;padding:8px 0;">
+                            Generated content <span class="hint">(<?= $aiGenerated ? 'editable &mdash; changes saved normally' : 'run the generator script first' ?>)</span>
+                        </summary>
+                        <div style="margin-top:8px;padding:12px 14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;">
+                            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                                <div class="form-group" style="flex:2 1 220px;">
+                                    <label>Heading</label>
+                                    <input type="text" name="ai_heading_text[]" value="<?= h($block['heading_text'] ?? '') ?>">
+                                </div>
+                                <div class="form-group" style="flex:0 0 80px;">
+                                    <label>Level</label>
+                                    <select name="ai_heading_level[]">
+                                        <?php foreach (['h2','h3','h4'] as $hl): ?>
+                                        <option value="<?= $hl ?>" <?= ($block['heading_level'] ?? 'h2') === $hl ? 'selected' : '' ?>><?= strtoupper($hl) ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Body text <span class="hint">(HTML)</span></label>
+                                <textarea name="ai_text[]" rows="6"><?= h($block['text'] ?? '') ?></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label><input type="checkbox" name="ai_locked[]" value="1" style="width:auto;margin-right:6px;" <?= $aiLocked ? 'checked' : '' ?>>Lock block &mdash; skip on regeneration</label>
+                            </div>
+                        </div>
+                    </details>
+                    <input type="hidden" name="ai_meta_generated[]"    value="<?= $aiGenerated ? '1' : '' ?>">
+                    <input type="hidden" name="ai_meta_generated_at[]" value="<?= h($aiGenAt) ?>">
+                    <input type="hidden" name="ai_meta_model_used[]"   value="<?= h($aiModelUsed) ?>">
+                    <input type="hidden" name="ai_meta_ai_type[]"      value="<?= h($aiAiType) ?>">
+                </div>
+
             </details><!-- .block-card -->
             <?php endforeach; ?>
         </div>
