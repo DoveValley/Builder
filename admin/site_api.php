@@ -108,6 +108,23 @@ function scaffold_site_dir(string $id): void {
     file_put_contents($base . 'data/.htaccess', "Require all denied\n");
 }
 
+function rewrite_upload_paths_in_dir(string $dataDir, string $fromId, string $toId): void {
+    $from = 'sites/' . $fromId . '/uploads/';
+    $to   = 'sites/' . $toId   . '/uploads/';
+    $it   = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($dataDir, FilesystemIterator::SKIP_DOTS)
+    );
+    foreach ($it as $file) {
+        if ($file->getExtension() !== 'json') continue;
+        $path = $file->getPathname();
+        $content = file_get_contents($path);
+        if (strpos($content, $from) === false) continue;
+        $new = str_replace($from, $to, $content);
+        $tmp = $path . '.tmp.' . getmypid();
+        if (file_put_contents($tmp, $new) !== false) { rename($tmp, $path); } else { @unlink($tmp); }
+    }
+}
+
 function copy_dir(string $src, string $dst): void {
     @mkdir($dst, 0775, true);
     foreach (new RecursiveIteratorIterator(
@@ -204,14 +221,8 @@ switch ($action) {
             $src = sites_dir() . $cloneFrom . '/';
             copy_dir($src . 'data',    sites_dir() . $id . '/data');
             copy_dir($src . 'uploads', sites_dir() . $id . '/uploads');
-            // Rewrite upload paths in cloned site.json
-            $dataFile = sites_dir() . $id . '/data/site.json';
-            if (file_exists($dataFile)) {
-                $json = file_get_contents($dataFile);
-                $json = str_replace('sites/' . $cloneFrom . '/uploads/', 'sites/' . $id . '/uploads/', $json);
-                $tmp  = $dataFile . '.tmp.' . getmypid();
-                if (file_put_contents($tmp, $json) !== false) { rename($tmp, $dataFile); } else { @unlink($tmp); }
-            }
+            // Rewrite upload paths in all cloned JSON files (site.json, pages/*.json, etc.)
+            rewrite_upload_paths_in_dir(sites_dir() . $id . '/data', $cloneFrom, $id);
             // Do not carry FTP credentials into the cloned site
             $cloneDeployJson = sites_dir() . $id . '/data/deploy.json';
             if (file_exists($cloneDeployJson)) @unlink($cloneDeployJson);
