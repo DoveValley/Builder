@@ -312,16 +312,16 @@ function generate_city_pages(array $options = []): array {
 
     if (!$dryRun) {
         $log = [];
-        if (file_exists(GEN_LOG_FILE)) {
-            $raw = json_decode(file_get_contents(GEN_LOG_FILE), true);
+        if (file_exists(STRUCTURE_LOG_FILE)) {
+            $raw = json_decode(file_get_contents(STRUCTURE_LOG_FILE), true);
             $log = is_array($raw) ? $raw : [];
         }
         $log[] = $logEntry;
         if (count($log) > 50) $log = array_slice($log, -50);
         $logJson = json_encode($log, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-        $logTmp  = GEN_LOG_FILE . '.tmp.' . getmypid();
+        $logTmp  = STRUCTURE_LOG_FILE . '.tmp.' . getmypid();
         if (file_put_contents($logTmp, $logJson) !== false) {
-            rename($logTmp, GEN_LOG_FILE);
+            rename($logTmp, STRUCTURE_LOG_FILE);
         } else {
             @unlink($logTmp);
         }

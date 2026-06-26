@@ -25,12 +25,18 @@ foreach ($cities as $c) {
 }
 ksort($allCityTags);
 
-// Load recent generation log (last 10 runs)
-$genLog = [];
-if (file_exists(GEN_LOG_FILE)) {
-    $raw = json_decode(file_get_contents(GEN_LOG_FILE), true);
-    $genLog = is_array($raw) ? array_reverse(array_slice($raw, -10)) : [];
+// Load recent structure generation log (last 20 runs)
+$structureLog = [];
+if (file_exists(STRUCTURE_LOG_FILE)) {
+    $raw = json_decode(file_get_contents(STRUCTURE_LOG_FILE), true);
+    $structureLog = is_array($raw) ? array_reverse(array_slice($raw, -20)) : [];
 }
+
+// Template name lookup for JS confirmation dialog
+$_tplNames = [];
+foreach ($templates as $_t) $_tplNames[$_t['id']] = $_t['title'] ?: $_t['id'];
+$_cityNames = [];
+foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . ($_c['SS'] ?? '');
 ?>
 <div class="tab-content" style="<?= $tab === 'citypages' ? '' : 'display:none;' ?>">
 
@@ -44,8 +50,9 @@ if (file_exists(GEN_LOG_FILE)) {
     <div class="card"><p class="hint">No cities yet. <a href="?tab=cities">Add cities</a> to get started.</p></div>
 <?php else: ?>
 
-    <!-- ── Generation result banner (shown after AJAX completes) ──────────── -->
+    <!-- ── Generation result / summary (shown after AJAX completes) ──────── -->
     <div id="gen-result" style="display:none;" class="alert"></div>
+    <div id="gen-summary" style="display:none; margin-bottom:16px;"></div>
 
     <!-- ── Controls ──────────────────────────────────────────────────────── -->
     <div class="card" style="padding:16px 20px;">
@@ -155,58 +162,84 @@ if (file_exists(GEN_LOG_FILE)) {
     </div>
     <?php endforeach; ?>
 
-    <!-- ── Generation log ────────────────────────────────────────────────── -->
+    <!-- ── Structure generation log ──────────────────────────────────────── -->
     <div class="card">
-        <h2>Recent Generation Runs</h2>
-        <?php if (empty($genLog)): ?>
-            <p class="hint">No runs yet.</p>
+        <h2>Generation History
+            <?php if (!empty($structureLog)): ?>
+            <span style="font-size:.78rem;font-weight:400;color:#9ca3af;">(<?= count($structureLog) ?> runs)</span>
+            <?php endif; ?>
+        </h2>
+        <?php if (empty($structureLog)): ?>
+            <p class="hint">No runs yet — press Generate All above to get started.</p>
         <?php else: ?>
-        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:.84rem;">
             <thead>
-                <tr style="border-bottom:2px solid #e5e7eb;text-align:left;">
-                    <th style="padding:6px 10px;">Started</th>
-                    <th style="padding:6px 10px;">Written</th>
-                    <th style="padding:6px 10px;">Backed Up</th>
-                    <th style="padding:6px 10px;">Errors</th>
-                    <th style="padding:6px 10px;">Duration</th>
-                    <th style="padding:6px 10px;">Options</th>
+                <tr style="border-bottom:2px solid #e5e7eb;text-align:left;background:#f8fafc;">
+                    <th style="padding:8px 10px;font-size:.74rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;">Date / Run</th>
+                    <th style="padding:8px 10px;font-size:.74rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;">Scope</th>
+                    <th style="padding:8px 10px;font-size:.74rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;">Pages</th>
+                    <th style="padding:8px 10px;font-size:.74rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;">Backed Up</th>
+                    <th style="padding:8px 10px;font-size:.74rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;">Errors</th>
+                    <th style="padding:8px 10px;font-size:.74rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;">Duration</th>
                 </tr>
             </thead>
             <tbody>
-            <?php foreach ($genLog as $run):
-                $hasErrors = !empty($run['errors']);
-                $isDry     = !empty($run['dry_run']);
+            <?php foreach ($structureLog as $run):
+                $errList  = is_array($run['errors'] ?? []) ? $run['errors'] : [];
+                $errCnt   = count($errList);
+                $hasErr   = $errCnt > 0;
+                $isDry    = !empty($run['dry_run']);
+                $opts     = $run['options'] ?? [];
+                $written  = (int)($run['pages_written']   ?? 0);
+                $backedUp = (int)($run['pages_backed_up'] ?? 0);
+                $durMs    = (int)($run['duration_ms']     ?? 0);
+
+                // Scope label
+                $scopeParts = [];
+                if (!empty($opts['tag_filter']))   $scopeParts[] = 'tag:' . $opts['tag_filter'];
+                if (!empty($opts['template_ids'])) $scopeParts[] = count($opts['template_ids']) . ' template(s)';
+                if (!empty($opts['city_ids']))     $scopeParts[] = count($opts['city_ids']) . ' city';
+                if (!empty($opts['force_locked'])) $scopeParts[] = 'force-locked';
+                $scopeLabel = $scopeParts ? implode(' · ', $scopeParts) : 'all';
+
+                // Format date
+                $dateLabel = '';
+                if (!empty($run['started_at'])) {
+                    $ts = strtotime($run['started_at']);
+                    if ($ts) $dateLabel = date('M j, Y H:i', $ts);
+                }
+
+                // Status dot
+                $dot = $hasErr
+                    ? '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#dc2626;margin-right:5px;vertical-align:middle;"></span>'
+                    : '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#16a34a;margin-right:5px;vertical-align:middle;"></span>';
             ?>
-                <tr style="border-bottom:1px solid #f3f4f6;<?= $hasErrors ? 'background:#fef2f2;' : '' ?>">
-                    <td style="padding:6px 10px;color:#374151;">
-                        <?= h($run['started_at'] ?? '') ?>
-                        <?php if ($isDry): ?><span style="font-size:11px;color:#6b7280;margin-left:4px;">(dry)</span><?php endif; ?>
+                <tr style="border-bottom:1px solid #f3f4f6;<?= $hasErr ? 'background:#fff7f7;' : '' ?>">
+                    <td style="padding:8px 10px;white-space:nowrap;">
+                        <?= $dot ?><span style="color:#374151;font-size:.82rem;"><?= h($dateLabel) ?></span><br>
+                        <span style="color:#9ca3af;font-size:.72rem;padding-left:13px;"><?= h(substr($run['run_id'] ?? '', 0, 8)) ?><?= $isDry ? ' · <em>dry run</em>' : '' ?></span>
                     </td>
-                    <td style="padding:6px 10px;"><?= (int)($run['pages_written'] ?? 0) ?></td>
-                    <td style="padding:6px 10px;"><?= (int)($run['pages_backed_up'] ?? 0) ?></td>
-                    <td style="padding:6px 10px;color:<?= $hasErrors ? '#dc2626' : '#166534' ?>;">
-                        <?= is_array($run['errors'] ?? []) ? count($run['errors']) : (int)($run['errors'] ?? 0) ?>
-                        <?php if ($hasErrors): ?>
-                            <span title="<?= h(is_array($run['errors']) ? json_encode($run['errors'], JSON_PRETTY_PRINT) : '') ?>">&#9432;</span>
+                    <td style="padding:8px 10px;color:#6b7280;font-size:.8rem;"><?= h($scopeLabel) ?></td>
+                    <td style="padding:8px 10px;">
+                        <?php if ($written > 0): ?>
+                        <span style="font-weight:700;color:#166534;"><?= $written ?></span>
+                        <?php else: ?>
+                        <span style="color:#d1d5db;">—</span>
                         <?php endif; ?>
                     </td>
-                    <td style="padding:6px 10px;"><?= number_format(($run['duration_ms'] ?? 0) / 1000, 2) ?>s</td>
-                    <td style="padding:6px 10px;color:#6b7280;font-size:11px;">
-                        <?php
-                        $opts = $run['options'] ?? [];
-                        $parts = [];
-                        if (!empty($opts['tag_filter']))   $parts[] = 'tag:' . $opts['tag_filter'];
-                        if (!empty($opts['template_ids'])) $parts[] = 'tpl:' . implode(',', $opts['template_ids']);
-                        if (!empty($opts['city_ids']))     $parts[] = count($opts['city_ids']) . ' cities';
-                        if (!empty($opts['force_locked'])) $parts[] = 'force';
-                        echo $parts ? h(implode(' · ', $parts)) : 'all';
-                        ?>
-                        <span style="color:#9ca3af;margin-left:6px;"><?= h(substr($run['run_id'] ?? '', 0, 8)) ?></span>
+                    <td style="padding:8px 10px;color:#6b7280;"><?= $backedUp ?: '<span style="color:#d1d5db;">—</span>' ?></td>
+                    <td style="padding:8px 10px;color:<?= $hasErr ? '#dc2626' : '#9ca3af' ?>;font-weight:<?= $hasErr ? '700' : '400' ?>;"
+                        <?php if ($hasErr && $errList): ?>title="<?= h(json_encode($errList, JSON_PRETTY_PRINT)) ?>"<?php endif; ?>>
+                        <?= $errCnt ?: '<span style="color:#d1d5db;">—</span>' ?>
+                        <?php if ($hasErr): ?> &#9432;<?php endif; ?>
                     </td>
+                    <td style="padding:8px 10px;color:#6b7280;font-size:.8rem;"><?= $durMs ? number_format($durMs / 1000, 2) . 's' : '—' ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
         </table>
+        </div>
         <?php endif; ?>
     </div>
 
@@ -229,81 +262,159 @@ if (file_exists(GEN_LOG_FILE)) {
 
 <script>
 (function() {
-    let _activeTag = '';
+    var _activeTag   = '';
+    var _tplNames    = <?= json_encode($_tplNames) ?>;
+    var _cityNames   = <?= json_encode($_cityNames) ?>;
+    var _totalTpls   = <?= count($templates) ?>;
+    var _totalCities = <?= count($cities) ?>;
 
+    // ── Tag filter ────────────────────────────────────────────────────────────
     window.cpSetTag = function(btn, tag) {
         _activeTag = tag;
-        document.querySelectorAll('.cp-tag-btn').forEach(b => b.classList.remove('active-tag'));
+        document.querySelectorAll('.cp-tag-btn').forEach(function(b) { b.classList.remove('active-tag'); });
         btn.classList.add('active-tag');
-
-        document.querySelectorAll('.cp-city-cell').forEach(cell => {
+        document.querySelectorAll('.cp-city-cell').forEach(function(cell) {
             if (tag === '') {
                 cell.removeAttribute('data-hidden');
             } else {
-                const tags = JSON.parse(cell.dataset.tags || '[]');
-                cell.dataset.hidden = tags.includes(tag) ? '0' : '1';
+                var tags = JSON.parse(cell.dataset.tags || '[]');
                 if (tags.includes(tag)) cell.removeAttribute('data-hidden');
                 else cell.setAttribute('data-hidden', '1');
             }
         });
     };
 
-    window.cpGenerate = async function(opts) {
-        const spinner = document.getElementById('gen-spinner');
-        const result  = document.getElementById('gen-result');
+    // ── Build confirmation text ───────────────────────────────────────────────
+    function cpConfirmText(opts) {
+        var lines = [];
 
-        result.style.display = 'none';
-        spinner.style.display = 'inline';
+        // Target scope
+        if (opts.template_ids && opts.template_ids.length) {
+            var names = opts.template_ids.map(function(id) { return _tplNames[id] || id; });
+            lines.push('Template:  ' + names.join(', '));
+        } else {
+            lines.push('Templates: all ' + _totalTpls);
+        }
 
-        // Apply active tag filter to all generate calls unless overridden
+        if (opts.city_ids && opts.city_ids.length === 1) {
+            lines.push('City:      ' + (_cityNames[opts.city_ids[0]] || opts.city_ids[0]));
+        } else if (opts.city_ids && opts.city_ids.length > 1) {
+            lines.push('Cities:    ' + opts.city_ids.length + ' selected');
+        } else if (_activeTag) {
+            lines.push('Cities:    tag "' + _activeTag + '"');
+        } else {
+            lines.push('Cities:    all ' + _totalCities);
+        }
+
+        if (opts.force_locked) lines.push('           + overwrite locked blocks');
+        if (opts.dry_run)      lines.push('           DRY RUN — no files written');
+
+        return 'Generate pages?\n\n' + lines.join('\n');
+    }
+
+    // ── Render summary card ───────────────────────────────────────────────────
+    function cpRenderSummary(data) {
+        var el = document.getElementById('gen-summary');
+        if (!el) return;
+
+        var written  = parseInt(data.pages_written   || 0);
+        var backed   = parseInt(data.pages_backed_up || 0);
+        var skipped  = parseInt(data.pages_skipped   || 0);
+        var errCnt   = (data.errors || []).length;
+        var dur      = data.duration_ms ? (data.duration_ms / 1000).toFixed(2) + 's' : '';
+        var isDry    = !!data.dry_run;
+
+        if (!data.success) {
+            el.innerHTML =
+                '<div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:14px 18px;">' +
+                '<div style="font-weight:700;color:#991b1b;margin-bottom:4px;">&#10060; Generation failed</div>' +
+                '<div style="font-size:.83rem;color:#7f1d1d;">' + (data.message || 'Unknown error') + '</div>' +
+                '</div>';
+            el.style.display = '';
+            return;
+        }
+
+        var ok = errCnt === 0;
+        var head = isDry
+            ? '&#128221; Dry run complete'
+            : (ok ? '&#10003;&nbsp; Generation complete' : '&#9888;&nbsp; Completed with ' + errCnt + ' error(s)');
+        var headColor = ok ? '#166534' : '#92400e';
+        var bg        = ok ? '#f0fdf4' : '#fffbeb';
+        var border    = ok ? '#86efac' : '#fde68a';
+
+        var stats = '';
+        if (written)  stats += '<div style="display:flex;flex-direction:column;"><span style="font-size:1.1rem;font-weight:700;color:' + (ok?'#166534':'#374151') + ';">' + written + '</span><span style="font-size:.72rem;color:#6b7280;">pages ' + (isDry ? 'checked' : 'written') + '</span></div>';
+        if (backed)   stats += '<div style="display:flex;flex-direction:column;"><span style="font-size:1.1rem;font-weight:700;">' + backed + '</span><span style="font-size:.72rem;color:#6b7280;">backed up</span></div>';
+        if (skipped)  stats += '<div style="display:flex;flex-direction:column;"><span style="font-size:1.1rem;font-weight:700;color:#92400e;">' + skipped + '</span><span style="font-size:.72rem;color:#6b7280;">skipped</span></div>';
+        if (errCnt)   stats += '<div style="display:flex;flex-direction:column;"><span style="font-size:1.1rem;font-weight:700;color:#dc2626;">' + errCnt + '</span><span style="font-size:.72rem;color:#6b7280;">errors</span></div>';
+        if (dur)      stats += '<div style="display:flex;flex-direction:column;"><span style="font-size:1.1rem;font-weight:700;">' + dur + '</span><span style="font-size:.72rem;color:#6b7280;">duration</span></div>';
+
+        el.innerHTML =
+            '<div style="background:' + bg + ';border:1px solid ' + border + ';border-radius:8px;padding:16px 20px;">' +
+            '<div style="font-size:.95rem;font-weight:700;color:' + headColor + ';margin-bottom:10px;">' + head + '</div>' +
+            '<div style="display:flex;flex-wrap:wrap;gap:12px 28px;">' + (stats || '<span style="color:#6b7280;font-size:.83rem;">Nothing to generate.</span>') + '</div>' +
+            (isDry ? '<div style="margin-top:8px;font-size:.75rem;color:#6b7280;">No files were written — this was a dry run.</div>' : '') +
+            '</div>';
+        el.style.display = '';
+    }
+
+    // ── Main generate function ────────────────────────────────────────────────
+    window.cpGenerate = function(opts) {
+        // Apply active tag filter unless caller overrides
         if (_activeTag && !opts.tag_filter) opts = Object.assign({ tag_filter: _activeTag }, opts);
 
-        const fd = new FormData();
-        fd.append('csrf_token', <?= json_encode($csrfToken) ?>);
+        // Confirmation
+        if (!confirm(cpConfirmText(opts))) return;
 
-        Object.entries(opts).forEach(([k, v]) => {
-            if (Array.isArray(v)) v.forEach(i => fd.append(k + '[]', i));
+        var spinner = document.getElementById('gen-spinner');
+        var result  = document.getElementById('gen-result');
+        var summary = document.getElementById('gen-summary');
+
+        result.style.display  = 'none';
+        summary.style.display = 'none';
+        summary.innerHTML     = '';
+        spinner.style.display = 'inline';
+
+        var fd = new FormData();
+        fd.append('csrf_token', <?= json_encode($csrfToken) ?>);
+        Object.entries(opts).forEach(function([k, v]) {
+            if (Array.isArray(v)) v.forEach(function(i) { fd.append(k + '[]', i); });
             else if (v !== undefined && v !== null) fd.append(k, v);
         });
 
-        try {
-            const res  = await fetch('generate.php', { method: 'POST', body: fd });
-            const data = await res.json();
+        fetch('generate.php', { method: 'POST', body: fd })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
             spinner.style.display = 'none';
 
-            // Cost warning — ask user to confirm then re-run
+            // Cost warning — confirm then re-run
             if (data.cost_warning) {
-                const msg = data.message + '\n\nSteps: ' + (data.cost_steps || []).join(', ') + '\nEstimated pages: ' + data.estimated_pages;
+                var msg = data.message + '\n\nSteps: ' + (data.cost_steps || []).join(', ') + '\nEstimated pages: ' + data.estimated_pages;
                 if (!confirm(msg)) return;
                 opts.confirmed_cost = 1;
                 return cpGenerate(opts);
             }
 
+            cpRenderSummary(data);
+
             if (!data.success) {
-                result.className = 'alert alert-error';
+                result.className   = 'alert alert-error';
                 result.textContent = data.message || 'Generation failed.';
                 result.style.display = 'block';
                 return;
             }
 
-            const dryLabel  = data.dry_run ? ' (dry run)' : '';
-            const errLabel  = data.errors && data.errors.length > 0 ? ` · ${data.errors.length} error(s)` : '';
-            const timeLabel = data.duration_ms ? ` · ${(data.duration_ms / 1000).toFixed(2)}s` : '';
-            result.className = data.errors && data.errors.length > 0 ? 'alert alert-error' : 'alert alert-success';
-            result.textContent = `${data.dry_run ? 'Dry run' : 'Generated'}: ${data.pages_written} pages, ${data.pages_backed_up} backed up${errLabel}${timeLabel}${dryLabel}`;
-            result.style.display = 'block';
-
             // Reload to refresh status cells (skip on dry run)
             if (!data.dry_run) {
-                setTimeout(() => window.location.reload(), 1200);
+                setTimeout(function() { window.location.reload(); }, 2000);
             }
-
-        } catch (e) {
+        })
+        .catch(function(e) {
             spinner.style.display = 'none';
-            result.className = 'alert alert-error';
-            result.textContent = 'Request failed: ' + e.message;
-            result.style.display = 'block';
-        }
+            result.className      = 'alert alert-error';
+            result.textContent    = 'Request failed: ' + e.message;
+            result.style.display  = 'block';
+        });
     };
 })();
 </script>
