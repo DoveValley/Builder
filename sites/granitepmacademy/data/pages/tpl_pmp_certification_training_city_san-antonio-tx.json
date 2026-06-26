@@ -22,7 +22,7 @@
     {
       "type": "hero_split",
       "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "San Antonio's defense and technology sectors demand skilled project managers who can drive mission-critical initiatives at organizations like JBSA and Rackspace. Granite PM Academy's PMI-authorized, live-virtual instructor-led training ensures you master industry-standard practices while maintaining flexibility. Earn your PMP certification and position yourself for accelerated career growth and competitive salary advancement in San Antonio's thriving enterprise market.",
+      "hs_subtext": "San Antonio's defense and technology sectors demand skilled project managers who can lead complex, high-stakes initiatives for organizations like JBSA and Rackspace. Granite PM Academy's PMI-authorized, live-virtual instructor-led training delivers the practical expertise needed to master the PMBOK framework and earn your PMP credential. Graduates advance into leadership roles with significantly higher earning potential and competitive industry positioning.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#pmp_schedule",
       "hs_caption1": "",
@@ -42,6 +42,43 @@
     },
     {
       "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Live Instructors, Real Expertise",
+          "text": "Learn from experienced PMP-certified instructors who teach live, interactive classes. Ask questions in real-time and gain practical insights from industry professionals."
+        },
+        {
+          "heading": "PMI Premier ATP Credential",
+          "text": "Train with a PMI Premier Authorized Training Partner. Our curriculum meets rigorous PMI standards, ensuring you receive world-class PMP exam preparation."
+        },
+        {
+          "heading": "Flexible Virtual & In-Person",
+          "text": "Choose live-virtual or in-person classes that fit your schedule. Our flexible scheduling accommodates working professionals balancing certification with current responsibilities."
+        },
+        {
+          "heading": "San Antonio Defense Sector Advantage",
+          "text": "JBSA and defense contractors prioritize PMP credentials. Earn your certification to advance leadership roles and increase earning potential in San Antonio's dominant military and government sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-26T21:52:18.738865Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
       "ai_type_id": "city_market_intro",
       "ai_mode": "standalone",
       "ai_render_as": "text",
@@ -54,9 +91,9 @@
       "_ai_locked": true,
       "skin": "light",
       "heading_level": "h2",
-      "heading_text": "PMP Certification Demand in San Antonio's Growing Market",
-      "text": "<p>San Antonio's diverse economy creates exceptional opportunities for PMP-certified project managers. With Joint Base San Antonio serving as one of the nation's largest military installations, alongside a thriving healthcare corridor and expanding tech sector anchored by USAA and Rackspace, demand for skilled project management professionals continues to accelerate. Organizations across defense, healthcare, and technology are actively seeking PMP certification holders to lead complex infrastructure projects, IT initiatives, and operational transformations. Whether you're working in government contracting, hospital systems like Baptist Health System and CHRISTUS Health, or enterprise technology roles, PMP certification in San Antonio directly aligns with what major employers are recruiting for and actively value.</p><p>The financial incentive is substantial. PMP-certified project managers in San Antonio command salaries averaging $105,000–$125,000 annually, with defense and healthcare sector roles frequently exceeding $130,000. Beyond base compensation, PMP certification accelerates your advancement into senior program management and portfolio leadership positions where strategic influence and earning potential grow significantly. In a city where employers like CPS Energy, Valero, and the City of San Antonio are consistently hiring certified professionals, earning your PMP credential positions you to capitalize on San Antonio's robust job market and secure roles that offer both competitive pay and long-term career growth.</p>",
-      "_ai_generated_at": "2026-06-26T00:50:48.215522Z",
+      "heading_text": "PMP Certification Demand Across San Antonio's Major Industries",
+      "text": "<p>San Antonio's robust economy spans defense, healthcare, technology, and energy sectors—all actively seeking PMP-certified project managers to lead critical initiatives. Organizations like USAA, Rackspace, and Baptist Health System rely on certified professionals to manage complex infrastructure and operational projects that drive organizational success. Whether you're supporting Joint Base San Antonio's defense operations, leading healthcare transformations at CHRISTUS Health, or advancing tech initiatives at one of the city's growing tech firms, PMP Certification Training in San Antonio equips you with the globally recognized credentials employers demand. The PMP Certification demonstrates your ability to deliver projects on time and within budget, making you an indispensable asset in a competitive market.</p><p>Career advancement in San Antonio rewards PMP-certified professionals substantially. Project managers holding PMP Certification in San Antonio typically earn $105,000–$125,000 annually, with defense and healthcare roles frequently exceeding $130,000. This certification opens doors to senior leadership positions, higher compensation, and roles at the region's most prestigious employers. As San Antonio continues to strengthen its position as a center for defense contracting, healthcare innovation, and technology growth, PMP Certification Training positions you to capitalize on expanding opportunities and command the earning potential your expertise deserves.</p>",
+      "_ai_generated_at": "2026-06-26T21:52:22.486995Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "city_market_intro"
     },
@@ -121,6 +158,14 @@
         {
           "question": "Can I complete PMP training while working full-time in San Antonio?",
           "answer": "Yes. Granite PM Academy offers flexible scheduling including evenings and weekends, accommodating San Antonio professionals at employers like Rackspace, CPS Energy, and CHRISTUS Health. Most candidates complete training in 4–6 weeks while maintaining full-time work, then pass the exam within 2–3 months of finishing coursework."
+        },
+        {
+          "question": "What salary can PMP-certified project managers expect in San Antonio?",
+          "answer": "PMP-certified project managers in San Antonio average $105,000–$125,000 annually, with defense and healthcare roles often exceeding $130,000. Major employers like USAA, JBSA, Baptist Health System, and Valero actively hire certified PMs. Certification typically yields a $15,000–$25,000 salary premium over non-certified peers in local markets."
+        },
+        {
+          "question": "How long does PMP training take while working full-time in San Antonio?",
+          "answer": "Granite PM Academy's PMP training fits San Antonio's busy professionals with flexible scheduling: 4–6 weeks for self-paced or part-time options, typically 20–30 hours weekly. Many local defense and healthcare sector employees complete training while maintaining full-time roles at JBSA, CHRISTUS Health, or government agencies without career disruption."
         }
       ]
     },

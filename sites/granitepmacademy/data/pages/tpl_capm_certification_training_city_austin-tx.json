@@ -22,7 +22,7 @@
     {
       "type": "hero_split",
       "hs_heading": "CAPM Certification Training in {city}, {SS}",
-      "hs_subtext": "Austin's thriving tech and healthcare sectors demand skilled project managers who can deliver complex initiatives on time and within budget. Granite PM Academy's PMI-authorized, live-virtual CAPM training equips you with industry-recognized credentials from anywhere. Graduates report stronger career prospects and competitive salary positioning within six months of certification.",
+      "hs_subtext": "Austin's thriving tech sector—home to Dell, Apple, and Oracle—demands skilled project managers who can deliver results at scale. Granite PM Academy's PMI-authorized, live-virtual instructor-led CAPM training equips you with industry-recognized credentials to advance in these competitive markets. Our proven approach positions graduates for career growth and higher earning potential in one of the nation's fastest-growing tech hubs.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#capm_schedule",
       "hs_caption1": "",
@@ -36,6 +36,43 @@
     },
     {
       "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Live Instructors, Real Results",
+          "text": "Our PMI-certified instructors deliver interactive, live-led training with direct Q&A, ensuring you master concepts faster than self-paced alternatives."
+        },
+        {
+          "heading": "PMI Premier ATP Advantage",
+          "text": "As a PMI Premier Authorized Training Partner, we deliver official curriculum meeting the highest standards for CAPM exam readiness and professional credibility."
+        },
+        {
+          "heading": "Small Classes, Personal Support",
+          "text": "Limited class sizes mean individual attention from instructors who customize explanations to your learning style and career goals."
+        },
+        {
+          "heading": "Austin Tech & Defense Ready",
+          "text": "Dell, Tesla, and AWS Austin teams prioritize project management skills. CAPM certification accelerates your career growth within Austin's booming tech and defense sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-26T21:49:01.478879Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
       "ai_type_id": "city_market_intro",
       "ai_mode": "standalone",
       "ai_render_as": "text",
@@ -46,10 +83,10 @@
       "ai_prompt_override": "",
       "skin": "light",
       "heading_level": "h2",
-      "heading_text": "Growing Demand for Certified Project Managers in Austin",
-      "text": "<p>Austin's rapidly expanding economy has created exceptional opportunities for project management professionals, particularly within the technology, semiconductor, and healthcare sectors. Major employers like Dell Technologies, Apple, Tesla, and Samsung Austin Semiconductor are actively hiring certified project managers to lead complex, cross-functional initiatives across their Austin operations. As these organizations scale their presence in the city, CAPM Certification Training has become increasingly valuable for professionals seeking to demonstrate competency and advance their careers in Austin's competitive job market. The CAPM Certification signals to employers that you possess standardized project management knowledge and foundational skills required for leadership roles.</p><p>CAPM Certification Training opens doors to meaningful salary growth and career advancement in Austin. Project managers with professional credentials typically earn between $105,000 and $135,000 annually, with technology and semiconductor professionals commanding salaries at the higher end of that range. Whether you're working with government agencies like the City of Austin, financial services firms such as Charles Schwab, or innovative tech companies throughout the region, CAPM Certification positions you for promotions and increased responsibility. As Austin continues its trajectory as one of America's fastest-growing metros, earning your CAPM Certification now positions you to capitalize on sustained demand for skilled, credentialed project management talent.</p>",
+      "heading_text": "Why CAPM Certification Matters in Austin's Growing PM Market",
+      "text": "<p>Austin's explosive growth as a technology and innovation hub has created unprecedented demand for skilled project managers across multiple industries. Major employers like Dell Technologies, Apple, Tesla, and Samsung Austin Semiconductor are actively hiring certified professionals who can lead complex, cross-functional initiatives in competitive environments. The CAPM Certification Training program equips Austin professionals with the PMI-recognized credentials that these leading companies increasingly require when evaluating candidates for senior project management roles. Whether you're working in tech, healthcare, government, or finance, CAPM Certification Training demonstrates your commitment to standardized project management excellence.</p><p>The financial incentive for certification is particularly compelling in Austin's competitive job market. PMP-certified project managers in the region typically earn between $105,000 and $135,000 annually, with professionals in technology, semiconductor manufacturing, and finance commanding salaries at the higher end of that range. Pursuing CAPM Certification Training now positions you for accelerated career advancement and higher earning potential as you progress toward PMP certification. With Austin's economy continuing to expand and major corporations deepening their local presence, the demand for certified project managers shows no signs of slowing.</p>",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T01:16:49.379163Z",
+      "_ai_generated_at": "2026-06-26T21:49:04.678782Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "city_market_intro",
       "_ai_locked": true
@@ -91,6 +128,14 @@
         {
           "question": "How long does CAPM training take while working full-time in Austin?",
           "answer": "Granite PM Academy's CAPM training fits busy Austin professionals' schedules with flexible, accelerated options—typically 3–4 weeks of part-time study. Many Austin tech and healthcare professionals balance training alongside roles at Dell, AWS, Ascension Seton, or the City of Austin. Self-paced options let you progress at your own speed without leaving your job."
+        },
+        {
+          "question": "What salary can CAPM certification help me earn in Austin tech and finance?",
+          "answer": "PMP-certified project managers in Austin earn $105,000–$135,000 annually, with technology, semiconductor, and finance professionals commanding higher ranges. CAPM certification positions you for advancement at Dell, Apple, Oracle, AWS, and Charles Schwab, where project management expertise directly impacts compensation and career growth."
+        },
+        {
+          "question": "How long does CAPM training take while working full-time in Austin?",
+          "answer": "Granite PM Academy's CAPM training typically requires 40–50 hours of instruction, completable in 2–4 weeks with evening and weekend classes. Austin professionals balancing roles at major employers like Tesla, Samsung, or Ascension Seton can maintain full-time employment while pursuing certification without disrupting work schedules."
         }
       ]
     },

@@ -117,6 +117,18 @@ function fmt_dur(int $ms): string {
 .ai-result-bar   { display:none; font-size:.82rem; margin-top:10px; padding:8px 12px; border-radius:6px; }
 .ai-result-bar.ok   { background:#d1fae5; color:#065f46; display:block; }
 .ai-result-bar.fail { background:#fee2e2; color:#991b1b; display:block; }
+.ai-summary      { display:none; border-radius:8px; padding:16px 20px; margin-top:14px; }
+.ai-summary.ok   { background:#f0fdf4; border:1px solid #86efac; display:block; }
+.ai-summary.fail { background:#fef2f2; border:1px solid #fecaca; display:block; }
+.ai-summary-head { font-size:.95rem; font-weight:700; margin-bottom:10px; }
+.ai-summary-head.ok   { color:#166534; }
+.ai-summary-head.fail { color:#991b1b; }
+.ai-summary-stats { display:flex; flex-wrap:wrap; gap:12px 28px; font-size:.83rem; color:#374151; margin-bottom:0; }
+.ai-summary-stat  { display:flex; flex-direction:column; }
+.ai-summary-stat .val { font-size:1.1rem; font-weight:700; line-height:1.2; }
+.ai-summary-stat .lbl { font-size:.72rem; color:#6b7280; }
+.ai-summary-meta  { margin-top:8px; padding-top:8px; border-top:1px solid #bbf7d0; font-size:.76rem; color:#6b7280; display:flex; gap:16px; flex-wrap:wrap; }
+.ai-summary-meta.fail { border-top-color:#fecaca; }
 </style>
 
 <!-- ── Summary cards ── -->
@@ -215,8 +227,9 @@ function fmt_dur(int $ms): string {
             <span id="ai-status-text" style="font-size:.82rem;color:#6b7280;"></span>
         </div>
     </form>
-    <div class="ai-result-bar" id="ai-result-bar"></div>
     <div class="ai-console" id="ai-console"></div>
+    <div class="ai-summary" id="ai-summary"></div>
+    <div class="ai-result-bar" id="ai-result-bar"></div>
     <?php endif; ?>
 </div>
 
@@ -277,48 +290,70 @@ function fmt_dur(int $ms): string {
     <table class="ai-table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Site</th>
+                <th>Date / Run</th>
                 <th>Scope</th>
-                <th>Research</th>
                 <th>Blocks</th>
-                <th>Skipped</th>
+                <th>Pages</th>
                 <th>Errors</th>
-                <th>API Calls</th>
-                <th>Tokens In/Out</th>
+                <th>Tokens In / Out</th>
                 <th>Cost</th>
                 <th>Duration</th>
             </tr>
         </thead>
         <tbody>
-        <?php foreach (array_slice($logEntries, 0, 25) as $e): ?>
+        <?php foreach (array_slice($logEntries, 0, 30) as $e): ?>
             <?php
             $opts    = $e['options'] ?? [];
-            $scope   = !empty($opts['all']) ? 'all' : ($opts['page'] ?? '?');
-            if (!empty($opts['file'])) $scope .= ' / ' . $opts['file'];
-            $haserr  = ($e['errors'] ?? 0) > 0;
+            $errCnt  = (int)($e['errors'] ?? 0);
+            $blkCnt  = (int)($e['blocks_generated'] ?? 0);
+            $haserr  = $errCnt > 0;
             $isdry   = !empty($e['dry_run']);
+
+            // Scope label
+            $scope = !empty($opts['all']) ? 'all pages' : ($opts['page'] ?? '');
+            if (!empty($opts['file'])) $scope .= ($scope ? ' / ' : '') . $opts['file'];
+            if (!empty($opts['research'])) $scope .= ' + research';
+            if (!$scope) $scope = 'landing';
+
+            // Run status dot
+            $dot = $haserr
+                ? '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#dc2626;margin-right:5px;vertical-align:middle;" title="Errors"></span>'
+                : '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#16a34a;margin-right:5px;vertical-align:middle;" title="OK"></span>';
             ?>
-            <tr <?= $haserr ? 'style="background:#fff7f7;"' : '' ?>>
-                <td style="white-space:nowrap; font-size:.78rem; color:#6b7280;"><?= h(fmt_ts_ai($e['started_at'] ?? '')) ?></td>
-                <td style="font-size:.8rem;"><?= h($opts['site'] ?? '—') ?></td>
-                <td style="font-size:.8rem;"><?= h($scope) ?><?= $isdry ? ' <span style="color:#9ca3af;">[dry]</span>' : '' ?></td>
-                <td><?= !empty($opts['research']) ? '<span class="ai-badge badge-ok">Yes</span>' : '<span style="color:#d1d5db;">—</span>' ?></td>
-                <td><strong><?= (int)($e['blocks_generated'] ?? 0) ?></strong></td>
-                <td style="color:#6b7280;"><?= (int)($e['pages_skipped'] ?? 0) ?></td>
-                <td style="color:<?= $haserr ? '#dc2626' : '#9ca3af' ?>;"><?= (int)($e['errors'] ?? 0) ?></td>
-                <td style="color:#6b7280;"><?= (int)($e['api_calls'] ?? 0) ?></td>
+            <tr style="<?= $haserr ? 'background:#fff7f7;' : '' ?>">
+                <td style="white-space:nowrap; font-size:.78rem;">
+                    <?= $dot ?><span style="color:#374151;"><?= h(fmt_ts_ai($e['started_at'] ?? '')) ?></span><br>
+                    <span style="color:#9ca3af;font-size:.7rem;padding-left:13px;"><?= h(substr($e['run_id'] ?? '', 0, 8)) ?><?= $isdry ? ' · <em>dry run</em>' : '' ?></span>
+                </td>
+                <td style="font-size:.8rem; color:#6b7280;"><?= h($scope) ?></td>
+                <td>
+                    <?php if ($blkCnt > 0): ?>
+                    <span style="font-weight:700; color:#166534;"><?= $blkCnt ?></span>
+                    <?php else: ?>
+                    <span style="color:#d1d5db;">—</span>
+                    <?php endif; ?>
+                </td>
+                <td style="color:#6b7280;">
+                    <?php $pw = (int)($e['pages_written'] ?? 0); ?>
+                    <?= $pw ?: '<span style="color:#d1d5db;">—</span>' ?>
+                    <?php $ps = (int)($e['pages_skipped'] ?? 0); if ($ps): ?>
+                    <span style="font-size:.72rem; color:#9ca3af;">+<?= $ps ?> skipped</span>
+                    <?php endif; ?>
+                </td>
+                <td style="color:<?= $haserr ? '#dc2626' : '#9ca3af' ?>; font-weight:<?= $haserr ? '700' : '400' ?>;">
+                    <?= $errCnt ?: '<span style="color:#d1d5db;">—</span>' ?>
+                </td>
                 <td style="font-size:.78rem; color:#6b7280; white-space:nowrap;">
                     <?php
                     $in  = (int)($e['input_tokens']  ?? 0);
                     $out = (int)($e['output_tokens'] ?? 0);
-                    echo $in ? number_format($in) . ' / ' . number_format($out) : '—';
+                    echo $in ? number_format($in) . ' / ' . number_format($out) : '<span style="color:#d1d5db;">—</span>';
                     ?>
                 </td>
-                <td style="font-size:.8rem; white-space:nowrap;">
+                <td style="font-size:.8rem; white-space:nowrap; font-weight:600;">
                     <?php
-                    $c = (float)($e['estimated_cost_usd'] ?? 0);
-                    echo $c ? '$' . number_format($c, 4) : '—';
+                    $cost = (float)($e['estimated_cost_usd'] ?? 0);
+                    echo $cost ? '$' . number_format($cost, 4) : '<span style="color:#d1d5db;">—</span>';
                     ?>
                 </td>
                 <td style="font-size:.78rem; color:#6b7280;"><?= isset($e['duration_ms']) ? fmt_dur((int)$e['duration_ms']) : '—' ?></td>
@@ -327,6 +362,9 @@ function fmt_dur(int $ms): string {
         </tbody>
     </table>
     </div>
+    <?php if (count($logEntries) > 30): ?>
+    <p class="hint" style="margin-top:10px;">Showing 30 most recent runs of <?= count($logEntries) ?> total.</p>
+    <?php endif; ?>
     <?php endif; ?>
 </div>
 
@@ -335,15 +373,16 @@ function fmt_dur(int $ms): string {
 <?php if ($apiKeyOk): ?>
 <script>
 (function () {
-    var form       = document.getElementById('ai-trigger-form');
-    var btn        = document.getElementById('ai-run-btn');
-    var spinner    = document.getElementById('ai-spinner');
-    var outputEl   = document.getElementById('ai-console');
-    var resultBar  = document.getElementById('ai-result-bar');
-    var statusText = document.getElementById('ai-status-text');
-    var actionSel  = document.getElementById('ai-action');
-    var cityWrap   = document.getElementById('ai-city-wrap');
-    var scopeWrap  = document.getElementById('ai-scope-wrap');
+    var form         = document.getElementById('ai-trigger-form');
+    var btn          = document.getElementById('ai-run-btn');
+    var spinner      = document.getElementById('ai-spinner');
+    var outputEl     = document.getElementById('ai-console');
+    var summaryEl    = document.getElementById('ai-summary');
+    var resultBar    = document.getElementById('ai-result-bar');
+    var statusText   = document.getElementById('ai-status-text');
+    var actionSel    = document.getElementById('ai-action');
+    var cityWrap     = document.getElementById('ai-city-wrap');
+    var scopeWrap    = document.getElementById('ai-scope-wrap');
     var researchWrap = document.getElementById('ai-research-wrap');
 
     function updateVisibility() {
@@ -356,6 +395,79 @@ function fmt_dur(int $ms): string {
     updateVisibility();
 
     if (!form) return;
+
+    // Escape HTML for safe injection into innerHTML
+    function esc(s) {
+        return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+    function fmtN(n) { return Number(n).toLocaleString(); }
+
+    function renderSummary(msg) {
+        if (!summaryEl) return;
+        if (!msg.success) {
+            summaryEl.className = 'ai-summary fail';
+            summaryEl.innerHTML =
+                '<div class="ai-summary-head fail">&#10060; Generation failed</div>' +
+                '<div style="font-size:.83rem;color:#7f1d1d;">' + esc(msg.error || ('Process exited with code ' + msg.exit_code)) + '</div>';
+            return;
+        }
+        var log     = msg.last_log || {};
+        var blocks  = parseInt(log.blocks_generated  || 0);
+        var pages   = parseInt(log.pages_written     || 0);
+        var skipped = parseInt(log.pages_skipped     || 0);
+        var errors  = parseInt(log.errors            || 0);
+        var calls   = parseInt(log.api_calls         || 0);
+        var tokIn   = parseInt(log.input_tokens      || 0);
+        var tokOut  = parseInt(log.output_tokens     || 0);
+        var cost    = parseFloat(log.estimated_cost_usd || 0);
+        var dur     = log.duration_ms ? (log.duration_ms / 1000).toFixed(1) + 's' : '';
+
+        var stats = '';
+        if (blocks)  stats += '<div class="ai-summary-stat"><span class="val" style="color:#166534;">' + fmtN(blocks) + '</span><span class="lbl">blocks generated</span></div>';
+        if (pages)   stats += '<div class="ai-summary-stat"><span class="val">' + pages + '</span><span class="lbl">pages written</span></div>';
+        if (skipped) stats += '<div class="ai-summary-stat"><span class="val" style="color:#92400e;">' + skipped + '</span><span class="lbl">pages skipped</span></div>';
+        if (errors)  stats += '<div class="ai-summary-stat"><span class="val" style="color:#dc2626;">' + errors + '</span><span class="lbl">errors</span></div>';
+        if (dur)     stats += '<div class="ai-summary-stat"><span class="val">' + dur + '</span><span class="lbl">duration</span></div>';
+
+        var meta = '';
+        if (calls)  meta += '<span>' + calls + ' API calls</span>';
+        if (tokIn)  meta += '<span>' + fmtN(tokIn) + ' in&nbsp;/&nbsp;' + fmtN(tokOut) + ' out tokens</span>';
+        if (cost)   meta += '<span style="color:#374151;font-weight:600;">$' + cost.toFixed(4) + ' est. cost</span>';
+
+        summaryEl.className = 'ai-summary ok';
+        summaryEl.innerHTML =
+            '<div class="ai-summary-head ok">&#10003;&nbsp; Generation complete' + (log.dry_run ? ' <span style="font-weight:400;font-size:.8rem;">(dry run)</span>' : '') + '</div>' +
+            '<div class="ai-summary-stats">' + (stats || '<span style="color:#6b7280;">No blocks generated.</span>') + '</div>' +
+            (meta ? '<div class="ai-summary-meta">' + meta + '</div>' : '');
+    }
+
+    // Parse one NDJSON line and handle it
+    var ticker;
+    function handleLine(raw) {
+        var msg;
+        try { msg = JSON.parse(raw); } catch(e) { return; }
+
+        if (msg.type === 'line') {
+            outputEl.textContent += msg.text + '\n';
+            outputEl.scrollTop = outputEl.scrollHeight;
+        } else if (msg.type === 'done') {
+            clearInterval(ticker);
+            btn.disabled = false;
+            spinner.classList.remove('on');
+            statusText.textContent = '';
+
+            renderSummary(msg);
+
+            if (msg.success) {
+                resultBar.className   = 'ai-result-bar ok';
+                resultBar.textContent = 'Done — page will reload in a moment…';
+                setTimeout(function () { location.reload(); }, 3000);
+            } else {
+                resultBar.className   = 'ai-result-bar fail';
+                resultBar.textContent = msg.error || ('Exited with code ' + msg.exit_code);
+            }
+        }
+    }
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -383,59 +495,56 @@ function fmt_dur(int $ms): string {
 
         if (!confirm('Run generator?\n\n' + lines.join('\n'))) return;
 
+        // Reset UI
         btn.disabled = true;
         spinner.classList.add('on');
-        resultBar.className = 'ai-result-bar';
+        resultBar.className   = 'ai-result-bar';
         resultBar.textContent = '';
-        outputEl.textContent = '';
+        summaryEl.className   = 'ai-summary';
+        summaryEl.innerHTML   = '';
+        outputEl.textContent  = '';
         outputEl.classList.add('open');
         statusText.textContent = 'Starting…';
 
         var startedAt = Date.now();
-        var ticker = setInterval(function () {
-            var elapsed = ((Date.now() - startedAt) / 1000).toFixed(0);
-            statusText.textContent = 'Running… ' + elapsed + 's';
+        clearInterval(ticker);
+        ticker = setInterval(function () {
+            statusText.textContent = 'Running… ' + ((Date.now() - startedAt) / 1000).toFixed(0) + 's';
         }, 1000);
 
+        // Stream the NDJSON response
         fetch('ai_generate.php', {
             method: 'POST',
             body: new FormData(form),
             credentials: 'same-origin',
         })
-        .then(function (r) { return r.json(); })
-        .then(function (res) {
-            clearInterval(ticker);
-            btn.disabled = false;
-            spinner.classList.remove('on');
-            statusText.textContent = '';
+        .then(function (r) {
+            var reader  = r.body.getReader();
+            var decoder = new TextDecoder();
+            var buffer  = '';
 
-            outputEl.textContent = res.output || '(no output)';
-            outputEl.scrollTop = outputEl.scrollHeight;
-
-            var dur = res.duration_ms ? (res.duration_ms / 1000).toFixed(1) + 's' : '';
-            if (res.success) {
-                var log = res.last_log;
-                var msg = 'Done';
-                if (dur) msg += ' in ' + dur;
-                if (log) {
-                    if (log.blocks_generated != null) msg += ' · ' + log.blocks_generated + ' blocks generated';
-                    if (log.estimated_cost_usd) msg += ' · $' + parseFloat(log.estimated_cost_usd).toFixed(4) + ' est. cost';
-                }
-                resultBar.textContent = msg;
-                resultBar.className = 'ai-result-bar ok';
-                setTimeout(function () { location.reload(); }, 2500);
-            } else {
-                resultBar.textContent = res.error || ('Exited with code ' + res.exit_code);
-                resultBar.className = 'ai-result-bar fail';
+            function pump() {
+                return reader.read().then(function (chunk) {
+                    if (chunk.done) {
+                        if (buffer.trim()) handleLine(buffer.trim());
+                        return;
+                    }
+                    buffer += decoder.decode(chunk.value, { stream: true });
+                    var parts = buffer.split('\n');
+                    buffer = parts.pop(); // hold incomplete last line
+                    parts.forEach(function (ln) { if (ln.trim()) handleLine(ln.trim()); });
+                    return pump();
+                });
             }
+            return pump();
         })
         .catch(function (err) {
             clearInterval(ticker);
             btn.disabled = false;
             spinner.classList.remove('on');
             statusText.textContent = '';
+            resultBar.className   = 'ai-result-bar fail';
             resultBar.textContent = 'Request failed: ' + err.message;
-            resultBar.className = 'ai-result-bar fail';
         });
     });
 })();

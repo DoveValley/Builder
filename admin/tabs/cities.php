@@ -257,6 +257,7 @@ window.cityResearch = function (cityId) {
     btn.disabled = true;
     spinner.classList.add('on');
     status.textContent = 'Researching…';
+    status.style.color = '';
 
     var startedAt = Date.now();
     var ticker = setInterval(function () {
@@ -268,19 +269,48 @@ window.cityResearch = function (cityId) {
     fd.append('action', 'research');
     fd.append('city_id', cityId);
 
-    fetch('ai_generate.php', { method: 'POST', body: fd, credentials: 'same-origin' })
-    .then(function (r) { return r.json(); })
-    .then(function (res) {
-        clearInterval(ticker);
-        btn.disabled = false;
-        spinner.classList.remove('on');
-        if (res.success) {
-            status.textContent = 'Done — reloading…';
-            setTimeout(function () { location.reload(); }, 1200);
-        } else {
-            status.textContent = res.error || 'Research failed.';
-            status.style.color = '#dc2626';
+    function handleLine(raw) {
+        var msg;
+        try { msg = JSON.parse(raw); } catch(e) { return; }
+
+        if (msg.type === 'line') {
+            // Show a short preview of the current line
+            var txt = msg.text.replace(/^\s+/, '');
+            status.textContent = txt.length > 72 ? txt.slice(0, 69) + '…' : txt;
+        } else if (msg.type === 'done') {
+            clearInterval(ticker);
+            btn.disabled = false;
+            spinner.classList.remove('on');
+            if (msg.success) {
+                status.textContent = 'Done — reloading…';
+                setTimeout(function () { location.reload(); }, 1200);
+            } else {
+                status.textContent = msg.error || 'Research failed.';
+                status.style.color = '#dc2626';
+            }
         }
+    }
+
+    fetch('ai_generate.php', { method: 'POST', body: fd, credentials: 'same-origin' })
+    .then(function (r) {
+        var reader  = r.body.getReader();
+        var decoder = new TextDecoder();
+        var buffer  = '';
+
+        function pump() {
+            return reader.read().then(function (chunk) {
+                if (chunk.done) {
+                    if (buffer.trim()) handleLine(buffer.trim());
+                    return;
+                }
+                buffer += decoder.decode(chunk.value, { stream: true });
+                var parts = buffer.split('\n');
+                buffer = parts.pop();
+                parts.forEach(function (ln) { if (ln.trim()) handleLine(ln.trim()); });
+                return pump();
+            });
+        }
+        return pump();
     })
     .catch(function (err) {
         clearInterval(ticker);

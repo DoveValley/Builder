@@ -1,34 +1,54 @@
 <?php
-// AI generation trigger — runs generate.py as a subprocess and returns captured output.
+// AI generation trigger — streams generate.py output as NDJSON, then emits a done event.
 // POST only. Requires admin auth + CSRF token.
-// Returns JSON: {success, output, exit_code, duration_ms, error?}
+//
+// Each line: {"type":"line","text":"..."}
+// Final line: {"type":"done","success":bool,"exit_code":int,"last_log":obj|null,"error":str|null}
 
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 
-header('Content-Type: application/json');
+// Flush all existing output buffers so lines stream immediately
+while (ob_get_level()) ob_end_clean();
+
+header('Content-Type: application/x-ndjson');
+header('Cache-Control: no-cache');
+header('X-Accel-Buffering: no'); // tell nginx not to buffer
+
+function ndjson_emit(array $obj): void {
+    echo json_encode($obj, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . "\n";
+    @ob_flush(); flush();
+}
+
+function ndjson_done(bool $ok, ?int $exitCode = null, ?array $lastLog = null, ?string $error = null): void {
+    $r = ['type' => 'done', 'success' => $ok];
+    if ($exitCode !== null) $r['exit_code'] = $exitCode;
+    if ($lastLog  !== null) $r['last_log']  = $lastLog;
+    if ($error    !== null) $r['error']     = $error;
+    ndjson_emit($r);
+}
 
 // ── Auth ──────────────────────────────────────────────────────────────────────
 if (empty($_SESSION['admin_logged_in'])) {
     http_response_code(403);
-    echo json_encode(['success' => false, 'error' => 'Not authenticated.']);
+    ndjson_done(false, null, null, 'Not authenticated.');
     exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
-    echo json_encode(['success' => false, 'error' => 'POST required.']);
+    ndjson_done(false, null, null, 'POST required.');
     exit;
 }
 
 if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
     http_response_code(403);
-    echo json_encode(['success' => false, 'error' => 'Invalid request token.']);
+    ndjson_done(false, null, null, 'Invalid request token.');
     exit;
 }
 
 if (!ACTIVE_SITE_ID) {
-    echo json_encode(['success' => false, 'error' => 'No active site selected.']);
+    ndjson_done(false, null, null, 'No active site selected.');
     exit;
 }
 
@@ -48,23 +68,20 @@ if ($cityId && !preg_match('/^[a-z0-9][a-z0-9-]{0,59}$/', $cityId)) {
 // ── API key (not needed for sync-templates) ───────────────────────────────────
 $apiKey = ANTHROPIC_API_KEY;
 if (!$apiKey && $action !== 'sync') {
-    echo json_encode([
-        'success' => false,
-        'error'   => 'ANTHROPIC_API_KEY is not configured. Add it to config.php or set it as a server environment variable.',
-    ]);
+    ndjson_done(false, null, null, 'ANTHROPIC_API_KEY is not configured. Add it to config.php or set it as a server environment variable.');
     exit;
 }
 
 // ── Build command ─────────────────────────────────────────────────────────────
 $python = _find_python();
 if (!$python) {
-    echo json_encode(['success' => false, 'error' => 'python3 not found in PATH.']);
+    ndjson_done(false, null, null, 'python3 not found in PATH.');
     exit;
 }
 
 $script = BASE_DIR . '/generate.py';
 if (!file_exists($script)) {
-    echo json_encode(['success' => false, 'error' => 'generate.py not found.']);
+    ndjson_done(false, null, null, 'generate.py not found.');
     exit;
 }
 
@@ -95,6 +112,7 @@ switch ($action) {
         break;
 }
 
+// Merge stderr into stdout so everything appears on one pipe
 $cmd = implode(' ', $parts) . ' 2>&1';
 
 // ── Run ───────────────────────────────────────────────────────────────────────
@@ -104,30 +122,32 @@ $env = _build_env($apiKey);
 $descriptors = [
     0 => ['pipe', 'r'],
     1 => ['pipe', 'w'],
-    2 => ['pipe', 'w'],
+    2 => ['pipe', 'w'], // required by proc_open; not used because 2>&1 merges into 1
 ];
 
 $startMs = intval(microtime(true) * 1000);
 $process = proc_open($cmd, $descriptors, $pipes, BASE_DIR, $env);
 
 if (!is_resource($process)) {
-    echo json_encode(['success' => false, 'error' => 'Failed to start generate.py.']);
+    ndjson_done(false, null, null, 'Failed to start generate.py.');
     exit;
 }
 
 fclose($pipes[0]);
-$stdout   = stream_get_contents($pipes[1]);
-$stderr   = stream_get_contents($pipes[2]);
+fclose($pipes[2]); // stderr merged into stdout via 2>&1
+
+// Stream stdout one line at a time — fgets() blocks until a full line or pipe closes
+while (!feof($pipes[1])) {
+    $line = fgets($pipes[1]);
+    if ($line === false) break;
+    $clean = preg_replace('/\033\[[0-9;]*m/', '', rtrim($line));
+    if ($clean !== '') {
+        ndjson_emit(['type' => 'line', 'text' => $clean]);
+    }
+}
+
 fclose($pipes[1]);
-fclose($pipes[2]);
 $exitCode = proc_close($process);
-$duration = intval(microtime(true) * 1000) - $startMs;
-
-// Merge stderr into output (generate.py uses 2>&1 redirect, so stderr is already merged)
-$output = $stdout ?: $stderr;
-
-// Strip ANSI colour codes so the browser can display clean text
-$output = preg_replace('/\033\[[0-9;]*m/', '', $output);
 
 // ── Read last log entry for stats ─────────────────────────────────────────────
 $lastLog = null;
@@ -139,14 +159,12 @@ if ($action !== 'sync' && file_exists($logFile)) {
     }
 }
 
-echo json_encode([
-    'success'     => $exitCode === 0,
-    'exit_code'   => $exitCode,
-    'output'      => $output,
-    'duration_ms' => $duration,
-    'last_log'    => $lastLog,
-    'error'       => $exitCode !== 0 ? "Process exited with code $exitCode" : null,
-], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+ndjson_done(
+    $exitCode === 0,
+    $exitCode,
+    $lastLog,
+    $exitCode !== 0 ? "Process exited with code $exitCode" : null
+);
 exit;
 
 
