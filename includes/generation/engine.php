@@ -152,7 +152,7 @@ function generate_city_pages(array $options = []): array {
         foreach ($cities as $city) {
             $tplId  = $tpl['id']  ?? '';
             $cityId = $city['id'] ?? '';
-            if (!preg_match('/^[a-z0-9][a-z0-9-]*$/', $tplId) || !preg_match('/^[a-z0-9][a-z0-9-]*$/', $cityId)) {
+            if (!preg_match('/^[a-z0-9][a-z0-9_-]*$/', $tplId) || !preg_match('/^[a-z0-9][a-z0-9_-]*$/', $cityId)) {
                 $errors[] = "Skipped: unsafe template/city ID '{$tplId}'/'{$cityId}'";
                 $skipped++;
                 continue;
