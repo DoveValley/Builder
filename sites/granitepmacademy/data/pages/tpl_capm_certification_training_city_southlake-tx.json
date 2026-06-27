@@ -45,7 +45,7 @@
     {
       "type": "hero_split",
       "hs_heading": "CAPM Certification Training in {city}, {SS}",
-      "hs_subtext": "Southlake's thriving technology and finance sectors demand project managers who speak the language of professional credentials. Granite PM Academy delivers live-virtual CAPM training through PMI-authorized instruction, ensuring you meet industry standards wherever you learn. Gain competitive positioning for advancement and salary growth with a certification that resonates across Southlake's leading employers.",
+      "hs_subtext": "In Southlake's thriving technology and finance sectors—home to Sabre, TD Ameritrade, and regional Fidelity offices—project management expertise drives career progression and competitive advantage. Granite PM Academy's PMI-authorized, live-virtual instructor-led CAPM training ensures you master industry-standard practices with flexible scheduling. Our proven curriculum delivers the knowledge and confidence needed to pass your certification exam and advance into higher-paying project management roles.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#capm_schedule",
       "hs_caption1": "",
@@ -55,7 +55,16 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": ""
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:01.875352Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -245,13 +254,22 @@
         },
         {
           "question": "What salary can CAPM certification help me earn in Southlake, Texas?",
-          "answer": "CAPM certification positions you competitively in Southlake's thriving tech, finance, and corporate sectors. PMP-certified project managers in the area earn $105,000–$135,000 annually, with finance and technology professionals at major employers like Charles Schwab and Sabre Corporation commanding higher salaries. CAPM is your foundation toward PMP and these earning benchmarks."
+          "answer": "PMP-certified project managers in Southlake earn $105,000–$135,000 annually, with higher salaries in technology, finance, and corporate headquarters roles. CAPM certification demonstrates foundational project management competency, positioning you for advancement at major employers like Sabre Corporation, TD Ameritrade, Verizon Business, and Deloitte's regional offices."
         },
         {
           "question": "How long does CAPM training take while working full-time in Southlake?",
-          "answer": "Granite PM Academy's flexible CAPM training accommodates Southlake's busy professionals. Most candidates complete the course in 4–6 weeks while maintaining full-time roles at local employers like Deloitte, Verizon Business, or healthcare organizations. Our blended learning approach lets you study evenings and weekends around your corporate or construction project schedule."
+          "answer": "Our CAPM training typically requires 35–40 hours, completable in 4–6 weeks with part-time study around your full-time job. Southlake professionals at Sysco, Cardinal Health, Fidelity, and healthcare organizations like Texas Health Harris Methodist benefit from flexible scheduling that fits demanding corporate and headquarters environments."
         }
-      ]
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:04.647037Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -283,6 +301,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-26T23:05:50+00:00",
-  "template_version": "50e255db4b266be1cd2bf216b825445b"
+  "generated_at": "2026-06-27T00:33:31+00:00",
+  "template_version": "7b9cbf5bb35e5dc3eb2cec1ebb883bf8"
 }

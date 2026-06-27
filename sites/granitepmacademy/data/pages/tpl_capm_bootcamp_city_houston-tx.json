@@ -46,7 +46,7 @@
     {
       "type": "hero_split",
       "hs_heading": "CAPM Exam Prep Bootcamp in {city}, {SS}",
-      "hs_subtext": "Houston's energy and aerospace sectors demand project managers who speak the language of PMI standards. Our live-virtual, PMI-authorized bootcamp delivers rigorous CAPM preparation with instructors who understand your industry's complexities. Graduates advance faster in role and compensation while maintaining our consistently high pass rates.",
+      "hs_subtext": "Houston's energy and aerospace sectors demand certified project managers who can deliver complex initiatives on time and within budget. Granite PM Academy's PMI-authorized, live-virtual bootcamp accelerates your CAPM readiness with expert instruction designed for working professionals. Graduates advance their careers and command higher salaries, backed by our proven pass rate.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#capm_boot_schedule",
       "hs_caption1": "",
@@ -56,7 +56,16 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": ""
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:34:29.211216Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -245,14 +254,23 @@
           "answer": "<p>Yes. The CAPM has no experience requirement, and neither does our bootcamp. The course starts with foundational PM concepts before moving into exam preparation.</p>"
         },
         {
-          "question": "What salary can CAPM certification help me earn in Houston?",
-          "answer": "CAPM-certified professionals in Houston typically earn $105,000–$135,000 annually. In high-demand sectors like energy (ExxonMobil, Chevron, Shell), aerospace (NASA Johnson Space Center), and engineering/construction (Bechtel, KBR), certified project managers often command salaries at the higher end. Certification demonstrates foundational PM competency that employers value, positioning you competitively across Houston's major industries."
+          "question": "What salary can CAPM certification help me earn in Houston's energy sector?",
+          "answer": "PMP-certified project managers in Houston earn $105,000–$135,000 annually, with energy professionals at ExxonMobil, Chevron, and Shell USA commanding salaries toward the higher end. CAPM certification strengthens your candidacy for advancement into these lucrative roles, positioning you competitively within Houston's dominant industry."
         },
         {
-          "question": "How long is the CAPM bootcamp while working full-time in Houston?",
-          "answer": "Our bootcamp is designed for working professionals. Typically, you'll complete training in 2–3 weeks while maintaining your full-time role at Houston employers like HPE, CenterPoint Energy, or healthcare systems. We offer flexible scheduling—weekend and evening sessions—so you can balance your current job in energy, aerospace, or construction with exam prep without sacrificing income."
+          "question": "How long does CAPM bootcamp training take while working full-time in Houston?",
+          "answer": "Our intensive bootcamp format condenses training into weekends and evenings, ideal for Houston's busy professionals balancing work at NASA, Bechtel, healthcare systems, or tech companies. Most participants complete the program in 4–6 weeks while maintaining full-time employment, then schedule the exam within 30 days."
         }
-      ]
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:34:32.076532Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -284,6 +302,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-26T23:05:50+00:00",
-  "template_version": "6650fe294bfa2252682a1e638fe64893"
+  "generated_at": "2026-06-27T00:33:31+00:00",
+  "template_version": "1a1424df79f9789f02da882279781264"
 }

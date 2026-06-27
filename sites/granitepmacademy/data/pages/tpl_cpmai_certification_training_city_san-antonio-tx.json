@@ -44,7 +44,7 @@
     {
       "type": "hero_split",
       "hs_heading": "CPMAI Certification Training in {city}, {SS}",
-      "hs_subtext": "San Antonio's thriving defense, healthcare, and technology sectors demand skilled project managers who can deliver mission-critical initiatives. Granite PM Academy's PMI-authorized, live-virtual instructor-led CPMAI training equips you with recognized credentials that these major employers actively seek. Graduates advance their careers with competitive salaries and industry-leading pass rates.",
+      "hs_subtext": "In San Antonio's defense and government sectors, CPMAI certification demonstrates project management excellence to employers like JBSA and the City. Granite PM Academy delivers live-virtual instructor-led training as a PMI Premier Authorized partner, ensuring quality instruction. Graduates advance their careers with credentials that command competitive salaries in our region's high-demand industries.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#cpmai_schedule",
       "hs_caption1": "",
@@ -54,7 +54,16 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": ""
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:18.235439Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -247,14 +256,23 @@
           "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
         },
         {
-          "question": "What salary can a PMP-certified project manager expect in San Antonio?",
-          "answer": "PMP-certified project managers in San Antonio earn $105,000–$125,000 annually on average, with defense and healthcare roles often exceeding $130,000. Major employers like USAA, JBSA, Baptist Health System, and Valero actively recruit certified professionals. Your certification ROI is substantial in San Antonio's competitive market."
+          "question": "What salary can PMP-certified project managers expect in San Antonio?",
+          "answer": "PMP-certified project managers in San Antonio earn $105,000–$125,000 annually on average, with defense and healthcare roles frequently exceeding $130,000. Major employers like USAA, Joint Base San Antonio, Baptist Health System, and CHRISTUS Health actively seek certified professionals, making certification a direct path to higher-paying positions in the region's dominant sectors."
         },
         {
           "question": "How long does CPMAI certification training take while working full-time in San Antonio?",
-          "answer": "Our CPMAI training program accommodates San Antonio professionals with flexible scheduling: typically 4–6 weeks part-time, or accelerated weekend options. Many local defense and healthcare professionals complete training while maintaining full-time roles. We structure courses around your schedule, not the other way around."
+          "answer": "Granite PM Academy's CPMAI training typically requires 40 hours of instruction, completable in 2–4 weeks with evening and weekend options ideal for San Antonio professionals balancing full-time roles at employers like Rackspace, H-E-B, or CPS Energy. Flexible scheduling ensures working professionals can earn certification without career interruption."
         }
-      ]
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:20.952002Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -286,6 +304,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-26T23:05:50+00:00",
-  "template_version": "236d2a45abe2d2ec4bcbca0b57018b8a"
+  "generated_at": "2026-06-27T00:33:31+00:00",
+  "template_version": "f46e80ffb61ae91abefbff838a4bf3ac"
 }

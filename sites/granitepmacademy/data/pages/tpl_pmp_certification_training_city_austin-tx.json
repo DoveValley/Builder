@@ -46,7 +46,7 @@
     {
       "type": "hero_split",
       "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "Austin's tech and healthcare sectors demand skilled project managers who can deliver complex initiatives on time and on budget. Granite PM Academy's PMI-authorized, live-virtual instructor-led training prepares you for PMP certification with flexible learning that fits your Austin lifestyle. Graduates report faster promotions and salary increases, with our program consistently delivering high pass rates.",
+      "hs_subtext": "Austin's thriving tech sector—home to Dell, Apple, and Oracle—demands skilled project managers who can lead complex initiatives across distributed teams. Granite PM Academy delivers PMI-authorized, live-virtual instructor-led training designed for working professionals seeking to advance their careers. Our proven approach combines expert instruction with practical application, helping you earn your PMP certification and increase your earning potential.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#pmp_schedule",
       "hs_caption1": "",
@@ -56,7 +56,16 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": ""
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:50.749900Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -250,13 +259,22 @@
         },
         {
           "question": "What salary can PMP-certified project managers expect in Austin, Texas?",
-          "answer": "PMP-certified project managers in Austin typically earn $105,000–$135,000 annually. Professionals in high-demand sectors like technology, semiconductor manufacturing (Samsung Austin, Apple), and finance command salaries at the higher end. Dell Technologies, Oracle, and AWS also offer competitive compensation packages for certified PMs."
+          "answer": "PMP-certified project managers in Austin typically earn $105,000–$135,000 annually. Professionals working in high-demand sectors like technology, semiconductor manufacturing (Samsung Austin, Apple), and finance command salaries at the higher end. Austin's thriving tech ecosystem and major employers like Dell, Oracle, and AWS drive competitive compensation for certified PMs."
         },
         {
           "question": "How long does PMP certification training take while working full-time in Austin?",
-          "answer": "Granite PM Academy's flexible training accommodates Austin's busy professionals. Most complete PMP certification in 4–8 weeks through evening and weekend classes while maintaining full-time employment at local employers like Tesla, Ascension Seton, or government agencies, balancing study with work commitments."
+          "answer": "Granite PM Academy's flexible PMP training accommodates Austin's busy professionals. Most candidates complete 35 required contact hours through evening and weekend classes within 8–12 weeks while maintaining full-time employment. This timeline allows tech and healthcare professionals at companies like Ascension Seton and Dell to earn certification without disrupting their careers."
         }
-      ]
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:53.643752Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -288,6 +306,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-26T23:05:50+00:00",
-  "template_version": "aad288a115a6cbedcca5609e7d00e686"
+  "generated_at": "2026-06-27T00:33:31+00:00",
+  "template_version": "75547dabee5eb0c978b43f9b49c48626"
 }

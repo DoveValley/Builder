@@ -46,7 +46,7 @@
     {
       "type": "hero_split",
       "hs_heading": "CPMAI Certification Training in {city}, {SS}",
-      "hs_subtext": "Austin's thriving tech and healthcare sectors demand skilled project managers who can deliver complex initiatives on time and on budget. Granite PM Academy's PMI-authorized, live-virtual instructor-led CPMAI training equips you with industry-recognized credentials. Graduates report significant career advancement and salary growth within months of certification.",
+      "hs_subtext": "Austin's tech and healthcare sectors demand skilled project managers who can deliver complex initiatives on time and within budget. Granite PM Academy's PMI-authorized, live-virtual CPMAI training combines expert instruction with flexible scheduling for working professionals. Graduates advance their careers with a credential recognized across Fortune 500 companies like Dell, Apple, and Ascension Seton.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#cpmai_schedule",
       "hs_caption1": "",
@@ -56,7 +56,16 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": ""
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:05.909326Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -249,14 +258,23 @@
           "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
         },
         {
-          "question": "How much do PMP-certified project managers earn in Austin, Texas?",
-          "answer": "PMP-certified project managers in Austin typically earn $105,000–$135,000 annually. Professionals in high-demand sectors like technology, semiconductor manufacturing, and finance—including roles at Dell, Samsung Austin Semiconductor, and Oracle—often command salaries at the higher end. Your earning potential increases significantly with certification and relevant experience."
+          "question": "What salary can PMP-certified project managers expect in Austin, Texas?",
+          "answer": "PMP-certified project managers in Austin typically earn $105,000–$135,000 annually. Professionals in high-demand sectors like technology, semiconductor manufacturing, and finance—including roles at Dell, Samsung Austin Semiconductor, and Charles Schwab—often command salaries at the higher end. Certification significantly boosts earning potential across Austin's diverse industries."
         },
         {
-          "question": "Is there job demand for certified project managers at Austin tech companies?",
-          "answer": "Yes. Austin's thriving tech sector—home to Dell, Apple, Oracle, and AWS—heavily recruits certified project managers. Government contractors, healthcare systems like Ascension Seton, and semiconductor manufacturers also actively seek PMP and CPMAI-certified professionals to lead complex initiatives and improve operational efficiency."
+          "question": "How long does CPMAI certification training take while working full-time in Austin?",
+          "answer": "Granite PM Academy's CPMAI training accommodates Austin's busy professionals with flexible scheduling. Most full-time workers complete the program in 4–8 weeks through evening and weekend classes. This allows tech professionals at Oracle, AWS, and healthcare workers at Ascension Seton to earn certification without sacrificing their current roles."
         }
-      ]
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:08.736468Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -288,6 +306,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-26T23:05:50+00:00",
-  "template_version": "236d2a45abe2d2ec4bcbca0b57018b8a"
+  "generated_at": "2026-06-27T00:33:31+00:00",
+  "template_version": "f46e80ffb61ae91abefbff838a4bf3ac"
 }

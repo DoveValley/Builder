@@ -44,7 +44,7 @@
     {
       "type": "hero_split",
       "hs_heading": "CAPM Certification Training in {city}, {SS}",
-      "hs_subtext": "San Antonio's defense and technology sectors demand skilled project managers who can drive mission-critical initiatives at organizations like JBSA and Rackspace. Granite PM Academy's PMI-authorized, live-virtual CAPM training equips you with foundational PM expertise recognized across industries. Earn your certification and position yourself for accelerated career growth and competitive salary advancement in San Antonio's thriving job market.",
+      "hs_subtext": "San Antonio's defense and technology sectors demand project managers who can deliver results under pressure. Granite PM Academy's PMI-authorized, live-virtual instructor-led CAPM training equips you with globally recognized credentials that employers like JBSA and Rackspace value. Graduates advance faster into higher-paying PM roles with proven certification backing.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#capm_schedule",
       "hs_caption1": "",
@@ -54,7 +54,16 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": ""
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:34:57.473078Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -243,14 +252,23 @@
           "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
         },
         {
-          "question": "What salary can CAPM certification help me earn in San Antonio's defense sector?",
-          "answer": "CAPM certification is highly valued at JBSA and defense contractors in San Antonio. PMP-certified project managers in the defense and aerospace industries earn $130,000+, with CAPM serving as your entry credential. The certification demonstrates PMI standards knowledge that defense employers actively seek, positioning you for faster advancement and higher starting salaries than non-certified peers."
+          "question": "What salary can CAPM certification help me earn in San Antonio?",
+          "answer": "CAPM certification opens doors across San Antonio's defense, healthcare, and finance sectors. PMP-certified project managers in the city average $105,000–$125,000 annually, with defense and healthcare roles often exceeding $130,000. CAPM serves as your stepping stone to these higher-paying positions at employers like USAA, JBSA, Baptist Health System, and Valero Energy."
         },
         {
           "question": "How long does CAPM training take while working full-time in San Antonio?",
-          "answer": "Granite PM Academy's CAPM training accommodates San Antonio's working professionals with flexible scheduling. Most candidates complete training in 4–8 weeks while maintaining full-time employment at employers like USAA, Rackspace, or Baptist Health System. Self-paced options and evening/weekend classes let you earn your 23 required contact hours without disrupting your current role."
+          "answer": "Granite PM Academy's CAPM training accommodates San Antonio's working professionals with flexible scheduling. Most candidates complete certification in 4–8 weeks while maintaining full-time employment at local organizations like Rackspace, CPS Energy, or CHRISTUS Health. Our instructor-led and self-paced options let you balance career advancement with your current job responsibilities."
         }
-      ]
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:00.076138Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -282,6 +300,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-26T23:05:50+00:00",
-  "template_version": "50e255db4b266be1cd2bf216b825445b"
+  "generated_at": "2026-06-27T00:33:31+00:00",
+  "template_version": "7b9cbf5bb35e5dc3eb2cec1ebb883bf8"
 }

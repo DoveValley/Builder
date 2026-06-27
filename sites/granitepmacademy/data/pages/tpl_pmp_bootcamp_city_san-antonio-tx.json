@@ -44,7 +44,7 @@
     {
       "type": "hero_split",
       "hs_heading": "PMP Exam Prep Bootcamp in {city}, {SS}",
-      "hs_subtext": "San Antonio's defense and healthcare sectors demand skilled project managers who can lead mission-critical initiatives. Granite PM Academy's PMI-authorized, live-virtual bootcamp delivers the rigor and expertise you need to pass the PMP exam on your first attempt. Advance your career and increase earning potential with a certification recognized across USAA, JBSA, and major healthcare systems.",
+      "hs_subtext": "San Antonio's defense and technology sectors demand project managers who speak the language of compliance and efficiency. Granite PM Academy's PMI-authorized, live-virtual bootcamp delivers the rigorous preparation you need to pass on your first attempt. Earn your PMP credential and position yourself for the advanced roles and salary growth these major employers actively pursue.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#pmp_boot_schedule",
       "hs_caption1": "",
@@ -54,7 +54,16 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": ""
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:42.426030Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -243,14 +252,23 @@
           "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
         },
         {
-          "question": "What salary can PMP-certified project managers earn in San Antonio?",
-          "answer": "PMP-certified project managers in San Antonio earn $105,000–$125,000 annually on average, with defense and healthcare roles frequently exceeding $130,000. Major employers like USAA, Joint Base San Antonio, Baptist Health System, and Valero actively hire certified PMs, offering competitive compensation packages that reward credential holders."
+          "question": "What salary can PMP-certified project managers expect in San Antonio?",
+          "answer": "PMP-certified project managers in San Antonio typically earn $105,000–$125,000 annually, with defense and healthcare roles often exceeding $130,000. Major employers like USAA, JBSA, Baptist Health System, and Valero actively hire certified PMs. The certification directly correlates with promotion and salary advancement across these high-demand sectors."
         },
         {
-          "question": "How long does PMP bootcamp training take while working full-time in San Antonio?",
-          "answer": "Our PMP Exam Prep Bootcamp accommodates San Antonio's working professionals with flexible scheduling—typically 4–6 weeks of part-time or weekend classes. This timeline lets you maintain your current role at employers like Rackspace or CPS Energy while earning your PMI credential and preparing for exam success."
+          "question": "Can I complete PMP bootcamp training while working full-time in San Antonio?",
+          "answer": "Yes. Granite PM Academy's bootcamp is designed for working professionals. Our flexible scheduling accommodates San Antonio's busy workforce in defense, healthcare, and finance. Most participants complete the course in 4–6 weeks while maintaining full-time employment, preparing you to pass the PMP exam without career interruption."
         }
-      ]
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:44.985817Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -282,6 +300,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-26T23:05:50+00:00",
-  "template_version": "6803e2ddbf6655641f5161e71edc25ba"
+  "generated_at": "2026-06-27T00:33:31+00:00",
+  "template_version": "10ab06bddae7644de854f37c3a718bd8"
 }

@@ -213,12 +213,25 @@ function generate_city_pages(array $options = []): array {
             }
 
             // ── Restore locked blocks ─────────────────────────────────────────
-            // After all steps run, overwrite locked block indexes with
-            // their content from the previous version of the page.
-            if (!$forceLocked && $existingPage !== null && !empty($page['locked_blocks'])) {
+            // Two lock sources are merged:
+            // 1. Explicit locked_blocks index array (set by admin or future tooling)
+            // 2. Blocks with _ai_locked:true set by generate.py after AI generation
+            // Both are skipped when $forceLocked is true.
+            if (!$forceLocked && $existingPage !== null) {
+                // Build a set of indexes to preserve from explicit locked_blocks list
+                $preserveIndexes = [];
                 foreach ($page['locked_blocks'] as $blockIdx) {
-                    $blockIdx = (int)$blockIdx;
-                    if (isset($existingPage['content_blocks'][$blockIdx])) {
+                    $preserveIndexes[(int)$blockIdx] = true;
+                }
+                // Also preserve any block the AI has already filled (_ai_locked:true)
+                foreach ($existingPage['content_blocks'] as $blockIdx => $existingBlock) {
+                    if (!empty($existingBlock['_ai_locked'])) {
+                        $preserveIndexes[$blockIdx] = true;
+                    }
+                }
+                // Restore preserved blocks from the existing page
+                foreach ($preserveIndexes as $blockIdx => $_) {
+                    if (isset($existingPage['content_blocks'][$blockIdx], $page['content_blocks'][$blockIdx])) {
                         $page['content_blocks'][$blockIdx] = $existingPage['content_blocks'][$blockIdx];
                     }
                 }

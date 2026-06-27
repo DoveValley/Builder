@@ -46,7 +46,7 @@
     {
       "type": "hero_split",
       "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "Dallas's thriving technology and defense sectors—home to industry leaders like AT&T and Lockheed Martin—demand skilled project managers who can lead complex initiatives. Granite PM Academy delivers PMI-authorized, live-virtual instructor-led training designed for working professionals. Earn your PMP certification and position yourself for advancement and competitive salary growth in Dallas's high-demand market.",
+      "hs_subtext": "Dallas's thriving technology and defense sectors—home to industry leaders like AT&T and Lockheed Martin—demand certified project managers who can deliver complex initiatives on time and budget. Granite PM Academy's PMI-authorized, live-virtual instructor-led training ensures you gain the credentials these employers actively seek. Graduates advance into higher-paying leadership roles with a proven track record of PMP exam success.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#pmp_schedule",
       "hs_caption1": "",
@@ -56,7 +56,16 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": ""
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:55.225466Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -250,13 +259,22 @@
         },
         {
           "question": "What salary can PMP-certified project managers expect in Dallas, Texas?",
-          "answer": "PMP-certified project managers in Dallas typically earn $105,000–$135,000 annually. Professionals in high-demand sectors like defense (Lockheed Martin, Raytheon), technology (AT&T, Texas Instruments), and finance (JPMorgan Chase, Bank of America) often command salaries at the higher end, making certification a valuable investment for Dallas professionals."
+          "answer": "PMP-certified project managers in Dallas typically earn $105,000–$135,000 annually. Professionals in defense, technology, and financial services—sectors dominated by employers like Lockheed Martin, AT&T, and JPMorgan Chase—often command salaries at the higher end. Certification directly supports career advancement and negotiating power in Dallas's competitive job market."
         },
         {
-          "question": "How long does PMP training take while working full-time in Dallas?",
-          "answer": "Granite PM Academy offers flexible scheduling designed for Dallas professionals balancing full-time careers at major employers like Toyota, Southwest Airlines, and UT Southwestern. Most candidates complete training in 4–8 weeks through evening and weekend classes, allowing you to earn while you learn without disrupting your job."
+          "question": "How long does PMP certification training take while working full-time in Dallas?",
+          "answer": "Granite PM Academy's PMP training accommodates Dallas professionals with flexible scheduling options. Most candidates complete classroom instruction in 4–5 weeks while maintaining full-time employment, with weeknight and weekend classes available. Self-study typically requires 50–60 hours beyond instruction, allowing working professionals to balance careers at major employers like Toyota, Texas Instruments, or Southwest Airlines."
         }
-      ]
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:57.789467Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -288,6 +306,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-26T23:05:50+00:00",
-  "template_version": "aad288a115a6cbedcca5609e7d00e686"
+  "generated_at": "2026-06-27T00:33:31+00:00",
+  "template_version": "75547dabee5eb0c978b43f9b49c48626"
 }

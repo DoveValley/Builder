@@ -46,7 +46,7 @@
     {
       "type": "hero_split",
       "hs_heading": "PMP Exam Prep Bootcamp in {city}, {SS}",
-      "hs_subtext": "Dallas's thriving technology and defense sectors demand project managers who can lead complex, high-stakes initiatives at companies like AT&T and Lockheed Martin. Granite PM Academy's PMI Premier Authorized live-virtual bootcamp delivers the rigorous PMP preparation you need to pass on your first attempt. Earning your PMP credential positions you for significant career advancement and salary growth in Dallas's competitive project management market.",
+      "hs_subtext": "In Dallas's thriving technology and defense sectors, companies like AT&T and Lockheed Martin prioritize PMP-certified leaders to manage complex, high-stakes projects. Granite PM Academy's PMI-authorized live-virtual bootcamp delivers comprehensive exam prep designed for working professionals. Earn your certification and position yourself for senior project roles and significant salary advancement in one of Texas's most competitive markets.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#pmp_boot_schedule",
       "hs_caption1": "",
@@ -56,7 +56,16 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": ""
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:32.893231Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -245,14 +254,23 @@
           "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
         },
         {
-          "question": "How much do PMP-certified project managers earn in Dallas, Texas?",
-          "answer": "PMP-certified project managers in Dallas typically earn $105,000–$135,000 annually. Professionals in high-demand sectors like defense (Lockheed Martin, Raytheon), technology (AT&T, Texas Instruments), and financial services (JPMorgan Chase, Bank of America) often command salaries at the higher end, reflecting Dallas's competitive market."
+          "question": "What salary can PMP-certified project managers expect in Dallas, Texas?",
+          "answer": "PMP-certified project managers in Dallas typically earn $105,000–$135,000 annually. Professionals in high-demand sectors like defense (Lockheed Martin, Raytheon), technology (AT&T, Texas Instruments), and finance (JPMorgan Chase, Bank of America) often command salaries at the higher end, making certification a valuable investment for career advancement."
         },
         {
-          "question": "Is PMP certification valuable for Dallas healthcare and technology professionals?",
-          "answer": "Yes. Dallas's major employers—UT Southwestern, Parkland Health, AT&T, and Texas Instruments—actively seek PMP-certified project managers to lead complex initiatives. The certification strengthens your candidacy, accelerates promotions, and qualifies you for higher-paying roles in these growth sectors."
+          "question": "How long does PMP bootcamp training take while working full-time in Dallas?",
+          "answer": "Granite PM Academy's PMP Bootcamp accommodates Dallas professionals with flexible scheduling. Most full-time workers complete the program in 3–4 weeks through evening and weekend classes, allowing you to advance your career without sacrificing your current position at major employers like Toyota, Southwest Airlines, or Jacobs Engineering."
         }
-      ]
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:36.285472Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -284,6 +302,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-26T23:05:50+00:00",
-  "template_version": "6803e2ddbf6655641f5161e71edc25ba"
+  "generated_at": "2026-06-27T00:33:31+00:00",
+  "template_version": "10ab06bddae7644de854f37c3a718bd8"
 }

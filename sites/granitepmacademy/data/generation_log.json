@@ -342,5 +342,30 @@
     "output_tokens": 22154,
     "api_calls": 100,
     "estimated_cost_usd": 0.11796
+  },
+  {
+    "run_id": "07e4fe3f-31d2-41c7-961b-ce7e148de5dc",
+    "started_at": "2026-06-27T00:34:17.890382Z",
+    "finished_at": "2026-06-27T00:36:10.217393Z",
+    "duration_ms": 112327,
+    "dry_run": false,
+    "options": {
+      "site": "granitepmacademy",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 50,
+    "pages_skipped": 50,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 50,
+    "cities_researched": 0,
+    "input_tokens": 15090,
+    "output_tokens": 8393,
+    "api_calls": 50,
+    "estimated_cost_usd": 0.045644
   }
 ]

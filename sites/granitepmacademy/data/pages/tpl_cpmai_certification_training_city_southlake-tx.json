@@ -45,7 +45,7 @@
     {
       "type": "hero_split",
       "hs_heading": "CPMAI Certification Training in {city}, {SS}",
-      "hs_subtext": "Southlake's thriving technology and finance sectors demand skilled project managers who can drive complex initiatives. Granite PM Academy delivers PMI-authorized, live-virtual instructor-led training designed for working professionals in your community. Earn your CPMAI certification and position yourself for measurable career advancement and increased earning potential.",
+      "hs_subtext": "Southlake's thriving technology and finance sectors demand skilled project managers who can navigate complex initiatives and deliver measurable results. Granite PM Academy offers live-virtual instructor-led CPMAI training backed by PMI Premier authorization, ensuring you receive industry-recognized education. Graduates advance into senior roles and command competitive salaries backed by a proven pass rate.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#cpmai_schedule",
       "hs_caption1": "",
@@ -55,7 +55,16 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": ""
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:22.868465Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -249,13 +258,22 @@
         },
         {
           "question": "What salary can PMP-certified project managers expect in Southlake, Texas?",
-          "answer": "PMP-certified project managers in Southlake typically earn $105,000–$135,000 annually. Professionals working at major employers like Sabre, TD Ameritrade, Deloitte, or in technology and finance sectors often command salaries at the higher end. Certification significantly boosts earning potential across Southlake's dominant industries."
+          "answer": "PMP-certified project managers in Southlake typically earn $105,000–$135,000 annually. Professionals working in technology, finance, and corporate headquarters—including roles at Sabre, Charles Schwab, and Verizon Business—often command salaries at the higher end. Certification directly increases earning potential and competitive positioning in Southlake's robust corporate sector."
         },
         {
-          "question": "Is PMP certification in demand at Southlake's major employers?",
-          "answer": "Yes. Southlake's largest employers—including Sabre Corporation, TD Ameritrade, Cardinal Health, Verizon Business, and Deloitte—actively seek PMP-certified professionals for project leadership roles. Certification is especially valued in technology, finance, and corporate headquarters environments that dominate the local job market."
+          "question": "How long does CPMAI certification training take while working full-time in Southlake?",
+          "answer": "Our CPMAI training accommodates Southlake's busy professionals with flexible scheduling options. Most candidates complete certification in 4–8 weeks while maintaining full-time employment at local employers like Deloitte, Fidelity, or healthcare organizations. We offer evening and weekend classes designed for working professionals balancing demanding corporate roles."
         }
-      ]
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:25.636988Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -287,6 +305,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-26T23:05:50+00:00",
-  "template_version": "236d2a45abe2d2ec4bcbca0b57018b8a"
+  "generated_at": "2026-06-27T00:33:31+00:00",
+  "template_version": "f46e80ffb61ae91abefbff838a4bf3ac"
 }

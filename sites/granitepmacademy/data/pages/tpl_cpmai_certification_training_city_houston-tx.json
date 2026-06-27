@@ -46,7 +46,7 @@
     {
       "type": "hero_split",
       "hs_heading": "CPMAI Certification Training in {city}, {SS}",
-      "hs_subtext": "Houston's energy and aerospace sectors demand skilled project managers who can lead complex, mission-critical initiatives. Granite PM Academy delivers PMI-authorized CPMAI training through live-virtual instruction, ensuring you master certification content without disrupting your schedule. Graduates advance their careers with competitive salaries and industry-leading pass rates.",
+      "hs_subtext": "Houston's energy and aerospace sectors demand project managers who can deliver complex initiatives on time and within budget. Granite PM Academy's PMI-authorized, live-virtual CPMAI training equips you with industry-recognized credentials. Graduates advance faster into leadership roles while commanding higher salaries in competitive markets.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#cpmai_schedule",
       "hs_caption1": "",
@@ -56,7 +56,16 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": ""
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:14.266016Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -250,13 +259,22 @@
         },
         {
           "question": "What salary can PMP-certified project managers expect in Houston, Texas?",
-          "answer": "PMP-certified project managers in Houston typically earn $105,000–$135,000 annually. Professionals in energy, engineering, and aerospace sectors—major Houston industries with employers like ExxonMobil, Shell, Chevron, Bechtel, and NASA Johnson Space Center—often command salaries at the higher end, reflecting strong local demand for certified expertise."
+          "answer": "PMP-certified project managers in Houston typically earn $105,000–$135,000 annually. Professionals in energy, engineering, and aerospace sectors—major Houston industries with employers like ExxonMobil, Shell, and NASA Johnson Space Center—often command salaries at the higher end, making certification a valuable investment."
         },
         {
           "question": "How long does CPMAI certification training take while working full-time in Houston?",
-          "answer": "Granite PM Academy's CPMAI training accommodates Houston's working professionals with flexible scheduling options. Most full-time employees complete the program in 4–8 weeks through evening and weekend classes, allowing you to advance your career without sacrificing your current role in Houston's competitive energy, healthcare, and engineering sectors."
+          "answer": "Granite PM Academy's CPMAI training is designed for working professionals. Most Houston-based participants complete coursework in 4–8 weeks while maintaining full-time roles at companies like Chevron, Bechtel, or Houston Methodist Hospital, balancing evening and weekend study schedules with career demands."
         }
-      ]
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:16.623553Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -288,6 +306,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-26T23:05:50+00:00",
-  "template_version": "236d2a45abe2d2ec4bcbca0b57018b8a"
+  "generated_at": "2026-06-27T00:33:31+00:00",
+  "template_version": "f46e80ffb61ae91abefbff838a4bf3ac"
 }

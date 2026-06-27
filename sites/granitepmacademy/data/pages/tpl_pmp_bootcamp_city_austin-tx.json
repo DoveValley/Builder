@@ -46,7 +46,7 @@
     {
       "type": "hero_split",
       "hs_heading": "PMP Exam Prep Bootcamp in {city}, {SS}",
-      "hs_subtext": "Austin's tech and defense sectors demand certified project managers who can lead complex initiatives at scale—from Dell and Oracle to government contractors managing mission-critical programs. Our PMI-authorized, live-virtual bootcamp delivers the focused preparation you need to pass on your first attempt. Earn your PMP credential and position yourself for the advanced leadership roles and salary growth these top employers actively seek.",
+      "hs_subtext": "Austin's thriving tech and healthcare sectors demand skilled project managers who can deliver complex initiatives on time and within budget. Granite PM Academy's PMI-authorized, live-virtual bootcamp equips you with industry-recognized credentials from instructors who understand your market. Graduates consistently advance their careers with higher salaries and the confidence to lead enterprise-level projects across Austin's top employers.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#pmp_boot_schedule",
       "hs_caption1": "",
@@ -56,7 +56,16 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": ""
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:28.369545Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -245,14 +254,23 @@
           "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
         },
         {
-          "question": "What salary can PMP-certified project managers expect in Austin, Texas?",
-          "answer": "PMP-certified project managers in Austin typically earn $105,000–$135,000 annually. Professionals in tech, semiconductors, and finance command salaries at the higher end. Major employers like Dell Technologies, Apple, Oracle, and Samsung Austin Semiconductor actively hire certified PMs, making certification a valuable investment in Austin's competitive job market."
+          "question": "What salary can PMP certified professionals earn in Austin Texas?",
+          "answer": "PMP-certified project managers in Austin earn between $105,000–$135,000 annually. Tech and semiconductor professionals at Dell, Apple, Samsung Austin, and Oracle often command top-tier salaries. Finance and healthcare sectors also offer competitive compensation. Your earning potential increases significantly with PMP certification across Austin's dominant industries."
         },
         {
-          "question": "How long does PMP Bootcamp training take while working full-time in Austin?",
-          "answer": "Granite PM Academy's bootcamp is designed for working professionals. Intensive formats typically take 4–5 days, while part-time options span 4–6 weeks with evening/weekend classes. This flexibility accommodates Austin's busy professionals at companies like AWS, Tesla, and Ascension Seton who need certification without sacrificing their current roles."
+          "question": "How long does PMP bootcamp training take while working full time Austin?",
+          "answer": "Our bootcamp spans 4–5 days of intensive training, designed for working professionals. Austin's fast-paced tech and healthcare sectors mean most participants complete the program without extended time off. Many attend over a long weekend or take 1–2 strategic days. You'll be exam-ready within weeks of completing the bootcamp."
         }
-      ]
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:31.123724Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -284,6 +302,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-26T23:05:50+00:00",
-  "template_version": "6803e2ddbf6655641f5161e71edc25ba"
+  "generated_at": "2026-06-27T00:33:31+00:00",
+  "template_version": "10ab06bddae7644de854f37c3a718bd8"
 }

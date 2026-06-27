@@ -45,7 +45,7 @@
     {
       "type": "hero_split",
       "hs_heading": "CAPM Exam Prep Bootcamp in {city}, {SS}",
-      "hs_subtext": "In Southlake's thriving technology and finance sectors, employers like Sabre and TD Ameritrade increasingly require project management credentials for advancement. Granite PM Academy's PMI-authorized, live-virtual CAPM bootcamp delivers flexible, expert instruction tailored to working professionals. Earn your certification and position yourself for competitive salary growth and career progression in your field.",
+      "hs_subtext": "In Southlake's thriving technology and financial services sectors, companies like Sabre and Charles Schwab increasingly require project management credentials for advancement. Granite PM Academy's PMI-authorized, live-virtual bootcamp delivers intensive CAPM preparation with experienced instructors. Our graduates achieve high pass rates while positioning themselves for competitive salary growth in the region's fastest-growing industries.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#capm_boot_schedule",
       "hs_caption1": "",
@@ -55,7 +55,16 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": ""
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:34:39.347231Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -244,14 +253,23 @@
           "answer": "<p>Yes. The CAPM has no experience requirement, and neither does our bootcamp. The course starts with foundational PM concepts before moving into exam preparation.</p>"
         },
         {
-          "question": "What salary can I expect after CAPM certification in Southlake, Texas?",
-          "answer": "CAPM-certified professionals in Southlake typically earn $105,000–$135,000 annually. Those working in technology, finance, and corporate headquarters environments—including employers like Sabre, Charles Schwab, and Deloitte—often command salaries at the higher end. Certification demonstrates project management competency that Southlake's largest employers actively seek."
+          "question": "What salary can I expect as a CAPM-certified project manager in Southlake?",
+          "answer": "CAPM certification positions you competitively in Southlake's thriving tech, finance, and corporate sectors. PMP-certified project managers in the area earn $105,000–$135,000 annually, with tech and finance professionals at major employers like Sabre, Charles Schwab, and Verizon Business commanding salaries at the higher end. CAPM is your first credential toward those PMP-level opportunities."
         },
         {
-          "question": "How long does CAPM Exam Prep Bootcamp take while working full-time in Southlake?",
-          "answer": "Our bootcamp is designed for working professionals. Most Southlake participants complete the program in 2–3 weeks with flexible scheduling that accommodates full-time roles at major employers like Verizon Business, Texas Health, and Cardinal Health. Intensive modules and online access allow you to prepare at your own pace without sacrificing your career momentum."
+          "question": "How long does CAPM bootcamp training take while working full-time Southlake?",
+          "answer": "Granite PM Academy's CAPM Bootcamp is designed for working professionals. Most participants complete the program in 4–6 weeks while maintaining full-time roles at Southlake employers like Deloitte, Texas Health, or Fidelity. Our flexible schedule accommodates your work commitments while preparing you for exam success and career advancement in project management."
         }
-      ]
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:34:42.244370Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -283,6 +301,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-26T23:05:50+00:00",
-  "template_version": "6650fe294bfa2252682a1e638fe64893"
+  "generated_at": "2026-06-27T00:33:31+00:00",
+  "template_version": "1a1424df79f9789f02da882279781264"
 }

@@ -225,19 +225,7 @@ def call_claude(prompt, model, api_key, dry_run=False):
         return None
 
 
-# ── Inject helpers ────────────────────────────────────────────────────────────
-
-def find_inject_target(blocks, ai_idx, direction):
-    """Return index of nearest non-ai_block in the given direction, or None."""
-    if direction == 'previous':
-        for j in range(ai_idx - 1, -1, -1):
-            if blocks[j].get('type') != 'ai_block':
-                return j
-    elif direction == 'next':
-        for j in range(ai_idx + 1, len(blocks)):
-            if blocks[j].get('type') != 'ai_block':
-                return j
-    return None
+# ── Field helpers ─────────────────────────────────────────────────────────────
 
 def extract_ai_value(ai_output, target_field):
     """
@@ -260,7 +248,7 @@ def extract_ai_value(ai_output, target_field):
     return vals[0] if vals else ''
 
 def apply_inject(target_block, field, mode, ai_output):
-    """Merge AI output into target_block[field] using the specified inject mode."""
+    """Write AI output into target_block[field] using replace/append/prepend mode."""
     ai_value = extract_ai_value(ai_output, field)
     existing = target_block.get(field)
 
@@ -284,22 +272,29 @@ def apply_inject(target_block, field, mode, ai_output):
 
 # ── Block processor ───────────────────────────────────────────────────────────
 
+def _needs_processing(block):
+    """True if process_blocks should handle this block."""
+    return block.get('type') == 'ai_block' or (
+        bool(block.get('ai_type_id')) and block.get('type') != 'ai_block'
+    )
+
 def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False):
     """
-    Process all ai_block instances in a content_blocks list.
+    Process blocks that need AI generation:
 
-    Standalone blocks: filled with AI output, kept in the list.
-    Inject blocks: AI output merged into adjacent block, then removed.
+    ai_block (standalone): filled with AI output, type changed to real block, kept.
+    Any block (enrich):    block has ai_type_id set; AI fills a specific field in-place,
+                           block type and all other fields unchanged, block kept.
+
     Locked blocks (_ai_locked=True): skipped unless --refresh.
 
     Returns (new_blocks_list, stats_dict).
     """
-    result       = [dict(b) for b in blocks]
-    inject_remove = set()
-    stats        = {'processed': 0, 'skipped': 0, 'errors': 0}
+    result = [dict(b) for b in blocks]
+    stats  = {'processed': 0, 'skipped': 0, 'errors': 0}
 
     for idx, block in enumerate(result):
-        if block.get('type') != 'ai_block':
+        if not _needs_processing(block):
             continue
 
         if block.get('_ai_locked') and not refresh:
@@ -314,14 +309,19 @@ def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False)
             stats['errors'] += 1
             continue
 
-        mode      = block.get('ai_mode')      or reg_entry.get('ai_mode', 'standalone')
-        model     = block.get('ai_model')     or reg_entry.get('ai_model', MODEL_DEFAULT)
-        prompt_t  = block.get('ai_prompt_override') or reg_entry.get('ai_prompt', '')
+        model    = block.get('ai_model')           or reg_entry.get('ai_model',  MODEL_DEFAULT)
+        prompt_t = block.get('ai_prompt_override') or reg_entry.get('ai_prompt', '')
 
         if not prompt_t:
             _warn(f'    [{idx}] {type_id} — empty prompt, skipping')
             stats['errors'] += 1
             continue
+
+        # Determine mode: enrich for non-ai_block; otherwise from block/registry
+        if block.get('type') != 'ai_block':
+            mode = 'enrich'
+        else:
+            mode = block.get('ai_mode') or reg_entry.get('ai_mode', 'standalone')
 
         prompt = substitute_vars(prompt_t, ctx)
         _log(f'    [{idx}] {type_id} · {mode} · {model.split("-")[1]}...')
@@ -344,25 +344,23 @@ def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False)
             _ok(f'    [{idx}] {type_id} — generated')
             stats['processed'] += 1
 
-        elif mode == 'inject':
-            direction = block.get('ai_inject_target') or reg_entry.get('ai_inject_target', 'previous')
-            field     = block.get('ai_inject_field')  or reg_entry.get('ai_inject_field', '')
-            inj_mode  = block.get('ai_inject_mode')   or reg_entry.get('ai_inject_mode', 'replace')
+        elif mode == 'enrich':
+            field    = block.get('ai_inject_field') or reg_entry.get('ai_inject_field', '')
+            inj_mode = block.get('ai_inject_mode')  or reg_entry.get('ai_inject_mode', 'replace')
 
-            target_idx = find_inject_target(result, idx, direction)
-            if target_idx is None:
-                _warn(f'    [{idx}] {type_id} — no {direction} target block found')
+            if not field:
+                _warn(f'    [{idx}] {type_id} — no ai_inject_field defined, skipping')
                 stats['errors'] += 1
                 continue
 
-            apply_inject(result[target_idx], field, inj_mode, ai_out)
-            inject_remove.add(idx)
-            _ok(f'    [{idx}] {type_id} — injected into [{target_idx}].{field} ({inj_mode})')
+            apply_inject(result[idx], field, inj_mode, ai_out)
+            result[idx]['_ai_generated']    = True
+            result[idx]['_ai_generated_at'] = now
+            result[idx]['_ai_model']        = model
+            result[idx]['_ai_type']         = type_id
+            result[idx]['_ai_locked']       = True
+            _ok(f'    [{idx}] {type_id} — enriched .{field} ({inj_mode})')
             stats['processed'] += 1
-
-    # Remove inject blocks highest-index first so earlier indices stay valid
-    for idx in sorted(inject_remove, reverse=True):
-        result.pop(idx)
 
     return result, stats
 
@@ -378,14 +376,14 @@ def process_homepage(paths, site_data, registry, c_idx, api_key, refresh, dry_ru
     site_vars = site_data.get('site_vars', {})
     city_data = resolve_city(c_idx, site_vars)
     ctx       = build_context(site_vars, city_data, site_data)
-    blocks    = site_data.get('content_blocks', [])
-    n_ai      = sum(1 for b in blocks if b.get('type') == 'ai_block')
+    blocks = site_data.get('content_blocks', [])
+    n_ai   = sum(1 for b in blocks if _needs_processing(b))
 
     if n_ai == 0:
-        _log('  No ai_blocks on homepage')
+        _log('  No processable blocks on homepage')
         return {'processed': 0, 'skipped': 0, 'errors': 0}
 
-    _log(f'  {n_ai} ai_block(s) | city: {ctx["city"]}, {ctx["SS"]}')
+    _log(f'  {n_ai} block(s) to process | city: {ctx["city"]}, {ctx["SS"]}')
     new_blocks, stats = process_blocks(blocks, registry, ctx, api_key, refresh, dry_run)
 
     if not dry_run:
@@ -404,10 +402,10 @@ def process_core_pages(paths, site_data, registry, c_idx, api_key, refresh, dry_
 
     for pid, page in pages.items():
         blocks = page.get('content_blocks', [])
-        n_ai   = sum(1 for b in blocks if b.get('type') == 'ai_block')
+        n_ai   = sum(1 for b in blocks if _needs_processing(b))
         if n_ai == 0:
             continue
-        _log(f'  Page "{page.get("title", pid)}" — {n_ai} ai_block(s)')
+        _log(f'  Page "{page.get("title", pid)}" — {n_ai} block(s) to process')
         city_data = resolve_city(c_idx, site_vars)
         ctx       = build_context(site_vars, city_data, page)
         new_blocks, stats = process_blocks(blocks, registry, ctx, api_key, refresh, dry_run)
@@ -445,13 +443,13 @@ def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, d
             continue
 
         blocks = page_data.get('content_blocks', [])
-        n_ai   = sum(1 for b in blocks if b.get('type') == 'ai_block')
+        n_ai   = sum(1 for b in blocks if _needs_processing(b))
         if n_ai == 0:
             continue
 
         fname = os.path.basename(fpath)
         _log(f'\n  {fname}')
-        _log(f'  {n_ai} ai_block(s)')
+        _log(f'  {n_ai} block(s) to process')
 
         city_vars = page_data.get('city_vars', {})
         city_data = resolve_city(c_idx, city_vars)
@@ -472,7 +470,7 @@ def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, d
             _ok(f'  Saved {fname}')
 
     if total['processed'] == 0 and not total['errors'] and not file_filter:
-        _log('  No ai_blocks in landing pages')
+        _log('  No processable blocks in landing pages')
 
     return total
 
@@ -607,55 +605,15 @@ def _template_ai_blocks(tpl: dict) -> list:
     return [b for b in tpl.get('content_blocks', []) if b.get('type') == 'ai_block']
 
 def _insert_ai_block_at_natural_position(blocks: list, ai_block: dict) -> list:
-    """
-    Insert an ai_block at its natural position:
-    - inject blocks that target 'next' go immediately before the first block
-      matching the target field pattern (hero_split for hs_subtext, faq_two_col for fq_items)
-    - inject blocks that target 'previous' go immediately after the target block type
-    - standalone blocks go after feature_columns if present, else after hero_split
-    """
-    ai_type = ai_block.get('ai_type_id', '')
-    mode    = ai_block.get('ai_mode', 'standalone')
-    field   = ai_block.get('ai_inject_field', '')
-    target  = ai_block.get('ai_inject_target', 'next')
-
+    """Insert a standalone ai_block after feature_columns if present, else after hero_split."""
     result = list(blocks)
-
-    if mode == 'inject' and target == 'next':
-        # Insert before the block that owns the target field
-        field_to_type = {
-            'hs_subtext': 'hero_split',
-            'fq_items':   'faq_two_col',
-        }
-        target_type = field_to_type.get(field)
-        if target_type:
-            for i, b in enumerate(result):
-                if b.get('type') == target_type:
-                    result.insert(i, ai_block)
-                    return result
-        result.insert(0, ai_block)  # fallback: prepend
-
-    elif mode == 'inject' and target == 'previous':
-        # Insert after the block that owns the target field
-        field_to_type = {'hs_subtext': 'hero_split'}
-        target_type = field_to_type.get(field)
-        if target_type:
-            for i, b in enumerate(result):
-                if b.get('type') == target_type:
-                    result.insert(i + 1, ai_block)
-                    return result
-        result.append(ai_block)  # fallback: append
-
+    fc_idx = next((i for i, b in enumerate(result) if b.get('type') == 'feature_columns'), None)
+    hs_idx = next((i for i, b in enumerate(result) if b.get('type') == 'hero_split'),      None)
+    insert_after = fc_idx if fc_idx is not None else hs_idx
+    if insert_after is not None:
+        result.insert(insert_after + 1, ai_block)
     else:
-        # Standalone: insert after feature_columns if present, else after hero_split
-        fc_idx = next((i for i, b in enumerate(result) if b.get('type') == 'feature_columns'), None)
-        hs_idx = next((i for i, b in enumerate(result) if b.get('type') == 'hero_split'),      None)
-        insert_after = fc_idx if fc_idx is not None else hs_idx
-        if insert_after is not None:
-            result.insert(insert_after + 1, ai_block)
-        else:
-            result.append(ai_block)
-
+        result.append(ai_block)
     return result
 
 

@@ -46,7 +46,7 @@
     {
       "type": "hero_split",
       "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "In Houston's energy and aerospace sectors, project managers drive billion-dollar initiatives that require rigorous credential standards. Granite PM Academy delivers live-virtual instructor-led training as a PMI Premier Authorized Partner, ensuring you meet industry expectations. PMP certification positions you for leadership roles and competitive compensation in Houston's high-demand market.",
+      "hs_subtext": "In Houston's thriving energy and aerospace sectors, PMP certification distinguishes project managers competing for leadership roles at companies like ExxonMobil, Shell, and NASA Johnson Space Center. Granite PM Academy delivers PMI-authorized, live-virtual instructor-led training designed for working professionals. Our students achieve high pass rates while accelerating their career advancement and salary potential in project management.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#pmp_schedule",
       "hs_caption1": "",
@@ -56,7 +56,16 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": ""
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:35:59.321271Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -249,14 +258,23 @@
           "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
         },
         {
-          "question": "What salary can PMP-certified project managers expect in Houston, Texas?",
-          "answer": "PMP-certified project managers in Houston typically earn $105,000–$135,000 annually. Professionals in energy, engineering, and aerospace sectors—including roles at ExxonMobil, Chevron, Shell, and NASA Johnson Space Center—often command salaries at the higher end, reflecting Houston's concentration of these industries."
+          "question": "What salary can PMP certified project managers expect in Houston?",
+          "answer": "PMP-certified project managers in Houston typically earn $105,000–$135,000 annually. Professionals in energy, engineering, and aerospace sectors—key industries here with major employers like ExxonMobil, Shell USA, and NASA Johnson Space Center—often command salaries at the higher end, making certification a valuable investment."
         },
         {
-          "question": "How long does PMP certification training take while working full-time in Houston?",
-          "answer": "Granite PM Academy's PMP training typically takes 4–6 weeks, designed for working professionals. Houston's demanding energy and construction sectors require flexible scheduling. Our classes accommodate full-time employment, allowing you to earn CAPM contact hours without sacrificing your current role at major employers like Bechtel or KBR."
+          "question": "How long does PMP training take while working full-time in Houston?",
+          "answer": "Granite PM Academy's PMP training accommodates Houston's busy professionals with flexible scheduling options. Most full-time workers complete training in 4–6 weeks through evening or weekend classes, allowing you to advance your career at major employers like Bechtel, KBR, and Houston Methodist without sacrificing your job."
         }
-      ]
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:36:01.984782Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -288,6 +306,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-26T23:05:50+00:00",
-  "template_version": "aad288a115a6cbedcca5609e7d00e686"
+  "generated_at": "2026-06-27T00:33:31+00:00",
+  "template_version": "75547dabee5eb0c978b43f9b49c48626"
 }

@@ -44,7 +44,7 @@
     {
       "type": "hero_split",
       "hs_heading": "CAPM Exam Prep Bootcamp in {city}, {SS}",
-      "hs_subtext": "San Antonio's defense and government sectors demand skilled project managers who can lead complex initiatives with precision and accountability. Granite PM Academy's PMI-authorized, live-virtual bootcamp delivers comprehensive CAPM preparation with expert instructors guiding you toward certification. Advance your career in one of the region's largest employment sectors while building the credential that enhances earning potential and competitive positioning.",
+      "hs_subtext": "San Antonio's defense and government sectors depend on skilled project managers to deliver mission-critical initiatives. Granite PM Academy's PMI-authorized live-virtual CAPM bootcamp provides the structured preparation you need to earn your certification and stand out to employers like JBSA and the City. Our proven curriculum accelerates your path to certification and positions you for meaningful career advancement.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#capm_boot_schedule",
       "hs_caption1": "",
@@ -54,7 +54,16 @@
       "hs_bg_color": "#f0f4f8",
       "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
       "hs_bg_photo": "",
-      "hs_mobile_order": ""
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:34:33.616295Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
     {
       "type": "ai_block",
@@ -244,13 +253,22 @@
         },
         {
           "question": "What salary can CAPM certification help me earn in San Antonio?",
-          "answer": "PMP-certified project managers in San Antonio earn $105,000–$125,000+ annually, with defense and healthcare sectors at JBSA, USAA, and Baptist Health System frequently offering $130,000+. CAPM certification positions you for advancement into these higher-paying roles across San Antonio's thriving defense, healthcare, and government sectors."
+          "answer": "CAPM certification positions you for project coordinator and assistant PM roles in San Antonio's thriving defense, healthcare, and technology sectors. PMP-certified managers here average $105,000–$125,000+, with defense contractors and USAA often offering higher entry points. CAPM validates foundational skills employers like JBSA and Baptist Health System seek, supporting career progression toward these competitive salaries."
         },
         {
-          "question": "Is CAPM certification in demand at San Antonio employers like USAA?",
-          "answer": "Yes. Major San Antonio employers—USAA, H-E-B, Rackspace, Valero, CPS Energy, and JBSA—actively hire certified project managers. CAPM demonstrates readiness for project coordination roles and is a direct pathway to PMP eligibility, making you competitive for advancement in San Antonio's defense, tech, energy, and finance sectors."
+          "question": "How long does CAPM Bootcamp take while working full-time in San Antonio?",
+          "answer": "Our bootcamp runs 4–5 weeks with flexible scheduling designed for San Antonio's working professionals at employers like Rackspace, H-E-B, and CPS Energy. Evening and weekend options let you balance full-time work with exam prep. Most participants complete the program and sit for the exam within 6–8 weeks total."
         }
-      ]
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T00:34:36.819545Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -282,6 +300,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-26T23:05:50+00:00",
-  "template_version": "6650fe294bfa2252682a1e638fe64893"
+  "generated_at": "2026-06-27T00:33:31+00:00",
+  "template_version": "1a1424df79f9789f02da882279781264"
 }
