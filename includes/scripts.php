@@ -802,12 +802,6 @@ function content_editor_scripts() {
                     <div class="form-group" style="flex:0 0 150px;"><label>Render as block type</label>
                         <input type="text" name="ai_render_as[]" value="text" placeholder="e.g. text">
                     </div>
-                    <div class="form-group" style="flex:0 0 210px;"><label>AI model</label>
-                        <select name="ai_model[]">
-                            <option value="claude-haiku-4-5-20251001" selected>Haiku (fast, cheap)</option>
-                            <option value="claude-sonnet-4-6">Sonnet (better quality)</option>
-                        </select>
-                    </div>
                 </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:0 0 150px;"><label>Inject target <span class="hint">(inject mode only)</span></label>

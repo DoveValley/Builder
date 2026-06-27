@@ -53,14 +53,6 @@ function _abt_form(array $bt = [], string $action = 'add', string $id = ''): voi
                 <option value="inject"<?= $is('ai_mode', 'inject') ?>>Inject — merges into an adjacent block's field</option>
             </select>
         </div>
-        <div class="form-group">
-            <label>Model</label>
-            <select name="ai_model">
-                <?php foreach ($_abt_models as $mid => $mlabel): ?>
-                <option value="<?= h($mid) ?>"<?= $is('ai_model', $mid) ?>><?= h($mlabel) ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
     </div>
 
     <!-- Standalone fields -->
@@ -236,7 +228,6 @@ function _abt_form(array $bt = [], string $action = 'add', string $id = ''): voi
                     <th style="text-align:left;padding:10px 14px;font-size:.74rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;">ID</th>
                     <th style="text-align:left;padding:10px 14px;font-size:.74rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;">Label</th>
                     <th style="text-align:left;padding:10px 14px;font-size:.74rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;">Mode</th>
-                    <th style="text-align:left;padding:10px 14px;font-size:.74rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;">Model</th>
                     <th style="text-align:left;padding:10px 14px;font-size:.74rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;">Description</th>
                     <th style="padding:10px 14px;"></th>
                 </tr>
@@ -246,7 +237,6 @@ function _abt_form(array $bt = [], string $action = 'add', string $id = ''): voi
             <?php
             $modeLabel = $bt['ai_mode'] === 'inject' ? 'inject' : 'standalone';
             $modeColor = $bt['ai_mode'] === 'inject' ? '#ede9fe;color:#5b21b6' : '#dbeafe;color:#1e40af';
-            $modelShort = str_contains($bt['ai_model'] ?? '', 'haiku') ? 'Haiku' : (str_contains($bt['ai_model'] ?? '', 'sonnet') ? 'Sonnet' : ($bt['ai_model'] ?? '—'));
             ?>
             <tr style="border-bottom:1px solid #f3f4f6;">
                 <td style="padding:10px 14px;font-family:monospace;font-size:.8rem;color:#374151;"><?= h($btId) ?></td>
@@ -254,7 +244,6 @@ function _abt_form(array $bt = [], string $action = 'add', string $id = ''): voi
                 <td style="padding:10px 14px;">
                     <span style="font-size:.72rem;font-weight:600;padding:2px 7px;border-radius:4px;background:<?= $modeColor ?>;"><?= $modeLabel ?></span>
                 </td>
-                <td style="padding:10px 14px;font-size:.8rem;color:#6b7280;"><?= h($modelShort) ?></td>
                 <td style="padding:10px 14px;font-size:.8rem;color:#6b7280;max-width:280px;"><?= h(mb_substr($bt['description'] ?? '', 0, 80)) ?><?= mb_strlen($bt['description'] ?? '') > 80 ? '…' : '' ?></td>
                 <td style="padding:10px 14px;text-align:right;white-space:nowrap;">
                     <a href="?tab=ai_blocks&edit=<?= h(urlencode($btId)) ?>" class="btn btn-secondary btn-small">Edit</a>

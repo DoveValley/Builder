@@ -36,13 +36,6 @@
                     <label>Render as <span class="hint">(standalone)</span></label>
                     <input type="text" name="reg_ai_render_as" value="<?= h($editingRegistryEntry['ai_render_as'] ?? '') ?>" placeholder="e.g. text, feature_columns">
                 </div>
-                <div class="form-group" style="flex:0 0 210px;">
-                    <label>AI model</label>
-                    <select name="reg_ai_model">
-                        <option value="claude-haiku-4-5-20251001" <?= ($editingRegistryEntry['ai_model'] ?? '') === 'claude-haiku-4-5-20251001' ? 'selected' : '' ?>>Haiku (fast, cheap)</option>
-                        <option value="claude-sonnet-4-6"          <?= ($editingRegistryEntry['ai_model'] ?? '') === 'claude-sonnet-4-6'          ? 'selected' : '' ?>>Sonnet (better quality)</option>
-                    </select>
-                </div>
             </div>
 
             <div class="form-group">
