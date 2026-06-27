@@ -80,6 +80,9 @@ function render_content_blocks_editor($blocks) {
                     <?php if (!empty($block['skin'])): ?>
                     <span style="font-size:0.72rem;font-weight:700;padding:2px 8px;border-radius:4px;background:#2563eb;color:#fff;white-space:nowrap;"><?= h(ucfirst($block['skin'])) ?> skin</span>
                     <?php endif; ?>
+                    <?php if (!empty($block['ai_type_id']) && $type !== 'ai_block'): ?>
+                    <span style="font-size:0.72rem;font-weight:700;padding:2px 8px;border-radius:4px;background:#7c3aed;color:#fff;white-space:nowrap;" title="AI enriches .<?= h($block['ai_inject_field'] ?? '') ?>">✦ AI: <?= h($block['ai_type_id']) ?></span>
+                    <?php endif; ?>
                     <input type="text" name="block_anchor[]"
                            value="<?= h($block['anchor'] ?? '') ?>"
                            placeholder="Section ID (e.g. pest_services)"
@@ -2324,6 +2327,24 @@ function render_content_blocks_editor($blocks) {
                     <input type="hidden" name="ai_meta_ai_type[]"      value="<?= h($aiAiType) ?>">
                 </div>
 
+                <?php /* Round-trip AI enrich config for non-ai_block enriched blocks */ ?>
+                <?php $enrichTypeId = (!empty($block['ai_type_id']) && $type !== 'ai_block') ? $block['ai_type_id'] : ''; ?>
+                <input type="hidden" name="enrich_ai_type_id[]"      value="<?= h($enrichTypeId) ?>">
+                <input type="hidden" name="enrich_ai_inject_field[]"  value="<?= h($enrichTypeId ? ($block['ai_inject_field'] ?? '') : '') ?>">
+                <input type="hidden" name="enrich_ai_inject_mode[]"   value="<?= h($enrichTypeId ? ($block['ai_inject_mode']  ?? 'replace') : 'replace') ?>">
+                <input type="hidden" name="enrich_ai_model[]"         value="<?= h($enrichTypeId ? ($block['ai_model'] ?? '') : '') ?>">
+                <input type="hidden" name="enrich_ai_locked[]"        value="<?= (!empty($block['_ai_locked']) && $enrichTypeId) ? '1' : '0' ?>">
+                <?php if (!empty($block['_ai_generated']) && $enrichTypeId): ?>
+                <input type="hidden" name="enrich_ai_meta_generated[]"    value="1">
+                <input type="hidden" name="enrich_ai_meta_generated_at[]" value="<?= h($block['_ai_generated_at'] ?? '') ?>">
+                <input type="hidden" name="enrich_ai_meta_model[]"        value="<?= h($block['_ai_model'] ?? '') ?>">
+                <input type="hidden" name="enrich_ai_meta_type[]"         value="<?= h($block['_ai_type'] ?? '') ?>">
+                <?php else: ?>
+                <input type="hidden" name="enrich_ai_meta_generated[]"    value="0">
+                <input type="hidden" name="enrich_ai_meta_generated_at[]" value="">
+                <input type="hidden" name="enrich_ai_meta_model[]"        value="">
+                <input type="hidden" name="enrich_ai_meta_type[]"         value="">
+                <?php endif; ?>
             </details><!-- .block-card -->
             <?php endforeach; ?>
         </div>

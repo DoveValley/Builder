@@ -922,6 +922,26 @@ function parse_blocks_from_post(): array {
                 break;
         }
 
+        // Round-trip AI enrich config for non-ai_block types (hero_split, faq_two_col, etc.)
+        if ($type !== 'ai_block') {
+            $enrichTypeId = trim($_POST['enrich_ai_type_id'][$i] ?? '');
+            if ($enrichTypeId !== '') {
+                $block['ai_type_id']     = $enrichTypeId;
+                $block['ai_inject_field'] = trim($_POST['enrich_ai_inject_field'][$i] ?? '');
+                $enrichModeRaw = trim($_POST['enrich_ai_inject_mode'][$i] ?? 'replace');
+                $block['ai_inject_mode'] = in_array($enrichModeRaw, ['replace','append','prepend']) ? $enrichModeRaw : 'replace';
+                $enrichModel = trim($_POST['enrich_ai_model'][$i] ?? '');
+                if ($enrichModel !== '') $block['ai_model'] = $enrichModel;
+                $block['_ai_locked'] = ($_POST['enrich_ai_locked'][$i] ?? '0') === '1';
+                if (($_POST['enrich_ai_meta_generated'][$i] ?? '0') === '1') {
+                    $block['_ai_generated']    = true;
+                    $block['_ai_generated_at'] = trim($_POST['enrich_ai_meta_generated_at'][$i] ?? '');
+                    $block['_ai_model']        = trim($_POST['enrich_ai_meta_model'][$i] ?? '');
+                    $block['_ai_type']         = trim($_POST['enrich_ai_meta_type'][$i] ?? '');
+                }
+            }
+        }
+
         $blocks[] = $block;
     }
 
