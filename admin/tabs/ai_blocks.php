@@ -144,11 +144,7 @@ function _abt_form(array $bt = [], string $action = 'add', string $id = ''): voi
 ?>
 
 <div class="tab-content" style="<?= $tab === 'ai_blocks' ? '' : 'display:none;' ?>">
-
-<h2 style="margin-bottom:6px;">Block Type Registry</h2>
-<p class="hint" style="margin-bottom:20px;">
-    Configure the AI block types available to the generator. Each entry in <code>ai_block_types.json</code> defines a prompt, output schema, and how generated content is placed on the page.
-</p>
+<?php tab_header('Block Type Registry', 'Define and manage AI block types. Each entry sets the prompt, output format, and injection behavior used when the AI generator processes a block of that type.', 'tab-ai-blocks'); ?>
 
 <?php if ($editingBlockId !== null): ?>
 

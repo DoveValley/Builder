@@ -99,7 +99,7 @@ function _render_city_fields(array $city = [], string $prefix = '', string $city
 ?>
 
 <div class="tab-content" style="<?= $tab === 'cities' ? '' : 'display:none;' ?>">
-
+<?php tab_header('Landing Cities', 'Manage the city list used for landing page generation. Each city entry provides the variables (name, state, slug, ZIP) that fill city page templates.', 'tab-cities'); ?>
 <?php if ($editingCity === null): ?>
 
     <!-- ── List view ─────────────────────────────────────────────────── -->

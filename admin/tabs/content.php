@@ -1,5 +1,5 @@
     <div class="tab-content" style="<?= $tab === 'content' ? '' : 'display:none;' ?>">
-
+        <?php tab_header('Home Page', 'Build the homepage from content blocks. Add, reorder, and edit blocks to create the main page visitors see first.', 'tab-content'); ?>
         <?php if ($tab === 'content'):
             $hpStarters = array_values(array_filter(starters_load(), fn($s) => ($s['category'] ?? '') === 'homepage'));
         ?>

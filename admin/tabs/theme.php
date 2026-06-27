@@ -1,4 +1,5 @@
     <div class="tab-content" style="<?= $tab === 'theme' ? '' : 'display:none;' ?>">
+        <?php tab_header('Theme / Colors', 'Set global colors, fonts, and button styles. Changes here update the entire site — blocks reference these values using keywords like "accent" or "header".', 'tab-theme'); ?>
         <form action="save.php" method="post" id="theme-form">
             <input type="hidden" name="section" value="theme">
             <div style="margin-bottom:16px;"><button type="submit" class="btn">Save Theme</button></div>

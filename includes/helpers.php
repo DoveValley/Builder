@@ -240,3 +240,16 @@ function text_to_html($text) {
     }
     return $html;
 }
+
+function tab_header(string $title, string $description, string $docAnchor): void {
+    echo '<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:20px;">';
+    echo '<div style="flex:1;">';
+    echo '<h2 style="margin:0 0 5px;font-size:1.15rem;font-weight:700;color:#1e3a5f;">' . h($title) . '</h2>';
+    echo '<p style="margin:0;font-size:0.875rem;color:#475569;line-height:1.5;">' . h($description) . '</p>';
+    echo '</div>';
+    echo '<a href="/admin/docs.php#' . h($docAnchor) . '" target="_blank" '
+       . 'style="flex-shrink:0;width:24px;height:24px;border-radius:50%;background:#1e40af;color:#fff;'
+       . 'font-size:0.78rem;font-weight:700;text-decoration:none;display:flex;align-items:center;'
+       . 'justify-content:center;margin-top:2px;" title="View documentation">?</a>';
+    echo '</div>';
+}

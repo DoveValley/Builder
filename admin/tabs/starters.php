@@ -7,7 +7,7 @@ foreach (grouped_block_types() as $gLabel => $gItems) {
 $cats = starter_categories();
 ?>
 <div class="tab-content" style="<?= $tab === 'starters' ? '' : 'display:none;' ?>">
-
+<?php tab_header('Page Starters', 'Pre-built page layouts you can apply as a starting point. A starter is applied once — the result becomes a regular editable page.', 'tab-starters'); ?>
 <?php if ($editingStarter === null): ?>
 
     <!-- ── List view ─────────────────────────────────────────────────────── -->

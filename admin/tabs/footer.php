@@ -1,4 +1,5 @@
     <div class="tab-content" style="<?= $tab === 'footer' ? '' : 'display:none;' ?>">
+        <?php tab_header('Footer', 'Configure the site footer — columns, contact info, links, social icons, and copyright text.', 'tab-footer'); ?>
         <form action="save.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="section" value="footer">
             <div style="margin-bottom:16px;"><button type="submit" class="btn">Save Footer</button></div>

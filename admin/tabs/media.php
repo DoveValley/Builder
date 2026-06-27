@@ -1,6 +1,6 @@
     <div class="tab-content" style="<?= $tab === 'media' ? '' : 'display:none;' ?>">
+        <?php tab_header('Media Library', 'All uploaded images for this site. Check here before uploading — a relevant image may already exist. Use the Library button in any image field to pick from here.', 'tab-media'); ?>
         <div class="card">
-            <h2>Media Library</h2>
             <p class="hint" style="margin-bottom:16px;">All images available to use in your blocks. Drag &amp; drop or click to upload. Click an image to copy its URL.</p>
 
             <div id="media-dropzone" style="border:2px dashed #d1d5db;border-radius:8px;padding:28px;text-align:center;cursor:pointer;margin-bottom:20px;transition:border-color .2s,background .2s;">

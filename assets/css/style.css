@@ -667,6 +667,25 @@ summary.block-card-header::-webkit-details-marker { display: none; }
     background: #fee2e2;
 }
 
+/* ---- Block info button ---- */
+.block-info-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    flex-shrink: 0;
+    padding: 0;
+    line-height: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+.block-info-btn:hover { background: rgba(255,255,255,0.35); }
+
 .block-image-section {
     margin-top: 12px;
     padding-top: 12px;

@@ -1,4 +1,5 @@
     <div class="tab-content" style="<?= $tab === 'blog' ? '' : 'display:none;' ?>">
+        <?php tab_header('Blog', 'Create and manage blog posts. Each post has its own content blocks, SEO fields, tags, and featured image.', 'tab-blog'); ?>
         <?php if ($editingPost === null): ?>
 
             <div class="card">

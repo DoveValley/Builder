@@ -99,9 +99,7 @@ function _review_ts(string $iso): string {
 ?>
 
 <div class="tab-content" style="<?= $tab === 'ai_review' ? '' : 'display:none;' ?>">
-
-<h2 style="margin-bottom:6px;">Content Review</h2>
-<p class="hint" style="margin-bottom:20px;">Review AI-generated blocks across city landing pages. Lock a block to protect it from being overwritten on the next generation run.</p>
+<?php tab_header('Content Review', 'Review AI-generated blocks across all city landing pages. Lock a block to protect it from being overwritten on the next structure generation run.', 'tab-ai-review'); ?>
 
 <?php if (empty($reviewData)): ?>
 <div class="card">

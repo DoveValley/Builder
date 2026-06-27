@@ -1,6 +1,7 @@
     <?php
     ?>
     <div class="tab-content" style="<?= $tab === 'pages' ? '' : 'display:none;' ?>">
+        <?php tab_header('Core / Template Pages', 'Create and manage standalone landing pages — about, contact, services, and other pages outside the homepage and blog.', 'tab-pages'); ?>
         <?php if ($editingPage === null): ?>
 
             <div class="card">

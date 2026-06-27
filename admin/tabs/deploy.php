@@ -6,9 +6,7 @@ $deployFile = ACTIVE_SITE_DIR . '/deploy.json';
 $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile), true) ?: []) : [];
 ?>
 <div class="tab-content" style="<?= $tab === 'deploy' ? '' : 'display:none;' ?>">
-
-<h2 style="margin-bottom:6px;">Deploy</h2>
-<p class="hint" style="margin-bottom:24px;">Generate a fully-static copy of this site, then push it to your web host via FTP.</p>
+<?php tab_header('Deploy', 'Generate a fully-static copy of this site and push it to your web host via FTP. Run structure and AI generation first before deploying.', 'tab-deploy'); ?>
 
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;">
 

@@ -1,4 +1,5 @@
     <div class="tab-content" style="<?= $tab === 'header' ? '' : 'display:none;' ?>">
+        <?php tab_header('Header', 'Configure the site header — logo, site name, phone number, navigation menu, and layout style.', 'tab-header'); ?>
         <form action="save.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="section" value="header">
             <div style="margin-bottom:16px;"><button type="submit" class="btn">Save Header</button></div>

@@ -6,7 +6,7 @@ $registeredPlugins = get_plugins();
 $activePluginData  = $activePlugin !== '' ? get_plugin($activePlugin) : null;
 ?>
 <div class="tab-content" style="<?= $tab === 'plugins' ? '' : 'display:none;' ?>">
-
+<?php tab_header('Plugins', 'Enable and configure site plugins — including the Course Schedule. Each plugin adds its own settings panel.', 'tab-plugins'); ?>
 <?php if ($activePluginData === null): ?>
 
     <div class="card">

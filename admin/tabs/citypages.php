@@ -39,7 +39,7 @@ $_cityNames = [];
 foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . ($_c['SS'] ?? '');
 ?>
 <div class="tab-content" style="<?= $tab === 'citypages' ? '' : 'display:none;' ?>">
-
+<?php tab_header('Landing City Pages', 'View the generated status of every template × city combination. Run structure generation and AI generation from this tab.', 'tab-citypages'); ?>
 <?php if (empty($templates) && empty($cities)): ?>
     <div class="card">
         <p class="hint">No templates or cities yet. Add templates in the <a href="?tab=templates">Templates tab</a> and cities in the <a href="?tab=cities">Cities tab</a> first.</p>

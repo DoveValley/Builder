@@ -3,7 +3,7 @@
 // $tab, $templates, $editingTemplate, $editingTemplateId set by index.php
 ?>
 <div class="tab-content" style="<?= $tab === 'templates' ? '' : 'display:none;' ?>">
-
+<?php tab_header('Landing Templates', 'Design the block structure for city landing pages. Each template × each city produces one generated page.', 'tab-templates'); ?>
 <?php if ($editingTemplate === null && $editingRegistryEntry !== null): ?>
 
     <!-- ── Registry entry editor ────────────────────────────────────── -->
