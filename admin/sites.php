@@ -105,7 +105,7 @@ function fmt_date(string $iso): string {
 </head>
 <body class="admin-body">
 <div style="background:#1e293b; color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between;">
-    <div style="font-weight:700; font-size:1rem; letter-spacing:.01em;">&#9776; Homepage Builder</div>
+    <div style="font-weight:700; font-size:1rem; letter-spacing:.01em;">&#9776; Site Factory</div>
     <a href="logout.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">Log out</a>
 </div>
 

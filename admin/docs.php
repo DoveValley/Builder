@@ -10,7 +10,7 @@ $q = trim($_GET['q'] ?? '');
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Documentation — Homepage Builder</title>
+<title>Documentation — Site Factory</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; color: #1e293b; background: #f8fafc; display: flex; min-height: 100vh; }
@@ -98,7 +98,7 @@ tr:nth-child(even) td { background: #f8fafc; }
 <!-- ═══════════════ SIDEBAR ═══════════════ -->
 <div id="sidebar">
     <div class="logo">
-        Homepage Builder
+        Site Factory
         <span>Admin Documentation</span>
     </div>
     <div class="search-wrap">
@@ -202,13 +202,13 @@ tr:nth-child(even) td { background: #f8fafc; }
 
 <!-- ═══════════════ MAIN ═══════════════ -->
 <div id="main">
-<h1>Homepage Builder — Documentation</h1>
-<p class="page-intro">Complete reference for the Homepage Builder admin system. Use the sidebar to navigate, or click any <strong>?</strong> button inside the admin panel to jump directly to the relevant section.</p>
+<h1>Site Factory — Documentation</h1>
+<p class="page-intro">Complete reference for the Site Factory admin system. Use the sidebar to navigate, or click any <strong>?</strong> button inside the admin panel to jump directly to the relevant section.</p>
 
 <!-- ═══════════ OVERVIEW ═══════════ -->
 <section id="overview">
     <h2>What is this system?</h2>
-    <p>Homepage Builder is a custom PHP CMS designed for building and deploying local-service and training business websites at scale. It is purpose-built — no WordPress, no plugins, no framework overhead.</p>
+    <p>Site Factory is a custom PHP CMS designed for building and deploying local-service and training business websites at scale. It is purpose-built — no WordPress, no plugins, no framework overhead.</p>
     <p>The core idea: content lives in flat JSON files, pages are rendered by PHP, and the admin panel edits those JSON files. Everything is fast, portable, and easy to back up — the entire site is a folder of files.</p>
     <p>The system supports multiple client sites from a single admin installation, AI-assisted content generation for city landing pages, a course schedule system, a blog, and one-click FTP deployment.</p>
 </section>
