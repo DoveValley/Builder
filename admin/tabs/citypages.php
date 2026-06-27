@@ -9,13 +9,18 @@ require_once __DIR__ . '/../../includes/generation/engine.php';
 
 function _cp_page_status(array $tpl, array $city, string $tplVersion): array {
     $filename = PAGES_DIR . $tpl['id'] . '_' . $city['id'] . '.json';
-    if (!file_exists($filename)) return ['missing', null];
+    if (!file_exists($filename)) return ['missing', null, null];
     $raw = json_decode(file_get_contents($filename), true);
-    if (!is_array($raw)) return ['missing', null];
+    if (!is_array($raw)) return ['missing', null, null];
     $pageVersion  = $raw['template_version'] ?? '';
     $generatedAt  = $raw['generated_at']     ?? null;
     $status = ($pageVersion === $tplVersion) ? 'generated' : 'stale';
-    return [$status, $generatedAt];
+    $aiAt = null;
+    foreach ($raw['content_blocks'] ?? [] as $block) {
+        $ts = $block['_ai_generated_at'] ?? null;
+        if ($ts && (!$aiAt || $ts > $aiAt)) $aiAt = $ts;
+    }
+    return [$status, $generatedAt, $aiAt];
 }
 
 // Pre-compute all tags for the filter bar
@@ -30,6 +35,13 @@ $structureLog = [];
 if (file_exists(STRUCTURE_LOG_FILE)) {
     $raw = json_decode(file_get_contents(STRUCTURE_LOG_FILE), true);
     $structureLog = is_array($raw) ? array_reverse(array_slice($raw, -20)) : [];
+}
+
+// Load recent AI generation log (last 20 runs)
+$aiGenLog = [];
+if (file_exists(GEN_LOG_FILE)) {
+    $raw = json_decode(file_get_contents(GEN_LOG_FILE), true);
+    $aiGenLog = is_array($raw) ? array_reverse(array_slice($raw, -20)) : [];
 }
 
 // Template name lookup for JS confirmation dialog
@@ -78,16 +90,17 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
     <?php foreach ($templates as $tpl):
         $tplVersion  = _gen_template_version($tpl);
         $countTotal  = count($cities);
-        $countOk     = 0; $countStale = 0; $countMissing = 0;
+        $countOk     = 0; $countStale = 0; $countMissing = 0; $countNoAi = 0;
 
         // Pre-compute all statuses for this template
         $cityStatuses = [];
         foreach ($cities as $city) {
-            [$st, $genAt] = _cp_page_status($tpl, $city, $tplVersion);
-            $cityStatuses[$city['id']] = ['status' => $st, 'generated_at' => $genAt, 'tags' => $city['tags'] ?? []];
+            [$st, $genAt, $aiAt] = _cp_page_status($tpl, $city, $tplVersion);
+            $cityStatuses[$city['id']] = ['status' => $st, 'generated_at' => $genAt, 'ai_at' => $aiAt, 'tags' => $city['tags'] ?? []];
             if ($st === 'generated') $countOk++;
             elseif ($st === 'stale')   $countStale++;
             else                       $countMissing++;
+            if (!$aiAt) $countNoAi++;
         }
     ?>
     <div class="card cp-template-card" data-template-id="<?= h($tpl['id']) ?>">
@@ -99,6 +112,7 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
                     &mdash; <?= $countOk ?> generated
                     <?php if ($countStale > 0): ?>, <span style="color:#b45309;"><?= $countStale ?> stale</span><?php endif; ?>
                     <?php if ($countMissing > 0): ?>, <span style="color:#dc2626;"><?= $countMissing ?> missing</span><?php endif; ?>
+                    <?php if ($countNoAi > 0): ?>, <span style="color:#dc2626;"><?= $countNoAi ?> no AI</span><?php endif; ?>
                     &mdash; <?= $countTotal ?> cities total
                 </span>
             </div>
@@ -120,6 +134,7 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
             <?php foreach ($cities as $city):
                 $st    = $cityStatuses[$city['id']]['status'];
                 $genAt = $cityStatuses[$city['id']]['generated_at'];
+                $aiAt  = $cityStatuses[$city['id']]['ai_at'];
                 $tags  = $cityStatuses[$city['id']]['tags'];
 
                 $icon  = $st === 'generated' ? '✅' : ($st === 'stale' ? '⚠️' : '❌');
@@ -130,6 +145,10 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
                 $dateLabel = '';
                 if ($genAt) {
                     try { $dateLabel = (new DateTime($genAt))->format('M j'); } catch(Exception $e) {}
+                }
+                $aiLabel = '';
+                if ($aiAt) {
+                    try { $aiLabel = (new DateTime($aiAt))->format('M j'); } catch(Exception $e) {}
                 }
             ?>
             <?php
@@ -144,6 +163,9 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
                         </div>
                         <div style="font-size:11px;color:<?= $color ?>;margin-top:1px;">
                             <?= $label ?><?= $dateLabel ? ' · ' . $dateLabel : '' ?>
+                        </div>
+                        <div style="font-size:11px;margin-top:1px;<?= $aiLabel ? 'color:#7c3aed;' : 'color:#dc2626;' ?>">
+                            <?= $aiLabel ? 'AI Generated · ' . $aiLabel : 'No AI' ?>
                         </div>
                         <?php if ($previewSlug): ?>
                         <div style="display:flex;gap:8px;margin-top:3px;">
@@ -171,6 +193,16 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
             <?php if (!empty($structureLog)): ?>
             <span style="font-size:.78rem;font-weight:400;color:#9ca3af;">(<?= count($structureLog) ?> runs)</span>
             <?php endif; ?>
+            <?php
+            // Show last AI run date inline next to heading
+            if (!empty($aiGenLog)) {
+                $lastAiRun = $aiGenLog[0];
+                $lastAiTs  = strtotime($lastAiRun['started_at'] ?? '');
+                if ($lastAiTs) {
+                    echo '<span style="font-size:.78rem;font-weight:400;color:#7c3aed;margin-left:16px;">Last AI run: ' . date('M j, Y H:i', $lastAiTs) . '</span>';
+                }
+            }
+            ?>
         </h2>
         <?php if (empty($structureLog)): ?>
             <p class="hint">No runs yet — press Generate All above to get started.</p>

@@ -265,22 +265,47 @@ $isResearched = !empty($city['industries']) || !empty($city['top_employers']);
         fd.append('scope', 'landing');
 
         fetch('ai_generate.php', { method: 'POST', body: fd, credentials: 'same-origin' })
-        .then(function (r) { return r.json(); })
-        .then(function (res) {
-            clearInterval(ticker);
-            btn.disabled = false;
-            btn.textContent = '▶ Regenerate';
-            spinner.classList.remove('on');
-            outputEl.textContent = res.output || '(no output)';
-            outputEl.scrollTop = outputEl.scrollHeight;
-            if (res.success) {
-                resultBar.textContent = 'Done. Reloading…';
-                resultBar.className = 'ai-result-bar ok';
-                setTimeout(function () { location.reload(); }, 2000);
-            } else {
-                resultBar.textContent = res.error || ('Exited with code ' + res.exit_code);
-                resultBar.className = 'ai-result-bar fail';
+        .then(function (r) {
+            var reader  = r.body.getReader();
+            var decoder = new TextDecoder();
+            var buffer  = '';
+
+            function handleLine(raw) {
+                var msg;
+                try { msg = JSON.parse(raw); } catch(e) { return; }
+                if (msg.type === 'line') {
+                    outputEl.textContent += msg.text + '\n';
+                    outputEl.scrollTop = outputEl.scrollHeight;
+                } else if (msg.type === 'done') {
+                    clearInterval(ticker);
+                    btn.disabled = false;
+                    btn.textContent = '▶ Regenerate';
+                    spinner.classList.remove('on');
+                    if (msg.success) {
+                        resultBar.textContent = 'Done. Reloading…';
+                        resultBar.className = 'ai-result-bar ok';
+                        setTimeout(function () { location.reload(); }, 2000);
+                    } else {
+                        resultBar.textContent = msg.error || ('Exited with code ' + msg.exit_code);
+                        resultBar.className = 'ai-result-bar fail';
+                    }
+                }
             }
+
+            function pump() {
+                return reader.read().then(function (chunk) {
+                    if (chunk.done) {
+                        if (buffer.trim()) handleLine(buffer.trim());
+                        return;
+                    }
+                    buffer += decoder.decode(chunk.value, { stream: true });
+                    var parts = buffer.split('\n');
+                    buffer = parts.pop();
+                    parts.forEach(function (ln) { if (ln.trim()) handleLine(ln.trim()); });
+                    return pump();
+                });
+            }
+            return pump();
         })
         .catch(function (err) {
             clearInterval(ticker);

@@ -89,11 +89,36 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
 
     <hr style="margin:20px 0;border:none;border-top:1px solid #e5e7eb;">
 
-    <button id="push-btn" class="btn" onclick="startPush()">Push to Server</button>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+        <button id="push-btn" class="btn" onclick="startPush()">Push to Server</button>
+        <button id="audit-btn" class="btn btn-secondary" onclick="startAudit()">Audit Server</button>
+    </div>
     <div id="push-log" class="deploy-log" style="display:none;"></div>
 </div>
 
 </div><!-- /grid -->
+
+<!-- ===== DANGER ZONE ===== -->
+<div class="card" style="margin-top:24px;border:2px solid #fecaca;">
+    <h3 style="margin-top:0;color:#dc2626;">&#9888; Danger Zone</h3>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;">
+        <div>
+            <button id="force-push-btn" class="btn" style="background:#dc2626;border-color:#dc2626;" onclick="startForcePush()">Force Push All</button>
+            <div class="hint" style="margin-top:4px;">Re-uploads every local file regardless of what&rsquo;s on the server.</div>
+        </div>
+        <div>
+            <button id="force-delete-btn" class="btn" style="background:#7f1d1d;border-color:#7f1d1d;" onclick="startForceDelete()">Force Delete All</button>
+            <div class="hint" style="margin-top:4px;">Deletes every file from the server. Irreversible.</div>
+        </div>
+    </div>
+    <div id="force-log" class="deploy-log" style="display:none;margin-top:14px;"></div>
+</div>
+
+<!-- ===== AUDIT RESULTS ===== -->
+<div id="audit-panel" style="display:none;margin-top:24px;" class="card">
+    <h3 style="margin-top:0;">Server Audit Results</h3>
+    <div id="audit-body"></div>
+</div>
 </div><!-- /tab-deploy -->
 
 <style>
@@ -164,5 +189,141 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
     window.startPush = function() {
         runSSE('deploy_ftp.php?token=' + encodeURIComponent(csrfToken), document.getElementById('push-btn'), document.getElementById('push-log'));
     };
+
+    window.startForcePush = function() {
+        var word = prompt('This will overwrite every file on the server.\n\nType PUSH ALL to confirm:');
+        if (!word || word.trim() !== 'PUSH ALL') { alert('Cancelled.'); return; }
+        runSSE('deploy_ftp.php?token=' + encodeURIComponent(csrfToken) + '&force=1',
+            document.getElementById('force-push-btn'),
+            document.getElementById('force-log'));
+    };
+
+    window.startForceDelete = function() {
+        var word = prompt('WARNING: This permanently deletes every file from the server.\n\nType DELETE ALL to confirm:');
+        if (!word || word.trim() !== 'DELETE ALL') { alert('Cancelled.'); return; }
+        runSSE('deploy_force_delete.php?token=' + encodeURIComponent(csrfToken),
+            document.getElementById('force-delete-btn'),
+            document.getElementById('force-log'));
+    };
+
+    window.startAudit = function() {
+        const btn    = document.getElementById('audit-btn');
+        const panel  = document.getElementById('audit-panel');
+        const body   = document.getElementById('audit-body');
+        btn.disabled = true;
+        btn.textContent = 'Auditing…';
+        panel.style.display = 'none';
+        body.innerHTML = '';
+
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+
+        fetch('deploy_audit.php', { method: 'POST', body: fd, credentials: 'same-origin' })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            btn.disabled = false;
+            btn.textContent = 'Audit Server';
+            panel.style.display = 'block';
+
+            if (!data.success) {
+                body.innerHTML = '<p style="color:#dc2626;">' + escH(data.error || 'Audit failed.') + '</p>';
+                return;
+            }
+
+            const missing  = data.missing  || [];
+            const orphaned = data.orphaned || [];
+            const changed  = data.changed  || [];
+            const matched  = data.matched  || 0;
+
+            // Summary bar
+            let summary = '<div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:18px;padding:12px 16px;background:#f8fafc;border-radius:6px;font-size:.88rem;">';
+            summary += '<span style="color:#166534;font-weight:600;">&#10003; ' + matched + ' up to date</span>';
+            summary += '<span style="color:#dc2626;font-weight:600;">&#8593; ' + missing.length + ' missing on server</span>';
+            summary += '<span style="color:#b45309;font-weight:600;">&#9888; ' + orphaned.length + ' orphaned on server</span>';
+            summary += '<span style="color:#1d4ed8;font-weight:600;">&#8635; ' + changed.length + ' size mismatch</span>';
+            summary += '<span style="color:#6b7280;margin-left:auto;">' + (data.local_total||0) + ' local / ' + (data.remote_total||0) + ' remote files detected</span>';
+            summary += '</div>';
+            body.innerHTML = summary;
+
+            function makeTable(title, color, rows, cols) {
+                if (!rows.length) return '';
+                let h = '<div style="margin-bottom:18px;">';
+                h += '<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:' + color + ';margin-bottom:6px;">' + escH(title) + ' (' + rows.length + ')</div>';
+                h += '<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:.82rem;">';
+                h += '<thead><tr style="background:#f1f5f9;">';
+                cols.forEach(function(c) { h += '<th style="padding:6px 10px;text-align:left;color:#6b7280;font-size:.72rem;text-transform:uppercase;">' + escH(c) + '</th>'; });
+                h += '</tr></thead><tbody>';
+                rows.forEach(function(r, i) {
+                    h += '<tr style="border-bottom:1px solid #f3f4f6;' + (i % 2 === 0 ? '' : 'background:#fafafa;') + '">';
+                    r.forEach(function(cell) { h += '<td style="padding:6px 10px;font-family:monospace;font-size:.79rem;color:#374151;">' + escH(String(cell)) + '</td>'; });
+                    h += '</tr>';
+                });
+                h += '</tbody></table></div></div>';
+                return h;
+            }
+
+            body.innerHTML += makeTable('Missing on server (needs upload)', '#dc2626',
+                missing.map(function(f) { return [f.path, fmtSize(f.size)]; }), ['File', 'Local size']);
+            body.innerHTML += makeTable('Size mismatch (needs update)', '#1d4ed8',
+                changed.map(function(f) { return [f.path, fmtSize(f.local_size), fmtSize(f.remote_size)]; }), ['File', 'Local size', 'Remote size']);
+            body.innerHTML += makeTable('Orphaned on server (not in local build)', '#b45309',
+                orphaned.map(function(f) { return [f.path, fmtSize(f.size)]; }), ['File', 'Remote size']);
+
+            if (orphaned.length) {
+                var delBtn = document.createElement('button');
+                delBtn.className = 'btn btn-secondary';
+                delBtn.style.cssText = 'background:#fff7ed;color:#92400e;border-color:#f59e0b;margin-top:4px;';
+                delBtn.textContent = 'Delete ' + orphaned.length + ' Orphaned File' + (orphaned.length > 1 ? 's' : '') + ' from Server';
+                delBtn.onclick = function() { deleteOrphaned(orphaned, delBtn); };
+                body.appendChild(delBtn);
+                var delResult = document.createElement('div');
+                delResult.id = 'del-result';
+                delResult.style.marginTop = '10px';
+                body.appendChild(delResult);
+            }
+
+            panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        })
+        .catch(function(err) {
+            btn.disabled = false;
+            btn.textContent = 'Audit Server';
+            panel.style.display = 'block';
+            body.innerHTML = '<p style="color:#dc2626;">Request failed: ' + escH(err.message) + '</p>';
+        });
+    };
+
+    window.deleteOrphaned = function(orphaned, btn) {
+        if (!confirm('Delete ' + orphaned.length + ' orphaned file' + (orphaned.length > 1 ? 's' : '') + ' from the server?\n\nThis cannot be undone.')) return;
+        btn.disabled = true;
+        btn.textContent = 'Deleting…';
+        var result = document.getElementById('del-result');
+        result.innerHTML = '';
+
+        var fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        orphaned.forEach(function(f) { fd.append('paths[]', f.path); });
+
+        fetch('deploy_delete_orphaned.php', { method: 'POST', body: fd, credentials: 'same-origin' })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            btn.disabled = false;
+            if (data.success) {
+                btn.style.display = 'none';
+                result.innerHTML = '<div style="color:#166534;font-weight:600;">&#10003; Deleted ' + (data.deleted || 0) + ' file' + ((data.deleted || 0) !== 1 ? 's' : '') + '.'
+                    + (data.failed && data.failed.length ? ' <span style="color:#dc2626;">' + data.failed.length + ' failed.</span>' : '') + '</div>';
+            } else {
+                btn.textContent = 'Delete Orphaned Files';
+                result.innerHTML = '<div style="color:#dc2626;">' + escH(data.error || 'Delete failed.') + '</div>';
+            }
+        })
+        .catch(function(err) {
+            btn.disabled = false;
+            btn.textContent = 'Delete Orphaned Files';
+            result.innerHTML = '<div style="color:#dc2626;">Request failed: ' + escH(err.message) + '</div>';
+        });
+    };
+
+    function escH(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    function fmtSize(b) { if (!b) return '—'; return b > 1048576 ? (b/1048576).toFixed(1)+' MB' : Math.round(b/1024)+' KB'; }
 })();
 </script>

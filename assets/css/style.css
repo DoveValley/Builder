@@ -510,10 +510,25 @@ a:hover {
 .form-group select {
     width: 100%;
     padding: 10px 12px;
-    border: 1px solid #e5e7eb;
+    border: 2px solid #c8ccd4;
     border-radius: 8px;
     font-size: 0.95rem;
     font-family: inherit;
+    background: #f7f8fa;
+    transition: border-color .15s, box-shadow .15s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="url"]:focus,
+.form-group input[type="password"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #6366f1;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
 }
 
 .form-group textarea {

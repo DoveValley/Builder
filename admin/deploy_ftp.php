@@ -68,7 +68,9 @@ if (!is_dir($outputBase)) {
 
 // ── Load manifest ─────────────────────────────────────────────────────────────
 $manifestFile = ACTIVE_SITE_DIR . '/deploy_manifest.json';
-$manifest = file_exists($manifestFile) ? (json_decode(file_get_contents($manifestFile), true) ?: []) : [];
+$forceAll = !empty($_GET['force']);
+$manifest = (!$forceAll && file_exists($manifestFile)) ? (json_decode(file_get_contents($manifestFile), true) ?: []) : [];
+if ($forceAll) ftp_sse('Force push — uploading all files regardless of manifest.', 'warn');
 
 // ── Build file list ───────────────────────────────────────────────────────────
 $files = [];

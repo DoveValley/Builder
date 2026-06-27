@@ -3,26 +3,32 @@
 // $tab, $cities, $editingCity, $editingCityId set by index.php
 
 function _render_city_fields(array $city = [], string $prefix = '', string $cityId = ''): void {
-    $v = fn(string $k) => h($city[$k] ?? '');
+    $v    = fn(string $k) => h($city[$k] ?? '');
+    $uid  = $prefix ?: 'add';
+    $fill = !$cityId; // only wire auto-fill on the Add form
+    $af   = $fill ? " oninput=\"cfAutoFill('{$uid}')\"" : '';
 ?>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px;">
         <div class="form-group">
             <label>City <span class="cf-req">*</span></label>
-            <input type="text" name="<?= $prefix ?>city" value="<?= $v('city') ?>" placeholder="San Antonio" required>
-        </div>
-        <div class="form-group">
-            <label>State</label>
-            <input type="text" name="<?= $prefix ?>state" value="<?= $v('state') ?>" placeholder="Texas">
+            <input type="text" name="<?= $prefix ?>city" id="cf-city-<?= $uid ?>" value="<?= $v('city') ?>" placeholder="San Antonio" required<?= $af ?>>
         </div>
         <div class="form-group">
             <label>State abbreviation (SS) <span class="cf-req">*</span></label>
-            <input type="text" name="<?= $prefix ?>SS" value="<?= $v('SS') ?>" placeholder="TX" maxlength="3" required>
+            <input type="text" name="<?= $prefix ?>SS" id="cf-ss-<?= $uid ?>" value="<?= $v('SS') ?>" placeholder="TX" maxlength="3" required<?= $af ?> style="text-transform:uppercase;">
         </div>
         <div class="form-group">
-            <label>City slug</label>
-            <input type="text" name="<?= $prefix ?>city_slug" value="<?= $v('city_slug') ?>" placeholder="san-antonio-tx">
-            <span class="hint">Used in generated page URLs via <code>{city_slug}</code>. Auto-generated if blank.</span>
+            <label>State</label>
+            <input type="text" name="<?= $prefix ?>state" id="cf-state-<?= $uid ?>" value="<?= $v('state') ?>" placeholder="Texas">
         </div>
+    </div>
+    <div class="form-group">
+        <label>City slug</label>
+        <input type="text" name="<?= $prefix ?>city_slug" id="cf-slug-<?= $uid ?>" value="<?= $v('city_slug') ?>" placeholder="san-antonio-tx"<?= $fill ? ' oninput="this._cfDirty=1"' : '' ?>>
+        <span class="hint">Auto-filled from city + SS. Edit to override.</span>
+    </div>
+    <hr style="border:none;border-top:1px solid #e5e7eb;margin:8px 0 16px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px;">
         <div class="form-group">
             <label>Phone</label>
             <input type="text" name="<?= $prefix ?>phone" value="<?= $v('phone') ?>" placeholder="(210) 555-0100">
@@ -322,3 +328,47 @@ window.cityResearch = function (cityId) {
 };
 </script>
 <?php endif; ?>
+<script>
+(function () {
+    var US_STATES = {
+        'AL':'Alabama','AK':'Alaska','AZ':'Arizona','AR':'Arkansas','CA':'California',
+        'CO':'Colorado','CT':'Connecticut','DE':'Delaware','FL':'Florida','GA':'Georgia',
+        'HI':'Hawaii','ID':'Idaho','IL':'Illinois','IN':'Indiana','IA':'Iowa',
+        'KS':'Kansas','KY':'Kentucky','LA':'Louisiana','ME':'Maine','MD':'Maryland',
+        'MA':'Massachusetts','MI':'Michigan','MN':'Minnesota','MS':'Mississippi','MO':'Missouri',
+        'MT':'Montana','NE':'Nebraska','NV':'Nevada','NH':'New Hampshire','NJ':'New Jersey',
+        'NM':'New Mexico','NY':'New York','NC':'North Carolina','ND':'North Dakota','OH':'Ohio',
+        'OK':'Oklahoma','OR':'Oregon','PA':'Pennsylvania','RI':'Rhode Island','SC':'South Carolina',
+        'SD':'South Dakota','TN':'Tennessee','TX':'Texas','UT':'Utah','VT':'Vermont',
+        'VA':'Virginia','WA':'Washington','WV':'West Virginia','WI':'Wisconsin','WY':'Wyoming',
+        'DC':'Washington DC'
+    };
+
+    function cfSlugify(str) {
+        return str.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    }
+
+    window.cfAutoFill = function (uid) {
+        var cityEl  = document.getElementById('cf-city-'  + uid);
+        var ssEl    = document.getElementById('cf-ss-'    + uid);
+        var stateEl = document.getElementById('cf-state-' + uid);
+        var slugEl  = document.getElementById('cf-slug-'  + uid);
+        if (!cityEl || !ssEl || !stateEl || !slugEl) return;
+
+        var city = cityEl.value.trim();
+        var ss   = ssEl.value.trim().toUpperCase();
+
+        // Only act once SS matches a known 2-letter state code
+        if (!ss || !US_STATES[ss]) return;
+
+        if (!stateEl.value.trim()) {
+            stateEl.value = US_STATES[ss];
+        }
+
+        // Always keep slug in sync unless user manually edited it
+        if (city && !slugEl._cfDirty) {
+            slugEl.value = cfSlugify(city) + '-' + ss.toLowerCase();
+        }
+    };
+}());
+</script>
