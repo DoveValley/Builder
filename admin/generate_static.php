@@ -126,6 +126,8 @@ $siteUrls[] = ['loc' => '/', 'priority' => '1.0'];
 // ── 2. Landing pages ──────────────────────────────────────────────────────────
 $pages = $siteData['pages'] ?? [];
 $pageCount = 0;
+$writtenSlugs = []; // track every slug written — used to prune stale dirs
+
 foreach ($pages as $pageId => $page) {
     $pageSlug = $page['slug'] ?? '';
     if ($pageSlug === '' || !preg_match('/^[a-z0-9][a-z0-9-]*$/', $pageSlug)) continue;
@@ -146,6 +148,7 @@ foreach ($pages as $pageId => $page) {
 
     gen_write($outputBase . $pageSlug . '/index.html', $html);
     $siteUrls[] = ['loc' => '/' . $pageSlug . '/', 'priority' => '0.8'];
+    $writtenSlugs[$pageSlug] = true;
     $pageCount++;
 }
 sse("Landing pages: {$pageCount} generated.");
@@ -179,10 +182,33 @@ if (file_exists(PAGE_INDEX_FILE)) {
 
         gen_write($outputBase . $citySlug . '/index.html', $html);
         $siteUrls[] = ['loc' => '/' . $citySlug . '/', 'priority' => '0.7'];
+        $writtenSlugs[$citySlug] = true;
         $cityCount++;
     }
 }
 sse("City pages: {$cityCount} generated.");
+
+// ── Prune stale slug directories ──────────────────────────────────────────────
+// Directories in output/ that aren't from this run are leftovers from deleted pages/cities.
+$reserved = ['blog', 'assets', 'uploads', 'blog'];
+$pruned = 0;
+foreach (glob($outputBase . '*', GLOB_ONLYDIR) ?: [] as $dir) {
+    $slug = basename($dir);
+    if (in_array($slug, $reserved, true)) continue;
+    if (!isset($writtenSlugs[$slug])) {
+        // Recursively remove stale directory
+        $files = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS),
+            RecursiveIteratorIterator::CHILD_FIRST
+        );
+        foreach ($files as $f) {
+            $f->isDir() ? rmdir($f->getPathname()) : unlink($f->getPathname());
+        }
+        rmdir($dir);
+        $pruned++;
+    }
+}
+if ($pruned > 0) sse("Pruned {$pruned} stale page director" . ($pruned === 1 ? 'y' : 'ies') . ' from output.', 'warn');
 
 // ── 4. Blog pages ─────────────────────────────────────────────────────────────
 $posts = $siteData['posts'] ?? [];
