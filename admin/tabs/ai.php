@@ -204,6 +204,15 @@ function fmt_dur(int $ms): string {
                     <option value="all">All pages</option>
                 </select>
             </div>
+            <div class="form-group">
+                <label for="ai-model">Model</label>
+                <select name="model_override" id="ai-model">
+                    <option value="">Per-block setting</option>
+                    <option value="claude-haiku-4-5-20251001">Haiku — fast, cheap</option>
+                    <option value="claude-sonnet-4-6">Sonnet — better quality</option>
+                    <option value="claude-opus-4-8">Opus — highest quality</option>
+                </select>
+            </div>
         </div>
         <div class="ai-trigger-row" style="margin-bottom:16px; align-items:center; gap:20px;">
             <label id="ai-research-wrap" style="display:flex;align-items:center;gap:6px;font-weight:500;font-size:.83rem;cursor:pointer;margin:0;">

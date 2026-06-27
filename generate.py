@@ -278,7 +278,7 @@ def _needs_processing(block):
         bool(block.get('ai_type_id')) and block.get('type') != 'ai_block'
     )
 
-def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False):
+def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False, model_override=None):
     """
     Process blocks that need AI generation:
 
@@ -309,7 +309,7 @@ def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False)
             stats['errors'] += 1
             continue
 
-        model    = block.get('ai_model')           or reg_entry.get('ai_model',  MODEL_DEFAULT)
+        model    = model_override or block.get('ai_model') or reg_entry.get('ai_model', MODEL_DEFAULT)
         prompt_t = block.get('ai_prompt_override') or reg_entry.get('ai_prompt', '')
 
         if not prompt_t:
@@ -371,7 +371,7 @@ def _merge_stats(total, s):
     for k in total:
         total[k] += s.get(k, 0)
 
-def process_homepage(paths, site_data, registry, c_idx, api_key, refresh, dry_run):
+def process_homepage(paths, site_data, registry, c_idx, api_key, refresh, dry_run, model_override=None):
     _log('\n── Homepage ─────────────────────────────────────────')
     site_vars = site_data.get('site_vars', {})
     city_data = resolve_city(c_idx, site_vars)
@@ -384,7 +384,7 @@ def process_homepage(paths, site_data, registry, c_idx, api_key, refresh, dry_ru
         return {'processed': 0, 'skipped': 0, 'errors': 0}
 
     _log(f'  {n_ai} block(s) to process | city: {ctx["city"]}, {ctx["SS"]}')
-    new_blocks, stats = process_blocks(blocks, registry, ctx, api_key, refresh, dry_run)
+    new_blocks, stats = process_blocks(blocks, registry, ctx, api_key, refresh, dry_run, model_override)
 
     if not dry_run:
         site_data['content_blocks'] = new_blocks
@@ -393,7 +393,7 @@ def process_homepage(paths, site_data, registry, c_idx, api_key, refresh, dry_ru
 
     return stats
 
-def process_core_pages(paths, site_data, registry, c_idx, api_key, refresh, dry_run):
+def process_core_pages(paths, site_data, registry, c_idx, api_key, refresh, dry_run, model_override=None):
     _log('\n── Core Pages ───────────────────────────────────────')
     site_vars = site_data.get('site_vars', {})
     pages     = site_data.get('pages', {})
@@ -408,7 +408,7 @@ def process_core_pages(paths, site_data, registry, c_idx, api_key, refresh, dry_
         _log(f'  Page "{page.get("title", pid)}" — {n_ai} block(s) to process')
         city_data = resolve_city(c_idx, site_vars)
         ctx       = build_context(site_vars, city_data, page)
-        new_blocks, stats = process_blocks(blocks, registry, ctx, api_key, refresh, dry_run)
+        new_blocks, stats = process_blocks(blocks, registry, ctx, api_key, refresh, dry_run, model_override)
         _merge_stats(total, stats)
         if not dry_run:
             site_data['pages'][pid]['content_blocks'] = new_blocks
@@ -423,7 +423,7 @@ def process_core_pages(paths, site_data, registry, c_idx, api_key, refresh, dry_
 
     return total
 
-def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, dry_run, file_filter=None):
+def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, dry_run, file_filter=None, model_override=None):
     _log('\n── Landing Pages ────────────────────────────────────')
     site_vars = site_data.get('site_vars', {})
     pages_dir = paths['pages_dir']
@@ -461,7 +461,7 @@ def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, d
         ctx = build_context(site_vars, merged_city, page_data)
         _log(f'  City: {ctx["city"]}, {ctx["SS"]}')
 
-        new_blocks, stats = process_blocks(blocks, registry, ctx, api_key, refresh, dry_run)
+        new_blocks, stats = process_blocks(blocks, registry, ctx, api_key, refresh, dry_run, model_override)
         _merge_stats(total, stats)
 
         if not dry_run:
@@ -755,6 +755,8 @@ def main():
                     help='Insert missing ai_blocks from templates.json into existing page files, then exit')
     ap.add_argument('--dry-run',         action='store_true', dest='dry_run',
                     help='Preview without calling API or writing files')
+    ap.add_argument('--model',           default=None,
+                    help='Override the model for every block (e.g. claude-sonnet-4-6)')
     args = ap.parse_args()
 
     # research-only implies --research
@@ -777,6 +779,8 @@ def main():
     scope = '--all' if args.all else ('--research-only' if args.research_only else args.page)
     _log(f'Scope    : {scope}' + (f' --file {args.file}' if args.file else ''))
     _log(f'Research : {args.research}  |  Refresh : {args.refresh}  |  Dry run : {args.dry_run}')
+    if args.model:
+        _log(f'Model    : {args.model} (override)')
     _log(f'{"═"*54}')
 
     # ── Template sync (no API key required) ───────────────────────────────────
@@ -815,14 +819,16 @@ def main():
     c_idx = cities_index(paths)
 
     # ── Step 2: Content generation ────────────────────────────────────────────
+    model_override = args.model or None
+
     if args.all or args.page == 'homepage':
-        _merge_stats(total, process_homepage(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run))
+        _merge_stats(total, process_homepage(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, model_override))
 
     if args.all or args.page == 'core':
-        _merge_stats(total, process_core_pages(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run))
+        _merge_stats(total, process_core_pages(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, model_override))
 
     if args.all or args.page == 'landing':
-        _merge_stats(total, process_landing_pages(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, file_filter=args.file))
+        _merge_stats(total, process_landing_pages(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, file_filter=args.file, model_override=model_override))
 
     print_summary(total, researched)
     if not args.dry_run:

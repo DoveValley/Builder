@@ -53,12 +53,17 @@ if (!ACTIVE_SITE_ID) {
 }
 
 // ── Parse options ─────────────────────────────────────────────────────────────
-$action   = $_POST['action']   ?? 'generate';  // generate | research | sync
-$cityId   = trim($_POST['city_id'] ?? '');
-$scope    = in_array($_POST['scope'] ?? '', ['landing', 'all'], true) ? $_POST['scope'] : 'landing';
-$research = !empty($_POST['research']);
-$refresh  = !empty($_POST['refresh']);
-$dryRun   = !empty($_POST['dry_run']);
+$action        = $_POST['action']   ?? 'generate';  // generate | research | sync
+$cityId        = trim($_POST['city_id'] ?? '');
+$scope         = in_array($_POST['scope'] ?? '', ['landing', 'all'], true) ? $_POST['scope'] : 'landing';
+$research      = !empty($_POST['research']);
+$refresh       = !empty($_POST['refresh']);
+$dryRun        = !empty($_POST['dry_run']);
+$modelOverride = '';
+$_mo = trim($_POST['model_override'] ?? '');
+if (in_array($_mo, ['claude-haiku-4-5-20251001', 'claude-sonnet-4-6', 'claude-opus-4-8'], true)) {
+    $modelOverride = $_mo;
+}
 
 // Sanitize city_id: allow only safe slugs
 if ($cityId && !preg_match('/^[a-z0-9][a-z0-9-]{0,59}$/', $cityId)) {
@@ -105,10 +110,11 @@ switch ($action) {
         } else {
             $parts[] = '--page'; $parts[] = 'landing';
         }
-        if ($research) $parts[] = '--research';
-        if ($refresh)  $parts[] = '--refresh';
-        if ($cityId)   { $parts[] = '--file'; $parts[] = escapeshellarg($cityId); }
-        if ($dryRun)   $parts[] = '--dry-run';
+        if ($research)       $parts[] = '--research';
+        if ($refresh)        $parts[] = '--refresh';
+        if ($cityId)         { $parts[] = '--file'; $parts[] = escapeshellarg($cityId); }
+        if ($dryRun)         $parts[] = '--dry-run';
+        if ($modelOverride)  { $parts[] = '--model'; $parts[] = escapeshellarg($modelOverride); }
         break;
 }
 
