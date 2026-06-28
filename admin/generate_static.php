@@ -405,6 +405,21 @@ ErrorDocument 404 /404.html
 </IfModule>
 HTACCESS;
 
+// Append 301 redirects
+if (defined('REDIRECTS_FILE') && file_exists(REDIRECTS_FILE)) {
+    $redirsRaw = json_decode(file_get_contents(REDIRECTS_FILE), true) ?: [];
+    if (!empty($redirsRaw)) {
+        $htaccess .= "\n\n# 301 Redirects\n";
+        foreach ($redirsRaw as $r) {
+            $from = preg_replace('/[^\x20-\x7E]/', '', $r['from'] ?? '');
+            $to   = preg_replace('/[^\x20-\x7E]/', '', $r['to']   ?? '');
+            if ($from === '' || $to === '') continue;
+            $htaccess .= 'Redirect 301 ' . $from . ' ' . $to . "\n";
+        }
+        sse(count($redirsRaw) . ' redirect(s) added to .htaccess.');
+    }
+}
+
 gen_write($outputBase . '.htaccess', $htaccess);
 sse('Generated: .htaccess.');
 
