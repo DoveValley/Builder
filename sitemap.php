@@ -17,7 +17,7 @@ echo "  <url>\n";
 echo "    <loc>" . htmlspecialchars($baseUrl . '/') . "</loc>\n";
 echo "    <changefreq>weekly</changefreq>\n";
 echo "    <priority>1.0</priority>\n";
-echo "    <lastmod>{$today}</lastmod>\n";
+echo "    <lastmod>" . ($data['last_modified'] ?? $today) . "</lastmod>\n";
 echo "  </url>\n";
 
 // Landing pages — deduplicate by resolved URL
@@ -44,7 +44,7 @@ foreach ($pages as $page) {
     echo "    <loc>" . htmlspecialchars($loc) . "</loc>\n";
     echo "    <changefreq>monthly</changefreq>\n";
     echo "    <priority>0.8</priority>\n";
-    echo "    <lastmod>{$today}</lastmod>\n";
+    echo "    <lastmod>" . ($page['last_modified'] ?? $today) . "</lastmod>\n";
     echo "  </url>\n";
 }
 

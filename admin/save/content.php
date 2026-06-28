@@ -56,6 +56,7 @@
             $data['pages'][$pageId]['title'] = trim($_POST['page_title'] ?? '');
             $requestedSlug = trim($_POST['page_slug'] ?? '') ?: $data['pages'][$pageId]['title'];
             $data['pages'][$pageId]['slug'] = unique_slug($requestedSlug, $data['pages'], $pageId);
+            $data['pages'][$pageId]['last_modified'] = date('Y-m-d');
         } elseif ($isPost) {
             $data['posts'][$postId]['content_blocks'] = $blocks;
             $data['posts'][$postId]['seo'] = $seoData;
@@ -78,4 +79,5 @@
         } else {
             $data['content_blocks'] = $blocks;
             $data['seo'] = $seoData;
+            $data['last_modified'] = date('Y-m-d');
         }

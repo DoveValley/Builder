@@ -171,7 +171,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#tab-footer">Footer</a>
         <a href="#tab-popups">Popups</a>
         <a href="#tab-media">Media</a>
-        <a href="#tab-seo">SEO</a>
+        <a href="#tab-seo">SEO &amp; Sitemap</a>
         <a href="#tab-schedule">Schedule</a>
         <a href="#tab-starters">Page Starters</a>
         <a href="#tab-templates">Templates</a>
@@ -606,6 +606,12 @@ tr:nth-child(even) td { background: #f8fafc; }
         <p><strong>Tip:</strong> The business name, phone, and address here should exactly match site_vars — use the same format so there are no inconsistencies between the schema and the on-page content.</p>
     </div>
 
+    <h3>Sitemap</h3>
+    <p>The sitemap at <code>/sitemap.xml</code> is generated automatically — no configuration needed. It includes the homepage, all landing pages, the blog index, and all published blog posts. When you deploy, the static generator bakes it out to <code>output/{site_id}/sitemap.xml</code>.</p>
+    <p><strong>lastmod dates are real, not fake.</strong> Every time you save a page in the Content or Pages tab, the system stamps a <code>last_modified</code> date on that page. The sitemap reads that date and reports it to Google — so crawl budget is not wasted on pages that haven't actually changed. Blog posts use the <code>updated_at</code> field the same way.</p>
+    <div class="callout tip">
+        <p><strong>Tip:</strong> Submit the sitemap URL to Google Search Console once after launch: <code>https://yourdomain.com/sitemap.xml</code>. After that, Google discovers changes on its own schedule.</p>
+    </div>
     <h3>301 Redirects</h3>
     <p>Manage permanent redirects for URLs that have moved — for example when a city page slug changes after Google has already indexed the old URL. Redirects are stored in <code>data/redirects.json</code> and written into <code>.htaccess</code> automatically every time you run Generate Static Site, so they survive re-deploys.</p>
     <ul>
