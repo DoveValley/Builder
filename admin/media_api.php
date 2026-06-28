@@ -226,7 +226,7 @@ if ($action === 'upload') {
     [$w, $h] = @getimagesize($dest) ?: [0, 0];
     $item = [
         'filename'   => $filename,
-        'url'        => 'uploads/media/' . $filename,
+        'url'        => UPLOAD_URL . 'media/' . $filename,
         'width'      => $w,
         'height'     => $h,
         'size'       => filesize($dest),
@@ -399,7 +399,7 @@ if ($action === 'usage') {
         $label   = $blockLabels[$type] ?? ucwords(str_replace('_', ' ', $type));
         $context = $page . ' › ' . $label;
         array_walk_recursive($block, function($v) use ($context, $addUsage): void {
-            if (is_string($v) && str_starts_with($v, 'uploads/')) {
+            if (is_string($v) && (str_starts_with($v, 'uploads/') || str_starts_with($v, 'sites/'))) {
                 $addUsage($v, $context);
             }
         });
