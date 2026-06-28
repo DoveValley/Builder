@@ -34,9 +34,15 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; f
     border-left: 3px solid transparent;
     transition: all 0.15s;
 }
-#sidebar nav a:hover { color: #fff; background: rgba(255,255,255,0.05); }
+#sidebar nav a:hover { color: #60a5fa; background: rgba(96,165,250,0.08); }
 #sidebar nav a.active { color: #fff; border-left-color: #3b82f6; background: rgba(59,130,246,0.15); }
-#sidebar nav .nav-group { padding: 18px 20px 6px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #475569; }
+#sidebar nav .nav-group {
+    display: block; padding: 18px 20px 6px;
+    font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;
+    color: #cbd5e1; text-decoration: none; border-left: 3px solid transparent;
+    transition: color 0.15s;
+}
+#sidebar nav a.nav-group:hover { color: #fff; background: none; }
 
 /* Search */
 #sidebar .search-wrap { padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -91,6 +97,17 @@ tr:nth-child(even) td { background: #f8fafc; }
 
 .back-top { display: inline-block; margin-top: 12px; font-size: 0.8rem; color: #3b82f6; text-decoration: none; }
 .back-top:hover { text-decoration: underline; }
+
+.doc-group-header {
+    margin: 48px -48px 40px;
+    padding: 14px 48px;
+    background: #1e3a5f;
+    color: #cbd5e1;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
 </style>
 </head>
 <body>
@@ -105,18 +122,47 @@ tr:nth-child(even) td { background: #f8fafc; }
         <input type="text" id="doc-search" placeholder="Search docs…" oninput="filterNav(this.value)">
     </div>
     <nav id="doc-nav">
-        <div class="nav-group">Overview</div>
+        <a class="nav-group" href="#group-overview">Overview</a>
         <a href="#overview">What is this system?</a>
         <a href="#no-database">No-database philosophy</a>
         <a href="#multi-site">Multi-site</a>
 
-        <div class="nav-group">Technical</div>
+        <a class="nav-group" href="#group-technical">Technical</a>
         <a href="#architecture">Architecture</a>
         <a href="#data-flow">Data flow</a>
         <a href="#routing">URL routing</a>
         <a href="#file-structure">File structure</a>
 
-        <div class="nav-group">Admin Tabs</div>
+        <a class="nav-group" href="#group-init">Workflow — Initial Site Creation</a>
+        <a href="#init-overview">Overview</a>
+        <a href="#init-new-site">Creating a new site</a>
+        <a href="#init-site-vars">Site variables</a>
+        <a href="#init-theme">Theme setup</a>
+        <a href="#init-header">Header setup</a>
+        <a href="#init-footer">Footer setup</a>
+
+        <a class="nav-group" href="#group-core">Workflow — Core Page Creation</a>
+        <a href="#core-overview">Overview</a>
+        <a href="#core-homepage">Building the homepage</a>
+        <a href="#core-pages">Landing pages</a>
+        <a href="#core-blog">Blog posts</a>
+        <a href="#core-starters">Using page starters</a>
+
+        <a class="nav-group" href="#group-city">Workflow — City Pages</a>
+        <a href="#landing-multicity-overview">Landing Pages &amp; Multi-city</a>
+        <a href="#cities-overview">City Pages overview</a>
+        <a href="#cities-templates">Templates</a>
+        <a href="#cities-generation">Generation steps</a>
+        <a href="#cities-slugs">Slugs</a>
+
+        <a class="nav-group" href="#group-ai">Workflow — AI System</a>
+        <a href="#ai-overview">How AI works</a>
+        <a href="#ai-standalone">Standalone mode</a>
+        <a href="#ai-enrich">Enrich mode</a>
+        <a href="#ai-locking">Locking</a>
+        <a href="#ai-workflow">Full workflow</a>
+
+        <a class="nav-group" href="#group-admin">Admin Tabs</a>
         <a href="#tab-header">Header</a>
         <a href="#tab-theme">Theme</a>
         <a href="#tab-content">Content</a>
@@ -137,7 +183,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#tab-plugins">Plugins</a>
         <a href="#tab-deploy">Deploy</a>
 
-        <div class="nav-group">Block Library</div>
+        <a class="nav-group" href="#group-blocks">Block Library</a>
         <a href="#block-hero">Hero</a>
         <a href="#block-hero_split">Hero Split</a>
         <a href="#block-hero_grid">Hero Grid</a>
@@ -173,25 +219,12 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#block-contact_form">Contact Form</a>
         <a href="#block-ai_block">AI Block</a>
 
-        <div class="nav-group">AI System</div>
-        <a href="#ai-overview">How AI works</a>
-        <a href="#ai-standalone">Standalone mode</a>
-        <a href="#ai-enrich">Enrich mode</a>
-        <a href="#ai-locking">Locking</a>
-        <a href="#ai-workflow">Full workflow</a>
-
-        <div class="nav-group">City Pages</div>
-        <a href="#cities-overview">Overview</a>
-        <a href="#cities-templates">Templates</a>
-        <a href="#cities-generation">Generation steps</a>
-        <a href="#cities-slugs">Slugs</a>
-
-        <div class="nav-group">Going Live</div>
+        <a class="nav-group" href="#group-going-live">Going Live</a>
         <a href="#deploy-checklist">Pre-launch checklist</a>
         <a href="#deploy-ftp">FTP deploy</a>
         <a href="#deploy-security">Security notes</a>
 
-        <div class="nav-group">How To</div>
+        <a class="nav-group" href="#group-howto">How To</a>
         <a href="#howto-new-block">Add a new block type</a>
         <a href="#howto-new-ai-type">Add a new AI type</a>
         <a href="#howto-new-city">Add a city</a>
@@ -206,6 +239,7 @@ tr:nth-child(even) td { background: #f8fafc; }
 <p class="page-intro">Complete reference for the Site Factory admin system. Use the sidebar to navigate, or click any <strong>?</strong> button inside the admin panel to jump directly to the relevant section.</p>
 
 <!-- ═══════════ OVERVIEW ═══════════ -->
+<div class="doc-group-header" id="group-overview">Overview</div>
 <section id="overview">
     <h2>What is this system?</h2>
     <p>Site Factory is a custom PHP CMS designed for building and deploying local-service and training business websites at scale. It is purpose-built — no WordPress, no plugins, no framework overhead.</p>
@@ -236,6 +270,7 @@ tr:nth-child(even) td { background: #f8fafc; }
 </section>
 
 <!-- ═══════════ TECHNICAL ═══════════ -->
+<div class="doc-group-header" id="group-technical">Technical</div>
 <section id="architecture">
     <h2>Architecture</h2>
     <p>The system is structured around a small set of PHP files that each have a specific responsibility:</p>
@@ -324,215 +359,529 @@ tr:nth-child(even) td { background: #f8fafc; }
 </section>
 
 <!-- ═══════════ ADMIN TABS ═══════════ -->
+<div class="doc-group-header" id="group-admin">Admin Tabs</div>
 <section id="tab-header">
     <h2>Tab: Header</h2>
-    <p>Controls the site header — logo, site name, phone number, and navigation menu.</p>
-    <h3>Key fields</h3>
-    <ul>
-        <li><strong>Logo</strong> — upload or pick from Media Library. PNG with transparent background recommended.</li>
-        <li><strong>Site name</strong> — used in the &lt;title&gt; tag and as fallback if logo is missing. Always set this.</li>
-        <li><strong>Phone</strong> — use the <code>{phone}</code> shortcode to pull from site_vars, or enter directly.</li>
-        <li><strong>Menu</strong> — add/remove/reorder nav items. Each item has a label and URL. Supports dropdown sub-menus.</li>
-        <li><strong>Layout</strong> — choose between single-row, logo-centered, and other header layouts.</li>
-    </ul>
+    <p>Controls the site header — logo, site name, phone number, navigation menu, and layout style. Changes here appear on every page of the site.</p>
     <div class="callout tip">
-        <p><strong>Tip:</strong> Set site_vars first (phone, business name, address) — then use shortcodes in the header so values stay consistent everywhere.</p>
+        <p><strong>Tip:</strong> Fill in Site Variables first — then use shortcodes like <code>{phone}</code> and <code>{business}</code> everywhere else so values stay consistent automatically.</p>
     </div>
+
+    <h3>Header Layout</h3>
+    <p>Choose the overall header structure. Options include a 2-row layout (logo + info bar on top, colored nav bar below) and a single-row layout (logo, nav, and phone all in one bar). All other header settings apply to whichever layout is selected.</p>
+
+    <h3>Site Variables</h3>
+    <p>The most important section in the header tab. These values — business name, phone, email, address, city, state, ZIP — are used site-wide via shortcodes. Set them correctly before touching any other field.</p>
+    <table>
+        <tr><th>Shortcode</th><th>Value</th></tr>
+        <tr><td><code>{business}</code></td><td>Business name</td></tr>
+        <tr><td><code>{phone}</code></td><td>Display phone (e.g. 555-555-5555)</td></tr>
+        <tr><td><code>{tel}</code></td><td>E.164 phone for tel: links (e.g. +15555555555)</td></tr>
+        <tr><td><code>{email}</code></td><td>Contact email address</td></tr>
+        <tr><td><code>{city}</code></td><td>City name (city pages only)</td></tr>
+        <tr><td><code>{SS}</code></td><td>2-letter state abbreviation</td></tr>
+        <tr><td><code>{year}</code></td><td>Current year (auto-updates)</td></tr>
+    </table>
+
+    <h3>Logo</h3>
+    <p>Upload the site logo (top-left position). PNG with a transparent background is recommended. After uploading, check dimensions — very tall logos may need CSS height adjustment. The logo also appears on the site's browser tab (favicon is separate).</p>
+
+    <h3>Menu Items</h3>
+    <p>Build the navigation menu. Each item has a label and URL. Drag to reorder. Add a sub-menu by nesting items under a parent — renders as a dropdown on desktop. Menu URLs support relative paths (<code>/about</code>), anchors (<code>#services</code>), and external URLs.</p>
+
+    <h3>Top Announcement Bar</h3>
+    <p>An optional thin banner that appears above the main header. Use for promotions, alerts, or a secondary contact link. Can be enabled or disabled without deleting the content.</p>
+
+    <h3>Phone Number &amp; Location</h3>
+    <p>The phone number displayed in the header (typically top-right). Use <code>{phone}</code> to pull from site_vars. Location text (city, state) can appear alongside the phone on the 2-row layout.</p>
+
+    <h3>Nav Bar Style</h3>
+    <p>Colors, spacing, and alignment for the navigation bar. Background color, text color, hover color, and active link color are all independently configurable. These pull from the theme by default but can be overridden per-site.</p>
+
+    <h3>Nav CTA Button</h3>
+    <p>An optional call-to-action button inside the nav bar (e.g. "Get a Quote", "Register Now"). Shows as a colored button, separate from the regular menu links. Set label and URL.</p>
+
+    <h3>Header Info Items</h3>
+    <p>Secondary information line displayed in the 2-row header above the nav — typically used for hours, email, or a second phone number. Each item has an icon and text.</p>
+
+    <h3>Social Media Links</h3>
+    <p>Social profile icons shown in the header. Each entry is a platform name and URL. Icons are rendered automatically based on the platform. Leave the URL blank to hide that platform's icon.</p>
 </section>
 
 <section id="tab-theme">
     <h2>Tab: Theme</h2>
-    <p>Controls global colors, fonts, and button styles. All values are converted to CSS custom properties and injected into every page.</p>
-    <h3>Key settings</h3>
+    <p>Controls global colors, fonts, and button styles. All values are converted to CSS custom properties and injected inline into every page. Change a color here and it updates everywhere on the site automatically.</p>
+    <div class="callout tip">
+        <p><strong>Tip:</strong> Color fields in content blocks accept the keywords <code>accent</code>, <code>header</code>, or <code>footer</code> instead of a hex value — they resolve at render time, so one theme change ripples to every block that uses them.</p>
+    </div>
+
+    <h3>Brand Colors</h3>
+    <p>The core palette for the site — typically 2–3 colors from the client's brand guide. Sets the named color slots that the rest of the system uses:</p>
     <ul>
-        <li><strong>Primary color (header)</strong> — nav background, dark section backgrounds</li>
-        <li><strong>Accent color</strong> — buttons, highlights, icons</li>
-        <li><strong>Footer color</strong> — footer background</li>
-        <li><strong>Font</strong> — Google Font name (loaded automatically)</li>
-        <li><strong>Button radius</strong> — controls corner rounding on all buttons site-wide</li>
+        <li><strong>Header / Primary</strong> — nav bar background, dark hero sections, dark text contrast areas</li>
+        <li><strong>Accent</strong> — buttons, icon tints, highlighted text, active states</li>
+        <li><strong>Footer</strong> — footer background (often the same as or slightly darker than the header)</li>
     </ul>
-    <p>Color fields in blocks (heading color, background color, icon color) can reference these global values using the keywords <code>accent</code>, <code>header</code>, or <code>footer</code> — so a single theme change updates the entire site.</p>
+
+    <h3>Accent &amp; Buttons</h3>
+    <p>Fine-tune the accent color behavior: hover shade (auto-darkened or manually set), button background, button text color, and disabled state. Also controls the outline button border and text color when the button variant is not filled.</p>
+
+    <h3>Skin Variants</h3>
+    <p>Some blocks support a "skin" — a named color mode that changes the block's background and text independently of the main content. Skins are defined here as additional named slots (e.g., <code>light</code>, <code>dark</code>, <code>tinted</code>). Once defined, a block can select a skin from a dropdown to apply it.</p>
+
+    <h3>Typography</h3>
+    <p>Sets the Google Font used site-wide. Enter a Google Font family name (e.g., <code>Inter</code>, <code>Lato</code>) — the font is loaded automatically. Heading size scale, base font size, and line height are also configurable here.</p>
+
+    <h3>Buttons</h3>
+    <p>Button border radius (controls corner rounding site-wide — <code>0</code> for square, <code>4px</code> for slightly rounded, <code>9999px</code> for pill shape). Primary and secondary button colors can also be overridden here independently of the accent color.</p>
+
+    <h3>Analytics &amp; Tracking</h3>
+    <p>Google Analytics measurement ID (e.g., <code>G-XXXXXXXXXX</code>) and Google Tag Manager container ID. When set, the appropriate tracking snippet is injected into every page's <code>&lt;head&gt;</code>. Leave blank to disable tracking.</p>
 </section>
 
 <section id="tab-content">
     <h2>Tab: Content</h2>
-    <p>The main page content editor — build the homepage from blocks. Each block is a collapsible card. Drag to reorder (or use ↑ ↓ arrows), clone to duplicate, remove to delete.</p>
-    <h3>Adding a block</h3>
-    <ol>
-        <li>Click <strong>+ Add Block</strong> at the bottom</li>
-        <li>Pick a block type from the visual picker</li>
-        <li>Fill in the fields</li>
-        <li>Click <strong>Save Changes</strong></li>
-    </ol>
-    <p>Each block header shows the block type, an optional skin badge (colored section variant), an AI badge (purple, if this block is AI-enriched), and a <strong>?</strong> button that opens the relevant docs section.</p>
+    <p>The homepage content editor — build the homepage block by block. Each block is a collapsible card; the full page is assembled from the block sequence in order.</p>
     <div class="callout">
-        <p>The Content tab edits the homepage (<code>index.php</code>). To edit a landing page, go to the <strong>Pages</strong> tab.</p>
+        <p>The Content tab edits the homepage only. To edit a landing page, go to the <strong>Pages</strong> tab and open that page's block editor.</p>
+    </div>
+
+    <h3>Load a Homepage Starter</h3>
+    <p>If you are starting from scratch, use this section to pre-populate the homepage with a curated block sequence from the Page Starters library. Applying a starter overwrites the current block list — use only on a blank or throwaway homepage. Once applied, all blocks are editable.</p>
+
+    <h3>Content Blocks Editor</h3>
+    <p>The main editing area. Each block is shown as a collapsible panel (click the header to expand/collapse). Within each panel are the block's editable fields — text, images, links, and layout options specific to that block type.</p>
+    <p>Block header controls (right side of each block bar):</p>
+    <ul>
+        <li><strong>↑ ↓</strong> — move block up or down in page order</li>
+        <li><strong>Clone</strong> — duplicate this block (appears directly below it)</li>
+        <li><strong>✕</strong> — delete this block (no undo — save first if unsure)</li>
+        <li><strong>?</strong> — opens documentation for this block type</li>
+        <li>Purple <strong>✦ AI</strong> badge — this block has AI enrichment configured; the badge shows the AI type ID</li>
+    </ul>
+    <p>To add a block: click <strong>+ Add Block</strong> at the bottom, pick from the visual block picker, then fill in the fields and click <strong>Save Changes</strong>. The block picker groups blocks by category (Hero, Content, Cards, etc.).</p>
+    <div class="callout tip">
+        <p><strong>Save often.</strong> There is no auto-save. Click <strong>Save Changes</strong> at the top or bottom of the editor after making changes.</p>
     </div>
 </section>
 
 <section id="tab-pages">
     <h2>Tab: Pages</h2>
-    <p>Manages landing pages — any page other than the homepage or blog. Each page has a slug (URL), title, SEO fields, and its own content blocks.</p>
-    <h3>Creating a page</h3>
-    <ol>
-        <li>Click <strong>New Page</strong></li>
-        <li>Set a slug (e.g. <code>about</code> → accessible at <code>/about</code>)</li>
-        <li>Add content blocks</li>
-        <li>Save</li>
-    </ol>
-    <p>Slugs are validated against a reserved list and deduplicated automatically. Do not use slugs that conflict with system paths (<code>admin</code>, <code>blog</code>, <code>uploads</code>, etc.).</p>
+    <p>Manages all pages other than the homepage and blog — landing pages, about, contact, legal, etc. Each page has its own URL slug, title, SEO settings, and content blocks.</p>
+
+    <h3>Add a New Page</h3>
+    <p>Quick-add form at the top. Enter a page title and a slug (URL path). The slug is validated against a reserved list (<code>admin</code>, <code>blog</code>, <code>uploads</code>, etc.) and deduplicated automatically if it conflicts with an existing page. After adding, click <strong>Edit</strong> to open the page's block editor.</p>
+
+    <h3>Core Pages</h3>
+    <p>System-special pages that are always present — typically the homepage (handled in the Content tab) and any framework-level pages. These rows appear at the top of the page list and cannot be deleted.</p>
+
+    <h3>Landing Pages</h3>
+    <p>All manually-created pages. Each row shows the page title, slug, and last-saved timestamp. Actions per page:</p>
+    <ul>
+        <li><strong>Edit</strong> — open the page's block editor and SEO settings</li>
+        <li><strong>View</strong> — open the live page in a new tab</li>
+        <li><strong>Delete</strong> — permanently removes the page (confirm dialog)</li>
+    </ul>
+
+    <h3>Page Settings (Edit View)</h3>
+    <p>When editing a page you get the full block editor (same as the Content tab) plus a Page Settings panel at the top with:</p>
+    <ul>
+        <li><strong>Page title</strong> — H1 / <code>&lt;title&gt;</code> override for this page</li>
+        <li><strong>SEO title</strong> — browser tab and Google title (leave blank to use page title)</li>
+        <li><strong>Meta description</strong> — search snippet (150–160 characters recommended)</li>
+        <li><strong>Canonical URL</strong> — set if this page has a canonical elsewhere</li>
+        <li><strong>Slug</strong> — the URL path; changing this changes the page's URL immediately</li>
+    </ul>
 </section>
 
 <section id="tab-blog">
     <h2>Tab: Blog</h2>
-    <p>Manages blog posts. Each post has a title, slug, status (draft/published), published date, author, tags, featured image, excerpt, and its own content blocks — the same block system as pages.</p>
-    <h3>Blog routing</h3>
+    <p>Manages blog posts. Each post uses the same block system as landing pages and also has post-specific metadata: title, slug, status, date, author, tags, featured image, and excerpt.</p>
+    <p>Blog URLs: listing at <code>/blog</code>, tag filter at <code>/blog?tag=project-management</code>, single post at <code>/blog/post-slug</code>, pagination at <code>/blog?p=2</code>.</p>
+
+    <h3>Blog Settings</h3>
+    <p>Top-of-tab settings that apply to the listing page:</p>
     <ul>
-        <li>Listing: <code>/blog</code></li>
-        <li>Tag filter: <code>/blog?tag=project-management</code></li>
-        <li>Single post: <code>/blog/post-slug</code></li>
-        <li>Pagination: <code>/blog?p=2</code></li>
+        <li><strong>Blog heading</strong> — the H1 shown on the <code>/blog</code> listing page</li>
+        <li><strong>Intro paragraph</strong> — optional subtext under the heading</li>
+        <li><strong>Posts per page</strong> — number of posts shown per page before pagination kicks in</li>
     </ul>
-    <p>Posts with <strong>draft</strong> status are not publicly accessible. The listing shows only published posts.</p>
+
+    <h3>Add a New Post</h3>
+    <p>Quick-add form at the top. Enter a post title — the slug is auto-generated from it. After creating the post, click <strong>Edit</strong> to open the full post editor.</p>
+
+    <h3>Posts List</h3>
+    <p>Table of all posts (draft and published). Each row shows title, slug, status, published date, and tag. Click <strong>Edit</strong> to open the post editor. Posts marked <strong>draft</strong> are not publicly visible — only admins can see them via the direct URL.</p>
+
+    <h3>Post Settings (Edit View)</h3>
+    <p>The post editor shows a Post Settings panel plus the block editor. Settings fields:</p>
+    <ul>
+        <li><strong>Title</strong> — post headline, appears as H1 and in the listing card</li>
+        <li><strong>Slug</strong> — URL path under <code>/blog/</code></li>
+        <li><strong>Status</strong> — Draft or Published</li>
+        <li><strong>Published date</strong> — shown in the byline and listing card; defaults to save time</li>
+        <li><strong>Author</strong> — byline name</li>
+        <li><strong>Tag</strong> — single tag string (used for filtering at <code>/blog?tag=...</code>)</li>
+        <li><strong>Excerpt</strong> — shown on the listing card; if blank, first paragraph is used</li>
+        <li><strong>Featured image</strong> — used as the listing card thumbnail and OG image</li>
+        <li><strong>SEO fields</strong> — title and meta description override for this post</li>
+    </ul>
+    <p>Below the settings panel, the full block editor appears — same system as pages. Add, reorder, and edit content blocks to build the post body.</p>
 </section>
 
 <section id="tab-footer">
     <h2>Tab: Footer</h2>
-    <p>Controls the footer — columns, links, contact info, copyright, and social icons. Like the header, values should use shortcodes (<code>{phone}</code>, <code>{email}</code>, <code>{business}</code>) where possible.</p>
-    <p>The copyright year auto-updates — use <code>{year}</code> in the copyright field.</p>
+    <p>Controls everything in the site footer — logo, columns, contact info, copyright text, social icons, and the optional sticky mobile bar. Use shortcodes (<code>{phone}</code>, <code>{email}</code>, <code>{business}</code>, <code>{year}</code>) instead of hardcoding values so they stay consistent with site_vars.</p>
+
+    <h3>Footer Logo &amp; Phone</h3>
+    <p>The logo image displayed in the footer (often a white/light version of the header logo). Paired with the footer phone number — use <code>{phone}</code> to pull from site_vars. Footer logo size and positioning are controlled by the theme.</p>
+
+    <h3>Social Media Links</h3>
+    <p>Icons and URLs for social profiles — same field structure as the header. Platform name → URL. Icons render automatically. Leave a URL blank to hide that platform's icon from the footer.</p>
+
+    <h3>Footer Columns</h3>
+    <p>Multi-column layout at the center of the footer. Each column has a heading and a list of links or text items. Common patterns:</p>
+    <ul>
+        <li>Column 1: address + phone</li>
+        <li>Column 2: quick navigation links</li>
+        <li>Column 3: social links or certifications</li>
+    </ul>
+    <p>Columns are added/removed with the + / × controls. Each column item can be plain text or a link (label + URL).</p>
+
+    <h3>Disclaimer Text</h3>
+    <p>Optional legal or compliance text below the columns — e.g., certifications, PMI® trademark notices, disclaimers. Supports basic HTML for bold/italic/links.</p>
+
+    <h3>Bottom Bar</h3>
+    <p>The very bottom strip of the footer — copyright line and optional policy links (Privacy Policy, Terms of Service). Use <code>{year}</code> for the auto-updating year and <code>{business}</code> for the business name. Example: <code>© {year} {business}. All rights reserved.</code></p>
+
+    <h3>Sticky Bottom Bar</h3>
+    <p>An optional fixed bar that stays pinned to the bottom of the browser window on mobile — useful for a persistent phone/CTA. Contains a short message and a button (e.g., "Call Now"). Enable/disable independently; does not affect the main footer.</p>
 </section>
 
 <section id="tab-popups">
     <h2>Tab: Popups</h2>
-    <p>Manages overlay popups that appear on page load or after a delay. Each popup has a headline, body text, image, and optional form or button. Popups can be enabled/disabled globally.</p>
+    <p>Manages overlay popups — modal dialogs that appear on page load or after a time delay. Popups are useful for lead capture forms, announcements, or limited-time offers.</p>
+
+    <h3>Popup Settings</h3>
+    <p>Global controls for popups on this site:</p>
+    <ul>
+        <li><strong>Enable/Disable</strong> — master toggle for all popups site-wide. Turn off here to suppress popups without deleting them.</li>
+        <li><strong>Delay</strong> — seconds after page load before the popup appears (e.g., <code>3</code> for 3 seconds; <code>0</code> for immediate)</li>
+    </ul>
+
+    <h3>Popup Content</h3>
+    <p>Each popup has: headline, body text, optional image, optional button (label + URL), and an optional email capture form. The popup renders as a centered modal with a dark overlay. Visitors can dismiss it with the X button or by clicking outside — their dismissal is stored in <code>localStorage</code> so the popup does not reappear on subsequent visits within the same browser.</p>
+    <div class="callout tip">
+        <p><strong>Tip:</strong> Keep popup copy short and the offer clear. Popups with a single focused CTA (e.g., "Get the free guide") convert better than multi-purpose ones.</p>
+    </div>
 </section>
 
 <section id="tab-media">
     <h2>Tab: Media</h2>
-    <p>The media library — all uploaded images for the active site. Images uploaded via block editors appear here automatically.</p>
-    <h3>Tips</h3>
-    <ul>
-        <li>Use the Library button in any image field to pick an existing image instead of uploading again</li>
-        <li>Check here before uploading — a topically relevant image may already exist</li>
-        <li>Accepted formats: JPEG, PNG, GIF, WebP (max 8 MB)</li>
-        <li>SVG files are sanitized on upload (scripts and event handlers are stripped)</li>
-    </ul>
+    <p>The media library — all images uploaded for the active site. Images uploaded via block editors appear here automatically. Before uploading a new image, check here first — a topically relevant image may already exist in the library.</p>
+
+    <h3>Upload Area</h3>
+    <p>Drag and drop one or more images onto the upload zone, or click to browse. Files are validated server-side for format and size before saving. Accepted formats: JPEG, PNG, GIF, WebP (max 8 MB each). SVG files are sanitized on upload — <code>&lt;script&gt;</code> tags and <code>on*</code> event handlers are stripped automatically.</p>
+
+    <h3>Image Grid</h3>
+    <p>All uploaded images shown as thumbnails. Hover to see the filename and dimensions. Click any image to copy its URL path to the clipboard, or use the <strong>Select</strong> button when a media picker is open from a block editor field. Use the search/filter bar to find images by filename when the library is large.</p>
+    <div class="callout tip">
+        <p><strong>Tip:</strong> Use the <strong>Library</strong> button inside any image upload field in the block editor to open a picker directly from the media library. This is faster than uploading the same image a second time.</p>
+    </div>
 </section>
 
 <section id="tab-seo">
     <h2>Tab: SEO</h2>
-    <p>Global SEO settings — site-wide meta title format, default meta description, Open Graph image, Google Analytics ID, and schema markup settings.</p>
-    <p>Individual pages and blog posts have their own SEO fields (title, description, canonical URL) that override the global defaults.</p>
+    <p>Global SEO and schema settings. Individual pages and blog posts have their own SEO fields (title, description, canonical URL) that override these defaults — this tab sets the site-level fallbacks and structured data.</p>
+
+    <h3>Breadcrumbs</h3>
+    <p>Enable or disable the breadcrumb navigation bar on landing pages and blog posts. When enabled, a breadcrumb trail (Home › Page Name) appears below the header. The system generates two separate breadcrumb arrays: one with relative URLs for visible display, and one with absolute URLs for the <code>BreadcrumbList</code> JSON-LD schema — keeping them in sync.</p>
+
+    <h3>Hero Page Background / Open Graph</h3>
+    <p>The default Open Graph image used when no page-specific OG image is set — this is the image that appears in social media link previews. Should be at least 1200×630px. Also sets the site-wide fallback meta title format (e.g., <code>{page_title} | {business}</code>) and default meta description.</p>
+
+    <h3>Local Business Schema</h3>
+    <p>Generates a <code>LocalBusiness</code> JSON-LD block injected into every public page. Fields: business name, address, phone, hours, business type (from the schema.org type list), and geographic area served. When filled in correctly, this improves eligibility for local knowledge panels and rich results in Google Search.</p>
+    <div class="callout tip">
+        <p><strong>Tip:</strong> The business name, phone, and address here should exactly match site_vars — use the same format so there are no inconsistencies between the schema and the on-page content.</p>
+    </div>
+
+    <h3>301 Redirects</h3>
+    <p>Manage permanent redirects for URLs that have moved — for example when a city page slug changes after Google has already indexed the old URL. Redirects are stored in <code>data/redirects.json</code> and written into <code>.htaccess</code> automatically every time you run Generate Static Site, so they survive re-deploys.</p>
+    <ul>
+        <li>Click <strong>+ Add Redirect</strong> to add a new row</li>
+        <li><strong>From path</strong> — the old URL path, starting with <code>/</code> (e.g. <code>/keller</code>)</li>
+        <li><strong>To path</strong> — the new URL path, starting with <code>/</code> (e.g. <code>/keller-tx/</code>)</li>
+        <li>Click the <strong>&times;</strong> button on any row to remove it</li>
+        <li>Click <strong>Save Redirects</strong> to persist changes</li>
+    </ul>
+    <div class="callout tip">
+        <p><strong>When to use this:</strong> Any time a page URL changes after it has been live — page slug rename, city slug correction, or a page that was deleted but was previously indexed. A missing 301 means Google returns a 404 for the old URL and any ranking signals built on that URL are lost.</p>
+    </div>
 </section>
 
 <section id="tab-schedule">
     <h2>Tab: Schedule</h2>
-    <p>Manages the course schedule — upcoming class dates, delivery method, price, and registration links. This data powers the <code>[course_schedule]</code> and <code>[course_card]</code> shortcodes used inside Custom HTML blocks.</p>
-    <h3>Course fields</h3>
+    <p>Manages the course schedule — upcoming class dates, delivery method, price, and registration links. This data powers the <code>[course_schedule]</code> and <code>[course_card]</code> shortcodes used inside Custom HTML blocks. Access via <strong>Plugins → Course Schedule</strong>.</p>
+
+    <h3>Course List</h3>
+    <p>Table of all scheduled courses sorted by sort order then date. Each row shows: course type, delivery method, dates, price, and availability. Actions per row:</p>
+    <ul>
+        <li><strong>Edit</strong> — open the edit form for this course entry</li>
+        <li><strong>Duplicate</strong> — create a copy (useful for recurring sessions)</li>
+        <li><strong>Delete</strong> — remove from the schedule (confirm dialog)</li>
+    </ul>
+
+    <h3>Add a New Course</h3>
+    <p>Form at the top of the schedule panel. Fill in all fields and click <strong>Add Course</strong>. Course fields:</p>
     <table>
         <tr><th>Field</th><th>Description</th></tr>
-        <tr><td>Course type</td><td>Matches the <code>type="..."</code> attribute in the shortcode</td></tr>
+        <tr><td>Course type</td><td>Matches the <code>type="..."</code> attribute in the shortcode — must be consistent across entries for the same course (e.g., always "PMP Certification")</td></tr>
         <tr><td>Delivery</td><td>Live-Virtual or On-Demand</td></tr>
-        <tr><td>Dates</td><td>Display string, e.g. "Jul 14–17, 2025"</td></tr>
-        <tr><td>Time (EST)</td><td>Time range, e.g. "8:30am–5:00pm" or "Self-paced"</td></tr>
-        <tr><td>Price</td><td>Current price</td></tr>
-        <tr><td>Old price</td><td>Shown with strikethrough if set</td></tr>
-        <tr><td>Register URL</td><td>Link to registration page</td></tr>
-        <tr><td>Availability note</td><td>e.g. "Only 3 seats left"</td></tr>
-        <tr><td>Guaranteed</td><td>Shows "Guaranteed to run" badge</td></tr>
+        <tr><td>Dates</td><td>Display string, e.g. "Jul 14–17, 2025" — entered as text, not a date picker</td></tr>
+        <tr><td>Time (EST)</td><td>Time range, e.g. "8:30am–5:00pm" or "Self-paced" for On-Demand</td></tr>
+        <tr><td>Price</td><td>Current price (shown as-is, including $ if desired)</td></tr>
+        <tr><td>Old price</td><td>Shown with strikethrough if set — used for sale pricing</td></tr>
+        <tr><td>Register URL</td><td>Link to the registration or checkout page for this session</td></tr>
+        <tr><td>Availability note</td><td>Optional urgency text, e.g. "Only 3 seats left"</td></tr>
+        <tr><td>Guaranteed</td><td>Check to show a "Guaranteed to run" badge on this session</td></tr>
+        <tr><td>Sort order</td><td>Numeric; lower numbers appear first in the schedule widget</td></tr>
     </table>
+    <div class="callout tip">
+        <p><strong>Shortcode usage:</strong> To embed the schedule on a page, use a Custom HTML block containing <code>[course_schedule type="PMP Certification"]</code> for the filterable table widget, or <code>[course_card type="PMP Certification"]</code> for the compact card widget. Use <code>type="All"</code> to show all course types.</p>
+    </div>
 </section>
 
 <section id="tab-starters">
     <h2>Tab: Page Starters</h2>
-    <p>Pre-built page layouts — full pages with a curated set of content blocks already configured. Apply a starter to a new page and it immediately has a complete structure you can edit.</p>
-    <p>Starters are applied once — applying a starter creates a copy as a regular editable page. The original starter is not modified. Starters are organized by category (Homepage, Service Page, Landing Page, etc.).</p>
+    <p>Pre-built page layouts — block sequence skeletons that pre-populate a new page when you apply one. Starters are applied once; the result becomes a regular editable page. The original starter is never modified. Starters are global — shared across all sites in the system.</p>
+
+    <h3>Add a New Starter</h3>
+    <p>Quick-add form: enter a name, choose a category (Training, Universal, etc.), and add an optional short description (shown in the picker when applying a starter to a page). Click <strong>Add Starter</strong> — then click <strong>Edit</strong> on the new row to build its block sequence.</p>
+
+    <h3>Page Starters List</h3>
+    <p>All starters organized by category tab strips. Each starter row shows its name, description, and the list of block types it contains (shown as colored chips). Actions:</p>
+    <ul>
+        <li><strong>Edit</strong> — open the block sequence editor for this starter</li>
+        <li><strong>Duplicate</strong> — create a copy of the starter in the same category</li>
+        <li><strong>✕</strong> — delete the starter (confirm dialog)</li>
+    </ul>
+
+    <h3>Starter Editor (Edit View)</h3>
+    <p>Two panels: <strong>Starter Settings</strong> (name, category, description) and <strong>Block sequence</strong> (the ordered list of block types). Each block type row has a dropdown to change the type, ↑ ↓ arrows to reorder, and ✕ to remove. Add rows with <strong>+ Add block</strong>. Save with the top or bottom Save button.</p>
+    <div class="callout tip">
+        <p><strong>Tip:</strong> A starter only defines block types and order — it does not store field content. When applied to a page, blocks are created with their default field values, ready to fill in.</p>
+    </div>
 </section>
 
 <section id="tab-templates">
     <h2>Tab: Templates</h2>
-    <p>Manages city page templates. A template defines the block structure, SEO pattern, and slug pattern for a family of city landing pages. Each template × each city = one generated page.</p>
-    <h3>Template fields</h3>
+    <p>Manages city page templates. A template defines the block structure, SEO pattern, and slug pattern for a family of city landing pages. Each template × each city combination = one generated landing page.</p>
+
+    <h3>Add a New Template</h3>
+    <p>Quick-add form: enter a template name (human-readable label). A template ID (slug) is auto-generated. Click <strong>Add Template</strong> — then click <strong>Edit</strong> on the new row to build the template's content.</p>
+
+    <h3>Templates List</h3>
+    <p>All templates in the system. Each row shows the template name, ID, number of blocks, and last-saved date. Click <strong>Edit</strong> to open the full template editor. Templates can be duplicated or deleted from this list.</p>
+
+    <h3>Prompt Registry</h3>
+    <p>The AI prompt templates used by the generator for standalone AI blocks. Each entry is a named prompt (e.g., <code>city_intro</code>) with a system prompt and user prompt template. The prompt registry is global — shared across all site templates. Edit entries here when the AI output quality for a given block type needs tuning.</p>
+
+    <h3>Template Settings (Edit View)</h3>
+    <p>When editing a template, the settings panel appears at the top:</p>
     <ul>
-        <li><strong>Template ID</strong> — unique slug, used in filenames (e.g. <code>tpl_pmp_certification_training_city</code>)</li>
-        <li><strong>Title pattern</strong> — e.g. "PMP Certification Training in {city}, {SS}"</li>
-        <li><strong>Slug pattern</strong> — e.g. <code>pmp-certification-training-{city_slug}</code></li>
-        <li><strong>Content blocks</strong> — same block editor as Content/Pages tabs</li>
-        <li><strong>Generation steps</strong> — which steps run when pages are generated (city_vars, shortcode substitution, etc.)</li>
+        <li><strong>Template name</strong> — human-readable label for the admin list</li>
+        <li><strong>Title pattern</strong> — H1 and SEO title pattern for generated pages, supports city shortcodes: e.g. <code>PMP Certification Training in {city}, {SS}</code></li>
+        <li><strong>Slug pattern</strong> — URL path pattern: e.g. <code>pmp-certification-training-{city_slug}</code></li>
+        <li><strong>Meta description pattern</strong> — search snippet template with city shortcodes</li>
+        <li><strong>Generation steps</strong> — which phases run for this template: city variable injection, shortcode substitution, AI standalone generation, AI enrichment</li>
     </ul>
-    <p>Blocks in a template can be marked for AI enrichment using <code>ai_type_id</code>, <code>ai_inject_field</code>, and <code>ai_inject_mode</code> fields. See the <a href="#ai-enrich">AI Enrich</a> section.</p>
+    <p>Below the settings panel: the full content block editor for the template. Blocks with a purple <strong>✦ AI</strong> badge will be AI-enriched during generation. Add, reorder, and edit blocks as normal — the template is the master copy that all generated city pages start from.</p>
     <div class="callout">
-        <p>The purple <strong>✦ AI</strong> badge on a block header means that block will be enriched by AI during generation. The <strong>?</strong> button opens this docs page at the relevant block section.</p>
+        <p>Do not hardcode city names into template block content — use <code>{city}</code>, <code>{SS}</code>, <code>{city_slug}</code> shortcodes so generated pages resolve the correct values for each city.</p>
     </div>
 </section>
 
 <section id="tab-cities">
     <h2>Tab: Landing Cities</h2>
-    <p>The list of cities used for landing page generation. Each city entry provides the variables that fill city page templates: city name, state, 2-letter abbreviation, ZIP code, and city slug.</p>
-    <p>Cities can have tags — use tags to filter which cities are included in a generation run (e.g., run only Texas cities, or only cities in the "priority" tag group).</p>
+    <p>The list of cities used for city landing page generation. Each city provides the variable values that fill template shortcodes when pages are generated. Cities here are the "rows" in the template × city matrix — every city in this list can be paired with every template to produce a landing page.</p>
+
+    <h3>Add a City</h3>
+    <p>Manual add form. Enter <strong>City</strong> and <strong>SS</strong> (2-letter state abbreviation) on the first row — the <strong>State</strong> full name and <strong>City slug</strong> auto-fill as you type. The city slug format is <code>city-name-ss</code> (e.g. <code>dallas-tx</code>). You can override the auto-filled value by typing directly into those fields. Tags field is optional — add comma-separated tags (e.g., <code>texas, priority</code>) to group cities for filtered generation runs.</p>
+
+    <h3>Import from CSV</h3>
+    <p>Bulk-add cities by uploading a CSV file. The CSV must have a header row with columns: <code>city</code>, <code>state</code>, <code>SS</code>, <code>zip</code>, <code>city_slug</code>, and optionally <code>tags</code>. Existing cities are not duplicated — only new cities (by city_slug) are added.</p>
+
+    <h3>Cities List</h3>
+    <p>All cities in the system. Each row shows: city, state, SS, ZIP, slug, and tags. Actions:</p>
+    <ul>
+        <li><strong>Edit</strong> — open the edit form for this city's fields</li>
+        <li><strong>Delete</strong> — remove the city and automatically delete all generated page JSON files for that city from <code>data/pages/</code></li>
+    </ul>
+    <p>Sort by clicking column headers. Filter by tag using the tag filter dropdown.</p>
+
+    <h3>Edit City (Edit View)</h3>
+    <p>All city fields are editable: name, state, SS, ZIP, slug, and tags. The slug is what fills <code>{city_slug}</code> in template URL patterns — changing it after pages have been generated will not rename the files (regenerate to pick up the new slug).</p>
 </section>
 
 <section id="tab-citypages">
     <h2>Tab: City Pages</h2>
-    <p>The city list — every city that templates will be generated for. Each city entry has:</p>
+    <p>Shows the status of all generated city landing pages — which template × city combinations have been generated, when, and what state they are in. Also provides generation controls and a history log.</p>
+
+    <h3>Status Grid</h3>
+    <p>A matrix of every template × every city combination. Each cell shows whether a page has been generated (green checkmark), is missing (empty), or has been AI-enriched (AI badge). Click a cell to open the page editor for that specific city page. Use this grid to spot gaps — cities that haven't been generated for a given template yet.</p>
+
+    <h3>Generation Controls</h3>
+    <p>Filters and action buttons above the grid let you:</p>
     <ul>
-        <li><strong>City, State, SS (2-letter abbrev), ZIP</strong> — used in shortcode substitution</li>
-        <li><strong>city_slug</strong> — used in URL slug patterns (e.g. <code>dallas-tx</code>)</li>
-        <li><strong>Tags</strong> — optional; used to filter which cities get generated in a run</li>
+        <li>Filter by template — narrow the grid to one template</li>
+        <li>Filter by city tag — run generation only for a tagged subset of cities</li>
+        <li>Choose structure-only vs. structure + AI — control which generation phases run</li>
+        <li>Run generation for the filtered set</li>
     </ul>
-    <p>The status grid shows which pages exist for each template × city combination, when they were last generated, and whether AI has been run on them.</p>
+    <p>Structure generation is always free. AI generation makes Anthropic API calls and incurs cost.</p>
+
+    <h3>Generation History</h3>
+    <p>A log of all past structure generation runs for this site — timestamp, template, city filter used, number of pages written, and duration. Use this to verify when pages were last regenerated and confirm which template version was used.</p>
 </section>
 
 <section id="tab-generate">
-    <h2>Tab: Generate</h2>
-    <p>Runs the two-phase generation process for city landing pages.</p>
-    <h3>Phase 1 — Structure generation (PHP)</h3>
-    <p>Copies the template block structure to each city page JSON file. Resolves slug and title patterns for the city. Preserves blocks marked <code>_ai_locked: true</code> so existing AI content is not overwritten.</p>
-    <h3>Phase 2 — AI generation (Python)</h3>
-    <p>Runs <code>generate.py</code> which finds all blocks that need AI processing (ai_blocks and enrich blocks) and calls the Claude API to fill them. Generated blocks are marked <code>_ai_locked: true</code>.</p>
+    <h2>Tab: AI Generation</h2>
+    <p>Runs the two-phase generation process for city landing pages. This is the primary control panel for generating AI content at scale.</p>
+
+    <h3>Run Generator</h3>
+    <p>The main action panel. Controls:</p>
+    <ul>
+        <li><strong>Action</strong> — Generate content, Research only, or Sync templates</li>
+        <li><strong>City</strong> — run for all cities or a single city</li>
+        <li><strong>Scope</strong> — Landing pages only, or all pages</li>
+        <li><strong>Model</strong> — override the Claude model for this run. <em>Per-block setting</em> uses whatever model is stored on each block (default Haiku). Select Sonnet or Opus here to force a higher-quality model for the entire run regardless of per-block settings.</li>
+        <li><strong>Research cities first</strong> — run the research step before generating content</li>
+        <li><strong>Refresh locked blocks</strong> — regenerate even blocks marked <code>_ai_locked</code></li>
+        <li><strong>Dry run</strong> — preview without making API calls or writing files</li>
+        <li><strong>Run button</strong> — starts the selected action. Confirms before making API calls.</li>
+    </ul>
+    <p><strong>Structure generation</strong> copies template block data to each city page JSON file, resolves slug/title patterns, and substitutes city shortcodes. Blocks already marked <code>_ai_locked: true</code> are preserved as-is.</p>
+    <p><strong>AI generation</strong> runs the Python generator (<code>generate.py</code>) which finds all blocks that need AI processing and calls the Claude API. Generated blocks are locked automatically.</p>
     <div class="callout warn">
-        <p><strong>Cost warning:</strong> AI generation makes API calls to Anthropic. The system will show an estimated page count and ask for confirmation before running. Each page costs roughly $0.01–$0.05 depending on block count and model.</p>
+        <p><strong>Cost warning:</strong> AI generation makes Anthropic API calls. Each page costs roughly $0.01–$0.05 depending on block count and model chosen. Review the estimate before confirming.</p>
     </div>
-    <div class="callout tip">
-        <p><strong>Tip:</strong> Run structure generation first (always free). Review a few pages. Then run AI generation only when the structure looks correct.</p>
-    </div>
+
+    <h3>City Coverage</h3>
+    <p>A table showing how many pages exist for each template × city combination — effectively a summary of the status grid from the City Pages tab. Use this to quickly see which templates have gaps (cities that have not been generated yet).</p>
+
+    <h3>Generation Log</h3>
+    <p>A running log of AI generation activity — each entry shows the run timestamp, template and city scope, number of pages processed, tokens used, estimated cost, and model. This is the audit trail for AI spend and output volume. Entries are written after each generation run completes.</p>
 </section>
 
 <section id="tab-ai-review">
     <h2>Tab: Content Review</h2>
-    <p>A review panel showing all AI-generated blocks across every city landing page in one place. For each block you can see the generated content, which city it belongs to, and whether it is currently locked.</p>
-    <p>Use this tab to spot-check AI output quality after a generation run and lock specific blocks that you want to protect from future regeneration.</p>
+    <p>A review panel showing all AI-generated blocks across every city landing page in one place. Use this after a generation run to spot-check output quality and manage locks.</p>
+
+    <h3>City Review Cards</h3>
+    <p>Each city that has been generated appears as a card group. Within each card, every AI-generated or AI-enriched block is listed with:</p>
+    <ul>
+        <li>The city name and template it belongs to</li>
+        <li>The block type and AI type ID</li>
+        <li>The generated content (rendered in a preview area)</li>
+        <li>The model that generated it and the timestamp</li>
+        <li>A <strong>Lock / Unlock</strong> toggle — locked blocks are protected from regeneration</li>
+    </ul>
+    <p>Scan through the cards to find poorly-generated blocks. Click <strong>Unlock</strong> to allow a specific block to be regenerated on the next AI run, or <strong>Lock</strong> to protect a block you are happy with.</p>
+    <div class="callout tip">
+        <p><strong>Tip:</strong> After a generation run, spot-check at least 5–10 cities here before locking the whole batch. Occasionally the AI will produce generic or incorrect copy for specific cities — catch it here rather than after publishing.</p>
+    </div>
 </section>
 
 <section id="tab-ai-blocks">
     <h2>Tab: Block Registry</h2>
-    <p>The AI block type registry — each entry defines a named AI block type (e.g., <code>city_market_intro</code>, <code>hero_subtext</code>) with its prompt template, output format, model, and injection behavior.</p>
-    <p>This is the configuration layer between your templates and the AI generator. When the generator encounters a block with a given <code>ai_type_id</code>, it looks up the matching registry entry to know what to generate and where to put it.</p>
+    <p>The AI block type registry — each entry defines a named AI block type (e.g., <code>city_market_intro</code>, <code>hero_subtext</code>) with its prompt template, output format, target model, and injection settings. This is the configuration layer between your templates and the AI generator.</p>
+
+    <h3>Edit Block Type</h3>
+    <p>The edit form for an existing registry entry. Fields:</p>
+    <ul>
+        <li><strong>Type ID</strong> — unique slug that matches the <code>ai_type_id</code> field set on template blocks</li>
+        <li><strong>Label</strong> — human-readable name shown in the admin badge and review panel</li>
+        <li><strong>Mode</strong> — <code>standalone</code> (block generates its own entire structure) or <code>enrich</code> (AI fills one specific field of an existing block)</li>
+        <li><strong>Inject field</strong> (enrich mode) — the block field name to write the AI output into (e.g., <code>hs_subtext</code>)</li>
+        <li><strong>Inject mode</strong> (enrich mode) — <code>replace</code>, <code>append</code>, or <code>prepend</code></li>
+        <li><strong>Model</strong> — which Claude model to use for this type (overrides the global default)</li>
+        <li><strong>System prompt</strong> — the instruction context given to the AI before the user prompt</li>
+        <li><strong>User prompt template</strong> — the generation prompt; supports city shortcodes (<code>{city}</code>, <code>{SS}</code>, etc.) and page context variables</li>
+    </ul>
+
+    <h3>Prompt Preview</h3>
+    <p>A test panel below the edit form. Choose a city, click <strong>Preview</strong>, and the system renders the full prompt (system + user) as it will be sent to the API — with all shortcodes resolved. Use this to verify the prompt is correct before running a full generation.</p>
+
+    <h3>Add Block Type</h3>
+    <p>A quick-add form at the bottom of the list to create a new registry entry. Enter the type ID and label — then click <strong>Add</strong> and edit the full fields in the edit form.</p>
+
+    <h3>Registry List</h3>
+    <p>Table of all registered AI block types. Each row shows type ID, label, mode, and the model it uses. Click <strong>Edit</strong> to open the edit form for that entry. Delete removes the entry from the registry (it does not affect blocks in templates that reference this type ID — those blocks will just be skipped during generation until a matching entry exists again).</p>
 </section>
 
 <section id="tab-plugins">
     <h2>Tab: Plugins</h2>
-    <p>Enable and configure optional site plugins. Currently the primary plugin is the <strong>Course Schedule</strong> — which adds a schedule management panel and enables the <code>[course_schedule]</code> and <code>[course_card]</code> shortcodes inside Custom HTML blocks.</p>
-    <p>Each enabled plugin appears as a sub-panel with its own settings and data management tools.</p>
+    <p>Enable and configure optional site plugins. Plugins extend the base CMS with features not needed by every site. Each plugin appears as a card in the directory — click one to open its settings panel.</p>
+
+    <h3>Plugin Directory</h3>
+    <p>Grid of all installed plugins, each showing an icon, name, and short description. Click any card to open that plugin's admin panel. Currently installed:</p>
+    <ul>
+        <li><strong>Course Schedule</strong> — adds schedule management (the Schedule sub-panel) and enables <code>[course_schedule]</code> and <code>[course_card]</code> shortcodes inside Custom HTML blocks. See the <a href="#tab-schedule">Schedule</a> section for field details.</li>
+    </ul>
+    <p>New plugins drop a folder into <code>plugins/</code> and register via the plugin API — no code changes to the core system required.</p>
+
+    <h3>Plugin Panel</h3>
+    <p>When you click a plugin card, the tab switches to that plugin's settings panel. Each plugin defines its own panel UI. The breadcrumb at the top shows <strong>← Plugins / Plugin Name</strong> — click <strong>← Plugins</strong> to return to the directory.</p>
 </section>
 
 <section id="tab-deploy">
     <h2>Tab: Deploy</h2>
-    <p>Generates a complete static site from the current content and pushes it to a remote server via FTP.</p>
-    <h3>How it works</h3>
+    <p>Generates a complete static site and pushes it to a remote server via FTP. Two sequential steps — Generate Static Site first, then Push to Server. Also includes an audit tool to reconcile local output with what is live on the server.</p>
+
+    <h3>1. Generate Static Site</h3>
+    <p>Renders all public pages to static HTML files in <code>output/{site_id}/</code>:</p>
     <ol>
-        <li>The system crawls all public pages (homepage, landing pages, blog, city pages)</li>
-        <li>Each page is rendered to a static HTML file</li>
-        <li>Static files + assets are pushed via FTP to the configured host</li>
+        <li>Homepage, all landing pages, all city pages, blog listing + posts, 404 page</li>
+        <li>Copies <code>assets/</code> and <code>uploads/</code> into the output directory</li>
+        <li>Writes <code>sitemap.xml</code>, <code>robots.txt</code>, and <code>.htaccess</code> (including any 301 redirects from the SEO tab)</li>
+        <li><strong>Prunes stale directories</strong> — any page or city slug directory in <code>output/</code> that is no longer in the current page/city list is automatically deleted, so deleted cities do not reappear on the next deploy</li>
     </ol>
-    <h3>FTP configuration</h3>
-    <p>Set host, username, password, and remote path in the Deploy tab. The FTP host should not include the <code>ftp://</code> prefix — enter the hostname only (e.g. <code>ftp.yoursite.com</code>).</p>
+    <p>Safe to re-run at any time. Always regenerate before deploying after content changes.</p>
+
+    <h3>2. Push to Server (FTP)</h3>
+    <p>Uploads changed files from <code>output/{site_id}/</code> to the live host. Configure FTP credentials:</p>
+    <ul>
+        <li><strong>FTP host</strong> — hostname only, no <code>ftp://</code> prefix (e.g. <code>ftp.yoursite.com</code>)</li>
+        <li><strong>Port</strong> — default 21</li>
+        <li><strong>Username / Password</strong> — FTP credentials</li>
+        <li><strong>Remote path</strong> — server directory to deploy into (e.g. <code>/public_html</code>)</li>
+        <li><strong>Passive mode</strong> — enable if behind a firewall or NAT</li>
+    </ul>
+    <p>The system uses a manifest (<code>deploy_manifest.json</code>) to track file hashes — only new or changed files are uploaded, so incremental pushes are fast.</p>
+
+    <h3>3. Server Audit</h3>
+    <p>Click <strong>Audit Server</strong> to compare local output against what is live on the server. The results panel shows:</p>
+    <ul>
+        <li><strong>Matched</strong> — files present on both sides with the same size</li>
+        <li><strong>Missing</strong> — files in local output not yet on the server (will be uploaded on next push)</li>
+        <li><strong>Orphaned</strong> — files on the server that are not in local output (stale from deleted pages)</li>
+        <li><strong>Changed</strong> — files present on both sides but with different sizes</li>
+    </ul>
+    <p>When orphaned files are found, a <strong>Delete Orphaned Files</strong> button appears. Use this to clean up deleted city pages or old assets from the server.</p>
+
+    <h3>Danger Zone</h3>
+    <ul>
+        <li><strong>Force Push All</strong> — re-uploads every file regardless of the manifest. Use after a server-side corruption or if the manifest is out of sync. Requires typing <code>PUSH ALL</code> to confirm.</li>
+        <li><strong>Force Delete All</strong> — deletes every file and directory under the configured remote path. Clears the manifest so the next push re-uploads everything. Requires typing <code>DELETE ALL</code> to confirm. Use only when you need a completely clean server state.</li>
+    </ul>
     <div class="callout warn">
-        <p><strong>Never deploy with the <code>.git/</code> folder in the webroot.</strong> The .htaccess blocks direct access to dotfiles, but the safest practice is to not upload .git at all.</p>
+        <p><strong>Never deploy with <code>.git/</code> in the webroot.</strong> The <code>.htaccess</code> blocks direct access to dotfiles, but the safe practice is to not upload <code>.git/</code> at all — it exposes full commit history including old credential hashes.</p>
     </div>
 </section>
 
 <!-- ═══════════ BLOCK LIBRARY ═══════════ -->
+<div class="doc-group-header" id="group-blocks">Block Library</div>
 <section>
     <h2>Block Library</h2>
     <p>All 34 block types. Click the <strong>?</strong> button on any block in the admin to jump directly to that block's section here.</p>
@@ -944,6 +1293,7 @@ tr:nth-child(even) td { background: #f8fafc; }
 </div>
 
 <!-- ═══════════ AI SYSTEM ═══════════ -->
+<div class="doc-group-header" id="group-ai">Workflow — AI System</div>
 <section id="ai-overview">
     <h2>AI System — Overview</h2>
     <p>The AI system generates city-specific content for landing pages using the Claude API. There are two modes: <strong>Standalone</strong> (the AI creates a whole new block) and <strong>Enrich</strong> (the AI fills one field inside an existing block).</p>
@@ -1024,6 +1374,331 @@ tr:nth-child(even) td { background: #f8fafc; }
 </section>
 
 <!-- ═══════════ CITY PAGES ═══════════ -->
+<!-- ═══════════ WORKFLOW — INITIAL SITE CREATION ═══════════ -->
+<div class="doc-group-header" id="group-init">Workflow — Initial Site Creation</div>
+<section id="init-overview">
+    <h2>Workflow — Initial Site Creation: Overview</h2>
+    <p>Before any content blocks, pages, or city pages are built, a site needs its foundation set correctly. Getting this right first means every shortcode, every page, and every generated city page inherits accurate information automatically.</p>
+    <p>The foundation consists of four things, in this order:</p>
+    <ol>
+        <li><strong>Create the site</strong> — register it in the Sites panel</li>
+        <li><strong>Site variables</strong> — business name, phone, email, address (used everywhere via shortcodes)</li>
+        <li><strong>Theme</strong> — brand colors and fonts</li>
+        <li><strong>Header &amp; footer</strong> — logo, nav, contact info in the frame that wraps every page</li>
+    </ol>
+    <div class="callout warn">
+        <p><strong>Do not skip ahead.</strong> Building content before setting site variables means placeholders like <code>(555) 555-0190</code> or a blank business name will appear throughout the site. Fix the foundation first — content follows.</p>
+    </div>
+</section>
+
+<section id="init-new-site">
+    <h2>Workflow — Creating a New Site</h2>
+    <p>Each client gets their own site entry in the system. All data for that site — content, uploads, generated pages — lives under <code>sites/{id}/</code> and is completely isolated from other sites.</p>
+    <h3>Steps</h3>
+    <ol>
+        <li>From the admin, go to the <strong>Sites</strong> screen (shown when no site is selected, or via the site switcher in the top bar)</li>
+        <li>Click <strong>New Site</strong> and enter a site ID (short slug, e.g. <code>acme-training</code>) and a display name</li>
+        <li>The system creates the folder structure: <code>sites/acme-training/data/</code>, <code>sites/acme-training/uploads/</code>, etc.</li>
+        <li>Click the new site to select it — the admin now operates on that site's data</li>
+    </ol>
+    <h3>Site ID rules</h3>
+    <ul>
+        <li>Lowercase letters, numbers, and hyphens only</li>
+        <li>Cannot be changed after creation without renaming the folder and updating references</li>
+        <li>Keep it short and descriptive — it appears in file paths and logs</li>
+    </ul>
+</section>
+
+<section id="init-site-vars">
+    <h2>Workflow — Site Variables</h2>
+    <p>Site variables are set in the <strong>Header</strong> tab under the <strong>Site Variables</strong> section. They are the single source of truth for the business's contact details. Set them before anything else.</p>
+    <h3>Required fields</h3>
+    <table>
+        <tr><th>Field</th><th>Format</th><th>Example</th></tr>
+        <tr><td><code>business</code></td><td>Exact business name</td><td>Granite PM Academy</td></tr>
+        <tr><td><code>phone</code></td><td>Display format</td><td>210-555-0100</td></tr>
+        <tr><td><code>tel</code></td><td>E.164 for tel: links</td><td>+12105550100</td></tr>
+        <tr><td><code>email</code></td><td>Contact email</td><td>info@granitepm.com</td></tr>
+        <tr><td><code>website</code></td><td>Full URL with https://</td><td>https://granitepm.com</td></tr>
+        <tr><td><code>city</code></td><td>Primary city name</td><td>San Antonio</td></tr>
+        <tr><td><code>state</code></td><td>Full state name</td><td>Texas</td></tr>
+        <tr><td><code>SS</code></td><td>2-letter abbreviation</td><td>TX</td></tr>
+        <tr><td><code>zip</code></td><td>ZIP code</td><td>78201</td></tr>
+    </table>
+    <p>Once set, use shortcodes throughout all content — <code>{phone}</code>, <code>{business}</code>, <code>{email}</code>, <code>{city}</code>, <code>{SS}</code> — instead of hardcoding the values. If the client's phone number changes, you update it in one place and it propagates everywhere.</p>
+    <div class="callout tip">
+        <p><strong>Verify before proceeding.</strong> Check that <code>{phone}</code> in a text field renders the correct number. If it shows literally as <code>{phone}</code>, site_vars has not been saved yet.</p>
+    </div>
+</section>
+
+<section id="init-theme">
+    <h2>Workflow — Theme Setup</h2>
+    <p>The <strong>Theme</strong> tab sets the global color palette and typography. Changes here apply instantly to every page on the site — it is the fastest way to make a site look on-brand.</p>
+    <h3>Steps</h3>
+    <ol>
+        <li>Find the client's brand colors — check their existing website CSS, a brand guide, or screenshot and use a color picker</li>
+        <li>Set <strong>Header / Primary</strong> color — nav bar, dark section backgrounds</li>
+        <li>Set <strong>Accent</strong> color — buttons, icons, highlights</li>
+        <li>Set <strong>Footer</strong> color — often the same as or slightly darker than the header</li>
+        <li>Set the <strong>Google Font</strong> — enter the exact font family name (e.g. <code>Inter</code>, <code>Lato</code>, <code>Raleway</code>)</li>
+        <li>Set <strong>Button radius</strong> — <code>4px</code> for slightly rounded, <code>9999px</code> for pill, <code>0</code> for square</li>
+        <li>Save and take a screenshot to verify the palette looks correct</li>
+    </ol>
+    <div class="callout tip">
+        <p><strong>Set theme before building any content blocks.</strong> Block fields that reference <code>accent</code> or <code>header</code> color keywords resolve at render time — but you'll want to see the correct colors while building, not after.</p>
+    </div>
+</section>
+
+<section id="init-header">
+    <h2>Workflow — Header Setup</h2>
+    <p>The header appears on every page. Set it up correctly once and it is done. The <strong>Header</strong> tab controls layout, logo, navigation, phone display, and the CTA button.</p>
+    <h3>Steps</h3>
+    <ol>
+        <li><strong>Choose a header layout</strong> — single-row (logo + nav + phone in one bar) or 2-row (info bar above, nav bar below). Pick the layout that matches the client's brand style.</li>
+        <li><strong>Upload the logo</strong> — PNG with transparent background preferred. Download it from the client's live site with <code>curl -L -o sites/{id}/uploads/logo.png "https://..."</code>. Check dimensions — very tall logos may need height adjustment.</li>
+        <li><strong>Set the site name</strong> — always fill this in; it is used in the <code>&lt;title&gt;</code> tag as a fallback when the logo is missing.</li>
+        <li><strong>Set the phone</strong> — use <code>{phone}</code> to pull from site_vars.</li>
+        <li><strong>Build the nav menu</strong> — add items for the real pages (Home, About, Services, Contact). Use real slugs, not placeholder city names. Add dropdowns for service sub-pages if needed.</li>
+        <li><strong>Add a Nav CTA button</strong> if appropriate — e.g., "Register Now" or "Get a Quote".</li>
+        <li>Save and take a screenshot to confirm the header looks correct before moving on.</li>
+    </ol>
+    <div class="callout warn">
+        <p><strong>Always set <code>site_name</code>.</strong> A blank site name means the browser tab and JSON-LD schema will have no business name — fix this before deploying.</p>
+    </div>
+</section>
+
+<section id="init-footer">
+    <h2>Workflow — Footer Setup</h2>
+    <p>Like the header, the footer appears on every page. It carries the copyright, contact details, navigation links, and social icons. Set it up once as part of the foundation.</p>
+    <h3>Steps</h3>
+    <ol>
+        <li><strong>Footer logo</strong> — often a white or light version of the header logo. Upload separately if the client has one; otherwise reuse the header logo.</li>
+        <li><strong>Phone and email</strong> — use <code>{phone}</code> and <code>{email}</code> shortcodes.</li>
+        <li><strong>Footer columns</strong> — typical 3-column layout:
+            <ul>
+                <li>Column 1: business address + phone</li>
+                <li>Column 2: quick links (Home, About, Services, Contact)</li>
+                <li>Column 3: certifications, social links, or a short tagline</li>
+            </ul>
+        </li>
+        <li><strong>Social links</strong> — add URLs for LinkedIn, Facebook, etc. Leave blank to hide.</li>
+        <li><strong>Copyright line</strong> — use <code>© {year} {business}. All rights reserved.</code> The <code>{year}</code> shortcode auto-updates each year.</li>
+        <li><strong>Disclaimer</strong> — add any legal or certification notices (e.g., PMI® trademark language).</li>
+        <li>Save and take a screenshot to confirm header + footer together look correct.</li>
+    </ol>
+    <div class="callout tip">
+        <p><strong>After the footer is set, the site frame is complete.</strong> Every page you build from this point will have the correct header and footer automatically — you only need to focus on the page content.</p>
+    </div>
+</section>
+
+<!-- ═══════════ WORKFLOW — CORE PAGE CREATION ═══════════ -->
+<div class="doc-group-header" id="group-core">Workflow — Core Page Creation</div>
+<section id="core-overview">
+    <h2>Workflow — Core Page Creation: Overview</h2>
+    <p>Every site in Site Factory is built from three page types: the <strong>homepage</strong>, <strong>landing pages</strong>, and <strong>blog posts</strong>. All three use the same block-based content system — you build pages by adding and configuring content blocks in order.</p>
+    <p>The typical build sequence for a new site:</p>
+    <ol>
+        <li>Set up site variables, header, theme, and footer first (these apply everywhere)</li>
+        <li>Build the homepage block by block</li>
+        <li>Create key landing pages (About, Contact, Services, etc.)</li>
+        <li>Add blog posts if needed</li>
+        <li>Generate city landing pages if the site targets multiple cities</li>
+    </ol>
+    <div class="callout tip">
+        <p><strong>Build in phases.</strong> Set up site_vars and the header before touching any content — shortcodes like <code>{phone}</code> and <code>{business}</code> won't resolve correctly until those are filled in.</p>
+    </div>
+</section>
+
+<section id="core-homepage">
+    <h2>Workflow — Building the Homepage</h2>
+    <p>The homepage (<code>index.php</code>) is edited in the <strong>Content</strong> tab. It is the site's primary page and typically receives the most attention in terms of block count and design.</p>
+    <h3>Recommended homepage block order</h3>
+    <ol>
+        <li><strong>Hero or Hero Split</strong> — headline, subtext, primary CTA, hero image. Use the client's actual headline, not a generated one.</li>
+        <li><strong>Feature Columns</strong> — 3–4 key differentiators with icons or images</li>
+        <li><strong>Stats</strong> — real numbers only (pass rates, years in business, students trained). Never invent stats.</li>
+        <li><strong>Pricing Cards or Service Cards</strong> — main offerings</li>
+        <li><strong>Testimonials</strong> — real quotes with real names</li>
+        <li><strong>FAQ Two Column</strong> — 6–10 common questions</li>
+        <li><strong>CTA Banner</strong> — closing call to action</li>
+        <li><strong>Contact Form</strong> — if needed</li>
+    </ol>
+    <h3>Key rules for the homepage</h3>
+    <ul>
+        <li>Only one H1 per page — use it in the hero headline</li>
+        <li>Do <strong>not</strong> use <code>{city}</code> or <code>{SS}</code> shortcodes on the homepage — they only resolve inside city landing pages and will render literally here</li>
+        <li>Save after every block — there is no auto-save</li>
+        <li>Take a screenshot after each block to catch layout problems early</li>
+    </ul>
+</section>
+
+<section id="core-pages">
+    <h2>Workflow — Creating Landing Pages</h2>
+    <p>Landing pages are any pages other than the homepage and blog — About, Contact, individual service pages, legal pages, etc. They are managed in the <strong>Pages</strong> tab.</p>
+    <h3>Creating a page</h3>
+    <ol>
+        <li>Go to <strong>Pages</strong> tab → <strong>Add a New Page</strong></li>
+        <li>Enter a title and slug (e.g. <code>about</code> → URL becomes <code>/about</code>)</li>
+        <li>Click <strong>Add Page</strong>, then <strong>Edit</strong> on the new row</li>
+        <li>Set Page Settings: SEO title, meta description, and slug (if you want to change it)</li>
+        <li>Add content blocks — same system as the homepage</li>
+        <li>Click <strong>Save Changes</strong></li>
+    </ol>
+    <h3>Slug rules</h3>
+    <ul>
+        <li>Use generic service slugs — <code>pmp-certification-training</code>, not <code>pmp-certification-training-dallas-tx</code> (city-specific slugs belong in city page templates)</li>
+        <li>Slugs are validated against a reserved list — <code>admin</code>, <code>blog</code>, <code>uploads</code>, and others cannot be used</li>
+        <li>Changing a slug after the page is live will break any existing links to that URL</li>
+    </ul>
+    <h3>Page SEO fields</h3>
+    <p>Each page has its own SEO title (browser tab + Google result), meta description (search snippet), and canonical URL. These override the site-level defaults set in the SEO tab. Best practice: write a unique meta description for every page, 150–160 characters, focused on the page's primary topic and location.</p>
+</section>
+
+<section id="core-blog">
+    <h2>Workflow — Creating Blog Posts</h2>
+    <p>Blog posts are managed in the <strong>Blog</strong> tab. Each post uses the same block system as pages and also has post-specific metadata (author, date, tags, featured image, excerpt).</p>
+    <h3>Creating a post</h3>
+    <ol>
+        <li>Go to <strong>Blog</strong> tab → <strong>Add a New Post</strong></li>
+        <li>Enter a post title — the slug is auto-generated from it</li>
+        <li>Click <strong>Add Post</strong>, then <strong>Edit</strong> on the new row</li>
+        <li>Fill in Post Settings: status (Draft/Published), author, tag, published date, excerpt, and featured image</li>
+        <li>Build the post body with content blocks</li>
+        <li>Save</li>
+    </ol>
+    <h3>Draft vs. Published</h3>
+    <p>Posts set to <strong>Draft</strong> are not publicly accessible — they do not appear in the listing and cannot be reached at their URL by visitors. Set to <strong>Published</strong> when the post is ready to go live. Published date controls the display order in the listing (newest first).</p>
+    <h3>Tags and filtering</h3>
+    <p>Each post has a single tag field (a plain text string). The blog listing page automatically shows a tag filter bar with one pill per distinct tag. Visitors can filter to <code>/blog?tag=project-management</code>. Keep tag names consistent — "Project Management" and "project-management" are treated as different tags.</p>
+    <h3>Content writing note</h3>
+    <p>Do not reproduce another site's content verbatim, even when adapting a competitor or reference page. Write fully original copy covering the same topics and structure in original wording.</p>
+</section>
+
+<section id="core-starters">
+    <h2>Workflow — Using Page Starters</h2>
+    <p>Page Starters are pre-built block sequences you can apply to a new page as a starting point. Instead of building from a blank page, you get a ready-made structure to fill in.</p>
+    <h3>Applying a starter to the homepage</h3>
+    <ol>
+        <li>Go to <strong>Content</strong> tab</li>
+        <li>At the top, find the <strong>Load a Homepage Starter</strong> section</li>
+        <li>Pick a starter from the list and click <strong>Apply</strong></li>
+        <li>The current homepage blocks are replaced with the starter's block sequence</li>
+        <li>Fill in each block's fields with real content</li>
+    </ol>
+    <div class="callout warn">
+        <p><strong>Applying a starter overwrites existing blocks.</strong> Only use this on a blank or throwaway homepage — it cannot be undone without re-entering your content.</p>
+    </div>
+    <h3>Managing starters</h3>
+    <p>Starters are created and edited in the <strong>Page Starters</strong> tab. They are global — shared across all sites in the system. A starter only stores block types and order; it does not store field content. When applied, blocks are created with default field values ready to fill in.</p>
+    <p>To build a new starter: go to Page Starters → Add a New Starter → give it a name and category → Edit → add blocks in order → Save.</p>
+</section>
+
+<!-- ═══════════ WORKFLOW — CITY PAGES ═══════════ -->
+<div class="doc-group-header" id="group-city">Workflow — City Pages</div>
+<section id="landing-multicity-overview">
+    <h2>Overview: Landing Pages &amp; Multi-city Creation</h2>
+    <p>This section explains the full picture — what landing pages are, how the multi-city system works, and how all the moving parts (Templates, Cities, AI, Generation) fit together into a repeatable workflow for producing dozens or hundreds of local landing pages from a single master structure.</p>
+
+    <h3>What is a landing page?</h3>
+    <p>A landing page is any page on the site that is not the homepage or the blog. It has its own URL slug, its own set of content blocks, and its own SEO title and meta description. Landing pages are created and edited in the <strong>Pages</strong> tab.</p>
+    <p>For training and service businesses, the most important landing pages are <strong>city-specific service pages</strong> — e.g., "PMP Certification Training in Dallas, TX" — one per city the business targets. These pages exist to capture local search traffic and can number in the dozens or hundreds.</p>
+    <p>Building each page by hand would be impractical. The multi-city system exists to solve exactly this.</p>
+
+    <h3>The multi-city concept</h3>
+    <p>Instead of building each city page manually, you define:</p>
+    <ol>
+        <li>A <strong>Template</strong> — the master block structure, shared by all pages of a given service type</li>
+        <li>A <strong>City list</strong> — all the cities you want to target</li>
+        <li><strong>Generation</strong> — a one-click process that produces one page per template × city combination</li>
+    </ol>
+    <p>The math: 1 template × 50 cities = 50 landing pages. 3 templates × 50 cities = 150 pages. Each generated page is unique by city — the city name, state, slug, and any AI content are specific to that city.</p>
+
+    <h3>The four core components</h3>
+    <table>
+        <tr><th>Component</th><th>Tab</th><th>Purpose</th></tr>
+        <tr><td><strong>Templates</strong></td><td>Templates</td><td>Master block structure + SEO/slug patterns for one service type</td></tr>
+        <tr><td><strong>Cities</strong></td><td>Landing Cities</td><td>The list of cities, each providing city name, state, SS, ZIP, and city_slug variables</td></tr>
+        <tr><td><strong>AI Block Registry</strong></td><td>Block Registry</td><td>Defines what AI generates and how — prompt, field target, model, mode</td></tr>
+        <tr><td><strong>Generation</strong></td><td>AI Generation</td><td>The engine that runs structure + AI over every template × city combination</td></tr>
+    </table>
+
+    <h3>City shortcodes — how cities inject into pages</h3>
+    <p>Templates use city shortcodes as placeholders. When a page is generated for a city, every shortcode is replaced with that city's actual value:</p>
+    <table>
+        <tr><th>Shortcode</th><th>What it resolves to</th><th>Example</th></tr>
+        <tr><td><code>{city}</code></td><td>City name</td><td>Dallas</td></tr>
+        <tr><td><code>{state}</code></td><td>Full state name</td><td>Texas</td></tr>
+        <tr><td><code>{SS}</code></td><td>2-letter state abbreviation</td><td>TX</td></tr>
+        <tr><td><code>{city_slug}</code></td><td>URL-safe city+state slug</td><td>dallas-tx</td></tr>
+        <tr><td><code>{zip}</code></td><td>ZIP code</td><td>75201</td></tr>
+    </table>
+    <div class="callout warn">
+        <p><strong>City shortcodes only work inside generated city pages.</strong> On the main site homepage or a manually-created landing page, <code>{city}</code> renders as the literal text "{city}" — it has no city context to resolve from.</p>
+    </div>
+
+    <h3>The generation workflow, step by step</h3>
+    <ol>
+        <li>
+            <strong>Build your template</strong> (Templates tab)
+            <br>Create a template for your service (e.g., "PMP Certification Training"). Set the slug pattern (<code>pmp-certification-{city_slug}</code>), SEO title pattern (<code>PMP Certification Training in {city}, {SS}</code>), and build the block structure. Use city shortcodes in headings and text. Mark any blocks that need AI enrichment with an <code>ai_type_id</code>.
+        </li>
+        <li>
+            <strong>Add your cities</strong> (Landing Cities tab)
+            <br>Enter each city you want to target, or import from CSV. Each city needs: name, state, SS, ZIP, and city_slug. Group cities with tags if you want to run generation on subsets (e.g., "texas" cities only).
+        </li>
+        <li>
+            <strong>Configure AI types</strong> (Block Registry tab)
+            <br>For any block marked with <code>ai_type_id</code>, verify the matching registry entry exists with the correct prompt template, target field, and model. Use the Prompt Preview to confirm the output before a full run.
+        </li>
+        <li>
+            <strong>Run structure generation</strong> (AI Generation tab)
+            <br>Choose your template and optional city filter, select "Structure only" mode, and click Run. This is free and fast — it creates one JSON file per city under <code>sites/{id}/data/pages/</code>, with city shortcodes resolved and template blocks copied in.
+        </li>
+        <li>
+            <strong>Review a few pages</strong>
+            <br>Open the City Pages tab, click a few generated pages, and check that the structure, slug, and shortcode substitution look correct. Fix the template and re-generate if anything is wrong — structure generation always overwrites (except locked blocks).
+        </li>
+        <li>
+            <strong>Run AI generation</strong> (AI Generation tab)
+            <br>Select "Structure + AI" mode and enter your Anthropic API key. Confirm the estimated page count and cost, then click Run. The Python generator calls the Claude API for each block that needs AI content and locks those blocks when done.
+        </li>
+        <li>
+            <strong>Review AI output</strong> (Content Review tab)
+            <br>Scan generated content across cities. Unlock and re-run any blocks with poor output. Lock everything you are happy with.
+        </li>
+        <li>
+            <strong>Deploy</strong> (Deploy tab)
+            <br>Build the static site and push via FTP to the live host.
+        </li>
+    </ol>
+
+    <h3>How generated pages are stored and served</h3>
+    <p>Each generated city page is a JSON file at <code>sites/{id}/data/pages/{slug}.json</code>. At request time, the page router loads that JSON, resolves any remaining shortcodes, and renders it through <code>includes/site-template.php</code> — the same template that renders all other pages. There is no separate rendering system for city pages; they are just pages with city-specific data.</p>
+    <p>For deployment, the Deploy tab pre-renders every city page to static HTML and pushes the files via FTP.</p>
+
+    <h3>Protecting AI content from being overwritten</h3>
+    <p>When you re-run structure generation (e.g., after editing the template), blocks marked <code>_ai_locked: true</code> are preserved as-is in the generated page — their content is not overwritten by the fresh template copy. This means you can update non-AI parts of the template and regenerate without losing AI-generated copy.</p>
+    <p>Blocks are auto-locked after AI generation. You can manually lock or unlock blocks from the Content Review tab or from the block editor on an individual city page.</p>
+
+    <h3>Multiple templates for the same site</h3>
+    <p>A site can have multiple templates running against the same city list. Common pattern for a training business:</p>
+    <ul>
+        <li>Template: "PMP Certification Training" → 50 city pages</li>
+        <li>Template: "CAPM Certification Training" → 50 city pages</li>
+        <li>Template: "PMI-ACP Training" → 50 city pages</li>
+    </ul>
+    <p>Total: 150 pages generated from 3 templates × 50 cities. Each template produces completely independent pages with their own slugs, SEO, and block content. Templates share the same city list — you manage cities once, all templates use them.</p>
+
+    <h3>Key rules to keep in mind</h3>
+    <ul>
+        <li>City shortcodes (<code>{city}</code>, <code>{SS}</code>) on the <strong>homepage</strong> render literally — never use them there</li>
+        <li>Slug patterns must be unique across templates — two templates cannot produce the same slug for the same city</li>
+        <li>Structure generation overwrites unlocked blocks — lock AI content before re-generating structure</li>
+        <li>AI generation costs money — always run structure-only first, review, then run AI</li>
+        <li>The city_slug value in the Cities tab must exactly match the pattern expected in the slug pattern (e.g., <code>dallas-tx</code> not <code>Dallas TX</code>)</li>
+    </ul>
+</section>
+
 <section id="cities-overview">
     <h2>City Pages — Overview</h2>
     <p>City pages are landing pages generated for each template × city combination. A single template can produce dozens or hundreds of pages — one per city — each with unique content.</p>
@@ -1060,6 +1735,7 @@ tr:nth-child(even) td { background: #f8fafc; }
 </section>
 
 <!-- ═══════════ GOING LIVE ═══════════ -->
+<div class="doc-group-header" id="group-going-live">Going Live</div>
 <section id="deploy-checklist">
     <h2>Pre-Launch Checklist</h2>
     <ul>
@@ -1077,14 +1753,16 @@ tr:nth-child(even) td { background: #f8fafc; }
 
 <section id="deploy-ftp">
     <h2>Deploy via FTP</h2>
-    <p>The Deploy tab generates a complete static site and pushes it to the live host via FTP.</p>
+    <p>The Deploy tab handles the full publish workflow in two steps.</p>
     <ol>
         <li>Go to Admin → Deploy tab</li>
+        <li>Click <strong>Generate Static Site</strong> — renders all pages to <code>output/{site_id}/</code>. Wait for it to complete.</li>
         <li>Enter FTP credentials: host (no <code>ftp://</code> prefix), username, password, remote path</li>
-        <li>Click <strong>Generate &amp; Deploy</strong></li>
-        <li>The system crawls all pages, renders static HTML, and uploads via FTP</li>
+        <li>Click <strong>Push to Server</strong> — uploads only new or changed files (incremental)</li>
     </ol>
-    <p>The remote path is typically <code>/public_html/</code> or <code>/www/</code> depending on the host. Check with your hosting provider.</p>
+    <p>The remote path is typically <code>/public_html/</code> or <code>/www/</code> — check with your hosting provider.</p>
+    <p>After deleting cities or pages, run <strong>Audit Server</strong> after deploying to find and remove orphaned files still on the server.</p>
+    <p>301 redirects set in the SEO tab are automatically included in <code>.htaccess</code> on every Generate.</p>
 </section>
 
 <section id="deploy-security">
@@ -1100,6 +1778,7 @@ tr:nth-child(even) td { background: #f8fafc; }
 </section>
 
 <!-- ═══════════ HOW TO ═══════════ -->
+<div class="doc-group-header" id="group-howto">How To</div>
 <section id="howto-new-block">
     <h2>How To: Add a New Block Type</h2>
     <p>Adding a new block type requires changes in exactly four files:</p>
