@@ -75,7 +75,7 @@ function ftp_parse_rawlist(array $raw): array {
     return $entries;
 }
 
-function ftp_list_recursive($conn, string $dir): array {
+function ftp_list_recursive($conn, string $dir, array &$dirs): array {
     $files = [];
     $raw = @ftp_rawlist($conn, $dir);
     if (!is_array($raw)) return $files;
@@ -84,7 +84,8 @@ function ftp_list_recursive($conn, string $dir): array {
         if ($name === '.' || $name === '..') continue;
         $fullPath = rtrim($dir, '/') . '/' . $name;
         if ($entry['type'] === 'd') {
-            $files = array_merge($files, ftp_list_recursive($conn, $fullPath));
+            $dirs[] = $fullPath;
+            $files = array_merge($files, ftp_list_recursive($conn, $fullPath, $dirs));
         } elseif ($entry['type'] === '-') {
             $files[$fullPath] = $entry['size'];
         }
@@ -92,7 +93,8 @@ function ftp_list_recursive($conn, string $dir): array {
     return $files;
 }
 
-$remoteRaw = ftp_list_recursive($conn, $path);
+$remoteDirs = [];
+$remoteRaw  = ftp_list_recursive($conn, $path, $remoteDirs);
 ftp_close($conn);
 
 // Normalize remote paths to relative (strip the remote base path)
@@ -102,6 +104,25 @@ foreach ($remoteRaw as $fullPath => $size) {
     $rel = substr($fullPath, $baseLen);
     $remoteFiles[$rel] = $size;
 }
+
+// Build local directory set from file paths
+$localDirs = [];
+foreach (array_keys($localFiles) as $rel) {
+    $parts = explode('/', $rel);
+    for ($i = 1; $i < count($parts); $i++) {
+        $localDirs[implode('/', array_slice($parts, 0, $i))] = true;
+    }
+}
+
+// Find orphaned remote directories (exist on server, no local counterpart)
+$orphanedDirs = [];
+foreach ($remoteDirs as $d) {
+    $rel = substr($d, $baseLen);
+    if (!isset($localDirs[$rel])) {
+        $orphanedDirs[] = $rel;
+    }
+}
+sort($orphanedDirs);
 
 // ── Reconcile ────────────────────────────────────────────────────────────────
 $missing  = []; // in local, not on server
@@ -131,11 +152,12 @@ usort($orphaned, fn($a,$b) => strcmp($a['path'], $b['path']));
 usort($changed,  fn($a,$b) => strcmp($a['path'], $b['path']));
 
 echo json_encode([
-    'success'  => true,
-    'matched'  => $matched,
-    'missing'  => $missing,
-    'orphaned' => $orphaned,
-    'changed'  => $changed,
-    'local_total'  => count($localFiles),
-    'remote_total' => count($remoteFiles),
+    'success'       => true,
+    'matched'       => $matched,
+    'missing'       => $missing,
+    'orphaned'      => $orphaned,
+    'orphaned_dirs' => $orphanedDirs,
+    'changed'       => $changed,
+    'local_total'   => count($localFiles),
+    'remote_total'  => count($remoteFiles),
 ]);

@@ -15,8 +15,11 @@ function del_error(string $msg): void {
     exit;
 }
 
-$paths = $_POST['paths'] ?? [];
-if (empty($paths) || !is_array($paths)) del_error('No file paths provided.');
+$paths    = $_POST['paths']     ?? [];
+$dirPaths = $_POST['dir_paths'] ?? [];
+if ((empty($paths) || !is_array($paths)) && (empty($dirPaths) || !is_array($dirPaths))) {
+    del_error('No file or directory paths provided.');
+}
 
 // Sanitize paths — no traversal, no empty segments
 $cleanPaths = [];
@@ -60,6 +63,26 @@ $failed  = [];
 foreach ($cleanPaths as $rel) {
     $remote = $ftpPath . '/' . $rel;
     if (@ftp_delete($conn, $remote)) {
+        $deleted++;
+    } else {
+        $failed[] = $rel;
+    }
+}
+
+// ── Delete orphaned directories ───────────────────────────────────────────────
+$cleanDirPaths = [];
+foreach ((array)$dirPaths as $p) {
+    $p = trim($p);
+    if ($p === '' || strpos($p, '..') !== false) continue;
+    $cleanDirPaths[] = $p;
+}
+
+// Sort deepest-first so child dirs are removed before parents
+usort($cleanDirPaths, fn($a, $b) => substr_count($b, '/') - substr_count($a, '/'));
+
+foreach ($cleanDirPaths as $rel) {
+    $remote = $ftpPath . '/' . $rel;
+    if (@ftp_rmdir($conn, $remote)) {
         $deleted++;
     } else {
         $failed[] = $rel;

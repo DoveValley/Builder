@@ -230,16 +230,20 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
                 return;
             }
 
-            const missing  = data.missing  || [];
-            const orphaned = data.orphaned || [];
-            const changed  = data.changed  || [];
-            const matched  = data.matched  || 0;
+            const missing       = data.missing       || [];
+            const orphaned      = data.orphaned      || [];
+            const orphanedDirs  = data.orphaned_dirs || [];
+            const changed       = data.changed       || [];
+            const matched       = data.matched       || 0;
 
             // Summary bar
             let summary = '<div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:18px;padding:12px 16px;background:#f8fafc;border-radius:6px;font-size:.88rem;">';
             summary += '<span style="color:#166534;font-weight:600;">&#10003; ' + matched + ' up to date</span>';
             summary += '<span style="color:#dc2626;font-weight:600;">&#8593; ' + missing.length + ' missing on server</span>';
-            summary += '<span style="color:#b45309;font-weight:600;">&#9888; ' + orphaned.length + ' orphaned on server</span>';
+            summary += '<span style="color:#b45309;font-weight:600;">&#9888; ' + orphaned.length + ' orphaned file' + (orphaned.length !== 1 ? 's' : '') + ' on server</span>';
+            if (orphanedDirs.length) {
+                summary += '<span style="color:#92400e;font-weight:600;">&#128193; ' + orphanedDirs.length + ' orphaned director' + (orphanedDirs.length !== 1 ? 'ies' : 'y') + ' on server</span>';
+            }
             summary += '<span style="color:#1d4ed8;font-weight:600;">&#8635; ' + changed.length + ' size mismatch</span>';
             summary += '<span style="color:#6b7280;margin-left:auto;">' + (data.local_total||0) + ' local / ' + (data.remote_total||0) + ' remote files detected</span>';
             summary += '</div>';
@@ -266,7 +270,7 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
                 missing.map(function(f) { return [f.path, fmtSize(f.size)]; }), ['File', 'Local size']);
             body.innerHTML += makeTable('Size mismatch (needs update)', '#1d4ed8',
                 changed.map(function(f) { return [f.path, fmtSize(f.local_size), fmtSize(f.remote_size)]; }), ['File', 'Local size', 'Remote size']);
-            body.innerHTML += makeTable('Orphaned on server (not in local build)', '#b45309',
+            body.innerHTML += makeTable('Orphaned files on server (not in local build)', '#b45309',
                 orphaned.map(function(f) { return [f.path, fmtSize(f.size)]; }), ['File', 'Remote size']);
 
             if (orphaned.length) {
@@ -280,6 +284,22 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
                 delResult.id = 'del-result';
                 delResult.style.marginTop = '10px';
                 body.appendChild(delResult);
+            }
+
+            body.innerHTML += makeTable('Orphaned directories on server (not in local build)', '#92400e',
+                orphanedDirs.map(function(d) { return [d]; }), ['Directory']);
+
+            if (orphanedDirs.length) {
+                var delDirBtn = document.createElement('button');
+                delDirBtn.className = 'btn btn-secondary';
+                delDirBtn.style.cssText = 'background:#fff7ed;color:#92400e;border-color:#f59e0b;margin-top:4px;';
+                delDirBtn.textContent = 'Delete ' + orphanedDirs.length + ' Orphaned Director' + (orphanedDirs.length > 1 ? 'ies' : 'y') + ' from Server';
+                delDirBtn.onclick = function() { deleteOrphanedDirs(orphanedDirs, delDirBtn); };
+                body.appendChild(delDirBtn);
+                var delDirResult = document.createElement('div');
+                delDirResult.id = 'del-dirs-result';
+                delDirResult.style.marginTop = '10px';
+                body.appendChild(delDirResult);
             }
 
             panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -319,6 +339,37 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
         .catch(function(err) {
             btn.disabled = false;
             btn.textContent = 'Delete Orphaned Files';
+            result.innerHTML = '<div style="color:#dc2626;">Request failed: ' + escH(err.message) + '</div>';
+        });
+    };
+
+    window.deleteOrphanedDirs = function(dirs, btn) {
+        if (!confirm('Delete ' + dirs.length + ' orphaned director' + (dirs.length > 1 ? 'ies' : 'y') + ' from the server?\n\nThis cannot be undone.')) return;
+        btn.disabled = true;
+        btn.textContent = 'Deleting…';
+        var result = document.getElementById('del-dirs-result');
+        result.innerHTML = '';
+
+        var fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        dirs.forEach(function(d) { fd.append('dir_paths[]', d); });
+
+        fetch('deploy_delete_orphaned.php', { method: 'POST', body: fd, credentials: 'same-origin' })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            btn.disabled = false;
+            if (data.success) {
+                btn.style.display = 'none';
+                result.innerHTML = '<div style="color:#166534;font-weight:600;">&#10003; Deleted ' + (data.deleted || 0) + ' director' + ((data.deleted || 0) !== 1 ? 'ies' : 'y') + ' from server.'
+                    + (data.failed && data.failed.length ? ' <span style="color:#dc2626;">' + data.failed.length + ' failed (may not be empty).</span>' : '') + '</div>';
+            } else {
+                btn.textContent = 'Delete Orphaned Directories';
+                result.innerHTML = '<div style="color:#dc2626;">' + escH(data.error || 'Delete failed.') + '</div>';
+            }
+        })
+        .catch(function(err) {
+            btn.disabled = false;
+            btn.textContent = 'Delete Orphaned Directories';
             result.innerHTML = '<div style="color:#dc2626;">Request failed: ' + escH(err.message) + '</div>';
         });
     };
