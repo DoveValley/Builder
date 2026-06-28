@@ -166,6 +166,12 @@ if (empty($seo['og_image'])) {
     $lb = $data['local_business'] ?? [];
     $lbSchema = generate_local_business_schema($lb);
     if ($lbSchema) echo '<script type="application/ld+json">' . $lbSchema . '</script>' . "\n";
+    // Global WebSite schema
+    $websiteSchema = generate_website_schema($lb);
+    if ($websiteSchema) echo '<script type="application/ld+json">' . $websiteSchema . '</script>' . "\n";
+    // Global Organization schema (sameAs from footer social links)
+    $orgSchema = generate_organization_schema($lb, $data['footer'] ?? []);
+    if ($orgSchema) echo '<script type="application/ld+json">' . $orgSchema . '</script>' . "\n";
     // Per-page Service schema
     $serviceSchema = generate_service_schema($seo, $lb);
     if ($serviceSchema) echo '<script type="application/ld+json">' . $serviceSchema . '</script>' . "\n";

@@ -74,6 +74,42 @@ function generate_local_business_schema(array $lb): string {
 }
 
 /* ============================================================
+   SCHEMA: Generate WebSite JSON-LD (global)
+   ============================================================ */
+function generate_website_schema(array $lb): string {
+    $url = rtrim($lb['lb_url'] ?? '', '/');
+    if (empty($url)) return '';
+    $schema = [
+        '@context' => 'https://schema.org',
+        '@type'    => 'WebSite',
+        'name'     => $lb['lb_name'] ?? '',
+        'url'      => $url . '/',
+    ];
+    return json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG);
+}
+
+/* ============================================================
+   SCHEMA: Generate Organization JSON-LD (global, with sameAs)
+   ============================================================ */
+function generate_organization_schema(array $lb, array $footer): string {
+    if (empty($lb['lb_name'])) return '';
+    $schema = [
+        '@context' => 'https://schema.org',
+        '@type'    => 'Organization',
+        'name'     => $lb['lb_name'],
+    ];
+    if (!empty($lb['lb_url']))  $schema['url']  = $lb['lb_url'];
+    if (!empty($lb['lb_logo'])) $schema['logo'] = $lb['lb_logo'];
+    $sameAs = [];
+    foreach ($footer['social_links'] ?? [] as $url) {
+        $url = trim((string)$url);
+        if ($url && filter_var($url, FILTER_VALIDATE_URL)) $sameAs[] = $url;
+    }
+    if ($sameAs) $schema['sameAs'] = array_values($sameAs);
+    return json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG);
+}
+
+/* ============================================================
    SCHEMA: Generate Service JSON-LD (per-page)
    ============================================================ */
 function generate_service_schema(array $seo, array $lb): string {
