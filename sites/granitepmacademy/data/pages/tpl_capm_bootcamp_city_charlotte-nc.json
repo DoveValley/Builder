@@ -1,14 +1,14 @@
 {
   "template_id": "tpl_capm_bootcamp_city",
-  "city_id": "austin-tx",
-  "slug": "capm-bootcamp-austin-tx",
+  "city_id": "charlotte-nc",
+  "slug": "capm-bootcamp-charlotte-nc",
   "title": "CAPM Bootcamp {city}",
   "city_vars": {
-    "id": "austin-tx",
-    "city": "Austin",
-    "state": "Texas",
-    "SS": "TX",
-    "city_slug": "austin-tx",
+    "id": "charlotte-nc",
+    "city": "Charlotte",
+    "state": "North Carolina",
+    "SS": "NC",
+    "city_slug": "charlotte-nc",
     "phone": "",
     "tel": "",
     "zip": "",
@@ -17,36 +17,16 @@
     "lng": "",
     "website": "",
     "tags": [],
-    "industries": [
-      "technology",
-      "healthcare",
-      "government/public sector",
-      "finance",
-      "manufacturing",
-      "defense/military"
-    ],
-    "top_employers": [
-      "Dell Technologies",
-      "Apple",
-      "Tesla",
-      "Samsung Austin Semiconductor",
-      "Oracle",
-      "IBM",
-      "Ascension Seton",
-      "St. David's HealthCare",
-      "The University of Texas at Austin",
-      "City of Austin",
-      "Charles Schwab",
-      "Amazon Web Services"
-    ],
-    "salary_note": "PMP-certified project managers in Austin, Texas typically earn between $105,000 and $135,000 annually, with professionals in technology, semiconductor manufacturing, and finance often commanding salaries at the higher end of that range.",
-    "market_blurb": "Austin has emerged as one of the fastest-growing major metropolitan economies in the United States, driven by a booming technology sector, expanding healthcare systems, and significant investment in semiconductor manufacturing and financial services. The influx of major corporations such as Tesla, Apple, Oracle, and Samsung has created strong and sustained demand for skilled project managers capable of leading complex, cross-functional initiatives. PMP certification is particularly valuable in Austin's competitive job market, as it signals a standardized level of competency that large employers and government agencies increasingly require when screening candidates for senior project management roles."
+    "industries": [],
+    "top_employers": [],
+    "salary_note": "",
+    "market_blurb": ""
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "CAPM Exam Prep Bootcamp in {city}, {SS}",
-      "hs_subtext": "In Austin's booming tech and healthcare sectors—home to Dell, Apple, Oracle, and Ascension Seton—project management certification is essential for career progression. Granite PM Academy's PMI-authorized, live-virtual bootcamp delivers rigorous CAPM preparation with expert instructors. Our graduates advance into higher-paying PM roles with industry-leading pass rates.",
+      "hs_subtext": "In Charlotte's thriving finance and technology sectors, employers like Bank of America and Honeywell increasingly require project management credentials for advancement. Granite PM Academy delivers live-virtual, PMI-authorized CAPM training that fits your schedule while meeting industry standards. Pass the exam on your first attempt and position yourself for meaningful salary growth and career progression.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#capm_boot_schedule",
       "hs_caption1": "",
@@ -62,7 +42,7 @@
       "ai_inject_mode": "replace",
       "ai_model": "claude-haiku-4-5-20251001",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T00:34:20.431795Z",
+      "_ai_generated_at": "2026-06-27T20:12:10.954311Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "hero_subtext",
       "_ai_locked": true
@@ -79,10 +59,10 @@
       "ai_prompt_override": "",
       "skin": "light",
       "heading_level": "h2",
-      "heading_text": "Project Management Demand in Austin's Growing Economy",
-      "text": "<p>Austin's explosive growth has created unprecedented demand for skilled project managers across technology, healthcare, and semiconductor manufacturing. Major employers like Dell Technologies, Apple, Tesla, and Samsung Austin Semiconductor are actively recruiting certified professionals to lead complex initiatives in their Austin operations. The CAPM certification demonstrates foundational project management competency that these organizations and government agencies increasingly require when evaluating candidates for advancement into senior roles. For Austin professionals, obtaining your CAPM certification positions you to compete effectively in a market where large corporations and public sector employers prioritize standardized credentials.</p><p>The financial rewards of CAPM certification in Austin are substantial. PMP-certified project managers in the region typically earn between $105,000 and $135,000 annually, with technology, semiconductor, and finance professionals commanding salaries at the higher end of that range. By earning your CAPM certification through our bootcamp, you're building the foundation for these advanced credentials and the career advancement they unlock. Austin's sustained economic momentum means organizations across every major industry will continue investing in certified project management talent—making now the ideal time to secure your CAPM certification and position yourself for long-term growth in this competitive market.</p>",
+      "heading_text": "Project Management Demand in Charlotte's Growing Market",
+      "text": "<p>Charlotte's position as a national financial services hub makes CAPM certification increasingly valuable for professionals seeking advancement. Major employers like Bank of America, Wells Fargo, and Truist Financial maintain substantial project management teams and actively prioritize certified talent during hiring and promotion cycles. Beyond banking, Charlotte's expanding technology, healthcare, and energy sectors—anchored by employers such as Duke Energy, Atrium Health, and Honeywell—consistently seek qualified project managers to lead critical initiatives. The CAPM certification demonstrates your readiness to manage complex projects and signals to recruiters that you've met PMI's rigorous standards.</p><p>Earning your CAPM certification in Charlotte opens doors to meaningful career growth and competitive compensation. PMP-certified project managers in Charlotte typically earn between $95,000 and $130,000 annually, with professionals in financial services, technology, and energy sectors often commanding salaries at the higher end of that range. As Charlotte continues its rapid growth and these major industries expand their operations, demand for certified project management professionals shows no signs of slowing. Completing a structured CAPM Exam Prep Bootcamp positions you to earn this credential quickly and confidently, accelerating your path to higher-paying roles and leadership opportunities.</p>",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T23:06:36.485409Z",
+      "_ai_generated_at": "2026-06-27T20:12:14.239954Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "city_market_intro",
       "_ai_locked": true
@@ -102,24 +82,24 @@
       "fc_num_cols": 4,
       "columns": [
         {
-          "heading": "Live Instructors, Real Results",
-          "text": "Expert instructors guide you through exam content in real-time, answering questions and clarifying concepts immediately for maximum retention and confidence."
+          "heading": "Live Instructor-Led Training",
+          "text": "Learn directly from experienced PMs in real-time. Ask questions, get immediate feedback, and master concepts with interactive instruction designed for exam success."
         },
         {
-          "heading": "PMI Premier ATP Certification",
-          "text": "Train with a PMI Premier Authorized Training Partner, ensuring curriculum meets the highest standards and your certificate carries full professional credibility."
+          "heading": "PMI Premier ATP Authorization",
+          "text": "Study with a PMI-recognized premier partner. Gain confidence knowing your bootcamp meets the highest standards for project management education and exam preparation."
         },
         {
-          "heading": "Flexible Live-Virtual Scheduling",
-          "text": "Balance bootcamp training with your work schedule through flexible live-virtual options, attending sessions that fit your Austin tech or healthcare role."
+          "heading": "Small Classes, Big Results",
+          "text": "Personalized attention in groups under 15 students. Our low instructor-to-student ratio ensures you receive targeted support and achieve high pass rates consistently."
         },
         {
-          "heading": "Austin Tech Leaders Trust CAPM",
-          "text": "Dell, Apple, and AWS prioritize project management certification. Earn your CAPM to stand out and advance within Austin's thriving technology and innovation ecosystem."
+          "heading": "Launch Your PM Career in Charlotte",
+          "text": "Bank of America, Duke Energy, and Honeywell actively hire CAPM-certified professionals. Earn your credential and unlock career advancement opportunities with Charlotte's leading Fortune 500 employers."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T23:06:39.278272Z",
+      "_ai_generated_at": "2026-06-27T20:12:17.013506Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
@@ -254,12 +234,12 @@
           "answer": "<p>Yes. The CAPM has no experience requirement, and neither does our bootcamp. The course starts with foundational PM concepts before moving into exam preparation.</p>"
         },
         {
-          "question": "What salary can CAPM certification help me earn in Austin, Texas?",
-          "answer": "CAPM-certified professionals in Austin typically earn $105,000–$135,000 annually. Tech and semiconductor sectors—including Dell, Apple, Samsung Austin, and Oracle—often pay at the higher end. Finance and healthcare employers like Charles Schwab and Ascension Seton also value the credential, making it a strong investment for Austin's high-paying industries."
+          "question": "What salary can CAPM certification earn me in Charlotte's finance sector?",
+          "answer": "CAPM-certified professionals in Charlotte's finance and banking sector—home to Bank of America, Wells Fargo, and Truist Financial—typically earn $95,000–$130,000 annually. Higher-end salaries are common in financial services, especially as you progress toward PMP certification and gain project leadership experience."
         },
         {
-          "question": "How long does CAPM bootcamp training take while working full-time in Austin?",
-          "answer": "Granite PM Academy's CAPM bootcamp typically runs 3–5 days intensive or spans 4–6 weeks part-time, fitting Austin professionals' schedules. Part-time options work well for full-time employees at Dell, IBM, AWS, and government agencies, allowing you to earn certification without sacrificing your current role."
+          "question": "How long does CAPM bootcamp take while working full-time in Charlotte?",
+          "answer": "Granite PM Academy's intensive bootcamp format accommodates Charlotte's full-time professionals with flexible scheduling. Most candidates complete the program in 4–6 weeks while maintaining employment, with evening and weekend options available to fit around work schedules at major employers like Duke Energy, Honeywell, and Atrium Health."
         }
       ],
       "ai_type_id": "faq_additions",
@@ -267,7 +247,7 @@
       "ai_inject_mode": "append",
       "ai_model": "claude-haiku-4-5-20251001",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T00:34:23.268455Z",
+      "_ai_generated_at": "2026-06-27T20:12:19.629217Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "faq_additions",
       "_ai_locked": true
@@ -302,6 +282,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-27T00:33:31+00:00",
+  "generated_at": "2026-06-27T20:08:11+00:00",
   "template_version": "1a1424df79f9789f02da882279781264"
 }

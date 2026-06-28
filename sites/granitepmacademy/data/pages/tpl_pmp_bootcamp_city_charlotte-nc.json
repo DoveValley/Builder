@@ -1,14 +1,14 @@
 {
   "template_id": "tpl_pmp_bootcamp_city",
-  "city_id": "austin-tx",
-  "slug": "pmp-bootcamp-austin-tx",
+  "city_id": "charlotte-nc",
+  "slug": "pmp-bootcamp-charlotte-nc",
   "title": "PMP Bootcamp {city}",
   "city_vars": {
-    "id": "austin-tx",
-    "city": "Austin",
-    "state": "Texas",
-    "SS": "TX",
-    "city_slug": "austin-tx",
+    "id": "charlotte-nc",
+    "city": "Charlotte",
+    "state": "North Carolina",
+    "SS": "NC",
+    "city_slug": "charlotte-nc",
     "phone": "",
     "tel": "",
     "zip": "",
@@ -17,36 +17,16 @@
     "lng": "",
     "website": "",
     "tags": [],
-    "industries": [
-      "technology",
-      "healthcare",
-      "government/public sector",
-      "finance",
-      "manufacturing",
-      "defense/military"
-    ],
-    "top_employers": [
-      "Dell Technologies",
-      "Apple",
-      "Tesla",
-      "Samsung Austin Semiconductor",
-      "Oracle",
-      "IBM",
-      "Ascension Seton",
-      "St. David's HealthCare",
-      "The University of Texas at Austin",
-      "City of Austin",
-      "Charles Schwab",
-      "Amazon Web Services"
-    ],
-    "salary_note": "PMP-certified project managers in Austin, Texas typically earn between $105,000 and $135,000 annually, with professionals in technology, semiconductor manufacturing, and finance often commanding salaries at the higher end of that range.",
-    "market_blurb": "Austin has emerged as one of the fastest-growing major metropolitan economies in the United States, driven by a booming technology sector, expanding healthcare systems, and significant investment in semiconductor manufacturing and financial services. The influx of major corporations such as Tesla, Apple, Oracle, and Samsung has created strong and sustained demand for skilled project managers capable of leading complex, cross-functional initiatives. PMP certification is particularly valuable in Austin's competitive job market, as it signals a standardized level of competency that large employers and government agencies increasingly require when screening candidates for senior project management roles."
+    "industries": [],
+    "top_employers": [],
+    "salary_note": "",
+    "market_blurb": ""
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "PMP Exam Prep Bootcamp in {city}, {SS}",
-      "hs_subtext": "Austin's thriving tech and healthcare sectors demand skilled project managers who can deliver complex initiatives on time and within budget. Granite PM Academy's PMI-authorized, live-virtual bootcamp equips you with industry-recognized credentials from instructors who understand your market. Graduates consistently advance their careers with higher salaries and the confidence to lead enterprise-level projects across Austin's top employers.",
+      "hs_subtext": "Charlotte's thriving financial and technology sectors demand skilled project managers who can deliver complex initiatives on time and within budget. Granite PM Academy's PMI-authorized, live-virtual bootcamp prepares you with instructor-led training designed for working professionals. Earn your PMP credential and unlock higher-level positions and competitive salaries across the region's Fortune 500 companies.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#pmp_boot_schedule",
       "hs_caption1": "",
@@ -62,7 +42,7 @@
       "ai_inject_mode": "replace",
       "ai_model": "claude-haiku-4-5-20251001",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T00:35:28.369545Z",
+      "_ai_generated_at": "2026-06-27T20:13:46.773366Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "hero_subtext",
       "_ai_locked": true
@@ -79,10 +59,10 @@
       "ai_prompt_override": "",
       "skin": "light",
       "heading_level": "h2",
-      "heading_text": "Austin's Growing Demand for PMP-Certified Project Managers",
-      "text": "<p>Austin's explosive economic growth has created unprecedented demand for skilled project managers who can lead complex initiatives across technology, healthcare, and semiconductor manufacturing. Major employers like Dell Technologies, Apple, Tesla, and Samsung Austin Semiconductor are actively hiring certified professionals to manage mission-critical projects. Government agencies and the City of Austin also increasingly require PMP certification for senior project management roles, making this credential essential for professionals seeking to advance in the region's competitive job market. For Austin professionals, PMP certification signals a standardized level of competency that employers recognize and value when evaluating candidates for leadership positions.</p><p>Earning your PMP certification in Austin directly impacts your earning potential and career trajectory. PMP-certified project managers in Austin typically command salaries between $105,000 and $135,000 annually, with professionals in technology, semiconductor manufacturing, and finance often earning at the higher end of that range. As Austin continues to attract major corporations and expand its financial services and healthcare sectors, demand for certified project managers shows no signs of slowing. Investing in PMP certification positions you to capitalize on these opportunities and secure roles that offer both competitive compensation and meaningful advancement.</p>",
+      "heading_text": "PMP Certification Demand in Charlotte's Thriving Job Market",
+      "text": "<p>Charlotte's position as a national financial services hub creates exceptional demand for certified project managers. Major employers like Bank of America, Wells Fargo, and Truist Financial maintain substantial project management teams and actively seek professionals with PMP certification to lead complex initiatives across banking, technology, and energy sectors. In regulated industries like finance and healthcare, where employers such as Atrium Health and Duke Energy operate, the PMP credential has become increasingly valuable—often preferred or required for advancement into senior PM roles. For Charlotte professionals working in these competitive sectors, PMP certification signals expertise and commitment, directly influencing hiring decisions and internal promotion opportunities.</p><p>PMP-certified project managers in Charlotte typically earn between $95,000 and $130,000 annually, with professionals in financial services, technology, and energy sectors commanding salaries at the higher end of that range. This earning potential reflects the city's strong job market and the premium that major employers place on the credential. As Charlotte continues rapid growth and its largest employers expand operations, demand for certified project management talent shows no signs of slowing. Investing in your PMP certification now positions you to compete for these higher-paying roles and advance your career in one of the Southeast's most dynamic business environments.</p>",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T23:09:23.119200Z",
+      "_ai_generated_at": "2026-06-27T20:13:51.586354Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "city_market_intro",
       "_ai_locked": true
@@ -103,23 +83,23 @@
       "columns": [
         {
           "heading": "Live Instructor-Led Training",
-          "text": "Learn directly from experienced PMs in real-time. Ask questions, get immediate feedback, and clarify concepts with expert instructors who know what exam success requires."
+          "text": "Learn directly from experienced PMP instructors in real-time. Ask questions, get immediate feedback, and master complex concepts through interactive engagement."
         },
         {
-          "heading": "PMI Premier ATP Certification",
-          "text": "Train with a PMI Premier Authorized Training Partner. Our curriculum meets PMI standards, ensuring you study the most current, relevant, and exam-aligned content available."
+          "heading": "PMI Premier ATP Authorization",
+          "text": "Train with a PMI-approved partner. Granite PM Academy's premier status ensures curriculum rigor, quality instruction, and recognized credential preparation."
         },
         {
-          "heading": "Flexible Live-Virtual Scheduling",
-          "text": "Attend bootcamp sessions online or in-person on your schedule. Juggle work and prep without sacrificing quality instruction or classroom interaction."
+          "heading": "Small Classes, Maximum Support",
+          "text": "Benefit from personalized attention in intimate class settings. Our small cohorts enable instructors to tailor guidance to individual learning needs."
         },
         {
-          "heading": "Advance at Tech Leaders Like Dell",
-          "text": "Austin's tech giants—Dell, Apple, Oracle—prioritize PMP-certified leaders. Boost your career prospects and earning potential in a city where project management expertise directly impacts advancement."
+          "heading": "Advance in Charlotte's Tech Scene",
+          "text": "PMP certification accelerates career growth at major Charlotte employers like Bank of America and Red Ventures. Strengthen your competitive advantage in finance and technology."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T23:09:26.243582Z",
+      "_ai_generated_at": "2026-06-27T20:13:54.246627Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
@@ -254,12 +234,12 @@
           "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
         },
         {
-          "question": "What salary can PMP certified professionals earn in Austin Texas?",
-          "answer": "PMP-certified project managers in Austin earn between $105,000–$135,000 annually. Tech and semiconductor professionals at Dell, Apple, Samsung Austin, and Oracle often command top-tier salaries. Finance and healthcare sectors also offer competitive compensation. Your earning potential increases significantly with PMP certification across Austin's dominant industries."
+          "question": "What salary can PMP-certified project managers expect in Charlotte, North Carolina?",
+          "answer": "PMP-certified project managers in Charlotte typically earn $95,000–$130,000 annually. Financial services professionals at Bank of America and Truist Financial, tech roles at Red Ventures, and energy sector positions at Duke Energy often command higher salaries. Your earning potential depends on industry, experience, and employer size."
         },
         {
-          "question": "How long does PMP bootcamp training take while working full time Austin?",
-          "answer": "Our bootcamp spans 4–5 days of intensive training, designed for working professionals. Austin's fast-paced tech and healthcare sectors mean most participants complete the program without extended time off. Many attend over a long weekend or take 1–2 strategic days. You'll be exam-ready within weeks of completing the bootcamp."
+          "question": "How long does PMP Bootcamp take while working full-time in Charlotte?",
+          "answer": "Our accelerated bootcamp format accommodates Charlotte's busy professionals, typically completing in 4–5 weeks with part-time evening and weekend sessions. This allows you to maintain your current role at employers like Honeywell, Lowe's, or Atrium Health while earning your PMP certification and increasing your marketability."
         }
       ],
       "ai_type_id": "faq_additions",
@@ -267,7 +247,7 @@
       "ai_inject_mode": "append",
       "ai_model": "claude-haiku-4-5-20251001",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T00:35:31.123724Z",
+      "_ai_generated_at": "2026-06-27T20:13:56.811487Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "faq_additions",
       "_ai_locked": true
@@ -302,6 +282,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-27T00:33:31+00:00",
+  "generated_at": "2026-06-27T20:08:11+00:00",
   "template_version": "10ab06bddae7644de854f37c3a718bd8"
 }

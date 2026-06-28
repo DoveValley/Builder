@@ -1,14 +1,14 @@
 {
   "template_id": "tpl_capm_bootcamp_city",
-  "city_id": "dallas-tx",
-  "slug": "capm-bootcamp-dallas-tx",
+  "city_id": "minneapolis-mn",
+  "slug": "capm-bootcamp-minneapolis-mn",
   "title": "CAPM Bootcamp {city}",
   "city_vars": {
-    "id": "dallas-tx",
-    "city": "Dallas",
-    "state": "Texas",
-    "SS": "TX",
-    "city_slug": "dallas-tx",
+    "id": "minneapolis-mn",
+    "city": "Minneapolis",
+    "state": "Minnesota",
+    "SS": "MN",
+    "city_slug": "minneapolis-mn",
     "phone": "",
     "tel": "",
     "zip": "",
@@ -17,36 +17,16 @@
     "lng": "",
     "website": "",
     "tags": [],
-    "industries": [
-      "technology",
-      "finance",
-      "healthcare",
-      "telecommunications",
-      "energy",
-      "defense/government"
-    ],
-    "top_employers": [
-      "AT&T",
-      "Texas Instruments",
-      "Toyota Motor North America",
-      "Lockheed Martin",
-      "JPMorgan Chase",
-      "Bank of America",
-      "Parkland Health",
-      "UT Southwestern Medical Center",
-      "Raytheon Technologies",
-      "Southwest Airlines",
-      "Jacobs Engineering",
-      "Comerica Bank"
-    ],
-    "salary_note": "PMP-certified project managers in Dallas, Texas typically earn between $105,000 and $135,000 annually, with professionals in defense, technology, and financial services often commanding salaries at the higher end of that range.",
-    "market_blurb": "Dallas is one of the fastest-growing major metros in the United States, with a robust project management job market driven by its concentration of Fortune 500 headquarters, a booming technology sector, and major healthcare and defense employers. The city's finance, telecommunications, and energy industries generate strong and consistent demand for skilled project managers capable of leading large-scale, cross-functional initiatives. PMP certification is particularly valuable in Dallas because many of its dominant employers, including defense contractors and large financial institutions, use it as a baseline credential for mid-to-senior level project management roles."
+    "industries": [],
+    "top_employers": [],
+    "salary_note": "",
+    "market_blurb": ""
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "CAPM Exam Prep Bootcamp in {city}, {SS}",
-      "hs_subtext": "Dallas's thriving technology and defense sectors demand skilled project managers who can drive innovation across complex initiatives at companies like AT&T and Lockheed Martin. Granite PM Academy's PMI-authorized, live-virtual bootcamp delivers comprehensive CAPM preparation with expert instructors who understand your industry's challenges. Graduate with the credentials to advance your career and command competitive salaries in Dallas's competitive PM market.",
+      "hs_subtext": "In Minneapolis's thriving healthcare and technology sectors—home to UnitedHealth Group, Mayo Clinic, and Medtronic—project management certification is essential for career advancement. Granite PM Academy delivers PMI-authorized CAPM exam prep through live-virtual instructor-led training, ensuring you learn from experienced professionals. Our bootcamp graduates consistently achieve high pass rates while positioning themselves for competitive salaries in Minnesota's dynamic job market.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#capm_boot_schedule",
       "hs_caption1": "",
@@ -62,7 +42,7 @@
       "ai_inject_mode": "replace",
       "ai_model": "claude-haiku-4-5-20251001",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T00:34:25.325434Z",
+      "_ai_generated_at": "2026-06-27T20:12:21.328920Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "hero_subtext",
       "_ai_locked": true
@@ -79,10 +59,10 @@
       "ai_prompt_override": "",
       "skin": "light",
       "heading_level": "h2",
-      "heading_text": "Project Management Demand Across Dallas's Growing Industries",
-      "text": "<p>Dallas stands as a hub for project management excellence, with major employers across technology, defense, finance, and healthcare actively seeking certified professionals. Companies like AT&T, Texas Instruments, Lockheed Martin, and JPMorgan Chase routinely require or strongly prefer CAPM certification for project management roles, recognizing it as proof of fundamental PM competency. For Dallas professionals working in these sectors—particularly those supporting large-scale, cross-functional initiatives—CAPM certification signals readiness to advance into coordinator and mid-level PM positions that drive organizational success.</p><p>The career impact of CAPM certification in Dallas extends directly to your earning potential and advancement trajectory. PMP-certified project managers in Dallas typically command salaries between $105,000 and $135,000 annually, with professionals in defense, technology, and financial services often reaching the higher end of that range. By starting with CAPM, you build the foundational knowledge and PMI credential that positions you for rapid progression toward PMP certification and senior leadership roles. In a competitive market like Dallas, this credential becomes your competitive advantage.</p>",
+      "heading_text": "Why CAPM Certification Matters in Minneapolis's PM Market",
+      "text": "<p>Minneapolis is home to some of America's most prominent employers actively seeking certified project managers. From UnitedHealth Group and Mayo Clinic's healthcare leadership to Target Corporation and U.S. Bancorp's retail and financial operations, the city's major employers demand professionals who demonstrate structured project delivery expertise. The CAPM Exam Prep Bootcamp equips you with the foundational knowledge these organizations value, signaling your commitment to professional standards and methodical project oversight. In Minneapolis's heavily regulated healthcare and financial sectors especially, CAPM certification validates your ability to manage compliance-driven initiatives and cross-functional teams with confidence.</p><p>Earning your CAPM certification opens clear advancement pathways in Minneapolis's competitive job market. Project managers with CAPM credentials in Minneapolis typically earn between $95,000 and $130,000 annually, with healthcare, financial services, and technology professionals often commanding the higher end of that range. The CAPM Exam Prep Bootcamp accelerates your readiness to earn this credential, positioning you to compete for roles at Fortune 500 headquarters and innovative tech firms throughout the Twin Cities. As Minneapolis continues to attract and retain project-driven enterprises, CAPM certification becomes your strategic advantage for career growth and higher earning potential.</p>",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T23:06:47.418709Z",
+      "_ai_generated_at": "2026-06-27T20:12:25.465251Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "city_market_intro",
       "_ai_locked": true
@@ -102,24 +82,24 @@
       "fc_num_cols": 4,
       "columns": [
         {
-          "heading": "Live Expert Instructors",
-          "text": "Learn from certified PMs with real-world experience. Our instructors teach active project management practices used daily in Dallas organizations."
+          "heading": "Live Instructor-Led Training",
+          "text": "Learn directly from experienced instructors in real-time. Ask questions, get immediate feedback, and master complex concepts with personalized guidance throughout the bootcamp."
         },
         {
-          "heading": "PMI Premier ATP Status",
-          "text": "Train with PMI's highest-authorized partner. Guarantee quality instruction aligned with official CAPM standards and exam requirements."
+          "heading": "PMI Premier ATP Authorization",
+          "text": "Train with a PMI-approved partner meeting highest standards. Receive official PMI materials, recognized credentials, and assurance you're learning from the most qualified source available."
         },
         {
-          "heading": "Flexible Live-Virtual Learning",
-          "text": "Attend classes online or in-person on your schedule. Balance bootcamp training with your job at major Dallas employers like AT&T or Lockheed Martin."
+          "heading": "Proven High Pass Rates",
+          "text": "Our structured curriculum and expert instructors deliver exceptional results. Graduates consistently exceed industry pass rates, setting you up for certification success on your first attempt."
         },
         {
-          "heading": "Launch Your Tech Career",
-          "text": "Dallas tech and defense sectors demand CAPM-certified professionals. Earn your credential to advance with companies like Texas Instruments and Raytheon Technologies."
+          "heading": "Critical for Minneapolis Healthcare Leaders",
+          "text": "UnitedHealth Group, Mayo Clinic, and Allina Health prioritize certified project managers. CAPM certification accelerates career growth in Minneapolis's thriving healthcare and insurance sectors."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T23:06:50.131862Z",
+      "_ai_generated_at": "2026-06-27T20:12:28.221707Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
@@ -254,12 +234,12 @@
           "answer": "<p>Yes. The CAPM has no experience requirement, and neither does our bootcamp. The course starts with foundational PM concepts before moving into exam preparation.</p>"
         },
         {
-          "question": "What salary can CAPM-certified project managers expect in Dallas, Texas?",
-          "answer": "CAPM-certified professionals in Dallas typically earn between $105,000–$135,000 annually. Those working in high-demand sectors like defense (Lockheed Martin, Raytheon), technology (Texas Instruments), and financial services (JPMorgan Chase, Bank of America) often command salaries at the higher end. Certification accelerates advancement and competitive positioning in Dallas's robust job market."
+          "question": "What salary can CAPM-certified project managers expect in Minneapolis?",
+          "answer": "CAPM-certified professionals in Minneapolis typically earn $95,000–$130,000 annually. Healthcare, finance, and technology sectors—home to employers like UnitedHealth Group, U.S. Bancorp, and Best Buy—offer positions at the higher end. CAPM certification strengthens your candidacy for entry-level PM roles and positions you for faster advancement into higher-paying PMP-level positions."
         },
         {
-          "question": "How long does CAPM bootcamp take while working full-time in Dallas?",
-          "answer": "Granite PM Academy's CAPM Bootcamp is designed for Dallas working professionals, typically requiring 20–30 hours of study over 4–6 weeks. This flexible schedule accommodates full-time employees at major Dallas employers like AT&T, Southwest Airlines, and Toyota Motor North America, allowing you to earn certification without career disruption."
+          "question": "How long does the CAPM bootcamp take while working full-time in Minneapolis?",
+          "answer": "Our bootcamp is designed for working professionals. Intensive formats compress training into 2–3 days, while part-time options span 4–6 weeks. Many Minneapolis professionals complete the program while maintaining full-time roles at Target, Medtronic, or Mayo Clinic, then sit for the exam within 2–4 weeks post-training."
         }
       ],
       "ai_type_id": "faq_additions",
@@ -267,7 +247,7 @@
       "ai_inject_mode": "append",
       "ai_model": "claude-haiku-4-5-20251001",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T00:34:27.780011Z",
+      "_ai_generated_at": "2026-06-27T20:12:31.099003Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "faq_additions",
       "_ai_locked": true
@@ -302,6 +282,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-27T00:33:31+00:00",
+  "generated_at": "2026-06-27T20:08:11+00:00",
   "template_version": "1a1424df79f9789f02da882279781264"
 }

@@ -1,14 +1,14 @@
 {
   "template_id": "tpl_cpmai_certification_training_city",
-  "city_id": "dallas-tx",
-  "slug": "cpmai-certification-training-dallas-tx",
+  "city_id": "minneapolis-mn",
+  "slug": "cpmai-certification-training-minneapolis-mn",
   "title": "CPMAI Certification Training {city}",
   "city_vars": {
-    "id": "dallas-tx",
-    "city": "Dallas",
-    "state": "Texas",
-    "SS": "TX",
-    "city_slug": "dallas-tx",
+    "id": "minneapolis-mn",
+    "city": "Minneapolis",
+    "state": "Minnesota",
+    "SS": "MN",
+    "city_slug": "minneapolis-mn",
     "phone": "",
     "tel": "",
     "zip": "",
@@ -17,36 +17,16 @@
     "lng": "",
     "website": "",
     "tags": [],
-    "industries": [
-      "technology",
-      "finance",
-      "healthcare",
-      "telecommunications",
-      "energy",
-      "defense/government"
-    ],
-    "top_employers": [
-      "AT&T",
-      "Texas Instruments",
-      "Toyota Motor North America",
-      "Lockheed Martin",
-      "JPMorgan Chase",
-      "Bank of America",
-      "Parkland Health",
-      "UT Southwestern Medical Center",
-      "Raytheon Technologies",
-      "Southwest Airlines",
-      "Jacobs Engineering",
-      "Comerica Bank"
-    ],
-    "salary_note": "PMP-certified project managers in Dallas, Texas typically earn between $105,000 and $135,000 annually, with professionals in defense, technology, and financial services often commanding salaries at the higher end of that range.",
-    "market_blurb": "Dallas is one of the fastest-growing major metros in the United States, with a robust project management job market driven by its concentration of Fortune 500 headquarters, a booming technology sector, and major healthcare and defense employers. The city's finance, telecommunications, and energy industries generate strong and consistent demand for skilled project managers capable of leading large-scale, cross-functional initiatives. PMP certification is particularly valuable in Dallas because many of its dominant employers, including defense contractors and large financial institutions, use it as a baseline credential for mid-to-senior level project management roles."
+    "industries": [],
+    "top_employers": [],
+    "salary_note": "",
+    "market_blurb": ""
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "CPMAI Certification Training in {city}, {SS}",
-      "hs_subtext": "Dallas's thriving technology and defense sectors demand skilled project managers who can drive innovation and manage complex initiatives. Granite PM Academy delivers PMI-authorized, live-virtual instructor-led training that equips you with industry-recognized credentials. Earn your CPMAI certification and unlock career advancement opportunities with measurable salary growth potential.",
+      "hs_subtext": "Minneapolis's thriving healthcare and technology sectors demand skilled project managers who can drive complex initiatives from concept to completion. Granite PM Academy delivers PMI-authorized, live-virtual instructor-led training that fits your schedule while maintaining rigorous standards. Graduates advance their careers with industry-recognized credentials and competitive earning potential in Minnesota's dynamic job market.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#cpmai_schedule",
       "hs_caption1": "",
@@ -62,7 +42,7 @@
       "ai_inject_mode": "replace",
       "ai_model": "claude-haiku-4-5-20251001",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T00:35:10.087197Z",
+      "_ai_generated_at": "2026-06-27T20:13:25.472314Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "hero_subtext",
       "_ai_locked": true
@@ -79,10 +59,10 @@
       "ai_prompt_override": "",
       "skin": "light",
       "heading_level": "h2",
-      "heading_text": "CPMAI Certification Demand in Dallas's Growing PM Market",
-      "text": "<p>Dallas is home to some of the nation's most demanding project management environments, with Fortune 500 headquarters, major defense contractors, and fast-growing technology firms all competing for skilled certified professionals. Companies like Lockheed Martin, AT&T, and Texas Instruments actively seek CPMAI-certified project managers to lead complex, mission-critical initiatives across defense, telecommunications, and manufacturing. In Dallas's finance sector, institutions including JPMorgan Chase and Bank of America depend on certified PMs to manage large-scale digital transformation and infrastructure projects. The CPMAI Certification demonstrates your mastery of agile and adaptive methodologies—exactly what Dallas employers need as they scale operations and innovate across competitive markets.</p><p>Earning your CPMAI Certification in Dallas positions you for significant career advancement and earning potential. Project management professionals holding this credential in Dallas typically command salaries between $105,000 and $135,000 annually, with defense, technology, and financial services roles often at the higher end. As Dallas continues its rapid growth and attracts even more major corporate investments, demand for certified project managers will only intensify. Your CPMAI Certification becomes the credential that unlocks senior-level roles, leadership opportunities, and the competitive edge you need to advance in one of America's most dynamic job markets.</p>",
+      "heading_text": "CPMAI Certification Demand in Minneapolis's PM Market",
+      "text": "<p>Minneapolis hosts a thriving project management ecosystem anchored by world-class employers across healthcare, finance, and technology. Organizations like UnitedHealth Group, Mayo Clinic, Target Corporation, and U.S. Bancorp actively seek certified professionals who can lead complex, cross-functional initiatives in heavily regulated environments. The CPMAI Certification Training equips you with the structured methodologies and compliance expertise that Minneapolis employers—particularly in healthcare systems and medical device companies like Medtronic—demand from their project leaders. Earning your CPMAI Certification signals to local hiring managers that you possess the professional rigor and standardized skills needed to thrive in Minneapolis's competitive, innovation-driven market.</p><p>Career advancement in Minneapolis rewards certified project management professionals with competitive compensation and leadership opportunities. PMP-certified project managers in the Minneapolis area typically earn between $95,000 and $130,000 annually, with professionals in healthcare, financial services, and technology commanding salaries at the higher end of that range. The CPMAI Certification Training positions you to capture these high-value roles while advancing into strategic project leadership. As Minneapolis continues to strengthen its position as a major business hub, certified project managers remain essential to driving organizational success across every major industry sector.</p>",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T23:08:38.678410Z",
+      "_ai_generated_at": "2026-06-27T20:13:28.894539Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "city_market_intro",
       "_ai_locked": true
@@ -103,23 +83,23 @@
       "columns": [
         {
           "heading": "Live Instructor-Led Training",
-          "text": "Expert instructors deliver real-time instruction with interactive Q&A, ensuring you master CPMAI concepts through direct engagement and immediate feedback."
+          "text": "Learn directly from certified experts in real-time. Interactive sessions enable immediate Q&A, personalized feedback, and deeper understanding of complex project management concepts and applications."
         },
         {
-          "heading": "PMI Premier ATP Authorization",
-          "text": "Granite PM Academy's PMI Premier status guarantees alignment with latest exam standards and highest-quality curriculum recognized globally by employers."
+          "heading": "PMI Premier ATP Status",
+          "text": "Train with an official PMI Premier Authorized Training Partner. Granite PM Academy meets rigorous PMI standards, ensuring curriculum quality, instructor expertise, and recognized credential value."
         },
         {
-          "heading": "Small Classes, High Pass Rates",
-          "text": "Limited class sizes enable personalized attention from experienced instructors, driving consistently high certification pass rates and student success."
+          "heading": "Comprehensive Exam Preparation",
+          "text": "Master CPMAI exam content with targeted study materials, practice tests, and strategies. Our comprehensive approach builds confidence and maximizes your first-attempt pass rate."
         },
         {
-          "heading": "Essential for Dallas Tech Leaders",
-          "text": "CPMAI certification is highly valued by Dallas employers like AT&T and Texas Instruments seeking certified project management professionals for advancing careers."
+          "heading": "Advance Your Career Locally",
+          "text": "Minneapolis employers like UnitedHealth Group, Mayo Clinic, and Target value certified project managers. CPMAI certification differentiates you for leadership roles and competitive advancement opportunities in Minnesota's thriving industries."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T23:08:41.095125Z",
+      "_ai_generated_at": "2026-06-27T20:13:31.515314Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
@@ -258,12 +238,12 @@
           "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
         },
         {
-          "question": "What salary can PMP-certified project managers expect in Dallas, Texas?",
-          "answer": "PMP-certified project managers in Dallas typically earn $105,000–$135,000 annually. Professionals working in defense, technology, and financial services—key industries with major employers like Lockheed Martin, AT&T, and JPMorgan Chase—often command salaries at the higher end of that range."
+          "question": "What salary can PMP-certified project managers expect in Minneapolis?",
+          "answer": "PMP-certified project managers in Minneapolis typically earn $95,000–$130,000 annually. Professionals in healthcare, finance, and technology—key sectors with major employers like UnitedHealth Group, U.S. Bancorp, and Medtronic—often command salaries at the higher end. Certification significantly enhances earning potential across Minneapolis's dominant industries."
         },
         {
-          "question": "How long does CPMAI certification training take while working full-time in Dallas?",
-          "answer": "CPMAI training typically requires 40 hours of instruction, completable in 1–2 weeks through flexible scheduling options. Dallas professionals working full-time at major employers like Texas Instruments, Toyota Motor North America, or Raytheon Technologies can balance training with work through evening and weekend class formats."
+          "question": "Is PMP certification in demand at Minneapolis healthcare and tech companies?",
+          "answer": "Yes. Minneapolis healthcare leaders like Mayo Clinic and Allina Health, plus tech firms, actively seek PMP-certified professionals to manage complex projects. Finance and insurance sectors—including Ameriprise Financial and UnitedHealth Group—also prioritize certified project managers. Certification directly aligns with local employer needs and competitive hiring requirements."
         }
       ],
       "ai_type_id": "faq_additions",
@@ -271,7 +251,7 @@
       "ai_inject_mode": "append",
       "ai_model": "claude-haiku-4-5-20251001",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T00:35:12.839327Z",
+      "_ai_generated_at": "2026-06-27T20:13:34.100556Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "faq_additions",
       "_ai_locked": true
@@ -306,6 +286,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-27T00:33:31+00:00",
+  "generated_at": "2026-06-27T20:08:11+00:00",
   "template_version": "f46e80ffb61ae91abefbff838a4bf3ac"
 }

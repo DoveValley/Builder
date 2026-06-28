@@ -1,14 +1,14 @@
 {
   "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "houston-tx",
-  "slug": "pmp-certification-training-houston-tx",
+  "city_id": "minneapolis-mn",
+  "slug": "pmp-certification-training-minneapolis-mn",
   "title": "PMP Certification Training {city}",
   "city_vars": {
-    "id": "houston-tx",
-    "city": "Houston",
-    "state": "Texas",
-    "SS": "TX",
-    "city_slug": "houston-tx",
+    "id": "minneapolis-mn",
+    "city": "Minneapolis",
+    "state": "Minnesota",
+    "SS": "MN",
+    "city_slug": "minneapolis-mn",
     "phone": "",
     "tel": "",
     "zip": "",
@@ -17,36 +17,16 @@
     "lng": "",
     "website": "",
     "tags": [],
-    "industries": [
-      "energy",
-      "healthcare",
-      "engineering/construction",
-      "aerospace",
-      "manufacturing",
-      "technology"
-    ],
-    "top_employers": [
-      "ExxonMobil",
-      "Chevron",
-      "Shell USA",
-      "Houston Methodist Hospital",
-      "Memorial Hermann Health System",
-      "Texas Medical Center",
-      "NASA Johnson Space Center",
-      "Bechtel",
-      "KBR",
-      "Hewlett Packard Enterprise",
-      "CenterPoint Energy",
-      "Port of Houston Authority"
-    ],
-    "salary_note": "PMP-certified project managers in Houston, Texas typically earn between $105,000 and $135,000 annually, with professionals in the energy, engineering, and aerospace sectors often commanding salaries at the higher end of that range.",
-    "market_blurb": "Houston is one of the most robust project management job markets in the United States, driven by its status as the global energy capital, a world-leading medical hub through the Texas Medical Center, and a major hub for aerospace and large-scale engineering and construction projects. The city's concentration of Fortune 500 companies, international energy firms, and major healthcare systems creates consistent, high-volume demand for skilled project managers across multiple sectors. PMP certification is particularly valued in Houston because employers in energy, engineering, and healthcare routinely require or strongly prefer it as a credential that signals a candidate's ability to manage complex, high-stakes projects in demanding environments."
+    "industries": [],
+    "top_employers": [],
+    "salary_note": "",
+    "market_blurb": ""
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "In Houston's thriving energy and aerospace sectors, PMP certification distinguishes project managers competing for leadership roles at companies like ExxonMobil, Shell, and NASA Johnson Space Center. Granite PM Academy delivers PMI-authorized, live-virtual instructor-led training designed for working professionals. Our students achieve high pass rates while accelerating their career advancement and salary potential in project management.",
+      "hs_subtext": "Minneapolis's thriving healthcare and technology sectors demand skilled project managers to drive innovation and deliver results efficiently. Granite PM Academy's PMI-authorized, live-virtual instructor-led training equips you with credentials recognized across these competitive industries. Earn your PMP certification and position yourself for meaningful career advancement and increased earning potential.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#pmp_schedule",
       "hs_caption1": "",
@@ -62,7 +42,7 @@
       "ai_inject_mode": "replace",
       "ai_model": "claude-haiku-4-5-20251001",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T00:35:59.321271Z",
+      "_ai_generated_at": "2026-06-27T20:14:29.657252Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "hero_subtext",
       "_ai_locked": true
@@ -79,10 +59,10 @@
       "ai_prompt_override": "",
       "skin": "light",
       "heading_level": "h2",
-      "heading_text": "PMP Certification Demand in Houston's Thriving Market",
-      "text": "<p>Houston's status as the global energy capital, combined with its world-class medical and aerospace sectors, creates exceptional demand for PMP-certified project managers. Energy giants like ExxonMobil, Chevron, and Shell USA rely on certified professionals to manage complex, mission-critical projects worth millions of dollars. Similarly, the Texas Medical Center and major healthcare systems including Houston Methodist Hospital and Memorial Hermann Health System increasingly require PMP certification for leadership roles. In Houston's competitive job market, PMP certification signals to employers that you possess the advanced skills needed to lead high-stakes initiatives in demanding environments.</p><p>PMP-certified project managers in Houston typically earn between $105,000 and $135,000 annually, with professionals in energy, engineering, and aerospace sectors often commanding salaries at the higher end of that range. The certification opens doors to accelerated career progression and higher-paying roles across Houston's Fortune 500 companies, international firms, and major healthcare systems. As Houston continues to drive global innovation in energy, healthcare, and engineering, earning your PMP certification positions you to capitalize on this sustained demand and build a lucrative, future-proof career.</p>",
+      "heading_text": "PMP Certification Demand in Minneapolis's Thriving PM Market",
+      "text": "<p>Minneapolis stands as a hub for project management excellence, home to industry leaders like UnitedHealth Group, Target Corporation, and U.S. Bancorp that consistently seek certified project managers. The city's robust healthcare ecosystem—anchored by Mayo Clinic, Medtronic, and major health systems—places particular emphasis on structured project delivery and compliance-driven methodologies. PMP Certification Training equips professionals with the standardized skills and professional rigor that Minneapolis employers demand, especially in heavily regulated sectors where cross-functional initiative management is critical to organizational success.</p><p>Earning your PMP Certification in Minneapolis positions you for meaningful career advancement and competitive compensation. PMP-certified project managers in the Minneapolis area typically command salaries between $95,000 and $130,000 annually, with professionals in healthcare, financial services, and technology often earning at the higher end of that range. As Minneapolis continues to attract and retain Fortune 500 headquarters and expand its technology and medical device sectors, PMP Certification Training becomes an investment in your professional trajectory, opening doors to leadership roles and sustained earning potential in one of the nation's strongest job markets for project management professionals.</p>",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T23:10:35.414465Z",
+      "_ai_generated_at": "2026-06-27T20:14:32.835574Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "city_market_intro",
       "_ai_locked": true
@@ -102,24 +82,24 @@
       "fc_num_cols": 4,
       "columns": [
         {
-          "heading": "Live Instructor-Led Training",
-          "text": "Interactive classroom instruction with certified PMP instructors who answer questions in real-time, ensuring deep understanding of project management concepts and exam strategies."
+          "heading": "Live Instructor-Led Expertise",
+          "text": "Learn directly from experienced PMP instructors in real-time. Ask questions, clarify complex concepts, and receive immediate feedback throughout your certification journey."
         },
         {
-          "heading": "PMI Premier ATP Authorization",
-          "text": "Official PMI Premier Authorized Training Partner status guarantees curriculum alignment with current exam standards and eligibility for PMI contact hours toward PMP certification."
+          "heading": "PMI Premier ATP Guarantee",
+          "text": "Train with a PMI Premier Authorized Training Partner. Ensure your education meets the highest standards for PMP certification preparation and professional credibility."
         },
         {
-          "heading": "Proven High Pass Rate",
-          "text": "Our comprehensive exam prep methodology delivers consistently high pass rates, combining classroom mastery with targeted practice exams and personalized study guidance for certification success."
+          "heading": "Small Classes, Maximum Support",
+          "text": "Benefit from intimate class sizes that allow personalized attention. Our instructors tailor instruction to your learning pace and individual certification needs."
         },
         {
-          "heading": "Energy Sector Expertise",
-          "text": "Tailored training for Houston's energy professionals at ExxonMobil, Chevron, and Shell USA, with instructors experienced in large-scale project management within oil, gas, and renewable sectors."
+          "heading": "Advance Healthcare Leadership Careers",
+          "text": "Minneapolis healthcare leaders at organizations like Mayo Clinic and UnitedHealth Group advance their careers fastest with PMP certification. Demonstrate project management excellence in Minnesota's largest industry."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T23:10:38.297734Z",
+      "_ai_generated_at": "2026-06-27T20:14:35.552258Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
@@ -258,12 +238,12 @@
           "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
         },
         {
-          "question": "What salary can PMP certified project managers expect in Houston?",
-          "answer": "PMP-certified project managers in Houston typically earn $105,000–$135,000 annually. Professionals in energy, engineering, and aerospace sectors—key industries here with major employers like ExxonMobil, Shell USA, and NASA Johnson Space Center—often command salaries at the higher end, making certification a valuable investment."
+          "question": "What salary can PMP-certified project managers expect in Minneapolis?",
+          "answer": "PMP-certified project managers in Minneapolis typically earn $95,000–$130,000 annually. Professionals in healthcare, financial services, and technology—key sectors with major employers like UnitedHealth Group, U.S. Bancorp, and Best Buy—often command salaries at the higher end. Certification significantly boosts earning potential across these industries."
         },
         {
-          "question": "How long does PMP training take while working full-time in Houston?",
-          "answer": "Granite PM Academy's PMP training accommodates Houston's busy professionals with flexible scheduling options. Most full-time workers complete training in 4–6 weeks through evening or weekend classes, allowing you to advance your career at major employers like Bechtel, KBR, and Houston Methodist without sacrificing your job."
+          "question": "How long does PMP training take while working full-time in Minneapolis?",
+          "answer": "Most professionals complete PMP training in 8–12 weeks while working full-time. Granite PM Academy offers flexible scheduling ideal for Minneapolis's busy workforce. Part-time study fits around roles at major employers like Mayo Clinic, Target, and Medtronic, allowing you to earn while learning without sacrificing your job."
         }
       ],
       "ai_type_id": "faq_additions",
@@ -271,7 +251,7 @@
       "ai_inject_mode": "append",
       "ai_model": "claude-haiku-4-5-20251001",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T00:36:01.984782Z",
+      "_ai_generated_at": "2026-06-27T20:14:38.474751Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "faq_additions",
       "_ai_locked": true
@@ -306,6 +286,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-27T00:33:31+00:00",
+  "generated_at": "2026-06-27T20:08:11+00:00",
   "template_version": "75547dabee5eb0c978b43f9b49c48626"
 }

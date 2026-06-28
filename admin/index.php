@@ -319,6 +319,7 @@ foreach ($footer['columns'] as $ci => $column) {
     <!-- ================= DEPLOY TAB ================= -->
     <?php require __DIR__ . '/tabs/deploy.php'; ?>
 
+
 </div>
 
 <script>

@@ -1,14 +1,14 @@
 {
   "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "dallas-tx",
-  "slug": "pmp-certification-training-dallas-tx",
+  "city_id": "tampa-fl",
+  "slug": "pmp-certification-training-tampa-fl",
   "title": "PMP Certification Training {city}",
   "city_vars": {
-    "id": "dallas-tx",
-    "city": "Dallas",
-    "state": "Texas",
-    "SS": "TX",
-    "city_slug": "dallas-tx",
+    "id": "tampa-fl",
+    "city": "Tampa",
+    "state": "Florida",
+    "SS": "FL",
+    "city_slug": "tampa-fl",
     "phone": "",
     "tel": "",
     "zip": "",
@@ -17,36 +17,16 @@
     "lng": "",
     "website": "",
     "tags": [],
-    "industries": [
-      "technology",
-      "finance",
-      "healthcare",
-      "telecommunications",
-      "energy",
-      "defense/government"
-    ],
-    "top_employers": [
-      "AT&T",
-      "Texas Instruments",
-      "Toyota Motor North America",
-      "Lockheed Martin",
-      "JPMorgan Chase",
-      "Bank of America",
-      "Parkland Health",
-      "UT Southwestern Medical Center",
-      "Raytheon Technologies",
-      "Southwest Airlines",
-      "Jacobs Engineering",
-      "Comerica Bank"
-    ],
-    "salary_note": "PMP-certified project managers in Dallas, Texas typically earn between $105,000 and $135,000 annually, with professionals in defense, technology, and financial services often commanding salaries at the higher end of that range.",
-    "market_blurb": "Dallas is one of the fastest-growing major metros in the United States, with a robust project management job market driven by its concentration of Fortune 500 headquarters, a booming technology sector, and major healthcare and defense employers. The city's finance, telecommunications, and energy industries generate strong and consistent demand for skilled project managers capable of leading large-scale, cross-functional initiatives. PMP certification is particularly valuable in Dallas because many of its dominant employers, including defense contractors and large financial institutions, use it as a baseline credential for mid-to-senior level project management roles."
+    "industries": [],
+    "top_employers": [],
+    "salary_note": "",
+    "market_blurb": ""
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "Dallas's thriving technology and defense sectors—home to industry leaders like AT&T and Lockheed Martin—demand certified project managers who can deliver complex initiatives on time and budget. Granite PM Academy's PMI-authorized, live-virtual instructor-led training ensures you gain the credentials these employers actively seek. Graduates advance into higher-paying leadership roles with a proven track record of PMP exam success.",
+      "hs_subtext": "Tampa's thriving healthcare and finance sectors demand skilled project managers who can deliver complex initiatives on time and within budget. Granite PM Academy's PMI-authorized, live-virtual instructor-led training ensures you master the frameworks these industries rely on. Earn your PMP certification and unlock career advancement opportunities with competitive salary growth and an industry-leading pass rate.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#pmp_schedule",
       "hs_caption1": "",
@@ -62,7 +42,7 @@
       "ai_inject_mode": "replace",
       "ai_model": "claude-haiku-4-5-20251001",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T00:35:55.225466Z",
+      "_ai_generated_at": "2026-06-27T20:14:39.818210Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "hero_subtext",
       "_ai_locked": true
@@ -79,10 +59,10 @@
       "ai_prompt_override": "",
       "skin": "light",
       "heading_level": "h2",
-      "heading_text": "PMP Certification Demand Across Dallas's Growing Market",
-      "text": "<p>Dallas is home to some of the nation's most demanding employers in defense, technology, and finance—companies like Lockheed Martin, AT&T, and JPMorgan Chase that actively seek PMP-certified project managers for leadership roles. The PMP Certification has become essential for professionals in Dallas who want to advance into mid-to-senior positions at these major corporations. Whether you're managing infrastructure projects at a telecom giant, coordinating healthcare initiatives at UT Southwestern Medical Center, or overseeing initiatives in the energy sector, PMP Certification demonstrates the structured, standards-based expertise that Dallas employers require and respect.</p><p>Earning your PMP Certification in Dallas directly impacts earning potential and career trajectory. PMP-certified project managers in Dallas typically command salaries between $105,000 and $135,000 annually, with professionals in defense, technology, and financial services often reaching the higher end of that range. As Dallas continues its rapid growth—driven by Fortune 500 headquarters, booming tech innovation, and major healthcare and defense investments—the demand for skilled, certified project managers shows no signs of slowing. Completing your PMP Certification training now positions you to capitalize on this expanding market and secure your competitive edge in one of America's fastest-growing metro economies.</p>",
+      "heading_text": "PMP Certification Demand in Tampa's Growing Market",
+      "text": "<p>Tampa has established itself as a premier destination for project management professionals, with major employers across healthcare, finance, and defense actively seeking PMP-certified talent. Organizations like Tampa General Hospital, BayCare Health System, Raymond James Financial, and companies supporting MacDill Air Force Base recognize PMP certification as a critical credential for leadership roles. In Tampa's competitive landscape, the PMP certification demonstrates mastery of industry-standard methodologies that these employers depend on for complex program delivery, regulatory compliance, and operational excellence. Whether you're advancing within healthcare systems, financial services, or defense contracting, PMP certification in Tampa opens doors to roles that command respect and responsibility across the region's most influential organizations.</p><p>For Tampa-based project managers, PMP certification translates directly into career advancement and financial growth. Certified professionals in the Tampa area typically earn between $95,000 and $125,000 annually, with those in finance, defense contracting, and enterprise technology often at the higher end of that spectrum. Beyond salary, PMP certification positions you for senior program and portfolio management roles—the leadership track that organizations like Jabil, Tech Data, and WellCare Health Plans use to identify and promote their next generation of executives. As Tampa's economy continues to expand, PMP-certified professionals are increasingly viewed as ready for strategic responsibilities that drive organizational success.</p>",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T23:10:25.684600Z",
+      "_ai_generated_at": "2026-06-27T20:14:43.708832Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "city_market_intro",
       "_ai_locked": true
@@ -103,23 +83,23 @@
       "columns": [
         {
           "heading": "Live Instructor-Led Training",
-          "text": "Learn from certified PMs in real-time. Ask questions, get immediate feedback, and master complex concepts through interactive instruction with experienced professionals."
+          "text": "Learn directly from experienced PMP trainers in interactive sessions. Real-time Q&A and personalized guidance accelerate your understanding and certification readiness."
         },
         {
-          "heading": "PMI Premier ATP Status",
-          "text": "Train with an officially authorized PMI partner. Guarantee PMI-recognized instruction, current curriculum standards, and credentials that employers like AT&T and Lockheed Martin trust."
+          "heading": "PMI Premier ATP Authorization",
+          "text": "Granite PM Academy is PMI Premier Authorized. Your training meets the highest standards, ensuring quality instruction and proper PDU credit for certification."
         },
         {
-          "heading": "Small Classes, High Pass Rates",
-          "text": "Limited enrollment ensures personalized attention. Our candidates achieve industry-leading pass rates through focused instruction and comprehensive exam preparation tailored to your learning pace."
+          "heading": "Flexible Live-Virtual Scheduling",
+          "text": "Attend classes online or in-person on your schedule. Balance work and training with options designed for Tampa professionals managing busy careers."
         },
         {
-          "heading": "Dallas Tech & Defense Advantage",
-          "text": "Advance your career at major Dallas employers. PMP certification positions you for leadership roles at Lockheed Martin, Texas Instruments, and tech firms driving regional growth."
+          "heading": "Tampa Healthcare Leadership Advantage",
+          "text": "Healthcare leaders at Tampa General Hospital and BayCare increasingly require PMP credentials. Gain competitive advantage and advance project management roles in this booming sector."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T23:10:28.554464Z",
+      "_ai_generated_at": "2026-06-27T20:14:46.575863Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
@@ -258,12 +238,12 @@
           "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
         },
         {
-          "question": "What salary can PMP-certified project managers expect in Dallas, Texas?",
-          "answer": "PMP-certified project managers in Dallas typically earn $105,000–$135,000 annually. Professionals in defense, technology, and financial services—sectors dominated by employers like Lockheed Martin, AT&T, and JPMorgan Chase—often command salaries at the higher end. Certification directly supports career advancement and negotiating power in Dallas's competitive job market."
+          "question": "What salary can PMP-certified project managers expect in Tampa, Florida?",
+          "answer": "PMP-certified project managers in Tampa typically earn $95,000–$125,000 annually. Professionals in finance (Raymond James, Citigroup), defense contracting (MacDill Air Force Base), and enterprise technology (Jabil, Tech Data) often command salaries at the higher end. Certification significantly boosts earning potential across healthcare, banking, and logistics sectors."
         },
         {
-          "question": "How long does PMP certification training take while working full-time in Dallas?",
-          "answer": "Granite PM Academy's PMP training accommodates Dallas professionals with flexible scheduling options. Most candidates complete classroom instruction in 4–5 weeks while maintaining full-time employment, with weeknight and weekend classes available. Self-study typically requires 50–60 hours beyond instruction, allowing working professionals to balance careers at major employers like Toyota, Texas Instruments, or Southwest Airlines."
+          "question": "How long does PMP certification training take while working full-time in Tampa?",
+          "answer": "Granite PM Academy's PMP training accommodates Tampa's working professionals with flexible scheduling options. Most candidates complete coursework in 4–8 weeks while maintaining full-time employment in healthcare, finance, or technology sectors. Accelerated and evening classes help you balance preparation with your job at employers like BayCare, USAA, or Tech Data."
         }
       ],
       "ai_type_id": "faq_additions",
@@ -271,7 +251,7 @@
       "ai_inject_mode": "append",
       "ai_model": "claude-haiku-4-5-20251001",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T00:35:57.789467Z",
+      "_ai_generated_at": "2026-06-27T20:14:48.938034Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "faq_additions",
       "_ai_locked": true
@@ -306,6 +286,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-27T00:33:31+00:00",
+  "generated_at": "2026-06-27T20:08:11+00:00",
   "template_version": "75547dabee5eb0c978b43f9b49c48626"
 }

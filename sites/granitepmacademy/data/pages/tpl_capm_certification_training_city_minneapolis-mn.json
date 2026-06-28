@@ -1,14 +1,14 @@
 {
   "template_id": "tpl_capm_certification_training_city",
-  "city_id": "austin-tx",
-  "slug": "capm-certification-training-austin-tx",
+  "city_id": "minneapolis-mn",
+  "slug": "capm-certification-training-minneapolis-mn",
   "title": "CAPM Certification Training {city}",
   "city_vars": {
-    "id": "austin-tx",
-    "city": "Austin",
-    "state": "Texas",
-    "SS": "TX",
-    "city_slug": "austin-tx",
+    "id": "minneapolis-mn",
+    "city": "Minneapolis",
+    "state": "Minnesota",
+    "SS": "MN",
+    "city_slug": "minneapolis-mn",
     "phone": "",
     "tel": "",
     "zip": "",
@@ -17,36 +17,16 @@
     "lng": "",
     "website": "",
     "tags": [],
-    "industries": [
-      "technology",
-      "healthcare",
-      "government/public sector",
-      "finance",
-      "manufacturing",
-      "defense/military"
-    ],
-    "top_employers": [
-      "Dell Technologies",
-      "Apple",
-      "Tesla",
-      "Samsung Austin Semiconductor",
-      "Oracle",
-      "IBM",
-      "Ascension Seton",
-      "St. David's HealthCare",
-      "The University of Texas at Austin",
-      "City of Austin",
-      "Charles Schwab",
-      "Amazon Web Services"
-    ],
-    "salary_note": "PMP-certified project managers in Austin, Texas typically earn between $105,000 and $135,000 annually, with professionals in technology, semiconductor manufacturing, and finance often commanding salaries at the higher end of that range.",
-    "market_blurb": "Austin has emerged as one of the fastest-growing major metropolitan economies in the United States, driven by a booming technology sector, expanding healthcare systems, and significant investment in semiconductor manufacturing and financial services. The influx of major corporations such as Tesla, Apple, Oracle, and Samsung has created strong and sustained demand for skilled project managers capable of leading complex, cross-functional initiatives. PMP certification is particularly valuable in Austin's competitive job market, as it signals a standardized level of competency that large employers and government agencies increasingly require when screening candidates for senior project management roles."
+    "industries": [],
+    "top_employers": [],
+    "salary_note": "",
+    "market_blurb": ""
   },
   "content_blocks": [
     {
       "type": "hero_split",
       "hs_heading": "CAPM Certification Training in {city}, {SS}",
-      "hs_subtext": "In Austin's thriving tech and healthcare sectors, employers like Dell, Apple, and Ascension Seton increasingly require CAPM certification for project coordination roles. Granite PM Academy's PMI-authorized live-virtual training delivers expert instruction aligned with industry demands. Graduates gain competitive credentials that accelerate career progression and salary potential in Austin's high-growth market.",
+      "hs_subtext": "Minneapolis's thriving healthcare and technology sectors demand skilled project managers who can deliver complex initiatives on time and within budget. Granite PM Academy's PMI-authorized, live-virtual instructor-led CAPM training equips you with recognized credentials and practical tools. Graduates advance their careers faster and command higher salaries, backed by our industry-leading pass rates.",
       "hs_btn_text": "See Upcoming Dates",
       "hs_btn_url": "#capm_schedule",
       "hs_caption1": "",
@@ -62,7 +42,7 @@
       "ai_inject_mode": "replace",
       "ai_model": "claude-haiku-4-5-20251001",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T00:34:43.955281Z",
+      "_ai_generated_at": "2026-06-27T20:12:54.855843Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "hero_subtext",
       "_ai_locked": true
@@ -79,10 +59,10 @@
       "ai_prompt_override": "",
       "skin": "light",
       "heading_level": "h2",
-      "heading_text": "Austin's Growing Demand for Certified Project Managers",
-      "text": "<p>Austin's booming technology and semiconductor sectors are driving unprecedented demand for skilled project managers who can lead complex, cross-functional teams. Major employers like Dell Technologies, Apple, Tesla, and Samsung Austin Semiconductor are actively hiring certified professionals to manage their ambitious growth initiatives. Healthcare systems including Ascension Seton and St. David's HealthCare, along with government agencies and financial services firms, also prioritize CAPM Certification Training as a key credential when evaluating candidates for project management roles. As Austin continues its emergence as one of the fastest-growing metropolitan economies in the United States, the CAPM certification has become an essential differentiator for professionals seeking to advance their careers in this competitive market.</p><p>Earning your CAPM Certification Training credential in Austin positions you for significant career growth and financial advancement. Project managers with PMI certification in Austin typically earn between $105,000 and $135,000 annually, with technology, semiconductor, and finance professionals often commanding salaries at the higher end of that spectrum. The CAPM Certification Training demonstrates your commitment to professional standards and equips you with the foundational knowledge that employers increasingly require when screening candidates for advancement. As Austin's economy continues to attract major corporations and investment, obtaining your CAPM certification now ensures you're ready to capitalize on the expanding opportunities ahead.</p>",
+      "heading_text": "CAPM Certification Demand in Minneapolis Project Management",
+      "text": "<p>Minneapolis hosts one of the nation's most dynamic project management markets, anchored by Fortune 500 powerhouses like UnitedHealth Group, Target Corporation, and U.S. Bancorp. The city's thriving healthcare ecosystem—home to Mayo Clinic, Medtronic, and major health systems—places exceptional value on structured project delivery and compliance-driven methodologies. For Minneapolis professionals working in these regulated industries, CAPM Certification Training provides the foundational credentials that employers actively seek. CAPM Certification signals to hiring managers that you've mastered standardized PM frameworks and possess the professional rigor needed to manage complex, cross-functional initiatives in competitive sectors like healthcare, finance, and technology.</p><p>Earning your CAPM Certification in Minneapolis can meaningfully accelerate your career trajectory and earning potential. Project management certified professionals in the Minneapolis market typically command salaries between $95,000 and $130,000 annually, with those in healthcare, financial services, and technology often reaching the higher end of that range. As the city's major employers continue to expand operations and manage increasingly complex projects, demand for certified PMs remains strong. Completing CAPM Certification Training positions you to compete for these high-value roles and advance into senior project leadership opportunities.</p>",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T23:07:32.728660Z",
+      "_ai_generated_at": "2026-06-27T20:12:58.032907Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "city_market_intro",
       "_ai_locked": true
@@ -102,24 +82,24 @@
       "fc_num_cols": 4,
       "columns": [
         {
-          "heading": "Live Instructors, Real Results",
-          "text": "Learn directly from experienced PMs in live, interactive sessions. Our instructors bring real-world project management expertise, ensuring practical knowledge you'll apply immediately."
+          "heading": "Live Instructor-Led Training",
+          "text": "Learn directly from experienced instructors in interactive sessions. Real-time Q&A, immediate feedback, and personalized guidance accelerate your understanding of CAPM concepts."
         },
         {
-          "heading": "PMI Premier ATP Credential",
-          "text": "Train with PMI's highest-authorized partner. Premier ATP status guarantees rigorous curriculum standards, quality instruction, and full alignment with current CAPM requirements."
+          "heading": "PMI Premier ATP Authorization",
+          "text": "Train with a PMI-authorized partner meeting rigorous standards. Our curriculum is officially endorsed, ensuring content quality and alignment with current PMI requirements."
         },
         {
-          "heading": "Industry-Leading Pass Rates",
-          "text": "Our comprehensive exam prep delivers consistently high first-attempt pass rates. Strategic study materials, practice exams, and instructor guidance maximize your certification success."
+          "heading": "Comprehensive Exam Prep",
+          "text": "Master CAPM exam domains through focused lessons, practice questions, and mock exams. Our structured approach builds confidence and maximizes your pass rate potential."
         },
         {
-          "heading": "Launch Your Tech Career Path",
-          "text": "Austin's tech giants—Dell, Apple, Oracle, and AWS—prioritize CAPM-certified project coordinators. Earn your credential and position yourself for growth within Austin's thriving innovation ecosystem."
+          "heading": "Advance Your Healthcare Career",
+          "text": "Minneapolis healthcare leaders like Mayo Clinic and UnitedHealth Group value certified project managers. CAPM certification strengthens your credentials in Minnesota's largest industry."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-26T23:07:35.918046Z",
+      "_ai_generated_at": "2026-06-27T20:13:00.973055Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
       "_ai_locked": true
@@ -254,12 +234,12 @@
           "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
         },
         {
-          "question": "What salary can CAPM certification help me earn in Austin technology and semiconductor sectors?",
-          "answer": "PMP-certified project managers in Austin earn $105,000–$135,000 annually, with tech and semiconductor professionals at the higher end. Major employers like Dell, Samsung Austin Semiconductor, and Apple actively hire certified PMs. CAPM certification demonstrates foundational project management expertise, positioning you competitively for advancement and higher compensation in Austin's booming tech landscape."
+          "question": "What salary can CAPM certified project managers expect in Minneapolis?",
+          "answer": "CAPM-certified professionals in Minneapolis typically earn $95,000–$130,000 annually. Healthcare, financial services, and technology sectors—dominated by employers like UnitedHealth Group, U.S. Bancorp, and Best Buy—often offer higher compensation. CAPM certification demonstrates foundational PM competency, positioning you competitively within Minneapolis's robust job market."
         },
         {
-          "question": "How long does CAPM certification training take while working full-time in Austin?",
-          "answer": "Granite PM Academy's CAPM training typically requires 23 contact hours, completed over 2–4 weeks with flexible scheduling. Austin professionals working at major employers like Oracle, Ascension Seton, or UT Austin can balance training around full-time roles. Self-study and exam prep add 20–30 hours. Most candidates complete the program and exam within 6–8 weeks."
+          "question": "How long does CAPM certification training take while working full-time in Minneapolis?",
+          "answer": "Granite PM Academy's CAPM training typically requires 23–40 hours of instruction, completable over 2–4 weeks through flexible evening or weekend classes. This schedule accommodates Minneapolis professionals balancing full-time roles at major employers like Mayo Clinic, Target, and Medtronic while pursuing certification and career advancement."
         }
       ],
       "ai_type_id": "faq_additions",
@@ -267,7 +247,7 @@
       "ai_inject_mode": "append",
       "ai_model": "claude-haiku-4-5-20251001",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T00:34:47.029734Z",
+      "_ai_generated_at": "2026-06-27T20:13:03.786674Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "faq_additions",
       "_ai_locked": true
@@ -302,6 +282,6 @@
     "schema": ""
   },
   "locked_blocks": [],
-  "generated_at": "2026-06-27T00:33:31+00:00",
+  "generated_at": "2026-06-27T20:08:11+00:00",
   "template_version": "7b9cbf5bb35e5dc3eb2cec1ebb883bf8"
 }
