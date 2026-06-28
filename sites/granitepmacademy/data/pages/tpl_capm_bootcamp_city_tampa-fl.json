@@ -1,287 +1,307 @@
 {
-  "template_id": "tpl_capm_bootcamp_city",
-  "city_id": "tampa-fl",
-  "slug": "capm-bootcamp-tampa-fl",
-  "title": "CAPM Bootcamp {city}",
-  "city_vars": {
-    "id": "tampa-fl",
-    "city": "Tampa",
-    "state": "Florida",
-    "SS": "FL",
-    "city_slug": "tampa-fl",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [],
-    "industries": [],
-    "top_employers": [],
-    "salary_note": "",
-    "market_blurb": ""
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "CAPM Exam Prep Bootcamp in {city}, {SS}",
-      "hs_subtext": "In Tampa's thriving healthcare and finance sectors, employers like Tampa General Hospital and Raymond James Financial prioritize certified project managers to lead critical initiatives. Granite PM Academy's PMI-authorized, live-virtual CAPM bootcamp delivers expert instruction tailored to working professionals. Graduates advance their careers with industry-recognized credentials and a proven track record of first-attempt pass rates.",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#capm_boot_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "CAPM bootcamp {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T20:12:32.561049Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_locked": true
+    "template_id": "tpl_capm_bootcamp_city",
+    "city_id": "tampa-fl",
+    "slug": "capm-bootcamp-tampa-fl",
+    "title": "CAPM Bootcamp {city}",
+    "city_vars": {
+        "id": "tampa-fl",
+        "city": "Tampa",
+        "state": "Florida",
+        "SS": "FL",
+        "city_slug": "tampa-fl",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [],
+        "industries": [
+            "healthcare",
+            "finance/banking",
+            "technology",
+            "defense/military",
+            "insurance",
+            "logistics/distribution"
+        ],
+        "top_employers": [
+            "Tampa General Hospital",
+            "BayCare Health System",
+            "Raymond James Financial",
+            "Citigroup",
+            "USAA",
+            "Jabil",
+            "Tech Data",
+            "Hillsborough County Government",
+            "MacDill Air Force Base",
+            "Laser Spine Institute",
+            "WellCare Health Plans",
+            "Publix Super Markets"
+        ],
+        "salary_note": "PMP-certified project managers in Tampa, Florida typically earn between $95,000 and $125,000 annually, with professionals in finance, defense contracting, and enterprise technology often commanding salaries at the higher end of that range.",
+        "market_blurb": "Tampa has emerged as one of Florida's strongest markets for project management professionals, driven by a robust concentration of healthcare systems, financial services firms, and a growing technology sector anchored by companies like Raymond James and Jabil. The presence of MacDill Air Force Base also creates steady demand for credentialed PMs in defense and government contracting roles. PMP certification is particularly valuable in Tampa because major employers across healthcare, finance, and defense actively use it as a baseline hiring requirement and a basis for advancement into senior program and portfolio management positions."
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Why CAPM Certification Matters in Tampa's Growing PM Market",
-      "text": "<p>Tampa's project management landscape is anchored by world-class employers across healthcare, finance, and defense who actively seek certified professionals. Organizations like Tampa General Hospital, Raymond James Financial, and companies supporting MacDill Air Force Base consistently prioritize CAPM certification and its advanced counterpart, the PMP, as baseline credentials for project management roles. Whether you're entering the field through healthcare administration, financial services project delivery, or government contracting, CAPM certification positions you as a serious candidate in a market where demand for credentialed PMs continues to accelerate.</p><p>Earning your CAPM certification in Tampa opens pathways to competitive compensation and rapid advancement. Project managers holding CAPM credentials in Tampa typically progress toward PMP certification and senior roles commanding salaries between $95,000 and $125,000 annually, with finance, defense contracting, and enterprise technology professionals often at the higher end. Our CAPM Exam Prep Bootcamp is designed to accelerate your certification timeline, equipping you with the knowledge and exam confidence needed to launch or advance your project management career in Tampa's thriving professional market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T20:12:36.116489Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "",
-      "fc_num_cols": 4,
-      "columns": [
+    "content_blocks": [
         {
-          "heading": "Live Instructor-Led Training",
-          "text": "Learn directly from experienced project management professionals in real-time. Ask questions, get immediate feedback, and master concepts with expert guidance throughout your bootcamp."
+            "type": "hero_split",
+            "hs_heading": "CAPM Exam Prep Bootcamp in {city}, {SS}",
+            "hs_subtext": "In Tampa's thriving healthcare and finance sectors, employers like Tampa General Hospital and Raymond James Financial prioritize certified project managers to lead critical initiatives. Granite PM Academy's PMI-authorized, live-virtual CAPM bootcamp delivers expert instruction tailored to working professionals. Graduates advance their careers with industry-recognized credentials and a proven track record of first-attempt pass rates.",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#capm_boot_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "CAPM bootcamp {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-27T20:12:32.561049Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_locked": true
         },
         {
-          "heading": "PMI Premier ATP Authorization",
-          "text": "Train with a PMI Premier Authorized Training Partner. Ensure your bootcamp meets the highest standards for CAPM exam preparation and professional development."
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Why CAPM Certification Matters in Tampa's Growing PM Market",
+            "text": "<p>Tampa's project management landscape is anchored by world-class employers across healthcare, finance, and defense who actively seek certified professionals. Organizations like Tampa General Hospital, Raymond James Financial, and companies supporting MacDill Air Force Base consistently prioritize CAPM certification and its advanced counterpart, the PMP, as baseline credentials for project management roles. Whether you're entering the field through healthcare administration, financial services project delivery, or government contracting, CAPM certification positions you as a serious candidate in a market where demand for credentialed PMs continues to accelerate.</p><p>Earning your CAPM certification in Tampa opens pathways to competitive compensation and rapid advancement. Project managers holding CAPM credentials in Tampa typically progress toward PMP certification and senior roles commanding salaries between $95,000 and $125,000 annually, with finance, defense contracting, and enterprise technology professionals often at the higher end. Our CAPM Exam Prep Bootcamp is designed to accelerate your certification timeline, equipping you with the knowledge and exam confidence needed to launch or advance your project management career in Tampa's thriving professional market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-27T20:12:36.116489Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_locked": true
         },
         {
-          "heading": "Proven High Pass Rates",
-          "text": "Our comprehensive curriculum and experienced instructors deliver consistently high CAPM pass rates. Join hundreds of successful candidates who trusted Granite PM Academy for exam success."
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Live Instructor-Led Training",
+                    "text": "Learn directly from experienced project management professionals in real-time. Ask questions, get immediate feedback, and master concepts with expert guidance throughout your bootcamp."
+                },
+                {
+                    "heading": "PMI Premier ATP Authorization",
+                    "text": "Train with a PMI Premier Authorized Training Partner. Ensure your bootcamp meets the highest standards for CAPM exam preparation and professional development."
+                },
+                {
+                    "heading": "Proven High Pass Rates",
+                    "text": "Our comprehensive curriculum and experienced instructors deliver consistently high CAPM pass rates. Join hundreds of successful candidates who trusted Granite PM Academy for exam success."
+                },
+                {
+                    "heading": "Tampa's Healthcare & Defense Growth",
+                    "text": "Advance your career at Tampa General Hospital, MacDill Air Force Base, or other major employers. CAPM certification strengthens your project management credentials in Tampa's fastest-growing industries."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-27T20:12:39.489427Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_locked": true
         },
         {
-          "heading": "Tampa's Healthcare & Defense Growth",
-          "text": "Advance your career at Tampa General Hospital, MacDill Air Force Base, or other major employers. CAPM certification strengthens your project management credentials in Tampa's fastest-growing industries."
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "CAPM Bootcamp — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "CAPM Exam Prep Bootcamp",
+                    "badge": "INTENSIVE",
+                    "desc": "Three intensive days of live-virtual CAPM prep. Satisfies PMI’s 23 contact hour requirement. No prior experience needed.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$995",
+                    "period": "per person",
+                    "features": "23 PMI contact hours included\nNo prior experience required\nFull exam strategy session\n90-day pass guarantee\nLive-virtual — no travel",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#capm_boot_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"capm_boot_schedule\"></div>[course_schedule type=\"CAPM Bootcamp\"]"
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
+                },
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "CAPM Bootcamp FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "What’s the difference between the CAPM Bootcamp and CAPM Certification Training?",
+                    "answer": "<p>Both options satisfy PMI’s 23 contact hour requirement and include the same pass guarantee. The bootcamp is more intensive &mdash; concentrated instruction over three days with a stronger focus on exam strategy and practice questions.</p>"
+                },
+                {
+                    "question": "Can I take the CAPM Bootcamp from {city} without traveling?",
+                    "answer": "<p>Yes. The bootcamp is fully live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+                },
+                {
+                    "question": "Does the CAPM Bootcamp satisfy PMI’s 23 contact hour requirement?",
+                    "answer": "<p>Yes. You receive all 23 PMI contact hours required to apply for the CAPM exam, plus a certificate of completion.</p>"
+                },
+                {
+                    "question": "Is the bootcamp suitable for someone with no PM background?",
+                    "answer": "<p>Yes. The CAPM has no experience requirement, and neither does our bootcamp. The course starts with foundational PM concepts before moving into exam preparation.</p>"
+                },
+                {
+                    "question": "How much do CAPM and PMP certified project managers earn in Tampa?",
+                    "answer": "PMP-certified project managers in Tampa earn $95,000–$125,000 annually, with higher salaries in finance, defense contracting, and enterprise technology. CAPM certification establishes foundational credentials that lead to these competitive roles at major employers like Raymond James Financial, Citigroup, Jabil, and MacDill Air Force Base contractors."
+                },
+                {
+                    "question": "Can I complete CAPM bootcamp while working full-time in Tampa?",
+                    "answer": "Yes. Granite PM Academy's bootcamp is designed for working professionals. Tampa's fast-paced industries—healthcare, finance, and tech—value employees who earn CAPM certification while employed. Most professionals complete the program in 2–4 weeks of part-time study, balancing work at Tampa General, BayCare, or Tech Data with exam prep."
+                }
+            ],
+            "ai_type_id": "faq_additions",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-27T20:12:42.259887Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_additions",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Fast-Track Your CAPM from {city}",
+            "cb_subtext": "Three focused days of live-virtual instruction. Everything {city} professionals need to pass the CAPM exam.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#capm_boot_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
         }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T20:12:39.489427Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_locked": true
+    ],
+    "seo": {
+        "seo_title": "CAPM Exam Prep Bootcamp {city} {SS} | Intensive CAPM Training | {business}",
+        "canonical_url": "",
+        "meta_description": "Intensive CAPM exam prep bootcamp in {city}, {SS}. 3-day live-virtual course satisfies the 23 contact hour requirement. PMI Premier ATP.",
+        "meta_keywords": "CAPM bootcamp {city} TX, CAPM exam prep bootcamp {city_state}, intensive CAPM training {city}",
+        "og_title": "CAPM Bootcamp in {city}, {SS} | {business}",
+        "og_description": "Earn your CAPM fast with Granite PM Academy’s intensive bootcamp. Live-virtual from {city}. PMI Premier ATP.",
+        "og_image": "",
+        "service_name": "CAPM Exam Prep Bootcamp",
+        "service_type": "Course",
+        "service_area": "{city}, {SS}",
+        "service_description": "Intensive live-virtual CAPM exam prep bootcamp for aspiring project managers in {city_state}.",
+        "bc_label": "CAPM Bootcamp {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": ""
     },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "CAPM Bootcamp — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "CAPM Exam Prep Bootcamp",
-          "badge": "INTENSIVE",
-          "desc": "Three intensive days of live-virtual CAPM prep. Satisfies PMI’s 23 contact hour requirement. No prior experience needed.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$995",
-          "period": "per person",
-          "features": "23 PMI contact hours included\nNo prior experience required\nFull exam strategy session\n90-day pass guarantee\nLive-virtual — no travel",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#capm_boot_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"capm_boot_schedule\"></div>[course_schedule type=\"CAPM Bootcamp\"]"
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ PMP® + PMI-ACP® Certified"
-        },
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "CAPM Bootcamp FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "What’s the difference between the CAPM Bootcamp and CAPM Certification Training?",
-          "answer": "<p>Both options satisfy PMI’s 23 contact hour requirement and include the same pass guarantee. The bootcamp is more intensive &mdash; concentrated instruction over three days with a stronger focus on exam strategy and practice questions.</p>"
-        },
-        {
-          "question": "Can I take the CAPM Bootcamp from {city} without traveling?",
-          "answer": "<p>Yes. The bootcamp is fully live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-        },
-        {
-          "question": "Does the CAPM Bootcamp satisfy PMI’s 23 contact hour requirement?",
-          "answer": "<p>Yes. You receive all 23 PMI contact hours required to apply for the CAPM exam, plus a certificate of completion.</p>"
-        },
-        {
-          "question": "Is the bootcamp suitable for someone with no PM background?",
-          "answer": "<p>Yes. The CAPM has no experience requirement, and neither does our bootcamp. The course starts with foundational PM concepts before moving into exam preparation.</p>"
-        },
-        {
-          "question": "How much do CAPM and PMP certified project managers earn in Tampa?",
-          "answer": "PMP-certified project managers in Tampa earn $95,000–$125,000 annually, with higher salaries in finance, defense contracting, and enterprise technology. CAPM certification establishes foundational credentials that lead to these competitive roles at major employers like Raymond James Financial, Citigroup, Jabil, and MacDill Air Force Base contractors."
-        },
-        {
-          "question": "Can I complete CAPM bootcamp while working full-time in Tampa?",
-          "answer": "Yes. Granite PM Academy's bootcamp is designed for working professionals. Tampa's fast-paced industries—healthcare, finance, and tech—value employees who earn CAPM certification while employed. Most professionals complete the program in 2–4 weeks of part-time study, balancing work at Tampa General, BayCare, or Tech Data with exam prep."
-        }
-      ],
-      "ai_type_id": "faq_additions",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T20:12:42.259887Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_additions",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Fast-Track Your CAPM from {city}",
-      "cb_subtext": "Three focused days of live-virtual instruction. Everything {city} professionals need to pass the CAPM exam.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#capm_boot_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "CAPM Exam Prep Bootcamp {city} {SS} | Intensive CAPM Training | {business}",
-    "canonical_url": "",
-    "meta_description": "Intensive CAPM exam prep bootcamp in {city}, {SS}. 3-day live-virtual course satisfies the 23 contact hour requirement. PMI Premier ATP.",
-    "meta_keywords": "CAPM bootcamp {city} TX, CAPM exam prep bootcamp {city_state}, intensive CAPM training {city}",
-    "og_title": "CAPM Bootcamp in {city}, {SS} | {business}",
-    "og_description": "Earn your CAPM fast with Granite PM Academy’s intensive bootcamp. Live-virtual from {city}. PMI Premier ATP.",
-    "og_image": "",
-    "service_name": "CAPM Exam Prep Bootcamp",
-    "service_type": "Course",
-    "service_area": "{city}, {SS}",
-    "service_description": "Intensive live-virtual CAPM exam prep bootcamp for aspiring project managers in {city_state}.",
-    "bc_label": "CAPM Bootcamp {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": ""
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-06-27T20:08:11+00:00",
-  "template_version": "1a1424df79f9789f02da882279781264"
+    "locked_blocks": [],
+    "generated_at": "2026-06-28T21:40:23+00:00",
+    "template_version": "1a1424df79f9789f02da882279781264"
 }

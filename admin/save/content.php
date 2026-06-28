@@ -34,6 +34,10 @@
             'bc_label'           => trim($_POST['bc_label']           ?? ''),
             'bc_mid_label'       => trim($_POST['bc_mid_label']       ?? ''),
             'bc_mid_url'         => sanitize_url($_POST['bc_mid_url'] ?? ''),
+            'og_site_name'       => trim($_POST['og_site_name']       ?? ''),
+            'og_locale'          => trim($_POST['og_locale']          ?? ''),
+            'twitter_card'       => in_array($_POST['twitter_card'] ?? '', ['summary_large_image','summary']) ? $_POST['twitter_card'] : '',
+            'twitter_handle'     => trim($_POST['twitter_handle']     ?? ''),
         ];
         $existingSeo = $isLandingPage ? $data['pages'][$pageId]['seo'] : ($isPost ? $data['posts'][$postId]['seo'] : $data['seo']);
         $schema = trim($_POST['schema'] ?? '');

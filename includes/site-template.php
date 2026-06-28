@@ -86,10 +86,34 @@ if (empty($seo['og_image'])) {
     $ogTitle = !empty($seo['og_title']) ? $seo['og_title'] : $pageTitle;
     $ogDesc  = !empty($seo['og_description']) ? $seo['og_description'] : ($seo['meta_description'] ?? '');
     ?>
-    <meta property="og:type"  content="website">
-    <meta property="og:title" content="<?= h($ogTitle) ?>">
+    <?php
+    $ogSiteName = !empty($seo['og_site_name'])   ? $seo['og_site_name']   : ($data['seo']['og_site_name']   ?? '');
+    $ogLocale   = !empty($seo['og_locale'])       ? $seo['og_locale']       : ($data['seo']['og_locale']       ?? 'en_US');
+    $twCard     = !empty($seo['twitter_card'])    ? $seo['twitter_card']    : ($data['seo']['twitter_card']    ?? 'summary_large_image');
+    $twHandle   = !empty($seo['twitter_handle'])  ? $seo['twitter_handle']  : ($data['seo']['twitter_handle']  ?? '');
+    $ogImageAbsUrl = !empty($seo['og_image']) ? rtrim(resolve_shortcodes('{website}'), '/') . '/' . ltrim($seo['og_image'], '/') : '';
+    $ogImageDims   = [];
+    if (!empty($seo['og_image'])) {
+        $ogImgFile = BASE_DIR . '/' . ltrim($seo['og_image'], '/');
+        if (file_exists($ogImgFile)) { $sz = @getimagesize($ogImgFile); if ($sz) $ogImageDims = [$sz[0], $sz[1]]; }
+    }
+    ?>
+    <meta property="og:type"        content="website">
+    <meta property="og:title"       content="<?= h($ogTitle) ?>">
     <?php if ($ogDesc): ?><meta property="og:description" content="<?= h($ogDesc) ?>"><?php endif; ?>
-    <?php if (!empty($seo['og_image'])): ?><meta property="og:image" content="<?= h(rtrim(resolve_shortcodes('{website}'), '/') . '/' . ltrim($seo['og_image'], '/')) ?>"><?php endif; ?>
+    <?php if ($canonicalUrl): ?><meta property="og:url"  content="<?= h($canonicalUrl) ?>"><?php endif; ?>
+    <?php if ($ogSiteName): ?><meta property="og:site_name" content="<?= h($ogSiteName) ?>"><?php endif; ?>
+    <meta property="og:locale"      content="<?= h($ogLocale) ?>">
+    <?php if ($ogImageAbsUrl): ?><meta property="og:image" content="<?= h($ogImageAbsUrl) ?>"><?php endif; ?>
+    <?php if ($ogImageDims): ?>
+    <meta property="og:image:width"  content="<?= (int)$ogImageDims[0] ?>">
+    <meta property="og:image:height" content="<?= (int)$ogImageDims[1] ?>">
+    <?php endif; ?>
+    <meta name="twitter:card"        content="<?= h($twCard) ?>">
+    <meta name="twitter:title"       content="<?= h($ogTitle) ?>">
+    <?php if ($ogDesc): ?><meta name="twitter:description" content="<?= h($ogDesc) ?>"><?php endif; ?>
+    <?php if ($ogImageAbsUrl): ?><meta name="twitter:image" content="<?= h($ogImageAbsUrl) ?>"><?php endif; ?>
+    <?php if ($twHandle): ?><meta name="twitter:site"  content="<?= h($twHandle) ?>"><?php endif; ?>
     <?php
     // Google Fonts loader — only requests fonts that need network loading
     $gfSystemFonts = ['sans-serif','serif','monospace','Arial, sans-serif','Helvetica, sans-serif','Verdana, sans-serif','Trebuchet MS, sans-serif','Georgia, serif'];

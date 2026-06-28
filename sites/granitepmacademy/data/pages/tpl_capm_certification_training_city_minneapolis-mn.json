@@ -1,287 +1,307 @@
 {
-  "template_id": "tpl_capm_certification_training_city",
-  "city_id": "minneapolis-mn",
-  "slug": "capm-certification-training-minneapolis-mn",
-  "title": "CAPM Certification Training {city}",
-  "city_vars": {
-    "id": "minneapolis-mn",
-    "city": "Minneapolis",
-    "state": "Minnesota",
-    "SS": "MN",
-    "city_slug": "minneapolis-mn",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [],
-    "industries": [],
-    "top_employers": [],
-    "salary_note": "",
-    "market_blurb": ""
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "CAPM Certification Training in {city}, {SS}",
-      "hs_subtext": "Minneapolis's thriving healthcare and technology sectors demand skilled project managers who can deliver complex initiatives on time and within budget. Granite PM Academy's PMI-authorized, live-virtual instructor-led CAPM training equips you with recognized credentials and practical tools. Graduates advance their careers faster and command higher salaries, backed by our industry-leading pass rates.",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#capm_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "CAPM certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T20:12:54.855843Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_locked": true
+    "template_id": "tpl_capm_certification_training_city",
+    "city_id": "minneapolis-mn",
+    "slug": "capm-certification-training-minneapolis-mn",
+    "title": "CAPM Certification Training {city}",
+    "city_vars": {
+        "id": "minneapolis-mn",
+        "city": "Minneapolis",
+        "state": "Minnesota",
+        "SS": "MN",
+        "city_slug": "minneapolis-mn",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [],
+        "industries": [
+            "healthcare",
+            "finance",
+            "technology",
+            "retail/consumer goods",
+            "manufacturing",
+            "insurance"
+        ],
+        "top_employers": [
+            "UnitedHealth Group",
+            "Mayo Clinic",
+            "Target Corporation",
+            "Best Buy",
+            "U.S. Bancorp",
+            "Ameriprise Financial",
+            "3M",
+            "Medtronic",
+            "General Mills",
+            "Allina Health",
+            "Fairview Health Services",
+            "Hennepin Healthcare"
+        ],
+        "salary_note": "PMP-certified project managers in Minneapolis, Minnesota typically earn between $95,000 and $130,000 annually, with professionals in healthcare, financial services, and technology often commanding salaries at the higher end of that range.",
+        "market_blurb": "Minneapolis boasts a robust and diverse project management job market anchored by a concentration of Fortune 500 headquarters including UnitedHealth Group, Target, and U.S. Bancorp, creating consistent demand for skilled PMs across healthcare, finance, retail, and technology sectors. The city's large healthcare ecosystem, spanning major health systems and medical device companies like Medtronic, places particular value on structured project delivery and compliance-driven methodologies. PMP certification signals to Minneapolis employers that a candidate possesses the standardized skills and professional rigor needed to manage complex, cross-functional initiatives in these heavily regulated and competitive industries."
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "CAPM Certification Demand in Minneapolis Project Management",
-      "text": "<p>Minneapolis hosts one of the nation's most dynamic project management markets, anchored by Fortune 500 powerhouses like UnitedHealth Group, Target Corporation, and U.S. Bancorp. The city's thriving healthcare ecosystem—home to Mayo Clinic, Medtronic, and major health systems—places exceptional value on structured project delivery and compliance-driven methodologies. For Minneapolis professionals working in these regulated industries, CAPM Certification Training provides the foundational credentials that employers actively seek. CAPM Certification signals to hiring managers that you've mastered standardized PM frameworks and possess the professional rigor needed to manage complex, cross-functional initiatives in competitive sectors like healthcare, finance, and technology.</p><p>Earning your CAPM Certification in Minneapolis can meaningfully accelerate your career trajectory and earning potential. Project management certified professionals in the Minneapolis market typically command salaries between $95,000 and $130,000 annually, with those in healthcare, financial services, and technology often reaching the higher end of that range. As the city's major employers continue to expand operations and manage increasingly complex projects, demand for certified PMs remains strong. Completing CAPM Certification Training positions you to compete for these high-value roles and advance into senior project leadership opportunities.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T20:12:58.032907Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "",
-      "fc_num_cols": 4,
-      "columns": [
+    "content_blocks": [
         {
-          "heading": "Live Instructor-Led Training",
-          "text": "Learn directly from experienced instructors in interactive sessions. Real-time Q&A, immediate feedback, and personalized guidance accelerate your understanding of CAPM concepts."
+            "type": "hero_split",
+            "hs_heading": "CAPM Certification Training in {city}, {SS}",
+            "hs_subtext": "Minneapolis's thriving healthcare and technology sectors demand skilled project managers who can deliver complex initiatives on time and within budget. Granite PM Academy's PMI-authorized, live-virtual instructor-led CAPM training equips you with recognized credentials and practical tools. Graduates advance their careers faster and command higher salaries, backed by our industry-leading pass rates.",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#capm_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "CAPM certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-27T20:12:54.855843Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_locked": true
         },
         {
-          "heading": "PMI Premier ATP Authorization",
-          "text": "Train with a PMI-authorized partner meeting rigorous standards. Our curriculum is officially endorsed, ensuring content quality and alignment with current PMI requirements."
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "CAPM Certification Demand in Minneapolis Project Management",
+            "text": "<p>Minneapolis hosts one of the nation's most dynamic project management markets, anchored by Fortune 500 powerhouses like UnitedHealth Group, Target Corporation, and U.S. Bancorp. The city's thriving healthcare ecosystem—home to Mayo Clinic, Medtronic, and major health systems—places exceptional value on structured project delivery and compliance-driven methodologies. For Minneapolis professionals working in these regulated industries, CAPM Certification Training provides the foundational credentials that employers actively seek. CAPM Certification signals to hiring managers that you've mastered standardized PM frameworks and possess the professional rigor needed to manage complex, cross-functional initiatives in competitive sectors like healthcare, finance, and technology.</p><p>Earning your CAPM Certification in Minneapolis can meaningfully accelerate your career trajectory and earning potential. Project management certified professionals in the Minneapolis market typically command salaries between $95,000 and $130,000 annually, with those in healthcare, financial services, and technology often reaching the higher end of that range. As the city's major employers continue to expand operations and manage increasingly complex projects, demand for certified PMs remains strong. Completing CAPM Certification Training positions you to compete for these high-value roles and advance into senior project leadership opportunities.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-27T20:12:58.032907Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_locked": true
         },
         {
-          "heading": "Comprehensive Exam Prep",
-          "text": "Master CAPM exam domains through focused lessons, practice questions, and mock exams. Our structured approach builds confidence and maximizes your pass rate potential."
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Live Instructor-Led Training",
+                    "text": "Learn directly from experienced instructors in interactive sessions. Real-time Q&A, immediate feedback, and personalized guidance accelerate your understanding of CAPM concepts."
+                },
+                {
+                    "heading": "PMI Premier ATP Authorization",
+                    "text": "Train with a PMI-authorized partner meeting rigorous standards. Our curriculum is officially endorsed, ensuring content quality and alignment with current PMI requirements."
+                },
+                {
+                    "heading": "Comprehensive Exam Prep",
+                    "text": "Master CAPM exam domains through focused lessons, practice questions, and mock exams. Our structured approach builds confidence and maximizes your pass rate potential."
+                },
+                {
+                    "heading": "Advance Your Healthcare Career",
+                    "text": "Minneapolis healthcare leaders like Mayo Clinic and UnitedHealth Group value certified project managers. CAPM certification strengthens your credentials in Minnesota's largest industry."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-27T20:13:00.973055Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_locked": true
         },
         {
-          "heading": "Advance Your Healthcare Career",
-          "text": "Minneapolis healthcare leaders like Mayo Clinic and UnitedHealth Group value certified project managers. CAPM certification strengthens your credentials in Minnesota's largest industry."
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "CAPM Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual CAPM Training",
+                    "badge": "BEST VALUE",
+                    "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$795",
+                    "period": "per person",
+                    "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#capm_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
+                },
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need project management experience to take the CAPM?",
+                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+                },
+                {
+                    "question": "Is the CAPM a good starting credential for {city} professionals?",
+                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+                },
+                {
+                    "question": "How does the CAPM differ from the PMP?",
+                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+                },
+                {
+                    "question": "Is this training delivered online?",
+                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+                },
+                {
+                    "question": "What salary can CAPM certified project managers expect in Minneapolis?",
+                    "answer": "CAPM-certified professionals in Minneapolis typically earn $95,000–$130,000 annually. Healthcare, financial services, and technology sectors—dominated by employers like UnitedHealth Group, U.S. Bancorp, and Best Buy—often offer higher compensation. CAPM certification demonstrates foundational PM competency, positioning you competitively within Minneapolis's robust job market."
+                },
+                {
+                    "question": "How long does CAPM certification training take while working full-time in Minneapolis?",
+                    "answer": "Granite PM Academy's CAPM training typically requires 23–40 hours of instruction, completable over 2–4 weeks through flexible evening or weekend classes. This schedule accommodates Minneapolis professionals balancing full-time roles at major employers like Mayo Clinic, Target, and Medtronic while pursuing certification and career advancement."
+                }
+            ],
+            "ai_type_id": "faq_additions",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-27T20:13:03.786674Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_additions",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Launch Your PM Career from {city}",
+            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#capm_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
         }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T20:13:00.973055Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_locked": true
+    ],
+    "seo": {
+        "seo_title": "CAPM Certification Training {city} {SS} | PMI Exam Prep | {business}",
+        "canonical_url": "",
+        "meta_description": "CAPM certification training in {city}, {SS} from a PMI Premier ATP. 3-day live-virtual course satisfies the 23 contact hour requirement. Enroll online.",
+        "meta_keywords": "CAPM certification training {city} TX, CAPM exam prep {city}, certified associate project management {city_state}",
+        "og_title": "CAPM Certification Training in {city}, {SS} | {business}",
+        "og_description": "Earn your CAPM in {city_state} with Granite PM Academy — PMI Premier ATP. Live-virtual instruction, no experience required.",
+        "og_image": "",
+        "service_name": "CAPM Certification Training",
+        "service_type": "Course",
+        "service_area": "{city}, {SS}",
+        "service_description": "PMI-aligned CAPM certification training for aspiring project managers in {city_state}.",
+        "bc_label": "CAPM Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": ""
     },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "CAPM Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual CAPM Training",
-          "badge": "BEST VALUE",
-          "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$795",
-          "period": "per person",
-          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#capm_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ PMP® + PMI-ACP® Certified"
-        },
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need project management experience to take the CAPM?",
-          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-        },
-        {
-          "question": "Is the CAPM a good starting credential for {city} professionals?",
-          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-        },
-        {
-          "question": "How does the CAPM differ from the PMP?",
-          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-        },
-        {
-          "question": "Is this training delivered online?",
-          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-        },
-        {
-          "question": "What salary can CAPM certified project managers expect in Minneapolis?",
-          "answer": "CAPM-certified professionals in Minneapolis typically earn $95,000–$130,000 annually. Healthcare, financial services, and technology sectors—dominated by employers like UnitedHealth Group, U.S. Bancorp, and Best Buy—often offer higher compensation. CAPM certification demonstrates foundational PM competency, positioning you competitively within Minneapolis's robust job market."
-        },
-        {
-          "question": "How long does CAPM certification training take while working full-time in Minneapolis?",
-          "answer": "Granite PM Academy's CAPM training typically requires 23–40 hours of instruction, completable over 2–4 weeks through flexible evening or weekend classes. This schedule accommodates Minneapolis professionals balancing full-time roles at major employers like Mayo Clinic, Target, and Medtronic while pursuing certification and career advancement."
-        }
-      ],
-      "ai_type_id": "faq_additions",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T20:13:03.786674Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_additions",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Launch Your PM Career from {city}",
-      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#capm_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "CAPM Certification Training {city} {SS} | PMI Exam Prep | {business}",
-    "canonical_url": "",
-    "meta_description": "CAPM certification training in {city}, {SS} from a PMI Premier ATP. 3-day live-virtual course satisfies the 23 contact hour requirement. Enroll online.",
-    "meta_keywords": "CAPM certification training {city} TX, CAPM exam prep {city}, certified associate project management {city_state}",
-    "og_title": "CAPM Certification Training in {city}, {SS} | {business}",
-    "og_description": "Earn your CAPM in {city_state} with Granite PM Academy — PMI Premier ATP. Live-virtual instruction, no experience required.",
-    "og_image": "",
-    "service_name": "CAPM Certification Training",
-    "service_type": "Course",
-    "service_area": "{city}, {SS}",
-    "service_description": "PMI-aligned CAPM certification training for aspiring project managers in {city_state}.",
-    "bc_label": "CAPM Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": ""
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-06-27T20:08:11+00:00",
-  "template_version": "7b9cbf5bb35e5dc3eb2cec1ebb883bf8"
+    "locked_blocks": [],
+    "generated_at": "2026-06-28T21:40:23+00:00",
+    "template_version": "7b9cbf5bb35e5dc3eb2cec1ebb883bf8"
 }

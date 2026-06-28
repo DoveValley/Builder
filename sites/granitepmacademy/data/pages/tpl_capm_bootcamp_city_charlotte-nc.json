@@ -1,287 +1,307 @@
 {
-  "template_id": "tpl_capm_bootcamp_city",
-  "city_id": "charlotte-nc",
-  "slug": "capm-bootcamp-charlotte-nc",
-  "title": "CAPM Bootcamp {city}",
-  "city_vars": {
-    "id": "charlotte-nc",
-    "city": "Charlotte",
-    "state": "North Carolina",
-    "SS": "NC",
-    "city_slug": "charlotte-nc",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [],
-    "industries": [],
-    "top_employers": [],
-    "salary_note": "",
-    "market_blurb": ""
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "CAPM Exam Prep Bootcamp in {city}, {SS}",
-      "hs_subtext": "In Charlotte's thriving finance and technology sectors, employers like Bank of America and Honeywell increasingly require project management credentials for advancement. Granite PM Academy delivers live-virtual, PMI-authorized CAPM training that fits your schedule while meeting industry standards. Pass the exam on your first attempt and position yourself for meaningful salary growth and career progression.",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#capm_boot_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "CAPM bootcamp {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T20:12:10.954311Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_locked": true
+    "template_id": "tpl_capm_bootcamp_city",
+    "city_id": "charlotte-nc",
+    "slug": "capm-bootcamp-charlotte-nc",
+    "title": "CAPM Bootcamp {city}",
+    "city_vars": {
+        "id": "charlotte-nc",
+        "city": "Charlotte",
+        "state": "North Carolina",
+        "SS": "NC",
+        "city_slug": "charlotte-nc",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [],
+        "industries": [
+            "finance/banking",
+            "technology",
+            "healthcare",
+            "energy",
+            "manufacturing",
+            "real estate/construction"
+        ],
+        "top_employers": [
+            "Bank of America",
+            "Wells Fargo",
+            "Duke Energy",
+            "Atrium Health",
+            "Novant Health",
+            "Truist Financial",
+            "Honeywell",
+            "Red Ventures",
+            "Lowe's Companies",
+            "Danaher",
+            "LendingTree",
+            "Centene Corporation"
+        ],
+        "salary_note": "PMP-certified project managers in Charlotte, North Carolina typically earn between $95,000 and $130,000 annually, with professionals in financial services, technology, and energy sectors often commanding salaries at the higher end of that range.",
+        "market_blurb": "Charlotte is one of the fastest-growing major cities in the Southeast and serves as a national hub for financial services, hosting the headquarters of Bank of America and significant operations for Wells Fargo and Truist Financial, all of which maintain large project management workforces. The city's expanding technology, healthcare, and energy sectors—anchored by employers like Duke Energy, Atrium Health, and Honeywell—further drive consistent demand for skilled project managers. PMP certification is particularly valuable in Charlotte's competitive job market, as major employers in banking and regulated industries increasingly require or prefer the credential when hiring or promoting project management professionals."
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Demand in Charlotte's Growing Market",
-      "text": "<p>Charlotte's position as a national financial services hub makes CAPM certification increasingly valuable for professionals seeking advancement. Major employers like Bank of America, Wells Fargo, and Truist Financial maintain substantial project management teams and actively prioritize certified talent during hiring and promotion cycles. Beyond banking, Charlotte's expanding technology, healthcare, and energy sectors—anchored by employers such as Duke Energy, Atrium Health, and Honeywell—consistently seek qualified project managers to lead critical initiatives. The CAPM certification demonstrates your readiness to manage complex projects and signals to recruiters that you've met PMI's rigorous standards.</p><p>Earning your CAPM certification in Charlotte opens doors to meaningful career growth and competitive compensation. PMP-certified project managers in Charlotte typically earn between $95,000 and $130,000 annually, with professionals in financial services, technology, and energy sectors often commanding salaries at the higher end of that range. As Charlotte continues its rapid growth and these major industries expand their operations, demand for certified project management professionals shows no signs of slowing. Completing a structured CAPM Exam Prep Bootcamp positions you to earn this credential quickly and confidently, accelerating your path to higher-paying roles and leadership opportunities.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T20:12:14.239954Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "",
-      "fc_num_cols": 4,
-      "columns": [
+    "content_blocks": [
         {
-          "heading": "Live Instructor-Led Training",
-          "text": "Learn directly from experienced PMs in real-time. Ask questions, get immediate feedback, and master concepts with interactive instruction designed for exam success."
+            "type": "hero_split",
+            "hs_heading": "CAPM Exam Prep Bootcamp in {city}, {SS}",
+            "hs_subtext": "In Charlotte's thriving finance and technology sectors, employers like Bank of America and Honeywell increasingly require project management credentials for advancement. Granite PM Academy delivers live-virtual, PMI-authorized CAPM training that fits your schedule while meeting industry standards. Pass the exam on your first attempt and position yourself for meaningful salary growth and career progression.",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#capm_boot_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "CAPM bootcamp {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-27T20:12:10.954311Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_locked": true
         },
         {
-          "heading": "PMI Premier ATP Authorization",
-          "text": "Study with a PMI-recognized premier partner. Gain confidence knowing your bootcamp meets the highest standards for project management education and exam preparation."
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Demand in Charlotte's Growing Market",
+            "text": "<p>Charlotte's position as a national financial services hub makes CAPM certification increasingly valuable for professionals seeking advancement. Major employers like Bank of America, Wells Fargo, and Truist Financial maintain substantial project management teams and actively prioritize certified talent during hiring and promotion cycles. Beyond banking, Charlotte's expanding technology, healthcare, and energy sectors—anchored by employers such as Duke Energy, Atrium Health, and Honeywell—consistently seek qualified project managers to lead critical initiatives. The CAPM certification demonstrates your readiness to manage complex projects and signals to recruiters that you've met PMI's rigorous standards.</p><p>Earning your CAPM certification in Charlotte opens doors to meaningful career growth and competitive compensation. PMP-certified project managers in Charlotte typically earn between $95,000 and $130,000 annually, with professionals in financial services, technology, and energy sectors often commanding salaries at the higher end of that range. As Charlotte continues its rapid growth and these major industries expand their operations, demand for certified project management professionals shows no signs of slowing. Completing a structured CAPM Exam Prep Bootcamp positions you to earn this credential quickly and confidently, accelerating your path to higher-paying roles and leadership opportunities.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-27T20:12:14.239954Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_locked": true
         },
         {
-          "heading": "Small Classes, Big Results",
-          "text": "Personalized attention in groups under 15 students. Our low instructor-to-student ratio ensures you receive targeted support and achieve high pass rates consistently."
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Live Instructor-Led Training",
+                    "text": "Learn directly from experienced PMs in real-time. Ask questions, get immediate feedback, and master concepts with interactive instruction designed for exam success."
+                },
+                {
+                    "heading": "PMI Premier ATP Authorization",
+                    "text": "Study with a PMI-recognized premier partner. Gain confidence knowing your bootcamp meets the highest standards for project management education and exam preparation."
+                },
+                {
+                    "heading": "Small Classes, Big Results",
+                    "text": "Personalized attention in groups under 15 students. Our low instructor-to-student ratio ensures you receive targeted support and achieve high pass rates consistently."
+                },
+                {
+                    "heading": "Launch Your PM Career in Charlotte",
+                    "text": "Bank of America, Duke Energy, and Honeywell actively hire CAPM-certified professionals. Earn your credential and unlock career advancement opportunities with Charlotte's leading Fortune 500 employers."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-27T20:12:17.013506Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_locked": true
         },
         {
-          "heading": "Launch Your PM Career in Charlotte",
-          "text": "Bank of America, Duke Energy, and Honeywell actively hire CAPM-certified professionals. Earn your credential and unlock career advancement opportunities with Charlotte's leading Fortune 500 employers."
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "CAPM Bootcamp — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "CAPM Exam Prep Bootcamp",
+                    "badge": "INTENSIVE",
+                    "desc": "Three intensive days of live-virtual CAPM prep. Satisfies PMI’s 23 contact hour requirement. No prior experience needed.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$995",
+                    "period": "per person",
+                    "features": "23 PMI contact hours included\nNo prior experience required\nFull exam strategy session\n90-day pass guarantee\nLive-virtual — no travel",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#capm_boot_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"capm_boot_schedule\"></div>[course_schedule type=\"CAPM Bootcamp\"]"
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
+                },
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "CAPM Bootcamp FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "What’s the difference between the CAPM Bootcamp and CAPM Certification Training?",
+                    "answer": "<p>Both options satisfy PMI’s 23 contact hour requirement and include the same pass guarantee. The bootcamp is more intensive &mdash; concentrated instruction over three days with a stronger focus on exam strategy and practice questions.</p>"
+                },
+                {
+                    "question": "Can I take the CAPM Bootcamp from {city} without traveling?",
+                    "answer": "<p>Yes. The bootcamp is fully live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+                },
+                {
+                    "question": "Does the CAPM Bootcamp satisfy PMI’s 23 contact hour requirement?",
+                    "answer": "<p>Yes. You receive all 23 PMI contact hours required to apply for the CAPM exam, plus a certificate of completion.</p>"
+                },
+                {
+                    "question": "Is the bootcamp suitable for someone with no PM background?",
+                    "answer": "<p>Yes. The CAPM has no experience requirement, and neither does our bootcamp. The course starts with foundational PM concepts before moving into exam preparation.</p>"
+                },
+                {
+                    "question": "What salary can CAPM certification earn me in Charlotte's finance sector?",
+                    "answer": "CAPM-certified professionals in Charlotte's finance and banking sector—home to Bank of America, Wells Fargo, and Truist Financial—typically earn $95,000–$130,000 annually. Higher-end salaries are common in financial services, especially as you progress toward PMP certification and gain project leadership experience."
+                },
+                {
+                    "question": "How long does CAPM bootcamp take while working full-time in Charlotte?",
+                    "answer": "Granite PM Academy's intensive bootcamp format accommodates Charlotte's full-time professionals with flexible scheduling. Most candidates complete the program in 4–6 weeks while maintaining employment, with evening and weekend options available to fit around work schedules at major employers like Duke Energy, Honeywell, and Atrium Health."
+                }
+            ],
+            "ai_type_id": "faq_additions",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-27T20:12:19.629217Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_additions",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Fast-Track Your CAPM from {city}",
+            "cb_subtext": "Three focused days of live-virtual instruction. Everything {city} professionals need to pass the CAPM exam.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#capm_boot_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
         }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T20:12:17.013506Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_locked": true
+    ],
+    "seo": {
+        "seo_title": "CAPM Exam Prep Bootcamp {city} {SS} | Intensive CAPM Training | {business}",
+        "canonical_url": "",
+        "meta_description": "Intensive CAPM exam prep bootcamp in {city}, {SS}. 3-day live-virtual course satisfies the 23 contact hour requirement. PMI Premier ATP.",
+        "meta_keywords": "CAPM bootcamp {city} TX, CAPM exam prep bootcamp {city_state}, intensive CAPM training {city}",
+        "og_title": "CAPM Bootcamp in {city}, {SS} | {business}",
+        "og_description": "Earn your CAPM fast with Granite PM Academy’s intensive bootcamp. Live-virtual from {city}. PMI Premier ATP.",
+        "og_image": "",
+        "service_name": "CAPM Exam Prep Bootcamp",
+        "service_type": "Course",
+        "service_area": "{city}, {SS}",
+        "service_description": "Intensive live-virtual CAPM exam prep bootcamp for aspiring project managers in {city_state}.",
+        "bc_label": "CAPM Bootcamp {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": ""
     },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "CAPM Bootcamp — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "CAPM Exam Prep Bootcamp",
-          "badge": "INTENSIVE",
-          "desc": "Three intensive days of live-virtual CAPM prep. Satisfies PMI’s 23 contact hour requirement. No prior experience needed.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$995",
-          "period": "per person",
-          "features": "23 PMI contact hours included\nNo prior experience required\nFull exam strategy session\n90-day pass guarantee\nLive-virtual — no travel",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#capm_boot_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"capm_boot_schedule\"></div>[course_schedule type=\"CAPM Bootcamp\"]"
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ PMP® + PMI-ACP® Certified"
-        },
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "CAPM Bootcamp FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "What’s the difference between the CAPM Bootcamp and CAPM Certification Training?",
-          "answer": "<p>Both options satisfy PMI’s 23 contact hour requirement and include the same pass guarantee. The bootcamp is more intensive &mdash; concentrated instruction over three days with a stronger focus on exam strategy and practice questions.</p>"
-        },
-        {
-          "question": "Can I take the CAPM Bootcamp from {city} without traveling?",
-          "answer": "<p>Yes. The bootcamp is fully live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-        },
-        {
-          "question": "Does the CAPM Bootcamp satisfy PMI’s 23 contact hour requirement?",
-          "answer": "<p>Yes. You receive all 23 PMI contact hours required to apply for the CAPM exam, plus a certificate of completion.</p>"
-        },
-        {
-          "question": "Is the bootcamp suitable for someone with no PM background?",
-          "answer": "<p>Yes. The CAPM has no experience requirement, and neither does our bootcamp. The course starts with foundational PM concepts before moving into exam preparation.</p>"
-        },
-        {
-          "question": "What salary can CAPM certification earn me in Charlotte's finance sector?",
-          "answer": "CAPM-certified professionals in Charlotte's finance and banking sector—home to Bank of America, Wells Fargo, and Truist Financial—typically earn $95,000–$130,000 annually. Higher-end salaries are common in financial services, especially as you progress toward PMP certification and gain project leadership experience."
-        },
-        {
-          "question": "How long does CAPM bootcamp take while working full-time in Charlotte?",
-          "answer": "Granite PM Academy's intensive bootcamp format accommodates Charlotte's full-time professionals with flexible scheduling. Most candidates complete the program in 4–6 weeks while maintaining employment, with evening and weekend options available to fit around work schedules at major employers like Duke Energy, Honeywell, and Atrium Health."
-        }
-      ],
-      "ai_type_id": "faq_additions",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-27T20:12:19.629217Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_additions",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Fast-Track Your CAPM from {city}",
-      "cb_subtext": "Three focused days of live-virtual instruction. Everything {city} professionals need to pass the CAPM exam.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#capm_boot_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "CAPM Exam Prep Bootcamp {city} {SS} | Intensive CAPM Training | {business}",
-    "canonical_url": "",
-    "meta_description": "Intensive CAPM exam prep bootcamp in {city}, {SS}. 3-day live-virtual course satisfies the 23 contact hour requirement. PMI Premier ATP.",
-    "meta_keywords": "CAPM bootcamp {city} TX, CAPM exam prep bootcamp {city_state}, intensive CAPM training {city}",
-    "og_title": "CAPM Bootcamp in {city}, {SS} | {business}",
-    "og_description": "Earn your CAPM fast with Granite PM Academy’s intensive bootcamp. Live-virtual from {city}. PMI Premier ATP.",
-    "og_image": "",
-    "service_name": "CAPM Exam Prep Bootcamp",
-    "service_type": "Course",
-    "service_area": "{city}, {SS}",
-    "service_description": "Intensive live-virtual CAPM exam prep bootcamp for aspiring project managers in {city_state}.",
-    "bc_label": "CAPM Bootcamp {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": ""
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-06-27T20:08:11+00:00",
-  "template_version": "1a1424df79f9789f02da882279781264"
+    "locked_blocks": [],
+    "generated_at": "2026-06-28T21:40:23+00:00",
+    "template_version": "1a1424df79f9789f02da882279781264"
 }

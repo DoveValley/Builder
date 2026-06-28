@@ -132,6 +132,32 @@ function render_seo_editor($seo) {
             <?php photo_picker_btn('og_image_existing'); ?>
             <span class="hint">Recommended 1200×630px. Shown when sharing on Facebook, iMessage, Slack, etc.</span>
         </div>
+        <hr style="margin: 24px 0; border-color: #e5e7eb;">
+        <h3 style="margin: 0 0 12px; font-size: 1rem;">Social &amp; Twitter Card</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group" style="grid-column:1/-1;">
+                <label for="og_site_name">Site name (og:site_name)</label>
+                <input type="text" id="og_site_name" name="og_site_name" value="<?= h($seo['og_site_name'] ?? '') ?>" placeholder="e.g. Granite PM Academy">
+                <span class="hint">Shown in social share previews as the publisher name. Set once on the homepage; landing pages inherit it.</span>
+            </div>
+            <div class="form-group">
+                <label for="og_locale">Locale (og:locale)</label>
+                <input type="text" id="og_locale" name="og_locale" value="<?= h($seo['og_locale'] ?? '') ?>" placeholder="en_US">
+                <span class="hint">Leave blank for en_US default.</span>
+            </div>
+            <div class="form-group">
+                <label for="twitter_card">Twitter card type</label>
+                <select id="twitter_card" name="twitter_card">
+                    <option value="summary_large_image" <?= ($seo['twitter_card'] ?? '') !== 'summary' ? 'selected' : '' ?>>summary_large_image (large image)</option>
+                    <option value="summary" <?= ($seo['twitter_card'] ?? '') === 'summary' ? 'selected' : '' ?>>summary (small thumbnail)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="twitter_handle">Twitter / X handle (twitter:site)</label>
+                <input type="text" id="twitter_handle" name="twitter_handle" value="<?= h($seo['twitter_handle'] ?? '') ?>" placeholder="@YourHandle">
+                <span class="hint">Optional. Include the @ sign.</span>
+            </div>
+        </div>
         <div class="form-group">
             <label for="schema">Schema markup (JSON-LD)</label>
             <textarea id="schema" name="schema" rows="8" style="font-family:monospace;font-size:0.85rem;"><?= h($seo['schema'] ?? '') ?></textarea>
