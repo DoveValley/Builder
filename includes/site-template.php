@@ -87,10 +87,11 @@ if (empty($seo['og_image'])) {
     $ogDesc  = !empty($seo['og_description']) ? $seo['og_description'] : ($seo['meta_description'] ?? '');
     ?>
     <?php
-    $ogSiteName = !empty($seo['og_site_name'])   ? $seo['og_site_name']   : ($data['seo']['og_site_name']   ?? '');
-    $ogLocale   = !empty($seo['og_locale'])       ? $seo['og_locale']       : ($data['seo']['og_locale']       ?? 'en_US');
-    $twCard     = !empty($seo['twitter_card'])    ? $seo['twitter_card']    : ($data['seo']['twitter_card']    ?? 'summary_large_image');
-    $twHandle   = !empty($seo['twitter_handle'])  ? $seo['twitter_handle']  : ($data['seo']['twitter_handle']  ?? '');
+    $ogSiteName  = !empty($seo['og_site_name'])   ? $seo['og_site_name']   : ($data['seo']['og_site_name']   ?? '');
+    $ogLocale    = !empty($seo['og_locale'])       ? $seo['og_locale']       : ($data['seo']['og_locale']       ?? 'en_US');
+    $ogImageAlt  = !empty($seo['og_image_alt'])   ? $seo['og_image_alt']   : ($data['seo']['og_image_alt']   ?? '');
+    $twCard      = !empty($seo['twitter_card'])    ? $seo['twitter_card']    : ($data['seo']['twitter_card']    ?? 'summary_large_image');
+    $twHandle    = !empty($seo['twitter_handle'])  ? $seo['twitter_handle']  : ($data['seo']['twitter_handle']  ?? '');
     $ogImageAbsUrl = !empty($seo['og_image']) ? rtrim(resolve_shortcodes('{website}'), '/') . '/' . ltrim($seo['og_image'], '/') : '';
     $ogImageDims   = [];
     if (!empty($seo['og_image'])) {
@@ -109,6 +110,7 @@ if (empty($seo['og_image'])) {
     <meta property="og:image:width"  content="<?= (int)$ogImageDims[0] ?>">
     <meta property="og:image:height" content="<?= (int)$ogImageDims[1] ?>">
     <?php endif; ?>
+    <?php if ($ogImageAlt): ?><meta property="og:image:alt" content="<?= h($ogImageAlt) ?>"><?php endif; ?>
     <meta name="twitter:card"        content="<?= h($twCard) ?>">
     <meta name="twitter:title"       content="<?= h($ogTitle) ?>">
     <?php if ($ogDesc): ?><meta name="twitter:description" content="<?= h($ogDesc) ?>"><?php endif; ?>

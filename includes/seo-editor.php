@@ -132,6 +132,11 @@ function render_seo_editor($seo) {
             <?php photo_picker_btn('og_image_existing'); ?>
             <span class="hint">Recommended 1200×630px. Shown when sharing on Facebook, iMessage, Slack, etc.</span>
         </div>
+        <div class="form-group">
+            <label for="og_image_alt">Social share image alt text (og:image:alt)</label>
+            <input type="text" id="og_image_alt" name="og_image_alt" value="<?= h($seo['og_image_alt'] ?? '') ?>" placeholder="e.g. Granite PM Academy — PMP Certification Training">
+            <span class="hint">Describes the image for screen readers and some social platforms. 1 sentence, no hashtags.</span>
+        </div>
         <hr style="margin: 24px 0; border-color: #e5e7eb;">
         <h3 style="margin: 0 0 12px; font-size: 1rem;">Social &amp; Twitter Card</h3>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">

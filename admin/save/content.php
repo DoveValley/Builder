@@ -26,6 +26,7 @@
             'og_title'           => trim($_POST['og_title']           ?? ''),
             'og_description'     => trim($_POST['og_description']     ?? ''),
             'og_image'           => sanitize_url($_POST['og_image_existing'] ?? ''),
+            'og_image_alt'       => trim($_POST['og_image_alt']       ?? ''),
             'service_name'       => trim($_POST['service_name']       ?? ''),
             'service_type'       => trim($_POST['service_type']       ?? ''),
             'service_area'       => trim($_POST['service_area']       ?? ''),
