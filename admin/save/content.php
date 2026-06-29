@@ -27,10 +27,6 @@
             'og_description'     => trim($_POST['og_description']     ?? ''),
             'og_image'           => sanitize_url($_POST['og_image_existing'] ?? ''),
             'og_image_alt'       => trim($_POST['og_image_alt']       ?? ''),
-            'service_name'       => trim($_POST['service_name']       ?? ''),
-            'service_type'       => trim($_POST['service_type']       ?? ''),
-            'service_area'       => trim($_POST['service_area']       ?? ''),
-            'service_description'=> trim($_POST['service_description']?? ''),
             'bc_hide'            => !empty($_POST['bc_hide']),
             'bc_label'           => trim($_POST['bc_label']           ?? ''),
             'bc_mid_label'       => trim($_POST['bc_mid_label']       ?? ''),
@@ -41,21 +37,6 @@
             'twitter_handle'     => trim($_POST['twitter_handle']     ?? ''),
         ];
         $existingSeo = $isLandingPage ? $data['pages'][$pageId]['seo'] : ($isPost ? $data['posts'][$postId]['seo'] : $data['seo']);
-
-        // Schema blocks
-        $schemaBlocks = [];
-        foreach ($_POST['schema_blocks'] ?? [] as $type => $blockData) {
-            $type = preg_replace('/[^A-Za-z]/', '', (string)$type);
-            if (!$type) continue;
-            $enabled  = !empty($blockData['enabled']);
-            $json     = trim($blockData['json'] ?? '');
-            if ($json !== '' && json_decode($json) === null) {
-                $json = $existingSeo['schema_blocks'][$type]['json'] ?? '';
-                if ($message === '') $message = 'error:Invalid JSON in ' . $type . ' schema. Other changes were saved.';
-            }
-            $schemaBlocks[$type] = ['enabled' => $enabled, 'json' => $json];
-        }
-        $seoData['schema_blocks'] = $schemaBlocks;
 
         $schema = trim($_POST['schema'] ?? '');
         if ($schema === '') {

@@ -156,47 +156,15 @@ if (empty($seo['og_image'])) {
     :root { --fixed-header-height: <?= $_hInitialHeight ?>; }
     </style>
     <?php
-    // schema_blocks @graph — global_schema_blocks (site-wide) + schema_blocks (this page)
-    $_graphItems = [];
-    foreach (array_merge($data['seo']['global_schema_blocks'] ?? [], $seo['schema_blocks'] ?? []) as $_sbType => $_sb) {
-        if (empty($_sb['enabled']) || empty($_sb['json'])) continue;
-        $_parsed = json_decode(resolve_shortcodes($_sb['json']), true);
-        if ($_parsed) $_graphItems[] = $_parsed;
-    }
-    if ($_graphItems) {
-        echo '<script type="application/ld+json">' . json_encode(
-            ['@context' => 'https://schema.org', '@graph' => $_graphItems],
-            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG
-        ) . '</script>' . "\n";
-    }
-    // Legacy custom JSON-LD textarea (single schema field)
+    // Schema markup — manually entered JSON-LD textarea
     if (!empty($seo['schema'])) {
-        $schemaData = json_decode($seo['schema']);
+        $schemaData = json_decode(resolve_shortcodes($seo['schema']));
         if ($schemaData !== null) {
-            echo '<script type="application/ld+json">' . json_encode($schemaData, JSON_PRETTY_PRINT | JSON_HEX_TAG) . '</script>' . "\n";
+            echo '<script type="application/ld+json">' . json_encode($schemaData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) . '</script>' . "\n";
         }
     }
-    // Global LocalBusiness schema
-    $lb = $data['local_business'] ?? [];
-    $lbSchema = generate_local_business_schema($lb);
-    if ($lbSchema) echo '<script type="application/ld+json">' . $lbSchema . '</script>' . "\n";
-    // Global WebSite schema
-    $websiteSchema = generate_website_schema($lb);
-    if ($websiteSchema) echo '<script type="application/ld+json">' . $websiteSchema . '</script>' . "\n";
-    // Global Organization schema (sameAs from footer social links)
-    $orgSchema = generate_organization_schema($lb, $data['footer'] ?? []);
-    if ($orgSchema) echo '<script type="application/ld+json">' . $orgSchema . '</script>' . "\n";
-    // Per-page Service schema
-    $serviceSchema = generate_service_schema($seo, $lb);
-    if ($serviceSchema) echo '<script type="application/ld+json">' . $serviceSchema . '</script>' . "\n";
-    // Per-page FAQ schema (reads faq_two_col blocks on this page)
-    $faqSchema = generate_faq_schema($contentBlocks ?? []);
-    if ($faqSchema) echo '<script type="application/ld+json">' . $faqSchema . '</script>' . "\n";
-    // Breadcrumb schema — only on slug pages (not homepage)
+    // Breadcrumb HTML nav — only on slug pages (not homepage)
     if (!empty($slug)) {
-        $lbUrl = rtrim($lb['lb_url'] ?? '', '/');
-
-        // Relative URLs for the on-page breadcrumb nav (always stays on the current host)
         $bcItems = [['name' => 'Home', 'url' => '/']];
         if (!empty($seo['bc_mid_label'])) {
             $midUrlRel = trim($seo['bc_mid_url'] ?? '');
@@ -204,24 +172,6 @@ if (empty($seo['og_image'])) {
         }
         $bcLabel = !empty($seo['bc_label']) ? resolve_shortcodes($seo['bc_label']) : preg_replace('/\s*[|\-–—].*$/', '', $pageTitle);
         $bcItems[] = ['name' => $bcLabel, 'url' => '/' . ltrim($slug, '/')];
-
-        // Absolute URLs for the BreadcrumbList JSON-LD (schema.org requires absolute URLs)
-        $bcSchemaItems = [['name' => 'Home', 'url' => $lbUrl ?: '/']];
-        if (!empty($seo['bc_mid_label'])) {
-            $midUrl = trim($seo['bc_mid_url'] ?? '');
-            if ($midUrl && !str_starts_with($midUrl, 'http')) $midUrl = $lbUrl . $midUrl;
-            $bcSchemaItems[] = ['name' => resolve_shortcodes($seo['bc_mid_label']), 'url' => $midUrl];
-        }
-        $bcCurrentUrl = sanitize_url($canonicalUrl) ?: ($lbUrl ? $lbUrl . '/' . $slug : '');
-        $bcSchemaItems[] = ['name' => $bcLabel, 'url' => $bcCurrentUrl];
-
-        $bcSchema = ['@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'itemListElement' => []];
-        foreach ($bcSchemaItems as $pos => $crumb) {
-            $entry = ['@type' => 'ListItem', 'position' => $pos + 1, 'name' => $crumb['name']];
-            if ($crumb['url']) $entry['item'] = $crumb['url'];
-            $bcSchema['itemListElement'][] = $entry;
-        }
-        echo '<script type="application/ld+json">' . json_encode($bcSchema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) . '</script>' . "\n";
     }
     // Analytics — output raw (admin-entered, trusted)
     if (!empty($theme['analytics_head'])) echo $theme['analytics_head'] . "\n";

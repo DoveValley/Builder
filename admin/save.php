@@ -95,11 +95,6 @@ switch ($section) {
         require __DIR__ . '/save/breadcrumbs.php';
         break;
 
-    /* ---- GLOBAL SCHEMA BLOCKS ---- */
-    case 'seo_schema':
-        require __DIR__ . '/save/seo_schema.php';
-        break;
-
     default:
         header('Location: index.php');
         exit;
