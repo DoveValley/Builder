@@ -126,7 +126,9 @@ function render_schema_section(array $seo, string $context): void {
     foreach ($manualTypes as $type) {
         $skeletons[$type] = get_schema_skeleton($type, $seo, $lb);
     }
-    $savedBlocks = $seo['schema_blocks'] ?? [];
+    $blockKey    = ($context === 'global') ? 'global_schema_blocks' : 'schema_blocks';
+    $fieldName   = ($context === 'global') ? 'global_schema_blocks' : 'schema_blocks';
+    $savedBlocks = $seo[$blockKey] ?? [];
     ?>
     <div class="card" style="border:2px solid #1e3a5f;margin-top:24px;">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
@@ -161,7 +163,7 @@ function render_schema_section(array $seo, string $context): void {
             <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;background:<?= $isEnabled ? '#eff6ff' : '#f8fafc' ?>;cursor:pointer;"
                  onclick="document.getElementById('schema-enable-<?= $type ?>').click()">
                 <input type="checkbox" id="schema-enable-<?= $type ?>"
-                       name="schema_blocks[<?= $type ?>][enabled]" value="1"
+                       name="<?= $fieldName ?>[<?= $type ?>][enabled]" value="1"
                        <?= $isEnabled ? 'checked' : '' ?>
                        onchange="schemaToggle('<?= $type ?>')"
                        onclick="event.stopPropagation()"
@@ -172,7 +174,7 @@ function render_schema_section(array $seo, string $context): void {
                 </div>
             </div>
             <div id="schema-block-<?= $type ?>" style="<?= $isEnabled ? '' : 'display:none;' ?>padding:16px;border-top:1px solid #e2e8f0;background:#fff;">
-                <textarea id="<?= $tid ?>" name="schema_blocks[<?= $type ?>][json]"
+                <textarea id="<?= $tid ?>" name="<?= $fieldName ?>[<?= $type ?>][json]"
                           rows="14" style="font-family:'SF Mono','Fira Code',monospace;font-size:0.79rem;width:100%;border:1px solid #e2e8f0;border-radius:6px;padding:10px;line-height:1.55;resize:vertical;"
                           ><?= h($savedJson) ?></textarea>
                 <div style="margin-top:8px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">

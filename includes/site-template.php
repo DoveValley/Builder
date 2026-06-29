@@ -156,9 +156,9 @@ if (empty($seo['og_image'])) {
     :root { --fixed-header-height: <?= $_hInitialHeight ?>; }
     </style>
     <?php
-    // schema_blocks @graph — global (from $data['seo']) + page-specific (from $seo)
+    // schema_blocks @graph — global_schema_blocks (site-wide) + schema_blocks (this page)
     $_graphItems = [];
-    foreach (array_merge($data['seo']['schema_blocks'] ?? [], $seo['schema_blocks'] ?? []) as $_sbType => $_sb) {
+    foreach (array_merge($data['seo']['global_schema_blocks'] ?? [], $seo['schema_blocks'] ?? []) as $_sbType => $_sb) {
         if (empty($_sb['enabled']) || empty($_sb['json'])) continue;
         $_parsed = json_decode(resolve_shortcodes($_sb['json']), true);
         if ($_parsed) $_graphItems[] = $_parsed;

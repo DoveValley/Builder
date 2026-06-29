@@ -643,7 +643,7 @@
         "bc_mid_url": "",
         "og_site_name": "Granite PM Academy",
         "og_image_alt": "Granite PM Academy — PMP, CAPM & CPMAI Certification Training",
-        "schema_blocks": {
+        "global_schema_blocks": {
             "EducationalOrganization": {
                 "enabled": true,
                 "json": "{\n    \"@type\": \"EducationalOrganization\",\n    \"@id\": \"https://granitepmacademy.com/#organization\",\n    \"name\": \"Granite PM Academy\",\n    \"url\": \"https://granitepmacademy.com/\",\n    \"logo\": \"https://granitepmacademy.com/uploads/logo_granite.png\",\n    \"telephone\": \"+18774387671\",\n    \"sameAs\": []\n}"
@@ -651,6 +651,16 @@
             "WebSite": {
                 "enabled": true,
                 "json": "{\n    \"@type\": \"WebSite\",\n    \"@id\": \"https://granitepmacademy.com/#website\",\n    \"url\": \"https://granitepmacademy.com/\",\n    \"name\": \"Granite PM Academy\",\n    \"publisher\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n    }\n}"
+            }
+        },
+        "schema_blocks": {
+            "WebPage": {
+                "enabled": true,
+                "json": "{\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://granitepmacademy.com/#webpage\",\n    \"url\": \"https://granitepmacademy.com/\",\n    \"name\": \"PMP & Project Management Certification Training | Granite PM Academy\",\n    \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n    },\n    \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n    }\n}"
+            },
+            "ItemList": {
+                "enabled": true,
+                "json": "{\n    \"@type\": \"ItemList\",\n    \"name\": \"PMI Certification Courses\",\n    \"itemListElement\": [\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"PMP Certification Training\",\n            \"url\": \"https://granitepmacademy.com/pmp-certification-training/\"\n        },\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification Training\",\n            \"url\": \"https://granitepmacademy.com/capm-certification-training/\"\n        },\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"CPMAI Certification Training\",\n            \"url\": \"https://granitepmacademy.com/cpmai-certification-training/\"\n        },\n        {\n            \"@type\": \"ListItem\",\n            \"position\": 4,\n            \"name\": \"PMI PDU Renewal\",\n            \"url\": \"https://granitepmacademy.com/pmi-pdu-renewal/\"\n        }\n    ]\n}"
             }
         }
     },
