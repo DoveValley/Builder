@@ -1,311 +1,311 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "minneapolis-mn",
-    "slug": "pmp-certification-training-minneapolis-mn",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "minneapolis-mn",
-        "city": "Minneapolis",
-        "state": "Minnesota",
-        "SS": "MN",
-        "city_slug": "minneapolis-mn",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [],
-        "industries": [
-            "healthcare",
-            "finance",
-            "technology",
-            "retail/consumer goods",
-            "manufacturing",
-            "insurance"
-        ],
-        "top_employers": [
-            "UnitedHealth Group",
-            "Mayo Clinic",
-            "Target Corporation",
-            "Best Buy",
-            "U.S. Bancorp",
-            "Ameriprise Financial",
-            "3M",
-            "Medtronic",
-            "General Mills",
-            "Allina Health",
-            "Fairview Health Services",
-            "Hennepin Healthcare"
-        ],
-        "salary_note": "PMP-certified project managers in Minneapolis, Minnesota typically earn between $95,000 and $130,000 annually, with professionals in healthcare, financial services, and technology often commanding salaries at the higher end of that range.",
-        "market_blurb": "Minneapolis boasts a robust and diverse project management job market anchored by a concentration of Fortune 500 headquarters including UnitedHealth Group, Target, and U.S. Bancorp, creating consistent demand for skilled PMs across healthcare, finance, retail, and technology sectors. The city's large healthcare ecosystem, spanning major health systems and medical device companies like Medtronic, places particular value on structured project delivery and compliance-driven methodologies. PMP certification signals to Minneapolis employers that a candidate possesses the standardized skills and professional rigor needed to manage complex, cross-functional initiatives in these heavily regulated and competitive industries."
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "PMP Certification Training in {city}, {SS}",
-            "hs_subtext": "Minneapolis's thriving healthcare and technology sectors demand skilled project managers to drive innovation and deliver results efficiently. Granite PM Academy's PMI-authorized, live-virtual instructor-led training equips you with credentials recognized across these competitive industries. Earn your PMP certification and position yourself for meaningful career advancement and increased earning potential.",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-27T20:14:29.657252Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMP Certification Demand in Minneapolis's Thriving PM Market",
-            "text": "<p>Minneapolis stands as a hub for project management excellence, home to industry leaders like UnitedHealth Group, Target Corporation, and U.S. Bancorp that consistently seek certified project managers. The city's robust healthcare ecosystem—anchored by Mayo Clinic, Medtronic, and major health systems—places particular emphasis on structured project delivery and compliance-driven methodologies. PMP Certification Training equips professionals with the standardized skills and professional rigor that Minneapolis employers demand, especially in heavily regulated sectors where cross-functional initiative management is critical to organizational success.</p><p>Earning your PMP Certification in Minneapolis positions you for meaningful career advancement and competitive compensation. PMP-certified project managers in the Minneapolis area typically command salaries between $95,000 and $130,000 annually, with professionals in healthcare, financial services, and technology often earning at the higher end of that range. As Minneapolis continues to attract and retain Fortune 500 headquarters and expand its technology and medical device sectors, PMP Certification Training becomes an investment in your professional trajectory, opening doors to leadership roles and sustained earning potential in one of the nation's strongest job markets for project management professionals.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-27T20:14:32.835574Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "Live Instructor-Led Expertise",
-                    "text": "Learn directly from experienced PMP instructors in real-time. Ask questions, clarify complex concepts, and receive immediate feedback throughout your certification journey."
-                },
-                {
-                    "heading": "PMI Premier ATP Guarantee",
-                    "text": "Train with a PMI Premier Authorized Training Partner. Ensure your education meets the highest standards for PMP certification preparation and professional credibility."
-                },
-                {
-                    "heading": "Small Classes, Maximum Support",
-                    "text": "Benefit from intimate class sizes that allow personalized attention. Our instructors tailor instruction to your learning pace and individual certification needs."
-                },
-                {
-                    "heading": "Advance Healthcare Leadership Careers",
-                    "text": "Minneapolis healthcare leaders at organizations like Mayo Clinic and UnitedHealth Group advance their careers fastest with PMP certification. Demonstrate project management excellence in Minnesota's largest industry."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-27T20:14:35.552258Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_locked": true
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                },
-                {
-                    "question": "What salary can PMP-certified project managers expect in Minneapolis?",
-                    "answer": "PMP-certified project managers in Minneapolis typically earn $95,000–$130,000 annually. Professionals in healthcare, financial services, and technology—key sectors with major employers like UnitedHealth Group, U.S. Bancorp, and Best Buy—often command salaries at the higher end. Certification significantly boosts earning potential across these industries."
-                },
-                {
-                    "question": "How long does PMP training take while working full-time in Minneapolis?",
-                    "answer": "Most professionals complete PMP training in 8–12 weeks while working full-time. Granite PM Academy offers flexible scheduling ideal for Minneapolis's busy workforce. Part-time study fits around roles at major employers like Mayo Clinic, Target, and Medtronic, allowing you to earn while learning without sacrificing your job."
-                }
-            ],
-            "ai_type_id": "faq_additions",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-27T20:14:38.474751Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_additions",
-            "_ai_locked": true
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "minneapolis-mn",
+  "slug": "pmp-certification-training-minneapolis-mn",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "minneapolis-mn",
+    "city": "Minneapolis",
+    "state": "Minnesota",
+    "SS": "MN",
+    "city_slug": "minneapolis-mn",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [],
+    "industries": [
+      "healthcare",
+      "finance",
+      "technology",
+      "retail/consumer goods",
+      "manufacturing",
+      "insurance"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training {city} {SS} | PMI Exam Prep | {business}",
-        "canonical_url": "",
-        "meta_description": "PMP certification training in {city}, {SS} from a PMI Premier ATP. 4-day live-virtual course satisfies 35 education hour requirement. Pass guarantee included.",
-        "meta_keywords": "PMP certification training {city} TX, PMP exam prep {city}, project management professional {city_state}",
-        "og_title": "PMP Certification Training in {city}, {SS} | {business}",
-        "og_description": "Earn your PMP in {city_state} with Granite PM Academy — PMI Premier ATP. Live-virtual instruction. 90-day pass guarantee.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Course",
-        "service_area": "{city}, {SS}",
-        "service_description": "PMI-aligned PMP certification training for project managers in {city_state}. Live-virtual delivery.",
-        "bc_label": "PMP Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"WebPage\",\n            \"@id\": \"{website}/pmp-certification-training-{city_slug}/#webpage\",\n            \"url\": \"{website}/pmp-certification-training-{city_slug}/\",\n            \"name\": \"PMP Certification Training in {city}, {SS} | Granite PM Academy\",\n            \"description\": \"PMI Premier Authorized PMP certification training in {city}, {SS}. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\n            \"isPartOf\": {\n                \"@id\": \"{website}/#website\"\n            },\n            \"about\": {\n                \"@id\": \"{website}/#organization\"\n            },\n            \"breadcrumb\": {\n                \"@type\": \"BreadcrumbList\",\n                \"itemListElement\": [\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 1,\n                        \"name\": \"Home\",\n                        \"item\": \"{website}/\"\n                    },\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 2,\n                        \"name\": \"PMP Certification Training in {city}, {SS}\",\n                        \"item\": \"{website}/pmp-certification-training-{city_slug}/\"\n                    }\n                ]\n            }\n        },\n        {\n            \"@type\": \"Course\",\n            \"@id\": \"{website}/pmp-certification-training-{city_slug}/#course\",\n            \"name\": \"PMP Certification Training in {city}, {SS}\",\n            \"description\": \"PMI Premier Authorized PMP certification training for project managers in {city}, {SS}. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\n            \"url\": \"{website}/pmp-certification-training-{city_slug}/\",\n            \"provider\": {\n                \"@id\": \"{website}/#organization\"\n            },\n            \"offers\": [\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"Live Virtual (4-Day)\",\n                    \"price\": \"1995\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"{website}/pmp-certification-training-{city_slug}/\"\n                },\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"On-Demand (Self-Paced)\",\n                    \"price\": \"995\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"{website}/pmp-certification-training-{city_slug}/\"\n                }\n            ],\n            \"aggregateRating\": {\n                \"@type\": \"AggregateRating\",\n                \"ratingValue\": \"4.8\",\n                \"reviewCount\": \"422\",\n                \"bestRating\": \"5\",\n                \"worstRating\": \"1\"\n            }\n        },\n        {\n            \"@type\": \"EducationalOccupationalCredential\",\n            \"@id\": \"{website}/pmp-certification-training-{city_slug}/#credential\",\n            \"name\": \"Project Management Professional (PMP)\",\n            \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n            \"credentialCategory\": \"Professional Certification\",\n            \"recognizedBy\": {\n                \"@type\": \"Organization\",\n                \"name\": \"Project Management Institute (PMI)\",\n                \"url\": \"https://www.pmi.org\"\n            },\n            \"url\": \"{website}/pmp-certification-training-{city_slug}/\"\n        },\n        {\n            \"@type\": \"FAQPage\",\n            \"mainEntity\": [\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Do I need to travel to {city} for this training?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What are the PMP eligibility requirements?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education — our course satisfies this requirement.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How long does it take to get PMP certified in {city}?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"After completing training, PMI typically approves applications within 5–10 business days. Once approved, you have one year to sit for the exam. Most students study 4–8 weeks after the course before scheduling their exam.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What is your pass guarantee?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is this training PMI-approved?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What salary can PMP-certified project managers expect in Minneapolis?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"PMP-certified project managers in Minneapolis typically earn $95,000–$130,000 annually. Professionals in healthcare, financial services, and technology—key sectors with major employers like UnitedHealth Group, U.S. Bancorp, and Best Buy—often command salaries at the higher end. Certification significantly boosts earning potential across these industries.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How long does PMP training take while working full-time in Minneapolis?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Most professionals complete PMP training in 8–12 weeks while working full-time. Granite PM Academy offers flexible scheduling ideal for Minneapolis's busy workforce. Part-time study fits around roles at major employers like Mayo Clinic, Target, and Medtronic, allowing you to earn while learning without sacrificing your job.\"\n                    }\n                }\n            ]\n        }\n    ]\n}"
+    "top_employers": [
+      "UnitedHealth Group",
+      "Mayo Clinic",
+      "Target Corporation",
+      "Best Buy",
+      "U.S. Bancorp",
+      "Ameriprise Financial",
+      "3M",
+      "Medtronic",
+      "General Mills",
+      "Allina Health",
+      "Fairview Health Services",
+      "Hennepin Healthcare"
+    ],
+    "salary_note": "PMP-certified project managers in Minneapolis, Minnesota typically earn between $95,000 and $130,000 annually, with professionals in healthcare, financial services, and technology often commanding salaries at the higher end of that range.",
+    "market_blurb": "Minneapolis boasts a robust and diverse project management job market anchored by a concentration of Fortune 500 headquarters including UnitedHealth Group, Target, and U.S. Bancorp, creating consistent demand for skilled PMs across healthcare, finance, retail, and technology sectors. The city's large healthcare ecosystem, spanning major health systems and medical device companies like Medtronic, places particular value on structured project delivery and compliance-driven methodologies. PMP certification signals to Minneapolis employers that a candidate possesses the standardized skills and professional rigor needed to manage complex, cross-functional initiatives in these heavily regulated and competitive industries."
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "Minneapolis's thriving healthcare and technology sectors demand skilled project managers to drive innovation and deliver results efficiently. Granite PM Academy's PMI-authorized, live-virtual instructor-led training equips you with credentials recognized across these competitive industries. Earn your PMP certification and position yourself for meaningful career advancement and increased earning potential.",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T20:14:29.657252Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-06-29T16:13:38+00:00",
-    "template_version": "6a6035d73bc89c8a74e88c8061b94c8f"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Demand in Minneapolis's Thriving PM Market",
+      "text": "<p>Minneapolis stands as a hub for project management excellence, home to industry leaders like UnitedHealth Group, Target Corporation, and U.S. Bancorp that consistently seek certified project managers. The city's robust healthcare ecosystem—anchored by Mayo Clinic, Medtronic, and major health systems—places particular emphasis on structured project delivery and compliance-driven methodologies. PMP Certification Training equips professionals with the standardized skills and professional rigor that Minneapolis employers demand, especially in heavily regulated sectors where cross-functional initiative management is critical to organizational success.</p><p>Earning your PMP Certification in Minneapolis positions you for meaningful career advancement and competitive compensation. PMP-certified project managers in the Minneapolis area typically command salaries between $95,000 and $130,000 annually, with professionals in healthcare, financial services, and technology often earning at the higher end of that range. As Minneapolis continues to attract and retain Fortune 500 headquarters and expand its technology and medical device sectors, PMP Certification Training becomes an investment in your professional trajectory, opening doors to leadership roles and sustained earning potential in one of the nation's strongest job markets for project management professionals.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T20:14:32.835574Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Live Instructor-Led Expertise",
+          "text": "Learn directly from experienced PMP instructors in real-time. Ask questions, clarify complex concepts, and receive immediate feedback throughout your certification journey."
+        },
+        {
+          "heading": "PMI Premier ATP Guarantee",
+          "text": "Train with a PMI Premier Authorized Training Partner. Ensure your education meets the highest standards for PMP certification preparation and professional credibility."
+        },
+        {
+          "heading": "Small Classes, Maximum Support",
+          "text": "Benefit from intimate class sizes that allow personalized attention. Our instructors tailor instruction to your learning pace and individual certification needs."
+        },
+        {
+          "heading": "Advance Healthcare Leadership Careers",
+          "text": "Minneapolis healthcare leaders at organizations like Mayo Clinic and UnitedHealth Group advance their careers fastest with PMP certification. Demonstrate project management excellence in Minnesota's largest industry."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T20:14:35.552258Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "What salary can PMP-certified project managers expect in Minneapolis?",
+          "answer": "PMP-certified project managers in Minneapolis typically earn $95,000–$130,000 annually. Professionals in healthcare, financial services, and technology—key sectors with major employers like UnitedHealth Group, U.S. Bancorp, and Best Buy—often command salaries at the higher end. Certification significantly boosts earning potential across these industries."
+        },
+        {
+          "question": "How long does PMP training take while working full-time in Minneapolis?",
+          "answer": "Most professionals complete PMP training in 8–12 weeks while working full-time. Granite PM Academy offers flexible scheduling ideal for Minneapolis's busy workforce. Part-time study fits around roles at major employers like Mayo Clinic, Target, and Medtronic, allowing you to earn while learning without sacrificing your job."
+        }
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T20:14:38.474751Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training {city} {SS} | PMI Exam Prep | {business}",
+    "canonical_url": "",
+    "meta_description": "PMP certification training in {city}, {SS} from a PMI Premier ATP. 4-day live-virtual course satisfies 35 education hour requirement. Pass guarantee included.",
+    "meta_keywords": "PMP certification training {city} TX, PMP exam prep {city}, project management professional {city_state}",
+    "og_title": "PMP Certification Training in {city}, {SS} | {business}",
+    "og_description": "Earn your PMP in {city_state} with Granite PM Academy — PMI Premier ATP. Live-virtual instruction. 90-day pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Course",
+    "service_area": "{city}, {SS}",
+    "service_description": "PMI-aligned PMP certification training for project managers in {city_state}. Live-virtual delivery.",
+    "bc_label": "PMP Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"WebPage\",\n            \"@id\": \"https://granitepmacademy.com/pmp-certification-training-minneapolis-mn/#webpage\",\n            \"url\": \"https://granitepmacademy.com/pmp-certification-training-minneapolis-mn/\",\n            \"name\": \"PMP Certification Training in Minneapolis, MN | Granite PM Academy\",\n            \"description\": \"PMI Premier Authorized PMP certification training in Minneapolis, MN. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\n            \"isPartOf\": {\n                \"@id\": \"https://granitepmacademy.com/#website\"\n            },\n            \"about\": {\n                \"@id\": \"https://granitepmacademy.com/#organization\"\n            },\n            \"breadcrumb\": {\n                \"@type\": \"BreadcrumbList\",\n                \"itemListElement\": [\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 1,\n                        \"name\": \"Home\",\n                        \"item\": \"https://granitepmacademy.com/\"\n                    },\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 2,\n                        \"name\": \"PMP Certification Training in Minneapolis, MN\",\n                        \"item\": \"https://granitepmacademy.com/pmp-certification-training-minneapolis-mn/\"\n                    }\n                ]\n            }\n        },\n        {\n            \"@type\": \"Course\",\n            \"@id\": \"https://granitepmacademy.com/pmp-certification-training-minneapolis-mn/#course\",\n            \"name\": \"PMP Certification Training in Minneapolis, MN\",\n            \"description\": \"PMI Premier Authorized PMP certification training for project managers in Minneapolis, MN. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\n            \"url\": \"https://granitepmacademy.com/pmp-certification-training-minneapolis-mn/\",\n            \"provider\": {\n                \"@id\": \"https://granitepmacademy.com/#organization\"\n            },\n            \"offers\": [\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"Live Virtual (4-Day)\",\n                    \"price\": \"1995\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"https://granitepmacademy.com/pmp-certification-training-minneapolis-mn/\"\n                },\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"On-Demand (Self-Paced)\",\n                    \"price\": \"995\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"https://granitepmacademy.com/pmp-certification-training-minneapolis-mn/\"\n                }\n            ],\n            \"aggregateRating\": {\n                \"@type\": \"AggregateRating\",\n                \"ratingValue\": \"4.8\",\n                \"reviewCount\": \"422\",\n                \"bestRating\": \"5\",\n                \"worstRating\": \"1\"\n            }\n        },\n        {\n            \"@type\": \"EducationalOccupationalCredential\",\n            \"@id\": \"https://granitepmacademy.com/pmp-certification-training-minneapolis-mn/#credential\",\n            \"name\": \"Project Management Professional (PMP)\",\n            \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n            \"credentialCategory\": \"Professional Certification\",\n            \"recognizedBy\": {\n                \"@type\": \"Organization\",\n                \"name\": \"Project Management Institute (PMI)\",\n                \"url\": \"https://www.pmi.org\"\n            },\n            \"url\": \"https://granitepmacademy.com/pmp-certification-training-minneapolis-mn/\"\n        },\n        {\n            \"@type\": \"FAQPage\",\n            \"mainEntity\": [\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Do I need to travel to Minneapolis for this training?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"No. All of our PMP training is delivered live-virtual via video conference, so Minneapolis professionals attend from wherever they work. No commuting or hotel required.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What are the PMP eligibility requirements?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education — our course satisfies this requirement.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How long does it take to get PMP certified in Minneapolis?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"After completing training, PMI typically approves applications within 5–10 business days. Once approved, you have one year to sit for the exam. Most students study 4–8 weeks after the course before scheduling their exam.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What is your pass guarantee?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is this training PMI-approved?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What salary can PMP-certified project managers expect in Minneapolis?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"PMP-certified project managers in Minneapolis typically earn $95,000–$130,000 annually. Professionals in healthcare, financial services, and technology—key sectors with major employers like UnitedHealth Group, U.S. Bancorp, and Best Buy—often command salaries at the higher end. Certification significantly boosts earning potential across these industries.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How long does PMP training take while working full-time in Minneapolis?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Most professionals complete PMP training in 8–12 weeks while working full-time. Granite PM Academy offers flexible scheduling ideal for Minneapolis's busy workforce. Part-time study fits around roles at major employers like Mayo Clinic, Target, and Medtronic, allowing you to earn while learning without sacrificing your job.\"\n                    }\n                }\n            ]\n        }\n    ]\n}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-06-29T16:23:02+00:00",
+  "template_version": "6a6035d73bc89c8a74e88c8061b94c8f"
 }

@@ -53,9 +53,36 @@ function _gen_template_version(array $tpl): string {
 
 // ── FAQPage schema injection ──────────────────────────────────────────────
 // Called after locked-block restoration so AI-generated FAQ content is present.
+// Resolves schema shortcodes at generation time using merged site + city vars
+// so the stored JSON is fully self-contained (no {tokens} remain).
+function _gen_resolve_schema_shortcodes(string $schema, array $vars): string {
+    if (trim($schema) === '') return $schema;
+    $website      = rtrim($vars['website'] ?? '', '/');
+    $city         = $vars['city']      ?? '';
+    $SS           = $vars['SS']        ?? '';
+    $city_slug    = $vars['city_slug'] ?? '';
+    $city_state   = ($city && $SS) ? "$city, $SS" : $city . $SS;
+    $replacements = [
+        '{website}'         => $website,
+        '{business_domain}' => parse_url($website, PHP_URL_HOST) ?: $website,
+        '{business}'        => $vars['business']  ?? '',
+        '{city}'            => $city,
+        '{state}'           => $vars['state']     ?? '',
+        '{SS}'              => $SS,
+        '{city_slug}'       => $city_slug,
+        '{city_state}'      => $city_state,
+        '{phone}'           => $vars['phone']     ?? '',
+        '{tel}'             => $vars['tel']        ?? '',
+        '{zip}'             => $vars['zip']        ?? '',
+        '{address}'         => $vars['address']   ?? '',
+        '{rating}'          => $vars['rating']     ?? '',
+        '{review_count}'    => $vars['review_count'] ?? '',
+    ];
+    return str_replace(array_keys($replacements), array_values($replacements), $schema);
+}
+
 // Reads all faq_two_col blocks, builds a FAQPage entity, and merges it into
-// $page['seo']['schema']. Shortcodes in Q&A text are left unresolved —
-// resolve_shortcodes() handles them at render time.
+// $page['seo']['schema'].
 
 function _gen_inject_faq_schema(array &$page): void {
     $pairs = [];
@@ -188,6 +215,10 @@ function generate_city_pages(array $options = []): array {
         ];
     }
 
+    // ── Load site vars (for schema shortcode resolution) ─────────────────────
+    $siteData = load_data();
+    $siteVars = $siteData['site_vars'] ?? [];
+
     // ── Load existing page index ──────────────────────────────────────────────
     $pageIndex = [];
     if (file_exists(PAGE_INDEX_FILE)) {
@@ -296,6 +327,16 @@ function generate_city_pages(array $options = []): array {
             // Runs after locked-block restoration so AI-generated FAQ content
             // is present in $page['content_blocks'].
             _gen_inject_faq_schema($page);
+
+            // ── Resolve schema shortcodes at generation time ──────────────────
+            // Merges site vars + non-blank city vars and substitutes all {tokens}
+            // so the stored JSON is fully self-contained — no runtime resolution
+            // needed, directly inspectable, and immune to render-time var gaps.
+            if (!empty($page['seo']['schema'])) {
+                $cityVarsFiltered = array_filter($city, fn($v) => is_array($v) || ($v !== '' && $v !== null));
+                $mergedVars       = array_merge($siteVars, $cityVarsFiltered);
+                $page['seo']['schema'] = _gen_resolve_schema_shortcodes($page['seo']['schema'], $mergedVars);
+            }
 
             if ($dryRun) {
                 $written++;

@@ -1,311 +1,311 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "charlotte-nc",
-    "slug": "cpmai-certification-training-charlotte-nc",
-    "title": "CPMAI Certification Training {city}",
-    "city_vars": {
-        "id": "charlotte-nc",
-        "city": "Charlotte",
-        "state": "North Carolina",
-        "SS": "NC",
-        "city_slug": "charlotte-nc",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [],
-        "industries": [
-            "finance/banking",
-            "technology",
-            "healthcare",
-            "energy",
-            "manufacturing",
-            "real estate/construction"
-        ],
-        "top_employers": [
-            "Bank of America",
-            "Wells Fargo",
-            "Duke Energy",
-            "Atrium Health",
-            "Novant Health",
-            "Truist Financial",
-            "Honeywell",
-            "Red Ventures",
-            "Lowe's Companies",
-            "Danaher",
-            "LendingTree",
-            "Centene Corporation"
-        ],
-        "salary_note": "PMP-certified project managers in Charlotte, North Carolina typically earn between $95,000 and $130,000 annually, with professionals in financial services, technology, and energy sectors often commanding salaries at the higher end of that range.",
-        "market_blurb": "Charlotte is one of the fastest-growing major cities in the Southeast and serves as a national hub for financial services, hosting the headquarters of Bank of America and significant operations for Wells Fargo and Truist Financial, all of which maintain large project management workforces. The city's expanding technology, healthcare, and energy sectors—anchored by employers like Duke Energy, Atrium Health, and Honeywell—further drive consistent demand for skilled project managers. PMP certification is particularly valuable in Charlotte's competitive job market, as major employers in banking and regulated industries increasingly require or prefer the credential when hiring or promoting project management professionals."
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CPMAI Certification Training in {city}, {SS}",
-            "hs_subtext": "Charlotte's thriving financial and technology sectors demand skilled project managers who can drive complex initiatives. Granite PM Academy's PMI-authorized, live-virtual CPMAI training equips you with credentials recognized across Bank of America, Wells Fargo, and regional tech leaders. Advance your career with industry-standard certification and demonstrated competency in managing critical business projects.",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CPMAI AI project management training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-27T20:13:15.540451Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Charlotte's Growing Demand for Certified Project Managers",
-            "text": "<p>Charlotte is home to some of the nation's largest financial services, technology, and energy employers—including Bank of America, Wells Fargo, Duke Energy, and Honeywell—all of which maintain substantial project management teams. The CPMAI Certification Training credential is increasingly valued by these organizations as they expand operations and manage complex initiatives across regulated industries. For Charlotte professionals in banking, healthcare, and energy sectors, the CPMAI Certification Training demonstrates expertise in adaptive project management methodologies that these major employers actively seek when hiring and promoting talent.</p><p>Earning your CPMAI Certification Training in Charlotte positions you for meaningful career advancement in a competitive market. Project managers with PMP certification in Charlotte typically earn between $95,000 and $130,000 annually, with professionals in financial services, technology, and energy sectors often commanding salaries at the higher end of that range. As the city continues to grow as a Southeast hub for innovation and finance, certified project managers are increasingly in demand—making CPMAI Certification Training a strategic investment in your long-term earning potential and career trajectory.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-27T20:13:18.713875Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "Live Expert Instruction",
-                    "text": "Learn directly from experienced PMs in real-time. Our instructors bring practical insights from actual project management roles, ensuring relevant, applicable knowledge."
-                },
-                {
-                    "heading": "PMI Premier ATP Certification",
-                    "text": "Train with a PMI Premier Authorized Training Partner. Guarantee quality instruction aligned with PMI standards and earn credentials recognized globally by top employers."
-                },
-                {
-                    "heading": "Comprehensive Exam Preparation",
-                    "text": "Rigorous prep materials, practice exams, and focused review sessions maximize your pass rate. Our students consistently exceed industry benchmarks on first attempts."
-                },
-                {
-                    "heading": "Advance Charlotte's Finance & Tech",
-                    "text": "Banking leaders like Bank of America and fintech innovators like LendingTree prioritize PMP credentials. Elevate your career prospects in Charlotte's fastest-growing sectors."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-27T20:13:21.356392Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_locked": true
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CPMAI Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CPMAI Training",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "What salary can PMP-certified project managers expect in Charlotte, NC?",
-                    "answer": "PMP-certified project managers in Charlotte typically earn $95,000–$130,000 annually. Professionals in high-demand sectors like financial services (Bank of America, Wells Fargo, Truist), technology (Red Ventures, LendingTree), and energy (Duke Energy) often command salaries at the higher end. Certification significantly boosts earning potential across these dominant industries."
-                },
-                {
-                    "question": "How can Charlotte professionals balance CPMAI training while working full-time?",
-                    "answer": "Granite PM Academy's flexible CPMAI training accommodates Charlotte's busy professionals. With both online and in-person options, you can study around your schedule at major employers like Atrium Health, Honeywell, or Danaher. Most professionals complete training in 4–8 weeks while maintaining full-time employment, positioning themselves for advancement in Charlotte's competitive job market."
-                }
-            ],
-            "ai_type_id": "faq_additions",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-27T20:13:23.992147Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_additions",
-            "_ai_locked": true
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "charlotte-nc",
+  "slug": "cpmai-certification-training-charlotte-nc",
+  "title": "CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "charlotte-nc",
+    "city": "Charlotte",
+    "state": "North Carolina",
+    "SS": "NC",
+    "city_slug": "charlotte-nc",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [],
+    "industries": [
+      "finance/banking",
+      "technology",
+      "healthcare",
+      "energy",
+      "manufacturing",
+      "real estate/construction"
     ],
-    "seo": {
-        "seo_title": "CPMAI Certification Training {city} {SS} | AI Project Management | {business}",
-        "canonical_url": "",
-        "meta_description": "CPMAI AI project management certification training in {city}, {SS}. Live-virtual course from Granite PM Academy. Cognilytica CPMAI methodology.",
-        "meta_keywords": "CPMAI certification training {city} TX, AI project management training {city_state}, Cognilytica CPMAI {city}",
-        "og_title": "CPMAI Certification Training in {city}, {SS} | {business}",
-        "og_description": "Earn the CPMAI credential in {city_state} with Granite PM Academy. Master AI project management from anywhere.",
-        "og_image": "",
-        "service_name": "CPMAI Certification Training",
-        "service_type": "Course",
-        "service_area": "{city}, {SS}",
-        "service_description": "CPMAI certification training for project managers working with AI initiatives in {city_state}.",
-        "bc_label": "CPMAI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"WebPage\",\n            \"@id\": \"{website}/cpmai-certification-training-{city_slug}/#webpage\",\n            \"url\": \"{website}/cpmai-certification-training-{city_slug}/\",\n            \"name\": \"CPMAI Certification Training in {city}, {SS} — AI for PMs | Granite PM Academy\",\n            \"description\": \"CPMAI certification training in {city}, {SS} for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n            \"isPartOf\": {\n                \"@id\": \"{website}/#website\"\n            },\n            \"about\": {\n                \"@id\": \"{website}/#organization\"\n            },\n            \"breadcrumb\": {\n                \"@type\": \"BreadcrumbList\",\n                \"itemListElement\": [\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 1,\n                        \"name\": \"Home\",\n                        \"item\": \"{website}/\"\n                    },\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 2,\n                        \"name\": \"CPMAI Certification Training in {city}, {SS}\",\n                        \"item\": \"{website}/cpmai-certification-training-{city_slug}/\"\n                    }\n                ]\n            }\n        },\n        {\n            \"@type\": \"Course\",\n            \"@id\": \"{website}/cpmai-certification-training-{city_slug}/#course\",\n            \"name\": \"CPMAI Certification Training in {city}, {SS}\",\n            \"description\": \"CPMAI certification training for project managers in {city}, {SS} who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n            \"url\": \"{website}/cpmai-certification-training-{city_slug}/\",\n            \"provider\": {\n                \"@id\": \"{website}/#organization\"\n            },\n            \"offers\": [\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"Live Virtual (3-Day)\",\n                    \"price\": \"1495\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"{website}/cpmai-certification-training-{city_slug}/\"\n                },\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"On-Demand (Self-Paced)\",\n                    \"price\": \"795\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"{website}/cpmai-certification-training-{city_slug}/\"\n                }\n            ],\n            \"aggregateRating\": {\n                \"@type\": \"AggregateRating\",\n                \"ratingValue\": \"4.8\",\n                \"reviewCount\": \"422\",\n                \"bestRating\": \"5\",\n                \"worstRating\": \"1\"\n            }\n        },\n        {\n            \"@type\": \"EducationalOccupationalCredential\",\n            \"@id\": \"{website}/cpmai-certification-training-{city_slug}/#credential\",\n            \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n            \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n            \"credentialCategory\": \"Professional Certification\",\n            \"recognizedBy\": {\n                \"@type\": \"Organization\",\n                \"name\": \"Project Management Institute (PMI)\",\n                \"url\": \"https://www.pmi.org\"\n            },\n            \"url\": \"{website}/cpmai-certification-training-{city_slug}/\"\n        },\n        {\n            \"@type\": \"FAQPage\",\n            \"mainEntity\": [\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What is the CPMAI certification?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Who should pursue the CPMAI in {city}?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is there a prerequisite for the CPMAI course?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How is the CPMAI different from the PMP?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is this course delivered online?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference — no travel required.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What salary can PMP-certified project managers expect in Charlotte, NC?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"PMP-certified project managers in Charlotte typically earn $95,000–$130,000 annually. Professionals in high-demand sectors like financial services (Bank of America, Wells Fargo, Truist), technology (Red Ventures, LendingTree), and energy (Duke Energy) often command salaries at the higher end. Certification significantly boosts earning potential across these dominant industries.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How can Charlotte professionals balance CPMAI training while working full-time?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Granite PM Academy's flexible CPMAI training accommodates Charlotte's busy professionals. With both online and in-person options, you can study around your schedule at major employers like Atrium Health, Honeywell, or Danaher. Most professionals complete training in 4–8 weeks while maintaining full-time employment, positioning themselves for advancement in Charlotte's competitive job market.\"\n                    }\n                }\n            ]\n        }\n    ]\n}"
+    "top_employers": [
+      "Bank of America",
+      "Wells Fargo",
+      "Duke Energy",
+      "Atrium Health",
+      "Novant Health",
+      "Truist Financial",
+      "Honeywell",
+      "Red Ventures",
+      "Lowe's Companies",
+      "Danaher",
+      "LendingTree",
+      "Centene Corporation"
+    ],
+    "salary_note": "PMP-certified project managers in Charlotte, North Carolina typically earn between $95,000 and $130,000 annually, with professionals in financial services, technology, and energy sectors often commanding salaries at the higher end of that range.",
+    "market_blurb": "Charlotte is one of the fastest-growing major cities in the Southeast and serves as a national hub for financial services, hosting the headquarters of Bank of America and significant operations for Wells Fargo and Truist Financial, all of which maintain large project management workforces. The city's expanding technology, healthcare, and energy sectors—anchored by employers like Duke Energy, Atrium Health, and Honeywell—further drive consistent demand for skilled project managers. PMP certification is particularly valuable in Charlotte's competitive job market, as major employers in banking and regulated industries increasingly require or prefer the credential when hiring or promoting project management professionals."
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "CPMAI Certification Training in {city}, {SS}",
+      "hs_subtext": "Charlotte's thriving financial and technology sectors demand skilled project managers who can drive complex initiatives. Granite PM Academy's PMI-authorized, live-virtual CPMAI training equips you with credentials recognized across Bank of America, Wells Fargo, and regional tech leaders. Advance your career with industry-standard certification and demonstrated competency in managing critical business projects.",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CPMAI AI project management training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T20:13:15.540451Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-06-29T16:13:38+00:00",
-    "template_version": "b43bc2344688f405087719214bece2a1"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Charlotte's Growing Demand for Certified Project Managers",
+      "text": "<p>Charlotte is home to some of the nation's largest financial services, technology, and energy employers—including Bank of America, Wells Fargo, Duke Energy, and Honeywell—all of which maintain substantial project management teams. The CPMAI Certification Training credential is increasingly valued by these organizations as they expand operations and manage complex initiatives across regulated industries. For Charlotte professionals in banking, healthcare, and energy sectors, the CPMAI Certification Training demonstrates expertise in adaptive project management methodologies that these major employers actively seek when hiring and promoting talent.</p><p>Earning your CPMAI Certification Training in Charlotte positions you for meaningful career advancement in a competitive market. Project managers with PMP certification in Charlotte typically earn between $95,000 and $130,000 annually, with professionals in financial services, technology, and energy sectors often commanding salaries at the higher end of that range. As the city continues to grow as a Southeast hub for innovation and finance, certified project managers are increasingly in demand—making CPMAI Certification Training a strategic investment in your long-term earning potential and career trajectory.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T20:13:18.713875Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Live Expert Instruction",
+          "text": "Learn directly from experienced PMs in real-time. Our instructors bring practical insights from actual project management roles, ensuring relevant, applicable knowledge."
+        },
+        {
+          "heading": "PMI Premier ATP Certification",
+          "text": "Train with a PMI Premier Authorized Training Partner. Guarantee quality instruction aligned with PMI standards and earn credentials recognized globally by top employers."
+        },
+        {
+          "heading": "Comprehensive Exam Preparation",
+          "text": "Rigorous prep materials, practice exams, and focused review sessions maximize your pass rate. Our students consistently exceed industry benchmarks on first attempts."
+        },
+        {
+          "heading": "Advance Charlotte's Finance & Tech",
+          "text": "Banking leaders like Bank of America and fintech innovators like LendingTree prioritize PMP credentials. Elevate your career prospects in Charlotte's fastest-growing sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T20:13:21.356392Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "What salary can PMP-certified project managers expect in Charlotte, NC?",
+          "answer": "PMP-certified project managers in Charlotte typically earn $95,000–$130,000 annually. Professionals in high-demand sectors like financial services (Bank of America, Wells Fargo, Truist), technology (Red Ventures, LendingTree), and energy (Duke Energy) often command salaries at the higher end. Certification significantly boosts earning potential across these dominant industries."
+        },
+        {
+          "question": "How can Charlotte professionals balance CPMAI training while working full-time?",
+          "answer": "Granite PM Academy's flexible CPMAI training accommodates Charlotte's busy professionals. With both online and in-person options, you can study around your schedule at major employers like Atrium Health, Honeywell, or Danaher. Most professionals complete training in 4–8 weeks while maintaining full-time employment, positioning themselves for advancement in Charlotte's competitive job market."
+        }
+      ],
+      "ai_type_id": "faq_additions",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-06-27T20:13:23.992147Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_additions",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CPMAI Certification Training {city} {SS} | AI Project Management | {business}",
+    "canonical_url": "",
+    "meta_description": "CPMAI AI project management certification training in {city}, {SS}. Live-virtual course from Granite PM Academy. Cognilytica CPMAI methodology.",
+    "meta_keywords": "CPMAI certification training {city} TX, AI project management training {city_state}, Cognilytica CPMAI {city}",
+    "og_title": "CPMAI Certification Training in {city}, {SS} | {business}",
+    "og_description": "Earn the CPMAI credential in {city_state} with Granite PM Academy. Master AI project management from anywhere.",
+    "og_image": "",
+    "service_name": "CPMAI Certification Training",
+    "service_type": "Course",
+    "service_area": "{city}, {SS}",
+    "service_description": "CPMAI certification training for project managers working with AI initiatives in {city_state}.",
+    "bc_label": "CPMAI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"WebPage\",\n            \"@id\": \"https://granitepmacademy.com/cpmai-certification-training-charlotte-nc/#webpage\",\n            \"url\": \"https://granitepmacademy.com/cpmai-certification-training-charlotte-nc/\",\n            \"name\": \"CPMAI Certification Training in Charlotte, NC — AI for PMs | Granite PM Academy\",\n            \"description\": \"CPMAI certification training in Charlotte, NC for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n            \"isPartOf\": {\n                \"@id\": \"https://granitepmacademy.com/#website\"\n            },\n            \"about\": {\n                \"@id\": \"https://granitepmacademy.com/#organization\"\n            },\n            \"breadcrumb\": {\n                \"@type\": \"BreadcrumbList\",\n                \"itemListElement\": [\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 1,\n                        \"name\": \"Home\",\n                        \"item\": \"https://granitepmacademy.com/\"\n                    },\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 2,\n                        \"name\": \"CPMAI Certification Training in Charlotte, NC\",\n                        \"item\": \"https://granitepmacademy.com/cpmai-certification-training-charlotte-nc/\"\n                    }\n                ]\n            }\n        },\n        {\n            \"@type\": \"Course\",\n            \"@id\": \"https://granitepmacademy.com/cpmai-certification-training-charlotte-nc/#course\",\n            \"name\": \"CPMAI Certification Training in Charlotte, NC\",\n            \"description\": \"CPMAI certification training for project managers in Charlotte, NC who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n            \"url\": \"https://granitepmacademy.com/cpmai-certification-training-charlotte-nc/\",\n            \"provider\": {\n                \"@id\": \"https://granitepmacademy.com/#organization\"\n            },\n            \"offers\": [\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"Live Virtual (3-Day)\",\n                    \"price\": \"1495\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"https://granitepmacademy.com/cpmai-certification-training-charlotte-nc/\"\n                },\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"On-Demand (Self-Paced)\",\n                    \"price\": \"795\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"https://granitepmacademy.com/cpmai-certification-training-charlotte-nc/\"\n                }\n            ],\n            \"aggregateRating\": {\n                \"@type\": \"AggregateRating\",\n                \"ratingValue\": \"4.8\",\n                \"reviewCount\": \"422\",\n                \"bestRating\": \"5\",\n                \"worstRating\": \"1\"\n            }\n        },\n        {\n            \"@type\": \"EducationalOccupationalCredential\",\n            \"@id\": \"https://granitepmacademy.com/cpmai-certification-training-charlotte-nc/#credential\",\n            \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n            \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n            \"credentialCategory\": \"Professional Certification\",\n            \"recognizedBy\": {\n                \"@type\": \"Organization\",\n                \"name\": \"Project Management Institute (PMI)\",\n                \"url\": \"https://www.pmi.org\"\n            },\n            \"url\": \"https://granitepmacademy.com/cpmai-certification-training-charlotte-nc/\"\n        },\n        {\n            \"@type\": \"FAQPage\",\n            \"mainEntity\": [\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What is the CPMAI certification?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Who should pursue the CPMAI in Charlotte?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The CPMAI is ideal for project managers, program managers, and IT professionals in Charlotte, NC who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is there a prerequisite for the CPMAI course?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How is the CPMAI different from the PMP?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is this course delivered online?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Yes. Our CPMAI training is 100% live-virtual. Charlotte professionals attend via video conference — no travel required.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What salary can PMP-certified project managers expect in Charlotte, NC?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"PMP-certified project managers in Charlotte typically earn $95,000–$130,000 annually. Professionals in high-demand sectors like financial services (Bank of America, Wells Fargo, Truist), technology (Red Ventures, LendingTree), and energy (Duke Energy) often command salaries at the higher end. Certification significantly boosts earning potential across these dominant industries.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How can Charlotte professionals balance CPMAI training while working full-time?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Granite PM Academy's flexible CPMAI training accommodates Charlotte's busy professionals. With both online and in-person options, you can study around your schedule at major employers like Atrium Health, Honeywell, or Danaher. Most professionals complete training in 4–8 weeks while maintaining full-time employment, positioning themselves for advancement in Charlotte's competitive job market.\"\n                    }\n                }\n            ]\n        }\n    ]\n}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-06-29T16:23:02+00:00",
+  "template_version": "b43bc2344688f405087719214bece2a1"
 }
