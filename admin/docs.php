@@ -148,6 +148,13 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#core-blog">Blog posts</a>
         <a href="#core-starters">Using page starters</a>
 
+        <a class="nav-group" href="#group-schema">Workflow — Schema</a>
+        <a href="#schema-overview">Schema overview</a>
+        <a href="#schema-type-list">Master type list</a>
+        <a href="#schema-by-niche">By business niche</a>
+        <a href="#schema-workflow">Workflow &amp; checklist</a>
+        <a href="#schema-prompts">Sample Claude prompts</a>
+
         <a class="nav-group" href="#group-city">Workflow — City Pages</a>
         <a href="#landing-multicity-overview">Landing Pages &amp; Multi-city</a>
         <a href="#cities-overview">City Pages overview</a>
@@ -1597,6 +1604,318 @@ tr:nth-child(even) td { background: #f8fafc; }
     <h3>Managing starters</h3>
     <p>Starters are created and edited in the <strong>Page Starters</strong> tab. They are global — shared across all sites in the system. A starter only stores block types and order; it does not store field content. When applied, blocks are created with default field values ready to fill in.</p>
     <p>To build a new starter: go to Page Starters → Add a New Starter → give it a name and category → Edit → add blocks in order → Save.</p>
+</section>
+
+<!-- ═══════════ WORKFLOW — SCHEMA ═══════════ -->
+<div class="doc-group-header" id="group-schema">Workflow — Schema</div>
+
+<section id="schema-overview">
+    <h2>Schema Overview</h2>
+    <p><strong>Schema markup (JSON-LD)</strong> is structured data you embed in a page's <code>&lt;head&gt;</code> that tells Google exactly what the page is about — in machine-readable form. Google uses it to generate rich results: star ratings in search, course cards, FAQ dropdowns, breadcrumb trails, and event listings. It also helps Google build an accurate knowledge graph entry for your business.</p>
+
+    <h3>How it works in this system</h3>
+    <p>Every page editor — Homepage (Content tab), core pages (Pages tab), blog posts (Blog tab), and city templates (Templates tab) — has a <strong>Schema Markup</strong> textarea at the bottom of the SEO section. You paste valid JSON-LD into it and save. That JSON is output verbatim inside a <code>&lt;script type="application/ld+json"&gt;</code> tag in the page's <code>&lt;head&gt;</code>.</p>
+    <p>Schema is written manually. You work out the correct JSON with Claude (using the prompts in the <a href="#schema-prompts">Sample Prompts</a> section), paste it in, and save. This gives you full control over every value — ratings, URLs, names, offers — with no automated guessing.</p>
+
+    <h3>The @graph pattern</h3>
+    <p>Rather than outputting one <code>&lt;script&gt;</code> tag per schema type, the best practice is to combine multiple types in a single <code>@graph</code> array. Entities reference each other by <code>@id</code> — e.g., a WebPage references the WebSite and Organization by their IDs rather than repeating all their data. This is cleaner for Google to process and avoids duplicate declarations.</p>
+    <pre><code>{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://example.com/#organization",
+      "name": "Example Co"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://example.com/about/#webpage",
+      "about": { "@id": "https://example.com/#organization" }
+    }
+  ]
+}</code></pre>
+
+    <h3>Shortcodes in schema</h3>
+    <p>The schema textarea supports shortcodes. <code>{website}</code>, <code>{business}</code>, <code>{phone}</code>, <code>{tel}</code>, <code>{email}</code>, and all other site variables resolve at render time. On city template pages, city shortcodes — <code>{city}</code>, <code>{SS}</code>, <code>{city_slug}</code> — also resolve, so one template schema covers every generated city page automatically.</p>
+
+    <h3>Testing your schema</h3>
+    <p>After saving and deploying, test with Google's Rich Results Test at <code>search.google.com/test/rich-results</code>. Paste the page URL. It will show which schema types were found, which are eligible for rich results, and flag any errors or missing required fields.</p>
+</section>
+
+<section id="schema-type-list">
+    <h2>Master Type List</h2>
+    <p>Complete reference of all schema types relevant to this system, with priority and placement guidance.</p>
+
+    <h3>🔴 Priority — implement on every applicable site</h3>
+    <table style="width:100%;border-collapse:collapse;margin-bottom:20px;font-size:0.88rem;">
+        <thead>
+            <tr style="background:#fef2f2;border-bottom:2px solid #fca5a5;">
+                <th style="text-align:left;padding:8px 12px;font-weight:700;color:#991b1b;">Schema Type</th>
+                <th style="text-align:left;padding:8px 12px;font-weight:700;color:#991b1b;">Where</th>
+                <th style="text-align:left;padding:8px 12px;font-weight:700;color:#991b1b;">Purpose</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">EducationalOrganization</td><td style="padding:8px 12px;">Homepage</td><td style="padding:8px 12px;">Identifies the training provider to Google's knowledge graph. Use in place of Organization for any business that teaches or certifies.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;background:#fafafa;"><td style="padding:8px 12px;font-weight:600;">Organization</td><td style="padding:8px 12px;">Homepage</td><td style="padding:8px 12px;">The base business entity. Use when EducationalOrganization doesn't apply. Includes sameAs for social profile cross-referencing.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">WebSite + SearchAction</td><td style="padding:8px 12px;">Homepage</td><td style="padding:8px 12px;">Registers your site entity and enables sitelinks search box in Google results if your site has internal search.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;background:#fafafa;"><td style="padding:8px 12px;font-weight:600;">Course + Offer</td><td style="padding:8px 12px;">All course pages</td><td style="padding:8px 12px;">Unlocks Google's course rich results. Requires name, description, provider, and at least one Offer with price.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">AggregateRating</td><td style="padding:8px 12px;">All course pages</td><td style="padding:8px 12px;">Adds star ratings to search results. Nested inside Course or Organization. Requires ratingValue, reviewCount, bestRating, worstRating.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;background:#fafafa;"><td style="padding:8px 12px;font-weight:600;">BreadcrumbList</td><td style="padding:8px 12px;">All interior pages</td><td style="padding:8px 12px;">Shows the breadcrumb path in search results. Requires absolute URLs. Nest inside the page's WebPage schema as breadcrumb property.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">FAQPage</td><td style="padding:8px 12px;">FAQ pages, course pages with FAQs</td><td style="padding:8px 12px;">Unlocks FAQ rich results — expandable Q&amp;A dropdowns in search. Each Question needs acceptedAnswer.text.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;background:#fafafa;"><td style="padding:8px 12px;font-weight:600;">EducationalOccupationalCredential</td><td style="padding:8px 12px;">PMP, CAPM, CPMAI pages</td><td style="padding:8px 12px;">Describes the certification the course leads to. Tells Google what credential the student earns and who recognizes it.</td></tr>
+        </tbody>
+    </table>
+
+    <h3>🟡 High value — implement when content exists</h3>
+    <table style="width:100%;border-collapse:collapse;margin-bottom:20px;font-size:0.88rem;">
+        <thead>
+            <tr style="background:#fefce8;border-bottom:2px solid #fde047;">
+                <th style="text-align:left;padding:8px 12px;font-weight:700;color:#854d0e;">Schema Type</th>
+                <th style="text-align:left;padding:8px 12px;font-weight:700;color:#854d0e;">Where</th>
+                <th style="text-align:left;padding:8px 12px;font-weight:700;color:#854d0e;">Purpose</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">Event</td><td style="padding:8px 12px;">City pages with scheduled dates</td><td style="padding:8px 12px;">Unlocks event rich results in Google Search and Google Events. Requires startDate, endDate, location (VirtualLocation for online).</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;background:#fafafa;"><td style="padding:8px 12px;font-weight:600;">Article</td><td style="padding:8px 12px;">Blog posts</td><td style="padding:8px 12px;">Marks a page as editorial content. Helps with Google Discover and news-style indexing. Requires headline, datePublished, author.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">HowTo</td><td style="padding:8px 12px;">Step-by-step blog posts</td><td style="padding:8px 12px;">Unlocks rich results for how-to content with numbered steps. Each step needs name and text.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;background:#fafafa;"><td style="padding:8px 12px;font-weight:600;">Person</td><td style="padding:8px 12px;">Instructor bios, team pages</td><td style="padding:8px 12px;">Identifies individuals associated with the organization. Useful for instructor credibility signals and author attribution on blog posts.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">ItemList</td><td style="padding:8px 12px;">All courses page, city listing page</td><td style="padding:8px 12px;">Lists multiple items (courses, cities, services) with position and URL. Helps Google understand aggregate pages.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;background:#fafafa;"><td style="padding:8px 12px;font-weight:600;">WebPage</td><td style="padding:8px 12px;">Every page</td><td style="padding:8px 12px;">Identifies the page entity and links it to WebSite and Organization via @id. Foundation for cross-referencing.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">SiteNavigationElement</td><td style="padding:8px 12px;">Site-wide (in global schema)</td><td style="padding:8px 12px;">Declares the main nav structure to Google. Useful for large sites where crawlers may miss some pages.</td></tr>
+        </tbody>
+    </table>
+
+    <h3>🟢 Supplemental — add when applicable</h3>
+    <table style="width:100%;border-collapse:collapse;margin-bottom:20px;font-size:0.88rem;">
+        <thead>
+            <tr style="background:#f0fdf4;border-bottom:2px solid #86efac;">
+                <th style="text-align:left;padding:8px 12px;font-weight:700;color:#166534;">Schema Type</th>
+                <th style="text-align:left;padding:8px 12px;font-weight:700;color:#166534;">Where</th>
+                <th style="text-align:left;padding:8px 12px;font-weight:700;color:#166534;">Purpose</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">VideoObject</td><td style="padding:8px 12px;">Pages with embedded video</td><td style="padding:8px 12px;">Unlocks video rich results. Requires name, description, thumbnailUrl, uploadDate, and either contentUrl or embedUrl.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;background:#fafafa;"><td style="padding:8px 12px;font-weight:600;">Speakable</td><td style="padding:8px 12px;">Homepage, key course pages</td><td style="padding:8px 12px;">Marks sections suitable for text-to-speech (Google Assistant). Uses CSS selectors to identify speakable content.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">LocalBusiness</td><td style="padding:8px 12px;">Homepage (if physical location)</td><td style="padding:8px 12px;">Adds NAP (name, address, phone) and hours to Google's local knowledge panel. Only add if there is a real physical address.</td></tr>
+        </tbody>
+    </table>
+</section>
+
+<section id="schema-by-niche">
+    <h2>Schema by Business Niche</h2>
+    <p>Different business types need different schema priorities. Start with what's most impactful for the specific niche.</p>
+
+    <h3>Training &amp; Education (e.g. Granite PM Academy)</h3>
+    <ul>
+        <li><strong>Homepage:</strong> EducationalOrganization + WebSite + WebPage. Include aggregateRating on the organization if you have real review data.</li>
+        <li><strong>Course pages:</strong> Course + Offer (with price and availability) + AggregateRating + EducationalOccupationalCredential. This unlocks Google's course rich results.</li>
+        <li><strong>City pages:</strong> Course (city-specific name/URL) + Event (if scheduled dates exist) + BreadcrumbList + FAQPage (if FAQs on page).</li>
+        <li><strong>Blog:</strong> Article + BreadcrumbList.</li>
+        <li><strong>Skip:</strong> LocalBusiness (unless physical classroom), HowTo (unless genuinely a how-to post).</li>
+    </ul>
+
+    <h3>Home Services (pest control, plumbing, HVAC, etc.)</h3>
+    <ul>
+        <li><strong>Homepage:</strong> LocalBusiness (with address, phone, hours, geo coords) + WebSite + WebPage. AggregateRating if you have Google/Yelp review count.</li>
+        <li><strong>Service pages:</strong> Service (name, serviceType, areaServed) + FAQPage (if FAQs) + BreadcrumbList.</li>
+        <li><strong>City pages:</strong> Service (city-specific) + BreadcrumbList. Use shortcodes for city name and URL.</li>
+        <li><strong>Blog:</strong> Article. HowTo for posts like "How to prevent cockroaches."</li>
+        <li><strong>Skip:</strong> Course, EducationalOrganization, Event (unless you run workshops).</li>
+    </ul>
+
+    <h3>Professional Services (law, accounting, consulting, real estate)</h3>
+    <ul>
+        <li><strong>Homepage:</strong> Organization (or LegalService / AccountingService / etc.) + WebSite + WebPage. Person for named principals.</li>
+        <li><strong>Service pages:</strong> Service + FAQPage + BreadcrumbList.</li>
+        <li><strong>Team/Bio pages:</strong> Person (name, jobTitle, affiliation, sameAs for LinkedIn).</li>
+        <li><strong>Blog:</strong> Article with author Person @id cross-reference.</li>
+        <li><strong>Skip:</strong> Course (unless you run workshops), Event (unless seminars/webinars).</li>
+    </ul>
+
+    <h3>E-commerce</h3>
+    <ul>
+        <li><strong>Homepage:</strong> Organization + WebSite (with SearchAction) + WebPage.</li>
+        <li><strong>Product pages:</strong> Product + Offer (price, availability, currency) + AggregateRating.</li>
+        <li><strong>Category pages:</strong> ItemList.</li>
+        <li><strong>Blog:</strong> Article.</li>
+    </ul>
+</section>
+
+<section id="schema-workflow">
+    <h2>Schema Workflow &amp; Checklist</h2>
+    <p>The approach: work out each page's schema with Claude, paste the JSON into the Schema Markup textarea at the bottom of that page's SEO section, save. No automation, no guessing — you control every value.</p>
+
+    <h3>The three places schema lives</h3>
+    <table style="width:100%;border-collapse:collapse;margin-bottom:20px;font-size:0.88rem;">
+        <thead>
+            <tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0;">
+                <th style="text-align:left;padding:8px 12px;font-weight:700;">Area</th>
+                <th style="text-align:left;padding:8px 12px;font-weight:700;">Where in admin</th>
+                <th style="text-align:left;padding:8px 12px;font-weight:700;">What goes here</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">Homepage</td><td style="padding:8px 12px;">Content tab → SEO section → Schema Markup</td><td style="padding:8px 12px;">Organization/EducationalOrganization + WebSite + WebPage. The site's foundational entity definitions — all other pages reference these @ids.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;background:#fafafa;"><td style="padding:8px 12px;font-weight:600;">Core pages</td><td style="padding:8px 12px;">Pages tab → edit a page → SEO section → Schema Markup</td><td style="padding:8px 12px;">Page-specific schema (Course, Service, FAQPage, WebPage, etc.). References homepage entity @ids — does not repeat the organization definition.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">City templates</td><td style="padding:8px 12px;">Templates tab → edit a template → SEO section → Schema Markup</td><td style="padding:8px 12px;">Same as core pages but uses shortcodes (<code>{city}</code>, <code>{SS}</code>, <code>{city_slug}</code>, <code>{website}</code>). Written once — resolves correctly for every generated city page.</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Build order</h3>
+    <ol>
+        <li><strong>Homepage first.</strong> Define EducationalOrganization (or Organization), WebSite, and WebPage here. Set the canonical <code>@id</code> values that every other page will reference — e.g., <code>https://domain.com/#organization</code> and <code>https://domain.com/#website</code>.</li>
+        <li><strong>Core pages second.</strong> Each core page gets its own schema (Course, Service, etc.) referencing the homepage @ids. Do one page at a time — test in Google Rich Results Test before moving to the next.</li>
+        <li><strong>Templates last.</strong> Once the schema pattern for a course page is working, port it to the template with shortcodes substituted for hardcoded values. Regenerate city pages.</li>
+    </ol>
+
+    <h3>Per-page checklist</h3>
+    <ul>
+        <li>☐ Identify the schema types needed for this specific page (use the master list above)</li>
+        <li>☐ Gather the real values: exact URL, canonical URL, business name, phone in E.164, logo full URL, social profile URLs, real rating/review count</li>
+        <li>☐ Write the JSON with Claude using a prompt from the section below</li>
+        <li>☐ Paste into the Schema Markup textarea — the green border confirms valid JSON</li>
+        <li>☐ Save the page</li>
+        <li>☐ Deploy and test at <code>search.google.com/test/rich-results</code></li>
+        <li>☐ Fix any required-field warnings before moving to the next page</li>
+    </ul>
+
+    <h3>Common mistakes</h3>
+    <ul>
+        <li><strong>Mismatched @id values.</strong> If the homepage defines <code>"@id": "https://domain.com/#organization"</code>, every other page must reference that exact string. A trailing slash difference breaks the cross-reference.</li>
+        <li><strong>Relative URLs.</strong> Schema requires absolute URLs everywhere — <code>https://domain.com/logo.png</code> not <code>/logo.png</code>.</li>
+        <li><strong>Invented review counts.</strong> Google cross-checks AggregateRating against actual review sources. Use only real numbers from Google, Trustpilot, or your verified review platform.</li>
+        <li><strong>Missing required fields.</strong> Course requires name, description, and provider. Offer requires price and priceCurrency. Missing these blocks the rich result entirely.</li>
+        <li><strong>Duplicate type declarations.</strong> Don't declare EducationalOrganization on every page — define it once on the homepage and reference it by @id everywhere else.</li>
+    </ul>
+</section>
+
+<section id="schema-prompts">
+    <h2>Sample Claude Prompts</h2>
+    <p>Copy and adapt these prompts. Fill in the bracketed values with real data before sending. Ask Claude to output JSON only — no explanation, no markdown code fences.</p>
+
+    <h3>Homepage schema</h3>
+    <p>Use this for the Content tab → Schema Markup field. Produces the site's foundational entity definitions.</p>
+    <pre><code>Write the complete JSON-LD @graph schema for the homepage of [Business Name].
+
+Business type: [EducationalOrganization / LocalBusiness / Organization]
+Website: [https://domain.com]
+Business name: [exact legal name]
+Phone (E.164): [+15551234567]
+Logo (full URL): [https://domain.com/uploads/logo.png]
+Social profiles: [LinkedIn URL, Facebook URL, Twitter/X URL]
+Rating: [4.8] from [422] reviews [or: no rating data yet]
+
+Include in the @graph:
+- [EducationalOrganization or Organization] with @id, name, url, logo, telephone, sameAs array, and aggregateRating (if rating data provided)
+- WebSite with @id, url, name, publisher @id reference
+- WebPage with @id, url, name, isPartOf @id reference, about @id reference
+
+Use @id cross-references between entities. All URLs must be absolute.
+Output valid JSON only — no explanation.</code></pre>
+
+    <h3>Course page schema</h3>
+    <p>Use this for the Pages tab → edit a course page → Schema Markup. Run once per course type.</p>
+    <pre><code>Write the complete JSON-LD @graph schema for a course page.
+
+Site base: [https://domain.com]
+Organization @id already defined on homepage: [https://domain.com/#organization]
+WebSite @id already defined on homepage: [https://domain.com/#website]
+
+This page:
+- Page URL: [https://domain.com/pmp-certification-training/]
+- Page title: [PMP Certification Training | Business Name]
+- Course name: [PMP Certification Training]
+- Course description: [2-3 sentences]
+- Price: [$X,XXX]
+- Delivery: [Live Virtual / On-Demand / In-Person]
+- Rating: [4.8] from [422] reviews
+- Certification earned: [Project Management Professional (PMP)]
+- Recognized by: [Project Management Institute (PMI)]
+- Has FAQ section on page: [yes/no — if yes, include 3-4 real Q&amp;A pairs]
+
+Include in the @graph:
+- WebPage (url, name, isPartOf, about — referencing existing @ids)
+- Course (name, description, provider @id, url, offers with price, aggregateRating)
+- EducationalOccupationalCredential (name, description, credentialCategory, recognizedBy, url)
+- FAQPage with Question/Answer pairs (if FAQ exists on page)
+- BreadcrumbList (Home → [Course Name], with absolute URLs)
+
+Output valid JSON only — no explanation.</code></pre>
+
+    <h3>City template schema (with shortcodes)</h3>
+    <p>Use this for the Templates tab → edit a template → Schema Markup. The output uses shortcodes so one schema covers every city.</p>
+    <pre><code>Write the complete JSON-LD @graph schema for a city landing page template.
+
+This schema will be used as a template — replace hardcoded city names and URLs
+with these shortcodes exactly as written:
+- {website} — base URL (e.g. https://domain.com)
+- {city} — city name (e.g. Austin)
+- {SS} — 2-letter state abbreviation (e.g. TX)
+- {city_slug} — URL slug (e.g. austin-tx)
+- {business} — business name
+
+Organization @id on homepage: [{website}/#organization]
+WebSite @id on homepage: [{website}/#website]
+
+This template is for: [course name, e.g. PMP Certification Training]
+Page URL pattern: [{website}/pmp-certification-{city_slug}/]
+Course description (generic, no city): [2-3 sentences]
+Price: [$X,XXX]
+Rating: [4.8] from [422] reviews
+
+Include in the @graph:
+- WebPage (url and name using shortcodes, isPartOf and about @id references)
+- Course (name with {city} and {SS} shortcodes, provider @id, url with shortcodes, offers, aggregateRating)
+- BreadcrumbList (Home → [Course Name] in {city}, {SS})
+
+Output valid JSON only — no explanation. Use the shortcode placeholders exactly as listed above wherever city-specific values appear.</code></pre>
+
+    <h3>Service business page schema (home services)</h3>
+    <p>For non-education sites — pest control, plumbing, HVAC, etc.</p>
+    <pre><code>Write the complete JSON-LD @graph schema for a service page.
+
+Site base: [https://domain.com]
+Organization @id on homepage: [https://domain.com/#organization]
+
+This page:
+- Page URL: [https://domain.com/cockroach-exterminator-katy-tx/]
+- Page title: [Cockroach Exterminator Katy TX | Business Name]
+- Service name: [Cockroach Extermination]
+- Service area: [Katy, TX]
+- Has FAQ section: [yes — include these Q&amp;A pairs: Q1/A1, Q2/A2, Q3/A3]
+
+Include in the @graph:
+- WebPage (url, name, isPartOf, about — referencing existing @ids)
+- Service (name, serviceType, areaServed, provider @id reference, url)
+- FAQPage (if FAQ exists on page)
+- BreadcrumbList (Home → [Service Name], absolute URLs)
+
+Output valid JSON only — no explanation.</code></pre>
+
+    <h3>Blog post schema</h3>
+    <pre><code>Write the complete JSON-LD @graph schema for a blog post.
+
+Site base: [https://domain.com]
+Organization @id on homepage: [https://domain.com/#organization]
+
+This post:
+- URL: [https://domain.com/blog/how-to-pass-the-pmp-exam/]
+- Title: [How to Pass the PMP Exam on Your First Try]
+- Published: [2025-03-15]
+- Updated: [2025-03-15]
+- Author: [Jane Smith] (if no named author, use: [{Business Name} Team])
+- Is this a how-to post with numbered steps? [yes/no]
+
+Include in the @graph:
+- WebPage (url, name, isPartOf @id reference)
+- Article (headline, datePublished, dateModified, author as Person or Organization, publisher @id reference)
+- HowTo with steps (only if this is genuinely a how-to post)
+- BreadcrumbList (Home → Blog → [Post Title], absolute URLs)
+
+Output valid JSON only — no explanation.</code></pre>
 </section>
 
 <!-- ═══════════ WORKFLOW — CITY PAGES ═══════════ -->
