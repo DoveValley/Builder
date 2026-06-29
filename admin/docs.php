@@ -1636,15 +1636,17 @@ tr:nth-child(even) td { background: #f8fafc; }
 }</code></pre>
 
     <h3>Shortcodes in schema</h3>
-    <p>The schema textarea supports shortcodes. <code>{website}</code>, <code>{business}</code>, <code>{phone}</code>, <code>{tel}</code>, <code>{email}</code>, and all other site variables resolve at render time. On city template pages, city shortcodes — <code>{city}</code>, <code>{SS}</code>, <code>{city_slug}</code> — also resolve, so one template schema covers every generated city page automatically.</p>
+    <p>The schema textarea supports shortcodes. Supported tokens: <code>{website}</code>, <code>{business}</code>, <code>{business_domain}</code>, <code>{phone}</code>, <code>{tel}</code>, <code>{zip}</code>, <code>{address}</code>, <code>{city}</code>, <code>{state}</code>, <code>{SS}</code>, <code>{city_slug}</code>, <code>{city_state}</code>.</p>
+    <p><strong>Homepage and core pages:</strong> shortcodes resolve at render time (when the page is served or when Generate Static Site runs).</p>
+    <p><strong>City template pages:</strong> shortcodes resolve at <em>generation time</em> — the moment the city page JSON file is written by the generator. The stored JSON already contains final absolute URLs for every city, so you can open any city page file and read the exact schema that will appear in the HTML. No runtime resolution is needed.</p>
 
     <h3>City page schema: shortcodes + automatic FAQPage injection</h3>
-    <p>City landing pages get their schema in two layers that are merged automatically at generation time:</p>
+    <p>City landing pages get their schema in two layers, both resolved at generation time:</p>
     <ol>
-        <li><strong>Template schema (you write once).</strong> Stored in the template's SEO → Schema Markup textarea. Contains <code>WebPage</code>, <code>Course</code>, <code>EducationalOccupationalCredential</code>, and <code>BreadcrumbList</code> — all using shortcodes. This schema is the same @graph skeleton for every city.</li>
-        <li><strong>FAQPage injection (automatic).</strong> After the city page is generated and AI has filled in the FAQ blocks, the generator reads every <code>faq_two_col</code> block on the page, builds a <code>FAQPage</code> entity from the real Q&amp;A pairs, and merges it into the template @graph. No manual work needed — the city-specific FAQ content goes directly into structured data.</li>
+        <li><strong>Template schema (you write once).</strong> Stored in the template's SEO → Schema Markup textarea using shortcodes. The generator substitutes real city values and writes the fully resolved JSON into each city page file. One template schema produces correct, absolute-URL schema for every city automatically.</li>
+        <li><strong>FAQPage injection (automatic).</strong> After the city page is generated and AI has filled in the FAQ blocks, the generator reads every <code>faq_two_col</code> block, builds a <code>FAQPage</code> entity from the Q&amp;A pairs, and merges it into the @graph — also fully resolved. No manual work needed.</li>
     </ol>
-    <p>The result: each generated city page has a complete @graph — Course + WebPage + Credential + BreadcrumbList (from the template) + FAQPage (from the AI-generated FAQ block) — all with the correct city name, URL, and question text. Google can index the city-specific FAQs as rich results without any extra effort per city.</p>
+    <p>The result: each city page JSON file contains a complete, self-contained @graph with absolute URLs — Course + WebPage + Credential + BreadcrumbList + FAQPage — all with the correct city name and URL already substituted. Directly inspectable, directly verifiable.</p>
     <p><strong>What this means in practice:</strong> When writing the template schema, <em>do not include a FAQPage</em> — it will be injected and merged automatically. If a city page has no <code>faq_two_col</code> block, or the block has no questions, the FAQPage is simply omitted for that city.</p>
 
     <h3>Testing your schema</h3>
