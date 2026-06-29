@@ -157,7 +157,12 @@ function render_seo_editor($seo, string $context = 'page') {
             <textarea id="schema_json_ta" name="schema" rows="18"
                       style="font-family:'SF Mono','Fira Code',monospace;font-size:0.79rem;width:100%;border:1px solid #e2e8f0;border-radius:6px;padding:10px;line-height:1.55;resize:vertical;"
                       oninput="validateSchemaJson(this)"><?= h($seo['schema'] ?? '') ?></textarea>
-            <div id="schema_json_status" style="margin-top:6px;font-size:0.8rem;min-height:1.2em;"></div>
+            <div style="display:flex;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap;">
+                <div id="schema_json_status" style="font-size:0.8rem;min-height:1.2em;flex:1;"></div>
+                <button type="button" onclick="schemaFormat()" class="btn btn-secondary btn-small">Format JSON</button>
+                <button type="button" onclick="schemaOpenValidator('validator')" class="btn btn-secondary btn-small">validator.schema.org ↗</button>
+                <button type="button" onclick="schemaOpenValidator('richresults')" class="btn btn-secondary btn-small">Rich Results Test ↗</button>
+            </div>
         </div>
     </div>
     <script>
@@ -176,7 +181,34 @@ function render_seo_editor($seo, string $context = 'page') {
                 ta.style.borderColor = '#fca5a5';
             }
         }
+        function schemaFormat() {
+            var ta = document.getElementById('schema_json_ta');
+            try {
+                var parsed = JSON.parse(ta.value);
+                ta.value = JSON.stringify(parsed, null, 2);
+                validateSchemaJson(ta);
+            } catch(e) {
+                validateSchemaJson(ta);
+            }
+        }
+        function schemaOpenValidator(tool) {
+            var canonical = (document.getElementById('canonical_url') || {}).value || '';
+            canonical = canonical.trim();
+            var url;
+            if (tool === 'validator') {
+                url = canonical
+                    ? 'https://validator.schema.org/#url=' + encodeURIComponent(canonical)
+                    : 'https://validator.schema.org/';
+            } else {
+                url = canonical
+                    ? 'https://search.google.com/test/rich-results?url=' + encodeURIComponent(canonical)
+                    : 'https://search.google.com/test/rich-results';
+            }
+            window.open(url, '_blank');
+        }
         window.validateSchemaJson = validateSchemaJson;
+        window.schemaFormat       = schemaFormat;
+        window.schemaOpenValidator = schemaOpenValidator;
         var ta = document.getElementById('schema_json_ta');
         if (ta && ta.value.trim()) validateSchemaJson(ta);
     })();
