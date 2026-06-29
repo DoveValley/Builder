@@ -1,5 +1,5 @@
     <div class="tab-content" style="<?= $tab === 'seo' ? '' : 'display:none;' ?>">
-        <?php tab_header('SEO / Schema', 'Global SEO settings — meta title format, default description, Open Graph image, and structured data. Individual pages override these defaults.', 'tab-seo'); ?>
+        <?php tab_header('SEO', 'Global SEO settings — business info, breadcrumbs, and redirects. Schema markup is set per page in each page editor.', 'tab-seo'); ?>
         <form method="post" action="save.php">
             <input type="hidden" name="section" value="local_business">
             <?php render_local_business_editor($data['local_business'] ?? []); ?>
