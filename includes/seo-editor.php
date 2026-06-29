@@ -3,82 +3,27 @@
    ADMIN: Local Business editor
    ============================================================ */
 function render_local_business_editor(array $lb) {
-    $types = ['LocalBusiness','PestControlService','HomeAndConstructionBusiness','Plumber','Electrician','GeneralContractor'];
     ?>
     <div class="card">
         <h2>Local Business Info</h2>
-        <p class="hint" style="margin-bottom:18px;">Business information used across the site. Reference these values when writing schema manually in the page editors.</p>
+        <p class="hint" style="margin-bottom:18px;">Used for the canonical URL fallback, admin display name, and the <code>{rating}</code> / <code>{review_count}</code> shortcodes.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
             <div class="form-group">
                 <label>Business name</label>
                 <input type="text" name="lb_name" value="<?= h($lb['lb_name'] ?? '') ?>" placeholder="e.g. Katy Pest Pros">
-            </div>
-            <div class="form-group">
-                <label>Business type</label>
-                <select name="lb_type">
-                    <?php foreach ($types as $t): ?>
-                    <option value="<?= h($t) ?>" <?= ($lb['lb_type'] ?? '') === $t ? 'selected' : '' ?>><?= h($t) ?></option>
-                    <?php endforeach; ?>
-                </select>
+                <span class="hint">Shown as the site name in the admin when no other name is set.</span>
             </div>
             <div class="form-group">
                 <label>Website URL</label>
                 <input type="text" name="lb_url" value="<?= h($lb['lb_url'] ?? '') ?>" placeholder="https://katypestpros.com">
+                <span class="hint">Used as the canonical URL base when a page has no explicit canonical set.</span>
             </div>
             <div class="form-group">
-                <label>Phone</label>
-                <input type="text" name="lb_phone" value="<?= h($lb['lb_phone'] ?? '') ?>" placeholder="(281) 215-0160">
-            </div>
-            <div class="form-group" style="grid-column:1/-1;">
-                <label>Street address</label>
-                <input type="text" name="lb_street" value="<?= h($lb['lb_street'] ?? '') ?>" placeholder="123 Main St">
-            </div>
-            <div class="form-group">
-                <label>City</label>
-                <input type="text" name="lb_city" value="<?= h($lb['lb_city'] ?? '') ?>" placeholder="Katy">
-            </div>
-            <div class="form-group">
-                <label>State</label>
-                <input type="text" name="lb_state" value="<?= h($lb['lb_state'] ?? '') ?>" placeholder="TX">
-            </div>
-            <div class="form-group">
-                <label>ZIP code</label>
-                <input type="text" name="lb_zip" value="<?= h($lb['lb_zip'] ?? '') ?>" placeholder="77494">
-            </div>
-            <div class="form-group">
-                <label>Country</label>
-                <input type="text" name="lb_country" value="<?= h($lb['lb_country'] ?? 'US') ?>">
-            </div>
-            <div class="form-group">
-                <label>Latitude</label>
-                <input type="text" name="lb_lat" value="<?= h($lb['lb_lat'] ?? '') ?>" placeholder="29.7858">
-            </div>
-            <div class="form-group">
-                <label>Longitude</label>
-                <input type="text" name="lb_lng" value="<?= h($lb['lb_lng'] ?? '') ?>" placeholder="-95.8245">
-            </div>
-            <div class="form-group">
-                <label>Price range</label>
-                <input type="text" name="lb_price_range" value="<?= h($lb['lb_price_range'] ?? '$$') ?>" placeholder="$$">
-            </div>
-            <div class="form-group">
-                <label>Opening hours <span class="hint">(schema format)</span></label>
-                <input type="text" name="lb_hours" value="<?= h($lb['lb_hours'] ?? '') ?>" placeholder="Mo-Fr 08:00-18:00, Sa 09:00-13:00">
-            </div>
-            <div class="form-group" style="grid-column:1/-1;">
-                <label>Logo URL</label>
-                <input type="text" name="lb_logo" value="<?= h($lb['lb_logo'] ?? '') ?>" placeholder="https://katypestpros.com/images/logo/logo-katy-pest-pros.png">
-            </div>
-            <div class="form-group" style="grid-column:1/-1;">
-                <label>Business description</label>
-                <textarea name="lb_description" rows="3"><?= h($lb['lb_description'] ?? '') ?></textarea>
-            </div>
-            <div class="form-group">
-                <label for="lb_rating">Average rating <span class="hint">(1–5) — use shortcode <code>{rating}</code></span></label>
+                <label for="lb_rating">Average rating <span class="hint">(1–5) — shortcode <code>{rating}</code></span></label>
                 <input type="text" id="lb_rating" name="lb_rating" value="<?= h($lb['lb_rating'] ?? '') ?>" placeholder="e.g. 4.8">
             </div>
             <div class="form-group">
-                <label for="lb_review_count">Total review count — use shortcode <code>{review_count}</code></label>
+                <label for="lb_review_count">Review count — shortcode <code>{review_count}</code></label>
                 <input type="text" id="lb_review_count" name="lb_review_count" value="<?= h($lb['lb_review_count'] ?? '') ?>" placeholder="e.g. 534">
             </div>
         </div>
