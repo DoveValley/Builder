@@ -136,8 +136,8 @@ function get_schema_skeleton(string $type, array $seo = [], array $lb = []): str
             ],
             'aggregateRating' => [
                 '@type'       => 'AggregateRating',
-                'ratingValue' => '',
-                'reviewCount' => '',
+                'ratingValue' => '4.8',
+                'reviewCount' => '422',
                 'bestRating'  => '5',
                 'worstRating' => '1',
             ],

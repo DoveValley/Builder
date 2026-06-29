@@ -646,7 +646,7 @@
         "global_schema_blocks": {
             "EducationalOrganization": {
                 "enabled": true,
-                "json": "{\n    \"@type\": \"EducationalOrganization\",\n    \"@id\": \"https://granitepmacademy.com/#organization\",\n    \"name\": \"Granite PM Academy\",\n    \"url\": \"https://granitepmacademy.com/\",\n    \"logo\": \"https://granitepmacademy.com/uploads/logo_granite.png\",\n    \"telephone\": \"+18774387671\",\n    \"sameAs\": []\n}"
+                "json": "{\n    \"@type\": \"EducationalOrganization\",\n    \"@id\": \"https://granitepmacademy.com/#organization\",\n    \"name\": \"Granite PM Academy\",\n    \"url\": \"https://granitepmacademy.com/\",\n    \"logo\": \"https://granitepmacademy.com/uploads/logo_granite.png\",\n    \"telephone\": \"+18774387671\",\n    \"sameAs\": [],\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": \"4.8\",\n        \"reviewCount\": \"422\",\n        \"bestRating\": \"5\",\n        \"worstRating\": \"1\"\n    }\n}"
             },
             "WebSite": {
                 "enabled": true,
