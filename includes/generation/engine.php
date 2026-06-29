@@ -62,8 +62,8 @@ function _gen_inject_faq_schema(array &$page): void {
     foreach ($page['content_blocks'] ?? [] as $block) {
         if (($block['type'] ?? '') !== 'faq_two_col') continue;
         foreach ($block['fq_items'] ?? [] as $item) {
-            $q = trim(strip_tags($item['question'] ?? ''));
-            $a = trim(strip_tags($item['answer']   ?? ''));
+            $q = trim(html_entity_decode(strip_tags($item['question'] ?? ''), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+            $a = trim(html_entity_decode(strip_tags($item['answer']   ?? ''), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
             if ($q && $a) {
                 $pairs[] = [
                     '@type'          => 'Question',
