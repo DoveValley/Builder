@@ -642,7 +642,17 @@
         "bc_mid_label": "",
         "bc_mid_url": "",
         "og_site_name": "Granite PM Academy",
-        "og_image_alt": "Granite PM Academy — PMP, CAPM & CPMAI Certification Training"
+        "og_image_alt": "Granite PM Academy — PMP, CAPM & CPMAI Certification Training",
+        "schema_blocks": {
+            "EducationalOrganization": {
+                "enabled": true,
+                "json": "{\n    \"@type\": \"EducationalOrganization\",\n    \"@id\": \"https://granitepmacademy.com/#organization\",\n    \"name\": \"Granite PM Academy\",\n    \"url\": \"https://granitepmacademy.com/\",\n    \"logo\": \"https://granitepmacademy.com/uploads/logo_granite.png\",\n    \"telephone\": \"+18774387671\",\n    \"sameAs\": []\n}"
+            },
+            "WebSite": {
+                "enabled": true,
+                "json": "{\n    \"@type\": \"WebSite\",\n    \"@id\": \"https://granitepmacademy.com/#website\",\n    \"url\": \"https://granitepmacademy.com/\",\n    \"name\": \"Granite PM Academy\",\n    \"publisher\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n    }\n}"
+            }
+        }
     },
     "local_business": {
         "lb_name": "Granite PM Academy",
