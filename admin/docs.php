@@ -1615,8 +1615,30 @@ tr:nth-child(even) td { background: #f8fafc; }
     <p><strong>Schema markup (JSON-LD)</strong> is structured data you embed in a page's <code>&lt;head&gt;</code> that tells Google exactly what the page is about — in machine-readable form. Google uses it to generate rich results: star ratings in search, course cards, FAQ dropdowns, breadcrumb trails, and event listings. It also helps Google build an accurate knowledge graph entry for your business.</p>
 
     <h3>How it works in this system</h3>
-    <p>Every page editor — Homepage (Content tab), core pages (Pages tab), blog posts (Blog tab), and city templates (Templates tab) — has a <strong>Schema Markup</strong> textarea at the bottom of the SEO section. You paste valid JSON-LD into it and save. That JSON is output verbatim inside a <code>&lt;script type="application/ld+json"&gt;</code> tag in the page's <code>&lt;head&gt;</code>.</p>
+    <p>Every page editor — Homepage (Content tab), core pages (Pages tab), blog posts (Blog tab), and city templates (Templates tab) — has a <strong>Schema Markup</strong> textarea at the bottom of the SEO section. You paste valid JSON-LD into it and save.</p>
     <p>Schema is written manually. You work out the correct JSON with Claude (using the prompts in the <a href="#schema-prompts">Sample Prompts</a> section), paste it in, and save. This gives you full control over every value — ratings, URLs, names, offers — with no automated guessing.</p>
+
+    <h3>JSON → HTML flow</h3>
+    <p>The path from the textarea to the live page differs slightly by context:</p>
+    <table style="width:100%;border-collapse:collapse;margin-bottom:16px;font-size:0.88rem;">
+        <thead>
+            <tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0;">
+                <th style="text-align:left;padding:8px 12px;font-weight:700;">Context</th>
+                <th style="text-align:left;padding:8px 12px;font-weight:700;">Flow</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-weight:600;white-space:nowrap;">Homepage &amp; core pages</td>
+                <td style="padding:8px 12px;">JSON saved to <code>site.json</code> → Generate Static Site renders page → JSON embedded in <code>&lt;script type="application/ld+json"&gt;</code> in <code>&lt;head&gt;</code> → HTML deployed to server.</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e5e7eb;background:#fafafa;">
+                <td style="padding:8px 12px;font-weight:600;white-space:nowrap;">City templates</td>
+                <td style="padding:8px 12px;">JSON (with shortcodes) saved to <code>templates.json</code> → city generator resolves shortcodes + injects FAQPage → fully-resolved JSON written to each city page file → Generate Static Site embeds it in <code>&lt;script type="application/ld+json"&gt;</code> → HTML deployed to server.</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>In all cases the schema you write is exactly what appears in the HTML — no transformation, no guessing. For city pages, open any file in <code>sites/{id}/data/pages/</code> to read the final resolved schema before deploying.</p>
 
     <h3>The @graph pattern</h3>
     <p>Rather than outputting one <code>&lt;script&gt;</code> tag per schema type, the best practice is to combine multiple types in a single <code>@graph</code> array. Entities reference each other by <code>@id</code> — e.g., a WebPage references the WebSite and Organization by their IDs rather than repeating all their data. This is cleaner for Google to process and avoids duplicate declarations.</p>
