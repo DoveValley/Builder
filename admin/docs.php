@@ -1638,6 +1638,15 @@ tr:nth-child(even) td { background: #f8fafc; }
     <h3>Shortcodes in schema</h3>
     <p>The schema textarea supports shortcodes. <code>{website}</code>, <code>{business}</code>, <code>{phone}</code>, <code>{tel}</code>, <code>{email}</code>, and all other site variables resolve at render time. On city template pages, city shortcodes — <code>{city}</code>, <code>{SS}</code>, <code>{city_slug}</code> — also resolve, so one template schema covers every generated city page automatically.</p>
 
+    <h3>City page schema: shortcodes + automatic FAQPage injection</h3>
+    <p>City landing pages get their schema in two layers that are merged automatically at generation time:</p>
+    <ol>
+        <li><strong>Template schema (you write once).</strong> Stored in the template's SEO → Schema Markup textarea. Contains <code>WebPage</code>, <code>Course</code>, <code>EducationalOccupationalCredential</code>, and <code>BreadcrumbList</code> — all using shortcodes. This schema is the same @graph skeleton for every city.</li>
+        <li><strong>FAQPage injection (automatic).</strong> After the city page is generated and AI has filled in the FAQ blocks, the generator reads every <code>faq_two_col</code> block on the page, builds a <code>FAQPage</code> entity from the real Q&amp;A pairs, and merges it into the template @graph. No manual work needed — the city-specific FAQ content goes directly into structured data.</li>
+    </ol>
+    <p>The result: each generated city page has a complete @graph — Course + WebPage + Credential + BreadcrumbList (from the template) + FAQPage (from the AI-generated FAQ block) — all with the correct city name, URL, and question text. Google can index the city-specific FAQs as rich results without any extra effort per city.</p>
+    <p><strong>What this means in practice:</strong> When writing the template schema, <em>do not include a FAQPage</em> — it will be injected and merged automatically. If a city page has no <code>faq_two_col</code> block, or the block has no questions, the FAQPage is simply omitted for that city.</p>
+
     <h3>Testing your schema</h3>
     <p>After saving and deploying, test with Google's Rich Results Test at <code>search.google.com/test/rich-results</code>. Paste the page URL. It will show which schema types were found, which are eligible for rich results, and flag any errors or missing required fields.</p>
 </section>
@@ -1712,7 +1721,7 @@ tr:nth-child(even) td { background: #f8fafc; }
     <ul>
         <li><strong>Homepage:</strong> EducationalOrganization + WebSite + WebPage. Include aggregateRating on the organization if you have real review data.</li>
         <li><strong>Course pages:</strong> Course + Offer (with price and availability) + AggregateRating + EducationalOccupationalCredential. This unlocks Google's course rich results.</li>
-        <li><strong>City pages:</strong> Course (city-specific name/URL) + Event (if scheduled dates exist) + BreadcrumbList + FAQPage (if FAQs on page).</li>
+        <li><strong>City pages:</strong> Course (city-specific name/URL via shortcodes) + BreadcrumbList + FAQPage (auto-injected from the <code>faq_two_col</code> block after AI generation — no manual work) + Event (if scheduled dates exist).</li>
         <li><strong>Blog:</strong> Article + BreadcrumbList.</li>
         <li><strong>Skip:</strong> LocalBusiness (unless physical classroom), HowTo (unless genuinely a how-to post).</li>
     </ul>
@@ -1760,7 +1769,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <tbody>
             <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">Homepage</td><td style="padding:8px 12px;">Content tab → SEO section → Schema Markup</td><td style="padding:8px 12px;">Organization/EducationalOrganization + WebSite + WebPage. The site's foundational entity definitions — all other pages reference these @ids.</td></tr>
             <tr style="border-bottom:1px solid #e5e7eb;background:#fafafa;"><td style="padding:8px 12px;font-weight:600;">Core pages</td><td style="padding:8px 12px;">Pages tab → edit a page → SEO section → Schema Markup</td><td style="padding:8px 12px;">Page-specific schema (Course, Service, FAQPage, WebPage, etc.). References homepage entity @ids — does not repeat the organization definition.</td></tr>
-            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">City templates</td><td style="padding:8px 12px;">Templates tab → edit a template → SEO section → Schema Markup</td><td style="padding:8px 12px;">Same as core pages but uses shortcodes (<code>{city}</code>, <code>{SS}</code>, <code>{city_slug}</code>, <code>{website}</code>). Written once — resolves correctly for every generated city page.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">City templates</td><td style="padding:8px 12px;">Templates tab → edit a template → SEO section → Schema Markup</td><td style="padding:8px 12px;">Same as core pages but uses shortcodes (<code>{city}</code>, <code>{SS}</code>, <code>{city_slug}</code>, <code>{website}</code>). Written once — resolves correctly for every generated city page. <strong>Do not add FAQPage here</strong> — the generator injects it automatically from each city's AI-generated <code>faq_two_col</code> block after generation.</td></tr>
         </tbody>
     </table>
 
@@ -1768,7 +1777,7 @@ tr:nth-child(even) td { background: #f8fafc; }
     <ol>
         <li><strong>Homepage first.</strong> Define EducationalOrganization (or Organization), WebSite, and WebPage here. Set the canonical <code>@id</code> values that every other page will reference — e.g., <code>https://domain.com/#organization</code> and <code>https://domain.com/#website</code>.</li>
         <li><strong>Core pages second.</strong> Each core page gets its own schema (Course, Service, etc.) referencing the homepage @ids. Do one page at a time — test in Google Rich Results Test before moving to the next.</li>
-        <li><strong>Templates last.</strong> Once the schema pattern for a course page is working, port it to the template with shortcodes substituted for hardcoded values. Regenerate city pages.</li>
+        <li><strong>Templates last.</strong> Once the schema pattern for a course page is working, port it to the template with shortcodes substituted for hardcoded values. Do <em>not</em> include FAQPage in the template schema — it is injected automatically from each city's AI-generated <code>faq_two_col</code> block during generation. Regenerate city pages after updating the template schema.</li>
     </ol>
 
     <h3>Per-page checklist</h3>
@@ -1846,7 +1855,7 @@ Include in the @graph:
 Output valid JSON only — no explanation.</code></pre>
 
     <h3>City template schema (with shortcodes)</h3>
-    <p>Use this for the Templates tab → edit a template → Schema Markup. The output uses shortcodes so one schema covers every city.</p>
+    <p>Use this for the Templates tab → edit a template → Schema Markup. The output uses shortcodes so one schema covers every city. <strong>Do not include FAQPage</strong> — the generator builds and injects it automatically from the AI-generated FAQ block for each city after generation runs.</p>
     <pre><code>Write the complete JSON-LD @graph schema for a city landing page template.
 
 This schema will be used as a template — replace hardcoded city names and URLs
@@ -1865,12 +1874,16 @@ Page URL pattern: [{website}/pmp-certification-{city_slug}/]
 Course description (generic, no city): [2-3 sentences]
 Price: [$X,XXX]
 Rating: [4.8] from [422] reviews
+Certification earned (if applicable): [e.g. Project Management Professional (PMP)]
+Recognized by: [e.g. Project Management Institute (PMI)]
 
 Include in the @graph:
 - WebPage (url and name using shortcodes, isPartOf and about @id references)
-- Course (name with {city} and {SS} shortcodes, provider @id, url with shortcodes, offers, aggregateRating)
+- Course (name with {city} and {SS} shortcodes, provider @id, url with shortcodes, offers with price, aggregateRating)
+- EducationalOccupationalCredential (if the course leads to a recognized certification)
 - BreadcrumbList (Home → [Course Name] in {city}, {SS})
 
+Do NOT include FAQPage — it is injected automatically from the AI-generated FAQ block during city page generation.
 Output valid JSON only — no explanation. Use the shortcode placeholders exactly as listed above wherever city-specific values appear.</code></pre>
 
     <h3>Service business page schema (home services)</h3>
