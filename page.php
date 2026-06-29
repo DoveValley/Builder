@@ -26,11 +26,11 @@ if (file_exists(PAGE_INDEX_FILE)) {
         if ($realPage !== false && strncmp($realPage, $realPagesDir . DIRECTORY_SEPARATOR, strlen($realPagesDir) + 1) === 0) {
             $gen = json_decode(file_get_contents($pageFile), true);
 
-            // Merge city vars over site vars so shortcodes resolve correctly
-            $data['site_vars'] = array_merge(
-                $data['site_vars'] ?? [],
-                $gen['city_vars']  ?? []
-            );
+            // Merge city vars over site vars — skip blank strings so city rows
+            // with empty phone/website/etc. don't wipe out the site-level values.
+            $cityVarsRaw = $gen['city_vars'] ?? [];
+            $cityVars    = array_filter($cityVarsRaw, fn($v) => is_array($v) || ($v !== '' && $v !== null));
+            $data['site_vars'] = array_merge($data['site_vars'] ?? [], $cityVars);
 
             $contentBlocks = $gen['content_blocks'] ?? [];
             $seo           = $gen['seo']            ?? [];

@@ -167,7 +167,10 @@ if (file_exists(PAGE_INDEX_FILE)) {
 
         gen_reset_shortcode_globals();
         $data = $siteData;
-        $data['site_vars'] = array_merge($data['site_vars'] ?? [], $gen['city_vars'] ?? []);
+        // Skip blank city_var strings so empty phone/website fields don't clobber site-level values.
+        $cityVarsRaw = $gen['city_vars'] ?? [];
+        $cityVars    = array_filter($cityVarsRaw, fn($v) => is_array($v) || ($v !== '' && $v !== null));
+        $data['site_vars'] = array_merge($data['site_vars'] ?? [], $cityVars);
         $contentBlocks   = $gen['content_blocks'] ?? [];
         $seo             = $gen['seo'] ?? [];
         $pageTitle       = ($gen['title'] ?? '') !== '' ? $gen['title'] : SITE_TITLE;
