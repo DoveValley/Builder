@@ -328,13 +328,25 @@ function generate_city_pages(array $options = []): array {
             // is present in $page['content_blocks'].
             _gen_inject_faq_schema($page);
 
-            // ── Resolve schema shortcodes at generation time ──────────────────
-            // Merges site vars + non-blank city vars and substitutes all {tokens}
-            // so the stored JSON is fully self-contained — no runtime resolution
-            // needed, directly inspectable, and immune to render-time var gaps.
+            // ── Resolve SEO shortcodes + set canonical at generation time ────────
+            $cityVarsFiltered = array_filter($city, fn($v) => is_array($v) || ($v !== '' && $v !== null));
+            $mergedVars       = array_merge($siteVars, $cityVarsFiltered);
+
+            // Canonical URL — set from website + slug if template left it empty
+            if (empty(trim($page['seo']['canonical_url'] ?? ''))) {
+                $website = rtrim($siteVars['website'] ?? '', '/');
+                $page['seo']['canonical_url'] = $website . '/' . ltrim($page['slug'], '/') . '/';
+            } else {
+                $page['seo']['canonical_url'] = _gen_resolve_schema_shortcodes($page['seo']['canonical_url'], $mergedVars);
+            }
+
+            // meta_keywords — resolve any remaining shortcodes
+            if (!empty($page['seo']['meta_keywords'])) {
+                $page['seo']['meta_keywords'] = _gen_resolve_schema_shortcodes($page['seo']['meta_keywords'], $mergedVars);
+            }
+
+            // Schema — fully resolve all tokens so the stored JSON is self-contained
             if (!empty($page['seo']['schema'])) {
-                $cityVarsFiltered = array_filter($city, fn($v) => is_array($v) || ($v !== '' && $v !== null));
-                $mergedVars       = array_merge($siteVars, $cityVarsFiltered);
                 $page['seo']['schema'] = _gen_resolve_schema_shortcodes($page['seo']['schema'], $mergedVars);
             }
 
