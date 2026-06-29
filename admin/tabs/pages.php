@@ -163,7 +163,7 @@
 
                 <?php render_content_blocks_editor($editingPage['content_blocks']); ?>
 
-                <?php render_seo_editor($editingPage['seo']); ?>
+                <?php render_seo_editor($editingPage['seo'], 'page'); ?>
 
                 <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
                     <button type="submit" class="btn">Save Page</button>

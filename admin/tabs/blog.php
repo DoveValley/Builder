@@ -134,7 +134,7 @@
 
                 <?php render_content_blocks_editor($editingPost['content_blocks']); ?>
 
-                <?php render_seo_editor($editingPost['seo']); ?>
+                <?php render_seo_editor($editingPost['seo'], 'post'); ?>
 
                 <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
                     <button type="submit" class="btn">Save Post</button>

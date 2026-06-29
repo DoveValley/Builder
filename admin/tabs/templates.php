@@ -281,7 +281,7 @@
         <?php render_content_blocks_editor($editingTemplate['content_blocks'] ?? []); ?>
 
         <!-- SEO editor -->
-        <?php render_seo_editor($editingTemplate['seo'] ?? []); ?>
+        <?php render_seo_editor($editingTemplate['seo'] ?? [], 'template'); ?>
 
         <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:16px;">
             <button type="submit" class="btn">Save Template</button>

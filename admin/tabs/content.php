@@ -63,7 +63,7 @@
             <?php if ($tab === 'content'): ?>
             <?php render_content_blocks_editor($blocks); ?>
 
-            <?php render_seo_editor($seo); ?>
+            <?php render_seo_editor($seo, 'homepage'); ?>
             <?php endif; ?>
 
             <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">

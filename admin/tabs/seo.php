@@ -45,6 +45,15 @@
             </div>
         </form>
 
+        <form method="post" action="save.php" style="margin-top:32px;">
+            <input type="hidden" name="section" value="seo_schema">
+            <input type="hidden" name="csrf_token" value="<?= h($_SESSION['csrf_token'] ?? '') ?>">
+            <?php render_schema_section($data['seo'] ?? [], 'global'); ?>
+            <div style="margin-top:16px;">
+                <button type="submit" class="btn">Save Global Schema</button>
+            </div>
+        </form>
+
         <?php
         $redirects = [];
         if (defined('REDIRECTS_FILE') && file_exists(REDIRECTS_FILE)) {

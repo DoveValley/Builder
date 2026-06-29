@@ -74,6 +74,117 @@ function generate_local_business_schema(array $lb): string {
 }
 
 /* ============================================================
+   SCHEMA: Skeleton generator for the panel Schema Section
+   ============================================================ */
+function get_schema_skeleton(string $type, array $seo = [], array $lb = []): string {
+    $website  = rtrim($lb['lb_url'] ?? resolve_shortcodes('{website}'), '/');
+    $orgId    = $website . '/#organization';
+    $siteId   = $website . '/#website';
+    $canonical = rtrim(resolve_shortcodes($seo['canonical_url'] ?? ''), '/') ?: $website;
+    $canonical = rtrim($canonical, '/') . '/';
+    $pageTitle = $seo['seo_title'] ?? '';
+
+    $skeletons = [
+        'EducationalOrganization' => [
+            '@type'     => 'EducationalOrganization',
+            '@id'       => $orgId,
+            'name'      => $lb['lb_name'] ?? '',
+            'url'       => $website . '/',
+            'logo'      => $lb['lb_logo'] ?? '',
+            'telephone' => $lb['lb_phone'] ?? '',
+            'sameAs'    => [],
+        ],
+        'WebSite' => [
+            '@type'     => 'WebSite',
+            '@id'       => $siteId,
+            'url'       => $website . '/',
+            'name'      => $lb['lb_name'] ?? '',
+            'publisher' => ['@id' => $orgId],
+        ],
+        'WebPage' => [
+            '@type'    => 'WebPage',
+            '@id'      => $canonical . '#webpage',
+            'url'      => $canonical,
+            'name'     => $pageTitle,
+            'isPartOf' => ['@id' => $siteId],
+            'about'    => ['@id' => $orgId],
+        ],
+        'ItemList' => [
+            '@type'           => 'ItemList',
+            'name'            => 'PMI Certification Courses',
+            'itemListElement' => [
+                ['@type' => 'ListItem', 'position' => 1, 'name' => '', 'url' => ''],
+                ['@type' => 'ListItem', 'position' => 2, 'name' => '', 'url' => ''],
+                ['@type' => 'ListItem', 'position' => 3, 'name' => '', 'url' => ''],
+            ],
+        ],
+        'Course' => [
+            '@type'       => 'Course',
+            'name'        => '',
+            'description' => '',
+            'provider'    => ['@id' => $orgId],
+            'url'         => $canonical,
+            'offers'      => [
+                [
+                    '@type'        => 'Offer',
+                    'name'         => 'Live Virtual',
+                    'price'        => '',
+                    'priceCurrency'=> 'USD',
+                    'availability' => 'https://schema.org/InStock',
+                    'url'          => $canonical,
+                ],
+            ],
+            'aggregateRating' => [
+                '@type'       => 'AggregateRating',
+                'ratingValue' => '',
+                'reviewCount' => '',
+                'bestRating'  => '5',
+                'worstRating' => '1',
+            ],
+        ],
+        'Event' => [
+            '@type'               => 'Event',
+            'name'                => '',
+            'startDate'           => '',
+            'endDate'             => '',
+            'eventAttendanceMode' => 'https://schema.org/OnlineEventAttendanceMode',
+            'location'  => ['@type' => 'VirtualLocation', 'url' => $canonical],
+            'organizer' => ['@id' => $orgId],
+            'offers'    => [
+                '@type'        => 'Offer',
+                'price'        => '',
+                'priceCurrency'=> 'USD',
+                'availability' => 'https://schema.org/InStock',
+                'url'          => $canonical,
+            ],
+        ],
+        'AboutPage' => [
+            '@type'    => 'AboutPage',
+            'url'      => $canonical,
+            'name'     => $pageTitle,
+            'isPartOf' => ['@id' => $siteId],
+        ],
+        'ContactPage' => [
+            '@type'    => 'ContactPage',
+            'url'      => $canonical,
+            'name'     => $pageTitle,
+            'isPartOf' => ['@id' => $siteId],
+        ],
+        'EducationalOccupationalCredential' => [
+            '@type'              => 'EducationalOccupationalCredential',
+            'name'               => '',
+            'description'        => '',
+            'credentialCategory' => 'Professional Certification',
+            'recognizedBy'       => ['@type' => 'Organization', 'name' => ''],
+            'url'                => $canonical,
+        ],
+    ];
+
+    if (!isset($skeletons[$type])) return '';
+    return json_encode($skeletons[$type], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+}
+
+/* ============================================================
    SCHEMA: Generate WebSite JSON-LD (global)
    ============================================================ */
 function generate_website_schema(array $lb): string {

@@ -156,6 +156,20 @@ if (empty($seo['og_image'])) {
     :root { --fixed-header-height: <?= $_hInitialHeight ?>; }
     </style>
     <?php
+    // schema_blocks @graph — global (from $data['seo']) + page-specific (from $seo)
+    $_graphItems = [];
+    foreach (array_merge($data['seo']['schema_blocks'] ?? [], $seo['schema_blocks'] ?? []) as $_sbType => $_sb) {
+        if (empty($_sb['enabled']) || empty($_sb['json'])) continue;
+        $_parsed = json_decode(resolve_shortcodes($_sb['json']), true);
+        if ($_parsed) $_graphItems[] = $_parsed;
+    }
+    if ($_graphItems) {
+        echo '<script type="application/ld+json">' . json_encode(
+            ['@context' => 'https://schema.org', '@graph' => $_graphItems],
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG
+        ) . '</script>' . "\n";
+    }
+    // Legacy custom JSON-LD textarea (single schema field)
     if (!empty($seo['schema'])) {
         $schemaData = json_decode($seo['schema']);
         if ($schemaData !== null) {

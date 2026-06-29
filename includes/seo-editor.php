@@ -89,7 +89,134 @@ function render_local_business_editor(array $lb) {
 /* ============================================================
    ADMIN: SEO editor
    ============================================================ */
-function render_seo_editor($seo) {
+function render_schema_section(array $seo, string $context): void {
+    global $data;
+    $lb = $data['local_business'] ?? [];
+
+    $manualTypes = match($context) {
+        'global'   => ['EducationalOrganization', 'WebSite'],
+        'homepage' => ['WebPage', 'ItemList'],
+        'page'     => ['WebPage', 'Course', 'Event', 'AboutPage', 'ContactPage', 'EducationalOccupationalCredential'],
+        'template' => ['Course', 'Event'],
+        default    => [],
+    };
+    $autoTypes = match($context) {
+        'homepage' => ['FAQPage'],
+        'page'     => ['FAQPage', 'BreadcrumbList'],
+        'post'     => ['Article', 'BreadcrumbList'],
+        'template' => ['FAQPage'],
+        default    => [],
+    };
+    $meta = [
+        'EducationalOrganization'           => ['icon' => '🎓', 'desc' => 'Identifies your training provider to Google. More specific than Organization — the correct type for a certification training business. Set once globally.'],
+        'WebSite'                           => ['icon' => '🌐', 'desc' => 'Links your website entity in Google\'s knowledge graph. Enables cross-referencing with your Organization. Set once globally.'],
+        'WebPage'                           => ['icon' => '📄', 'desc' => 'Identifies this specific page and connects it to your site and organization entity.'],
+        'ItemList'                          => ['icon' => '📋', 'desc' => 'Lists your courses or services. Good for signalling structured offerings on the homepage.'],
+        'Course'                            => ['icon' => '📚', 'desc' => 'Tells Google this page covers a specific course. Can unlock rich results in course searches. Fill in name, price, and rating when ready.'],
+        'Event'                             => ['icon' => '📅', 'desc' => 'Marks an upcoming class session. Can appear in Google\'s event results. Requires real start and end dates.'],
+        'AboutPage'                         => ['icon' => 'ℹ️', 'desc' => 'Signals this is an About Us page to Google\'s entity understanding.'],
+        'ContactPage'                       => ['icon' => '📞', 'desc' => 'Signals this is a Contact page.'],
+        'EducationalOccupationalCredential' => ['icon' => '🏅', 'desc' => 'Describes the certification this course leads to (PMP, CAPM, CPMAI). Tells Google what credential the student earns.'],
+        'FAQPage'                           => ['icon' => '❓', 'label' => 'FAQPage (auto)', 'desc' => 'Built automatically from FAQ Two-Column blocks on this page. No editing needed.'],
+        'Article'                           => ['icon' => '📝', 'label' => 'Article (auto)', 'desc' => 'Built automatically from this post\'s title, published date, updated date, and author.'],
+        'BreadcrumbList'                    => ['icon' => '🔗', 'label' => 'BreadcrumbList (auto)', 'desc' => 'Built automatically from the page slug. Shows the breadcrumb trail in Google search results.'],
+    ];
+
+    $skeletons = [];
+    foreach ($manualTypes as $type) {
+        $skeletons[$type] = get_schema_skeleton($type, $seo, $lb);
+    }
+    $savedBlocks = $seo['schema_blocks'] ?? [];
+    ?>
+    <div class="card" style="border:2px solid #1e3a5f;margin-top:24px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
+            <h2 style="margin:0;">Schema Markup</h2>
+            <span style="background:#1e3a5f;color:#fff;font-size:0.68rem;font-weight:800;padding:3px 9px;border-radius:4px;letter-spacing:0.07em;text-transform:uppercase;">Structured Data</span>
+        </div>
+        <p class="hint" style="margin-bottom:20px;">Structured data Google reads directly from this page. <strong>Check a type to enable it</strong>, review the JSON, fill in any blank <code>""</code> fields, then save. Auto-generated types require no input.</p>
+
+        <?php if ($autoTypes): ?>
+        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:6px;padding:12px 16px;margin-bottom:20px;">
+            <p style="font-size:0.8rem;font-weight:700;color:#166534;margin:0 0 8px;">✅ Auto-generated on this page — no editing needed</p>
+            <?php foreach ($autoTypes as $type):
+                $m = $meta[$type] ?? []; ?>
+            <div style="display:flex;gap:8px;align-items:baseline;margin-bottom:3px;">
+                <span style="font-size:0.83rem;font-weight:600;color:#15803d;"><?= $m['icon'] ?? '' ?> <?= h($m['label'] ?? $type) ?></span>
+                <span style="font-size:0.78rem;color:#166534;">— <?= h($m['desc'] ?? '') ?></span>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+
+        <?php if ($manualTypes): ?>
+        <p style="font-size:0.75rem;font-weight:800;color:#64748b;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 10px;">Manual schema — check a type to enable it</p>
+        <?php foreach ($manualTypes as $type):
+            $m         = $meta[$type] ?? ['icon' => '📄', 'desc' => ''];
+            $blockData = $savedBlocks[$type] ?? [];
+            $isEnabled = !empty($blockData['enabled']);
+            $savedJson = $blockData['json'] ?? '';
+            $tid       = 'schema-json-' . $type;
+        ?>
+        <div style="border:1px solid <?= $isEnabled ? '#3b82f6' : '#e2e8f0' ?>;border-radius:8px;margin-bottom:10px;overflow:hidden;" id="schema-wrap-<?= $type ?>">
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;background:<?= $isEnabled ? '#eff6ff' : '#f8fafc' ?>;cursor:pointer;"
+                 onclick="document.getElementById('schema-enable-<?= $type ?>').click()">
+                <input type="checkbox" id="schema-enable-<?= $type ?>"
+                       name="schema_blocks[<?= $type ?>][enabled]" value="1"
+                       <?= $isEnabled ? 'checked' : '' ?>
+                       onchange="schemaToggle('<?= $type ?>')"
+                       onclick="event.stopPropagation()"
+                       style="margin-top:3px;flex-shrink:0;width:16px;height:16px;cursor:pointer;">
+                <div>
+                    <div style="font-weight:700;font-size:0.9rem;color:#0f172a;"><?= $m['icon'] ?> <?= h($type) ?></div>
+                    <div style="font-size:0.78rem;color:#64748b;margin-top:2px;"><?= h($m['desc']) ?></div>
+                </div>
+            </div>
+            <div id="schema-block-<?= $type ?>" style="<?= $isEnabled ? '' : 'display:none;' ?>padding:16px;border-top:1px solid #e2e8f0;background:#fff;">
+                <textarea id="<?= $tid ?>" name="schema_blocks[<?= $type ?>][json]"
+                          rows="14" style="font-family:'SF Mono','Fira Code',monospace;font-size:0.79rem;width:100%;border:1px solid #e2e8f0;border-radius:6px;padding:10px;line-height:1.55;resize:vertical;"
+                          ><?= h($savedJson) ?></textarea>
+                <div style="margin-top:8px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+                    <button type="button"
+                            onclick="loadSchemaSkeleton('<?= $type ?>','<?= $tid ?>')"
+                            style="padding:5px 12px;font-size:0.8rem;border:1px solid #3b82f6;color:#3b82f6;background:#fff;border-radius:4px;cursor:pointer;font-weight:600;">
+                        ↺ Load skeleton
+                    </button>
+                    <span style="font-size:0.73rem;color:#94a3b8;">Replaces the textarea with the default template — current content will be cleared</span>
+                </div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+        <?php elseif ($context === 'post'): ?>
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:14px 16px;">
+            <p style="margin:0;font-size:0.85rem;color:#64748b;">Blog posts get Article and BreadcrumbList schema automatically from post data. No manual schema needed for standard posts.</p>
+        </div>
+        <?php endif; ?>
+    </div>
+    <script>
+    (function(){
+        var _sk = <?= json_encode($skeletons, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>;
+        window.loadSchemaSkeleton = function(type, tid) {
+            if (!_sk[type]) return;
+            if (!confirm('Replace current content with the default skeleton?\nYour edits will be cleared.')) return;
+            document.getElementById(tid).value = _sk[type];
+        };
+        window.schemaToggle = function(type) {
+            var cb    = document.getElementById('schema-enable-' + type);
+            var block = document.getElementById('schema-block-' + type);
+            var wrap  = document.getElementById('schema-wrap-' + type);
+            var hdr   = wrap ? wrap.querySelector('div') : null;
+            if (!cb || !block || !wrap) return;
+            var on = cb.checked;
+            block.style.display  = on ? '' : 'none';
+            wrap.style.borderColor = on ? '#3b82f6' : '#e2e8f0';
+            if (hdr) hdr.style.background = on ? '#eff6ff' : '#f8fafc';
+        };
+    })();
+    </script>
+    <?php
+}
+
+function render_seo_editor($seo, string $context = 'page') {
     ?>
     <div class="card">
         <h2>SEO &amp; Metadata</h2>
@@ -163,11 +290,6 @@ function render_seo_editor($seo) {
                 <span class="hint">Optional. Include the @ sign.</span>
             </div>
         </div>
-        <div class="form-group">
-            <label for="schema">Schema markup (JSON-LD)</label>
-            <textarea id="schema" name="schema" rows="8" style="font-family:monospace;font-size:0.85rem;"><?= h($seo['schema'] ?? '') ?></textarea>
-            <span class="hint">Optional structured data from <a href="https://schema.org" target="_blank" rel="noopener">schema.org</a>. Must be valid JSON.</span>
-        </div>
         <hr style="margin: 24px 0; border-color: #e5e7eb;">
         <h3 style="margin: 0 0 16px; font-size: 1rem;">Service Schema (per-page)</h3>
         <p class="hint" style="margin-bottom:16px;">Auto-generates a Service schema for this page using the global business info.</p>
@@ -213,4 +335,5 @@ function render_seo_editor($seo) {
         </div>
     </div>
     <?php
+    render_schema_section($seo, $context);
 }
