@@ -138,7 +138,13 @@ function render_seo_editor($seo, string $context = 'page') {
             <h2 style="margin:0;">Schema Markup (JSON-LD)</h2>
             <span style="background:#1e3a5f;color:#fff;font-size:0.68rem;font-weight:800;padding:3px 9px;border-radius:4px;letter-spacing:0.07em;text-transform:uppercase;">Structured Data</span>
         </div>
-        <p class="hint" style="margin-bottom:12px;">Work out the schema with Claude, paste it here, and save. Supports shortcodes like <code>{website}</code>, <code>{business}</code>, <code>{city}</code>. Must be valid JSON.</p>
+        <?php if ($context === 'template'): ?>
+        <p class="hint" style="margin-bottom:12px;">Write the @graph schema with Claude and paste it here. Use shortcodes for city-specific values — <code>{website}</code>, <code>{city}</code>, <code>{SS}</code>, <code>{city_slug}</code>, <code>{business}</code>, etc. Shortcodes resolve at <strong>generation time</strong>: the stored city page JSON will contain final absolute URLs. Do not include FAQPage — it is injected automatically from each city's FAQ block.</p>
+        <?php elseif ($context === 'homepage'): ?>
+        <p class="hint" style="margin-bottom:12px;">Write the @graph schema with Claude and paste it here. Site-wide shortcodes resolve at render time: <code>{website}</code>, <code>{business}</code>, <code>{phone}</code>, <code>{tel}</code>, <code>{zip}</code>, <code>{address}</code>. City shortcodes (<code>{city}</code>, <code>{SS}</code>) do <strong>not</strong> resolve on the homepage.</p>
+        <?php else: ?>
+        <p class="hint" style="margin-bottom:12px;">Write the @graph schema with Claude and paste it here. Site-wide shortcodes resolve at render time: <code>{website}</code>, <code>{business}</code>, <code>{phone}</code>, <code>{tel}</code>, <code>{zip}</code>, <code>{address}</code>. City shortcodes (<code>{city}</code>, <code>{SS}</code>) do <strong>not</strong> resolve on individual pages — use literal values instead.</p>
+        <?php endif; ?>
         <div class="form-group" style="margin:0;">
             <textarea id="schema_json_ta" name="schema" rows="18"
                       style="font-family:'SF Mono','Fira Code',monospace;font-size:0.79rem;width:100%;border:1px solid #e2e8f0;border-radius:6px;padding:10px;line-height:1.55;resize:vertical;"
@@ -153,7 +159,7 @@ function render_seo_editor($seo, string $context = 'page') {
             if (!ta.value.trim()) { status.textContent = ''; ta.style.borderColor = '#e2e8f0'; return; }
             try {
                 JSON.parse(ta.value);
-                status.textContent = '✓ Valid JSON';
+                status.textContent = '✓ Valid JSON-LD';
                 status.style.color = '#16a34a';
                 ta.style.borderColor = '#86efac';
             } catch(e) {
