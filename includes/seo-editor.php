@@ -135,15 +135,23 @@ function render_seo_editor($seo, string $context = 'page') {
     </div>
     <div class="card" style="border:2px solid #1e3a5f;margin-top:24px;">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
-            <h2 style="margin:0;">Schema Markup (JSON-LD)</h2>
+            <?php if ($context === 'homepage'): ?>
+            <h2 style="margin:0;">Homepage Schema (JSON-LD)</h2>
             <span style="background:#1e3a5f;color:#fff;font-size:0.68rem;font-weight:800;padding:3px 9px;border-radius:4px;letter-spacing:0.07em;text-transform:uppercase;">Structured Data</span>
+            <?php elseif ($context === 'template'): ?>
+            <h2 style="margin:0;">City Template Schema (JSON-LD)</h2>
+            <span style="background:#1e3a5f;color:#fff;font-size:0.68rem;font-weight:800;padding:3px 9px;border-radius:4px;letter-spacing:0.07em;text-transform:uppercase;">Structured Data</span>
+            <?php else: ?>
+            <h2 style="margin:0;">Page Schema (JSON-LD)</h2>
+            <span style="background:#1e3a5f;color:#fff;font-size:0.68rem;font-weight:800;padding:3px 9px;border-radius:4px;letter-spacing:0.07em;text-transform:uppercase;">Structured Data</span>
+            <?php endif; ?>
         </div>
         <?php if ($context === 'template'): ?>
-        <p class="hint" style="margin-bottom:12px;">Write the @graph schema with Claude and paste it here. Use shortcodes for city-specific values — <code>{website}</code>, <code>{city}</code>, <code>{SS}</code>, <code>{city_slug}</code>, <code>{business}</code>, etc. Shortcodes resolve at <strong>generation time</strong>: the stored city page JSON will contain final absolute URLs. Do not include FAQPage — it is injected automatically from each city's FAQ block.</p>
+        <p class="hint" style="margin-bottom:12px;">Write the @graph schema with Claude and paste it here using shortcodes for all city-specific values: <code>{website}</code>, <code>{city}</code>, <code>{SS}</code>, <code>{city_slug}</code>, <code>{business}</code>, etc. Shortcodes resolve at <strong>generation time</strong> — the city page JSON will contain final absolute URLs for each city. Do not include FAQPage — it is injected automatically from each city's FAQ block.</p>
         <?php elseif ($context === 'homepage'): ?>
-        <p class="hint" style="margin-bottom:12px;">Write the @graph schema with Claude and paste it here. Site-wide shortcodes resolve at render time: <code>{website}</code>, <code>{business}</code>, <code>{phone}</code>, <code>{tel}</code>, <code>{zip}</code>, <code>{address}</code>. City shortcodes (<code>{city}</code>, <code>{SS}</code>) do <strong>not</strong> resolve on the homepage.</p>
+        <p class="hint" style="margin-bottom:12px;">This is the site's foundational schema — define <strong>Organization</strong> (or EducationalOrganization), <strong>WebSite</strong>, and <strong>WebPage</strong> here. All other pages reference these <code>@id</code> values. Shortcodes supported: <code>{website}</code>, <code>{business}</code>, <code>{phone}</code>, <code>{tel}</code>, <code>{address}</code>. City shortcodes (<code>{city}</code>, <code>{SS}</code>) do <strong>not</strong> resolve on the homepage.</p>
         <?php else: ?>
-        <p class="hint" style="margin-bottom:12px;">Write the @graph schema with Claude and paste it here. Site-wide shortcodes resolve at render time: <code>{website}</code>, <code>{business}</code>, <code>{phone}</code>, <code>{tel}</code>, <code>{zip}</code>, <code>{address}</code>. City shortcodes (<code>{city}</code>, <code>{SS}</code>) do <strong>not</strong> resolve on individual pages — use literal values instead.</p>
+        <p class="hint" style="margin-bottom:12px;">Page-specific schema — Course, Service, FAQPage, WebPage, etc. Reference the homepage <code>@id</code> values rather than repeating the organization definition. Shortcodes supported: <code>{website}</code>, <code>{business}</code>, <code>{phone}</code>, <code>{tel}</code>, <code>{address}</code>. City shortcodes (<code>{city}</code>, <code>{SS}</code>) do <strong>not</strong> resolve here — use literal values.</p>
         <?php endif; ?>
         <div class="form-group" style="margin:0;">
             <textarea id="schema_json_ta" name="schema" rows="18"
