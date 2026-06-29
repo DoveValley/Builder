@@ -498,6 +498,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <li><strong>Meta description</strong> — search snippet (150–160 characters recommended)</li>
         <li><strong>Canonical URL</strong> — set if this page has a canonical elsewhere</li>
         <li><strong>Slug</strong> — the URL path; changing this changes the page's URL immediately</li>
+        <li><strong>Schema Markup (JSON-LD)</strong> — paste the page's complete structured data here. See the <a href="#schema-overview">Schema Workflow</a> section for how to write it. Supports shortcodes; validates live as you type.</li>
     </ul>
 </section>
 
@@ -599,18 +600,18 @@ tr:nth-child(even) td { background: #f8fafc; }
 
 <section id="tab-seo">
     <h2>Tab: SEO</h2>
-    <p>Global SEO and schema settings. Individual pages and blog posts have their own SEO fields (title, description, canonical URL) that override these defaults — this tab sets the site-level fallbacks and structured data.</p>
+    <p>Global SEO settings — breadcrumbs, Open Graph defaults, and redirects. Schema markup is written per page in each page's own SEO section, not here.</p>
 
     <h3>Breadcrumbs</h3>
-    <p>Enable or disable the breadcrumb navigation bar on landing pages and blog posts. When enabled, a breadcrumb trail (Home › Page Name) appears below the header. The system generates two separate breadcrumb arrays: one with relative URLs for visible display, and one with absolute URLs for the <code>BreadcrumbList</code> JSON-LD schema — keeping them in sync.</p>
+    <p>Enable or disable the breadcrumb navigation bar on landing pages and blog posts. When enabled, a breadcrumb trail (Home › Page Name) appears below the header with inline schema.org microdata. The BreadcrumbList JSON-LD in structured data comes from each page's manually-written schema (not auto-generated here).</p>
 
     <h3>Hero Page Background / Open Graph</h3>
     <p>The default Open Graph image used when no page-specific OG image is set — this is the image that appears in social media link previews. Should be at least 1200×630px. Also sets the site-wide fallback meta title format (e.g., <code>{page_title} | {business}</code>) and default meta description.</p>
 
-    <h3>Local Business Schema</h3>
-    <p>Generates a <code>LocalBusiness</code> JSON-LD block injected into every public page. Fields: business name, address, phone, hours, business type (from the schema.org type list), and geographic area served. When filled in correctly, this improves eligibility for local knowledge panels and rich results in Google Search.</p>
+    <h3>Local Business Info</h3>
+    <p>Four fields used as shortcode values across the site: <strong>Business name</strong>, <strong>Business URL</strong>, <strong>Rating</strong>, and <strong>Review count</strong>. The rating and review count values are available as <code>{rating}</code> and <code>{review_count}</code> shortcodes — useful inside manually-written schema markup (e.g. an AggregateRating value). These fields do <em>not</em> auto-generate any JSON-LD; schema markup is written manually per page.</p>
     <div class="callout tip">
-        <p><strong>Tip:</strong> The business name, phone, and address here should exactly match site_vars — use the same format so there are no inconsistencies between the schema and the on-page content.</p>
+        <p><strong>Tip:</strong> Set <strong>Rating</strong> and <strong>Review count</strong> here once, then reference them as <code>{rating}</code> and <code>{review_count}</code> in your schema textareas so the values stay in sync site-wide without editing every page individually.</p>
     </div>
 
     <h3>Sitemap</h3>
@@ -1650,7 +1651,14 @@ tr:nth-child(even) td { background: #f8fafc; }
     <p><strong>What this means in practice:</strong> When writing the template schema, <em>do not include a FAQPage</em> — it will be injected and merged automatically. If a city page has no <code>faq_two_col</code> block, or the block has no questions, the FAQPage is simply omitted for that city.</p>
 
     <h3>Testing your schema</h3>
-    <p>After saving and deploying, test with Google's Rich Results Test at <code>search.google.com/test/rich-results</code>. Paste the page URL. It will show which schema types were found, which are eligible for rich results, and flag any errors or missing required fields.</p>
+    <p>Two tools — use both:</p>
+    <ul>
+        <li><strong>validator.schema.org</strong> — paste the page URL. Shows <em>all</em> schema types detected on the page (WebPage, Course, FAQPage, etc.) with error and warning counts. This is the ground truth for whether your JSON-LD is structurally valid.</li>
+        <li><strong>search.google.com/test/rich-results</strong> — shows only schema types that Google currently renders as visual search features (star ratings, course cards, breadcrumbs). Use this to confirm your rich results are eligible and error-free.</li>
+    </ul>
+    <div class="callout tip">
+        <p><strong>FAQPage note:</strong> Google restricted FAQPage rich results to government and health authority sites in September 2023. FAQPage will not appear in the Rich Results Test for commercial sites — use validator.schema.org instead to confirm it is present and valid. It is still read by Google as structured data.</p>
+    </div>
 </section>
 
 <section id="schema-type-list">
