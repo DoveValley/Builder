@@ -53,6 +53,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; f
 }
 #sidebar .search-wrap input::placeholder { color: #64748b; }
 
+/* Doc tabs */
+.doc-tabs { display: flex; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.doc-tab {
+    flex: 1; background: none; border: none; cursor: pointer;
+    padding: 11px 8px; font-family: inherit; font-size: 0.8rem; font-weight: 700;
+    color: #94a3b8; border-bottom: 2px solid transparent; transition: all 0.15s;
+}
+.doc-tab:hover { color: #fff; }
+.doc-tab.active { color: #fff; border-bottom-color: #3b82f6; background: rgba(59,130,246,0.12); }
+
 /* Main content */
 #main { flex: 1; min-width: 0; padding: 40px 48px; max-width: 900px; }
 #main h1 { font-size: 2rem; font-weight: 800; color: #0f172a; margin-bottom: 8px; }
@@ -116,7 +126,11 @@ tr:nth-child(even) td { background: #f8fafc; }
 <div id="sidebar">
     <div class="logo">
         Site Factory
-        <span>Admin Documentation</span>
+        <span id="doc-subtitle">Admin Documentation</span>
+    </div>
+    <div class="doc-tabs">
+        <button type="button" class="doc-tab active" data-doc="admin" onclick="switchDoc('admin')">Admin</button>
+        <button type="button" class="doc-tab" data-doc="devenv" onclick="switchDoc('devenv')">DevEnv</button>
     </div>
     <div class="search-wrap">
         <input type="text" id="doc-search" placeholder="Search docs…" oninput="filterNav(this.value)">
@@ -238,11 +252,67 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#howto-new-template">Add a template</a>
         <a href="#howto-update-docs">Update this docs page</a>
     </nav>
+
+    <nav id="devenv-nav" hidden>
+        <a class="nav-group" href="#group-dev-start">Getting Back In</a>
+        <a href="#dev-login">General Login</a>
+        <a href="#dev-reboot">Reboot recovery</a>
+        <a href="#dev-quickref">Quick reference</a>
+        <a href="#dev-credentials">Credentials &amp; access backup</a>
+
+        <a class="nav-group" href="#group-dev-server">Server (VPS)</a>
+        <a href="#dev-server-overview">Overview &amp; access</a>
+        <a href="#dev-os">OS — Ubuntu 24.04</a>
+        <a href="#dev-docroot">Document root &amp; layout</a>
+        <a href="#dev-permissions">Users &amp; permissions</a>
+
+        <a class="nav-group" href="#group-dev-apache">Web Server — Apache</a>
+        <a href="#dev-apache">Apache overview</a>
+        <a href="#dev-vhosts">Virtual hosts (:80 / :443)</a>
+        <a href="#dev-https">HTTPS &amp; self-signed cert</a>
+        <a href="#dev-rewrite">mod_rewrite &amp; .htaccess</a>
+        <a href="#dev-modules">Enabled modules</a>
+
+        <a class="nav-group" href="#group-dev-php">PHP Runtime</a>
+        <a href="#dev-php">PHP 8.3 (mod_php)</a>
+        <a href="#dev-localserver">Local dev server</a>
+
+        <a class="nav-group" href="#group-dev-app">Application</a>
+        <a href="#dev-nodb">No-database / file storage</a>
+        <a href="#dev-repo">Repo layout &amp; includes/</a>
+        <a href="#dev-config">config.php &amp; constants</a>
+        <a href="#dev-auth">Sessions &amp; admin auth</a>
+
+        <a class="nav-group" href="#group-dev-tooling">Tooling</a>
+        <a href="#dev-git">Git (repo = live webroot)</a>
+        <a href="#dev-chromium">Chromium screenshots</a>
+        <a href="#dev-node">Node 18</a>
+        <a href="#dev-preview">The preview.php pattern</a>
+
+        <a class="nav-group" href="#group-dev-deploy">Deploy</a>
+        <a href="#dev-static">Static generation</a>
+        <a href="#dev-ftp">FTP deploy</a>
+        <a href="#dev-audit">Deploy audit &amp; tracking</a>
+
+        <a class="nav-group" href="#group-dev-ops">Operations</a>
+        <a href="#dev-services">Services (systemctl)</a>
+        <a href="#dev-cron">Cron jobs</a>
+        <a href="#dev-firewall">Firewall (ufw)</a>
+        <a href="#dev-logs">Logs</a>
+        <a href="#dev-backups">Backups</a>
+
+        <a class="nav-group" href="#group-dev-security">Security</a>
+        <a href="#dev-sec-https">HTTPS / cert notes</a>
+        <a href="#dev-sec-password">Admin password</a>
+        <a href="#dev-sec-git">Never deploy .git</a>
+        <a href="#dev-sec-uploads">Upload sanitization</a>
+    </nav>
 </div>
 
 <!-- ═══════════════ MAIN ═══════════════ -->
 <div id="main">
-<h1>Site Factory — Documentation</h1>
+<div id="doc-admin">
+<h1>Site Factory — Admin Documentation</h1>
 <p class="page-intro">Complete reference for the Site Factory admin system. Use the sidebar to navigate, or click any <strong>?</strong> button inside the admin panel to jump directly to the relevant section.</p>
 
 <!-- ═══════════ OVERVIEW ═══════════ -->
@@ -2212,17 +2282,556 @@ Output valid JSON only — no explanation.</code></pre>
     <p>The <strong>?</strong> button in the block editor opens: <code>/admin/docs.php#block-{block_type}</code>. The anchor must exactly match the block type slug (e.g. <code>block-hero_split</code>, <code>block-faq_two_col</code>).</p>
 </section>
 
+</div><!-- /#doc-admin -->
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════ DEVENV DOCUMENTATION ═══════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<div id="doc-devenv" hidden>
+<h1>Site Factory — DevEnv Documentation</h1>
+<p class="page-intro">Reference for the server, runtime, and tooling that Site Factory runs on. This documents the live environment — the box itself, Apache, PHP, the deploy pipeline, and day-to-day operations — as distinct from the admin/content workflow covered in the Admin tab.</p>
+
+<!-- ═══════════ GETTING BACK IN ═══════════ -->
+<div class="doc-group-header" id="group-dev-start">Getting Back In</div>
+<section id="dev-login">
+    <h2>General Login</h2>
+
+    <h3>a) VPS login → Claude Code (the command line)</h3>
+    <pre><code>ssh root@187.127.254.206          # log into the server (uses your Mac's SSH key, no password typed)
+cd /var/www/homepage-builder-new  # go to the project
+claude                            # start Claude Code  (or: claude --continue / claude --resume)</code></pre>
+    <ul>
+        <li><strong>Auth:</strong> SSH key (<code>~/.ssh/id_ed25519</code>), or backup <code>~/.ssh/sitefactory_recovery</code>. No password.</li>
+        <li><strong>This is for:</strong> development — running Claude Code, editing files, server config.</li>
+    </ul>
+
+    <h3>b) Site Factory admin (the web control panel)</h3>
+    <ul>
+        <li><strong>URL:</strong> <code>https://187.127.254.206/admin/login.php</code> &nbsp;(self-signed cert → click "proceed")</li>
+        <li><strong>User:</strong> <code>admin</code></li>
+        <li><strong>Password:</strong> your admin password</li>
+        <li><strong>This is for:</strong> building/editing sites, schedule, deploy — in the browser, no SSH needed.</li>
+    </ul>
+
+    <div class="callout">
+        <p><strong>The difference:</strong> (a) gets you <em>into the machine</em>; (b) gets you <em>into the website's control panel</em>. Different locks, different credentials — full details under Credentials &amp; access backup.</p>
+    </div>
+</section>
+
+<section id="dev-reboot">
+    <h2>Reboot recovery</h2>
+    <p>The key thing: <strong>almost nothing lives on your Mac.</strong> The Site Factory, Apache, PHP, the data, and Claude Code itself all run on the VPS (<code>187.127.254.206</code>). Your Mac is just the terminal you connect through — so rebooting it stops nothing.</p>
+
+    <h3>1. The live site never went down</h3>
+    <p>Apache is enabled to start on boot, so the admin and all sites keep serving regardless of your Mac. Just reopen:</p>
+    <ul>
+        <li><code>https://187.127.254.206/admin/login.php</code> — self-signed cert, click "proceed"</li>
+        <li><code>http://187.127.254.206/admin/login.php</code> — plain HTTP fallback</li>
+    </ul>
+    <p>Log in with <code>admin</code> + your password. Nothing to restart.</p>
+
+    <h3>2. Get back to dev with Claude Code</h3>
+    <p>Claude Code runs <em>on the VPS</em>. From a fresh Terminal on your Mac, reconnect over SSH and relaunch it:</p>
+    <pre><code>ssh root@187.127.254.206           # your SSH login to the VPS
+cd /var/www/homepage-builder-new   # the project / live webroot
+claude                             # start Claude Code</code></pre>
+    <p>To resume a previous session instead of starting fresh:</p>
+    <pre><code>claude --resume      # pick a past session from a list
+claude --continue    # jump back into the most recent one</code></pre>
+    <p>The whole recovery is: <strong>SSH in → <code>cd</code> to the project → <code>claude</code>.</strong></p>
+
+    <div class="callout">
+        <p><strong>If the VPS itself reboots</strong> (not just your Mac): Apache auto-starts because it's <code>enabled</code>, so the live site comes back on its own. The only thing lost is the disposable <code>php -S</code> preview server (port 8099, used for screenshots) — it's not needed for production and is restarted on demand.</p>
+    </div>
+    <div class="callout warn">
+        <p><strong>Your Mac-side specifics may differ.</strong> The SSH command above assumes <code>root@187.127.254.206</code>. If you log in as a different user, with an SSH key, or on a non-standard port, swap those in. If you connect via VS Code Remote-SSH or a saved terminal profile, reopen that instead.</p>
+    </div>
+</section>
+
+<section id="dev-quickref">
+    <h2>Quick reference</h2>
+    <p>The everyday entry points and health checks in one place.</p>
+    <table>
+        <tr><th>What</th><th>Where / command</th></tr>
+        <tr><td>Admin login (HTTPS)</td><td><code>https://187.127.254.206/admin/login.php</code></td></tr>
+        <tr><td>Admin login (HTTP)</td><td><code>http://187.127.254.206/admin/login.php</code></td></tr>
+        <tr><td>Your Sites list</td><td><code>/admin/sites.php</code></td></tr>
+        <tr><td>SSH into the VPS</td><td><code>ssh root@187.127.254.206</code></td></tr>
+        <tr><td>Project root</td><td><code>/var/www/homepage-builder-new</code></td></tr>
+        <tr><td>Start Claude Code</td><td><code>claude</code> (or <code>claude --continue</code>)</td></tr>
+        <tr><td>Is the site up?</td><td><code>systemctl is-active apache2</code></td></tr>
+        <tr><td>Restart the web server</td><td><code>sudo systemctl restart apache2</code></td></tr>
+        <tr><td>Local preview server</td><td><code>php -S localhost:8080 router.php</code></td></tr>
+    </table>
+    <div class="callout tip">
+        <p>Reset a forgotten admin password: <code>php -r "echo password_hash('new-pass', PASSWORD_DEFAULT);"</code> and paste the hash into <code>config.php</code> as <code>ADMIN_PASSWORD_HASH</code>.</p>
+    </div>
+</section>
+
+<section id="dev-credentials">
+    <h2>Credentials &amp; access backup</h2>
+    <p>The two things that grant access to this environment — the <strong>SSH key</strong> and the <strong>admin password</strong> — must be backed up <em>off this server</em>. Their proper home is a <strong>password manager</strong> on your own devices (1Password, Bitwarden, Apple Passwords, KeePass — any of them).</p>
+
+    <h3>What lives where (and what can't be recovered)</h3>
+    <ul>
+        <li><strong>SSH private key</strong> — lives on your Mac under <code>~/.ssh/</code>. The server only holds the <em>public</em> half in <code>/root/.ssh/authorized_keys</code> (comment <code>claude-code-scottparr</code>). The private key cannot be read off the VPS.</li>
+        <li><strong>Admin password</strong> — stored only as a one-way <strong>bcrypt hash</strong> in <code>config.php</code>. The plaintext is not recoverable by anyone; it can only be reset.</li>
+    </ul>
+
+    <div class="callout warn">
+        <p><strong>Never store these on the server itself.</strong> A copy on the same VPS dies with the box (or leaks if it's compromised). Writing a private key or plaintext password into the webroot or committing it to Git is a security hole — don't. "Somewhere safe" means a password manager on your own devices.</p>
+    </div>
+
+    <h3>Reference note (non-secret) — save this in your vault</h3>
+    <p>Connection details that are safe to store alongside the secrets:</p>
+    <pre><code>SITE FACTORY — VPS ACCESS
+  Host (IPv4):     187.127.254.206
+  SSH user:        root
+  SSH command:     ssh root@187.127.254.206
+  Authorized key:  comment "claude-code-scottparr" (private key on the Mac, ~/.ssh)
+  Project root:    /var/www/homepage-builder-new
+  Admin (HTTPS):   https://187.127.254.206/admin/login.php   (self-signed → "proceed")
+  Admin user:      admin
+  Restart server:  sudo systemctl restart apache2</code></pre>
+
+    <h3>Backup recovery SSH key</h3>
+    <p>If your Mac holds the only authorized key, losing it locks you out of the VPS. The fix is a second "recovery" key kept in your password manager. Generate it <strong>on your Mac</strong> so the private half never touches the server or any transcript — then only the public half is added here:</p>
+    <pre><code># On your Mac:
+ssh-keygen -t ed25519 -f ~/.ssh/sitefactory_recovery -C "recovery-key"
+cat ~/.ssh/sitefactory_recovery.pub        # the public line to add on the server</code></pre>
+    <p>Add that public line to the server's authorized keys (append — don't overwrite):</p>
+    <pre><code># On the VPS:
+echo "ssh-ed25519 AAAA... recovery-key" &gt;&gt; /root/.ssh/authorized_keys</code></pre>
+    <p>Store the private file <code>~/.ssh/sitefactory_recovery</code> in your password manager. Test it once (<code>ssh -i ~/.ssh/sitefactory_recovery root@187.127.254.206</code>) so you know it works before you need it.</p>
+
+    <h3>Admin password backup</h3>
+    <ul>
+        <li><strong>If you know it</strong> — just save it to your password manager. Nothing to change.</li>
+        <li><strong>If it's lost</strong> — reset it to a value you choose, then store that:</li>
+    </ul>
+    <pre><code>php -r "echo password_hash('your-new-password', PASSWORD_DEFAULT);"
+# paste the resulting hash into config.php as ADMIN_PASSWORD_HASH</code></pre>
+    <div class="callout tip">
+        <p>Checklist for "I can always get back in": (1) SSH private key in a password manager, (2) a tested backup recovery key in the password manager, (3) the admin password in the password manager, (4) the reference note above saved next to them.</p>
+    </div>
+</section>
+
+<!-- ═══════════ SERVER (VPS) ═══════════ -->
+<div class="doc-group-header" id="group-dev-server">Server (VPS)</div>
+<section id="dev-server-overview">
+    <h2>Overview &amp; access</h2>
+    <p>Site Factory runs on a single Linux VPS. The repository at <code>/var/www/homepage-builder-new</code> <em>is</em> the live document root — there is no separate "build" copy on this box. Editing files here changes the live admin immediately.</p>
+    <table>
+        <tr><th>Property</th><th>Value</th></tr>
+        <tr><td>Public IPv4</td><td><code>187.127.254.206</code></td></tr>
+        <tr><td>Document root</td><td><code>/var/www/homepage-builder-new</code></td></tr>
+        <tr><td>Web server</td><td>Apache 2.4.58</td></tr>
+        <tr><td>Runtime</td><td>PHP 8.3.6 (mod_php)</td></tr>
+        <tr><td>Admin URL</td><td><code>http://187.127.254.206/admin/login.php</code> (also HTTPS)</td></tr>
+    </table>
+    <p>Access is over SSH. There is no domain name attached yet — the Apache vhost is a catch-all (<code>ServerName _</code>), so the site answers on the raw IP for any hostname.</p>
+    <div class="callout warn">
+        <p><strong>No domain = no Let's Encrypt.</strong> Trusted TLS requires a real domain pointed at this IP. Until then, HTTPS uses a self-signed cert (browser warning). See <a class="back-top" href="#dev-https">HTTPS &amp; self-signed cert</a>.</p>
+    </div>
+</section>
+
+<section id="dev-os">
+    <h2>OS — Ubuntu 24.04</h2>
+    <p>The host runs <strong>Ubuntu 24.04 LTS (Noble Numbat)</strong>, kernel <code>6.8.x</code>. LTS gives security updates through 2029.</p>
+    <pre><code># Confirm OS / kernel
+cat /etc/os-release
+uname -r
+
+# Apply security updates
+sudo apt update &amp;&amp; sudo apt upgrade</code></pre>
+    <p>Stock packages from Ubuntu's repos are used throughout (Apache, PHP, Git). The one exception is Chromium, which Ubuntu ships as a <strong>snap</strong> — that has consequences for screenshots (see <a class="back-top" href="#dev-chromium">Chromium screenshots</a>).</p>
+</section>
+
+<section id="dev-docroot">
+    <h2>Document root &amp; layout</h2>
+    <p>Everything lives under <code>/var/www/homepage-builder-new</code>. Top-level shape:</p>
+    <pre><code>/var/www/homepage-builder-new/
+├── index.php, page.php, blog.php   Public entry points
+├── router.php                      Routing for the PHP built-in dev server
+├── config.php                      Constants, session, credentials, API key
+├── .htaccess                       Rewrites + data-dir protection
+├── admin/                          Admin panel (login-gated)
+├── includes/                       App logic (data, blocks, template, …)
+├── assets/                         CSS/JS (shared + course widgets)
+├── sites/{id}/                     Per-site data + uploads (multi-site)
+│   ├── data/                       site.json, courses.json, pages/, …
+│   └── uploads/                    Images for that site
+├── output/{id}/                    Generated static build (deploy source)
+└── docs/                           Markdown guidebooks</code></pre>
+</section>
+
+<section id="dev-permissions">
+    <h2>Users &amp; permissions</h2>
+    <p>Apache (and therefore PHP under mod_php) runs as the <code>www-data</code> user. For the admin panel to save JSON and accept uploads, <code>www-data</code> must be able to write to the data and upload directories.</p>
+    <pre><code># Make the app writable by the web server
+sudo chown -R www-data:www-data /var/www/homepage-builder-new
+sudo find /var/www/homepage-builder-new -type d -exec chmod 755 {} \;
+sudo find /var/www/homepage-builder-new -type f -exec chmod 644 {} \;</code></pre>
+    <div class="callout warn">
+        <p><strong>Files written by the admin are owned by <code>www-data</code>.</strong> If you also edit files over SSH as <code>root</code> or another user, you can end up with mixed ownership. Keep writes consistent or fix with <code>chown</code> afterward.</p>
+    </div>
+</section>
+
+<!-- ═══════════ WEB SERVER — APACHE ═══════════ -->
+<div class="doc-group-header" id="group-dev-apache">Web Server — Apache</div>
+<section id="dev-apache">
+    <h2>Apache overview</h2>
+    <p><strong>Apache 2.4.58</strong> serves the site directly from the document root. PHP runs in-process via <code>mod_php</code> (no PHP-FPM, no reverse proxy). Config lives under <code>/etc/apache2/</code>.</p>
+    <pre><code># Service control
+sudo systemctl status apache2
+sudo systemctl reload apache2     # graceful, no dropped connections
+sudo systemctl restart apache2    # full restart (needed for new listeners)
+
+# Validate config before reloading
+sudo apache2ctl configtest</code></pre>
+    <div class="callout tip">
+        <p>Always run <code>apache2ctl configtest</code> before a reload. A syntax error on restart takes the whole site down until it's fixed.</p>
+    </div>
+</section>
+
+<section id="dev-vhosts">
+    <h2>Virtual hosts (:80 / :443)</h2>
+    <p>Two enabled vhosts, both pointing at the same document root:</p>
+    <table>
+        <tr><th>File</th><th>Port</th><th>Purpose</th></tr>
+        <tr><td><code>sites-enabled/homepage-builder.conf</code></td><td>80</td><td>Plain HTTP</td></tr>
+        <tr><td><code>sites-enabled/homepage-builder-ssl.conf</code></td><td>443</td><td>HTTPS (self-signed cert)</td></tr>
+    </table>
+    <p>Both use <code>ServerName _</code> (catch-all) and grant <code>AllowOverride All</code> on the document root so <code>.htaccess</code> rewrites take effect.</p>
+    <pre><code># List / toggle sites
+sudo a2ensite homepage-builder-ssl.conf
+sudo a2dissite &lt;site&gt;.conf
+ls /etc/apache2/sites-enabled/</code></pre>
+    <p>The HTTP vhost is <strong>not</strong> redirected to HTTPS — both answer independently. To force HTTPS, add a <code>Redirect</code> / <code>RewriteRule</code> to the port-80 vhost.</p>
+</section>
+
+<section id="dev-https">
+    <h2>HTTPS &amp; self-signed cert</h2>
+    <p>HTTPS is served with a self-signed certificate generated on this box (valid 10 years). Because it isn't issued by a trusted CA, browsers show a "Not secure / proceed anyway" warning — the connection is still encrypted.</p>
+    <table>
+        <tr><th>File</th><th>Path</th></tr>
+        <tr><td>Certificate</td><td><code>/etc/ssl/homepage/selfsigned.crt</code></td></tr>
+        <tr><td>Private key</td><td><code>/etc/ssl/homepage/selfsigned.key</code></td></tr>
+    </table>
+    <p>The <code>ssl</code> module is enabled (<code>a2enmod ssl</code>) and the cert is referenced from the :443 vhost. To regenerate:</p>
+    <pre><code>sudo openssl req -x509 -nodes -days 3650 -newkey rsa:2048 \
+  -keyout /etc/ssl/homepage/selfsigned.key \
+  -out /etc/ssl/homepage/selfsigned.crt \
+  -subj "/CN=187.127.254.206"
+sudo systemctl restart apache2</code></pre>
+    <div class="callout tip">
+        <p><strong>Upgrade path:</strong> once a domain points at this IP, install Certbot (<code>sudo apt install certbot python3-certbot-apache</code>) and run <code>sudo certbot --apache</code> for a free, fully-trusted Let's Encrypt cert with auto-renewal — then the browser warning goes away.</p>
+    </div>
+</section>
+
+<section id="dev-rewrite">
+    <h2>mod_rewrite &amp; .htaccess</h2>
+    <p>Pretty URLs and security rules live in the root <code>.htaccess</code>, processed by <code>mod_rewrite</code> (enabled, with <code>AllowOverride All</code>). Highlights:</p>
+    <ul>
+        <li><strong>Pretty URLs</strong> — <code>/some-slug</code> → <code>page.php?slug=some-slug</code>; <code>/blog</code> and <code>/blog/{slug}</code> → <code>blog.php</code></li>
+        <li><strong>sitemap.xml / robots.txt</strong> routed through <code>sitemap.php</code> / <code>robots.php</code> so shortcodes resolve</li>
+        <li><strong>Data protection</strong> — direct web access to <code>sites/{id}/data/</code>, <code>meta.json</code>, <code>deploy.json</code>, and <code>deploy_manifest.json</code> is denied (<code>[F]</code>)</li>
+        <li><strong>Dotfile guard</strong> — any path with a leading dot (e.g. <code>/.git</code>) is forbidden, as a safety net</li>
+    </ul>
+    <div class="callout warn">
+        <p><code>php -S</code> (the built-in dev server) <strong>does not process <code>.htaccess</code></strong>. Pretty URLs silently fall back to the homepage locally. Test with the query-string forms (<code>page.php?slug=…</code>) — this is expected, not a bug.</p>
+    </div>
+</section>
+
+<section id="dev-modules">
+    <h2>Enabled modules</h2>
+    <p>The modules this app depends on:</p>
+    <table>
+        <tr><th>Module</th><th>Why</th></tr>
+        <tr><td><code>php_module</code></td><td>Runs PHP in-process (mod_php)</td></tr>
+        <tr><td><code>rewrite_module</code></td><td>Pretty URLs + data-dir protection in .htaccess</td></tr>
+        <tr><td><code>ssl_module</code></td><td>HTTPS on :443</td></tr>
+    </table>
+    <pre><code># List loaded modules
+apache2ctl -M
+# Enable / disable, then reload
+sudo a2enmod rewrite &amp;&amp; sudo systemctl reload apache2</code></pre>
+</section>
+
+<!-- ═══════════ PHP RUNTIME ═══════════ -->
+<div class="doc-group-header" id="group-dev-php">PHP Runtime</div>
+<section id="dev-php">
+    <h2>PHP 8.3 (mod_php)</h2>
+    <p><strong>PHP 8.3.6</strong>, loaded into Apache as a shared module. There is no build step and no Composer — the app is plain PHP requiring files from <code>includes/</code>.</p>
+    <pre><code>php -v                         # version
+php -m                         # loaded extensions
+php -i | grep -i upload        # upload limits (post_max_size, upload_max_filesize)</code></pre>
+    <p>Image uploads are capped at 8&nbsp;MB in application code (<code>save_uploaded_file()</code>), so PHP's <code>upload_max_filesize</code> / <code>post_max_size</code> must be at least that. Changing PHP ini settings requires an Apache reload to take effect under mod_php.</p>
+</section>
+
+<section id="dev-localserver">
+    <h2>Local dev server</h2>
+    <p>For local work you can serve the app with PHP's built-in server instead of Apache. The <code>router.php</code> argument is <strong>required</strong> — it reproduces the pretty-URL routing that Apache does via <code>.htaccess</code>.</p>
+    <pre><code>php -S localhost:8080 router.php</code></pre>
+    <p>Then: admin at <code>http://localhost:8080/admin/login.php</code>.</p>
+    <div class="callout">
+        <p>Without <code>router.php</code>, every non-file URL falls back to <code>index.php</code> (HTTP 200 homepage) instead of routing. Even <em>with</em> it, behavior can differ slightly from Apache — Apache is the source of truth for production.</p>
+    </div>
+</section>
+
+<!-- ═══════════ APPLICATION ═══════════ -->
+<div class="doc-group-header" id="group-dev-app">Application</div>
+<section id="dev-nodb">
+    <h2>No-database / file storage</h2>
+    <p>There is no MySQL/MariaDB on this box (the services are inactive by design). All content is flat JSON under <code>sites/{id}/data/</code>:</p>
+    <ul>
+        <li><code>site.json</code> — header, footer, theme, content blocks, blog posts</li>
+        <li><code>courses.json</code> — course schedule</li>
+        <li><code>templates.json</code>, <code>cities.json</code>, <code>pages/</code> — city-page system</li>
+        <li><code>deploy.json</code>, <code>deploy_manifest.json</code> — deploy config + state</li>
+    </ul>
+    <p>Consequences for ops: <strong>backup = copy the folder</strong>, there are no migrations, and a bad write can corrupt a JSON file — so back up before bulk edits (see <a class="back-top" href="#dev-backups">Backups</a>).</p>
+</section>
+
+<section id="dev-repo">
+    <h2>Repo layout &amp; includes/</h2>
+    <p><code>includes/functions.php</code> is a loader only; logic is split into focused files. Knowing where things live saves grep time:</p>
+    <table>
+        <tr><th>File</th><th>Responsibility</th></tr>
+        <tr><td><code>includes/data.php</code></td><td>load_data(), save_data(), default_data()</td></tr>
+        <tr><td><code>includes/blocks.php</code></td><td>render_content_block(), allowed_block_types()</td></tr>
+        <tr><td><code>includes/editor.php</code></td><td>Admin block-editor UI</td></tr>
+        <tr><td><code>includes/site-template.php</code></td><td>Shared public HTML template</td></tr>
+        <tr><td><code>includes/helpers.php</code></td><td>sanitize_url(), save_uploaded_file(), slugify()</td></tr>
+        <tr><td><code>admin/save.php</code></td><td>POST handler for all content saves</td></tr>
+    </table>
+    <p>See the Admin tab's <em>Technical → Architecture</em> section for the full file-by-file breakdown.</p>
+</section>
+
+<section id="dev-config">
+    <h2>config.php &amp; constants</h2>
+    <p><code>config.php</code> is the single source of environment config. It starts the session, defines path constants, holds the admin credentials, and loads the Anthropic API key. Path constants switch between single-site and the active multi-site folder automatically:</p>
+    <table>
+        <tr><th>Constant</th><th>Meaning</th></tr>
+        <tr><td><code>BASE_DIR</code></td><td>Project root (<code>__DIR__</code>)</td></tr>
+        <tr><td><code>ACTIVE_SITE_ID</code> / <code>ACTIVE_SITE_DIR</code></td><td>Currently selected site</td></tr>
+        <tr><td><code>DATA_FILE</code> / <code>COURSES_FILE</code></td><td>Active site's JSON paths</td></tr>
+        <tr><td><code>UPLOAD_DIR</code> / <code>UPLOAD_URL</code></td><td>Active site's uploads</td></tr>
+        <tr><td><code>ADMIN_USERNAME</code> / <code>ADMIN_PASSWORD_HASH</code></td><td>Login credentials</td></tr>
+        <tr><td><code>CONTACT_EMAIL</code></td><td>Recipient for the contact form</td></tr>
+        <tr><td><code>ANTHROPIC_API_KEY</code></td><td>Key for AI generation (loaded into the constant)</td></tr>
+    </table>
+    <div class="callout warn">
+        <p><code>config.php</code> contains secrets (password hash, API key). It must never be world-readable or committed to a public remote.</p>
+    </div>
+</section>
+
+<section id="dev-auth">
+    <h2>Sessions &amp; admin auth</h2>
+    <p>Auth is session-based. <code>config.php</code> calls <code>session_start()</code>; every admin page checks <code>$_SESSION['admin_logged_in']</code> and redirects to <code>login.php</code> if unset. The password is verified with <code>password_verify()</code> against the bcrypt hash in <code>config.php</code>.</p>
+    <p>All admin POST endpoints additionally require a CSRF token (<code>$_SESSION['csrf_token']</code>, checked with <code>hash_equals()</code>). The SSE deploy/generate endpoints pass that token in the query string since they use GET.</p>
+    <pre><code># Generate a replacement password hash, then paste into config.php
+php -r "echo password_hash('your-new-password', PASSWORD_DEFAULT);"</code></pre>
+</section>
+
+<!-- ═══════════ TOOLING ═══════════ -->
+<div class="doc-group-header" id="group-dev-tooling">Tooling</div>
+<section id="dev-git">
+    <h2>Git (repo = live webroot)</h2>
+    <p>The document root is a Git repository on the <code>main</code> branch. Because it's also the live site, committed and working-tree changes are already live — Git here is history/rollback, not a deploy mechanism for this admin box.</p>
+    <pre><code>git status
+git log --oneline -10
+git add &lt;file&gt; &amp;&amp; git commit -m "message"
+git checkout -- &lt;file&gt;     # discard a bad working change</code></pre>
+    <div class="callout warn">
+        <p><strong>Never expose <code>.git/</code> over the web.</strong> The <code>.htaccess</code> dotfile guard blocks it as a safety net, but the generated static build (what actually gets deployed to clients) should never include <code>.git/</code> at all. See <a class="back-top" href="#dev-sec-git">Never deploy .git</a>.</p>
+    </div>
+</section>
+
+<section id="dev-chromium">
+    <h2>Chromium screenshots</h2>
+    <p>Chromium (snap build, v149) is used for headless screenshots — to visually verify a site without a desktop browser. Run it headless with the sandbox disabled (required as root in this environment):</p>
+    <pre><code>chromium --headless --no-sandbox --disable-gpu --hide-scrollbars \
+  --screenshot=shot.png --window-size=1400,3500 \
+  "http://localhost:8099/some-page"</code></pre>
+    <div class="callout warn">
+        <p><strong>Snap confinement gotcha:</strong> snap Chromium cannot write into <code>/tmp</code> — it reports success but no file appears. Write the screenshot under a home-directory path (e.g. run from <code>~</code> and use a relative filename); the file lands in <code>/root/</code>. Then open it to review.</p>
+    </div>
+</section>
+
+<section id="dev-node">
+    <h2>Node 18</h2>
+    <p><code>node</code> / <code>npx</code> are available (v18.19.1). The app itself has no Node build step — Node is here for incidental tooling only.</p>
+    <div class="callout">
+        <p>Node 18 is older than what some current CLI tools expect (e.g. recent Puppeteer wants Node ≥ 22 and will print an <code>EBADENGINE</code> warning). For screenshots, use the system Chromium directly (above) rather than a Node browser wrapper.</p>
+    </div>
+</section>
+
+<section id="dev-preview">
+    <h2>The preview.php pattern</h2>
+    <p>To screenshot a specific multi-site without going through the admin login/session flow, drop a tiny shim at the project root that forces the active site, then render <code>index.php</code>:</p>
+    <pre><code>&lt;?php
+session_start();
+$_SESSION['active_site'] = 'site_id_here';
+session_write_close();          // commit before index.php reads the session
+require __DIR__ . '/index.php';</code></pre>
+    <p>Hit it directly (<code>http://localhost:PORT/siteidpreview.php</code>) with headless Chromium. The <code>session_write_close()</code> before <code>require</code> is essential — without it the session isn't committed before <code>index.php</code> reads it.</p>
+    <div class="callout tip">
+        <p>These are throwaway helpers. Delete them when done (or keep them — several are already committed at the project root). They only ever serve the already-public homepage, so they expose nothing new.</p>
+    </div>
+</section>
+
+<!-- ═══════════ DEPLOY ═══════════ -->
+<div class="doc-group-header" id="group-dev-deploy">Deploy</div>
+<section id="dev-static">
+    <h2>Static generation</h2>
+    <p>Deploy is a two-step pipeline: <strong>generate a static build</strong>, then <strong>FTP it to the client host</strong>. This admin box is the factory; client sites are served as plain static HTML elsewhere.</p>
+    <p><code>admin/generate_static.php</code> is an SSE endpoint that renders every page through <code>site-template.php</code> (via <code>ob_start</code>/<code>ob_get_clean</code>), copies <code>assets/</code> and <code>uploads/</code>, and writes <code>sitemap.xml</code>, <code>robots.txt</code>, and a production <code>.htaccess</code> into <code>output/{site_id}/</code>.</p>
+    <ul>
+        <li>Auth: requires <code>admin_logged_in</code> + a valid CSRF token (passed as <code>?token=</code> because SSE uses GET)</li>
+        <li>Requires an active site (<code>ACTIVE_SITE_ID</code>)</li>
+        <li>Output goes to <code>output/{site_id}/</code> — this is the deploy source, never served live from this box</li>
+    </ul>
+    <p>Driven from the admin <em>Deploy</em> tab; progress streams live to the browser.</p>
+</section>
+
+<section id="dev-ftp">
+    <h2>FTP deploy</h2>
+    <p><code>admin/deploy_ftp.php</code> (also SSE) reads <code>output/{site_id}/</code>, compares each file against <code>deploy_manifest.json</code>, and uploads <strong>only new or changed files</strong>, then updates the manifest. FTP credentials live in the per-site <code>deploy.json</code> (saved via <code>admin/deploy_save.php</code>).</p>
+    <table>
+        <tr><th>File</th><th>Role</th></tr>
+        <tr><td><code>sites/{id}/deploy.json</code></td><td>FTP host / user / password / remote path</td></tr>
+        <tr><td><code>sites/{id}/deploy_manifest.json</code></td><td>Hashes of last-uploaded files (incremental sync)</td></tr>
+    </table>
+    <div class="callout warn">
+        <p>Both <code>deploy.json</code> (contains FTP credentials) and <code>deploy_manifest.json</code> are blocked from web access by <code>.htaccess</code>. Keep that rule intact.</p>
+    </div>
+</section>
+
+<section id="dev-audit">
+    <h2>Deploy audit &amp; tracking</h2>
+    <p>Supporting endpoints around the deploy flow:</p>
+    <table>
+        <tr><th>Endpoint</th><th>Purpose</th></tr>
+        <tr><td><code>admin/deploy_save.php</code></td><td>Save FTP settings into <code>deploy.json</code></td></tr>
+        <tr><td><code>admin/deploy_audit.php</code></td><td>Compare local build vs. remote; report drift (POST + CSRF)</td></tr>
+        <tr><td><code>admin/deploy_delete_orphaned.php</code></td><td>Remove remote files no longer in the manifest</td></tr>
+        <tr><td><code>admin/deploy_force_delete.php</code></td><td>Force-remove remote files (cleanup)</td></tr>
+    </table>
+    <p>All are login-gated and CSRF-protected. The manifest is what makes deploys incremental — delete it to force a full re-upload on the next run.</p>
+</section>
+
+<!-- ═══════════ OPERATIONS ═══════════ -->
+<div class="doc-group-header" id="group-dev-ops">Operations</div>
+<section id="dev-services">
+    <h2>Services (systemctl)</h2>
+    <p>Only <strong>Apache</strong> needs to be running for the factory to work. Database services are intentionally inactive (no DB).</p>
+    <pre><code>systemctl is-active apache2        # should be: active
+systemctl is-enabled apache2       # start on boot?
+sudo systemctl restart apache2
+
+# Quick health check
+curl -sI http://localhost/admin/login.php | head -1</code></pre>
+</section>
+
+<section id="dev-cron">
+    <h2>Cron jobs</h2>
+    <p>No application-specific cron jobs are configured — content generation and deploys are triggered manually from the admin. The entries under <code>/etc/cron.d/</code> (<code>e2scrub_all</code>, <code>php</code>, <code>sysstat</code>) are stock OS maintenance, not Site Factory.</p>
+    <pre><code>crontab -l                 # user crontab (currently none for the app)
+ls /etc/cron.d/            # system cron jobs</code></pre>
+    <div class="callout tip">
+        <p>If you later automate backups or Let's Encrypt renewal, this is where those jobs would go.</p>
+    </div>
+</section>
+
+<section id="dev-firewall">
+    <h2>Firewall (ufw)</h2>
+    <p><strong>ufw is currently inactive</strong> — nothing is filtered at the host firewall. If you enable it, allow SSH first or you will lock yourself out.</p>
+    <pre><code>sudo ufw status
+sudo ufw allow OpenSSH        # do this BEFORE enabling
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw enable</code></pre>
+    <div class="callout warn">
+        <p>Enabling ufw without an SSH allow rule will drop your current connection on the next login. Always allow OpenSSH first.</p>
+    </div>
+</section>
+
+<section id="dev-logs">
+    <h2>Logs</h2>
+    <p>Apache and PHP errors surface in the Apache logs (mod_php writes PHP errors there):</p>
+    <pre><code>sudo tail -f /var/log/apache2/error.log    # PHP errors + Apache errors
+sudo tail -f /var/log/apache2/access.log   # requests
+
+# Filter for a specific path
+sudo grep "admin/save.php" /var/log/apache2/access.log</code></pre>
+    <p>The PHP built-in dev server logs to its own stdout/stderr instead — redirect it to a file when running in the background.</p>
+</section>
+
+<section id="dev-backups">
+    <h2>Backups</h2>
+    <p>Because content is flat files, a backup is just a copy of the data. The cheapest safety net before any bulk edit is to snapshot the per-site data folder.</p>
+    <pre><code># Snapshot one site's data + uploads
+tar czf ~/backup-$(date +%F).tgz \
+  /var/www/homepage-builder-new/sites/SITE_ID
+
+# Or rely on Git for the tracked files
+git add -A &amp;&amp; git commit -m "snapshot before bulk edit"</code></pre>
+    <div class="callout tip">
+        <p>Git covers tracked source, but uploaded images and generated <code>output/</code> may be large/ignored — include them in the <code>tar</code> snapshot when they matter.</p>
+    </div>
+</section>
+
+<!-- ═══════════ SECURITY ═══════════ -->
+<div class="doc-group-header" id="group-dev-security">Security</div>
+<section id="dev-sec-https">
+    <h2>HTTPS / cert notes</h2>
+    <p>The self-signed cert encrypts traffic but isn't trusted by browsers, so logging in shows a warning. For anything beyond testing, move to a real domain + Let's Encrypt so the admin login isn't sent over a flagged connection.</p>
+    <ul>
+        <li>Self-signed = encrypted but unverified (browser warning is expected)</li>
+        <li>Plain HTTP (:80) sends the admin password in clear text — prefer HTTPS</li>
+        <li>Trusted cert requires a domain → see <a class="back-top" href="#dev-https">HTTPS &amp; self-signed cert</a> for the Certbot path</li>
+    </ul>
+</section>
+
+<section id="dev-sec-password">
+    <h2>Admin password</h2>
+    <p>The login password is stored only as a bcrypt hash in <code>config.php</code> — it can't be recovered, only reset. The shipped default (<code>admin123</code>) must be changed before any site goes live.</p>
+    <pre><code>php -r "echo password_hash('a-strong-password', PASSWORD_DEFAULT);"
+# paste the result into config.php as ADMIN_PASSWORD_HASH</code></pre>
+</section>
+
+<section id="dev-sec-git">
+    <h2>Never deploy .git</h2>
+    <p>The deploy pipeline ships <code>output/{site_id}/</code>, not this repo — so client hosts never receive <code>.git/</code>. Keep it that way: an exposed <code>.git/</code> leaks full history, including old credential hashes.</p>
+    <ul>
+        <li>This box's <code>.htaccess</code> blocks dotfiles as a safety net — don't rely on it as the only defense</li>
+        <li>Never copy the repo wholesale (with <code>.git/</code>) onto a public host</li>
+        <li>The static build is the deploy artifact; verify it has no dotfolders before upload</li>
+    </ul>
+</section>
+
+<section id="dev-sec-uploads">
+    <h2>Upload sanitization</h2>
+    <p>Image uploads are validated by <code>save_uploaded_file()</code>: MIME must be jpeg/png/gif/webp, max 8&nbsp;MB, written to <code>uploads/</code> with a randomized filename. SVGs are run through <code>sanitize_svg()</code> first — it strips <code>&lt;script&gt;</code>, <code>on*</code> handlers, and <code>javascript:</code> URIs before saving.</p>
+    <p>All user-entered URLs pass through <code>sanitize_url()</code>, which only permits <code>http(s):</code>, <code>tel:</code>, <code>mailto:</code>, and relative links — blocking <code>javascript:</code> and similar. Any new save handler that stores a URL must use it.</p>
+    <div class="callout">
+        <p>These are application-level controls. Combined with the <code>.htaccess</code> data-dir denials and CSRF on every POST, they're the core of the app's defense — keep them in place when adding endpoints.</p>
+    </div>
+</section>
+
+</div><!-- /#doc-devenv -->
 </div><!-- /#main -->
 
 <script>
 /* Sidebar active link on scroll */
 const sections = document.querySelectorAll('[id]');
-const navLinks  = document.querySelectorAll('#doc-nav a');
+const navLinks  = document.querySelectorAll('#doc-nav a, #devenv-nav a');
 const observer  = new IntersectionObserver(entries => {
     entries.forEach(e => {
         if (e.isIntersecting) {
             navLinks.forEach(a => a.classList.remove('active'));
-            const active = document.querySelector('#doc-nav a[href="#' + e.target.id + '"]');
+            const active = document.querySelector('#doc-nav a[href="#' + e.target.id + '"], #devenv-nav a[href="#' + e.target.id + '"]');
             if (active) {
                 active.classList.add('active');
                 active.scrollIntoView({ block: 'nearest' });
@@ -2232,16 +2841,17 @@ const observer  = new IntersectionObserver(entries => {
 }, { rootMargin: '-20% 0px -75% 0px' });
 sections.forEach(s => observer.observe(s));
 
-/* Sidebar search */
+/* Sidebar search — operates on whichever nav is currently visible */
 function filterNav(q) {
     q = q.toLowerCase();
-    navLinks.forEach(a => {
+    const nav = document.querySelector('#sidebar nav:not([hidden])');
+    if (!nav) return;
+    nav.querySelectorAll('a').forEach(a => {
         a.style.display = (!q || a.textContent.toLowerCase().includes(q)) ? '' : 'none';
     });
-    document.querySelectorAll('#doc-nav .nav-group').forEach(g => {
-        const next = g.nextElementSibling;
+    nav.querySelectorAll('.nav-group').forEach(g => {
+        let el = g.nextElementSibling;
         let hasVisible = false;
-        let el = next;
         while (el && !el.classList.contains('nav-group')) {
             if (el.tagName === 'A' && el.style.display !== 'none') hasVisible = true;
             el = el.nextElementSibling;
@@ -2249,6 +2859,31 @@ function filterNav(q) {
         g.style.display = hasVisible ? '' : 'none';
     });
 }
+
+/* Tab switcher — swaps sidebar nav + content between Admin and DevEnv */
+function switchDoc(which) {
+    const isDev = (which === 'devenv');
+    document.getElementById('doc-admin').hidden  = isDev;
+    document.getElementById('doc-devenv').hidden = !isDev;
+    document.getElementById('doc-nav').hidden     = isDev;
+    document.getElementById('devenv-nav').hidden  = !isDev;
+    document.getElementById('doc-subtitle').textContent = isDev ? 'DevEnv Documentation' : 'Admin Documentation';
+    document.querySelectorAll('.doc-tab').forEach(t => t.classList.toggle('active', t.dataset.doc === which));
+    const search = document.getElementById('doc-search');
+    if (search) { search.value = ''; filterNav(''); }
+    try { history.replaceState(null, '', '?doc=' + which + (location.hash || '')); } catch (e) {}
+}
+
+/* Pick the starting tab from ?doc= or from a devenv anchor in the hash */
+(function initDoc() {
+    const params = new URLSearchParams(location.search);
+    let which = params.get('doc');
+    if (which !== 'devenv' && which !== 'admin') {
+        which = (location.hash && document.querySelector('#devenv-nav a[href="' + location.hash + '"]'))
+            ? 'devenv' : 'admin';
+    }
+    if (which === 'devenv') switchDoc('devenv');
+})();
 
 /* Jump to hash on load */
 if (location.hash) {
