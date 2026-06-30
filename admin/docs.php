@@ -255,6 +255,7 @@ tr:nth-child(even) td { background: #f8fafc; }
 
     <nav id="devenv-nav" hidden>
         <a class="nav-group" href="#group-dev-start">Getting Back In</a>
+        <a href="#dev-login">General Login</a>
         <a href="#dev-reboot">Reboot recovery</a>
         <a href="#dev-quickref">Quick reference</a>
         <a href="#dev-credentials">Credentials &amp; access backup</a>
@@ -2292,6 +2293,31 @@ Output valid JSON only — no explanation.</code></pre>
 
 <!-- ═══════════ GETTING BACK IN ═══════════ -->
 <div class="doc-group-header" id="group-dev-start">Getting Back In</div>
+<section id="dev-login">
+    <h2>General Login</h2>
+
+    <h3>a) VPS login → Claude Code (the command line)</h3>
+    <pre><code>ssh root@187.127.254.206          # log into the server (uses your Mac's SSH key, no password typed)
+cd /var/www/homepage-builder-new  # go to the project
+claude                            # start Claude Code  (or: claude --continue / claude --resume)</code></pre>
+    <ul>
+        <li><strong>Auth:</strong> SSH key (<code>~/.ssh/id_ed25519</code>), or backup <code>~/.ssh/sitefactory_recovery</code>. No password.</li>
+        <li><strong>This is for:</strong> development — running Claude Code, editing files, server config.</li>
+    </ul>
+
+    <h3>b) Site Factory admin (the web control panel)</h3>
+    <ul>
+        <li><strong>URL:</strong> <code>https://187.127.254.206/admin/login.php</code> &nbsp;(self-signed cert → click "proceed")</li>
+        <li><strong>User:</strong> <code>admin</code></li>
+        <li><strong>Password:</strong> your admin password</li>
+        <li><strong>This is for:</strong> building/editing sites, schedule, deploy — in the browser, no SSH needed.</li>
+    </ul>
+
+    <div class="callout">
+        <p><strong>The difference:</strong> (a) gets you <em>into the machine</em>; (b) gets you <em>into the website's control panel</em>. Different locks, different credentials — full details under Credentials &amp; access backup.</p>
+    </div>
+</section>
+
 <section id="dev-reboot">
     <h2>Reboot recovery</h2>
     <p>The key thing: <strong>almost nothing lives on your Mac.</strong> The Site Factory, Apache, PHP, the data, and Claude Code itself all run on the VPS (<code>187.127.254.206</code>). Your Mac is just the terminal you connect through — so rebooting it stops nothing.</p>
