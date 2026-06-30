@@ -257,6 +257,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a class="nav-group" href="#group-dev-start">Getting Back In</a>
         <a href="#dev-reboot">Reboot recovery</a>
         <a href="#dev-quickref">Quick reference</a>
+        <a href="#dev-credentials">Credentials &amp; access backup</a>
 
         <a class="nav-group" href="#group-dev-server">Server (VPS)</a>
         <a href="#dev-server-overview">Overview &amp; access</a>
@@ -2338,6 +2339,54 @@ claude --continue    # jump back into the most recent one</code></pre>
     </table>
     <div class="callout tip">
         <p>Reset a forgotten admin password: <code>php -r "echo password_hash('new-pass', PASSWORD_DEFAULT);"</code> and paste the hash into <code>config.php</code> as <code>ADMIN_PASSWORD_HASH</code>.</p>
+    </div>
+</section>
+
+<section id="dev-credentials">
+    <h2>Credentials &amp; access backup</h2>
+    <p>The two things that grant access to this environment — the <strong>SSH key</strong> and the <strong>admin password</strong> — must be backed up <em>off this server</em>. Their proper home is a <strong>password manager</strong> on your own devices (1Password, Bitwarden, Apple Passwords, KeePass — any of them).</p>
+
+    <h3>What lives where (and what can't be recovered)</h3>
+    <ul>
+        <li><strong>SSH private key</strong> — lives on your Mac under <code>~/.ssh/</code>. The server only holds the <em>public</em> half in <code>/root/.ssh/authorized_keys</code> (comment <code>claude-code-scottparr</code>). The private key cannot be read off the VPS.</li>
+        <li><strong>Admin password</strong> — stored only as a one-way <strong>bcrypt hash</strong> in <code>config.php</code>. The plaintext is not recoverable by anyone; it can only be reset.</li>
+    </ul>
+
+    <div class="callout warn">
+        <p><strong>Never store these on the server itself.</strong> A copy on the same VPS dies with the box (or leaks if it's compromised). Writing a private key or plaintext password into the webroot or committing it to Git is a security hole — don't. "Somewhere safe" means a password manager on your own devices.</p>
+    </div>
+
+    <h3>Reference note (non-secret) — save this in your vault</h3>
+    <p>Connection details that are safe to store alongside the secrets:</p>
+    <pre><code>SITE FACTORY — VPS ACCESS
+  Host (IPv4):     187.127.254.206
+  SSH user:        root
+  SSH command:     ssh root@187.127.254.206
+  Authorized key:  comment "claude-code-scottparr" (private key on the Mac, ~/.ssh)
+  Project root:    /var/www/homepage-builder-new
+  Admin (HTTPS):   https://187.127.254.206/admin/login.php   (self-signed → "proceed")
+  Admin user:      admin
+  Restart server:  sudo systemctl restart apache2</code></pre>
+
+    <h3>Backup recovery SSH key</h3>
+    <p>If your Mac holds the only authorized key, losing it locks you out of the VPS. The fix is a second "recovery" key kept in your password manager. Generate it <strong>on your Mac</strong> so the private half never touches the server or any transcript — then only the public half is added here:</p>
+    <pre><code># On your Mac:
+ssh-keygen -t ed25519 -f ~/.ssh/sitefactory_recovery -C "recovery-key"
+cat ~/.ssh/sitefactory_recovery.pub        # the public line to add on the server</code></pre>
+    <p>Add that public line to the server's authorized keys (append — don't overwrite):</p>
+    <pre><code># On the VPS:
+echo "ssh-ed25519 AAAA... recovery-key" &gt;&gt; /root/.ssh/authorized_keys</code></pre>
+    <p>Store the private file <code>~/.ssh/sitefactory_recovery</code> in your password manager. Test it once (<code>ssh -i ~/.ssh/sitefactory_recovery root@187.127.254.206</code>) so you know it works before you need it.</p>
+
+    <h3>Admin password backup</h3>
+    <ul>
+        <li><strong>If you know it</strong> — just save it to your password manager. Nothing to change.</li>
+        <li><strong>If it's lost</strong> — reset it to a value you choose, then store that:</li>
+    </ul>
+    <pre><code>php -r "echo password_hash('your-new-password', PASSWORD_DEFAULT);"
+# paste the resulting hash into config.php as ADMIN_PASSWORD_HASH</code></pre>
+    <div class="callout tip">
+        <p>Checklist for "I can always get back in": (1) SSH private key in a password manager, (2) a tested backup recovery key in the password manager, (3) the admin password in the password manager, (4) the reference note above saved next to them.</p>
     </div>
 </section>
 
