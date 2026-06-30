@@ -2,6 +2,30 @@
 
 > The everyday environment, access, and recovery reference for the Site Factory.
 
+## General Login
+
+### a) VPS login → Claude Code (the command line)
+
+```bash
+ssh root@187.127.254.206          # log into the server (uses your Mac's SSH key, no password typed)
+cd /var/www/homepage-builder-new  # go to the project
+claude                            # start Claude Code  (or: claude --continue / claude --resume)
+```
+
+- **Auth:** SSH key (`~/.ssh/id_ed25519`), or backup `~/.ssh/sitefactory_recovery`. No password.
+- **This is for:** development — running Claude Code, editing files, server config.
+
+### b) Site Factory admin (the web control panel)
+
+- **URL:** <https://187.127.254.206/admin/login.php>  (self-signed cert → click "proceed")
+- **User:** `admin`
+- **Password:** your admin password
+- **This is for:** building/editing sites, schedule, deploy — in the browser, no SSH needed.
+
+---
+
+**The difference:** (a) gets you *into the machine*; (b) gets you *into the website's control panel*. Different locks, different credentials. Full details are below.
+
 ## Reboot recovery
 
 The key thing: **almost nothing lives on your Mac.** The Site Factory, Apache, PHP, the data, and Claude Code itself all run on the VPS (`187.127.254.206`). Your Mac is just the terminal you connect through — so rebooting it stops nothing.
