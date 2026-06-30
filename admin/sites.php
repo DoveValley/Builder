@@ -101,6 +101,10 @@ function fmt_date(string $iso): string {
 .rename-form    { display:none; align-items:center; gap:8px; }
 .rename-form.open { display:flex; }
 .rename-form input { padding:5px 8px; border:1px solid #d1d5db; border-radius:5px; font-size:.85rem; width:160px; }
+/* Help button */
+.sm-topbar-actions { display:flex; align-items:center; gap:10px; }
+.btn-help { width:32px; height:32px; flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:#fff; border:1px solid #d1d5db; color:#374151; font-size:1rem; font-weight:700; text-decoration:none; line-height:1; transition:all .15s; }
+.btn-help:hover { border-color:#9ca3af; background:#f9fafb; color:#111; }
 </style>
 </head>
 <body class="admin-body">
@@ -131,7 +135,10 @@ function fmt_date(string $iso): string {
 
     <div class="sm-topbar">
         <h1>Your Sites</h1>
-        <button class="btn-open" onclick="showNewSite()">+ New Site</button>
+        <div class="sm-topbar-actions">
+            <a href="docs.php" target="_blank" class="btn-help" title="Open documentation" aria-label="Open documentation">?</a>
+            <button class="btn-open" onclick="showNewSite()">+ New Site</button>
+        </div>
     </div>
 
     <!-- New site form -->
