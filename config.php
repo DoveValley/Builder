@@ -20,7 +20,7 @@
 session_start();
 
 define('ADMIN_USERNAME', 'admin');
-define('ADMIN_PASSWORD_HASH', '$2y$10$SK7tZX6VPaweb2Tzaj.rHeIxNrjR4qkHTkCHJsq1aKD5vWSFu8zhu');
+define('ADMIN_PASSWORD_HASH', '$2y$12$jIZzYPu.23R2UNj82kw91.eOsHZJVv9bjpnsijj7kMxBhKoXU4Fga');
 
 // Site name shown in the admin panel
 define('SITE_TITLE', 'Katy Pest Pros');

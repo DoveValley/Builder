@@ -1,18 +1,3 @@
-uploads/*
-!uploads/.htaccess
-!uploads/README.txt
-
-# Static site output — generated, not committed
-output/
-
-# Dev preview shortcuts — new ones must not be committed without an auth guard
-# (existing committed preview files have auth guards added — see gpreview*.php / pmppreview.php)
-
-# Per-site deploy credentials — never committed
-sites/*/deploy.json
-sites/*/deploy_manifest.json
-
-# City page generator backups
-sites/*/data/pages/*.bak
-data/pages/*.bak
-.ai_key
+*.log
+.DS_Store
+*.tmp
