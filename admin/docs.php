@@ -254,6 +254,10 @@ tr:nth-child(even) td { background: #f8fafc; }
     </nav>
 
     <nav id="devenv-nav" hidden>
+        <a class="nav-group" href="#group-dev-start">Getting Back In</a>
+        <a href="#dev-reboot">Reboot recovery</a>
+        <a href="#dev-quickref">Quick reference</a>
+
         <a class="nav-group" href="#group-dev-server">Server (VPS)</a>
         <a href="#dev-server-overview">Overview &amp; access</a>
         <a href="#dev-os">OS — Ubuntu 24.04</a>
@@ -2284,6 +2288,58 @@ Output valid JSON only — no explanation.</code></pre>
 <div id="doc-devenv" hidden>
 <h1>Site Factory — DevEnv Documentation</h1>
 <p class="page-intro">Reference for the server, runtime, and tooling that Site Factory runs on. This documents the live environment — the box itself, Apache, PHP, the deploy pipeline, and day-to-day operations — as distinct from the admin/content workflow covered in the Admin tab.</p>
+
+<!-- ═══════════ GETTING BACK IN ═══════════ -->
+<div class="doc-group-header" id="group-dev-start">Getting Back In</div>
+<section id="dev-reboot">
+    <h2>Reboot recovery</h2>
+    <p>The key thing: <strong>almost nothing lives on your Mac.</strong> The Site Factory, Apache, PHP, the data, and Claude Code itself all run on the VPS (<code>187.127.254.206</code>). Your Mac is just the terminal you connect through — so rebooting it stops nothing.</p>
+
+    <h3>1. The live site never went down</h3>
+    <p>Apache is enabled to start on boot, so the admin and all sites keep serving regardless of your Mac. Just reopen:</p>
+    <ul>
+        <li><code>https://187.127.254.206/admin/login.php</code> — self-signed cert, click "proceed"</li>
+        <li><code>http://187.127.254.206/admin/login.php</code> — plain HTTP fallback</li>
+    </ul>
+    <p>Log in with <code>admin</code> + your password. Nothing to restart.</p>
+
+    <h3>2. Get back to dev with Claude Code</h3>
+    <p>Claude Code runs <em>on the VPS</em>. From a fresh Terminal on your Mac, reconnect over SSH and relaunch it:</p>
+    <pre><code>ssh root@187.127.254.206           # your SSH login to the VPS
+cd /var/www/homepage-builder-new   # the project / live webroot
+claude                             # start Claude Code</code></pre>
+    <p>To resume a previous session instead of starting fresh:</p>
+    <pre><code>claude --resume      # pick a past session from a list
+claude --continue    # jump back into the most recent one</code></pre>
+    <p>The whole recovery is: <strong>SSH in → <code>cd</code> to the project → <code>claude</code>.</strong></p>
+
+    <div class="callout">
+        <p><strong>If the VPS itself reboots</strong> (not just your Mac): Apache auto-starts because it's <code>enabled</code>, so the live site comes back on its own. The only thing lost is the disposable <code>php -S</code> preview server (port 8099, used for screenshots) — it's not needed for production and is restarted on demand.</p>
+    </div>
+    <div class="callout warn">
+        <p><strong>Your Mac-side specifics may differ.</strong> The SSH command above assumes <code>root@187.127.254.206</code>. If you log in as a different user, with an SSH key, or on a non-standard port, swap those in. If you connect via VS Code Remote-SSH or a saved terminal profile, reopen that instead.</p>
+    </div>
+</section>
+
+<section id="dev-quickref">
+    <h2>Quick reference</h2>
+    <p>The everyday entry points and health checks in one place.</p>
+    <table>
+        <tr><th>What</th><th>Where / command</th></tr>
+        <tr><td>Admin login (HTTPS)</td><td><code>https://187.127.254.206/admin/login.php</code></td></tr>
+        <tr><td>Admin login (HTTP)</td><td><code>http://187.127.254.206/admin/login.php</code></td></tr>
+        <tr><td>Your Sites list</td><td><code>/admin/sites.php</code></td></tr>
+        <tr><td>SSH into the VPS</td><td><code>ssh root@187.127.254.206</code></td></tr>
+        <tr><td>Project root</td><td><code>/var/www/homepage-builder-new</code></td></tr>
+        <tr><td>Start Claude Code</td><td><code>claude</code> (or <code>claude --continue</code>)</td></tr>
+        <tr><td>Is the site up?</td><td><code>systemctl is-active apache2</code></td></tr>
+        <tr><td>Restart the web server</td><td><code>sudo systemctl restart apache2</code></td></tr>
+        <tr><td>Local preview server</td><td><code>php -S localhost:8080 router.php</code></td></tr>
+    </table>
+    <div class="callout tip">
+        <p>Reset a forgotten admin password: <code>php -r "echo password_hash('new-pass', PASSWORD_DEFAULT);"</code> and paste the hash into <code>config.php</code> as <code>ADMIN_PASSWORD_HASH</code>.</p>
+    </div>
+</section>
 
 <!-- ═══════════ SERVER (VPS) ═══════════ -->
 <div class="doc-group-header" id="group-dev-server">Server (VPS)</div>
