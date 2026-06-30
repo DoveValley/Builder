@@ -256,6 +256,7 @@ tr:nth-child(even) td { background: #f8fafc; }
     <nav id="devenv-nav" hidden>
         <a class="nav-group" href="#group-dev-start">Getting Back In</a>
         <a href="#dev-login">General Login</a>
+        <a href="#dev-gitflow">Working on the server (git)</a>
         <a href="#dev-reboot">Reboot recovery</a>
         <a href="#dev-quickref">Quick reference</a>
         <a href="#dev-credentials">Credentials &amp; access backup</a>
@@ -2315,6 +2316,42 @@ claude                            # start Claude Code  (or: claude --continue / 
 
     <div class="callout">
         <p><strong>The difference:</strong> (a) gets you <em>into the machine</em>; (b) gets you <em>into the website's control panel</em>. Different locks, different credentials — full details under Credentials &amp; access backup.</p>
+    </div>
+</section>
+
+<section id="dev-gitflow">
+    <h2>Working on the server (git)</h2>
+    <p>The VPS is the <strong>single source of truth</strong> and a real git checkout connected to GitHub (<code>git@github.com:DoveValley/Builder.git</code>). You do all dev <em>on the server</em> — edit, commit, and push from there. The Mac repo is kept as a mirror but is no longer the working copy; don't make divergent edits on the Mac, or the two drift apart (a problem we already had to untangle once).</p>
+
+    <h3>Everyday loop</h3>
+    <pre><code>ssh root@187.127.254.206
+cd /var/www/homepage-builder-new
+claude                            # do your work
+
+git add -A                        # stage changes
+git commit -m "what changed"      # save a checkpoint
+git push                          # back up to GitHub</code></pre>
+    <p>Commit in small, meaningful chunks and push when you pause — every push is an off-site backup and a point you can roll back to.</p>
+
+    <h3>How pushing is authenticated</h3>
+    <ul>
+        <li>The push uses a dedicated <strong>deploy key</strong> at <code>/root/.ssh/github_deploy</code> (write access), registered on the GitHub repo as "VPS Site Factory (deploy)".</li>
+        <li>It's scoped to this repo only via the repo-local setting <code>core.sshCommand</code> — it doesn't affect any other SSH on the box.</li>
+        <li>No password or token is typed; <code>git push</code> just works.</li>
+    </ul>
+
+    <h3>Handy commands</h3>
+    <table>
+        <tr><th>What</th><th>Command</th></tr>
+        <tr><td>See what's changed</td><td><code>git status</code></td></tr>
+        <tr><td>Review a change before committing</td><td><code>git diff</code></td></tr>
+        <tr><td>Undo uncommitted edits to a file</td><td><code>git checkout -- path/to/file</code></td></tr>
+        <tr><td>See recent history</td><td><code>git log --oneline -10</code></td></tr>
+        <tr><td>Confirm you're in sync with GitHub</td><td><code>git status</code> → "up to date with 'origin/main'"</td></tr>
+    </table>
+
+    <div class="callout warn">
+        <p><strong>Don't edit on the Mac anymore.</strong> The Mac copy is a backup mirror. If you ever do touch it, pull first (<code>git pull</code>) and push right after — but the simple rule is: <em>work only on the server.</em></p>
     </div>
 </section>
 
