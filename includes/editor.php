@@ -82,6 +82,8 @@ function render_content_blocks_editor($blocks) {
                     <?php endif; ?>
                     <?php if (!empty($block['ai_type_id']) && $type !== 'ai_block'): ?>
                     <span style="font-size:0.72rem;font-weight:700;padding:2px 8px;border-radius:4px;background:#7c3aed;color:#fff;white-space:nowrap;" title="AI enriches .<?= h($block['ai_inject_field'] ?? '') ?>">✦ AI: <?= h($block['ai_type_id']) ?></span>
+                    <?php elseif ($type === 'ai_block' && !empty($block['ai_type_id'])): ?>
+                    <span style="font-size:0.72rem;font-weight:700;padding:2px 8px;border-radius:4px;background:#7c3aed;color:#fff;white-space:nowrap;">✦ <?= h($block['ai_type_id']) ?></span>
                     <?php endif; ?>
                     <button type="button" class="block-info-btn" onclick="event.stopPropagation();window.open('/admin/docs.php#block-<?= h($type) ?>','_blank')" title="View documentation">?</button>
                     <input type="text" name="block_anchor[]"

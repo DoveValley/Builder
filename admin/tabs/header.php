@@ -107,6 +107,33 @@
             </div>
 
             <div class="card">
+                <h2>Favicon</h2>
+
+                <div class="form-group">
+                    <?php if (!empty($header['favicon'])): ?>
+                    <div style="background:#1a1a2e;padding:14px 18px;border-radius:8px;display:inline-flex;align-items:flex-end;gap:20px;margin-bottom:12px;">
+                        <?php foreach ([16 => 'Browser tab', 32 => 'Taskbar', 48 => 'Desktop', 180 => 'iOS'] as $px => $label): ?>
+                        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+                            <img src="../<?= h($header['favicon']) ?>?v=<?= time() ?>" alt="<?= $px ?>px" style="width:<?= $px ?>px;height:<?= $px ?>px;image-rendering:pixelated;flex-shrink:0;">
+                            <span style="font-size:.68rem;color:#94a3b8;"><?= $px ?>px<br><?= $label ?></span>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php else: ?>
+                        <span class="none">No favicon uploaded yet.</span>
+                    <?php endif; ?>
+
+                    <label for="favicon">Upload favicon</label>
+                    <input type="file" id="favicon" name="favicon" accept="image/x-icon,image/png,image/jpeg,image/webp">
+                    <span class="hint">Use a square image (64×64 or larger PNG recommended). Shown in browser tabs, taskbar, and bookmarks.</span>
+
+                    <?php if (!empty($header['favicon'])): ?>
+                        <label style="margin-top:10px;font-weight:400;">
+                            <input type="checkbox" name="remove_favicon" value="1"> Remove current favicon
+                        </label>
+                    <?php endif; ?>
+                </div>
+
                 <h2>Logo (top left)</h2>
 
                 <div class="form-group">

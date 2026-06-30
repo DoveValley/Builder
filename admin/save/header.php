@@ -54,6 +54,10 @@
         $logo = upload_image('logo', 'logo');
         if ($logo === false) $message = 'error:Logo upload failed.';        elseif ($logo !== null) $data['header']['logo'] = $logo;
         if (!empty($_POST['remove_logo'])) $data['header']['logo'] = '';
+
+        $favicon = upload_image('favicon', 'favicon');
+        if ($favicon === false) $message = 'error:Favicon upload failed.';  elseif ($favicon !== null) $data['header']['favicon'] = $favicon;
+        if (!empty($_POST['remove_favicon'])) $data['header']['favicon'] = '';
         // Site variables (shortcodes)
         $data['site_vars']['city']      = trim($_POST['site_vars_city']      ?? '');
         $data['site_vars']['state']     = trim($_POST['site_vars_state']     ?? '');

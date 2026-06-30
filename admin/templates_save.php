@@ -116,6 +116,16 @@ if ($action === 'save') {
 
     [$blocks, $uploadError] = parse_blocks_from_post();
 
+    // Guard against silent max_input_vars truncation: if JS reported more blocks
+    // than PHP received, the POST was cut short — refuse to overwrite blocks.
+    $submittedCount = (int)($_POST['block_count_submitted'] ?? -1);
+    if ($submittedCount > 0 && count($blocks) < $submittedCount) {
+        header('Location: index.php?tab=templates&template=' . urlencode($id)
+            . '&msg=error:Save+aborted+%E2%80%94+only+' . count($blocks) . '+of+' . $submittedCount
+            . '+blocks+received+%28PHP+max_input_vars+limit%29.+Blocks+not+changed.');
+        exit;
+    }
+
     $seoData = [
         'seo_title'          => trim($_POST['seo_title']           ?? ''),
         'canonical_url'      => sanitize_url($_POST['canonical_url']      ?? ''),
@@ -131,11 +141,14 @@ if ($action === 'save') {
         'bc_label'           => trim($_POST['bc_label']            ?? ''),
         'bc_mid_label'       => trim($_POST['bc_mid_label']        ?? ''),
         'bc_mid_url'         => sanitize_url($_POST['bc_mid_url']  ?? ''),
+        'og_type'            => in_array($_POST['og_type'] ?? '', ['website','article']) ? $_POST['og_type'] : 'website',
+        'robots_noindex'     => !empty($_POST['robots_noindex']),
     ];
     $schema = trim($_POST['schema'] ?? '');
     $message = '';
     if ($schema === '') {
-        $seoData['schema'] = '';
+        // Empty textarea — preserve whatever was already saved rather than wiping it
+        $seoData['schema'] = $templates[$idx]['seo']['schema'] ?? '';
     } elseif (json_decode($schema) !== null || $schema === 'null') {
         $seoData['schema'] = $schema;
     } else {

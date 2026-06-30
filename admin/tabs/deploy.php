@@ -37,6 +37,15 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
     <hr style="margin:20px 0;border:none;border-top:1px solid #e5e7eb;">
 
     <button id="gen-btn" class="btn" onclick="startGenerate()">Generate Static Site</button>
+    <div id="gen-progress-wrap" style="display:none;margin-top:10px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <span style="font-size:.8rem;font-weight:600;color:#374151;" id="gen-progress-label">Step 0 of 0</span>
+            <span style="font-size:.8rem;color:#6b7280;" id="gen-progress-remain"></span>
+        </div>
+        <div style="height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden;">
+            <div id="gen-progress-bar" style="height:100%;width:0%;background:var(--color-accent,#fd783b);border-radius:4px;transition:width .3s ease;"></div>
+        </div>
+    </div>
     <div id="gen-log" class="deploy-log" style="display:none;"></div>
 </div>
 
@@ -93,6 +102,15 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
         <button id="push-btn" class="btn" onclick="startPush()">Push to Server</button>
         <button id="audit-btn" class="btn btn-secondary" onclick="startAudit()">Audit Server</button>
     </div>
+    <div id="push-progress-wrap" style="display:none;margin-top:10px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <span style="font-size:.8rem;font-weight:600;color:#374151;" id="push-progress-label">File 0 of 0</span>
+            <span style="font-size:.8rem;color:#6b7280;" id="push-progress-remain"></span>
+        </div>
+        <div style="height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden;">
+            <div id="push-progress-bar" style="height:100%;width:0%;background:var(--color-accent,#fd783b);border-radius:4px;transition:width .3s ease;"></div>
+        </div>
+    </div>
     <div id="push-log" class="deploy-log" style="display:none;"></div>
 </div>
 
@@ -141,18 +159,36 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
 
 <script>
 (function() {
-    function runSSE(url, btn, logEl) {
+    function runSSE(url, btn, logEl, progressIds) {
         btn.disabled = true;
         const origText = btn.textContent;
         btn.textContent = 'Working…';
         logEl.style.display = 'block';
         logEl.innerHTML = '';
 
+        // Progress bar elements (optional)
+        const progWrap  = progressIds ? document.getElementById(progressIds.wrap)  : null;
+        const progBar   = progressIds ? document.getElementById(progressIds.bar)   : null;
+        const progLabel = progressIds ? document.getElementById(progressIds.label) : null;
+        const progRemain= progressIds ? document.getElementById(progressIds.remain): null;
+        if (progWrap) { progWrap.style.display = 'none'; progBar.style.width = '0%'; }
+
         const es = new EventSource(url);
 
         es.onmessage = function(e) {
             let d;
             try { d = JSON.parse(e.data); } catch(ex) { return; }
+
+            if (d.type === 'progress') {
+                if (progWrap && d.total > 0) {
+                    progWrap.style.display = '';
+                    const pct = Math.round((d.done / d.total) * 100);
+                    progBar.style.width    = pct + '%';
+                    progLabel.textContent  = (progressIds.unit || 'Item') + ' ' + d.done + ' of ' + d.total;
+                    progRemain.textContent = (d.total - d.done) + ' remaining';
+                }
+                return;
+            }
 
             const line = document.createElement('div');
             if (d.type === 'done')  line.className = 'log-done';
@@ -166,6 +202,7 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
                 es.close();
                 btn.disabled = false;
                 btn.textContent = origText;
+                if (progWrap) progWrap.style.display = 'none';
             }
         };
 
@@ -173,6 +210,7 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
             es.close();
             btn.disabled = false;
             btn.textContent = origText;
+            if (progWrap) progWrap.style.display = 'none';
             const line = document.createElement('div');
             line.className = 'log-error';
             line.textContent = 'Connection closed.';
@@ -183,11 +221,17 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
     const csrfToken = <?= json_encode($csrfToken) ?>;
 
     window.startGenerate = function() {
-        runSSE('generate_static.php?token=' + encodeURIComponent(csrfToken), document.getElementById('gen-btn'), document.getElementById('gen-log'));
+        runSSE('generate_static.php?token=' + encodeURIComponent(csrfToken),
+            document.getElementById('gen-btn'),
+            document.getElementById('gen-log'),
+            { wrap: 'gen-progress-wrap', bar: 'gen-progress-bar', label: 'gen-progress-label', remain: 'gen-progress-remain', unit: 'Step' });
     };
 
     window.startPush = function() {
-        runSSE('deploy_ftp.php?token=' + encodeURIComponent(csrfToken), document.getElementById('push-btn'), document.getElementById('push-log'));
+        runSSE('deploy_ftp.php?token=' + encodeURIComponent(csrfToken),
+            document.getElementById('push-btn'),
+            document.getElementById('push-log'),
+            { wrap: 'push-progress-wrap', bar: 'push-progress-bar', label: 'push-progress-label', remain: 'push-progress-remain', unit: 'File' });
     };
 
     window.startForcePush = function() {
@@ -195,7 +239,8 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
         if (!word || word.trim() !== 'PUSH ALL') { alert('Cancelled.'); return; }
         runSSE('deploy_ftp.php?token=' + encodeURIComponent(csrfToken) + '&force=1',
             document.getElementById('force-push-btn'),
-            document.getElementById('force-log'));
+            document.getElementById('force-log'),
+            { wrap: 'push-progress-wrap', bar: 'push-progress-bar', label: 'push-progress-label', remain: 'push-progress-remain', unit: 'File' });
     };
 
     window.startForceDelete = function() {

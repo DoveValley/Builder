@@ -39,6 +39,12 @@ function ftp_sse(string $msg, string $type = 'log'): void {
     flush();
 }
 
+function ftp_sse_progress(int $done, int $total): void {
+    echo 'data: ' . json_encode(['type' => 'progress', 'done' => $done, 'total' => $total]) . "\n\n";
+    @ob_flush();
+    flush();
+}
+
 // ── Load config ───────────────────────────────────────────────────────────────
 $deployFile = ACTIVE_SITE_DIR . '/deploy.json';
 if (!file_exists($deployFile)) {
@@ -100,7 +106,9 @@ if (empty($toUpload)) {
     exit;
 }
 
-ftp_sse(count($toUpload) . ' file' . (count($toUpload) !== 1 ? 's' : '') . ' to upload.');
+$ftpTotal = count($toUpload);
+ftp_sse($ftpTotal . ' file' . ($ftpTotal !== 1 ? 's' : '') . ' to upload.');
+ftp_sse_progress(0, $ftpTotal);
 
 // ── Connect FTP ───────────────────────────────────────────────────────────────
 if (!function_exists('ftp_connect')) {
@@ -170,6 +178,7 @@ foreach ($toUpload as $rel => $info) {
         $failed++;
         ftp_sse("Failed:   {$rel}", 'error');
     }
+    ftp_sse_progress($uploaded + $failed, $ftpTotal);
 }
 
 ftp_close($conn);

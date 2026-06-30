@@ -65,6 +65,11 @@ if (empty($seo['og_image'])) {
     <link rel="preload" as="image" href="<?= h($heroPreloadSrc) ?>" fetchpriority="high">
     <?php endif; ?>
     <title><?= h($pageTitle) ?></title>
+    <?php $favicon = $data['header']['favicon'] ?? ''; if ($favicon !== ''): $faviconUrl = h(($assetPathPrefix ?? '/') . $favicon); ?>
+    <link rel="icon" type="image/x-icon" href="<?= $faviconUrl ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= $faviconUrl ?>">
+    <link rel="apple-touch-icon" href="<?= $faviconUrl ?>">
+    <?php endif; ?>
     <?php if (!empty($seo['meta_description'])): ?>
     <meta name="description" content="<?= h($seo['meta_description']) ?>">
     <?php endif; ?>
@@ -99,7 +104,9 @@ if (empty($seo['og_image'])) {
         if (file_exists($ogImgFile)) { $sz = @getimagesize($ogImgFile); if ($sz) $ogImageDims = [$sz[0], $sz[1]]; }
     }
     ?>
-    <meta property="og:type"        content="website">
+    <?php if (!empty($seo['robots_noindex'])): ?><meta name="robots" content="noindex"><?php endif; ?>
+    <?php $ogType = !empty($seo['og_type']) ? $seo['og_type'] : 'website'; ?>
+    <meta property="og:type"        content="<?= h($ogType) ?>">
     <meta property="og:title"       content="<?= h($ogTitle) ?>">
     <?php if ($ogDesc): ?><meta property="og:description" content="<?= h($ogDesc) ?>"><?php endif; ?>
     <?php if ($canonicalUrl): ?><meta property="og:url"  content="<?= h($canonicalUrl) ?>"><?php endif; ?>

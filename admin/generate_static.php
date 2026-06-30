@@ -44,6 +44,12 @@ function sse(string $msg, string $type = 'log'): void {
     flush();
 }
 
+function sse_progress(int $done, int $total): void {
+    echo 'data: ' . json_encode(['type' => 'progress', 'done' => $done, 'total' => $total]) . "\n\n";
+    @ob_flush();
+    flush();
+}
+
 // ── Load deploy config ────────────────────────────────────────────────────────
 $deployFile = ACTIVE_SITE_DIR . '/deploy.json';
 $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile), true) ?: []) : [];
@@ -106,6 +112,22 @@ $siteUrls = []; // Collected for sitemap
 // Load site data once — reused for every page render; city pages merge city_vars per-iteration.
 $siteData = load_data();
 
+// ── Pre-count total steps for progress tracking ───────────────────────────────
+$_prePages = array_filter($siteData['pages'] ?? [], fn($p) => ($p['slug'] ?? '') !== '' && preg_match('/^[a-z0-9][a-z0-9-]*$/', $p['slug'] ?? ''));
+$_preCityCount = 0;
+if (file_exists(PAGE_INDEX_FILE)) {
+    foreach (json_decode(file_get_contents(PAGE_INDEX_FILE), true) ?: [] as $cs => $fn) {
+        if (preg_match('/^[a-z0-9][a-z0-9-]*$/', (string)$cs) && file_exists(PAGES_DIR . $fn)) $_preCityCount++;
+    }
+}
+$_prePosts    = array_values(array_filter($siteData['posts'] ?? [], fn($p) => ($p['status'] ?? 'draft') === 'published'));
+$_prePerPage  = max(1, (int)($siteData['blog_settings']['posts_per_page'] ?? 9));
+$_preBlogList = empty($_prePosts) ? 0 : max(1, (int)ceil(count($_prePosts) / $_prePerPage));
+// Steps: 1 homepage + landing pages + city pages + blog listing pages + blog posts + 1 404 + 3 (assets, uploads, metadata)
+$_preTotal = 1 + count($_prePages) + $_preCityCount + $_preBlogList + count($_prePosts) + 1 + 3;
+$_preDone  = 0;
+sse_progress(0, $_preTotal);
+
 // ── 1. Homepage ───────────────────────────────────────────────────────────────
 sse('Generating homepage…');
 gen_reset_shortcode_globals();
@@ -122,6 +144,7 @@ require BASE_DIR . '/includes/site-template.php';
 $html = ob_get_clean();
 gen_write($outputBase . 'index.html', $html);
 $siteUrls[] = ['loc' => '/', 'priority' => '1.0'];
+sse_progress(++$_preDone, $_preTotal);
 
 // ── 2. Landing pages ──────────────────────────────────────────────────────────
 $pages = $siteData['pages'] ?? [];
@@ -150,6 +173,7 @@ foreach ($pages as $pageId => $page) {
     $siteUrls[] = ['loc' => '/' . $pageSlug . '/', 'priority' => '0.8'];
     $writtenSlugs[$pageSlug] = true;
     $pageCount++;
+    sse_progress(++$_preDone, $_preTotal);
 }
 sse("Landing pages: {$pageCount} generated.");
 
@@ -187,6 +211,7 @@ if (file_exists(PAGE_INDEX_FILE)) {
         $siteUrls[] = ['loc' => '/' . $citySlug . '/', 'priority' => '0.7'];
         $writtenSlugs[$citySlug] = true;
         $cityCount++;
+        sse_progress(++$_preDone, $_preTotal);
     }
 }
 sse("City pages: {$cityCount} generated.");
@@ -276,6 +301,7 @@ if (!empty($allPosts)) {
         } else {
             gen_write($outputBase . 'blog/page/' . $pageNum . '/index.html', $html);
         }
+        sse_progress(++$_preDone, $_preTotal);
     }
 
     // Individual blog posts
@@ -318,6 +344,7 @@ if (!empty($allPosts)) {
         gen_write($outputBase . 'blog/' . $postSlug . '/index.html', $html);
         $siteUrls[] = ['loc' => '/blog/' . $postSlug . '/', 'priority' => '0.6'];
         $postCount++;
+        sse_progress(++$_preDone, $_preTotal);
     }
     sse("Blog: listing ({$totalPages} page" . ($totalPages > 1 ? 's' : '') . ") + {$postCount} post" . ($postCount !== 1 ? 's' : '') . " generated.");
 } else {
@@ -347,6 +374,7 @@ ob_start();
 require BASE_DIR . '/includes/site-template.php';
 $html = ob_get_clean();
 gen_write($outputBase . '404.html', $html);
+sse_progress(++$_preDone, $_preTotal);
 
 // ── 6. Copy assets ────────────────────────────────────────────────────────────
 sse('Copying assets…');
@@ -357,6 +385,7 @@ sse("Assets: {$assetCount} files copied." . ($assetFailed ? " ({$assetFailed} fa
 sse('Copying uploads…');
 [$uploadCount, $uploadFailed] = gen_copy_dir(UPLOAD_DIR, $outputBase . 'uploads/');
 sse("Uploads: {$uploadCount} files copied." . ($uploadFailed ? " ({$uploadFailed} failed)" : ''));
+sse_progress(++$_preDone, $_preTotal);
 
 // ── 8. sitemap.xml ────────────────────────────────────────────────────────────
 if ($canonicalDomain !== '') {
@@ -425,6 +454,7 @@ if (defined('REDIRECTS_FILE') && file_exists(REDIRECTS_FILE)) {
 
 gen_write($outputBase . '.htaccess', $htaccess);
 sse('Generated: .htaccess.');
+sse_progress(++$_preDone, $_preTotal);
 
 // ── Done ──────────────────────────────────────────────────────────────────────
 $total = 1 + $pageCount + $cityCount + $postCount + 1; // +1 home +1 404

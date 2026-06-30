@@ -34,6 +34,7 @@ function default_data() {
         'header' => [
             'logo'            => '',
             'logo_max_height' => '56',
+            'favicon'         => '',
             'phone'           => '+1 (555) 123-4567',
             'city'            => '',
             'nav_bg'          => '#fd783b',

@@ -76,6 +76,28 @@ def _warn(msg): print(_c('33', '!') + ' ' + msg)
 def _err(msg):  print(_c('31', '✗') + ' ' + msg)
 def _log(msg):  print(msg)
 
+# Progress tracking — emits __PROGRESS__ D/T lines parsed by ai_generate.php
+_progress_total = 0
+_progress_done  = 0
+
+def _set_total(n):
+    global _progress_total, _progress_done
+    _progress_total = n
+    _progress_done  = 0
+    print(f'__PROGRESS__ 0/{n}', flush=True)
+
+def _tick():
+    global _progress_done
+    _progress_done += 1
+    print(f'__PROGRESS__ {_progress_done}/{_progress_total}', flush=True)
+
+def _count_blocks(blocks, refresh):
+    """Count blocks that will actually be called against the API."""
+    return sum(
+        1 for b in blocks
+        if _needs_processing(b) and not (b.get('_ai_locked') and not refresh)
+    )
+
 
 # ── File I/O ──────────────────────────────────────────────────────────────────
 
@@ -307,6 +329,7 @@ def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False,
         if not reg_entry:
             _warn(f'    [{idx}] Unknown ai_type_id "{type_id}" — skipping')
             stats['errors'] += 1
+            _tick()
             continue
 
         model    = model_override or block.get('ai_model') or reg_entry.get('ai_model', MODEL_DEFAULT)
@@ -315,6 +338,7 @@ def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False,
         if not prompt_t:
             _warn(f'    [{idx}] {type_id} — empty prompt, skipping')
             stats['errors'] += 1
+            _tick()
             continue
 
         # Determine mode: enrich for non-ai_block; otherwise from block/registry
@@ -329,6 +353,7 @@ def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False,
         ai_out = call_claude(prompt, model, api_key, dry_run)
         if ai_out is None:
             stats['errors'] += 1
+            _tick()
             continue
 
         now = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
@@ -343,6 +368,7 @@ def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False,
             result[idx]['_ai_locked']       = True
             _ok(f'    [{idx}] {type_id} — generated')
             stats['processed'] += 1
+            _tick()
 
         elif mode == 'enrich':
             field    = block.get('ai_inject_field') or reg_entry.get('ai_inject_field', '')
@@ -351,6 +377,7 @@ def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False,
             if not field:
                 _warn(f'    [{idx}] {type_id} — no ai_inject_field defined, skipping')
                 stats['errors'] += 1
+                _tick()
                 continue
 
             apply_inject(result[idx], field, inj_mode, ai_out)
@@ -361,6 +388,7 @@ def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False,
             result[idx]['_ai_locked']       = True
             _ok(f'    [{idx}] {type_id} — enriched .{field} ({inj_mode})')
             stats['processed'] += 1
+            _tick()
 
     return result, stats
 
@@ -820,6 +848,24 @@ def main():
 
     # ── Step 2: Content generation ────────────────────────────────────────────
     model_override = args.model or None
+
+    # Pre-count total blocks across all selected scopes so UI can show progress
+    pre_total = 0
+    if args.all or args.page == 'homepage':
+        pre_total += _count_blocks(site_data.get('content_blocks', []), args.refresh)
+    if args.all or args.page == 'core':
+        for pid, pg in site_data.get('pages', {}).items():
+            pre_total += _count_blocks(pg.get('content_blocks', []), args.refresh)
+    if args.all or args.page == 'landing':
+        _lp_dir = paths['pages_dir']
+        if os.path.isdir(_lp_dir):
+            for _lp_f in sorted(glob.glob(os.path.join(_lp_dir, '*.json'))):
+                if args.file and args.file not in os.path.basename(_lp_f):
+                    continue
+                _lp_data = load_json(_lp_f)
+                if _lp_data:
+                    pre_total += _count_blocks(_lp_data.get('content_blocks', []), args.refresh)
+    _set_total(pre_total)
 
     if args.all or args.page == 'homepage':
         _merge_stats(total, process_homepage(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, model_override))

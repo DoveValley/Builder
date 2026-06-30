@@ -237,10 +237,17 @@
         }
     }
     ?>
-    <form action="templates_save.php" method="post" enctype="multipart/form-data">
+    <form action="templates_save.php" method="post" enctype="multipart/form-data" id="tpl-save-form">
         <input type="hidden" name="action" value="save">
         <input type="hidden" name="template_id" value="<?= h($editingTemplateId) ?>">
         <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+        <input type="hidden" name="block_count_submitted" id="block_count_submitted" value="0">
+        <script>
+        document.getElementById('tpl-save-form').addEventListener('submit', function() {
+            var count = document.querySelectorAll('#tpl-save-form .block-type-select, #tpl-save-form input[name="block_type[]"]').length;
+            document.getElementById('block_count_submitted').value = count;
+        });
+        </script>
 
         <div style="margin-bottom:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
             <button type="submit" class="btn">Save Template</button>
@@ -281,7 +288,7 @@
         <?php render_content_blocks_editor($editingTemplate['content_blocks'] ?? []); ?>
 
         <!-- SEO editor -->
-        <?php render_seo_editor($editingTemplate['seo'] ?? [], 'template'); ?>
+        <?php render_seo_editor($editingTemplate['seo'] ?? [], 'template', '', $editingTemplate['slug_pattern'] ?? ''); ?>
 
         <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:16px;">
             <button type="submit" class="btn">Save Template</button>

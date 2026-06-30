@@ -35,12 +35,15 @@
             'og_locale'          => trim($_POST['og_locale']          ?? ''),
             'twitter_card'       => in_array($_POST['twitter_card'] ?? '', ['summary_large_image','summary']) ? $_POST['twitter_card'] : '',
             'twitter_handle'     => trim($_POST['twitter_handle']     ?? ''),
+            'og_type'            => in_array($_POST['og_type'] ?? '', ['website','article']) ? $_POST['og_type'] : 'website',
+            'robots_noindex'     => !empty($_POST['robots_noindex']),
         ];
         $existingSeo = $isLandingPage ? $data['pages'][$pageId]['seo'] : ($isPost ? $data['posts'][$postId]['seo'] : $data['seo']);
 
         $schema = trim($_POST['schema'] ?? '');
         if ($schema === '') {
-            $seoData['schema'] = '';
+            // Empty textarea — preserve existing rather than wiping the schema
+            $seoData['schema'] = $existingSeo['schema'] ?? '';
         } elseif (json_decode($schema) !== null || $schema === 'null') {
             $seoData['schema'] = $schema;
         } else {

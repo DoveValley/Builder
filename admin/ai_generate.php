@@ -122,7 +122,7 @@ switch ($action) {
 $cmd = implode(' ', $parts) . ' 2>&1';
 
 // ── Run ───────────────────────────────────────────────────────────────────────
-set_time_limit(300); // 5 minutes max
+set_time_limit(1800); // 30 minutes — long runs (25 pages × 4 blocks) can take 15–20 min
 
 $env = _build_env($apiKey);
 $descriptors = [
@@ -147,7 +147,13 @@ while (!feof($pipes[1])) {
     $line = fgets($pipes[1]);
     if ($line === false) break;
     $clean = preg_replace('/\033\[[0-9;]*m/', '', rtrim($line));
-    if ($clean !== '') {
+    if ($clean === '') continue;
+    // Progress marker emitted by generate.py — route as typed event, not log line
+    if (str_starts_with($clean, '__PROGRESS__ ')) {
+        $frac = substr($clean, 13); // "D/T"
+        [$done, $tot] = array_map('intval', explode('/', $frac, 2));
+        ndjson_emit(['type' => 'progress', 'done' => $done, 'total' => $tot]);
+    } else {
         ndjson_emit(['type' => 'line', 'text' => $clean]);
     }
 }

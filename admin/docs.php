@@ -1673,10 +1673,11 @@ tr:nth-child(even) td { background: #f8fafc; }
     <p><strong>What this means in practice:</strong> When writing the template schema, <em>do not include a FAQPage</em> — it will be injected and merged automatically. If a city page has no <code>faq_two_col</code> block, or the block has no questions, the FAQPage is simply omitted for that city.</p>
 
     <h3>Testing your schema</h3>
-    <p>Two tools — use both:</p>
+    <p>Three buttons appear below the Schema textarea in the admin SEO panel. The page must be deployed and the <strong>Canonical URL</strong> field must be filled in for the validator buttons to pre-load the correct URL.</p>
     <ul>
-        <li><strong>validator.schema.org</strong> — paste the page URL. Shows <em>all</em> schema types detected on the page (WebPage, Course, FAQPage, etc.) with error and warning counts. This is the ground truth for whether your JSON-LD is structurally valid.</li>
-        <li><strong>search.google.com/test/rich-results</strong> — shows only schema types that Google currently renders as visual search features (star ratings, course cards, breadcrumbs). Use this to confirm your rich results are eligible and error-free.</li>
+        <li><strong>Format JSON</strong> — re-indents the schema cleanly in the textarea. Use after pasting to make it readable and confirm it is valid JSON. If the JSON is malformed the status indicator turns red with the parse error.</li>
+        <li><strong>validator.schema.org ↗</strong> — opens Google's schema validator in a new tab, pre-loaded with the page's canonical URL. Shows every schema type found on the page (WebPage, Course, FAQPage, etc.) with error and warning counts. This is the ground truth for whether your JSON-LD is on the page and structurally valid.</li>
+        <li><strong>Rich Results Test ↗</strong> — opens Google's rich results tester in a new tab, pre-loaded with the canonical URL. Shows only schema types that are eligible to appear as visual features in Google Search (star ratings, course cards, breadcrumbs). More selective than validator.schema.org — not all valid schema types produce rich results.</li>
     </ul>
     <div class="callout tip">
         <p><strong>FAQPage note:</strong> Google restricted FAQPage rich results to government and health authority sites in September 2023. FAQPage will not appear in the Rich Results Test for commercial sites — use validator.schema.org instead to confirm it is present and valid. It is still read by Google as structured data.</p>

@@ -234,6 +234,15 @@ function fmt_dur(int $ms): string {
             <span id="ai-status-text" style="font-size:.82rem;color:#6b7280;"></span>
         </div>
     </form>
+    <div id="ai-progress-wrap" style="display:none;margin-top:12px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <span style="font-size:.8rem;font-weight:600;color:#374151;" id="ai-progress-label">Block 0 of 0</span>
+            <span style="font-size:.8rem;color:#6b7280;" id="ai-progress-remain"></span>
+        </div>
+        <div style="height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden;">
+            <div id="ai-progress-bar" style="height:100%;width:0%;background:var(--color-accent,#fd783b);border-radius:4px;transition:width .3s ease;"></div>
+        </div>
+    </div>
     <div class="ai-console" id="ai-console"></div>
     <div class="ai-summary" id="ai-summary"></div>
     <div class="ai-result-bar" id="ai-result-bar"></div>
@@ -389,6 +398,10 @@ function fmt_dur(int $ms): string {
     var statusText   = document.getElementById('ai-status-text');
     var actionSel    = document.getElementById('ai-action');
     var cityWrap     = document.getElementById('ai-city-wrap');
+    var progressWrap = document.getElementById('ai-progress-wrap');
+    var progressBar  = document.getElementById('ai-progress-bar');
+    var progressLbl  = document.getElementById('ai-progress-label');
+    var progressRem  = document.getElementById('ai-progress-remain');
     var scopeWrap    = document.getElementById('ai-scope-wrap');
     var researchWrap = document.getElementById('ai-research-wrap');
 
@@ -457,11 +470,22 @@ function fmt_dur(int $ms): string {
         if (msg.type === 'line') {
             outputEl.textContent += msg.text + '\n';
             outputEl.scrollTop = outputEl.scrollHeight;
+        } else if (msg.type === 'progress') {
+            var done  = msg.done;
+            var total = msg.total;
+            if (total > 0) {
+                progressWrap.style.display = '';
+                var pct = Math.round((done / total) * 100);
+                progressBar.style.width = pct + '%';
+                progressLbl.textContent = 'Block ' + done + ' of ' + total;
+                progressRem.textContent = (total - done) + ' remaining';
+            }
         } else if (msg.type === 'done') {
             clearInterval(ticker);
             btn.disabled = false;
             spinner.classList.remove('on');
             statusText.textContent = '';
+            progressWrap.style.display = 'none';
 
             renderSummary(msg);
 
@@ -512,6 +536,10 @@ function fmt_dur(int $ms): string {
         outputEl.textContent  = '';
         outputEl.classList.add('open');
         statusText.textContent = 'Starting…';
+        progressWrap.style.display = 'none';
+        progressBar.style.width    = '0%';
+        progressLbl.textContent    = 'Block 0 of 0';
+        progressRem.textContent    = '';
 
         var startedAt = Date.now();
         clearInterval(ticker);

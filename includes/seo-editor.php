@@ -34,12 +34,33 @@ function render_local_business_editor(array $lb) {
 /* ============================================================
    ADMIN: SEO editor
    ============================================================ */
-function render_seo_editor($seo, string $context = 'page') {
+function render_seo_editor($seo, string $context = 'page', string $websiteUrl = '', string $slugPattern = '') {
+    if ($websiteUrl === '') {
+        global $data;
+        $websiteUrl = rtrim($data['site_vars']['website'] ?? '', '/');
+    }
+    // Build the prefill URL for the template URL tester input — resolve {website} now
+    // (known from active site), leave {city_slug} for the user to replace.
+    $templatePrefill = '';
+    if ($context === 'template') {
+        if (!empty($seo['canonical_url'])) {
+            $templatePrefill = str_replace('{website}', $websiteUrl, $seo['canonical_url']);
+        } elseif ($slugPattern !== '') {
+            $templatePrefill = $websiteUrl . '/' . $slugPattern . '/';
+        }
+    }
     ?>
     <div class="card">
         <h2>SEO &amp; Metadata</h2>
         <p class="hint" style="margin-bottom:18px;">These fields help search engines and social media understand your page.</p>
 
+        <div class="form-group">
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                <input type="checkbox" name="robots_noindex" value="1" <?= !empty($seo['robots_noindex']) ? 'checked' : '' ?>>
+                Noindex this page (hide from search engines)
+            </label>
+            <span class="hint">Adds <code>&lt;meta name="robots" content="noindex"&gt;</code>. Use for thank-you pages, staging duplicates, or any page you don't want Google to index.</span>
+        </div>
         <div class="form-group">
             <label for="seo_title">Page title (browser tab &amp; Google result)</label>
             <input type="text" id="seo_title" name="seo_title" value="<?= h($seo['seo_title'] ?? '') ?>" placeholder="e.g. Pest Control Katy TX | Local Exterminator | Katy Pest Pros">
@@ -62,6 +83,15 @@ function render_seo_editor($seo, string $context = 'page') {
         <div class="form-group">
             <label for="og_title">Social share title (og:title)</label>
             <input type="text" id="og_title" name="og_title" value="<?= h($seo['og_title'] ?? '') ?>" placeholder="Leave blank to use the page title">
+        </div>
+        <div class="form-group">
+            <label for="og_type">Content type (og:type)</label>
+            <?php $defaultOgType = ($context === 'post') ? 'article' : 'website'; ?>
+            <select id="og_type" name="og_type">
+                <option value="website" <?= (($seo['og_type'] ?? $defaultOgType) === 'website') ? 'selected' : '' ?>>website (default — homepages, service pages, landing pages)</option>
+                <option value="article" <?= (($seo['og_type'] ?? $defaultOgType) === 'article') ? 'selected' : '' ?>>article (blog posts, news, guides)</option>
+            </select>
+            <span class="hint">Controls how Facebook and LinkedIn categorise the page. Use <code>article</code> for blog posts.</span>
         </div>
         <div class="form-group">
             <label for="og_description">Social share description (og:description)</label>
@@ -160,13 +190,45 @@ function render_seo_editor($seo, string $context = 'page') {
             <div style="display:flex;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap;">
                 <div id="schema_json_status" style="font-size:0.8rem;min-height:1.2em;flex:1;"></div>
                 <button type="button" onclick="schemaFormat()" class="btn btn-secondary btn-small">Format JSON</button>
+                <?php if ($context !== 'template'): ?>
                 <button type="button" onclick="schemaOpenValidator('validator')" class="btn btn-secondary btn-small">validator.schema.org ↗</button>
                 <button type="button" onclick="schemaOpenValidator('richresults')" class="btn btn-secondary btn-small">Rich Results Test ↗</button>
+                <?php endif; ?>
+            </div>
+            <?php if ($context === 'template'): ?>
+            <div style="margin-top:10px;padding:12px 14px;background:#f0f9ff;border-radius:6px;border:1px solid #bae6fd;">
+                <div style="font-size:0.78rem;color:#075985;margin-bottom:8px;">This is a template — there is no single page to test. Enter the URL of a deployed city page to verify its schema:</div>
+                <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+                    <input id="schema_url_editor_input" type="text" value="<?= h($templatePrefill) ?>" placeholder="https://example.com/page-slug-city-st/" style="flex:1;min-width:240px;font-size:0.82rem;padding:5px 8px;border:1px solid #bae6fd;border-radius:4px;">
+                    <button type="button" onclick="schemaOpenEdited('validator')" class="btn btn-secondary btn-small">validator.schema.org ↗</button>
+                    <button type="button" onclick="schemaOpenEdited('richresults')" class="btn btn-secondary btn-small">Rich Results Test ↗</button>
+                </div>
+            </div>
+            <?php else: ?>
+            <div id="schema_url_editor" style="display:none;margin-top:10px;padding:10px 14px;background:#fffbeb;border-radius:6px;border:1px solid #fcd34d;">
+                <div style="font-size:0.78rem;color:#92400e;margin-bottom:6px;">Complete the URL for the page you want to test, then click Open:</div>
+                <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+                    <input id="schema_url_editor_input" type="text" style="flex:1;min-width:200px;font-size:0.82rem;padding:5px 8px;border:1px solid #fcd34d;border-radius:4px;">
+                    <button type="button" onclick="schemaOpenEdited()" class="btn btn-secondary btn-small">Open ↗</button>
+                    <button type="button" class="btn btn-secondary btn-small" onclick="document.getElementById('schema_url_editor').style.display='none'" style="color:#92400e;">Cancel</button>
+                </div>
+            </div>
+            <?php endif; ?>
+            <div style="margin-top:10px;padding:10px 14px;background:#f8fafc;border-radius:6px;border:1px solid #e2e8f0;font-size:0.78rem;color:#555e6d;line-height:1.6;">
+                <strong>Format JSON</strong> — re-indents the schema cleanly. Use after pasting to make it readable and confirm it is valid.<br>
+                <?php if ($context === 'template'): ?>
+                <strong>validator.schema.org ↗</strong> — shows every schema type on the live city page with error and warning counts. Tests the generated HTML, not this template.<br>
+                <strong>Rich Results Test ↗</strong> — shows which schema types are eligible to appear as visual features in Google Search for that city page.
+                <?php else: ?>
+                <strong>validator.schema.org ↗</strong> — opens Google's schema validator pre-loaded with this page's canonical URL. Shows every schema type found (WebPage, Course, FAQPage, etc.) with error and warning counts. This is the correct tool to verify your JSON-LD is on the page and structurally valid.<br>
+                <strong>Rich Results Test ↗</strong> — opens Google's rich results tester pre-loaded with the canonical URL. Shows only schema types eligible to appear as visual features in Google Search (star ratings, course cards, breadcrumbs). Both buttons require the page to be deployed and the Canonical URL field above to be filled in.
+                <?php endif; ?>
             </div>
         </div>
     </div>
     <script>
     (function(){
+        var websiteBase = <?= json_encode(rtrim($websiteUrl, '/')) ?>;
         function validateSchemaJson(ta) {
             var status = document.getElementById('schema_json_status');
             if (!ta.value.trim()) { status.textContent = ''; ta.style.borderColor = '#e2e8f0'; return; }
@@ -191,9 +253,45 @@ function render_seo_editor($seo, string $context = 'page') {
                 validateSchemaJson(ta);
             }
         }
+        var _pendingTool = null;
         function schemaOpenValidator(tool) {
             var canonical = (document.getElementById('canonical_url') || {}).value || '';
             canonical = canonical.trim();
+            if (websiteBase) canonical = canonical.replace(/\{website\}/g, websiteBase);
+            // Show inline editor if: shortcodes remain OR canonical is empty (need user to supply a URL)
+            var needsEdit = /\{[^}]+\}/.test(canonical) || canonical === '';
+            if (needsEdit) {
+                _pendingTool = tool;
+                var inp = document.getElementById('schema_url_editor_input');
+                inp.value = canonical || (websiteBase ? websiteBase + '/' : '');
+                document.getElementById('schema_url_editor').style.display = 'block';
+                inp.focus();
+                var m = inp.value.match(/\{[^}]+\}/);
+                if (m) {
+                    var i = inp.value.indexOf(m[0]);
+                    inp.setSelectionRange(i, i + m[0].length);
+                } else {
+                    inp.select();
+                }
+                return;
+            }
+            schemaDoOpen(tool, canonical);
+        }
+        function schemaOpenEdited(tool) {
+            var inp = document.getElementById('schema_url_editor_input');
+            var canonical = (inp ? inp.value : '').trim();
+            if (!canonical) {
+                if (inp) { inp.style.borderColor = '#ef4444'; inp.focus(); }
+                return;
+            }
+            if (inp) inp.style.borderColor = '';
+            // Resolve {website} token now that we have the actual URL
+            if (websiteBase) canonical = canonical.replace(/\{website\}/g, websiteBase);
+            var editor = document.getElementById('schema_url_editor');
+            if (editor) editor.style.display = 'none';
+            schemaDoOpen(tool || _pendingTool || 'validator', canonical);
+        }
+        function schemaDoOpen(tool, canonical) {
             var url;
             if (tool === 'validator') {
                 url = canonical
@@ -204,13 +302,26 @@ function render_seo_editor($seo, string $context = 'page') {
                     ? 'https://search.google.com/test/rich-results?url=' + encodeURIComponent(canonical)
                     : 'https://search.google.com/test/rich-results';
             }
-            window.open(url, '_blank');
+            var a = document.createElement('a');
+            a.href = url;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
         }
-        window.validateSchemaJson = validateSchemaJson;
-        window.schemaFormat       = schemaFormat;
+        window.validateSchemaJson  = validateSchemaJson;
+        window.schemaFormat        = schemaFormat;
         window.schemaOpenValidator = schemaOpenValidator;
+        window.schemaOpenEdited    = schemaOpenEdited;
         var ta = document.getElementById('schema_json_ta');
         if (ta && ta.value.trim()) validateSchemaJson(ta);
+        // Pre-select the first {shortcode} in the template URL input so user can type over it immediately
+        var tplInp = document.getElementById('schema_url_editor_input');
+        if (tplInp && tplInp.value) {
+            var m = tplInp.value.match(/\{[^}]+\}/);
+            if (m) { var si = tplInp.value.indexOf(m[0]); tplInp.setSelectionRange(si, si + m[0].length); }
+        }
     })();
     </script>
     <?php
