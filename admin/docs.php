@@ -258,6 +258,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#dev-login">General Login</a>
         <a href="#dev-gitflow">Working on the server (git)</a>
         <a href="#dev-reboot">Reboot recovery</a>
+        <a href="#dev-lost-mac">If I lose my Mac</a>
         <a href="#dev-quickref">Quick reference</a>
         <a href="#dev-credentials">Credentials &amp; access backup</a>
 
@@ -2382,6 +2383,40 @@ claude --continue    # jump back into the most recent one</code></pre>
     </div>
     <div class="callout warn">
         <p><strong>Your Mac-side specifics may differ.</strong> The SSH command above assumes <code>root@187.127.254.206</code>. If you log in as a different user, with an SSH key, or on a non-standard port, swap those in. If you connect via VS Code Remote-SSH or a saved terminal profile, reopen that instead.</p>
+    </div>
+</section>
+
+<section id="dev-lost-mac">
+    <h2>If I lose my Mac</h2>
+    <p>Short version: <strong>you lose nothing, and you can get back in</strong> — as long as the recovery key and your Hostinger login are saved somewhere off the Mac. The Mac is only a terminal and a mirror; everything real lives on the VPS and GitHub.</p>
+
+    <h3>Nothing is lost</h3>
+    <ul>
+        <li><strong>The live sites</strong> keep serving — they run on the VPS, untouched by anything happening to your Mac.</li>
+        <li><strong>All code and data</strong> live on the VPS <em>and</em> on GitHub (<code>DoveValley/Builder</code>). The Mac repo was just a copy.</li>
+        <li><strong>The backup pipeline</strong> keeps working — the VPS pushes to GitHub with the deploy key stored <em>on the VPS</em> (<code>/root/.ssh/github_deploy</code>), not on your Mac.</li>
+    </ul>
+    <p>So there is no data-loss problem. The only question is <strong>access</strong> — getting into the VPS from a new machine.</p>
+
+    <h3>How you get back in (easiest first)</h3>
+    <ol>
+        <li><strong>Recovery key (if you saved it):</strong> on the new Mac, drop <code>sitefactory_recovery</code> from your password manager into <code>~/.ssh/</code> and connect:
+            <pre><code>ssh -i ~/.ssh/sitefactory_recovery root@187.127.254.206</code></pre>
+        </li>
+        <li><strong>Hostinger console (the safety net):</strong> even if <em>both</em> SSH keys are gone with the Mac, log into <strong>hPanel</strong> (Hostinger account — email + password, nothing to do with your Mac), open the <strong>browser console</strong>, and add a fresh SSH key. Back in. This bypasses lost keys entirely.</li>
+        <li><strong>Admin panel:</strong> never depended on your Mac — just a browser and your admin password.</li>
+    </ol>
+
+    <h3>First thing on the new machine</h3>
+    <pre><code># install the recovery (or a fresh) key, then:
+ssh root@187.127.254.206
+cd /var/www/homepage-builder-new
+claude            # back to work; git pull/commit/push as normal</code></pre>
+
+    <div class="callout warn">
+        <p><strong>The one thing that matters.</strong> Both SSH keys (<code>~/.ssh/id_ed25519</code> and <code>~/.ssh/sitefactory_recovery</code>) currently live only on the Mac — lose the Mac and they vanish together. Losing the Mac is a non-event <em>only if</em> these two things are saved off it, in a password manager that syncs to your phone/cloud:</p>
+        <p>1. The <strong>recovery SSH key</strong> (<code>~/.ssh/sitefactory_recovery</code>) &nbsp;·&nbsp; 2. Your <strong>Hostinger login + 2FA recovery codes</strong>.</p>
+        <p>With those two in your vault, a lost Mac costs you minutes, not data. Without them, your only way back is the Hostinger console — so the Hostinger account becomes your real lifeline. See <a href="#dev-credentials">Credentials &amp; access backup</a>.</p>
     </div>
 </section>
 
