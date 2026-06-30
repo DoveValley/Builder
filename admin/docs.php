@@ -257,6 +257,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a class="nav-group" href="#group-dev-start">Getting Back In</a>
         <a href="#dev-login">General Login</a>
         <a href="#dev-gitflow">Working on the server (git)</a>
+        <a href="#dev-saverollback">Saving &amp; rolling back</a>
         <a href="#dev-reboot">Reboot recovery</a>
         <a href="#dev-lost-mac">If I lose my Mac</a>
         <a href="#dev-quickref">Quick reference</a>
@@ -2353,6 +2354,48 @@ git push                          # back up to GitHub</code></pre>
 
     <div class="callout warn">
         <p><strong>Don't edit on the Mac anymore.</strong> The Mac copy is a backup mirror. If you ever do touch it, pull first (<code>git pull</code>) and push right after — but the simple rule is: <em>work only on the server.</em></p>
+    </div>
+</section>
+
+<section id="dev-saverollback">
+    <h2>Saving &amp; rolling back</h2>
+    <p>The key fact: on the VPS, <strong>the git folder <em>is</em> the live website</strong>. <code>/var/www/homepage-builder-new</code> is both your git checkout and the folder Apache serves. There's no build or deploy step — plain PHP reads the files as they are.</p>
+
+    <h3>Editing is already "deploying"</h3>
+    <p>The moment you save a file on the server, the live site serves the new version. So the change is live <em>before</em> git is involved. That means <code>git</code> here is not a deploy tool — it's your <strong>save points and undo</strong>.</p>
+    <table>
+        <tr><th>Action</th><th>What it does</th><th>Effect on the live site</th></tr>
+        <tr><td>Save a file</td><td>writes it in the webroot</td><td><strong>Live immediately</strong></td></tr>
+        <tr><td><code>git add</code> + <code>git commit</code></td><td>snapshots a checkpoint locally</td><td>none — already live</td></tr>
+        <tr><td><code>git push</code></td><td>uploads the snapshot to GitHub (off-site backup)</td><td>none — already live</td></tr>
+        <tr><td><code>git pull</code> / <code>git checkout</code></td><td>restores a saved version onto the files</td><td><strong>changes the live site</strong></td></tr>
+    </table>
+    <p>So: <strong>editing</strong> changes the site · <strong>commit/push</strong> backs it up · <strong>pull/checkout</strong> rolls it back.</p>
+
+    <h3>Save a checkpoint</h3>
+    <pre><code>git add -A
+git commit -m "what changed"
+git push                       # now it's backed up on GitHub and rollback-able</code></pre>
+    <p>Commit in small, meaningful chunks — each commit is a point you can return to.</p>
+
+    <h3>Roll back a change</h3>
+    <p>Undo edits you <em>haven't committed yet</em> (back to the last commit):</p>
+    <pre><code>git checkout -- path/to/file        # one file
+git restore .                       # everything (uncommitted changes discarded)</code></pre>
+    <p>Restore a file to how it was in an <em>earlier commit</em> (takes effect live instantly):</p>
+    <pre><code>git log --oneline -10               # find a good earlier version (copy its short hash)
+git checkout &lt;hash&gt; -- path/to/file
+git commit -m "Roll back path/to/file to &lt;hash&gt;"   # record the rollback
+git push</code></pre>
+    <p>Undo an entire commit you already made, keeping history honest:</p>
+    <pre><code>git revert &lt;hash&gt;                    # makes a new commit that reverses that one
+git push</code></pre>
+
+    <div class="callout">
+        <p><strong>Why <code>revert</code> over deleting history:</strong> <code>git revert</code> adds a new commit that undoes the old one, so the live site goes back <em>and</em> the trail stays intact. Avoid <code>git reset --hard</code> / force-push on the server — that rewrites history and can desync GitHub and the Mac mirror.</p>
+    </div>
+    <div class="callout warn">
+        <p><strong>Static-site exception.</strong> Sites rendered to static output (<code>generate_static.php</code> → <code>output/</code>) have a generate step that is separate from git — editing the source doesn't update the static copy until you regenerate. This only applies if a given site uses static generation; the normal dynamic admin/site flow is "edit = live" as above.</p>
     </div>
 </section>
 
