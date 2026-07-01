@@ -127,7 +127,13 @@ function ms_ai_extract_to_cache(string $workingDir, string $cacheFile, array $re
     ms_ai_walk_site($site, function (array &$b) use (&$fields, $registry) {
         if (empty($b['_ai_generated'])) return;      // only cache genuinely generated blocks
         $id = $b['id'] ?? '';
-        if ($id === '') return;                       // stable id required to cache (§6a rule 1)
+        if ($id === '') {                             // stable id required to cache (§6a rule 1)
+            // Warn loudly — without an id this block re-generates (and re-bills) every run.
+            if (function_exists('progress_log')) {
+                progress_log("AI block '" . ($b['ai_type_id'] ?? '?') . "' has no stable id — not cached; it will regenerate (and cost) on every run.", 'warn');
+            }
+            return;
+        }
         $fields[$id] = [
             'ai_type_id'  => $b['ai_type_id'] ?? '',
             'prompt_hash' => ms_ai_prompt_hash($b, $registry),

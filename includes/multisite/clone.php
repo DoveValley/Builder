@@ -18,6 +18,17 @@
  * flattened from sites/{master}/uploads/ → uploads/ (same rewrite site_export uses).
  */
 
+/**
+ * Deterministic, collision-resistant slug for a domain — used for cache, manifest
+ * and temp-dir keys. A short hash suffix guarantees two distinct domains that
+ * differ only in punctuation (a.b.com vs a-b.com) never share a key.
+ */
+function ms_domain_slug(string $domain): string {
+    $d = strtolower(trim($domain));
+    $base = preg_replace('/[^a-z0-9-]+/', '_', $d);
+    return $base . '_' . substr(sha1($d), 0, 8);
+}
+
 /** Recursively copy a directory (dirs + files). */
 function ms_copy_dir(string $src, string $dst): void {
     if (!is_dir($src)) return;

@@ -56,7 +56,7 @@ if ($masterId === '' || $domain === '') { fwrite(STDERR, "master_id and domain a
 
 // Slugify per the documented convention: keep hyphens, other unsafe chars → '_'
 // (pmtraining-dallas.com → pmtraining-dallas_com).
-$domainSlug = preg_replace('/[^a-z0-9-]+/i', '_', strtolower($domain));
+$domainSlug = ms_domain_slug($domain);
 $tmp = sys_get_temp_dir();
 progress_log("Row: {$domain} (master {$masterId})");
 
@@ -176,14 +176,18 @@ if (!empty($params['ftp_host']) && !empty($params['ftp_user'])) {
         'ftp_port'    => $params['ftp_port'] ?? 21,
         'ftp_user'    => $params['ftp_user'] ?? '',
         'ftp_pass'    => $params['ftp_pass'] ?? '',
-        'ftp_path'    => $params['ftp_path'] ?? '/',
+        // Default to /public_html (not the account root '/', which would clobber
+        // files above the docroot). Override per row via the ftp_path column.
+        'ftp_path'    => ($params['ftp_path'] ?? '') !== '' ? $params['ftp_path'] : '/public_html',
         'ftp_passive' => $params['ftp_passive'] ?? true,
     ];
     // Manifest persists per-domain OUTSIDE the ephemeral build (which is deleted).
     $manifestFile = BASE_DIR . '/sites/' . $masterId . '/multisite/manifests/' . $domainSlug . '.json';
     $dep = deploy_site($ftp, rtrim($outputDir, '/') . '/', $manifestFile, $force);
-    if (($dep['status'] ?? '') === 'fatal') {
-        // deploy_site already logged the fatal reason; propagate failure to the caller.
+    // A connect/login failure is fatal; so is a partial upload — some files failing
+    // means the deployed site is incomplete, so the row must not be reported ok.
+    if (($dep['status'] ?? '') === 'fatal' || (int)($dep['failed'] ?? 0) > 0) {
+        if ((int)($dep['failed'] ?? 0) > 0) progress_log("Deploy incomplete — {$dep['failed']} file(s) failed to upload.", 'fatal');
         $cleanup();
         exit(1);
     }

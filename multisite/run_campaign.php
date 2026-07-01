@@ -52,6 +52,17 @@ $msDir     = BASE_DIR . '/sites/' . $masterId . '/multisite';
 $csvPath   = $msDir . '/params.csv';
 if (!is_file($csvPath)) { fwrite(STDERR, "No params.csv at {$csvPath} — run params_check.php first.\n"); exit(2); }
 
+// ── Single-run lock (per master) ──────────────────────────────────────────────
+// Authoritative guard against overlapping campaigns for this master, across every
+// launch path (admin, retry, manual CLI). flock is atomic and the OS releases it
+// on process exit or crash — no stale-lock / PID-reuse problems.
+$lockFp = fopen($msDir . '/run.lock', 'c');
+if (!$lockFp || !flock($lockFp, LOCK_EX | LOCK_NB)) {
+    fwrite(STDERR, "Another campaign is already running for {$masterId} — aborting.\n");
+    exit(1);
+}
+// $lockFp stays open for the whole run (do not close); flock releases automatically.
+
 // ── Load + validate rows ────────────────────────────────────────────────────
 $parsed = ms_parse_csv($csvPath);
 if ($parsed['error']) { fwrite(STDERR, 'CSV error: ' . $parsed['error'] . "\n"); exit(2); }
@@ -132,11 +143,13 @@ function ms_run_pool(array $queue, int $concurrency, int $retries, bool $verbose
 
     while ($running) {
         $read = [];
-        foreach ($running as $r) if (!$r['dead']) $read[] = $r['pipes'][1];
+        foreach ($running as $r) if (!$r['dead']) { $read[] = $r['pipes'][1]; $read[] = $r['pipes'][2]; }
         if ($read) { $w = $e = null; @stream_select($read, $w, $e, 1); }
 
         foreach ($running as $k => &$rp) {
             if (!$rp['dead']) {
+                // Always drain stderr too, or a child writing >64KB to it blocks and hangs the pool.
+                do { $e = fread($rp['pipes'][2], 8192); } while ($e !== false && $e !== '');
                 $chunk = fread($rp['pipes'][1], 8192);
                 if ($chunk !== false && $chunk !== '') $rp['buf'] .= $chunk;
                 while (($p = strpos($rp['buf'], "\n")) !== false) {
@@ -146,6 +159,7 @@ function ms_run_pool(array $queue, int $concurrency, int $retries, bool $verbose
                 $st = proc_get_status($rp['proc']);
                 if ($st['running']) continue;
                 // drain remainder
+                @stream_get_contents($rp['pipes'][2]);   // drain any remaining stderr
                 $rest = stream_get_contents($rp['pipes'][1]); if ($rest !== false && $rest !== '') $rp['buf'] .= $rest;
                 while (($p = strpos($rp['buf'], "\n")) !== false) {
                     ms_parse_line(substr($rp['buf'], 0, $p), $rp['m'], $verbose);
@@ -193,7 +207,7 @@ $flagsCommon = ' --snapshot=' . escapeshellarg($snapshotDir) . ($noAi ? ' --no-a
 $jobList = []; $rowFiles = [];
 foreach ($rows as $r) {
     $domain  = $r['domain'];
-    $rowFile = sys_get_temp_dir() . '/ms_row_' . preg_replace('/[^a-z0-9]+/i', '_', strtolower($domain)) . '.json';
+    $rowFile = sys_get_temp_dir() . '/ms_row_' . ms_domain_slug($domain) . '.json';
     file_put_contents($rowFile, json_encode(array_merge($r, ['master_id' => $masterId])));
     $rowFiles[] = $rowFile;
     $cmd = escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg(__DIR__ . '/build_one.php')
