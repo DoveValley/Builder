@@ -31,10 +31,35 @@ define('CONTACT_EMAIL', 'hello@yoursite.com');
 // File paths
 define('BASE_DIR', __DIR__);
 
-// Multi-site routing: if a valid site is selected in session, use its paths.
-// Otherwise fall back to the legacy single-site paths (data/ + uploads/).
+// Multi-site routing, in priority order:
+//   1. Multisite worker mode — CLI only, when MULTISITE_SITE_BASE points at a valid site dir.
+//      Used by the multisite generator's per-row worker, which builds an ephemeral cloned
+//      site that lives OUTSIDE sites/ (an absolute temp path). It mirrors the legacy
+//      single-site layout (data/ + uploads/ at the base, UPLOAD_URL = 'uploads/'), just
+//      rooted at $_msBase instead of BASE_DIR. CLI guard ensures a web request can never
+//      redirect paths via an env var.
+//   2. Session active site — the admin's currently selected multi-site.
+//   3. Legacy single-site fallback (data/ + uploads/ at the project root).
+$_msBase       = (PHP_SAPI === 'cli') ? (getenv('MULTISITE_SITE_BASE') ?: '') : '';
 $_activeSiteId = $_SESSION['active_site'] ?? '';
-if ($_activeSiteId
+if ($_msBase !== '' && is_dir($_msBase) && is_dir(rtrim($_msBase, '/') . '/data')) {
+    $_b = rtrim($_msBase, '/');
+    define('ACTIVE_SITE_ID',   basename($_b));
+    define('ACTIVE_SITE_DIR',  $_b);
+    define('DATA_FILE',        $_b . '/data/site.json');
+    define('COURSES_FILE',     $_b . '/data/courses.json');
+    define('UPLOAD_DIR',       $_b . '/uploads/');
+    define('UPLOAD_URL',       'uploads/');
+    define('TEMPLATES_FILE',    $_b . '/data/templates.json');
+    define('CITIES_FILE',       $_b . '/data/cities.json');
+    define('PAGE_INDEX_FILE',   $_b . '/data/page-index.json');
+    define('PAGES_DIR',         $_b . '/data/pages/');
+    define('GEN_LOG_FILE',       $_b . '/data/generation_log.json');
+    define('STRUCTURE_LOG_FILE', $_b . '/data/structure_log.json');
+    define('AI_REGISTRY_FILE',   $_b . '/data/ai_block_types.json');
+    define('REDIRECTS_FILE',     $_b . '/data/redirects.json');
+    unset($_b);
+} elseif ($_activeSiteId
     && preg_match('/^[a-z0-9][a-z0-9-]{0,59}$/', $_activeSiteId)
     && is_dir(BASE_DIR . '/sites/' . $_activeSiteId)) {
     define('ACTIVE_SITE_ID',   $_activeSiteId);
@@ -67,7 +92,7 @@ if ($_activeSiteId
     define('AI_REGISTRY_FILE',   BASE_DIR . '/data/ai_block_types.json');
     define('REDIRECTS_FILE',     BASE_DIR . '/data/redirects.json');
 }
-unset($_activeSiteId);
+unset($_activeSiteId, $_msBase);
 
 // Page starters are global (shared across all sites)
 define('STARTERS_FILE', BASE_DIR . '/data/page_starters.json');

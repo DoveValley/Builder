@@ -4,6 +4,8 @@
  * This file is a loader — all functions live in the focused files below.
  */
 
+require_once __DIR__ . '/progress.php';
+require_once __DIR__ . '/static_build.php';
 require_once __DIR__ . '/data.php';
 require_once __DIR__ . '/page_starters.php';
 require_once __DIR__ . '/shortcodes.php';

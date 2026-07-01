@@ -1,3 +1,14 @@
 *.log
 .DS_Store
 *.tmp
+
+# FTP credentials — never commit
+sites/*/data/deploy.json
+
+# Multisite campaign data (holds FTP credentials) — never commit.
+# Ignore the whole dir: fail-safe, so no future file inside can ever leak.
+sites/*/multisite/
+
+# Generated static output and the multisite regression baseline — local artifacts, not source.
+output/
+_multisite_baseline/
