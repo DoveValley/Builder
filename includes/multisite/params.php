@@ -23,6 +23,7 @@ const MS_RECOMMENDED_COLS = ['city', 'state', 'SS', 'phone', 'email'];
 const MS_KNOWN_COLS = [
     'domain', 'business', 'phone', 'tel', 'email', 'address',
     'city', 'state', 'SS', 'zip', 'lat', 'lng', 'logo', 'analytics_id',
+    'rating', 'review_count',
     'web3forms_key', 'ftp_host', 'ftp_port', 'ftp_user', 'ftp_pass',
     'ftp_path', 'ftp_passive',
 ];
@@ -118,6 +119,15 @@ function ms_validate_rows(array $rows, array $header = []): array {
         // lat/lng sanity if provided.
         foreach (['lat', 'lng'] as $c) {
             if (($r[$c] ?? '') !== '' && !is_numeric($r[$c])) $errors[] = "non-numeric '{$c}'";
+        }
+        // rating / review_count: must be real + paired (both or neither) — never invent one.
+        $hasRating = ($r['rating'] ?? '') !== '';
+        $hasCount  = ($r['review_count'] ?? '') !== '';
+        if ($hasRating !== $hasCount) {
+            $errors[] = 'rating and review_count must be provided together';
+        } elseif ($hasRating) {
+            if (!is_numeric($r['rating']) || $r['rating'] < 0 || $r['rating'] > 5) $errors[] = "rating must be 0–5";
+            if (!ctype_digit((string)$r['review_count']) || (int)$r['review_count'] < 1) $errors[] = "review_count must be a positive integer";
         }
 
         if ($errors)      $out['error']++;

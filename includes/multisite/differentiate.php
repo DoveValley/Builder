@@ -109,18 +109,28 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
     if (($params['lat'] ?? '') !== '') $data['site_vars']['lat'] = $params['lat'];
     if (($params['lng'] ?? '') !== '') $data['site_vars']['lng'] = $params['lng'];
 
-    // ── 3b. Emit a real LocalBusiness JSON-LD node with geo (the Tier-2 signal) ──
-    // The master schema has no geo node, so inject one into the homepage @graph.
-    if ($website !== '' && ($params['lat'] ?? '') !== '' && ($params['lng'] ?? '') !== '') {
+    // ── 3b. Emit a real LocalBusiness JSON-LD node (the Tier-2 distinct-entity signal) ──
+    // The master schema has no such node. Inject one whenever the row supplies real
+    // local data — geo, a street address, or a rating. Each part is included only if
+    // present; the rating is never fabricated (both rating + review_count required).
+    $addr = [];
+    foreach ([['address','streetAddress'], ['city','addressLocality'], ['SS','addressRegion'], ['zip','postalCode']] as [$pk, $ak]) {
+        if (($params[$pk] ?? '') !== '') $addr[$ak] = $params[$pk];
+    }
+    $hasGeo    = ($params['lat'] ?? '') !== '' && ($params['lng'] ?? '') !== '';
+    $hasRating = ($params['rating'] ?? '') !== '' && ($params['review_count'] ?? '') !== '';
+    if ($website !== '' && ($hasGeo || $addr || $hasRating)) {
         $lbNode = ['@type' => 'LocalBusiness', '@id' => $website . '/#localbusiness',
                    'name' => $params['business'] ?? '', 'url' => $website];
         if (($params['tel'] ?? '') !== '') $lbNode['telephone'] = $params['tel'];
-        $addr = [];
-        foreach ([['address','streetAddress'], ['city','addressLocality'], ['SS','addressRegion'], ['zip','postalCode']] as [$pk, $ak]) {
-            if (($params[$pk] ?? '') !== '') $addr[$ak] = $params[$pk];
-        }
-        if ($addr) $lbNode['address'] = array_merge(['@type' => 'PostalAddress'], $addr);
-        $lbNode['geo'] = ['@type' => 'GeoCoordinates', 'latitude' => $params['lat'], 'longitude' => $params['lng']];
+        if ($addr)    $lbNode['address'] = array_merge(['@type' => 'PostalAddress'], $addr);
+        if ($hasGeo)  $lbNode['geo'] = ['@type' => 'GeoCoordinates', 'latitude' => $params['lat'], 'longitude' => $params['lng']];
+        if ($hasRating) $lbNode['aggregateRating'] = [
+            '@type' => 'AggregateRating',
+            'ratingValue' => (string)$params['rating'],
+            'reviewCount' => (string)$params['review_count'],
+            'bestRating'  => '5', 'worstRating' => '1',
+        ];
 
         $schema = json_decode($data['seo']['schema'] ?? '', true);
         if (is_array($schema) && isset($schema['@graph']) && is_array($schema['@graph'])) {
