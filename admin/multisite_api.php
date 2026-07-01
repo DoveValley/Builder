@@ -121,6 +121,12 @@ switch ($action) {
             ['pmtraining-tampa.com',     'Tampa PM Academy',       '813-555-0100', '+18135550100', 'info@pmtraining-tampa.com',     '400 Ashley Dr',          'Tampa',       'Florida',        'FL', '33602', '27.9506',  '-82.4572', '4.8', '154', 'G-XXXXXXXXX4', '', 'ftp.pmtraining-tampa.com',     '21', 'deploy@pmtraining-tampa.com',     'CHANGEME', '/public_html', '1'],
             ['pmtraining-phoenix.com',   'Phoenix PM Academy',     '602-555-0100', '+16025550100', 'info@pmtraining-phoenix.com',   '500 Central Ave',        'Phoenix',     'Arizona',        'AZ', '85004', '33.4484',  '-112.0740','4.6', '71',  'G-XXXXXXXXX5', '', 'ftp.pmtraining-phoenix.com',   '21', 'deploy@pmtraining-phoenix.com',   'CHANGEME', '/public_html', '1'],
         ];
+        // Optional landing_cities column — service landing pages this deploy also gets.
+        // Format: "City, ST; City, ST". Blank = none (home + core pages only).
+        $cols[] = 'landing_cities';
+        $landingExamples = ['Plano, TX; Irving, TX; Frisco, TX', 'Round Rock, TX; Cedar Park, TX', '', '', ''];
+        foreach ($sample as $i => &$row) { $row[] = $landingExamples[$i] ?? ''; }
+        unset($row);
         $out = fopen('php://output', 'w');
         fputcsv($out, $cols);
         foreach ($sample as $row) fputcsv($out, $row);

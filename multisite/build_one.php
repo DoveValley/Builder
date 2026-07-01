@@ -31,6 +31,7 @@ require __DIR__ . '/../includes/multisite/inject.php';
 require __DIR__ . '/../includes/multisite/deploy.php';
 require __DIR__ . '/../includes/multisite/ai_cache.php';
 require __DIR__ . '/../includes/multisite/differentiate.php';
+require __DIR__ . '/../includes/multisite/landing.php';
 
 progress_set_sink(progress_jsonlines_sink());
 
@@ -89,10 +90,16 @@ $cleanup = function () use ($workingDir, $outputDir, $snapshotDir, $ownSnapshot,
 progress_log('Cloning working dir…');
 clone_to_working_dir($snapshotDir, $workingDir, $masterId);
 
-// Multisite output is single-city: drop the in-site city-landing system (the master's
-// data/pages/ + page-index.json are the many-cities-in-one-site model, not wanted here).
-if (is_dir($workingDir . '/data/pages')) ms_delete_dir($workingDir . '/data/pages');
-@unlink($workingDir . '/data/page-index.json');
+// Clear the master's pre-generated city-landing pages. They are regenerated below
+// (after identity injection) scoped to THIS deploy's `landing_cities` — so each site
+// gets landing pages only for the cities that deploy actually serves (blank = none).
+if (is_dir($workingDir . '/data/pages')) {
+    foreach (glob($workingDir . '/data/pages/*.json') ?: [] as $pf) @unlink($pf);
+    foreach (glob($workingDir . '/data/pages/*.bak') ?: [] as $pf) @unlink($pf);
+} else {
+    @mkdir($workingDir . '/data/pages', 0775, true);
+}
+file_put_contents($workingDir . '/data/page-index.json', "{}\n");
 
 // Capture the master's own identity (business/website/tel/phone/email) BEFORE
 // injection — it's the "from" side of the per-site schema/identity rewrite.
@@ -106,10 +113,42 @@ if (is_array($mSite)) {
 progress_log('Injecting identity…');
 inject_params_into_working_dir($workingDir, $params);
 
+// ── Landing pages: regenerate for THIS deploy's `landing_cities` (blank = none) ──
+// Runs after injection so slugs/canonicals/schema resolve against the deploy identity.
+// generate_city_pages() reads config path-constants, so it runs in a worker process
+// rooted at the working dir (same reason render_site.php is a separate worker).
+$landingCities = ms_parse_landing_cities((string)($params['landing_cities'] ?? ''));
+if ($landingCities) {
+    $label = implode(', ', array_map(fn($c) => $c['city'] . ', ' . $c['SS'], $landingCities));
+    progress_log('Generating landing pages for ' . count($landingCities) . ' city(ies): ' . $label . '…');
+    // Scope the working-dir city list to just this deploy's landing cities.
+    file_put_contents(
+        $workingDir . '/data/cities.json',
+        json_encode($landingCities, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+    );
+    $lgEnv = getenv();
+    $lgEnv['MULTISITE_SITE_BASE'] = $workingDir;
+    $lgCmd = escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg(__DIR__ . '/generate_landing.php') . ' 2>&1';
+    $lp = proc_open($lgCmd, [1 => ['pipe', 'w']], $lgpipes, null, $lgEnv);
+    if (is_resource($lp)) {
+        $lgOut = stream_get_contents($lgpipes[1]); fclose($lgpipes[1]);
+        $lgCode = proc_close($lp);
+        $res = json_decode(trim(strtok($lgOut, "\n")) ?: '', true);
+        if (is_array($res) && isset($res['pages_written'])) {
+            progress_log('  Landing pages written: ' . (int)$res['pages_written']
+                . (!empty($res['errors']) ? ' (with ' . count($res['errors']) . ' error(s))' : ''));
+        } elseif ($lgCode !== 0) {
+            progress_log('  Landing generation failed (code ' . $lgCode . '): ' . trim($lgOut), 'warn');
+        }
+    } else {
+        progress_log('  Could not launch generate_landing.php — deploy will have no landing pages.', 'warn');
+    }
+}
+
 progress_log('Differentiating (schema / geo / analytics)…');
 ms_differentiate_working_dir($workingDir, $params, $masterIdentity);
 
-// ── AI content: fill this city's ai_blocks (home + core) via generate.py ──────
+// ── AI content: fill this city's ai_blocks (home + core + landing) via generate.py ──
 if ($noAi) {
     progress_log('AI generation skipped (--no-ai).', 'warn');
 } elseif (!ANTHROPIC_API_KEY) {
