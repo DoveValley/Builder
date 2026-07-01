@@ -131,6 +131,7 @@ tr:nth-child(even) td { background: #f8fafc; }
     <div class="doc-tabs">
         <button type="button" class="doc-tab active" data-doc="admin" onclick="switchDoc('admin')">Admin</button>
         <button type="button" class="doc-tab" data-doc="devenv" onclick="switchDoc('devenv')">DevEnv</button>
+        <button type="button" class="doc-tab" data-doc="multisite" onclick="switchDoc('multisite')">Multisite</button>
     </div>
     <div class="search-wrap">
         <input type="text" id="doc-search" placeholder="Search docs…" oninput="filterNav(this.value)">
@@ -251,6 +252,45 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#howto-new-city">Add a city</a>
         <a href="#howto-new-template">Add a template</a>
         <a href="#howto-update-docs">Update this docs page</a>
+    </nav>
+
+    <nav id="multisite-nav" hidden>
+        <a class="nav-group" href="#ms-overview">Overview</a>
+        <a href="#ms-what">What it is</a>
+        <a href="#ms-howitworks">How it works</a>
+        <a href="#ms-vs-insite">Multisite vs city pages</a>
+
+        <a class="nav-group" href="#ms-arch">Architecture</a>
+        <a href="#ms-process-model">One process per site</a>
+        <a href="#ms-two-level-clone">Two-level cloning</a>
+        <a href="#ms-primitives">Reused primitives</a>
+        <a href="#ms-footprint">What persists on disk</a>
+
+        <a class="nav-group" href="#ms-params">The Params Table</a>
+        <a href="#ms-columns">CSV columns</a>
+        <a href="#ms-validation">Validation &amp; pre-flight</a>
+        <a href="#ms-rating">Ratings &amp; reviews</a>
+
+        <a class="nav-group" href="#ms-ai">AI Content</a>
+        <a href="#ms-aiblocks">AI blocks &amp; the engine</a>
+        <a href="#ms-cache">The content cache</a>
+        <a href="#ms-editing">Editing the master safely</a>
+
+        <a class="nav-group" href="#ms-seo">Differentiation &amp; SEO</a>
+        <a href="#ms-differentiation">Per-site differentiation</a>
+        <a href="#ms-uniqueness">Uniqueness tiers</a>
+
+        <a class="nav-group" href="#ms-run">Running a Campaign</a>
+        <a href="#ms-cli-intake">1 · Prepare &amp; validate</a>
+        <a href="#ms-cli-oneshot">2 · Build one site</a>
+        <a href="#ms-cli-campaign">3 · Run the campaign</a>
+        <a href="#ms-flags">Options &amp; flags</a>
+
+        <a class="nav-group" href="#ms-ops">Operations</a>
+        <a href="#ms-observability">Run logs &amp; cost</a>
+        <a href="#ms-security">Security &amp; credentials</a>
+        <a href="#ms-files">File reference</a>
+        <a href="#ms-remaining">Not yet automated</a>
     </nav>
 
     <nav id="devenv-nav" hidden>
@@ -2936,17 +2976,294 @@ git add -A &amp;&amp; git commit -m "snapshot before bulk edit"</code></pre>
 </section>
 
 </div><!-- /#doc-devenv -->
+
+<div id="doc-multisite" hidden>
+<p class="page-intro">The <strong>Multisite Generator</strong> turns one master site into 100+ separate, fully independent websites — one per city — each with its own domain, business identity, AI-written local content, and FTP host. This is different from the in-site City Pages system (which makes many <em>pages</em> inside <em>one</em> site); the Multisite Generator operates one level up and produces whole <em>sites</em>.</p>
+
+<!-- ═══════════ OVERVIEW ═══════════ -->
+<div class="doc-group-header" id="ms-overview">Overview</div>
+<section id="ms-what">
+    <h2>What it is</h2>
+    <p>A pipeline that takes a single <strong>master site</strong> as a template and a <strong>params table</strong> (one row per target site) and produces many separate, deployed websites — same business and topic, one per city. Each output site is a genuinely distinct entity: its own domain, business name, phone, address, geo coordinates, AI-written city copy, analytics tag, and FTP host.</p>
+    <p>It reuses the factory's existing single-site machinery (clone, static build, FTP deploy, the <code>generate.py</code> AI engine) — it does not reinvent them. The generator's job is to drive those primitives across a table of sites, safely and repeatably.</p>
+    <div class="callout tip"><strong>One command, many live sites.</strong> Prepare a CSV, then run one campaign command; the generator builds and deploys every site, writes AI copy once and caches it, and produces a run log of exactly what happened, what it cost, and what failed.</div>
+</section>
+
+<section id="ms-howitworks">
+    <h2>How it works</h2>
+    <p>The high-level flow:</p>
+    <pre><code>Master site (template, authored once with {shortcodes} + ai_block placeholders)
+        +
+Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP creds)
+        ↓
+[ for each row ]  clone → inject identity → differentiate → AI-generate → build → deploy
+        ↓
+100+ live, independent single-city sites</code></pre>
+    <p>Per row, the pipeline:</p>
+    <ol>
+        <li><strong>Clone</strong> a cheap working copy from a one-time snapshot of the master.</li>
+        <li><strong>Inject identity</strong> — write the row's business/phone/city/etc. into <code>site_vars</code>.</li>
+        <li><strong>Differentiate</strong> — rewrite schema/URLs to this site, inject a LocalBusiness JSON-LD with geo, isolate analytics.</li>
+        <li><strong>AI-generate</strong> the city-specific copy (or reuse it from the cache — free).</li>
+        <li><strong>Build</strong> the whole site to static HTML.</li>
+        <li><strong>Deploy</strong> over FTP (only changed files), then delete the temp copy.</li>
+    </ol>
+</section>
+
+<section id="ms-vs-insite">
+    <h2>Multisite vs. the in-site City Pages</h2>
+    <table>
+        <tr><th></th><th>City Pages (in-site)</th><th>Multisite Generator</th></tr>
+        <tr><td>Produces</td><td>Many <em>pages</em> in one site</td><td>Many separate <em>sites</em></td></tr>
+        <tr><td>Domains</td><td>One shared domain</td><td>One domain per site</td></tr>
+        <tr><td>URLs</td><td><code>/pmp-training-dallas</code></td><td><code>pmtraining-dallas.com</code></td></tr>
+        <tr><td>Lives in</td><td><code>data/pages/*.json</code></td><td>Ephemeral — nothing stored per site</td></tr>
+    </table>
+    <p>A multisite output is single-city, so the clone step <strong>drops</strong> the master's in-site <code>data/pages/</code> (the many-cities-in-one-site files) and builds only the homepage + core/landing pages from <code>site.json</code>.</p>
+</section>
+
+<!-- ═══════════ ARCHITECTURE ═══════════ -->
+<div class="doc-group-header" id="ms-arch">Architecture</div>
+<section id="ms-process-model">
+    <h2>One fresh process per site</h2>
+    <p><code>config.php</code> defines every path (<code>DATA_FILE</code>, <code>UPLOAD_DIR</code>, <code>PAGES_DIR</code>, …) as immutable PHP constants, computed once from the active site. A running PHP process therefore can build only <strong>one</strong> site — the paths cannot be re-pointed mid-run.</p>
+    <p>So the generator does not loop in one process. It spawns a <strong>fresh subprocess per site</strong>: the worker's <code>config.php</code>, in CLI mode, reads the site's location from an environment variable (<code>MULTISITE_SITE_BASE</code>) instead of the session. Each site gets a clean process, so the frozen-constant problem disappears and the entire existing render/build code is reused untouched.</p>
+    <div class="callout"><strong>Why this is the simpler choice.</strong> The alternative — rewriting the whole render layer to pass paths as parameters — is a large, risky change to code that already works. Process-per-site reuses everything, isolates failures (one bad site can't crash the batch), and makes parallelism trivial.</div>
+</section>
+
+<section id="ms-two-level-clone">
+    <h2>Two-level cloning</h2>
+    <p>The original master is <strong>never touched</strong> during a run. Instead:</p>
+    <ul>
+        <li><strong>Once per run</strong> — the master is copied into a frozen <em>snapshot</em>.</li>
+        <li><strong>Per row</strong> — a cheap throwaway <em>working dir</em> is cloned from the snapshot (data copied, uploads symlinked), built, deployed, then deleted.</li>
+    </ul>
+    <p>This gives three guarantees at once:</p>
+    <ul>
+        <li><strong>The original is always intact</strong> — read once, then hands-off. Worst case on failure: delete temp dirs and restart.</li>
+        <li><strong>Consistency</strong> — every row builds from the same frozen snapshot, so editing the master mid-run can't make sites inconsistent.</li>
+        <li><strong>No cross-site bleed</strong> — a fresh working dir per site is a clean room; parallel workers never share mutable state.</li>
+    </ul>
+</section>
+
+<section id="ms-primitives">
+    <h2>Reused primitives</h2>
+    <p>Every per-site operation already existed in the factory; the generator extracted their cores so they run against a path instead of the session's active site:</p>
+    <table>
+        <tr><th>Core</th><th>Lives in</th><th>Does</th></tr>
+        <tr><td><code>snapshot_master()</code> / <code>clone_to_working_dir()</code></td><td><code>includes/multisite/clone.php</code></td><td>Freeze master, clone cheap per-row copy</td></tr>
+        <tr><td><code>build_static_site()</code></td><td><code>includes/static_build.php</code></td><td>Render every page → static HTML + sitemap/robots/.htaccess</td></tr>
+        <tr><td><code>deploy_site()</code></td><td><code>includes/multisite/deploy.php</code></td><td>Upload changed files over FTP (incremental)</td></tr>
+    </table>
+    <p>The admin's "Generate Static" and "Deploy" buttons are now thin shells that call these same cores — so the interactive path and the batch path share one implementation.</p>
+</section>
+
+<section id="ms-footprint">
+    <h2>What persists on disk</h2>
+    <p>The 100+ generated sites are <strong>never stored</strong> as site trees — that would be pure bloat. Only three things persist, all under the master that owns the campaign:</p>
+    <table>
+        <tr><th>Artifact</th><th>Location</th><th>Role</th></tr>
+        <tr><td>Master template</td><td><code>sites/{master}/</code></td><td>The one editable source of truth</td></tr>
+        <tr><td>Params table</td><td><code>sites/{master}/multisite/params.csv</code></td><td>The input (holds FTP creds)</td></tr>
+        <tr><td>AI copy cache</td><td><code>sites/{master}/multisite/cache/{domain}.json</code></td><td>Frozen AI copy for free rebuilds</td></tr>
+        <tr><td>Run logs / manifests</td><td><code>sites/{master}/multisite/runs/</code>, <code>/manifests/</code></td><td>Per-run status; incremental-deploy state</td></tr>
+    </table>
+    <div class="callout warn"><strong>The whole <code>sites/*/multisite/</code> directory is gitignored</strong> — it holds FTP credentials. Everything else (built HTML, output-site JSON) is ephemeral or lives only on the FTP target.</div>
+</section>
+
+<!-- ═══════════ PARAMS ═══════════ -->
+<div class="doc-group-header" id="ms-params">The Params Table</div>
+<section id="ms-columns">
+    <h2>CSV columns</h2>
+    <p>One row per target site. Purely factual identity data — no content. Prepared in a spreadsheet and uploaded as CSV. <code>master_id</code> is <em>not</em> a column — it's the campaign context, passed on the command line.</p>
+    <table>
+        <tr><th>Column</th><th>Required?</th><th>Used for</th></tr>
+        <tr><td><code>domain</code></td><td>Yes</td><td>Site identity, canonical URLs, cache key</td></tr>
+        <tr><td><code>business</code></td><td>Yes</td><td>Business name everywhere (<code>{business}</code>)</td></tr>
+        <tr><td><code>phone</code>, <code>tel</code>, <code>email</code></td><td>Recommended</td><td>Display phone, <code>tel:</code> link, contact</td></tr>
+        <tr><td><code>address</code>, <code>city</code>, <code>state</code>, <code>SS</code>, <code>zip</code></td><td>Recommended</td><td>NAP + AI context + schema</td></tr>
+        <tr><td><code>lat</code>, <code>lng</code></td><td>Optional</td><td>Geo coordinates → LocalBusiness schema</td></tr>
+        <tr><td><code>rating</code>, <code>review_count</code></td><td>Optional (paired)</td><td>Real AggregateRating in schema — never invented</td></tr>
+        <tr><td><code>logo</code>, <code>analytics_id</code></td><td>Optional</td><td>Per-site logo; per-site analytics (never shared)</td></tr>
+        <tr><td><code>ftp_host</code>, <code>ftp_user</code>, <code>ftp_pass</code></td><td>For deploy</td><td>Deploy target + auth</td></tr>
+        <tr><td><code>ftp_port</code>, <code>ftp_path</code>, <code>ftp_passive</code></td><td>Optional</td><td>Deploy target details</td></tr>
+    </table>
+</section>
+
+<section id="ms-validation">
+    <h2>Validation &amp; pre-flight</h2>
+    <p>The intake step parses and validates the CSV before anything is built:</p>
+    <ul>
+        <li><strong>Errors</strong> (row skipped): missing <code>domain</code>/<code>business</code>, invalid domain format, duplicate domain, partial FTP credentials, non-numeric geo.</li>
+        <li><strong>Warnings</strong> (row still usable): no FTP creds (builds but won't deploy), missing recommended fields.</li>
+        <li><strong>Unknown columns</strong> are reported so typos surface.</li>
+    </ul>
+    <p><strong>FTP pre-flight</strong> optionally connects + logs in to each row's host (no upload) so bad credentials are caught before any build begins.</p>
+</section>
+
+<section id="ms-rating">
+    <h2>Ratings &amp; reviews</h2>
+    <p>Ratings must be <strong>real</strong> and supplied per site — the master's rating is never carried over (that would invent reviews across every site). Provide <code>rating</code> (0–5) and <code>review_count</code> (positive integer) <em>together</em>; a site with both gets a real <code>AggregateRating</code> in its LocalBusiness schema, and a site with neither gets none.</p>
+    <div class="callout warn">Providing one without the other is a validation error. Never fabricate ratings, pass rates, or student counts — use only real numbers.</div>
+</section>
+
+<!-- ═══════════ AI CONTENT ═══════════ -->
+<div class="doc-group-header" id="ms-ai">AI Content</div>
+<section id="ms-aiblocks">
+    <h2>AI blocks &amp; the engine</h2>
+    <p>The master's pages carry <code>ai_block</code> placeholders wired to the prompt registry (<code>ai_block_types.json</code>). During a build, the Python engine <code>generate.py</code> (the same one the admin's AI Generation uses) fills them with city-specific copy. Two patterns:</p>
+    <ul>
+        <li><strong>Standalone</strong> (e.g. <code>city_market_intro</code>) — a whole <code>ai_block</code> becomes a section of copy.</li>
+        <li><strong>Enrich</strong> (e.g. <code>hero_subtext</code>, <code>faq_additions</code>) — <code>ai_type_id</code> on a real block fills one field in place (the hero subtext, or appends FAQ items).</li>
+    </ul>
+    <p>The worker runs <code>generate.py --site-dir &lt;working dir&gt; --all</code> for the site's one city. An unfilled placeholder renders nothing, so the master stays a clean, working site.</p>
+</section>
+
+<section id="ms-cache">
+    <h2>The content cache</h2>
+    <p>AI copy is generated <strong>once per site</strong> and frozen in <code>multisite/cache/{domain}.json</code>. On every rebuild it is re-injected and reused — <strong>zero API calls</strong>, identical output (SEO-stable copy, free redeploys). Each cache entry is keyed by a stable block <code>id</code> and stamped with a <strong>prompt hash</strong>.</p>
+    <p>The cache is self-healing:</p>
+    <ul>
+        <li>Missing entry → generate it.</li>
+        <li>Prompt changed (hash mismatch) → regenerate just that block.</li>
+        <li>Block removed → orphaned entry ignored.</li>
+    </ul>
+    <p>A first (cold) build of ~4–8 blocks costs roughly <strong>$0.02–0.05</strong>; every rebuild after is free.</p>
+</section>
+
+<section id="ms-editing">
+    <h2>Editing the master safely</h2>
+    <p>The master is the only place anything is ever edited. Two rules keep edits safe:</p>
+    <ul>
+        <li><strong>Static content propagates automatically.</strong> The cache stores only AI-written words — so editing any static block (pricing, headings, images) flows to every site on the next rebuild, with nothing to invalidate.</li>
+        <li><strong>AI-block edits self-heal.</strong> Reword a prompt → only that block regenerates on the next run; add/remove/reorder blocks → copy follows the right block by its stable <code>id</code>. No per-site editing, no manual cache surgery, no stale copy.</li>
+    </ul>
+    <div class="callout tip">Edit the master → rebuild → redeploy. There are no per-site overrides and no per-site stored content by design.</div>
+</section>
+
+<!-- ═══════════ SEO ═══════════ -->
+<div class="doc-group-header" id="ms-seo">Differentiation &amp; SEO</div>
+<section id="ms-differentiation">
+    <h2>Per-site differentiation</h2>
+    <p>Because a clone would otherwise carry the master's identity into every site, the differentiation step rewrites each site to be a distinct entity:</p>
+    <ul>
+        <li><strong>Identity rewrite</strong> — the master's business name, domain/URL, phone, tel and email are replaced with this site's everywhere, including inside the JSON-LD schema. (The master's body copy also uses <code>{business}</code>/<code>{website}</code> shortcodes so most of this resolves automatically.)</li>
+        <li><strong>LocalBusiness JSON-LD</strong> — a real <code>LocalBusiness</code> node with <code>PostalAddress</code> + <code>GeoCoordinates</code> is injected on the homepage (the strongest "distinct entity" signal) whenever geo/address/rating is present.</li>
+        <li><strong>Fabricated ratings stripped</strong> — the master's carried-over <code>aggregateRating</code> is removed; a real one is emitted only if the row supplies it.</li>
+        <li><strong>Analytics isolation</strong> — each site gets its own analytics tag from <code>analytics_id</code>, or none. A shared tag is never used.</li>
+        <li><strong>Self-canonical</strong> — canonical URLs point at the site's own domain.</li>
+    </ul>
+</section>
+
+<section id="ms-uniqueness">
+    <h2>Uniqueness tiers</h2>
+    <p>Generating many same-topic city sites is the pattern Google's <em>doorway pages</em> and <em>scaled content abuse</em> policies target. Cosmetic differences don't satisfy them — Google evaluates substance. Effort should follow impact:</p>
+    <table>
+        <tr><th>Tier</th><th>Signal</th><th>Impact</th></tr>
+        <tr><td>1</td><td>Substantively different content per city (real local employers, industries, pricing); rotated block order</td><td>Highest</td></tr>
+        <tr><td>2</td><td>LocalBusiness JSON-LD w/ real NAP + geo; self-canonical; distinct domains</td><td>High</td></tr>
+        <tr><td>3</td><td>Per-site logo, images, theme colors</td><td>Low (most tempting, least useful)</td></tr>
+        <tr><td>4</td><td>No shared analytics ID; hosting/IP diversity; WHOIS privacy; no generator fingerprint</td><td>Cheap insurance</td></tr>
+    </table>
+    <div class="callout warn">The defensible path is genuine local presence per city (real address, phone, ideally a Google Business Profile). Build to maximize real distinctness regardless — it's what protects against penalties and actually serves users.</div>
+</section>
+
+<!-- ═══════════ RUNNING ═══════════ -->
+<div class="doc-group-header" id="ms-run">Running a Campaign</div>
+<section id="ms-cli-intake">
+    <h2>1 · Prepare &amp; validate the params</h2>
+    <p>Prepare the CSV in a spreadsheet, then validate + store it (optionally pre-flighting FTP):</p>
+    <pre><code>php multisite/params_check.php &lt;master_id&gt; path/to/params.csv --preflight</code></pre>
+    <p>It prints a per-row report (ok / warn / error) and, if every row is error-free, stores the CSV to <code>sites/{master}/multisite/params.csv</code>. Add <code>--dry-run</code> to validate without storing.</p>
+</section>
+
+<section id="ms-cli-oneshot">
+    <h2>2 · Build one site (test a row)</h2>
+    <p>Before running the whole table, build a single site end-to-end from a one-row JSON file:</p>
+    <pre><code>php multisite/build_one.php row.json --keep</code></pre>
+    <p><code>--keep</code> leaves the temp working + output dirs so you can inspect them. This is the self-contained per-row unit (<code>process_row</code>) the campaign runner calls for every row.</p>
+</section>
+
+<section id="ms-cli-campaign">
+    <h2>3 · Run the campaign</h2>
+    <p>Run the whole stored params table:</p>
+    <pre><code>php multisite/run_campaign.php &lt;master_id&gt; --jobs=4 --retries=1</code></pre>
+    <p>It validates the table, pre-flights FTP, snapshots the master once, then builds + deploys every row — up to <code>--jobs</code> at a time — retrying failures, and writes a run log. It exits 0 only if every row succeeded.</p>
+    <div class="callout tip">Do a small run first: <code>--limit=2</code> or <code>--only=example.com</code>, and review the output for the first few sites before scaling up.</div>
+</section>
+
+<section id="ms-flags">
+    <h2>Options &amp; flags</h2>
+    <table>
+        <tr><th>Flag</th><th>Effect</th></tr>
+        <tr><td><code>--jobs=N</code></td><td>Build up to N sites concurrently (default 1). Cuts wall-clock on AI runs.</td></tr>
+        <tr><td><code>--retries=N</code></td><td>Re-run a failed row up to N times.</td></tr>
+        <tr><td><code>--no-ai</code></td><td>Skip AI generation (identity + build + deploy only) — fast.</td></tr>
+        <tr><td><code>--force</code></td><td>Regenerate AI copy (ignore cache) + full FTP re-upload.</td></tr>
+        <tr><td><code>--only=DOMAIN</code></td><td>Process just one row.</td></tr>
+        <tr><td><code>--limit=N</code></td><td>Process at most N rows.</td></tr>
+        <tr><td><code>--no-preflight</code></td><td>Skip the FTP reachability check.</td></tr>
+        <tr><td><code>--verbose</code></td><td>Stream each row's raw progress.</td></tr>
+    </table>
+</section>
+
+<!-- ═══════════ OPERATIONS ═══════════ -->
+<div class="doc-group-header" id="ms-ops">Operations</div>
+<section id="ms-observability">
+    <h2>Run logs &amp; cost</h2>
+    <p>Every campaign writes <code>sites/{master}/multisite/runs/{run_id}.json</code> with per-row status, attempts, files uploaded, AI tokens, estimated cost, and duration — plus run totals. The console summary prints the totals (files uploaded, tokens in/out, estimated cost). Incremental deploy state lives per-domain in <code>multisite/manifests/</code>, so redeploys upload only changed files.</p>
+</section>
+
+<section id="ms-security">
+    <h2>Security &amp; credentials</h2>
+    <ul>
+        <li>FTP passwords live in <code>params.csv</code> and are written into each ephemeral build's <code>deploy.json</code> only at deploy time — never persisted in an output site.</li>
+        <li>The entire <code>sites/*/multisite/</code> directory is <strong>gitignored</strong> (fail-safe: nothing inside can ever be committed), as is any <code>deploy.json</code>.</li>
+        <li>Ensure the web server also blocks <code>sites/*/multisite/</code> from direct HTTP access, since it holds credentials.</li>
+        <li>Never reuse one analytics/GTM/AdSense ID across sites — it links the whole network.</li>
+    </ul>
+</section>
+
+<section id="ms-files">
+    <h2>File reference</h2>
+    <table>
+        <tr><th>File</th><th>Role</th></tr>
+        <tr><td><code>multisite/run_campaign.php</code></td><td>Orchestrator — runs the whole table (pool, retry, run log)</td></tr>
+        <tr><td><code>multisite/build_one.php</code></td><td>Per-row worker (process_row): clone → inject → differentiate → AI → deploy</td></tr>
+        <tr><td><code>multisite/render_site.php</code></td><td>Worker-mode child that renders one site to static HTML</td></tr>
+        <tr><td><code>multisite/params_check.php</code></td><td>CSV intake: parse, validate, pre-flight, store</td></tr>
+        <tr><td><code>includes/multisite/clone.php</code></td><td>Snapshot + working-dir clone</td></tr>
+        <tr><td><code>includes/multisite/inject.php</code></td><td>Write params into site_vars</td></tr>
+        <tr><td><code>includes/multisite/differentiate.php</code></td><td>Per-site schema/geo/analytics/identity rewrite</td></tr>
+        <tr><td><code>includes/multisite/ai_cache.php</code></td><td>Per-domain AI copy cache (prompt-hash, self-healing)</td></tr>
+        <tr><td><code>includes/multisite/deploy.php</code></td><td>Incremental FTP deploy core</td></tr>
+        <tr><td><code>includes/multisite/params.php</code></td><td>CSV parse + validation + pre-flight helpers</td></tr>
+    </table>
+    <p>Full architecture and rationale live in <code>docs/multisite-generator-architecture.md</code> in the repository.</p>
+</section>
+
+<section id="ms-remaining">
+    <h2>Not yet automated</h2>
+    <ul>
+        <li><strong>Per-site logo &amp; images</strong> (Tier 3) — auto-wordmark from the business name, per-city image assignment.</li>
+        <li><strong>Domain-seeded theme colors</strong> (Tier 3, lowest impact).</li>
+        <li><strong>Research step</strong> — cities not already in the master's <code>cities.json</code> need local-market data (run research or pre-populate).</li>
+        <li><strong>Master copy polish</strong> — a few brand phrasings still need shortcode-ifying.</li>
+        <li><strong>Admin upload UI</strong> — params intake is CLI-first today; a browser upload page is a later convenience.</li>
+    </ul>
+</section>
+</div><!-- /#doc-multisite -->
 </div><!-- /#main -->
 
 <script>
 /* Sidebar active link on scroll */
 const sections = document.querySelectorAll('[id]');
-const navLinks  = document.querySelectorAll('#doc-nav a, #devenv-nav a');
+const navLinks  = document.querySelectorAll('#doc-nav a, #devenv-nav a, #multisite-nav a');
 const observer  = new IntersectionObserver(entries => {
     entries.forEach(e => {
         if (e.isIntersecting) {
             navLinks.forEach(a => a.classList.remove('active'));
-            const active = document.querySelector('#doc-nav a[href="#' + e.target.id + '"], #devenv-nav a[href="#' + e.target.id + '"]');
+            const active = document.querySelector('#doc-nav a[href="#' + e.target.id + '"], #devenv-nav a[href="#' + e.target.id + '"], #multisite-nav a[href="#' + e.target.id + '"]');
             if (active) {
                 active.classList.add('active');
                 active.scrollIntoView({ block: 'nearest' });
@@ -2976,28 +3293,39 @@ function filterNav(q) {
 }
 
 /* Tab switcher — swaps sidebar nav + content between Admin and DevEnv */
+/* Each doc: tab key → [content id, nav id, subtitle] */
+const DOCS = {
+    admin:     ['doc-admin',     'doc-nav',       'Admin Documentation'],
+    devenv:    ['doc-devenv',    'devenv-nav',    'DevEnv Documentation'],
+    multisite: ['doc-multisite', 'multisite-nav', 'Multisite Documentation'],
+};
 function switchDoc(which) {
-    const isDev = (which === 'devenv');
-    document.getElementById('doc-admin').hidden  = isDev;
-    document.getElementById('doc-devenv').hidden = !isDev;
-    document.getElementById('doc-nav').hidden     = isDev;
-    document.getElementById('devenv-nav').hidden  = !isDev;
-    document.getElementById('doc-subtitle').textContent = isDev ? 'DevEnv Documentation' : 'Admin Documentation';
+    if (!DOCS[which]) which = 'admin';
+    for (const key in DOCS) {
+        const [contentId, navId] = DOCS[key];
+        document.getElementById(contentId).hidden = (key !== which);
+        document.getElementById(navId).hidden     = (key !== which);
+    }
+    document.getElementById('doc-subtitle').textContent = DOCS[which][2];
     document.querySelectorAll('.doc-tab').forEach(t => t.classList.toggle('active', t.dataset.doc === which));
     const search = document.getElementById('doc-search');
     if (search) { search.value = ''; filterNav(''); }
     try { history.replaceState(null, '', '?doc=' + which + (location.hash || '')); } catch (e) {}
 }
 
-/* Pick the starting tab from ?doc= or from a devenv anchor in the hash */
+/* Pick the starting tab from ?doc= or from a matching anchor in the hash */
 (function initDoc() {
     const params = new URLSearchParams(location.search);
     let which = params.get('doc');
-    if (which !== 'devenv' && which !== 'admin') {
-        which = (location.hash && document.querySelector('#devenv-nav a[href="' + location.hash + '"]'))
-            ? 'devenv' : 'admin';
+    if (!DOCS[which]) {
+        which = 'admin';
+        if (location.hash) {
+            for (const key in DOCS) {
+                if (document.querySelector('#' + DOCS[key][1] + ' a[href="' + location.hash + '"]')) { which = key; break; }
+            }
+        }
     }
-    if (which === 'devenv') switchDoc('devenv');
+    if (which !== 'admin') switchDoc(which);
 })();
 
 /* Jump to hash on load */
