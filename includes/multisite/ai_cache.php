@@ -40,11 +40,27 @@ function ms_ai_block_value(array $block): array {
     return $v;
 }
 
-/** Walk site.json's ai_blocks (home content_blocks + each core page) via a callback that may mutate. */
+/** True if a block is AI-driven: a standalone ai_block, or a real block carrying ai_type_id (enrich). */
+function ms_ai_is_ai_block(array $b): bool {
+    return ($b['type'] ?? '') === 'ai_block' || ($b['ai_type_id'] ?? '') !== '';
+}
+
+/** The cached value of a block. Standalone: whole block minus config. Enrich: only the injected field. */
+function ms_ai_cached_value(array $b, array $registry): array {
+    if (($b['type'] ?? '') === 'ai_block') {
+        return ms_ai_block_value($b);   // whole block is AI-generated
+    }
+    // Enrich: only the injected field is AI-generated — caching more would freeze static content.
+    $typeId = $b['ai_type_id'] ?? '';
+    $field  = $b['ai_inject_field'] ?? ($registry[$typeId]['ai_inject_field'] ?? '');
+    return ($field !== '' && array_key_exists($field, $b)) ? [$field => $b[$field]] : [];
+}
+
+/** Walk every AI-driven block (home content_blocks + each core page) via a callback that may mutate. */
 function ms_ai_walk_site(array &$site, callable $fn): void {
     if (isset($site['content_blocks']) && is_array($site['content_blocks'])) {
         foreach ($site['content_blocks'] as $i => &$b) {
-            if (($b['type'] ?? '') === 'ai_block') $fn($b);
+            if (ms_ai_is_ai_block($b)) $fn($b);
         }
         unset($b);
     }
@@ -52,7 +68,7 @@ function ms_ai_walk_site(array &$site, callable $fn): void {
         foreach ($site['pages'] as $pid => &$page) {
             if (!isset($page['content_blocks']) || !is_array($page['content_blocks'])) continue;
             foreach ($page['content_blocks'] as $i => &$b) {
-                if (($b['type'] ?? '') === 'ai_block') $fn($b);
+                if (ms_ai_is_ai_block($b)) $fn($b);
             }
             unset($b);
         }
@@ -115,7 +131,7 @@ function ms_ai_extract_to_cache(string $workingDir, string $cacheFile, array $re
         $fields[$id] = [
             'ai_type_id'  => $b['ai_type_id'] ?? '',
             'prompt_hash' => ms_ai_prompt_hash($b, $registry),
-            'value'       => ms_ai_block_value($b),
+            'value'       => ms_ai_cached_value($b, $registry),
         ];
     });
 

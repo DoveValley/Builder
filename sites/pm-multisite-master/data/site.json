@@ -180,7 +180,11 @@
             "hs_bg_photo": "",
             "hs_mobile_order": "",
             "hs_tagline": "6 PMI Certifications. Live Online. <span style=\"color:var(--color-highlight)\">Pass Guaranteed.</span>",
-            "skin": "dark"
+            "skin": "dark",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "id": "home_hero_subtext"
         },
         {
             "type": "feature_columns",
@@ -632,7 +636,11 @@
                     "answer": "Yes. All of our programs are offered as live-virtual cohorts conducted via video conference — no travel required. We also offer self-paced on-demand access for PMP and CAPM courses. Both formats include the same study materials and instructor support."
                 }
             ],
-            "skin": "light"
+            "skin": "light",
+            "ai_type_id": "faq_additions",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "id": "home_faq_additions"
         },
         {
             "type": "custom_html",
@@ -1474,7 +1482,25 @@
                     "hs_bg_color": "#0d1b3e",
                     "hs_photo": "sites/pm-multisite-master/uploads/media/hero_professional.webp",
                     "hs_bg_photo": "",
-                    "hs_mobile_order": ""
+                    "hs_mobile_order": "",
+                    "ai_type_id": "hero_subtext",
+                    "ai_inject_field": "hs_subtext",
+                    "ai_inject_mode": "replace",
+                    "id": "pmp-certification-training_hero_subtext"
+                },
+                {
+                    "type": "ai_block",
+                    "id": "pmp-certification-training_city_market_intro",
+                    "ai_type_id": "city_market_intro",
+                    "ai_mode": "standalone",
+                    "ai_render_as": "text",
+                    "ai_model": "claude-sonnet-4-6",
+                    "ai_inject_target": null,
+                    "ai_inject_field": null,
+                    "ai_inject_mode": null,
+                    "ai_prompt_override": "",
+                    "skin": "light",
+                    "heading_level": "h2"
                 },
                 {
                     "type": "stats",
@@ -1901,7 +1927,11 @@
                             "question": "Can my employer pay for PMP training?",
                             "answer": "Yes — most employers cover PMP training costs through professional development or L&D budgets. We provide formal invoicing and purchase orders. Veterans: GI Bill and DOD SkillBridge programs may also apply."
                         }
-                    ]
+                    ],
+                    "ai_type_id": "faq_additions",
+                    "ai_inject_field": "fq_items",
+                    "ai_inject_mode": "append",
+                    "id": "pmp-certification-training_faq_additions"
                 },
                 {
                     "type": "cta_banner",
@@ -1958,7 +1988,25 @@
                     "hs_bg_color": "#0d1b3e",
                     "hs_photo": "sites/pm-multisite-master/uploads/media/hero_professional.webp",
                     "hs_bg_photo": "",
-                    "hs_mobile_order": ""
+                    "hs_mobile_order": "",
+                    "ai_type_id": "hero_subtext",
+                    "ai_inject_field": "hs_subtext",
+                    "ai_inject_mode": "replace",
+                    "id": "pmp-bootcamp_hero_subtext"
+                },
+                {
+                    "type": "ai_block",
+                    "id": "pmp-bootcamp_city_market_intro",
+                    "ai_type_id": "city_market_intro",
+                    "ai_mode": "standalone",
+                    "ai_render_as": "text",
+                    "ai_model": "claude-sonnet-4-6",
+                    "ai_inject_target": null,
+                    "ai_inject_field": null,
+                    "ai_inject_mode": null,
+                    "ai_prompt_override": "",
+                    "skin": "light",
+                    "heading_level": "h2"
                 },
                 {
                     "type": "stats",
@@ -2385,7 +2433,11 @@
                             "question": "Can my employer pay for the PMP bootcamp?",
                             "answer": "Yes — many employers cover PMP bootcamp costs through professional development or L&D budgets. We provide formal invoicing, purchase orders, and group pricing. For qualifying veterans, GI Bill benefits and DOD SkillBridge programs may also apply."
                         }
-                    ]
+                    ],
+                    "ai_type_id": "faq_additions",
+                    "ai_inject_field": "fq_items",
+                    "ai_inject_mode": "append",
+                    "id": "pmp-bootcamp_faq_additions"
                 },
                 {
                     "type": "cta_banner",
@@ -2442,7 +2494,25 @@
                     "hs_bg_color": "#0d1b3e",
                     "hs_photo": "sites/pm-multisite-master/uploads/media/hero_professional.webp",
                     "hs_bg_photo": "",
-                    "hs_mobile_order": ""
+                    "hs_mobile_order": "",
+                    "ai_type_id": "hero_subtext",
+                    "ai_inject_field": "hs_subtext",
+                    "ai_inject_mode": "replace",
+                    "id": "capm-certification-training_hero_subtext"
+                },
+                {
+                    "type": "ai_block",
+                    "id": "capm-certification-training_city_market_intro",
+                    "ai_type_id": "city_market_intro",
+                    "ai_mode": "standalone",
+                    "ai_render_as": "text",
+                    "ai_model": "claude-sonnet-4-6",
+                    "ai_inject_target": null,
+                    "ai_inject_field": null,
+                    "ai_inject_mode": null,
+                    "ai_prompt_override": "",
+                    "skin": "light",
+                    "heading_level": "h2"
                 },
                 {
                     "type": "stats",
@@ -2863,7 +2933,11 @@
                             "question": "Can I take the CAPM on-demand if I can't attend a live session?",
                             "answer": "Yes. Our on-demand CAPM course gives you immediate access to the full curriculum at $495. It's self-paced, satisfies PMI's 23-hour requirement, and includes all practice questions and mock exams. You work through it on your own schedule."
                         }
-                    ]
+                    ],
+                    "ai_type_id": "faq_additions",
+                    "ai_inject_field": "fq_items",
+                    "ai_inject_mode": "append",
+                    "id": "capm-certification-training_faq_additions"
                 },
                 {
                     "type": "cta_banner",
@@ -2920,7 +2994,25 @@
                     "hs_bg_color": "#0d1b3e",
                     "hs_photo": "sites/pm-multisite-master/uploads/media/hero_professional.webp",
                     "hs_bg_photo": "",
-                    "hs_mobile_order": ""
+                    "hs_mobile_order": "",
+                    "ai_type_id": "hero_subtext",
+                    "ai_inject_field": "hs_subtext",
+                    "ai_inject_mode": "replace",
+                    "id": "capm-bootcamp_hero_subtext"
+                },
+                {
+                    "type": "ai_block",
+                    "id": "capm-bootcamp_city_market_intro",
+                    "ai_type_id": "city_market_intro",
+                    "ai_mode": "standalone",
+                    "ai_render_as": "text",
+                    "ai_model": "claude-sonnet-4-6",
+                    "ai_inject_target": null,
+                    "ai_inject_field": null,
+                    "ai_inject_mode": null,
+                    "ai_prompt_override": "",
+                    "skin": "light",
+                    "heading_level": "h2"
                 },
                 {
                     "type": "stats",
@@ -3341,7 +3433,11 @@
                             "question": "What is the pass guarantee?",
                             "answer": "If you attend the full 3-day bootcamp, follow our recommended post-bootcamp study activities, and don't pass the CAPM exam on your first attempt, we enroll you in the next available bootcamp session at no cost. Those are the only two conditions."
                         }
-                    ]
+                    ],
+                    "ai_type_id": "faq_additions",
+                    "ai_inject_field": "fq_items",
+                    "ai_inject_mode": "append",
+                    "id": "capm-bootcamp_faq_additions"
                 },
                 {
                     "type": "cta_banner",
@@ -3398,7 +3494,25 @@
                     "hs_bg_color": "#0d1b3e",
                     "hs_photo": "sites/pm-multisite-master/uploads/media/hero_professional.webp",
                     "hs_bg_photo": "",
-                    "hs_mobile_order": ""
+                    "hs_mobile_order": "",
+                    "ai_type_id": "hero_subtext",
+                    "ai_inject_field": "hs_subtext",
+                    "ai_inject_mode": "replace",
+                    "id": "cpmai-certification-training_hero_subtext"
+                },
+                {
+                    "type": "ai_block",
+                    "id": "cpmai-certification-training_city_market_intro",
+                    "ai_type_id": "city_market_intro",
+                    "ai_mode": "standalone",
+                    "ai_render_as": "text",
+                    "ai_model": "claude-sonnet-4-6",
+                    "ai_inject_target": null,
+                    "ai_inject_field": null,
+                    "ai_inject_mode": null,
+                    "ai_prompt_override": "",
+                    "skin": "light",
+                    "heading_level": "h2"
                 },
                 {
                     "type": "stats",
@@ -3819,7 +3933,11 @@
                             "question": "Can my employer pay for CPMAI training?",
                             "answer": "Yes. CPMAI training qualifies as professional development in most organizational L&D budgets. We provide formal invoicing and purchase orders. For organizations standing up AI programs, group pricing and dedicated sessions are available — contact us for a custom quote."
                         }
-                    ]
+                    ],
+                    "ai_type_id": "faq_additions",
+                    "ai_inject_field": "fq_items",
+                    "ai_inject_mode": "append",
+                    "id": "cpmai-certification-training_faq_additions"
                 },
                 {
                     "type": "cta_banner",
@@ -4146,7 +4264,25 @@
                     "hs_caption1": "",
                     "hs_caption2": "",
                     "hs_mobile_order": "",
-                    "skin": "light"
+                    "skin": "light",
+                    "ai_type_id": "hero_subtext",
+                    "ai_inject_field": "hs_subtext",
+                    "ai_inject_mode": "replace",
+                    "id": "pmi-pdu-renewal_hero_subtext"
+                },
+                {
+                    "type": "ai_block",
+                    "id": "pmi-pdu-renewal_city_market_intro",
+                    "ai_type_id": "city_market_intro",
+                    "ai_mode": "standalone",
+                    "ai_render_as": "text",
+                    "ai_model": "claude-sonnet-4-6",
+                    "ai_inject_target": null,
+                    "ai_inject_field": null,
+                    "ai_inject_mode": null,
+                    "ai_prompt_override": "",
+                    "skin": "light",
+                    "heading_level": "h2"
                 },
                 {
                     "type": "feature_columns",
@@ -4218,7 +4354,11 @@
                             "answer": "You earn PDUs for the hours you complete. If a course is 8 hours, you earn 8 PDUs. PMI tracks by contact hours, not by course completion percentage."
                         }
                     ],
-                    "skin": "light"
+                    "skin": "light",
+                    "ai_type_id": "faq_additions",
+                    "ai_inject_field": "fq_items",
+                    "ai_inject_mode": "append",
+                    "id": "pmi-pdu-renewal_faq_additions"
                 },
                 {
                     "type": "cta_banner",
@@ -4273,7 +4413,25 @@
                     "hs_bg_color": "#f0f4f8",
                     "hs_photo": "sites/pm-multisite-master/uploads/media/pmi_premier_atp_badge.webp",
                     "hs_bg_photo": "",
-                    "hs_mobile_order": ""
+                    "hs_mobile_order": "",
+                    "ai_type_id": "hero_subtext",
+                    "ai_inject_field": "hs_subtext",
+                    "ai_inject_mode": "replace",
+                    "id": "about_hero_subtext"
+                },
+                {
+                    "type": "ai_block",
+                    "id": "about_city_market_intro",
+                    "ai_type_id": "city_market_intro",
+                    "ai_mode": "standalone",
+                    "ai_render_as": "text",
+                    "ai_model": "claude-sonnet-4-6",
+                    "ai_inject_target": null,
+                    "ai_inject_field": null,
+                    "ai_inject_mode": null,
+                    "ai_prompt_override": "",
+                    "skin": "light",
+                    "heading_level": "h2"
                 },
                 {
                     "type": "text",
@@ -4345,7 +4503,25 @@
                     "hs_bg_color": "#0d1b3e",
                     "hs_photo": "sites/pm-multisite-master/uploads/media/hero_professional.webp",
                     "hs_bg_photo": "",
-                    "hs_mobile_order": ""
+                    "hs_mobile_order": "",
+                    "ai_type_id": "hero_subtext",
+                    "ai_inject_field": "hs_subtext",
+                    "ai_inject_mode": "replace",
+                    "id": "faqs_hero_subtext"
+                },
+                {
+                    "type": "ai_block",
+                    "id": "faqs_city_market_intro",
+                    "ai_type_id": "city_market_intro",
+                    "ai_mode": "standalone",
+                    "ai_render_as": "text",
+                    "ai_model": "claude-sonnet-4-6",
+                    "ai_inject_target": null,
+                    "ai_inject_field": null,
+                    "ai_inject_mode": null,
+                    "ai_prompt_override": "",
+                    "skin": "light",
+                    "heading_level": "h2"
                 },
                 {
                     "type": "faq_two_col",
@@ -4391,7 +4567,11 @@
                             "question": "How current is the PMP exam content?",
                             "answer": "PMI updates the PMP Exam Content Outline periodically. The current version (effective 2021, with ongoing updates) requires approximately 50% agile and hybrid content — a significant shift from earlier versions. Our curriculum is fully updated to reflect the current outline, including the 2026 weighting."
                         }
-                    ]
+                    ],
+                    "ai_type_id": "faq_additions",
+                    "ai_inject_field": "fq_items",
+                    "ai_inject_mode": "append",
+                    "id": "faqs_faq_additions"
                 },
                 {
                     "type": "faq_two_col",
