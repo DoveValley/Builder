@@ -42,7 +42,7 @@ $blogSettings = $data['blog_settings'];
 
 // Active tab
 $tab = $_GET['tab'] ?? 'header';
-if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks'], true)) {
+if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'multisite'], true)) {
     $tab = 'header';
 }
 // Redirect legacy tab links into the Plugins tab.
@@ -266,6 +266,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'ai_review' ? 'active' : '' ?>" href="?tab=ai_review">&#128269; Content Review</a>
         <a class="tab-link <?= $tab === 'ai_blocks' ? 'active' : '' ?>" href="?tab=ai_blocks">&#129520; Block Registry</a>
         <a class="tab-link <?= $tab === 'deploy' ? 'active' : '' ?>" href="?tab=deploy">&#128640; Deploy</a>
+        <a class="tab-link <?= $tab === 'multisite' ? 'active' : '' ?>" href="?tab=multisite">&#127760; Multisite</a>
     </div>
 
     <!-- ================= HEADER TAB ================= -->
@@ -312,6 +313,9 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- ================= AI CONTENT REVIEW TAB ================= -->
     <?php require __DIR__ . '/tabs/ai_review.php'; ?>
+
+    <!-- ================= MULTISITE TAB ================= -->
+    <?php require __DIR__ . '/tabs/multisite.php'; ?>
 
     <!-- ================= AI BLOCK REGISTRY TAB ================= -->
     <?php require __DIR__ . '/tabs/ai_blocks.php'; ?>
