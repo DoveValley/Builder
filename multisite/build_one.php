@@ -30,6 +30,7 @@ require __DIR__ . '/../includes/multisite/clone.php';
 require __DIR__ . '/../includes/multisite/inject.php';
 require __DIR__ . '/../includes/multisite/deploy.php';
 require __DIR__ . '/../includes/multisite/ai_cache.php';
+require __DIR__ . '/../includes/multisite/differentiate.php';
 
 progress_set_sink(progress_jsonlines_sink());
 
@@ -93,8 +94,20 @@ clone_to_working_dir($snapshotDir, $workingDir, $masterId);
 if (is_dir($workingDir . '/data/pages')) ms_delete_dir($workingDir . '/data/pages');
 @unlink($workingDir . '/data/page-index.json');
 
+// Capture the master's own identity (business/website/tel/phone/email) BEFORE
+// injection — it's the "from" side of the per-site schema/identity rewrite.
+$masterIdentity = [];
+$mSite = json_decode(@file_get_contents($workingDir . '/data/site.json'), true);
+if (is_array($mSite)) {
+    $sv = $mSite['site_vars'] ?? [];
+    foreach (['business', 'website', 'tel', 'phone', 'email'] as $k) $masterIdentity[$k] = $sv[$k] ?? '';
+}
+
 progress_log('Injecting identity…');
 inject_params_into_working_dir($workingDir, $params);
+
+progress_log('Differentiating (schema / geo / analytics)…');
+ms_differentiate_working_dir($workingDir, $params, $masterIdentity);
 
 // ── AI content: fill this city's ai_blocks (home + core) via generate.py ──────
 if ($noAi) {
