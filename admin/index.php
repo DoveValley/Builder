@@ -42,7 +42,7 @@ $blogSettings = $data['blog_settings'];
 
 // Active tab
 $tab = $_GET['tab'] ?? 'header';
-if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'multisite'], true)) {
+if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'niche_brief', 'multisite'], true)) {
     $tab = 'header';
 }
 // Redirect legacy tab links into the Plugins tab.
@@ -148,6 +148,23 @@ if ($tab === 'ai_blocks') {
         $editingBlock   = $aiBlockTypes[$editingBlockId];
     } elseif (!empty($_GET['new'])) {
         $isAddingBlock = true;
+    }
+}
+
+// Niche Brief tab — load the per-master brief + the shared read-only archetypes
+$nicheBrief   = [];
+$aiArchetypes = [];
+if ($tab === 'niche_brief') {
+    $_briefFile = ACTIVE_SITE_DIR . '/multisite/niche_brief.json';
+    if (file_exists($_briefFile)) {
+        $raw = json_decode(file_get_contents($_briefFile), true);
+        if (is_array($raw)) $nicheBrief = $raw;
+    }
+    $_archRaw = json_decode((string)@file_get_contents(BASE_DIR . '/multisite/ai/archetypes.json'), true);
+    if (is_array($_archRaw)) {
+        foreach ($_archRaw as $k => $v) {
+            if (is_string($k) && $k !== '' && $k[0] !== '_') $aiArchetypes[$k] = $v;
+        }
     }
 }
 
@@ -265,6 +282,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'ai' ? 'active' : '' ?>" href="?tab=ai">&#127916; AI Generation</a>
         <a class="tab-link <?= $tab === 'ai_review' ? 'active' : '' ?>" href="?tab=ai_review">&#128269; Content Review</a>
         <a class="tab-link <?= $tab === 'ai_blocks' ? 'active' : '' ?>" href="?tab=ai_blocks">&#129520; Block Registry</a>
+        <a class="tab-link <?= $tab === 'niche_brief' ? 'active' : '' ?>" href="?tab=niche_brief">&#129534; Niche Brief</a>
         <a class="tab-link <?= $tab === 'deploy' ? 'active' : '' ?>" href="?tab=deploy">&#128640; Deploy</a>
         <a class="tab-link <?= $tab === 'multisite' ? 'active' : '' ?>" href="?tab=multisite">&#127760; Multisite</a>
     </div>
@@ -319,6 +337,9 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- ================= AI BLOCK REGISTRY TAB ================= -->
     <?php require __DIR__ . '/tabs/ai_blocks.php'; ?>
+
+    <!-- ================= NICHE BRIEF TAB ================= -->
+    <?php require __DIR__ . '/tabs/niche_brief.php'; ?>
 
     <!-- ================= DEPLOY TAB ================= -->
     <?php require __DIR__ . '/tabs/deploy.php'; ?>

@@ -1,0 +1,13 @@
+{
+  "niche": "pest",
+  "master_site": "pest-template",
+  "business_descriptor": "a trained, locally operated pest control company",
+  "service_noun": "pest control",
+  "customer_noun": "homeowner",
+  "offerings": ["termite treatment", "mosquito control", "rodent removal", "cockroach extermination", "ant control", "bed bug treatment"],
+  "local_angle": "the local climate and seasonal pest cycles",
+  "tone": "reassuring and professional, with appropriate urgency for active infestations",
+  "guardrails": "Do not make pesticide safety or efficacy claims beyond general statements. Never guarantee total or permanent eradication. Do not name specific chemical products.",
+  "uses_research_fields": false,
+  "enabled_archetypes": ["city_intro", "hero_subtext", "feature_columns_local", "faq_local", "seasonal_calendar", "local_relevance"]
+}

@@ -82,7 +82,17 @@
             "hs_bg_color": "#f3f6f7",
             "hs_photo": "sites/pest-template/uploads/media/about-whitefly-treatment-katy_93c79d.webp",
             "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
-            "hs_mobile_order": ""
+            "hs_mobile_order": "",
+            "id": "home_hero",
+            "ai_type_id": "hero_subtext"
+        },
+        {
+            "id": "home_city_intro",
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-sonnet-4-6"
         },
         {
             "type": "feature_split",
@@ -345,6 +355,14 @@
             ]
         },
         {
+            "id": "home_seasonal",
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-sonnet-4-6"
+        },
+        {
             "type": "faq_two_col",
             "fq_heading": "FAQs – Pest Control in {city}",
             "fq_bg_color": "#ffffff",
@@ -394,7 +412,17 @@
                     "question": "Why choose your company for pest control in {city}?",
                     "answer": "<p>We connect you with experienced, licensed local pest control professionals who know the {city} area and its unique pest challenges. Our network is vetted, responsive, and committed to your satisfaction.</p>"
                 }
-            ]
+            ],
+            "id": "home_faq",
+            "ai_type_id": "faq_local"
+        },
+        {
+            "id": "home_local_rel",
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-sonnet-4-6"
         },
         {
             "type": "cta_banner",
