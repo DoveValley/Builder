@@ -168,7 +168,12 @@ if (!empty($params['ftp_host']) && !empty($params['ftp_user'])) {
     ];
     // Manifest persists per-domain OUTSIDE the ephemeral build (which is deleted).
     $manifestFile = BASE_DIR . '/sites/' . $masterId . '/multisite/manifests/' . $domainSlug . '.json';
-    deploy_site($ftp, rtrim($outputDir, '/') . '/', $manifestFile, $force);
+    $dep = deploy_site($ftp, rtrim($outputDir, '/') . '/', $manifestFile, $force);
+    if (($dep['status'] ?? '') === 'fatal') {
+        // deploy_site already logged the fatal reason; propagate failure to the caller.
+        $cleanup();
+        exit(1);
+    }
 } else {
     progress_log('No FTP creds in row — skipping deploy (build only).', 'warn');
 }

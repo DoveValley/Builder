@@ -33,10 +33,11 @@ $noAi      = in_array('--no-ai', $args, true);
 $force     = in_array('--force', $args, true);
 $noPre     = in_array('--no-preflight', $args, true);
 $verbose   = in_array('--verbose', $args, true);
-$only = ''; $limit = 0;
+$only = ''; $limit = 0; $retries = 0;
 foreach ($args as $a) {
-    if (str_starts_with($a, '--only='))  $only  = substr($a, 7);
-    if (str_starts_with($a, '--limit=')) $limit = (int)substr($a, 8);
+    if (str_starts_with($a, '--only='))    $only    = substr($a, 7);
+    if (str_starts_with($a, '--limit='))   $limit   = (int)substr($a, 8);
+    if (str_starts_with($a, '--retries=')) $retries = max(0, (int)substr($a, 10));
 }
 $pos = array_values(array_filter($args, fn($a) => !str_starts_with($a, '--')));
 $masterId = $pos[0] ?? '';
@@ -85,6 +86,32 @@ catch (Throwable $e) { fwrite(STDERR, 'Snapshot failed: ' . $e->getMessage() . "
 
 // ── Process each row via build_one.php ───────────────────────────────────────
 $runId = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+// Run build_one once; parse status + metrics (uploaded, tokens, cost) from its JSON-lines.
+function ms_run_build_one(string $cmd, bool $verbose): array {
+    $r = ['status' => 'unknown', 'uploaded' => null, 'tokens_in' => 0, 'tokens_out' => 0, 'cost' => 0.0, 'last' => ''];
+    $proc = proc_open($cmd, [1 => ['pipe', 'w'], 2 => ['pipe', 'w']], $pipes);
+    if (!is_resource($proc)) { $r['status'] = 'failed'; $r['last'] = 'could not spawn build_one'; return $r; }
+    while (($line = fgets($pipes[1])) !== false) {
+        if ($verbose) echo '    ' . rtrim($line) . "\n";
+        $ev = json_decode(trim($line), true);
+        if (!is_array($ev)) continue;
+        $msg = $ev['msg'] ?? '';
+        if (($ev['type'] ?? '') === 'fatal') { $r['status'] = 'failed'; $r['last'] = $msg; }
+        if (($ev['type'] ?? '') === 'done')  { $r['last'] = $msg; }
+        if (preg_match('/Deploy complete — (\d+) uploaded/u', $msg, $m)) $r['uploaded'] = (int)$m[1];
+        if (preg_match('/Tokens\s*:\s*([\d,]+) in \/ ([\d,]+) out/u', $msg, $m)) {
+            $r['tokens_in']  = (int)str_replace(',', '', $m[1]);
+            $r['tokens_out'] = (int)str_replace(',', '', $m[2]);
+        }
+        if (preg_match('/Est\. cost:\s*\$([0-9.]+)/u', $msg, $m)) $r['cost'] = (float)$m[1];
+    }
+    fclose($pipes[1]);
+    stream_get_contents($pipes[2]); fclose($pipes[2]);
+    $code = proc_close($proc);
+    if ($r['status'] !== 'failed') $r['status'] = $code === 0 ? 'ok' : 'failed';
+    return $r;
+}
+
 $results = [];
 $i = 0;
 foreach ($rows as $r) {
@@ -100,34 +127,44 @@ foreach ($rows as $r) {
          . ' ' . escapeshellarg($rowFile) . $flags;
 
     echo "\n[{$i}/{$n}] {$domain} …\n";
-    $proc = proc_open($cmd, [1 => ['pipe', 'w'], 2 => ['pipe', 'w']], $pipes);
-    $lastMsg = ''; $status = 'unknown'; $uploaded = null;
-    if (is_resource($proc)) {
-        while (($line = fgets($pipes[1])) !== false) {
-            if ($verbose) echo '    ' . rtrim($line) . "\n";
-            $ev = json_decode(trim($line), true);
-            if (!is_array($ev)) continue;
-            if (($ev['type'] ?? '') === 'fatal') { $status = 'failed'; $lastMsg = $ev['msg'] ?? ''; }
-            if (($ev['type'] ?? '') === 'done')  { $lastMsg = $ev['msg'] ?? ''; }
-            if (isset($ev['msg']) && preg_match('/Deploy complete — (\d+) uploaded/u', $ev['msg'], $m)) $uploaded = (int)$m[1];
-        }
-        fclose($pipes[1]);
-        stream_get_contents($pipes[2]); fclose($pipes[2]);
-        $code = proc_close($proc);
-        if ($status !== 'failed') $status = $code === 0 ? 'ok' : 'failed';
-    } else { $status = 'failed'; $lastMsg = 'could not spawn build_one'; }
+    $t0 = microtime(true);
+    $attempt = 0;
+    while (true) {
+        $attempt++;
+        $res = ms_run_build_one($cmd, $verbose);
+        if ($res['status'] === 'ok' || $attempt > $retries) break;
+        echo "  ↻ retry {$attempt}/{$retries} after failure — {$res['last']}\n";
+    }
+    $durationMs = (int)round((microtime(true) - $t0) * 1000);
     @unlink($rowFile);
 
-    $mark = $status === 'ok' ? '✓' : '✗';
-    echo "  {$mark} {$domain}: {$status}" . ($uploaded !== null ? " ({$uploaded} uploaded)" : '') . ($lastMsg ? " — {$lastMsg}" : '') . "\n";
-    $results[] = ['domain' => $domain, 'status' => $status, 'uploaded' => $uploaded, 'last' => $lastMsg];
+    $mark = $res['status'] === 'ok' ? '✓' : '✗';
+    $extra = ($res['uploaded'] !== null ? " ({$res['uploaded']} uploaded)" : '')
+           . ($res['cost'] > 0 ? sprintf(' $%.4f', $res['cost']) : '')
+           . ($attempt > 1 ? " [{$attempt} attempts]" : '');
+    echo "  {$mark} {$domain}: {$res['status']}{$extra}" . ($res['last'] ? " — {$res['last']}" : '') . "\n";
+    $results[] = [
+        'domain'      => $domain,
+        'status'      => $res['status'],
+        'attempts'    => $attempt,
+        'uploaded'    => $res['uploaded'],
+        'tokens_in'   => $res['tokens_in'],
+        'tokens_out'  => $res['tokens_out'],
+        'cost'        => $res['cost'],
+        'duration_ms' => $durationMs,
+        'last'        => $res['last'],
+    ];
 }
 
 // ── Teardown + run log ───────────────────────────────────────────────────────
 ms_delete_dir($snapshotDir);
 
-$ok   = count(array_filter($results, fn($r) => $r['status'] === 'ok'));
-$fail = $n - $ok;
+$ok        = count(array_filter($results, fn($r) => $r['status'] === 'ok'));
+$fail      = $n - $ok;
+$totalCost = array_sum(array_column($results, 'cost'));
+$totalIn   = array_sum(array_column($results, 'tokens_in'));
+$totalOut  = array_sum(array_column($results, 'tokens_out'));
+$uploaded  = array_sum(array_map(fn($r) => (int)($r['uploaded'] ?? 0), $results));
 
 $runsDir = $msDir . '/runs';
 if (!is_dir($runsDir)) mkdir($runsDir, 0775, true);
@@ -135,11 +172,20 @@ file_put_contents($runsDir . '/' . $runId . '.json', json_encode([
     'run_id'      => $runId,
     'master_id'   => $masterId,
     'finished_at' => gmdate('c'),
-    'options'     => ['no_ai' => $noAi, 'force' => $force, 'only' => $only, 'limit' => $limit],
+    'options'     => ['no_ai' => $noAi, 'force' => $force, 'only' => $only, 'limit' => $limit, 'retries' => $retries],
     'total'       => $n, 'ok' => $ok, 'failed' => $fail,
+    'totals'      => [
+        'files_uploaded' => $uploaded,
+        'tokens_in'      => $totalIn,
+        'tokens_out'     => $totalOut,
+        'cost_usd'       => round($totalCost, 4),
+    ],
     'results'     => $results,
 ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
 
 echo "\n" . str_repeat('═', 54) . "\n";
-echo "Campaign done — {$ok}/{$n} ok" . ($fail ? ", {$fail} failed" : '') . ".  Run log: runs/{$runId}.json\n";
+echo "Campaign done — {$ok}/{$n} ok" . ($fail ? ", {$fail} failed" : '') . ".\n";
+echo sprintf("  Uploaded: %d files  |  Tokens: %s in / %s out  |  Est. cost: \$%.4f\n",
+    $uploaded, number_format($totalIn), number_format($totalOut), $totalCost);
+echo "  Run log: runs/{$runId}.json\n";
 exit($fail > 0 ? 1 : 0);
