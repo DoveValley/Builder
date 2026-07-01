@@ -119,8 +119,12 @@ def save_json(path, data):
 
 # ── Site layout ───────────────────────────────────────────────────────────────
 
-def site_paths(base_dir, site_id):
-    site_dir = os.path.join(base_dir, 'sites', site_id)
+def site_paths(base_dir, site_id, site_dir=None):
+    # Multisite: an explicit absolute --site-dir (an ephemeral working dir outside
+    # sites/) overrides the default sites/{id} layout. Everything else is identical.
+    if site_dir is None:
+        site_dir = os.path.join(base_dir, 'sites', site_id)
+    site_dir = os.path.abspath(site_dir)
     return {
         'site_dir':       site_dir,
         'site_json':      os.path.join(site_dir, 'data', 'site.json'),
@@ -771,7 +775,9 @@ def print_summary(total, researched=0):
 
 def main():
     ap = argparse.ArgumentParser(description='AI block content generator')
-    ap.add_argument('--site',            required=True,       help='Site ID, e.g. granitepmacademy')
+    ap.add_argument('--site',            required=False, default=None, help='Site ID, e.g. granitepmacademy')
+    ap.add_argument('--site-dir',        default=None, dest='site_dir',
+                    help='Absolute path to a site dir (multisite worker). Overrides sites/{--site}.')
     ap.add_argument('--page',            default='landing',   help='homepage | core | landing (default: landing)')
     ap.add_argument('--all',             action='store_true', help='Process homepage + core + landing pages')
     ap.add_argument('--file',            default=None,        help='Limit to page files whose name contains this string')
@@ -795,8 +801,13 @@ def main():
     _run_start = time.monotonic()
     _started_at_ts = time.time()
 
+    if not args.site and not args.site_dir:
+        ap.error('one of --site or --site-dir is required')
+    if args.site_dir and not args.site:
+        args.site = os.path.basename(os.path.normpath(args.site_dir))
+
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    paths    = site_paths(base_dir, args.site)
+    paths    = site_paths(base_dir, args.site, args.site_dir)
 
     if not os.path.isdir(paths['site_dir']):
         _err(f'Site directory not found: {paths["site_dir"]}')

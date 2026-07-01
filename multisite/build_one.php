@@ -29,14 +29,16 @@ require __DIR__ . '/../includes/functions.php';
 require __DIR__ . '/../includes/multisite/clone.php';
 require __DIR__ . '/../includes/multisite/inject.php';
 require __DIR__ . '/../includes/multisite/deploy.php';
+require __DIR__ . '/../includes/multisite/ai_cache.php';
 
 progress_set_sink(progress_jsonlines_sink());
 
 // ── Parse args ──────────────────────────────────────────────────────────────
-$rowFile = null; $snapshotArg = null; $keep = false; $force = false;
+$rowFile = null; $snapshotArg = null; $keep = false; $force = false; $noAi = false;
 foreach (array_slice($argv, 1) as $a) {
     if ($a === '--keep')                       $keep = true;
     elseif ($a === '--force')                  $force = true;
+    elseif ($a === '--no-ai')                  $noAi = true;
     elseif (str_starts_with($a, '--snapshot=')) $snapshotArg = substr($a, 11);
     elseif ($rowFile === null)                 $rowFile = $a;
 }
@@ -85,8 +87,51 @@ $cleanup = function () use ($workingDir, $outputDir, $snapshotDir, $ownSnapshot,
 // ── Clone + inject ────────────────────────────────────────────────────────────
 progress_log('Cloning working dir…');
 clone_to_working_dir($snapshotDir, $workingDir, $masterId);
+
+// Multisite output is single-city: drop the in-site city-landing system (the master's
+// data/pages/ + page-index.json are the many-cities-in-one-site model, not wanted here).
+if (is_dir($workingDir . '/data/pages')) ms_delete_dir($workingDir . '/data/pages');
+@unlink($workingDir . '/data/page-index.json');
+
 progress_log('Injecting identity…');
 inject_params_into_working_dir($workingDir, $params);
+
+// ── AI content: fill this city's ai_blocks (home + core) via generate.py ──────
+if ($noAi) {
+    progress_log('AI generation skipped (--no-ai).', 'warn');
+} elseif (!ANTHROPIC_API_KEY) {
+    progress_log('AI generation skipped — ANTHROPIC_API_KEY not configured.', 'warn');
+} else {
+    // Cache (§6a): re-inject known copy so generate.py only fills misses/stale blocks.
+    $cacheFile = BASE_DIR . '/sites/' . $masterId . '/multisite/cache/' . $domainSlug . '.json';
+    $registry  = json_decode(@file_get_contents($workingDir . '/data/ai_block_types.json'), true) ?: [];
+    $c = ms_ai_inject_from_cache($workingDir, $cacheFile, $registry);
+    if ($c['hits'] > 0) progress_log("AI cache: reused {$c['hits']} block(s), {$c['stale']} stale, {$c['misses']} to generate.");
+
+    progress_log('Generating AI content for city…');
+    $genEnv = getenv();
+    $genEnv['ANTHROPIC_API_KEY'] = ANTHROPIC_API_KEY;
+    $genEnv['PYTHONUNBUFFERED']  = '1';
+    $genCmd = 'python3 ' . escapeshellarg(BASE_DIR . '/generate.py')
+            . ' --site-dir ' . escapeshellarg($workingDir) . ' --all'
+            . ($force ? ' --refresh' : '') . ' 2>&1';
+    $gp = proc_open($genCmd, [1 => ['pipe', 'w']], $gpipes, BASE_DIR, $genEnv);
+    if (is_resource($gp)) {
+        while (($l = fgets($gpipes[1])) !== false) {
+            $l = rtrim(preg_replace('/\033\[[0-9;]*m/', '', $l));
+            if ($l !== '') progress_log('  ' . $l);
+        }
+        fclose($gpipes[1]);
+        $genCode = proc_close($gp);
+        if ($genCode !== 0) { progress_log("AI generation exited with code {$genCode}", 'warn'); }
+    } else {
+        progress_log('Could not launch generate.py — skipping AI content.', 'warn');
+    }
+
+    // Persist all generated copy to the per-domain cache for future rebuilds.
+    $cached = ms_ai_extract_to_cache($workingDir, $cacheFile, $registry);
+    if ($cached > 0) progress_log("AI cache: {$cached} block(s) cached → " . basename($cacheFile));
+}
 
 // ── Build in a worker-mode child process ──────────────────────────────────────
 $canonical = 'https://' . preg_replace('#^https?://#i', '', rtrim($domain, '/'));
