@@ -64,6 +64,12 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
     <div id="ms-run-progress" style="margin-top:16px;"></div>
 </div>
 
+<!-- ===== HISTORY CARD ===== -->
+<div class="card" id="ms-history-card">
+    <h3 style="margin-top:0;">Recent runs</h3>
+    <div id="ms-runs"><p class="hint">Loading…</p></div>
+</div>
+
 <script>
 (function () {
     const csrfToken = <?= json_encode($csrfToken) ?>;
@@ -190,8 +196,51 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
         }
         el.innerHTML = html;
         if (state === 'running') { btn.disabled = true; }
-        else { btn.disabled = false; if (msPollTimer) { clearInterval(msPollTimer); msPollTimer = null; } }
+        else { btn.disabled = false; if (msPollTimer) { clearInterval(msPollTimer); msPollTimer = null; loadRuns(); } }
     }
+
+    // ── Runs history ──────────────────────────────────────────────────────────
+    function fmtTime(s) { if (!s) return '—'; const d = new Date(s); return isNaN(d) ? s : d.toLocaleString(); }
+    function renderRuns(data) {
+        const el = document.getElementById('ms-runs');
+        const runs = (data && data.runs) || [];
+        if (!runs.length) { el.innerHTML = '<p class="hint">No runs yet.</p>'; return; }
+        const stC = { running: '#2563eb', done: '#166534', failed: '#991b1b', stale: '#92400e' };
+        el.innerHTML = '<div style="overflow-x:auto;"><table style="width:100%;font-size:0.85rem;">' +
+            '<thead><tr><th>Started</th><th>State</th><th>Result</th><th>Cost</th><th></th></tr></thead><tbody>' +
+            runs.map(r => {
+                const c = stC[r.state] || '#334155';
+                const retry = r.failed > 0
+                    ? ' <button type="button" class="btn" style="padding:1px 8px;font-size:0.76rem;" onclick="msRetry(\'' + esc(r.run_id) + '\')">retry ' + r.failed + ' failed</button>'
+                    : '';
+                return '<tr>' +
+                    '<td>' + esc(fmtTime(r.started_at)) + '</td>' +
+                    '<td><span style="color:' + c + ';font-weight:700;">' + esc(r.state) + '</span></td>' +
+                    '<td>' + r.ok + '/' + r.total + ' ok' + (r.failed ? ' · ' + r.failed + ' failed' : '') + '</td>' +
+                    '<td>' + (r.cost ? '$' + Number(r.cost).toFixed(4) : '—') + '</td>' +
+                    '<td><a href="#" onclick="msView(\'' + esc(r.run_id) + '\');return false;">view</a>' + retry + '</td>' +
+                    '</tr>';
+            }).join('') + '</tbody></table></div>';
+    }
+    function loadRuns() { fetch('multisite_api.php?action=list_runs').then(r => r.json()).then(renderRuns).catch(() => {}); }
+
+    window.msView = function (id) {
+        pollRun(id);
+        document.getElementById('ms-run-progress').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    };
+    window.msRetry = function (id) {
+        if (!confirm('Re-run only the failed rows from this run?')) return;
+        const fd = new FormData(); fd.append('csrf_token', csrfToken); fd.append('run_id', id);
+        fetch('multisite_api.php?action=retry_failed', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(d => {
+                if (d.error) { alert(d.error); return; }
+                if (msPollTimer) clearInterval(msPollTimer);
+                msPollTimer = setInterval(() => pollRun(d.run_id), 2500);
+                pollRun(d.run_id);
+            })
+            .catch(() => {});
+    };
 
     function pollRun(runId) {
         const url = 'multisite_api.php?action=run_status' + (runId ? '&run_id=' + encodeURIComponent(runId) : '');
@@ -226,6 +275,7 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
     fetch('multisite_api.php?action=run_status').then(r => r.json()).then(d => {
         if (d && !d.none && d.state) { renderRun(d); if (d.state === 'running') { if (msPollTimer) clearInterval(msPollTimer); msPollTimer = setInterval(() => pollRun(d.run_id), 2500); } }
     }).catch(() => {});
+    loadRuns();   // runs history
 })();
 </script>
 </div>

@@ -72,6 +72,37 @@ function ms_read_run(string $file): ?array {
     return $d;
 }
 
+/** The currently-active (genuinely running) run for this master, or null. */
+function ms_active_run(string $runsDir): ?array {
+    $latest = ms_latest_run_file($runsDir);
+    if (!$latest) return null;
+    $cur = ms_read_run($latest);
+    return ($cur && ($cur['state'] ?? '') === 'running') ? $cur : null;
+}
+
+/** Launch run_campaign as a detached background process. Returns the run_id. */
+function ms_launch_campaign(string $masterId, string $runsDir, string $flags): string {
+    if (!is_dir($runsDir)) mkdir($runsDir, 0775, true);
+    $runId = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+    $out   = $runsDir . '/' . $runId . '.out';
+    $cmd = 'setsid ' . escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg(BASE_DIR . '/multisite/run_campaign.php')
+         . ' ' . escapeshellarg($masterId) . ' --run-id=' . escapeshellarg($runId) . ' --no-preflight' . $flags
+         . ' > ' . escapeshellarg($out) . ' 2>&1 &';
+    exec($cmd);
+    return $runId;
+}
+
+/** Build run_campaign flags from a set of options. */
+function ms_run_flags(array $o): string {
+    $flags = ' --jobs=' . max(1, min(16, (int)($o['jobs'] ?? 1)));
+    $rtr = max(0, min(5, (int)($o['retries'] ?? 0))); if ($rtr > 0) $flags .= ' --retries=' . $rtr;
+    $lim = max(0, (int)($o['limit'] ?? 0));            if ($lim > 0) $flags .= ' --limit=' . $lim;
+    if (!empty($o['no_ai'])) $flags .= ' --no-ai';
+    if (!empty($o['force'])) $flags .= ' --force';
+    if (!empty($o['only']))  $flags .= ' --only=' . escapeshellarg(implode(',', (array)$o['only']));
+    return $flags;
+}
+
 switch ($action) {
 
     // Current stored params.csv state (tab load).
@@ -110,32 +141,12 @@ switch ($action) {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         if (!is_file($paramsPath)) { echo json_encode(['error' => 'No params.csv stored — upload it first.']); break; }
         $runsDir = ACTIVE_SITE_DIR . '/multisite/runs';
-        if (!is_dir($runsDir)) mkdir($runsDir, 0775, true);
-
-        // Refuse if a run is already active for this master.
-        $latest = ms_latest_run_file($runsDir);
-        if ($latest) {
-            $cur = ms_read_run($latest);
-            if ($cur && ($cur['state'] ?? '') === 'running') {
-                echo json_encode(['error' => 'A campaign is already running.', 'run_id' => $cur['run_id'] ?? null]);
-                break;
-            }
-        }
-
-        $runId = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
-        $flags = ' --no-preflight';   // pre-flight is its own button
-        $jobs  = max(1, min(16, (int)($_POST['jobs'] ?? 1)));   $flags .= ' --jobs=' . $jobs;
-        $rtr   = max(0, min(5,  (int)($_POST['retries'] ?? 0)));if ($rtr > 0) $flags .= ' --retries=' . $rtr;
-        $lim   = max(0, (int)($_POST['limit'] ?? 0));           if ($lim > 0) $flags .= ' --limit=' . $lim;
-        if (!empty($_POST['no_ai'])) $flags .= ' --no-ai';
-        if (!empty($_POST['force'])) $flags .= ' --force';
-
-        $out = $runsDir . '/' . $runId . '.out';
-        $cmd = 'setsid ' . escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg(BASE_DIR . '/multisite/run_campaign.php')
-             . ' ' . escapeshellarg($masterId) . ' --run-id=' . escapeshellarg($runId) . $flags
-             . ' > ' . escapeshellarg($out) . ' 2>&1 &';
-        exec($cmd);
-        echo json_encode(['started' => true, 'run_id' => $runId]);
+        if ($active = ms_active_run($runsDir)) { echo json_encode(['error' => 'A campaign is already running.', 'run_id' => $active['run_id'] ?? null]); break; }
+        $flags = ms_run_flags([
+            'jobs' => $_POST['jobs'] ?? 1, 'retries' => $_POST['retries'] ?? 0, 'limit' => $_POST['limit'] ?? 0,
+            'no_ai' => !empty($_POST['no_ai']), 'force' => !empty($_POST['force']),
+        ]);
+        echo json_encode(['started' => true, 'run_id' => ms_launch_campaign($masterId, $runsDir, $flags)]);
         break;
 
     // Poll the latest run (or a specific run_id) for live progress.
@@ -147,6 +158,43 @@ switch ($action) {
             : ms_latest_run_file($runsDir);
         $d = $file ? ms_read_run($file) : null;
         echo json_encode($d ?: ['none' => true]);
+        break;
+
+    // List recent runs (history).
+    case 'list_runs':
+        $runsDir = ACTIVE_SITE_DIR . '/multisite/runs';
+        $files = glob($runsDir . '/*.json') ?: [];
+        usort($files, fn($a, $b) => filemtime($b) <=> filemtime($a));
+        $runs = [];
+        foreach (array_slice($files, 0, 30) as $f) {
+            $d = ms_read_run($f);
+            if (!$d) continue;
+            $runs[] = [
+                'run_id'      => $d['run_id'] ?? basename($f, '.json'),
+                'state'       => $d['state'] ?? '?',
+                'started_at'  => $d['started_at'] ?? null,
+                'finished_at' => $d['finished_at'] ?? null,
+                'total'       => $d['total'] ?? 0, 'ok' => $d['ok'] ?? 0, 'failed' => $d['failed'] ?? 0,
+                'cost'        => $d['totals']['cost_usd'] ?? 0,
+            ];
+        }
+        echo json_encode(['runs' => $runs]);
+        break;
+
+    // Re-run only the failed rows of a past run (carrying its options forward).
+    case 'retry_failed':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        $runsDir = ACTIVE_SITE_DIR . '/multisite/runs';
+        $rid = $_POST['run_id'] ?? '';
+        if ($rid === '' || !preg_match('/^[A-Za-z0-9._-]{1,64}$/', $rid)) { echo json_encode(['error' => 'Invalid run id.']); break; }
+        $d = ms_read_run($runsDir . '/' . $rid . '.json');
+        if (!$d) { echo json_encode(['error' => 'Run not found.']); break; }
+        $failed = array_values(array_unique(array_map(fn($r) => $r['domain'], array_filter($d['results'] ?? [], fn($r) => ($r['status'] ?? '') === 'failed'))));
+        if (!$failed) { echo json_encode(['error' => 'No failed rows to retry.']); break; }
+        if ($active = ms_active_run($runsDir)) { echo json_encode(['error' => 'A campaign is already running.', 'run_id' => $active['run_id'] ?? null]); break; }
+        $o = $d['options'] ?? [];
+        $o['only'] = $failed;   // scope the new run to just the failed domains
+        echo json_encode(['started' => true, 'run_id' => ms_launch_campaign($masterId, $runsDir, ms_run_flags($o)), 'retrying' => count($failed)]);
         break;
 
     default:

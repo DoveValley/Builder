@@ -60,7 +60,7 @@ $v = ms_validate_rows($parsed['rows'], $parsed['header']);
 $rows = [];
 foreach ($v['rows'] as $r) {
     if ($r['errors']) { echo "SKIP (invalid) line {$r['line']} {$r['domain']}: " . implode('; ', $r['errors']) . "\n"; continue; }
-    if ($only !== '' && strtolower($r['domain']) !== strtolower($only)) continue;
+    if ($only !== '' && !in_array(strtolower($r['domain']), array_map('trim', array_map('strtolower', explode(',', $only))), true)) continue;
     $rows[] = $r['data'];
 }
 if ($limit > 0) $rows = array_slice($rows, 0, $limit);
