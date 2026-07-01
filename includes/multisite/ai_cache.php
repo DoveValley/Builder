@@ -77,6 +77,36 @@ function ms_ai_walk_site(array &$site, callable $fn): void {
 }
 
 /**
+ * Landing pages (data/pages/*.json) are generated per-city from templates, so their
+ * AI blocks have NO stable `id` and the SAME template block recurs across many city
+ * pages. Key them by page-file + ai_type_id + per-page occurrence instead — unique
+ * per (template, city, block), so a rebuild reuses the same city's cached copy while
+ * different cities keep distinct entries. Namespaced with "page:" so it can't collide
+ * with the home/core `id` keys sharing the cache's `fields` map.
+ */
+function ms_ai_page_key(string $pageBase, string $aiTypeId, int $occ): string {
+    return 'page:' . $pageBase . '::' . $aiTypeId . '#' . $occ;
+}
+
+/** Walk one landing page's AI blocks, passing each block plus its per-type occurrence index. */
+function ms_ai_walk_page_blocks(array &$page, callable $fn): void {
+    if (!isset($page['content_blocks']) || !is_array($page['content_blocks'])) return;
+    $occ = [];
+    foreach ($page['content_blocks'] as &$b) {
+        if (!is_array($b) || !ms_ai_is_ai_block($b)) continue;
+        $tid = $b['ai_type_id'] ?? '';
+        $i = $occ[$tid] ?? 0; $occ[$tid] = $i + 1;
+        $fn($b, $i);
+    }
+    unset($b);
+}
+
+/** All landing page JSON files in the working dir (empty if none). */
+function ms_ai_pages_files(string $workingDir): array {
+    return glob($workingDir . '/data/pages/*.json') ?: [];
+}
+
+/**
  * Re-inject cached copy into the working site BEFORE generate.py.
  * Cache-hits (id present + prompt_hash matches) are filled and _ai_locked so
  * generate.py skips them. Misses / stale entries are left for generate.py to fill.
@@ -107,6 +137,28 @@ function ms_ai_inject_from_cache(string $workingDir, string $cacheFile, array $r
         file_put_contents($tmp, json_encode($site, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
         rename($tmp, $siteFile);
     }
+
+    // Landing pages: same read-through logic, keyed per city-page (see ms_ai_page_key).
+    foreach (ms_ai_pages_files($workingDir) as $pf) {
+        $page = json_decode(file_get_contents($pf), true);
+        if (!is_array($page)) continue;
+        $base = basename($pf, '.json');
+        $pageHits = 0;
+        ms_ai_walk_page_blocks($page, function (array &$b, int $occ) use ($entries, $registry, $base, &$hits, &$stale, &$misses, &$pageHits) {
+            $key = ms_ai_page_key($base, $b['ai_type_id'] ?? '', $occ);
+            if (!isset($entries[$key])) { $misses++; return; }
+            if (($entries[$key]['prompt_hash'] ?? '') !== ms_ai_prompt_hash($b, $registry)) { $stale++; return; }
+            foreach (($entries[$key]['value'] ?? []) as $k => $v) $b[$k] = $v;
+            $b['_ai_locked'] = true;   // generate.py will skip it
+            $hits++; $pageHits++;
+        });
+        if ($pageHits > 0) {
+            $tmp = $pf . '.tmp.' . getmypid();
+            file_put_contents($tmp, json_encode($page, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+            rename($tmp, $pf);
+        }
+    }
+
     return ['hits' => $hits, 'stale' => $stale, 'misses' => $misses];
 }
 
@@ -140,6 +192,23 @@ function ms_ai_extract_to_cache(string $workingDir, string $cacheFile, array $re
             'value'       => ms_ai_cached_value($b, $registry),
         ];
     });
+
+    // Landing pages: cache each filled block under its per-city composite key. No stable
+    // `id` needed here — the page-file + ai_type_id + occurrence is the key.
+    foreach (ms_ai_pages_files($workingDir) as $pf) {
+        $page = json_decode(file_get_contents($pf), true);
+        if (!is_array($page)) continue;
+        $base = basename($pf, '.json');
+        ms_ai_walk_page_blocks($page, function (array &$b, int $occ) use (&$fields, $registry, $base) {
+            if (empty($b['_ai_generated'])) return;   // only genuinely generated blocks
+            $key = ms_ai_page_key($base, $b['ai_type_id'] ?? '', $occ);
+            $fields[$key] = [
+                'ai_type_id'  => $b['ai_type_id'] ?? '',
+                'prompt_hash' => ms_ai_prompt_hash($b, $registry),
+                'value'       => ms_ai_cached_value($b, $registry),
+            ];
+        });
+    }
 
     $out = [
         'generated_at' => gmdate('c'),
