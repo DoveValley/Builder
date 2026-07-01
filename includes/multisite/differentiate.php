@@ -20,11 +20,65 @@
  * (business, website, tel, phone, email) — the "from" side of the rewrite.
  */
 
-/** Recursively replace substrings in every string value. strtr does longest-key-first. */
-function ms_deep_replace($val, array $pairs) {
-    if (is_array($val)) { foreach ($val as $k => $v) $val[$k] = ms_deep_replace($v, $pairs); return $val; }
-    if (is_string($val) && $val !== '') return strtr($val, $pairs);
+/**
+ * Recursively rewrite master identity → this site's in every string value.
+ *
+ * Each $rule is [regex, replacement]. Unlike a raw strtr (which mangles any value that
+ * merely CONTAINS an identity substring — a phone inside a longer number, a business
+ * name inside a word), these patterns are boundary-anchored per identity type:
+ *   - phone/tel: not flanked by digits           (?<!\d)…(?!\d)
+ *   - business:  word boundaries, case-insensitive
+ *   - url/email: not flanked by domain/email chars
+ * The replacement is applied literally (callback) so a `$`/`\` in a business name or
+ * domain can't be mis-read as a regex backreference.
+ */
+function ms_deep_replace($val, array $rules) {
+    if (is_array($val)) { foreach ($val as $k => $v) $val[$k] = ms_deep_replace($v, $rules); return $val; }
+    if (is_string($val) && $val !== '') {
+        foreach ($rules as [$pat, $rep]) {
+            $val = preg_replace_callback($pat, static fn() => $rep, $val);
+        }
+    }
     return $val;
+}
+
+/** Build boundary-anchored [regex, replacement] rules for the master→site identity rewrite. */
+function ms_build_identity_rules(array $masterIdentity, array $params, string $website, string $domain): array {
+    $rules = [];
+    $q = static fn(string $s): string => preg_quote($s, '/');
+
+    // URL (with scheme) before bare domain so the longer match wins.
+    $mWebsite = rtrim($masterIdentity['website'] ?? '', '/');
+    if ($mWebsite !== '' && $website !== '') {
+        $rules[] = ['/(?<![\w.\-])' . $q($mWebsite) . '(?![\w\-])/i', $website];
+        $mDomain = preg_replace('#^https?://#i', '', $mWebsite);
+        if ($mDomain !== '' && $domain !== '') {
+            // Left: exclude word chars/@/- so we never rewrite a longer label ("notkaty.com")
+            // or an email host, but ALLOW a leading '.' so real subdomains still rewrite.
+            $rules[] = ['/(?<![\w@\-])' . $q($mDomain) . '(?![\w\-])/i', $domain];
+        }
+    }
+    // Email — flanked by non-email characters.
+    $mEmail = $masterIdentity['email'] ?? ''; $toEmail = $params['email'] ?? '';
+    if ($mEmail !== '' && $toEmail !== '' && $mEmail !== $toEmail) {
+        $rules[] = ['/(?<![\w.+\-])' . $q($mEmail) . '(?![\w.+\-])/i', $toEmail];
+    }
+    // tel (E.164) then display phone — not part of a longer number.
+    $mTel = $masterIdentity['tel'] ?? ''; $toTel = $params['tel'] ?? '';
+    if ($mTel !== '' && $toTel !== '' && $mTel !== $toTel) {
+        $rules[] = ['/(?<![\d+])' . $q($mTel) . '(?!\d)/', $toTel];
+    }
+    $mPhone = $masterIdentity['phone'] ?? ''; $toPhone = $params['phone'] ?? '';
+    if ($mPhone !== '' && $toPhone !== '' && $mPhone !== $toPhone) {
+        $rules[] = ['/(?<!\d)' . $q($mPhone) . '(?!\d)/', $toPhone];
+    }
+    // Business name — word-boundary, case-insensitive (one rule covers UPPER/lower/Title
+    // mentions); replaced with the canonical new name.
+    $mBiz = $masterIdentity['business'] ?? ''; $toBiz = $params['business'] ?? '';
+    if ($mBiz !== '' && $toBiz !== '' && $mBiz !== $toBiz) {
+        $rules[] = ['/(?<![\w])' . $q($mBiz) . '(?![\w])/iu', $toBiz];
+    }
+    return $rules;
 }
 
 /** Recursively remove a key wherever it appears. */
@@ -62,27 +116,11 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
     $domain  = preg_replace('#^https?://#i', '', rtrim($params['domain'] ?? '', '/'));
     $website = $domain !== '' ? 'https://' . $domain : '';
 
-    // ── 1. Rewrite master identity → this site's, everywhere ──────────────────
-    $pairs = [];
-    $mWebsite = rtrim($masterIdentity['website'] ?? '', '/');
-    if ($mWebsite !== '' && $website !== '') {
-        $pairs[$mWebsite] = $website;                                   // https://master → https://site
-        $mDomain = preg_replace('#^https?://#i', '', $mWebsite);
-        if ($mDomain !== '') $pairs[$mDomain] = $domain;               // bare master domain → bare site domain
-    }
-    foreach ([['business','business'], ['tel','tel'], ['phone','phone'], ['email','email']] as [$mk, $pk]) {
-        $from = $masterIdentity[$mk] ?? ''; $to = $params[$pk] ?? '';
-        if ($from !== '' && $to !== '' && $from !== $to) $pairs[$from] = $to;
-    }
-    // Case variants of the business name catch UPPERCASE labels / lowercased mentions.
+    // ── 1. Rewrite master identity → this site's, everywhere (boundary-anchored) ─
     // (Distinct brand *phrasings* — e.g. "Granite PM Training" — and the logo file are
     //  master-authoring / Tier-3 concerns, not identity-string rewrites.)
-    $mBiz = $masterIdentity['business'] ?? ''; $toBiz = $params['business'] ?? '';
-    if ($mBiz !== '' && $toBiz !== '' && $mBiz !== $toBiz) {
-        $pairs[mb_strtoupper($mBiz)] = mb_strtoupper($toBiz);
-        $pairs[mb_strtolower($mBiz)] = mb_strtolower($toBiz);
-    }
-    if ($pairs) $data = ms_deep_replace($data, $pairs);
+    $rules = ms_build_identity_rules($masterIdentity, $params, $website, $domain);
+    if ($rules) $data = ms_deep_replace($data, $rules);
 
     // ── 2. Strip fabricated aggregateRating from all rendered schema (seo.schema) ─
     $stripSchema = function (array &$seo) {
