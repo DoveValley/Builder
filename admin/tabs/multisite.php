@@ -31,6 +31,10 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
 <!-- ===== RESULTS CARD ===== -->
 <div class="card" id="ms-results-card" style="display:none;">
     <h3 style="margin-top:0;">Validation</h3>
+    <div style="margin-bottom:12px;">
+        <button type="button" class="btn" id="ms-pf-btn" onclick="msPreflight()">Pre-flight FTP</button>
+        <span id="ms-pf-msg" class="hint" style="margin-left:10px;"></span>
+    </div>
     <div id="ms-summary" style="margin-bottom:12px;"></div>
     <div id="ms-unknown" class="hint" style="margin-bottom:12px;"></div>
     <div style="overflow-x:auto;">
@@ -45,9 +49,25 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
     </div>
 </div>
 
+<!-- ===== RUN CARD ===== -->
+<div class="card" id="ms-run-card">
+    <h3 style="margin-top:0;">2. Run campaign</h3>
+    <p class="hint">Builds and deploys every valid row (up to <em>concurrency</em> at a time). Start with a small <em>limit</em> and review before a full run. AI generation costs roughly $0.02–0.05 per site (free on rebuilds); tick <strong>No AI</strong> for identity + build + deploy only.</p>
+    <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end;">
+        <label class="hint">Concurrency<br><input type="number" id="ms-jobs" value="2" min="1" max="16" style="width:70px;"></label>
+        <label class="hint">Limit (0 = all)<br><input type="number" id="ms-limit" value="0" min="0" style="width:90px;"></label>
+        <label class="hint">Retries<br><input type="number" id="ms-retries" value="1" min="0" max="5" style="width:60px;"></label>
+        <label class="hint"><input type="checkbox" id="ms-noai"> No AI (faster)</label>
+        <label class="hint"><input type="checkbox" id="ms-force"> Force (refresh AI + full re-upload)</label>
+        <button type="button" class="btn btn-primary" id="ms-run-btn" onclick="msRun()">Run Campaign</button>
+    </div>
+    <div id="ms-run-progress" style="margin-top:16px;"></div>
+</div>
+
 <script>
 (function () {
     const csrfToken = <?= json_encode($csrfToken) ?>;
+    let msPollTimer = null;
 
     function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 
@@ -84,13 +104,13 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
         tb.innerHTML = (data.rows || []).map(r => {
             const issues = (r.errors || []).map(e => '<div style="color:#991b1b;">✗ ' + esc(e) + '</div>').join('')
                          + (r.warnings || []).map(w => '<div style="color:#92400e;">· ' + esc(w) + '</div>').join('');
-            return '<tr>' +
+            return '<tr data-domain="' + esc(r.domain) + '">' +
                 '<td>' + esc(r.line) + '</td>' +
                 '<td>' + badge(r.status) + '</td>' +
                 '<td>' + esc(r.domain) + '</td>' +
                 '<td>' + esc(r.business) + '</td>' +
                 '<td>' + esc(r.city) + '</td>' +
-                '<td>' + (r.has_ftp ? '✓' : '—') + '</td>' +
+                '<td class="ms-ftp-cell">' + (r.has_ftp ? '✓' : '—') + '</td>' +
                 '<td>' + (issues || '<span class="hint">—</span>') + '</td>' +
                 '</tr>';
         }).join('');
@@ -113,8 +133,99 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
         return false;
     };
 
+    window.msPreflight = function () {
+        const btn = document.getElementById('ms-pf-btn');
+        const msg = document.getElementById('ms-pf-msg');
+        // reset FTP cells that have creds to a pending dot
+        document.querySelectorAll('#ms-table tbody tr').forEach(tr => {
+            const cell = tr.querySelector('.ms-ftp-cell');
+            if (cell && cell.textContent.trim() === '✓') cell.innerHTML = '<span style="color:#94a3b8;">…</span>';
+        });
+        btn.disabled = true; msg.textContent = 'Connecting…';
+        const es = new EventSource('multisite_preflight.php?token=' + encodeURIComponent(csrfToken));
+        es.onmessage = function (e) {
+            const d = JSON.parse(e.data);
+            if (d.type === 'row') {
+                const tr = document.querySelector('#ms-table tbody tr[data-domain="' + d.domain.replace(/"/g, '\\"') + '"]');
+                if (tr) {
+                    const cell = tr.querySelector('.ms-ftp-cell');
+                    if (cell) cell.innerHTML = d.ok
+                        ? '<span style="color:#166534;" title="reachable">✓</span>'
+                        : '<span style="color:#991b1b;" title="' + esc(d.msg) + '">✗</span>';
+                }
+                msg.textContent = 'Checking… ' + d.done + '/' + d.total;
+            } else if (d.type === 'done') {
+                es.close(); btn.disabled = false;
+                msg.textContent = d.total === 0 ? 'No rows with FTP credentials.' : ('FTP: ' + d.ok + ' ok, ' + d.fail + ' failed of ' + d.total);
+            } else if (d.type === 'fatal') {
+                es.close(); btn.disabled = false; msg.textContent = d.msg;
+            }
+        };
+        es.onerror = function () { es.close(); btn.disabled = false; if (!msg.textContent.startsWith('FTP:')) msg.textContent = 'Pre-flight interrupted.'; };
+    };
+
+    // ── Run campaign (detached background + polling) ──────────────────────────
+    function renderRun(d) {
+        const el = document.getElementById('ms-run-progress');
+        const btn = document.getElementById('ms-run-btn');
+        if (!d || d.none || !d.state) { el.innerHTML = ''; btn.disabled = false; return; }
+        const state = d.state;
+        const color = { running: '#2563eb', done: '#166534', failed: '#991b1b', stale: '#92400e' }[state] || '#334155';
+        const t = d.totals || {};
+        const pct = d.total ? Math.round((d.done / d.total) * 100) : 0;
+        let html = '<div><strong style="color:' + color + ';">' + state.toUpperCase() + '</strong> — ' +
+            (d.done || 0) + '/' + (d.total || 0) + ' done · ' + (d.ok || 0) + ' ok · ' + (d.failed || 0) + ' failed' +
+            (t.files_uploaded ? ' · ' + t.files_uploaded + ' files' : '') +
+            (t.cost_usd ? ' · $' + Number(t.cost_usd).toFixed(4) : '') + '</div>' +
+            '<div style="height:8px;background:#e2e8f0;border-radius:4px;margin:8px 0 12px;overflow:hidden;"><div style="height:100%;width:' + pct + '%;background:' + color + ';transition:width .3s;"></div></div>';
+        if (d.results && d.results.length) {
+            html += '<div style="max-height:240px;overflow:auto;font-size:0.85rem;line-height:1.7;">' +
+                d.results.slice().reverse().map(r => {
+                    const mk = r.status === 'ok' ? '<span style="color:#166534;">✓</span>' : '<span style="color:#991b1b;">✗</span>';
+                    return '<div>' + mk + ' ' + esc(r.domain) + ' — ' + esc(r.status) +
+                        (r.uploaded != null ? ' (' + r.uploaded + ' up)' : '') +
+                        (r.cost > 0 ? ' $' + Number(r.cost).toFixed(4) : '') +
+                        (r.last ? ' — ' + esc(r.last) : '') + '</div>';
+                }).join('') + '</div>';
+        }
+        el.innerHTML = html;
+        if (state === 'running') { btn.disabled = true; }
+        else { btn.disabled = false; if (msPollTimer) { clearInterval(msPollTimer); msPollTimer = null; } }
+    }
+
+    function pollRun(runId) {
+        const url = 'multisite_api.php?action=run_status' + (runId ? '&run_id=' + encodeURIComponent(runId) : '');
+        fetch(url).then(r => r.json()).then(renderRun).catch(() => {});
+    }
+
+    window.msRun = function () {
+        const btn = document.getElementById('ms-run-btn');
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        fd.append('jobs', document.getElementById('ms-jobs').value);
+        fd.append('limit', document.getElementById('ms-limit').value);
+        fd.append('retries', document.getElementById('ms-retries').value);
+        if (document.getElementById('ms-noai').checked) fd.append('no_ai', '1');
+        if (document.getElementById('ms-force').checked) fd.append('force', '1');
+        btn.disabled = true;
+        document.getElementById('ms-run-progress').innerHTML = '<span class="hint">Starting…</span>';
+        fetch('multisite_api.php?action=run', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(d => {
+                if (d.error) { btn.disabled = false; document.getElementById('ms-run-progress').innerHTML = '<span style="color:#991b1b;">' + esc(d.error) + '</span>'; return; }
+                if (msPollTimer) clearInterval(msPollTimer);
+                msPollTimer = setInterval(() => pollRun(d.run_id), 2500);
+                pollRun(d.run_id);
+            })
+            .catch(() => { btn.disabled = false; });
+    };
+
     // Load current stored state on tab render.
     fetch('multisite_api.php?action=status').then(r => r.json()).then(d => { if (d && d.stored && d.rows) render(d); }).catch(() => {});
+    // Resume any latest/in-progress run.
+    fetch('multisite_api.php?action=run_status').then(r => r.json()).then(d => {
+        if (d && !d.none && d.state) { renderRun(d); if (d.state === 'running') { if (msPollTimer) clearInterval(msPollTimer); msPollTimer = setInterval(() => pollRun(d.run_id), 2500); } }
+    }).catch(() => {});
 })();
 </script>
 </div>

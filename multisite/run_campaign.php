@@ -33,12 +33,13 @@ $noAi      = in_array('--no-ai', $args, true);
 $force     = in_array('--force', $args, true);
 $noPre     = in_array('--no-preflight', $args, true);
 $verbose   = in_array('--verbose', $args, true);
-$only = ''; $limit = 0; $retries = 0; $jobs = 1;
+$only = ''; $limit = 0; $retries = 0; $jobs = 1; $runIdArg = '';
 foreach ($args as $a) {
     if (str_starts_with($a, '--only='))    $only    = substr($a, 7);
     if (str_starts_with($a, '--limit='))   $limit   = (int)substr($a, 8);
     if (str_starts_with($a, '--retries=')) $retries = max(0, (int)substr($a, 10));
     if (str_starts_with($a, '--jobs='))    $jobs    = max(1, (int)substr($a, 7));
+    if (str_starts_with($a, '--run-id='))  $runIdArg = substr($a, 9);
 }
 $pos = array_values(array_filter($args, fn($a) => !str_starts_with($a, '--')));
 $masterId = $pos[0] ?? '';
@@ -86,7 +87,8 @@ try { snapshot_master($masterId, $snapshotDir); }
 catch (Throwable $e) { fwrite(STDERR, 'Snapshot failed: ' . $e->getMessage() . "\n"); exit(1); }
 
 // ── Process each row via build_one.php ───────────────────────────────────────
-$runId = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+$runId = ($runIdArg !== '' && preg_match('/^[A-Za-z0-9._-]{1,64}$/', $runIdArg))
+    ? $runIdArg : gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
 
 // Parse one JSON-line of build_one output into a metrics accumulator (mutating).
 function ms_parse_line(string $line, array &$m, bool $verbose): void {
@@ -109,7 +111,7 @@ function ms_parse_line(string $line, array &$m, bool $verbose): void {
  * Each job: ['domain'=>, 'cmd'=>, 'attempts'=>0]. Failed jobs are re-queued up to
  * $retries times. Returns per-row result rows.
  */
-function ms_run_pool(array $queue, int $concurrency, int $retries, bool $verbose): array {
+function ms_run_pool(array $queue, int $concurrency, int $retries, bool $verbose, ?callable $onProgress = null): array {
     $fresh   = fn() => ['status' => 'unknown', 'uploaded' => null, 'tokens_in' => 0, 'tokens_out' => 0, 'cost' => 0.0, 'last' => ''];
     $total   = count($queue);
     $running = []; $results = []; $done = 0;
@@ -175,6 +177,7 @@ function ms_run_pool(array $queue, int $concurrency, int $retries, bool $verbose
                     'uploaded' => $m['uploaded'], 'tokens_in' => $m['tokens_in'], 'tokens_out' => $m['tokens_out'],
                     'cost' => $m['cost'], 'duration_ms' => $dur, 'last' => $m['last'],
                 ];
+                if ($onProgress) $onProgress($results, $total);   // live status after each completed row
             }
             unset($running[$k]);
         }
@@ -198,11 +201,51 @@ foreach ($rows as $r) {
     $jobList[] = ['domain' => $domain, 'cmd' => $cmd, 'attempts' => 0];
 }
 
+$runsDir = $msDir . '/runs';
+if (!is_dir($runsDir)) mkdir($runsDir, 0775, true);
+$statusFile  = $runsDir . '/' . $runId . '.json';
+$startedAt   = gmdate('c');
+
+// Write the run status file (state = running | done | failed). Written incrementally
+// so the admin UI can poll it while a detached run is in progress.
+$writeStatus = function (string $state, array $results) use ($statusFile, $runId, $masterId, $noAi, $force, $only, $limit, $retries, $jobs, $n, $startedAt) {
+    $ok  = count(array_filter($results, fn($r) => $r['status'] === 'ok'));
+    $done = count($results);
+    $payload = [
+        'run_id'      => $runId,
+        'master_id'   => $masterId,
+        'state'       => $state,
+        'pid'         => getmypid(),
+        'started_at'  => $startedAt,
+        'finished_at' => $state === 'running' ? null : gmdate('c'),
+        'options'     => ['no_ai' => $noAi, 'force' => $force, 'only' => $only, 'limit' => $limit, 'retries' => $retries, 'jobs' => $jobs],
+        'total'       => $n,
+        'done'        => $done,
+        'ok'          => $ok,
+        'failed'      => $done - $ok,
+        'totals'      => [
+            'files_uploaded' => array_sum(array_map(fn($r) => (int)($r['uploaded'] ?? 0), $results)),
+            'tokens_in'      => array_sum(array_column($results, 'tokens_in')),
+            'tokens_out'     => array_sum(array_column($results, 'tokens_out')),
+            'cost_usd'       => round(array_sum(array_column($results, 'cost')), 4),
+        ],
+        'results'     => $results,
+    ];
+    $tmp = $statusFile . '.tmp.' . getmypid();
+    if (file_put_contents($tmp, json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)) !== false) {
+        rename($tmp, $statusFile);   // atomic — pollers never see a half-written file
+    }
+};
+
+$writeStatus('running', []);   // initial marker so the UI sees the run immediately
+
 echo ($jobs > 1 ? "Running {$jobs} at a time…\n" : "Running sequentially…\n");
-$results = ms_run_pool($jobList, $jobs, $retries, $verbose);
+$results = ms_run_pool($jobList, $jobs, $retries, $verbose, function ($partial, $total) use ($writeStatus) {
+    $writeStatus('running', $partial);
+});
 foreach ($rowFiles as $rf) @unlink($rf);
 
-// ── Teardown + run log ───────────────────────────────────────────────────────
+// ── Teardown + final status ───────────────────────────────────────────────────
 ms_delete_dir($snapshotDir);
 
 $ok        = count(array_filter($results, fn($r) => $r['status'] === 'ok'));
@@ -212,22 +255,7 @@ $totalIn   = array_sum(array_column($results, 'tokens_in'));
 $totalOut  = array_sum(array_column($results, 'tokens_out'));
 $uploaded  = array_sum(array_map(fn($r) => (int)($r['uploaded'] ?? 0), $results));
 
-$runsDir = $msDir . '/runs';
-if (!is_dir($runsDir)) mkdir($runsDir, 0775, true);
-file_put_contents($runsDir . '/' . $runId . '.json', json_encode([
-    'run_id'      => $runId,
-    'master_id'   => $masterId,
-    'finished_at' => gmdate('c'),
-    'options'     => ['no_ai' => $noAi, 'force' => $force, 'only' => $only, 'limit' => $limit, 'retries' => $retries, 'jobs' => $jobs],
-    'total'       => $n, 'ok' => $ok, 'failed' => $fail,
-    'totals'      => [
-        'files_uploaded' => $uploaded,
-        'tokens_in'      => $totalIn,
-        'tokens_out'     => $totalOut,
-        'cost_usd'       => round($totalCost, 4),
-    ],
-    'results'     => $results,
-], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+$writeStatus($fail > 0 ? 'failed' : 'done', $results);
 
 echo "\n" . str_repeat('═', 54) . "\n";
 echo "Campaign done — {$ok}/{$n} ok" . ($fail ? ", {$fail} failed" : '') . ".\n";

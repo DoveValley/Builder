@@ -48,6 +48,30 @@ function ms_validation_payload(array $v): array {
     ];
 }
 
+/** True if a process id is alive (Linux /proc, or posix). */
+function ms_pid_alive(int $pid): bool {
+    if ($pid <= 0) return false;
+    if (function_exists('posix_kill')) return @posix_kill($pid, 0);
+    return file_exists('/proc/' . $pid);
+}
+
+/** The newest run status file for this master, or ''. */
+function ms_latest_run_file(string $runsDir): string {
+    $files = glob($runsDir . '/*.json') ?: [];
+    if (!$files) return '';
+    usort($files, fn($a, $b) => filemtime($b) <=> filemtime($a));
+    return $files[0];
+}
+
+/** Read a run status file and mark a dead 'running' run as 'stale'. */
+function ms_read_run(string $file): ?array {
+    if (!is_file($file)) return null;
+    $d = json_decode(file_get_contents($file), true);
+    if (!is_array($d)) return null;
+    if (($d['state'] ?? '') === 'running' && !ms_pid_alive((int)($d['pid'] ?? 0))) $d['state'] = 'stale';
+    return $d;
+}
+
 switch ($action) {
 
     // Current stored params.csv state (tab load).
@@ -79,6 +103,50 @@ switch ($action) {
             $stored = true;
         }
         echo json_encode(['stored' => $stored, 'filename' => basename($_FILES['csv']['name'] ?? 'upload.csv')] + ms_validation_payload($v));
+        break;
+
+    // Launch a campaign as a detached background process.
+    case 'run':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        if (!is_file($paramsPath)) { echo json_encode(['error' => 'No params.csv stored — upload it first.']); break; }
+        $runsDir = ACTIVE_SITE_DIR . '/multisite/runs';
+        if (!is_dir($runsDir)) mkdir($runsDir, 0775, true);
+
+        // Refuse if a run is already active for this master.
+        $latest = ms_latest_run_file($runsDir);
+        if ($latest) {
+            $cur = ms_read_run($latest);
+            if ($cur && ($cur['state'] ?? '') === 'running') {
+                echo json_encode(['error' => 'A campaign is already running.', 'run_id' => $cur['run_id'] ?? null]);
+                break;
+            }
+        }
+
+        $runId = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+        $flags = ' --no-preflight';   // pre-flight is its own button
+        $jobs  = max(1, min(16, (int)($_POST['jobs'] ?? 1)));   $flags .= ' --jobs=' . $jobs;
+        $rtr   = max(0, min(5,  (int)($_POST['retries'] ?? 0)));if ($rtr > 0) $flags .= ' --retries=' . $rtr;
+        $lim   = max(0, (int)($_POST['limit'] ?? 0));           if ($lim > 0) $flags .= ' --limit=' . $lim;
+        if (!empty($_POST['no_ai'])) $flags .= ' --no-ai';
+        if (!empty($_POST['force'])) $flags .= ' --force';
+
+        $out = $runsDir . '/' . $runId . '.out';
+        $cmd = 'setsid ' . escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg(BASE_DIR . '/multisite/run_campaign.php')
+             . ' ' . escapeshellarg($masterId) . ' --run-id=' . escapeshellarg($runId) . $flags
+             . ' > ' . escapeshellarg($out) . ' 2>&1 &';
+        exec($cmd);
+        echo json_encode(['started' => true, 'run_id' => $runId]);
+        break;
+
+    // Poll the latest run (or a specific run_id) for live progress.
+    case 'run_status':
+        $runsDir = ACTIVE_SITE_DIR . '/multisite/runs';
+        $rid = $_GET['run_id'] ?? '';
+        $file = ($rid !== '' && preg_match('/^[A-Za-z0-9._-]{1,64}$/', $rid))
+            ? $runsDir . '/' . $rid . '.json'
+            : ms_latest_run_file($runsDir);
+        $d = $file ? ms_read_run($file) : null;
+        echo json_encode($d ?: ['none' => true]);
         break;
 
     default:
