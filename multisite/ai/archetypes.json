@@ -9,83 +9,83 @@
     "description": "Standalone SEO intro (H2 + 2 paragraphs, 160-190 words) about the service in the target city.",
     "ai_mode": "standalone",
     "ai_render_as": "text",
-    "ai_model": "claude-sonnet-4-6",
+    "ai_model": "claude-haiku-4-5-20251001",
     "ai_inject_target": null,
     "ai_inject_field": null,
     "ai_inject_mode": null,
     "ai_output_schema": { "heading_text": "string", "text": "html_string" },
     "default_fields": { "skin": "light", "heading_level": "h2" },
     "requires_research": false,
-    "prompt_skeleton": "You are writing SEO content for {business}, [[brief.business_descriptor]] serving {city}, {state}.\n\nTarget keyword: \"[[brief.service_noun]] {city}\".\n\nWrite a city intro section:\n1. heading_text (H2): 6-10 words, includes \"{city}\" and references [[brief.service_noun]] or local demand for it.\n2. text: exactly 2 flowing paragraphs, 160-190 words total.\n   - Para 1: Why [[brief.customer_noun]] in {city} need [[brief.service_noun]], grounded in [[brief.local_angle]].\n   - Para 2: How {business} helps, referencing offerings such as [[brief.offerings]]. End forward-looking.\n\nUse \"{city}\" 2-3 times. No bullets, no headings inside text. Wrap each paragraph in <p>...</p>.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p><p>...</p>\"}"
+    "prompt_skeleton": "You are writing SEO content for {business}, [[brief.business_descriptor]] serving {city}, {state}.\n\nTarget keyword: \"{service} {city}\".\n\nWrite a city intro section:\n1. heading_text (H2): 6-10 words, includes \"{city}\" and references {service} or local demand for it.\n2. text: exactly 2 flowing paragraphs, 160-190 words total.\n   - Para 1: Why [[brief.customer_noun]] in {city} need {service}, grounded in [[brief.local_angle]].\n   - Para 2: How {business} helps with {service} specifically — approach, thoroughness, and follow-up. Keep the focus on {service}; you may briefly note they also handle other pest problems, but do NOT list them. End forward-looking.\n\nUse \"{city}\" 2-3 times. No bullets, no headings inside text. Wrap each paragraph in <p>...</p>.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p><p>...</p>\"}"
   },
   "hero_subtext": {
     "label": "Hero Subtext (Inject)",
     "description": "Injects 2-3 city-specific sentences into the next hero_split block's hs_subtext field.",
     "ai_mode": "inject",
     "ai_render_as": null,
-    "ai_model": "claude-sonnet-4-6",
+    "ai_model": "claude-haiku-4-5-20251001",
     "ai_inject_target": "next",
     "ai_inject_field": "hs_subtext",
     "ai_inject_mode": "replace",
     "ai_output_schema": { "text": "string" },
     "default_fields": [],
     "requires_research": false,
-    "prompt_skeleton": "You are writing hero subtext for {business}, [[brief.business_descriptor]], for a page targeting {city}, {state}.\n\nWrite 2-3 sentences (40-60 words total):\n- Open with a {city}-specific statement grounded in [[brief.local_angle]].\n- Reference [[brief.service_noun]] and what {business} offers ([[brief.offerings]]).\n- Close with a value statement for [[brief.customer_noun]].\n\nNo bullets. No exclamation marks. Professional, not sales-y.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"text\": \"2-3 sentences here\"}"
+    "prompt_skeleton": "You are writing hero subtext for {business}, [[brief.business_descriptor]], for a page targeting {city}, {state}.\n\nWrite 2-3 sentences (40-60 words total):\n- Open with a {city}-specific statement grounded in [[brief.local_angle]].\n- Center on {service} — the specific problem {business} solves on this page. Do NOT list other pest types.\n- Close with a value statement for [[brief.customer_noun]].\n\nNo bullets. No exclamation marks. Professional, not sales-y.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"text\": \"2-3 sentences here\"}"
   },
   "feature_columns_local": {
     "label": "Feature Columns - Local (Standalone)",
     "description": "4-column feature_columns block: 3 core benefits + 1 city-specific column.",
     "ai_mode": "standalone",
     "ai_render_as": "feature_columns",
-    "ai_model": "claude-sonnet-4-6",
+    "ai_model": "claude-haiku-4-5-20251001",
     "ai_inject_target": null,
     "ai_inject_field": null,
     "ai_inject_mode": null,
     "ai_output_schema": { "fc_heading": "string", "columns": "array" },
     "default_fields": { "skin": "light", "fc_heading": "", "fc_num_cols": 4, "columns": [] },
     "requires_research": false,
-    "prompt_skeleton": "You are writing feature columns for {business}, [[brief.business_descriptor]], for a {city}, {state} page.\n\nfc_heading: 6-10 words, city-aware and benefit-focused (e.g. \"Why {city} [[brief.customer_noun]] Choose {business}\").\n\nWrite exactly 4 columns:\n- Columns 1-3: core benefits drawn from the service ([[brief.offerings]]) - things like experience, licensing, responsiveness, guarantees, thorough treatment.\n- Column 4: a {city}-specific benefit grounded in [[brief.local_angle]].\n\nEach column: heading 3-5 words (benefit-focused); text 20-30 words, concrete.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"fc_heading\": \"...\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}"
+    "prompt_skeleton": "You are writing feature columns for {business}, [[brief.business_descriptor]], for a {city}, {state} page.\n\nfc_heading: 6-10 words, city-aware and benefit-focused (e.g. \"Why {city} [[brief.customer_noun]] Choose {business}\").\n\nWrite exactly 4 columns:\n- Columns 1-3: core benefits of {business}'s {service} - things like experience, responsiveness, guarantees, thorough treatment, and trained technicians. Do NOT list other pest types.\n- Column 4: a {city}-specific benefit grounded in [[brief.local_angle]].\n\nEach column: heading 3-5 words (benefit-focused); text 20-30 words, concrete.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"fc_heading\": \"...\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}"
   },
   "faq_local": {
     "label": "FAQ - Local (Inject)",
     "description": "Appends 2 city-specific FAQ items to the next faq_two_col block's fq_items array.",
     "ai_mode": "inject",
     "ai_render_as": null,
-    "ai_model": "claude-sonnet-4-6",
+    "ai_model": "claude-haiku-4-5-20251001",
     "ai_inject_target": "next",
     "ai_inject_field": "fq_items",
     "ai_inject_mode": "append",
     "ai_output_schema": { "items": "array" },
     "default_fields": [],
     "requires_research": false,
-    "prompt_skeleton": "You are writing FAQ content for {business}, [[brief.business_descriptor]], for a {city}, {state} page.\n\nWrite exactly 2 city-specific FAQ items a {city} [[brief.customer_noun]] would search for. Good topics: local seasonal timing, what to expect from [[brief.service_noun]] in this region ([[brief.local_angle]]), how quickly {business} can help, what the offerings ([[brief.offerings]]) cover.\n\nEach item:\n- question: specific and searchable (10-15 words), naturally includes \"{city}\".\n- answer: 40-70 words, grounded in real regional context.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"items\": [{\"question\": \"...\", \"answer\": \"...\"}, {\"question\": \"...\", \"answer\": \"...\"}]}"
+    "prompt_skeleton": "You are writing FAQ content for {business}, [[brief.business_descriptor]], for a {city}, {state} page.\n\nWrite exactly 2 city-specific FAQ items a {city} [[brief.customer_noun]] would search for. Every question AND answer must be about {service} specifically — do NOT ask about other pest types or unrelated services. Good topics: local seasonal timing for {service}, what to expect from {service} in this region ([[brief.local_angle]]), how quickly {business} can help, and preparation or prevention related to {service}.\n\nEach item:\n- question: specific and searchable (10-15 words), naturally includes \"{city}\".\n- answer: 40-70 words, grounded in real regional context.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"items\": [{\"question\": \"...\", \"answer\": \"...\"}, {\"question\": \"...\", \"answer\": \"...\"}]}"
   },
   "seasonal_calendar": {
     "label": "Seasonal Calendar (Standalone)",
     "description": "4-step seasonal breakdown of pressure/demand by season for the region. Opt-in for seasonal niches (pest, wildlife, remediation).",
     "ai_mode": "standalone",
     "ai_render_as": "steps",
-    "ai_model": "claude-sonnet-4-6",
+    "ai_model": "claude-haiku-4-5-20251001",
     "ai_inject_target": null,
     "ai_inject_field": null,
     "ai_inject_mode": null,
     "ai_output_schema": { "steps_heading": "string", "steps_items": "array" },
     "default_fields": { "skin": "light", "steps_heading": "", "steps_items": [] },
     "requires_research": false,
-    "prompt_skeleton": "You are writing a seasonal guide for {business}, [[brief.business_descriptor]], for {city}, {state}.\n\nsteps_heading: 5-9 words referencing seasons in {city} and [[brief.service_noun]].\n\nWrite exactly 4 items, one per season (Spring, Summer, Fall, Winter):\n- heading: the season plus a 2-4 word theme.\n- text: 25-40 words on what [[brief.customer_noun]] in {city}'s region typically face that season, grounded in [[brief.local_angle]], and how {business} helps.\n\nBase seasonal patterns on the region's real climate. Do not invent specific data.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"steps_heading\": \"...\", \"steps_items\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}"
+    "prompt_skeleton": "You are writing a seasonal guide for {business}, [[brief.business_descriptor]], for {city}, {state}.\n\nsteps_heading: 5-9 words referencing seasons in {city} and {service}.\n\nWrite exactly 4 items, one per season (Spring, Summer, Fall, Winter):\n- heading: the season plus a 2-4 word theme.\n- text: 25-40 words on what [[brief.customer_noun]] in {city}'s region typically face that season, grounded in [[brief.local_angle]], and how {business} helps.\n\nBase seasonal patterns on the region's real climate. Do not invent specific data.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"steps_heading\": \"...\", \"steps_items\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}"
   },
   "local_relevance": {
     "label": "Local Relevance / Neighborhood-type (Standalone)",
     "description": "Standalone text on local property/area characteristics. Generic-safe by default (no invented place names); upgrades to named neighborhoods only when the enrichment step supplies verified names.",
     "ai_mode": "standalone",
     "ai_render_as": "text",
-    "ai_model": "claude-sonnet-4-6",
+    "ai_model": "claude-haiku-4-5-20251001",
     "ai_inject_target": null,
     "ai_inject_field": null,
     "ai_inject_mode": null,
     "ai_output_schema": { "heading_text": "string", "text": "html_string" },
     "default_fields": { "skin": "light", "heading_level": "h2" },
     "requires_research": false,
-    "prompt_skeleton": "You are writing a local-relevance section for {business}, [[brief.business_descriptor]], for {city}, {state}.\n\nheading_text (H2): 5-9 words referencing serving {city} and the surrounding area.\n\ntext: 1-2 paragraphs (110-150 words) on how property characteristics across {city} affect [[brief.service_noun]] - e.g. differences between older, established neighborhoods (mature trees, aging construction) and newer subdivisions - grounded in [[brief.local_angle]]. Describe area TYPES generally.\n\nCRITICAL: Do NOT name specific neighborhoods, subdivisions, streets, or ZIP codes unless they appear in provided data. Speak in general terms about area types. Wrap paragraphs in <p>...</p>.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p>\"}"
+    "prompt_skeleton": "You are writing a local-relevance section for {business}, [[brief.business_descriptor]], for {city}, {state}.\n\nheading_text (H2): 5-9 words referencing serving {city} and the surrounding area.\n\ntext: 1-2 paragraphs (110-150 words) on how property characteristics across {city} affect {service} - e.g. differences between older, established neighborhoods (mature trees, aging construction) and newer subdivisions - grounded in [[brief.local_angle]]. Describe area TYPES generally.\n\nCRITICAL: Do NOT name specific neighborhoods, subdivisions, streets, or ZIP codes unless they appear in provided data. Speak in general terms about area types. Wrap paragraphs in <p>...</p>.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p>\"}"
   }
 }
