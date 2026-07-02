@@ -21,7 +21,7 @@ $activePluginData  = $activePlugin !== '' ? get_plugin($activePlugin) : null;
                 <div style="border:1px solid #e5e7eb;border-radius:8px;padding:18px 20px;background:#fff;transition:box-shadow .15s,border-color .15s;"
                      onmouseover="this.style.boxShadow='0 2px 10px rgba(0,0,0,0.08)';this.style.borderColor='#d1d5db';"
                      onmouseout="this.style.boxShadow='';this.style.borderColor='#e5e7eb';">
-                    <div style="font-size:1.6rem;margin-bottom:8px;"><?= h($plugin['icon']) ?></div>
+                    <div style="font-size:1.6rem;margin-bottom:8px;"><?= h(html_entity_decode($plugin['icon'], ENT_QUOTES)) ?></div>
                     <div style="font-weight:600;font-size:1rem;color:#111827;margin-bottom:4px;"><?= h($plugin['name']) ?></div>
                     <div style="font-size:.82rem;color:#6b7280;line-height:1.45;"><?= h($plugin['description']) ?></div>
                 </div>
