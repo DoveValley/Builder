@@ -84,6 +84,18 @@ if (empty($seo['og_image'])) {
             $canonicalUrl = $slug ? $lbUrl . '/' . $slug : $lbUrl . '/';
         }
     }
+    // Force a trailing slash on the canonical's path (before any ?/#) so it points at the
+    // served directory form, never at a DirectorySlash 301. Covers stored and generated
+    // values; og:url reuses $canonicalUrl below. Skips file URLs (last segment has a dot).
+    if ($canonicalUrl) {
+        $cut  = strcspn($canonicalUrl, '?#');
+        $cpath = substr($canonicalUrl, 0, $cut);
+        $crest = substr($canonicalUrl, $cut);
+        $cseg  = substr($cpath, strrpos($cpath, '/') + 1);
+        if ($cseg !== '' && strpos($cseg, '.') === false && substr($cpath, -1) !== '/') {
+            $canonicalUrl = $cpath . '/' . $crest;
+        }
+    }
     if ($canonicalUrl): ?>
     <link rel="canonical" href="<?= h($canonicalUrl) ?>">
     <?php endif; ?>

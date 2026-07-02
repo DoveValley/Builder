@@ -26,6 +26,23 @@ if (!function_exists('gen_write')) {
         if (UPLOAD_URL !== 'uploads/') {
             $html = str_replace('/' . UPLOAD_URL, '/uploads/', $html);
         }
+        // Normalize internal links to the trailing-slash form the static host serves
+        // (…/about/index.html). Without this every internal href hits a DirectorySlash
+        // 301 (/about → /about/). HTML only — sitemap.xml/robots.txt/.htaccess are also
+        // written through here and must not be rewritten. Idempotent: re-running is a no-op.
+        if (str_ends_with($filePath, '.html')) {
+            $html = preg_replace_callback('/href="(\/[^"]*)"/', function ($m) {
+                $url = $m[1];
+                if (isset($url[1]) && $url[1] === '/') return $m[0];          // //host — protocol-relative
+                $cut  = strcspn($url, '?#');                                  // slash goes on the path, before ?/#
+                $path = substr($url, 0, $cut);
+                $rest = substr($url, $cut);
+                if ($path === '/' || substr($path, -1) === '/') return $m[0]; // root or already slashed
+                $seg = substr($path, strrpos($path, '/') + 1);
+                if (strpos($seg, '.') !== false) return $m[0];               // real file (has extension)
+                return 'href="' . $path . '/' . $rest . '"';
+            }, $html);
+        }
         return file_put_contents($filePath, $html) !== false;
     }
 }
@@ -314,7 +331,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
             }
             $pageTitle       = !empty($seo['seo_title']) ? $seo['seo_title'] : (($post['title'] ?? '') !== '' ? $post['title'] : SITE_TITLE);
             if (empty($seo['canonical_url'])) {
-                $seo['canonical_url'] = '{website}/blog/' . $postSlug;
+                $seo['canonical_url'] = '{website}/blog/' . $postSlug . '/';
             }
             $assetPathPrefix = '/';
             $homeUrl         = '/';
