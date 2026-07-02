@@ -147,6 +147,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <nav id="concepts-nav">
         <a class="nav-group" href="#group-overview">Overview</a>
         <a href="#overview">What is this system?</a>
+        <a href="#operate">Three ways to operate</a>
         <a href="#no-database">No-database philosophy</a>
         <a href="#multi-site">Multi-site</a>
 
@@ -402,6 +403,22 @@ tr:nth-child(even) td { background: #f8fafc; }
     <p>Site Factory is a custom PHP CMS designed for building and deploying local-service and training business websites at scale. It is purpose-built — no WordPress, no plugins, no framework overhead.</p>
     <p>The core idea: content lives in flat JSON files, pages are rendered by PHP, and the admin panel edits those JSON files. Everything is fast, portable, and easy to back up — the entire site is a folder of files.</p>
     <p>The system supports multiple client sites from a single admin installation, AI-assisted content generation for city landing pages, a course schedule system, a blog, and one-click FTP deployment.</p>
+</section>
+
+<section id="operate">
+    <h2>Three ways to operate the factory</h2>
+    <p>The factory has <strong>no database</strong> — everything is files (<code>sites/{id}/data/*.json</code> + <code>uploads/</code>). Both interfaces below read and write those same files, so they're fully interoperable; pick per task, or mix them.</p>
+
+    <h3>1 · Admin panel</h3>
+    <p><em>The web UI (<code>/admin</code>, session auth, runs as <code>www-data</code>).</em> Click-to-edit blocks, media uploads, AI generation, and one-click static build + FTP deploy — plus running whole multisite campaigns from the browser. <strong>Best for:</strong> non-technical operators, content tweaks, review, and firing a campaign without a shell. <strong>Bounded by</strong> what the UI exposes; bulk or structural work is tedious.</p>
+
+    <h3>2 · Claude Code</h3>
+    <p><em>The CLI agent — edits JSON and runs scripts directly, as <code>root</code>.</em> Builds sites from scratch via the phased methodology (research → foundation → homepage block-by-block → landing pages → images), edits <code>site.json</code> precisely, runs the CLI tools (<code>generate.py</code>, <code>multisite/run_campaign.php</code>, <code>params_check.php</code>), and does git, screenshots, and code changes (new block types, etc.). <strong>Best for:</strong> new sites, large / structural / repeatable edits, batch multisite, anything scriptable. <strong>Caveats:</strong> runs as <code>root</code> — build to <code>/tmp</code> or <code>chown</code> afterward so the admin (<code>www-data</code>) can still write; and direct JSON edits bypass the UI's <code>sanitize_url</code> / <code>sanitize_svg</code>, so follow the save-handler conventions.</p>
+
+    <h3>3 · Hybrid <span style="font-weight:400;color:#64748b;font-size:.85em;">(recommended for most real work)</span></h3>
+    <p>Claude Code scaffolds structure and bulk content; a human uses the admin panel to refine copy, drop in images, review, and hit deploy. Or: the CLI authors and edits the multisite <em>master</em>, and the admin panel runs the <em>campaign</em>. Because both touch the same files, no sync step is needed — just don't edit the same file simultaneously, and mind the <code>root</code> vs <code>www-data</code> ownership line.</p>
+
+    <div class="callout tip">All three operate on the same flat JSON — there is no import/export or sync. The only thing to manage when mixing is file <strong>ownership</strong> (CLI writes as root, the admin writes as www-data).</div>
 </section>
 
 <section id="no-database">
