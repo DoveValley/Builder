@@ -313,7 +313,7 @@ tr:nth-child(even) td { background: #f8fafc; }
 
         <a class="nav-group" href="#ms-seo">Differentiation &amp; SEO</a>
         <a href="#ms-differentiation">Per-site differentiation</a>
-        <a href="#ms-uniqueness">Uniqueness tiers</a>
+        <a href="#ms-uniqueness">Uniqueness checklist</a>
 
         <a class="nav-group" href="#ms-admin">Running from the Admin</a>
         <a href="#ms-admin-multisite">The Multisite tab</a>
@@ -3228,16 +3228,43 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 </section>
 
 <section id="ms-uniqueness">
-    <h2>Uniqueness tiers</h2>
-    <p>Generating many same-topic city sites is the pattern Google's <em>doorway pages</em> and <em>scaled content abuse</em> policies target. Cosmetic differences don't satisfy them — Google evaluates substance. Effort should follow impact:</p>
-    <table>
-        <tr><th>Tier</th><th>Signal</th><th>Impact</th></tr>
-        <tr><td>1</td><td>Substantively different content per city (real local employers, industries, pricing); rotated block order</td><td>Highest</td></tr>
-        <tr><td>2</td><td>LocalBusiness JSON-LD w/ real NAP + geo; self-canonical; distinct domains</td><td>High</td></tr>
-        <tr><td>3</td><td>Per-site logo, images, theme colors</td><td>Low (most tempting, least useful)</td></tr>
-        <tr><td>4</td><td>No shared analytics ID; hosting/IP diversity; WHOIS privacy; no generator fingerprint</td><td>Cheap insurance</td></tr>
-    </table>
-    <div class="callout warn">The defensible path is genuine local presence per city (real address, phone, ideally a Google Business Profile). Build to maximize real distinctness regardless — it's what protects against penalties and actually serves users.</div>
+    <h2>Site uniqueness checklist</h2>
+    <p>Generating many same-topic city sites is the pattern Google's <em>doorway pages</em> and <em>scaled content abuse</em> policies target. Cosmetic differences don't satisfy them — Google evaluates substance. This checklist is ordered by SEO impact: <strong>do the top band well before spending time on the bottom.</strong> It doubles as the build backlog — the status marks show what the pipeline already handles versus what's still manual.</p>
+
+    <h3>🔴 Critical — content <span style="font-weight:400;color:#64748b;font-size:.85em;">(highest impact)</span></h3>
+    <ul>
+        <li>✅ Unique AI city copy on home + core (Niche Brief → <code>generate.py</code>)</li>
+        <li>✅ Per-deploy service landing pages (<code>landing_cities</code>)</li>
+        <li>◐ Real local market data — employers / industry / salary <span style="color:#64748b;">(supply in <code>cities.json</code>; research step not wired)</span></li>
+        <li>☐ Structural / block-order variation per domain <span style="color:#64748b;">(not built)</span></li>
+    </ul>
+
+    <h3>🟠 High — identity &amp; structured data</h3>
+    <ul>
+        <li>✅ Business / phone / email / domain rewritten per site</li>
+        <li>✅ LocalBusiness JSON-LD with real address + geo <span style="color:#64748b;">(needs <code>lat</code>/<code>lng</code>)</span></li>
+        <li>✅ Real ratings only — <code>rating</code> + <code>review_count</code>, paired, never invented</li>
+        <li>✅ Self-referential canonical per domain</li>
+    </ul>
+
+    <h3>🟡 Medium — technical footprint <span style="font-weight:400;color:#64748b;font-size:.85em;">(cheap insurance, easy to get wrong)</span></h3>
+    <ul>
+        <li>✅ Per-site analytics ID — <strong>never share one across sites</strong> (the big DON'T)</li>
+        <li>✅ No generator fingerprint emitted</li>
+        <li>📋 Hosting/IP diversity · WHOIS privacy · no cross-site link hub <span style="color:#64748b;">(operational — outside the tool)</span></li>
+    </ul>
+
+    <h3>⚪ Low — visual <span style="font-weight:400;color:#64748b;font-size:.85em;">(most tempting, least SEO value)</span></h3>
+    <ul>
+        <li>◐ Per-site favicon / og-image <span style="color:#64748b;">(fields exist; not auto-set)</span></li>
+        <li>☐ Per-site logo — auto-wordmark / <code>logo</code> column <span style="color:#64748b;">(not built)</span></li>
+        <li>☐ Per-site image assignment <span style="color:#64748b;">(not built)</span></li>
+        <li>☐ Domain-seeded theme / colors <span style="color:#64748b;">(not built)</span></li>
+    </ul>
+
+    <p style="color:#64748b;font-size:.9em;margin-top:6px;">✅ automated &nbsp;·&nbsp; ◐ partial / needs input &nbsp;·&nbsp; ☐ not built &nbsp;·&nbsp; 📋 operational</p>
+
+    <div class="callout warn">The defensible path is genuine local presence per city (real address, phone, ideally a Google Business Profile). Build to maximize real distinctness regardless — it's what protects against penalties and actually serves users. Mechanisms: see <a href="#ms-differentiation">Per-site differentiation</a>, <a href="#ms-aiblocks">AI blocks &amp; the engine</a>, and <a href="#ms-landing">Per-deploy landing pages</a>.</div>
 </section>
 
 <!-- ═══════════ ADMIN UI ═══════════ -->
