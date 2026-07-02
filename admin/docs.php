@@ -54,14 +54,18 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; f
 #sidebar .search-wrap input::placeholder { color: #64748b; }
 
 /* Doc tabs */
-.doc-tabs { display: flex; border-bottom: 1px solid rgba(255,255,255,0.1); }
-.doc-tab {
-    flex: 1; background: none; border: none; cursor: pointer;
-    padding: 11px 8px; font-family: inherit; font-size: 0.8rem; font-weight: 700;
-    color: #94a3b8; border-bottom: 2px solid transparent; transition: all 0.15s;
+.doc-tabs {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5px;
+    padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-.doc-tab:hover { color: #fff; }
-.doc-tab.active { color: #fff; border-bottom-color: #3b82f6; background: rgba(59,130,246,0.12); }
+.doc-tab {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 6px; cursor: pointer; text-align: center;
+    padding: 8px 6px; font-family: inherit; font-size: 0.78rem; font-weight: 700;
+    color: #cbd5e1; transition: all 0.15s;
+}
+.doc-tab:hover { color: #fff; background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+.doc-tab.active { color: #fff; background: #3b82f6; border-color: #3b82f6; }
 
 /* Main content */
 #main { flex: 1; min-width: 0; padding: 40px 48px; max-width: 900px; }
@@ -126,21 +130,27 @@ tr:nth-child(even) td { background: #f8fafc; }
 <div id="sidebar">
     <div class="logo">
         Site Factory
-        <span id="doc-subtitle">Admin Documentation</span>
+        <span id="doc-subtitle">Concepts</span>
     </div>
     <div class="doc-tabs">
-        <button type="button" class="doc-tab active" data-doc="admin" onclick="switchDoc('admin')">Admin</button>
-        <button type="button" class="doc-tab" data-doc="devenv" onclick="switchDoc('devenv')">DevEnv</button>
+        <button type="button" class="doc-tab active" data-doc="concepts" onclick="switchDoc('concepts')">Concepts</button>
+        <button type="button" class="doc-tab" data-doc="reference" onclick="switchDoc('reference')">Admin</button>
+        <button type="button" class="doc-tab" data-doc="building" onclick="switchDoc('building')">Building</button>
+        <button type="button" class="doc-tab" data-doc="aicity" onclick="switchDoc('aicity')">AI &amp; City</button>
         <button type="button" class="doc-tab" data-doc="multisite" onclick="switchDoc('multisite')">Multisite</button>
+        <button type="button" class="doc-tab" data-doc="devenv" onclick="switchDoc('devenv')">DevEnv</button>
+        <button type="button" class="doc-tab" data-doc="extending" onclick="switchDoc('extending')">Extending</button>
     </div>
     <div class="search-wrap">
         <input type="text" id="doc-search" placeholder="Search docs…" oninput="filterNav(this.value)">
     </div>
-    <nav id="doc-nav">
+        <nav id="concepts-nav">
         <a class="nav-group" href="#group-overview">Overview</a>
         <a href="#overview">What is this system?</a>
         <a href="#no-database">No-database philosophy</a>
         <a href="#multi-site">Multi-site</a>
+
+        
 
         <a class="nav-group" href="#group-technical">Technical</a>
         <a href="#architecture">Architecture</a>
@@ -148,42 +158,9 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#routing">URL routing</a>
         <a href="#file-structure">File structure</a>
 
-        <a class="nav-group" href="#group-init">Workflow — Initial Site Creation</a>
-        <a href="#init-overview">Overview</a>
-        <a href="#init-new-site">Creating a new site</a>
-        <a href="#init-site-vars">Site variables</a>
-        <a href="#init-theme">Theme setup</a>
-        <a href="#init-header">Header setup</a>
-        <a href="#init-footer">Footer setup</a>
-
-        <a class="nav-group" href="#group-core">Workflow — Core Page Creation</a>
-        <a href="#core-overview">Overview</a>
-        <a href="#core-homepage">Building the homepage</a>
-        <a href="#core-pages">Landing pages</a>
-        <a href="#core-blog">Blog posts</a>
-        <a href="#core-starters">Using page starters</a>
-
-        <a class="nav-group" href="#group-schema">Workflow — Schema</a>
-        <a href="#schema-overview">Schema overview</a>
-        <a href="#schema-type-list">Master type list</a>
-        <a href="#schema-by-niche">By business niche</a>
-        <a href="#schema-workflow">Workflow &amp; checklist</a>
-        <a href="#schema-prompts">Sample Claude prompts</a>
-
-        <a class="nav-group" href="#group-city">Workflow — City Pages</a>
-        <a href="#landing-multicity-overview">Landing Pages &amp; Multi-city</a>
-        <a href="#cities-overview">City Pages overview</a>
-        <a href="#cities-templates">Templates</a>
-        <a href="#cities-generation">Generation steps</a>
-        <a href="#cities-slugs">Slugs</a>
-
-        <a class="nav-group" href="#group-ai">Workflow — AI System</a>
-        <a href="#ai-overview">How AI works</a>
-        <a href="#ai-standalone">Standalone mode</a>
-        <a href="#ai-enrich">Enrich mode</a>
-        <a href="#ai-locking">Locking</a>
-        <a href="#ai-workflow">Full workflow</a>
-
+        
+    </nav>
+    <nav id="reference-nav" hidden>
         <a class="nav-group" href="#group-admin">Admin Tabs</a>
         <a href="#tab-header">Header</a>
         <a href="#tab-theme">Theme</a>
@@ -204,6 +181,8 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#tab-ai-blocks">Block Registry</a>
         <a href="#tab-plugins">Plugins</a>
         <a href="#tab-deploy">Deploy</a>
+
+        
 
         <a class="nav-group" href="#group-blocks">Block Library</a>
         <a href="#block-hero">Hero</a>
@@ -241,17 +220,71 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#block-contact_form">Contact Form</a>
         <a href="#block-ai_block">AI Block</a>
 
+        
+    </nav>
+    <nav id="building-nav" hidden>
+        <a class="nav-group" href="#group-init">Workflow — Initial Site Creation</a>
+        <a href="#init-overview">Overview</a>
+        <a href="#init-new-site">Creating a new site</a>
+        <a href="#init-site-vars">Site variables</a>
+        <a href="#init-theme">Theme setup</a>
+        <a href="#init-header">Header setup</a>
+        <a href="#init-footer">Footer setup</a>
+
+        
+
+        <a class="nav-group" href="#group-core">Workflow — Core Page Creation</a>
+        <a href="#core-overview">Overview</a>
+        <a href="#core-homepage">Building the homepage</a>
+        <a href="#core-pages">Landing pages</a>
+        <a href="#core-blog">Blog posts</a>
+        <a href="#core-starters">Using page starters</a>
+
+        
+
+        <a class="nav-group" href="#group-schema">Workflow — Schema</a>
+        <a href="#schema-overview">Schema overview</a>
+        <a href="#schema-type-list">Master type list</a>
+        <a href="#schema-by-niche">By business niche</a>
+        <a href="#schema-workflow">Workflow &amp; checklist</a>
+        <a href="#schema-prompts">Sample Claude prompts</a>
+
+        
+
         <a class="nav-group" href="#group-going-live">Going Live</a>
         <a href="#deploy-checklist">Pre-launch checklist</a>
         <a href="#deploy-ftp">FTP deploy</a>
         <a href="#deploy-security">Security notes</a>
 
+        
+    </nav>
+    <nav id="aicity-nav" hidden>
+        <a class="nav-group" href="#group-ai">Workflow — AI System</a>
+        <a href="#ai-overview">How AI works</a>
+        <a href="#ai-standalone">Standalone mode</a>
+        <a href="#ai-enrich">Enrich mode</a>
+        <a href="#ai-locking">Locking</a>
+        <a href="#ai-workflow">Full workflow</a>
+
+        
+
+        <a class="nav-group" href="#group-city">Workflow — City Pages</a>
+        <a href="#landing-multicity-overview">Landing Pages &amp; Multi-city</a>
+        <a href="#cities-overview">City Pages overview</a>
+        <a href="#cities-templates">Templates</a>
+        <a href="#cities-generation">Generation steps</a>
+        <a href="#cities-slugs">Slugs</a>
+
+        
+    </nav>
+    <nav id="extending-nav" hidden>
         <a class="nav-group" href="#group-howto">How To</a>
         <a href="#howto-new-block">Add a new block type</a>
         <a href="#howto-new-ai-type">Add a new AI type</a>
         <a href="#howto-new-city">Add a city</a>
         <a href="#howto-new-template">Add a template</a>
         <a href="#howto-update-docs">Update this docs page</a>
+    
     </nav>
 
     <nav id="multisite-nav" hidden>
@@ -272,15 +305,20 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#ms-rating">Ratings &amp; reviews</a>
 
         <a class="nav-group" href="#ms-ai">AI Content</a>
+        <a href="#ms-niche">Niche Brief &amp; archetypes</a>
         <a href="#ms-aiblocks">AI blocks &amp; the engine</a>
         <a href="#ms-cache">The content cache</a>
         <a href="#ms-editing">Editing the master safely</a>
+        <a href="#ms-landing">Per-deploy landing pages</a>
 
         <a class="nav-group" href="#ms-seo">Differentiation &amp; SEO</a>
         <a href="#ms-differentiation">Per-site differentiation</a>
         <a href="#ms-uniqueness">Uniqueness tiers</a>
 
-        <a class="nav-group" href="#ms-run">Running a Campaign</a>
+        <a class="nav-group" href="#ms-admin">Running from the Admin</a>
+        <a href="#ms-admin-multisite">The Multisite tab</a>
+
+        <a class="nav-group" href="#ms-run">Command Line</a>
         <a href="#ms-cli-intake">1 · Prepare &amp; validate</a>
         <a href="#ms-cli-oneshot">2 · Build one site</a>
         <a href="#ms-cli-campaign">3 · Run the campaign</a>
@@ -354,11 +392,10 @@ tr:nth-child(even) td { background: #f8fafc; }
 
 <!-- ═══════════════ MAIN ═══════════════ -->
 <div id="main">
-<div id="doc-admin">
-<h1>Site Factory — Admin Documentation</h1>
-<p class="page-intro">Complete reference for the Site Factory admin system. Use the sidebar to navigate, or click any <strong>?</strong> button inside the admin panel to jump directly to the relevant section.</p>
+<div id="doc-concepts">
+<h1>Site Factory — Concepts</h1>
+<p class="page-intro">How the Site Factory is built and how its pieces fit together — the mental model to read once before building. Use the sidebar to navigate.</p>
 
-<!-- ═══════════ OVERVIEW ═══════════ -->
 <div class="doc-group-header" id="group-overview">Overview</div>
 <section id="overview">
     <h2>What is this system?</h2>
@@ -389,7 +426,6 @@ tr:nth-child(even) td { background: #f8fafc; }
     <p>Sites are listed at <code>admin/sites.php</code>. If no site is selected, all admin tabs redirect there. Each site has its own data, uploads, and generated pages — completely isolated.</p>
 </section>
 
-<!-- ═══════════ TECHNICAL ═══════════ -->
 <div class="doc-group-header" id="group-technical">Technical</div>
 <section id="architecture">
     <h2>Architecture</h2>
@@ -478,7 +514,12 @@ tr:nth-child(even) td { background: #f8fafc; }
 └── ai_block_types.json  AI block type registry</code></pre>
 </section>
 
-<!-- ═══════════ ADMIN TABS ═══════════ -->
+</div><!-- /#doc-concepts -->
+
+<div id="doc-reference" hidden>
+<h1>Site Factory — Admin Reference</h1>
+<p class="page-intro">What each admin screen and content block does. Reference material — look things up as you need them. Clicking a <strong>?</strong> button in the admin panel jumps straight to the relevant entry here.</p>
+
 <div class="doc-group-header" id="group-admin">Admin Tabs</div>
 <section id="tab-header">
     <h2>Tab: Header</h2>
@@ -1007,7 +1048,6 @@ tr:nth-child(even) td { background: #f8fafc; }
     </div>
 </section>
 
-<!-- ═══════════ BLOCK LIBRARY ═══════════ -->
 <div class="doc-group-header" id="group-blocks">Block Library</div>
 <section>
     <h2>Block Library</h2>
@@ -1419,89 +1459,12 @@ tr:nth-child(even) td { background: #f8fafc; }
     </ul>
 </div>
 
-<!-- ═══════════ AI SYSTEM ═══════════ -->
-<div class="doc-group-header" id="group-ai">Workflow — AI System</div>
-<section id="ai-overview">
-    <h2>AI System — Overview</h2>
-    <p>The AI system generates city-specific content for landing pages using the Claude API. There are two modes: <strong>Standalone</strong> (the AI creates a whole new block) and <strong>Enrich</strong> (the AI fills one field inside an existing block).</p>
-    <p>AI generation is a two-step process that runs separately from structure generation:</p>
-    <ol>
-        <li><strong>Structure generation (PHP)</strong> — copies template to each city page</li>
-        <li><strong>AI generation (Python)</strong> — finds blocks needing AI content and calls Claude</li>
-    </ol>
-</section>
+</div><!-- /#doc-reference -->
 
-<section id="ai-standalone">
-    <h2>AI System — Standalone Mode</h2>
-    <p>The block starts as an <code>ai_block</code> placeholder and the AI replaces it with a complete real block.</p>
-    <h3>How it works</h3>
-    <ol>
-        <li>Add an <code>ai_block</code> to the template and set its <code>ai_type_id</code> (e.g. <code>city_market_intro</code>)</li>
-        <li>Structure gen copies the placeholder to each city page</li>
-        <li>AI gen finds every <code>ai_block</code>, calls Claude with city context, Claude returns a full block (e.g. a <code>feature_columns</code> block with real headlines and copy)</li>
-        <li>The <code>ai_block</code> type changes to the real block type in the JSON</li>
-        <li>Block gets <code>_ai_locked: true</code> — next structure gen skips it</li>
-    </ol>
-    <h3>Example in the PMP template</h3>
-    <ul>
-        <li>Block 2: <code>ai_block</code> [city_market_intro] → becomes a text block about the city's project management job market</li>
-        <li>Block 3: <code>ai_block</code> [feature_columns_local] → becomes a feature_columns block with city-specific differentiators</li>
-    </ul>
-</section>
+<div id="doc-building" hidden>
+<h1>Site Factory — Building Sites</h1>
+<p class="page-intro">The end-to-end methodology for building a site: initial setup, core pages, schema, and going live. Follow these in order.</p>
 
-<section id="ai-enrich">
-    <h2>AI System — Enrich Mode</h2>
-    <p>The block keeps its type and most of its content — the AI fills one specific field in place.</p>
-    <h3>How it works</h3>
-    <ol>
-        <li>Take a regular block (e.g. <code>hero_split</code>) and add three fields: <code>ai_type_id</code>, <code>ai_inject_field</code>, <code>ai_inject_mode</code></li>
-        <li>Structure gen copies the block with its existing fields to each city page</li>
-        <li>AI gen finds blocks where <code>type != ai_block</code> but <code>ai_type_id</code> is set, calls Claude, gets back just the field value</li>
-        <li>The value is written into the target field (<code>hs_subtext</code>, <code>fq_items</code>, etc.)</li>
-        <li>Block gets <code>_ai_locked: true</code></li>
-    </ol>
-    <h3>inject_mode options</h3>
-    <table>
-        <tr><th>Mode</th><th>Behavior</th></tr>
-        <tr><td><code>replace</code></td><td>Overwrites the field entirely (used on <code>hs_subtext</code>)</td></tr>
-        <tr><td><code>append</code></td><td>Adds AI content to the end (used on <code>fq_items</code> — base FAQs stay, AI adds more)</td></tr>
-        <tr><td><code>prepend</code></td><td>Adds AI content to the beginning</td></tr>
-    </table>
-    <h3>Example in the PMP template</h3>
-    <ul>
-        <li>Block 1: <code>hero_split</code> [ai_type_id=hero_subtext] → AI fills <code>hs_subtext</code> with city-specific intro paragraph</li>
-        <li>Block 8: <code>faq_two_col</code> [ai_type_id=faq_additions, mode=append] → AI adds 2 extra Q&amp;A items to the existing base FAQ list</li>
-    </ul>
-    <p>The purple <strong>✦ AI: hero_subtext</strong> badge in the block header indicates enrich mode is configured.</p>
-</section>
-
-<section id="ai-locking">
-    <h2>AI System — Locking</h2>
-    <p>Once a block has been AI-generated, it is marked <code>_ai_locked: true</code>. The structure generation engine checks this flag and skips those blocks — so re-running structure gen never wipes AI content.</p>
-    <p>Two lock sources are recognized:</p>
-    <ul>
-        <li><code>_ai_locked: true</code> on the block itself (set by generate.py)</li>
-        <li><code>locked_blocks: [0, 3, 7]</code> on the page (explicit index list, set by admin or tooling)</li>
-    </ul>
-    <p>To force-regenerate locked blocks, use the <strong>Force Regenerate</strong> option in the Generate tab — this ignores both lock sources and replaces all blocks fresh from the template.</p>
-</section>
-
-<section id="ai-workflow">
-    <h2>AI System — Full Workflow</h2>
-    <ol>
-        <li>Build/update the template in the Templates tab</li>
-        <li>Ensure city list is complete in the City Pages tab</li>
-        <li>Run <strong>Structure Generation</strong> — writes city page JSON files from the template</li>
-        <li>Preview a few pages to confirm structure looks right</li>
-        <li>Run <strong>AI Generation</strong> — confirm the cost warning, then let it run</li>
-        <li>Preview a few AI-generated pages to review quality</li>
-        <li>If any pages need adjustment, edit the city page JSON directly or re-run AI with Force on specific pages</li>
-        <li>Run <strong>Deploy</strong> to push the final static site via FTP</li>
-    </ol>
-</section>
-
-<!-- ═══════════ CITY PAGES ═══════════ -->
-<!-- ═══════════ WORKFLOW — INITIAL SITE CREATION ═══════════ -->
 <div class="doc-group-header" id="group-init">Workflow — Initial Site Creation</div>
 <section id="init-overview">
     <h2>Workflow — Initial Site Creation: Overview</h2>
@@ -1618,7 +1581,6 @@ tr:nth-child(even) td { background: #f8fafc; }
     </div>
 </section>
 
-<!-- ═══════════ WORKFLOW — CORE PAGE CREATION ═══════════ -->
 <div class="doc-group-header" id="group-core">Workflow — Core Page Creation</div>
 <section id="core-overview">
     <h2>Workflow — Core Page Creation: Overview</h2>
@@ -1720,7 +1682,6 @@ tr:nth-child(even) td { background: #f8fafc; }
     <p>To build a new starter: go to Page Starters → Add a New Starter → give it a name and category → Edit → add blocks in order → Save.</p>
 </section>
 
-<!-- ═══════════ WORKFLOW — SCHEMA ═══════════ -->
 <div class="doc-group-header" id="group-schema">Workflow — Schema</div>
 
 <section id="schema-overview">
@@ -2077,7 +2038,134 @@ Include in the @graph:
 Output valid JSON only — no explanation.</code></pre>
 </section>
 
-<!-- ═══════════ WORKFLOW — CITY PAGES ═══════════ -->
+<div class="doc-group-header" id="group-going-live">Going Live</div>
+<section id="deploy-checklist">
+    <h2>Pre-Launch Checklist</h2>
+    <ul>
+        <li>Change the admin password in <code>config.php</code> (never ship with <code>admin123</code>)</li>
+        <li>Set <code>CONTACT_EMAIL</code> in <code>config.php</code> to the client's real email</li>
+        <li>Set real phone, email, and address in site_vars (Header tab)</li>
+        <li>Verify all page slugs, canonical URLs, and SEO meta descriptions</li>
+        <li>Test the contact form — confirm email is delivered</li>
+        <li>Test on mobile at key breakpoints</li>
+        <li>Confirm all city pages render correctly (check a few manually)</li>
+        <li>Remove any placeholder images or text</li>
+        <li>Do not upload the <code>.git/</code> folder to the live host</li>
+    </ul>
+</section>
+
+<section id="deploy-ftp">
+    <h2>Deploy via FTP</h2>
+    <p>The Deploy tab handles the full publish workflow in two steps.</p>
+    <ol>
+        <li>Go to Admin → Deploy tab</li>
+        <li>Click <strong>Generate Static Site</strong> — renders all pages to <code>output/{site_id}/</code>. Wait for it to complete.</li>
+        <li>Enter FTP credentials: host (no <code>ftp://</code> prefix), username, password, remote path</li>
+        <li>Click <strong>Push to Server</strong> — uploads only new or changed files (incremental)</li>
+    </ol>
+    <p>The remote path is typically <code>/public_html/</code> or <code>/www/</code> — check with your hosting provider.</p>
+    <p>After deleting cities or pages, run <strong>Audit Server</strong> after deploying to find and remove orphaned files still on the server.</p>
+    <p>301 redirects set in the SEO tab are automatically included in <code>.htaccess</code> on every Generate.</p>
+</section>
+
+<section id="deploy-security">
+    <h2>Security Notes</h2>
+    <ul>
+        <li><strong>CSRF protection</strong> — all admin POST endpoints verify <code>$_SESSION['csrf_token']</code> via <code>hash_equals()</code></li>
+        <li><strong>URL sanitization</strong> — all user-entered URLs go through <code>sanitize_url()</code> — only http/https, tel:, mailto:, and relative links are allowed</li>
+        <li><strong>SVG sanitization</strong> — uploaded SVGs have scripts, event handlers, and javascript: URIs stripped</li>
+        <li><strong>No .git in webroot</strong> — .htaccess blocks dotfiles, but best practice is to not upload .git at all</li>
+        <li><strong>Change admin password</strong> — config.php ships with a bcrypt hash for <code>admin123</code> — change before any live deployment</li>
+        <li><strong>Contact form</strong> — includes CSRF token, honeypot field, and rate limiting</li>
+    </ul>
+</section>
+
+</div><!-- /#doc-building -->
+
+<div id="doc-aicity" hidden>
+<h1>Site Factory — AI &amp; City Pages</h1>
+<p class="page-intro">The in-site content engine: how AI generation works (standalone, enrich, locking) and the City Pages system that applies it across many cities in one site.</p>
+
+<div class="doc-group-header" id="group-ai">Workflow — AI System</div>
+<section id="ai-overview">
+    <h2>AI System — Overview</h2>
+    <p>The AI system generates city-specific content for landing pages using the Claude API. There are two modes: <strong>Standalone</strong> (the AI creates a whole new block) and <strong>Enrich</strong> (the AI fills one field inside an existing block).</p>
+    <p>AI generation is a two-step process that runs separately from structure generation:</p>
+    <ol>
+        <li><strong>Structure generation (PHP)</strong> — copies template to each city page</li>
+        <li><strong>AI generation (Python)</strong> — finds blocks needing AI content and calls Claude</li>
+    </ol>
+</section>
+
+<section id="ai-standalone">
+    <h2>AI System — Standalone Mode</h2>
+    <p>The block starts as an <code>ai_block</code> placeholder and the AI replaces it with a complete real block.</p>
+    <h3>How it works</h3>
+    <ol>
+        <li>Add an <code>ai_block</code> to the template and set its <code>ai_type_id</code> (e.g. <code>city_market_intro</code>)</li>
+        <li>Structure gen copies the placeholder to each city page</li>
+        <li>AI gen finds every <code>ai_block</code>, calls Claude with city context, Claude returns a full block (e.g. a <code>feature_columns</code> block with real headlines and copy)</li>
+        <li>The <code>ai_block</code> type changes to the real block type in the JSON</li>
+        <li>Block gets <code>_ai_locked: true</code> — next structure gen skips it</li>
+    </ol>
+    <h3>Example in the PMP template</h3>
+    <ul>
+        <li>Block 2: <code>ai_block</code> [city_market_intro] → becomes a text block about the city's project management job market</li>
+        <li>Block 3: <code>ai_block</code> [feature_columns_local] → becomes a feature_columns block with city-specific differentiators</li>
+    </ul>
+</section>
+
+<section id="ai-enrich">
+    <h2>AI System — Enrich Mode</h2>
+    <p>The block keeps its type and most of its content — the AI fills one specific field in place.</p>
+    <h3>How it works</h3>
+    <ol>
+        <li>Take a regular block (e.g. <code>hero_split</code>) and add three fields: <code>ai_type_id</code>, <code>ai_inject_field</code>, <code>ai_inject_mode</code></li>
+        <li>Structure gen copies the block with its existing fields to each city page</li>
+        <li>AI gen finds blocks where <code>type != ai_block</code> but <code>ai_type_id</code> is set, calls Claude, gets back just the field value</li>
+        <li>The value is written into the target field (<code>hs_subtext</code>, <code>fq_items</code>, etc.)</li>
+        <li>Block gets <code>_ai_locked: true</code></li>
+    </ol>
+    <h3>inject_mode options</h3>
+    <table>
+        <tr><th>Mode</th><th>Behavior</th></tr>
+        <tr><td><code>replace</code></td><td>Overwrites the field entirely (used on <code>hs_subtext</code>)</td></tr>
+        <tr><td><code>append</code></td><td>Adds AI content to the end (used on <code>fq_items</code> — base FAQs stay, AI adds more)</td></tr>
+        <tr><td><code>prepend</code></td><td>Adds AI content to the beginning</td></tr>
+    </table>
+    <h3>Example in the PMP template</h3>
+    <ul>
+        <li>Block 1: <code>hero_split</code> [ai_type_id=hero_subtext] → AI fills <code>hs_subtext</code> with city-specific intro paragraph</li>
+        <li>Block 8: <code>faq_two_col</code> [ai_type_id=faq_additions, mode=append] → AI adds 2 extra Q&amp;A items to the existing base FAQ list</li>
+    </ul>
+    <p>The purple <strong>✦ AI: hero_subtext</strong> badge in the block header indicates enrich mode is configured.</p>
+</section>
+
+<section id="ai-locking">
+    <h2>AI System — Locking</h2>
+    <p>Once a block has been AI-generated, it is marked <code>_ai_locked: true</code>. The structure generation engine checks this flag and skips those blocks — so re-running structure gen never wipes AI content.</p>
+    <p>Two lock sources are recognized:</p>
+    <ul>
+        <li><code>_ai_locked: true</code> on the block itself (set by generate.py)</li>
+        <li><code>locked_blocks: [0, 3, 7]</code> on the page (explicit index list, set by admin or tooling)</li>
+    </ul>
+    <p>To force-regenerate locked blocks, use the <strong>Force Regenerate</strong> option in the Generate tab — this ignores both lock sources and replaces all blocks fresh from the template.</p>
+</section>
+
+<section id="ai-workflow">
+    <h2>AI System — Full Workflow</h2>
+    <ol>
+        <li>Build/update the template in the Templates tab</li>
+        <li>Ensure city list is complete in the City Pages tab</li>
+        <li>Run <strong>Structure Generation</strong> — writes city page JSON files from the template</li>
+        <li>Preview a few pages to confirm structure looks right</li>
+        <li>Run <strong>AI Generation</strong> — confirm the cost warning, then let it run</li>
+        <li>Preview a few AI-generated pages to review quality</li>
+        <li>If any pages need adjustment, edit the city page JSON directly or re-run AI with Force on specific pages</li>
+        <li>Run <strong>Deploy</strong> to push the final static site via FTP</li>
+    </ol>
+</section>
+
 <div class="doc-group-header" id="group-city">Workflow — City Pages</div>
 <section id="landing-multicity-overview">
     <h2>Overview: Landing Pages &amp; Multi-city Creation</h2>
@@ -2218,50 +2306,12 @@ Output valid JSON only — no explanation.</code></pre>
     </div>
 </section>
 
-<!-- ═══════════ GOING LIVE ═══════════ -->
-<div class="doc-group-header" id="group-going-live">Going Live</div>
-<section id="deploy-checklist">
-    <h2>Pre-Launch Checklist</h2>
-    <ul>
-        <li>Change the admin password in <code>config.php</code> (never ship with <code>admin123</code>)</li>
-        <li>Set <code>CONTACT_EMAIL</code> in <code>config.php</code> to the client's real email</li>
-        <li>Set real phone, email, and address in site_vars (Header tab)</li>
-        <li>Verify all page slugs, canonical URLs, and SEO meta descriptions</li>
-        <li>Test the contact form — confirm email is delivered</li>
-        <li>Test on mobile at key breakpoints</li>
-        <li>Confirm all city pages render correctly (check a few manually)</li>
-        <li>Remove any placeholder images or text</li>
-        <li>Do not upload the <code>.git/</code> folder to the live host</li>
-    </ul>
-</section>
+</div><!-- /#doc-aicity -->
 
-<section id="deploy-ftp">
-    <h2>Deploy via FTP</h2>
-    <p>The Deploy tab handles the full publish workflow in two steps.</p>
-    <ol>
-        <li>Go to Admin → Deploy tab</li>
-        <li>Click <strong>Generate Static Site</strong> — renders all pages to <code>output/{site_id}/</code>. Wait for it to complete.</li>
-        <li>Enter FTP credentials: host (no <code>ftp://</code> prefix), username, password, remote path</li>
-        <li>Click <strong>Push to Server</strong> — uploads only new or changed files (incremental)</li>
-    </ol>
-    <p>The remote path is typically <code>/public_html/</code> or <code>/www/</code> — check with your hosting provider.</p>
-    <p>After deleting cities or pages, run <strong>Audit Server</strong> after deploying to find and remove orphaned files still on the server.</p>
-    <p>301 redirects set in the SEO tab are automatically included in <code>.htaccess</code> on every Generate.</p>
-</section>
+<div id="doc-extending" hidden>
+<h1>Site Factory — Extending / Developer</h1>
+<p class="page-intro">Developer guides for modifying the codebase — adding block types, AI types, cities, templates, and updating these docs.</p>
 
-<section id="deploy-security">
-    <h2>Security Notes</h2>
-    <ul>
-        <li><strong>CSRF protection</strong> — all admin POST endpoints verify <code>$_SESSION['csrf_token']</code> via <code>hash_equals()</code></li>
-        <li><strong>URL sanitization</strong> — all user-entered URLs go through <code>sanitize_url()</code> — only http/https, tel:, mailto:, and relative links are allowed</li>
-        <li><strong>SVG sanitization</strong> — uploaded SVGs have scripts, event handlers, and javascript: URIs stripped</li>
-        <li><strong>No .git in webroot</strong> — .htaccess blocks dotfiles, but best practice is to not upload .git at all</li>
-        <li><strong>Change admin password</strong> — config.php ships with a bcrypt hash for <code>admin123</code> — change before any live deployment</li>
-        <li><strong>Contact form</strong> — includes CSRF token, honeypot field, and rate limiting</li>
-    </ul>
-</section>
-
-<!-- ═══════════ HOW TO ═══════════ -->
 <div class="doc-group-header" id="group-howto">How To</div>
 <section id="howto-new-block">
     <h2>How To: Add a New Block Type</h2>
@@ -2325,7 +2375,8 @@ Output valid JSON only — no explanation.</code></pre>
     <p>The <strong>?</strong> button in the block editor opens: <code>/admin/docs.php#block-{block_type}</code>. The anchor must exactly match the block type slug (e.g. <code>block-hero_split</code>, <code>block-faq_two_col</code>).</p>
 </section>
 
-</div><!-- /#doc-admin -->
+</div><!-- /#doc-extending -->
+
 
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <!-- ═══════════════════════ DEVENV DOCUMENTATION ═══════════════════════════ -->
@@ -3052,7 +3103,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <table>
         <tr><th>Core</th><th>Lives in</th><th>Does</th></tr>
         <tr><td><code>snapshot_master()</code> / <code>clone_to_working_dir()</code></td><td><code>includes/multisite/clone.php</code></td><td>Freeze master, clone cheap per-row copy</td></tr>
-        <tr><td><code>build_static_site()</code></td><td><code>includes/static_build.php</code></td><td>Render every page → static HTML + sitemap/robots/.htaccess</td></tr>
+        <tr><td><code>build_static_site()</code></td><td><code>includes/static_build.php</code></td><td>Render every page → static HTML + sitemap/robots/.htaccess; trailing-slash internal links + canonicals</td></tr>
         <tr><td><code>deploy_site()</code></td><td><code>includes/multisite/deploy.php</code></td><td>Upload changed files over FTP (incremental)</td></tr>
     </table>
     <p>The admin's "Generate Static" and "Deploy" buttons are now thin shells that call these same cores — so the interactive path and the batch path share one implementation.</p>
@@ -3083,6 +3134,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <tr><td><code>phone</code>, <code>tel</code>, <code>email</code></td><td>Recommended</td><td>Display phone, <code>tel:</code> link, contact</td></tr>
         <tr><td><code>address</code>, <code>city</code>, <code>state</code>, <code>SS</code>, <code>zip</code></td><td>Recommended</td><td>NAP + AI context + schema</td></tr>
         <tr><td><code>lat</code>, <code>lng</code></td><td>Optional</td><td>Geo coordinates → LocalBusiness schema</td></tr>
+        <tr><td><code>landing_cities</code></td><td>Optional</td><td>Extra service landing pages for this deploy — a <code>;</code>-separated list of "City, ST"</td></tr>
         <tr><td><code>rating</code>, <code>review_count</code></td><td>Optional (paired)</td><td>Real AggregateRating in schema — never invented</td></tr>
         <tr><td><code>logo</code>, <code>analytics_id</code></td><td>Optional</td><td>Per-site logo; per-site analytics (never shared)</td></tr>
         <tr><td><code>ftp_host</code>, <code>ftp_user</code>, <code>ftp_pass</code></td><td>For deploy</td><td>Deploy target + auth</td></tr>
@@ -3109,6 +3161,18 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
 <!-- ═══════════ AI CONTENT ═══════════ -->
 <div class="doc-group-header" id="ms-ai">AI Content</div>
+<section id="ms-niche">
+    <h2>Niche Brief &amp; archetypes</h2>
+    <p>Each master site is <strong>one niche</strong> (pest control, PM training, lawyers, …). The AI copy for that niche is defined in two layers:</p>
+    <ul>
+        <li><strong>Shared archetypes</strong> (<code>multisite/ai/archetypes.json</code>) — a seed-once, read-only library of block <em>shapes</em> (e.g. <code>city_market_intro</code>, <code>hero_subtext</code>, <code>faq_additions</code>), each with a prompt skeleton, a render mode (<code>standalone</code> vs <code>inject</code>), and shared accuracy guardrails. Not niche-specific.</li>
+        <li><strong>The Niche Brief</strong> (<code>sites/{master}/multisite/niche_brief.json</code>) — this master's vocabulary: <code>service_noun</code>, <code>business_descriptor</code>, <code>customer_noun</code>, <code>local_angle</code>, <code>offerings</code>, <code>tone</code>, niche <code>guardrails</code>, and which archetypes are enabled. Edited in the admin <strong>Niche Brief</strong> tab.</li>
+    </ul>
+    <p><strong>Compiling</strong> merges the two — filling each enabled archetype's <code>[[shared.*]]</code> and <code>[[brief.*]]</code> placeholders — and overwrites the master's <code>data/ai_block_types.json</code> (the prompt registry <code>generate.py</code> reads). Run it from the tab (<em>Save &amp; Compile</em>) or the CLI:</p>
+    <pre><code>php multisite/ai/compile.php --master=&lt;master_id&gt;</code></pre>
+    <p>Archetypes flagged <code>requires_research</code> are skipped unless the brief has <strong>Uses research fields</strong> on (for data-rich niches whose <code>cities.json</code> carries industries/employers/salary). Runtime tokens like <code>{business}</code>/<code>{city}</code> are left intact for <code>generate.py</code> to resolve per city.</p>
+</section>
+
 <section id="ms-aiblocks">
     <h2>AI blocks &amp; the engine</h2>
     <p>The master's pages carry <code>ai_block</code> placeholders wired to the prompt registry (<code>ai_block_types.json</code>). During a build, the Python engine <code>generate.py</code> (the same one the admin's AI Generation uses) fills them with city-specific copy. Two patterns:</p>
@@ -3141,13 +3205,21 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <div class="callout tip">Edit the master → rebuild → redeploy. There are no per-site overrides and no per-site stored content by design.</div>
 </section>
 
+<section id="ms-landing">
+    <h2>Per-deploy landing pages</h2>
+    <p>Besides its single home/core city, a deploy can get extra service <strong>landing pages</strong> — one per nearby city — via the optional <code>landing_cities</code> column. Its value is a <code>;</code>-separated list of <code>City, ST</code> entries:</p>
+    <pre><code>landing_cities = "Katy, TX; Fulshear, TX; Richmond, TX"</code></pre>
+    <p>During the build, <code>ms_parse_landing_cities()</code> turns that cell into <code>cities.json</code> rows and <code>multisite/generate_landing.php</code> renders a city-targeted service landing page for each, from the master's reusable landing template. Their AI copy is cached per-domain exactly like the home page, so rebuilds stay free. A blank cell = no landing pages (just home + core).</p>
+    <div class="callout tip">Landing cities are per-deploy — different sites in one campaign can target different surrounding towns. This is distinct from the master's own in-site <code>data/pages/</code>, which the clone drops.</div>
+</section>
+
 <!-- ═══════════ SEO ═══════════ -->
 <div class="doc-group-header" id="ms-seo">Differentiation &amp; SEO</div>
 <section id="ms-differentiation">
     <h2>Per-site differentiation</h2>
     <p>Because a clone would otherwise carry the master's identity into every site, the differentiation step rewrites each site to be a distinct entity:</p>
     <ul>
-        <li><strong>Identity rewrite</strong> — the master's business name, domain/URL, phone, tel and email are replaced with this site's everywhere, including inside the JSON-LD schema. (The master's body copy also uses <code>{business}</code>/<code>{website}</code> shortcodes so most of this resolves automatically.)</li>
+        <li><strong>Identity rewrite</strong> — the master's business name, domain/URL, phone, tel and email are replaced with this site's everywhere, including inside the JSON-LD schema. The replacement is word-boundary anchored so it never corrupts substrings. (The master's body copy also uses <code>{business}</code>/<code>{website}</code> shortcodes so most of this resolves automatically.)</li>
         <li><strong>LocalBusiness JSON-LD</strong> — a real <code>LocalBusiness</code> node with <code>PostalAddress</code> + <code>GeoCoordinates</code> is injected on the homepage (the strongest "distinct entity" signal) whenever geo/address/rating is present.</li>
         <li><strong>Fabricated ratings stripped</strong> — the master's carried-over <code>aggregateRating</code> is removed; a real one is emitted only if the row supplies it.</li>
         <li><strong>Analytics isolation</strong> — each site gets its own analytics tag from <code>analytics_id</code>, or none. A shared tag is never used.</li>
@@ -3168,8 +3240,23 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <div class="callout warn">The defensible path is genuine local presence per city (real address, phone, ideally a Google Business Profile). Build to maximize real distinctness regardless — it's what protects against penalties and actually serves users.</div>
 </section>
 
-<!-- ═══════════ RUNNING ═══════════ -->
-<div class="doc-group-header" id="ms-run">Running a Campaign</div>
+<!-- ═══════════ ADMIN UI ═══════════ -->
+<div class="doc-group-header" id="ms-admin">Running from the Admin</div>
+<section id="ms-admin-multisite">
+    <h2>The Multisite tab</h2>
+    <p>The whole campaign runs from the admin <strong>Multisite</strong> tab (the active site is the campaign master) — no shell needed. It wraps the same cores documented under Command Line below.</p>
+    <ol>
+        <li><strong>Upload params</strong> — download the sample CSV, edit it, and upload. The table is validated inline (per-row ok / warn / error, plus an unknown-column report) and stored only when every row is error-free; rows with warnings are kept.</li>
+        <li><strong>Pre-flight FTP</strong> — a live, streamed per-row connect + login check, so bad credentials surface before any build begins.</li>
+        <li><strong>Run campaign</strong> — set concurrency, limit and retries, optionally toggle <em>No AI</em> / <em>Force</em>, then Run. The run detaches into the background and the page polls a live progress bar (rows done, files uploaded, running cost).</li>
+        <li><strong>Recent runs</strong> — a history of past runs with result + cost, each with a <strong>retry failed</strong> button that re-runs only that run's failed rows.</li>
+    </ol>
+    <p>Backed by <code>admin/multisite_api.php</code> (upload / status / run / run_status / list_runs / retry_failed / sample_csv), <code>admin/multisite_preflight.php</code> (SSE pre-flight), and CSRF-protected save handlers. The <strong>Niche Brief</strong> tab (see AI Content) authors the master's AI vocabulary.</p>
+    <div class="callout tip">Start with a small <em>limit</em> (e.g. 2) and review the first sites before scaling to the full table.</div>
+</section>
+
+<!-- ═══════════ RUNNING (CLI) ═══════════ -->
+<div class="doc-group-header" id="ms-run">Command Line</div>
 <section id="ms-cli-intake">
     <h2>1 · Prepare &amp; validate the params</h2>
     <p>Prepare the CSV in a spreadsheet, then validate + store it (optionally pre-flighting FTP):</p>
@@ -3238,6 +3325,10 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <tr><td><code>includes/multisite/ai_cache.php</code></td><td>Per-domain AI copy cache (prompt-hash, self-healing)</td></tr>
         <tr><td><code>includes/multisite/deploy.php</code></td><td>Incremental FTP deploy core</td></tr>
         <tr><td><code>includes/multisite/params.php</code></td><td>CSV parse + validation + pre-flight helpers</td></tr>
+        <tr><td><code>includes/multisite/landing.php</code> · <code>multisite/generate_landing.php</code></td><td>Parse <code>landing_cities</code> → build per-city service landing pages</td></tr>
+        <tr><td><code>multisite/ai/archetypes.json</code> · <code>multisite/ai/compile.php</code></td><td>Shared archetype library + niche-brief → registry compiler</td></tr>
+        <tr><td><code>admin/tabs/multisite.php</code> · <code>admin/multisite_api.php</code> · <code>admin/multisite_preflight.php</code></td><td>Admin Multisite tab: upload, pre-flight, run, history, retry</td></tr>
+        <tr><td><code>admin/tabs/niche_brief.php</code> · <code>admin/niche_brief_save.php</code></td><td>Admin Niche Brief tab: author + compile the AI vocabulary</td></tr>
     </table>
     <p>Full architecture and rationale live in <code>docs/multisite-generator-architecture.md</code> in the repository.</p>
 </section>
@@ -3249,7 +3340,6 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><strong>Domain-seeded theme colors</strong> (Tier 3, lowest impact).</li>
         <li><strong>Research step</strong> — cities not already in the master's <code>cities.json</code> need local-market data (run research or pre-populate).</li>
         <li><strong>Master copy polish</strong> — a few brand phrasings still need shortcode-ifying.</li>
-        <li><strong>Admin upload UI</strong> — params intake is CLI-first today; a browser upload page is a later convenience.</li>
     </ul>
 </section>
 </div><!-- /#doc-multisite -->
@@ -3258,12 +3348,12 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 <script>
 /* Sidebar active link on scroll */
 const sections = document.querySelectorAll('[id]');
-const navLinks  = document.querySelectorAll('#doc-nav a, #devenv-nav a, #multisite-nav a');
+const navLinks  = document.querySelectorAll('#sidebar nav a');
 const observer  = new IntersectionObserver(entries => {
     entries.forEach(e => {
         if (e.isIntersecting) {
             navLinks.forEach(a => a.classList.remove('active'));
-            const active = document.querySelector('#doc-nav a[href="#' + e.target.id + '"], #devenv-nav a[href="#' + e.target.id + '"], #multisite-nav a[href="#' + e.target.id + '"]');
+            const active = document.querySelector('#sidebar nav:not([hidden]) a[href="#' + e.target.id + '"]');
             if (active) {
                 active.classList.add('active');
                 active.scrollIntoView({ block: 'nearest' });
@@ -3295,12 +3385,16 @@ function filterNav(q) {
 /* Tab switcher — swaps sidebar nav + content between Admin and DevEnv */
 /* Each doc: tab key → [content id, nav id, subtitle] */
 const DOCS = {
-    admin:     ['doc-admin',     'doc-nav',       'Admin Documentation'],
-    devenv:    ['doc-devenv',    'devenv-nav',    'DevEnv Documentation'],
+    concepts:  ['doc-concepts',  'concepts-nav',  'Concepts'],
+    reference: ['doc-reference', 'reference-nav', 'Admin Reference'],
+    building:  ['doc-building',  'building-nav',  'Building Sites'],
+    aicity:    ['doc-aicity',    'aicity-nav',    'AI & City Pages'],
     multisite: ['doc-multisite', 'multisite-nav', 'Multisite Documentation'],
+    devenv:    ['doc-devenv',    'devenv-nav',    'DevEnv Documentation'],
+    extending: ['doc-extending', 'extending-nav', 'Extending / Developer'],
 };
 function switchDoc(which) {
-    if (!DOCS[which]) which = 'admin';
+    if (!DOCS[which]) which = 'concepts';
     for (const key in DOCS) {
         const [contentId, navId] = DOCS[key];
         document.getElementById(contentId).hidden = (key !== which);
@@ -3318,14 +3412,14 @@ function switchDoc(which) {
     const params = new URLSearchParams(location.search);
     let which = params.get('doc');
     if (!DOCS[which]) {
-        which = 'admin';
+        which = 'concepts';
         if (location.hash) {
             for (const key in DOCS) {
                 if (document.querySelector('#' + DOCS[key][1] + ' a[href="' + location.hash + '"]')) { which = key; break; }
             }
         }
     }
-    if (which !== 'admin') switchDoc(which);
+    if (which !== 'concepts') switchDoc(which);
 })();
 
 /* Jump to hash on load */
