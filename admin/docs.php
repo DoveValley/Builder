@@ -315,6 +315,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a class="nav-group" href="#ms-seo">Differentiation &amp; SEO</a>
         <a href="#ms-differentiation">Per-site differentiation</a>
         <a href="#ms-uniqueness">Uniqueness checklist</a>
+        <a href="#ms-roadmap">Roadmap — completing</a>
 
         <a class="nav-group" href="#ms-admin">Running from the Admin</a>
         <a href="#ms-admin-multisite">The Multisite tab</a>
@@ -329,7 +330,6 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#ms-observability">Run logs &amp; cost</a>
         <a href="#ms-security">Security &amp; credentials</a>
         <a href="#ms-files">File reference</a>
-        <a href="#ms-remaining">Not yet automated</a>
     </nav>
 
     <nav id="devenv-nav" hidden>
@@ -3284,6 +3284,28 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <div class="callout warn">The defensible path is genuine local presence per city (real address, phone, ideally a Google Business Profile). Build to maximize real distinctness regardless — it's what protects against penalties and actually serves users. Mechanisms: see <a href="#ms-differentiation">Per-site differentiation</a>, <a href="#ms-aiblocks">AI blocks &amp; the engine</a>, and <a href="#ms-landing">Per-deploy landing pages</a>.</div>
 </section>
 
+<section id="ms-roadmap">
+    <h2>Roadmap — completing the factory</h2>
+    <p>The checklist above shows status at a glance; these are the open items, highest-impact first. Every per-site output must be <strong>deterministic per domain</strong> (stable across rebuilds, so SEO signals don't churn).</p>
+
+    <h3>Content <span style="font-weight:400;color:#64748b;font-size:.85em;">(Tier 1 — do first, moves the needle most)</span></h3>
+    <ul>
+        <li>☐ <strong>Structural / block-order variation</strong> — rotate block order / vary templates deterministically per domain so sites aren't structurally identical. <span style="color:#64748b;">Not built; highest-value remaining item.</span></li>
+        <li>◐ <strong>Research / local-market data</strong> — cities missing from the master's <code>cities.json</code> lack employers / industry / salary context. <span style="color:#64748b;">Partial — wire <code>generate.py --research</code> into <code>build_one</code> (extra API), or pre-populate <code>cities.json</code> from the params table.</span></li>
+        <li>◐ <strong>Finish master authoring</strong> — genericize the last brand phrasings into <code>{business}</code> shortcodes and add <code>ai_block</code>s across home / core / service-landing pages. <span style="color:#64748b;">Partial — authoring work, not code.</span></li>
+    </ul>
+
+    <h3>Visual <span style="font-weight:400;color:#64748b;font-size:.85em;">(Tier 3 — do last, lowest SEO value)</span></h3>
+    <ul>
+        <li>◐ <strong>Per-site favicon / og-image</strong> — the fields already exist; add a per-site override in the inject / differentiate step. <span style="color:#64748b;">Cheap field-override.</span></li>
+        <li>☐ <strong>Per-site logo</strong> — auto-wordmark from the business name (or honor a <code>logo</code> column), and derive the favicon from it. <span style="color:#64748b;">Needs asset-generation code.</span></li>
+        <li>☐ <strong>Per-site image assignment</strong> — a per-city image pool, assigned deterministically. <span style="color:#64748b;">Needs an image pool.</span></li>
+        <li>☐ <strong>Domain-seeded theme colors</strong> — deterministic palette from a domain hash; the render layer already supports theme overrides, so this rides the existing inject step. <span style="color:#64748b;">Lowest impact.</span></li>
+    </ul>
+
+    <div class="callout tip">These map 1:1 to the ☐/◐ marks in the checklist above. The whole visual tier is still manual — but it's also the lowest-value work, so it stays last.</div>
+</section>
+
 <!-- ═══════════ ADMIN UI ═══════════ -->
 <div class="doc-group-header" id="ms-admin">Running from the Admin</div>
 <section id="ms-admin-multisite">
@@ -3377,15 +3399,6 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <p>Full architecture and rationale live in <code>docs/multisite-generator-architecture.md</code> in the repository.</p>
 </section>
 
-<section id="ms-remaining">
-    <h2>Not yet automated</h2>
-    <ul>
-        <li><strong>Per-site logo &amp; images</strong> (Tier 3) — auto-wordmark from the business name, per-city image assignment.</li>
-        <li><strong>Domain-seeded theme colors</strong> (Tier 3, lowest impact).</li>
-        <li><strong>Research step</strong> — cities not already in the master's <code>cities.json</code> need local-market data (run research or pre-populate).</li>
-        <li><strong>Master copy polish</strong> — a few brand phrasings still need shortcode-ifying.</li>
-    </ul>
-</section>
 </div><!-- /#doc-multisite -->
 </div><!-- /#main -->
 
