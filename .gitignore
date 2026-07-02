@@ -2,7 +2,10 @@
 .DS_Store
 *.tmp
 
-# FTP credentials — never commit
+# FTP credentials — never commit. deploy.json lives at the SITE ROOT (the path
+# the code actually reads, ACTIVE_SITE_DIR/deploy.json); the data/ path below is
+# kept as a belt-and-suspenders guard for any legacy location.
+sites/*/deploy.json
 sites/*/data/deploy.json
 
 # Multisite campaign data (holds FTP credentials) — never commit.
