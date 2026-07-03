@@ -3291,7 +3291,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <h3>2 · Structural <span style="font-weight:400;color:#64748b;font-size:.85em;">(highest-value unbuilt item)</span></h3>
     <ul>
-        <li><span class="where preauthor">Pre-authoring</span>☐ Block-order / layout skeletons per domain — rotate block order / 3–4 layout skeletons deterministically per domain so sites aren't structurally identical <span class="pri should">Should</span> <span style="color:#64748b;">(not built; highest-value remaining item — see <a href="#ms-variation">Deterministic variation</a>)</span></li>
+        <li><span class="where preauthor">Pre-authoring</span>☐ Block-order / layout skeletons per domain — rotate block order / 3–4 layout skeletons deterministically per domain so sites aren't structurally identical <span class="pri must">Must</span> <span style="color:#64748b;">(not built; highest-value remaining item — see <a href="#ms-variation">Deterministic variation</a>)</span></li>
         <li><span class="where preauthor">Pre-authoring</span>☐ Vary JSON-LD schema shape — 3–4 variants per page type, different field order + boilerplate phrasing, rotated by stable hash (complements the schema in area 3) <span class="pri must">Must</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
         <li><span class="where preauthor">Pre-authoring</span>☐ Vary CSS class vocabulary — 3–4 "skins": identical rules, different class names <span class="pri should">Should</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
         <li><span class="where perrow">Per-row</span>☐ Randomize image directory / filename structure — vary folder + filename conventions per site <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(low value alone)</span></li>
@@ -3305,7 +3305,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><span class="where perrow">Per-row</span>✅ Self-referential canonical per domain <span class="pri must">Must</span></li>
         <li><span class="where perrow">Per-row</span>✅ Per-site <code>sitemap.xml</code> + <code>robots.txt</code> — written for each domain at build (needs <code>canonical_domain</code>, or the sitemap is skipped) <span class="pri must">Must</span></li>
         <li><span class="where perrow">Per-row</span>✅ Per-site analytics — <strong>never share one across sites</strong> (the big DON'T). Each site gets its own GA4 tag from <code>analytics_id</code>. <span style="color:#64748b;">◐ distinct GTM container IDs not yet emitted</span> <span class="pri must">Must</span></li>
-        <li><span class="where perrow">Per-row</span>☐ Unique Search Console verification per site — own meta tag or DNS TXT per domain; never verify every site through one shared GTM property <span class="pri must">Must</span></li>
+        <li><span class="where perrow">Per-row</span>☐ Unique Search Console verification per site — own meta tag or DNS TXT per domain; never verify every site through one shared GTM property <span class="pri should">Should</span></li>
         <li><span class="where perrow">Per-row</span>✅ No generator fingerprint emitted <span class="pri should">Should</span></li>
     </ul>
 
@@ -3323,7 +3323,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><span class="where operational">Operational</span>📋 Google Business Profile per city — real address, correct categories, photos, posts; the single biggest local ranking + distinct-entity signal <span class="pri must">Must</span></li>
         <li><span class="where operational">Operational</span>📋 Local citations / NAP consistency — same name / address / phone across directories (Yelp, BBB, industry lists) <span class="pri should">Should</span></li>
         <li><span class="where perrow">Per-row</span>☐ Embedded map + service-area on each site — localized map / directions block per city <span class="pri should">Should</span> <span style="color:#64748b;">(<code>map_info</code> block per city)</span></li>
-        <li><span class="where operational">Operational</span>📋 Earn a distinct backlink profile — real local links per site; never a shared PBN / cross-site link network <span class="pri maybe">Maybe</span></li>
+        <li><span class="where operational">Operational</span>📋 Earn a distinct backlink profile — real local links per site; never a shared PBN / cross-site link network <span class="pri should">Should</span></li>
     </ul>
 
     <h3>6 · Site Hosting &amp; Footprint <span style="font-weight:400;color:#64748b;font-size:.85em;">(operational — outside the tool)</span></h3>
@@ -3401,7 +3401,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 2 · Structural</h3>
 
     <div class="block-card-doc" id="spec-layout-skeletons">
-        <h3>Block-order / layout skeletons <span class="pri should">Should</span> <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring (+ Per-row)</span></h3>
+        <h3>Block-order / layout skeletons <span class="pri must">Must</span> <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring (+ Per-row)</span></h3>
         <p class="bc-meta">☐ not built — highest-value remaining item</p>
         <p><strong>Description.</strong> Assign one of 3–4 whole-page block orderings (layout skeletons) per domain, so sites aren't structurally identical top to bottom.</p>
         <p><strong>Build.</strong> Define 3–4 orderings of the master's blocks (each block is already independent) and store them in the master. At build, reorder <code>content_blocks</code> by <code>variants[ crc32(domain) % n ]</code> before render (in inject/differentiate); keep hero first + footer last fixed. See <a href="#ms-variation">Deterministic variation</a>. <strong>Effort:</strong> ~2–3 days.</p>
@@ -3473,7 +3473,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     </div>
 
     <div class="block-card-doc" id="spec-search-console">
-        <h3>Unique Search Console verification <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <h3>Unique Search Console verification <span class="pri should">Should</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
         <p class="bc-meta">☐ not built</p>
         <p><strong>Description.</strong> Each domain verified independently (own meta tag or DNS TXT) — never all through one shared GTM property.</p>
         <p><strong>Build.</strong> Add a verification-token column; inject a per-site <code>&lt;meta name="google-site-verification"&gt;</code> during differentiate (same path as analytics). Optionally automate property creation + verification via the Search Console API. <strong>Effort:</strong> ~1 day (meta tag), +1–2 days (API).</p>
@@ -3540,7 +3540,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     </div>
 
     <div class="block-card-doc" id="spec-backlinks">
-        <h3>Earn a distinct backlink profile <span class="pri maybe">Maybe</span> <span class="where operational" style="float:none;margin-left:6px;">Operational</span></h3>
+        <h3>Earn a distinct backlink profile <span class="pri should">Should</span> <span class="where operational" style="float:none;margin-left:6px;">Operational</span></h3>
         <p class="bc-meta">📋 operational — outside the tool</p>
         <p><strong>Description.</strong> Real local links per site; never a shared PBN / cross-site link network.</p>
         <p><strong>Build.</strong> Operational: local outreach / partnerships per site; explicitly avoid interlinking your own network. <strong>Effort:</strong> operational — ongoing.</p>
