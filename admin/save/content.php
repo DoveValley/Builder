@@ -19,6 +19,8 @@
 
         // SEO
         $seoData = [
+            'primary_keyword'    => trim($_POST['primary_keyword']    ?? ''),
+            'secondary_keywords' => trim($_POST['secondary_keywords'] ?? ''),
             'seo_title'          => trim($_POST['seo_title']          ?? ''),
             'canonical_url'      => sanitize_url($_POST['canonical_url']      ?? ''),
             'meta_description'   => trim($_POST['meta_description']   ?? ''),

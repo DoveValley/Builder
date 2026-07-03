@@ -74,6 +74,8 @@ function default_data() {
             ],
         ],
         'seo' => [
+            'primary_keyword'  => '',
+            'secondary_keywords' => '',
             'meta_keywords'    => '',
             'meta_description' => '',
             'og_title'         => '',
@@ -218,6 +220,7 @@ function default_page_data() {
              'photo' => '', 'photo_ratio' => 'landscape', 'photo_position' => 'center', 'photo_alt' => ''],
         ],
         'seo' => [
+            'primary_keyword' => '', 'secondary_keywords' => '',
             'meta_keywords' => '', 'meta_description' => '',
             'og_title' => '', 'og_description' => '', 'og_image' => '', 'schema' => '',
             'canonical_url' => '', 'service_name' => '', 'service_type' => '',
@@ -244,6 +247,7 @@ function default_post_data() {
              'photo' => '', 'photo_ratio' => 'landscape', 'photo_position' => 'center', 'photo_alt' => ''],
         ],
         'seo' => [
+            'primary_keyword' => '', 'secondary_keywords' => '',
             'meta_keywords' => '', 'meta_description' => '',
             'og_title' => '', 'og_description' => '', 'og_image' => '', 'schema' => '',
             'canonical_url' => '', 'service_name' => '', 'service_type' => '',

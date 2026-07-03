@@ -54,6 +54,52 @@ function render_seo_editor($seo, string $context = 'page', string $websiteUrl = 
         <h2>SEO &amp; Metadata</h2>
         <p class="hint" style="margin-bottom:18px;">These fields help search engines and social media understand your page.</p>
 
+        <h3 style="margin: 0 0 12px; font-size: 1rem;">🎯 Keyword focus</h3>
+        <div class="form-group">
+            <label for="primary_keyword">Primary keyword</label>
+            <input type="text" id="primary_keyword" name="primary_keyword" value="<?= h($seo['primary_keyword'] ?? '') ?>" placeholder="e.g. Pest Control">
+            <span class="hint">The one thing this page is about — <strong>leave the city out</strong>. Drives the title, H1, and schema. Add <code>{city}</code>/<code>{SS}</code> where you want the location, e.g. <code>{primary_keyword} in {city}, {SS}</code>.</span>
+        </div>
+        <div class="form-group">
+            <label for="secondary_keywords">Secondary keywords</label>
+            <div style="display:flex; gap:8px; align-items:flex-start;">
+                <input type="text" id="secondary_keywords" name="secondary_keywords" value="<?= h($seo['secondary_keywords'] ?? '') ?>" placeholder="e.g. termite treatment, bed bug removal, rodent control" style="flex:1;">
+                <button type="button" class="btn btn-secondary btn-small" onclick="suggestSecondaryKeywords(this)">✨ AI suggest</button>
+            </div>
+            <span class="hint">Comma-separated related topics this page should cover. Guides the AI copy and gives you subheading / FAQ ideas — <strong>not for stuffing</strong>.</span>
+        </div>
+        <script>
+        window.suggestSecondaryKeywords = window.suggestSecondaryKeywords || function (btn) {
+            var card = btn.closest('.card') || document;
+            var pEl = card.querySelector('#primary_keyword');
+            var sEl = card.querySelector('#secondary_keywords');
+            var primary = (pEl && pEl.value || '').trim();
+            if (!primary) { alert('Enter a primary keyword first.'); if (pEl) pEl.focus(); return; }
+            var form = btn.closest('form');
+            var csrf = (form && form.querySelector('input[name="csrf_token"]') || {}).value
+                       || (typeof CSRF_TOKEN !== 'undefined' ? CSRF_TOKEN : '');
+            var orig = btn.textContent;
+            btn.disabled = true; btn.textContent = '…';
+            var fd = new FormData();
+            fd.append('csrf_token', csrf);
+            fd.append('primary_keyword', primary);
+            fetch('keyword_suggest.php', { method: 'POST', body: fd })
+                .then(function (r) { return r.json(); })
+                .then(function (d) {
+                    btn.disabled = false; btn.textContent = orig;
+                    if (d.error) { alert(d.error); return; }
+                    var suggested = (d.keywords || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+                    if (!suggested.length) { alert('No suggestions returned — try again.'); return; }
+                    var existing = (sEl.value || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+                    var seen = {}; existing.forEach(function (s) { seen[s.toLowerCase()] = 1; });
+                    suggested.forEach(function (s) { if (!seen[s.toLowerCase()]) { existing.push(s); seen[s.toLowerCase()] = 1; } });
+                    sEl.value = existing.join(', ');
+                })
+                .catch(function () { btn.disabled = false; btn.textContent = orig; alert('Request failed.'); });
+        };
+        </script>
+        <hr style="margin: 20px 0; border-color: #e5e7eb;">
+
         <div class="form-group">
             <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
                 <input type="checkbox" name="robots_noindex" value="1" <?= !empty($seo['robots_noindex']) ? 'checked' : '' ?>>
@@ -79,6 +125,7 @@ function render_seo_editor($seo, string $context = 'page', string $websiteUrl = 
         <div class="form-group">
             <label for="meta_keywords">Meta keywords</label>
             <input type="text" id="meta_keywords" name="meta_keywords" value="<?= h($seo['meta_keywords'] ?? '') ?>" placeholder="e.g. pest control, Katy TX, exterminator">
+            <span class="hint">Legacy <code>&lt;meta keywords&gt;</code> tag — largely ignored by search engines. Your strategic keywords are the <strong>Keyword focus</strong> fields at the top.</span>
         </div>
         <div class="form-group">
             <label for="og_title">Social share title (og:title)</label>
