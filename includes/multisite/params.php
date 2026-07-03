@@ -279,3 +279,25 @@ function ms_list_params_versions(string $masterId): array {
 function ms_valid_version_id(string $id): bool {
     return (bool)preg_match('/^\d{8}-\d{6}-[0-9a-f]{4}$/', $id);
 }
+
+/** Collapse empty-location artifacts left when {city_state}/{city}/{SS} resolve to ''. */
+function ms_clean_title(string $t): string {
+    $t = preg_replace('/,\s*\|/u', ' |', $t);      // ", |"  (city present, SS empty via "{city}, {SS}")
+    $t = preg_replace('/\|\s*\|/u', '|', $t);       // "| |"  (both empty)
+    $t = preg_replace('/\s{2,}/u', ' ', $t);        // runs of spaces
+    $t = preg_replace('/^\s*\|\s*|\s*\|\s*$/u', '', $t);   // dangling leading/trailing pipe
+    return trim($t, " \t|,");
+}
+
+/** Render a generation pattern against one params row + the page's primary keyword. */
+function ms_render_pattern(string $pattern, array $row, string $primaryKeyword): string {
+    $city = $row['city'] ?? ''; $SS = $row['SS'] ?? ''; $state = $row['state'] ?? '';
+    $business = $row['business'] ?? '';
+    $city_state = ($city && $SS) ? ($city . ', ' . $SS) : ($city . $SS);
+    $t = str_replace(
+        ['{primary_keyword}', '{service}', '{business}', '{city_state}', '{city}', '{SS}', '{state}'],
+        [$primaryKeyword,     $primaryKeyword, $business, $city_state,   $city,   $SS,   $state],
+        $pattern
+    );
+    return ms_clean_title($t);
+}

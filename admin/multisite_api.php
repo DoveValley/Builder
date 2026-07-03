@@ -181,6 +181,46 @@ switch ($action) {
         ms_write_csv('php://output', $parsed['header'], ms_mask_ftp_pass($parsed['rows']));
         exit;
 
+    // Verification preview: resolve the MASTER's actual page titles against a sample params
+    // row — so the operator sees exactly what the cloned sites will publish. Read-only; the
+    // titles live in each page's SEO panel (single source of truth), not here.
+    case 'preview_titles':
+        // Sample row: first error-free params row, else a placeholder.
+        $row = null;
+        if (is_file($paramsPath)) {
+            $p = ms_parse_csv($paramsPath);
+            if (!$p['error']) {
+                $v = ms_validate_rows($p['rows'], $p['header']);
+                foreach ($v['rows'] as $r) { if (!$r['errors']) { $row = $r['data']; break; } }
+            }
+        }
+        $placeholder = $row === null;
+        if ($row === null) $row = ['domain' => 'example-city.com', 'business' => 'Example City Pros', 'city' => 'Dallas', 'SS' => 'TX', 'state' => 'Texas'];
+
+        $mf = ACTIVE_SITE_DIR . '/data/site.json';
+        $md = is_file($mf) ? json_decode(file_get_contents($mf), true) : null;
+        if (!is_array($md)) { echo json_encode(['error' => 'Could not read the master site.']); break; }
+
+        $resolve = function (array $seo, string $label) use ($row) {
+            $raw = trim($seo['seo_title'] ?? '');
+            $pk  = trim($seo['primary_keyword'] ?? '');
+            return [
+                'label'     => $label,
+                'has_title' => $raw !== '',
+                'resolved'  => $raw !== '' ? ms_render_pattern($raw, $row, $pk) : ('(no title set — will use the site name)'),
+            ];
+        };
+
+        $titles = [];
+        $titles[] = $resolve($md['seo'] ?? [], 'Homepage');
+        foreach (($md['pages'] ?? []) as $pg) {
+            $label = trim($pg['title'] ?? '') !== '' ? $pg['title'] : ('/' . ($pg['slug'] ?? '?'));
+            $titles[] = $resolve($pg['seo'] ?? [], $label);
+        }
+
+        echo json_encode(['sample_domain' => $row['domain'] ?? '', 'is_placeholder' => $placeholder, 'titles' => $titles]);
+        break;
+
     // List saved upload versions (last 15), newest first.
     case 'list_versions':
         echo json_encode(['versions' => ms_list_params_versions($masterId)]);

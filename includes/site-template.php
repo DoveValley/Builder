@@ -27,6 +27,8 @@ $_hInitialHeight = match($_hLayout) {
 // {tel} = E.164 tracking number; fall back to stripping display phone
 $telHref = resolve_shortcodes('{tel}') ?: preg_replace('/[^0-9+]/', '', $header['phone'] ?? '');
 
+// Per-page keyword for {primary_keyword}/{service} — set before any resolve_shortcodes() below.
+$GLOBALS['_page_primary_keyword'] = $seo['primary_keyword'] ?? '';
 $pageTitle = resolve_shortcodes(!empty($pageTitle) ? $pageTitle : SITE_TITLE);
 if (isset($seo['meta_description'])) $seo['meta_description'] = resolve_shortcodes($seo['meta_description']);
 if (isset($seo['meta_keywords']))    $seo['meta_keywords']    = resolve_shortcodes($seo['meta_keywords']);

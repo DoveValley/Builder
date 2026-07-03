@@ -303,6 +303,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a class="nav-group" href="#ms-overview">Overview</a>
         <a href="#ms-what">What it is</a>
         <a href="#ms-howitworks">How it works</a>
+        <a href="#ms-master-state">State of the master</a>
         <a href="#ms-vs-insite">Multisite vs city pages</a>
 
         <a class="nav-group" href="#ms-arch">Architecture</a>
@@ -3108,6 +3109,22 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><strong>Build</strong> the whole site to static HTML.</li>
         <li><strong>Deploy</strong> over FTP (only changed files), then delete the temp copy.</li>
     </ol>
+</section>
+
+<section id="ms-master-state">
+    <h2>State of the master site entering multisite</h2>
+    <p>Multisite doesn't build sites — it <strong>replicates</strong> one. Before you run a campaign, the master must already be a <strong>finished, single-city site</strong>, because every generated site is a copy of it. Concretely:</p>
+    <ul>
+        <li><strong>Every page already exists in the master.</strong> Homepage, all core pages, and a landing page for each keyword — all authored in the admin panel, exactly like a normal single site.</li>
+        <li><strong>Multisite never adds, removes, or authors pages.</strong> It takes the pages that are already there, adjusts them, and deploys. If a page should exist on the generated sites, it must exist in the master first.</li>
+        <li><strong>The pipeline is clone → adjust → deploy.</strong> Clone the finished master, adjust it to this site's identity, ship it — there is no page-building step.</li>
+        <li><strong>Shortcodes are already throughout the master.</strong> Titles, headings, body copy, and schema use <code>{city}</code>, <code>{SS}</code>, <code>{business}</code>, <code>{primary_keyword}</code>, and the rest. "Adjust" is really just <em>setting this site's <code>site_vars</code></em> (city, business, phone, geo) — and every shortcode across the whole site then resolves to that city.</li>
+        <li><strong>Titles come from each page's own SEO panel — the single source of truth.</strong> Multisite doesn't assemble titles behind the scenes. A master page titled <code>{primary_keyword} {city_state} | {business}</code> renders as "Pest Control Dallas, TX | Dallas Pest Pros" on the Dallas clone. The <a href="#ms-admin-multisite">Title preview</a> card shows exactly what each clone will publish — verify it there before running.</li>
+        <li><strong>The keyword is one field.</strong> Each page's <em>Keyword focus → Primary keyword</em> feeds <code>{primary_keyword}</code> into the title, H1, and schema, so the keyword stays consistent and can't drift.</li>
+        <li><strong>Per-city AI copy fills only the marked blocks.</strong> Blocks tagged as <code>ai_block</code> are (re)written per city during the run; everything else clones verbatim and localizes through shortcodes. (See <a href="#ms-aiblocks">AI blocks &amp; the engine</a>.)</li>
+        <li><strong>In-site city pages are dropped.</strong> A generated site is single-city, so the clone drops the master's <code>data/pages/</code> (the many-cities-in-one-site files) and builds only the homepage + core/landing pages from <code>site.json</code>. (See <a href="#ms-vs-insite">Multisite vs. in-site City Pages</a> below.)</li>
+    </ul>
+    <div class="callout tip"><strong>Rule of thumb:</strong> get the master perfect as one finished single-city site — real pages, shortcodes everywhere, a keyword set per page — then multisite just makes 100 localized copies of it. Nothing appears on a generated site that isn't already visible in the master.</div>
 </section>
 
 <section id="ms-vs-insite">

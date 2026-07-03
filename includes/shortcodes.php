@@ -1,8 +1,10 @@
 <?php
 /* ============================================================
    SHORTCODE SYSTEM
-   Tokens: {city} {state} {SS} {city_state} {city_slug} {business} {phone} {zip} {website} {business_domain} {rating} {review_count}
+   Tokens: {city} {state} {SS} {city_state} {city_slug} {business} {phone} {zip} {website} {business_domain} {rating} {review_count} {primary_keyword} {service}
    Values stored in $data['site_vars']. Applied at render time.
+   {primary_keyword}/{service} are PER-PAGE — read from $GLOBALS['_page_primary_keyword'],
+   set by site-template.php before each page renders.
    ============================================================ */
 function resolve_shortcodes(string $text): string {
     global $data;
@@ -24,9 +26,10 @@ function resolve_shortcodes(string $text): string {
     $rating       = $lb['lb_rating']       ?? '';
     $review_count = $lb['lb_review_count'] ?? '';
     $city_state   = $city && $SS ? $city . ', ' . $SS : $city . $SS;
+    $primary_keyword = $GLOBALS['_page_primary_keyword'] ?? '';   // per-page, set by site-template.php
     return str_replace(
-        ['{city}', '{state}', '{SS}', '{city_state}', '{city_slug}', '{business}', '{phone}', '{tel}', '{zip}', '{website}', '{business_domain}', '{rating}', '{review_count}', '{address}', '{lat}', '{lng}'],
-        [$city,    $state,    $SS,    $city_state,    $city_slug,    $business,    $phone,    $tel,    $zip,    $website,    $business_domain,    $rating,    $review_count,    $address,    $lat,    $lng],
+        ['{city}', '{state}', '{SS}', '{city_state}', '{city_slug}', '{business}', '{phone}', '{tel}', '{zip}', '{website}', '{business_domain}', '{rating}', '{review_count}', '{address}', '{lat}', '{lng}', '{primary_keyword}', '{service}'],
+        [$city,    $state,    $SS,    $city_state,    $city_slug,    $business,    $phone,    $tel,    $zip,    $website,    $business_domain,    $rating,    $review_count,    $address,    $lat,    $lng,    $primary_keyword,   $primary_keyword],
         $text
     );
 }

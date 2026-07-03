@@ -58,6 +58,13 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
     </div>
 </div>
 
+<!-- ===== TITLE PREVIEW CARD ===== -->
+<div class="card" id="ms-output-card">
+    <h3 style="margin-top:0;">Title preview — what your sites will publish</h3>
+    <p class="hint">Each page's title comes from its own SEO panel in this master (using <code>{primary_keyword}</code>, <code>{city}</code>, <code>{SS}</code>, <code>{business}</code> shortcodes). Below is exactly how they resolve for a sample city on a cloned site — nothing is generated behind the scenes. To change a title, edit that page's SEO in the panel.</p>
+    <div id="ms-titles-preview"><p class="hint">Loading…</p></div>
+</div>
+
 <!-- ===== RUN CARD ===== -->
 <div class="card" id="ms-run-card">
     <h3 style="margin-top:0;">2. Run campaign</h3>
@@ -321,6 +328,27 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
             })
             .catch(() => { btn.disabled = false; });
     };
+
+    // ── Title preview (read-only — resolves the master's real page titles) ────
+    function loadTitlePreview() {
+        fetch('multisite_api.php?action=preview_titles').then(function (r) { return r.json(); }).then(function (d) {
+            var el = document.getElementById('ms-titles-preview');
+            if (d.error) { el.innerHTML = '<p class="hint" style="color:#991b1b;">' + esc(d.error) + '</p>'; return; }
+            var src = d.is_placeholder ? 'an example city (upload your params table to preview real data)' : d.sample_domain;
+            var rows = (d.titles || []).map(function (t) {
+                var val = t.has_title
+                    ? '<span style="color:#0f172a;font-weight:600;">' + esc(t.resolved) + '</span>'
+                    : '<span style="color:#991b1b;">' + esc(t.resolved) + '</span>';
+                return '<tr><td style="padding:5px 10px;white-space:nowrap;color:#475569;">' + esc(t.label) + '</td><td style="padding:5px 10px;">' + val + '</td></tr>';
+            }).join('');
+            el.innerHTML = '<p class="hint">Resolved for <strong>' + esc(src) + '</strong>:</p>' +
+                '<div style="overflow-x:auto;"><table style="width:100%;font-size:0.9rem;border-collapse:collapse;">' +
+                '<thead><tr><th style="text-align:left;padding:5px 10px;border-bottom:1px solid #e2e8f0;">Page</th>' +
+                '<th style="text-align:left;padding:5px 10px;border-bottom:1px solid #e2e8f0;">Title tag on a cloned site</th></tr></thead>' +
+                '<tbody>' + rows + '</tbody></table></div>';
+        }).catch(function () {});
+    }
+    loadTitlePreview();
 
     // Load current stored state on tab render.
     fetch('multisite_api.php?action=status').then(r => r.json()).then(d => { if (d && d.stored && d.rows) render(d); }).catch(() => {});
