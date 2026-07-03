@@ -89,6 +89,11 @@ pre code { background: none; border: none; padding: 0; color: inherit; font-size
 .callout.tip { background: #f0fdf4; border-left-color: #22c55e; }
 .callout p { margin: 0; color: #1e3a5f; }
 
+.pri { display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 1px 6px; border-radius: 4px; vertical-align: middle; margin-left: 4px; }
+.pri.must { background: #fee2e2; color: #b91c1c; }
+.pri.should { background: #fef3c7; color: #b45309; }
+.pri.maybe { background: #f1f5f9; color: #64748b; }
+
 .block-card-doc { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px; scroll-margin-top: 32px; }
 .block-card-doc h3 { margin: 0 0 6px; font-size: 1rem; color: #1e3a5f; }
 .block-card-doc .bc-meta { font-size: 0.8rem; color: #64748b; margin-bottom: 10px; }
@@ -315,6 +320,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a class="nav-group" href="#ms-seo">Site Differentiation &amp; SEO</a>
         <a href="#ms-differentiation">Per-site differentiation</a>
         <a href="#ms-axes">Differentiation axes &amp; status</a>
+        <a href="#ms-variation">Deterministic variation</a>
         <a href="#ms-hosting">Cloudflare &amp; origin IP</a>
 
         <a class="nav-group" href="#ms-admin">Running from the Admin</a>
@@ -3267,49 +3273,77 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <h3>1 · Content <span style="font-weight:400;color:#64748b;font-size:.85em;">(highest impact)</span></h3>
     <ul>
-        <li>✅ Unique AI city copy on home + core (Niche Brief → <code>generate.py</code>)</li>
-        <li>✅ Per-deploy service landing pages (<code>landing_cities</code>)</li>
-        <li>◐ Real local market data — employers / industry / salary <span style="color:#64748b;">(supply in <code>cities.json</code>; research step not wired — either pipe <code>generate.py --research</code> into <code>build_one</code>, or pre-populate <code>cities.json</code> from the params table)</span></li>
-        <li>◐ Finish master authoring — genericize the last brand phrasings into <code>{business}</code> shortcodes and add <code>ai_block</code>s across home / core / service-landing pages <span style="color:#64748b;">(authoring work, not code)</span></li>
+        <li>✅ Unique AI city copy on home + core (Niche Brief → <code>generate.py</code>) <span class="pri must">Must</span></li>
+        <li>✅ Per-deploy service landing pages (<code>landing_cities</code>) <span class="pri should">Should</span></li>
+        <li>◐ Real local market data — employers / industry / salary <span class="pri should">Should</span> <span style="color:#64748b;">(supply in <code>cities.json</code>; research step not wired — either pipe <code>generate.py --research</code> into <code>build_one</code>, or pre-populate <code>cities.json</code> from the params table)</span></li>
+        <li>◐ Finish master authoring — genericize the last brand phrasings into <code>{business}</code> shortcodes and add <code>ai_block</code>s across home / core / service-landing pages <span class="pri should">Should</span> <span style="color:#64748b;">(authoring work, not code)</span></li>
+        <li>◐ Vary generated-copy templates — rotate 3–4 sentence-structure patterns per block, not one fill-in-the-blank line (AI copy is already unique; this hardens any templated fallback) <span class="pri must">Must</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
     </ul>
 
     <h3>2 · Structural <span style="font-weight:400;color:#64748b;font-size:.85em;">(highest-value unbuilt item)</span></h3>
     <ul>
-        <li>☐ Block-order / template variation per domain — rotate block order / vary templates deterministically per domain so sites aren't structurally identical <span style="color:#64748b;">(not built; highest-value remaining item)</span></li>
+        <li>☐ Block-order / layout skeletons per domain — rotate block order / 3–4 layout skeletons deterministically per domain so sites aren't structurally identical <span class="pri should">Should</span> <span style="color:#64748b;">(not built; highest-value remaining item — see <a href="#ms-variation">Deterministic variation</a>)</span></li>
+        <li>☐ Vary JSON-LD schema shape — 3–4 variants per page type, different field order + boilerplate phrasing, rotated by stable hash (complements the schema in area 3) <span class="pri must">Must</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
+        <li>☐ Vary CSS class vocabulary — 3–4 "skins": identical rules, different class names <span class="pri should">Should</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
+        <li>☐ Randomize image directory / filename structure — vary folder + filename conventions per site <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(low value alone)</span></li>
     </ul>
 
     <h3>3 · Identity &amp; SEO signals <span style="font-weight:400;color:#64748b;font-size:.85em;">(the SEO backbone — mostly automated)</span></h3>
     <ul>
-        <li>✅ Business / phone / email / domain rewritten per site</li>
-        <li>✅ LocalBusiness JSON-LD with real address + geo <span style="color:#64748b;">(needs <code>lat</code>/<code>lng</code>)</span></li>
-        <li>✅ Real ratings only — <code>rating</code> + <code>review_count</code>, paired, never invented</li>
-        <li>✅ Self-referential canonical per domain</li>
-        <li>✅ Per-site analytics ID — <strong>never share one across sites</strong> (the big DON'T)</li>
-        <li>✅ No generator fingerprint emitted</li>
+        <li>✅ Business / phone / email / domain rewritten per site <span class="pri must">Must</span></li>
+        <li>✅ LocalBusiness JSON-LD with real address + geo <span class="pri must">Must</span> <span style="color:#64748b;">(needs <code>lat</code>/<code>lng</code>)</span></li>
+        <li>✅ Real ratings only — <code>rating</code> + <code>review_count</code>, paired, never invented <span class="pri must">Must</span></li>
+        <li>✅ Self-referential canonical per domain <span class="pri must">Must</span></li>
+        <li>✅ Per-site analytics — <strong>never share one across sites</strong> (the big DON'T). Each site gets its own GA4 tag from <code>analytics_id</code>. <span style="color:#64748b;">◐ distinct GTM container IDs not yet emitted</span> <span class="pri must">Must</span></li>
+        <li>☐ Unique Search Console verification per site — own meta tag or DNS TXT per domain; never verify every site through one shared GTM property <span class="pri must">Must</span></li>
+        <li>✅ No generator fingerprint emitted <span class="pri should">Should</span></li>
     </ul>
 
     <h3>4 · Visual <span style="font-weight:400;color:#64748b;font-size:.85em;">(most tempting, least SEO value — do last)</span></h3>
     <ul>
-        <li>◐ Per-site favicon / og-image — the fields already exist; add a per-site override in the inject / differentiate step <span style="color:#64748b;">(cheap field-override)</span></li>
-        <li>☐ Per-site logo — auto-wordmark from the business name (or honor a <code>logo</code> column), and derive the favicon from it <span style="color:#64748b;">(needs asset-generation code)</span></li>
-        <li>☐ Per-site image assignment — a per-city image pool, assigned deterministically <span style="color:#64748b;">(needs an image pool)</span></li>
-        <li>☐ Domain-seeded theme colors — deterministic palette from a domain hash; the render layer already supports theme overrides, so this rides the existing inject step <span style="color:#64748b;">(lowest impact)</span></li>
+        <li>◐ Per-site favicon / og-image — the fields already exist; auto-set per site so no two sites ship a byte-identical favicon / OG file <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(cheap field-override)</span></li>
+        <li>☐ Per-site logo — auto-wordmark from the business name (or honor a <code>logo</code> column), and derive the favicon from it <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(needs asset-generation code)</span></li>
+        <li>☐ Per-site image assignment — a per-city image pool assigned deterministically; at minimum re-crop / re-compress / strip EXIF differently per site so files aren't byte-identical <span class="pri should">Should</span> <span style="color:#64748b;">(needs an image pool)</span></li>
+        <li>☐ Domain-seeded theme colors — deterministic palette from a domain hash; the render layer already supports theme overrides, so this rides the existing inject step <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(lowest impact)</span></li>
     </ul>
 
     <h3>5 · Site Hosting &amp; Footprint <span style="font-weight:400;color:#64748b;font-size:.85em;">(operational — outside the tool)</span></h3>
     <p style="color:#64748b;font-size:.9em;margin:2px 0 6px;">The generator can't do these — the operator sets them up at the registrar and host. They matter <em>because</em> you're mass-generating similar sites; genuine local substance (areas 1–2) is the real defense, this is insurance.</p>
     <ul>
-        <li>📋 Domain registration diversity — vary registrars; don't bulk-buy every domain in one account</li>
-        <li>📋 Hosting / IP diversity — spread across hosts or IP ranges; avoid one C-class block of same-owner sites <span style="color:#64748b;">(and keep origins behind <a href="#ms-hosting">Cloudflare's proxy</a> so a DNS lookup can't reveal the network)</span></li>
-        <li>📋 Cloudflare / CDN — a shared CF account is itself a footprint; isolate where it matters, and confirm every <code>A</code> record is <a href="#ms-hosting">proxied, not grey-cloud</a></li>
-        <li>📋 WHOIS privacy on every domain</li>
-        <li>📋 Separate nameservers where practical</li>
-        <li>📋 No cross-site link hub / footer link network (the classic PBN tell)</li>
+        <li>📋 Domain registration diversity — vary registrars; don't bulk-buy every domain in one account <span class="pri should">Should</span></li>
+        <li>📋 Hosting / IP diversity — spread across hosts or IP ranges; avoid one C-class block of same-owner sites <span class="pri must">Must</span> <span style="color:#64748b;">(and keep origins behind <a href="#ms-hosting">Cloudflare's proxy</a> so a DNS lookup can't reveal the network)</span></li>
+        <li>📋 Cloudflare / CDN — a shared CF account is itself a footprint; isolate where it matters, and confirm every <code>A</code> record is <a href="#ms-hosting">proxied, not grey-cloud</a> <span class="pri must">Must</span></li>
+        <li>📋 WHOIS privacy on every domain <span class="pri should">Should</span></li>
+        <li>📋 Vary registrars / nameservers where practical — split across accounts (e.g. Namecheap / Porkbun / Cloudflare Registrar) once past ~20 sites; Cloudflare nameservers alone aren't a distinguishing signal <span class="pri maybe">Maybe</span></li>
+        <li>📋 No cross-site link hub / footer link network (the classic PBN tell) <span class="pri must">Must</span></li>
     </ul>
 
     <p style="color:#64748b;font-size:.9em;margin-top:6px;">✅ automated &nbsp;·&nbsp; ◐ partial / needs input &nbsp;·&nbsp; ☐ not built &nbsp;·&nbsp; 📋 operational</p>
 
     <div class="callout warn">The defensible path is genuine local presence per city (real address, phone, ideally a Google Business Profile). Build to maximize real distinctness regardless — it's what protects against penalties and actually serves users. Mechanisms: see <a href="#ms-differentiation">Per-site differentiation</a>, <a href="#ms-aiblocks">AI blocks &amp; the engine</a>, and <a href="#ms-landing">Per-deploy landing pages</a>.</div>
+</section>
+
+<section id="ms-variation">
+    <h2>Deterministic variation (anti-fingerprint)</h2>
+    <p>Four checklist items above — <strong>schema shape, body copy, CSS class names, and DOM order</strong> — are the same move: instead of one template repeated across every site, build <strong>3–4 variants</strong> and assign one per domain. The assignment must be by a <strong>stable hash of the domain</strong>, never random — so a rebuild always picks the same variant and SEO signals don't churn. Random-per-build is the one way to get this wrong.</p>
+
+    <div class="callout tip"><strong>The rule:</strong> <code>variant = variants[ hash(domain) % count ]</code> — same domain picks the same variant forever; different domains spread evenly across the set.</div>
+
+    <h3>Schema shape <span class="pri must">Must</span></h3>
+    <p>Build 3–4 JSON-LD variants per page type that differ in field order and boilerplate phrasing — same facts, different shape.</p>
+    <p style="color:#475569;"><em>Example:</em> Variant 1 leads <code>serviceType → provider → description</code>; Variant 2 leads <code>description → name → areaServed</code>.</p>
+
+    <h3>Body copy <span class="pri must">Must</span></h3>
+    <p>Write 3–4 sentence-structure patterns per content block instead of one fill-in-the-blank line repeated hundreds of times. The AI generator already produces unique per-city copy; this hardens any templated fallback.</p>
+    <p style="color:#475569;"><em>Example:</em> "Struggling with {pest} in {city}? Our licensed techs…" vs. "{pest} problems need fast action — we offer same-week service in {city}…"</p>
+
+    <h3>CSS class vocabulary <span class="pri should">Should</span></h3>
+    <p>Create 3–4 "skins": the same visual layout and CSS rules under different class-name vocabularies, rotated per site.</p>
+    <p style="color:#475569;"><em>Example:</em> Skin 1 uses <code>.hero-wrap</code> / <code>.service-card</code>; Skin 2 uses <code>.banner-section</code> / <code>.offering-tile</code>.</p>
+
+    <h3>DOM section order <span class="pri should">Should</span></h3>
+    <p>Build each section as an independent block, then define 3–4 orderings and assign one per site.</p>
+    <p style="color:#475569;"><em>Example:</em> Skeleton A: Header → Hero → Services → Testimonials → FAQ → CTA → Footer. Skeleton B: Header → Hero → FAQ → Services → Testimonials → CTA → Footer.</p>
 </section>
 
 <section id="ms-hosting">
