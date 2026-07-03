@@ -3696,11 +3696,13 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <p>The whole campaign runs from the admin <strong>Multisite</strong> tab (the active site is the campaign master) — no shell needed. It wraps the same cores documented under Command Line below.</p>
     <ol>
         <li><strong>Upload params</strong> — download the sample CSV, edit it, and upload. The table is validated inline (per-row ok / warn / error, plus an unknown-column report) and stored only when every row is error-free; rows with warnings are kept.</li>
+        <li><strong>Download &amp; edit the current table</strong> — once a table is stored, <em>Download current table (FTP masked)</em> exports it with every FTP password shown as <code>__KEEP__</code> (safe to store/email). Edit any fields and re-upload: leave <code>__KEEP__</code> to keep a password, or type a new one — real passwords are re-hydrated by domain, so you never retype what you didn't change. A brand-new row that still has <code>__KEEP__</code> is rejected as partial-FTP, forcing a real password.</li>
+        <li><strong>Saved params versions</strong> — every successful upload (and restore) is snapshotted to <code>sites/{master}/multisite/params_versions/</code>; the newest <strong>15</strong> are kept. Each can be downloaded (masked) or <strong>restored</strong> as the current table. The whole dir is gitignored, so real passwords never reach git.</li>
         <li><strong>Pre-flight FTP</strong> — a live, streamed per-row connect + login check, so bad credentials surface before any build begins.</li>
         <li><strong>Run campaign</strong> — set concurrency, limit and retries, optionally toggle <em>No AI</em> / <em>Force</em>, then Run. The run detaches into the background and the page polls a live progress bar (rows done, files uploaded, running cost).</li>
         <li><strong>Recent runs</strong> — a history of past runs with result + cost, each with a <strong>retry failed</strong> button that re-runs only that run's failed rows.</li>
     </ol>
-    <p>Backed by <code>admin/multisite_api.php</code> (upload / status / run / run_status / list_runs / retry_failed / sample_csv), <code>admin/multisite_preflight.php</code> (SSE pre-flight), and CSRF-protected save handlers. The <strong>Niche Brief</strong> tab (see AI Content) authors the master's AI vocabulary.</p>
+    <p>Backed by <code>admin/multisite_api.php</code> (upload / status / run / run_status / list_runs / retry_failed / sample_csv / download_csv / list_versions / download_version / restore_version), <code>admin/multisite_preflight.php</code> (SSE pre-flight), and CSRF-protected save handlers. The <strong>Niche Brief</strong> tab (see AI Content) authors the master's AI vocabulary.</p>
     <div class="callout tip">Start with a small <em>limit</em> (e.g. 2) and review the first sites before scaling to the full table.</div>
 </section>
 

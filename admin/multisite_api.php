@@ -154,14 +154,64 @@ switch ($action) {
 
         $parsed = ms_parse_csv($tmp);
         if ($parsed['error']) { echo json_encode(['error' => 'CSV error: ' . $parsed['error']]); break; }
-        $v = ms_validate_rows($parsed['rows'], $parsed['header']);
+        // Swap any masked (__KEEP__) passwords back to the stored real ones before validating.
+        $rows = ms_rehydrate_ftp_pass($parsed['rows'], $paramsPath);
+        $v = ms_validate_rows($rows, $parsed['header']);
 
         $stored = false;
         if ($v['error'] === 0 && count($v['rows']) > 0) {
-            ms_store_params_csv($masterId, $tmp);
+            $rehydrated = tempnam(sys_get_temp_dir(), 'mscsv');
+            ms_write_csv($rehydrated, $parsed['header'], $rows);
+            ms_store_params_csv($masterId, $rehydrated);
+            @unlink($rehydrated);
             $stored = true;
         }
         echo json_encode(['stored' => $stored, 'filename' => basename($_FILES['csv']['name'] ?? 'upload.csv')] + ms_validation_payload($v));
+        break;
+
+    // Download the current stored params.csv with FTP passwords masked (__KEEP__).
+    // Re-uploading the file preserves the real passwords (matched by domain).
+    case 'download_csv':
+        if (!is_file($paramsPath)) { http_response_code(404); echo json_encode(['error' => 'No params.csv stored — upload it first.']); break; }
+        $parsed = ms_parse_csv($paramsPath);
+        if ($parsed['error']) { http_response_code(400); echo json_encode(['error' => $parsed['error']]); break; }
+        header_remove('Content-Type');
+        header('Content-Type: text/csv; charset=utf-8');
+        header('Content-Disposition: attachment; filename="params-' . preg_replace('/[^A-Za-z0-9._-]/', '_', $masterId) . '.csv"');
+        ms_write_csv('php://output', $parsed['header'], ms_mask_ftp_pass($parsed['rows']));
+        exit;
+
+    // List saved upload versions (last 15), newest first.
+    case 'list_versions':
+        echo json_encode(['versions' => ms_list_params_versions($masterId)]);
+        break;
+
+    // Download one saved version, FTP masked.
+    case 'download_version':
+        $id = (string)($_GET['id'] ?? '');
+        if (!ms_valid_version_id($id)) { http_response_code(400); echo json_encode(['error' => 'Invalid version id.']); break; }
+        $vf = ACTIVE_SITE_DIR . '/multisite/params_versions/' . $id . '.csv';
+        if (!is_file($vf)) { http_response_code(404); echo json_encode(['error' => 'Version not found.']); break; }
+        $parsed = ms_parse_csv($vf);
+        header_remove('Content-Type');
+        header('Content-Type: text/csv; charset=utf-8');
+        header('Content-Disposition: attachment; filename="params-' . $id . '.csv"');
+        ms_write_csv('php://output', $parsed['header'], ms_mask_ftp_pass($parsed['rows']));
+        exit;
+
+    // Restore a saved version as the current params.csv (real passwords, re-validated).
+    case 'restore_version':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        $id = (string)($_POST['id'] ?? '');
+        if (!ms_valid_version_id($id)) { echo json_encode(['error' => 'Invalid version id.']); break; }
+        $vf = ACTIVE_SITE_DIR . '/multisite/params_versions/' . $id . '.csv';
+        if (!is_file($vf)) { echo json_encode(['error' => 'Version not found.']); break; }
+        $parsed = ms_parse_csv($vf);
+        if ($parsed['error']) { echo json_encode(['error' => $parsed['error']]); break; }
+        $v = ms_validate_rows($parsed['rows'], $parsed['header']);
+        if ($v['error'] > 0) { echo json_encode(['error' => 'That version has validation errors and was not restored.'] + ms_validation_payload($v)); break; }
+        ms_store_params_csv($masterId, $vf);
+        echo json_encode(['restored' => true, 'stored' => true] + ms_validation_payload($v));
         break;
 
     // Launch a campaign as a detached background process.

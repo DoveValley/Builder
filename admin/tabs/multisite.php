@@ -17,9 +17,13 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
     <h3 style="margin-top:0;">1. Upload params table (CSV)</h3>
     <p class="hint">Prepare the table in Excel or Google Sheets and <strong>Save As / Export → CSV</strong>. One row per site. Required columns: <code>domain</code>, <code>business</code>. Recommended: <code>city, state, SS, phone, email</code> and FTP credentials (<code>ftp_host, ftp_user, ftp_pass</code>). Optional: <code>lat, lng, rating, review_count, analytics_id, logo</code>.</p>
 
-    <p style="margin:0 0 14px;">
+    <p style="margin:0 0 8px;">
         <a class="btn" href="multisite_api.php?action=sample_csv">&#11015; Download sample CSV</a>
         <span class="hint" style="margin-left:8px;">5 example cities with every column filled in — edit it as a starting point.</span>
+    </p>
+    <p id="ms-download-row" style="margin:0 0 14px;display:none;">
+        <a class="btn" id="ms-download-btn" href="multisite_api.php?action=download_csv">&#11015; Download current table (FTP masked)</a>
+        <span class="hint" style="margin-left:8px;">Passwords export as <code>__KEEP__</code>. Edit &amp; re-upload — leave <code>__KEEP__</code> to keep a password, or type a new one.</span>
     </p>
 
     <form id="ms-upload-form" onsubmit="return msUpload(event)">
@@ -67,6 +71,13 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
         <button type="button" class="btn btn-primary" id="ms-run-btn" onclick="msRun()">Run Campaign</button>
     </div>
     <div id="ms-run-progress" style="margin-top:16px;"></div>
+</div>
+
+<!-- ===== PARAMS VERSIONS CARD ===== -->
+<div class="card" id="ms-versions-card">
+    <h3 style="margin-top:0;">Saved params versions</h3>
+    <p class="hint">The last 15 uploads are snapshotted here (FTP passwords masked on download). <strong>Restore</strong> makes a version the current table.</p>
+    <div id="ms-versions"><p class="hint">Loading…</p></div>
 </div>
 
 <!-- ===== HISTORY CARD ===== -->
@@ -139,9 +150,45 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
         btn.disabled = true; msg.textContent = 'Validating…';
         fetch('multisite_api.php?action=upload_csv', { method: 'POST', body: fd })
             .then(r => r.json())
-            .then(d => { btn.disabled = false; msg.textContent = d.stored ? 'Stored.' : (d.error ? '' : 'Reviewed — not stored.'); render(d); })
+            .then(d => { btn.disabled = false; msg.textContent = d.stored ? 'Stored.' : (d.error ? '' : 'Reviewed — not stored.'); render(d); if (d.stored) refreshParamsState(); })
             .catch(e => { btn.disabled = false; msg.textContent = 'Upload failed.'; });
         return false;
+    };
+
+    // ── Params: download-current visibility + saved versions ──────────────────
+    function fmtStamp(id) {
+        const m = /^(\d{4})(\d{2})(\d{2})-(\d{2})(\d{2})(\d{2})/.exec(id || '');
+        if (!m) return id;
+        const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], +m[6]));
+        return isNaN(d) ? id : d.toLocaleString();
+    }
+    function renderVersions(data) {
+        const el = document.getElementById('ms-versions');
+        const vs = (data && data.versions) || [];
+        if (!vs.length) { el.innerHTML = '<p class="hint">No saved versions yet — each successful upload is snapshotted here (last 15).</p>'; return; }
+        el.innerHTML = '<div style="overflow-x:auto;"><table style="width:100%;font-size:0.85rem;">' +
+            '<thead><tr><th>Saved (local time)</th><th>Rows</th><th></th></tr></thead><tbody>' +
+            vs.map(v => '<tr>' +
+                '<td>' + esc(fmtStamp(v.id)) + '</td>' +
+                '<td>' + esc(v.rows) + '</td>' +
+                '<td><a href="multisite_api.php?action=download_version&id=' + encodeURIComponent(v.id) + '">download</a> &nbsp;·&nbsp; ' +
+                '<a href="#" onclick="msRestore(\'' + esc(v.id) + '\');return false;">restore</a></td>' +
+                '</tr>').join('') + '</tbody></table></div>';
+    }
+    function loadVersions() { fetch('multisite_api.php?action=list_versions').then(r => r.json()).then(renderVersions).catch(() => {}); }
+    function refreshParamsState() {
+        fetch('multisite_api.php?action=status').then(r => r.json()).then(d => {
+            document.getElementById('ms-download-row').style.display = (d && d.stored) ? '' : 'none';
+        }).catch(() => {});
+        loadVersions();
+    }
+    window.msRestore = function (id) {
+        if (!confirm('Restore this version as the current params table? (A fresh snapshot is also saved.)')) return;
+        const fd = new FormData(); fd.append('csrf_token', csrfToken); fd.append('id', id);
+        fetch('multisite_api.php?action=restore_version', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(d => { if (d.error) { alert(d.error); return; } render(d); refreshParamsState(); })
+            .catch(() => {});
     };
 
     window.msPreflight = function () {
@@ -280,7 +327,8 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
     fetch('multisite_api.php?action=run_status').then(r => r.json()).then(d => {
         if (d && !d.none && d.state) { renderRun(d); if (d.state === 'running') { if (msPollTimer) clearInterval(msPollTimer); msPollTimer = setInterval(() => pollRun(d.run_id), 2500); } }
     }).catch(() => {});
-    loadRuns();   // runs history
+    loadRuns();            // runs history
+    refreshParamsState();  // download-current button + saved versions
 })();
 </script>
 </div>

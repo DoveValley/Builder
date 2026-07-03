@@ -167,7 +167,8 @@ function ms_ftp_preflight(array $row, int $timeout = 15): array {
 }
 
 /**
- * Persist an uploaded/validated CSV to the campaign's params location.
+ * Persist an uploaded/validated CSV to the campaign's params location, and keep a
+ * rolling snapshot of the last few uploads in params_versions/.
  * @return string the stored path.
  */
 function ms_store_params_csv(string $masterId, string $srcCsvPath): string {
@@ -175,5 +176,93 @@ function ms_store_params_csv(string $masterId, string $srcCsvPath): string {
     if (!is_dir($dir)) mkdir($dir, 0775, true);
     $dest = $dir . '/params.csv';
     copy($srcCsvPath, $dest);
+    ms_snapshot_params_version($dir, $srcCsvPath);
     return $dest;
+}
+
+/**
+ * Sentinel written into the ftp_pass column on export. On re-upload it is swapped
+ * back for the stored real password (matched by domain) — so you can download →
+ * edit → re-upload without ever exposing (or having to retype) FTP passwords.
+ */
+const MS_PASS_MASK = '__KEEP__';
+
+/** Write associative rows back out as CSV in the given header's column order. */
+function ms_write_csv(string $path, array $header, array $rows): bool {
+    $cols = array_values(array_filter(array_map(fn($h) => trim((string)$h), $header), fn($c) => $c !== ''));
+    if (!$cols) return false;
+    $fh = fopen($path, 'w');
+    if (!$fh) return false;
+    fputcsv($fh, $cols);
+    foreach ($rows as $r) {
+        $line = [];
+        foreach ($cols as $c) $line[] = (string)($r[$c] ?? '');
+        fputcsv($fh, $line);
+    }
+    fclose($fh);
+    return true;
+}
+
+/** Return rows with every non-empty ftp_pass replaced by the mask sentinel. */
+function ms_mask_ftp_pass(array $rows): array {
+    foreach ($rows as &$r) {
+        if (($r['ftp_pass'] ?? '') !== '') $r['ftp_pass'] = MS_PASS_MASK;
+    }
+    unset($r);
+    return $rows;
+}
+
+/**
+ * Swap the mask sentinel back for the real password from the stored table
+ * (matched by domain). An unmatched sentinel becomes '' — which fails validation
+ * as partial FTP, so a genuinely new row must supply its own password.
+ */
+function ms_rehydrate_ftp_pass(array $rows, string $storedCsvPath): array {
+    $map = [];
+    if (is_file($storedCsvPath)) {
+        $p = ms_parse_csv($storedCsvPath);
+        foreach ($p['rows'] as $sr) {
+            $d = strtolower(trim((string)($sr['domain'] ?? '')));
+            if ($d !== '' && ($sr['ftp_pass'] ?? '') !== '') $map[$d] = $sr['ftp_pass'];
+        }
+    }
+    foreach ($rows as &$r) {
+        if (($r['ftp_pass'] ?? '') === MS_PASS_MASK) {
+            $d = strtolower(trim((string)($r['domain'] ?? '')));
+            $r['ftp_pass'] = $map[$d] ?? '';
+        }
+    }
+    unset($r);
+    return $rows;
+}
+
+/** Snapshot the just-uploaded CSV into params_versions/ and prune to the newest $keep. */
+function ms_snapshot_params_version(string $msDir, string $srcCsvPath, int $keep = 15): void {
+    $vdir = $msDir . '/params_versions';
+    if (!is_dir($vdir) && !@mkdir($vdir, 0775, true) && !is_dir($vdir)) return;
+    $stamp = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(2)), 0, 4);
+    @copy($srcCsvPath, $vdir . '/' . $stamp . '.csv');
+    $files = glob($vdir . '/*.csv') ?: [];
+    if (count($files) > $keep) {
+        sort($files);   // timestamp-prefixed names sort chronologically
+        foreach (array_slice($files, 0, count($files) - $keep) as $old) @unlink($old);
+    }
+}
+
+/** List stored param versions, newest first: [['id'=>stamp,'rows'=>int,'mtime'=>int], ...]. */
+function ms_list_params_versions(string $masterId): array {
+    $vdir = BASE_DIR . '/sites/' . $masterId . '/multisite/params_versions';
+    $files = glob($vdir . '/*.csv') ?: [];
+    rsort($files);
+    $out = [];
+    foreach ($files as $f) {
+        $p = ms_parse_csv($f);
+        $out[] = ['id' => basename($f, '.csv'), 'rows' => count($p['rows']), 'mtime' => filemtime($f) ?: 0];
+    }
+    return $out;
+}
+
+/** Validate a version id against path traversal (matches the snapshot stamp format). */
+function ms_valid_version_id(string $id): bool {
+    return (bool)preg_match('/^\d{8}-\d{6}-[0-9a-f]{4}$/', $id);
 }
