@@ -320,6 +320,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#ms-niche">Niche Brief &amp; archetypes</a>
         <a href="#ms-aiblocks">AI blocks &amp; the engine</a>
         <a href="#ms-cache">The content cache</a>
+        <a href="#ms-repro">Reproducibility</a>
         <a href="#ms-editing">Editing the master safely</a>
         <a href="#ms-landing">Per-deploy landing pages</a>
 
@@ -3241,6 +3242,19 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li>Block removed → orphaned entry ignored.</li>
     </ul>
     <p>A first (cold) build of ~4–8 blocks costs roughly <strong>$0.02–0.05</strong>; every rebuild after is free.</p>
+</section>
+
+<section id="ms-repro">
+    <h2>Reproducibility — running a campaign twice</h2>
+    <p>Run the same campaign again and you get the <strong>same sites</strong> — because the per-domain <a href="#ms-cache">content cache</a> freezes the AI copy, <em>not</em> because the model is deterministic (it isn't). On a rerun every cached block is re-injected and locked, so <code>generate.py</code> makes zero calls and the copy is identical. The build path has no random IDs or filenames, and the sitemap's <code>&lt;lastmod&gt;</code> no longer stamps the build date (it uses the site's own <code>last_modified</code>, or is omitted), so the deployed files are byte-stable and an incremental deploy re-uploads nothing.</p>
+    <div class="callout warn"><strong>Reproducibility depends on the cache surviving.</strong> The frozen copy lives at <code>sites/{master}/multisite/cache/{domain}.json</code> — gitignored, so it exists only on the box you run from. It breaks if you:
+        <ul style="margin:6px 0 0;">
+            <li>pass <code>--force</code> — busts the cache, AI reruns, different copy;</li>
+            <li>delete the cache or run on a <strong>fresh machine</strong> without it — AI reruns;</li>
+            <li>edit a block's AI prompt / <code>ai_type_id</code> — its <code>prompt_hash</code> changes, so just that block regenerates.</li>
+        </ul>
+        To guarantee identical results across machines, <strong>back up the cache directory</strong> — it's the source of truth for the frozen copy, and the AI can't be re-derived identically without it.</div>
+    <p>The <a href="#ms-variation">variation items</a> (block order, schema, CSS, copy templates) are keyed by <code>crc32(domain)</code>, so they preserve this once built — the same domain always selects the same variant on every rebuild.</p>
 </section>
 
 <section id="ms-editing">

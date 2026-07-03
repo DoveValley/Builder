@@ -390,13 +390,16 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
 
     // ── 8. sitemap.xml ────────────────────────────────────────────────────────────
     if ($canonicalDomain !== '') {
-        $now = date('Y-m-d');
+        // Deterministic lastmod: use the site's own last_modified if set — never the
+        // build-day clock — so identical content yields an identical sitemap on every
+        // rebuild (reproducible multisite runs). Omitted when unknown (lastmod is optional).
+        $lastmod = trim((string)($siteData['last_modified'] ?? ''));
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
         $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
         foreach ($siteUrls as $u) {
             $xml .= "  <url>\n";
             $xml .= '    <loc>' . htmlspecialchars($canonicalDomain . $u['loc'], ENT_XML1) . "</loc>\n";
-            $xml .= "    <lastmod>{$now}</lastmod>\n";
+            if ($lastmod !== '') $xml .= "    <lastmod>" . htmlspecialchars($lastmod, ENT_XML1) . "</lastmod>\n";
             $xml .= '    <priority>' . $u['priority'] . "</priority>\n";
             $xml .= "  </url>\n";
         }
