@@ -3337,7 +3337,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><span class="where perrow">Per-row</span>✅ Self-referential canonical per domain <span class="pri must">Must</span></li>
         <li><span class="where perrow">Per-row</span>✅ Per-site <code>sitemap.xml</code> + <code>robots.txt</code> — written for each domain at build (needs <code>canonical_domain</code>, or the sitemap is skipped) <span class="pri must">Must</span></li>
         <li><span class="where perrow">Per-row</span>✅ Per-site analytics — <strong>never share one across sites</strong> (the big DON'T). Each site gets its own GA4 tag from <code>analytics_id</code>. <span style="color:#64748b;">◐ distinct GTM container IDs not yet emitted</span> <span class="pri must">Must</span></li>
-        <li><span class="where perrow">Per-row</span>☐ Unique Search Console verification per site — own meta tag or DNS TXT per domain; never verify every site through one shared GTM property <span class="pri should">Should</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Unique Search Console verification per site — per-site <code>&lt;meta google-site-verification&gt;</code> from the <code>gsc_verification</code> CSV column (blank = none); never verify every site through one shared GTM property <span class="pri should">Should</span></li>
         <li><span class="where perrow">Per-row</span>✅ No generator fingerprint emitted <span class="pri should">Should</span></li>
     </ol>
 
@@ -3539,9 +3539,9 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <div class="block-card-doc" id="spec-search-console">
         <h3>3g · Unique Search Console verification <span class="pri should">Should</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
-        <p class="bc-meta">☐ not built</p>
-        <p><strong>Description.</strong> Each domain verified independently (own meta tag or DNS TXT) — never all through one shared GTM property.</p>
-        <p><strong>Build.</strong> Add a verification-token column; inject a per-site <code>&lt;meta name="google-site-verification"&gt;</code> during differentiate (same path as analytics). Optionally automate property creation + verification via the Search Console API. <strong>Effort:</strong> ~1 day (meta tag), +1–2 days (API).</p>
+        <p class="bc-meta">✅ built (meta-tag method)</p>
+        <p><strong>Description.</strong> Each domain verified independently (own meta tag) — never all through one shared GTM property.</p>
+        <p><strong>Build (today).</strong> A <code>gsc_verification</code> column holds each site's Search Console token. In <code>differentiate.php</code>, <code>ms_gsc_meta()</code> emits a per-site <code>&lt;meta name="google-site-verification"&gt;</code> into <code>theme.head_extra</code> (blank cell → nothing), echoed in <code>site-template.php</code> next to analytics. Operator still creates each property + pastes its token; DNS-TXT is the alternative (done at the registrar, outside the tool).</p>
     </div>
 
     <div class="block-card-doc" id="spec-fingerprint">

@@ -107,6 +107,12 @@ function ms_ga4_snippet(string $id): string {
          . "gtag('js',new Date());gtag('config','{$id}');</script>";
 }
 
+/** Google Search Console verification <meta> tag for a token, or '' if blank. */
+function ms_gsc_meta(string $token): string {
+    $token = trim($token);
+    return $token === '' ? '' : '<meta name="google-site-verification" content="' . htmlspecialchars($token, ENT_QUOTES) . '">';
+}
+
 function ms_differentiate_working_dir(string $workingDir, array $params, array $masterIdentity): void {
     $sf = $workingDir . '/data/site.json';
     if (!file_exists($sf)) return;
@@ -184,6 +190,9 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
     // ── 4. Analytics isolation — per-site tag or none (never shared) ──────────
     $aid = trim($params['analytics_id'] ?? '');
     $data['theme']['analytics_head'] = $aid !== '' ? ms_ga4_snippet($aid) : '';
+
+    // ── 4b. Search Console verification — per-site meta tag or none ────────────
+    $data['theme']['head_extra'] = ms_gsc_meta($params['gsc_verification'] ?? '');
 
     $tmp = $sf . '.tmp.' . getmypid();
     file_put_contents($tmp, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));

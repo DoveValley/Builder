@@ -197,6 +197,7 @@ if (empty($seo['og_image'])) {
     // Analytics — output raw (admin-entered, trusted)
     if (!empty($theme['analytics_head'])) echo $theme['analytics_head'] . "\n";
     if (!empty($theme['facebook_pixel'])) echo $theme['facebook_pixel'] . "\n";
+    if (!empty($theme['head_extra']))     echo $theme['head_extra'] . "\n";   // e.g. per-site Search Console verification
     ?>
 </head>
 <body>

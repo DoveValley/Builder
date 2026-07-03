@@ -22,7 +22,7 @@ const MS_RECOMMENDED_COLS = ['city', 'state', 'SS', 'phone', 'email'];
 /** All recognized columns (anything else is reported as "unknown column"). */
 const MS_KNOWN_COLS = [
     'domain', 'business', 'phone', 'tel', 'email', 'address',
-    'city', 'state', 'SS', 'zip', 'lat', 'lng', 'logo', 'analytics_id',
+    'city', 'state', 'SS', 'zip', 'lat', 'lng', 'logo', 'analytics_id', 'gsc_verification',
     'rating', 'review_count',
     'landing_cities',
     'web3forms_key', 'ftp_host', 'ftp_port', 'ftp_user', 'ftp_pass',

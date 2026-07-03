@@ -127,6 +127,11 @@ switch ($action) {
         $landingExamples = ['Plano, TX; Irving, TX; Frisco, TX', 'Round Rock, TX; Cedar Park, TX', '', '', ''];
         foreach ($sample as $i => &$row) { $row[] = $landingExamples[$i] ?? ''; }
         unset($row);
+        // Optional gsc_verification — Google Search Console token per site (blank = no tag).
+        // Paste each site's token from Search Console → the <meta google-site-verification> tag.
+        $cols[] = 'gsc_verification';
+        foreach ($sample as &$row) { $row[] = ''; }
+        unset($row);
         $out = fopen('php://output', 'w');
         fputcsv($out, $cols);
         foreach ($sample as $row) fputcsv($out, $row);
