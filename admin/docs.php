@@ -94,6 +94,12 @@ pre code { background: none; border: none; padding: 0; color: inherit; font-size
 .pri.should { background: #fef3c7; color: #b45309; }
 .pri.maybe { background: #dbeafe; color: #1d4ed8; }
 
+.where { float: right; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; padding: 1px 6px; border: 1px solid currentColor; border-radius: 4px; margin-left: 8px; opacity: 0.85; }
+.where.preauthor { color: #7c3aed; }
+.where.campaign { color: #0891b2; }
+.where.perrow { color: #475569; }
+.where.operational { color: #9ca3af; }
+
 .block-card-doc { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px; scroll-margin-top: 32px; }
 .block-card-doc h3 { margin: 0 0 6px; font-size: 1rem; color: #1e3a5f; }
 .block-card-doc .bc-meta { font-size: 0.8rem; color: #64748b; margin-bottom: 10px; }
@@ -320,6 +326,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a class="nav-group" href="#ms-seo">Site Differentiation &amp; SEO</a>
         <a href="#ms-differentiation">Per-site differentiation</a>
         <a href="#ms-axes">Differentiation axes &amp; status</a>
+        <a href="#ms-specs">Build specs</a>
         <a href="#ms-variation">Deterministic variation</a>
         <a href="#ms-hosting">Cloudflare &amp; origin IP</a>
 
@@ -3269,58 +3276,319 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
 <section id="ms-axes">
     <h2>Differentiation axes &amp; status</h2>
-    <p>Generating many same-topic city sites is the pattern Google's <em>doorway pages</em> and <em>scaled content abuse</em> policies target. Cosmetic differences don't satisfy them — Google evaluates substance. The five areas below run from highest SEO impact down: <strong>do the top well before spending time on the bottom.</strong> Areas 1–4 are <strong>what the generator produces</strong> per site (ordered by impact); area 5 is <strong>operational infrastructure</strong> the tool can't automate. Each area is both a status snapshot and the build backlog. Every per-site output must be <strong>deterministic per domain</strong> — stable across rebuilds, so SEO signals don't churn.</p>
+    <p>Generating many same-topic city sites is the pattern Google's <em>doorway pages</em> and <em>scaled content abuse</em> policies target. Cosmetic differences don't satisfy them — Google evaluates substance. The six areas below run from highest SEO impact down: <strong>do the top well before spending time on the bottom.</strong> Areas 1–4 are <strong>what the generator produces</strong> per site (ordered by impact); areas 5–6 are <strong>local presence and operational infrastructure</strong> that mostly live outside the tool. Each area is both a status snapshot and the build backlog. Every per-site output must be <strong>deterministic per domain</strong> — stable across rebuilds, so SEO signals don't churn.</p>
 
     <h3>1 · Content <span style="font-weight:400;color:#64748b;font-size:.85em;">(highest impact)</span></h3>
     <ul>
-        <li>✅ Unique AI city copy on home + core (Niche Brief → <code>generate.py</code>) <span class="pri must">Must</span></li>
-        <li>✅ Per-deploy service landing pages (<code>landing_cities</code>) <span class="pri should">Should</span></li>
-        <li>◐ Real local market data — employers / industry / salary <span class="pri should">Should</span> <span style="color:#64748b;">(supply in <code>cities.json</code>; research step not wired — either pipe <code>generate.py --research</code> into <code>build_one</code>, or pre-populate <code>cities.json</code> from the params table)</span></li>
-        <li>◐ Finish master authoring — genericize the last brand phrasings into <code>{business}</code> shortcodes and add <code>ai_block</code>s across home / core / service-landing pages <span class="pri should">Should</span> <span style="color:#64748b;">(authoring work, not code)</span></li>
-        <li>◐ Vary generated-copy templates — rotate 3–4 sentence-structure patterns per block, not one fill-in-the-blank line (AI copy is already unique; this hardens any templated fallback) <span class="pri must">Must</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Unique AI city copy on home + core (Niche Brief → <code>generate.py</code>) <span class="pri must">Must</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Per-deploy service landing pages (<code>landing_cities</code>) <span class="pri should">Should</span></li>
+        <li><span class="where perrow">Per-row</span>◐ Unique title tags + meta descriptions per site/page — genuinely varied, not one pattern with <code>{city}</code> swapped (duplicate titles across a network are a scaled-content tell) <span class="pri must">Must</span></li>
+        <li><span class="where perrow">Per-row</span>☐ Localized, unique image alt text — per-city alt strings, not one repeated caption <span class="pri should">Should</span> <span style="color:#64748b;">(cheap uniqueness + accessibility)</span></li>
+        <li><span class="where campaign">Campaign</span>◐ Real local market data — employers / industry / salary <span class="pri should">Should</span> <span style="color:#64748b;">(supply in <code>cities.json</code>; research step not wired — either pipe <code>generate.py --research</code> into <code>build_one</code>, or pre-populate <code>cities.json</code> from the params table)</span></li>
+        <li><span class="where preauthor">Pre-authoring</span>◐ Finish master authoring — genericize the last brand phrasings into <code>{business}</code> shortcodes and add <code>ai_block</code>s across home / core / service-landing pages <span class="pri should">Should</span> <span style="color:#64748b;">(authoring work, not code)</span></li>
+        <li><span class="where preauthor">Pre-authoring</span>◐ Vary generated-copy templates — rotate 3–4 sentence-structure patterns per block, not one fill-in-the-blank line (AI copy is already unique; this hardens any templated fallback) <span class="pri must">Must</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
     </ul>
 
     <h3>2 · Structural <span style="font-weight:400;color:#64748b;font-size:.85em;">(highest-value unbuilt item)</span></h3>
     <ul>
-        <li>☐ Block-order / layout skeletons per domain — rotate block order / 3–4 layout skeletons deterministically per domain so sites aren't structurally identical <span class="pri should">Should</span> <span style="color:#64748b;">(not built; highest-value remaining item — see <a href="#ms-variation">Deterministic variation</a>)</span></li>
-        <li>☐ Vary JSON-LD schema shape — 3–4 variants per page type, different field order + boilerplate phrasing, rotated by stable hash (complements the schema in area 3) <span class="pri must">Must</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
-        <li>☐ Vary CSS class vocabulary — 3–4 "skins": identical rules, different class names <span class="pri should">Should</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
-        <li>☐ Randomize image directory / filename structure — vary folder + filename conventions per site <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(low value alone)</span></li>
+        <li><span class="where preauthor">Pre-authoring</span>☐ Block-order / layout skeletons per domain — rotate block order / 3–4 layout skeletons deterministically per domain so sites aren't structurally identical <span class="pri should">Should</span> <span style="color:#64748b;">(not built; highest-value remaining item — see <a href="#ms-variation">Deterministic variation</a>)</span></li>
+        <li><span class="where preauthor">Pre-authoring</span>☐ Vary JSON-LD schema shape — 3–4 variants per page type, different field order + boilerplate phrasing, rotated by stable hash (complements the schema in area 3) <span class="pri must">Must</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
+        <li><span class="where preauthor">Pre-authoring</span>☐ Vary CSS class vocabulary — 3–4 "skins": identical rules, different class names <span class="pri should">Should</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
+        <li><span class="where perrow">Per-row</span>☐ Randomize image directory / filename structure — vary folder + filename conventions per site <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(low value alone)</span></li>
     </ul>
 
     <h3>3 · Identity &amp; SEO signals <span style="font-weight:400;color:#64748b;font-size:.85em;">(the SEO backbone — mostly automated)</span></h3>
     <ul>
-        <li>✅ Business / phone / email / domain rewritten per site <span class="pri must">Must</span></li>
-        <li>✅ LocalBusiness JSON-LD with real address + geo <span class="pri must">Must</span> <span style="color:#64748b;">(needs <code>lat</code>/<code>lng</code>)</span></li>
-        <li>✅ Real ratings only — <code>rating</code> + <code>review_count</code>, paired, never invented <span class="pri must">Must</span></li>
-        <li>✅ Self-referential canonical per domain <span class="pri must">Must</span></li>
-        <li>✅ Per-site analytics — <strong>never share one across sites</strong> (the big DON'T). Each site gets its own GA4 tag from <code>analytics_id</code>. <span style="color:#64748b;">◐ distinct GTM container IDs not yet emitted</span> <span class="pri must">Must</span></li>
-        <li>☐ Unique Search Console verification per site — own meta tag or DNS TXT per domain; never verify every site through one shared GTM property <span class="pri must">Must</span></li>
-        <li>✅ No generator fingerprint emitted <span class="pri should">Should</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Business / phone / email / domain rewritten per site <span class="pri must">Must</span></li>
+        <li><span class="where perrow">Per-row</span>✅ LocalBusiness JSON-LD with real address + geo <span class="pri must">Must</span> <span style="color:#64748b;">(needs <code>lat</code>/<code>lng</code>)</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Real ratings only — <code>rating</code> + <code>review_count</code>, paired, never invented <span class="pri must">Must</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Self-referential canonical per domain <span class="pri must">Must</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Per-site <code>sitemap.xml</code> + <code>robots.txt</code> — written for each domain at build (needs <code>canonical_domain</code>, or the sitemap is skipped) <span class="pri must">Must</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Per-site analytics — <strong>never share one across sites</strong> (the big DON'T). Each site gets its own GA4 tag from <code>analytics_id</code>. <span style="color:#64748b;">◐ distinct GTM container IDs not yet emitted</span> <span class="pri must">Must</span></li>
+        <li><span class="where perrow">Per-row</span>☐ Unique Search Console verification per site — own meta tag or DNS TXT per domain; never verify every site through one shared GTM property <span class="pri must">Must</span></li>
+        <li><span class="where perrow">Per-row</span>✅ No generator fingerprint emitted <span class="pri should">Should</span></li>
     </ul>
 
     <h3>4 · Visual <span style="font-weight:400;color:#64748b;font-size:.85em;">(most tempting, least SEO value — do last)</span></h3>
     <ul>
-        <li>◐ Per-site favicon / og-image — the fields already exist; auto-set per site so no two sites ship a byte-identical favicon / OG file <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(cheap field-override)</span></li>
-        <li>☐ Per-site logo — auto-wordmark from the business name (or honor a <code>logo</code> column), and derive the favicon from it <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(needs asset-generation code)</span></li>
-        <li>☐ Per-site image assignment — a per-city image pool assigned deterministically; at minimum re-crop / re-compress / strip EXIF differently per site so files aren't byte-identical <span class="pri should">Should</span> <span style="color:#64748b;">(needs an image pool)</span></li>
-        <li>☐ Domain-seeded theme colors — deterministic palette from a domain hash; the render layer already supports theme overrides, so this rides the existing inject step <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(lowest impact)</span></li>
+        <li><span class="where perrow">Per-row</span>◐ Per-site favicon / og-image — the fields already exist; auto-set per site so no two sites ship a byte-identical favicon / OG file <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(cheap field-override)</span></li>
+        <li><span class="where perrow">Per-row</span>☐ Per-site logo — auto-wordmark from the business name (or honor a <code>logo</code> column), and derive the favicon from it <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(needs asset-generation code)</span></li>
+        <li><span class="where perrow">Per-row</span>☐ Per-site image assignment — a per-city image pool assigned deterministically; at minimum re-crop / re-compress / strip EXIF differently per site so files aren't byte-identical <span class="pri should">Should</span> <span style="color:#64748b;">(needs an image pool)</span></li>
+        <li><span class="where perrow">Per-row</span>☐ Domain-seeded theme colors — deterministic palette from a domain hash; the render layer already supports theme overrides, so this rides the existing inject step <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(lowest impact)</span></li>
     </ul>
 
-    <h3>5 · Site Hosting &amp; Footprint <span style="font-weight:400;color:#64748b;font-size:.85em;">(operational — outside the tool)</span></h3>
+    <h3>5 · Local &amp; off-site signals <span style="font-weight:400;color:#64748b;font-size:.85em;">(where local city sites win or lose)</span></h3>
+    <p style="color:#64748b;font-size:.9em;margin:2px 0 6px;">For local search these often outweigh on-page tweaks. Mostly done outside the tool — Google Business Profile, directory citations, earned links; the embedded map is the one on-page piece.</p>
+    <ul>
+        <li><span class="where operational">Operational</span>📋 Google Business Profile per city — real address, correct categories, photos, posts; the single biggest local ranking + distinct-entity signal <span class="pri must">Must</span></li>
+        <li><span class="where operational">Operational</span>📋 Local citations / NAP consistency — same name / address / phone across directories (Yelp, BBB, industry lists) <span class="pri should">Should</span></li>
+        <li><span class="where perrow">Per-row</span>☐ Embedded map + service-area on each site — localized map / directions block per city <span class="pri should">Should</span> <span style="color:#64748b;">(<code>map_info</code> block per city)</span></li>
+        <li><span class="where operational">Operational</span>📋 Earn a distinct backlink profile — real local links per site; never a shared PBN / cross-site link network <span class="pri maybe">Maybe</span></li>
+    </ul>
+
+    <h3>6 · Site Hosting &amp; Footprint <span style="font-weight:400;color:#64748b;font-size:.85em;">(operational — outside the tool)</span></h3>
     <p style="color:#64748b;font-size:.9em;margin:2px 0 6px;">The generator can't do these — the operator sets them up at the registrar and host. They matter <em>because</em> you're mass-generating similar sites; genuine local substance (areas 1–2) is the real defense, this is insurance.</p>
     <ul>
-        <li>📋 Domain registration diversity — vary registrars; don't bulk-buy every domain in one account <span class="pri should">Should</span></li>
-        <li>📋 Hosting / IP diversity — spread across hosts or IP ranges; avoid one C-class block of same-owner sites <span class="pri must">Must</span> <span style="color:#64748b;">(and keep origins behind <a href="#ms-hosting">Cloudflare's proxy</a> so a DNS lookup can't reveal the network)</span></li>
-        <li>📋 Cloudflare / CDN — a shared CF account is itself a footprint; isolate where it matters, and confirm every <code>A</code> record is <a href="#ms-hosting">proxied, not grey-cloud</a> <span class="pri must">Must</span></li>
-        <li>📋 WHOIS privacy on every domain <span class="pri should">Should</span></li>
-        <li>📋 Vary registrars / nameservers where practical — split across accounts (e.g. Namecheap / Porkbun / Cloudflare Registrar) once past ~20 sites; Cloudflare nameservers alone aren't a distinguishing signal <span class="pri maybe">Maybe</span></li>
-        <li>📋 No cross-site link hub / footer link network (the classic PBN tell) <span class="pri must">Must</span></li>
+        <li><span class="where operational">Operational</span>📋 Domain registration diversity — vary registrars; don't bulk-buy every domain in one account <span class="pri should">Should</span></li>
+        <li><span class="where operational">Operational</span>📋 Hosting / IP diversity — spread across hosts or IP ranges; avoid one C-class block of same-owner sites <span class="pri must">Must</span> <span style="color:#64748b;">(and keep origins behind <a href="#ms-hosting">Cloudflare's proxy</a> so a DNS lookup can't reveal the network)</span></li>
+        <li><span class="where operational">Operational</span>📋 Cloudflare / CDN — a shared CF account is itself a footprint; isolate where it matters, and confirm every <code>A</code> record is <a href="#ms-hosting">proxied, not grey-cloud</a> <span class="pri must">Must</span></li>
+        <li><span class="where operational">Operational</span>📋 WHOIS privacy on every domain <span class="pri should">Should</span></li>
+        <li><span class="where operational">Operational</span>📋 Vary registrars / nameservers where practical — split across accounts (e.g. Namecheap / Porkbun / Cloudflare Registrar) once past ~20 sites; Cloudflare nameservers alone aren't a distinguishing signal <span class="pri maybe">Maybe</span></li>
+        <li><span class="where operational">Operational</span>📋 No cross-site link hub / footer link network (the classic PBN tell) <span class="pri must">Must</span></li>
     </ul>
 
     <p style="color:#64748b;font-size:.9em;margin-top:6px;">✅ automated &nbsp;·&nbsp; ◐ partial / needs input &nbsp;·&nbsp; ☐ not built &nbsp;·&nbsp; 📋 operational</p>
+    <p style="color:#64748b;font-size:.9em;margin-top:2px;"><strong>Where</strong> (right-hand pill) — at which moment the work happens: <span class="where preauthor" style="float:none;margin-left:0;">Pre-authoring</span> author into the master first &nbsp;·&nbsp; <span class="where campaign" style="float:none;margin-left:0;">Campaign</span> once-per-run prep &nbsp;·&nbsp; <span class="where perrow" style="float:none;margin-left:0;">Per-row</span> automatic per site in <code>build_one</code> &nbsp;·&nbsp; <span class="where operational" style="float:none;margin-left:0;">Operational</span> outside the tool</p>
 
     <div class="callout warn">The defensible path is genuine local presence per city (real address, phone, ideally a Google Business Profile). Build to maximize real distinctness regardless — it's what protects against penalties and actually serves users. Mechanisms: see <a href="#ms-differentiation">Per-site differentiation</a>, <a href="#ms-aiblocks">AI blocks &amp; the engine</a>, and <a href="#ms-landing">Per-deploy landing pages</a>.</div>
+</section>
+
+<section id="ms-specs">
+    <h2>Differentiation build specs</h2>
+    <p>One card per <a href="#ms-axes">axes</a> item — description, priority, where it executes, and how to build it (or how it works today, for ✅ items). Same six areas as the checklist; that list is the scan view, this is the build backlog.</p>
+
+    <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 1 · Content</h3>
+
+    <div class="block-card-doc" id="spec-ai-copy">
+        <h3>Unique AI city copy (home + core) <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">✅ built</p>
+        <p><strong>Description.</strong> Each site's home and core pages get city-specific body copy written by the AI generator from the Niche Brief + shared archetypes, so no two cities read the same.</p>
+        <p><strong>Build (today).</strong> In <code>build_one.php</code>, after inject + differentiate, <code>generate.py</code> fills every <code>ai_block</code>. Prior copy is re-injected from the per-domain cache via <code>ms_ai_inject_from_cache()</code> (<code>includes/multisite/ai_cache.php</code>) so only missing/stale blocks regenerate — rebuilds are free. Cache: <code>sites/{master}/multisite/cache/{domain}.json</code>; <code>--force</code> regenerates.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-landing">
+        <h3>Per-deploy service landing pages <span class="pri should">Should</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">✅ built</p>
+        <p><strong>Description.</strong> Each deploy can target extra nearby towns; a city-targeted service landing page is rendered for each from the master's reusable landing template.</p>
+        <p><strong>Build (today).</strong> <code>ms_parse_landing_cities()</code> (<code>includes/multisite/landing.php</code>) turns the row's <code>landing_cities</code> cell into city rows; <code>multisite/generate_landing.php</code> renders one page per city, AI-cached per domain like the home page. Blank cell → home + core only.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-titles-metas">
+        <h3>Unique title tags + meta descriptions <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row (+ Pre-authoring)</span></h3>
+        <p class="bc-meta">◐ partial — titles carry <code>{city}</code>, but one shared pattern reads near-duplicate at scale</p>
+        <p><strong>Description.</strong> Every page's <code>&lt;title&gt;</code> and meta description must genuinely differ across sites, not one pattern with <code>{city}</code> swapped.</p>
+        <p><strong>Build.</strong> Author 2–3 title/description patterns per page type in the master SEO fields (Pre-authoring). In inject/differentiate, pick one by <code>crc32(domain) % n</code> and resolve city/business shortcodes (Per-row). Verify by diffing built <code>&lt;head&gt;</code>s that no two sites share an identical title/description. Reuses the variant-hash helper from <a href="#ms-variation">Deterministic variation</a>. <strong>Effort:</strong> ~1 day.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-alt-text">
+        <h3>Localized, unique image alt text <span class="pri should">Should</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">☐ not built</p>
+        <p><strong>Description.</strong> Image <code>alt</code> attributes should carry per-city, unique text rather than one repeated caption — cheap uniqueness plus accessibility/SEO.</p>
+        <p><strong>Build.</strong> Add an <code>alt</code> template per image field in the master; at render, resolve city/business shortcodes so each site's alts differ. For AI image blocks, have <code>generate.py</code> emit a localized alt beside the copy. Fallback: derive alt from the block heading + <code>{city}</code> when none is authored. <strong>Effort:</strong> ~1 day.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-market-data">
+        <h3>Real local market data <span class="pri should">Should</span> <span class="where campaign" style="float:none;margin-left:6px;">Campaign</span></h3>
+        <p class="bc-meta">◐ partial — supported via <code>cities.json</code>; research step not wired</p>
+        <p><strong>Description.</strong> City-specific facts (employers, industries, salary bands) that ground the AI copy in reality instead of generic filler — the line between substance and thin content.</p>
+        <p><strong>Build.</strong> Two options. (a) Pre-populate <code>sites/{master}/cities.json</code> from the params table before a run (data prep). (b) Wire a research pass — <code>generate.py --research</code> as a shared campaign pre-step that fetches + caches each city's data once, then feeds the per-row generate. (a) is cheaper; (b) scales to unknown cities. Cache results so reruns stay free. <strong>Effort:</strong> ~½ day (pre-populate) or 2–3 days (research step).</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-finish-authoring">
+        <h3>Finish master authoring <span class="pri should">Should</span> <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring</span></h3>
+        <p class="bc-meta">◐ partial — authoring work, not code</p>
+        <p><strong>Description.</strong> Strip the last hard-coded brand phrasings from the master and mark every city-variable block as an <code>ai_block</code>, so clones carry no residual identity and every city surface gets fresh copy.</p>
+        <p><strong>Build.</strong> Audit the master's home/core/landing blocks; replace literal brand phrases with <code>{business}</code>/<code>{website}</code> shortcodes; add <code>ai_type_id</code> markers to blocks that should be city-written. Pure authoring in the admin editor — no code. Verify with a dry clone that no source-brand strings survive. <strong>Effort:</strong> ~1–2 days (authoring).</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-vary-copy">
+        <h3>Vary generated-copy templates <span class="pri must">Must</span> <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring (+ Per-row)</span></h3>
+        <p class="bc-meta">◐ partial — AI copy is already unique; the scaffolding isn't varied</p>
+        <p><strong>Description.</strong> Rotate 3–4 sentence-structure patterns per block instead of one fill-in-the-blank template, so the structure around the AI copy isn't identical site-to-site.</p>
+        <p><strong>Build.</strong> Author 3–4 phrasings per templated block in the master (Pre-authoring); select per domain by stable hash (Per-row). Where the AI writes the block, pass a rotated prompt skeleton so structure varies. See <a href="#ms-variation">Deterministic variation</a>; shares the hash helper. <strong>Effort:</strong> ~1–2 days.</p>
+    </div>
+
+    <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 2 · Structural</h3>
+
+    <div class="block-card-doc" id="spec-layout-skeletons">
+        <h3>Block-order / layout skeletons <span class="pri should">Should</span> <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring (+ Per-row)</span></h3>
+        <p class="bc-meta">☐ not built — highest-value remaining item</p>
+        <p><strong>Description.</strong> Assign one of 3–4 whole-page block orderings (layout skeletons) per domain, so sites aren't structurally identical top to bottom.</p>
+        <p><strong>Build.</strong> Define 3–4 orderings of the master's blocks (each block is already independent) and store them in the master. At build, reorder <code>content_blocks</code> by <code>variants[ crc32(domain) % n ]</code> before render (in inject/differentiate); keep hero first + footer last fixed. See <a href="#ms-variation">Deterministic variation</a>. <strong>Effort:</strong> ~2–3 days.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-schema">
+        <h3>Vary JSON-LD schema shape <span class="pri must">Must</span> <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring (+ Per-row)</span></h3>
+        <p class="bc-meta">☐ not built</p>
+        <p><strong>Description.</strong> Rotate 3–4 JSON-LD variants per page type that differ in field order and boilerplate phrasing, so structured data isn't byte-identical across the network.</p>
+        <p><strong>Build.</strong> Author 3–4 schema templates in the master's per-page <em>Schema Markup</em> fields (Pre-authoring). In <code>includes/multisite/differentiate.php</code>, after the identity rewrite, pick <code>variant = variants[ crc32(domain) % n ]</code> and write the resolved JSON into the page (Per-row). Deterministic per domain. <strong>Effort:</strong> ~1 day.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-css-skins">
+        <h3>Vary CSS class vocabulary <span class="pri should">Should</span> <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring (+ Per-row)</span></h3>
+        <p class="bc-meta">☐ not built</p>
+        <p><strong>Description.</strong> 3–4 "skins" — the same visual layout and CSS rules under different class-name vocabularies — rotated per site.</p>
+        <p><strong>Build.</strong> Author skin maps (canonical name → skin class names) in the master. At render, rewrite class attributes and the matching selectors in the emitted stylesheet using the skin selected by domain hash; ensure markup + CSS use the same skin. <strong>Effort:</strong> ~2 days.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-image-paths">
+        <h3>Randomize image directory / filename structure <span class="pri maybe">Maybe</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">☐ not built — low value alone</p>
+        <p><strong>Description.</strong> Vary the folder + filename conventions per site so asset paths aren't a uniform fingerprint.</p>
+        <p><strong>Build.</strong> At render/deploy, map each asset to a per-domain path scheme (folder + filename pattern chosen by hash) and rewrite <code>src</code>/<code>href</code> accordingly. Deterministic so rebuilds and incremental deploys stay stable. <strong>Effort:</strong> ~½ day.</p>
+    </div>
+
+    <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 3 · Identity &amp; SEO signals</h3>
+
+    <div class="block-card-doc" id="spec-identity-rewrite">
+        <h3>Business / phone / email / domain rewritten <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">✅ built</p>
+        <p><strong>Description.</strong> The master's identity is replaced with this site's everywhere, including inside the JSON-LD, via word-boundary-anchored replacement.</p>
+        <p><strong>Build (today).</strong> <code>ms_differentiate_working_dir()</code> (<code>includes/multisite/differentiate.php</code>) runs the identity rewrite over <code>site.json</code> + rendered schema; body copy uses <code>{business}</code>/<code>{website}</code> shortcodes so most resolves at render.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-localbusiness">
+        <h3>LocalBusiness JSON-LD with real address + geo <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">✅ built — needs <code>lat</code>/<code>lng</code> in the row</p>
+        <p><strong>Description.</strong> A real <code>LocalBusiness</code> node with <code>PostalAddress</code> + <code>GeoCoordinates</code> injected on the homepage — the strongest "distinct entity" signal — when geo/address is present.</p>
+        <p><strong>Build (today).</strong> <code>differentiate.php</code> injects the node from the row's address/lat/lng/rating. Supply <code>lat</code>/<code>lng</code> in the params row to enable it.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-ratings">
+        <h3>Real ratings only <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">✅ built</p>
+        <p><strong>Description.</strong> <code>aggregateRating</code> is emitted only when the row supplies real <code>rating</code> + <code>review_count</code>; the master's carried-over rating is stripped, never invented.</p>
+        <p><strong>Build (today).</strong> <code>differentiate.php</code> removes any inherited <code>aggregateRating</code> and re-adds one only from the paired row fields.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-canonical">
+        <h3>Self-referential canonical per domain <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">✅ built</p>
+        <p><strong>Description.</strong> Canonical URLs point at the site's own domain, not the master's.</p>
+        <p><strong>Build (today).</strong> Set during differentiate/render from the row's <code>canonical_domain</code>.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-sitemap">
+        <h3>Per-site <code>sitemap.xml</code> + <code>robots.txt</code> <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">✅ built — needs <code>canonical_domain</code></p>
+        <p><strong>Description.</strong> A sitemap and robots file written for each domain at build.</p>
+        <p><strong>Build (today).</strong> <code>deploy_site()</code> (<code>includes/multisite/deploy.php</code>) writes <code>sitemap.xml</code>, <code>robots.txt</code>, and <code>.htaccess</code> (including SEO-tab 301s). Without <code>canonical_domain</code> the sitemap is skipped.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-analytics">
+        <h3>Per-site analytics (GA4) <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">✅ built (GA4) · ◐ distinct GTM containers not yet emitted</p>
+        <p><strong>Description.</strong> Each site gets its own GA4 tag from <code>analytics_id</code>; a shared tag is never used.</p>
+        <p><strong>Build (today).</strong> <code>ms_ga4_snippet($id)</code> in <code>differentiate.php</code> writes a per-site <code>gtag</code> into <code>theme.analytics_head</code>. To add GTM: emit a container snippet when <code>analytics_id</code> matches <code>GTM-*</code>. <strong>Effort (GTM option):</strong> ~½ day.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-search-console">
+        <h3>Unique Search Console verification <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">☐ not built</p>
+        <p><strong>Description.</strong> Each domain verified independently (own meta tag or DNS TXT) — never all through one shared GTM property.</p>
+        <p><strong>Build.</strong> Add a verification-token column; inject a per-site <code>&lt;meta name="google-site-verification"&gt;</code> during differentiate (same path as analytics). Optionally automate property creation + verification via the Search Console API. <strong>Effort:</strong> ~1 day (meta tag), +1–2 days (API).</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-fingerprint">
+        <h3>No generator fingerprint emitted <span class="pri should">Should</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">✅ built</p>
+        <p><strong>Description.</strong> No meta-generator tag or tool signature in the output that would cluster the sites.</p>
+        <p><strong>Build (today).</strong> The render emits no generator tag; keep the template free of tool-identifying comments/markers.</p>
+    </div>
+
+    <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 4 · Visual</h3>
+
+    <div class="block-card-doc" id="spec-favicon">
+        <h3>Per-site favicon / og-image <span class="pri maybe">Maybe</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">◐ fields exist; not auto-set</p>
+        <p><strong>Description.</strong> Auto-set per site so no two sites ship a byte-identical favicon / OG file.</p>
+        <p><strong>Build.</strong> Add a per-site override in inject/differentiate — assign from a per-domain asset or regenerate (recolor / re-hash) so the files differ. <strong>Effort:</strong> ~½ day.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-logo">
+        <h3>Per-site logo <span class="pri maybe">Maybe</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">☐ not built</p>
+        <p><strong>Description.</strong> Auto-wordmark from the business name (or honor a <code>logo</code> column), and derive the favicon from it.</p>
+        <p><strong>Build.</strong> Generate an SVG/PNG wordmark from <code>{business}</code> at build (font + domain-seeded accent), or use the row's <code>logo</code> column; write it to the site, set <code>header.logo</code>, and derive the favicon. <strong>Effort:</strong> ~1–2 days.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-image-assign">
+        <h3>Per-site image assignment <span class="pri should">Should</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">☐ not built — needs an image pool</p>
+        <p><strong>Description.</strong> A per-city image pool assigned deterministically; at minimum re-crop / re-compress / strip EXIF differently per site so files aren't byte-identical.</p>
+        <p><strong>Build.</strong> Assemble a per-niche/city image pool; at build, assign photos to blocks by domain hash and re-encode (crop ratio + quality + EXIF strip) per site. Pool must be curated first. <strong>Effort:</strong> ~2 days (+ pool curation).</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-theme-colors">
+        <h3>Domain-seeded theme colors <span class="pri maybe">Maybe</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">☐ not built — lowest impact</p>
+        <p><strong>Description.</strong> A deterministic palette from a domain hash; the render layer already supports theme overrides.</p>
+        <p><strong>Build.</strong> Derive accent / header / button colors from <code>crc32(domain)</code> within brand-safe ranges and write them into the <code>theme</code> section before <code>theme_css_vars()</code> renders. Rides the existing inject step. <strong>Effort:</strong> ~½ day.</p>
+    </div>
+
+    <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 5 · Local &amp; off-site signals</h3>
+
+    <div class="block-card-doc" id="spec-gbp">
+        <h3>Google Business Profile per city <span class="pri must">Must</span> <span class="where operational" style="float:none;margin-left:6px;">Operational</span></h3>
+        <p class="bc-meta">📋 operational — outside the tool</p>
+        <p><strong>Description.</strong> A real GBP per location — address, correct categories, photos, posts. The single biggest local ranking + distinct-entity signal.</p>
+        <p><strong>Build.</strong> Operational: create/verify a GBP per city (needs a real address + phone per location); keep NAP identical to the site. <strong>Effort:</strong> operational — per-site setup + ongoing.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-citations">
+        <h3>Local citations / NAP consistency <span class="pri should">Should</span> <span class="where operational" style="float:none;margin-left:6px;">Operational</span></h3>
+        <p class="bc-meta">📋 operational — outside the tool</p>
+        <p><strong>Description.</strong> The same name / address / phone across directories (Yelp, BBB, industry lists).</p>
+        <p><strong>Build.</strong> Operational: submit and maintain citations per site; ensure NAP matches the site and GBP exactly. <strong>Effort:</strong> operational — per-site + ongoing.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-map">
+        <h3>Embedded map + service-area <span class="pri should">Should</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">☐ not built</p>
+        <p><strong>Description.</strong> A localized map / directions / service-area block on each site.</p>
+        <p><strong>Build.</strong> Add a <code>map_info</code> block per city driven by the row's geo/address; render an embedded map + service-area copy. Uses the existing <code>map_info</code> block type. <strong>Effort:</strong> ~½ day.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-backlinks">
+        <h3>Earn a distinct backlink profile <span class="pri maybe">Maybe</span> <span class="where operational" style="float:none;margin-left:6px;">Operational</span></h3>
+        <p class="bc-meta">📋 operational — outside the tool</p>
+        <p><strong>Description.</strong> Real local links per site; never a shared PBN / cross-site link network.</p>
+        <p><strong>Build.</strong> Operational: local outreach / partnerships per site; explicitly avoid interlinking your own network. <strong>Effort:</strong> operational — ongoing.</p>
+    </div>
+
+    <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 6 · Site Hosting &amp; Footprint</h3>
+
+    <div class="block-card-doc" id="spec-domain-reg">
+        <h3>Domain registration diversity <span class="pri should">Should</span> <span class="where operational" style="float:none;margin-left:6px;">Operational</span></h3>
+        <p class="bc-meta">📋 operational — outside the tool</p>
+        <p><strong>Description.</strong> Vary registrars; don't bulk-buy every domain in one account.</p>
+        <p><strong>Build.</strong> Operational: spread registrations across registrars / accounts. <strong>Effort:</strong> operational — setup-time choice.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-ip-diversity">
+        <h3>Hosting / IP diversity <span class="pri must">Must</span> <span class="where operational" style="float:none;margin-left:6px;">Operational</span></h3>
+        <p class="bc-meta">📋 operational — outside the tool</p>
+        <p><strong>Description.</strong> Spread across hosts or IP ranges; avoid one C-class block of same-owner sites; keep origins behind Cloudflare's proxy so a DNS lookup can't reveal the network.</p>
+        <p><strong>Build.</strong> Operational: distribute across hosts/IPs and proxy every origin (see <a href="#ms-hosting">Cloudflare &amp; origin IP</a>). <strong>Effort:</strong> operational.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-cloudflare">
+        <h3>Cloudflare / CDN <span class="pri must">Must</span> <span class="where operational" style="float:none;margin-left:6px;">Operational</span></h3>
+        <p class="bc-meta">📋 operational — outside the tool</p>
+        <p><strong>Description.</strong> A shared CF account is itself a footprint; confirm every <code>A</code> record is proxied (orange-cloud), not grey.</p>
+        <p><strong>Build.</strong> Operational: see the <a href="#ms-hosting">Cloudflare &amp; origin-IP</a> section for the per-domain audit and fix. <strong>Effort:</strong> operational.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-whois">
+        <h3>WHOIS privacy <span class="pri should">Should</span> <span class="where operational" style="float:none;margin-left:6px;">Operational</span></h3>
+        <p class="bc-meta">📋 operational — outside the tool</p>
+        <p><strong>Description.</strong> WHOIS privacy enabled on every domain.</p>
+        <p><strong>Build.</strong> Operational: enable registrar WHOIS privacy per domain. <strong>Effort:</strong> operational.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-registrars">
+        <h3>Vary registrars / nameservers <span class="pri maybe">Maybe</span> <span class="where operational" style="float:none;margin-left:6px;">Operational</span></h3>
+        <p class="bc-meta">📋 operational — outside the tool</p>
+        <p><strong>Description.</strong> Split across accounts once past ~20 sites; Cloudflare nameservers alone aren't a distinguishing signal.</p>
+        <p><strong>Build.</strong> Operational: mix registrars / nameservers as you scale. <strong>Effort:</strong> operational.</p>
+    </div>
+
+    <div class="block-card-doc" id="spec-link-hub">
+        <h3>No cross-site link hub <span class="pri must">Must</span> <span class="where operational" style="float:none;margin-left:6px;">Operational</span></h3>
+        <p class="bc-meta">📋 operational — outside the tool</p>
+        <p><strong>Description.</strong> No footer link network / cross-site linking — the classic PBN tell.</p>
+        <p><strong>Build.</strong> Operational: never interlink the sites; keep each site's link graph internal. <strong>Effort:</strong> operational.</p>
+    </div>
 </section>
 
 <section id="ms-variation">
