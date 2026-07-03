@@ -327,6 +327,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#ms-differentiation">Per-site differentiation</a>
         <a href="#ms-axes">Differentiation axes &amp; status</a>
         <a href="#ms-specs">Build specs</a>
+        <a href="#ms-roadmap">Build roadmap</a>
         <a href="#ms-variation">Deterministic variation</a>
         <a href="#ms-hosting">Cloudflare &amp; origin IP</a>
 
@@ -3346,6 +3347,39 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 <section id="ms-specs">
     <h2>Differentiation build specs</h2>
     <p>One card per <a href="#ms-axes">axes</a> item — description, priority, where it executes, and how to build it (or how it works today, for ✅ items). Same six areas as the checklist; that list is the scan view, this is the build backlog.</p>
+
+    <h3 id="ms-roadmap" style="margin-top:26px;border-top:2px solid #0f172a;padding-top:14px;color:#0f172a;">Build roadmap — suggested phases</h3>
+    <p>Grouped by <strong>shared infrastructure and priority, not by area</strong>. Phase 1 first builds a deterministic variant-selector helper — <code>variants[ crc32(domain) % n ]</code> — that four items reuse; the visual/asset items cluster in Phase 3. Each variation item is <strong>code + authoring</strong> (the 3–4 variants must be written into the master); budget the authoring separately, in parallel with the code. <strong>Verify after each phase</strong> by building 2–3 sample domains and diffing their output — it must differ <em>and</em> be rebuild-stable (deterministic per domain).</p>
+
+    <p style="margin:14px 0 2px;"><strong>Phase 1 — Variation engine + structural Musts</strong> <span style="color:#64748b;">· the anti-fingerprint core, highest value · ~6–8 dev-days + authoring</span></p>
+    <ul>
+        <li><strong>Foundation</strong> — <code>crc32(domain) % n</code> variant-selector helper in <code>includes/multisite/</code> — ~½ d (unblocks the rest)</li>
+        <li><a href="#spec-layout-skeletons">2a</a> · Block-order / layout skeletons — <span class="pri must">Must</span> ~2–3 d</li>
+        <li><a href="#spec-schema">2b</a> · Schema-shape variation — <span class="pri must">Must</span> ~1 d</li>
+        <li><a href="#spec-vary-copy">1g</a> · Vary copy templates — <span class="pri must">Must</span> ~1–2 d</li>
+        <li><a href="#spec-titles-metas">1c</a> · Unique titles / meta descriptions — <span class="pri must">Must</span> ~1 d</li>
+        <li><a href="#spec-search-console">3g</a> · Search Console verification (same inject-a-tag pattern as analytics) — <span class="pri should">Should</span> ~1 d</li>
+    </ul>
+
+    <p style="margin:14px 0 2px;"><strong>Phase 2 — Content uniqueness &amp; authoring polish</strong> <span style="color:#64748b;">· cheap, high-SEO, mostly Per-row / authoring · ~5–9 dev-days</span></p>
+    <ul>
+        <li><a href="#spec-finish-authoring">1f</a> · Finish master authoring — <span class="pri should">Should</span> ~1–2 d</li>
+        <li><a href="#spec-alt-text">1d</a> · Localized alt text — <span class="pri should">Should</span> ~1 d</li>
+        <li><a href="#spec-market-data">1e</a> · Real local market data — <span class="pri should">Should</span> ~½ d (prepopulate) / 2–3 d (research)</li>
+        <li><a href="#spec-css-skins">2c</a> · CSS skins (reuses the Phase-1 helper) — <span class="pri should">Should</span> ~2 d</li>
+        <li><a href="#spec-map">5c</a> · Embedded map + service-area — <span class="pri should">Should</span> ~½ d</li>
+    </ul>
+
+    <p style="margin:14px 0 2px;"><strong>Phase 3 — Visual / asset pipeline</strong> <span style="color:#64748b;">· lowest SEO value, do last; all touch the asset subsystem · ~5–7 dev-days</span></p>
+    <ul>
+        <li><a href="#spec-image-assign">4c</a> · Per-site image assignment + re-encode — <span class="pri should">Should</span> ~2 d (+ pool curation)</li>
+        <li><a href="#spec-logo">4b</a> · Per-site logo / wordmark — <span class="pri maybe">Maybe</span> ~1–2 d</li>
+        <li><a href="#spec-favicon">4a</a> · Per-site favicon / OG (derives from 4b) — <span class="pri maybe">Maybe</span> ~½ d</li>
+        <li><a href="#spec-theme-colors">4d</a> · Domain-seeded theme colors — <span class="pri maybe">Maybe</span> ~½ d</li>
+        <li><a href="#spec-image-paths">2d</a> · Randomize image dir / filename — <span class="pri maybe">Maybe</span> ~½ d</li>
+    </ul>
+
+    <div class="callout tip">Items not in a phase are either <strong>✅ already built</strong> (most of area 3) or <strong>operational</strong> (areas 5–6, outside the tool) — see their cards below.</div>
 
     <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 1 · Content</h3>
 
