@@ -509,64 +509,62 @@ def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, d
 
 # ── Research pre-processor ────────────────────────────────────────────────────
 
-RESEARCH_MODEL = 'claude-sonnet-4-6'
+RESEARCH_MODEL = 'claude-sonnet-5'
 
-RESEARCH_PROMPT = """Research the project management job market in {city}, {state} ({SS}).
+# Niche-agnostic default. Each master's Niche Brief can override this with its own
+# `research_prompt` (edited in the Niche Brief tab) so research fits the niche.
+# {business_descriptor}/{service_noun} come from the brief; {city}/{state}/{SS} per city.
+DEFAULT_RESEARCH_PROMPT = """Research {city}, {state} ({SS}) for {business_descriptor}.
 
-You are populating a database for a PMP certification training company. Provide accurate, specific information about {city}'s economy and PM job market.
+Return a JSON object with these fields:
 
-Return a JSON object with exactly four string/array fields:
-
-1. "industries" — array of 4-6 dominant industry sectors in {city} that employ significant numbers of project managers. Use concise sector names such as healthcare, defense/military, technology, finance, energy, manufacturing, government.
-
-2. "top_employers" — array of 10-12 major employers in {city} that actively hire project managers. Include large corporations, healthcare systems, government/defense contractors, and prominent local employers. Use exact company/organization names.
-
-3. "salary_note" — one sentence describing the typical annual salary range for PMP-certified project managers in {city}, {SS}. Include a specific dollar range (e.g. $110,000-$130,000 annually) and note any premium sectors if applicable.
-
-4. "market_blurb" — 2-3 sentences describing the PM job market in {city}. Reference the city by name, mention the dominant industries, and explain concretely why PMP certification is valuable for professionals there.
+1. "industries" — array of 4-6 dominant local industry sectors in {city}.
+2. "top_employers" — array of 8-12 major employers with a real physical presence in {city} (exact organization names).
+3. "market_blurb" — 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.
+4. "local_note" — one sentence of locally-specific context relevant to {service_noun} in {city}.
 
 Rules:
-- Only include verifiable facts — real employers with a significant physical presence in {city}
-- Do not invent statistics or companies
-- Salary range should reflect current market rates for certified PMs
+- Only verifiable facts — real employers, no invented statistics or companies.
+- Return JSON only, no markdown fences, no explanation."""
 
-Return JSON only, no markdown fences, no explanation."""
 
-def _research_city(city_name, state_name, SS, api_key, dry_run=False):
-    """Call Claude to produce research fields for one city. Returns dict or None."""
-    ctx    = {'city': city_name, 'state': state_name, 'SS': SS}
-    prompt = substitute_vars(RESEARCH_PROMPT, ctx)
+def _load_research_prompt(paths):
+    """Resolve the research prompt for this master: the Niche Brief's `research_prompt`
+    (with brief context substituted) if set, else DEFAULT_RESEARCH_PROMPT. Leaves the
+    per-city {city}/{state}/{SS} placeholders intact."""
+    brief = load_json(os.path.join(paths['site_dir'], 'multisite', 'niche_brief.json')) or {}
+    tmpl = (brief.get('research_prompt') or '').strip() or DEFAULT_RESEARCH_PROMPT
+    return substitute_vars(tmpl, {
+        'business_descriptor': brief.get('business_descriptor', 'a local business'),
+        'service_noun':        brief.get('service_noun', 'services'),
+        'customer_noun':       brief.get('customer_noun', 'customer'),
+        'niche':               brief.get('niche', ''),
+    })
+
+def _research_city(city_name, state_name, SS, api_key, prompt_template, dry_run=False):
+    """Call Claude to produce research fields for one city, using the niche's prompt
+    template. Returns a dict of fields or None. Fields are niche-defined, so validation
+    is soft (must be a non-empty dict)."""
+    prompt = substitute_vars(prompt_template, {'city': city_name, 'state': state_name, 'SS': SS})
 
     if dry_run:
         _log(f'    [dry-run] Would call {RESEARCH_MODEL} ({len(prompt)} chars)')
-        return {
-            'industries':    ['technology', 'healthcare', 'finance', 'energy'],
-            'top_employers': ['Employer A', 'Employer B', 'Employer C', 'Employer D'],
-            'salary_note':   f'PMP-certified project managers in {city_name} average $110,000–$130,000 annually. [dry-run]',
-            'market_blurb':  f'{city_name} has a strong PM market. [dry-run placeholder]',
-        }
+        return {'industries': ['(dry-run)'], 'top_employers': ['(dry-run)'],
+                'market_blurb': f'{city_name} — [dry-run]', 'local_note': '[dry-run]'}
 
     result = call_claude(prompt, RESEARCH_MODEL, api_key, dry_run=False)
-    if not result:
+    if not result or not isinstance(result, dict):
         return None
-
-    # Validate the four required fields
-    errs = []
-    if not isinstance(result.get('industries'), list) or len(result['industries']) < 2:
-        errs.append('industries missing or too short')
-    if not isinstance(result.get('top_employers'), list) or len(result['top_employers']) < 3:
-        errs.append('top_employers missing or too short')
-    if not str(result.get('salary_note', '')).strip():
-        errs.append('salary_note empty')
-    if not str(result.get('market_blurb', '')).strip():
-        errs.append('market_blurb empty')
-    if errs:
-        _warn(f'    Research response invalid: {"; ".join(errs)}')
+    if not any(v not in (None, '', [], {}) for v in result.values()):
+        _warn('    Research response had no usable fields')
         return None
-
     return result
 
 def _needs_research(city_data):
+    # Niche-agnostic: a completed research pass stamps `_researched`. Fall back to the
+    # legacy PM signal for rows researched before the flag existed.
+    if city_data.get('_researched'):
+        return False
     return not city_data.get('industries') and not city_data.get('top_employers')
 
 def run_research_step(paths, api_key, dry_run=False, city_filter=None):
@@ -583,6 +581,7 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None):
 
     cities    = list(raw)
     researched = 0
+    prompt_template = _load_research_prompt(paths)   # niche-aware (Niche Brief or default)
 
     for i, city in enumerate(cities):
         city_name = city.get('city', '')
@@ -600,19 +599,20 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None):
 
         _log(f'  {city_name}, {city.get("SS","?")} — researching...')
         result = _research_city(
-            city_name  = city_name,
-            state_name = city.get('state', ''),
-            SS         = city.get('SS', ''),
-            api_key    = api_key,
-            dry_run    = dry_run,
+            city_name       = city_name,
+            state_name      = city.get('state', ''),
+            SS              = city.get('SS', ''),
+            api_key         = api_key,
+            prompt_template = prompt_template,
+            dry_run         = dry_run,
         )
 
         if result:
-            cities[i] = {**city, **result}
+            cities[i] = {**city, **result, '_researched': 1}
             _ok(f'  {city_name} — research complete')
-            _log(f'    industries    : {", ".join(result["industries"][:4])}')
-            _log(f'    top_employers : {", ".join(result["top_employers"][:4])}...')
-            _log(f'    salary_note   : {result["salary_note"][:80]}')
+            for k, v in list(result.items())[:4]:
+                s = ', '.join(str(x) for x in v[:4]) if isinstance(v, list) else str(v)
+                _log(f'    {k}: {s[:80]}')
             researched += 1
         else:
             _warn(f'  {city_name} — research failed, skipping')

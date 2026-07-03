@@ -81,6 +81,12 @@ if (defined('AI_REGISTRY_FILE') && file_exists(AI_REGISTRY_FILE)) {
             </label>
             <span class="hint">On for data-rich niches (e.g. Granite PM). Off = pure AI-from-geography. Archetypes marked <code>requires_research</code> are skipped when off.</span>
         </div>
+
+        <div class="form-group" style="margin-top:14px;margin-bottom:0;">
+            <label for="research_prompt">Research prompt <span class="hint" style="font-weight:400;">(only used when research is on)</span></label>
+            <textarea id="research_prompt" name="research_prompt" rows="8" style="font-family:monospace;font-size:0.85rem;"><?= $bv('research_prompt') ?></textarea>
+            <span class="hint">What to research per city. Tokens: <code>{city}</code> <code>{state}</code> <code>{SS}</code> (per city) · <code>{business_descriptor}</code> <code>{service_noun}</code> (from this brief). Must ask Claude to return JSON. <strong>Leave blank</strong> for a generic local-market default. The field names you request should match the ones your archetypes reference.</span>
+        </div>
     </div>
 
     <div class="card" style="margin-top:16px;">

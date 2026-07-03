@@ -2,6 +2,8 @@
 // Multisite tab — Phase A (intake). Upload + validate + store the params table.
 // $tab, $csrfToken available from index.php. Active site = campaign master.
 $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
+$nicheBrief  = @json_decode((string)@file_get_contents(ACTIVE_SITE_DIR . '/multisite/niche_brief.json'), true) ?: [];
+$researchOn  = !empty($nicheBrief['uses_research_fields']);
 ?>
 <div class="tab-content" style="<?= $tab === 'multisite' ? '' : 'display:none;' ?>">
 <?php tab_header('Multisite', 'Generate many separate single-city sites from this master. Step 1: upload and validate your params table (one row per site). See the Multisite documentation for columns and the full workflow.', 'tab-multisite'); ?>
@@ -64,6 +66,19 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
     <p class="hint">Each page's title comes from its own SEO panel in this master (using <code>{primary_keyword}</code>, <code>{city}</code>, <code>{SS}</code>, <code>{business}</code> shortcodes). Below is exactly how they resolve for a sample city on a cloned site — nothing is generated behind the scenes. To change a title, edit that page's SEO in the panel.</p>
     <div id="ms-titles-preview"><p class="hint">Loading…</p></div>
 </div>
+
+<?php if ($researchOn): ?>
+<!-- ===== RESEARCH CARD (item 1e) ===== -->
+<div class="card" id="ms-research-card">
+    <h3 style="margin-top:0;">Research cities <span class="hint" style="font-weight:400;">(local market data)</span></h3>
+    <p class="hint">Your niche brief has research on. This seeds <code>cities.json</code> with every city in the params table, then looks up real local facts for each new city (using the <a href="?tab=niche_brief">Niche Brief</a>'s research prompt). Run it once before a campaign — results persist and are reused free; already-researched cities are skipped. Do a <strong>dry run</strong> first to preview without API cost.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+        <button type="button" class="btn" id="ms-research-dry" onclick="msResearch(true)">Dry run (no API)</button>
+        <button type="button" class="btn btn-primary" id="ms-research-btn" onclick="msResearch(false)">Research cities</button>
+    </div>
+    <pre id="ms-research-out" style="display:none;margin-top:14px;background:#0f172a;color:#e2e8f0;padding:12px;border-radius:6px;font-size:0.8rem;max-height:340px;overflow:auto;white-space:pre-wrap;"></pre>
+</div>
+<?php endif; ?>
 
 <!-- ===== RUN CARD ===== -->
 <div class="card" id="ms-run-card">
@@ -327,6 +342,47 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
                 pollRun(d.run_id);
             })
             .catch(() => { btn.disabled = false; });
+    };
+
+    // ── Research cities (item 1e) — detached; poll the output file ────────────
+    var msResearchTimer = null;
+    function msPollResearch(runId) {
+        fetch('multisite_api.php?action=research_status&run_id=' + encodeURIComponent(runId))
+            .then(r => r.json())
+            .then(d => {
+                var out = document.getElementById('ms-research-out');
+                if (d.error) { out.textContent = d.error; return; }
+                if (d.none)  { out.textContent = 'Starting…'; return; }
+                out.textContent = d.output || '';
+                out.scrollTop = out.scrollHeight;
+                if (d.done) {
+                    if (msResearchTimer) clearInterval(msResearchTimer);
+                    document.getElementById('ms-research-dry').disabled = false;
+                    document.getElementById('ms-research-btn').disabled = false;
+                    out.textContent += (d.exit === 0 ? '\n\n✓ Done.' : '\n\n✗ Exited with code ' + d.exit + '.');
+                }
+            })
+            .catch(() => {});
+    }
+    window.msResearch = function (dry) {
+        var dryBtn = document.getElementById('ms-research-dry');
+        var runBtn = document.getElementById('ms-research-btn');
+        var out = document.getElementById('ms-research-out');
+        var fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        if (dry) fd.append('dry_run', '1');
+        dryBtn.disabled = true; runBtn.disabled = true;
+        out.style.display = 'block';
+        out.textContent = 'Starting ' + (dry ? 'dry run' : 'research') + '…';
+        fetch('multisite_api.php?action=research', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(d => {
+                if (d.error) { dryBtn.disabled = false; runBtn.disabled = false; out.textContent = d.error; return; }
+                if (msResearchTimer) clearInterval(msResearchTimer);
+                msResearchTimer = setInterval(() => msPollResearch(d.run_id), 2000);
+                msPollResearch(d.run_id);
+            })
+            .catch(() => { dryBtn.disabled = false; runBtn.disabled = false; });
     };
 
     // ── Title preview (read-only — resolves the master's real page titles) ────

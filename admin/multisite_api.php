@@ -327,6 +327,44 @@ switch ($action) {
         echo json_encode(['started' => true, 'run_id' => ms_launch_campaign($masterId, $runsDir, ms_run_flags($o)), 'retrying' => count($failed)]);
         break;
 
+    // ── Research step (item 1e): seed cities.json from params + niche-aware lookup.
+    // Detached (research can be slow / many API calls); poll with research_status.
+    case 'research':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        if (!is_file($paramsPath)) { echo json_encode(['error' => 'No params.csv stored — upload it first.']); break; }
+        $rdir = ACTIVE_SITE_DIR . '/multisite/research';
+        if (!is_dir($rdir)) mkdir($rdir, 0775, true);
+        // One at a time: a running research process leaves an out file with no DONE marker.
+        foreach (glob($rdir . '/*.out') ?: [] as $f) {
+            if (strpos((string)@file_get_contents($f), '__MS_RESEARCH_DONE__') === false
+                && (time() - filemtime($f)) < 3600) {
+                echo json_encode(['error' => 'Research is already running.', 'run_id' => basename($f, '.out')]);
+                break 2;
+            }
+        }
+        $rid  = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+        $out  = $rdir . '/' . $rid . '.out';
+        $dry  = !empty($_POST['dry_run']) ? ' --dry-run' : '';
+        $inner = escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg(BASE_DIR . '/multisite/research_cities.php')
+               . ' ' . escapeshellarg($masterId) . $dry
+               . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_RESEARCH_DONE__ $?" >> ' . escapeshellarg($out);
+        exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
+        echo json_encode(['started' => true, 'run_id' => $rid]);
+        break;
+
+    case 'research_status':
+        $rdir = ACTIVE_SITE_DIR . '/multisite/research';
+        $rid  = $_GET['run_id'] ?? '';
+        if ($rid === '' || !preg_match('/^[0-9]{8}-[0-9]{6}-[a-f0-9]{6}$/', $rid)) { echo json_encode(['error' => 'Invalid run id.']); break; }
+        $out = $rdir . '/' . $rid . '.out';
+        if (!is_file($out)) { echo json_encode(['none' => true]); break; }
+        $txt  = (string)file_get_contents($out);
+        $done = false; $exit = null;
+        if (preg_match('/__MS_RESEARCH_DONE__ (\d+)/', $txt, $m)) { $done = true; $exit = (int)$m[1]; }
+        $txt = preg_replace('/\n?__MS_RESEARCH_DONE__ \d+\s*$/', '', $txt);
+        echo json_encode(['output' => $txt, 'done' => $done, 'exit' => $exit]);
+        break;
+
     default:
         http_response_code(400);
         echo json_encode(['error' => 'Unknown action.']);

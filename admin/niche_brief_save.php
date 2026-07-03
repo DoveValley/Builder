@@ -67,6 +67,7 @@ $brief = [
     'tone'                => trim($_POST['tone'] ?? ''),
     'guardrails'          => trim($_POST['guardrails'] ?? ''),
     'uses_research_fields' => !empty($_POST['uses_research_fields']),
+    'research_prompt'     => trim($_POST['research_prompt'] ?? ''),
     'enabled_archetypes'  => $enabled,
 ];
 
