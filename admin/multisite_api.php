@@ -223,7 +223,13 @@ switch ($action) {
             $titles[] = $resolve($pg['seo'] ?? [], $label);
         }
 
-        echo json_encode(['sample_domain' => $row['domain'] ?? '', 'is_placeholder' => $placeholder, 'titles' => $titles]);
+        // Which section layout this sample domain gets (2a), if enabled on the homepage.
+        $layout = null;
+        if (!empty($md['layout_enabled']) && !empty($md['layout_variants']) && function_exists('ms_variant')) {
+            $n = 1 + count($md['layout_variants']);
+            $layout = ['index' => ms_variant($row['domain'] ?? '', $n, 'layout') + 1, 'total' => $n];
+        }
+        echo json_encode(['sample_domain' => $row['domain'] ?? '', 'is_placeholder' => $placeholder, 'titles' => $titles, 'layout' => $layout]);
         break;
 
     // List saved upload versions (last 15), newest first.

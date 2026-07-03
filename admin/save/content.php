@@ -13,6 +13,7 @@
 
         require_once BASE_DIR . '/includes/blocks_from_post.php';
         [$blocks, $uploadError] = parse_blocks_from_post();
+        $blocks = ensure_block_ids($blocks);   // stable ids for layout variations (2a)
 
 
         if ($uploadError && $message === '') $message = 'error:One or more image uploads failed.';

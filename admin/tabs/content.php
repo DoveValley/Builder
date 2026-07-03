@@ -64,6 +64,7 @@
             <?php render_content_blocks_editor($blocks); ?>
 
             <?php render_seo_editor($seo, 'homepage'); ?>
+            <?php render_layout_variations_editor('home'); ?>
             <?php endif; ?>
 
             <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">

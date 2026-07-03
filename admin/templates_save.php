@@ -116,6 +116,7 @@ if ($action === 'save') {
     }
 
     [$blocks, $uploadError] = parse_blocks_from_post();
+    $blocks = ensure_block_ids($blocks);   // stable ids for layout variations (2a)
 
     // Guard against silent max_input_vars truncation: if JS reported more blocks
     // than PHP received, the POST was cut short — refuse to overwrite blocks.

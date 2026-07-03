@@ -335,6 +335,9 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
             var el = document.getElementById('ms-titles-preview');
             if (d.error) { el.innerHTML = '<p class="hint" style="color:#991b1b;">' + esc(d.error) + '</p>'; return; }
             var src = d.is_placeholder ? 'an example city (upload your params table to preview real data)' : d.sample_domain;
+            var layoutLine = d.layout
+                ? '<p class="hint" style="margin-top:10px;">Section layout for this site: <strong>Layout ' + d.layout.index + ' of ' + d.layout.total + '</strong> (set per page under Content → Layout variations).</p>'
+                : '';
             var rows = (d.titles || []).map(function (t) {
                 var val = t.has_title
                     ? '<span style="color:#0f172a;font-weight:600;">' + esc(t.resolved) + '</span>'
@@ -345,7 +348,7 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
                 '<div style="overflow-x:auto;"><table style="width:100%;font-size:0.9rem;border-collapse:collapse;">' +
                 '<thead><tr><th style="text-align:left;padding:5px 10px;border-bottom:1px solid #e2e8f0;">Page</th>' +
                 '<th style="text-align:left;padding:5px 10px;border-bottom:1px solid #e2e8f0;">Title tag on a cloned site</th></tr></thead>' +
-                '<tbody>' + rows + '</tbody></table></div>';
+                '<tbody>' + rows + '</tbody></table></div>' + layoutLine;
         }).catch(function () {});
     }
     loadTitlePreview();

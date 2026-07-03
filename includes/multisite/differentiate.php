@@ -194,6 +194,13 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
     // ── 4b. Search Console verification — per-site meta tag or none ────────────
     $data['theme']['head_extra'] = ms_gsc_meta($params['gsc_verification'] ?? '');
 
+    // ── 5. Layout variation (2a) — one ordering per domain, homepage + each page ─
+    if (function_exists('layout_apply_for_domain')) {
+        layout_apply_for_domain($data, $domain);                              // homepage
+        foreach (($data['pages'] ?? []) as &$pg) { layout_apply_for_domain($pg, $domain); }
+        unset($pg);
+    }
+
     $tmp = $sf . '.tmp.' . getmypid();
     file_put_contents($tmp, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
     rename($tmp, $sf);

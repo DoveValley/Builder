@@ -3323,7 +3323,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <h3>2 · Structural <span style="font-weight:400;color:#64748b;font-size:.85em;">(highest-value unbuilt item)</span></h3>
     <ol type="a">
-        <li><span class="where preauthor">Pre-authoring</span>☐ Block-order / layout skeletons per domain — rotate block order / 3–4 layout skeletons deterministically per domain so sites aren't structurally identical <span class="pri must">Must</span> <span style="color:#64748b;">(not built; highest-value remaining item — see <a href="#ms-variation">Deterministic variation</a>)</span></li>
+        <li><span class="where preauthor">Pre-authoring</span>✅ Block-order / layout variations per domain — per-page <em>Layout variations</em> panel (Content/Pages): Generate 4 subtle orderings (hero + last pinned), enable + save; each cloned site gets one by domain hash. <span class="pri must">Must</span> <span style="color:#64748b;">(Multisite preview shows which — see <a href="#ms-variation">Deterministic variation</a>)</span></li>
         <li><span class="where preauthor">Pre-authoring</span>☐ Vary JSON-LD schema shape — 3–4 variants per page type, different field order + boilerplate phrasing, rotated by stable hash (complements the schema in area 3) <span class="pri must">Must</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
         <li><span class="where preauthor">Pre-authoring</span>☐ Vary CSS class vocabulary — 3–4 "skins": identical rules, different class names <span class="pri should">Should</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
         <li><span class="where perrow">Per-row</span>☐ Randomize image directory / filename structure — vary folder + filename conventions per site <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(low value alone)</span></li>
@@ -3466,10 +3466,10 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 2 · Structural</h3>
 
     <div class="block-card-doc" id="spec-layout-skeletons">
-        <h3>2a · Block-order / layout skeletons <span class="pri must">Must</span> <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring (+ Per-row)</span></h3>
-        <p class="bc-meta">☐ not built — highest-value remaining item</p>
-        <p><strong>Description.</strong> Assign one of 3–4 whole-page block orderings (layout skeletons) per domain, so sites aren't structurally identical top to bottom.</p>
-        <p><strong>Build.</strong> Define 3–4 orderings of the master's blocks (each block is already independent) and store them in the master. At build, reorder <code>content_blocks</code> by <code>variants[ crc32(domain) % n ]</code> before render (in inject/differentiate); keep hero first + footer last fixed. See <a href="#ms-variation">Deterministic variation</a>. <strong>Effort:</strong> ~2–3 days.</p>
+        <h3>2a · Block-order / layout variations <span class="pri must">Must</span> <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring (+ Per-row)</span></h3>
+        <p class="bc-meta">✅ built (Home + Core/Landing pages)</p>
+        <p><strong>Description.</strong> Assign one of up to 4 whole-page block orderings per domain, so sites aren't structurally identical top to bottom.</p>
+        <p><strong>Build (today).</strong> Each page (Content / Pages) has a <em>Layout variations</em> panel: <strong>Generate</strong> makes up to 3 subtle alternate orderings (hero pinned first, last block pinned last, a couple of swaps in the middle — <code>includes/layout_variations.php</code>); enable + Save stores them on the page (block ids auto-assigned). At build, <code>differentiate.php</code> calls <code>layout_apply_for_domain()</code> — <code>ms_variant(domain, n, 'layout')</code> picks one ordering (0 = natural) and reorders <code>content_blocks</code> for the homepage + each page. The Multisite tab preview shows which layout a sample domain gets. City Templates (landing-only generation) come later.</p>
     </div>
 
     <div class="block-card-doc" id="spec-schema">
