@@ -3314,7 +3314,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <ol type="a">
         <li><span class="where perrow">Per-row</span>✅ Unique AI city copy on home + core (Niche Brief → <code>generate.py</code>) <span class="pri must">Must</span></li>
         <li><span class="where perrow">Per-row</span>✅ Per-deploy service landing pages (<code>landing_cities</code>) <span class="pri should">Should</span></li>
-        <li><span class="where perrow">Per-row</span>◐ Unique title tag + meta description per site/page — genuinely varied, not one pattern with <code>{city}</code> swapped (a duplicate title tag across a network is a scaled-content tell) <span class="pri must">Must</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Unique title tag + meta description per site/page — the page's own title uses a <code>{primary_keyword}</code> shortcode + <code>{city_state}</code>/<code>{business}</code>; city + business make each site's title unique &amp; keyword-focused (no rotation needed). Read-only preview on the Multisite tab. <span class="pri must">Must</span></li>
         <li><span class="where perrow">Per-row</span>☐ Localized, unique image alt text — per-city alt strings, not one repeated caption <span class="pri should">Should</span> <span style="color:#64748b;">(cheap uniqueness + accessibility)</span></li>
         <li><span class="where campaign">Campaign</span>◐ Real local market data — employers / industry / salary <span class="pri should">Should</span> <span style="color:#64748b;">(supply in <code>cities.json</code>; research step not wired — either pipe <code>generate.py --research</code> into <code>build_one</code>, or pre-populate <code>cities.json</code> from the params table)</span></li>
         <li><span class="where preauthor">Pre-authoring</span>◐ Finish master authoring — genericize the last brand phrasings into <code>{business}</code> shortcodes and add <code>ai_block</code>s across home / core / service-landing pages <span class="pri should">Should</span> <span style="color:#64748b;">(authoring work, not code)</span></li>
@@ -3324,7 +3324,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <h3>2 · Structural <span style="font-weight:400;color:#64748b;font-size:.85em;">(highest-value unbuilt item)</span></h3>
     <ol type="a">
         <li><span class="where preauthor">Pre-authoring</span>✅ Block-order / layout variations per domain — per-page <em>Layout variations</em> panel (Content/Pages): Generate 4 subtle orderings (hero + last pinned), enable + save; each cloned site gets one by domain hash. <span class="pri must">Must</span> <span style="color:#64748b;">(Multisite preview shows which — see <a href="#ms-variation">Deterministic variation</a>)</span></li>
-        <li><span class="where preauthor">Pre-authoring</span>☐ Vary JSON-LD schema shape — 3–4 variants per page type, different field order + boilerplate phrasing, rotated by stable hash (complements the schema in area 3) <span class="pri must">Must</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
+        <li><span class="where preauthor">Pre-authoring</span>⏭️ Vary JSON-LD schema shape — <strong>decided against</strong>: schema already varies per site (identity + injected LocalBusiness node), and JSON-LD key order is meaningless to Google — near-zero value. <span class="pri must">Must</span> <span style="color:#64748b;">(kept for the record)</span></li>
         <li><span class="where preauthor">Pre-authoring</span>☐ Vary CSS class vocabulary — 3–4 "skins": identical rules, different class names <span class="pri should">Should</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
         <li><span class="where perrow">Per-row</span>☐ Randomize image directory / filename structure — vary folder + filename conventions per site <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(low value alone)</span></li>
     </ol>
@@ -3382,13 +3382,13 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <h3 id="ms-roadmap" style="margin-top:26px;border-top:2px solid #0f172a;padding-top:14px;color:#0f172a;">Build roadmap — suggested phases</h3>
     <p>Grouped by <strong>shared infrastructure and priority, not by area</strong>. Phase 1 first builds a deterministic variant-selector helper — <code>variants[ crc32(domain) % n ]</code> — that the structural items reuse; the visual/asset items cluster in Phase 3. Each variation item is <strong>code + authoring</strong> (the 3–4 variants must be written into the master); budget the authoring separately, in parallel with the code. <strong>Verify after each phase</strong> by building 2–3 sample domains and diffing their output — it must differ <em>and</em> be rebuild-stable (deterministic per domain).</p>
 
-    <p style="margin:14px 0 2px;"><strong>Phase 1 — Variation engine + structural Musts</strong> <span style="color:#64748b;">· the anti-fingerprint core, highest value · ~5–6 dev-days + authoring</span></p>
+    <p style="margin:14px 0 2px;"><strong>Phase 1 — Variation engine + structural Musts</strong> <span style="color:#64748b;">· the anti-fingerprint core · ✅ COMPLETE (2b intentionally skipped)</span></p>
     <ul>
-        <li><strong>Foundation</strong> — <code>crc32(domain) % n</code> variant-selector helper in <code>includes/multisite/</code> (salted per axis) + one <code>ms_apply_variation()</code> step in differentiate + a <code>data/variation.json</code> menu in the master — ~½ d (unblocks the rest)</li>
-        <li><a href="#spec-titles-metas">1c</a> · Unique title tag + meta description — <span class="pri must">Must</span> ~1 d</li>
-        <li><a href="#spec-search-console">3g</a> · Search Console verification (same inject-a-tag pattern as analytics) — <span class="pri should">Should</span> ~1 d</li>
-        <li><a href="#spec-schema">2b</a> · Schema-shape variation (rotate boilerplate phrasing) — <span class="pri must">Must</span> ~1 d</li>
-        <li><a href="#spec-layout-skeletons">2a</a> · Block-order — <strong>hand-picked layouts</strong> (curated orderings, hero pinned first / CTA last) — <span class="pri must">Must</span> ~2–3 d</li>
+        <li>✅ <strong>Foundation</strong> — the <code>ms_variant(domain, n, salt)</code> selector (salted per axis) lives in <code>includes/layout_variations.php</code>. <span style="color:#64748b;">Decision: the planned <code>data/variation.json</code> "menu" was dropped — titles resolve via shortcodes, layouts store their config on the page.</span></li>
+        <li>✅ <a href="#spec-titles-metas">1c</a> · Unique title tag + meta description — <span style="color:#64748b;"><strong>done a different way than planned:</strong> not variant-rotated — a per-page <code>{primary_keyword}</code> shortcode + the page's own title (e.g. <code>{primary_keyword} {city_state} | {business}</code>). City + business already make each site's title unique while keeping keyword focus, so no rotation. Read-only preview on the Multisite tab.</span></li>
+        <li>✅ <a href="#spec-search-console">3g</a> · Search Console verification — <code>gsc_verification</code> CSV column → per-site meta tag (blank = none).</li>
+        <li>⏭️ <a href="#spec-schema">2b</a> · Schema-shape variation — <span style="color:#64748b;"><strong>decided against.</strong> Schema already varies per site (identity rewrite + injected LocalBusiness node), and JSON-LD key order is meaningless to Google — near-zero value. Kept here for the record.</span></li>
+        <li>✅ <a href="#spec-layout-skeletons">2a</a> · Block-order / layout variations — per-page panel (Content/Pages): Generate 4 subtle orderings (ends pinned), rotated by domain hash. Preview on the Multisite tab.</li>
     </ul>
 
     <p style="margin:14px 0 2px;"><strong>Phase 2 — Content uniqueness &amp; authoring polish</strong> <span style="color:#64748b;">· cheap, high-SEO, mostly Per-row / authoring · ~6–11 dev-days</span></p>
@@ -3430,9 +3430,9 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <div class="block-card-doc" id="spec-titles-metas">
         <h3>1c · Unique title tag + meta description <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row (+ Pre-authoring)</span></h3>
-        <p class="bc-meta">◐ partial — titles carry <code>{city}</code>, but one shared pattern reads near-duplicate at scale</p>
+        <p class="bc-meta">✅ built — via the <code>{primary_keyword}</code> shortcode (deterministic, no rotation)</p>
         <p><strong>Description.</strong> Every page's <code>&lt;title&gt;</code> and meta description must genuinely differ across sites, not one pattern with <code>{city}</code> swapped.</p>
-        <p><strong>Build.</strong> Author 2–3 title/description patterns per page type in the master SEO fields (Pre-authoring). In inject/differentiate, pick one by <code>crc32(domain) % n</code> and resolve city/business shortcodes (Per-row). Verify by diffing built <code>&lt;head&gt;</code>s that no two sites share an identical title/description. Reuses the variant-hash helper from <a href="#ms-variation">Deterministic variation</a>. <strong>Effort:</strong> ~1 day.</p>
+        <p><strong>Build (today) — solved without variant rotation.</strong> Each page's title is its own shortcode string authored in the master SEO panel, e.g. <code>{primary_keyword} {city_state} | {business}</code>. <code>{primary_keyword}</code>/<code>{service}</code> resolve per page from the <em>Keyword focus</em> field (added in <code>includes/shortcodes.php</code>, set in <code>site-template.php</code>); <code>{city}</code>/<code>{business}</code> come from each clone's <code>site_vars</code>. Because city + business differ per site, every title is unique <em>and</em> keyword-focused — no 3–4-variant rotation needed (which would dilute keyword focus). The Multisite tab shows a read-only title preview resolved for a sample city; it also flags pages with no title. See <a href="#ms-master-state">State of the master</a>.</p>
     </div>
 
     <div class="block-card-doc" id="spec-alt-text">
@@ -3474,9 +3474,9 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <div class="block-card-doc" id="spec-schema">
         <h3>2b · Vary JSON-LD schema shape <span class="pri must">Must</span> <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring (+ Per-row)</span></h3>
-        <p class="bc-meta">☐ not built</p>
+        <p class="bc-meta">⏭️ decided against — kept for the record</p>
         <p><strong>Description.</strong> Rotate 3–4 JSON-LD variants per page type that differ in field order and boilerplate phrasing, so structured data isn't byte-identical across the network.</p>
-        <p><strong>Build.</strong> Author 3–4 schema templates in the master's per-page <em>Schema Markup</em> fields (Pre-authoring). In <code>includes/multisite/differentiate.php</code>, after the identity rewrite, pick <code>variant = variants[ crc32(domain) % n ]</code> and write the resolved JSON into the page (Per-row). Deterministic per domain. <strong>Effort:</strong> ~1 day.</p>
+        <p><strong>Decision (not building).</strong> Under the clone model this is near-zero value: (1) each site's schema <em>already</em> differs — identity rewrite swaps business/domain/city, fabricated ratings are stripped, and a <strong>unique LocalBusiness node</strong> (address + geo) is injected per site; (2) JSON-LD is <strong>order-agnostic to Google</strong> — it parses the doc into a graph, so reordering fields changes bytes but not what Google sees, and identical schema <em>shape</em> across same-industry sites is normal, not a doorway signal. So rotating field order/boilerplate is effort for ~no SEO gain. Revisit only if a concrete need appears; the real anti-clone lever (visible section order) is handled by <a href="#spec-layout-skeletons">2a</a>.</p>
     </div>
 
     <div class="block-card-doc" id="spec-css-skins">
