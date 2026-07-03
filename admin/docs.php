@@ -3297,7 +3297,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <ol type="a">
         <li><span class="where perrow">Per-row</span>✅ Unique AI city copy on home + core (Niche Brief → <code>generate.py</code>) <span class="pri must">Must</span></li>
         <li><span class="where perrow">Per-row</span>✅ Per-deploy service landing pages (<code>landing_cities</code>) <span class="pri should">Should</span></li>
-        <li><span class="where perrow">Per-row</span>◐ Unique title tags + meta descriptions per site/page — genuinely varied, not one pattern with <code>{city}</code> swapped (duplicate titles across a network are a scaled-content tell) <span class="pri must">Must</span></li>
+        <li><span class="where perrow">Per-row</span>◐ Unique title tag + meta description per site/page — genuinely varied, not one pattern with <code>{city}</code> swapped (a duplicate title tag across a network is a scaled-content tell) <span class="pri must">Must</span></li>
         <li><span class="where perrow">Per-row</span>☐ Localized, unique image alt text — per-city alt strings, not one repeated caption <span class="pri should">Should</span> <span style="color:#64748b;">(cheap uniqueness + accessibility)</span></li>
         <li><span class="where campaign">Campaign</span>◐ Real local market data — employers / industry / salary <span class="pri should">Should</span> <span style="color:#64748b;">(supply in <code>cities.json</code>; research step not wired — either pipe <code>generate.py --research</code> into <code>build_one</code>, or pre-populate <code>cities.json</code> from the params table)</span></li>
         <li><span class="where preauthor">Pre-authoring</span>◐ Finish master authoring — genericize the last brand phrasings into <code>{business}</code> shortcodes and add <code>ai_block</code>s across home / core / service-landing pages <span class="pri should">Should</span> <span style="color:#64748b;">(authoring work, not code)</span></li>
@@ -3363,20 +3363,20 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <p>One card per <a href="#ms-axes">axes</a> item — description, priority, where it executes, and how to build it (or how it works today, for ✅ items). Same six areas as the checklist; that list is the scan view, this is the build backlog.</p>
 
     <h3 id="ms-roadmap" style="margin-top:26px;border-top:2px solid #0f172a;padding-top:14px;color:#0f172a;">Build roadmap — suggested phases</h3>
-    <p>Grouped by <strong>shared infrastructure and priority, not by area</strong>. Phase 1 first builds a deterministic variant-selector helper — <code>variants[ crc32(domain) % n ]</code> — that four items reuse; the visual/asset items cluster in Phase 3. Each variation item is <strong>code + authoring</strong> (the 3–4 variants must be written into the master); budget the authoring separately, in parallel with the code. <strong>Verify after each phase</strong> by building 2–3 sample domains and diffing their output — it must differ <em>and</em> be rebuild-stable (deterministic per domain).</p>
+    <p>Grouped by <strong>shared infrastructure and priority, not by area</strong>. Phase 1 first builds a deterministic variant-selector helper — <code>variants[ crc32(domain) % n ]</code> — that the structural items reuse; the visual/asset items cluster in Phase 3. Each variation item is <strong>code + authoring</strong> (the 3–4 variants must be written into the master); budget the authoring separately, in parallel with the code. <strong>Verify after each phase</strong> by building 2–3 sample domains and diffing their output — it must differ <em>and</em> be rebuild-stable (deterministic per domain).</p>
 
-    <p style="margin:14px 0 2px;"><strong>Phase 1 — Variation engine + structural Musts</strong> <span style="color:#64748b;">· the anti-fingerprint core, highest value · ~6–8 dev-days + authoring</span></p>
+    <p style="margin:14px 0 2px;"><strong>Phase 1 — Variation engine + structural Musts</strong> <span style="color:#64748b;">· the anti-fingerprint core, highest value · ~5–6 dev-days + authoring</span></p>
     <ul>
-        <li><strong>Foundation</strong> — <code>crc32(domain) % n</code> variant-selector helper in <code>includes/multisite/</code> — ~½ d (unblocks the rest)</li>
-        <li><a href="#spec-layout-skeletons">2a</a> · Block-order / layout skeletons — <span class="pri must">Must</span> ~2–3 d</li>
-        <li><a href="#spec-schema">2b</a> · Schema-shape variation — <span class="pri must">Must</span> ~1 d</li>
-        <li><a href="#spec-vary-copy">1g</a> · Vary copy templates — <span class="pri must">Must</span> ~1–2 d</li>
-        <li><a href="#spec-titles-metas">1c</a> · Unique titles / meta descriptions — <span class="pri must">Must</span> ~1 d</li>
+        <li><strong>Foundation</strong> — <code>crc32(domain) % n</code> variant-selector helper in <code>includes/multisite/</code> (salted per axis) + one <code>ms_apply_variation()</code> step in differentiate + a <code>data/variation.json</code> menu in the master — ~½ d (unblocks the rest)</li>
+        <li><a href="#spec-titles-metas">1c</a> · Unique title tag + meta description — <span class="pri must">Must</span> ~1 d</li>
         <li><a href="#spec-search-console">3g</a> · Search Console verification (same inject-a-tag pattern as analytics) — <span class="pri should">Should</span> ~1 d</li>
+        <li><a href="#spec-schema">2b</a> · Schema-shape variation (rotate boilerplate phrasing) — <span class="pri must">Must</span> ~1 d</li>
+        <li><a href="#spec-layout-skeletons">2a</a> · Block-order — <strong>hand-picked layouts</strong> (curated orderings, hero pinned first / CTA last) — <span class="pri must">Must</span> ~2–3 d</li>
     </ul>
 
-    <p style="margin:14px 0 2px;"><strong>Phase 2 — Content uniqueness &amp; authoring polish</strong> <span style="color:#64748b;">· cheap, high-SEO, mostly Per-row / authoring · ~5–9 dev-days</span></p>
+    <p style="margin:14px 0 2px;"><strong>Phase 2 — Content uniqueness &amp; authoring polish</strong> <span style="color:#64748b;">· cheap, high-SEO, mostly Per-row / authoring · ~6–11 dev-days</span></p>
     <ul>
+        <li><a href="#spec-vary-copy">1g</a> · Vary copy templates <span style="color:#64748b;">(deferred from Phase 1 — AI copy is already unique per city; this is the Python-side one)</span> — <span class="pri must">Must</span> ~1–2 d</li>
         <li><a href="#spec-finish-authoring">1f</a> · Finish master authoring — <span class="pri should">Should</span> ~1–2 d</li>
         <li><a href="#spec-alt-text">1d</a> · Localized alt text — <span class="pri should">Should</span> ~1 d</li>
         <li><a href="#spec-market-data">1e</a> · Real local market data — <span class="pri should">Should</span> ~½ d (prepopulate) / 2–3 d (research)</li>
@@ -3412,7 +3412,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     </div>
 
     <div class="block-card-doc" id="spec-titles-metas">
-        <h3>1c · Unique title tags + meta descriptions <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row (+ Pre-authoring)</span></h3>
+        <h3>1c · Unique title tag + meta description <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row (+ Pre-authoring)</span></h3>
         <p class="bc-meta">◐ partial — titles carry <code>{city}</code>, but one shared pattern reads near-duplicate at scale</p>
         <p><strong>Description.</strong> Every page's <code>&lt;title&gt;</code> and meta description must genuinely differ across sites, not one pattern with <code>{city}</code> swapped.</p>
         <p><strong>Build.</strong> Author 2–3 title/description patterns per page type in the master SEO fields (Pre-authoring). In inject/differentiate, pick one by <code>crc32(domain) % n</code> and resolve city/business shortcodes (Per-row). Verify by diffing built <code>&lt;head&gt;</code>s that no two sites share an identical title/description. Reuses the variant-hash helper from <a href="#ms-variation">Deterministic variation</a>. <strong>Effort:</strong> ~1 day.</p>
