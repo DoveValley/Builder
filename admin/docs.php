@@ -92,7 +92,7 @@ pre code { background: none; border: none; padding: 0; color: inherit; font-size
 .pri { display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 1px 6px; border-radius: 4px; vertical-align: middle; margin-left: 4px; }
 .pri.must { background: #fee2e2; color: #b91c1c; }
 .pri.should { background: #fef3c7; color: #b45309; }
-.pri.maybe { background: #f1f5f9; color: #64748b; }
+.pri.maybe { background: #dbeafe; color: #1d4ed8; }
 
 .block-card-doc { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px; scroll-margin-top: 32px; }
 .block-card-doc h3 { margin: 0 0 6px; font-size: 1rem; color: #1e3a5f; }
