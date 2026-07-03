@@ -219,15 +219,17 @@ $runsDir = $msDir . '/runs';
 if (!is_dir($runsDir)) mkdir($runsDir, 0775, true);
 $statusFile  = $runsDir . '/' . $runId . '.json';
 $startedAt   = gmdate('c');
+$paramsVersion = ms_current_params_version($masterId);   // which params table this run used
 
 // Write the run status file (state = running | done | failed). Written incrementally
 // so the admin UI can poll it while a detached run is in progress.
-$writeStatus = function (string $state, array $results) use ($statusFile, $runId, $masterId, $noAi, $force, $only, $limit, $retries, $jobs, $n, $startedAt) {
+$writeStatus = function (string $state, array $results) use ($statusFile, $runId, $masterId, $paramsVersion, $noAi, $force, $only, $limit, $retries, $jobs, $n, $startedAt) {
     $ok  = count(array_filter($results, fn($r) => $r['status'] === 'ok'));
     $done = count($results);
     $payload = [
         'run_id'      => $runId,
         'master_id'   => $masterId,
+        'params_version' => $paramsVersion,
         'state'       => $state,
         'pid'         => getmypid(),
         'started_at'  => $startedAt,

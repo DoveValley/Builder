@@ -234,7 +234,8 @@ $hasCampaign = is_dir(ACTIVE_SITE_DIR . '/multisite');
         let html = '<div><strong style="color:' + color + ';">' + state.toUpperCase() + '</strong> — ' +
             (d.done || 0) + '/' + (d.total || 0) + ' done · ' + (d.ok || 0) + ' ok · ' + (d.failed || 0) + ' failed' +
             (t.files_uploaded ? ' · ' + t.files_uploaded + ' files' : '') +
-            (t.cost_usd ? ' · $' + Number(t.cost_usd).toFixed(4) : '') + '</div>' +
+            (t.cost_usd ? ' · $' + Number(t.cost_usd).toFixed(4) : '') +
+            (d.params_version ? ' · <span title="params table version used">params ' + esc(d.params_version) + '</span>' : '') + '</div>' +
             '<div style="height:8px;background:#e2e8f0;border-radius:4px;margin:8px 0 12px;overflow:hidden;"><div style="height:100%;width:' + pct + '%;background:' + color + ';transition:width .3s;"></div></div>';
         if (d.results && d.results.length) {
             html += '<div style="max-height:240px;overflow:auto;font-size:0.85rem;line-height:1.7;">' +

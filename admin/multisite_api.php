@@ -249,6 +249,7 @@ switch ($action) {
             if (!$d) continue;
             $runs[] = [
                 'run_id'      => $d['run_id'] ?? basename($f, '.json'),
+                'params_version' => $d['params_version'] ?? '',
                 'state'       => $d['state'] ?? '?',
                 'started_at'  => $d['started_at'] ?? null,
                 'finished_at' => $d['finished_at'] ?? null,

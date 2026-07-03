@@ -176,7 +176,8 @@ function ms_store_params_csv(string $masterId, string $srcCsvPath): string {
     if (!is_dir($dir)) mkdir($dir, 0775, true);
     $dest = $dir . '/params.csv';
     copy($srcCsvPath, $dest);
-    ms_snapshot_params_version($dir, $srcCsvPath);
+    $ver = ms_snapshot_params_version($dir, $srcCsvPath);
+    if ($ver !== '') @file_put_contents($dir . '/params.version', $ver);   // pointer to the current version
     return $dest;
 }
 
@@ -236,17 +237,29 @@ function ms_rehydrate_ftp_pass(array $rows, string $storedCsvPath): array {
     return $rows;
 }
 
-/** Snapshot the just-uploaded CSV into params_versions/ and prune to the newest $keep. */
-function ms_snapshot_params_version(string $msDir, string $srcCsvPath, int $keep = 15): void {
+/**
+ * Snapshot the just-uploaded CSV into params_versions/ and prune to the newest $keep.
+ * @return string the new version id, or '' on failure.
+ */
+function ms_snapshot_params_version(string $msDir, string $srcCsvPath, int $keep = 15): string {
     $vdir = $msDir . '/params_versions';
-    if (!is_dir($vdir) && !@mkdir($vdir, 0775, true) && !is_dir($vdir)) return;
+    if (!is_dir($vdir) && !@mkdir($vdir, 0775, true) && !is_dir($vdir)) return '';
     $stamp = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(2)), 0, 4);
-    @copy($srcCsvPath, $vdir . '/' . $stamp . '.csv');
+    if (!@copy($srcCsvPath, $vdir . '/' . $stamp . '.csv')) return '';
     $files = glob($vdir . '/*.csv') ?: [];
     if (count($files) > $keep) {
         sort($files);   // timestamp-prefixed names sort chronologically
         foreach (array_slice($files, 0, count($files) - $keep) as $old) @unlink($old);
     }
+    return $stamp;
+}
+
+/** The version id of the currently-stored params.csv (last upload/restore), or ''. */
+function ms_current_params_version(string $masterId): string {
+    $f = BASE_DIR . '/sites/' . $masterId . '/multisite/params.version';
+    if (!is_file($f)) return '';
+    $id = trim((string)file_get_contents($f));
+    return ms_valid_version_id($id) ? $id : '';
 }
 
 /** List stored param versions, newest first: [['id'=>stamp,'rows'=>int,'mtime'=>int], ...]. */
