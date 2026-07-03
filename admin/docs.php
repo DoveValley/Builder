@@ -312,10 +312,10 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#ms-editing">Editing the master safely</a>
         <a href="#ms-landing">Per-deploy landing pages</a>
 
-        <a class="nav-group" href="#ms-seo">Differentiation &amp; SEO</a>
+        <a class="nav-group" href="#ms-seo">Site Differentiation &amp; SEO</a>
         <a href="#ms-differentiation">Per-site differentiation</a>
-        <a href="#ms-uniqueness">Uniqueness checklist</a>
-        <a href="#ms-roadmap">Roadmap — completing</a>
+        <a href="#ms-axes">Differentiation axes &amp; status</a>
+        <a href="#ms-hosting">Cloudflare &amp; origin IP</a>
 
         <a class="nav-group" href="#ms-admin">Running from the Admin</a>
         <a href="#ms-admin-multisite">The Multisite tab</a>
@@ -3064,15 +3064,32 @@ git add -A &amp;&amp; git commit -m "snapshot before bulk edit"</code></pre>
         +
 Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP creds)
         ↓
-[ for each row ]  clone → inject identity → differentiate → AI-generate → build → deploy
+[ campaign ]  lock → validate → pre-flight → snapshot master ONCE → per-row loop → teardown
+        ↓
+[ per row ]   clone → inject → differentiate → AI-generate → build → deploy → delete temp
         ↓
 100+ live, independent single-city sites</code></pre>
-    <p>Per row, the pipeline:</p>
+
+    <p>There are two levels: the <strong>campaign</strong> (<code>run_campaign.php</code>) runs the whole table once; the <strong>per-row pipeline</strong> (<code>build_one.php</code>) turns one row into one deployed site. The campaign wraps the pipeline in a loop.</p>
+
+    <h3>Campaign level — the outer loop</h3>
     <ol>
-        <li><strong>Clone</strong> a cheap working copy from a one-time snapshot of the master.</li>
+        <li><strong>Start</strong> — acquire a single-run lock (<code>flock</code> on <code>run.lock</code>) so two campaigns can't run for the same master at once, across every launch path (admin, retry, manual CLI).</li>
+        <li><strong>Read &amp; validate</strong> the <a href="#ms-columns">params CSV</a> — parse, drop invalid rows, apply <code>--only</code> / <code>--limit</code>.</li>
+        <li><strong>Pre-flight</strong> — check FTP reachability for each row up front, so a bad credential fails fast instead of mid-build.</li>
+        <li><strong>Snapshot the master once</strong> to a temp dir, shared by every row (<code>--snapshot=</code>). The original is frozen for the whole run — never re-read per row — so edits to the master mid-campaign can't corrupt output. This is why a big run stays cheap and internally consistent. See <a href="#ms-two-level-clone">Two-level cloning</a>.</li>
+        <li><strong>Open the run log</strong> (<code>runs/{run_id}.json</code>, state <code>running</code>), written incrementally so the admin UI can poll a live run. This records <em>what happened</em> — status, files uploaded, tokens, cost per row.</li>
+        <li><strong>Process the rows</strong> through a bounded process pool (<code>--jobs=N</code> at a time, each row a <code>build_one.php</code> subprocess, failed rows re-tried up to <code>--retries</code>). Each row runs the per-row pipeline below.</li>
+        <li><strong>Teardown</strong> — delete the shared snapshot, write the final run log (<code>done</code> / <code>failed</code>) with the campaign cost summary.</li>
+    </ol>
+    <div class="callout tip"><strong>Reproducibility is the cache's job, not the run log's.</strong> A rerun produces the same output <em>for free</em> because the city-specific AI copy is frozen per domain and reused — see <a href="#ms-cache">The content cache</a>. The run log above only records what happened; <code>--force</code> is what busts the cache and pays for fresh AI.</div>
+
+    <h3>Per-row pipeline — one row → one site</h3>
+    <ol>
+        <li><strong>Clone</strong> a cheap working copy from the one-time master snapshot.</li>
         <li><strong>Inject identity</strong> — write the row's business/phone/city/etc. into <code>site_vars</code>.</li>
-        <li><strong>Differentiate</strong> — rewrite schema/URLs to this site, inject a LocalBusiness JSON-LD with geo, isolate analytics.</li>
-        <li><strong>AI-generate</strong> the city-specific copy (or reuse it from the cache — free).</li>
+        <li><strong>Differentiate</strong> — rewrite schema/URLs to this site, inject a LocalBusiness JSON-LD with geo, isolate analytics. See <a href="#ms-differentiation">Per-site differentiation</a>.</li>
+        <li><strong>AI-generate</strong> the city-specific copy, or reuse it from <a href="#ms-cache">the cache</a> — free.</li>
         <li><strong>Build</strong> the whole site to static HTML.</li>
         <li><strong>Deploy</strong> over FTP (only changed files), then delete the temp copy.</li>
     </ol>
@@ -3231,7 +3248,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 </section>
 
 <!-- ═══════════ SEO ═══════════ -->
-<div class="doc-group-header" id="ms-seo">Differentiation &amp; SEO</div>
+<div class="doc-group-header" id="ms-seo">Site Differentiation &amp; SEO</div>
 <section id="ms-differentiation">
     <h2>Per-site differentiation</h2>
     <p>Because a clone would otherwise carry the master's identity into every site, the differentiation step rewrites each site to be a distinct entity:</p>
@@ -3244,39 +3261,50 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     </ul>
 </section>
 
-<section id="ms-uniqueness">
-    <h2>Site uniqueness checklist</h2>
-    <p>Generating many same-topic city sites is the pattern Google's <em>doorway pages</em> and <em>scaled content abuse</em> policies target. Cosmetic differences don't satisfy them — Google evaluates substance. This checklist is ordered by SEO impact: <strong>do the top band well before spending time on the bottom.</strong> It doubles as the build backlog — the status marks show what the pipeline already handles versus what's still manual.</p>
+<section id="ms-axes">
+    <h2>Differentiation axes &amp; status</h2>
+    <p>Generating many same-topic city sites is the pattern Google's <em>doorway pages</em> and <em>scaled content abuse</em> policies target. Cosmetic differences don't satisfy them — Google evaluates substance. The five areas below run from highest SEO impact down: <strong>do the top well before spending time on the bottom.</strong> Areas 1–4 are <strong>what the generator produces</strong> per site (ordered by impact); area 5 is <strong>operational infrastructure</strong> the tool can't automate. Each area is both a status snapshot and the build backlog. Every per-site output must be <strong>deterministic per domain</strong> — stable across rebuilds, so SEO signals don't churn.</p>
 
-    <h3>🔴 Critical — content <span style="font-weight:400;color:#64748b;font-size:.85em;">(highest impact)</span></h3>
+    <h3>1 · Content <span style="font-weight:400;color:#64748b;font-size:.85em;">(highest impact)</span></h3>
     <ul>
         <li>✅ Unique AI city copy on home + core (Niche Brief → <code>generate.py</code>)</li>
         <li>✅ Per-deploy service landing pages (<code>landing_cities</code>)</li>
-        <li>◐ Real local market data — employers / industry / salary <span style="color:#64748b;">(supply in <code>cities.json</code>; research step not wired)</span></li>
-        <li>☐ Structural / block-order variation per domain <span style="color:#64748b;">(not built)</span></li>
+        <li>◐ Real local market data — employers / industry / salary <span style="color:#64748b;">(supply in <code>cities.json</code>; research step not wired — either pipe <code>generate.py --research</code> into <code>build_one</code>, or pre-populate <code>cities.json</code> from the params table)</span></li>
+        <li>◐ Finish master authoring — genericize the last brand phrasings into <code>{business}</code> shortcodes and add <code>ai_block</code>s across home / core / service-landing pages <span style="color:#64748b;">(authoring work, not code)</span></li>
     </ul>
 
-    <h3>🟠 High — identity &amp; structured data</h3>
+    <h3>2 · Structural <span style="font-weight:400;color:#64748b;font-size:.85em;">(highest-value unbuilt item)</span></h3>
+    <ul>
+        <li>☐ Block-order / template variation per domain — rotate block order / vary templates deterministically per domain so sites aren't structurally identical <span style="color:#64748b;">(not built; highest-value remaining item)</span></li>
+    </ul>
+
+    <h3>3 · Identity &amp; SEO signals <span style="font-weight:400;color:#64748b;font-size:.85em;">(the SEO backbone — mostly automated)</span></h3>
     <ul>
         <li>✅ Business / phone / email / domain rewritten per site</li>
         <li>✅ LocalBusiness JSON-LD with real address + geo <span style="color:#64748b;">(needs <code>lat</code>/<code>lng</code>)</span></li>
         <li>✅ Real ratings only — <code>rating</code> + <code>review_count</code>, paired, never invented</li>
         <li>✅ Self-referential canonical per domain</li>
-    </ul>
-
-    <h3>🟡 Medium — technical footprint <span style="font-weight:400;color:#64748b;font-size:.85em;">(cheap insurance, easy to get wrong)</span></h3>
-    <ul>
         <li>✅ Per-site analytics ID — <strong>never share one across sites</strong> (the big DON'T)</li>
         <li>✅ No generator fingerprint emitted</li>
-        <li>📋 Hosting/IP diversity · WHOIS privacy · no cross-site link hub <span style="color:#64748b;">(operational — outside the tool)</span></li>
     </ul>
 
-    <h3>⚪ Low — visual <span style="font-weight:400;color:#64748b;font-size:.85em;">(most tempting, least SEO value)</span></h3>
+    <h3>4 · Visual <span style="font-weight:400;color:#64748b;font-size:.85em;">(most tempting, least SEO value — do last)</span></h3>
     <ul>
-        <li>◐ Per-site favicon / og-image <span style="color:#64748b;">(fields exist; not auto-set)</span></li>
-        <li>☐ Per-site logo — auto-wordmark / <code>logo</code> column <span style="color:#64748b;">(not built)</span></li>
-        <li>☐ Per-site image assignment <span style="color:#64748b;">(not built)</span></li>
-        <li>☐ Domain-seeded theme / colors <span style="color:#64748b;">(not built)</span></li>
+        <li>◐ Per-site favicon / og-image — the fields already exist; add a per-site override in the inject / differentiate step <span style="color:#64748b;">(cheap field-override)</span></li>
+        <li>☐ Per-site logo — auto-wordmark from the business name (or honor a <code>logo</code> column), and derive the favicon from it <span style="color:#64748b;">(needs asset-generation code)</span></li>
+        <li>☐ Per-site image assignment — a per-city image pool, assigned deterministically <span style="color:#64748b;">(needs an image pool)</span></li>
+        <li>☐ Domain-seeded theme colors — deterministic palette from a domain hash; the render layer already supports theme overrides, so this rides the existing inject step <span style="color:#64748b;">(lowest impact)</span></li>
+    </ul>
+
+    <h3>5 · Site Hosting &amp; Footprint <span style="font-weight:400;color:#64748b;font-size:.85em;">(operational — outside the tool)</span></h3>
+    <p style="color:#64748b;font-size:.9em;margin:2px 0 6px;">The generator can't do these — the operator sets them up at the registrar and host. They matter <em>because</em> you're mass-generating similar sites; genuine local substance (areas 1–2) is the real defense, this is insurance.</p>
+    <ul>
+        <li>📋 Domain registration diversity — vary registrars; don't bulk-buy every domain in one account</li>
+        <li>📋 Hosting / IP diversity — spread across hosts or IP ranges; avoid one C-class block of same-owner sites <span style="color:#64748b;">(and keep origins behind <a href="#ms-hosting">Cloudflare's proxy</a> so a DNS lookup can't reveal the network)</span></li>
+        <li>📋 Cloudflare / CDN — a shared CF account is itself a footprint; isolate where it matters, and confirm every <code>A</code> record is <a href="#ms-hosting">proxied, not grey-cloud</a></li>
+        <li>📋 WHOIS privacy on every domain</li>
+        <li>📋 Separate nameservers where practical</li>
+        <li>📋 No cross-site link hub / footer link network (the classic PBN tell)</li>
     </ul>
 
     <p style="color:#64748b;font-size:.9em;margin-top:6px;">✅ automated &nbsp;·&nbsp; ◐ partial / needs input &nbsp;·&nbsp; ☐ not built &nbsp;·&nbsp; 📋 operational</p>
@@ -3284,26 +3312,31 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <div class="callout warn">The defensible path is genuine local presence per city (real address, phone, ideally a Google Business Profile). Build to maximize real distinctness regardless — it's what protects against penalties and actually serves users. Mechanisms: see <a href="#ms-differentiation">Per-site differentiation</a>, <a href="#ms-aiblocks">AI blocks &amp; the engine</a>, and <a href="#ms-landing">Per-deploy landing pages</a>.</div>
 </section>
 
-<section id="ms-roadmap">
-    <h2>Roadmap — completing the factory</h2>
-    <p>The checklist above shows status at a glance; these are the open items, highest-impact first. Every per-site output must be <strong>deterministic per domain</strong> (stable across rebuilds, so SEO signals don't churn).</p>
+<section id="ms-hosting">
+    <h2>Cloudflare proxy — hiding your origin IP</h2>
+    <p>This expands on <a href="#ms-axes">area 5 (Site Hosting &amp; Footprint)</a>. When many of your sites share one VPS, the single biggest footprint leak is a DNS <code>A</code> record that points straight at the server's real IP. Route every domain through Cloudflare's proxy instead, so public DNS only ever returns a Cloudflare address.</p>
 
-    <h3>Content <span style="font-weight:400;color:#64748b;font-size:.85em;">(Tier 1 — do first, moves the needle most)</span></h3>
-    <ul>
-        <li>☐ <strong>Structural / block-order variation</strong> — rotate block order / vary templates deterministically per domain so sites aren't structurally identical. <span style="color:#64748b;">Not built; highest-value remaining item.</span></li>
-        <li>◐ <strong>Research / local-market data</strong> — cities missing from the master's <code>cities.json</code> lack employers / industry / salary context. <span style="color:#64748b;">Partial — wire <code>generate.py --research</code> into <code>build_one</code> (extra API), or pre-populate <code>cities.json</code> from the params table.</span></li>
-        <li>◐ <strong>Finish master authoring</strong> — genericize the last brand phrasings into <code>{business}</code> shortcodes and add <code>ai_block</code>s across home / core / service-landing pages. <span style="color:#64748b;">Partial — authoring work, not code.</span></li>
-    </ul>
+    <h3>Why it matters</h3>
+    <p>If a domain's <code>A</code> record resolves to your VPS IP directly, anyone who runs <code>dig yoursite.com</code> (or any DNS-lookup tool) sees that origin IP. From there a free reverse-IP lookup lists every other domain on the same IP — so <strong>one exposed domain reveals the whole network</strong>. If 30 of 50 sites sit on one VPS IP, exposing one exposes the other 29. That is precisely the same-owner-network fingerprint area 5 is trying to avoid.</p>
 
-    <h3>Visual <span style="font-weight:400;color:#64748b;font-size:.85em;">(Tier 3 — do last, lowest SEO value)</span></h3>
-    <ul>
-        <li>◐ <strong>Per-site favicon / og-image</strong> — the fields already exist; add a per-site override in the inject / differentiate step. <span style="color:#64748b;">Cheap field-override.</span></li>
-        <li>☐ <strong>Per-site logo</strong> — auto-wordmark from the business name (or honor a <code>logo</code> column), and derive the favicon from it. <span style="color:#64748b;">Needs asset-generation code.</span></li>
-        <li>☐ <strong>Per-site image assignment</strong> — a per-city image pool, assigned deterministically. <span style="color:#64748b;">Needs an image pool.</span></li>
-        <li>☐ <strong>Domain-seeded theme colors</strong> — deterministic palette from a domain hash; the render layer already supports theme overrides, so this rides the existing inject step. <span style="color:#64748b;">Lowest impact.</span></li>
-    </ul>
+    <h3>What correct looks like</h3>
+    <p>With the domain proxied through Cloudflare, a DNS lookup returns a Cloudflare range (e.g. <code>104.21.x.x</code> or <code>172.67.x.x</code>), never your server IP. Cloudflare sits in front and forwards traffic to your VPS privately; the real origin stays out of public DNS entirely.</p>
 
-    <div class="callout tip">These map 1:1 to the ☐/◐ marks in the checklist above. The whole visual tier is still manual — but it's also the lowest-value work, so it stays last.</div>
+    <h3>How to check &amp; fix (per domain)</h3>
+    <ol>
+        <li>Cloudflare dashboard → the domain → <strong>DNS</strong>.</li>
+        <li>Find the <code>A</code> record and look at the cloud icon beside it:
+            <ul>
+                <li><strong>Orange cloud (Proxied)</strong> — good; the origin IP is hidden.</li>
+                <li><strong>Grey cloud (DNS only)</strong> — bad; this leaks the real VPS IP.</li>
+            </ul>
+        </li>
+        <li>Click the icon to flip any grey cloud to orange.</li>
+        <li>Verify with <code>dig yourdomain.com</code> (or an online lookup) — it should now return a Cloudflare IP, not your VPS IP.</li>
+        <li>Repeat for <strong>every</strong> domain. It's easy to miss one — especially sites set up in a hurry or migrated in with default (grey-cloud) settings.</li>
+    </ol>
+
+    <div class="callout warn"><strong>Caveat — flipping to orange doesn't un-leak the past.</strong> If the origin IP was ever public — before Cloudflare was set up, or during initial DNS propagation — it may already be recorded in DNS-history databases (SecurityTrails, DNS history tools, etc.), and those keep the old record even after you fix the live one. When footprint really matters, check whether your VPS IP still shows up in DNS-history lookups tied to your domains; if it does, the durable fix is to <strong>move the origin to a fresh IP</strong> and keep that one proxied from day one so it's never exposed.</div>
 </section>
 
 <!-- ═══════════ ADMIN UI ═══════════ -->
