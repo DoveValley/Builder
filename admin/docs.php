@@ -273,6 +273,8 @@ tr:nth-child(even) td { background: #f8fafc; }
     <nav id="aicity-nav" hidden>
         <a class="nav-group" href="#group-ai">Workflow — AI System</a>
         <a href="#ai-overview">How AI works</a>
+        <a href="#ai-niche">The Niche Brief</a>
+        <a href="#ai-research">Local market research</a>
         <a href="#ai-standalone">Standalone mode</a>
         <a href="#ai-enrich">Enrich mode</a>
         <a href="#ai-locking">Locking</a>
@@ -2130,6 +2132,43 @@ Output valid JSON only — no explanation.</code></pre>
     </ol>
 </section>
 
+<section id="ai-niche">
+    <h2>The Niche Brief</h2>
+    <p>The <strong>Niche Brief</strong> (admin <strong>Niche Brief</strong> tab → <code>sites/{site}/multisite/niche_brief.json</code>) captures a business's vocabulary <em>once</em> so every AI-generated block sounds like the same company. It is the layer that turns the generic, shared archetype library into <em>this</em> site's prompts.</p>
+    <h3>What's in it</h3>
+    <ul>
+        <li><code>business_descriptor</code>, <code>service_noun</code>, <code>customer_noun</code> — how the AI refers to the business, what it sells, and who it serves.</li>
+        <li><code>offerings</code> — the concrete products/services (e.g. "PMP Certification Training", "PMP Bootcamp").</li>
+        <li><code>local_angle</code>, <code>tone</code>, <code>guardrails</code> — how to localize, how to sound, and the hard rules (trademark usage, "never invent stats", etc.).</li>
+        <li><code>enabled_archetypes</code> — which of the shared block <em>shapes</em> (<code>city_intro</code>, <code>hero_subtext</code>, <code>feature_columns_local</code>, <code>faq_local</code>, …) this niche uses.</li>
+        <li><code>uses_research_fields</code> + <code>research_prompt</code> — whether the niche wants real per-city market data, and what to ask for (see <a href="#ai-research">Local market research</a>).</li>
+    </ul>
+    <h3>How it feeds generation</h3>
+    <p>The brief is <strong>compiled</strong> (Niche Brief tab → <em>Save &amp; Compile</em>, or <code>php multisite/ai/compile.php --master=&lt;site&gt;</code>) — merging each enabled archetype's shared prompt skeleton with the brief's vocabulary and overwriting the site's <code>data/ai_block_types.json</code>, which is the prompt registry <code>generate.py</code> reads. Then AI generation (Standalone / Enrich, below) fills every <code>ai_block</code> using those compiled prompts plus each city's row in <code>cities.json</code>.</p>
+    <div class="callout">
+        <p><strong>The same brief drives two very different build modes:</strong></p>
+        <ul style="margin:8px 0 0;">
+            <li><strong>One site, many landing pages (this workflow).</strong> A single deployed site (e.g. Granite PM Academy) publishes one landing page per city × offering (PMP&nbsp;Tampa, PMP&nbsp;Charlotte, CAPM&nbsp;Tampa…). Structure gen copies the template to each page; AI gen fills the <code>ai_block</code>s so no two city pages read alike — all under <strong>one domain</strong>. This is the Templates → City Pages → Generate flow.</li>
+            <li><strong>Multisite: many separate sites.</strong> The <em>same</em> master (brief + compiled registry + templates) is <strong>cloned</strong> into many independent single-city sites, each on its <strong>own domain</strong>, and each clone runs <code>generate.py</code> to fill its <code>ai_block</code>s for its one city. Nothing extra to author — the brief is reused verbatim. See <a href="#ms-niche">Multisite → Niche Brief &amp; archetypes</a>.</li>
+        </ul>
+        <p style="margin:8px 0 0;">Mechanically identical: <strong>brief → compile → <code>ai_block</code>s filled by <code>generate.py</code> from <code>cities.json</code></strong>. The only difference is whether the output is many pages on one site or many separate sites.</p>
+    </div>
+</section>
+
+<section id="ai-research">
+    <h2>Local market research</h2>
+    <p>AI copy reads as generic filler unless it's grounded in real local facts. When the brief has <strong>Uses research fields</strong> on, the <strong>research step</strong> populates each city's row in <code>cities.json</code> with real data the block prompts can reference — the difference between substance and thin, doorway-style content.</p>
+    <h3>Niche-defined, not hard-coded</h3>
+    <p>The fields are whatever the brief's <code>research_prompt</code> asks for — a PM academy wants <code>industries</code> / <code>top_employers</code> / <code>salary_note</code> / <code>market_blurb</code>; a groomer might want neighborhoods. Tokens <code>{city}</code>/<code>{state}</code>/<code>{SS}</code> resolve per city; <code>{business_descriptor}</code>/<code>{service_noun}</code> come from the brief. Leave the prompt blank for a generic local-market default.</p>
+    <h3>Running it</h3>
+    <ul>
+        <li><strong>CLI:</strong> <code>php multisite/research_cities.php &lt;site&gt; [--dry-run]</code> — seeds <code>cities.json</code> from the params table (city|SS unique) then looks up each new city via <code>claude-sonnet-5</code>.</li>
+        <li><strong>Admin:</strong> the <em>Research cities</em> card on the Multisite tab (shown only when the brief has research on) — <strong>Dry run</strong> (no API cost) or live, streamed.</li>
+        <li><strong>Engine:</strong> <code>generate.py --research-only</code> loads the brief's prompt via <code>_load_research_prompt()</code>, validates softly, and stamps <code>_researched</code> so re-runs skip finished cities. Results persist in <code>cities.json</code> and are reused free.</li>
+    </ul>
+    <p>Because it just fills <code>cities.json</code>, research grounds copy in <strong>both</strong> build modes — the many-landing-pages site and every multisite clone read the same enriched rows. Guardrail: never let the prompt invent pass rates, salaries, or employer lists — request only verifiable facts and keep figures qualitative unless certain.</p>
+</section>
+
 <section id="ai-standalone">
     <h2>AI System — Standalone Mode</h2>
     <p>The block starts as an <code>ai_block</code> placeholder and the AI replaces it with a complete real block.</p>
@@ -3229,6 +3268,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 <div class="doc-group-header" id="ms-ai">AI Content</div>
 <section id="ms-niche">
     <h2>Niche Brief &amp; archetypes</h2>
+    <p class="callout" style="margin-top:0;"><strong>Same brief as the single-site workflow.</strong> The Niche Brief is not a multisite-only concept — it's the same file, tab, and compile step described in <a href="#ai-niche">AI System → The Niche Brief</a>, where one site publishes many city landing pages. Multisite simply <em>reuses it verbatim</em>: instead of many pages on one domain, the master (brief + registry + templates) is cloned into many separate single-city sites. Authoring happens once; read this section for the multisite-specific mechanics.</p>
     <p>Each master site is <strong>one niche</strong> (pest control, PM training, lawyers, …). The AI copy for that niche is defined in two layers:</p>
     <ul>
         <li><strong>Shared archetypes</strong> (<code>multisite/ai/archetypes.json</code>) — a seed-once, read-only library of block <em>shapes</em> (e.g. <code>city_market_intro</code>, <code>hero_subtext</code>, <code>faq_additions</code>), each with a prompt skeleton, a render mode (<code>standalone</code> vs <code>inject</code>), and shared accuracy guardrails. Not niche-specific.</li>
@@ -3236,7 +3276,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     </ul>
     <p><strong>Compiling</strong> merges the two — filling each enabled archetype's <code>[[shared.*]]</code> and <code>[[brief.*]]</code> placeholders — and overwrites the master's <code>data/ai_block_types.json</code> (the prompt registry <code>generate.py</code> reads). Run it from the tab (<em>Save &amp; Compile</em>) or the CLI:</p>
     <pre><code>php multisite/ai/compile.php --master=&lt;master_id&gt;</code></pre>
-    <p>Archetypes flagged <code>requires_research</code> are skipped unless the brief has <strong>Uses research fields</strong> on (for data-rich niches whose <code>cities.json</code> carries industries/employers/salary). Runtime tokens like <code>{business}</code>/<code>{city}</code> are left intact for <code>generate.py</code> to resolve per city.</p>
+    <p>Archetypes flagged <code>requires_research</code> are skipped unless the brief has <strong>Uses research fields</strong> on (for data-rich niches whose <code>cities.json</code> carries industries/employers/salary). Fill that data with the <a href="#ai-research">research step</a> — the <em>Research cities</em> card on the Multisite tab seeds <code>cities.json</code> from the params table and looks up each city. Runtime tokens like <code>{business}</code>/<code>{city}</code> are left intact for <code>generate.py</code> to resolve per city.</p>
 </section>
 
 <section id="ms-aiblocks">
