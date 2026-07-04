@@ -186,15 +186,24 @@ if ($noAi) {
     if ($cached > 0) progress_log("AI cache: {$cached} block(s) cached → " . basename($cacheFile));
 }
 
-// ── Per-site hero text overlay (4c) — bake keyword + "City, ST" onto each hero ──
-// Runs after AI (so nothing overwrites the repointed image fields) and before the
-// build. Breaks the shared-uploads symlink first so stamped files stay per-site.
-// Style is locked from the Test Lab: per-master override wins, else the global one.
+// ── Per-site image differentiation (4c hero overlay + image pass) ─────────────
+// After AI (so nothing overwrites the repointed fields) and before the build.
+// Breaks the shared-uploads symlink first so per-site files never touch the snapshot.
+//   (1) bake keyword + "City, ST" onto each hero — style locked from the Test Lab
+//       (per-master hero_style.json overrides the global one);
+//   (2) perturb bytes + city-rename every other content photo so no image is byte-
+//       or name-identical across sites (and the master city is stripped from names).
 $styleFile = BASE_DIR . '/sites/' . $masterId . '/multisite/hero_style.json';
 if (!is_file($styleFile)) $styleFile = BASE_DIR . '/multisite/hero_style.json';
 $heroStyle = is_file($styleFile) ? (json_decode((string)file_get_contents($styleFile), true) ?: []) : [];
-$stamped = ms_stamp_hero_images($workingDir, $params, $heroStyle);
-if ($stamped > 0) progress_log("Hero overlay: stamped {$stamped} hero image(s) with keyword + city.");
+
+$masterVars = (json_decode((string)@file_get_contents(BASE_DIR . '/sites/' . $masterId . '/data/site.json'), true) ?: [])['site_vars'] ?? [];
+$masterCitySlug = $masterVars['city_slug'] ?? '';
+if ($masterCitySlug === '' && !empty($masterVars['city'])) $masterCitySlug = slugify(($masterVars['city'] ?? '') . ' ' . ($masterVars['SS'] ?? ''));
+
+$imgRes = ms_differentiate_site_images($workingDir, $params, $masterCitySlug, $heroStyle);
+if ($imgRes['stamped'] > 0 || $imgRes['varied'] > 0 || ($imgRes['pruned'] ?? 0) > 0)
+    progress_log("Images: stamped {$imgRes['stamped']} hero(s), differentiated {$imgRes['varied']} photo(s), pruned " . ($imgRes['pruned'] ?? 0) . " unreferenced.");
 
 // ── Build in a worker-mode child process ──────────────────────────────────────
 $canonical = 'https://' . preg_replace('#^https?://#i', '', rtrim($domain, '/'));
