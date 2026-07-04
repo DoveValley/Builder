@@ -129,7 +129,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
         <p class="note" style="margin-top:8px;">✅ Wired into the build — see the finished logos in the <a href="#logo-gen">Logo generator</a> panel above.</p>
     </section>
 
-    <h1>Hero text overlay <span class="pill">4c · preview</span></h1>
+    <h1 id="hero-overlay">Hero text overlay <span class="pill">4c · preview</span></h1>
     <p class="sub">Bake two lines — <strong>keyword</strong> + <strong>city, ST</strong> — onto a hero image, the way each generated site will. Read-only: originals are never touched. Tune the look here, then we wire the chosen style into the build.</p>
 
     <div class="lab">

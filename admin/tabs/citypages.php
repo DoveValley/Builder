@@ -93,6 +93,7 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
                 <option value="hero">Hero text overlay — bake keyword + city onto the hero</option>
                 <option value="full">Full — hero overlay + unique photo per city</option>
             </select>
+            <a href="playground.php#hero-overlay" target="_blank" style="font-size:.8rem;color:#2563eb;text-decoration:none;">tune hero style ↗</a>
 
             <span style="width:1px;height:22px;background:#e2e8f0;margin:0 4px;"></span>
 
