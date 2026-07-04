@@ -151,6 +151,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <button type="button" class="doc-tab" data-doc="multisite" onclick="switchDoc('multisite')">Multisite</button>
         <button type="button" class="doc-tab" data-doc="devenv" onclick="switchDoc('devenv')">DevEnv</button>
         <button type="button" class="doc-tab" data-doc="extending" onclick="switchDoc('extending')">Extending</button>
+        <button type="button" class="doc-tab" onclick="location.href='playground.php'" style="background:#fd783b;color:#fff;">🧪 Test Lab</button>
     </div>
     <div class="search-wrap">
         <input type="text" id="doc-search" placeholder="Search docs…" oninput="filterNav(this.value)">
@@ -3355,7 +3356,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><span class="where perrow">Per-row</span>✅ Unique AI city copy on home + core (Niche Brief → <code>generate.py</code>) <span class="pri must">Must</span></li>
         <li><span class="where perrow">Per-row</span>✅ Per-deploy service landing pages (<code>landing_cities</code>) <span class="pri should">Should</span></li>
         <li><span class="where perrow">Per-row</span>✅ Unique title tag + meta description per site/page — the page's own title uses a <code>{primary_keyword}</code> shortcode + <code>{city_state}</code>/<code>{business}</code>; city + business make each site's title unique &amp; keyword-focused (no rotation needed). Read-only preview on the Multisite tab. <span class="pri must">Must</span></li>
-        <li><span class="where perrow">Per-row</span>☐ Localized, unique image alt text — per-city alt strings, not one repeated caption <span class="pri should">Should</span> <span style="color:#64748b;">(cheap uniqueness + accessibility)</span></li>
+        <li><span class="where perrow">Per-row</span>◐ Localized, unique image alt text — per-city alt strings, not one repeated caption <span class="pri should">Should</span> <span style="color:#64748b;">(render mechanism built — <code>*_alt</code> fields resolve shortcodes; needs authoring + fallback)</span></li>
         <li><span class="where campaign">Campaign</span>✅ Real local market data — niche-defined facts per city <span class="pri should">Should</span> <span style="color:#64748b;">(editable <code>research_prompt</code> in the Niche Brief; <em>Research cities</em> button on the Multisite tab seeds <code>cities.json</code> from params + looks up each city via <code>claude-sonnet-5</code>, cached &amp; reused free)</span></li>
         <li><span class="where preauthor">Pre-authoring</span>◐ Finish master authoring — genericize the last brand phrasings into <code>{business}</code> shortcodes and add <code>ai_block</code>s across home / core / service-landing pages <span class="pri should">Should</span> <span style="color:#64748b;">(authoring work, not code)</span></li>
         <li><span class="where preauthor">Pre-authoring</span>◐ Vary generated-copy templates — rotate 3–4 sentence-structure patterns per block, not one fill-in-the-blank line (AI copy is already unique; this hardens any templated fallback) <span class="pri must">Must</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
@@ -3477,9 +3478,10 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <div class="block-card-doc" id="spec-alt-text">
         <h3>1d · Localized, unique image alt text <span class="pri should">Should</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
-        <p class="bc-meta">☐ not built</p>
+        <p class="bc-meta">◐ mechanism built — authoring + fallbacks remain</p>
         <p><strong>Description.</strong> Image <code>alt</code> attributes should carry per-city, unique text rather than one repeated caption — cheap uniqueness plus accessibility/SEO.</p>
-        <p><strong>Build.</strong> Add an <code>alt</code> template per image field in the master; at render, resolve city/business shortcodes so each site's alts differ. For AI image blocks, have <code>generate.py</code> emit a localized alt beside the copy. Fallback: derive alt from the block heading + <code>{city}</code> when none is authored. <strong>Effort:</strong> ~1 day.</p>
+        <p><strong>Already works.</strong> The render layer localizes alts today: <code>apply_shortcodes_to_block()</code> (<code>includes/shortcodes.php</code>) resolves <code>{city}</code>/<code>{business}</code> shortcodes in <em>any</em> field ending <code>_alt</code> (bypassing the image <code>skipKeys</code>), including nested ones. So an authored alt like <code>"PMP training in {city_state}"</code> already differs per site.</p>
+        <p><strong>Remaining.</strong> (1) Author shortcode-bearing alt strings on the master's image blocks (pure authoring). (2) Have <code>generate.py</code> emit a localized alt beside AI image copy. (3) Fallback: derive alt from the block heading + <code>{city}</code> when none is authored. <strong>Effort:</strong> ~½ day (fallback code) + authoring.</p>
     </div>
 
     <div class="block-card-doc" id="spec-market-data">

@@ -15,3 +15,6 @@ sites/*/multisite/
 # Generated static output and the multisite regression baseline — local artifacts, not source.
 output/
 _multisite_baseline/
+
+# Test Lab scratch uploads (transient, auto-pruned)
+uploads/lab/
