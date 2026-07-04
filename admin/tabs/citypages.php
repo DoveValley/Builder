@@ -53,8 +53,9 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
 <div class="tab-content" style="<?= $tab === 'citypages' ? '' : 'display:none;' ?>">
 <?php tab_header('Landing City Pages', 'View the generated status of every template × city combination. Run structure generation and AI generation from this tab.', 'tab-citypages'); ?>
 
-<details class="card" open style="background:#f8fafc;border-left:3px solid #2563eb;">
-    <summary style="cursor:pointer;font-weight:700;font-size:1.02rem;color:#1e3a5f;">How city-page generation works</summary>
+<style>#cp-howto summary::-webkit-details-marker{display:none} #cp-howto[open] .cp-caret{transform:rotate(90deg)}</style>
+<details class="card" open id="cp-howto" style="background:#f8fafc;border-left:3px solid #2563eb;">
+    <summary style="cursor:pointer;font-weight:700;font-size:1.02rem;color:#1e3a5f;list-style:none;user-select:none;"><span class="cp-caret" style="display:inline-block;width:1em;transition:transform .15s;">&#9656;</span> How city-page generation works <span style="font-weight:400;font-size:.8rem;color:#64748b;">(click to collapse)</span></summary>
     <div style="margin-top:14px;font-size:.9rem;line-height:1.6;color:#334155;">
         <p style="margin:0 0 6px;"><strong>Set up — once, for this site (governs every city page)</strong></p>
         <ul style="margin:0 0 14px 18px;padding:0;">
