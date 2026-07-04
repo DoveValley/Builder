@@ -3432,26 +3432,26 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li>✅ <a href="#spec-layout-skeletons">2a</a> · Block-order / layout variations — per-page panel (Content/Pages): Generate 4 subtle orderings (ends pinned), rotated by domain hash. Preview on the Multisite tab.</li>
     </ul>
 
-    <p style="margin:14px 0 2px;"><strong>Phase 2 — Content uniqueness &amp; authoring polish</strong> <span style="color:#64748b;">· cheap, high-SEO, mostly Per-row / authoring · ~6–11 dev-days</span></p>
+    <p style="margin:14px 0 2px;"><strong>Phase 2 — Content uniqueness &amp; authoring polish</strong> <span style="color:#64748b;">· cheap, high-SEO, mostly Per-row / authoring · <strong>3 of 6 done</strong>; remaining ~4–5 dev-days</span></p>
     <ul>
-        <li><a href="#spec-vary-copy">1g</a> · Vary copy templates <span style="color:#64748b;">(deferred from Phase 1 — AI copy is already unique per city; this is the Python-side one)</span> — <span class="pri must">Must</span> ~1–2 d</li>
-        <li><a href="#spec-finish-authoring">1f</a> · Finish master authoring — <span class="pri should">Should</span> ~1–2 d</li>
-        <li><a href="#spec-alt-text">1d</a> · Localized alt text — <span class="pri should">Should</span> ~1 d</li>
-        <li><a href="#spec-market-data">1e</a> · Real local market data — <span class="pri should">Should</span> ✅ DONE</li>
-        <li><a href="#spec-css-skins">2c</a> · CSS skins (reuses the Phase-1 helper) — <span class="pri should">Should</span> ~2 d</li>
-        <li><a href="#spec-map">5c</a> · Embedded map + service-area — <span class="pri should">Should</span> ✅ DONE (pest)</li>
+        <li>✅ <a href="#spec-market-data">1e</a> · Real local market data — niche-aware research step, wired into the Multisite tab.</li>
+        <li>✅ <a href="#spec-alt-text">1d</a> · Localized alt text — <span style="color:#64748b;">the master authors alt with <code>{city}</code> shortcodes (they resolve per site) and the <code>4c</code> overlay leaves alt fields untouched; render mechanism was already present. No build needed.</span></li>
+        <li>✅ <a href="#spec-map">5c</a> · Embedded map + service-area — homepage <code>map_info</code> with a shortcode-driven <code>q={city},+{SS}</code> embed (done on the pest master; authoring, no code).</li>
+        <li>☐ <a href="#spec-finish-authoring">1f</a> · Finish master authoring — <span class="pri should">Should</span> ~1–2 d <span style="color:#64748b;">(strip last brand phrasings → shortcodes, mark city-variable blocks as <code>ai_block</code>; authoring)</span></li>
+        <li>☐ <a href="#spec-css-skins">2c</a> · CSS skins (reuses the Phase-1 helper) — <span class="pri should">Should</span> ~2 d</li>
+        <li>☐ <a href="#spec-vary-copy">1g</a> · Vary copy templates — <span class="pri must">Must</span> ~1–2 d <span style="color:#64748b;">(deprioritized — AI copy is already unique per city, so low real value)</span></li>
     </ul>
 
-    <p style="margin:14px 0 2px;"><strong>Phase 3 — Visual / asset pipeline</strong> <span style="color:#64748b;">· lowest SEO value, do last; all touch the asset subsystem · ~5–7 dev-days</span></p>
+    <p style="margin:14px 0 2px;"><strong>Phase 3 — Visual / asset pipeline</strong> <span style="color:#64748b;">· lowest SEO value, do last; all touch the asset subsystem · <strong>1 of 5 done</strong>; remaining ~3–4 dev-days</span></p>
     <ul>
-        <li><a href="#spec-image-assign">4c</a> · Per-site hero differentiation (text overlay) — <span class="pri should">Should</span> ✅ DONE</li>
-        <li><a href="#spec-logo">4b</a> · Per-site logo / wordmark — <span class="pri maybe">Maybe</span> ~1–2 d</li>
-        <li><a href="#spec-favicon">4a</a> · Per-site favicon / OG (derives from 4b) — <span class="pri maybe">Maybe</span> ~½ d</li>
-        <li><a href="#spec-theme-colors">4d</a> · Domain-seeded theme colors — <span class="pri maybe">Maybe</span> ~½ d</li>
-        <li><a href="#spec-image-paths">2d</a> · Randomize image dir / filename — <span class="pri maybe">Maybe</span> ~½ d</li>
+        <li>✅ <a href="#spec-image-assign">4c</a> · Per-site hero differentiation — keyword + "City, ST" baked onto each hero (text overlay); style tuned/locked in the <a href="playground.php">Test Lab</a>.</li>
+        <li>☐ <a href="#spec-theme-colors">4d</a> · Domain-seeded theme colors — <span class="pri maybe">Maybe</span> ~½ d <span style="color:#64748b;">(cheapest remaining code win; pairs with 4c)</span></li>
+        <li>☐ <a href="#spec-logo">4b</a> · Per-site logo / wordmark — <span class="pri maybe">Maybe</span> ~1–2 d</li>
+        <li>☐ <a href="#spec-favicon">4a</a> · Per-site favicon / OG (derives from 4b) — <span class="pri maybe">Maybe</span> ~½ d</li>
+        <li>☐ <a href="#spec-image-paths">2d</a> · Randomize image dir / filename — <span class="pri maybe">Maybe</span> ~½ d <span style="color:#64748b;">(partly moot — 4c already gives heroes per-site filenames)</span></li>
     </ul>
 
-    <div class="callout tip">Items not in a phase are either <strong>✅ already built</strong> (most of area 3) or <strong>operational</strong> (areas 5–6, outside the tool) — see their cards below.</div>
+    <div class="callout tip"><strong>Status:</strong> Phase 1 complete; Phase 2 is 3 of 6 (1e, 1d, 5c done — 1f, 2c, 1g remain); Phase 3 is 1 of 5 (4c done). Remaining high-value: <strong>1f</strong> (finish master authoring, strategic) and <strong>4d</strong> (per-site colors, cheap code). Items not in a phase are either <strong>✅ already built</strong> (most of area 3) or <strong>operational</strong> (areas 5–6, outside the tool).</div>
 
     <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 1 · Content</h3>
 
@@ -3478,10 +3478,10 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <div class="block-card-doc" id="spec-alt-text">
         <h3>1d · Localized, unique image alt text <span class="pri should">Should</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
-        <p class="bc-meta">◐ mechanism built — authoring + fallbacks remain</p>
+        <p class="bc-meta">✅ DONE — master authors alt with <code>{city}</code>; localizes per site</p>
         <p><strong>Description.</strong> Image <code>alt</code> attributes should carry per-city, unique text rather than one repeated caption — cheap uniqueness plus accessibility/SEO.</p>
-        <p><strong>Already works.</strong> The render layer localizes alts today: <code>apply_shortcodes_to_block()</code> (<code>includes/shortcodes.php</code>) resolves <code>{city}</code>/<code>{business}</code> shortcodes in <em>any</em> field ending <code>_alt</code> (bypassing the image <code>skipKeys</code>), including nested ones. So an authored alt like <code>"PMP training in {city_state}"</code> already differs per site.</p>
-        <p><strong>Remaining.</strong> (1) Author shortcode-bearing alt strings on the master's image blocks (pure authoring). (2) Have <code>generate.py</code> emit a localized alt beside AI image copy. (3) Fallback: derive alt from the block heading + <code>{city}</code> when none is authored. <strong>Effort:</strong> ~½ day (fallback code) + authoring.</p>
+        <p><strong>How it works.</strong> The render layer localizes alts: <code>apply_shortcodes_to_block()</code> (<code>includes/shortcodes.php</code>) resolves <code>{city}</code>/<code>{business}</code> shortcodes in <em>any</em> field ending <code>_alt</code> (bypassing the image <code>skipKeys</code>), including nested ones. The master already authors alts with shortcodes — e.g. pest hero <code>"Pest control services in {city} {SS}"</code>, cockroach template <code>"Cockroach exterminator treating a {city_state} home"</code> — so each site's alts differ. The <code>4c</code> hero overlay only repoints the image <em>path</em>, never the <code>_alt</code> field, so the localized alt survives on stamped heroes.</p>
+        <p><strong>Optional future polish (not blocking):</strong> a <code>generate.py</code> fallback that derives an alt from the block heading + <code>{city}</code> when none is authored, so a forgotten alt still localizes.</p>
     </div>
 
     <div class="block-card-doc" id="spec-market-data">
