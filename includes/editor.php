@@ -102,7 +102,7 @@ function render_content_blocks_editor($blocks) {
                 <?php /* ---- SKIN PICKER (universal — shown for all block types) ---- */ ?>
                 <div style="padding:10px 16px 0;border-bottom:1px solid #f1f5f9;">
                     <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-                        <span style="font-size:0.8rem;font-weight:600;color:#6b7280;white-space:nowrap;">Section skin:</span>
+                        <span style="font-size:0.8rem;font-weight:600;color:#6b7280;white-space:nowrap;">Block skin:</span>
                         <div class="skin-picker">
                             <?php
                             $curSkin = $block['skin'] ?? '';

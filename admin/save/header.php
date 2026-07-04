@@ -7,8 +7,10 @@
         $data['header']['city']            = trim($_POST['city']            ?? '');
         $data['header']['logo_max_height'] = max(32, min(120, (int)($_POST['logo_max_height'] ?? 56)));
         $data['header']['sr_bar_height']   = max(48, min(120, (int)($_POST['sr_bar_height']   ?? 64)));
-        $data['header']['nav_bg']          = trim($_POST['nav_bg']          ?? '#fd783b');
-        $data['header']['nav_text']        = trim($_POST['nav_text']        ?? '#ffffff');
+        // Header bar color/text moved to the Theme/Colors tab (merged control). Only write
+        // if this form still posts them, so a Header-tab save never clobbers the theme value.
+        if (isset($_POST['nav_bg']))   $data['header']['nav_bg']   = trim($_POST['nav_bg']);
+        if (isset($_POST['nav_text'])) $data['header']['nav_text'] = trim($_POST['nav_text']);
         $data['header']['phone_btn_style'] = in_array($_POST['phone_btn_style'] ?? '', ['outline','filled','plain']) ? $_POST['phone_btn_style'] : 'outline';
         $data['header']['phone_label']    = trim($_POST['phone_label']   ?? 'Helpline:');
         $data['header']['show_sponsored'] = !empty($_POST['show_sponsored']);

@@ -253,16 +253,7 @@
             <div class="card">
                 <h2>Nav Bar Style</h2>
                 <p class="hint" style="margin-bottom:14px;">The colored bar that contains the menu and phone button.</p>
-                <div style="display:flex;gap:12px;flex-wrap:wrap;">
-                    <div class="form-group" style="flex:1 1 160px;">
-                        <label for="nav_bg">Nav bar background color</label>
-                        <input type="color" id="nav_bg" name="nav_bg" value="<?= h($header['nav_bg'] ?? '#fd783b') ?>">
-                    </div>
-                    <div class="form-group" style="flex:1 1 160px;">
-                        <label for="nav_text">Nav bar text color</label>
-                        <input type="color" id="nav_text" name="nav_text" value="<?= h($header['nav_text'] ?? '#ffffff') ?>">
-                    </div>
-                </div>
+                <p class="hint" style="margin-bottom:14px;background:#f0f9ff;border-left:3px solid #2563eb;padding:8px 12px;">🎨 The nav bar <strong>color</strong> and <strong>text color</strong> now live on the <strong>Theme / Colors</strong> tab (under “Header &amp; Footer”), so they stay in sync with your palette and Theme Presets.</p>
                 <div class="form-group">
                     <label for="phone_btn_style">Phone button style</label>
                     <select id="phone_btn_style" name="phone_btn_style">

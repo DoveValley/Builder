@@ -14,6 +14,11 @@
 $theme   = $data['theme'];
 $header  = apply_shortcodes_to_block($data['header']);
 $footer  = apply_shortcodes_to_block($data['footer']);
+// Header bar color (nav_bg: 'accent' mode or a hex), resolved once. The visible nav row +
+// sticky bars use $navBg; the header container/dropdowns (--color-header-bg) follow it too (option A).
+$navBgRaw = $header['nav_bg'] ?? 'accent';
+$navBg    = in_array($navBgRaw, ['accent','header','footer','highlight'], true) ? resolve_color($navBgRaw) : $navBgRaw;
+$theme['header_bg'] = $navBg;
 $_hLayout = preg_replace('/[^a-z0-9_]/', '', $header['header_layout'] ?? 'standard');
 // Topbar is position:fixed — out of document flow, adds to total fixed area.
 $_hHasTopbar     = !empty($header['topbar_text']);
@@ -205,7 +210,7 @@ if (empty($seo['og_image'])) {
 <?php
 // ── Shared header variables (available to all header partials) ────────────
 $isSticky      = !empty($header['sticky']);
-$navBg         = $header['nav_bg']          ?? '#fd783b';
+// $navBg resolved near the top of this file (header bar color, option A).
 $navText       = $header['nav_text']        ?? '#ffffff';
 $btnStyle      = $header['phone_btn_style'] ?? 'outline';
 $infoItems     = $header['info_items']      ?? [];
@@ -414,7 +419,7 @@ if ($firstBlockHero) {
 
 <!-- STICKY BOTTOM BAR -->
 <?php if (!empty($footer['sticky_bar_text']) || !empty($footer['phone'])): ?>
-<div class="sticky-bottom-bar" style="background:<?= h($header['nav_bg'] ?? '#fd783b') ?>;">
+<div class="sticky-bottom-bar" style="background:<?= h($navBg) ?>;">
     <div class="sticky-bar-inner">
         <span class="sticky-bar-text" style="color:<?= h($header['nav_text'] ?? '#ffffff') ?>;">
             <?= h($footer['sticky_bar_text'] ?? '24/7 Support Line - Call Now') ?>
@@ -444,7 +449,7 @@ if ($firstBlockHero) {
 
 <!-- SCROLL TO TOP BUTTON -->
 <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"
-        style="background:<?= h($header['nav_bg'] ?? '#fd783b') ?>;color:<?= h($header['nav_text'] ?? '#ffffff') ?>;">
+        style="background:<?= h($navBg) ?>;color:<?= h($navText) ?>;">
     ⬆
 </button>
 

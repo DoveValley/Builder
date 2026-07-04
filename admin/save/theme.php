@@ -1,9 +1,27 @@
 <?php
         $activeTab = 'theme';
-        $colorKeys = ['header_bg','header_top_bg','header_text','content_bg','footer_bg','footer_text','accent_color','accent2_color','btn_text','border_color'];
+        // header_bg (container/dropdowns) now auto-follows the header bar color at render;
+        // header_text is driven by the merged "Header bar text" control below — both omitted here.
+        $colorKeys = ['header_top_bg','content_bg','footer_bg','footer_text','accent_color','accent2_color','btn_text','border_color'];
         foreach ($colorKeys as $key) {
             $value = trim($_POST[$key] ?? '');
             if (preg_match('/^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/', $value)) $data['theme'][$key] = $value;
+        }
+        // Header bar color (merged, option A) — 'accent' mode follows the brand, else a custom hex.
+        // Lives in data['header']['nav_bg']; the header partials + sticky bars read it, and
+        // site-template.php makes --color-header-bg (dropdowns/container) follow it.
+        $navMode = ($_POST['nav_bg_mode'] ?? 'accent') === 'custom' ? 'custom' : 'accent';
+        if ($navMode === 'custom') {
+            $navHex = trim($_POST['nav_bg_custom'] ?? '');
+            if (preg_match('/^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/', $navHex)) $data['header']['nav_bg'] = $navHex;
+        } else {
+            $data['header']['nav_bg'] = 'accent';
+        }
+        // Header bar text — one control drives both the bar (nav_text) and menu links (theme.header_text).
+        $navText = trim($_POST['nav_text'] ?? '');
+        if (preg_match('/^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/', $navText)) {
+            $data['header']['nav_text']  = $navText;
+            $data['theme']['header_text'] = $navText;
         }
         // Fonts — allow any safe font name (letters, numbers, spaces, commas, hyphens)
         $font = trim($_POST['primary_font'] ?? '');

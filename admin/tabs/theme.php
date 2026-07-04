@@ -1,90 +1,143 @@
     <div class="tab-content" style="<?= $tab === 'theme' ? '' : 'display:none;' ?>">
-        <?php tab_header('Theme / Colors', 'Set global colors, fonts, and button styles. Changes here update the entire site — blocks reference these values using keywords like "accent" or "header".', 'tab-theme'); ?>
+        <?php tab_header('Theme / Colors', 'Colors, fonts &amp; buttons for the whole site. Pick a Theme Preset to set everything at once, then fine-tune below.', 'tab-theme'); ?>
+
+        <?php
+        // Reusable color-field renderer (picker + synced text input).
+        $colorField = function ($key, $label, $value, $hint = '') {
+            ?>
+            <div class="form-group">
+                <label for="<?= h($key) ?>"><?= $label ?></label>
+                <div class="color-field">
+                    <input type="color" id="<?= h($key) ?>_picker" value="<?= h($value) ?>"
+                           oninput="document.getElementById('<?= h($key) ?>').value=this.value;"
+                           onchange="document.getElementById('<?= h($key) ?>').value=this.value;">
+                    <input type="text" id="<?= h($key) ?>" name="<?= h($key) ?>" value="<?= h($value) ?>"
+                           oninput="var p=document.getElementById('<?= h($key) ?>_picker'); if(/^#[0-9a-fA-F]{6}$/.test(this.value))p.value=this.value;">
+                </div>
+                <?php if ($hint !== ''): ?><span class="hint"><?= $hint ?></span><?php endif; ?>
+            </div>
+            <?php
+        };
+
+        // This site's Theme Presets (per-niche, optional) for the picker.
+        $presetData   = @json_decode((string)@file_get_contents(ACTIVE_SITE_DIR . '/multisite/theme_presets.json'), true);
+        $themePresets = is_array($presetData['presets'] ?? null) ? $presetData['presets'] : [];
+
+        // Current header-bar color: 'accent' (follow brand) or a stored hex.
+        $navBgCur   = $header['nav_bg'] ?? 'accent';
+        $navIsAccent = ($navBgCur === 'accent' || $navBgCur === '');
+        $navHex     = preg_match('/^#[0-9a-fA-F]{6}$/', (string)$navBgCur) ? $navBgCur : '#fd783b';
+        $navTextCur = $header['nav_text'] ?? ($theme['header_text'] ?? '#ffffff');
+        ?>
+
+        <!-- How it works -->
+        <div class="card" style="background:#f8fafc;border-left:3px solid #2563eb;">
+            <h2 style="margin-top:0;">How colors work here</h2>
+            <p class="hint" style="margin:0;line-height:1.8;">
+                <strong>① Theme Preset</strong> — one click sets everything below.<br>
+                <strong>② Brand colors</strong> — the accent that buttons, links &amp; badges follow.<br>
+                <strong>③ Header &amp; Footer</strong> — the bars at the very top and bottom of every page.<br>
+                <strong>④ Section moods (block skins)</strong> — the 4 background looks a section can wear. Set the colors here once, then <em>pick a mood per block</em> in the block editor.
+            </p>
+        </div>
+
         <form action="save.php" method="post" id="theme-form">
             <input type="hidden" name="section" value="theme">
             <div style="margin-bottom:16px;"><button type="submit" class="btn">Save Theme</button></div>
 
-            <?php
-            $colorGroups = [
-                'Header' => [
-                    'header_bg'     => 'Nav bar background color',
-                    'header_top_bg' => 'Top announcement bar background',
-                    'header_text'   => 'Text & menu color',
-                ],
-                'Site Defaults' => [
-                    'content_bg'   => 'Page background color',
-                    'border_color' => 'Border / divider color',
-                ],
-                'Footer' => [
-                    'footer_bg'   => 'Background color',
-                    'footer_text' => 'Text & link color',
-                ],
-            ];
-            $colorHints = [
-                'content_bg'   => 'The base background of the page itself (behind all blocks). Usually white.',
-                'border_color' => 'Footer divider lines and structural borders. Use as <code>var(--color-border)</code> in custom HTML.',
-            ];
-            $colorDefaults = [
-                'content_bg'   => '#ffffff',
-                'border_color' => '#e5e7eb',
-                'header_bg'    => '#120575',
-                'header_top_bg'=> '#ffffff',
-                'header_text'  => '#ffffff',
-                'footer_bg'    => '#120575',
-                'footer_text'  => '#ffffff',
-            ];
-            foreach ($colorGroups as $groupLabel => $fields):
-            ?>
-                <div class="card">
-                    <h2><?= h($groupLabel) ?></h2>
-                    <?php foreach ($fields as $key => $label):
-                        $value = $theme[$key] ?? ($colorDefaults[$key] ?? '#000000');
-                    ?>
-                        <div class="form-group">
-                            <label for="<?= $key ?>"><?= h($label) ?></label>
-                            <div class="color-field">
-                                <input type="color" id="<?= $key ?>_picker" value="<?= h($value) ?>"
-                                       oninput="document.getElementById('<?= $key ?>').value=this.value;"
-                                       onchange="document.getElementById('<?= $key ?>').value=this.value;">
-                                <input type="text" id="<?= $key ?>" name="<?= $key ?>" value="<?= h($value) ?>"
-                                       oninput="document.getElementById('<?= $key ?>_picker').value=this.value;">
-                            </div>
-                            <?php if (isset($colorHints[$key])): ?>
-                            <span class="hint"><?= $colorHints[$key] ?></span>
-                            <?php endif; ?>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            <?php endforeach; ?>
-
+            <!-- ① THEME PRESET -->
             <div class="card">
-                <h2>Accent &amp; Buttons</h2>
-                <?php
-                $accentFields = [
-                    'accent_color'  => ['Primary accent',   'Drives links, icon backgrounds, badges, buttons, and the Accent skin background — all from one color.', '#2563eb'],
-                    'accent2_color' => ['Highlight color',  'A contrasting brand color for standout words, badges, or decorative elements. Use as <code>var(--color-highlight)</code> in custom HTML.', '#f5a623'],
-                    'btn_text'      => ['Button text color', 'Almost always white. Change only if your accent color is light enough that white text is unreadable.', '#ffffff'],
-                ];
-                foreach ($accentFields as $key => [$label, $hint, $default]):
-                    $value = $theme[$key] ?? $default;
-                ?>
-                <div class="form-group">
-                    <label for="<?= $key ?>"><?= $label ?></label>
-                    <div class="color-field">
-                        <input type="color" id="<?= $key ?>_picker" value="<?= h($value) ?>"
-                               oninput="document.getElementById('<?= $key ?>').value=this.value;"
-                               onchange="document.getElementById('<?= $key ?>').value=this.value;">
-                        <input type="text" id="<?= $key ?>" name="<?= $key ?>" value="<?= h($value) ?>"
-                               oninput="document.getElementById('<?= $key ?>_picker').value=this.value;">
-                    </div>
-                    <span class="hint"><?= $hint ?></span>
+                <h2>① Theme Preset <span class="hint" style="font-weight:400;">— start here</span></h2>
+                <?php if ($themePresets): ?>
+                <p class="hint" style="margin-bottom:12px;">Loads a full palette (colors, font, button shape) into the fields below. Review, then <strong>Save Theme</strong>.</p>
+                <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+                    <select id="theme_preset_pick" style="min-width:220px;padding:6px;">
+                        <?php foreach ($themePresets as $ti => $p): ?>
+                        <option value="<?= (int)$ti ?>"><?= h($p['name'] ?? ('Preset ' . ($ti + 1))) ?><?= !empty($p['note']) ? ' — ' . h($p['note']) : '' ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <button type="button" class="btn btn-secondary" onclick="applyThemePreset()">Apply preset →</button>
+                    <span id="preset_applied_msg" class="hint" style="color:#059669;display:none;">Loaded — review the fields below, then Save Theme.</span>
                 </div>
-                <?php endforeach; ?>
+                <script>
+                var THEME_PRESETS = <?= json_encode($themePresets, JSON_UNESCAPED_SLASHES) ?>;
+                function _tpSet(id, v){ var el=document.getElementById(id); if(!el)return; el.value=v; var p=document.getElementById(id+'_picker'); if(p&&/^#[0-9a-fA-F]{6}$/.test(v))p.value=v; }
+                function applyThemePreset(){
+                    var p = THEME_PRESETS[document.getElementById('theme_preset_pick').value]; if(!p)return;
+                    var t = p.theme || {};
+                    ['footer_bg','footer_text','header_top_bg','content_bg','border_color','accent_color','accent2_color','btn_text'].forEach(function(k){ if(t[k]!=null)_tpSet(k,t[k]); });
+                    if(t.button_radius!=null)_tpSet('button_radius', t.button_radius);
+                    if(t.primary_font!=null)_tpSet('primary_font', t.primary_font);
+                    if(t.heading_font!=null)_tpSet('heading_font', t.heading_font);
+                    if(t.header_text!=null)_tpSet('nav_text', t.header_text);   // bar text mirrors header text
+                    if(t.skins){ for(var sk in t.skins){ for(var pr in t.skins[sk]){ _tpSet('skin_'+sk+'_'+pr, t.skins[sk][pr]); if(window.updateSkinSwatch)updateSkinSwatch(sk); } } }
+                    var nb = (p.header||{}).nav_bg || 'accent';
+                    var mode = (nb==='accent'||nb==='') ? 'accent' : 'custom';
+                    var r = document.querySelector('input[name=nav_bg_mode][value='+mode+']'); if(r){ r.checked=true; }
+                    if(mode==='custom')_tpSet('nav_bg_custom', nb);
+                    navBgModeToggle();
+                    document.getElementById('preset_applied_msg').style.display='inline';
+                }
+                </script>
+                <?php else: ?>
+                <p class="hint" style="margin:0;">No presets defined for this site's niche yet. Theme Presets live in <code>sites/{site}/multisite/theme_presets.json</code> — they give each generated site a distinct palette.</p>
+                <?php endif; ?>
             </div>
 
+            <!-- ② BRAND COLORS -->
+            <div class="card">
+                <h2>② Brand colors</h2>
+                <p class="hint" style="margin-bottom:14px;">Your signature colors. Buttons, links, badges and icons all follow the accent.</p>
+                <?php
+                $brandFields = [
+                    'accent_color'  => ['Primary accent', 'Drives links, buttons, icon backgrounds, badges, and the Accent section mood — all from one color.', '#2563eb'],
+                    'accent2_color' => ['Highlight',       'A contrasting color for standout words or decorative bits. Use as <code>var(--color-highlight)</code>.', '#f5a623'],
+                    'btn_text'      => ['Button text',     'Almost always white. Change only if your accent is light enough that white text is unreadable.', '#ffffff'],
+                ];
+                foreach ($brandFields as $key => [$label, $hint, $def]) $colorField($key, $label, $theme[$key] ?? $def, $hint);
+                ?>
+            </div>
+
+            <!-- ③ HEADER & FOOTER -->
+            <div class="card">
+                <h2>③ Header &amp; Footer</h2>
+                <p class="hint" style="margin-bottom:14px;">The colored bars at the very top and bottom of every page.</p>
+
+                <div class="form-group">
+                    <label>Header bar color</label>
+                    <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
+                        <label style="font-weight:400;display:flex;align-items:center;gap:6px;cursor:pointer;">
+                            <input type="radio" name="nav_bg_mode" value="accent" <?= $navIsAccent ? 'checked' : '' ?> onchange="navBgModeToggle()"> Match brand accent
+                        </label>
+                        <label style="font-weight:400;display:flex;align-items:center;gap:6px;cursor:pointer;">
+                            <input type="radio" name="nav_bg_mode" value="custom" <?= $navIsAccent ? '' : 'checked' ?> onchange="navBgModeToggle()"> Custom
+                        </label>
+                        <span id="nav_bg_custom_wrap" class="color-field" style="<?= $navIsAccent ? 'display:none;' : '' ?>">
+                            <input type="color" id="nav_bg_custom_picker" value="<?= h($navHex) ?>"
+                                   oninput="document.getElementById('nav_bg_custom').value=this.value;"
+                                   onchange="document.getElementById('nav_bg_custom').value=this.value;">
+                            <input type="text" id="nav_bg_custom" name="nav_bg_custom" value="<?= h($navHex) ?>"
+                                   oninput="var p=document.getElementById('nav_bg_custom_picker'); if(/^#[0-9a-fA-F]{6}$/.test(this.value))p.value=this.value;">
+                        </span>
+                    </div>
+                    <span class="hint">The nav bar and the sticky “call now” bar. “Match brand accent” keeps them on-brand automatically.</span>
+                </div>
+
+                <?php $colorField('nav_text', 'Header bar text', $navTextCur, 'Menu links and the phone button in the header bar.'); ?>
+                <?php $colorField('header_top_bg', 'Top announcement bar', $theme['header_top_bg'] ?? '#ffffff', 'The thin strip above the nav bar (often white).'); ?>
+                <hr style="border:none;border-top:1px solid #e5e7eb;margin:18px 0;">
+                <?php $colorField('footer_bg', 'Footer background', $theme['footer_bg'] ?? '#120575', 'The large footer block at the bottom of every page.'); ?>
+                <?php $colorField('footer_text', 'Footer text', $theme['footer_text'] ?? '#ffffff', 'Text and links inside the footer.'); ?>
+            </div>
+
+            <!-- ④ SECTION MOODS (BLOCK SKINS) -->
+            <div class="card" style="background:#f8fafc;border-left:3px solid #64748b;">
+                <h2 style="margin-top:0;">④ Section moods <span class="hint" style="font-weight:400;">— block skins</span></h2>
+                <p class="hint" style="margin:0;">Every content section wears one of these four moods. Set the colors here <strong>once</strong>; choose which mood a section uses with the <strong>Block skin</strong> picker on each block. The <strong>Light</strong> mood’s heading color is also your default heading color site-wide.</p>
+            </div>
             <?php
             $skinDefs = [
-                'light'  => ['Light',  'White background — standard content sections.',       ['bg'=>'#ffffff','heading'=>'#1a2e5a','text'=>'#555e6d'], ['bg','heading','text']],
+                'light'  => ['Light',  'White background — standard content sections. Its heading color = your site-wide heading color.', ['bg'=>'#ffffff','heading'=>'#1a2e5a','text'=>'#555e6d'], ['bg','heading','text']],
                 'subtle' => ['Subtle', 'Off-white — soft alternating sections.',              ['bg'=>'#f8fafc','heading'=>'#1a2e5a','text'=>'#555e6d'], ['bg','heading','text']],
                 'accent' => ['Accent', 'Brand color background — CTA and featured sections.', ['bg'=>'#2563eb','heading'=>'#ffffff', 'text'=>'#dbeafe'], ['heading','text']],
                 'dark'   => ['Dark',   'Dark background — hero and dramatic sections.',        ['bg'=>'#0d1f3c','heading'=>'#ffffff', 'text'=>'#e2e8f0'], ['bg','heading','text']],
@@ -94,8 +147,8 @@
                 $skinData = $theme['skins'][$skinKey] ?? $skinDefaults;
             ?>
             <div class="card">
-                <h2>Skin: <?= $skinLabel ?></h2>
-                <p class="hint" style="margin-bottom:14px;"><?= $skinHint ?> Pick this skin on any block from the <strong>Section skin</strong> picker.</p>
+                <h2>Block Skin: <?= $skinLabel ?></h2>
+                <p class="hint" style="margin-bottom:14px;"><?= $skinHint ?> Pick this block skin on any block from the <strong>Block skin</strong> picker.</p>
                 <?php if ($skinKey === 'accent'): ?>
                 <p class="hint" style="margin-bottom:14px;color:#2563eb;">Background automatically follows <strong>Primary accent</strong> above — no separate field needed.</p>
                 <?php endif; ?>
@@ -122,26 +175,17 @@
             </div>
             <?php endforeach; ?>
 
-            <script>
-            function updateSkinSwatch(skinKey) {
-                var bg = document.getElementById('skin_'+skinKey+'_bg')?.value || '';
-                document.querySelectorAll('.skin-swatch-'+skinKey).forEach(function(el) {
-                    el.style.background = bg;
-                });
-            }
-            // Ensure all color picker values are synced to their text inputs before submit.
-            // Handles browsers that fire 'change' late or not at all during picker interaction.
-            document.getElementById('theme-form').addEventListener('submit', function() {
-                this.querySelectorAll('input[type="color"]').forEach(function(picker) {
-                    var textId = picker.id.replace(/_picker$/, '');
-                    var textInput = document.getElementById(textId);
-                    if (textInput) textInput.value = picker.value;
-                });
-            });
-            </script>
-
+            <!-- ⑤ PAGE BACKGROUND & BORDERS -->
             <div class="card">
-                <h2>Typography &amp; Buttons</h2>
+                <h2>⑤ Page background &amp; borders</h2>
+                <p class="hint" style="margin-bottom:14px;">Rarely changed — the base page color behind all sections, and structural divider lines.</p>
+                <?php $colorField('content_bg', 'Page background', $theme['content_bg'] ?? '#ffffff', 'The base background behind every section. Usually white.'); ?>
+                <?php $colorField('border_color', 'Border / divider', $theme['border_color'] ?? '#e5e7eb', 'Footer divider lines and structural borders. Use as <code>var(--color-border)</code>.'); ?>
+            </div>
+
+            <!-- ⑥ TYPOGRAPHY & BUTTONS -->
+            <div class="card">
+                <h2>⑥ Typography &amp; Buttons</h2>
                 <div class="form-group">
                     <label for="primary_font">Body / nav font</label>
                     <select id="primary_font" name="primary_font">
@@ -243,8 +287,9 @@
                 </div>
             </div>
 
+            <!-- ⑦ TRACKING -->
             <div class="card">
-                <h2>Analytics &amp; Tracking</h2>
+                <h2>⑦ Analytics &amp; Tracking</h2>
                 <p class="hint" style="margin-bottom:14px;">Paste your tracking code here. It will be added to the <code>&lt;head&gt;</code> of every page automatically.</p>
                 <div class="form-group">
                     <label for="analytics_head">Google Analytics / GA4 snippet</label>
@@ -259,6 +304,25 @@
                     <span class="hint">Paste the full Pixel base code here.</span>
                 </div>
             </div>
+
+            <script>
+            function updateSkinSwatch(skinKey) {
+                var bg = document.getElementById('skin_'+skinKey+'_bg')?.value || '';
+                document.querySelectorAll('.skin-swatch-'+skinKey).forEach(function(el) { el.style.background = bg; });
+            }
+            function navBgModeToggle() {
+                var custom = document.querySelector('input[name=nav_bg_mode][value=custom]')?.checked;
+                var wrap = document.getElementById('nav_bg_custom_wrap');
+                if (wrap) wrap.style.display = custom ? '' : 'none';
+            }
+            // Sync all color pickers to their text inputs before submit.
+            document.getElementById('theme-form').addEventListener('submit', function() {
+                this.querySelectorAll('input[type="color"]').forEach(function(picker) {
+                    var textInput = document.getElementById(picker.id.replace(/_picker$/, ''));
+                    if (textInput) textInput.value = picker.value;
+                });
+            });
+            </script>
 
             <button type="submit" class="btn">Save Theme</button>
         </form>
