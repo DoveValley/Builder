@@ -251,9 +251,26 @@ function generate_city_pages(array $options = []): array {
     }
     $imgStamped = 0; $imgVaried = 0;
 
+    // ── Per-city layout variation (opt-in) ───────────────────────────────────
+    // Reorders each city page's blocks (hero pinned first, closing block pinned
+    // last, a couple of middle swaps) via the same ms_variant/layout helpers the
+    // multisite build uses per domain — here keyed per city — to cut the intra-site
+    // "identical block order on 40 pages" template footprint.
+    $varyLayout   = !empty($options['vary_layout']) && empty($options['dry_run']);
+    $layoutVaried = 0;
+
     // ── Template × city loop ─────────────────────────────────────────────────
     foreach ($templates as $tpl) {
         $tplVersion = _gen_template_version($tpl);
+
+        // Layout choices for this template (opt-in): give the blocks ids + build the
+        // reordering set once; each city picks one deterministically below.
+        $tplBlocksIded = $tpl['content_blocks'] ?? [];
+        $layoutChoices = [];
+        if ($varyLayout) {
+            $tplBlocksIded = ensure_block_ids($tplBlocksIded);
+            $layoutChoices = layout_generate_variants($tplBlocksIded, 4);
+        }
 
         foreach ($cities as $city) {
             $tplId  = $tpl['id']  ?? '';
@@ -273,7 +290,7 @@ function generate_city_pages(array $options = []): array {
                 'slug'             => _gen_resolve_slug($tpl['slug_pattern'] ?? '', $city),
                 'title'            => $tpl['title'] ?? '',
                 'city_vars'        => $city,
-                'content_blocks'   => $tpl['content_blocks'] ?? [],
+                'content_blocks'   => $varyLayout ? $tplBlocksIded : ($tpl['content_blocks'] ?? []),
                 'seo'              => $tpl['seo']             ?? [],
                 'locked_blocks'    => [],
                 'generated_at'     => date('c'),
@@ -388,6 +405,16 @@ function generate_city_pages(array $options = []): array {
                 $imgVaried  += (int)($ir['varied'] ?? 0);
             }
 
+            // ── Per-city layout variation (opt-in) — reorder blocks per city ──
+            if ($varyLayout && $layoutChoices) {
+                $lkey = $city['city_slug'] ?? ($tplId . '_' . $cityId);
+                $pick = ms_variant($lkey, 1 + count($layoutChoices), 'citylayout');   // 0 = natural
+                if ($pick > 0 && isset($layoutChoices[$pick - 1])) {
+                    $page['content_blocks'] = layout_apply($page['content_blocks'], $layoutChoices[$pick - 1]);
+                    $layoutVaried++;
+                }
+            }
+
             if ($dryRun) {
                 $written++;
                 continue;
@@ -498,6 +525,7 @@ function generate_city_pages(array $options = []): array {
         'pages_skipped'   => $skipped,
         'pages_backed_up' => $backedUp,
         'images'          => ['mode' => $imgDiff, 'stamped' => $imgStamped, 'varied' => $imgVaried],
+        'layout'          => ['enabled' => $varyLayout, 'varied' => $layoutVaried],
         'errors'          => $errors,
         'duration_ms'     => $durationMs,
         'dry_run'         => $dryRun,

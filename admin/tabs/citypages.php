@@ -93,8 +93,15 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
                 <option value="hero">Hero text overlay — bake keyword + city onto the hero</option>
                 <option value="full">Full — hero overlay + unique photo per city</option>
             </select>
+
+            <span style="width:1px;height:22px;background:#e2e8f0;margin:0 4px;"></span>
+
+            <label class="hint" style="margin:0;display:flex;align-items:center;gap:6px;cursor:pointer;">
+                <input type="checkbox" id="cp-varylayout"> Vary block order per city
+            </label>
         </div>
         <p class="hint" id="cp-imgdiff-help" style="margin:8px 0 0;line-height:1.55;"></p>
+        <p class="hint" style="margin:6px 0 0;line-height:1.55;"><strong>Vary block order:</strong> gives each city page a slightly different section order (hero stays first, the closing block stays last, a couple of middle sections swap) so the pages aren't structurally identical. Deterministic per city; needs 4+ blocks in the template.</p>
     </div>
     <script>
     (function(){
@@ -427,6 +434,8 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
         // Apply the per-city image mode (Off/Hero/Full) unless the caller set one
         var _idf = document.getElementById('cp-imgdiff');
         if (_idf && _idf.value && opts.image_diff === undefined) opts.image_diff = _idf.value;
+        var _vl = document.getElementById('cp-varylayout');
+        if (_vl && _vl.checked && opts.vary_layout === undefined) opts.vary_layout = 1;
 
         // Confirmation
         if (!confirm(cpConfirmText(opts))) return;
