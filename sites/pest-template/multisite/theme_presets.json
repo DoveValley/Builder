@@ -1,0 +1,82 @@
+{
+  "_about": "Per-niche Theme Presets for this master. A Theme Preset is a named bundle of theme-tab values (colors + fonts + button radius) + the header nav color + a bug icon. Apply = deep-merge preset.theme into data['theme'], preset.header into data['header'], and generate a wordmark logo + favicon in the preset's colors with preset.icon (a bug from multisite/icons/, Apache-2.0 Noto Emoji) as an accent silhouette on a dark tile. Assignment per site: CSV 'theme_preset' column = id or name; blank = hash(domain) % count. See memory feedback_theme_naming + project_multisite_visual_styles.",
+  "niche": "pest",
+  "presets": [
+    {
+      "id": 1,
+      "name": "Classic",
+      "note": "Dark indigo + orange, rounded — the master's own palette. Cockroach mark.",
+      "icon": "cockroach.svg",
+      "theme": {
+        "accent_color": "#fd783b",
+        "header_bg": "#120575",
+        "footer_bg": "#120575",
+        "heading_color": "#120575",
+        "header_text": "#ffffff",
+        "footer_text": "#ffffff",
+        "header_top_bg": "#ffffff",
+        "primary_font": "Inclusive Sans, sans-serif",
+        "heading_font": "",
+        "button_radius": "5"
+      },
+      "header": { "nav_bg": "accent" }
+    },
+    {
+      "id": 2,
+      "name": "Bold",
+      "note": "Charcoal + red, sharp corners. Ant mark.",
+      "icon": "ant.svg",
+      "theme": {
+        "accent_color": "#dc2626",
+        "header_bg": "#1f2937",
+        "footer_bg": "#1f2937",
+        "heading_color": "#1f2937",
+        "header_text": "#ffffff",
+        "footer_text": "#ffffff",
+        "header_top_bg": "#ffffff",
+        "primary_font": "Inter, sans-serif",
+        "heading_font": "",
+        "button_radius": "2"
+      },
+      "header": { "nav_bg": "accent" }
+    },
+    {
+      "id": 3,
+      "name": "Fresh",
+      "note": "Forest green + amber, pill buttons. Spider mark.",
+      "icon": "spider.svg",
+      "theme": {
+        "accent_color": "#f59e0b",
+        "header_bg": "#14532d",
+        "footer_bg": "#14532d",
+        "heading_color": "#14532d",
+        "header_text": "#ffffff",
+        "footer_text": "#ffffff",
+        "header_top_bg": "#ffffff",
+        "primary_font": "Nunito, sans-serif",
+        "heading_font": "",
+        "button_radius": "24"
+      },
+      "header": { "nav_bg": "accent" }
+    },
+    {
+      "id": 4,
+      "name": "Trust",
+      "note": "Teal-navy + teal, medium radius. Mosquito mark.",
+      "icon": "mosquito.svg",
+      "theme": {
+        "accent_color": "#0d9488",
+        "header_bg": "#0f3d5c",
+        "footer_bg": "#0f3d5c",
+        "heading_color": "#0f3d5c",
+        "header_text": "#ffffff",
+        "footer_text": "#ffffff",
+        "header_top_bg": "#ffffff",
+        "primary_font": "Poppins, sans-serif",
+        "heading_font": "",
+        "button_radius": "10"
+      },
+      "header": { "nav_bg": "accent" }
+    }
+  ]
+}

@@ -24,7 +24,7 @@ const MS_KNOWN_COLS = [
     'domain', 'business', 'phone', 'tel', 'email', 'address',
     'city', 'state', 'SS', 'zip', 'lat', 'lng', 'logo', 'analytics_id', 'gsc_verification',
     'rating', 'review_count',
-    'landing_cities',
+    'landing_cities', 'theme_preset',
     'web3forms_key', 'ftp_host', 'ftp_port', 'ftp_user', 'ftp_pass',
     'ftp_path', 'ftp_passive',
 ];

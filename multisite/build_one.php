@@ -31,8 +31,9 @@ require __DIR__ . '/../includes/multisite/inject.php';
 require __DIR__ . '/../includes/multisite/deploy.php';
 require __DIR__ . '/../includes/multisite/ai_cache.php';
 require __DIR__ . '/../includes/multisite/differentiate.php';
+require __DIR__ . '/../includes/multisite/visual.php';
 require __DIR__ . '/../includes/multisite/landing.php';
-require __DIR__ . '/../includes/multisite/image_overlay.php';
+require_once __DIR__ . '/../includes/multisite/image_overlay.php';
 
 progress_set_sink(progress_jsonlines_sink());
 
@@ -148,6 +149,11 @@ if ($landingCities) {
 
 progress_log('Differentiating (schema / geo / analytics)…');
 ms_differentiate_working_dir($workingDir, $params, $masterIdentity);
+
+// Coordinated visual identity — Theme Preset (+ logo/favicon next). Runs before the
+// image prune so any generated assets exist and are referenced.
+$visRes = ms_apply_visual_identity($workingDir, $params, $masterId);
+if ($visRes['applied']) progress_log("Visual identity: Theme Preset '{$visRes['preset']}'" . (!empty($visRes['logo']) ? ", logo generated" : "") . ".");
 
 // ── AI content: fill this city's ai_blocks (home + core + landing) via generate.py ──
 if ($noAi) {

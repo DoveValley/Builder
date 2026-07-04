@@ -133,6 +133,12 @@ switch ($action) {
         $cols[] = 'gsc_verification';
         foreach ($sample as &$row) { $row[] = ''; }
         unset($row);
+        // Optional theme_preset — visual palette per site (preset id or name from the master's
+        // theme_presets.json). Blank = auto-spread by domain hash so every site still differs.
+        $cols[] = 'theme_preset';
+        $presetExamples = ['1', 'Bold', '', '', 'Classic'];
+        foreach ($sample as $i => &$row) { $row[] = $presetExamples[$i] ?? ''; }
+        unset($row);
         $out = fopen('php://output', 'w');
         fputcsv($out, $cols);
         foreach ($sample as $row) fputcsv($out, $row);
