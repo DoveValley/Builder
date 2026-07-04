@@ -113,7 +113,7 @@ function ms_hero_style(int $W, int $H, array $locked = []): array {
     $scrim = isset($locked['scrim']) ? ($scaleH ? (int)round($locked['scrim'] * $scaleH) : (int)$locked['scrim']) : (int)round($H * 0.55);
 
     return [
-        'pos'   => in_array($locked['pos'] ?? 'bl', ['bl', 'bc', 'tl'], true) ? $locked['pos'] : 'bl',
+        'pos'   => in_array($locked['pos'] ?? 'bl', ['bl', 'bc', 'tl'], true) ? ($locked['pos'] ?? 'bl') : 'bl',
         's1'    => max(8, $s1),
         's2'    => max(8, $s2),
         'scrim' => max(0, min($H, $scrim)),
