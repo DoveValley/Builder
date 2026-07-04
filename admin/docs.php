@@ -3387,7 +3387,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><span class="where perrow">Per-row</span>◐ Per-site favicon / og-image — the fields already exist; auto-set per site so no two sites ship a byte-identical favicon / OG file <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(cheap field-override)</span></li>
         <li><span class="where perrow">Per-row</span>☐ Per-site logo — auto-wordmark from the business name (or honor a <code>logo</code> column), and derive the favicon from it <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(needs asset-generation code)</span></li>
         <li><span class="where perrow">Per-row</span>✅ Per-site hero differentiation — keyword + "City, ST" baked onto each hero image (text overlay), so every site's hero is a genuinely different file <span class="pri should">Should</span> <span style="color:#64748b;">(style tuned/locked in the <a href="playground.php">Test Lab</a>; no image pool needed)</span></li>
-        <li><span class="where perrow">Per-row</span>☐ Domain-seeded theme colors — deterministic palette from a domain hash; the render layer already supports theme overrides, so this rides the existing inject step <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(lowest impact)</span></li>
+        <li><span class="where perrow">Per-row</span>⏭️ Domain-seeded theme colors — <strong>decided against</strong> <span style="color:#64748b;">— cosmetic/human-facing; Google doesn't weight visual theme (see roadmap).</span></li>
     </ol>
 
     <h3>5 · Local &amp; off-site signals <span style="font-weight:400;color:#64748b;font-size:.85em;">(where local city sites win or lose)</span></h3>
@@ -3423,7 +3423,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <h3 id="ms-roadmap" style="margin-top:26px;border-top:2px solid #0f172a;padding-top:14px;color:#0f172a;">Build roadmap — suggested phases</h3>
     <p>Grouped by <strong>shared infrastructure and priority, not by area</strong>. Phase 1 first builds a deterministic variant-selector helper — <code>variants[ crc32(domain) % n ]</code> — that the structural items reuse; the visual/asset items cluster in Phase 3. Each variation item is <strong>code + authoring</strong> (the 3–4 variants must be written into the master); budget the authoring separately, in parallel with the code. <strong>Verify after each phase</strong> by building 2–3 sample domains and diffing their output — it must differ <em>and</em> be rebuild-stable (deterministic per domain).</p>
 
-    <div class="callout" style="border-left:4px solid #16a34a;"><strong>At a glance (updated 2026-07-04):</strong> Phase 1 ✅ complete · Phase 2 ◑ <strong>4 of 6</strong> (1e, 1d, 5c, + 1f resolved as a guardrail) · Phase 3 ◑ <strong>2 of 5</strong> (4c, 2d). Full multisite output verified <strong>byte-reproducible</strong> across reruns. <strong>Reality check:</strong> the differentiation build is essentially done — the remaining items (<a href="#spec-css-skins">2c</a>, <a href="#spec-theme-colors">4d</a>, <a href="#spec-logo">4b</a>, <a href="#spec-vary-copy">1g</a>) are the roadmap's own "lowest-value / most-tempting" cosmetic tier. The higher-leverage remaining work is <strong>content substance + operations (hosting/IP diversity)</strong>, largely off this roadmap. If you do want a cheap code win, <a href="#spec-theme-colors">4d</a> per-site colors (~½ d).</div>
+    <div class="callout" style="border-left:4px solid #16a34a;"><strong>At a glance (updated 2026-07-04):</strong> Phase 1 ✅ complete · Phase 2 done (1e, 1d, 5c; 1f = QA guardrail) · Phase 3 (4c, 2d done). <strong>The differentiation build is complete.</strong> The remaining cosmetic items — <a href="#spec-css-skins">2c</a> CSS skins, <a href="#spec-theme-colors">4d</a> colors, <a href="#spec-logo">4b</a>/<a href="#spec-favicon">4a</a> logo/favicon, <a href="#spec-vary-copy">1g</a> copy templates — are <strong>⏭️ decided against (2026-07-04)</strong>: they're <em>human-perception</em> variation, and Google's doorway/scaled-content detection weighs content, links, structure, and <strong>network signals</strong>, not how different the design looks. The goal is avoiding <em>algorithmic</em> detection, not fooling a human reviewer, so cosmetic theming is a dead end. <strong>Real remaining leverage (mostly off this tool):</strong> (1) validate a small batch — ship 3–5 sites, watch indexation; (2) network / hosting / IP diversity; (3) content substance per site.</div>
 
     <p style="margin:14px 0 2px;"><strong>Phase 1 — Variation engine + structural Musts</strong> <span style="color:#64748b;">· the anti-fingerprint core · ✅ COMPLETE (2b intentionally skipped)</span></p>
     <ul>
@@ -3440,20 +3440,20 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li>✅ <a href="#spec-alt-text">1d</a> · Localized alt text — <span style="color:#64748b;">the master authors alt with <code>{city}</code> shortcodes (they resolve per site) and the <code>4c</code> overlay leaves alt fields untouched; render mechanism was already present. No build needed.</span></li>
         <li>✅ <a href="#spec-map">5c</a> · Embedded map + service-area — homepage <code>map_info</code> with a shortcode-driven <code>q={city},+{SS}</code> embed (done on the pest master; authoring, no code).</li>
         <li>✅ <a href="#spec-finish-authoring">1f</a> · Finish master authoring — <span style="color:#64748b;"><strong>reclassified: authoring QA, not a build item.</strong> The leaks are single-site authoring errors; the <strong>master-lint guardrail</strong> (Multisite tab / <code>lint_master.php</code>) finds them, and correcting them is normal site hygiene. No multisite build work.</span></li>
-        <li>☐ <a href="#spec-css-skins">2c</a> · CSS skins (reuses the Phase-1 helper) — <span class="pri should">Should</span> ~2 d</li>
-        <li>☐ <a href="#spec-vary-copy">1g</a> · Vary copy templates — <span class="pri must">Must</span> ~1–2 d <span style="color:#64748b;">(deprioritized — AI copy is already unique per city, so low real value)</span></li>
+        <li>⏭️ <a href="#spec-css-skins">2c</a> · CSS skins — <strong>decided against (2026-07-04)</strong> <span style="color:#64748b;">— visual/theme variation is a human-perception signal; Google weighs content/links/structure/network, not how "different" the design looks. Goal is avoiding algorithmic detection, not fooling a human reviewer. Kept for the record.</span></li>
+        <li>⏭️ <a href="#spec-vary-copy">1g</a> · Vary copy templates — <strong>decided against</strong> <span style="color:#64748b;">— AI copy is already unique per city; varying the templated scaffold around it is negligible value.</span></li>
     </ul>
 
     <p style="margin:14px 0 2px;"><strong>Phase 3 — Visual / asset pipeline</strong> <span style="color:#64748b;">· lowest SEO value, do last; all touch the asset subsystem · <strong>2 of 5 done</strong> (4c + 2d); remaining ~2–3 dev-days</span></p>
     <ul>
         <li>✅ <a href="#spec-image-assign">4c</a> · Per-site image differentiation — keyword + "City, ST" baked onto heroes, plus byte-perturb + city-rename of every other photo (also covers 2d); style tuned/locked in the <a href="playground.php">Test Lab</a>.</li>
-        <li>☐ <a href="#spec-theme-colors">4d</a> · Domain-seeded theme colors — <span class="pri maybe">Maybe</span> ~½ d <span style="color:#64748b;">(cheapest remaining code win; pairs with 4c)</span></li>
-        <li>☐ <a href="#spec-logo">4b</a> · Per-site logo / wordmark — <span class="pri maybe">Maybe</span> ~1–2 d</li>
-        <li>☐ <a href="#spec-favicon">4a</a> · Per-site favicon / OG (derives from 4b) — <span class="pri maybe">Maybe</span> ~½ d</li>
+        <li>⏭️ <a href="#spec-theme-colors">4d</a> · Domain-seeded theme colors — <strong>decided against (2026-07-04)</strong> <span style="color:#64748b;">— same reasoning as 2c: cosmetic/human-facing, not a signal Google weights.</span></li>
+        <li>⏭️ <a href="#spec-logo">4b</a> · Per-site logo / wordmark — <strong>decided against</strong> <span style="color:#64748b;">— human-facing branding; low algorithmic value. (Note: fixing a <em>broken</em> master-domain logo URL is separate authoring QA, flagged by the master lint.)</span></li>
+        <li>⏭️ <a href="#spec-favicon">4a</a> · Per-site favicon / OG — <strong>decided against</strong> <span style="color:#64748b;">— same cosmetic tier.</span></li>
         <li>✅ <a href="#spec-image-paths">2d</a> · Randomize image filename — folded into 4c (site city appended, master city stripped, on every image).</li>
     </ul>
 
-    <div class="callout tip"><strong>Status:</strong> Phase 1 complete; Phase 2 is 4 of 6 (1e, 1d, 5c done; 1f reclassified as authoring QA — guardrail built — not a build item; 2c, 1g remain); Phase 3 is 2 of 5 (4c + 2d done). <strong>The differentiation build is effectively complete</strong> — what's left (2c CSS skins, 4d colors, 4b logo, 1g copy templates) is the roadmap's own lowest-value cosmetic tier. The real remaining leverage is <strong>content substance</strong> and <strong>operational diversity (hosting / IPs / real local signals)</strong>, mostly outside this tool. Items not in a phase are either <strong>✅ already built</strong> or <strong>operational</strong>.</div>
+    <div class="callout tip"><strong>Status:</strong> The build is <strong>done</strong>. Shipped: 1c, 3g, 2a (Phase 1); 1e, 1d, 5c + the 1f authoring-lint guardrail (Phase 2); 4c, 2d (Phase 3). <strong>Decided against (⏭️, 2026-07-04):</strong> 2c CSS skins, 4d colors, 4b/4a logo/favicon, 1g copy templates, 2b schema-shape — all cosmetic / human-perception, which Google's doorway detection doesn't weight (it looks at content, links, structure, network). <strong>Only remaining leverage is off this tool:</strong> validate a batch (ship 3–5, watch indexation), network/hosting/IP diversity, and content substance. There is no meaningful on-page differentiation code left to write.</div>
 
     <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 1 · Content</h3>
 
@@ -3526,8 +3526,9 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     </div>
 
     <div class="block-card-doc" id="spec-css-skins">
-        <h3>2c · Vary CSS class vocabulary <span class="pri should">Should</span> <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring (+ Per-row)</span></h3>
-        <p class="bc-meta">☐ not built</p>
+        <h3>2c · CSS skins / vary class vocabulary <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring (+ Per-row)</span></h3>
+        <p class="bc-meta">⏭️ decided against (2026-07-04) — cosmetic / human-perception, not a Google signal</p>
+        <p><strong>Decision.</strong> Considered building a per-site "skin" system (color scheme + fonts + component styling as a few designed presets) so sites look like different themes. <strong>Decided against:</strong> visual/theme variation is a <em>human-perception</em> signal — it changes what a person sees, not what Google's doorway/scaled-content detection measures (content, links, structure, network). The goal here is avoiding <em>algorithmic</em> classification, not fooling a manual reviewer, so this is a dead end for the objective. (Random per-site CSS jitter would also read as auto-generated/spammy — worse, not better.) Kept for the record.</p>
         <p><strong>Description.</strong> 3–4 "skins" — the same visual layout and CSS rules under different class-name vocabularies — rotated per site.</p>
         <p><strong>Build.</strong> Author skin maps (canonical name → skin class names) in the master. At render, rewrite class attributes and the matching selectors in the emitted stylesheet using the skin selected by domain hash; ensure markup + CSS use the same skin. <strong>Effort:</strong> ~2 days.</p>
     </div>
@@ -3600,15 +3601,16 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 4 · Visual</h3>
 
     <div class="block-card-doc" id="spec-favicon">
-        <h3>4a · Per-site favicon / og-image <span class="pri maybe">Maybe</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
-        <p class="bc-meta">◐ fields exist; not auto-set</p>
+        <h3>4a · Per-site favicon / og-image <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">⏭️ decided against (2026-07-04) — same cosmetic / human-perception tier as 4b/2c</p>
         <p><strong>Description.</strong> Auto-set per site so no two sites ship a byte-identical favicon / OG file.</p>
         <p><strong>Build.</strong> Add a per-site override in inject/differentiate — assign from a per-domain asset or regenerate (recolor / re-hash) so the files differ. <strong>Effort:</strong> ~½ day.</p>
     </div>
 
     <div class="block-card-doc" id="spec-logo">
-        <h3>4b · Per-site logo <span class="pri maybe">Maybe</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
-        <p class="bc-meta">☐ not built</p>
+        <h3>4b · Per-site logo <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">⏭️ decided against (2026-07-04) — human-facing branding, low algorithmic value</p>
+        <p><strong>Note.</strong> A <em>different</em> logo per site is cosmetic (same reasoning as 2c/4d). Separately, a <em>broken</em> logo — an external URL on the master's own domain — is an authoring bug, and that's caught by the <a href="#spec-finish-authoring">master lint</a>, not this item.</p>
         <p><strong>Description.</strong> Auto-wordmark from the business name (or honor a <code>logo</code> column), and derive the favicon from it.</p>
         <p><strong>Build.</strong> Generate an SVG/PNG wordmark from <code>{business}</code> at build (font + domain-seeded accent), or use the row's <code>logo</code> column; write it to the site, set <code>header.logo</code>, and derive the favicon. <strong>Effort:</strong> ~1–2 days.</p>
     </div>
@@ -3630,8 +3632,8 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     </div>
 
     <div class="block-card-doc" id="spec-theme-colors">
-        <h3>4d · Domain-seeded theme colors <span class="pri maybe">Maybe</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
-        <p class="bc-meta">☐ not built — lowest impact</p>
+        <h3>4d · Domain-seeded theme colors <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">⏭️ decided against (2026-07-04) — cosmetic / human-perception (same reasoning as 2c)</p>
         <p><strong>Description.</strong> A deterministic palette from a domain hash; the render layer already supports theme overrides.</p>
         <p><strong>Build.</strong> Derive accent / header / button colors from <code>crc32(domain)</code> within brand-safe ranges and write them into the <code>theme</code> section before <code>theme_css_vars()</code> renders. Rides the existing inject step. <strong>Effort:</strong> ~½ day.</p>
     </div>
