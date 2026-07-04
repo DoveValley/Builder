@@ -6,6 +6,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/multisite/params.php';
+require_once __DIR__ . '/../includes/multisite/master_lint.php';
 
 header('Content-Type: application/json');
 
@@ -363,6 +364,11 @@ switch ($action) {
         if (preg_match('/__MS_RESEARCH_DONE__ (\d+)/', $txt, $m)) { $done = true; $exit = (int)$m[1]; }
         $txt = preg_replace('/\n?__MS_RESEARCH_DONE__ \d+\s*$/', '', $txt);
         echo json_encode(['output' => $txt, 'done' => $done, 'exit' => $exit]);
+        break;
+
+    // Master lint — flag authoring leaks (literal city/state/zip; master-domain URLs).
+    case 'lint_master':
+        echo json_encode(ms_lint_master($masterId));
         break;
 
     default:

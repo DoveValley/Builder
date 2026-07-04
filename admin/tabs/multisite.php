@@ -14,6 +14,15 @@ $researchOn  = !empty($nicheBrief['uses_research_fields']);
     <p class="hint">Full guide: <a href="docs.php?doc=multisite" target="_blank">Multisite documentation →</a></p>
 </div>
 
+<!-- ===== MASTER LINT CARD ===== -->
+<div class="card" id="ms-lint-card">
+    <h3 style="margin-top:0;">Check master for authoring leaks</h3>
+    <p class="hint">Scans this master for content that <strong>won't localize on a clone</strong> — the master's own city/state/zip typed as literal text (should be <code>{city}</code>/<code>{state}</code>/<code>{SS}</code> shortcodes) and links pointing at the master's own domain. Run this before a campaign. Some hits are intentional (e.g. a governing-law state) — review each.</p>
+    <button type="button" class="btn" id="ms-lint-btn" onclick="msLint()">Check master</button>
+    <span id="ms-lint-msg" class="hint" style="margin-left:10px;"></span>
+    <div id="ms-lint-results" style="margin-top:14px;"></div>
+</div>
+
 <!-- ===== UPLOAD CARD ===== -->
 <div class="card">
     <h3 style="margin-top:0;">1. Upload params table (CSV)</h3>
@@ -342,6 +351,34 @@ $researchOn  = !empty($nicheBrief['uses_research_fields']);
                 pollRun(d.run_id);
             })
             .catch(() => { btn.disabled = false; });
+    };
+
+    // ── Master lint (1f guardrail) — flag authoring leaks ─────────────────────
+    window.msLint = function () {
+        var btn = document.getElementById('ms-lint-btn');
+        var msg = document.getElementById('ms-lint-msg');
+        var box = document.getElementById('ms-lint-results');
+        btn.disabled = true; msg.textContent = 'Scanning…'; box.innerHTML = '';
+        fetch('multisite_api.php?action=lint_master')
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+                btn.disabled = false;
+                if (d.error) { msg.textContent = '✗ ' + d.error; return; }
+                var f = d.findings || [];
+                if (!f.length) { msg.textContent = ''; box.innerHTML = '<p style="color:#065f46;font-weight:600;margin:0;">✓ No authoring leaks — this master localizes cleanly.</p>'; return; }
+                msg.textContent = '';
+                var rows = f.map(function (x) {
+                    var fix = x.type === 'geo' ? ("literal <strong>" + esc(x.lit) + "</strong> → <code>" + esc(x.fix) + "</code>") : ("master-domain URL → " + esc(x.fix));
+                    return '<tr><td style="padding:4px 8px;font-family:monospace;font-size:.8rem;">' + esc(x.file) + '<br><span style="color:#64748b;">' + esc(x.path) + '</span></td>'
+                         + '<td style="padding:4px 8px;">' + fix + '</td>'
+                         + '<td style="padding:4px 8px;color:#475569;">&ldquo;' + esc(x.excerpt) + '&rdquo;</td></tr>';
+                }).join('');
+                box.innerHTML = '<p style="margin:0 0 8px;color:#92400e;font-weight:600;">' + f.length + ' finding(s) — review each (some may be intentional):</p>'
+                    + '<table style="width:100%;border-collapse:collapse;font-size:.86rem;"><thead><tr style="text-align:left;border-bottom:1px solid #e2e8f0;">'
+                    + '<th style="padding:4px 8px;">Where</th><th style="padding:4px 8px;">Issue</th><th style="padding:4px 8px;">Context</th></tr></thead><tbody>'
+                    + rows + '</tbody></table>';
+            })
+            .catch(function () { btn.disabled = false; msg.textContent = '✗ scan failed'; });
     };
 
     // ── Research cities (item 1e) — detached; poll the output file ────────────
