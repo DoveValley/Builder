@@ -939,6 +939,34 @@ tr:nth-child(even) td { background: #f8fafc; }
 
 <section id="tab-citypages">
     <h2>Tab: Landing City Page Gen</h2>
+
+    <h3>What it is</h3>
+    <p>Takes this site's <strong>landing templates</strong> and a list of <strong>cities</strong> and produces many <strong>city landing pages inside this one site</strong> — same business and topic, one page per city. Each page is a distinct URL with city-localized content: <code>{city}</code>/<code>{state}</code>/<code>{business}</code> shortcodes resolved, AI-written city-specific copy, and (opt-in) per-city images and section order.</p>
+    <p>Unlike <strong>Multisite Gen</strong> — which deploys many <em>separate</em> single-city <em>websites</em> (one domain each) — this stays <strong>one website, one domain, one deploy</strong>, serving many cities through landing pages. It reuses the factory's existing machinery (templates, the generation engine, the <code>generate.py</code> AI engine, the shared block renderer, and the per-city image/layout cores) rather than reinventing it — the generator's job is to drive those primitives across a table of template × city combinations.</p>
+
+    <h3>How it works</h3>
+    <p>The high-level flow:</p>
+    <pre><code>Landing Templates  (authored once: blocks + {shortcodes} + ai_block placeholders + slug pattern)
+        +
+Landing Cities     (one row per city: name, state, slug, geo…)
+        ↓
+[ generation ]     loop every template × city
+        ↓
+[ per page ]       build → fill shortcodes + AI copy → (opt-in) per-city images
+                   → (opt-in) vary block order → auto FAQ + breadcrumb schema → write at city slug
+        ↓
+Many city landing pages, all in one site   (/{slug})</code></pre>
+    <p>Two inputs — <a href="?tab=templates">Landing Templates</a> (the reusable page skeletons) × <a href="?tab=cities">Landing Cities</a> (the target cities). <code>generate_city_pages()</code> loops every combination and, for each, runs the per-page pipeline:</p>
+    <ol>
+        <li><strong>Build</strong> the page from the template.</li>
+        <li><strong>Fill</strong> — resolve <code>{city}</code>/<code>{state}</code>/<code>{business}</code>… shortcodes and generate the AI archetype blocks' city-specific copy (locked blocks are preserved on re-generate).</li>
+        <li><strong>Per-city images</strong> (opt-in) — bake the keyword + "City, ST" onto the hero; in Full mode also give each city a unique, city-renamed copy of every photo.</li>
+        <li><strong>Vary block order</strong> (opt-in) — a slightly different section order per city (hero first, closing block last, a couple of middle swaps).</li>
+        <li><strong>Schema</strong> — auto-inject FAQ (from the page's FAQ blocks) + breadcrumb.</li>
+        <li><strong>Write</strong> the page at its city slug (from the template's slug pattern) and update the page index.</li>
+    </ol>
+    <p>No cloning, identity rewrite, or FTP deploy — it is <strong>one site</strong>. Pages live in <code>data/pages/</code> and are served by <code>page.php</code> at <code>/{slug}</code>. Regeneration is idempotent (the hero overlay is cached), and the Status Grid below shows Generated / Stale / Missing.</p>
+
     <p>Shows the status of all generated city landing pages — which template × city combinations have been generated, when, and what state they are in. Also provides generation controls and a history log.</p>
 
     <h3>Status Grid</h3>
