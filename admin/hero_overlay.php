@@ -16,13 +16,6 @@
 require_once __DIR__ . '/../config.php';
 if (empty($_SESSION['admin_logged_in'])) { http_response_code(403); header('Content-Type: text/plain'); exit('Not authenticated.'); }
 
-// Resolve the ImageMagick binary by absolute path — the web SAPI's exec() PATH
-// is often minimal and won't find a bare "convert".
-$convert = 'convert';
-foreach (['/usr/bin/convert', '/usr/local/bin/convert', '/bin/convert'] as $cand) {
-    if (@is_executable($cand)) { $convert = $cand; break; }
-}
-
 $root = realpath(BASE_DIR);
 
 // ── source image: must resolve to a real image inside the project ─────────────
@@ -53,71 +46,40 @@ $scrim = $clamp($_GET['scrim'] ?? null, 0, $H, (int)round($H * 0.5));
 $pos   = in_array($_GET['pos'] ?? '', ['bl', 'bc', 'tl'], true) ? $_GET['pos'] : 'bl';
 $c2    = preg_match('/^#[0-9a-fA-F]{6}$/', (string)($_GET['c2'] ?? '')) ? $_GET['c2'] : '#fd783b';
 $c1    = '#ffffff';
-$FONT  = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf';
 
-// ── lay out lines top→bottom, then assign y from the correct gravity edge ─────
-$lines = [['t' => $line1, 's' => $s1, 'c' => $c1]];
-if ($line2 !== '') $lines[] = ['t' => $line2, 's' => $s2, 'c' => $c2];
-if ($line3 !== '') $lines[] = ['t' => $line3, 's' => $s2, 'c' => $c2];
+// ── render via the shared overlay core (identical to the multisite build) ─────
+require_once __DIR__ . '/../includes/multisite/image_overlay.php';
 
-$pad = 30;
-$gap = (int)round($s2 * 0.30);
-if ($pos === 'tl') { $grav = 'northwest'; $scrimGrav = 'north'; $scrimGrad = 'gradient:black-none'; $topDown = true;  $xoff = $pad; }
-elseif ($pos === 'bc') { $grav = 'south'; $scrimGrav = 'south'; $scrimGrad = 'gradient:none-black'; $topDown = false; $xoff = 0; }
-else { $grav = 'southwest'; $scrimGrav = 'south'; $scrimGrad = 'gradient:none-black'; $topDown = false; $xoff = $pad; }
+$outPng = tempnam(sys_get_temp_dir(), 'herolab_');
+if ($outPng === false) $outPng = sys_get_temp_dir() . '/herolab_' . getmypid() . mt_rand();
+@unlink($outPng);
+$outPng .= '.png';
 
-$n = count($lines);
-$yoff = array_fill(0, $n, $pad);
-if ($topDown) {
-    $y = $pad;
-    for ($i = 0; $i < $n; $i++) { $yoff[$i] = $y; $y += $lines[$i]['s'] + $gap; }
-} else {
-    $y = $pad;
-    for ($i = $n - 1; $i >= 0; $i--) { $yoff[$i] = $y; $y += $lines[$i]['s'] + $gap; }
-}
-
-// ── build the convert command (each token escaped; no shell interpolation) ────
-$cmd = [$convert, $src];
-if ($scrim > 0) {
-    $cmd = array_merge($cmd, ['(', '-size', "{$W}x{$scrim}", $scrimGrad, ')', '-gravity', $scrimGrav, '-composite']);
-}
-$cmd = array_merge($cmd, ['-font', $FONT, '-gravity', $grav]);
-foreach ($lines as $i => $ln) {
-    $at = '+' . $xoff . '+' . $yoff[$i];
-    // halo pass (dark stroke) for legibility on any photo, then the fill pass
-    $cmd = array_merge($cmd, [
-        '-pointsize', (string)$ln['s'],
-        '-strokewidth', '3', '-stroke', 'rgba(0,0,0,0.55)', '-fill', 'rgba(0,0,0,0.55)', '-annotate', $at, $ln['t'],
-        '-strokewidth', '0', '-stroke', 'none', '-fill', $ln['c'], '-annotate', $at, $ln['t'],
-    ]);
-}
-
-$tmp = tempnam(sys_get_temp_dir(), 'herolab_') ?: (sys_get_temp_dir() . '/herolab_' . getmypid());
-$cmd[] = 'png:' . $tmp;
-
-$shell = implode(' ', array_map('escapeshellarg', $cmd));
-exec($shell . ' 2>&1', $out, $rc);
+$r = ms_hero_overlay_render($src, $outPng, [
+    'line1' => $line1, 'line2' => $line2, 'line3' => $line3,
+    'pos' => $pos, 'c1' => $c1, 'c2' => $c2, 's1' => $s1, 's2' => $s2, 'scrim' => $scrim,
+    'W' => $W, 'H' => $H,
+]);
 
 if (isset($_GET['debug'])) {
-    @unlink($tmp);
+    @unlink($outPng);
     header('Content-Type: text/plain');
-    echo "convert : {$convert}\n";
-    echo "rc      : {$rc}\n";
+    echo 'ok      : ' . (!empty($r['ok']) ? 'yes' : 'no') . "\n";
     echo "src     : {$src}\n";
     echo "size    : {$W}x{$H}\n\n";
-    echo "command :\n{$shell}\n\n";
-    echo "output  :\n" . implode("\n", $out) . "\n";
+    echo "command :\n" . ($r['cmd'] ?? '') . "\n\n";
+    echo "error   :\n" . ($r['error'] ?? '') . "\n";
     exit;
 }
 
-if ($rc !== 0 || !is_file($tmp) || filesize($tmp) < 1) {
-    @unlink($tmp);
+if (empty($r['ok'])) {
+    @unlink($outPng);
     http_response_code(500); header('Content-Type: text/plain');
-    exit('Image generation failed: ' . implode("\n", array_slice($out, 0, 5)));
+    exit('Image generation failed: ' . ($r['error'] ?? 'unknown'));
 }
 
 header('Content-Type: image/png');
 header('Cache-Control: no-store');
-header('Content-Length: ' . filesize($tmp));
-readfile($tmp);
-@unlink($tmp);
+header('Content-Length: ' . filesize($outPng));
+readfile($outPng);
+@unlink($outPng);
