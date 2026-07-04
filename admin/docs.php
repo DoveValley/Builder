@@ -148,7 +148,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <button type="button" class="doc-tab" data-doc="reference" onclick="switchDoc('reference')">Admin</button>
         <button type="button" class="doc-tab" data-doc="building" onclick="switchDoc('building')">Building</button>
         <button type="button" class="doc-tab" data-doc="aicity" onclick="switchDoc('aicity')">AI &amp; City</button>
-        <button type="button" class="doc-tab" data-doc="multisite" onclick="switchDoc('multisite')">Multisite</button>
+        <button type="button" class="doc-tab" data-doc="multisite" onclick="switchDoc('multisite')">Multisite Gen</button>
         <button type="button" class="doc-tab" data-doc="devenv" onclick="switchDoc('devenv')">DevEnv</button>
         <button type="button" class="doc-tab" data-doc="extending" onclick="switchDoc('extending')">Extending</button>
         <button type="button" class="doc-tab" onclick="location.href='playground.php'" style="background:#fd783b;color:#fff;">🧪 Test Lab</button>
@@ -188,7 +188,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#tab-starters">Page Starters</a>
         <a href="#tab-templates">Templates</a>
         <a href="#tab-cities">Landing Cities</a>
-        <a href="#tab-citypages">City Pages</a>
+        <a href="#tab-citypages">Landing City Page Gen</a>
         <a href="#tab-generate">AI Generation</a>
         <a href="#tab-ai-review">Content Review</a>
         <a href="#tab-ai-blocks">Block Registry</a>
@@ -938,7 +938,7 @@ tr:nth-child(even) td { background: #f8fafc; }
 </section>
 
 <section id="tab-citypages">
-    <h2>Tab: City Pages</h2>
+    <h2>Tab: Landing City Page Gen</h2>
     <p>Shows the status of all generated city landing pages — which template × city combinations have been generated, when, and what state they are in. Also provides generation controls and a history log.</p>
 
     <h3>Status Grid</h3>
