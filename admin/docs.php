@@ -3386,7 +3386,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <ol type="a">
         <li><span class="where perrow">Per-row</span>◐ Per-site favicon / og-image — the fields already exist; auto-set per site so no two sites ship a byte-identical favicon / OG file <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(cheap field-override)</span></li>
         <li><span class="where perrow">Per-row</span>☐ Per-site logo — auto-wordmark from the business name (or honor a <code>logo</code> column), and derive the favicon from it <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(needs asset-generation code)</span></li>
-        <li><span class="where perrow">Per-row</span>☐ Per-site image assignment — a per-city image pool assigned deterministically; at minimum re-crop / re-compress / strip EXIF differently per site so files aren't byte-identical <span class="pri should">Should</span> <span style="color:#64748b;">(needs an image pool)</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Per-site hero differentiation — keyword + "City, ST" baked onto each hero image (text overlay), so every site's hero is a genuinely different file <span class="pri should">Should</span> <span style="color:#64748b;">(style tuned/locked in the <a href="playground.php">Test Lab</a>; no image pool needed)</span></li>
         <li><span class="where perrow">Per-row</span>☐ Domain-seeded theme colors — deterministic palette from a domain hash; the render layer already supports theme overrides, so this rides the existing inject step <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(lowest impact)</span></li>
     </ol>
 
@@ -3444,7 +3444,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <p style="margin:14px 0 2px;"><strong>Phase 3 — Visual / asset pipeline</strong> <span style="color:#64748b;">· lowest SEO value, do last; all touch the asset subsystem · ~5–7 dev-days</span></p>
     <ul>
-        <li><a href="#spec-image-assign">4c</a> · Per-site image assignment + re-encode — <span class="pri should">Should</span> ~2 d (+ pool curation)</li>
+        <li><a href="#spec-image-assign">4c</a> · Per-site hero differentiation (text overlay) — <span class="pri should">Should</span> ✅ DONE</li>
         <li><a href="#spec-logo">4b</a> · Per-site logo / wordmark — <span class="pri maybe">Maybe</span> ~1–2 d</li>
         <li><a href="#spec-favicon">4a</a> · Per-site favicon / OG (derives from 4b) — <span class="pri maybe">Maybe</span> ~½ d</li>
         <li><a href="#spec-theme-colors">4d</a> · Domain-seeded theme colors — <span class="pri maybe">Maybe</span> ~½ d</li>
@@ -3610,10 +3610,11 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     </div>
 
     <div class="block-card-doc" id="spec-image-assign">
-        <h3>4c · Per-site image assignment <span class="pri should">Should</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
-        <p class="bc-meta">☐ not built — needs an image pool</p>
-        <p><strong>Description.</strong> A per-city image pool assigned deterministically; at minimum re-crop / re-compress / strip EXIF differently per site so files aren't byte-identical.</p>
-        <p><strong>Build.</strong> Assemble a per-niche/city image pool; at build, assign photos to blocks by domain hash and re-encode (crop ratio + quality + EXIF strip) per site. Pool must be curated first. <strong>Effort:</strong> ~2 days (+ pool curation).</p>
+        <h3>4c · Per-site hero image differentiation <span class="pri should">Should</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">✅ DONE — hero text overlay (chosen over image pools; no curation needed)</p>
+        <p><strong>Description.</strong> Every generated site shares the master's hero photos, so the files are byte-identical across the whole network — a duplicate-image footprint that no text variation touches. Fixed by <strong>baking text onto each hero</strong>: line 1 = the page's <code>primary_keyword</code>, line 2 = "City, ST". Because the words differ per city, every site's hero is a genuinely different image (and the local keyword is in the pixels). This was chosen over curated image pools — one master photo yields a unique hero per city with zero photo-gathering.</p>
+        <p><strong>Built.</strong> <code>includes/multisite/image_overlay.php</code> — <code>ms_stamp_hero_images()</code> runs in <code>build_one.php</code> after AI, before the static build. It <strong>materialises the shared-uploads symlink into a per-site directory</strong> (so stamped files never touch the snapshot), finds each hero-type block's image across the homepage, core pages, and generated landing pages (each with its own city), renders the two lines via ImageMagick, and repoints the block to a per-page/per-domain output file. Format-preserving (webp→webp), metadata stripped for <strong>byte-reproducible rebuilds</strong>, sizes scale to each hero. <strong>Requires</strong> the master to carry <code>primary_keyword</code> per page for line 1 (else city-only). <strong>Scope:</strong> multisite builds only (not single-site deploys — a one-line add if wanted).</p>
+        <p><strong>Tuning &amp; locking the style.</strong> The <a href="playground.php">Test Lab</a> (docs nav → 🧪 Test Lab) previews the overlay on any image with live controls, then <em>Lock this style into the build</em> writes <code>multisite/hero_style.json</code> (position, colours, sizes + reference dims). The build reads it — a per-master <code>sites/{master}/multisite/hero_style.json</code> overrides the global one — and scales the locked sizes to each hero. The Lab shares the exact render core, so the preview matches production.</p>
     </div>
 
     <div class="block-card-doc" id="spec-theme-colors">
