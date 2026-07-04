@@ -330,6 +330,7 @@ tr:nth-child(even) td { background: #f8fafc; }
 
         <a class="nav-group" href="#ms-seo">Site Differentiation &amp; SEO</a>
         <a href="#ms-differentiation">Per-site differentiation</a>
+        <a href="#ms-visual-identity">Visual identity</a>
         <a href="#ms-axes">Differentiation axes &amp; status</a>
         <a href="#ms-specs">Build specs</a>
         <a href="#ms-roadmap">Build roadmap</a>
@@ -593,7 +594,7 @@ tr:nth-child(even) td { background: #f8fafc; }
     <p>The phone number displayed in the header (typically top-right). Use <code>{phone}</code> to pull from site_vars. Location text (city, state) can appear alongside the phone on the 2-row layout.</p>
 
     <h3>Nav Bar Style</h3>
-    <p>Colors, spacing, and alignment for the navigation bar. Background color, text color, hover color, and active link color are all independently configurable. These pull from the theme by default but can be overridden per-site.</p>
+    <p>Spacing and alignment for the navigation bar. The nav bar <strong>background and text colors have moved to the <a href="#tab-theme">Theme / Colors</a> tab</strong> — the old nav_bg / nav_text pickers were removed here, and a pointer sends you there. Set the "Header bar color" and "Header bar text" on Theme / Colors; the header container and menu links follow automatically.</p>
 
     <h3>Nav CTA Button</h3>
     <p>An optional call-to-action button inside the nav bar (e.g. "Get a Quote", "Register Now"). Shows as a colored button, separate from the regular menu links. Set label and URL.</p>
@@ -606,33 +607,40 @@ tr:nth-child(even) td { background: #f8fafc; }
 </section>
 
 <section id="tab-theme">
-    <h2>Tab: Theme</h2>
+    <h2>Tab: Theme / Colors</h2>
     <p>Controls global colors, fonts, and button styles. All values are converted to CSS custom properties and injected inline into every page. Change a color here and it updates everywhere on the site automatically.</p>
+    <p>The tab reads top-to-bottom as a hierarchy, each block with its own "when to use" guidance: <strong>① Theme Preset</strong> → <strong>② Brand colors</strong> → <strong>③ Header &amp; Footer</strong> → <strong>④ Section moods (Block Skins)</strong> → <strong>⑤ Page background &amp; borders</strong> → <strong>⑥ Typography &amp; Buttons</strong> → <strong>⑦ Tracking</strong>. Start at the top and work down.</p>
     <div class="callout tip">
         <p><strong>Tip:</strong> Color fields in content blocks accept the keywords <code>accent</code>, <code>header</code>, or <code>footer</code> instead of a hex value — they resolve at render time, so one theme change ripples to every block that uses them.</p>
     </div>
 
-    <h3>Brand Colors</h3>
-    <p>The core palette for the site — typically 2–3 colors from the client's brand guide. Sets the named color slots that the rest of the system uses:</p>
+    <h3>① Theme Preset</h3>
+    <p>A functional <strong>Theme Preset</strong> picker at the top of the tab: pick a preset, click <em>Apply</em> to load its colors / font / button radius into the form below, review, then <em>Save</em>. A Theme Preset is a whole-site bundle of theme values (in multisite it also carries a bug icon that drives the generated logo — see <a href="#ms-visual-identity">Visual identity</a>). Fastest way to reskin the whole site in one move.</p>
+
+    <h3>② Brand colors</h3>
+    <p>The core palette — typically 2–3 colors from the client's brand guide:</p>
     <ul>
-        <li><strong>Header / Primary</strong> — nav bar background, dark hero sections, dark text contrast areas</li>
-        <li><strong>Accent</strong> — buttons, icon tints, highlighted text, active states</li>
-        <li><strong>Footer</strong> — footer background (often the same as or slightly darker than the header)</li>
+        <li><strong>Accent</strong> — buttons, icon tints, highlighted text, active states.</li>
+        <li><strong>Highlight</strong> — the secondary brand color for accents and emphasis.</li>
+        <li><strong>Button text</strong> — the text color that sits on filled buttons.</li>
     </ul>
 
-    <h3>Accent &amp; Buttons</h3>
-    <p>Fine-tune the accent color behavior: hover shade (auto-darkened or manually set), button background, button text color, and disabled state. Also controls the outline button border and text color when the button variant is not filled.</p>
+    <h3>③ Header &amp; Footer</h3>
+    <p>One <strong>Header bar color</strong> control drives the visible nav bar. It stores <code>header.nav_bg</code> as a <em>mode</em> — <em>"Match brand accent"</em> (<code>nav_bg="accent"</code>) or a custom hex. The header container and dropdowns (<code>--color-header-bg</code>) now <strong>auto-follow</strong> it: <code>site-template.php</code> resolves <code>nav_bg</code> and sets the theme's header background to match, so you set the bar color once.</p>
+    <p>One <strong>Header bar text</strong> control drives both the bar text (<code>nav_text</code>) and the menu links (<code>theme.header_text</code>). Footer background and footer text colors are set here too.</p>
+    <div class="callout">The old nav-bar background / text pickers were removed from the <a href="#tab-header">Header tab</a> — that tab now points here. Set the header bar color and text on this tab.</div>
 
-    <h3>Skin Variants</h3>
-    <p>Some blocks support a "skin" — a named color mode that changes the block's background and text independently of the main content. Skins are defined here as additional named slots (e.g., <code>light</code>, <code>dark</code>, <code>tinted</code>). Once defined, a block can select a skin from a dropdown to apply it.</p>
+    <h3>④ Section moods — Block Skins</h3>
+    <p>A <strong>Block Skin</strong> is the per-section palette a block wears — <code>light</code>, <code>subtle</code>, <code>accent</code>, or <code>dark</code>. Each skin is a named background/text/heading slot defined here; a block then picks a skin from a dropdown to change its mood independently of the main content. (Internally these are <code>theme['skins']</code> / <code>block['skin']</code> / <code>.skin-*</code> / <code>--skin-*</code>.)</p>
+    <p>The <strong>Light Block Skin's heading color is the site-wide heading color</strong> — headings render from it, so the tab frames the Light skin as where you set heading color. (The standalone <code>heading_color</code> field is vestigial.)</p>
 
-    <h3>Typography</h3>
-    <p>Sets the Google Font used site-wide. Enter a Google Font family name (e.g., <code>Inter</code>, <code>Lato</code>) — the font is loaded automatically. Heading size scale, base font size, and line height are also configurable here.</p>
+    <h3>⑤ Page background &amp; borders</h3>
+    <p>The page background color and default border/divider color used between sections and around cards.</p>
 
-    <h3>Buttons</h3>
-    <p>Button border radius (controls corner rounding site-wide — <code>0</code> for square, <code>4px</code> for slightly rounded, <code>9999px</code> for pill shape). Primary and secondary button colors can also be overridden here independently of the accent color.</p>
+    <h3>⑥ Typography &amp; Buttons</h3>
+    <p>Sets the Google Font used site-wide (enter a family name like <code>Inter</code> or <code>Lato</code> — loaded automatically; heading font, base size, and line height configurable), plus the button border radius (<code>0</code> = square, <code>4px</code> = slightly rounded, <code>9999px</code> = pill).</p>
 
-    <h3>Analytics &amp; Tracking</h3>
+    <h3>⑦ Tracking</h3>
     <p>Google Analytics measurement ID (e.g., <code>G-XXXXXXXXXX</code>) and Google Tag Manager container ID. When set, the appropriate tracking snippet is injected into every page's <code>&lt;head&gt;</code>. Leave blank to disable tracking.</p>
 </section>
 
@@ -2146,6 +2154,7 @@ Output valid JSON only — no explanation.</code></pre>
     </ul>
     <h3>How it feeds generation</h3>
     <p>The brief is <strong>compiled</strong> (Niche Brief tab → <em>Save &amp; Compile</em>, or <code>php multisite/ai/compile.php --master=&lt;site&gt;</code>) — merging each enabled archetype's shared prompt skeleton with the brief's vocabulary and overwriting the site's <code>data/ai_block_types.json</code>, which is the prompt registry <code>generate.py</code> reads. Then AI generation (Standalone / Enrich, below) fills every <code>ai_block</code> using those compiled prompts plus each city's row in <code>cities.json</code>.</p>
+    <p>Need to tune a specific archetype's wording or model <em>for this niche</em>? The Niche Brief tab's collapsible <em>"Prompt templates (archetypes) — advanced"</em> panel edits each archetype's Label / Model / Description / Prompt skeleton per master, stored as diffs against the shared library and merged in at compile time (with a per-archetype <em>Reset to shared default</em>). See <a href="#ms-niche">Multisite → Niche Brief &amp; archetypes</a>.</p>
     <div class="callout">
         <p><strong>The same brief drives two very different build modes:</strong></p>
         <ul style="margin:8px 0 0;">
@@ -3122,7 +3131,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         ↓
 [ campaign ]  lock → validate → pre-flight → snapshot master ONCE → per-row loop → teardown
         ↓
-[ per row ]   clone → inject → differentiate → AI-generate → build → deploy → delete temp
+[ per row ]   clone → inject → differentiate → visual identity → AI-generate → build → deploy → delete temp
         ↓
 100+ live, independent single-city sites</code></pre>
 
@@ -3145,6 +3154,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><strong>Clone</strong> a cheap working copy from the one-time master snapshot.</li>
         <li><strong>Inject identity</strong> — write the row's business/phone/city/etc. into <code>site_vars</code>.</li>
         <li><strong>Differentiate</strong> — rewrite schema/URLs to this site, inject a LocalBusiness JSON-LD with geo, isolate analytics. See <a href="#ms-differentiation">Per-site differentiation</a>.</li>
+        <li><strong>Visual identity</strong> — apply the row's <a href="#ms-visual-identity">Theme Preset</a> (colors + font + radius) and generate a per-site logo + favicon in those colors, replacing the master's wordmark. See <a href="#ms-visual-identity">Visual identity</a>.</li>
         <li><strong>AI-generate</strong> the city-specific copy, or reuse it from <a href="#ms-cache">the cache</a> — free.</li>
         <li><strong>Build</strong> the whole site to static HTML.</li>
         <li><strong>Deploy</strong> over FTP (only changed files), then delete the temp copy.</li>
@@ -3243,6 +3253,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <tr><td><code>landing_cities</code></td><td>Optional</td><td>Extra service landing pages for this deploy — a <code>;</code>-separated list of "City, ST"</td></tr>
         <tr><td><code>rating</code>, <code>review_count</code></td><td>Optional (paired)</td><td>Real AggregateRating in schema — never invented</td></tr>
         <tr><td><code>logo</code>, <code>analytics_id</code></td><td>Optional</td><td>Per-site logo; per-site analytics (never shared)</td></tr>
+        <tr><td><code>theme_preset</code></td><td>Optional</td><td>Which <a href="#ms-visual-identity">Theme Preset</a> (colors + font + logo) to apply — id or name; blank = deterministic hash rotation off the domain</td></tr>
         <tr><td><code>ftp_host</code>, <code>ftp_user</code>, <code>ftp_pass</code></td><td>For deploy</td><td>Deploy target + auth</td></tr>
         <tr><td><code>ftp_port</code>, <code>ftp_path</code>, <code>ftp_passive</code></td><td>Optional</td><td>Deploy target details</td></tr>
     </table>
@@ -3278,6 +3289,8 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <p><strong>Compiling</strong> merges the two — filling each enabled archetype's <code>[[shared.*]]</code> and <code>[[brief.*]]</code> placeholders — and overwrites the master's <code>data/ai_block_types.json</code> (the prompt registry <code>generate.py</code> reads). Run it from the tab (<em>Save &amp; Compile</em>) or the CLI:</p>
     <pre><code>php multisite/ai/compile.php --master=&lt;master_id&gt;</code></pre>
     <p>Archetypes flagged <code>requires_research</code> are skipped unless the brief has <strong>Uses research fields</strong> on (for data-rich niches whose <code>cities.json</code> carries industries/employers/salary). Fill that data with the <a href="#ai-research">research step</a> — the <em>Research cities</em> card on the Multisite tab seeds <code>cities.json</code> from the params table and looks up each city. Runtime tokens like <code>{business}</code>/<code>{city}</code> are left intact for <code>generate.py</code> to resolve per city.</p>
+    <h3>Per-master prompt overrides</h3>
+    <p>The shared archetype library used to be editable only by hand-editing files + a CLI compile. Now the <strong>Niche Brief</strong> tab has a collapsible <em>"Prompt templates (archetypes) — advanced"</em> panel that edits, <strong>per master</strong>, each archetype's <strong>Label / Model / Description / Prompt skeleton</strong>. Overrides are stored as <strong>diffs against the shared library</strong> in <code>sites/{master}/multisite/archetypes.json</code>; at compile time <code>multisite/ai/compile.php</code> (<code>ms_ai_compile_master</code>) merges each override over the shared <code>multisite/ai/archetypes.json</code> before filling placeholders — so per-master prompt tuning <strong>survives recompiling and never affects another niche</strong>. Only <code>label</code> / <code>description</code> / <code>ai_model</code> / <code>prompt_skeleton</code> are overridable; structural fields stay shared. A <em>Reset to shared default</em> control per archetype drops the override. Files: <code>admin/tabs/niche_brief_archetypes.php</code>, <code>admin/archetypes_save.php</code>. This closes the last file-only multisite config.</p>
 </section>
 
 <section id="ms-aiblocks">
@@ -3347,6 +3360,37 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     </ul>
 </section>
 
+<section id="ms-visual-identity">
+    <h2>Visual identity — Theme Presets, logo, favicon</h2>
+    <p>A clone otherwise carries the master's <em>look</em> — same colors, same font, and (worst) the master's <strong>wordmark logo</strong> baked into pixels — onto every site. The <strong>visual-identity step</strong> gives each site a coordinated, distinct visual brand: a color/font <em>Theme Preset</em>, plus a generated logo and favicon in those colors. It runs in <code>build_one.php</code> right after <a href="#ms-differentiation">differentiation</a> and before the <a href="#spec-image-assign">4c</a> image prune (<code>includes/multisite/visual.php</code>).</p>
+
+    <h3>Theme Presets</h3>
+    <p>A <strong>Theme Preset</strong> is a named bundle of theme values — accent + highlight colors, brand/heading fonts, button radius, header/footer colors, and a <strong>bug icon</strong> (the mark used to build the logo). Presets are stored <strong>per master</strong> in <code>sites/{master}/multisite/theme_presets.json</code> (an array, up to <strong>10</strong>; ~6 recommended). Each entry is <code>{ name, note, icon, theme:{accent_color, header_bg, footer_bg, heading_color, header_text, footer_text, header_top_bg, primary_font, heading_font, button_radius}, header:{nav_bg} }</code>.</p>
+    <p>The pest master ships four:</p>
+    <table>
+        <tr><th>Preset</th><th>Colors</th><th>Font · radius</th><th>Bug</th></tr>
+        <tr><td><strong>Classic</strong></td><td>indigo <code>#120575</code> + orange <code>#fd783b</code></td><td>Inclusive Sans · 5</td><td>cockroach</td></tr>
+        <tr><td><strong>Bold</strong></td><td>charcoal <code>#1f2937</code> + red <code>#dc2626</code></td><td>Inter · 2</td><td>ant</td></tr>
+        <tr><td><strong>Fresh</strong></td><td>forest <code>#14532d</code> + amber <code>#f59e0b</code></td><td>Nunito · 24</td><td>spider</td></tr>
+        <tr><td><strong>Trust</strong></td><td>teal-navy <code>#0f3d5c</code> + teal <code>#0d9488</code></td><td>Poppins · 10</td><td>mosquito</td></tr>
+    </table>
+    <p><strong>Assignment.</strong> The params <code>theme_preset</code> column names a preset (id or name) per row. <strong>Blank</strong> = a deterministic hash rotation off the domain (<code>ms_variant</code>, salt <code>'theme'</code>), so every site still gets a distinct preset that's stable across rebuilds.</p>
+
+    <h3>The generated logo</h3>
+    <p>The step applies the chosen preset (merges <code>preset.theme</code> → <code>data['theme']</code> and <code>preset.header</code> → <code>data['header']</code>), then <strong>generates a logo per site</strong> — a bug mark (the preset's icon as an accent-colored silhouette on a dark rounded tile) to the left of a two-tone wordmark built from <code>{business}</code>: the first word in the accent color on line 1, the remaining words in the dark brand color on line 2, left-justified (DejaVu Sans Bold) — the same lockup shape as the master's "KATY / PEST PROS." It's written to <code>uploads/</code> and set as <code>header.logo</code>. Colors come from the applied theme (accent = <code>accent_color</code>; dark = <code>heading_color</code> → <code>footer_bg</code> → <code>header_bg</code> fallback).</p>
+    <p>This <strong>replaces the master's baked-in wordmark per site</strong>, fixing the "KATY PEST PROS" identity leak: the master's logo file goes unreferenced and the 4c prune removes it. Verified end-to-end. See <a href="#spec-logo">4b</a>.</p>
+
+    <h3>The generated favicon</h3>
+    <p>The same bug tile is rendered at 128px and set as <code>header.favicon</code> — so no two sites ship a byte-identical favicon. See <a href="#spec-favicon">4a</a>.</p>
+
+    <h3>Bug icons</h3>
+    <p>19 bug SVGs live in <code>sites/{master}/multisite/icons/</code>: ant, cockroach, spider, mosquito, fly, beetle, ladybug, cricket, bee, caterpillar, butterfly, scorpion, worm, snail, rat, mouse, bat, lizard, snake. Source is <strong>Noto Emoji (Apache 2.0)</strong> — no attribution required; codepoints are recorded in <code>icons/LICENSE.txt</code>. Each colorizes to a preset's accent-on-dark-tile for the logo and favicon.</p>
+
+    <h3>Editing presets in the admin</h3>
+    <p>The Multisite tab has a <strong>"Visual Identity — Theme Presets"</strong> panel to view / edit / add / remove / save presets (up to 10) with <strong>live logo + favicon previews</strong>. Per preset: name, accent + dark color pickers, bug-icon dropdown, font, and button radius. Files: <code>admin/tabs/multisite_visual.php</code> (panel), <code>admin/visual_preview.php</code> (streams the live preview PNG), <code>admin/visual_presets_save.php</code> (CSRF save).</p>
+    <div class="callout tip">Preview a preset, its four sample logos, real headers, favicons and the bug icons in the <a href="playground.php">Test Lab</a> (docs nav → 🧪 Test Lab).</div>
+</section>
+
 <section id="ms-axes">
     <h2>Differentiation axes &amp; status</h2>
     <p>Generating many same-topic city sites is the pattern Google's <em>doorway pages</em> and <em>scaled content abuse</em> policies target. Cosmetic differences don't satisfy them — Google evaluates substance. The six areas below run from highest SEO impact down: <strong>do the top well before spending time on the bottom.</strong> Areas 1–4 are <strong>what the generator produces</strong> per site (ordered by impact); areas 5–6 are <strong>local presence and operational infrastructure</strong> that mostly live outside the tool. Each area is both a status snapshot and the build backlog. Every per-site output must be <strong>deterministic per domain</strong> — stable across rebuilds, so SEO signals don't churn.</p>
@@ -3384,10 +3428,10 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <h3>4 · Visual <span style="font-weight:400;color:#64748b;font-size:.85em;">(most tempting, least SEO value — do last)</span></h3>
     <ol type="a">
-        <li><span class="where perrow">Per-row</span>◐ Per-site favicon / og-image — the fields already exist; auto-set per site so no two sites ship a byte-identical favicon / OG file <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(cheap field-override)</span></li>
-        <li><span class="where perrow">Per-row</span>☐ Per-site logo — auto-wordmark from the business name (or honor a <code>logo</code> column), and derive the favicon from it <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(needs asset-generation code)</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Per-site favicon — generated per site (the <a href="#ms-visual-identity">Theme Preset</a>'s bug icon as a 128px colored tile), so no two sites ship a byte-identical favicon <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(done — visual-identity step)</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Per-site logo — generated per site: bug mark + two-tone wordmark from <code>{business}</code> in the preset's colors, replacing the master's baked-in "KATY PEST PROS" wordmark (honors a <code>logo</code> column override) <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(done — kills the master-logo identity leak)</span></li>
         <li><span class="where perrow">Per-row</span>✅ Per-site hero differentiation — keyword + "City, ST" baked onto each hero image (text overlay), so every site's hero is a genuinely different file <span class="pri should">Should</span> <span style="color:#64748b;">(style tuned/locked in the <a href="playground.php">Test Lab</a>; no image pool needed)</span></li>
-        <li><span class="where perrow">Per-row</span>⏭️ Domain-seeded theme colors — <strong>decided against</strong> <span style="color:#64748b;">— cosmetic/human-facing; Google doesn't weight visual theme (see roadmap).</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Per-site theme colors — a curated <a href="#ms-visual-identity">Theme Preset</a> (palette + font + button radius) per site, by column or domain hash; also drives the logo/favicon <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(done as Theme Presets — see <a href="#spec-theme-colors">4d</a>)</span></li>
     </ol>
 
     <h3>5 · Local &amp; off-site signals <span style="font-weight:400;color:#64748b;font-size:.85em;">(where local city sites win or lose)</span></h3>
@@ -3423,7 +3467,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <h3 id="ms-roadmap" style="margin-top:26px;border-top:2px solid #0f172a;padding-top:14px;color:#0f172a;">Build roadmap — suggested phases</h3>
     <p>Grouped by <strong>shared infrastructure and priority, not by area</strong>. Phase 1 first builds a deterministic variant-selector helper — <code>variants[ crc32(domain) % n ]</code> — that the structural items reuse; the visual/asset items cluster in Phase 3. Each variation item is <strong>code + authoring</strong> (the 3–4 variants must be written into the master); budget the authoring separately, in parallel with the code. <strong>Verify after each phase</strong> by building 2–3 sample domains and diffing their output — it must differ <em>and</em> be rebuild-stable (deterministic per domain).</p>
 
-    <div class="callout" style="border-left:4px solid #16a34a;"><strong>At a glance (updated 2026-07-04):</strong> Phase 1 ✅ complete · Phase 2 done (1e, 1d, 5c; 1f = QA guardrail) · Phase 3 (4c, 2d done). <strong>The differentiation build is complete.</strong> The cosmetic items — <a href="#spec-css-skins">2c</a> CSS skins, <a href="#spec-theme-colors">4d</a> colors, <a href="#spec-favicon">4a</a> favicon, <a href="#spec-vary-copy">1g</a> copy templates — are <strong>⏭️ decided against</strong>: <em>human-perception</em> variation, which Google's doorway detection doesn't weight (it looks at content, links, structure, <strong>network</strong>). <strong>Exception: <a href="#spec-logo">4b</a> per-site logo is RE-OPENED</strong> — the master logo is a <em>wordmark</em> ("KATY PEST PROS"), so leaving it identical leaks the master brand on every clone (identity issue, not cosmetic); planned fix = auto-generate a wordmark from <code>{business}</code>. <strong>Real remaining leverage (mostly off this tool):</strong> (1) validate a small batch — ship 3–5 sites, watch indexation; (2) network / hosting / IP diversity; (3) content substance. The cosmetic 4d/4a can ride along with 4b as a coordinated visual-identity step if the "different businesses" look is wanted — eyes-open that it's for people, not Google.</div>
+    <div class="callout" style="border-left:4px solid #16a34a;"><strong>At a glance (updated 2026-07-04):</strong> Phase 1 ✅ complete · Phase 2 done (1e, 1d, 5c; 1f = QA guardrail) · Phase 3 done (4c, 2d, and now the whole <a href="#ms-visual-identity">visual-identity step</a> — <a href="#spec-logo">4b</a> logo, <a href="#spec-favicon">4a</a> favicon, <a href="#spec-theme-colors">4d</a> theme colors). <strong>The differentiation build is complete.</strong> What shipped as a coordinated <strong>visual-identity step</strong>: a per-master library of <a href="#ms-visual-identity">Theme Presets</a> (palette + font + radius + bug icon), assigned per site (column or domain hash), that generates a per-site logo + favicon in those colors. This closed <a href="#spec-logo">4b</a> — the real one: the master logo is a <em>wordmark</em> ("KATY PEST PROS"), so leaving it identical leaked the master brand on every clone (identity issue, not cosmetic) — and folded in the cosmetic <a href="#spec-theme-colors">4d</a>/<a href="#spec-favicon">4a</a> as a bonus. Still <strong>⏭️ decided against:</strong> <a href="#spec-css-skins">2c</a> CSS class-vocabulary rotation and <a href="#spec-vary-copy">1g</a> copy templates — pure fingerprint obfuscation Google's doorway detection doesn't weight. <strong>Real remaining leverage is off this tool:</strong> (1) validate a small batch — ship 3–5 sites, watch indexation; (2) network / hosting / IP diversity; (3) content substance.</div>
 
     <p style="margin:14px 0 2px;"><strong>Phase 1 — Variation engine + structural Musts</strong> <span style="color:#64748b;">· the anti-fingerprint core · ✅ COMPLETE (2b intentionally skipped)</span></p>
     <ul>
@@ -3444,16 +3488,16 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li>⏭️ <a href="#spec-vary-copy">1g</a> · Vary copy templates — <strong>decided against</strong> <span style="color:#64748b;">— AI copy is already unique per city; varying the templated scaffold around it is negligible value.</span></li>
     </ul>
 
-    <p style="margin:14px 0 2px;"><strong>Phase 3 — Visual / asset pipeline</strong> <span style="color:#64748b;">· lowest SEO value, do last; all touch the asset subsystem · <strong>2 of 5 done</strong> (4c + 2d); remaining ~2–3 dev-days</span></p>
+    <p style="margin:14px 0 2px;"><strong>Phase 3 — Visual / asset pipeline</strong> <span style="color:#64748b;">· lowest SEO value, do last; all touch the asset subsystem · <strong>✅ COMPLETE</strong> (4c, 2d, plus the visual-identity step — 4b, 4a, 4d)</span></p>
     <ul>
         <li>✅ <a href="#spec-image-assign">4c</a> · Per-site image differentiation — keyword + "City, ST" baked onto heroes, plus byte-perturb + city-rename of every other photo (also covers 2d); style tuned/locked in the <a href="playground.php">Test Lab</a>.</li>
-        <li>⏭️ <a href="#spec-theme-colors">4d</a> · Domain-seeded theme colors — <strong>decided against (2026-07-04)</strong> <span style="color:#64748b;">— same reasoning as 2c: cosmetic/human-facing, not a signal Google weights.</span></li>
-        <li>◐ <a href="#spec-logo">4b</a> · Per-site logo — <strong>RE-OPENED (2026-07-04) — this one is real, not cosmetic.</strong> <span style="color:#64748b;">The pest master's logo is a <em>wordmark</em> reading "KATY PEST PROS"; leaving it identical means every clone displays the master's business name + city in the header (an <strong>identity leak</strong> + duplicate image), contradicting the rewritten text. Planned fix: auto-generate a wordmark from <code>{business}</code> per site (reuses 4c ImageMagick tech). Coordinated visual-identity step: pick 1 of 4 color schemes by domain hash → generate logo + favicon in those colors.</span></li>
-        <li>⏭️ <a href="#spec-favicon">4a</a> · Per-site favicon / OG — <strong>decided against</strong> <span style="color:#64748b;">— same cosmetic tier.</span></li>
+        <li>✅ <a href="#spec-logo">4b</a> · Per-site logo — <strong>BUILT (2026-07-04) — the real one.</strong> <span style="color:#64748b;">The <a href="#ms-visual-identity">visual-identity step</a> generates a bug mark + two-tone wordmark from <code>{business}</code> per site (in the applied preset's colors), replacing the master's baked-in "KATY PEST PROS" wordmark and killing the identity leak. Runs after differentiate, before the 4c prune.</span></li>
+        <li>✅ <a href="#spec-favicon">4a</a> · Per-site favicon — <strong>BUILT (2026-07-04)</strong> <span style="color:#64748b;">— the preset's bug icon as a 128px colored tile, set per site; derived from the same mark as the logo.</span></li>
+        <li>✅ <a href="#spec-theme-colors">4d</a> · Per-site theme colors — <strong>BUILT (2026-07-04) as <a href="#ms-visual-identity">Theme Presets</a></strong> <span style="color:#64748b;">— a per-master library of palette/font/radius bundles, assigned per site by column or domain hash; also drives the logo/favicon.</span></li>
         <li>✅ <a href="#spec-image-paths">2d</a> · Randomize image filename — folded into 4c (site city appended, master city stripped, on every image).</li>
     </ul>
 
-    <div class="callout tip"><strong>Status:</strong> The build is <strong>done</strong>. Shipped: 1c, 3g, 2a (Phase 1); 1e, 1d, 5c + the 1f authoring-lint guardrail (Phase 2); 4c, 2d (Phase 3). <strong>Decided against (⏭️, 2026-07-04):</strong> 2c CSS skins, 4d colors, 4b/4a logo/favicon, 1g copy templates, 2b schema-shape — all cosmetic / human-perception, which Google's doorway detection doesn't weight (it looks at content, links, structure, network). <strong>Only remaining leverage is off this tool:</strong> validate a batch (ship 3–5, watch indexation), network/hosting/IP diversity, and content substance. There is no meaningful on-page differentiation code left to write.</div>
+    <div class="callout tip"><strong>Status:</strong> The build is <strong>done</strong>. Shipped: 1c, 3g, 2a (Phase 1); 1e, 1d, 5c + the 1f authoring-lint guardrail (Phase 2); 4c, 2d + the <a href="#ms-visual-identity">visual-identity step</a> (4b logo, 4a favicon, 4d Theme Presets) (Phase 3). <strong>Decided against (⏭️, 2026-07-04):</strong> 2c CSS class-vocabulary rotation, 1g copy templates, 2b schema-shape — pure fingerprint obfuscation Google's doorway detection doesn't weight (it looks at content, links, structure, network). <strong>Only remaining leverage is off this tool:</strong> validate a batch (ship 3–5, watch indexation), network/hosting/IP diversity, and content substance. There is no meaningful on-page differentiation code left to write.</div>
 
     <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 1 · Content</h3>
 
@@ -3462,6 +3506,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <p class="bc-meta">✅ built</p>
         <p><strong>Description.</strong> Each site's home and core pages get city-specific body copy written by the AI generator from the Niche Brief + shared archetypes, so no two cities read the same.</p>
         <p><strong>Build (today).</strong> In <code>build_one.php</code>, after inject + differentiate, <code>generate.py</code> fills every <code>ai_block</code>. Prior copy is re-injected from the per-domain cache via <code>ms_ai_inject_from_cache()</code> (<code>includes/multisite/ai_cache.php</code>) so only missing/stale blocks regenerate — rebuilds are free. Cache: <code>sites/{master}/multisite/cache/{domain}.json</code>; <code>--force</code> regenerates.</p>
+        <p><strong>Per-master prompt tuning.</strong> Each archetype's Label / Model / Description / Prompt skeleton can now be overridden <strong>per master</strong> in the admin — the <em>Prompt templates (archetypes)</em> panel on the <a href="#ai-niche">Niche Brief</a> tab. Overrides are stored as diffs against the shared library and merged at compile time, so tuning one niche's prompts survives recompiling and never touches another. See <a href="#ms-niche">Niche Brief &amp; archetypes</a>.</p>
     </div>
 
     <div class="block-card-doc" id="spec-landing">
@@ -3527,8 +3572,9 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <div class="block-card-doc" id="spec-css-skins">
         <h3>2c · CSS skins / vary class vocabulary <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring (+ Per-row)</span></h3>
-        <p class="bc-meta">⏭️ decided against (2026-07-04) — cosmetic / human-perception, not a Google signal</p>
-        <p><strong>Decision.</strong> Considered building a per-site "skin" system (color scheme + fonts + component styling as a few designed presets) so sites look like different themes. <strong>Decided against:</strong> visual/theme variation is a <em>human-perception</em> signal — it changes what a person sees, not what Google's doorway/scaled-content detection measures (content, links, structure, network). The goal here is avoiding <em>algorithmic</em> classification, not fooling a manual reviewer, so this is a dead end for the objective. (Random per-site CSS jitter would also read as auto-generated/spammy — worse, not better.) Kept for the record.</p>
+        <p class="bc-meta">⏭️ class-vocabulary rotation decided against — but "different palette per site" now shipped as <a href="#ms-visual-identity">Theme Presets</a></p>
+        <p><strong>Superseded in part.</strong> The "give each site a different color scheme + font" goal is now <strong>built</strong> as <a href="#ms-visual-identity">Theme Presets</a> — a per-master library of color/font/radius bundles, assigned per site (column or domain hash), that also drives a generated logo + favicon. What remains ⏭️ decided-against below is the narrower <em>class-name-vocabulary</em> rotation, which is pure fingerprint obfuscation with no user-facing value.</p>
+        <p><strong>Decision (class rotation).</strong> Considered building a per-site "skin" system (color scheme + fonts + component styling as a few designed presets) so sites look like different themes. The <em>looks-different</em> part is now Theme Presets. Rotating <em>class names</em> under identical CSS was <strong>decided against:</strong> visual/theme variation is a <em>human-perception</em> signal — it changes what a person sees, not what Google's doorway/scaled-content detection measures (content, links, structure, network). The goal here is avoiding <em>algorithmic</em> classification, not fooling a manual reviewer, so this is a dead end for the objective. (Random per-site CSS jitter would also read as auto-generated/spammy — worse, not better.) Kept for the record.</p>
         <p><strong>Description.</strong> 3–4 "skins" — the same visual layout and CSS rules under different class-name vocabularies — rotated per site.</p>
         <p><strong>Build.</strong> Author skin maps (canonical name → skin class names) in the master. At render, rewrite class attributes and the matching selectors in the emitted stylesheet using the skin selected by domain hash; ensure markup + CSS use the same skin. <strong>Effort:</strong> ~2 days.</p>
     </div>
@@ -3601,18 +3647,17 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 4 · Visual</h3>
 
     <div class="block-card-doc" id="spec-favicon">
-        <h3>4a · Per-site favicon / og-image <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
-        <p class="bc-meta">⏭️ decided against (2026-07-04) — same cosmetic / human-perception tier as 4b/2c</p>
-        <p><strong>Description.</strong> Auto-set per site so no two sites ship a byte-identical favicon / OG file.</p>
-        <p><strong>Build.</strong> Add a per-site override in inject/differentiate — assign from a per-domain asset or regenerate (recolor / re-hash) so the files differ. <strong>Effort:</strong> ~½ day.</p>
+        <h3>4a · Per-site favicon <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">✅ BUILT (2026-07-04) — generated per site as part of the <a href="#ms-visual-identity">visual-identity step</a></p>
+        <p><strong>Description.</strong> Auto-set per site so no two sites ship a byte-identical favicon.</p>
+        <p><strong>Built.</strong> The visual-identity step (<code>includes/multisite/visual.php</code>) renders the applied <a href="#ms-visual-identity">Theme Preset</a>'s bug icon as a colored tile at 128px and sets it as <code>header.favicon</code>. Colors follow the preset (accent-on-dark-tile), so each site's favicon differs. Shipped alongside the generated logo (<a href="#spec-logo">4b</a>).</p>
     </div>
 
     <div class="block-card-doc" id="spec-logo">
         <h3>4b · Per-site logo <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
-        <p class="bc-meta">◐ RE-OPENED (2026-07-04) — the logo is a wordmark → identity leak, NOT cosmetic</p>
-        <p><strong>Why this is real, not cosmetic.</strong> The pest master's header logo is a <strong>wordmark</strong> — the image literally reads "KATY PEST PROS." We excluded logos from the 4c image pass as "brand furniture," which is right for a generic mark but wrong for a wordmark: so every clone (Dallas, Plano, …) currently displays a header logo saying the <em>master's</em> business name and city, baked into the pixels, contradicting the rewritten page text. That's the same class as the business-name text leak (which we <em>do</em> rewrite) — visible, prominent, and byte-identical across all sites. (Contrast: the OG image is a photo, already handled by 4c; a <em>broken</em> master-domain logo URL is separate authoring QA flagged by the <a href="#spec-finish-authoring">master lint</a>.)</p>
-        <p><strong>Planned fix.</strong> Auto-generate a wordmark from <code>{business}</code> per site — render the business name (bold font, in the site's accent colour) via the 4c ImageMagick tech, swap <code>header.logo</code> (dark + white variants). "Correct + unique" beats "polished + wrong brand" for the goal; the params <code>logo</code> column stays as a manual override. Part of a coordinated <strong>visual-identity step</strong>: hash the domain → pick 1 of 4 colour schemes → generate logo + favicon in those colours. See <a href="#spec-theme-colors">4d</a> / <a href="#spec-favicon">4a</a> — those two are cosmetic (build only for the "looks like different businesses" feel), but the logo is the one that fixes a leak.</p>
-        <p><strong>Build.</strong> Generate an SVG/PNG wordmark from <code>{business}</code> at build (font + domain-seeded accent), or use the row's <code>logo</code> column; write it to the site, set <code>header.logo</code>, and derive the favicon. <strong>Effort:</strong> ~1–2 days.</p>
+        <p class="bc-meta">✅ BUILT (2026-07-04) — per-site generated wordmark + bug mark; kills the master-logo leak</p>
+        <p><strong>Why this was real, not cosmetic.</strong> The pest master's header logo is a <strong>wordmark</strong> — the image literally reads "KATY PEST PROS." Logos were excluded from the 4c image pass as "brand furniture," which is right for a generic mark but wrong for a wordmark: every clone (Dallas, Plano, …) displayed a header logo saying the <em>master's</em> business name and city, baked into the pixels, contradicting the rewritten page text — the same class of leak as the business-name text (which we <em>do</em> rewrite), visible and byte-identical across all sites.</p>
+        <p><strong>Built.</strong> The <a href="#ms-visual-identity">visual-identity step</a> (<code>includes/multisite/visual.php</code>, run in <code>build_one.php</code> right after <code>ms_differentiate_working_dir()</code> and before the 4c prune) generates a logo per site: a <strong>bug mark</strong> (the applied <a href="#ms-visual-identity">Theme Preset</a>'s icon, accent-colored on a dark rounded tile) to the left of a <strong>two-tone wordmark</strong> from <code>{business}</code> — first word in the accent color on line 1, remaining words in the dark brand color on line 2, left-justified (DejaVu Sans Bold) — the same lockup as the master's "KATY / PEST PROS." Written to <code>uploads/</code> and set as <code>header.logo</code>; colors come from the applied theme (accent = <code>accent_color</code>; dark = <code>heading_color</code> → <code>footer_bg</code> → <code>header_bg</code> fallback). This <strong>replaces the master's baked-in logo per site</strong> — the master's file goes unreferenced and the 4c prune removes it. Verified end-to-end. The params <code>logo</code> column stays a manual override, and the favicon (<a href="#spec-favicon">4a</a>) is derived from the same bug tile.</p>
     </div>
 
     <div class="block-card-doc" id="spec-image-assign">
@@ -3632,10 +3677,10 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     </div>
 
     <div class="block-card-doc" id="spec-theme-colors">
-        <h3>4d · Domain-seeded theme colors <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
-        <p class="bc-meta">⏭️ decided against (2026-07-04) — cosmetic / human-perception (same reasoning as 2c)</p>
-        <p><strong>Description.</strong> A deterministic palette from a domain hash; the render layer already supports theme overrides.</p>
-        <p><strong>Build.</strong> Derive accent / header / button colors from <code>crc32(domain)</code> within brand-safe ranges and write them into the <code>theme</code> section before <code>theme_css_vars()</code> renders. Rides the existing inject step. <strong>Effort:</strong> ~½ day.</p>
+        <h3>4d · Per-site theme colors (Theme Presets) <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">✅ BUILT (2026-07-04) — as <a href="#ms-visual-identity">Theme Presets</a> (palette + font + button radius per site)</p>
+        <p><strong>Description.</strong> Each site gets a distinct palette, font, and button radius — not just a hero color, a coordinated look that also feeds the generated logo + favicon.</p>
+        <p><strong>Built.</strong> Rather than a raw <code>crc32(domain)</code> color hash, this shipped as curated <strong><a href="#ms-visual-identity">Theme Presets</a></strong> — a per-master library (<code>sites/{master}/multisite/theme_presets.json</code>, up to 10) of named bundles (accent + highlight colors, brand/heading fonts, button radius, header/footer colors, bug icon). The visual-identity step picks one per site from the <code>theme_preset</code> column, or — when blank — by deterministic domain hash (<code>ms_variant</code>, salt <code>'theme'</code>), and merges it into <code>data['theme']</code> before <code>theme_css_vars()</code> renders. The pest master ships four (Classic / Bold / Fresh / Trust). Edited in the admin via the Visual Identity panel with live previews.</p>
     </div>
 
     <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 5 · Local &amp; off-site signals</h3>
@@ -3768,7 +3813,9 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 <section id="ms-admin-multisite">
     <h2>The Multisite tab</h2>
     <p>The whole campaign runs from the admin <strong>Multisite</strong> tab (the active site is the campaign master) — no shell needed. It wraps the same cores documented under Command Line below.</p>
+    <p>A collapsible <strong>"How a multisite run works"</strong> card sits at the top of the tab — a setup/verify checklist (Master site, Niche Brief, Keywords, <a href="#ms-visual-identity">Visual Identity</a>, Block/layout order, Params CSV, each linked to its tab), the per-row pipeline (clone → identity → landing → differentiate → visual → AI → build → deploy), and the finish. Read it once to see how the pieces fit before your first run.</p>
     <ol>
+        <li><strong>Set up the master</strong> — before uploading params, author the master, the <a href="#ai-niche">Niche Brief</a> + keywords, and the <a href="#ms-visual-identity">Visual Identity — Theme Presets</a> panel (view / edit / add / remove presets, up to 10, with live logo + favicon previews). Each site draws its palette + generated logo/favicon from these presets.</li>
         <li><strong>Upload params</strong> — download the sample CSV, edit it, and upload. The table is validated inline (per-row ok / warn / error, plus an unknown-column report) and stored only when every row is error-free; rows with warnings are kept.</li>
         <li><strong>Download &amp; edit the current table</strong> — once a table is stored, <em>Download current table (FTP masked)</em> exports it with every FTP password shown as <code>__KEEP__</code> (safe to store/email). Edit any fields and re-upload: leave <code>__KEEP__</code> to keep a password, or type a new one — real passwords are re-hydrated by domain, so you never retype what you didn't change. A brand-new row that still has <code>__KEEP__</code> is rejected as partial-FTP, forcing a real password.</li>
         <li><strong>Saved params versions</strong> — every successful upload (and restore) is snapshotted to <code>sites/{master}/multisite/params_versions/</code>; the newest <strong>15</strong> are kept. Each can be downloaded (masked) or <strong>restored</strong> as the current table. The whole dir is gitignored, so real passwords never reach git.</li>
@@ -3776,7 +3823,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><strong>Run campaign</strong> — set concurrency, limit and retries, optionally toggle <em>No AI</em> / <em>Force</em>, then Run. The run detaches into the background and the page polls a live progress bar (rows done, files uploaded, running cost).</li>
         <li><strong>Recent runs</strong> — a history of past runs with result + cost, each with a <strong>retry failed</strong> button that re-runs only that run's failed rows.</li>
     </ol>
-    <p>Backed by <code>admin/multisite_api.php</code> (upload / status / run / run_status / list_runs / retry_failed / sample_csv / download_csv / list_versions / download_version / restore_version), <code>admin/multisite_preflight.php</code> (SSE pre-flight), and CSRF-protected save handlers. The <strong>Niche Brief</strong> tab (see AI Content) authors the master's AI vocabulary.</p>
+    <p>Backed by <code>admin/multisite_api.php</code> (upload / status / run / run_status / list_runs / retry_failed / sample_csv / download_csv / list_versions / download_version / restore_version), <code>admin/multisite_preflight.php</code> (SSE pre-flight), the <a href="#ms-visual-identity">Visual Identity</a> panel (<code>admin/tabs/multisite_visual.php</code> + <code>admin/visual_preview.php</code> + <code>admin/visual_presets_save.php</code>), and CSRF-protected save handlers. The <strong>Niche Brief</strong> tab (see AI Content) authors the master's AI vocabulary.</p>
     <div class="callout tip">Start with a small <em>limit</em> (e.g. 2) and review the first sites before scaling to the full table.</div>
 </section>
 
