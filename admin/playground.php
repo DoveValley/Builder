@@ -75,10 +75,60 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
 <div id="side">
     <div class="logo">Site Factory <small>Test Lab</small></div>
     <button type="button" class="active">Hero text overlay</button>
+    <a class="back" href="#preset-check" style="color:#fd783b;">↓ Theme Preset check</a>
+    <a class="back" href="#logo-gen" style="color:#fd783b;">↓ Logo generator</a>
+    <a class="back" href="#bug-icons" style="color:#fd783b;">↓ Bug icons</a>
     <a class="back" href="docs.php">← Documentation</a>
     <a class="back" href="index.php">← Admin</a>
 </div>
 <main>
+    <section id="preset-check" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
+        <h1>Theme Preset check <span class="pill">theme · before / after</span></h1>
+        <p class="sub">Left = pest master (orange/indigo — the <strong>Classic</strong> preset). Right = the same page, <strong>full height including the footer</strong>, with the <strong>Bold</strong> Theme Preset (charcoal&nbsp;<code>#1f2937</code> + red&nbsp;<code>#dc2626</code>) merged into <code>data['theme']</code> — the exact swap a per-site Theme Preset would do. Scroll to the bottom: the <strong>3-column footer</strong> flips indigo&nbsp;→&nbsp;charcoal and the sticky bar flips orange&nbsp;→&nbsp;red. These are two Theme Presets; both read as legitimate brand looks.</p>
+        <p class="sub" style="background:#ecfdf5;border-left:3px solid #10b981;padding:10px 14px;">
+            <strong>Result — header &amp; footer now follow.</strong> Everything tracks the theme: splits, tabs, hero-grid cells, badges, CTA icons, FAQ arrows, <strong>the top nav bar</strong>, the closing CTA, and the <strong>bottom “24/7 Support Line” sticky bar</strong> all recolor red in the Bold variation. The nav bar + sticky bars were the one holdout — driven by <code>header.nav_bg</code>, a raw hex outside the theme. Fixed by making <code>nav_bg</code> accept a mode keyword and defaulting it to <code>accent</code> (<code>site-template.php:208</code>); pest’s <code>header.nav_bg</code> is now <code>"accent"</code> instead of a pinned <code>#fd783b</code>. <em>Still to do:</em> the Theme Preset step should set <code>nav_bg</code> per site, and <code>data.php:40</code>’s <code>#fd783b</code> default should change so it stops leaking onto other sites.
+        </p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start;">
+            <div style="flex:1;min-width:320px;">
+                <h3 style="margin:0 0 8px;">Before — Classic preset (orange / indigo)</h3>
+                <a href="_labshots/style_before.jpg" target="_blank"><img src="_labshots/style_before.jpg" alt="pest master, current theme" style="width:100%;border:1px solid #e5e7eb;border-radius:8px;display:block;"></a>
+            </div>
+            <div style="flex:1;min-width:320px;">
+                <h3 style="margin:0 0 8px;">After — Bold preset (charcoal / red)</h3>
+                <a href="_labshots/style_after.jpg" target="_blank"><img src="_labshots/style_after.jpg" alt="pest master, Bold Theme Preset applied" style="width:100%;border:1px solid #e5e7eb;border-radius:8px;display:block;"></a>
+            </div>
+        </div>
+        <p class="note" style="margin-top:10px;">Click either image to open full size. Read-only demo — the master theme was swapped, screenshotted, and restored; nothing was committed.</p>
+    </section>
+
+    <section id="logo-gen" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
+        <h1>Logo generator <span class="pill">visual identity · e2e</span></h1>
+        <p class="sub">Each generated site gets a full <strong>logo built from its business name</strong> — a <strong>bug mark</strong> (accent silhouette on a dark tile) left of a <strong>two-tone wordmark</strong> (first word in the accent color, the rest in the dark color), all in its Theme Preset's palette. Plus a matching <strong>favicon</strong>. This replaces the master's baked-in “KATY PEST PROS” logo (an identity leak).</p>
+        <p class="sub" style="background:#ecfdf5;border-left:3px solid #10b981;padding:10px 14px;">
+            <strong>End-to-end verified.</strong> Real <code>build_one</code> runs: logo + favicon generated and referenced in the built HTML, Theme Preset applied, and the master's “Katy Pest Pros” logo + text <strong>gone</strong> (0 references). Bug + first word = accent; second line = the dark brand color; favicon = the bug tile at 128px.
+        </p>
+        <h3 style="margin:18px 0 8px;">All four presets — full logo</h3>
+        <a href="_labshots/logo_full.png" target="_blank"><img src="_labshots/logo_full.png" alt="four preset logos" style="max-width:560px;width:100%;border:1px solid #e5e7eb;border-radius:8px;display:block;"></a>
+        <p class="note" style="margin-top:6px;">Classic (cockroach) · Bold (ant) · Fresh (spider) · Trust (mosquito).</p>
+        <h3 style="margin:22px 0 8px;">In the real header (build_one)</h3>
+        <a href="_labshots/logo_e2e_headers.png" target="_blank"><img src="_labshots/logo_e2e_headers.png" alt="real headers" style="width:100%;border:1px solid #e5e7eb;border-radius:8px;display:block;"></a>
+        <p class="note" style="margin-top:6px;">Dallas Pest Pros (Classic) · Houston Exterminators (Fresh).</p>
+        <h3 style="margin:22px 0 8px;">Favicons</h3>
+        <a href="_labshots/favicons.png" target="_blank"><img src="_labshots/favicons.png" alt="favicons" style="max-width:440px;width:100%;border:1px solid #e5e7eb;border-radius:8px;display:block;"></a>
+        <p class="note" style="margin-top:10px;">Read-only demos from <code>build_one --no-ai --keep</code> runs.</p>
+    </section>
+
+    <section id="bug-icons" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
+        <h1>Bug icons <span class="pill">visual identity · logo mark</span></h1>
+        <p class="sub">Real bug silhouettes from <strong>Noto Emoji (Apache 2.0 — no attribution required)</strong>, one matched to each Theme Preset and recolored to its palette. Each becomes the <strong>logo icon</strong> (left of the wordmark) and the <strong>favicon</strong>.</p>
+        <h3 style="margin:16px 0 8px;">Colored per preset — accent bug on the dark tile</h3>
+        <a href="_labshots/preset_bugs.png" target="_blank"><img src="_labshots/preset_bugs.png" alt="per-preset bug icons" style="max-width:520px;width:100%;border:1px solid #e5e7eb;border-radius:8px;display:block;"></a>
+        <p class="note" style="margin-top:8px;">Classic = cockroach · Bold = ant · Fresh = spider · Trust = mosquito.</p>
+        <h3 style="margin:20px 0 8px;">The source silhouettes</h3>
+        <a href="_labshots/bug_candidates.png" target="_blank"><img src="_labshots/bug_candidates.png" alt="bug icon candidates" style="max-width:520px;width:100%;border:1px solid #e5e7eb;border-radius:8px;display:block;"></a>
+        <p class="note" style="margin-top:8px;">✅ Wired into the build — see the finished logos in the <a href="#logo-gen">Logo generator</a> panel above.</p>
+    </section>
+
     <h1>Hero text overlay <span class="pill">4c · preview</span></h1>
     <p class="sub">Bake two lines — <strong>keyword</strong> + <strong>city, ST</strong> — onto a hero image, the way each generated site will. Read-only: originals are never touched. Tune the look here, then we wire the chosen style into the build.</p>
 
