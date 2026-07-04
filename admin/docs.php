@@ -3395,7 +3395,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <ol type="a">
         <li><span class="where operational">Operational</span>📋 Google Business Profile per city — real address, correct categories, photos, posts; the single biggest local ranking + distinct-entity signal <span class="pri must">Must</span></li>
         <li><span class="where operational">Operational</span>📋 Local citations / NAP consistency — same name / address / phone across directories (Yelp, BBB, industry lists) <span class="pri should">Should</span></li>
-        <li><span class="where perrow">Per-row</span>☐ Embedded map + service-area on each site — localized map / directions block per city <span class="pri should">Should</span> <span style="color:#64748b;">(<code>map_info</code> block per city)</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Embedded map + service-area on each site — homepage <code>map_info</code> with a shortcode-driven <code>q={city},+{SS}</code> embed, localized per city <span class="pri should">Should</span> <span style="color:#64748b;">(done on the pest master)</span></li>
         <li><span class="where operational">Operational</span>📋 Earn a distinct backlink profile — real local links per site; never a shared PBN / cross-site link network <span class="pri should">Should</span></li>
     </ol>
 
@@ -3439,7 +3439,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><a href="#spec-alt-text">1d</a> · Localized alt text — <span class="pri should">Should</span> ~1 d</li>
         <li><a href="#spec-market-data">1e</a> · Real local market data — <span class="pri should">Should</span> ✅ DONE</li>
         <li><a href="#spec-css-skins">2c</a> · CSS skins (reuses the Phase-1 helper) — <span class="pri should">Should</span> ~2 d</li>
-        <li><a href="#spec-map">5c</a> · Embedded map + service-area — <span class="pri should">Should</span> ~½ d</li>
+        <li><a href="#spec-map">5c</a> · Embedded map + service-area — <span class="pri should">Should</span> ✅ DONE (pest)</li>
     </ul>
 
     <p style="margin:14px 0 2px;"><strong>Phase 3 — Visual / asset pipeline</strong> <span style="color:#64748b;">· lowest SEO value, do last; all touch the asset subsystem · ~5–7 dev-days</span></p>
@@ -3642,9 +3642,9 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <div class="block-card-doc" id="spec-map">
         <h3>5c · Embedded map + service-area <span class="pri should">Should</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
-        <p class="bc-meta">☐ not built</p>
-        <p><strong>Description.</strong> A localized map / directions / service-area block on each site.</p>
-        <p><strong>Build.</strong> Add a <code>map_info</code> block per city driven by the row's geo/address; render an embedded map + service-area copy. Uses the existing <code>map_info</code> block type. <strong>Effort:</strong> ~½ day.</p>
+        <p class="bc-meta">✅ DONE (pest master) — shortcode-driven map embed; authoring, no code</p>
+        <p><strong>Description.</strong> A localized map / directions / service-area block on each site, on the homepage.</p>
+        <p><strong>Built.</strong> No new code — the existing <code>map_info</code> block already renders <code>mi_map_embed</code>, and that field isn't in the shortcode skip-list, so it localizes at render. The fix was <em>authoring</em>: the master's homepage map was hard-pinned to the master's city (a Google <code>pb=</code> place embed), so every clone showed the same town. Replaced it with a keyless query embed — <code>https://maps.google.com/maps?q={city},+{SS}&amp;z=11&amp;output=embed</code> — so each site maps its own city (verified: Dallas → <code>q=Dallas,+TX</code>). For pinpoint accuracy, <code>q={lat},{lng}</code> also works since the params table carries geo. Kept home-only (landing pages are already hyper-local); adding it to a landing template is a trivial repeat. <strong>Effort:</strong> done.</p>
     </div>
 
     <div class="block-card-doc" id="spec-backlinks">

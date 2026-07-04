@@ -457,7 +457,7 @@
             "mi_info_heading": "{city_state} Information",
             "mi_info_text": "<p>{city} is a city in the U. S. state of {state}. It is in the Greater {city} area, itself forming the western part of the Greater Houston metropolitan area. Homes and businesses may have {city} postal addresses without being in the City of {city}.</p>",
             "mi_info_alt": "{city} {SS} shopping center",
-            "mi_map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111217.46591830737!2d-95.89688!3d29.785489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8641188adec6eab5%3A0x7add8e9b81b4c22!2sKaty%2C%20TX%2C%20USA!5e0!3m2!1sen!2sus!4v1718000000000!5m2!1sen!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
             "mi_head_color": "header",
             "mi_head_color_custom": "#120575",
             "mi_info_photo": "sites/pest-template/uploads/media/500px-2019-07-20_08_32_24_palm_trees_along_kingsland_boulevard_in_katy-2c_fort_bend_county-2c_texas_5a04bb.webp"
