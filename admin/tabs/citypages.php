@@ -51,7 +51,7 @@ $_cityNames = [];
 foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . ($_c['SS'] ?? '');
 ?>
 <div class="tab-content" style="<?= $tab === 'citypages' ? '' : 'display:none;' ?>">
-<?php tab_header('Landing City Pages', 'View the generated status of every template × city combination. Run structure generation and AI generation from this tab.', 'tab-citypages'); ?>
+<?php tab_header('Landing City Page Gen', 'View the generated status of every template × city combination. Run structure generation and AI generation from this tab.', 'tab-citypages'); ?>
 
 <style>#cp-howto summary::-webkit-details-marker{display:none} #cp-howto[open] .cp-caret{transform:rotate(90deg)}</style>
 <details class="card" open id="cp-howto" style="background:#f8fafc;border-left:3px solid #2563eb;">
