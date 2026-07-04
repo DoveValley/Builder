@@ -8,6 +8,33 @@ $researchOn  = !empty($nicheBrief['uses_research_fields']);
 <div class="tab-content" style="<?= $tab === 'multisite' ? '' : 'display:none;' ?>">
 <?php tab_header('Multisite', 'Generate many separate single-city sites from this master. Step 1: upload and validate your params table (one row per site). See the Multisite documentation for columns and the full workflow.', 'tab-multisite'); ?>
 
+<details class="card" open style="background:#f8fafc;border-left:3px solid #2563eb;">
+    <summary style="cursor:pointer;font-weight:700;font-size:1.02rem;color:#1e3a5f;">How a multisite run works</summary>
+    <div style="margin-top:14px;font-size:.9rem;line-height:1.6;color:#334155;">
+        <p style="margin:0 0 6px;"><strong>Set up &amp; verify — once, on this master (governs every site)</strong></p>
+        <ul style="margin:0 0 14px 18px;padding:0;">
+            <li><a href="?tab=content">Master site</a> — pages + <code>{city}</code>/<code>{business}</code> shortcodes (<a href="#ms-lint-card">run the master lint</a>)</li>
+            <li><a href="?tab=niche_brief">Niche Brief</a> — AI vocabulary + guardrails</li>
+            <li><a href="?tab=seo">Keywords</a> — primary/secondary per page</li>
+            <li><a href="?tab=theme">Visual Identity</a> — Theme Presets + logo/bug icons</li>
+            <li><a href="?tab=content">Block / layout order</a> — per-page layout variations</li>
+            <li><a href="#ms-upload">Params CSV</a> — one row per site</li>
+        </ul>
+        <p style="margin:0 0 6px;"><strong>Run starts</strong> — snapshot the master · validate the rows</p>
+        <p style="margin:0 0 6px;"><strong>Then for each site (row), in parallel:</strong></p>
+        <ol style="margin:0 0 14px 18px;padding:0;">
+            <li>Clone + rewrite identity (name, phone, domain, email)</li>
+            <li>Landing pages for that deploy's cities</li>
+            <li>Differentiate — schema, geo, analytics + Search Console, layout order</li>
+            <li>Visual identity — preset colors/font + logo + favicon</li>
+            <li>AI content — fill the city's copy blocks</li>
+            <li>Build the static site — pages, sitemap, robots</li>
+            <li>Deploy via FTP (if the row has credentials)</li>
+        </ol>
+        <p style="margin:0;"><strong>Finish</strong> — each row reports success / fail; sites live or built for review.</p>
+    </div>
+</details>
+
 <div class="card">
     <h3 style="margin-top:0;">Campaign master</h3>
     <p class="hint">This site (<code><?= h(ACTIVE_SITE_ID) ?></code>) is the template every generated site is cloned from. Campaign data lives in <code>sites/<?= h(ACTIVE_SITE_ID) ?>/multisite/</code> and is never web-served or committed.</p>
@@ -24,7 +51,7 @@ $researchOn  = !empty($nicheBrief['uses_research_fields']);
 </div>
 
 <!-- ===== UPLOAD CARD ===== -->
-<div class="card">
+<div class="card" id="ms-upload">
     <h3 style="margin-top:0;">1. Upload params table (CSV)</h3>
     <p class="hint">Prepare the table in Excel or Google Sheets and <strong>Save As / Export → CSV</strong>. One row per site. Required columns: <code>domain</code>, <code>business</code>. Recommended: <code>city, state, SS, phone, email</code> and FTP credentials (<code>ftp_host, ftp_user, ftp_pass</code>). Optional: <code>lat, lng, rating, review_count, analytics_id, logo</code>.</p>
 
