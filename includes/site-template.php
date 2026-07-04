@@ -16,9 +16,13 @@ $header  = apply_shortcodes_to_block($data['header']);
 $footer  = apply_shortcodes_to_block($data['footer']);
 // Header bar color (nav_bg: 'accent' mode or a hex), resolved once. The visible nav row +
 // sticky bars use $navBg; the header container/dropdowns (--color-header-bg) follow it too (option A).
-$navBgRaw = $header['nav_bg'] ?? 'accent';
-$navBg    = in_array($navBgRaw, ['accent','header','footer','highlight'], true) ? resolve_color($navBgRaw) : $navBgRaw;
-$theme['header_bg'] = $navBg;
+$navBgRaw    = $header['nav_bg'] ?? 'accent';
+$navBgIsMode = in_array($navBgRaw, ['accent','header','footer','highlight'], true);
+$navBg       = $navBgIsMode ? resolve_color($navBgRaw) : $navBgRaw;
+// Only let the header container/dropdowns follow the bar when the bar tracks a theme
+// color ("Match brand accent"). An explicit custom hex leaves header_bg untouched, so
+// existing sites that set header_bg + a hex nav_bg (e.g. Granite) render unchanged.
+if ($navBgIsMode) $theme['header_bg'] = $navBg;
 $_hLayout = preg_replace('/[^a-z0-9_]/', '', $header['header_layout'] ?? 'standard');
 // Topbar is position:fixed — out of document flow, adds to total fixed area.
 $_hHasTopbar     = !empty($header['topbar_text']);
