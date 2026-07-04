@@ -288,6 +288,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#cities-overview">City Pages overview</a>
         <a href="#cities-templates">Templates</a>
         <a href="#cities-generation">Generation steps</a>
+        <a href="#cities-differentiation">Per-city differentiation</a>
         <a href="#cities-slugs">Slugs</a>
 
         
@@ -952,6 +953,13 @@ tr:nth-child(even) td { background: #f8fafc; }
         <li>Run generation for the filtered set</li>
     </ul>
     <p>Structure generation is always free. AI generation makes Anthropic API calls and incurs cost.</p>
+    <p>Two opt-in <strong>per-city differentiation</strong> controls sit in this panel — so a single site's 40 city pages don't all ship identical images and structure:</p>
+    <ul>
+        <li><strong>Per-city images</strong> dropdown — <em>Off</em> (share the template's images), <em>Hero text overlay</em> (bake the keyword + "City, ST" onto each hero), or <em>Full</em> (hero overlay plus a unique, city-renamed copy of every content photo). Non-destructive; deterministic per city; needs ImageMagick.</li>
+        <li><strong>Vary block order per city</strong> checkbox — gives each city page a slightly different section order (hero first, closing block last, a couple of middle sections swap). Needs 4+ blocks.</li>
+        <li><strong>"tune hero style ↗"</strong> link — opens the <a href="playground.php#hero-overlay">Test Lab</a> hero-overlay panel to set and lock the overlay text position/size/colors.</li>
+    </ul>
+    <p>Full detail: <a href="#cities-differentiation">City Pages — Per-city differentiation</a>.</p>
 
     <h3>Generation History</h3>
     <p>A log of all past structure generation runs for this site — timestamp, template, city filter used, number of pages written, and duration. Use this to verify when pages were last regenerated and confirm which template version was used.</p>
@@ -2371,6 +2379,31 @@ Output valid JSON only — no explanation.</code></pre>
     <p>Steps can modify any part of the page — content blocks, SEO fields, slug — and run in order. Custom steps can be added for special requirements.</p>
 </section>
 
+<section id="cities-differentiation">
+    <h2>City Pages — Per-city differentiation</h2>
+    <p>A single site generating 40 city pages faces the same intra-site <strong>"doorway cluster"</strong> risk as a multisite network — the pages carry the same template structure, the same photos, and (before AI) the same copy. Two opt-in toggles in the <strong>City Pages</strong> tab's Generate controls let single-site city pages differentiate the structural and image signals; the existing per-city <a href="#ai-standalone">archetype AI</a> already handles content. Together they cover all three: <strong>content</strong> (AI, already), <strong>images</strong> (new), and <strong>structure</strong> (new).</p>
+
+    <h3>Per-city images</h3>
+    <p>A <strong>"Per-city images"</strong> dropdown with three modes:</p>
+    <ul>
+        <li><strong>Off</strong> — every city page uses the template's images unchanged (fastest; 40 pages sharing identical photos reads as thin).</li>
+        <li><strong>Hero text overlay</strong> — bakes the page keyword + <code>"City, ST"</code> onto the hero image, so each city page ships a genuinely different, on-topic hero (one generated hero per city).</li>
+        <li><strong>Full</strong> — the hero overlay <em>plus</em> a byte-perturbed, city-renamed copy of every content photo, so no two city pages share an image file (beats exact <em>and</em> perceptual duplicate detection). Adds the most images to <code>uploads/</code>.</li>
+    </ul>
+    <p>It reuses the shared multisite image core <code>ms_process_blocks_images()</code> — the same function the multisite build uses. It is <strong>non-destructive</strong>: it adds city-named variants alongside the originals and never prunes or deletes. It runs as the admin (www-data) user into <code>sites/{id}/uploads/</code>, is <strong>opt-in</strong> and <strong>deterministic per city</strong> (same city → same files → SEO-stable and reproducible), and <strong>no-ops</strong> on Dry Run, without ImageMagick, and for the multisite build (which does its own image pass). Requires ImageMagick.</p>
+    <p>The hero overlay <strong>style</strong> (text position, size, colors) is set and locked in the <a href="playground.php#hero-overlay">Test Lab</a> (Docs → 🧪 Test Lab → hero-overlay panel); the <strong>"tune hero style ↗"</strong> link next to the dropdown opens it. Sensible defaults work without any tuning.</p>
+
+    <h3>Vary block order per city</h3>
+    <p>A <strong>"Vary block order per city"</strong> checkbox gives each city page a slightly different <strong>section order</strong> — the hero stays pinned first, the closing block stays pinned last, and a couple of middle sections swap — so the pages aren't structurally identical (an intra-site template-footprint signal). Same blocks, same content, different sequence.</p>
+    <p>It reuses the shared <code>ms_variant()</code> + <code>layout_generate_variants()</code> + <code>layout_apply()</code> helpers — the same ones the multisite build uses per domain, here keyed per city (salt <code>citylayout</code>, index 0 = natural order). It is <strong>deterministic per city</strong> and <strong>opt-in</strong>, and <strong>no-ops</strong> on Dry Run, for templates with fewer than 4 blocks, and for the multisite build.</p>
+
+    <h3>Idempotent hero overlay (efficiency)</h3>
+    <p>The hero overlay's output filename now carries a short hash of its render inputs (keyword + city + style), so re-running Generate is a <strong>cache hit</strong> (skips ImageMagick) unless the keyword, city, or style changed — in which case it regenerates. This makes frequent single-site regenerations cheap, and benefits the multisite build too.</p>
+
+    <div class="callout tip"><strong>One shared core, two callers.</strong> Single-site city generation reuses the multisite differentiation <em>cores</em> (<code>ms_process_blocks_images</code> and the <code>ms_variant</code> / layout helpers) but <strong>never</strong> the multisite-only destructive parts — the orchestrator <code>ms_differentiate_site_images()</code> or <code>ms_prune_unreferenced_uploads()</code>, which delete uploads. The non-destructive core is shared; the pruning is not.</div>
+    <p style="color:#64748b;font-size:.9rem;">Backing files: <code>includes/generation/engine.php</code> (the per-city hook in <code>generate_city_pages</code>), <code>admin/generate.php</code> (reads the <code>image_diff</code> and <code>vary_layout</code> options), <code>admin/tabs/citypages.php</code> (the dropdown + checkbox), reusing <code>includes/multisite/image_overlay.php</code> and <code>includes/layout_variations.php</code>.</p>
+</section>
+
 <section id="cities-slugs">
     <h2>City Pages — Slugs</h2>
     <p>The slug pattern in the template uses city tokens to build unique URLs:</p>
@@ -3358,6 +3391,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><strong>Analytics isolation</strong> — each site gets its own analytics tag from <code>analytics_id</code>, or none. A shared tag is never used.</li>
         <li><strong>Self-canonical</strong> — canonical URLs point at the site's own domain.</li>
     </ul>
+    <div class="callout tip">The non-destructive image and layout differentiation <em>cores</em> here (<code>ms_process_blocks_images</code>, the <code>ms_variant</code> / layout helpers) are now shared with single-site city generation — see <a href="#cities-differentiation">City Pages — Per-city differentiation</a>. The multisite-only destructive parts (the image orchestrator + the unreferenced-uploads prune) are not.</div>
 </section>
 
 <section id="ms-visual-identity">
