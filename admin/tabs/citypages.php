@@ -84,7 +84,30 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
                 <span style="color:#6b7280;font-size:13px;">&#9696; Generating…</span>
             </span>
         </div>
+
+        <!-- ── Per-city image differentiation ─────────────────────────────── -->
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid #e5e7eb;">
+            <label class="hint" for="cp-imgdiff" style="margin:0;font-weight:600;">Per-city images:</label>
+            <select id="cp-imgdiff" style="padding:5px 8px;">
+                <option value="">Off — city pages share the template's images</option>
+                <option value="hero">Hero text overlay — bake keyword + city onto the hero</option>
+                <option value="full">Full — hero overlay + unique photo per city</option>
+            </select>
+        </div>
+        <p class="hint" id="cp-imgdiff-help" style="margin:8px 0 0;line-height:1.55;"></p>
     </div>
+    <script>
+    (function(){
+        var HELP = {
+            '':     'Every city page uses the same images from the template — fastest, but 40 pages sharing identical hero/section photos reads as thin, templated content.',
+            'hero': 'Bakes the page keyword + "City, ST" onto the hero image, so each city page has a genuinely different, on-topic hero. Adds one generated hero image per city. Needs ImageMagick.',
+            'full': 'Hero text overlay PLUS a byte-perturbed, city-renamed copy of every content photo — so no two city pages share an image file (beats exact + perceptual duplicate detection). Adds the most images to uploads/. Deterministic per city; originals are kept, nothing is deleted.'
+        };
+        var sel = document.getElementById('cp-imgdiff'), help = document.getElementById('cp-imgdiff-help');
+        function upd(){ help.innerHTML = HELP[sel.value] || ''; }
+        sel.addEventListener('change', upd); upd();
+    })();
+    </script>
 
     <!-- ── Per-template status cards ─────────────────────────────────────── -->
     <?php foreach ($templates as $tpl):
@@ -401,6 +424,9 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
     window.cpGenerate = function(opts) {
         // Apply active tag filter unless caller overrides
         if (_activeTag && !opts.tag_filter) opts = Object.assign({ tag_filter: _activeTag }, opts);
+        // Apply the per-city image mode (Off/Hero/Full) unless the caller set one
+        var _idf = document.getElementById('cp-imgdiff');
+        if (_idf && _idf.value && opts.image_diff === undefined) opts.image_diff = _idf.value;
 
         // Confirmation
         if (!confirm(cpConfirmText(opts))) return;

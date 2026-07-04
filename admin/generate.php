@@ -38,6 +38,7 @@ $options = [
     'confirmed_cost' => !empty($_POST['confirmed_cost']),
     'force_locked'   => !empty($_POST['force_locked']),
     'dry_run'        => !empty($_POST['dry_run']),
+    'image_diff'     => in_array($_POST['image_diff'] ?? '', ['hero', 'full'], true) ? $_POST['image_diff'] : '',
 ];
 
 $result = generate_city_pages($options);

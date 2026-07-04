@@ -3,6 +3,10 @@
 // Called by admin/generate.php (and in future by CLI or cron).
 // Requires config.php + functions.php to already be loaded.
 
+// Reused, non-destructive image-differentiation core (multisite-shared). We only call
+// ms_process_blocks_images() — never the orchestrator/prune (those delete uploads).
+require_once __DIR__ . '/../multisite/image_overlay.php';
+
 // ── Step loader ───────────────────────────────────────────────────────────────
 
 function _gen_step_file(string $stepName): string {
@@ -231,6 +235,22 @@ function generate_city_pages(array $options = []): array {
     $backedUp = 0;
     $errors   = [];
 
+    // ── Per-city image differentiation (opt-in) ──────────────────────────────
+    // Reuses the multisite core: bakes {keyword} + "City, ST" onto the hero and
+    // (in 'full' mode) byte-perturbs + city-renames every content photo, so each
+    // city page gets distinct image files instead of sharing the template's. Runs
+    // as www-data into sites/{id}/uploads/; non-destructive (keeps originals),
+    // seed-deterministic per city, no-ops without ImageMagick or on a dry run.
+    $imgDiff   = in_array($options['image_diff'] ?? '', ['hero', 'full'], true) ? $options['image_diff'] : '';
+    $imgCanRun = $imgDiff !== '' && empty($options['dry_run']) && function_exists('ms_convert_bin') && ms_convert_bin() !== null;
+    $imgStyle  = [];
+    if ($imgCanRun) {
+        foreach ([ACTIVE_SITE_DIR . '/multisite/hero_style.json', BASE_DIR . '/multisite/hero_style.json'] as $sf) {
+            if (is_file($sf)) { $imgStyle = json_decode((string)file_get_contents($sf), true) ?: []; break; }
+        }
+    }
+    $imgStamped = 0; $imgVaried = 0;
+
     // ── Template × city loop ─────────────────────────────────────────────────
     foreach ($templates as $tpl) {
         $tplVersion = _gen_template_version($tpl);
@@ -350,6 +370,24 @@ function generate_city_pages(array $options = []): array {
                 $page['seo']['schema'] = _gen_resolve_schema_shortcodes($page['seo']['schema'], $mergedVars);
             }
 
+            // ── Per-city image differentiation (opt-in, reused multisite core) ──
+            if ($imgCanRun && !empty($page['content_blocks'])) {
+                $ir = ms_process_blocks_images($page['content_blocks'], [
+                    'site_dir'         => ACTIVE_SITE_DIR,
+                    'seed'             => $tplId . '_' . $cityId,
+                    'city'             => $city['city'] ?? '',
+                    'ss'               => $city['SS'] ?? '',
+                    'keyword'          => trim((string)($page['seo']['primary_keyword'] ?? '')),
+                    'master_city_slug' => '',
+                    'style'            => $imgStyle,
+                    'page_key'         => $tplId . '_' . $cityId,
+                    'stamp_hero'       => true,
+                    'vary_images'      => $imgDiff === 'full',
+                ]);
+                $imgStamped += count($ir['stamped'] ?? []);
+                $imgVaried  += (int)($ir['varied'] ?? 0);
+            }
+
             if ($dryRun) {
                 $written++;
                 continue;
@@ -459,6 +497,7 @@ function generate_city_pages(array $options = []): array {
         'pages_written'   => $written,
         'pages_skipped'   => $skipped,
         'pages_backed_up' => $backedUp,
+        'images'          => ['mode' => $imgDiff, 'stamped' => $imgStamped, 'varied' => $imgVaried],
         'errors'          => $errors,
         'duration_ms'     => $durationMs,
         'dry_run'         => $dryRun,

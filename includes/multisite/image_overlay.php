@@ -175,12 +175,19 @@ function ms_stamp_blocks(array &$blocks, string $keyword, string $cityLine, stri
         if (!$g) continue;
         $W = (int)$g[0]; $H = (int)$g[1];
 
-        // city-renamed (master city stripped) + a per-page suffix for uniqueness
+        $o = ms_hero_style($W, $H, $styleOverride) + ['line1' => $line1, 'line2' => $line2, 'W' => $W, 'H' => $H];
+
+        // city-renamed (master city stripped) + per-page suffix + a short hash of the
+        // render inputs. The hash makes the filename change when the text/style changes,
+        // so an existing file is a safe cache hit — cheap re-runs for both callers, while
+        // a changed keyword/city/style regenerates under a new name.
+        $sig     = substr(md5($line1 . '|' . $line2 . '|' . json_encode($o)), 0, 8);
         $cityRel = ms_city_image_path($rel, $siteCitySlug, $masterCitySlug);
-        $outRel  = preg_replace('/(\.[^.\/]+)$/', '__' . $pageKey . '$1', $cityRel);
+        $outRel  = preg_replace('/(\.[^.\/]+)$/', '__' . $pageKey . '_' . $sig . '$1', $cityRel);
         $outFile = $workingDir . '/' . $outRel;
 
-        $o = ms_hero_style($W, $H, $styleOverride) + ['line1' => $line1, 'line2' => $line2, 'W' => $W, 'H' => $H];
+        if (is_file($outFile)) { $b[$field] = $outRel; $out[] = $outRel; continue; }   // cache hit — skip render
+
         $r = ms_hero_overlay_render($srcFile, $outFile, $o);
         if (!empty($r['ok'])) { $b[$field] = $outRel; $out[] = $outRel; }
     }
