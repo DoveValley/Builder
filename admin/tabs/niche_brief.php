@@ -136,4 +136,6 @@ if (defined('AI_REGISTRY_FILE') && file_exists(AI_REGISTRY_FILE)) {
     </form>
 </div>
 
+<?php require __DIR__ . '/niche_brief_archetypes.php'; ?>
+
 </div>

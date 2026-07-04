@@ -95,12 +95,24 @@ function ms_ai_write_registry(string $outFile, array $registry): bool {
  */
 function ms_ai_compile_master(string $baseDir, string $masterId): array {
     $archFile  = $baseDir . '/multisite/ai/archetypes.json';
+    $ovFile    = $baseDir . '/sites/' . $masterId . '/multisite/archetypes.json';
     $briefFile = $baseDir . '/sites/' . $masterId . '/multisite/niche_brief.json';
     $outFile   = $baseDir . '/sites/' . $masterId . '/data/ai_block_types.json';
 
     $arch  = json_decode(@file_get_contents($archFile), true);
     $brief = json_decode(@file_get_contents($briefFile), true);
     if (!is_array($arch))  return ['ok' => false, 'errors' => ["Cannot read archetypes: {$archFile}"], 'written' => [], 'skipped' => []];
+
+    // Per-master prompt overrides (edited on the Niche Brief tab): shallow-merge each
+    // archetype's overridden keys (label/description/ai_model/prompt_skeleton) over the
+    // shared seed. Only present keys override; everything else falls back to the seed.
+    $ov = is_file($ovFile) ? json_decode((string)@file_get_contents($ovFile), true) : null;
+    if (is_array($ov)) {
+        foreach ($ov as $id => $fields) {
+            if ($id === '_about' || !is_array($fields)) continue;
+            $arch[$id] = (isset($arch[$id]) && is_array($arch[$id])) ? array_replace($arch[$id], $fields) : $fields;
+        }
+    }
     if (!is_array($brief)) return ['ok' => false, 'errors' => ["Cannot read niche brief: {$briefFile}"], 'written' => [], 'skipped' => []];
 
     $res = ms_ai_compile($arch, $brief);
