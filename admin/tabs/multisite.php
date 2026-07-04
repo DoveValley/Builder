@@ -16,7 +16,7 @@ $researchOn  = !empty($nicheBrief['uses_research_fields']);
             <li><a href="?tab=content">Master site</a> — pages + <code>{city}</code>/<code>{business}</code> shortcodes (<a href="#ms-lint-card">run the master lint</a>)</li>
             <li><a href="?tab=niche_brief">Niche Brief</a> — AI vocabulary + guardrails</li>
             <li><a href="?tab=seo">Keywords</a> — primary/secondary per page</li>
-            <li><a href="?tab=theme">Visual Identity</a> — Theme Presets + logo/bug icons</li>
+            <li><a href="#ms-visual">Visual Identity</a> — Theme Presets + logo/bug icons</li>
             <li><a href="?tab=content">Block / layout order</a> — per-page layout variations</li>
             <li><a href="#ms-upload">Params CSV</a> — one row per site</li>
         </ul>
@@ -49,6 +49,9 @@ $researchOn  = !empty($nicheBrief['uses_research_fields']);
     <span id="ms-lint-msg" class="hint" style="margin-left:10px;"></span>
     <div id="ms-lint-results" style="margin-top:14px;"></div>
 </div>
+
+<!-- ===== VISUAL IDENTITY EDITOR (isolated include) ===== -->
+<?php require __DIR__ . '/multisite_visual.php'; ?>
 
 <!-- ===== UPLOAD CARD ===== -->
 <div class="card" id="ms-upload">
