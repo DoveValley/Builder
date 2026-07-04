@@ -97,16 +97,28 @@ function ms_hero_image_field(array $block): ?string {
     return array_key_first($imgs);                                              // else the background
 }
 
-/** Build-time overlay style. Sizes scale to image width so heroes of any size look
- *  consistent. Colours default to legible white on the dark fade. */
-function ms_hero_style(int $W, int $H, array $override = []): array {
+/** Build-time overlay style. If a locked style is given (from the Test Lab, with
+ *  ref_w/ref_h), its point sizes are scaled from the reference image to THIS hero's
+ *  size so the look stays consistent across heroes of any dimension. With no locked
+ *  style, sizes fall back to a fraction of image width. Colours default to legible
+ *  white on the dark fade. */
+function ms_hero_style(int $W, int $H, array $locked = []): array {
+    $refW = (int)($locked['ref_w'] ?? 0);
+    $refH = (int)($locked['ref_h'] ?? 0);
+    $scaleW = $refW > 0 ? $W / $refW : null;
+    $scaleH = $refH > 0 ? $H / $refH : null;
+
+    $s1 = isset($locked['s1']) ? ($scaleW ? (int)round($locked['s1'] * $scaleW) : (int)$locked['s1']) : max(20, (int)round($W * 0.055));
+    $s2 = isset($locked['s2']) ? ($scaleW ? (int)round($locked['s2'] * $scaleW) : (int)$locked['s2']) : max(16, (int)round($W * 0.048));
+    $scrim = isset($locked['scrim']) ? ($scaleH ? (int)round($locked['scrim'] * $scaleH) : (int)$locked['scrim']) : (int)round($H * 0.55);
+
     return [
-        'pos'   => $override['pos']   ?? 'bl',
-        's1'    => $override['s1']    ?? max(20, (int)round($W * 0.055)),
-        's2'    => $override['s2']    ?? max(16, (int)round($W * 0.048)),
-        'scrim' => $override['scrim'] ?? (int)round($H * 0.55),
-        'c1'    => $override['c1']    ?? '#ffffff',
-        'c2'    => $override['c2']    ?? '#ffffff',
+        'pos'   => in_array($locked['pos'] ?? 'bl', ['bl', 'bc', 'tl'], true) ? $locked['pos'] : 'bl',
+        's1'    => max(8, $s1),
+        's2'    => max(8, $s2),
+        'scrim' => max(0, min($H, $scrim)),
+        'c1'    => preg_match('/^#[0-9a-fA-F]{6}$/', (string)($locked['c1'] ?? '')) ? $locked['c1'] : '#ffffff',
+        'c2'    => preg_match('/^#[0-9a-fA-F]{6}$/', (string)($locked['c2'] ?? '')) ? $locked['c2'] : '#ffffff',
     ];
 }
 

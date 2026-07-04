@@ -30,6 +30,9 @@ $haveDefault = false;
 foreach ($srcOptions as $imgs) { foreach ($imgs as $im) { if ($im['p'] === $defaultSrc) { $haveDefault = true; break 2; } } }
 if (!$haveDefault) { foreach ($srcOptions as $imgs) { if ($imgs) { $defaultSrc = $imgs[0]['p']; break; } } }
 $csrf = $_SESSION['csrf_token'] ?? '';
+// Currently-locked style (if any) → seed the controls so the Lab shows what the build uses.
+$lockedStyle = @json_decode((string)@file_get_contents(BASE_DIR . '/multisite/hero_style.json'), true) ?: [];
+$ls = fn($k, $d) => $lockedStyle[$k] ?? $d;
 $h = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
 ?>
 <!DOCTYPE html>
@@ -108,25 +111,31 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
                 <div>
                     <label for="pos">Position</label>
                     <select id="pos">
-                        <option value="bl" selected>Bottom left</option>
-                        <option value="bc">Bottom center</option>
-                        <option value="tl">Top left</option>
+                        <option value="bl" <?= $ls('pos','bl') === 'bl' ? 'selected' : '' ?>>Bottom left</option>
+                        <option value="bc" <?= $ls('pos','bl') === 'bc' ? 'selected' : '' ?>>Bottom center</option>
+                        <option value="tl" <?= $ls('pos','bl') === 'tl' ? 'selected' : '' ?>>Top left</option>
                     </select>
                 </div>
                 <div>
                     <label for="c2">City color</label>
-                    <input type="color" id="c2" value="#fd783b">
+                    <input type="color" id="c2" value="<?= $h($ls('c2','#fd783b')) ?>">
                 </div>
             </div>
 
             <label>Keyword size <span id="s1v" style="color:#64748b;font-weight:400"></span></label>
-            <div class="rng"><input type="range" id="s1" min="20" max="90" value="44"><output id="s1o"></output></div>
+            <div class="rng"><input type="range" id="s1" min="20" max="90" value="<?= (int)$ls('s1',44) ?>"><output id="s1o"></output></div>
 
             <label>City size <span id="s2v" style="color:#64748b;font-weight:400"></span></label>
-            <div class="rng"><input type="range" id="s2" min="16" max="80" value="40"><output id="s2o"></output></div>
+            <div class="rng"><input type="range" id="s2" min="16" max="80" value="<?= (int)$ls('s2',40) ?>"><output id="s2o"></output></div>
 
             <label>Dark fade height <span style="color:#64748b;font-weight:400">(readability)</span></label>
-            <div class="rng"><input type="range" id="scrim" min="0" max="600" value="300"><output id="scrimo"></output></div>
+            <div class="rng"><input type="range" id="scrim" min="0" max="600" value="<?= (int)$ls('scrim',300) ?>"><output id="scrimo"></output></div>
+
+            <div style="margin-top:16px;padding-top:14px;border-top:1px solid #e2e8f0;">
+                <button type="button" id="lockbtn" style="background:#1e3a5f;color:#fff;border:0;border-radius:6px;padding:9px 16px;font-size:.88rem;font-weight:600;cursor:pointer;">🔒 Lock this style into the build</button>
+                <div id="lockmsg" class="note" style="margin-top:8px;"></div>
+                <?php if ($lockedStyle): ?><div class="note" style="margin-top:4px;color:#065f46;">A locked style is active — the build uses it. Adjust above and re-lock to change.</div><?php endif; ?>
+            </div>
         </div>
 
         <div>
@@ -209,6 +218,29 @@ var LAB_CSRF = <?= json_encode($csrf) ?>;
                 render();
             })
             .catch(function () { uplmsg.textContent = '✗ upload failed'; });
+    });
+
+    // Lock the current style into the build (store control values + reference dims).
+    var lockBtn = document.getElementById('lockbtn'), lockMsg = document.getElementById('lockmsg');
+    lockBtn.addEventListener('click', function () {
+        var fd = new FormData();
+        fd.append('csrf_token', LAB_CSRF);
+        fd.append('pos', el.pos.value);
+        fd.append('c1', '#ffffff');
+        fd.append('c2', el.c2.value);
+        fd.append('s1', el.s1.value);
+        fd.append('s2', el.s2.value);
+        fd.append('scrim', el.scrim.value);
+        fd.append('ref_w', out.naturalWidth || 715);
+        fd.append('ref_h', out.naturalHeight || 600);
+        lockMsg.textContent = 'Saving…';
+        fetch('hero_style_save.php', { method: 'POST', body: fd })
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+                lockMsg.textContent = d.error ? ('✗ ' + d.error) : '✓ Locked — every build now uses this style (sizes scale to each hero).';
+                lockMsg.style.color = d.error ? '#991b1b' : '#065f46';
+            })
+            .catch(function () { lockMsg.textContent = '✗ save failed'; lockMsg.style.color = '#991b1b'; });
     });
 
     render();

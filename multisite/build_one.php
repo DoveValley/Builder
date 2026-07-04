@@ -189,7 +189,11 @@ if ($noAi) {
 // ── Per-site hero text overlay (4c) — bake keyword + "City, ST" onto each hero ──
 // Runs after AI (so nothing overwrites the repointed image fields) and before the
 // build. Breaks the shared-uploads symlink first so stamped files stay per-site.
-$stamped = ms_stamp_hero_images($workingDir, $params);
+// Style is locked from the Test Lab: per-master override wins, else the global one.
+$styleFile = BASE_DIR . '/sites/' . $masterId . '/multisite/hero_style.json';
+if (!is_file($styleFile)) $styleFile = BASE_DIR . '/multisite/hero_style.json';
+$heroStyle = is_file($styleFile) ? (json_decode((string)file_get_contents($styleFile), true) ?: []) : [];
+$stamped = ms_stamp_hero_images($workingDir, $params, $heroStyle);
 if ($stamped > 0) progress_log("Hero overlay: stamped {$stamped} hero image(s) with keyword + city.");
 
 // ── Build in a worker-mode child process ──────────────────────────────────────
