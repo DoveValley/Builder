@@ -52,6 +52,30 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
 ?>
 <div class="tab-content" style="<?= $tab === 'citypages' ? '' : 'display:none;' ?>">
 <?php tab_header('Landing City Pages', 'View the generated status of every template × city combination. Run structure generation and AI generation from this tab.', 'tab-citypages'); ?>
+
+<details class="card" open style="background:#f8fafc;border-left:3px solid #2563eb;">
+    <summary style="cursor:pointer;font-weight:700;font-size:1.02rem;color:#1e3a5f;">How city-page generation works</summary>
+    <div style="margin-top:14px;font-size:.9rem;line-height:1.6;color:#334155;">
+        <p style="margin:0 0 6px;"><strong>Set up — once, for this site (governs every city page)</strong></p>
+        <ul style="margin:0 0 14px 18px;padding:0;">
+            <li><a href="?tab=templates">Landing Templates</a> — the reusable page skeleton(s): blocks + <code>{city}</code>/<code>{business}</code> shortcodes + AI archetype blocks</li>
+            <li><a href="?tab=cities">Landing Cities</a> — the cities to generate for (name, state, slug…)</li>
+            <li><a href="?tab=niche_brief">Niche Brief</a> + <a href="?tab=seo">Keywords</a> — AI vocabulary + guardrails + the per-page keyword the AI blocks target</li>
+            <li><em>Optional</em> — <a href="playground.php#hero-overlay" target="_blank">hero style</a> in the Test Lab, if you turn on per-city image overlays below</li>
+        </ul>
+        <p style="margin:0 0 6px;"><strong>Then, for each template × city (Generate below):</strong></p>
+        <ol style="margin:0 0 14px 18px;padding:0;">
+            <li>Build the page from the template</li>
+            <li>Fill shortcodes (<code>{city}</code>, <code>{state}</code>, <code>{business}</code>…) + generate the AI content for that city</li>
+            <li><em>Opt-in</em> — per-city images (hero text overlay / unique photos)</li>
+            <li><em>Opt-in</em> — vary the block order per city</li>
+            <li>Auto-add FAQ + breadcrumb schema</li>
+            <li>Write the page at its city slug (from the template's slug pattern)</li>
+        </ol>
+        <p style="margin:0;"><strong>Finish</strong> — each template shows per-city status (Generated / Stale / Missing); review, then re-Generate to refresh changed pages.</p>
+    </div>
+</details>
+
 <?php if (empty($templates) && empty($cities)): ?>
     <div class="card">
         <p class="hint">No templates or cities yet. Add templates in the <a href="?tab=templates">Templates tab</a> and cities in the <a href="?tab=cities">Cities tab</a> first.</p>
