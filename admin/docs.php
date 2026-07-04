@@ -3367,7 +3367,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><span class="where preauthor">Pre-authoring</span>✅ Block-order / layout variations per domain — per-page <em>Layout variations</em> panel (Content/Pages): Generate 4 subtle orderings (hero + last pinned), enable + save; each cloned site gets one by domain hash. <span class="pri must">Must</span> <span style="color:#64748b;">(Multisite preview shows which — see <a href="#ms-variation">Deterministic variation</a>)</span></li>
         <li><span class="where preauthor">Pre-authoring</span>⏭️ Vary JSON-LD schema shape — <strong>decided against</strong>: schema already varies per site (identity + injected LocalBusiness node), and JSON-LD key order is meaningless to Google — near-zero value. <span class="pri must">Must</span> <span style="color:#64748b;">(kept for the record)</span></li>
         <li><span class="where preauthor">Pre-authoring</span>☐ Vary CSS class vocabulary — 3–4 "skins": identical rules, different class names <span class="pri should">Should</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
-        <li><span class="where perrow">Per-row</span>☐ Randomize image directory / filename structure — vary folder + filename conventions per site <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(low value alone)</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Randomize image filename structure — site city appended + master city stripped on every image (folded into 4c) <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(done)</span></li>
     </ol>
 
     <h3>3 · Identity &amp; SEO signals <span style="font-weight:400;color:#64748b;font-size:.85em;">(the SEO backbone — mostly automated)</span></h3>
@@ -3442,16 +3442,16 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li>☐ <a href="#spec-vary-copy">1g</a> · Vary copy templates — <span class="pri must">Must</span> ~1–2 d <span style="color:#64748b;">(deprioritized — AI copy is already unique per city, so low real value)</span></li>
     </ul>
 
-    <p style="margin:14px 0 2px;"><strong>Phase 3 — Visual / asset pipeline</strong> <span style="color:#64748b;">· lowest SEO value, do last; all touch the asset subsystem · <strong>1 of 5 done</strong>; remaining ~3–4 dev-days</span></p>
+    <p style="margin:14px 0 2px;"><strong>Phase 3 — Visual / asset pipeline</strong> <span style="color:#64748b;">· lowest SEO value, do last; all touch the asset subsystem · <strong>2 of 5 done</strong> (4c + 2d); remaining ~2–3 dev-days</span></p>
     <ul>
-        <li>✅ <a href="#spec-image-assign">4c</a> · Per-site hero differentiation — keyword + "City, ST" baked onto each hero (text overlay); style tuned/locked in the <a href="playground.php">Test Lab</a>.</li>
+        <li>✅ <a href="#spec-image-assign">4c</a> · Per-site image differentiation — keyword + "City, ST" baked onto heroes, plus byte-perturb + city-rename of every other photo (also covers 2d); style tuned/locked in the <a href="playground.php">Test Lab</a>.</li>
         <li>☐ <a href="#spec-theme-colors">4d</a> · Domain-seeded theme colors — <span class="pri maybe">Maybe</span> ~½ d <span style="color:#64748b;">(cheapest remaining code win; pairs with 4c)</span></li>
         <li>☐ <a href="#spec-logo">4b</a> · Per-site logo / wordmark — <span class="pri maybe">Maybe</span> ~1–2 d</li>
         <li>☐ <a href="#spec-favicon">4a</a> · Per-site favicon / OG (derives from 4b) — <span class="pri maybe">Maybe</span> ~½ d</li>
-        <li>☐ <a href="#spec-image-paths">2d</a> · Randomize image dir / filename — <span class="pri maybe">Maybe</span> ~½ d <span style="color:#64748b;">(partly moot — 4c already gives heroes per-site filenames)</span></li>
+        <li>✅ <a href="#spec-image-paths">2d</a> · Randomize image filename — folded into 4c (site city appended, master city stripped, on every image).</li>
     </ul>
 
-    <div class="callout tip"><strong>Status:</strong> Phase 1 complete; Phase 2 is 3 of 6 (1e, 1d, 5c done — 1f, 2c, 1g remain); Phase 3 is 1 of 5 (4c done). Remaining high-value: <strong>1f</strong> (finish master authoring, strategic) and <strong>4d</strong> (per-site colors, cheap code). Items not in a phase are either <strong>✅ already built</strong> (most of area 3) or <strong>operational</strong> (areas 5–6, outside the tool).</div>
+    <div class="callout tip"><strong>Status:</strong> Phase 1 complete; Phase 2 is 3 of 6 (1e, 1d, 5c done — 1f, 2c, 1g remain); Phase 3 is 2 of 5 (4c + 2d done). Remaining high-value: <strong>1f</strong> (finish master authoring, strategic) and <strong>4d</strong> (per-site colors, cheap code). Items not in a phase are either <strong>✅ already built</strong> (most of area 3) or <strong>operational</strong> (areas 5–6, outside the tool).</div>
 
     <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 1 · Content</h3>
 
@@ -3530,9 +3530,9 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <div class="block-card-doc" id="spec-image-paths">
         <h3>2d · Randomize image directory / filename structure <span class="pri maybe">Maybe</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
-        <p class="bc-meta">☐ not built — low value alone</p>
-        <p><strong>Description.</strong> Vary the folder + filename conventions per site so asset paths aren't a uniform fingerprint.</p>
-        <p><strong>Build.</strong> At render/deploy, map each asset to a per-domain path scheme (folder + filename pattern chosen by hash) and rewrite <code>src</code>/<code>href</code> accordingly. Deterministic so rebuilds and incremental deploys stay stable. <strong>Effort:</strong> ~½ day.</p>
+        <p class="bc-meta">✅ DONE — folded into the <a href="#spec-image-assign">4c</a> image pass (city-in-filename)</p>
+        <p><strong>Description.</strong> Vary image filenames per site so asset paths aren't a uniform fingerprint (and don't leak the master's city).</p>
+        <p><strong>Built.</strong> The 4c image pass renames every content image with the site city appended and the master city stripped — <code>ms_city_image_path()</code> (<code>…-katy.webp</code> → <code>…-dallas-tx.webp</code>), rewriting the block field (and HTML-embedded refs). Deterministic, so rebuilds/incremental deploys stay stable. We kept the <em>directory</em> structure as-is (renaming folders adds risk for no extra signal); filename + byte differentiation is what removes the fingerprint. See <a href="#spec-image-assign">4c</a>.</p>
     </div>
 
     <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 3 · Identity &amp; SEO signals</h3>
@@ -3610,10 +3610,17 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     </div>
 
     <div class="block-card-doc" id="spec-image-assign">
-        <h3>4c · Per-site hero image differentiation <span class="pri should">Should</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
-        <p class="bc-meta">✅ DONE — hero text overlay (chosen over image pools; no curation needed)</p>
-        <p><strong>Description.</strong> Every generated site shares the master's hero photos, so the files are byte-identical across the whole network — a duplicate-image footprint that no text variation touches. Fixed by <strong>baking text onto each hero</strong>: line 1 = the page's <code>primary_keyword</code>, line 2 = "City, ST". Because the words differ per city, every site's hero is a genuinely different image (and the local keyword is in the pixels). This was chosen over curated image pools — one master photo yields a unique hero per city with zero photo-gathering.</p>
-        <p><strong>Built.</strong> <code>includes/multisite/image_overlay.php</code> — <code>ms_stamp_hero_images()</code> runs in <code>build_one.php</code> after AI, before the static build. It <strong>materialises the shared-uploads symlink into a per-site directory</strong> (so stamped files never touch the snapshot), finds each hero-type block's image across the homepage, core pages, and generated landing pages (each with its own city), renders the two lines via ImageMagick, and repoints the block to a per-page/per-domain output file. Format-preserving (webp→webp), metadata stripped for <strong>byte-reproducible rebuilds</strong>, sizes scale to each hero. <strong>Requires</strong> the master to carry <code>primary_keyword</code> per page for line 1 (else city-only). <strong>Scope:</strong> multisite builds only (not single-site deploys — a one-line add if wanted).</p>
+        <h3>4c · Per-site image differentiation (hero overlay + full image pass) <span class="pri should">Should</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
+        <p class="bc-meta">✅ DONE — hero text overlay + byte/filename differentiation of every image (also covers <a href="#spec-image-paths">2d</a>)</p>
+        <p><strong>Description.</strong> Every generated site shared the master's photos, byte-identical across the whole network — a duplicate-image footprint. Two parts: <strong>(a) heroes</strong> get text baked on (line 1 = the page's <code>primary_keyword</code>, line 2 = "City, ST") so the local keyword is in the pixels and each city's hero is genuinely different; <strong>(b) every other content photo</strong> is byte- and name-differentiated so no image matches across sites. Chosen over curated image pools — one master photo yields a unique image per city with zero photo-gathering.</p>
+        <p><strong>Built</strong> (<code>includes/multisite/image_overlay.php</code>, run from <code>build_one.php</code> after AI, before the static build). First it <strong>materialises the shared-uploads symlink into a per-site directory</strong> so nothing touches the snapshot, then per page (home, core, each landing with its own city):</p>
+        <ul>
+            <li><strong>Hero overlay</strong> — <code>ms_hero_overlay_render()</code> bakes the two lines via ImageMagick, format-preserving (webp→webp), sizes scaled to each hero.</li>
+            <li><strong>Byte perturbation</strong> — every other content photo gets <code>-strip</code> + an off-centre crop ~1–2% + ±2% tone + re-compress (<code>ms_perturb_image()</code>), all <strong>seed-deterministic</strong> so rebuilds are byte-identical. Beats exact <em>and</em> perceptual hashing; invisible to a person.</li>
+            <li><strong>Filename</strong> — the site city is appended and the <em>master</em> city stripped (<code>ms_city_image_path()</code>): <code>…-katy.webp</code> → <code>…-dallas-tx.webp</code>. Kills the master-city leak + makes paths unique. <strong>This is item <a href="#spec-image-paths">2d</a>.</strong></li>
+            <li><strong>Raw-text sweep</strong> catches images hardcoded in <code>custom_html</code>; <strong>prune</strong> drops every unreferenced file (originals we replaced + the master's unused media library — pest went 273 → 37 media files per site). Logos / icons / favicons are left identical (brand furniture).</li>
+        </ul>
+        <p><strong>Reusable:</strong> the per-page core <code>ms_process_blocks_images($blocks, $ctx)</code> takes a plain context, so the single-site landing-page generator can call the same entry later — not just the multisite build. <strong>Requires</strong> <code>primary_keyword</code> per page for hero line 1 (else city-only). <strong>Scope:</strong> multisite builds only.</p>
         <p><strong>Tuning &amp; locking the style.</strong> The <a href="playground.php">Test Lab</a> (docs nav → 🧪 Test Lab) previews the overlay on any image with live controls, then <em>Lock this style into the build</em> writes <code>multisite/hero_style.json</code> (position, colours, sizes + reference dims). The build reads it — a per-master <code>sites/{master}/multisite/hero_style.json</code> overrides the global one — and scales the locked sizes to each hero. The Lab shares the exact render core, so the preview matches production.</p>
     </div>
 
