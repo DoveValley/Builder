@@ -61,7 +61,7 @@ function ms_ai_compile(array $archetypes, array $brief): array {
             'description'      => $arch['description']       ?? '',
             'ai_mode'          => $arch['ai_mode']           ?? 'standalone',
             'ai_render_as'     => $arch['ai_render_as']      ?? null,
-            'ai_model'         => $arch['ai_model']          ?? 'claude-sonnet-4-6',
+            'ai_model'         => $arch['ai_model']          ?? (function_exists('model_default') ? model_default() : 'claude-haiku-4-5-20251001'),
             'ai_inject_target' => $arch['ai_inject_target']  ?? null,
             'ai_inject_field'  => $arch['ai_inject_field']   ?? null,
             'ai_inject_mode'   => $arch['ai_inject_mode']    ?? null,

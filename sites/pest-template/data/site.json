@@ -92,7 +92,7 @@
             "ai_type_id": "city_intro",
             "ai_mode": "standalone",
             "ai_render_as": "text",
-            "ai_model": "claude-sonnet-4-6"
+            "ai_model": "claude-sonnet-5"
         },
         {
             "type": "feature_split",
@@ -360,7 +360,7 @@
             "ai_type_id": "seasonal_calendar",
             "ai_mode": "standalone",
             "ai_render_as": "steps",
-            "ai_model": "claude-sonnet-4-6"
+            "ai_model": "claude-sonnet-5"
         },
         {
             "type": "faq_two_col",
@@ -422,7 +422,7 @@
             "ai_type_id": "local_relevance",
             "ai_mode": "standalone",
             "ai_render_as": "text",
-            "ai_model": "claude-sonnet-4-6"
+            "ai_model": "claude-sonnet-5"
         },
         {
             "type": "cta_banner",

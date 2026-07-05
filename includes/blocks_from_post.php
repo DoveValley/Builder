@@ -896,8 +896,7 @@ function parse_blocks_from_post(): array {
                 $aiModeRaw = trim($_POST['ai_mode'][$i] ?? 'standalone');
                 $block['ai_mode'] = in_array($aiModeRaw, ['standalone','inject']) ? $aiModeRaw : 'standalone';
                 $block['ai_render_as'] = trim($_POST['ai_render_as'][$i] ?? 'text');
-                $aiModelRaw = trim($_POST['ai_model'][$i] ?? 'claude-haiku-4-5-20251001');
-                $block['ai_model'] = in_array($aiModelRaw, ['claude-haiku-4-5-20251001','claude-sonnet-4-6','claude-opus-4-8']) ? $aiModelRaw : 'claude-haiku-4-5-20251001';
+                $block['ai_model'] = model_or_default($_POST['ai_model'][$i] ?? '');
                 $block['ai_prompt_override'] = trim($_POST['ai_prompt_override'][$i] ?? '');
                 $aiInjectTargetRaw = trim($_POST['ai_inject_target'][$i] ?? 'previous');
                 $block['ai_inject_target'] = in_array($aiInjectTargetRaw, ['previous','next']) ? $aiInjectTargetRaw : 'previous';

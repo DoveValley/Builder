@@ -14,6 +14,7 @@ require_once __DIR__ . '/theme.php';
 require_once __DIR__ . '/blocks.php';
 require_once __DIR__ . '/layout_variations.php';
 require_once __DIR__ . '/editor.php';
+require_once __DIR__ . '/models.php';
 require_once __DIR__ . '/schema.php';
 require_once __DIR__ . '/seo-editor.php';
 require_once __DIR__ . '/scripts.php';

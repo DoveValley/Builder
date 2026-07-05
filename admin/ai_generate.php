@@ -61,7 +61,7 @@ $refresh       = !empty($_POST['refresh']);
 $dryRun        = !empty($_POST['dry_run']);
 $modelOverride = '';
 $_mo = trim($_POST['model_override'] ?? '');
-if (in_array($_mo, ['claude-haiku-4-5-20251001', 'claude-sonnet-4-6', 'claude-opus-4-8'], true)) {
+if (model_is_valid($_mo)) {
     $modelOverride = $_mo;
 }
 

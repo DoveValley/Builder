@@ -30,7 +30,7 @@ $prompt = "List 6-10 secondary SEO keywords closely related to the primary keywo
         . "Return ONLY a single comma-separated line, lowercase, no numbering, no quotes, no other text.";
 
 $payload = json_encode([
-    'model'      => 'claude-haiku-4-5',
+    'model'      => 'claude-haiku-4-5-20251001',
     'max_tokens' => 200,
     'messages'   => [['role' => 'user', 'content' => $prompt]],
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);

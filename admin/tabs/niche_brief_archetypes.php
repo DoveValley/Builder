@@ -9,9 +9,7 @@
 $archShared = json_decode((string)@file_get_contents(BASE_DIR . '/multisite/ai/archetypes.json'), true) ?: [];
 $archOv     = json_decode((string)@file_get_contents(ACTIVE_SITE_DIR . '/multisite/archetypes.json'), true) ?: [];
 $archIds    = array_values(array_filter(array_keys($archShared), fn($k) => $k !== '_about' && $k !== '_shared' && is_array($archShared[$k])));
-$archModels = ['claude-haiku-4-5-20251001' => 'Haiku 4.5 (fast, cheap — default)',
-               'claude-sonnet-5'           => 'Sonnet 5 (stronger)',
-               'claude-opus-4-8'           => 'Opus 4.8 (strongest, priciest)'];
+$archModels = model_options();   // single source of truth: includes/models.json
 $archEff = function (string $id, string $k) use ($archShared, $archOv) {
     return $archOv[$id][$k] ?? ($archShared[$id][$k] ?? '');
 };

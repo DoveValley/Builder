@@ -63,9 +63,7 @@ function _abt_parse_post(): array|string {
         'description'      => trim($_POST['description'] ?? ''),
         'ai_mode'          => $isInject ? 'inject' : 'standalone',
         'ai_render_as'     => $isInject ? null : trim($_POST['ai_render_as'] ?? ''),
-        'ai_model'         => in_array($_POST['ai_model'] ?? '', ['claude-haiku-4-5-20251001', 'claude-sonnet-4-6'], true)
-                              ? $_POST['ai_model']
-                              : 'claude-haiku-4-5-20251001',
+        'ai_model'         => model_or_default($_POST['ai_model'] ?? ''),
         'ai_inject_target' => $isInject ? (trim($_POST['ai_inject_target'] ?? '') ?: null) : null,
         'ai_inject_field'  => $isInject ? (trim($_POST['ai_inject_field']  ?? '') ?: null) : null,
         'ai_inject_mode'   => $isInject ? (in_array($_POST['ai_inject_mode'] ?? '', ['replace', 'append', 'prepend'], true) ? $_POST['ai_inject_mode'] : 'replace') : null,

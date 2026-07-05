@@ -2,10 +2,7 @@
 // AI Block Type Registry tab — list, add, edit block types in ai_block_types.json.
 // $tab, $csrfToken, $aiBlockTypes, $editingBlockId, $editingBlock, $isAddingBlock set by index.php.
 
-$_abt_models = [
-    'claude-haiku-4-5-20251001' => 'Haiku 4.5 — fast, cheap',
-    'claude-sonnet-4-6'         => 'Sonnet 4.6 — higher quality',
-];
+$_abt_models = model_options();   // single source of truth: includes/models.json
 $_abt_inject_modes = ['replace' => 'Replace field value', 'append' => 'Append to array', 'prepend' => 'Prepend to array'];
 
 function _abt_form(array $bt = [], string $action = 'add', string $id = ''): void {

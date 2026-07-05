@@ -1,0 +1,9 @@
+{
+  "_about": "Single source of truth for the Claude models this app offers. Consumed by PHP (includes/models.php) AND Python (generate.py). Add/remove a model here and every editor dropdown, validation whitelist, and the cost/pricing table update together. Prices are USD per 1M tokens (durable/non-intro rates). Order is display order (cheap -> premium).",
+  "default": "claude-haiku-4-5-20251001",
+  "models": {
+    "claude-haiku-4-5-20251001": { "label": "Haiku 4.5 — fast, cheap", "tier": "haiku",  "input": 1.00, "output": 5.00 },
+    "claude-sonnet-5":           { "label": "Sonnet 5 — balanced quality", "tier": "sonnet", "input": 3.00, "output": 15.00 },
+    "claude-opus-4-8":           { "label": "Opus 4.8 — highest quality", "tier": "opus",  "input": 5.00, "output": 25.00 }
+  }
+}

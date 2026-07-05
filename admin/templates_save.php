@@ -340,8 +340,7 @@ if ($action === 'registry_save') {
     $aiModeRaw = trim($_POST['reg_ai_mode'] ?? 'standalone');
     $aiMode    = in_array($aiModeRaw, ['standalone', 'inject']) ? $aiModeRaw : 'standalone';
 
-    $aiModelRaw = trim($_POST['reg_ai_model'] ?? 'claude-haiku-4-5-20251001');
-    $aiModel    = in_array($aiModelRaw, ['claude-haiku-4-5-20251001', 'claude-sonnet-4-6', 'claude-opus-4-8']) ? $aiModelRaw : 'claude-haiku-4-5-20251001';
+    $aiModel = model_or_default($_POST['reg_ai_model'] ?? '');
 
     $aiInjectTargetRaw = trim($_POST['reg_ai_inject_target'] ?? '');
     $aiInjectTarget    = in_array($aiInjectTargetRaw, ['previous', 'next']) ? $aiInjectTargetRaw : null;

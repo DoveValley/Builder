@@ -208,9 +208,9 @@ function fmt_dur(int $ms): string {
                 <label for="ai-model">Model</label>
                 <select name="model_override" id="ai-model">
                     <option value="">Per-block setting</option>
-                    <option value="claude-haiku-4-5-20251001">Haiku — fast, cheap</option>
-                    <option value="claude-sonnet-4-6">Sonnet — better quality</option>
-                    <option value="claude-opus-4-8">Opus — highest quality</option>
+                    <?php foreach (model_options() as $mid => $mlabel): ?>
+                    <option value="<?= h($mid) ?>"><?= h($mlabel) ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
         </div>

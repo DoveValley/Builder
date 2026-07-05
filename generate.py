@@ -37,14 +37,26 @@ import time
 import uuid
 from datetime import datetime, timezone
 
-MODEL_DEFAULT = 'claude-haiku-4-5-20251001'
 INDENT = 2
 
-# Pricing: (input $/M tokens, output $/M tokens)
-MODEL_PRICING = {
-    'claude-haiku-4-5-20251001': (0.80,  4.00),
-    'claude-sonnet-4-6':         (3.00, 15.00),
-}
+# Model catalog — the single source of truth shared with PHP (includes/models.json).
+# MODEL_DEFAULT and MODEL_PRICING are derived from it so pricing never drifts / goes stale.
+def _load_model_catalog():
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'includes', 'models.json')
+    try:
+        with open(path, encoding='utf-8') as fh:
+            return json.load(fh)
+    except Exception:
+        return {}
+
+_MODEL_CATALOG = _load_model_catalog()
+_MODELS        = _MODEL_CATALOG.get('models', {}) if isinstance(_MODEL_CATALOG, dict) else {}
+MODEL_DEFAULT  = _MODEL_CATALOG.get('default') or 'claude-haiku-4-5-20251001'
+# Pricing: {model: (input $/M tokens, output $/M tokens)} — from the catalog.
+MODEL_PRICING  = {mid: (float(m.get('input', 0)), float(m.get('output', 0)))
+                  for mid, m in _MODELS.items() if isinstance(m, dict)}
+# Cost fallback for a model missing from the catalog: the most expensive tier (never under-report).
+_COST_FALLBACK = max(MODEL_PRICING.values(), default=(5.00, 25.00))
 
 # Module-level usage accumulator keyed by model — avoids threading through every call signature
 _usage     = {'by_model': {}, 'api_calls': 0}
@@ -64,7 +76,7 @@ def _total_tokens() -> tuple[int, int]:
 def _estimated_cost_usd() -> float:
     total = 0.0
     for model, counts in _usage['by_model'].items():
-        in_rate, out_rate = MODEL_PRICING.get(model, (0.80, 4.00))
+        in_rate, out_rate = MODEL_PRICING.get(model, _COST_FALLBACK)
         total += (counts['input_tokens']  / 1_000_000) * in_rate
         total += (counts['output_tokens'] / 1_000_000) * out_rate
     return round(total, 6)
@@ -862,7 +874,7 @@ def main():
     ap.add_argument('--dry-run',         action='store_true', dest='dry_run',
                     help='Preview without calling API or writing files')
     ap.add_argument('--model',           default=None,
-                    help='Override the model for every block (e.g. claude-sonnet-4-6)')
+                    help='Override the model for every block (e.g. claude-sonnet-5)')
     args = ap.parse_args()
 
     # research-only implies --research

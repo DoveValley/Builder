@@ -10,6 +10,7 @@
  * prompt_skeleton[id]  (+ csrf_token)
  */
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';   // model_is_valid() etc.
 if (empty($_SESSION['admin_logged_in']))          { header('Location: login.php'); exit; }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST')        { header('Location: index.php?tab=niche_brief'); exit; }
 if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
@@ -36,7 +37,7 @@ foreach ($shared as $id => $seed) {
         $val = (string)$_POST[$k][$id];
         if ($k === 'ai_model') {
             $val = trim($val);
-            if (!preg_match('/^claude-[a-z0-9.\-]+$/i', $val)) continue;        // ignore a malformed model
+            if (!model_is_valid($val)) continue;        // ignore a model not in the catalog
         } else {
             $val = ($k === 'prompt_skeleton') ? rtrim($val) : trim($val);       // keep skeleton's internal newlines
         }
