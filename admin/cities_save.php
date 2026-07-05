@@ -89,6 +89,9 @@ function _city_parse_post(string $prefix = ''): array {
         'top_employers' => _parse_lines($_POST[$prefix . 'top_employers'] ?? ''),
         'salary_note'   => trim($_POST[$prefix . 'salary_note']   ?? ''),
         'market_blurb'  => trim($_POST[$prefix . 'market_blurb']  ?? ''),
+        'neighborhoods'      => _parse_lines($_POST[$prefix . 'neighborhoods'] ?? ''),
+        'population'         => (int) preg_replace('/[^0-9]/', '', (string)($_POST[$prefix . 'population'] ?? '')),
+        'neighborhoods_auto' => empty($_POST[$prefix . 'neighborhoods_auto']) ? 0 : 1,
     ];
 }
 
@@ -164,6 +167,25 @@ if ($action === 'delete') {
     }
     _city_cleanup_pages($id);
     header('Location: index.php?tab=cities&msg=success:City+deleted');
+    exit;
+}
+
+// ── save neighborhoods auto-publish threshold (site-level setting) ─────────────
+if ($action === 'save_settings') {
+    $threshold = (int) preg_replace('/[^0-9]/', '', (string)($_POST['neighborhoods_threshold'] ?? ''));
+    if ($threshold <= 0) $threshold = 14000;
+
+    $path = dirname(CITIES_FILE) . '/neighborhoods.json';
+    if (!is_dir(dirname($path))) mkdir(dirname($path), 0755, true);
+    $existing = @json_decode((string)@file_get_contents($path), true) ?: [];
+    $existing['threshold'] = $threshold;
+
+    $tmp = $path . '.tmp.' . getmypid();
+    if (file_put_contents($tmp, json_encode($existing, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)) === false || !rename($tmp, $path)) {
+        header('Location: index.php?tab=cities&msg=error:Could+not+save+threshold');
+        exit;
+    }
+    header('Location: index.php?tab=cities&msg=success:' . urlencode('Threshold saved (' . number_format($threshold) . ')'));
     exit;
 }
 

@@ -2,7 +2,7 @@
 // Cities tab — list, add, edit, CSV import
 // $tab, $cities, $editingCity, $editingCityId set by index.php
 
-function _render_city_fields(array $city = [], string $prefix = '', string $cityId = ''): void {
+function _render_city_fields(array $city = [], string $prefix = '', string $cityId = '', int $hoodThreshold = 14000): void {
     $v    = fn(string $k) => h($city[$k] ?? '');
     $uid  = $prefix ?: 'add';
     $fill = !$cityId; // only wire auto-fill on the Add form
@@ -100,13 +100,77 @@ function _render_city_fields(array $city = [], string $prefix = '', string $city
         <textarea name="<?= $prefix ?>market_blurb" rows="3" placeholder="[City] is home to..."><?= h($city['market_blurb'] ?? '') ?></textarea>
         <span class="hint">1–3 sentences on why the PM certification market is strong here. Referenced directly in AI prompts.</span>
     </div>
+
+    <?php
+    // ── Neighborhoods (gated by population threshold) ──────────────────────────
+    $hoods = $city['neighborhoods'] ?? [];
+    $pop   = (int) preg_replace('/[^0-9]/', '', (string)($city['population'] ?? ''));
+    $auto  = !empty($city['neighborhoods_auto']);
+    if (empty($hoods)) {
+        $stTxt = '— no neighborhoods yet (page stays generic)'; $stFg = '#6b7280'; $stBg = '#f3f4f6';
+    } elseif ($auto) {
+        $stTxt = '✓ Auto-publishing — “Always auto” is on'; $stFg = '#065f46'; $stBg = '#d1fae5';
+    } elseif ($pop >= $hoodThreshold) {
+        $stTxt = '✓ Auto-publishing — population ' . number_format($pop) . ' ≥ ' . number_format($hoodThreshold); $stFg = '#065f46'; $stBg = '#d1fae5';
+    } else {
+        $stTxt = '⚠ Held for review — below ' . number_format($hoodThreshold) . '. Confirm the names, then tick “Always auto” to publish.'; $stFg = '#92400e'; $stBg = '#fef3c7';
+    }
+    ?>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px;">
+        <div class="form-group">
+            <label>Neighborhoods <span style="font-weight:400;color:#888;">(one per line)</span></label>
+            <textarea name="<?= $prefix ?>neighborhoods" rows="4" placeholder="Cinco Ranch&#10;Cross Creek Ranch&#10;Grand Lakes"><?= h(implode("\n", $hoods)) ?></textarea>
+            <span class="hint">Real, verifiable areas only. 2–3 are <strong>woven into</strong> the local section — never a list. Blank = generic.</span>
+        </div>
+        <div class="form-group">
+            <label>Population</label>
+            <input type="number" name="<?= $prefix ?>population" value="<?= h($city['population'] ?? '') ?>" placeholder="21894" min="0" step="1">
+            <span class="hint">Neighborhoods auto-publish when this is ≥ the threshold (<?= number_format($hoodThreshold) ?>), set on the Landing Cities panel.</span>
+            <label style="display:flex;align-items:center;gap:8px;margin-top:12px;font-weight:500;cursor:pointer;">
+                <input type="checkbox" name="<?= $prefix ?>neighborhoods_auto" value="1" <?= $auto ? 'checked' : '' ?>>
+                Always auto-publish neighborhoods for this city <span style="font-weight:400;color:#888;">(ignore threshold)</span>
+            </label>
+            <div style="margin-top:10px;display:inline-block;font-size:.78rem;padding:4px 10px;border-radius:6px;background:<?= $stBg ?>;color:<?= $stFg ?>;"><?= $stTxt ?></div>
+        </div>
+    </div>
 <?php
 }
 ?>
 
 <div class="tab-content" style="<?= $tab === 'cities' ? '' : 'display:none;' ?>">
-<?php tab_header('Landing Cities', 'Manage the city list used for landing page generation. Each city entry provides the variables (name, state, slug, ZIP) that fill city page templates.', 'tab-cities'); ?>
+<?php
+tab_header('Landing Cities', 'Manage the city list used for landing page generation. Each city entry provides the variables (name, state, slug, ZIP) that fill city page templates.', 'tab-cities');
+// Per-site neighborhoods auto-publish threshold (data/neighborhoods.json).
+$_hoodCfgPath  = dirname(CITIES_FILE) . '/neighborhoods.json';
+$_hoodCfg      = @json_decode((string)@file_get_contents($_hoodCfgPath), true) ?: [];
+$hoodThreshold = (int)($_hoodCfg['threshold'] ?? 14000);
+if ($hoodThreshold <= 0) $hoodThreshold = 14000;
+?>
 <?php if ($editingCity === null): ?>
+
+    <!-- ── Neighborhoods auto-publish threshold ──────────────────────────── -->
+    <div class="card" style="margin-bottom:20px;">
+        <h2>Neighborhoods — auto-publish threshold</h2>
+        <p class="hint" style="margin-bottom:12px;max-width:820px;">
+            AI research collects real neighborhoods per city (plus its population). On city landing pages,
+            2–3 names get <strong>woven into the local-relevance section — never shown as a list</strong>.
+            Because AI is least reliable on small towns, names only publish <strong>automatically</strong> when a
+            city's <strong>population ≥ the threshold</strong> below. Smaller cities are <strong>held</strong> (the page
+            stays generic — never a fake name) until you review the researched names on that city's <em>Edit</em>
+            screen and tick <em>“Always auto-publish”</em>. Cities with no researched neighborhoods always stay generic.
+        </p>
+        <form action="cities_save.php" method="post" style="display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;">
+            <input type="hidden" name="action" value="save_settings">
+            <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+            <div class="form-group" style="margin:0;">
+                <label>Population threshold</label>
+                <input type="number" name="neighborhoods_threshold" value="<?= h($hoodThreshold) ?>" min="0" step="500" style="width:170px;">
+            </div>
+            <button type="submit" class="btn">Save threshold</button>
+            <span class="hint" style="margin:0 0 9px;">Default 14,000. At/above → auto; below → review &amp; tick per city.</span>
+        </form>
+    </div>
+
 
     <!-- ── List view ─────────────────────────────────────────────────── -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;">
@@ -117,7 +181,7 @@ function _render_city_fields(array $city = [], string $prefix = '', string $city
             <form action="cities_save.php" method="post">
                 <input type="hidden" name="action" value="add">
                 <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
-                <?php _render_city_fields(); ?>
+                <?php _render_city_fields([], '', '', $hoodThreshold); ?>
                 <button type="submit" class="btn">Add City</button>
             </form>
         </div>
@@ -236,7 +300,7 @@ Austin,Texas,TX,austin-tx,(512) 555-0100,+15125550100,78701,,30.2672,-97.7431,,t
             <input type="hidden" name="action" value="save">
             <input type="hidden" name="city_id" value="<?= h($editingCityId) ?>">
             <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
-            <?php _render_city_fields($editingCity, '', $editingCityId); ?>
+            <?php _render_city_fields($editingCity, '', $editingCityId, $hoodThreshold); ?>
             <button type="submit" class="btn">Save City</button>
         </form>
     </div>

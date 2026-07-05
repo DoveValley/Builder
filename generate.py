@@ -168,7 +168,38 @@ def resolve_city(idx, city_vars):
 
 # ── Context assembly ──────────────────────────────────────────────────────────
 
-def build_context(site_vars, city_data, page_data=None):
+DEFAULT_HOOD_THRESHOLD = 14000
+
+def _hood_threshold(paths):
+    """Population threshold above which a city's researched neighborhoods auto-publish.
+    Stored per-site in data/neighborhoods.json (edited on the Landing Cities tab)."""
+    cfg = load_json(os.path.join(paths['site_dir'], 'data', 'neighborhoods.json')) or {}
+    try:
+        t = int(cfg.get('threshold', DEFAULT_HOOD_THRESHOLD))
+        return t if t > 0 else DEFAULT_HOOD_THRESHOLD
+    except (ValueError, TypeError):
+        return DEFAULT_HOOD_THRESHOLD
+
+def _effective_neighborhoods(city_data, threshold):
+    """Gate real neighborhood names into a comma-joined string, or '' to stay generic.
+    Names publish only when the city is auto-eligible: a per-city `neighborhoods_auto`
+    override, OR population >= threshold. Otherwise the names are HELD (page stays
+    generic — never a fake name). Empty research also yields '' (fail-safe)."""
+    hoods = city_data.get('neighborhoods', [])
+    if isinstance(hoods, str):
+        hoods = re.split(r'[\n,]', hoods)
+    hoods = [str(h).strip() for h in hoods if str(h).strip()]
+    if not hoods:
+        return ''
+    if city_data.get('neighborhoods_auto'):
+        return ', '.join(hoods)
+    try:
+        pop = int(str(city_data.get('population', '') or '0').replace(',', '').strip() or 0)
+    except (ValueError, TypeError):
+        pop = 0
+    return ', '.join(hoods) if pop >= threshold else ''
+
+def build_context(site_vars, city_data, page_data=None, hood_threshold=DEFAULT_HOOD_THRESHOLD):
     """Merge all data sources into a flat substitution context dict."""
     industries = city_data.get('industries', [])
     employers  = city_data.get('top_employers', [])
@@ -185,6 +216,7 @@ def build_context(site_vars, city_data, page_data=None):
         'top_employers': ', '.join(employers)  if isinstance(employers, list)  else str(employers),
         'salary_note':   city_data.get('salary_note', ''),
         'market_blurb':  city_data.get('market_blurb', ''),
+        'neighborhoods': _effective_neighborhoods(city_data, hood_threshold),
         'service':       '',
         'keyword':       '',
     }
@@ -407,7 +439,7 @@ def process_homepage(paths, site_data, registry, c_idx, api_key, refresh, dry_ru
     _log('\n── Homepage ─────────────────────────────────────────')
     site_vars = site_data.get('site_vars', {})
     city_data = resolve_city(c_idx, site_vars)
-    ctx       = build_context(site_vars, city_data, site_data)
+    ctx       = build_context(site_vars, city_data, site_data, _hood_threshold(paths))
     blocks = site_data.get('content_blocks', [])
     n_ai   = sum(1 for b in blocks if _needs_processing(b))
 
@@ -431,6 +463,7 @@ def process_core_pages(paths, site_data, registry, c_idx, api_key, refresh, dry_
     pages     = site_data.get('pages', {})
     total     = {'processed': 0, 'skipped': 0, 'errors': 0}
     changed   = False
+    threshold = _hood_threshold(paths)
 
     for pid, page in pages.items():
         blocks = page.get('content_blocks', [])
@@ -439,7 +472,7 @@ def process_core_pages(paths, site_data, registry, c_idx, api_key, refresh, dry_
             continue
         _log(f'  Page "{page.get("title", pid)}" — {n_ai} block(s) to process')
         city_data = resolve_city(c_idx, site_vars)
-        ctx       = build_context(site_vars, city_data, page)
+        ctx       = build_context(site_vars, city_data, page, threshold)
         new_blocks, stats = process_blocks(blocks, registry, ctx, api_key, refresh, dry_run, model_override)
         _merge_stats(total, stats)
         if not dry_run:
@@ -468,6 +501,7 @@ def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, d
     if file_filter:
         json_files = [f for f in json_files if file_filter in os.path.basename(f)]
     total = {'processed': 0, 'skipped': 0, 'errors': 0}
+    threshold = _hood_threshold(paths)
 
     for fpath in json_files:
         page_data = load_json(fpath)
@@ -490,7 +524,7 @@ def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, d
         if not city_data.get('industries') and not city_data.get('salary_note'):
             _warn(f'  No research data for {city_vars.get("city","?")} — run research step or enrich cities.json')
 
-        ctx = build_context(site_vars, merged_city, page_data)
+        ctx = build_context(site_vars, merged_city, page_data, threshold)
         _log(f'  City: {ctx["city"]}, {ctx["SS"]}')
 
         new_blocks, stats = process_blocks(blocks, registry, ctx, api_key, refresh, dry_run, model_override)
@@ -522,9 +556,11 @@ Return a JSON object with these fields:
 2. "top_employers" — array of 8-12 major employers with a real physical presence in {city} (exact organization names).
 3. "market_blurb" — 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.
 4. "local_note" — one sentence of locally-specific context relevant to {service_noun} in {city}.
+5. "neighborhoods" — array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist — never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.
+6. "population" — {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).
 
 Rules:
-- Only verifiable facts — real employers, no invented statistics or companies.
+- Only verifiable facts — real employers and real neighborhoods, no invented statistics, companies, or place names.
 - Return JSON only, no markdown fences, no explanation."""
 
 
