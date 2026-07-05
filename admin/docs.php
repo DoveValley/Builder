@@ -275,6 +275,8 @@ tr:nth-child(even) td { background: #f8fafc; }
     <nav id="aicity-nav" hidden>
         <a class="nav-group" href="#group-ai">Workflow — AI System</a>
         <a href="#ai-overview">How AI works</a>
+        <a href="#ai-single">↳ Single-site flow</a>
+        <a href="#ai-multi">↳ Multisite flow</a>
         <a href="#ai-niche">The Niche Brief</a>
         <a href="#ai-research">Local market research</a>
         <a href="#ai-standalone">Standalone mode</a>
@@ -2211,12 +2213,69 @@ Output valid JSON only — no explanation.</code></pre>
 <div class="doc-group-header" id="group-ai">Workflow — AI System</div>
 <section id="ai-overview">
     <h2>AI System — Overview</h2>
-    <p>The AI system generates city-specific content for landing pages using the Claude API. There are two modes: <strong>Standalone</strong> (the AI creates a whole new block) and <strong>Enrich</strong> (the AI fills one field inside an existing block).</p>
-    <p>AI generation is a two-step process that runs separately from structure generation:</p>
+    <p>The same AI engine powers <strong>single-site</strong> and <strong>multisite</strong> builds. Understanding four pieces explains all of it:</p>
+    <table>
+        <tr><th>Piece</th><th>What it is</th></tr>
+        <tr><td><strong>AI block</strong></td><td>The unit of AI content. A block in a page/template marked for generation — either a <code>type: "ai_block"</code> placeholder, or any block carrying an <code>ai_type_id</code>. <strong>If a page has no AI block, the AI generates nothing there.</strong></td></tr>
+        <tr><td><strong>Registry</strong> (<code>data/ai_block_types.json</code>)</td><td>The recipe book. Each block's <code>ai_type_id</code> points to an entry giving its prompt, model, output schema, and mode.</td></tr>
+        <tr><td><strong><code>generate.py</code></strong></td><td>The <em>content</em> engine. Finds AI blocks, resolves the prompt, calls Claude, writes the result. The only thing that spends tokens.</td></tr>
+        <tr><td><strong><code>includes/generation/engine.php</code></strong></td><td>The <em>structure</em> engine. Fans a template out to one page per city and resolves shortcodes. <strong>Never calls an LLM.</strong></td></tr>
+    </table>
+    <p><strong>Content AI = AI blocks.</strong> <code>generate.py</code> only touches blocks that qualify as AI blocks; every other block is rendered verbatim. The <a href="#ai-research">research step</a>, the SEO <a href="#group-schema">schema generator</a>, and keyword suggestions are <em>separate</em> AI features — they are not block-driven. Research in particular is a pre-step that fills <code>cities.json</code> with facts (industries, employers, neighborhoods, population) that a block's prompt then references via tokens like <code>{city}</code> / <code>{neighborhoods}</code> — it <em>feeds</em> Content AI rather than being an AI block itself.</p>
+
+    <h3>Two modes</h3>
+    <ul>
+        <li><strong>Standalone</strong> — an <code>ai_block</code> placeholder is filled and rendered as its <code>ai_render_as</code> type (e.g. <code>local_relevance</code> → a text block). See <a href="#ai-standalone">Standalone mode</a>.</li>
+        <li><strong>Enrich</strong> — an existing real block carries an <code>ai_type_id</code>; the AI fills one field in place (e.g. <code>faq_local</code> fills a <code>faq_two_col</code>'s items) and leaves the rest of the block alone. See <a href="#ai-enrich">Enrich mode</a>.</li>
+    </ul>
+
+    <h3>The two-stage pipeline (both build modes)</h3>
+    <p>Structure and content are always separate stages, in this order:</p>
     <ol>
-        <li><strong>Structure generation (PHP)</strong> — copies template to each city page</li>
-        <li><strong>AI generation (Python)</strong> — finds blocks needing AI content and calls Claude</li>
+        <li><strong>Structure (PHP, no cost)</strong> — <code>engine.php</code> builds the page skeleton, including empty AI-block placeholders, and resolves slug/canonical/SEO shortcodes.</li>
+        <li><strong>Content (Python, costs tokens)</strong> — <code>generate.py</code> fills the AI blocks per city and stamps each filled block <code>_ai_locked</code> so later runs skip it (unless <em>Force</em> / <code>--refresh</code>). See <a href="#ai-locking">Locking</a>.</li>
     </ol>
+    <p>The <strong>FAQPage</strong> JSON-LD is <em>derived at render</em> from the page's current FAQ blocks (not stored at structure time), so it always matches the AI-filled FAQ and can never go stale.</p>
+
+    <h3 id="ai-single">How it works — single site</h3>
+    <ul>
+        <li><strong>Home &amp; core pages:</strong> the AI blocks live directly in <code>site.json</code> (edited on the Content tab — there is no "template"). Run AI generation on the <a href="#tab-generate">AI Generation</a> tab (scope Homepage / Core) to fill them. Don't lean on per-city tokens here — <code>{city}</code>/<code>{neighborhoods}</code> resolve to the site's home city, not a per-page one.</li>
+        <li><strong>Landing (per-city) pages:</strong> author AI blocks once in a <strong>template</strong> (Templates tab); the <a href="#tab-cities">Landing City Page Gen</a> tab materializes one page file per city (structure, <code>engine.php</code>); then AI generation fills them per city.</li>
+        <li><strong>Research:</strong> the <em>Research with AI</em> button on the Cities tab fills that city's row in <code>cities.json</code>. Grounds the copy. See <a href="#ai-research">Local market research</a>.</li>
+        <li><strong>Registry:</strong> for a pure single site you author block types by hand in the <a href="#tab-ai-blocks">Block Type Registry</a> tab. (A site with no registry silently skips all AI blocks.)</li>
+        <li><strong>Deploy:</strong> Generate Static Site → the static build renders every page (through <code>site-template.php</code>) and FTP-deploys it.</li>
+    </ul>
+
+    <h3 id="ai-multi">How it works — multisite</h3>
+    <p>A <strong>master</strong> site is cloned into many deployed sites, one per row of the <a href="#ms-params">params table</a>. <code>run_campaign.php</code> runs each row through <code>build_one.php</code>, which per site does:</p>
+    <ol>
+        <li><strong>Clone</strong> the master snapshot into an ephemeral working dir.</li>
+        <li><strong>Inject identity</strong> — rewrite business name / domain / phone / schema to this deploy.</li>
+        <li><strong>Scope landing cities</strong> to the row's <code>landing_cities</code> — <em>merging in the master's research</em> for those cities (so neighborhoods, industries, etc. reach the deployed page; a city the master never researched stays generic).</li>
+        <li><strong>Structure</strong> the landing pages (<code>engine.php</code>), then <strong>fill AI content</strong> (<code>generate.py --all</code>) — home, core, and landing.</li>
+        <li><strong>Differentiate images</strong>, <strong>build static</strong> (the same render path as single-site), and <strong>FTP-deploy</strong> (skipped if the row has no FTP credentials — build-only).</li>
+    </ol>
+    <p><strong>Registry:</strong> a master's registry is <em>compiled</em> from the shared archetype library (<code>multisite/ai/archetypes.json</code>) + the master's <a href="#ai-niche">Niche Brief</a>, via <code>compile.php</code>. Compile is <strong>non-destructive</strong> — it never overwrites or deletes a hand-authored block type. See <a href="#ai-hardening">AI hardening</a>.</p>
+    <p><strong>Per-domain cache:</strong> generated copy is frozen per deployed domain and re-used on rebuild — zero API calls, identical output — <em>unless</em> an input actually changed. Staleness is keyed on a hash of the <strong>fully-resolved prompt + model</strong>, so a change to a city's research, the prompt, or the model regenerates just the affected blocks. See <a href="#ms-cache">the content cache</a>.</p>
+
+    <h3>Shared vs. multisite-only</h3>
+    <table>
+        <tr><th></th><th>Single-site</th><th>Multisite</th></tr>
+        <tr><td>Content engine (<code>generate.py</code>)</td><td>✅</td><td>✅ (same binary)</td></tr>
+        <tr><td>Registry + render path</td><td>✅</td><td>✅ (shared)</td></tr>
+        <tr><td>Registry origin</td><td>hand-authored</td><td>compiled from archetypes</td></tr>
+        <tr><td>Per-city scoping + research merge</td><td>—</td><td>✅ (<code>build_one</code>)</td></tr>
+        <tr><td>Per-domain content cache</td><td>—</td><td>✅</td></tr>
+        <tr><td>FTP deploy fan-out</td><td>one site</td><td>N sites</td></tr>
+    </table>
+
+    <h3>What keeps the content good &amp; safe</h3>
+    <ul>
+        <li><strong>Research grounding</strong> — real per-city facts, not invented ones. <a href="#ai-research">Details</a>.</li>
+        <li><strong>Neighborhoods gate</strong> — real neighborhood names woven into prose (never a list), and only auto-published above a population threshold so AI can't put a fake subdivision on a small-town page. <a href="#ai-neighborhoods">Details</a>.</li>
+        <li><strong>FAQ schema is a projection of content</strong> — derived at render, never stale.</li>
+        <li><strong>One model catalog</strong> — <code>includes/models.json</code> is the single source for which models exist, their labels, and pricing; every editor dropdown, validator, and the cost table read it.</li>
+    </ul>
 </section>
 
 <section id="ai-niche">
@@ -3421,6 +3480,9 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
 <!-- ═══════════ AI CONTENT ═══════════ -->
 <div class="doc-group-header" id="ms-ai">AI Content</div>
+<section>
+    <p class="callout" style="margin-top:0;"><strong>The big picture:</strong> the AI engine, registry, and render path are <em>shared</em> with single-site — for the unified explanation of how Content AI works and how the single-site and multisite flows compare, see <a href="#ai-overview">AI System → Overview</a> (and <a href="#ai-multi">↳ Multisite flow</a>). The sections below cover the multisite-specific mechanics: the compiled registry, per-domain cache, and reproducibility.</p>
+</section>
 <section id="ms-niche">
     <h2>Niche Brief &amp; archetypes</h2>
     <p class="callout" style="margin-top:0;"><strong>Same brief as the single-site workflow.</strong> The Niche Brief is not a multisite-only concept — it's the same file, tab, and compile step described in <a href="#ai-niche">AI System → The Niche Brief</a>, where one site publishes many city landing pages. Multisite simply <em>reuses it verbatim</em>: instead of many pages on one domain, the master (brief + registry + templates) is cloned into many separate single-city sites. Authoring happens once; read this section for the multisite-specific mechanics.</p>
