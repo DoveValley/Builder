@@ -180,7 +180,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "",
+            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Cockroach Exterminator in {city_state}\",\"serviceType\":\"Cockroach Extermination\",\"description\":\"Professional cockroach exterminator services in {city_state}. Targeted roach control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"},\"url\":\"{website}/cockroach-exterminator-{city_slug}/\"}]}",
             "primary_keyword": "Cockroach Exterminator"
         }
     }

@@ -39,6 +39,14 @@ function render_seo_editor($seo, string $context = 'page', string $websiteUrl = 
         global $data;
         $websiteUrl = rtrim($data['site_vars']['website'] ?? '', '/');
     }
+    // ── AI schema generator (admin-only): effective prompts + core-type presets ──
+    require_once __DIR__ . '/../admin/schema_prompts.php';
+    $schemaGenPrompts   = schema_prompts_effective();
+    $schemaGenDefaults  = schema_prompt_defaults();
+    $schemaGenCoreTypes = schema_core_types();
+    $schemaGenScope = ($context === 'homepage') ? 'homepage'
+                    : (($context === 'template') ? 'template'
+                    : (($context === 'post') ? 'post' : 'page'));
     // Build the prefill URL for the template URL tester input — resolve {website} now
     // (known from active site), leave {city_slug} for the user to replace.
     $templatePrefill = '';
@@ -242,6 +250,145 @@ function render_seo_editor($seo, string $context = 'page', string $websiteUrl = 
                 <button type="button" onclick="schemaOpenValidator('richresults')" class="btn btn-secondary btn-small">Rich Results Test ↗</button>
                 <?php endif; ?>
             </div>
+
+            <?php
+            // How-it-works blurb — states what's GLOBAL vs UNIQUE for this button's area.
+            $schemaGenHow = [
+                'homepage' => 'Generates the site\'s <strong>foundational</strong> schema — the business (<code>LocalBusiness</code>), <code>WebSite</code> and <code>WebPage</code> nodes. Their <code>@id</code>s are the anchors that <strong>every</strong> Core, Landing and Blog page references, so this runs on the homepage only.',
+                'page'     => 'Generates schema for this core page from the <strong>Page type</strong> you pick below. Each type\'s prompt is shared across <strong>all core pages of that type</strong> on this site. The business is referenced by <code>@id</code> from the homepage — not redefined here.',
+                'template' => 'Generates the <code>Service</code> + <code>areaServed</code> schema for this city template. This one prompt is shared across <strong>every city</strong> generated from this template — city values stay as shortcodes and resolve per city. <code>FAQPage</code> is added automatically, so it is excluded here.',
+                'post'     => 'Generates <code>BlogPosting</code> schema for this post. The prompt is shared across <strong>all blog posts</strong> on this site; per-post values (title, date, image) are read from this post.',
+            ][$schemaGenScope];
+            ?>
+            <details class="schema-ai-gen" style="margin-top:12px;border:1px solid #c7d2fe;border-radius:8px;background:#f5f7ff;">
+                <summary style="cursor:pointer;padding:11px 14px;font-weight:800;color:#3730a3;">✨ AI generate this schema <span style="font-weight:500;color:#6366f1;font-size:0.82rem;">— draft it with Claude, then review &amp; save</span></summary>
+                <div style="padding:2px 14px 14px;">
+                    <div style="font-size:0.78rem;color:#3f3f70;line-height:1.65;background:#fff;border:1px solid #e0e7ff;border-radius:6px;padding:10px 12px;margin-bottom:12px;">
+                        <?= $schemaGenHow ?><br>
+                        <span style="color:#6b7280;">Editing the prompt affects <strong>this generation</strong>. Use <em>Save prompt as default</em> to persist it for this whole area on this site (stored globally in <code>data/schema_prompts.json</code>); <em>Reset</em> restores the built-in default.</span>
+                    </div>
+                    <?php if ($context === 'page'): ?>
+                    <div class="form-group" style="margin-bottom:10px;">
+                        <label style="font-size:0.8rem;font-weight:700;">Page type</label>
+                        <select id="schema_core_type" onchange="schemaGenSwapPrompt()" style="font-size:0.85rem;padding:6px 8px;border:1px solid #c7d2fe;border-radius:5px;">
+                            <?php foreach ($schemaGenCoreTypes as $val => $label): ?>
+                            <option value="<?= h($val) ?>"><?= h($label) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <span class="hint">Auto-detected from the page title — change it if the guess is wrong.</span>
+                    </div>
+                    <?php endif; ?>
+                    <div class="form-group" style="margin-bottom:8px;">
+                        <label style="font-size:0.8rem;font-weight:700;">Prompt <span class="hint">(editable — defines the schema shape for this area)</span></label>
+                        <textarea id="schema_gen_prompt" rows="7" style="font-family:'SF Mono','Fira Code',monospace;font-size:0.76rem;width:100%;border:1px solid #c7d2fe;border-radius:6px;padding:9px;line-height:1.5;resize:vertical;"></textarea>
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+                        <button type="button" onclick="schemaGenRun(this)" class="btn btn-primary btn-small">✨ Generate schema</button>
+                        <button type="button" onclick="schemaGenSavePrompt(this)" class="btn btn-secondary btn-small">Save prompt as default</button>
+                        <button type="button" onclick="schemaGenResetPrompt()" class="btn btn-secondary btn-small">↺ Reset to built-in</button>
+                        <span id="schema_gen_status" style="font-size:0.8rem;flex:1;min-width:120px;"></span>
+                    </div>
+                </div>
+            </details>
+            <script>
+            (function(){
+                var PROMPTS  = <?= json_encode($schemaGenPrompts,  JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>;
+                var DEFAULTS = <?= json_encode($schemaGenDefaults, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>;
+                var SCOPE    = <?= json_encode($schemaGenScope) ?>;
+                var pEl = document.getElementById('schema_gen_prompt');
+                var stEl = document.getElementById('schema_gen_status');
+                if (!pEl) return;
+
+                function csrf(){
+                    var f = pEl.closest('form');
+                    return (f && f.querySelector('input[name="csrf_token"]') || {}).value
+                        || (typeof CSRF_TOKEN !== 'undefined' ? CSRF_TOKEN : '');
+                }
+                function val(name){ var e = document.querySelector('[name="'+name+'"]'); return e ? (e.value||'').trim() : ''; }
+                function say(msg, color){ if(stEl){ stEl.textContent = msg; stEl.style.color = color||'#4b5563'; } }
+
+                // Which prompt key is active right now (core scope depends on the picker).
+                function currentKey(){
+                    if (SCOPE === 'page') { var s = document.getElementById('schema_core_type'); return s ? s.value : 'core_general'; }
+                    return SCOPE; // 'homepage' | 'template' | 'post'
+                }
+                window.schemaGenSwapPrompt = function(){ pEl.value = PROMPTS[currentKey()] || ''; };
+
+                // Core-page type auto-detection from the page title/slug.
+                function autodetectCore(){
+                    var t = (val('page_title') + ' ' + val('page_slug')).toLowerCase();
+                    var key = 'core_service';
+                    if (/contact/.test(t)) key = 'core_contact';
+                    else if (/about|our story|who we are/.test(t)) key = 'core_about';
+                    else if (/privacy|terms|policy|legal|disclaimer|accessibility|cookie/.test(t)) key = 'core_general';
+                    else if (/^all |all-|locations|directory|our services|our courses|service area|browse/.test(t)) key = 'core_collection';
+                    else if (/service|training|certification|treatment|control|exterminat|repair|install|inspection|removal|cleaning/.test(t)) key = 'core_service';
+                    else key = 'core_general';
+                    var s = document.getElementById('schema_core_type');
+                    if (s) s.value = key;
+                }
+
+                // Context hints sent to the generator (concrete, non-identity values only).
+                function buildCtx(){
+                    var c = {};
+                    if (SCOPE === 'template'){ c.title = val('template_title'); c.slug = val('slug_pattern'); c.keyword = val('primary_keyword'); c.service = val('primary_keyword') || val('template_title'); }
+                    else if (SCOPE === 'post'){ c.title = val('post_title'); c.slug = val('post_slug'); c.excerpt = val('post_excerpt'); c.image = val('post_featured_image_existing'); c.date = val('post_published_at'); }
+                    else if (SCOPE === 'page'){ c.title = val('page_title'); c.slug = val('page_slug'); }
+                    return c;
+                }
+
+                window.schemaGenRun = function(btn){
+                    var orig = btn.textContent; btn.disabled = true; btn.textContent = '…generating';
+                    say('Calling Claude…', '#6366f1');
+                    var fd = new FormData();
+                    fd.append('csrf_token', csrf());
+                    fd.append('scope', SCOPE);
+                    if (SCOPE === 'page'){ var s = document.getElementById('schema_core_type'); fd.append('core_type', s ? s.value : ''); }
+                    fd.append('prompt', pEl.value);
+                    fd.append('ctx', JSON.stringify(buildCtx()));
+                    fetch('schema_suggest.php', { method:'POST', body:fd })
+                        .then(function(r){ return r.json(); })
+                        .then(function(d){
+                            btn.disabled = false; btn.textContent = orig;
+                            if (d.error){ say('✗ ' + d.error, '#dc2626'); return; }
+                            var ta = document.getElementById('schema_json_ta');
+                            ta.value = d.schema;
+                            ta.dispatchEvent(new Event('input')); // triggers the JSON validator + green border
+                            say('✓ Draft inserted — review it above, then Save the page.', '#16a34a');
+                        })
+                        .catch(function(){ btn.disabled = false; btn.textContent = orig; say('✗ Request failed.', '#dc2626'); });
+                };
+
+                window.schemaGenSavePrompt = function(btn){
+                    var key = currentKey();
+                    var fd = new FormData();
+                    fd.append('csrf_token', csrf()); fd.append('key', key); fd.append('prompt', pEl.value);
+                    fetch('schema_prompt_save.php', { method:'POST', body:fd })
+                        .then(function(r){ return r.json(); })
+                        .then(function(d){
+                            if (d.error){ say('✗ ' + d.error, '#dc2626'); return; }
+                            PROMPTS[key] = pEl.value;
+                            say(d.overridden ? '✓ Saved as this site’s default for this area.' : '✓ Matches built-in — using the default.', '#16a34a');
+                        })
+                        .catch(function(){ say('✗ Save failed.', '#dc2626'); });
+                };
+
+                window.schemaGenResetPrompt = function(){
+                    var key = currentKey();
+                    pEl.value = DEFAULTS[key] || '';
+                    var fd = new FormData();
+                    fd.append('csrf_token', csrf()); fd.append('key', key); fd.append('prompt', '');
+                    fetch('schema_prompt_save.php', { method:'POST', body:fd })
+                        .then(function(r){ return r.json(); })
+                        .then(function(){ PROMPTS[key] = DEFAULTS[key]; say('↺ Reset to the built-in default.', '#4b5563'); })
+                        .catch(function(){ say('✗ Reset failed (prompt reset locally).', '#dc2626'); });
+                };
+
+                // Initial fill (+ auto-detect core type first so the right prompt loads).
+                if (SCOPE === 'page') autodetectCore();
+                schemaGenSwapPrompt();
+            })();
+            </script>
             <?php if ($context === 'template'): ?>
             <div style="margin-top:10px;padding:12px 14px;background:#f0f9ff;border-radius:6px;border:1px solid #bae6fd;">
                 <div style="font-size:0.78rem;color:#075985;margin-bottom:8px;">This is a template — there is no single page to test. Enter the URL of a deployed city page to verify its schema:</div>

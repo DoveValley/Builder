@@ -260,6 +260,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#schema-type-list">Master type list</a>
         <a href="#schema-by-niche">By business niche</a>
         <a href="#schema-workflow">Workflow &amp; checklist</a>
+        <a href="#schema-ai-generate">AI schema generator</a>
         <a href="#schema-prompts">Sample Claude prompts</a>
 
         
@@ -1986,6 +1987,47 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
         <li><strong>Missing required fields.</strong> Course requires name, description, and provider. Offer requires price and priceCurrency. Missing these blocks the rich result entirely.</li>
         <li><strong>Duplicate type declarations.</strong> Don't declare EducationalOrganization on every page — define it once on the homepage and reference it by @id everywhere else.</li>
     </ul>
+</section>
+
+<section id="schema-ai-generate">
+    <h2>AI Schema Generator</h2>
+    <p>Every SEO section has an <strong>✨ AI generate this schema</strong> panel below the Schema Markup box. It drafts the JSON-LD with Claude, drops it into the box, and validates it — so you don't hand-write schema. You still review and Save; nothing is auto-committed.</p>
+
+    <h3>One button, four areas — each with its own prompt</h3>
+    <p>The panel appears in four places, and the prompt it uses is <strong>specific to that area</strong> (different schema shapes) while being <strong>shared globally</strong> across all pages of that area on the site:</p>
+    <table style="width:100%;border-collapse:collapse;margin-bottom:20px;font-size:0.88rem;">
+        <thead>
+            <tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0;">
+                <th style="text-align:left;padding:8px 12px;font-weight:700;">Area</th>
+                <th style="text-align:left;padding:8px 12px;font-weight:700;">Where</th>
+                <th style="text-align:left;padding:8px 12px;font-weight:700;">What its prompt produces</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">Home</td><td style="padding:8px 12px;">Content tab → SEO</td><td style="padding:8px 12px;">The foundational <code>LocalBusiness</code> + <code>WebSite</code> + <code>WebPage</code> nodes. Their <code>@id</code>s (<code>{website}/#localbusiness</code>, <code>/#website</code>, <code>/#webpage</code>) are the anchors every other page references.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;background:#fafafa;"><td style="padding:8px 12px;font-weight:600;">Core</td><td style="padding:8px 12px;">Pages tab → edit → SEO</td><td style="padding:8px 12px;">Schema for the <strong>Page type</strong> you pick — Contact, About, Service/Course, Collection/Listing, or General/Legal. Each type has its own prompt. The type is auto-detected from the page title; override it if the guess is wrong. References the home <code>@id</code>s.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 12px;font-weight:600;">Landing</td><td style="padding:8px 12px;">Templates tab → edit → SEO</td><td style="padding:8px 12px;"><code>Service</code> + <code>areaServed</code>, with <code>provider</code> referencing the home business by <code>@id</code>. City values stay as shortcodes (<code>{city}</code>, <code>{city_slug}</code>) and resolve per generated city. <code>FAQPage</code> is excluded — it is injected automatically.</td></tr>
+            <tr style="border-bottom:1px solid #e5e7eb;background:#fafafa;"><td style="padding:8px 12px;font-weight:600;">Blog</td><td style="padding:8px 12px;">Blog tab → edit → SEO</td><td style="padding:8px 12px;"><code>BlogPosting</code> using this post's title, excerpt, date and image, with <code>publisher</code> referencing the home business <code>@id</code>.</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Global vs. this-generation edits</h3>
+    <ul>
+        <li>The prompt box is <strong>editable</strong>. Editing it changes only the <em>next</em> generation.</li>
+        <li><strong>Save prompt as default</strong> persists your edit for that area on this site — stored as an override in <code>sites/{id}/data/schema_prompts.json</code>. Built-in defaults live in code; you only store the diff.</li>
+        <li><strong>↺ Reset to built-in</strong> discards the override and restores the shipped default.</li>
+        <li>For Core, each page type has its own saved prompt — switching the Page type swaps the prompt.</li>
+    </ul>
+
+    <h3>What it always enforces</h3>
+    <p>Regardless of prompt edits, the generator appends hard rules server-side:</p>
+    <ul>
+        <li><strong>Shortcodes, not hardcoded values.</strong> Business identity is emitted as <code>{website}</code>, <code>{business}</code>, <code>{tel}</code>, etc. — so one schema works across every generated/cloned site.</li>
+        <li><strong>Shared business <code>@id</code>.</strong> The business node is always <code>{website}/#localbusiness</code>; other pages reference it rather than redefining the business — the whole site becomes one connected graph.</li>
+        <li><strong>No fabrication.</strong> Addresses, geo, ratings, review counts, prices, dates and authors are omitted unless real values exist — never invented.</li>
+        <li><strong>Clean JSON only.</strong> Output is stripped of any code fences/prose and must parse as JSON before it is handed back.</li>
+    </ul>
+    <p class="hint">Model: <code>claude-sonnet-5</code>, one call per click. Requires <code>ANTHROPIC_API_KEY</code> (Admin → AI). It never saves the page for you — the green border confirms valid JSON, then you Save as usual.</p>
 </section>
 
 <section id="schema-prompts">
