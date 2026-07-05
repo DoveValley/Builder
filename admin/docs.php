@@ -2267,6 +2267,36 @@ Output valid JSON only — no explanation.</code></pre>
     <p><strong>Mechanics:</strong> the gate lives in <code>_effective_neighborhoods()</code> in <code>generate.py</code>, called from <code>build_context()</code>; a held city resolves <code>{neighborhoods}</code> to an empty string, which <code>substitute_vars()</code> leaves blank — so it's fully backward-compatible and no already-built page changes until you re-materialize. Note the default prompt override applies: a master with its own <code>research_prompt</code> (e.g. the PM academy) won't collect neighborhoods unless you add the field to its brief prompt.</p>
 </section>
 
+<section id="ai-hardening">
+    <h2>AI hardening backlog</h2>
+    <p>From the 2026-07 cross-system AI audit. Single-site and multisite share the engine (<code>generate.py</code>), the registry/compiler, and the render path (<code>site-template.php</code> → <code>build_static_site()</code>), so <strong>shared fixes land once and benefit both</strong>; a few issues are multisite-only and have no single-site analog.</p>
+
+    <h3>Done</h3>
+    <ul>
+        <li><strong>Neighborhoods feature</strong> — population-gated, woven per city (see above).</li>
+        <li><strong><code>call_claude</code> crash</strong> — fixed the <code>ThinkingBlock</code> error that blocked all generation on current models.</li>
+        <li><strong>P1 · multisite research-strip</strong> <em>(multisite-only)</em> — <code>build_one.php</code> was overwriting the working <code>cities.json</code> with bare landing rows, discarding master research (neighborhoods/industries/employers) → generate.py saw bare rows → generic copy on every deployed landing page. Fixed via <code>ms_merge_research_into_landing()</code>.</li>
+    </ul>
+
+    <h3>Tier 1 — correctness (ships wrong output)</h3>
+    <ul>
+        <li><strong>P6 · FAQ schema stale</strong> <em>(shared)</em> — FAQPage JSON-LD is built at structure time (<code>engine.php</code>) before the AI fills the FAQ, so deployed structured data doesn't match the visible FAQ. Fix: derive FAQPage at render in <code>site-template.php</code> and drop the early injection.</li>
+        <li><strong>AI cache research-blindness</strong> <em>(multisite-only)</em> — the per-domain cache staleness stamp hashes the prompt <em>template</em>, not the resolved research, so data-only changes (a new neighborhood, a freshly-researched city) don't invalidate it; re-deploys serve stale copy. Workaround today: rebuild with <code>--force</code>. Fix: fold the city's research into the stamp.</li>
+    </ul>
+
+    <h3>Tier 2 — latent footgun</h3>
+    <ul>
+        <li><strong>P2 · registry clobber + granite drift</strong> <em>(shared / masters)</em> — <code>ai_block_types.json</code> has three writers; the two compile paths silently overwrite hand-edits. Granite's registry has drifted from its archetypes, so one <em>Save &amp; Compile</em> would delete block types its 25 pages depend on. <strong>Interim guard: do not click Save &amp; Compile on granitepmacademy until reconciled.</strong> Fix: make compile non-destructive + warn; reconcile granite.</li>
+    </ul>
+
+    <h3>Tier 3 — hygiene / polish</h3>
+    <ul>
+        <li><strong>P3 · model config drift</strong> <em>(shared)</em> — four different model whitelists and ID forms; research/Opus missing from the pricing table (run costs under-reported). Fix: one central model list + pricing.</li>
+        <li><strong>P4 · <code>{SS}</code> leaks</strong> <em>(shared, narrow)</em> — the substitution regex is lowercase-only, so <code>{SS}</code> renders literally (affects any brief that uses it). Tiny fix.</li>
+        <li><strong>P5 · carve-out order</strong> <em>(shared, cosmetic)</em> — the neighborhoods carve-out sits before the guardrail it overrides. Reorder the skeleton and recompile.</li>
+    </ul>
+</section>
+
 <section id="ai-standalone">
     <h2>AI System — Standalone Mode</h2>
     <p>The block starts as an <code>ai_block</code> placeholder and the AI replaces it with a complete real block.</p>
