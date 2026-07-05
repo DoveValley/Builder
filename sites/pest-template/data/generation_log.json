@@ -1,76 +1,126 @@
 [
-    {
-        "run_id": "35ebbbd63b4530be",
-        "started_at": "2026-06-17T16:24:38+00:00",
-        "finished_at": "2026-06-17T16:24:38+00:00",
-        "duration_ms": 0,
-        "dry_run": false,
-        "options": {
-            "template_ids": null,
-            "city_ids": null,
-            "tag_filter": "",
-            "force_locked": false
-        },
-        "pages_written": 1,
-        "pages_skipped": 0,
-        "pages_backed_up": 0,
-        "errors": []
+  {
+    "run_id": "35ebbbd63b4530be",
+    "started_at": "2026-06-17T16:24:38+00:00",
+    "finished_at": "2026-06-17T16:24:38+00:00",
+    "duration_ms": 0,
+    "dry_run": false,
+    "options": {
+      "template_ids": null,
+      "city_ids": null,
+      "tag_filter": "",
+      "force_locked": false
     },
-    {
-        "run_id": "6e94718c2f4731f5",
-        "started_at": "2026-06-18T05:53:33+00:00",
-        "finished_at": "2026-06-18T05:53:33+00:00",
-        "duration_ms": 6,
-        "dry_run": false,
-        "options": {
-            "template_ids": [
-                "tpl_cockroach_exterminator"
-            ],
-            "city_ids": null,
-            "tag_filter": "",
-            "force_locked": false
-        },
-        "pages_written": 1,
-        "pages_skipped": 0,
-        "pages_backed_up": 1,
-        "errors": []
+    "pages_written": 1,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": []
+  },
+  {
+    "run_id": "6e94718c2f4731f5",
+    "started_at": "2026-06-18T05:53:33+00:00",
+    "finished_at": "2026-06-18T05:53:33+00:00",
+    "duration_ms": 6,
+    "dry_run": false,
+    "options": {
+      "template_ids": [
+        "tpl_cockroach_exterminator"
+      ],
+      "city_ids": null,
+      "tag_filter": "",
+      "force_locked": false
     },
-    {
-        "run_id": "14a960bc59794d22",
-        "started_at": "2026-06-18T05:54:15+00:00",
-        "finished_at": "2026-06-18T05:54:15+00:00",
-        "duration_ms": 5,
-        "dry_run": false,
-        "options": {
-            "template_ids": [
-                "tpl_cockroach_exterminator"
-            ],
-            "city_ids": null,
-            "tag_filter": "",
-            "force_locked": true
-        },
-        "pages_written": 1,
-        "pages_skipped": 0,
-        "pages_backed_up": 1,
-        "errors": []
+    "pages_written": 1,
+    "pages_skipped": 0,
+    "pages_backed_up": 1,
+    "errors": []
+  },
+  {
+    "run_id": "14a960bc59794d22",
+    "started_at": "2026-06-18T05:54:15+00:00",
+    "finished_at": "2026-06-18T05:54:15+00:00",
+    "duration_ms": 5,
+    "dry_run": false,
+    "options": {
+      "template_ids": [
+        "tpl_cockroach_exterminator"
+      ],
+      "city_ids": null,
+      "tag_filter": "",
+      "force_locked": true
     },
-    {
-        "run_id": "d5c6dd4fe3f7f058",
-        "started_at": "2026-06-18T05:54:19+00:00",
-        "finished_at": "2026-06-18T05:54:19+00:00",
-        "duration_ms": 3,
-        "dry_run": false,
-        "options": {
-            "template_ids": [
-                "tpl_cockroach_exterminator"
-            ],
-            "city_ids": null,
-            "tag_filter": "",
-            "force_locked": true
-        },
-        "pages_written": 1,
-        "pages_skipped": 0,
-        "pages_backed_up": 1,
-        "errors": []
-    }
+    "pages_written": 1,
+    "pages_skipped": 0,
+    "pages_backed_up": 1,
+    "errors": []
+  },
+  {
+    "run_id": "d5c6dd4fe3f7f058",
+    "started_at": "2026-06-18T05:54:19+00:00",
+    "finished_at": "2026-06-18T05:54:19+00:00",
+    "duration_ms": 3,
+    "dry_run": false,
+    "options": {
+      "template_ids": [
+        "tpl_cockroach_exterminator"
+      ],
+      "city_ids": null,
+      "tag_filter": "",
+      "force_locked": true
+    },
+    "pages_written": 1,
+    "pages_skipped": 0,
+    "pages_backed_up": 1,
+    "errors": []
+  },
+  {
+    "run_id": "d613c4b7-bc81-4bc2-9b04-bea9691ca624",
+    "started_at": "2026-07-05T16:10:06.393794Z",
+    "finished_at": "2026-07-05T16:10:26.506498Z",
+    "duration_ms": 20112,
+    "dry_run": false,
+    "options": {
+      "site": "pest-template",
+      "page": "landing",
+      "all": false,
+      "file": "city_katy_tx",
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 6,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 6,
+    "cities_researched": 0,
+    "input_tokens": 2540,
+    "output_tokens": 1613,
+    "api_calls": 6,
+    "estimated_cost_usd": 0.008484
+  },
+  {
+    "run_id": "d76d1163-d744-445d-b8f4-0473be90908b",
+    "started_at": "2026-07-05T16:59:13.021915Z",
+    "finished_at": "2026-07-05T16:59:13.024672Z",
+    "duration_ms": 2,
+    "dry_run": false,
+    "options": {
+      "site": "pest-template",
+      "page": "landing",
+      "all": false,
+      "file": "city_katy_tx",
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 0,
+    "pages_skipped": 6,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 0,
+    "cities_researched": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "api_calls": 0,
+    "estimated_cost_usd": 0.0
+  }
 ]
