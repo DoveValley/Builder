@@ -238,8 +238,10 @@ def _strip_city(title, city):
     return re.sub(r'\s+', ' ', s).strip(' -,|')
 
 def substitute_vars(text, ctx):
-    """Replace {var} placeholders with context values; leave unknown ones intact."""
-    return re.sub(r'\{([a-z_]+)\}', lambda m: str(ctx.get(m.group(1), m.group(0))), text)
+    """Replace {var} placeholders with context values; leave unknown ones intact.
+    Case-sensitive and allows uppercase so {SS} resolves (ctx key is uppercase);
+    unknown tokens (incl. any stray ALLCAPS placeholder) are left untouched."""
+    return re.sub(r'\{([a-zA-Z_]+)\}', lambda m: str(ctx.get(m.group(1), m.group(0))), text)
 
 
 # ── Claude API ────────────────────────────────────────────────────────────────

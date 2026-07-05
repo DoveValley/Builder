@@ -2292,8 +2292,8 @@ Output valid JSON only — no explanation.</code></pre>
     <h3>Tier 3 — hygiene / polish</h3>
     <ul>
         <li><strong>P3 · model config drift</strong> <em>(shared)</em> — four different model whitelists and ID forms; research/Opus missing from the pricing table (run costs under-reported). Fix: one central model list + pricing.</li>
-        <li><strong>P4 · <code>{SS}</code> leaks</strong> <em>(shared, narrow)</em> — the substitution regex is lowercase-only, so <code>{SS}</code> renders literally (affects any brief that uses it). Tiny fix.</li>
-        <li><strong>P5 · carve-out order</strong> <em>(shared, cosmetic)</em> — the neighborhoods carve-out sits before the guardrail it overrides. Reorder the skeleton and recompile.</li>
+        <li><strong>P4 · <code>{SS}</code> leaks</strong> <em>(shared, narrow)</em> — <strong>✅ fixed.</strong> <code>substitute_vars</code> now allows uppercase, so <code>{SS}</code> resolves in AI/research prompts (render-side already handled it). Unknown ALLCAPS tokens still pass through untouched.</li>
+        <li><strong>P5 · carve-out order</strong> <em>(shared, cosmetic)</em> — <strong>✅ fixed.</strong> Moved the neighborhoods carve-out <em>after</em> the shared guardrail in the <code>local_relevance</code> skeleton (read last = authoritative). Haiku now weaves 2–3 real names on 5/5 test runs (was 4/5).</li>
     </ul>
 </section>
 
