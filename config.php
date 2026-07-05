@@ -23,7 +23,7 @@ define('ADMIN_USERNAME', 'admin');
 define('ADMIN_PASSWORD_HASH', '$2y$12$jIZzYPu.23R2UNj82kw91.eOsHZJVv9bjpnsijj7kMxBhKoXU4Fga');
 
 // Site name shown in the admin panel
-define('SITE_TITLE', 'Katy Pest Pros');
+define('SITE_TITLE', 'Elk Pest Pros');
 
 // Email address where contact form submissions are delivered
 define('CONTACT_EMAIL', 'hello@yoursite.com');
