@@ -88,7 +88,7 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
 
         <div class="form-group">
             <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:normal;">
-                <input type="checkbox" name="ftp_passive" value="1" <?= !empty($deploy['ftp_passive']) ? 'checked' : '' ?>>
+                <input type="checkbox" name="ftp_passive" value="1" <?= (!array_key_exists('ftp_passive', $deploy) || !empty($deploy['ftp_passive'])) ? 'checked' : '' ?>>
                 Passive mode <span style="color:#9ca3af;font-size:.82rem;">(recommended — required by most shared hosts)</span>
             </label>
         </div>
