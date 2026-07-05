@@ -123,10 +123,19 @@ $landingCities = ms_parse_landing_cities((string)($params['landing_cities'] ?? '
 if ($landingCities) {
     $label = implode(', ', array_map(fn($c) => $c['city'] . ', ' . $c['SS'], $landingCities));
     progress_log('Generating landing pages for ' . count($landingCities) . ' city(ies): ' . $label . '…');
-    // Scope the working-dir city list to just this deploy's landing cities.
+    // Scope the working-dir city list to just this deploy's landing cities — but keep
+    // the research the master already gathered for them (neighborhoods, population,
+    // industries, employers, …). The working cities.json here is still the cloned master
+    // list, so merge its research onto the scoped rows; otherwise generate.py would see
+    // bare rows and all research-grounded copy (incl. gated neighborhoods) degrades to
+    // generic. Cities the master never researched pass through as bare rows.
+    $masterCities = json_decode((string)@file_get_contents($workingDir . '/data/cities.json'), true);
+    $scopedCities = is_array($masterCities)
+        ? ms_merge_research_into_landing($landingCities, $masterCities)
+        : $landingCities;
     file_put_contents(
         $workingDir . '/data/cities.json',
-        json_encode($landingCities, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+        json_encode($scopedCities, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
     );
     $lgEnv = getenv();
     $lgEnv['MULTISITE_SITE_BASE'] = $workingDir;

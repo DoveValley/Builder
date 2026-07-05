@@ -77,3 +77,47 @@ function ms_parse_landing_cities(string $raw): array {
     }
     return array_values($rows);
 }
+
+/**
+ * Enrich the bare `landing_cities` rows with research the master already gathered
+ * for those cities (neighborhoods, population, industries, top_employers, market_blurb,
+ * salary_note, _researched, …). Without this, scoping the working-dir cities.json to a
+ * deploy's landing cities would drop every research field, so generate.py sees bare rows
+ * and all research-grounded copy — including the gated neighborhoods — silently degrades
+ * to generic. Match is by id, then city_slug, then case-insensitive "city|SS".
+ *
+ * Structural fields from the landing row win (the deploy's canonical id/slug/state);
+ * any extra field the master row carries is added. Cities the master never researched
+ * pass through unchanged.
+ */
+function ms_merge_research_into_landing(array $landingCities, array $masterCities): array {
+    $index = [];
+    foreach ($masterCities as $m) {
+        if (!is_array($m)) continue;
+        $keys = [
+            (string)($m['id'] ?? ''),
+            (string)($m['city_slug'] ?? ''),
+            trim(($m['city'] ?? '') . '|' . ($m['SS'] ?? '')),
+        ];
+        foreach ($keys as $k) {
+            $k = strtolower($k);
+            if ($k !== '' && $k !== '|') $index[$k] = $m;   // last writer wins; fine for our data
+        }
+    }
+
+    $out = [];
+    foreach ($landingCities as $row) {
+        $lookup = [
+            strtolower((string)($row['id'] ?? '')),
+            strtolower((string)($row['city_slug'] ?? '')),
+            strtolower(trim(($row['city'] ?? '') . '|' . ($row['SS'] ?? ''))),
+        ];
+        $match = null;
+        foreach ($lookup as $k) {
+            if ($k !== '' && $k !== '|' && isset($index[$k])) { $match = $index[$k]; break; }
+        }
+        // `$row + $match`: landing row keys win; master-only research keys are added.
+        $out[] = $match ? ($row + $match) : $row;
+    }
+    return $out;
+}
