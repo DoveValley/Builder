@@ -28,6 +28,7 @@ Flags:
 
 import argparse
 import glob
+import hashlib
 import json
 import os
 import re
@@ -340,6 +341,13 @@ def _needs_processing(block):
         bool(block.get('ai_type_id')) and block.get('type') != 'ai_block'
     )
 
+def _ai_input_hash(prompt, model):
+    """Staleness key for the multisite per-domain cache: a hash of the RESOLVED prompt
+    (already carrying business/city/service/keyword/gated-neighborhoods/etc.) plus the
+    model. Because it's the actual string sent to the model, any input change invalidates
+    and nothing that isn't in the prompt does — no shadow model of which fields matter."""
+    return hashlib.sha256((str(prompt) + "\0" + str(model)).encode('utf-8')).hexdigest()[:16]
+
 def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False, model_override=None):
     """
     Process blocks that need AI generation:
@@ -360,6 +368,7 @@ def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False,
             continue
 
         if block.get('_ai_locked') and not refresh:
+            result[idx].pop('_ai_cache_hash', None)   # no stray cache marker on skipped blocks
             _log(f'    [{idx}] {block.get("ai_type_id","?")} — locked, skipping')
             stats['skipped'] += 1
             continue
@@ -388,6 +397,25 @@ def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False,
             mode = block.get('ai_mode') or reg_entry.get('ai_mode', 'standalone')
 
         prompt = substitute_vars(prompt_t, ctx)
+        in_hash = _ai_input_hash(prompt, model)
+
+        # Multisite read-through cache: ms_ai_inject_from_cache injected a candidate value
+        # plus the hash it was generated under (_ai_cache_hash). If the resolved prompt still
+        # hashes the same, reuse it with zero API calls. --refresh (--force) always regenerates.
+        cache_hash = result[idx].pop('_ai_cache_hash', None)
+        if cache_hash is not None and cache_hash == in_hash and not refresh:
+            now = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
+            result[idx]['_ai_input_hash']   = in_hash
+            result[idx]['_ai_generated']    = True
+            result[idx]['_ai_generated_at'] = now
+            result[idx]['_ai_model']        = model
+            result[idx]['_ai_type']         = type_id
+            result[idx]['_ai_locked']       = True
+            _log(f'    [{idx}] {type_id} — cache hit (reused, no API call)')
+            stats['skipped'] += 1
+            _tick()
+            continue
+
         _log(f'    [{idx}] {type_id} · {mode} · {model.split("-")[1]}...')
 
         ai_out = call_claude(prompt, model, api_key, dry_run)
@@ -405,6 +433,7 @@ def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False,
             result[idx]['_ai_generated_at'] = now
             result[idx]['_ai_model']        = model
             result[idx]['_ai_type']         = type_id
+            result[idx]['_ai_input_hash']   = in_hash
             result[idx]['_ai_locked']       = True
             _ok(f'    [{idx}] {type_id} — generated')
             stats['processed'] += 1
@@ -425,6 +454,7 @@ def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False,
             result[idx]['_ai_generated_at'] = now
             result[idx]['_ai_model']        = model
             result[idx]['_ai_type']         = type_id
+            result[idx]['_ai_input_hash']   = in_hash
             result[idx]['_ai_locked']       = True
             _ok(f'    [{idx}] {type_id} — enriched .{field} ({inj_mode})')
             stats['processed'] += 1

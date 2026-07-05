@@ -3448,24 +3448,26 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
 <section id="ms-cache">
     <h2>The content cache</h2>
-    <p>AI copy is generated <strong>once per site</strong> and frozen in <code>multisite/cache/{domain}.json</code>. On every rebuild it is re-injected and reused — <strong>zero API calls</strong>, identical output (SEO-stable copy, free redeploys). Each cache entry is keyed by a stable block <code>id</code> and stamped with a <strong>prompt hash</strong>.</p>
+    <p>AI copy is generated <strong>once per site</strong> and frozen in <code>multisite/cache/{domain}.json</code>. On every rebuild the cached copy is offered back and <code>generate.py</code> reuses it — <strong>zero API calls</strong>, identical output (SEO-stable copy, free redeploys) — as long as the inputs haven't changed. Each entry is keyed by a stable block <code>id</code> (home/core) or page-file + type + occurrence (landing), and stamped with an <strong><code>input_hash</code> = hash(resolved prompt + model)</strong>.</p>
+    <p><strong>Staleness is owned by the resolver, not the cache.</strong> The stamp hashes the <em>fully resolved</em> prompt — the actual string sent to the model, already carrying business / city / service / keyword / gated-neighborhoods / industries. <code>generate.py</code> re-resolves each block and compares; if the hash still matches it reuses the cached copy, otherwise it regenerates just that block. So the cache invalidates automatically on <strong>any</strong> input change, with no hand-maintained list of "which fields matter". The cache does no hashing itself.</p>
     <p>The cache is self-healing:</p>
     <ul>
         <li>Missing entry → generate it.</li>
-        <li>Prompt changed (hash mismatch) → regenerate just that block.</li>
+        <li>Prompt, model, <strong>or research/data changed</strong> (resolved-prompt hash mismatch) → regenerate just that block.</li>
         <li>Block removed → orphaned entry ignored.</li>
     </ul>
+    <div class="callout warn">One-time cost: this changed the stamp format, so the first rebuild after upgrading re-generates every domain's blocks once (old <code>prompt_hash</code> entries won't match the new <code>input_hash</code>), then it's free again.</div>
     <p>A first (cold) build of ~4–8 blocks costs roughly <strong>$0.02–0.05</strong>; every rebuild after is free.</p>
 </section>
 
 <section id="ms-repro">
     <h2>Reproducibility — running a campaign twice</h2>
-    <p>Run the same campaign again and you get the <strong>same sites</strong> — because the per-domain <a href="#ms-cache">content cache</a> freezes the AI copy, <em>not</em> because the model is deterministic (it isn't). On a rerun every cached block is re-injected and locked, so <code>generate.py</code> makes zero calls and the copy is identical. The build path has no random IDs or filenames, and the sitemap's <code>&lt;lastmod&gt;</code> no longer stamps the build date (it uses the site's own <code>last_modified</code>, or is omitted), so the deployed files are byte-stable and an incremental deploy re-uploads nothing.</p>
+    <p>Run the same campaign again and you get the <strong>same sites</strong> — because the per-domain <a href="#ms-cache">content cache</a> freezes the AI copy, <em>not</em> because the model is deterministic (it isn't). On a rerun every cached block is offered back and <code>generate.py</code> reuses it (the resolved-prompt hash still matches), so it makes zero calls and the copy is identical. The build path has no random IDs or filenames, and the sitemap's <code>&lt;lastmod&gt;</code> no longer stamps the build date (it uses the site's own <code>last_modified</code>, or is omitted), so the deployed files are byte-stable and an incremental deploy re-uploads nothing.</p>
     <div class="callout warn"><strong>Reproducibility depends on the cache surviving.</strong> The frozen copy lives at <code>sites/{master}/multisite/cache/{domain}.json</code> — gitignored, so it exists only on the box you run from. It breaks if you:
         <ul style="margin:6px 0 0;">
             <li>pass <code>--force</code> — busts the cache, AI reruns, different copy;</li>
             <li>delete the cache or run on a <strong>fresh machine</strong> without it — AI reruns;</li>
-            <li>edit a block's AI prompt / <code>ai_type_id</code> — its <code>prompt_hash</code> changes, so just that block regenerates.</li>
+            <li>edit a block's AI prompt, change its model, or change a city's research/data — its resolved-prompt <code>input_hash</code> changes, so just that block regenerates.</li>
         </ul>
         To guarantee identical results across machines, <strong>back up the cache directory</strong> — it's the source of truth for the frozen copy, and the AI can't be re-derived identically without it.</div>
     <p>The <a href="#ms-variation">variation items</a> (block order, schema, CSS, copy templates) are keyed by <code>crc32(domain)</code>, so they preserve this once built — the same domain always selects the same variant on every rebuild.</p>

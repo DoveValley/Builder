@@ -174,7 +174,7 @@ if ($noAi) {
     $cacheFile = BASE_DIR . '/sites/' . $masterId . '/multisite/cache/' . $domainSlug . '.json';
     $registry  = json_decode(@file_get_contents($workingDir . '/data/ai_block_types.json'), true) ?: [];
     $c = ms_ai_inject_from_cache($workingDir, $cacheFile, $registry);
-    if ($c['hits'] > 0) progress_log("AI cache: reused {$c['hits']} block(s), {$c['stale']} stale, {$c['misses']} to generate.");
+    if ($c['candidates'] > 0) progress_log("AI cache: offered {$c['candidates']} cached block(s) for reuse (generate.py validates each by resolved-prompt hash).");
 
     progress_log('Generating AI content for city…');
     $genEnv = getenv();

@@ -4,14 +4,22 @@
  *
  * generate.py fills ai_blocks in the ephemeral working dir — but that dir is
  * deleted every run, so without a cache each rebuild re-spends on the API. This
- * persists the generated copy per domain, OUTSIDE the working dir, and re-injects
- * it before generate.py runs so filled blocks are locked and skipped (zero calls).
+ * persists the generated copy per domain, OUTSIDE the working dir, and offers it
+ * back before generate.py runs.
  *
- * Contract (§6a):
- *   - keyed by each ai_block's stable `id`
- *   - each entry stamps the prompt_hash that produced it
- *   - self-healing: hash match → reuse (lock); hash mismatch → regenerate (leave
- *     unlocked); missing block id → generate; orphaned cache entry → ignore.
+ * Staleness is owned by the resolver, not this cache. generate.py keys each entry on
+ * `_ai_input_hash` = hash(RESOLVED prompt + model) — the actual string sent to the
+ * model, which already carries business/city/service/neighborhoods/etc. This file does
+ * NO hashing and models nothing about which fields feed a prompt; it just stores and
+ * offers copy. On inject it hands each block its cached value plus the hash it was made
+ * under (`_ai_cache_hash`) WITHOUT locking; generate.py reuses it only if the freshly
+ * resolved prompt still hashes the same, else regenerates. So a research/prompt/model
+ * change invalidates automatically, with no shadow field list to keep in sync.
+ *
+ * Contract:
+ *   - keyed by each ai_block's stable `id` (home/core) or page-file+type+occurrence (landing)
+ *   - each entry stores the `input_hash` generate.py stamped and the generated `value`
+ *   - self-healing: missing/mismatched hash → generate.py regenerates; orphan entry → ignored
  *
  * Cache lives at sites/{master}/multisite/cache/{domainSlug}.json (gitignored).
  */
@@ -22,20 +30,13 @@ const MS_AI_CONFIG_KEYS = [
     'ai_inject_target', 'ai_inject_field', 'ai_inject_mode', 'ai_prompt_override',
 ];
 
-/** Effective prompt template for a block (override or registry), hashed for staleness. */
-function ms_ai_prompt_hash(array $block, array $registry): string {
-    $typeId = $block['ai_type_id'] ?? '';
-    $tmpl = ($block['ai_prompt_override'] ?? '') !== ''
-        ? $block['ai_prompt_override']
-        : ($registry[$typeId]['ai_prompt'] ?? '');
-    return substr(hash('sha256', $typeId . "\0" . $tmpl), 0, 16);
-}
-
-/** The generated payload of a block = everything except static config keys. */
+/** The generated payload of a block = content only (no static config, no `_`-prefixed meta). */
 function ms_ai_block_value(array $block): array {
     $v = [];
     foreach ($block as $k => $val) {
-        if (!in_array($k, MS_AI_CONFIG_KEYS, true)) $v[$k] = $val;
+        if ($k === '' || $k[0] === '_') continue;                 // drop _ai_* generation metadata
+        if (in_array($k, MS_AI_CONFIG_KEYS, true)) continue;      // drop static config/scaffold
+        $v[$k] = $val;
     }
     return $v;
 }
@@ -45,7 +46,7 @@ function ms_ai_is_ai_block(array $b): bool {
     return ($b['type'] ?? '') === 'ai_block' || ($b['ai_type_id'] ?? '') !== '';
 }
 
-/** The cached value of a block. Standalone: whole block minus config. Enrich: only the injected field. */
+/** The cached value of a block. Standalone: whole block minus config/meta. Enrich: only the injected field. */
 function ms_ai_cached_value(array $b, array $registry): array {
     if (($b['type'] ?? '') === 'ai_block') {
         return ms_ai_block_value($b);   // whole block is AI-generated
@@ -60,7 +61,7 @@ function ms_ai_cached_value(array $b, array $registry): array {
 function ms_ai_walk_site(array &$site, callable $fn): void {
     if (isset($site['content_blocks']) && is_array($site['content_blocks'])) {
         foreach ($site['content_blocks'] as $i => &$b) {
-            if (ms_ai_is_ai_block($b)) $fn($b);
+            if (is_array($b) && ms_ai_is_ai_block($b)) $fn($b);
         }
         unset($b);
     }
@@ -68,7 +69,7 @@ function ms_ai_walk_site(array &$site, callable $fn): void {
         foreach ($site['pages'] as $pid => &$page) {
             if (!isset($page['content_blocks']) || !is_array($page['content_blocks'])) continue;
             foreach ($page['content_blocks'] as $i => &$b) {
-                if (ms_ai_is_ai_block($b)) $fn($b);
+                if (is_array($b) && ms_ai_is_ai_block($b)) $fn($b);
             }
             unset($b);
         }
@@ -80,9 +81,8 @@ function ms_ai_walk_site(array &$site, callable $fn): void {
  * Landing pages (data/pages/*.json) are generated per-city from templates, so their
  * AI blocks have NO stable `id` and the SAME template block recurs across many city
  * pages. Key them by page-file + ai_type_id + per-page occurrence instead — unique
- * per (template, city, block), so a rebuild reuses the same city's cached copy while
- * different cities keep distinct entries. Namespaced with "page:" so it can't collide
- * with the home/core `id` keys sharing the cache's `fields` map.
+ * per (template, city, block). Namespaced with "page:" so it can't collide with the
+ * home/core `id` keys sharing the cache's `fields` map.
  */
 function ms_ai_page_key(string $pageBase, string $aiTypeId, int $occ): string {
     return 'page:' . $pageBase . '::' . $aiTypeId . '#' . $occ;
@@ -107,50 +107,44 @@ function ms_ai_pages_files(string $workingDir): array {
 }
 
 /**
- * Re-inject cached copy into the working site BEFORE generate.py.
- * Cache-hits (id present + prompt_hash matches) are filled and _ai_locked so
- * generate.py skips them. Misses / stale entries are left for generate.py to fill.
- * @return array ['hits'=>int, 'stale'=>int, 'misses'=>int]
+ * Offer cached copy to the working site BEFORE generate.py: inject each cached block's
+ * value plus the hash it was generated under (`_ai_cache_hash`), WITHOUT locking. Whether
+ * to reuse is decided by generate.py (resolved-prompt hash), so this file computes nothing.
+ * @return array ['candidates' => int]  — blocks offered for reuse.
  */
 function ms_ai_inject_from_cache(string $workingDir, string $cacheFile, array $registry): array {
     $siteFile = $workingDir . '/data/site.json';
-    if (!file_exists($siteFile) || !file_exists($cacheFile)) {
-        return ['hits' => 0, 'stale' => 0, 'misses' => 0];
-    }
+    if (!file_exists($siteFile) || !file_exists($cacheFile)) return ['candidates' => 0];
     $site  = json_decode(file_get_contents($siteFile), true);
     $cache = json_decode(file_get_contents($cacheFile), true);
-    if (!is_array($site) || !is_array($cache)) return ['hits' => 0, 'stale' => 0, 'misses' => 0];
+    if (!is_array($site) || !is_array($cache)) return ['candidates' => 0];
     $entries = $cache['fields'] ?? [];
 
-    $hits = 0; $stale = 0; $misses = 0;
-    ms_ai_walk_site($site, function (array &$b) use ($entries, $registry, &$hits, &$stale, &$misses) {
+    $candidates = 0;
+    ms_ai_walk_site($site, function (array &$b) use ($entries, &$candidates) {
         $id = $b['id'] ?? '';
-        if ($id === '' || !isset($entries[$id])) { $misses++; return; }
-        if (($entries[$id]['prompt_hash'] ?? '') !== ms_ai_prompt_hash($b, $registry)) { $stale++; return; }
+        if ($id === '' || !isset($entries[$id])) return;
         foreach (($entries[$id]['value'] ?? []) as $k => $v) $b[$k] = $v;
-        $b['_ai_locked'] = true;   // generate.py will skip it
-        $hits++;
+        $b['_ai_cache_hash'] = $entries[$id]['input_hash'] ?? '';
+        $candidates++;
     });
-
-    if ($hits > 0) {
+    if ($candidates > 0) {
         $tmp = $siteFile . '.tmp.' . getmypid();
         file_put_contents($tmp, json_encode($site, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
         rename($tmp, $siteFile);
     }
 
-    // Landing pages: same read-through logic, keyed per city-page (see ms_ai_page_key).
     foreach (ms_ai_pages_files($workingDir) as $pf) {
         $page = json_decode(file_get_contents($pf), true);
         if (!is_array($page)) continue;
         $base = basename($pf, '.json');
         $pageHits = 0;
-        ms_ai_walk_page_blocks($page, function (array &$b, int $occ) use ($entries, $registry, $base, &$hits, &$stale, &$misses, &$pageHits) {
+        ms_ai_walk_page_blocks($page, function (array &$b, int $occ) use ($entries, $base, &$candidates, &$pageHits) {
             $key = ms_ai_page_key($base, $b['ai_type_id'] ?? '', $occ);
-            if (!isset($entries[$key])) { $misses++; return; }
-            if (($entries[$key]['prompt_hash'] ?? '') !== ms_ai_prompt_hash($b, $registry)) { $stale++; return; }
+            if (!isset($entries[$key])) return;
             foreach (($entries[$key]['value'] ?? []) as $k => $v) $b[$k] = $v;
-            $b['_ai_locked'] = true;   // generate.py will skip it
-            $hits++; $pageHits++;
+            $b['_ai_cache_hash'] = $entries[$key]['input_hash'] ?? '';
+            $candidates++; $pageHits++;
         });
         if ($pageHits > 0) {
             $tmp = $pf . '.tmp.' . getmypid();
@@ -159,12 +153,13 @@ function ms_ai_inject_from_cache(string $workingDir, string $cacheFile, array $r
         }
     }
 
-    return ['hits' => $hits, 'stale' => $stale, 'misses' => $misses];
+    return ['candidates' => $candidates];
 }
 
 /**
- * Extract every filled ai_block from the working site into the per-domain cache
- * AFTER generate.py. Overwrites entries for regenerated blocks; leaves others.
+ * Extract every block generate.py stamped with `_ai_input_hash` into the per-domain cache
+ * AFTER generate.py — whether freshly generated or reused. Stores the stamp verbatim (no
+ * hashing here). Overwrites entries for changed blocks; leaves others.
  * @return int number of cached entries.
  */
 function ms_ai_extract_to_cache(string $workingDir, string $cacheFile, array $registry): int {
@@ -177,35 +172,32 @@ function ms_ai_extract_to_cache(string $workingDir, string $cacheFile, array $re
     $fields = $existing['fields'] ?? [];
 
     ms_ai_walk_site($site, function (array &$b) use (&$fields, $registry) {
-        if (empty($b['_ai_generated'])) return;      // only cache genuinely generated blocks
+        if (($b['_ai_input_hash'] ?? '') === '') return;   // only blocks generate.py stamped
         $id = $b['id'] ?? '';
-        if ($id === '') {                             // stable id required to cache (§6a rule 1)
-            // Warn loudly — without an id this block re-generates (and re-bills) every run.
+        if ($id === '') {                                  // stable id required to cache (§6a rule 1)
             if (function_exists('progress_log')) {
                 progress_log("AI block '" . ($b['ai_type_id'] ?? '?') . "' has no stable id — not cached; it will regenerate (and cost) on every run.", 'warn');
             }
             return;
         }
         $fields[$id] = [
-            'ai_type_id'  => $b['ai_type_id'] ?? '',
-            'prompt_hash' => ms_ai_prompt_hash($b, $registry),
-            'value'       => ms_ai_cached_value($b, $registry),
+            'ai_type_id' => $b['ai_type_id'] ?? '',
+            'input_hash' => $b['_ai_input_hash'],
+            'value'      => ms_ai_cached_value($b, $registry),
         ];
     });
 
-    // Landing pages: cache each filled block under its per-city composite key. No stable
-    // `id` needed here — the page-file + ai_type_id + occurrence is the key.
     foreach (ms_ai_pages_files($workingDir) as $pf) {
         $page = json_decode(file_get_contents($pf), true);
         if (!is_array($page)) continue;
         $base = basename($pf, '.json');
         ms_ai_walk_page_blocks($page, function (array &$b, int $occ) use (&$fields, $registry, $base) {
-            if (empty($b['_ai_generated'])) return;   // only genuinely generated blocks
+            if (($b['_ai_input_hash'] ?? '') === '') return;
             $key = ms_ai_page_key($base, $b['ai_type_id'] ?? '', $occ);
             $fields[$key] = [
-                'ai_type_id'  => $b['ai_type_id'] ?? '',
-                'prompt_hash' => ms_ai_prompt_hash($b, $registry),
-                'value'       => ms_ai_cached_value($b, $registry),
+                'ai_type_id' => $b['ai_type_id'] ?? '',
+                'input_hash' => $b['_ai_input_hash'],
+                'value'      => ms_ai_cached_value($b, $registry),
             ];
         });
     }
