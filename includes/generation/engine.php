@@ -85,57 +85,9 @@ function _gen_resolve_schema_shortcodes(string $schema, array $vars): string {
     return str_replace(array_keys($replacements), array_values($replacements), $schema);
 }
 
-// Reads all faq_two_col blocks, builds a FAQPage entity, and merges it into
-// $page['seo']['schema'].
-
-function _gen_inject_faq_schema(array &$page): void {
-    $pairs = [];
-    foreach ($page['content_blocks'] ?? [] as $block) {
-        if (($block['type'] ?? '') !== 'faq_two_col') continue;
-        foreach ($block['fq_items'] ?? [] as $item) {
-            $q = trim(html_entity_decode(strip_tags($item['question'] ?? ''), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
-            $a = trim(html_entity_decode(strip_tags($item['answer']   ?? ''), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
-            if ($q && $a) {
-                $pairs[] = [
-                    '@type'          => 'Question',
-                    'name'           => $q,
-                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => $a],
-                ];
-            }
-        }
-    }
-
-    if (empty($pairs)) return;
-
-    $faqPage  = ['@type' => 'FAQPage', 'mainEntity' => $pairs];
-    $existing = trim($page['seo']['schema'] ?? '');
-
-    if ($existing === '') {
-        $schema = ['@context' => 'https://schema.org', '@graph' => [$faqPage]];
-    } else {
-        $decoded = json_decode($existing, true);
-        if ($decoded === null) {
-            // Template schema is invalid JSON — create fresh graph with FAQPage only
-            $schema = ['@context' => 'https://schema.org', '@graph' => [$faqPage]];
-        } elseif (isset($decoded['@graph'])) {
-            // @graph present — replace existing FAQPage or append
-            $decoded['@graph'] = array_values(
-                array_filter($decoded['@graph'], fn($e) => ($e['@type'] ?? '') !== 'FAQPage')
-            );
-            $decoded['@graph'][] = $faqPage;
-            $schema = $decoded;
-        } else {
-            // Single schema object — wrap both in a @graph
-            unset($decoded['@context']);
-            $schema = ['@context' => 'https://schema.org', '@graph' => [$decoded, $faqPage]];
-        }
-    }
-
-    $page['seo']['schema'] = json_encode(
-        $schema,
-        JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
-    );
-}
+// FAQPage schema is no longer injected at structure time — it's derived from the
+// page's current FAQ blocks at render (schema_apply_faqpage in includes/schema.php),
+// so it can never be stale relative to AI-filled FAQ content.
 
 // ── Main generation function ──────────────────────────────────────────────────
 //
@@ -360,10 +312,10 @@ function generate_city_pages(array $options = []): array {
                 }
             }
 
-            // ── Inject FAQPage schema from faq_two_col blocks ────────────────
-            // Runs after locked-block restoration so AI-generated FAQ content
-            // is present in $page['content_blocks'].
-            _gen_inject_faq_schema($page);
+            // ── FAQPage schema is derived at RENDER time ─────────────────────
+            // (schema_apply_faqpage in includes/schema.php), from the page's current
+            // FAQ blocks — so it's never stale relative to AI-filled FAQ content.
+            // No structure-time injection here on purpose.
 
             // ── Resolve SEO shortcodes + set canonical at generation time ────────
             $cityVarsFiltered = array_filter($city, fn($v) => is_array($v) || ($v !== '' && $v !== null));

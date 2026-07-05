@@ -186,9 +186,12 @@ if (empty($seo['og_image'])) {
     :root { --fixed-header-height: <?= $_hInitialHeight ?>; }
     </style>
     <?php
-    // Schema markup — manually entered JSON-LD textarea
-    if (!empty($seo['schema'])) {
-        $schemaData = json_decode(resolve_shortcodes($seo['schema']));
+    // Schema markup — stored JSON-LD, with the FAQPage node derived from THIS page's
+    // current FAQ blocks at render time (never stale; see schema_apply_faqpage in
+    // includes/schema.php). Shortcodes resolve after the merge so Q&A tokens fill too.
+    $schemaJson = schema_apply_faqpage($seo['schema'] ?? '', $contentBlocks ?? []);
+    if ($schemaJson !== '') {
+        $schemaData = json_decode(resolve_shortcodes($schemaJson));
         if ($schemaData !== null) {
             echo '<script type="application/ld+json">' . json_encode($schemaData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) . '</script>' . "\n";
         }
