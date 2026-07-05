@@ -34,6 +34,12 @@ $csrf = $_SESSION['csrf_token'] ?? '';
 $lockedStyle = @json_decode((string)@file_get_contents(BASE_DIR . '/multisite/hero_style.json'), true) ?: [];
 $ls = fn($k, $d) => $lockedStyle[$k] ?? $d;
 $h = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
+// "Share with Claude" uploads (newest first) for the gallery.
+$convoDir = BASE_DIR . '/uploads/convo';
+$convoFiles = [];
+foreach (glob($convoDir . '/*') ?: [] as $p) { if (is_file($p)) $convoFiles[$p] = filemtime($p); }
+arsort($convoFiles);
+$convoFiles = array_keys($convoFiles);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,6 +80,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
 <body>
 <div id="side">
     <div class="logo">Site Factory <small>Test Lab</small></div>
+    <a href="#share-claude" style="color:#93c5fd;font-weight:700;">📎 Share with Claude</a>
     <button type="button" class="active">Hero text overlay</button>
     <a class="back" href="#preset-check" style="color:#fd783b;">↓ Theme Preset check</a>
     <a class="back" href="#logo-gen" style="color:#fd783b;">↓ Logo generator</a>
@@ -82,6 +89,45 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
     <a class="back" href="index.php">← Admin</a>
 </div>
 <main>
+    <section id="share-claude" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
+        <h1>Share with Claude <span class="pill">upload · conversations</span></h1>
+        <p class="sub">Drop an image here (a screenshot, a design, a photo) to put it on the server, then <strong>copy the path it gives you and paste it into the chat</strong> — Claude reads files off the VPS, not your Mac. You can also just <strong>paste a screenshot</strong> (Cmd-V) anywhere on this page. Kept for 7 days.</p>
+
+        <div id="cv-drop" style="border:2px dashed #94a3b8;border-radius:12px;background:#fff;padding:34px 20px;text-align:center;cursor:pointer;transition:.15s;max-width:720px;">
+            <div style="font-size:2rem;">📎</div>
+            <div style="font-weight:700;color:#1e3a5f;margin-top:6px;">Drag &amp; drop an image here</div>
+            <div class="note" style="margin-top:4px;">or paste a screenshot with Cmd-V · JPG / PNG / WebP / GIF · max 12 MB</div>
+            <button type="button" id="cv-select" style="margin-top:14px;background:#1e3a5f;color:#fff;border:0;border-radius:6px;padding:9px 20px;font-weight:600;font-size:.9rem;cursor:pointer;">Select image…</button>
+            <input type="file" id="cv-file" accept="image/jpeg,image/png,image/webp,image/gif" style="display:none;">
+        </div>
+
+        <div id="cv-result" style="display:none;max-width:720px;margin-top:16px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;">
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+                <img id="cv-thumb" alt="" style="width:120px;height:120px;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;flex-shrink:0;background:#f1f5f9;">
+                <div style="flex:1;min-width:0;">
+                    <div id="cv-status" style="font-weight:700;color:#065f46;">✓ Uploaded — paste this path to Claude:</div>
+                    <div style="display:flex;gap:8px;margin-top:8px;">
+                        <input type="text" id="cv-path" readonly onclick="this.select()" style="flex:1;font-family:monospace;font-size:.8rem;">
+                        <button type="button" id="cv-copy" style="background:#1e3a5f;color:#fff;border:0;border-radius:6px;padding:8px 14px;font-weight:600;cursor:pointer;">Copy</button>
+                    </div>
+                    <div id="cv-meta" class="note" style="margin-top:6px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <?php if ($convoFiles): ?>
+        <h3 style="margin:24px 0 10px;color:#1e3a5f;">Recent uploads</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;">
+            <?php foreach (array_slice($convoFiles, 0, 24) as $p): $n = basename($p); ?>
+            <div style="width:150px;">
+                <a href="/uploads/convo/<?= $h($n) ?>" target="_blank"><img src="/uploads/convo/<?= $h($n) ?>" alt="" style="width:150px;height:110px;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;display:block;"></a>
+                <input type="text" readonly onclick="this.select()" value="<?= $h($p) ?>" style="width:150px;font-family:monospace;font-size:.62rem;margin-top:4px;padding:3px 5px;border:1px solid #e2e8f0;border-radius:4px;">
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+    </section>
+
     <section id="preset-check" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
         <h1>Theme Preset check <span class="pill">theme · before / after</span></h1>
         <p class="sub">Left = pest master (orange/indigo — the <strong>Classic</strong> preset). Right = the same page, <strong>full height including the footer</strong>, with the <strong>Bold</strong> Theme Preset (charcoal&nbsp;<code>#1f2937</code> + red&nbsp;<code>#dc2626</code>) merged into <code>data['theme']</code> — the exact swap a per-site Theme Preset would do. Scroll to the bottom: the <strong>3-column footer</strong> flips indigo&nbsp;→&nbsp;charcoal and the sticky bar flips orange&nbsp;→&nbsp;red. These are two Theme Presets; both read as legitimate brand looks.</p>
@@ -294,6 +340,45 @@ var LAB_CSRF = <?= json_encode($csrf) ?>;
     });
 
     render();
+})();
+</script>
+<script>
+// "Share with Claude" — drag & drop / click / paste-screenshot upload.
+(function(){
+    var drop=document.getElementById('cv-drop'), file=document.getElementById('cv-file'),
+        result=document.getElementById('cv-result'), thumb=document.getElementById('cv-thumb'),
+        pathI=document.getElementById('cv-path'), meta=document.getElementById('cv-meta'),
+        statusEl=document.getElementById('cv-status'), copyB=document.getElementById('cv-copy');
+    if(!drop) return;
+    function upload(f){
+        if(!f) return;
+        var fd=new FormData(); fd.append('csrf_token', LAB_CSRF); fd.append('image', f);
+        result.style.display='block'; statusEl.textContent='Uploading…'; statusEl.style.color='#1e3a5f'; meta.textContent='';
+        fetch('convo_upload.php',{method:'POST',body:fd}).then(function(r){return r.json();}).then(function(d){
+            drop.style.borderColor='#94a3b8'; drop.style.background='#fff';
+            if(d.error){ statusEl.textContent='✗ '+d.error; statusEl.style.color='#991b1b'; pathI.value=''; return; }
+            statusEl.textContent='✓ Uploaded — paste this path to Claude:'; statusEl.style.color='#065f46';
+            thumb.src=d.web+'?t='+Date.now(); pathI.value=d.abs_path;
+            meta.textContent=d.w+'×'+d.h+' · '+Math.round(d.size/1024)+' KB';
+            pathI.focus(); pathI.select();
+        }).catch(function(){ statusEl.textContent='✗ upload failed'; statusEl.style.color='#991b1b'; });
+    }
+    drop.addEventListener('click', function(){ file.click(); });
+    var selBtn=document.getElementById('cv-select');
+    if(selBtn) selBtn.addEventListener('click', function(ev){ ev.stopPropagation(); file.click(); });
+    file.addEventListener('change', function(){ if(file.files&&file.files[0]) upload(file.files[0]); });
+    ['dragenter','dragover'].forEach(function(e){ drop.addEventListener(e,function(ev){ ev.preventDefault(); drop.style.borderColor='#1e3a5f'; drop.style.background='#eff6ff'; }); });
+    ['dragleave','dragend'].forEach(function(e){ drop.addEventListener(e,function(ev){ ev.preventDefault(); drop.style.borderColor='#94a3b8'; drop.style.background='#fff'; }); });
+    drop.addEventListener('drop', function(ev){ ev.preventDefault(); var f=ev.dataTransfer&&ev.dataTransfer.files&&ev.dataTransfer.files[0]; if(f) upload(f); });
+    copyB.addEventListener('click', function(){
+        pathI.select();
+        (navigator.clipboard? navigator.clipboard.writeText(pathI.value) : Promise.reject()).catch(function(){ document.execCommand('copy'); });
+        copyB.textContent='Copied ✓'; setTimeout(function(){copyB.textContent='Copy';},1400);
+    });
+    window.addEventListener('paste', function(ev){
+        var items=ev.clipboardData&&ev.clipboardData.items; if(!items) return;
+        for(var i=0;i<items.length;i++){ if(items[i].type.indexOf('image')===0){ upload(items[i].getAsFile()); break; } }
+    });
 })();
 </script>
 </body>
