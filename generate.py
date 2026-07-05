@@ -262,7 +262,11 @@ def call_claude(prompt, model, api_key, dry_run=False):
             max_tokens=1024,
             messages=[{'role': 'user', 'content': prompt}],
         )
-        raw = message.content[0].text.strip()
+        # Use the text block(s) only — some models return a thinking/reasoning
+        # block first, which has no .text attribute. Assuming content[0] is text
+        # crashes on those; select by block type instead.
+        texts = [b.text for b in message.content if getattr(b, 'type', None) == 'text']
+        raw = (texts[-1] if texts else '').strip()
         _tally_usage(model, message.usage.input_tokens, message.usage.output_tokens)
 
         # Strip markdown code fences if the model wraps its output
