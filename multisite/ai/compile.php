@@ -90,6 +90,35 @@ function ms_ai_write_registry(string $outFile, array $registry): bool {
 }
 
 /**
+ * Merge freshly-compiled entries into the existing registry WITHOUT clobbering
+ * hand-authored ones. Compile owns only entries it created (stamped `_compiled_from`):
+ *   - hand-authored (no `_compiled_from`) → always preserved, never overwritten
+ *     (even if an enabled archetype shares the id — the archetype is skipped);
+ *   - previously-compiled entry still enabled → replaced by the fresh compile;
+ *   - previously-compiled entry no longer enabled → dropped (unchecking removes it);
+ *   - new enabled archetype → added.
+ * @return array ['registry' => array, 'skipped' => string[]]  skipped = archetype ids not
+ *               written because a hand-authored block already owns that id.
+ */
+function ms_ai_merge_registry(array $existing, array $compiled): array {
+    $out = [];
+    $skipped = [];
+
+    // 1. Keep every hand-authored (unstamped) entry — compile never created these.
+    foreach ($existing as $id => $entry) {
+        if (is_array($entry) && empty($entry['_compiled_from'])) $out[$id] = $entry;
+    }
+    // 2. Add/replace compiled entries — but never overwrite a preserved hand-authored id.
+    foreach ($compiled as $id => $entry) {
+        if (isset($out[$id])) { $skipped[] = $id; continue; }
+        $out[$id] = $entry;
+    }
+    // (Previously-compiled entries whose archetype is no longer enabled are stamped, so they
+    //  were excluded in step 1 and absent from $compiled → correctly dropped.)
+    return ['registry' => $out, 'skipped' => $skipped];
+}
+
+/**
  * High-level: compile a master's brief → its ai_block_types.json.
  * Returns the ms_ai_compile() result plus 'out' (path) and 'ok' (bool).
  */
@@ -116,6 +145,16 @@ function ms_ai_compile_master(string $baseDir, string $masterId): array {
     if (!is_array($brief)) return ['ok' => false, 'errors' => ["Cannot read niche brief: {$briefFile}"], 'written' => [], 'skipped' => []];
 
     $res = ms_ai_compile($arch, $brief);
+
+    // Non-destructive: merge the compiled entries into the existing registry so hand-authored
+    // (unstamped) block types survive a recompile instead of being silently overwritten/dropped.
+    $existing = is_file($outFile) ? (json_decode((string)@file_get_contents($outFile), true) ?: []) : [];
+    $merged   = ms_ai_merge_registry($existing, $res['registry']);
+    $res['registry'] = $merged['registry'];
+    foreach ($merged['skipped'] as $id) {
+        $res['skipped'][] = "{$id} (a hand-authored block already uses this id — kept it; archetype not written)";
+    }
+
     $res['out'] = $outFile;
     $res['ok']  = ms_ai_write_registry($outFile, $res['registry']);
     if (!$res['ok']) $res['errors'][] = "Failed to write {$outFile}";

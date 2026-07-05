@@ -2286,7 +2286,7 @@ Output valid JSON only — no explanation.</code></pre>
 
     <h3>Tier 2 — latent footgun</h3>
     <ul>
-        <li><strong>P2 · registry clobber + granite drift</strong> <em>(shared / masters)</em> — <code>ai_block_types.json</code> has three writers; the two compile paths silently overwrite hand-edits. Granite's registry has drifted from its archetypes, so one <em>Save &amp; Compile</em> would delete block types its 25 pages depend on. <strong>Interim guard: do not click Save &amp; Compile on granitepmacademy until reconciled.</strong> Fix: make compile non-destructive + warn; reconcile granite.</li>
+        <li><strong>P2 · registry clobber + granite drift</strong> <em>(shared / masters)</em> — <strong>✅ fixed.</strong> Compile is now <strong>non-destructive</strong>: <code>ms_ai_merge_registry()</code> preserves hand-authored (unstamped) block types and never overwrites or deletes an entry it didn't create (ownership keyed on <code>_compiled_from</code>). It still (re)compiles enabled archetypes and drops disabled ones. The Block Type Registry editor now shows a banner on compiled blocks warning that edits are overwritten on recompile. <strong>The granite landmine is defused</strong> — all its hand-authored block types survive a compile — so the "don't Save &amp; Compile on granite" guard is lifted. (Optional tidy: uncheck the two archetypes in granite's brief that don't match its registry, so a compile doesn't add unused entries.)</li>
     </ul>
 
     <h3>Tier 3 — hygiene / polish</h3>

@@ -21,6 +21,16 @@ function _abt_form(array $bt = [], string $action = 'add', string $id = ''): voi
     <input type="hidden" name="block_type_id" value="<?= h($id) ?>">
     <?php endif; ?>
 
+    <?php if (!empty($bt['_compiled_from'])): ?>
+    <div style="background:#fef3c7;border:1px solid #fcd34d;color:#92400e;border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:.85rem;line-height:1.5;">
+        <strong>⚠ This block type is compiled from the “<?= h($bt['_compiled_from']) ?>” archetype.</strong>
+        Edits saved here are <strong>overwritten the next time you Save &amp; Compile</strong> on the
+        <a href="?tab=niche_brief" style="color:#92400e;text-decoration:underline;">Niche Brief</a> tab.
+        To make lasting prompt changes, edit the archetype’s <em>prompt skeleton</em> under
+        <a href="?tab=niche_brief" style="color:#92400e;text-decoration:underline;">Niche Brief → Prompt templates</a> instead.
+    </div>
+    <?php endif; ?>
+
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px;">
         <?php if ($action === 'add'): ?>
         <div class="form-group">
