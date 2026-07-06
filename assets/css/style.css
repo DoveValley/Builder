@@ -3374,6 +3374,11 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 
 /* CTA Card — centered layout (full width, no container) */
 .cc-centered {
+    /* .content-block is display:flex, so this box is a flex item — without a full
+       width it shrinks to content and sits left-aligned. flex-basis:100% makes the
+       centered band span the full section so its centered content reads centered. */
+    flex: 1 1 100%;
+    width: 100%;
     padding: 48px 10%;
     border-radius: 0 !important;
     flex-direction: column;
