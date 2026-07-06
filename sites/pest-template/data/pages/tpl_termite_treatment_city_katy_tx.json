@@ -1,0 +1,383 @@
+{
+  "template_id": "tpl_termite_treatment",
+  "city_id": "city_katy_tx",
+  "slug": "termite-treatment-katy-tx",
+  "title": "Termite Treatment in {city_state} | Inspection & Guaranteed Termite Control",
+  "city_vars": {
+    "id": "city_katy_tx",
+    "city": "Katy",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "katy-tx",
+    "zip": "77449",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Energy",
+      "Retail & Distribution",
+      "Healthcare",
+      "Education",
+      "Manufacturing",
+      "Residential Construction & Real Estate"
+    ],
+    "top_employers": [
+      "Katy Independent School District",
+      "Academy Sports + Outdoors",
+      "Daikin Comfort Technologies",
+      "Igloo Products Corp.",
+      "Amazon",
+      "Houston Methodist West Hospital",
+      "Memorial Hermann Katy Hospital",
+      "BP America",
+      "Cimarex Energy",
+      "Gexa Energy",
+      "Katy Mills Mall",
+      "Freeport-McMoRan"
+    ],
+    "market_blurb": "Katy, Texas has grown into a thriving Houston suburb driven by energy sector employment, retail and distribution centers, and a strong healthcare and education presence anchored by Katy ISD. Rapid residential development, including large master-planned communities, continues to fuel construction and real estate activity in the area. This diverse economic base supports a steady influx of new homeowners and businesses each year.",
+    "local_note": "Katy's humid Gulf Coast climate and rapid expansion of new-construction subdivisions create ongoing pressure from termites, mosquitoes, and fire ants that local pest control providers must address year-round.",
+    "neighborhoods": [
+      "Cinco Ranch",
+      "Cross Creek Ranch",
+      "Grand Lakes",
+      "Kelliwood",
+      "Firethorne",
+      "Elyson",
+      "Old Katy",
+      "Seven Meadows",
+      "Tamarron"
+    ],
+    "population": 21894,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Termite Treatment in {city_state}",
+      "hs_subtext": "<p>Katy's warm, humid climate and older home construction create ideal conditions for termite activity year-round, with peak risk during spring and early summer when swarmers emerge. Elk Pest Pros specializes in professional termite treatment to address active infestations and protect your home's structural integrity. Our local team understands the specific challenges homeowners face in communities like Cinco Ranch and Grand Lakes, delivering trained, reliable service when you need it most.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Termite",
+      "hs_caption2": "Treatment",
+      "hs_photo_alt": "Termite treatment technician inspecting a {city_state} home",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/pest-template/uploads/media/termite-treatment-katy_a745bc.webp",
+      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-05T23:54:45.204032Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "fce4285db9ef41f6",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:var(--skin-subtle-bg,#f3f6f7);border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);padding:18px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 44px;\"><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Trained Technicians</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Free Estimates</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Re-Treat Guarantee</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Same-Day Service</span></div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Termite Treatment for Katy Homeowners",
+      "text": "<p>Homeowners throughout Katy face a genuine termite threat due to the region's warm, humid climate and the presence of wood-based structures that termites actively seek. The hot, moisture-rich summers and mild winters create ideal conditions for termite colonies to thrive year-round, and once these destructive pests establish themselves in a home's foundation, framing, or wooden structures, they can cause significant damage before signs become visible. Early detection and professional treatment are essential to protect your investment and prevent costly repairs down the line.</p><p>Elk Pest Pros approaches termite treatment in Katy with a thorough, methodical strategy designed to identify infestations, eliminate active colonies, and establish barriers to prevent future invasions. Our team conducts detailed inspections to locate termite activity and damage, then implements targeted treatment plans tailored to your home's specific needs and the extent of the infestation. We follow up with preventative measures and monitoring to give you confidence that your property remains protected. While we address many pest concerns for Katy residents, termite treatment remains a critical focus—because early professional intervention can mean the difference between a contained problem and extensive structural damage. Let us help safeguard your home.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-05T23:54:49.299104Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "6c3609c4af03146c",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Katy Homeowners Choose Elk Pest Pros",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Trained Termite Specialists",
+          "text": "Our technicians understand termite behavior and treatment protocols specific to your home's structure. Thorough inspection and targeted application protect your property from costly damage."
+        },
+        {
+          "heading": "Fast Response, Reliable Service",
+          "text": "Active termite infestations require prompt attention. We prioritize quick scheduling and efficient treatment to stop colonies before they spread deeper into your home's foundation and walls."
+        },
+        {
+          "heading": "Treatment Backed by Guarantees",
+          "text": "We stand behind our termite work with service guarantees, giving you confidence in the protection we provide. Your satisfaction and your home's structural integrity matter to us."
+        },
+        {
+          "heading": "Year-Round Termite Protection",
+          "text": "Katy's warm, humid climate creates extended termite seasons. We help homeowners in neighborhoods like Cinco Ranch and Elyson maintain defenses through spring, summer, and fall when termite activity peaks."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-05T23:54:52.490480Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "62020f92a25f256f",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Termite Treatment Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call Our {city} Team",
+          "text": "Tell us what you're seeing — swarming insects, mud tubes on the foundation, or hollow-sounding wood. Our team works to get you scheduled quickly for a full inspection."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Inspection & Assessment",
+          "text": "Your technician inspects the structure and surrounding soil, identifies whether you have subterranean or drywood termites and how far the activity has spread, and builds a targeted treatment plan."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Treatment & Protection",
+          "text": "We treat with proven methods — a liquid termiticide barrier or in-ground bait stations — then set up ongoing monitoring so termites don't come back."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Worried about termites in {city}? Our trained technicians can inspect your home and stop the damage fast.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Termite Control Solutions Serving Katy",
+      "text": "<p>Katy's diverse neighborhoods present distinct termite management challenges. Established areas with mature trees and older homes—like those in Old Katy—often have legacy construction methods and expansive root systems that can create pathways for subterranean termites. These properties may require tailored inspection approaches to assess foundation conditions and wood contact points that have aged over decades. Conversely, newer subdivisions such as Cinco Ranch and Elyson feature modern building codes and recent construction, yet their developing landscapes and fresh mulch beds can still attract termite colonies during Texas's warm months.</p><p>The greater Katy region experiences a humid subtropical climate with extended warm seasons ideal for termite activity. Spring through fall brings peak foraging periods when colonies expand and explore new wood sources. Whether your property features established oak and pine trees or newly landscaped grounds, early detection makes a meaningful difference in limiting damage. Elk Pest Pros understands how Katy's mix of mature and new construction affects treatment strategy, and we adjust our approach based on your home's age, foundation type, and surrounding environment to address termite pressure effectively.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-05T23:54:56.664234Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "dce304e252c48edc",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Seasonal Termite and Pest Protection for Katy Homes",
+      "steps_items": [
+        {
+          "heading": "Spring: Awakening and Activity",
+          "text": "Warming temperatures bring termites out of dormancy and increase moisture in the soil—ideal conditions for subterranean colonies to expand. Spring rains elevate humidity around foundations. Elk Pest Pros conducts thorough inspections to detect early signs of termite activity before populations surge."
+        },
+        {
+          "heading": "Summer: Peak Pest Season",
+          "text": "Heat and humidity intensify termite feeding and reproduction cycles. Flying termites may emerge during summer swarms. Wood-destroying pests thrive in Katy's warm climate. Elk Pest Pros applies targeted treatments and monitoring to protect structures during the most active infestation period."
+        },
+        {
+          "heading": "Fall: Preparation and Prevention",
+          "text": "As temperatures drop, termites deepen their nests and seek shelter in homes and structures. Fall is an excellent time for preventive treatments before winter dormancy. Elk Pest Pros helps homeowners seal vulnerabilities and establish protective barriers to guard against seasonal infiltration."
+        },
+        {
+          "heading": "Winter: Monitoring and Maintenance",
+          "text": "Cold slows pest activity, but termites remain active in heated structures. Winter allows for thorough inspections without dense foliage obstruction. Elk Pest Pros performs maintenance checks and adjusts treatments as needed to ensure year-round protection for your property."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-05T23:55:01.142481Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "50e18f77438e50ec",
+      "_ai_locked": true
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Pest Control Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-cockroach.svg",
+          "alt": "Cockroach exterminator in {city}",
+          "heading": "Cockroach Exterminator",
+          "text": "Seeing roaches in the kitchen or bath? Our technicians treat the source and back it with a re-treat guarantee.",
+          "url": "/cockroach-exterminator-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
+          "alt": "Ant exterminator in {city}",
+          "heading": "Ant Exterminator",
+          "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
+          "url": "/ant-exterminator-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
+          "alt": "Rodent control in {city}",
+          "heading": "Rodent Control",
+          "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
+          "url": "/rodent-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
+          "alt": "Bed bug treatment in {city}",
+          "heading": "Bed Bug Treatment",
+          "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
+          "url": "/bed-bug-treatment-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Termite Treatment FAQ — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "fq_items": [
+        {
+          "question": "What are the signs of termites in a {city} home?",
+          "answer": "<p>Common signs include swarming insects or piles of discarded wings near windows, pencil-width mud tubes running up the foundation, wood that sounds hollow or looks blistered, doors and windows that suddenly stick, and small piles of pellet-like frass under drywood-infested wood. If you spot any of these, it's worth an inspection.</p>"
+        },
+        {
+          "question": "What's the difference between subterranean and drywood termites?",
+          "answer": "<p>Subterranean termites nest in the soil and build mud tubes to reach wood — they're the most common and the most destructive. Drywood termites live entirely inside dry wood with no soil contact and leave behind frass. Your technician identifies the species first, because the two are treated very differently.</p>"
+        },
+        {
+          "question": "How do your technicians treat termites?",
+          "answer": "<p>After the inspection, we match the method to the species and severity. Subterranean termites are typically handled with a liquid termiticide barrier around the foundation or in-ground bait stations. Drywood infestations may be treated locally or, in heavy cases, whole-structure. Your technician explains the plan and what to expect before any work begins.</p>"
+        },
+        {
+          "question": "How long does termite treatment take?",
+          "answer": "<p>A barrier or bait-station installation is usually completed in a day. The colony then declines over the following weeks to months as termites contact the treatment. You'll get the inspection findings and a clear timeline up front.</p>"
+        },
+        {
+          "question": "Do your technicians guarantee termite treatments?",
+          "answer": "<p>Yes — our technicians stand behind their work. Ask about the renewable warranty and annual monitoring when you call, so your home stays protected after the initial treatment.</p>"
+        },
+        {
+          "question": "Do you offer termite inspections for buying or selling a home?",
+          "answer": "<p>Yes. We provide wood-destroying insect inspections and reports (often called a WDI or WDIR) that are commonly required for real-estate transactions and lender approvals in {city_state}.</p>"
+        },
+        {
+          "question": "Is termite treatment safe for my family and pets?",
+          "answer": "<p>Our technicians use EPA-registered products applied according to the label and follow standard safety protocols. We'll walk you through any preparation and let you know how long to keep everyone out of treated areas.</p>"
+        },
+        {
+          "question": "How much does termite treatment cost in {city}?",
+          "answer": "<p>Cost depends on the size of the home, the foundation type, the termite species, and how far the activity has spread. We give you a clear quote after the inspection, with no obligation.</p>"
+        },
+        {
+          "question": "Can I treat termites myself?",
+          "answer": "<p>Over-the-counter products rarely reach the colony or create a lasting barrier, and every week untreated termites keep eating structural wood. A professional treatment plus ongoing monitoring is far more reliable — and much cheaper than repairing termite damage later.</p>"
+        },
+        {
+          "question": "How can I keep termites from coming back?",
+          "answer": "<p>Keep soil and mulch a few inches below the siding, fix moisture and drainage problems near the foundation, store firewood away from the house, and keep annual monitoring active. Our technicians re-inspect as part of the warranty so new activity is caught early.</p>"
+        },
+        {
+          "question": "When is termite treatment season in Katy, Texas?",
+          "answer": "<p>Termite activity in the Katy area peaks during spring and early summer, typically March through June, when swarmers emerge and colonies are most active. However, subterranean termites remain a threat year-round in our warm, humid climate. Fall and winter inspections are equally important for early detection. Contact Elk Pest Pros promptly if you notice signs—the sooner treatment begins, the better.</p>"
+        },
+        {
+          "question": "How quickly can Elk Pest Pros treat termites at my Katy home?",
+          "answer": "<p>We understand termite infestations demand urgent attention. Elk Pest Pros offers prompt scheduling for inspections and termite treatment throughout Katy and surrounding areas. Once we confirm an infestation, we work efficiently to deploy an appropriate treatment plan. For active infestations, early contact ensures faster service. Call us as soon as you suspect termite activity.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-05T23:55:04.027970Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "fe4b8488619b46d5",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Think you have termites in {city}? Get a professional inspection and treatment backed by our guarantee.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Termite Treatment in {city_state} | Inspection & Guaranteed Termite Control",
+    "canonical_url": "https://elkpestpros.com/termite-treatment-katy-tx/",
+    "meta_description": "Protect your {city_state} home from termites. Professional termite inspection and treatment for subterranean and drywood termites, backed by a guarantee. Call {phone}.",
+    "meta_keywords": "termite treatment Katy TX, termite control Katy TX, termite inspection Katy, termite exterminator Katy",
+    "og_title": "Termite Treatment in {city_state} | Inspection & Guaranteed Termite Control",
+    "og_description": "Protect your {city_state} home from termites. Professional termite inspection and treatment for subterranean and drywood termites, backed by a guarantee.",
+    "og_image": "",
+    "service_name": "Termite Treatment",
+    "service_type": "Termite Control",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional termite treatment in {city_state}. Inspection and targeted control for subterranean and drywood termites for homes and businesses, backed by a guarantee.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Termite Treatment in Katy, TX\",\"serviceType\":\"Termite Control\",\"description\":\"Professional termite treatment in Katy, TX. Inspection and targeted control for subterranean and drywood termites for homes and businesses, backed by a guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Katy\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Elk Pest Pros\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"},\"url\":\"https://elkpestpros.com/termite-treatment-katy-tx/\"}]}",
+    "primary_keyword": "Cockroach Exterminator"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-05T23:54:24+00:00",
+  "template_version": "828b3f71d64f7a78b21509db40ff594a"
+}
