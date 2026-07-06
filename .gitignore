@@ -22,3 +22,6 @@ uploads/convo/
 
 # Test Lab -> build locked hero-overlay style (set per-environment via the UI)
 multisite/hero_style.json
+
+# Generation backups (created by generate.py on each landing regen)
+sites/*/data/pages/*.bak
