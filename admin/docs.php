@@ -302,6 +302,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#howto-new-ai-type">Add a new AI type</a>
         <a href="#howto-new-city">Add a city</a>
         <a href="#howto-new-template">Add a template</a>
+        <a href="#howto-plugin">Add a plugin / hooks</a>
         <a href="#howto-update-docs">Update this docs page</a>
     
     </nav>
@@ -1078,9 +1079,13 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
     <h3>Plugin Directory</h3>
     <p>Grid of all installed plugins, each showing an icon, name, and short description. Click any card to open that plugin's admin panel. Currently installed:</p>
     <ul>
-        <li><strong>Course Schedule</strong> — adds schedule management (the Schedule sub-panel) and enables <code>[course_schedule]</code> and <code>[course_card]</code> shortcodes inside Custom HTML blocks. See the <a href="#tab-schedule">Schedule</a> section for field details.</li>
+        <li><strong>City Image</strong> (&#127957;) — auto-fetches a scenic Wikipedia/Wikimedia photo of the site's city, self-hosts it as webp, and exposes <code>{city_image}</code> / <code>{city_image_alt}</code> / <code>{city_image_credit}</code> tokens plus a <code>[city_image]</code> shortcode (SEO alt + CC credit). See <a href="#cities-differentiation">Per-city images</a>.</li>
+        <li><strong>Course Schedule</strong> (&#128197;) — adds schedule management (the Schedule sub-panel) and enables <code>[course_schedule]</code> and <code>[course_card]</code> shortcodes inside Custom HTML blocks. See the <a href="#tab-schedule">Schedule</a> section for field details.</li>
+        <li><strong>Service Links: 1-City</strong> (&#128279;) — manage a service-page list; <code>[services_links]</code> renders a city-resolved grid of service links in a Custom HTML block.</li>
+        <li><strong>Service Links: Multi-City</strong> (&#127758;) — <code>[locations]</code> lists all generated city landing pages, grouped by city and state.</li>
+        <li><strong>Info Popup</strong> (&#8505;) — shows an info popup when visitors click the &#8505; button in the nav or sticky bottom bar (call-handling disclosures, service-area info).</li>
     </ul>
-    <p>New plugins drop a folder into <code>plugins/</code> and register via the plugin API — no code changes to the core system required.</p>
+    <p>New plugins drop a folder into <code>plugins/</code> and register via the plugin API — no code changes to the core system required. See <a href="#howto-plugin">Add a Plugin (hooks &amp; custom tokens)</a> for authoring.</p>
 
     <h3>Plugin Panel</h3>
     <p>When you click a plugin card, the tab switches to that plugin's settings panel. Each plugin defines its own panel UI. The breadcrumb at the top shows <strong>← Plugins / Plugin Name</strong> — click <strong>← Plugins</strong> to return to the directory.</p>
@@ -1597,6 +1602,7 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
         <tr><td><code>state</code></td><td>Full state name</td><td>Texas</td></tr>
         <tr><td><code>SS</code></td><td>2-letter abbreviation</td><td>TX</td></tr>
         <tr><td><code>zip</code></td><td>ZIP code</td><td>78201</td></tr>
+        <tr><td><code>city_slug</code></td><td>URL-safe city + state slug</td><td>san-antonio-tx</td></tr>
     </table>
     <p>Once set, use shortcodes throughout all content — <code>{phone}</code>, <code>{business}</code>, <code>{email}</code>, <code>{city}</code>, <code>{SS}</code> — instead of hardcoding the values. If the client's phone number changes, you update it in one place and it propagates everywhere.</p>
     <div class="callout tip">
@@ -1627,7 +1633,7 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
     <p>The header appears on every page. Set it up correctly once and it is done. The <strong>Header</strong> tab controls layout, logo, navigation, phone display, and the CTA button.</p>
     <h3>Steps</h3>
     <ol>
-        <li><strong>Choose a header layout</strong> — single-row (logo + nav + phone in one bar) or 2-row (info bar above, nav bar below). Pick the layout that matches the client's brand style.</li>
+        <li><strong>Choose a header layout</strong> — <strong>Single Row</strong> (logo, nav, and phone in one bar) or <strong>Standard</strong> (2-row: logo + info bar on top, colored nav below). Pick the layout that matches the client's brand style.</li>
         <li><strong>Upload the logo</strong> — PNG with transparent background preferred. Download it from the client's live site with <code>curl -L -o sites/{id}/uploads/logo.png "https://..."</code>. Check dimensions — very tall logos may need height adjustment.</li>
         <li><strong>Set the site name</strong> — always fill this in; it is used in the <code>&lt;title&gt;</code> tag as a fallback when the logo is missing.</li>
         <li><strong>Set the phone</strong> — use <code>{phone}</code> to pull from site_vars.</li>
@@ -1698,7 +1704,7 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
     <h3>Key rules for the homepage</h3>
     <ul>
         <li>Only one H1 per page — use it in the hero headline</li>
-        <li>Do <strong>not</strong> use <code>{city}</code> or <code>{SS}</code> shortcodes on the homepage — they only resolve inside city landing pages and will render literally here</li>
+        <li><code>{city}</code> / <code>{SS}</code> resolve to the site's <strong>primary</strong> city/state (from Site Variables) — fine for a single-city local business, but avoid them on a <em>national or multi-city</em> homepage, where stamping one city is misleading. (They never render literally; that only happens if site_vars hasn't been saved.)</li>
         <li>Save after every block — there is no auto-save</li>
         <li>Take a screenshot after each block to catch layout problems early</li>
     </ul>
@@ -1816,7 +1822,8 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
 }</code></pre>
 
     <h3>Shortcodes in schema</h3>
-    <p>The schema textarea supports shortcodes. Supported tokens: <code>{website}</code>, <code>{business}</code>, <code>{business_domain}</code>, <code>{phone}</code>, <code>{tel}</code>, <code>{zip}</code>, <code>{address}</code>, <code>{city}</code>, <code>{state}</code>, <code>{SS}</code>, <code>{city_slug}</code>, <code>{city_state}</code>.</p>
+    <p>The schema textarea supports shortcodes — the same tokens that resolve everywhere else (<code>resolve_shortcodes()</code>). Supported: <code>{website}</code>, <code>{business}</code>, <code>{business_domain}</code>, <code>{phone}</code>, <code>{tel}</code>, <code>{zip}</code>, <code>{address}</code>, <code>{city}</code>, <code>{state}</code>, <code>{SS}</code>, <code>{city_slug}</code>, <code>{city_state}</code>, <code>{lat}</code>, <code>{lng}</code>, <code>{rating}</code>, <code>{review_count}</code>, and <code>{primary_keyword}</code> (alias <code>{service}</code>). <code>{rating}</code> / <code>{review_count}</code> feed <code>aggregateRating</code>. When the <strong>City Image</strong> plugin is enabled, <code>{city_image}</code>, <code>{city_image_alt}</code>, and <code>{city_image_credit}</code> are available too.</p>
+    <div class="callout warn"><strong>Keep the business node's <code>@id</code> consistent.</strong> Every node that references the business (a WebPage's <code>about</code>, a Course's <code>provider</code>, breadcrumbs, etc.) must point at the <em>same</em> <code>@id</code>. The AI Schema Generator anchors the business node at <code>{website}/#localbusiness</code>; the hand-written examples in this doc use <code>#organization</code> for readability. If you mix AI-generated and hand-authored schema on one site, standardize on <code>#localbusiness</code> so the cross-references resolve.</div>
     <p><strong>Homepage and core pages:</strong> shortcodes resolve at render time (when the page is served or when Generate Static Site runs).</p>
     <p><strong>City template pages:</strong> shortcodes resolve at <em>generation time</em> — the moment the city page JSON file is written by the generator. The stored JSON already contains final absolute URLs for every city, so you can open any city page file and read the exact schema that will appear in the HTML. No runtime resolution is needed.</p>
 
@@ -2522,7 +2529,7 @@ Output valid JSON only — no explanation.</code></pre>
 
     <h3>Key rules to keep in mind</h3>
     <ul>
-        <li>City shortcodes (<code>{city}</code>, <code>{SS}</code>) on the <strong>homepage</strong> render literally — never use them there</li>
+        <li>City shortcodes (<code>{city}</code>, <code>{SS}</code>) on the <strong>homepage</strong> resolve to the site's <em>primary</em> city — fine for a single-city business, but wrong on a national / multi-city homepage</li>
         <li>Slug patterns must be unique across templates — two templates cannot produce the same slug for the same city</li>
         <li>Structure generation overwrites unlocked blocks — lock AI content before re-generating structure</li>
         <li>AI generation costs money — always run structure-only first, review, then run AI</li>
@@ -2562,12 +2569,16 @@ Output valid JSON only — no explanation.</code></pre>
     <p>It reuses the shared multisite image core <code>ms_process_blocks_images()</code> — the same function the multisite build uses. It is <strong>non-destructive</strong>: it adds city-named variants alongside the originals and never prunes or deletes. It runs as the admin (www-data) user into <code>sites/{id}/uploads/</code>, is <strong>opt-in</strong> and <strong>deterministic per city</strong> (same city → same files → SEO-stable and reproducible), and <strong>no-ops</strong> on Dry Run, without ImageMagick, and for the multisite build (which does its own image pass). Requires ImageMagick.</p>
     <p>The hero overlay <strong>style</strong> (text position, size, colors) is set and locked in the <a href="playground.php#hero-overlay">Test Lab</a> (Docs → 🧪 Test Lab → hero-overlay panel); the <strong>"tune hero style ↗"</strong> link next to the dropdown opens it. Sensible defaults work without any tuning.</p>
 
+    <h3>Real per-city scenic photo — the City Image plugin</h3>
+    <p>Distinct from the overlay/perturb differentiation above, the <strong>City Image</strong> plugin (Plugins tab) sources a genuine scenic photo of the site's city from the Wikipedia/Wikimedia API, self-hosts it as webp, and derives an SEO <em>alt</em> string plus a CC credit line. It exposes them as render-time tokens — <code>{city_image}</code> (drop into any photo field, e.g. a <code>map_info</code> block), <code>{city_image_alt}</code>, <code>{city_image_credit}</code> — plus a <code>[city_image]</code> shortcode that renders a captioned <code>&lt;figure&gt;</code> inside a Custom HTML block. Values are written into <code>site_vars</code> by the fetch step (the plugin's admin panel, <code>plugins/city-image/cli.php</code>, or the MultiSite generator); the tokens are contributed through a <code>shortcode_tokens</code> filter hook, so they resolve everywhere the standard city tokens do. Before anything is fetched, the tokens resolve to empty and <code>[city_image]</code> renders nothing.</p>
+
     <h3>Vary block order per city</h3>
     <p>A <strong>"Vary block order per city"</strong> checkbox gives each city page a slightly different <strong>section order</strong> — the hero stays pinned first, the closing block stays pinned last, and a couple of middle sections swap — so the pages aren't structurally identical (an intra-site template-footprint signal). Same blocks, same content, different sequence.</p>
     <p>It reuses the shared <code>ms_variant()</code> + <code>layout_generate_variants()</code> + <code>layout_apply()</code> helpers — the same ones the multisite build uses per domain, here keyed per city (salt <code>citylayout</code>, index 0 = natural order). It is <strong>deterministic per city</strong> and <strong>opt-in</strong>, and <strong>no-ops</strong> on Dry Run, for templates with fewer than 4 blocks, and for the multisite build.</p>
 
     <h3>Idempotent hero overlay (efficiency)</h3>
     <p>The hero overlay's output filename now carries a short hash of its render inputs (keyword + city + style), so re-running Generate is a <strong>cache hit</strong> (skips ImageMagick) unless the keyword, city, or style changed — in which case it regenerates. This makes frequent single-site regenerations cheap, and benefits the multisite build too.</p>
+    <p><strong>Idempotent content photos too.</strong> In <em>Full</em> mode the shared core records each differentiated field's original path as <code>_&lt;field&gt;_orig</code> and always re-derives the city variant from that recorded original — never from the already-perturbed copy. So a re-run is non-destructive and idempotent: perturbations never compound and the hero never burns text over text; a city always resolves to the same variant of the same source image. The MultiSite build strips <code>_orig</code> before its prune (<code>ms_unset_orig_keys()</code>), keeping its output byte-identical to before; the single-site path keeps <code>_orig</code> so a persistent store re-differentiates cleanly. (<code>ms_process_blocks_images()</code>, <code>includes/multisite/image_overlay.php</code>.)</p>
 
     <div class="callout tip"><strong>One shared core, two callers.</strong> Single-site city generation reuses the multisite differentiation <em>cores</em> (<code>ms_process_blocks_images</code> and the <code>ms_variant</code> / layout helpers) but <strong>never</strong> the multisite-only destructive parts — the orchestrator <code>ms_differentiate_site_images()</code> or <code>ms_prune_unreferenced_uploads()</code>, which delete uploads. The non-destructive core is shared; the pruning is not.</div>
     <p style="color:#64748b;font-size:.9rem;">Backing files: <code>includes/generation/engine.php</code> (the per-city hook in <code>generate_city_pages</code>), <code>admin/generate.php</code> (reads the <code>image_diff</code> and <code>vary_layout</code> options), <code>admin/tabs/citypages.php</code> (the dropdown + checkbox), reusing <code>includes/multisite/image_overlay.php</code> and <code>includes/layout_variations.php</code>.</p>
@@ -2586,7 +2597,7 @@ Output valid JSON only — no explanation.</code></pre>
     </table>
     <p>Example slug pattern: <code>pmp-certification-training-{city_slug}</code> → <code>pmp-certification-training-dallas-tx</code></p>
     <div class="callout warn">
-        <p><strong>Never use city shortcodes on the homepage.</strong> <code>{city}</code> and <code>{city_state}</code> only resolve inside generated city pages — on the main site they render literally.</p>
+        <p><strong>Homepage caution.</strong> <code>{city}</code> / <code>{city_state}</code> resolve to the site's <em>primary</em> city (from Site Variables) — correct for a single-city local business, but on a national / multi-city homepage they'd stamp just one city. They don't render literally; that only happens if site_vars hasn't been saved.</p>
     </div>
 </section>
 
@@ -2644,6 +2655,30 @@ Output valid JSON only — no explanation.</code></pre>
         <li>For AI-enriched blocks, set <code>ai_type_id</code>, <code>ai_inject_field</code>, and <code>ai_inject_mode</code> directly in the block JSON (or ask for help)</li>
         <li>Run generation for a single test city to verify the output</li>
     </ol>
+</section>
+
+<section id="howto-plugin">
+    <h2>How To: Add a Plugin (hooks &amp; custom tokens)</h2>
+    <p>A plugin is a folder in <code>plugins/{id}/</code>, auto-loaded at startup (<code>includes/functions.php</code> globs <code>plugins/*/plugin.php</code>). Its <code>plugin.php</code> registers the plugin and attaches to the system through hooks — no core edits required.</p>
+    <h3>Register</h3>
+    <pre><code>// plugins/my_id/plugin.php
+register_plugin('my_id', 'My Plugin', 'One-line description.', '&amp;#128268;', __DIR__);</code></pre>
+    <p>That makes it appear as a card on the <a href="#tab-plugins">Plugins</a> tab. Add <code>panel.php</code> (admin settings UI) and <code>save.php</code> (POST handler — dispatched through <code>admin/plugin_save.php</code>, which verifies auth + CSRF first) if the plugin needs configuration.</p>
+    <h3>Hooks (<code>includes/hooks.php</code>)</h3>
+    <p>From <code>plugin.php</code>, attach listeners with <code>add_hook('name', $fn, $priority = 10)</code>. The core fires them either as <em>actions</em> (<code>run_hook</code>) or <em>filters</em> (<code>filter_hook</code> — each listener receives a value and returns a transformed one). The hooks a plugin can use:</p>
+    <table>
+        <tr><th>Hook</th><th>Type / signature</th><th>Use</th></tr>
+        <tr><td><code>shortcode_content</code></td><td>filter <code>(string $html, string $pathPrefix)</code></td><td>Replace a bracket shortcode inside a Custom HTML block with rendered HTML — e.g. <code>[services_links]</code>, <code>[city_image]</code>.</td></tr>
+        <tr><td><code>shortcode_tokens</code></td><td>filter <code>(array $map)</code></td><td>Contribute render-time <code>{token}</code> values. Return the map with your keys added; they resolve everywhere <code>resolve_shortcodes()</code> runs — titles, schema, block fields.</td></tr>
+        <tr><td><code>head_styles</code></td><td>action <code>(string $pathPrefix)</code></td><td>Emit extra CSS or markup into the page <code>&lt;head&gt;</code>.</td></tr>
+    </table>
+    <h3>Example — a plugin that adds a token</h3>
+    <pre><code>add_hook('shortcode_tokens', function (array $map): array {
+    global $data;
+    $map['{my_token}'] = $data['site_vars']['my_value'] ?? '';
+    return $map;
+});</code></pre>
+    <p>The <strong>City Image</strong> plugin is the canonical example: it registers <code>{city_image}</code> / <code>{city_image_alt}</code> / <code>{city_image_credit}</code> via <code>shortcode_tokens</code> and a <code>[city_image]</code> renderer via <code>shortcode_content</code> (<code>plugins/city-image/plugin.php</code>). For performance, <code>resolve_shortcodes()</code> only invokes the <code>shortcode_tokens</code> filter when at least one listener is registered — so the hot path costs nothing when no plugin uses it.</p>
 </section>
 
 <section id="howto-update-docs">
@@ -3367,16 +3402,17 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <h2>REQUIRED State of the SingleSite entering MultiSite</h2>
     <p>MultiSite doesn't build sites — it <strong>replicates</strong> one. Before you run a campaign, the master must already be a <strong>finished, single-city site</strong>, because every generated site is a copy of it. Concretely:</p>
     <ul>
-        <li><strong>Every page already exists in the master.</strong> Homepage, all core pages, and a landing page for each keyword — all authored in the admin panel, exactly like a normal single site.</li>
-        <li><strong>MultiSite never adds, removes, or authors pages.</strong> It takes the pages that are already there, adjusts them, and deploys. If a page should exist on the generated sites, it must exist in the master first.</li>
-        <li><strong>The pipeline is clone → adjust → deploy.</strong> Clone the finished master, adjust it to this site's identity, ship it — there is no page-building step.</li>
+        <li><strong>Every home &amp; core page already exists in the master.</strong> Homepage and all core pages are authored in the admin panel (in <code>site.json</code>), exactly like a normal single site — each with its own SEO and keyword focus.</li>
+        <li><strong>MultiSite never authors new home or core pages.</strong> It takes the master's existing home/core pages, localizes them, and deploys — if a home/core page should exist on the generated sites, it must exist in the master first. It <em>does</em>, however, drop the master's pre-generated in-site city pages and — when the deploy row's <code>landing_cities</code> column is set — regenerate one service landing page per city from the master's landing template (via <code>generate_landing.php</code>).</li>
+        <li><strong>The pipeline is clone → inject → (regenerate landing pages) → differentiate → AI-fill → build → deploy.</strong> No home/core page is authored during the run; only the master's existing pages are localized, plus any per-deploy city landing pages built from the master's landing template. (See <a href="#ms-howitworks">How it works</a>.)</li>
         <li><strong>Shortcodes are already throughout the master.</strong> Titles, headings, body copy, and schema use <code>{city}</code>, <code>{SS}</code>, <code>{business}</code>, <code>{primary_keyword}</code>, and the rest. "Adjust" is really just <em>setting this site's <code>site_vars</code></em> (city, business, phone, geo) — and every shortcode across the whole site then resolves to that city.</li>
         <li><strong>Titles come from each page's own SEO panel — the single source of truth.</strong> MultiSite doesn't assemble titles behind the scenes. A master page titled <code>{primary_keyword} {city_state} | {business}</code> renders as "Pest Control Dallas, TX | Dallas Pest Pros" on the Dallas clone. The <a href="#ms-admin-multisite">Title preview</a> card shows exactly what each clone will publish — verify it there before running.</li>
         <li><strong>The keyword is one field.</strong> Each page's <em>Keyword focus → Primary keyword</em> feeds <code>{primary_keyword}</code> into the title, H1, and schema, so the keyword stays consistent and can't drift.</li>
         <li><strong>Per-city AI copy fills only the marked blocks.</strong> Blocks tagged as <code>ai_block</code> are (re)written per city during the run; everything else clones verbatim and localizes through shortcodes. (See <a href="#ms-aiblocks">AI blocks &amp; the engine</a>.)</li>
-        <li><strong>In-site city pages are dropped.</strong> A generated site is single-city, so the clone drops the master's <code>data/pages/</code> (the many-cities-in-one-site files) and builds only the homepage + core/landing pages from <code>site.json</code>. (See <a href="#ms-vs-insite">MultiSite vs. in-site City Pages</a> below.)</li>
+        <li><strong>A landing template exists in the master</strong> (only needed if you'll use <code>landing_cities</code>). Per-deploy city landing pages are rendered from the master's reusable landing template (<code>data/templates.json</code>) — one page per listed city — not authored one-by-one. The master's own in-site <code>data/pages/</code> are dropped and rebuilt fresh per deploy; home + core come from <code>site.json</code>. (See <a href="#ms-landing">Per-deploy landing pages</a> and <a href="#ms-vs-insite">MultiSite vs. in-site City Pages</a>.)</li>
     </ul>
-    <div class="callout tip"><strong>Rule of thumb:</strong> get the master perfect as one finished single-city site — real pages, shortcodes everywhere, a keyword set per page — then multisite just makes 100 localized copies of it. Nothing appears on a generated site that isn't already visible in the master.</div>
+    <div class="callout"><strong>Pre-flight lint.</strong> A master lint (<code>ms_lint_master()</code>, run from the MultiSite tab) checks this state before a campaign: it flags the master's own city / state / SS / zip typed as <em>literal text</em> (they should be <code>{city}</code> / <code>{state}</code> / <code>{SS}</code> / <code>{zip}</code> shortcodes) and master-domain URLs that carry a path (the domain is rewritten per clone, but the path won't survive). It deliberately does <em>not</em> flag <code>site_vars</code>, <code>local_business</code>, the business name, phone, website, email, or image filenames — those are overwritten or renamed automatically per clone.</div>
+    <div class="callout tip"><strong>Rule of thumb:</strong> get the master perfect as one finished single-city site — real home/core pages, a landing template if you'll serve nearby cities, shortcodes everywhere, a keyword set per page — then MultiSite makes localized copies of it. Nothing appears on a generated site that the master doesn't already define.</div>
 </section>
 
 <section id="ms-vs-insite">
@@ -3388,7 +3424,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <tr><td>URLs</td><td><code>/pmp-training-dallas</code></td><td><code>pmtraining-dallas.com</code></td></tr>
         <tr><td>Lives in</td><td><code>data/pages/*.json</code></td><td>Ephemeral — nothing stored per site</td></tr>
     </table>
-    <p>A multisite output is single-city, so the clone step <strong>drops</strong> the master's in-site <code>data/pages/</code> (the many-cities-in-one-site files) and builds only the homepage + core/landing pages from <code>site.json</code>.</p>
+    <p>A MultiSite output serves one home/core city; the clone step <strong>drops</strong> the master's in-site <code>data/pages/</code> and rebuilds them fresh — home + core from <code>site.json</code>, plus any per-deploy city landing pages generated from the master's landing template (the deploy's <code>landing_cities</code> column). See <a href="#ms-landing">Per-deploy landing pages</a>.</p>
 </section>
 
 <!-- ═══════════ ARCHITECTURE ═══════════ -->
@@ -3455,7 +3491,9 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <tr><td><code>landing_cities</code></td><td>Optional</td><td>Extra service landing pages for this deploy — a <code>;</code>-separated list of "City, ST"</td></tr>
         <tr><td><code>rating</code>, <code>review_count</code></td><td>Optional (paired)</td><td>Real AggregateRating in schema — never invented</td></tr>
         <tr><td><code>logo</code>, <code>analytics_id</code></td><td>Optional</td><td>Per-site logo; per-site analytics (never shared)</td></tr>
-        <tr><td><code>theme_preset</code></td><td>Optional</td><td>Which <a href="#ms-visual-identity">Theme Preset</a> (colors + font + logo) to apply — id or name; blank = deterministic hash rotation off the domain</td></tr>
+        <tr><td><code>gsc_verification</code></td><td>Optional</td><td>Per-site Google Search Console verification meta token (blank = none)</td></tr>
+        <tr><td><code>web3forms_key</code></td><td>Optional</td><td>Per-site contact-form (Web3Forms) access key</td></tr>
+        <tr><td><code>theme_preset</code></td><td>Optional</td><td>Which <a href="#ms-visual-identity">Theme Preset</a> (colors + font + logo) to apply — id, name, or 1-based index; blank = deterministic hash rotation off the domain</td></tr>
         <tr><td><code>ftp_host</code>, <code>ftp_user</code>, <code>ftp_pass</code></td><td>For deploy</td><td>Deploy target + auth</td></tr>
         <tr><td><code>ftp_port</code>, <code>ftp_path</code>, <code>ftp_passive</code></td><td>Optional</td><td>Deploy target details</td></tr>
     </table>
@@ -3565,7 +3603,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><strong>Analytics isolation</strong> — each site gets its own analytics tag from <code>analytics_id</code>, or none. A shared tag is never used.</li>
         <li><strong>Self-canonical</strong> — canonical URLs point at the site's own domain.</li>
     </ul>
-    <div class="callout tip">The non-destructive image and layout differentiation <em>cores</em> here (<code>ms_process_blocks_images</code>, the <code>ms_variant</code> / layout helpers) are now shared with single-site city generation — see <a href="#cities-differentiation">City Pages — Per-city differentiation</a>. The multisite-only destructive parts (the image orchestrator + the unreferenced-uploads prune) are not.</div>
+    <div class="callout tip">The non-destructive image and layout differentiation <em>cores</em> here (<code>ms_process_blocks_images</code>, the <code>ms_variant</code> / layout helpers) are now shared with single-site city generation — see <a href="#cities-differentiation">City Pages — Per-city differentiation</a>. The multisite-only destructive parts (the image orchestrator + the unreferenced-uploads prune) are not. The image core is <strong>original-tracking</strong>: every differentiated field records a sibling <code>_&lt;field&gt;_orig</code> and always re-derives from that recorded original, so runs are idempotent (no compounding perturbation, no hero text-over-text). The MultiSite build strips <code>_orig</code> before its prune (<code>ms_unset_orig_keys</code>), keeping build output byte-identical.</div>
 </section>
 
 <section id="ms-visual-identity">
@@ -3573,7 +3611,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <p>A clone otherwise carries the master's <em>look</em> — same colors, same font, and (worst) the master's <strong>wordmark logo</strong> baked into pixels — onto every site. The <strong>visual-identity step</strong> gives each site a coordinated, distinct visual brand: a color/font <em>Theme Preset</em>, plus a generated logo and favicon in those colors. It runs in <code>build_one.php</code> right after <a href="#ms-differentiation">differentiation</a> and before the <a href="#spec-image-assign">4c</a> image prune (<code>includes/multisite/visual.php</code>).</p>
 
     <h3>Theme Presets</h3>
-    <p>A <strong>Theme Preset</strong> is a named bundle of theme values — accent + highlight colors, brand/heading fonts, button radius, header/footer colors, and a <strong>bug icon</strong> (the mark used to build the logo). Presets are stored <strong>per master</strong> in <code>sites/{master}/multisite/theme_presets.json</code> (an array, up to <strong>10</strong>; ~6 recommended). Each entry is <code>{ name, note, icon, theme:{accent_color, header_bg, footer_bg, heading_color, header_text, footer_text, header_top_bg, primary_font, heading_font, button_radius}, header:{nav_bg} }</code>.</p>
+    <p>A <strong>Theme Preset</strong> is a named bundle of theme values — accent + highlight colors, brand/heading fonts, button radius, header/footer colors, and a <strong>bug icon</strong> (the mark used to build the logo). Presets are stored <strong>per master</strong> under the <code>presets</code> key of <code>sites/{master}/multisite/theme_presets.json</code> (up to <strong>10</strong>; ~6 recommended). Each entry is <code>{ name, note, icon, theme:{accent_color, header_bg, footer_bg, heading_color, header_text, footer_text, header_top_bg, primary_font, heading_font, button_radius}, header:{nav_bg} }</code>.</p>
     <p>The pest master ships four:</p>
     <table>
         <tr><th>Preset</th><th>Colors</th><th>Font · radius</th><th>Bug</th></tr>
@@ -3628,7 +3666,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><span class="where perrow">Per-row</span>✅ LocalBusiness JSON-LD with real address + geo <span class="pri must">Must</span> <span style="color:#64748b;">(needs <code>lat</code>/<code>lng</code>)</span></li>
         <li><span class="where perrow">Per-row</span>✅ Real ratings only — <code>rating</code> + <code>review_count</code>, paired, never invented <span class="pri must">Must</span></li>
         <li><span class="where perrow">Per-row</span>✅ Self-referential canonical per domain <span class="pri must">Must</span></li>
-        <li><span class="where perrow">Per-row</span>✅ Per-site <code>sitemap.xml</code> + <code>robots.txt</code> — written for each domain at build (needs <code>canonical_domain</code>, or the sitemap is skipped) <span class="pri must">Must</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Per-site <code>sitemap.xml</code> + <code>robots.txt</code> — written for each domain at build by <code>build_static_site()</code> (from the required <code>domain</code>; <code>deploy_site()</code> only uploads them) <span class="pri must">Must</span></li>
         <li><span class="where perrow">Per-row</span>✅ Per-site analytics — <strong>never share one across sites</strong> (the big DON'T). Each site gets its own GA4 tag from <code>analytics_id</code>. <span style="color:#64748b;">◐ distinct GTM container IDs not yet emitted</span> <span class="pri must">Must</span></li>
         <li><span class="where perrow">Per-row</span>✅ Unique Search Console verification per site — per-site <code>&lt;meta google-site-verification&gt;</code> from the <code>gsc_verification</code> CSV column (blank = none); never verify every site through one shared GTM property <span class="pri should">Should</span></li>
         <li><span class="where perrow">Per-row</span>✅ No generator fingerprint emitted <span class="pri should">Should</span></li>
@@ -3821,14 +3859,14 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <h3>3d · Self-referential canonical per domain <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
         <p class="bc-meta">✅ built</p>
         <p><strong>Description.</strong> Canonical URLs point at the site's own domain, not the master's.</p>
-        <p><strong>Build (today).</strong> Set during differentiate/render from the row's <code>canonical_domain</code>.</p>
+        <p><strong>Build (today).</strong> Derived at render from the row's required <code>domain</code> — <code>build_one.php</code> passes it via the <code>MULTISITE_CANONICAL</code> env var into <code>build_static_site()</code>. (There is no separate <code>canonical_domain</code> column.)</p>
     </div>
 
     <div class="block-card-doc" id="spec-sitemap">
         <h3>3e · Per-site <code>sitemap.xml</code> + <code>robots.txt</code> <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
-        <p class="bc-meta">✅ built — needs <code>canonical_domain</code></p>
+        <p class="bc-meta">✅ built</p>
         <p><strong>Description.</strong> A sitemap and robots file written for each domain at build.</p>
-        <p><strong>Build (today).</strong> <code>deploy_site()</code> (<code>includes/multisite/deploy.php</code>) writes <code>sitemap.xml</code>, <code>robots.txt</code>, and <code>.htaccess</code> (including SEO-tab 301s). Without <code>canonical_domain</code> the sitemap is skipped.</p>
+        <p><strong>Build (today).</strong> <code>build_static_site()</code> (<code>includes/static_build.php</code>) writes <code>sitemap.xml</code>, <code>robots.txt</code>, and <code>.htaccess</code> (including the SEO-tab 301s) during the render step; <code>deploy_site()</code> (<code>includes/multisite/deploy.php</code>) then only uploads them. The sitemap is written whenever a canonical domain is present — and since <code>domain</code> is required, that's always the case for a MultiSite build.</p>
     </div>
 
     <div class="block-card-doc" id="spec-analytics">
@@ -3879,8 +3917,8 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
             <li><strong>Filename</strong> — the site city is appended and the <em>master</em> city stripped (<code>ms_city_image_path()</code>): <code>…-katy.webp</code> → <code>…-dallas-tx.webp</code>. Kills the master-city leak + makes paths unique. <strong>This is item <a href="#spec-image-paths">2d</a>.</strong></li>
             <li><strong>Raw-text sweep</strong> catches images hardcoded in <code>custom_html</code>; <strong>prune</strong> drops every unreferenced file (originals we replaced + the master's unused media library — pest went 273 → 37 media files per site). Logos / icons / favicons are left identical (brand furniture).</li>
         </ul>
-        <p><strong>Where it runs (architecture decision).</strong> The pass is a <strong>post-generation sweep</strong> in <code>build_one.php</code> (<code>ms_differentiate_site_images()</code>, after AI + landing generation, before the static build) — <em>deliberately not</em> baked into the shared generation engine (<code>includes/generation/engine.php</code>). That keeps it <strong>multisite-only</strong>: the same engine generates a live single site's city pages, and wiring the pass there would mutate that site's real <code>uploads/</code> (perturb, rename, and — via the orchestrator's prune — <strong>delete the media library</strong>). The sweep only ever runs against a throwaway per-site working dir, so a live site is never touched. Simpler and tested; we chose it over per-page integration in the landing generator.</p>
-        <p><strong>Reusable for single-site later.</strong> The per-page core <code>ms_process_blocks_images($blocks, $ctx)</code> takes a plain context (site_dir, city, seed, keyword, style…) and is safe to call standalone — the single-site landing generator can hook it in per page when that's built. <strong>Rule:</strong> call the <em>core</em>, never <code>ms_differentiate_site_images()</code> / <code>ms_prune_unreferenced_uploads()</code> on a live site (those are multisite-clone-only). <strong>Requires</strong> <code>primary_keyword</code> per page for hero line 1 (else city-only). <strong>Scope today:</strong> multisite builds only.</p>
+        <p><strong>Where it runs (architecture decision).</strong> The pass is a <strong>post-generation sweep</strong> in <code>build_one.php</code> (<code>ms_differentiate_site_images()</code>, after AI + landing generation, before the static build) — <em>deliberately not</em> baked into the shared generation engine (<code>includes/generation/engine.php</code>). That keeps the <strong>destructive orchestrator</strong> (with its prune) multisite-only: the same engine generates a live single site's city pages, and wiring the <em>orchestrator</em> there would mutate that site's real <code>uploads/</code> and — via the prune — <strong>delete the media library</strong>. The orchestrator sweep only ever runs against a throwaway per-site working dir, so a live site is never touched. (The non-destructive <em>core</em>, <code>ms_process_blocks_images()</code>, <strong>is</strong> reused by the engine for single-site city pages — see below.)</p>
+        <p><strong>Reused for single-site city pages today.</strong> The per-page core <code>ms_process_blocks_images($blocks, $ctx)</code> takes a plain context (site_dir, city, seed, keyword, style…) and is already wired into the single-site generation engine (<code>includes/generation/engine.php</code>) — opt-in per city via the <a href="#cities-differentiation">City Pages</a> "Per-city images" dropdown. <strong>Rule still holds:</strong> single-site calls the non-destructive <em>core</em>, never <code>ms_differentiate_site_images()</code> / <code>ms_prune_unreferenced_uploads()</code> (those delete uploads and are MultiSite-clone-only). <strong>Original-tracking (idempotent):</strong> the core records a sibling <code>_&lt;field&gt;_orig</code> per differentiated field and always re-derives from that original, so re-runs never compound (no double-perturb, no hero text-over-text); the MultiSite build strips <code>_orig</code> before its prune (<code>ms_unset_orig_keys</code>) while the single-site path keeps it. <strong>Requires</strong> <code>primary_keyword</code> per page for hero line 1 (else city-only).</p>
         <p><strong>Tuning &amp; locking the style.</strong> The <a href="playground.php">Test Lab</a> (docs nav → 🧪 Test Lab) previews the overlay on any image with live controls, then <em>Lock this style into the build</em> writes <code>multisite/hero_style.json</code> (position, colours, sizes + reference dims). The build reads it — a per-master <code>sites/{master}/multisite/hero_style.json</code> overrides the global one — and scales the locked sizes to each hero. The Lab shares the exact render core, so the preview matches production.</p>
     </div>
 
@@ -4096,13 +4134,13 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <table>
         <tr><th>File</th><th>Role</th></tr>
         <tr><td><code>multisite/run_campaign.php</code></td><td>Orchestrator — runs the whole table (pool, retry, run log)</td></tr>
-        <tr><td><code>multisite/build_one.php</code></td><td>Per-row worker (process_row): clone → inject → differentiate → AI → deploy</td></tr>
+        <tr><td><code>multisite/build_one.php</code></td><td>Per-row worker: clone → inject → landing → differentiate → visual → AI → images → build → deploy</td></tr>
         <tr><td><code>multisite/render_site.php</code></td><td>Worker-mode child that renders one site to static HTML</td></tr>
         <tr><td><code>multisite/params_check.php</code></td><td>CSV intake: parse, validate, pre-flight, store</td></tr>
         <tr><td><code>includes/multisite/clone.php</code></td><td>Snapshot + working-dir clone</td></tr>
         <tr><td><code>includes/multisite/inject.php</code></td><td>Write params into site_vars</td></tr>
         <tr><td><code>includes/multisite/differentiate.php</code></td><td>Per-site schema/geo/analytics/identity rewrite</td></tr>
-        <tr><td><code>includes/multisite/ai_cache.php</code></td><td>Per-domain AI copy cache (prompt-hash, self-healing)</td></tr>
+        <tr><td><code>includes/multisite/ai_cache.php</code></td><td>Per-domain AI copy cache (resolved-prompt <code>input_hash</code>, self-healing)</td></tr>
         <tr><td><code>includes/multisite/deploy.php</code></td><td>Incremental FTP deploy core</td></tr>
         <tr><td><code>includes/multisite/params.php</code></td><td>CSV parse + validation + pre-flight helpers</td></tr>
         <tr><td><code>includes/multisite/landing.php</code> · <code>multisite/generate_landing.php</code></td><td>Parse <code>landing_cities</code> → build per-city service landing pages</td></tr>
