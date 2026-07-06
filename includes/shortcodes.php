@@ -1,12 +1,14 @@
 <?php
 /* ============================================================
    SHORTCODE SYSTEM
-   Tokens: {city} {state} {SS} {city_state} {city_slug} {business} {phone} {zip} {website} {business_domain} {rating} {review_count} {primary_keyword} {service}
+   Tokens: {city} {state} {SS} {city_state} {city_slug} {business} {phone} {zip} {website} {business_domain} {rating} {review_count} {primary_keyword} {service} {city_image} {city_image_alt} {city_image_credit}
    Values stored in $data['site_vars']. Applied at render time.
+   {city_image}* tokens are populated by the City Image plugin (plugins/city-image).
    {primary_keyword}/{service} are PER-PAGE — read from $GLOBALS['_page_primary_keyword'],
    set by site-template.php before each page renders.
    ============================================================ */
 function resolve_shortcodes(string $text): string {
+    if (strpos($text, '{') === false) return $text;   // fast path — nothing to resolve
     global $data;
     $v            = $data['site_vars']     ?? [];
     $lb           = $data['local_business'] ?? [];
@@ -27,11 +29,19 @@ function resolve_shortcodes(string $text): string {
     $review_count = $lb['lb_review_count'] ?? '';
     $city_state   = $city && $SS ? $city . ', ' . $SS : $city . $SS;
     $primary_keyword = $GLOBALS['_page_primary_keyword'] ?? '';   // per-page, set by site-template.php
-    return str_replace(
-        ['{city}', '{state}', '{SS}', '{city_state}', '{city_slug}', '{business}', '{phone}', '{tel}', '{zip}', '{website}', '{business_domain}', '{rating}', '{review_count}', '{address}', '{lat}', '{lng}', '{primary_keyword}', '{service}'],
-        [$city,    $state,    $SS,    $city_state,    $city_slug,    $business,    $phone,    $tel,    $zip,    $website,    $business_domain,    $rating,    $review_count,    $address,    $lat,    $lng,    $primary_keyword,   $primary_keyword],
-        $text
-    );
+    $map = [
+        '{city}' => $city, '{state}' => $state, '{SS}' => $SS, '{city_state}' => $city_state,
+        '{city_slug}' => $city_slug, '{business}' => $business, '{phone}' => $phone, '{tel}' => $tel,
+        '{zip}' => $zip, '{website}' => $website, '{business_domain}' => $business_domain,
+        '{rating}' => $rating, '{review_count}' => $review_count, '{address}' => $address,
+        '{lat}' => $lat, '{lng}' => $lng, '{primary_keyword}' => $primary_keyword, '{service}' => $primary_keyword,
+    ];
+    // Plugins may contribute their own tokens (e.g. City Image plugin adds {city_image}*).
+    // Guard on hook presence so the hot path pays nothing when no plugin registers tokens.
+    if (!empty($GLOBALS['_hooks']['shortcode_tokens'])) {
+        $map = filter_hook('shortcode_tokens', $map);
+    }
+    return strtr($text, $map);
 }
 
 // ─── Course Schedule Shortcodes ───────────────────────────────────────────
@@ -235,6 +245,9 @@ function apply_shortcodes_to_block(array $block): array {
                     if (stripos($key, $sk) !== false) { $skip = true; break; }
                 }
             }
+            // Photo/image/src keys are normally skipped (they hold literal paths), but the
+            // {city_image} token legitimately resolves to a path, so let it through.
+            if ($skip && strpos($value, '{city_image') !== false) $skip = false;
             if (!$skip) $block[$key] = resolve_shortcodes($value);
         } elseif (is_array($value)) {
             $block[$key] = apply_shortcodes_to_block($value);

@@ -666,6 +666,7 @@ function render_content_block($block, $pathPrefix = '') {
             $infoText    = $block['mi_info_text']     ?? '';
             $infoPhoto   = $block['mi_info_photo']    ?? '';
             $infoAlt     = $block['mi_info_alt']      ?? '';
+            $infoCredit  = $block['mi_info_credit']   ?? '';
             $headColor   = $block['mi_head_color']    ?? 'header';
             $headColorC  = $block['mi_head_color_custom'] ?? '#120575';
 
@@ -691,6 +692,7 @@ function render_content_block($block, $pathPrefix = '') {
             if ($infoHeading) echo '<h2 class="mi-heading" style="color:'.$headStyle.';">'.h($infoHeading).'</h2>';
             if ($infoText)    echo '<p class="mi-text">'.h($infoText).'</p>';
             if ($infoPhotoSrc) echo '<img src="'.h($infoPhotoSrc).'" alt="'.h($infoAlt).'" class="mi-photo" loading="lazy">';
+            if ($infoPhotoSrc && $infoCredit) echo '<p class="mi-credit" style="font-size:11px;color:#999;margin-top:6px;">'.h($infoCredit).'</p>';
             echo '</div>';
 
             echo '</div></div>';
