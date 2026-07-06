@@ -274,7 +274,11 @@ def call_claude(prompt, model, api_key, dry_run=False):
         client  = anthropic.Anthropic(api_key=api_key)
         message = client.messages.create(
             model=model,
-            max_tokens=1024,
+            # Room for the answer PLUS adaptive thinking: models like sonnet-5 think by
+            # default, and a 1024 cap let the thinking starve the JSON (truncated output).
+            # This is a ceiling, not a target — short blocks still stop at end_turn, so no
+            # extra cost — but it must clear thinking + a full research/FAQ payload.
+            max_tokens=8000,
             messages=[{'role': 'user', 'content': prompt}],
         )
         # Use the text block(s) only — some models return a thinking/reasoning
