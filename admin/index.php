@@ -284,7 +284,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'ai_blocks' ? 'active' : '' ?>" href="?tab=ai_blocks">&#129520; Block Registry</a>
         <a class="tab-link <?= $tab === 'niche_brief' ? 'active' : '' ?>" href="?tab=niche_brief">&#129534; Niche Brief</a>
         <a class="tab-link <?= $tab === 'deploy' ? 'active' : '' ?>" href="?tab=deploy">&#128640; Deploy</a>
-        <a class="tab-link <?= $tab === 'multisite' ? 'active' : '' ?>" href="?tab=multisite">&#127760; Multisite</a>
+        <a class="tab-link <?= $tab === 'multisite' ? 'active' : '' ?>" href="?tab=multisite">&#127760; MultiSite</a>
     </div>
 
     <!-- ================= HEADER TAB ================= -->

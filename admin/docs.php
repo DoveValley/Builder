@@ -146,9 +146,9 @@ tr:nth-child(even) td { background: #f8fafc; }
     <div class="doc-tabs">
         <button type="button" class="doc-tab active" data-doc="concepts" onclick="switchDoc('concepts')">Concepts</button>
         <button type="button" class="doc-tab" data-doc="reference" onclick="switchDoc('reference')">Admin</button>
-        <button type="button" class="doc-tab" data-doc="building" onclick="switchDoc('building')">Building</button>
+        <button type="button" class="doc-tab" data-doc="building" onclick="switchDoc('building')">SingleSite Gen</button>
         <button type="button" class="doc-tab" data-doc="aicity" onclick="switchDoc('aicity')">AI &amp; City</button>
-        <button type="button" class="doc-tab" data-doc="multisite" onclick="switchDoc('multisite')">Multisite Gen</button>
+        <button type="button" class="doc-tab" data-doc="multisite" onclick="switchDoc('multisite')">MultiSite Gen</button>
         <button type="button" class="doc-tab" data-doc="devenv" onclick="switchDoc('devenv')">DevEnv</button>
         <button type="button" class="doc-tab" data-doc="extending" onclick="switchDoc('extending')">Extending</button>
         <button type="button" class="doc-tab" onclick="location.href='playground.php'" style="background:#fd783b;color:#fff;">🧪 Test Lab</button>
@@ -276,7 +276,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a class="nav-group" href="#group-ai">Workflow — AI System</a>
         <a href="#ai-overview">How AI works</a>
         <a href="#ai-single">↳ Single-site flow</a>
-        <a href="#ai-multi">↳ Multisite flow</a>
+        <a href="#ai-multi">↳ MultiSite flow</a>
         <a href="#ai-niche">The Niche Brief</a>
         <a href="#ai-research">Local market research</a>
         <a href="#ai-standalone">Standalone mode</a>
@@ -310,8 +310,8 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a class="nav-group" href="#ms-overview">Overview</a>
         <a href="#ms-what">What it is</a>
         <a href="#ms-howitworks">How it works</a>
-        <a href="#ms-master-state">State of the master</a>
-        <a href="#ms-vs-insite">Multisite vs city pages</a>
+        <a href="#ms-master-state">State of the SingleSite</a>
+        <a href="#ms-vs-insite">MultiSite vs city pages</a>
 
         <a class="nav-group" href="#ms-arch">Architecture</a>
         <a href="#ms-process-model">One process per site</a>
@@ -342,7 +342,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#ms-hosting">Cloudflare &amp; origin IP</a>
 
         <a class="nav-group" href="#ms-admin">Running from the Admin</a>
-        <a href="#ms-admin-multisite">The Multisite tab</a>
+        <a href="#ms-admin-multisite">The MultiSite tab</a>
 
         <a class="nav-group" href="#ms-run">Command Line</a>
         <a href="#ms-cli-intake">1 · Prepare &amp; validate</a>
@@ -945,7 +945,7 @@ tr:nth-child(even) td { background: #f8fafc; }
 
     <h3>What it is</h3>
     <p>Takes this site's <strong>landing templates</strong> and a list of <strong>cities</strong> and produces many <strong>city landing pages inside this one site</strong> — same business and topic, one page per city. Each page is a distinct URL with city-localized content: <code>{city}</code>/<code>{state}</code>/<code>{business}</code> shortcodes resolved, AI-written city-specific copy, and (opt-in) per-city images and section order.</p>
-    <p>Unlike <strong>Multisite Gen</strong> — which deploys many <em>separate</em> single-city <em>websites</em> (one domain each) — this stays <strong>one website, one domain, one deploy</strong>, serving many cities through landing pages. It reuses the factory's existing machinery (templates, the generation engine, the <code>generate.py</code> AI engine, the shared block renderer, and the per-city image/layout cores) rather than reinventing it — the generator's job is to drive those primitives across a table of template × city combinations.</p>
+    <p>Unlike <strong>MultiSite Gen</strong> — which deploys many <em>separate</em> single-city <em>websites</em> (one domain each) — this stays <strong>one website, one domain, one deploy</strong>, serving many cities through landing pages. It reuses the factory's existing machinery (templates, the generation engine, the <code>generate.py</code> AI engine, the shared block renderer, and the per-city image/layout cores) rather than reinventing it — the generator's job is to drive those primitives across a table of template × city combinations.</p>
 
     <h3>How it works</h3>
     <p>The high-level flow:</p>
@@ -1545,7 +1545,7 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
 </div><!-- /#doc-reference -->
 
 <div id="doc-building" hidden>
-<h1>Site Factory — Building Sites</h1>
+<h1>Site Factory — SingleSite Generation</h1>
 <p class="page-intro">The end-to-end methodology for building a site: initial setup, core pages, schema, and going live. Follow these in order.</p>
 
 <div class="doc-group-header" id="group-init">Workflow — Initial Site Creation</div>
@@ -2260,7 +2260,7 @@ Output valid JSON only — no explanation.</code></pre>
 
     <h3>Shared vs. multisite-only</h3>
     <table>
-        <tr><th></th><th>Single-site</th><th>Multisite</th></tr>
+        <tr><th></th><th>Single-site</th><th>MultiSite</th></tr>
         <tr><td>Content engine (<code>generate.py</code>)</td><td>✅</td><td>✅ (same binary)</td></tr>
         <tr><td>Registry + render path</td><td>✅</td><td>✅ (shared)</td></tr>
         <tr><td>Registry origin</td><td>hand-authored</td><td>compiled from archetypes</td></tr>
@@ -2291,12 +2291,12 @@ Output valid JSON only — no explanation.</code></pre>
     </ul>
     <h3>How it feeds generation</h3>
     <p>The brief is <strong>compiled</strong> (Niche Brief tab → <em>Save &amp; Compile</em>, or <code>php multisite/ai/compile.php --master=&lt;site&gt;</code>) — merging each enabled archetype's shared prompt skeleton with the brief's vocabulary and overwriting the site's <code>data/ai_block_types.json</code>, which is the prompt registry <code>generate.py</code> reads. Then AI generation (Standalone / Enrich, below) fills every <code>ai_block</code> using those compiled prompts plus each city's row in <code>cities.json</code>.</p>
-    <p>Need to tune a specific archetype's wording or model <em>for this niche</em>? The Niche Brief tab's collapsible <em>"Prompt templates (archetypes) — advanced"</em> panel edits each archetype's Label / Model / Description / Prompt skeleton per master, stored as diffs against the shared library and merged in at compile time (with a per-archetype <em>Reset to shared default</em>). See <a href="#ms-niche">Multisite → Niche Brief &amp; archetypes</a>.</p>
+    <p>Need to tune a specific archetype's wording or model <em>for this niche</em>? The Niche Brief tab's collapsible <em>"Prompt templates (archetypes) — advanced"</em> panel edits each archetype's Label / Model / Description / Prompt skeleton per master, stored as diffs against the shared library and merged in at compile time (with a per-archetype <em>Reset to shared default</em>). See <a href="#ms-niche">MultiSite → Niche Brief &amp; archetypes</a>.</p>
     <div class="callout">
         <p><strong>The same brief drives two very different build modes:</strong></p>
         <ul style="margin:8px 0 0;">
             <li><strong>One site, many landing pages (this workflow).</strong> A single deployed site (e.g. Granite PM Academy) publishes one landing page per city × offering (PMP&nbsp;Tampa, PMP&nbsp;Charlotte, CAPM&nbsp;Tampa…). Structure gen copies the template to each page; AI gen fills the <code>ai_block</code>s so no two city pages read alike — all under <strong>one domain</strong>. This is the Templates → City Pages → Generate flow.</li>
-            <li><strong>Multisite: many separate sites.</strong> The <em>same</em> master (brief + compiled registry + templates) is <strong>cloned</strong> into many independent single-city sites, each on its <strong>own domain</strong>, and each clone runs <code>generate.py</code> to fill its <code>ai_block</code>s for its one city. Nothing extra to author — the brief is reused verbatim. See <a href="#ms-niche">Multisite → Niche Brief &amp; archetypes</a>.</li>
+            <li><strong>MultiSite: many separate sites.</strong> The <em>same</em> master (brief + compiled registry + templates) is <strong>cloned</strong> into many independent single-city sites, each on its <strong>own domain</strong>, and each clone runs <code>generate.py</code> to fill its <code>ai_block</code>s for its one city. Nothing extra to author — the brief is reused verbatim. See <a href="#ms-niche">MultiSite → Niche Brief &amp; archetypes</a>.</li>
         </ul>
         <p style="margin:8px 0 0;">Mechanically identical: <strong>brief → compile → <code>ai_block</code>s filled by <code>generate.py</code> from <code>cities.json</code></strong>. The only difference is whether the output is many pages on one site or many separate sites.</p>
     </div>
@@ -2310,7 +2310,7 @@ Output valid JSON only — no explanation.</code></pre>
     <h3>Running it</h3>
     <ul>
         <li><strong>CLI:</strong> <code>php multisite/research_cities.php &lt;site&gt; [--dry-run]</code> — seeds <code>cities.json</code> from the params table (city|SS unique) then looks up each new city via <code>claude-sonnet-5</code>.</li>
-        <li><strong>Admin:</strong> the <em>Research cities</em> card on the Multisite tab (shown only when the brief has research on) — <strong>Dry run</strong> (no API cost) or live, streamed.</li>
+        <li><strong>Admin:</strong> the <em>Research cities</em> card on the MultiSite tab (shown only when the brief has research on) — <strong>Dry run</strong> (no API cost) or live, streamed.</li>
         <li><strong>Engine:</strong> <code>generate.py --research-only</code> loads the brief's prompt via <code>_load_research_prompt()</code>, validates softly, and stamps <code>_researched</code> so re-runs skip finished cities. Results persist in <code>cities.json</code> and are reused free.</li>
     </ul>
     <p>Because it just fills <code>cities.json</code>, research grounds copy in <strong>both</strong> build modes — the many-landing-pages site and every multisite clone read the same enriched rows. Guardrail: never let the prompt invent pass rates, salaries, or employer lists — request only verifiable facts and keep figures qualitative unless certain.</p>
@@ -3313,7 +3313,7 @@ git add -A &amp;&amp; git commit -m "snapshot before bulk edit"</code></pre>
 </div><!-- /#doc-devenv -->
 
 <div id="doc-multisite" hidden>
-<p class="page-intro">The <strong>Multisite Generator</strong> turns one master site into 100+ separate, fully independent websites — one per city — each with its own domain, business identity, AI-written local content, and FTP host. This is different from the in-site City Pages system (which makes many <em>pages</em> inside <em>one</em> site); the Multisite Generator operates one level up and produces whole <em>sites</em>.</p>
+<p class="page-intro">The <strong>MultiSite Generator</strong> turns one master site into 100+ separate, fully independent websites — one per city — each with its own domain, business identity, AI-written local content, and FTP host. This is different from the in-site City Pages system (which makes many <em>pages</em> inside <em>one</em> site); the MultiSite Generator operates one level up and produces whole <em>sites</em>.</p>
 
 <!-- ═══════════ OVERVIEW ═══════════ -->
 <div class="doc-group-header" id="ms-overview">Overview</div>
@@ -3364,25 +3364,25 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 </section>
 
 <section id="ms-master-state">
-    <h2>State of the master site entering multisite</h2>
-    <p>Multisite doesn't build sites — it <strong>replicates</strong> one. Before you run a campaign, the master must already be a <strong>finished, single-city site</strong>, because every generated site is a copy of it. Concretely:</p>
+    <h2>REQUIRED State of the SingleSite entering MultiSite</h2>
+    <p>MultiSite doesn't build sites — it <strong>replicates</strong> one. Before you run a campaign, the master must already be a <strong>finished, single-city site</strong>, because every generated site is a copy of it. Concretely:</p>
     <ul>
         <li><strong>Every page already exists in the master.</strong> Homepage, all core pages, and a landing page for each keyword — all authored in the admin panel, exactly like a normal single site.</li>
-        <li><strong>Multisite never adds, removes, or authors pages.</strong> It takes the pages that are already there, adjusts them, and deploys. If a page should exist on the generated sites, it must exist in the master first.</li>
+        <li><strong>MultiSite never adds, removes, or authors pages.</strong> It takes the pages that are already there, adjusts them, and deploys. If a page should exist on the generated sites, it must exist in the master first.</li>
         <li><strong>The pipeline is clone → adjust → deploy.</strong> Clone the finished master, adjust it to this site's identity, ship it — there is no page-building step.</li>
         <li><strong>Shortcodes are already throughout the master.</strong> Titles, headings, body copy, and schema use <code>{city}</code>, <code>{SS}</code>, <code>{business}</code>, <code>{primary_keyword}</code>, and the rest. "Adjust" is really just <em>setting this site's <code>site_vars</code></em> (city, business, phone, geo) — and every shortcode across the whole site then resolves to that city.</li>
-        <li><strong>Titles come from each page's own SEO panel — the single source of truth.</strong> Multisite doesn't assemble titles behind the scenes. A master page titled <code>{primary_keyword} {city_state} | {business}</code> renders as "Pest Control Dallas, TX | Dallas Pest Pros" on the Dallas clone. The <a href="#ms-admin-multisite">Title preview</a> card shows exactly what each clone will publish — verify it there before running.</li>
+        <li><strong>Titles come from each page's own SEO panel — the single source of truth.</strong> MultiSite doesn't assemble titles behind the scenes. A master page titled <code>{primary_keyword} {city_state} | {business}</code> renders as "Pest Control Dallas, TX | Dallas Pest Pros" on the Dallas clone. The <a href="#ms-admin-multisite">Title preview</a> card shows exactly what each clone will publish — verify it there before running.</li>
         <li><strong>The keyword is one field.</strong> Each page's <em>Keyword focus → Primary keyword</em> feeds <code>{primary_keyword}</code> into the title, H1, and schema, so the keyword stays consistent and can't drift.</li>
         <li><strong>Per-city AI copy fills only the marked blocks.</strong> Blocks tagged as <code>ai_block</code> are (re)written per city during the run; everything else clones verbatim and localizes through shortcodes. (See <a href="#ms-aiblocks">AI blocks &amp; the engine</a>.)</li>
-        <li><strong>In-site city pages are dropped.</strong> A generated site is single-city, so the clone drops the master's <code>data/pages/</code> (the many-cities-in-one-site files) and builds only the homepage + core/landing pages from <code>site.json</code>. (See <a href="#ms-vs-insite">Multisite vs. in-site City Pages</a> below.)</li>
+        <li><strong>In-site city pages are dropped.</strong> A generated site is single-city, so the clone drops the master's <code>data/pages/</code> (the many-cities-in-one-site files) and builds only the homepage + core/landing pages from <code>site.json</code>. (See <a href="#ms-vs-insite">MultiSite vs. in-site City Pages</a> below.)</li>
     </ul>
     <div class="callout tip"><strong>Rule of thumb:</strong> get the master perfect as one finished single-city site — real pages, shortcodes everywhere, a keyword set per page — then multisite just makes 100 localized copies of it. Nothing appears on a generated site that isn't already visible in the master.</div>
 </section>
 
 <section id="ms-vs-insite">
-    <h2>Multisite vs. the in-site City Pages</h2>
+    <h2>MultiSite vs. the in-site City Pages</h2>
     <table>
-        <tr><th></th><th>City Pages (in-site)</th><th>Multisite Generator</th></tr>
+        <tr><th></th><th>City Pages (in-site)</th><th>MultiSite Generator</th></tr>
         <tr><td>Produces</td><td>Many <em>pages</em> in one site</td><td>Many separate <em>sites</em></td></tr>
         <tr><td>Domains</td><td>One shared domain</td><td>One domain per site</td></tr>
         <tr><td>URLs</td><td><code>/pmp-training-dallas</code></td><td><code>pmtraining-dallas.com</code></td></tr>
@@ -3481,11 +3481,11 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 <!-- ═══════════ AI CONTENT ═══════════ -->
 <div class="doc-group-header" id="ms-ai">AI Content</div>
 <section>
-    <p class="callout" style="margin-top:0;"><strong>The big picture:</strong> the AI engine, registry, and render path are <em>shared</em> with single-site — for the unified explanation of how Content AI works and how the single-site and multisite flows compare, see <a href="#ai-overview">AI System → Overview</a> (and <a href="#ai-multi">↳ Multisite flow</a>). The sections below cover the multisite-specific mechanics: the compiled registry, per-domain cache, and reproducibility.</p>
+    <p class="callout" style="margin-top:0;"><strong>The big picture:</strong> the AI engine, registry, and render path are <em>shared</em> with single-site — for the unified explanation of how Content AI works and how the single-site and multisite flows compare, see <a href="#ai-overview">AI System → Overview</a> (and <a href="#ai-multi">↳ MultiSite flow</a>). The sections below cover the multisite-specific mechanics: the compiled registry, per-domain cache, and reproducibility.</p>
 </section>
 <section id="ms-niche">
     <h2>Niche Brief &amp; archetypes</h2>
-    <p class="callout" style="margin-top:0;"><strong>Same brief as the single-site workflow.</strong> The Niche Brief is not a multisite-only concept — it's the same file, tab, and compile step described in <a href="#ai-niche">AI System → The Niche Brief</a>, where one site publishes many city landing pages. Multisite simply <em>reuses it verbatim</em>: instead of many pages on one domain, the master (brief + registry + templates) is cloned into many separate single-city sites. Authoring happens once; read this section for the multisite-specific mechanics.</p>
+    <p class="callout" style="margin-top:0;"><strong>Same brief as the single-site workflow.</strong> The Niche Brief is not a multisite-only concept — it's the same file, tab, and compile step described in <a href="#ai-niche">AI System → The Niche Brief</a>, where one site publishes many city landing pages. MultiSite simply <em>reuses it verbatim</em>: instead of many pages on one domain, the master (brief + registry + templates) is cloned into many separate single-city sites. Authoring happens once; read this section for the multisite-specific mechanics.</p>
     <p>Each master site is <strong>one niche</strong> (pest control, PM training, lawyers, …). The AI copy for that niche is defined in two layers:</p>
     <ul>
         <li><strong>Shared archetypes</strong> (<code>multisite/ai/archetypes.json</code>) — a seed-once, read-only library of block <em>shapes</em> (e.g. <code>city_market_intro</code>, <code>hero_subtext</code>, <code>faq_additions</code>), each with a prompt skeleton, a render mode (<code>standalone</code> vs <code>inject</code>), and shared accuracy guardrails. Not niche-specific.</li>
@@ -3493,7 +3493,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     </ul>
     <p><strong>Compiling</strong> merges the two — filling each enabled archetype's <code>[[shared.*]]</code> and <code>[[brief.*]]</code> placeholders — and overwrites the master's <code>data/ai_block_types.json</code> (the prompt registry <code>generate.py</code> reads). Run it from the tab (<em>Save &amp; Compile</em>) or the CLI:</p>
     <pre><code>php multisite/ai/compile.php --master=&lt;master_id&gt;</code></pre>
-    <p>Archetypes flagged <code>requires_research</code> are skipped unless the brief has <strong>Uses research fields</strong> on (for data-rich niches whose <code>cities.json</code> carries industries/employers/salary). Fill that data with the <a href="#ai-research">research step</a> — the <em>Research cities</em> card on the Multisite tab seeds <code>cities.json</code> from the params table and looks up each city. Runtime tokens like <code>{business}</code>/<code>{city}</code> are left intact for <code>generate.py</code> to resolve per city.</p>
+    <p>Archetypes flagged <code>requires_research</code> are skipped unless the brief has <strong>Uses research fields</strong> on (for data-rich niches whose <code>cities.json</code> carries industries/employers/salary). Fill that data with the <a href="#ai-research">research step</a> — the <em>Research cities</em> card on the MultiSite tab seeds <code>cities.json</code> from the params table and looks up each city. Runtime tokens like <code>{business}</code>/<code>{city}</code> are left intact for <code>generate.py</code> to resolve per city.</p>
     <h3>Per-master prompt overrides</h3>
     <p>The shared archetype library used to be editable only by hand-editing files + a CLI compile. Now the <strong>Niche Brief</strong> tab has a collapsible <em>"Prompt templates (archetypes) — advanced"</em> panel that edits, <strong>per master</strong>, each archetype's <strong>Label / Model / Description / Prompt skeleton</strong>. Overrides are stored as <strong>diffs against the shared library</strong> in <code>sites/{master}/multisite/archetypes.json</code>; at compile time <code>multisite/ai/compile.php</code> (<code>ms_ai_compile_master</code>) merges each override over the shared <code>multisite/ai/archetypes.json</code> before filling placeholders — so per-master prompt tuning <strong>survives recompiling and never affects another niche</strong>. Only <code>label</code> / <code>description</code> / <code>ai_model</code> / <code>prompt_skeleton</code> are overridable; structural fields stay shared. A <em>Reset to shared default</em> control per archetype drops the override. Files: <code>admin/tabs/niche_brief_archetypes.php</code>, <code>admin/archetypes_save.php</code>. This closes the last file-only multisite config.</p>
 </section>
@@ -3595,7 +3595,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <p>19 bug SVGs live in <code>sites/{master}/multisite/icons/</code>: ant, cockroach, spider, mosquito, fly, beetle, ladybug, cricket, bee, caterpillar, butterfly, scorpion, worm, snail, rat, mouse, bat, lizard, snake. Source is <strong>Noto Emoji (Apache 2.0)</strong> — no attribution required; codepoints are recorded in <code>icons/LICENSE.txt</code>. Each colorizes to a preset's accent-on-dark-tile for the logo and favicon.</p>
 
     <h3>Editing presets in the admin</h3>
-    <p>The Multisite tab has a <strong>"Visual Identity — Theme Presets"</strong> panel to view / edit / add / remove / save presets (up to 10) with <strong>live logo + favicon previews</strong>. Per preset: name, accent + dark color pickers, bug-icon dropdown, font, and button radius. Files: <code>admin/tabs/multisite_visual.php</code> (panel), <code>admin/visual_preview.php</code> (streams the live preview PNG), <code>admin/visual_presets_save.php</code> (CSRF save).</p>
+    <p>The MultiSite tab has a <strong>"Visual Identity — Theme Presets"</strong> panel to view / edit / add / remove / save presets (up to 10) with <strong>live logo + favicon previews</strong>. Per preset: name, accent + dark color pickers, bug-icon dropdown, font, and button radius. Files: <code>admin/tabs/multisite_visual.php</code> (panel), <code>admin/visual_preview.php</code> (streams the live preview PNG), <code>admin/visual_presets_save.php</code> (CSRF save).</p>
     <div class="callout tip">Preview a preset, its four sample logos, real headers, favicons and the bug icons in the <a href="playground.php">Test Lab</a> (docs nav → 🧪 Test Lab).</div>
 </section>
 
@@ -3607,16 +3607,16 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <ol type="a">
         <li><span class="where perrow">Per-row</span>✅ Unique AI city copy on home + core (Niche Brief → <code>generate.py</code>) <span class="pri must">Must</span></li>
         <li><span class="where perrow">Per-row</span>✅ Per-deploy service landing pages (<code>landing_cities</code>) <span class="pri should">Should</span></li>
-        <li><span class="where perrow">Per-row</span>✅ Unique title tag + meta description per site/page — the page's own title uses a <code>{primary_keyword}</code> shortcode + <code>{city_state}</code>/<code>{business}</code>; city + business make each site's title unique &amp; keyword-focused (no rotation needed). Read-only preview on the Multisite tab. <span class="pri must">Must</span></li>
+        <li><span class="where perrow">Per-row</span>✅ Unique title tag + meta description per site/page — the page's own title uses a <code>{primary_keyword}</code> shortcode + <code>{city_state}</code>/<code>{business}</code>; city + business make each site's title unique &amp; keyword-focused (no rotation needed). Read-only preview on the MultiSite tab. <span class="pri must">Must</span></li>
         <li><span class="where perrow">Per-row</span>◐ Localized, unique image alt text — per-city alt strings, not one repeated caption <span class="pri should">Should</span> <span style="color:#64748b;">(render mechanism built — <code>*_alt</code> fields resolve shortcodes; needs authoring + fallback)</span></li>
-        <li><span class="where campaign">Campaign</span>✅ Real local market data — niche-defined facts per city <span class="pri should">Should</span> <span style="color:#64748b;">(editable <code>research_prompt</code> in the Niche Brief; <em>Research cities</em> button on the Multisite tab seeds <code>cities.json</code> from params + looks up each city via <code>claude-sonnet-5</code>, cached &amp; reused free)</span></li>
+        <li><span class="where campaign">Campaign</span>✅ Real local market data — niche-defined facts per city <span class="pri should">Should</span> <span style="color:#64748b;">(editable <code>research_prompt</code> in the Niche Brief; <em>Research cities</em> button on the MultiSite tab seeds <code>cities.json</code> from params + looks up each city via <code>claude-sonnet-5</code>, cached &amp; reused free)</span></li>
         <li><span class="where preauthor">Pre-authoring</span>✅ Finish master authoring — <span style="color:#64748b;"><strong>reclassified: not a build item.</strong> The "leaks" are single-site authoring errors, caught by the <a href="#spec-finish-authoring">master-lint guardrail</a>; the residual is normal authoring QA, not multisite work.</span></li>
         <li><span class="where preauthor">Pre-authoring</span>◐ Vary generated-copy templates — rotate 3–4 sentence-structure patterns per block, not one fill-in-the-blank line (AI copy is already unique; this hardens any templated fallback) <span class="pri must">Must</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
     </ol>
 
     <h3>2 · Structural <span style="font-weight:400;color:#64748b;font-size:.85em;">(highest-value unbuilt item)</span></h3>
     <ol type="a">
-        <li><span class="where preauthor">Pre-authoring</span>✅ Block-order / layout variations per domain — per-page <em>Layout variations</em> panel (Content/Pages): Generate 4 subtle orderings (hero + last pinned), enable + save; each cloned site gets one by domain hash. <span class="pri must">Must</span> <span style="color:#64748b;">(Multisite preview shows which — see <a href="#ms-variation">Deterministic variation</a>)</span></li>
+        <li><span class="where preauthor">Pre-authoring</span>✅ Block-order / layout variations per domain — per-page <em>Layout variations</em> panel (Content/Pages): Generate 4 subtle orderings (hero + last pinned), enable + save; each cloned site gets one by domain hash. <span class="pri must">Must</span> <span style="color:#64748b;">(MultiSite preview shows which — see <a href="#ms-variation">Deterministic variation</a>)</span></li>
         <li><span class="where preauthor">Pre-authoring</span>⏭️ Vary JSON-LD schema shape — <strong>decided against</strong>: schema already varies per site (identity + injected LocalBusiness node), and JSON-LD key order is meaningless to Google — near-zero value. <span class="pri must">Must</span> <span style="color:#64748b;">(kept for the record)</span></li>
         <li><span class="where preauthor">Pre-authoring</span>☐ Vary CSS class vocabulary — 3–4 "skins": identical rules, different class names <span class="pri should">Should</span> <span style="color:#64748b;">(see <a href="#ms-variation">Deterministic variation</a>)</span></li>
         <li><span class="where perrow">Per-row</span>✅ Randomize image filename structure — site city appended + master city stripped on every image (folded into 4c) <span class="pri maybe">Maybe</span> <span style="color:#64748b;">(done)</span></li>
@@ -3680,18 +3680,18 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <p style="margin:14px 0 2px;"><strong>Phase 1 — Variation engine + structural Musts</strong> <span style="color:#64748b;">· the anti-fingerprint core · ✅ COMPLETE (2b intentionally skipped)</span></p>
     <ul>
         <li>✅ <strong>Foundation</strong> — the <code>ms_variant(domain, n, salt)</code> selector (salted per axis) lives in <code>includes/layout_variations.php</code>. <span style="color:#64748b;">Decision: the planned <code>data/variation.json</code> "menu" was dropped — titles resolve via shortcodes, layouts store their config on the page.</span></li>
-        <li>✅ <a href="#spec-titles-metas">1c</a> · Unique title tag + meta description — <span style="color:#64748b;"><strong>done a different way than planned:</strong> not variant-rotated — a per-page <code>{primary_keyword}</code> shortcode + the page's own title (e.g. <code>{primary_keyword} {city_state} | {business}</code>). City + business already make each site's title unique while keeping keyword focus, so no rotation. Read-only preview on the Multisite tab.</span></li>
+        <li>✅ <a href="#spec-titles-metas">1c</a> · Unique title tag + meta description — <span style="color:#64748b;"><strong>done a different way than planned:</strong> not variant-rotated — a per-page <code>{primary_keyword}</code> shortcode + the page's own title (e.g. <code>{primary_keyword} {city_state} | {business}</code>). City + business already make each site's title unique while keeping keyword focus, so no rotation. Read-only preview on the MultiSite tab.</span></li>
         <li>✅ <a href="#spec-search-console">3g</a> · Search Console verification — <code>gsc_verification</code> CSV column → per-site meta tag (blank = none).</li>
         <li>⏭️ <a href="#spec-schema">2b</a> · Schema-shape variation — <span style="color:#64748b;"><strong>decided against.</strong> Schema already varies per site (identity rewrite + injected LocalBusiness node), and JSON-LD key order is meaningless to Google — near-zero value. Kept here for the record.</span></li>
-        <li>✅ <a href="#spec-layout-skeletons">2a</a> · Block-order / layout variations — per-page panel (Content/Pages): Generate 4 subtle orderings (ends pinned), rotated by domain hash. Preview on the Multisite tab.</li>
+        <li>✅ <a href="#spec-layout-skeletons">2a</a> · Block-order / layout variations — per-page panel (Content/Pages): Generate 4 subtle orderings (ends pinned), rotated by domain hash. Preview on the MultiSite tab.</li>
     </ul>
 
     <p style="margin:14px 0 2px;"><strong>Phase 2 — Content uniqueness &amp; authoring polish</strong> <span style="color:#64748b;">· cheap, high-SEO, mostly Per-row / authoring · <strong>4 of 6 done</strong> (1f reclassified as QA, not a build item); remaining ~2–4 dev-days</span></p>
     <ul>
-        <li>✅ <a href="#spec-market-data">1e</a> · Real local market data — niche-aware research step, wired into the Multisite tab.</li>
+        <li>✅ <a href="#spec-market-data">1e</a> · Real local market data — niche-aware research step, wired into the MultiSite tab.</li>
         <li>✅ <a href="#spec-alt-text">1d</a> · Localized alt text — <span style="color:#64748b;">the master authors alt with <code>{city}</code> shortcodes (they resolve per site) and the <code>4c</code> overlay leaves alt fields untouched; render mechanism was already present. No build needed.</span></li>
         <li>✅ <a href="#spec-map">5c</a> · Embedded map + service-area — homepage <code>map_info</code> with a shortcode-driven <code>q={city},+{SS}</code> embed (done on the pest master; authoring, no code).</li>
-        <li>✅ <a href="#spec-finish-authoring">1f</a> · Finish master authoring — <span style="color:#64748b;"><strong>reclassified: authoring QA, not a build item.</strong> The leaks are single-site authoring errors; the <strong>master-lint guardrail</strong> (Multisite tab / <code>lint_master.php</code>) finds them, and correcting them is normal site hygiene. No multisite build work.</span></li>
+        <li>✅ <a href="#spec-finish-authoring">1f</a> · Finish master authoring — <span style="color:#64748b;"><strong>reclassified: authoring QA, not a build item.</strong> The leaks are single-site authoring errors; the <strong>master-lint guardrail</strong> (MultiSite tab / <code>lint_master.php</code>) finds them, and correcting them is normal site hygiene. No multisite build work.</span></li>
         <li>⏭️ <a href="#spec-css-skins">2c</a> · CSS skins — <strong>decided against (2026-07-04)</strong> <span style="color:#64748b;">— visual/theme variation is a human-perception signal; Google weighs content/links/structure/network, not how "different" the design looks. Goal is avoiding algorithmic detection, not fooling a human reviewer. Kept for the record.</span></li>
         <li>⏭️ <a href="#spec-vary-copy">1g</a> · Vary copy templates — <strong>decided against</strong> <span style="color:#64748b;">— AI copy is already unique per city; varying the templated scaffold around it is negligible value.</span></li>
     </ul>
@@ -3728,7 +3728,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <h3>1c · Unique title tag + meta description <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row (+ Pre-authoring)</span></h3>
         <p class="bc-meta">✅ built — via the <code>{primary_keyword}</code> shortcode (deterministic, no rotation)</p>
         <p><strong>Description.</strong> Every page's <code>&lt;title&gt;</code> and meta description must genuinely differ across sites, not one pattern with <code>{city}</code> swapped.</p>
-        <p><strong>Build (today) — solved without variant rotation.</strong> Each page's title is its own shortcode string authored in the master SEO panel, e.g. <code>{primary_keyword} {city_state} | {business}</code>. <code>{primary_keyword}</code>/<code>{service}</code> resolve per page from the <em>Keyword focus</em> field (added in <code>includes/shortcodes.php</code>, set in <code>site-template.php</code>); <code>{city}</code>/<code>{business}</code> come from each clone's <code>site_vars</code>. Because city + business differ per site, every title is unique <em>and</em> keyword-focused — no 3–4-variant rotation needed (which would dilute keyword focus). The Multisite tab shows a read-only title preview resolved for a sample city; it also flags pages with no title. See <a href="#ms-master-state">State of the master</a>.</p>
+        <p><strong>Build (today) — solved without variant rotation.</strong> Each page's title is its own shortcode string authored in the master SEO panel, e.g. <code>{primary_keyword} {city_state} | {business}</code>. <code>{primary_keyword}</code>/<code>{service}</code> resolve per page from the <em>Keyword focus</em> field (added in <code>includes/shortcodes.php</code>, set in <code>site-template.php</code>); <code>{city}</code>/<code>{business}</code> come from each clone's <code>site_vars</code>. Because city + business differ per site, every title is unique <em>and</em> keyword-focused — no 3–4-variant rotation needed (which would dilute keyword focus). The MultiSite tab shows a read-only title preview resolved for a sample city; it also flags pages with no title. See <a href="#ms-master-state">State of the SingleSite</a>.</p>
     </div>
 
     <div class="block-card-doc" id="spec-alt-text">
@@ -3741,9 +3741,9 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <div class="block-card-doc" id="spec-market-data">
         <h3>1e · Real local market data <span class="pri should">Should</span> <span class="where campaign" style="float:none;margin-left:6px;">Campaign</span></h3>
-        <p class="bc-meta">✅ DONE (2026-07-03) — niche-aware research step, wired into the Multisite tab</p>
+        <p class="bc-meta">✅ DONE (2026-07-03) — niche-aware research step, wired into the MultiSite tab</p>
         <p><strong>Description.</strong> City-specific facts that ground the AI copy in reality instead of generic filler — the line between substance and thin content. The fields are <em>niche-defined</em> (a groomer wants neighborhoods; a PM trainer wants employers/salary), not hard-coded to project management.</p>
-        <p><strong>Built.</strong> The <strong>Niche Brief</strong> carries an editable <code>research_prompt</code> (tokens <code>{city}</code>/<code>{state}</code>/<code>{SS}</code> per city, <code>{business_descriptor}</code>/<code>{service_noun}</code> from the brief); blank = a generic local-market default. <code>generate.py --research-only</code> loads that prompt via <code>_load_research_prompt()</code>, calls <code>claude-sonnet-5</code>, validates softly (any non-empty dict), and stamps <code>_researched</code> so re-runs skip done cities (niche-agnostic — no hard-coded field checks). <code>multisite/research_cities.php</code> seeds <code>cities.json</code> from the params table (city|SS unique), then runs research; results persist in <code>cities.json</code> and are reused free. On the <strong>Multisite tab</strong>, a <em>Research cities</em> card (shown only when the brief has <em>Uses research fields</em> on) runs it detached with a <strong>Dry run</strong> (no API cost) or live, streaming output. Gated off for niches that localize via angle + shortcodes. <strong>Effort:</strong> done.</p>
+        <p><strong>Built.</strong> The <strong>Niche Brief</strong> carries an editable <code>research_prompt</code> (tokens <code>{city}</code>/<code>{state}</code>/<code>{SS}</code> per city, <code>{business_descriptor}</code>/<code>{service_noun}</code> from the brief); blank = a generic local-market default. <code>generate.py --research-only</code> loads that prompt via <code>_load_research_prompt()</code>, calls <code>claude-sonnet-5</code>, validates softly (any non-empty dict), and stamps <code>_researched</code> so re-runs skip done cities (niche-agnostic — no hard-coded field checks). <code>multisite/research_cities.php</code> seeds <code>cities.json</code> from the params table (city|SS unique), then runs research; results persist in <code>cities.json</code> and are reused free. On the <strong>MultiSite tab</strong>, a <em>Research cities</em> card (shown only when the brief has <em>Uses research fields</em> on) runs it detached with a <strong>Dry run</strong> (no API cost) or live, streaming output. Gated off for niches that localize via angle + shortcodes. <strong>Effort:</strong> done.</p>
     </div>
 
     <div class="block-card-doc" id="spec-finish-authoring">
@@ -3751,7 +3751,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <p class="bc-meta">✅ resolved — reclassified as authoring QA (guardrail built); <strong>not a multisite build item</strong></p>
         <p><strong>What it really is.</strong> The "leaks" (a literal <code>Texas</code> instead of <code>{state}</code>, a logo URL on the master's domain) are <em>authoring mistakes</em>, not a build item. If the master is shortcoded correctly there's no 1f work at all. So don't treat it as a feature — treat it as QA.</p>
         <p><strong>Why you can't just auto-fix it.</strong> The clone-time rewrite safely replaces <em>distinctive</em> strings (business name, phone, website, domain). It deliberately does NOT rewrite the master <strong>city/state/zip</strong>, because those are common words — auto-replacing every "Katy" or "TX" would corrupt a customer's name, a street, "TXT," etc. That ambiguity is exactly why <code>{city}</code>/<code>{state}</code> shortcodes exist: the explicit marker is the fix, and there's no safe way to machine-repair a missing one after the fact.</p>
-        <p><strong>The guardrail (built).</strong> <code>ms_lint_master()</code> (<code>includes/multisite/master_lint.php</code>) scans a master's authored sources (<code>site.json</code> + <code>templates.json</code>) and flags literal city/state/SS/zip in text plus master-domain asset URLs — skipping what the pipeline auto-handles (<code>site_vars</code>, <code>local_business</code>, business/phone/website, image filenames) and the regenerated <code>data/pages/</code> outputs. Run it from the <strong>Multisite tab → "Check master for authoring leaks"</strong>, or <code>php multisite/lint_master.php &lt;master&gt;</code>. Advisory — a human reviews each hit (some are legitimate, e.g. a governing-law state). This makes 1f self-service and permanent instead of a manual hunt every time.</p>
+        <p><strong>The guardrail (built).</strong> <code>ms_lint_master()</code> (<code>includes/multisite/master_lint.php</code>) scans a master's authored sources (<code>site.json</code> + <code>templates.json</code>) and flags literal city/state/SS/zip in text plus master-domain asset URLs — skipping what the pipeline auto-handles (<code>site_vars</code>, <code>local_business</code>, business/phone/website, image filenames) and the regenerated <code>data/pages/</code> outputs. Run it from the <strong>MultiSite tab → "Check master for authoring leaks"</strong>, or <code>php multisite/lint_master.php &lt;master&gt;</code>. Advisory — a human reviews each hit (some are legitimate, e.g. a governing-law state). This makes 1f self-service and permanent instead of a manual hunt every time.</p>
         <p><strong>Remaining (authoring, small).</strong> Fix whatever the validator flags. On the pest master that's ~3 items: the <code>wb_badge</code> "TEXAS" → <code>{state}</code>, and a decision on the Katy-specific blog post (exclude from clones or genericize). The "mark every block <code>ai_block</code>" half only applies to AI-generated masters (e.g. PM) — a shortcode-driven master like pest localizes without it. <strong>Effort:</strong> ~1 hour for a well-authored master; the validator tells you exactly what's left.</p>
     </div>
 
@@ -3768,7 +3768,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <h3>2a · Block-order / layout variations <span class="pri must">Must</span> <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring (+ Per-row)</span></h3>
         <p class="bc-meta">✅ built (Home + Core/Landing pages)</p>
         <p><strong>Description.</strong> Assign one of up to 4 whole-page block orderings per domain, so sites aren't structurally identical top to bottom.</p>
-        <p><strong>Build (today).</strong> Each page (Content / Pages) has a <em>Layout variations</em> panel: <strong>Generate</strong> makes up to 3 subtle alternate orderings (hero pinned first, last block pinned last, a couple of swaps in the middle — <code>includes/layout_variations.php</code>); enable + Save stores them on the page (block ids auto-assigned). At build, <code>differentiate.php</code> calls <code>layout_apply_for_domain()</code> — <code>ms_variant(domain, n, 'layout')</code> picks one ordering (0 = natural) and reorders <code>content_blocks</code> for the homepage + each page. The Multisite tab preview shows which layout a sample domain gets. City Templates (landing-only generation) come later.</p>
+        <p><strong>Build (today).</strong> Each page (Content / Pages) has a <em>Layout variations</em> panel: <strong>Generate</strong> makes up to 3 subtle alternate orderings (hero pinned first, last block pinned last, a couple of swaps in the middle — <code>includes/layout_variations.php</code>); enable + Save stores them on the page (block ids auto-assigned). At build, <code>differentiate.php</code> calls <code>layout_apply_for_domain()</code> — <code>ms_variant(domain, n, 'layout')</code> picks one ordering (0 = natural) and reorders <code>content_blocks</code> for the homepage + each page. The MultiSite tab preview shows which layout a sample domain gets. City Templates (landing-only generation) come later.</p>
     </div>
 
     <div class="block-card-doc" id="spec-schema">
@@ -4019,8 +4019,8 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 <!-- ═══════════ ADMIN UI ═══════════ -->
 <div class="doc-group-header" id="ms-admin">Running from the Admin</div>
 <section id="ms-admin-multisite">
-    <h2>The Multisite tab</h2>
-    <p>The whole campaign runs from the admin <strong>Multisite</strong> tab (the active site is the campaign master) — no shell needed. It wraps the same cores documented under Command Line below.</p>
+    <h2>The MultiSite tab</h2>
+    <p>The whole campaign runs from the admin <strong>MultiSite</strong> tab (the active site is the campaign master) — no shell needed. It wraps the same cores documented under Command Line below.</p>
     <p>A collapsible <strong>"How a multisite run works"</strong> card sits at the top of the tab — a setup/verify checklist (Master site, Niche Brief, Keywords, <a href="#ms-visual-identity">Visual Identity</a>, Block/layout order, Params CSV, each linked to its tab), the per-row pipeline (clone → identity → landing → differentiate → visual → AI → build → deploy), and the finish. Read it once to see how the pieces fit before your first run.</p>
     <ol>
         <li><strong>Set up the master</strong> — before uploading params, author the master, the <a href="#ai-niche">Niche Brief</a> + keywords, and the <a href="#ms-visual-identity">Visual Identity — Theme Presets</a> panel (view / edit / add / remove presets, up to 10, with live logo + favicon previews). Each site draws its palette + generated logo/favicon from these presets.</li>
@@ -4107,7 +4107,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <tr><td><code>includes/multisite/params.php</code></td><td>CSV parse + validation + pre-flight helpers</td></tr>
         <tr><td><code>includes/multisite/landing.php</code> · <code>multisite/generate_landing.php</code></td><td>Parse <code>landing_cities</code> → build per-city service landing pages</td></tr>
         <tr><td><code>multisite/ai/archetypes.json</code> · <code>multisite/ai/compile.php</code></td><td>Shared archetype library + niche-brief → registry compiler</td></tr>
-        <tr><td><code>admin/tabs/multisite.php</code> · <code>admin/multisite_api.php</code> · <code>admin/multisite_preflight.php</code></td><td>Admin Multisite tab: upload, pre-flight, run, history, retry</td></tr>
+        <tr><td><code>admin/tabs/multisite.php</code> · <code>admin/multisite_api.php</code> · <code>admin/multisite_preflight.php</code></td><td>Admin MultiSite tab: upload, pre-flight, run, history, retry</td></tr>
         <tr><td><code>admin/tabs/niche_brief.php</code> · <code>admin/niche_brief_save.php</code></td><td>Admin Niche Brief tab: author + compile the AI vocabulary</td></tr>
     </table>
     <p>Full architecture and rationale live in <code>docs/multisite-generator-architecture.md</code> in the repository.</p>
@@ -4160,7 +4160,7 @@ const DOCS = {
     reference: ['doc-reference', 'reference-nav', 'Admin Reference'],
     building:  ['doc-building',  'building-nav',  'Building Sites'],
     aicity:    ['doc-aicity',    'aicity-nav',    'AI & City Pages'],
-    multisite: ['doc-multisite', 'multisite-nav', 'Multisite Documentation'],
+    multisite: ['doc-multisite', 'multisite-nav', 'MultiSite Documentation'],
     devenv:    ['doc-devenv',    'devenv-nav',    'DevEnv Documentation'],
     extending: ['doc-extending', 'extending-nav', 'Extending / Developer'],
 };

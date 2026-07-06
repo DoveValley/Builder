@@ -126,8 +126,8 @@ function render_layout_variations_editor(string $scope, string $id = '') {
     global $csrfToken;
     ?>
     <div class="card" id="lv-card" data-scope="<?= h($scope) ?>" data-id="<?= h($id) ?>" data-csrf="<?= h($csrfToken) ?>">
-        <h3 style="margin-top:0;">Layout variations <span style="font-weight:400;color:#64748b;font-size:.85em;">(Multisite)</span></h3>
-        <p class="hint">Alternate section orders used by <strong>Multisite</strong> when this site is cloned across many cities — each city deterministically gets one, so the sites aren't structurally identical. On this single site the natural order is always used. <em>Landing-page-only generation support is coming.</em></p>
+        <h3 style="margin-top:0;">Layout variations <span style="font-weight:400;color:#64748b;font-size:.85em;">(MultiSite)</span></h3>
+        <p class="hint">Alternate section orders used by <strong>MultiSite</strong> when this site is cloned across many cities — each city deterministically gets one, so the sites aren't structurally identical. On this single site the natural order is always used. <em>Landing-page-only generation support is coming.</em></p>
         <label class="hint" style="display:flex;align-items:center;gap:8px;cursor:pointer;margin-bottom:12px;">
             <input type="checkbox" id="lv-enabled"> Enable layout variations for this page
         </label>

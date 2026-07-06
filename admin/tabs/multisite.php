@@ -6,7 +6,7 @@ $nicheBrief  = @json_decode((string)@file_get_contents(ACTIVE_SITE_DIR . '/multi
 $researchOn  = !empty($nicheBrief['uses_research_fields']);
 ?>
 <div class="tab-content" style="<?= $tab === 'multisite' ? '' : 'display:none;' ?>">
-<?php tab_header('Multisite', 'Generate many separate single-city sites from this master. Step 1: upload and validate your params table (one row per site). See the Multisite documentation for columns and the full workflow.', 'tab-multisite'); ?>
+<?php tab_header('MultiSite', 'Generate many separate single-city sites from this master. Step 1: upload and validate your params table (one row per site). See the MultiSite documentation for columns and the full workflow.', 'tab-multisite'); ?>
 
 <details class="card" open style="background:#f8fafc;border-left:3px solid #2563eb;">
     <summary style="cursor:pointer;font-weight:700;font-size:1.02rem;color:#1e3a5f;">How a multisite run works</summary>
@@ -38,7 +38,7 @@ $researchOn  = !empty($nicheBrief['uses_research_fields']);
 <div class="card">
     <h3 style="margin-top:0;">Campaign master</h3>
     <p class="hint">This site (<code><?= h(ACTIVE_SITE_ID) ?></code>) is the template every generated site is cloned from. Campaign data lives in <code>sites/<?= h(ACTIVE_SITE_ID) ?>/multisite/</code> and is never web-served or committed.</p>
-    <p class="hint">Full guide: <a href="docs.php?doc=multisite" target="_blank">Multisite documentation →</a></p>
+    <p class="hint">Full guide: <a href="docs.php?doc=multisite" target="_blank">MultiSite documentation →</a></p>
 </div>
 
 <!-- ===== MASTER LINT CARD ===== -->
