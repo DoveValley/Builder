@@ -532,9 +532,12 @@ function render_content_block($block, $pathPrefix = '') {
             $itAlt    = $block['it_alt']        ?? '';
             $itRatio  = $block['it_ratio']      ?? 'landscape';
             $itPos    = $block['it_position']   ?? 'center';
-            $itHead   = $block['it_heading']    ?? '';
-            $itLevel  = $block['it_heading_level'] ?? 'h2';
-            $itText   = $block['it_text']       ?? '';
+            // Fall back to the generic AI-block fields (heading_text / text / heading_level)
+            // when the it_* fields are empty, so an ai_block with ai_render_as="image_text"
+            // renders its AI-written copy (which lands in heading_text/text). it_* still wins.
+            $itHead   = ($block['it_heading'] ?? '') !== '' ? $block['it_heading'] : ($block['heading_text'] ?? '');
+            $itLevel  = $block['it_heading_level'] ?? ($block['heading_level'] ?? 'h2');
+            $itText   = ($block['it_text'] ?? '') !== '' ? $block['it_text'] : ($block['text'] ?? '');
             $itBtn    = $block['it_btn_text']   ?? '';
             $itBtnUrl = $block['it_btn_url']    ?? '';
             $layout   = ($imgSide === 'right') ? 'image-right' : 'image-left';
