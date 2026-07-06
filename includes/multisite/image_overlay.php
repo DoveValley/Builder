@@ -90,6 +90,7 @@ function ms_hero_image_field(array $block): ?string {
     if (strncmp($block['type'] ?? '', 'hero', 4) !== 0) return null;
     $imgs = [];
     foreach ($block as $k => $v) {
+        if (is_string($k) && $k !== '' && $k[0] === '_') continue;   // skip metadata keys (e.g. _hs_photo_orig)
         if (is_string($v) && preg_match('/\.(jpe?g|png|webp)$/i', $v) && stripos($v, 'uploads') !== false) $imgs[$k] = $v;
     }
     if (!$imgs) return null;
@@ -163,7 +164,13 @@ function ms_stamp_blocks(array &$blocks, string $keyword, string $cityLine, stri
         if (!is_array($b)) continue;
         $field = ms_hero_image_field($b);
         if ($field === null) continue;
-        $rel = $b[$field];
+        // Always overlay the ORIGINAL image, never a previously-stamped output: a
+        // recorded original (_<field>_orig) wins over the current value, so a re-run
+        // with a changed keyword re-renders from the original instead of burning text
+        // over text. On first pass the current value IS the original.
+        $origKey = '_' . $field . '_orig';
+        $rel = (isset($b[$origKey]) && is_string($b[$origKey]) && $b[$origKey] !== '')
+            ? $b[$origKey] : (string)$b[$field];
         $srcFile = $workingDir . '/' . ltrim($rel, '/');
         if (!is_file($srcFile)) continue;
 
@@ -186,10 +193,10 @@ function ms_stamp_blocks(array &$blocks, string $keyword, string $cityLine, stri
         $outRel  = preg_replace('/(\.[^.\/]+)$/', '__' . $pageKey . '_' . $sig . '$1', $cityRel);
         $outFile = $workingDir . '/' . $outRel;
 
-        if (is_file($outFile)) { $b[$field] = $outRel; $out[] = $outRel; continue; }   // cache hit — skip render
+        if (is_file($outFile)) { $b[$field] = $outRel; $b[$origKey] = ltrim($rel, '/'); $out[] = $outRel; continue; }   // cache hit — skip render
 
         $r = ms_hero_overlay_render($srcFile, $outFile, $o);
-        if (!empty($r['ok'])) { $b[$field] = $outRel; $out[] = $outRel; }
+        if (!empty($r['ok'])) { $b[$field] = $outRel; $b[$origKey] = ltrim($rel, '/'); $out[] = $outRel; }
     }
     unset($b);
     return $out;
@@ -281,6 +288,16 @@ function ms_vary_one(string $baseDir, string $rel, string $seed, string $siteCit
     return $newRel;
 }
 
+/** Recursively strip _<field>_orig provenance keys from a decoded page/site array.
+ *  Used by the multisite orchestrator so the throwaway build's JSON, prune, and
+ *  raw-text sweep are unaffected by the single-site original-tracking invariant. */
+function ms_unset_orig_keys(array &$node): void {
+    foreach (array_keys($node) as $k) {
+        if (is_string($k) && $k !== '' && $k[0] === '_' && substr($k, -5) === '_orig') { unset($node[$k]); continue; }
+        if (isset($node[$k]) && is_array($node[$k])) ms_unset_orig_keys($node[$k]);
+    }
+}
+
 /**
  * Delete raster images in the working uploads/ that no page references (the
  * master-named originals we replaced, plus the master's unused media library).
@@ -320,22 +337,38 @@ function ms_prune_unreferenced_uploads(string $workingDir): int {
 function ms_vary_walk(&$node, string $baseDir, string $seed, string $siteCitySlug, string $masterCitySlug, array &$rename, array $skip, int &$count): bool {
     if (!is_array($node)) return false;
     $changed = false;
+    $recordOrig = [];   // origKey => original path — applied after the loop (never mutate $node mid-foreach)
     foreach ($node as $k => &$v) {
+        if (is_string($k) && $k !== '' && $k[0] === '_') continue;   // skip metadata keys (incl _<field>_orig)
         if (is_array($v)) {
             if (ms_vary_walk($v, $baseDir, $seed, $siteCitySlug, $masterCitySlug, $rename, $skip, $count)) $changed = true;
             continue;
         }
         if (!ms_is_content_image($v)) continue;
-        $rel = ltrim((string)$v, '/');
-        if (isset($skip[$rel])) continue;
-        if (!array_key_exists($rel, $rename)) {
-            $new = ms_vary_one($baseDir, $rel, $seed, $siteCitySlug, $masterCitySlug);
-            $rename[$rel] = ($new !== null && $new !== $rel) ? $new : null;
-            if ($rename[$rel] !== null) $count++;
+        // Skip fields already handled this run (e.g. a hero the stamp pass produced) —
+        // checked on the CURRENT value, before we consult _orig, so we never re-vary a
+        // stamped hero back into a plain perturbed copy.
+        if (isset($skip[ltrim((string)$v, '/')])) continue;
+        // Derive from the ORIGINAL: a recorded original (_<key>_orig) wins over the
+        // current (possibly already-varied) value, so a re-run never perturbs a
+        // perturbed image. On first pass the current value IS the original.
+        $origKey = is_string($k) ? '_' . $k . '_orig' : '';
+        $src = ($origKey !== '' && isset($node[$origKey]) && ms_is_content_image($node[$origKey]))
+            ? ltrim((string)$node[$origKey], '/') : ltrim((string)$v, '/');
+        if (isset($skip[$src])) continue;
+        if (!array_key_exists($src, $rename)) {
+            $new = ms_vary_one($baseDir, $src, $seed, $siteCitySlug, $masterCitySlug);
+            $rename[$src] = ($new !== null && $new !== $src) ? $new : null;
+            if ($rename[$src] !== null) $count++;
         }
-        if (!empty($rename[$rel])) { $v = $rename[$rel]; $changed = true; }
+        if (!empty($rename[$src])) {
+            $v = $rename[$src];
+            if ($origKey !== '') $recordOrig[$origKey] = $src;
+            $changed = true;
+        }
     }
     unset($v);
+    foreach ($recordOrig as $ok => $ov) $node[$ok] = $ov;   // remember originals (structural invariant)
     return $changed;
 }
 
@@ -447,6 +480,12 @@ function ms_differentiate_site_images(string $workingDir, array $params, string 
             if ($run($pg['content_blocks'], $pg['seo']['primary_keyword'] ?? '', 'p' . $i)) $changed = true;
         }
         unset($pg);
+        // Multisite build is a throwaway clone (fresh originals every build, one pass),
+        // so the _<field>_orig provenance keys aren't needed here and would only pin the
+        // originals against the prune and confuse the raw-text sweep. Strip them so the
+        // written JSON is byte-for-byte what it was before this feature. (The single-site
+        // path keeps _orig — it re-differentiates a persistent store.)
+        ms_unset_orig_keys($data);
         if ($changed) ms_overlay_write_json($file, $data);
 
         // raw-text sweep for anything embedded in HTML the typed walk missed
