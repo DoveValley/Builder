@@ -1213,6 +1213,7 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
         <li>Paragraph text supports HTML and shortcodes</li>
         <li>Leave button text blank to hide the button</li>
         <li>Portrait or square photos work best</li>
+        <li><strong>AI-block target:</strong> an <a href="#block-ai_block">AI Block</a> with <code>ai_render_as: "image_text"</code> renders here too — when <code>it_heading</code> / <code>it_text</code> are empty it falls back to the AI's <code>heading_text</code> / <code>text</code>, so AI copy shows with an optional static photo (<code>it_photo</code> + <code>it_image_side</code>). Leave <code>it_photo</code> empty for text-only.</li>
     </ul>
 </div>
 
@@ -1545,6 +1546,14 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
         <li>After generation, block type changes to whatever the AI produced and <code>_ai_locked: true</code> is set</li>
         <li>To regenerate, use the Force Regenerate option in the Generate tab</li>
     </ul>
+    <h4>Render type (<code>ai_render_as</code>)</h4>
+    <p>A standalone <code>ai_block</code> renders as the block type named in <code>ai_render_as</code> (e.g. <code>text</code>, <code>feature_columns</code>). Set it to <code>image_text</code> to give the block an <strong>optional photo</strong> beside the AI copy — one block then covers all three modes:</p>
+    <ul>
+        <li><code>it_photo</code> empty → <strong>text only</strong></li>
+        <li><code>it_photo</code> set + <code>it_image_side: "left"</code> → <strong>text + image left</strong></li>
+        <li><code>it_photo</code> set + <code>it_image_side: "right"</code> → <strong>text + image right</strong></li>
+    </ul>
+    <p>The AI writes into <code>heading_text</code> / <code>text</code>; the <code>image_text</code> renderer falls back to those when its own <code>it_heading</code> / <code>it_text</code> are empty (<code>includes/blocks.php</code>), so the AI copy shows and the photo is a static field you set per template/page (<code>it_photo</code>, <code>it_image_side</code>, <code>it_alt</code>). Example: <strong>City Intro</strong> (<code>city_intro</code>) in the pest cockroach template renders as <code>image_text</code> with an empty photo (text-only) until a real photo is added, then flips to image-left.</p>
 </div>
 
 </div><!-- /#doc-reference -->
@@ -2232,7 +2241,7 @@ Output valid JSON only — no explanation.</code></pre>
 
     <h3>Two modes</h3>
     <ul>
-        <li><strong>Standalone</strong> — an <code>ai_block</code> placeholder is filled and rendered as its <code>ai_render_as</code> type (e.g. <code>local_relevance</code> → a text block). See <a href="#ai-standalone">Standalone mode</a>.</li>
+        <li><strong>Standalone</strong> — an <code>ai_block</code> placeholder is filled and rendered as its <code>ai_render_as</code> type (e.g. <code>local_relevance</code> → a text block; set it to <code>image_text</code> to add an optional photo beside the copy). See <a href="#ai-standalone">Standalone mode</a>.</li>
         <li><strong>Enrich</strong> — an existing real block carries an <code>ai_type_id</code>; the AI fills one field in place (e.g. <code>faq_local</code> fills a <code>faq_two_col</code>'s items) and leaves the rest of the block alone. See <a href="#ai-enrich">Enrich mode</a>.</li>
     </ul>
 
