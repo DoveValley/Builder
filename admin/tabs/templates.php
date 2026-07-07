@@ -121,6 +121,112 @@
         </form>
     </div>
 
+    <?php
+    // ── Bulk Template Generator (niche-agnostic) ──────────────────────────────
+    $bulk       = $_SESSION['tpl_bulk'] ?? null;
+    unset($_SESSION['tpl_bulk']);
+    $bulkBase   = $bulk['base']   ?? '';
+    $bulkRows   = $bulk['rows']   ?? '';
+    $bulkReport = $bulk['report'] ?? [];
+    $mediaFiles = [];
+    $mdir = rtrim(UPLOAD_DIR, '/') . '/media';
+    if (is_dir($mdir)) {
+        foreach (scandir($mdir) as $f) {
+            if (preg_match('/\.(jpe?g|png|webp)$/i', $f)) $mediaFiles[] = $f;
+        }
+    }
+    sort($mediaFiles);
+    ?>
+    <div class="card" id="bulkgen">
+        <h2>Bulk Template Generator</h2>
+        <p class="hint" style="margin-bottom:14px;">
+            Clone a base template into many at once. Each row becomes a new landing template with the
+            <strong>same block structure and image count</strong> as the base, its subject words swapped, and its own images.
+            Nothing here is niche-specific — pick any base template and paste that niche's rows, and it works the same way.
+        </p>
+        <form action="templates_save.php" method="post">
+            <input type="hidden" name="action" value="bulk_generate">
+            <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+            <div class="form-group">
+                <label>Base template <span class="hint">(the prototype that gets cloned)</span></label>
+                <select name="base_id" required>
+                    <option value="">— pick a base template —</option>
+                    <?php foreach ($templates as $t): ?>
+                        <option value="<?= h($t['id']) ?>" <?= $bulkBase === $t['id'] ? 'selected' : '' ?>><?= h($t['title'] ?: $t['id']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Rows <span class="hint">(one template per line, pipe-delimited)</span></label>
+                <textarea name="rows" rows="9" style="font-family:monospace;font-size:0.82rem;"
+                    placeholder="Mosquito Control | mosquito-control | Mosquito Control | cockroach=mosquito;roach=mosquito;roaches=mosquitoes | mosquito-katy_aa45f9.webp | about-mosquito-control-katy_68697d.webp | best-mosquito-control-katy_44af32.webp"><?= h($bulkRows) ?></textarea>
+                <span class="hint" style="display:block;margin-top:6px;">
+                    Columns: <code>Service | slug-base | Primary keyword | find=repl;… | hero img | intro img | local img | Title(optional)</code><br>
+                    Only <strong>Service</strong> is required. <strong>find=repl</strong> swaps the base's subject words — whole-word &amp; case-aware, so
+                    <code>cockroach=mosquito</code> also fixes <code>Cockroach</code>/<code>COCKROACH</code> (plurals need their own pair, e.g. <code>roaches=mosquitoes</code>).
+                    Images are bare filenames from this site's media library (or a full path); blank keeps the base's image. Lines starting with <code>#</code> are skipped.
+                </span>
+            </div>
+            <div style="display:flex;gap:10px;">
+                <button type="submit" name="mode" value="preview" class="btn" style="background:#64748b;">Preview (dry run)</button>
+                <button type="submit" name="mode" value="commit" class="btn"
+                    onclick="return confirm('Generate these templates and append them to templates.json?\nA backup (templates.json.bak) is saved first.');">Generate Templates</button>
+            </div>
+        </form>
+
+        <?php if ($bulkReport): ?>
+            <div style="margin-top:18px;">
+                <h3 style="margin-bottom:8px;">Preview — <?= count($bulkReport) ?> template(s) will be created</h3>
+                <div style="overflow-x:auto;">
+                <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+                    <thead><tr style="text-align:left;border-bottom:2px solid #e2e8f0;">
+                        <th style="padding:6px 8px;">Service</th><th style="padding:6px 8px;">New id</th>
+                        <th style="padding:6px 8px;">Slug pattern</th><th style="padding:6px 8px;">Images (hero / intro / local)</th>
+                        <th style="padding:6px 8px;">Checks</th>
+                    </tr></thead>
+                    <tbody>
+                    <?php foreach ($bulkReport as $r): ?>
+                        <tr style="border-bottom:1px solid #eef2f6;">
+                            <td style="padding:6px 8px;"><strong><?= h($r['service']) ?></strong></td>
+                            <td style="padding:6px 8px;"><code><?= h($r['id']) ?></code></td>
+                            <td style="padding:6px 8px;"><code><?= h($r['slug']) ?></code></td>
+                            <td style="padding:6px 8px;font-size:0.76rem;">
+                                <?php foreach (['hero','intro','local'] as $slot): $p = $r['images'][$slot] ?? ''; ?>
+                                    <?= $slot[0] ?>: <?= $p ? h(basename($p)) : '<span style="color:#94a3b8;">(base)</span>' ?><br>
+                                <?php endforeach; ?>
+                            </td>
+                            <td style="padding:6px 8px;">
+                                <?php if ($r['leftover'] > 0): ?>
+                                    <span style="color:#b45309;">⚠ <?= (int)$r['leftover'] ?> leftover subject word(s)</span><br>
+                                <?php endif; ?>
+                                <?php if (!empty($r['img_missing'])): ?>
+                                    <span style="color:#dc2626;">⚠ missing: <?= h(implode(', ', $r['img_missing'])) ?></span><br>
+                                <?php endif; ?>
+                                <?php if ($r['leftover'] === 0 && empty($r['img_missing'])): ?>
+                                    <span style="color:#16a34a;">✓ clean</span>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+                </div>
+                <p class="hint" style="margin-top:8px;">
+                    Review above, then click <strong>Generate Templates</strong> to commit.
+                    <strong style="color:#b45309;">⚠ leftover</strong> = the base's subject word is still present (add/fix a find=repl pair).
+                    <strong style="color:#dc2626;">⚠ missing</strong> = image file not found in the media library.
+                </p>
+            </div>
+        <?php endif; ?>
+
+        <details style="margin-top:14px;">
+            <summary style="cursor:pointer;">Available media files (<?= count($mediaFiles) ?>) — for image columns</summary>
+            <div style="font-family:monospace;font-size:0.72rem;column-width:220px;margin-top:8px;max-height:260px;overflow:auto;">
+                <?php foreach ($mediaFiles as $f): ?><div><?= h($f) ?></div><?php endforeach; ?>
+            </div>
+        </details>
+    </div>
+
     <div class="card">
         <h2>Templates</h2>
         <?php if (empty($templates)): ?>
