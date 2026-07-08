@@ -1154,56 +1154,90 @@
   },
   "services_links": {
     "services": [
-      "Cockroach Exterminator",
-      "Termite Treatment",
-      "Mosquito Control",
-      "Flea Control",
-      "Flea Treatment",
-      "Flea Exterminator",
-      "Bed Bug Treatment",
-      "Rat Exterminator",
-      "Ant Exterminator",
-      "Mosquito Treatment",
-      "Tick Control",
-      "Roach Control",
-      "Mouse Exterminator",
-      "Mouse Control",
-      "Pest Inspection",
-      "Spider Exterminator",
-      "Spider Pest Control",
-      "Earwig Control",
-      "Pest Exterminator",
-      "Bed Bug Exterminator",
-      "Mosquito Exterminator",
-      "Bat Exterminator",
-      "Mice Exterminator",
-      "Commercial Pest Exterminator",
-      "Residential Pest",
-      "Rodent Exterminator",
-      "Wasp Exterminator",
-      "Termite Exterminator",
-      "Emergency Exterminator",
-      "24 Hour Pest Control",
-      "Yellow Jacket Exterminator",
-      "Rodent Control",
-      "Termite Control",
-      "Rat Control",
-      "Bed Bug Pest Control",
-      "Mice Control",
-      "Ant Control",
-      "Cockroach Pest Control",
-      "Silverfish Control",
-      "Commercial Pest Control",
-      "Wasp Pest Control",
-      "Tick Treatment For Yard",
-      "Cockroach Treatment",
-      "Grub Treatment",
-      "Thrips Treatment",
-      "Whitefly Treatment",
-      "Termite Inspection",
-      "WDI Inspection",
-      "Rat Inspection",
-      "Pest Control Services"
+      {
+        "name": "Cockroach Extermination",
+        "url": "/cockroach-exterminator-{city_slug}"
+      },
+      {
+        "name": "Termite Treatment",
+        "url": "/termite-treatment-{city_slug}"
+      },
+      {
+        "name": "Mosquito Control",
+        "url": "/mosquito-control-{city_slug}"
+      },
+      {
+        "name": "Flea Control",
+        "url": "/flea-control-{city_slug}"
+      },
+      {
+        "name": "Bed Bug Treatment",
+        "url": "/bed-bug-treatment-{city_slug}"
+      },
+      {
+        "name": "Ant Control",
+        "url": "/ant-control-{city_slug}"
+      },
+      {
+        "name": "Rat Control",
+        "url": "/rat-control-{city_slug}"
+      },
+      {
+        "name": "Mouse Control",
+        "url": "/mouse-control-{city_slug}"
+      },
+      {
+        "name": "Spider Control",
+        "url": "/spider-control-{city_slug}"
+      },
+      {
+        "name": "Wasp Control",
+        "url": "/wasp-control-{city_slug}"
+      },
+      {
+        "name": "Tick Control",
+        "url": "/tick-control-{city_slug}"
+      },
+      {
+        "name": "Commercial Pest Control",
+        "url": "/commercial-pest-control-{city_slug}"
+      },
+      {
+        "name": "Emergency Pest Control",
+        "url": "/emergency-pest-control-{city_slug}"
+      },
+      {
+        "name": "Pest Inspection",
+        "url": "/pest-inspection-{city_slug}"
+      },
+      {
+        "name": "Bat Removal",
+        "url": "/bat-removal-{city_slug}"
+      },
+      {
+        "name": "Earwig Control",
+        "url": "/earwig-control-{city_slug}"
+      },
+      {
+        "name": "Silverfish Control",
+        "url": "/silverfish-control-{city_slug}"
+      },
+      {
+        "name": "Grub Treatment",
+        "url": "/grub-treatment-{city_slug}"
+      },
+      {
+        "name": "Thrips Treatment",
+        "url": "/thrips-treatment-{city_slug}"
+      },
+      {
+        "name": "Whitefly Treatment",
+        "url": "/whitefly-treatment-{city_slug}"
+      },
+      {
+        "name": "Residential Pest Control",
+        "url": "/residential-pest-control-{city_slug}"
+      }
     ],
     "url_pattern": "/{service_slug}-{city_slug}",
     "heading": "Our Pest Control Services in {city_state}",
