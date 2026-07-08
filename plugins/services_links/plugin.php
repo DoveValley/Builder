@@ -17,6 +17,17 @@ add_hook('shortcode_content', function(string $html, string $pathPrefix = ''): s
     return str_replace('[services_links]', _services_links_render($cfg, $pathPrefix), $html);
 });
 
+// Normalise one service entry (either a {name,url} pair or a legacy bare name)
+// into [name, resolved_url]. Falls back to the url_pattern + slugify(name) when a
+// row has no explicit url (legacy configs and blank link fields).
+function _services_links_row($svc, string $pattern): array {
+    if (is_array($svc)) { $name = trim($svc['name'] ?? ''); $url = trim($svc['url'] ?? ''); }
+    else                { $name = trim((string)$svc);       $url = ''; }
+    if ($name === '') return ['', ''];
+    if ($url === '')  $url = str_replace('{service_slug}', slugify($name), $pattern);
+    return [$name, resolve_shortcodes($url)];
+}
+
 function _services_links_render(array $cfg, string $pathPrefix = ''): string {
     global $data;
 
@@ -55,10 +66,9 @@ function _services_links_render(array $cfg, string $pathPrefix = ''): string {
             echo '</div>';
         }
         echo '<div class="lg-grid lg-light-grid lg-cols-' . $cols . '">';
-        foreach ($services as $name) {
-            $name = trim($name);
+        foreach ($services as $svc) {
+            [$name, $url] = _services_links_row($svc, $pattern);
             if ($name === '') continue;
-            $url = resolve_shortcodes(str_replace('{service_slug}', slugify($name), $pattern));
             echo '<a href="' . h($url) . '" class="lg-light-link">' . h($name) . '</a>';
         }
         echo '</div></div></div>';
@@ -76,10 +86,9 @@ function _services_links_render(array $cfg, string $pathPrefix = ''): string {
         }
         echo '<div class="lg-grid-wrap container">';
         echo '<div class="lg-grid lg-cols-' . $cols . '">';
-        foreach ($services as $name) {
-            $name = trim($name);
+        foreach ($services as $svc) {
+            [$name, $url] = _services_links_row($svc, $pattern);
             if ($name === '') continue;
-            $url = resolve_shortcodes(str_replace('{service_slug}', slugify($name), $pattern));
             echo '<a href="' . h($url) . '" class="lg-link">' . h($name) . '</a>';
         }
         echo '</div></div>';
