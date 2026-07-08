@@ -503,6 +503,15 @@ if ($action === 'bulk_generate') {
         $tpl['seo']['service_type']    = $service;
         $tpl['seo']['seo_title']       = $title;
         $tpl['seo']['primary_keyword'] = $keyword;
+        // Hero H1 = keyword + city, not the word-swapped base phrasing (e.g. avoid
+        // "Pest Exterminator" on a "Commercial Pest Control" page).
+        foreach ($tpl['content_blocks'] as &$hb) {
+            if (is_array($hb) && strncmp($hb['type'] ?? '', 'hero', 4) === 0 && isset($hb['hs_heading'])) {
+                $hb['hs_heading'] = $service . ' in {city_state}';
+                break;
+            }
+        }
+        unset($hb);
 
         // leftover check: any find-word still present after replace = a stray base subject
         $blob = json_encode($tpl);
