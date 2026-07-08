@@ -1,0 +1,97 @@
+<?php
+// Suggest the PRIMARY service list for the niche, rough-ranked by tier.
+// POST only. Auth + CSRF. Returns JSON: {services:[{service,tier}]} or {error:"..."}.
+// One-shot Anthropic Messages API call (Haiku). Directional ranking — validate demand
+// with a real keyword tool. Same call pattern as keyword_suggest.php.
+
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
+
+header('Content-Type: application/json');
+
+if (empty($_SESSION['admin_logged_in'])) { http_response_code(403); echo json_encode(['error' => 'Not authenticated.']); exit; }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); exit; }
+if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) { http_response_code(403); echo json_encode(['error' => 'Invalid request token.']); exit; }
+
+$apiKey = defined('ANTHROPIC_API_KEY') ? ANTHROPIC_API_KEY : '';
+if ($apiKey === '') { echo json_encode(['error' => 'ANTHROPIC_API_KEY is not configured (Admin → AI, or config.php).']); exit; }
+if (!function_exists('curl_init')) { echo json_encode(['error' => 'PHP cURL extension is not available.']); exit; }
+
+// Niche context: business name + a few existing services (from templates) so the model
+// infers the niche without us hard-coding "pest control".
+$business = ''; $examples = [];
+try {
+    $d = load_data();
+    $business = trim($d['site_vars']['business'] ?? '');
+} catch (Throwable $e) {}
+if (defined('TEMPLATES_FILE') && file_exists(TEMPLATES_FILE)) {
+    $tpls = json_decode(file_get_contents(TEMPLATES_FILE), true) ?: [];
+    foreach ($tpls as $t) {
+        $n = trim($t['seo']['service_name'] ?? '') ?: trim(preg_replace('/\s*\|.*$/', '', $t['title'] ?? ''));
+        if ($n !== '') $examples[] = $n;
+    }
+    $examples = array_slice(array_values(array_unique($examples)), 0, 8);
+}
+$ctxLines = [];
+if ($business !== '')  $ctxLines[] = "Business: \"{$business}\".";
+if ($examples)         $ctxLines[] = 'Existing service pages (infer the niche from these): ' . implode(', ', $examples) . '.';
+$ctx = $ctxLines ? (implode(' ', $ctxLines) . ' ') : '';
+
+$prompt =
+"You are planning the landing-page service list for a LOCAL lead-generation website. {$ctx}".
+"The model: ONE site per city, ranking organically (no Google Business Profile), targeting long-tail \"[service] [city]\" queries in mid-size, low-competition cities.\n\n".
+"List the core services that each deserve their OWN landing page, and rank each into a tier:\n".
+"- high  = strong search demand AND high lead value AND winnable long-tail\n".
+"- medium= decent on one or two of those\n".
+"- low   = niche / low search volume / low lead value (candidate to cut or fold)\n\n".
+"Rules: 15-20 services max. Consolidate keyword variants of the SAME service into ONE (e.g. control/treatment/exterminator = one service). Favor high-lead-value services. Be realistic about demand.\n".
+"Return ONLY JSON, no prose: {\"services\":[{\"service\":\"Service Name\",\"tier\":\"high\"}, ...]}";
+
+$payload = json_encode([
+    'model'      => 'claude-haiku-4-5-20251001',
+    'max_tokens' => 1500,
+    'messages'   => [['role' => 'user', 'content' => $prompt]],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+$ch = curl_init('https://api.anthropic.com/v1/messages');
+curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST           => true,
+    CURLOPT_HTTPHEADER     => [
+        'x-api-key: ' . $apiKey,
+        'anthropic-version: 2023-06-01',
+        'content-type: application/json',
+    ],
+    CURLOPT_POSTFIELDS => $payload,
+    CURLOPT_TIMEOUT    => 45,
+]);
+$resp     = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$curlErr  = curl_error($ch);
+curl_close($ch);
+
+if ($resp === false) { echo json_encode(['error' => 'Request failed: ' . $curlErr]); exit; }
+$j = json_decode($resp, true);
+if ($httpCode !== 200 || !is_array($j)) {
+    echo json_encode(['error' => $j['error']['message'] ?? ('API error (' . $httpCode . ').')]); exit;
+}
+
+$text = '';
+foreach (($j['content'] ?? []) as $block) { if (($block['type'] ?? '') === 'text') $text .= $block['text']; }
+
+// Extract the JSON object from the response (tolerate stray prose/code fences).
+$out = [];
+if (preg_match('/\{.*\}/s', $text, $m)) {
+    $parsed = json_decode($m[0], true);
+    $validTier = ['high', 'medium', 'low'];
+    foreach (($parsed['services'] ?? []) as $s) {
+        $name = trim((string)($s['service'] ?? ''));
+        if ($name === '') continue;
+        $tier = in_array($s['tier'] ?? '', $validTier, true) ? $s['tier'] : 'medium';
+        $out[] = ['service' => $name, 'tier' => $tier];
+        if (count($out) >= 25) break;
+    }
+}
+if (!$out) { echo json_encode(['error' => 'Could not parse suggestions from the model. Try again.']); exit; }
+
+echo json_encode(['services' => $out]);
