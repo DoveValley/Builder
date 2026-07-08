@@ -32,9 +32,14 @@ if (defined('TEMPLATES_FILE') && file_exists(TEMPLATES_FILE)) {
     }
     $examples = array_slice(array_values(array_unique($examples)), 0, 8);
 }
+// Explicit niche (entered at the top of the Keywords tab) is authoritative.
+$niche = trim($_POST['niche'] ?? '');
+if (mb_strlen($niche) > 120) $niche = mb_substr($niche, 0, 120);
+
 $ctxLines = [];
+if ($niche !== '')     $ctxLines[] = "Niche / vertical: \"{$niche}\" (this is the site's service category).";
 if ($business !== '')  $ctxLines[] = "Business: \"{$business}\".";
-if ($examples)         $ctxLines[] = 'Existing service pages (infer the niche from these): ' . implode(', ', $examples) . '.';
+if ($examples)         $ctxLines[] = 'Existing service pages: ' . implode(', ', $examples) . '.';
 $ctx = $ctxLines ? (implode(' ', $ctxLines) . ' ') : '';
 
 $prompt =

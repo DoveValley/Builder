@@ -8,6 +8,7 @@ $kwFile = dirname(TEMPLATES_FILE) . '/keyword_map.json';
 $kwMap  = file_exists($kwFile) ? (json_decode(file_get_contents($kwFile), true) ?: []) : [];
 $services = $kwMap['services'] ?? [];
 $stage    = $kwMap['stage'] ?? 'primary';
+$niche    = trim($kwMap['niche'] ?? '');
 
 // Seed from existing templates on first use, so the operator starts from what's there.
 if (empty($services) && file_exists(TEMPLATES_FILE)) {
@@ -37,6 +38,15 @@ $statusOpts = ['primary' => 'Primary (own page)', 'fold' => 'Fold into another',
     <form action="keywords_save.php" method="post">
         <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
         <input type="hidden" name="action" value="save_primaries">
+
+        <!-- Niche definition — drives everything below -->
+        <div class="card" style="margin-bottom:16px;border:2px solid #7c3aed;">
+            <h2 style="margin-top:0;margin-bottom:8px;">Niche definition</h2>
+            <div class="form-group" style="margin-bottom:8px;">
+                <input type="text" name="niche" id="kw-niche" value="<?= h($niche) ?>" placeholder="pest control" style="font-size:1.15rem;max-width:440px;" required>
+            </div>
+            <p class="hint" style="margin:0;">This site's vertical — it drives the AI keyword suggestions below. Primaries target <code>[service] + {city}</code> (e.g. &ldquo;<?= h($niche ?: 'pest control') ?> {city}&rdquo;, &ldquo;mosquito control {city}&rdquo;), one site per city.</p>
+        </div>
 
         <div class="card" style="margin-bottom:16px;">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:12px;flex-wrap:wrap;">
@@ -102,8 +112,10 @@ $statusOpts = ['primary' => 'Primary (own page)', 'fold' => 'Fold into another',
     }
     function kwMsg(txt, ok){ var m=document.getElementById('kw-ai-msg'); m.style.display='block'; m.style.background=ok?'#ecfdf5':'#fef2f2'; m.style.color=ok?'#065f46':'#991b1b'; m.textContent=txt; }
     function kwAiSuggest(){
+        var niche=(document.getElementById('kw-niche').value||'').trim();
+        if(!niche){ kwMsg('Enter the Niche definition at the top first (e.g. "pest control").',false); return; }
         var btn=document.getElementById('kw-ai-btn'); btn.disabled=true; var old=btn.innerHTML; btn.innerHTML='Thinking…';
-        var fd=new FormData(); fd.append('csrf_token','<?= h($csrfToken) ?>');
+        var fd=new FormData(); fd.append('csrf_token','<?= h($csrfToken) ?>'); fd.append('niche',niche);
         fetch('keyword_map_suggest.php',{method:'POST',body:fd}).then(function(r){return r.json();}).then(function(j){
             btn.disabled=false; btn.innerHTML=old;
             if(j.error){ kwMsg(j.error,false); return; }

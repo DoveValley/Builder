@@ -54,6 +54,7 @@ if ($action === 'save_primaries') {
     }
 
     $map = [
+        'niche'         => trim($_POST['niche'] ?? ($existing['niche'] ?? '')),
         'services'      => $services,
         'stage'         => 'secondary',   // primaries solidified → Stage 2 unlocked
         'updated_at'    => date('c'),
