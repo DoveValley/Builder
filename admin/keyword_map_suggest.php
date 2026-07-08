@@ -42,19 +42,40 @@ if ($business !== '')  $ctxLines[] = "Business: \"{$business}\".";
 if ($examples)         $ctxLines[] = 'Existing service pages: ' . implode(', ', $examples) . '.';
 $ctx = $ctxLines ? (implode(' ', $ctxLines) . ' ') : '';
 
-$prompt =
-"You are planning the landing-page service list for a LOCAL lead-generation website. {$ctx}".
-"The model: ONE site per city, ranking organically (no Google Business Profile), targeting long-tail \"[service] [city]\" queries in mid-size, low-competition cities.\n\n".
-"List the core services that each deserve their OWN landing page, and rank each into a tier:\n".
-"- high  = strong search demand AND high lead value AND winnable long-tail\n".
-"- medium= decent on one or two of those\n".
-"- low   = niche / low search volume / low lead value (candidate to cut or fold)\n\n".
-"Rules: 15-20 services max. Consolidate keyword variants of the SAME service into ONE (e.g. control/treatment/exterminator = one service). Favor high-lead-value services. Be realistic about demand.\n".
-"Return ONLY JSON, no prose: {\"services\":[{\"service\":\"Service Name\",\"tier\":\"high\"}, ...]}";
+// Optional real keyword data (pasted from Ahrefs) — grounds the ranking.
+$ahrefs = (string)($_POST['ahrefs_data'] ?? '');
+if (strlen($ahrefs) > 60000) $ahrefs = substr($ahrefs, 0, 60000);   // token guard
+$ahrefs   = trim($ahrefs);
+$grounded = $ahrefs !== '';
+
+if ($grounded) {
+    $prompt =
+    "You are planning the landing-page service list for a LOCAL lead-generation website. {$ctx}".
+    "Model: ONE site per city, organic ranking (no Google Business Profile), long-tail \"[service] [city]\" in mid-size, low-competition cities.\n\n".
+    "Below is REAL keyword data (pasted from Ahrefs; columns are roughly Keyword, Volume, KD [difficulty 0-100], CPC). Treat it as the source of truth:\n".
+    "1. Cluster the keywords into distinct SERVICES (consolidate variants of the same service — control/treatment/exterminator = ONE).\n".
+    "2. Per service judge: demand = representative Volume; winnability = KD (LOWER is better — the site has little authority); lead value = CPC (higher = more valuable lead).\n".
+    "3. Tier: high = solid volume + low/moderate KD + good CPC; medium = mixed; low = tiny volume or low value (cut/fold candidate).\n".
+    "Report the representative Volume and KD you used per service (integers; KD 0-100).\n\n".
+    "KEYWORD DATA:\n{$ahrefs}\n\n".
+    "Return ONLY JSON, no prose: {\"services\":[{\"service\":\"Service Name\",\"tier\":\"high\",\"volume\":1200,\"kd\":9}, ...]} — up to 20 services, most valuable first.";
+    $model = 'claude-sonnet-5'; $maxTok = 4000; $timeout = 90;
+} else {
+    $prompt =
+    "You are planning the landing-page service list for a LOCAL lead-generation website. {$ctx}".
+    "The model: ONE site per city, ranking organically (no Google Business Profile), targeting long-tail \"[service] [city]\" queries in mid-size, low-competition cities.\n\n".
+    "List the core services that each deserve their OWN landing page, and rank each into a tier:\n".
+    "- high  = strong search demand AND high lead value AND winnable long-tail\n".
+    "- medium= decent on one or two of those\n".
+    "- low   = niche / low search volume / low lead value (candidate to cut or fold)\n\n".
+    "Rules: 15-20 services max. Consolidate keyword variants of the SAME service into ONE (e.g. control/treatment/exterminator = one service). Favor high-lead-value services. Be realistic about demand.\n".
+    "Return ONLY JSON, no prose: {\"services\":[{\"service\":\"Service Name\",\"tier\":\"high\"}, ...]}";
+    $model = 'claude-haiku-4-5-20251001'; $maxTok = 1500; $timeout = 45;
+}
 
 $payload = json_encode([
-    'model'      => 'claude-haiku-4-5-20251001',
-    'max_tokens' => 1500,
+    'model'      => $model,
+    'max_tokens' => $maxTok,
     'messages'   => [['role' => 'user', 'content' => $prompt]],
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
@@ -68,7 +89,7 @@ curl_setopt_array($ch, [
         'content-type: application/json',
     ],
     CURLOPT_POSTFIELDS => $payload,
-    CURLOPT_TIMEOUT    => 45,
+    CURLOPT_TIMEOUT    => $timeout,
 ]);
 $resp     = curl_exec($ch);
 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -93,10 +114,13 @@ if (preg_match('/\{.*\}/s', $text, $m)) {
         $name = trim((string)($s['service'] ?? ''));
         if ($name === '') continue;
         $tier = in_array($s['tier'] ?? '', $validTier, true) ? $s['tier'] : 'medium';
-        $out[] = ['service' => $name, 'tier' => $tier];
+        $row = ['service' => $name, 'tier' => $tier];
+        if (isset($s['volume']) && $s['volume'] !== '') $row['volume'] = preg_replace('/[^0-9]/', '', (string)$s['volume']);
+        if (isset($s['kd'])     && $s['kd']     !== '') $row['kd']     = preg_replace('/[^0-9]/', '', (string)$s['kd']);
+        $out[] = $row;
         if (count($out) >= 25) break;
     }
 }
 if (!$out) { echo json_encode(['error' => 'Could not parse suggestions from the model. Try again.']); exit; }
 
-echo json_encode(['services' => $out]);
+echo json_encode(['services' => $out, 'grounded' => $grounded]);

@@ -27,6 +27,8 @@ if ($action === 'save_primaries') {
     $slugs  = $_POST['kw_slug']    ?? [];
     $tiers  = $_POST['kw_tier']    ?? [];
     $stats  = $_POST['kw_status']  ?? [];
+    $vols   = $_POST['kw_volume']  ?? [];
+    $kds    = $_POST['kw_kd']       ?? [];
     if (!is_array($names)) $names = [];
 
     $slugify = fn(string $s) => trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($s)), '-');
@@ -49,12 +51,19 @@ if ($action === 'save_primaries') {
             'slug'      => $slug,
             'tier'      => $tier,
             'status'    => $status,
+            'volume'    => trim((string)($vols[$i] ?? '')),
+            'kd'        => trim((string)($kds[$i] ?? '')),
             'secondary' => $prevBySlug[$slug] ?? [],
         ];
     }
 
+    // Keep the pasted Ahrefs data (capped) so it persists + powers Stage 2.
+    $ahrefs = (string)($_POST['ahrefs_data'] ?? ($existing['ahrefs_data'] ?? ''));
+    if (strlen($ahrefs) > 200000) $ahrefs = substr($ahrefs, 0, 200000);
+
     $map = [
         'niche'         => trim($_POST['niche'] ?? ($existing['niche'] ?? '')),
+        'ahrefs_data'   => $ahrefs,
         'services'      => $services,
         'stage'         => 'secondary',   // primaries solidified → Stage 2 unlocked
         'updated_at'    => date('c'),
