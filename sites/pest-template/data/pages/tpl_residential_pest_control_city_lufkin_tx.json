@@ -1,0 +1,378 @@
+{
+  "template_id": "tpl_residential_pest_control",
+  "city_id": "city_lufkin_tx",
+  "slug": "residential-pest-control-lufkin-tx",
+  "title": "Residential Pest Control in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Residential Pest Control in {city_state}",
+      "hs_subtext": "<p>East Texas humidity and warm seasons create ideal conditions for household pests to thrive year-round in Lufkin, making residential pest control essential for homeowners in areas like Crown Colony and Fuller Springs. Elk Pest Pros addresses active infestations and ongoing prevention, protecting your home's interior and exterior from unwanted intruders. A properly managed pest control plan gives you peace of mind and helps safeguard your family's comfort and property.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Pest",
+      "hs_caption2": "Exterminator",
+      "hs_photo_alt": "Pest exterminator treating a {city_state} home",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/pest-template/uploads/media/residential-pest-katy_574542.webp",
+      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:52:52.710729Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "1388b52eb798f6d6",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:var(--skin-subtle-bg,#f3f6f7);border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);padding:18px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 44px;\"><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Trained Technicians</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Free Estimates</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Re-Treat Guarantee</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Same-Day Service</span></div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/pest-template/uploads/media/about-residential-pest-katy_665a8b.webp",
+      "it_alt": "{business} technician applying pest treatment along a baseboard in a {city_state} home",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Residential Pest Control in Lufkin for Year-Round Protection",
+      "text": "<p>Homeowners in Lufkin face persistent pest pressures driven by the region's warm, humid subtropical climate and extended growing season. Spring and summer bring heightened activity from termites, ants, and mosquitoes, while fall and winter offer only temporary relief as many pests seek shelter inside homes and structures. The combination of moisture, mild winters, and abundant food sources creates ideal conditions for infestations to establish and spread quickly. Without proactive residential pest control, Lufkin homeowners risk damage to property, health concerns, and the stress of dealing with established colonies.</p><p>Elk Pest Pros addresses these challenges with a thorough, locally informed approach to residential pest control in Lufkin. We begin with detailed inspections to identify entry points, conducive conditions, and active pest activity specific to your home. Our treatment strategy targets the root of the problem rather than surface symptoms, and we follow up to ensure effectiveness and prevent re-infestation. While we also handle other pest concerns that arise, our focus remains on delivering reliable, lasting residential pest control that gives you peace of mind season after season. When you're dealing with an active infestation or want to stay ahead of one, Elk Pest Pros is ready to help.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:52:56.574325Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "57db699162561756",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Choose Elk Pest Pros",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Trained Technicians You Trust",
+          "text": "Our team arrives equipped with the knowledge to identify pest entry points, nesting areas, and conducive conditions. Professional treatment targets the root cause, not just visible activity, for lasting results."
+        },
+        {
+          "heading": "Rapid Response to Infestations",
+          "text": "Active pest problems demand quick action. We prioritize scheduling to reach your home promptly, assess the situation thoroughly, and implement a treatment plan before infestations spread further."
+        },
+        {
+          "heading": "Comprehensive Guarantees",
+          "text": "We stand behind our work with clear service guarantees. If pests return within the covered period, we return at no charge to retreat the affected areas and restore your peace of mind."
+        },
+        {
+          "heading": "Year-Round East Texas Pest Cycles",
+          "text": "Lufkin's warm, humid climate extends pest activity through fall and winter. Our seasonal approach addresses spring and summer invasions early, maintains pressure through mild winters, and prevents rebound populations come spring."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:53:00.243033Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "7e0578a8904db7f5",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Pest Treatment Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call Our {city} Team",
+          "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Inspection & Assessment",
+          "text": "Your technician inspects the home, identifies the species and where pests are harboring, and builds a targeted treatment plan."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Treatment & Follow-Up",
+          "text": "We treat the areas where pests live and get inside, then follow up to confirm the infestation is fully cleared."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Ready to get rid of pests in {city}? Our trained technicians can get started fast.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/pest-template/uploads/media/best-residential-pest-katy_4f1621.webp",
+      "it_alt": "A {city_state} family relaxing at home, protected by {business} pest control",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Pest Control Solutions Serving Lufkin, Texas",
+      "text": "<p>Lufkin's diverse residential landscape means pest challenges vary significantly depending on where you live. Established neighborhoods with mature trees and older construction often face different pressures than newer subdivisions. Homes in areas like Crown Colony with substantial tree canopy may experience more wildlife activity and wood-damaging pests, while the aging structures common in these areas can provide easier entry points for insects and rodents. Conversely, newer developments such as Fuller Springs typically have tighter construction, though they're not immune to seasonal pest migrations.</p><p>East Texas's warm, humid climate creates year-round pest pressure. Spring and summer bring heightened activity from mosquitoes, fire ants, and termites, while fall and winter drive rodents indoors seeking shelter and warmth. The region's moisture and mild winters allow many pests to remain active longer than in colder climates. Understanding these patterns and how your home's age, construction style, and surroundings influence your specific vulnerabilities is essential for effective pest management. Elk Pest Pros tailors solutions to your property's unique characteristics and Lufkin's seasonal cycles.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:53:04.000413Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "71e54ba15c35726c",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Year-Round Pest Control for Lufkin Homeowners",
+      "steps_items": [
+        {
+          "heading": "Spring: Awakening Invaders",
+          "text": "As temperatures warm across East Texas, dormant pests emerge seeking food and shelter in homes. Termites, ants, and cockroaches become active threats. Elk Pest Pros inspects foundations and entry points to identify vulnerabilities before infestations establish, protecting your home during this critical season."
+        },
+        {
+          "heading": "Summer: Heat and Humidity",
+          "text": "Lufkin's hot, humid summers create ideal conditions for mosquitoes, fire ants, and wood-destroying pests. Homeowners in areas like Crown Colony and Kurth face increased pest pressure. Elk Pest Pros implements targeted treatments to reduce populations and prevent colonies from expanding on your property."
+        },
+        {
+          "heading": "Fall: Migration Season",
+          "text": "Cooling weather drives pests indoors searching for winter refuge. Rodents, spiders, and stink bugs infiltrate attics and walls. Elk Pest Pros conducts thorough inspections and seals entry points to block seasonal invaders before they settle into your home for months."
+        },
+        {
+          "heading": "Winter: Indoor Persistence",
+          "text": "While outdoor activity slows, pests sheltering inside remain active threats. Rodents nest in hidden spaces; cockroaches thrive in warm kitchens. Elk Pest Pros monitors and treats interior infestations, addressing the pests that have already found their way into your living spaces."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:53:08.225353Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "1b3c8037b021236d",
+      "_ai_locked": true
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Pest Control Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
+          "alt": "Ant exterminator in {city}",
+          "heading": "Ant Control",
+          "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
+          "url": "/ant-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
+          "alt": "Bed bug treatment in {city}",
+          "heading": "Bed Bug Treatment",
+          "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
+          "url": "/bed-bug-treatment-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
+          "alt": "Flea control in {city}",
+          "heading": "Flea Control",
+          "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
+          "url": "/flea-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
+          "alt": "Rodent control in {city}",
+          "heading": "Rat Control",
+          "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
+          "url": "/rat-control-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Pest Exterminator FAQ — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What signs indicate my Lufkin home needs residential pest control?",
+          "answer": "<p>Common warning signs include droppings in cabinets or corners, unexplained odors, visible insects or rodents, damaged wood or insulation, and entry holes near foundations or eaves. You may also notice gnaw marks, grease trails along baseboards, or dead insects in light fixtures. Early detection makes treatment faster and less invasive, so contact a professional as soon as you spot these indicators.</p>"
+        },
+        {
+          "question": "How quickly can Elk Pest Pros schedule a residential pest control visit?",
+          "answer": "<p>We understand infestations require prompt action. Elk Pest Pros offers rapid scheduling for active residential pest problems in the Lufkin area. Call us directly to discuss your situation, and we'll work to get a trained technician to your home as soon as possible. Emergency and same-day appointments are often available for confirmed infestations.</p>"
+        },
+        {
+          "question": "Is residential pest control treatment safe around my children and pets?",
+          "answer": "<p>Safety is our priority. Our technicians use targeted, EPA-registered treatments and follow strict application guidelines to minimize exposure to your family and pets. We'll provide clear pre-treatment and post-treatment instructions, including temporary room access restrictions and ventilation recommendations. Always inform us of children, pets, or health sensitivities before your appointment.</p>"
+        },
+        {
+          "question": "What does the residential pest control process look like at my home?",
+          "answer": "<p>Our technician will inspect your home's interior and exterior, identify entry points and pest activity, and explain findings and treatment options. Treatment typically involves targeted applications to problem areas, entry points, and potential harboring spots. We'll walk you through what to expect during and after service, and answer any questions about the approach we're recommending.</p>"
+        },
+        {
+          "question": "How many visits does residential pest control usually require?",
+          "answer": "<p>Most infestations require an initial treatment followed by one or more follow-up visits spaced 1–3 weeks apart, depending on the pest type and severity. Some minor issues resolve in a single visit, while active infestations may need multiple treatments to break the lifecycle. Your technician will outline the expected visit schedule and any monitoring steps during your first appointment.</p>"
+        },
+        {
+          "question": "When is residential pest control most critical in Lufkin, TX?",
+          "answer": "<p>East Texas's warm, humid climate extends pest activity year-round, but infestations typically peak in spring and fall when rodents and insects seek shelter indoors. Summer heat drives pests into homes for moisture and cool air. Fall preparation is especially important as temperatures drop and pests move inside for winter. Proactive treatment before peak seasons prevents major problems.</p>"
+        },
+        {
+          "question": "Should I try DIY pest control products or hire a professional?",
+          "answer": "<p>DIY products may mask problems temporarily but often fail to reach hidden nests, entry points, and harboring areas where infestations thrive. Professional treatment identifies root causes, uses more effective targeted methods, and includes follow-up monitoring. A trained technician also diagnoses pest type accurately, which is critical for choosing the right strategy and preventing reinfestation.</p>"
+        },
+        {
+          "question": "What should I do to prepare before residential pest control treatment?",
+          "answer": "<p>Remove clutter and debris from under sinks, closets, and storage areas to expose pest activity and access points. Move items away from baseboards and corners. Secure or remove food, pet bowls, and personal items from treatment areas as instructed. Keep children and pets away during service. Your technician will provide a detailed prep checklist when confirming your appointment—follow it closely for best results.</p>"
+        },
+        {
+          "question": "Is residential pest control guaranteed, and what if pests return?",
+          "answer": "<p>Elk Pest Pros stands behind our work with service warranties. If pest activity returns within the guaranteed period, we'll return to retreat your home at no additional cost. Coverage details depend on your service plan and the pest type. We'll explain guarantee terms clearly before starting, and our warranty protects your investment in a pest-free home.</p>"
+        },
+        {
+          "question": "How can I prevent residential pest problems from coming back?",
+          "answer": "<p>Seal cracks and gaps around foundations, pipes, and entry points. Trim vegetation away from your home's exterior. Store food in airtight containers and promptly clean up crumbs and spills. Remove standing water and fix leaks to eliminate moisture attractions. Regular inspections and maintenance reduce reinfestation risk. Ask your Elk Pest Pros technician for specific prevention tips tailored to your home and local conditions.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:53:23.096674Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "698e7e8328918a5d",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Dealing with pests in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Residential Pest Control in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/residential-pest-control-lufkin-tx/",
+    "meta_description": "Get rid of pests fast with a professional pest exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
+    "meta_keywords": "pest exterminator Lufkin TX, pest control Lufkin TX, pest removal Lufkin",
+    "og_title": "Pest Exterminator in {city_state} | Fast, Guaranteed Pest Control",
+    "og_description": "Get rid of pests fast with a professional pest exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+    "og_image": "",
+    "service_name": "Residential Pest Control",
+    "service_type": "Residential Pest Control",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional pest exterminator services in {city_state}. Targeted pest control for homes and businesses with fast response and a re-treat guarantee.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Pest Exterminator in Lufkin, TX\",\"serviceType\":\"Pest Extermination\",\"description\":\"Professional pest exterminator services in Lufkin, TX. Targeted pest control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Elk Pest Pros\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"},\"url\":\"https://elkpestpros.com/pest-exterminator-lufkin-tx/\"}]}",
+    "primary_keyword": "Residential Pest Control"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-08T00:46:51+00:00",
+  "template_version": "934d5996f42e4f4292c30a662933a933"
+}

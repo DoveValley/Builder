@@ -1,0 +1,382 @@
+{
+  "template_id": "tpl_thrips_treatment",
+  "city_id": "city_lufkin_tx",
+  "slug": "thrips-treatment-lufkin-tx",
+  "title": "Thrips Treatment in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Thrips Treatment in {city_state}",
+      "hs_subtext": "<p>East Texas summers bring heat and humidity that create ideal conditions for thrips populations to thrive in Lufkin homes and gardens. Elk Pest Pros specializes in treating thrips infestations with targeted solutions designed to address the specific pressures these pests place on your property during peak seasons. Our local expertise means faster response times and strategies tailored to your home's needs, so you can protect your indoor spaces and landscaping without unnecessary delay.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Thrips",
+      "hs_caption2": "Exterminator",
+      "hs_photo_alt": "Thrips exterminator treating a {city_state} home",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/pest-template/uploads/media/thrips-treatment-katy_4fc6f4.webp",
+      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:54:18.846318Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "b3fb7af00d5f3859",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:var(--skin-subtle-bg,#f3f6f7);border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);padding:18px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 44px;\"><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Trained Technicians</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Free Estimates</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Re-Treat Guarantee</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Same-Day Service</span></div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/pest-template/uploads/media/about-thrips-treatment-katy_e1c706.webp",
+      "it_alt": "{business} technician applying thrips treatment along a baseboard in a {city_state} home",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Thrips Treatment for Lufkin Homes Year-Round",
+      "text": "<p>Lufkin's warm, humid climate creates ideal conditions for thrips populations to thrive, especially during the warmer months when these tiny, destructive insects become most active on ornamental plants, vegetables, and indoor houseplants. Homeowners across Lufkin notice thrips damage—silvery stippling on leaves, distorted growth, and plant decline—when outdoor and indoor plant stress peaks. The region's seasonal pest cycles mean thrips pressure can build quickly, and without prompt treatment, infestations spread to multiple plants and can significantly diminish your landscaping investment and indoor greenery.</p><p>Elk Pest Pros addresses thrips infestations with a thorough, targeted approach designed specifically for Lufkin properties. Our team identifies affected plants, assesses the extent of the infestation, and applies treatment methods tailored to your situation—whether indoors or outdoors. We follow up to monitor progress and help prevent reinfestation, ensuring your plants have the best chance to recover. Rather than guessing or applying one-size-fits-all solutions, we work systematically to bring thrips under control and restore your plants to health, while remaining mindful of your home's overall pest management needs.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:54:22.727282Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "a75861b2c4efc40e",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Choose Elk Pest Pros",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Trained Thrips Treatment Experts",
+          "text": "Our technicians understand thrips behavior and biology. They apply targeted methods to eliminate infestations at every life stage, protecting your home and plants from recurring damage."
+        },
+        {
+          "heading": "Fast Response When It Matters",
+          "text": "Active thrips infestations demand quick action. We respond promptly to your call, assess the problem thoroughly, and begin treatment before populations spread further through your property."
+        },
+        {
+          "heading": "Comprehensive Treatment Backed by Support",
+          "text": "We inspect thoroughly, treat affected areas completely, and follow up to ensure results. Our commitment means you're not left wondering if the problem truly resolved."
+        },
+        {
+          "heading": "Ready for Lufkin's Warm-Season Thrips Surge",
+          "text": "East Texas heat and humidity create ideal thrips breeding conditions spring through fall. We time treatments to interrupt their seasonal cycles and keep your home protected year-round."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:54:25.878746Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "e96a62934aaa460d",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Thrips Treatment Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call Our {city} Team",
+          "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Inspection & Assessment",
+          "text": "Your technician inspects the home, identifies the species and where thrips are harboring, and builds a targeted treatment plan."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Treatment & Follow-Up",
+          "text": "We treat the areas where thrips live and get inside, then follow up to confirm the infestation is fully cleared."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Ready to get rid of thrips in {city}? Our trained technicians can get started fast.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/pest-template/uploads/media/best-thrips-treatment-katy_0662bd.webp",
+      "it_alt": "A {city_state} family relaxing at home, protected by {business} thrips control",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Thrips Treatment for Lufkin and Surrounding Areas",
+      "text": "<p>Thrips infestations in the Lufkin region vary significantly based on property age and landscape characteristics. Established neighborhoods with mature trees and older construction often experience earlier and more persistent thrips activity, as dense foliage creates ideal breeding grounds and sheltered microclimates. These properties typically require more frequent monitoring during East Texas's warm, humid growing season. Newer subdivisions with younger landscaping and modern construction may see lighter initial infestations, though rapid vegetation growth can quickly change that dynamic.</p><p>The local climate—with hot summers and mild winters—creates extended thrips seasons compared to cooler regions. Spring through fall, these tiny pests remain highly active on both ornamental plants and structures. Properties in areas like Crown Colony and Copeland Springs, which feature mixed residential densities and varying landscape maturity, may need customized treatment approaches depending on their specific vegetation and building conditions. Understanding how your property's age, tree coverage, and construction style influences thrips activity helps us design targeted, efficient solutions that address your unique situation rather than applying a one-size-fits-all approach.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:54:29.559230Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "8d4fc59ba829c64d",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Seasonal Thrips Treatment Guide for Lufkin Homeowners",
+      "steps_items": [
+        {
+          "heading": "Spring: Awakening and Activity",
+          "text": "As temperatures warm across the Lufkin region, thrips emerge from dormancy and become active on emerging plants and flowers. Spring moisture creates ideal conditions for rapid population growth. Elk Pest Pros monitors early signs of thrips damage and implements targeted treatments to protect your landscape before infestations peak."
+        },
+        {
+          "heading": "Summer: Peak Pressure",
+          "text": "Hot, dry Texas summers intensify thrips problems on ornamentals, vegetables, and indoor plants. High populations feed aggressively on foliage and blooms, causing visible silvering and stippling. Elk Pest Pros applies strategic treatments and offers guidance on environmental adjustments to reduce thrips attraction during the season's most active months."
+        },
+        {
+          "heading": "Fall: Transition and Buildup",
+          "text": "As fall arrives in East Texas, thrips seek shelter indoors and on late-season plantings before cooler weather sets in. Fall treatment helps prevent populations from establishing in homes and protected spaces. Elk Pest Pros conducts thorough inspections and implements preventive measures to keep thrips from overwintering in your property."
+        },
+        {
+          "heading": "Winter: Indoor and Protected Spaces",
+          "text": "While outdoor activity slows, Lufkin's mild winters allow thrips to survive on indoor plants and in protected microhabitats. Controlled indoor environments can support year-round breeding. Elk Pest Pros addresses winter infestations and identifies entry points, helping you maintain a thrips-free home through the quieter season."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:54:34.594265Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "ebfe0a36291c5f01",
+      "_ai_locked": true
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Pest Control Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
+          "alt": "Ant exterminator in {city}",
+          "heading": "Ant Control",
+          "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
+          "url": "/ant-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
+          "alt": "Bed bug treatment in {city}",
+          "heading": "Bed Bug Treatment",
+          "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
+          "url": "/bed-bug-treatment-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
+          "alt": "Flea control in {city}",
+          "heading": "Flea Control",
+          "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
+          "url": "/flea-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
+          "alt": "Rodent control in {city}",
+          "heading": "Rat Control",
+          "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
+          "url": "/rat-control-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Thrips Exterminator FAQ — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What exactly happens during a professional thrips treatment visit?",
+          "answer": "<p>Our technician begins with a thorough inspection to identify affected areas—typically plants, flowers, and indoor spaces where thrips congregate. We then apply targeted treatments to infested plants and surrounding areas, focusing on leaf undersides and growing tips where thrips hide. You'll receive clear guidance on post-treatment care and what to watch for in the days following service.</p>"
+        },
+        {
+          "question": "How many thrips treatment visits will I need to fully resolve the problem?",
+          "answer": "<p>Most thrips infestations require 2–3 visits spaced 7–10 days apart to break the pest's life cycle and eliminate newly hatching generations. The exact number depends on infestation severity and your home's layout. Our technician will outline an expected visit schedule during the initial consultation.</p>"
+        },
+        {
+          "question": "Can Elk Pest Pros treat thrips in Lufkin on short notice?",
+          "answer": "<p>We understand thrips infestations demand prompt action. Contact us as soon as you notice signs of thrips, and we'll work to schedule your first treatment quickly. Response times vary by season and current demand, but we prioritize active infestations to prevent damage from spreading.</p>"
+        },
+        {
+          "question": "Is thrips treatment safe for children and pets in my home?",
+          "answer": "<p>Yes. We use treatment methods designed to be safe around families and pets when applied according to professional standards. Before your visit, let us know about any children, pets, or health sensitivities so we can tailor our approach. We'll also provide you with any necessary precautions or post-treatment instructions to protect your household.</p>"
+        },
+        {
+          "question": "What factors determine the cost of thrips treatment?",
+          "answer": "<p>Cost depends on several factors: the size of your home, the extent of infestation, the number of infested plants or areas, and your treatment plan's complexity. We offer free, no-obligation estimates so you'll know costs upfront before any work begins. Contact us with details about your situation for an accurate quote.</p>"
+        },
+        {
+          "question": "When do thrips become a problem in Lufkin, and what time of year peaks?",
+          "answer": "<p>In East Texas, thrips populations typically build through spring and early summer, peaking during warm, dry months. Indoor thrips can remain problematic year-round. If you notice infestations during late spring through summer, don't delay—early treatment prevents severe plant damage. Our technicians can assess your specific risk based on your landscape and home conditions.</p>"
+        },
+        {
+          "question": "What are the warning signs my home needs thrips treatment?",
+          "answer": "<p>Look for silvery streaks or stippling on flower petals and leaves, distorted new growth, and tiny dark droppings on plant surfaces. You may also notice yellowing or browning foliage despite proper watering. Flowers may fail to open or show discoloration. If you spot these signs on indoor or outdoor plants, contact us for an inspection.</p>"
+        },
+        {
+          "question": "Why hire a professional for thrips instead of using store-bought products?",
+          "answer": "<p>Professional treatment is more effective because technicians identify all infested areas, apply targeted solutions precisely, and follow a strategic timeline to disrupt the thrips life cycle. Store products often miss hidden populations and may require repeated applications. Our expertise ensures thorough coverage and better long-term results than DIY approaches typically achieve.</p>"
+        },
+        {
+          "question": "How should I prepare my home before a thrips treatment appointment?",
+          "answer": "<p>Before your technician arrives, remove any items cluttering plant areas and move pets to a safe room if requested. Ensure clear access to infested plants and affected spaces. Let us know in advance if you have concerns about specific items or areas. Our team will provide detailed prep instructions when confirming your appointment time.</p>"
+        },
+        {
+          "question": "What can I do to prevent thrips from returning after treatment?",
+          "answer": "<p>After treatment, inspect plants regularly for early signs of thrips return. Remove heavily infested leaves promptly, maintain proper plant spacing for airflow, and avoid overwatering—thrips thrive in humid conditions. Consider isolating new plants before bringing them indoors. Our technician can provide additional prevention tips tailored to your home and landscape during the visit.</p>"
+        },
+        {
+          "question": "Does Elk Pest Pros guarantee thrips treatment, and what if they come back?",
+          "answer": "<p>We stand behind our work. If thrips return within the guaranteed timeframe, contact us immediately—we'll assess the situation and take appropriate action. Specific guarantee terms depend on your service agreement and the circumstances of any reinfestation. Discuss guarantee details with our team when scheduling your initial treatment visit.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:54:47.638634Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "d15e6cb1c0b8dbf5",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Dealing with thrips in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Thrips Treatment in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/thrips-treatment-lufkin-tx/",
+    "meta_description": "Get rid of thrips fast with a professional thrips exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
+    "meta_keywords": "thrips exterminator Lufkin TX, thrips control Lufkin TX, thrips removal Lufkin",
+    "og_title": "Thrips Exterminator in {city_state} | Fast, Guaranteed Thrips Control",
+    "og_description": "Get rid of thrips fast with a professional thrips exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+    "og_image": "",
+    "service_name": "Thrips Treatment",
+    "service_type": "Thrips Treatment",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional thrips exterminator services in {city_state}. Targeted thrips control for homes and businesses with fast response and a re-treat guarantee.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Thrips Exterminator in Lufkin, TX\",\"serviceType\":\"Thrips Extermination\",\"description\":\"Professional thrips exterminator services in Lufkin, TX. Targeted thrips control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Elk Pest Pros\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"},\"url\":\"https://elkpestpros.com/thrips-exterminator-lufkin-tx/\"}]}",
+    "primary_keyword": "Thrips Treatment"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-08T00:46:51+00:00",
+  "template_version": "c39c99eae1a4833e2e0b0419429f484f"
+}

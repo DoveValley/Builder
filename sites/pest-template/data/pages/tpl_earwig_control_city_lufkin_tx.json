@@ -1,0 +1,370 @@
+{
+  "template_id": "tpl_earwig_control",
+  "city_id": "city_lufkin_tx",
+  "slug": "earwig-control-lufkin-tx",
+  "title": "Earwig Control in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Earwig Control in {city_state}",
+      "hs_subtext": "<p>East Texas humidity and seasonal moisture create ideal conditions for earwig populations to thrive, particularly during Lufkin's warm months when these pests seek shelter in homes and landscaping. Elk Pest Pros specializes in identifying and controlling earwig infestations before they become established in your home, whether you're in Crown Colony, Fuller Springs, or elsewhere across the area. A targeted earwig control plan protects your peace of mind and prevents these invasive insects from becoming a recurring problem season after season.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Earwig",
+      "hs_caption2": "Exterminator",
+      "hs_photo_alt": "Earwig exterminator treating a {city_state} home",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/pest-template/uploads/media/earwigs-katy_70d516.webp",
+      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:49:12.999790Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "4568497efc3fea72",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:var(--skin-subtle-bg,#f3f6f7);border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);padding:18px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 44px;\"><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Trained Technicians</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Free Estimates</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Re-Treat Guarantee</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Same-Day Service</span></div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/pest-template/uploads/media/about-earwig-control-katy_02b404.webp",
+      "it_alt": "{business} technician applying earwig treatment along a baseboard in a {city_state} home",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Earwig Control Solutions for Lufkin Homes",
+      "text": "<p>Earwigs thrive in the warm, humid conditions that characterize East Texas summers, and Lufkin's climate creates ideal breeding grounds during the growing season. These pests prefer moist environments and are especially active from late spring through early fall, seeking shelter in soil, mulch, and garden debris around homes. Once temperatures drop, they often migrate indoors, finding their way into basements, crawl spaces, and wall voids where they can overwinter and emerge as a persistent indoor problem come spring. Homeowners throughout Lufkin frequently discover earwigs in bathrooms, kitchens, and storage areas—places where moisture and darkness attract them.</p><p>Elk Pest Pros addresses earwig infestations with a comprehensive approach tailored to Lufkin's specific seasonal patterns and home construction. Our team conducts a thorough inspection to identify entry points, breeding sites, and harborage areas both indoors and in the yard. We develop a targeted control strategy that interrupts the pest's life cycle and reduces conditions that encourage reinfestation, then follow up to ensure the problem doesn't return. Rather than applying a one-time treatment and hoping for the best, we work methodically to understand your home's unique vulnerabilities. When earwigs are active in your Lufkin property, prompt professional intervention makes all the difference—and we're ready to help you reclaim your space.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:49:17.220123Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "c3a4d42cdc3c418e",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Choose Elk Pest Pros",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Trained Earwig Specialists",
+          "text": "Our technicians understand earwig behavior, hiding spots, and entry points specific to your home. Proper identification and targeted treatment require skill—we deliver both to eliminate active infestations."
+        },
+        {
+          "heading": "Fast, Responsive Service",
+          "text": "Earwig problems worsen quickly. We prioritize rapid response and same-week scheduling so you're not waiting while pests multiply. Your call matters to us—we act on it."
+        },
+        {
+          "heading": "Thorough Treatment Approach",
+          "text": "One spray rarely solves earwig infestations. We inspect basements, crawl spaces, and exterior foundations, then apply strategic treatment to areas where earwigs hide and breed."
+        },
+        {
+          "heading": "East Texas Humidity Means Year-Round Threat",
+          "text": "Lufkin's warm, humid climate creates ideal conditions for earwigs spring through fall and beyond. We monitor seasonal activity and adjust prevention strategies so infestations don't catch you off guard."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:49:21.270237Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "c2bb4d297e6c7657",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Earwig Treatment Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call Our {city} Team",
+          "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Inspection & Assessment",
+          "text": "Your technician inspects the home, identifies the species and where earwigs are harboring, and builds a targeted treatment plan."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Treatment & Follow-Up",
+          "text": "We treat the areas where earwigs live and get inside, then follow up to confirm the infestation is fully cleared."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Ready to get rid of earwigs in {city}? Our trained technicians can get started fast.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/pest-template/uploads/media/best-earwig-control-katy_ade06f.webp",
+      "it_alt": "A {city_state} family relaxing at home, protected by {business} earwig control",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Earwig Control for Lufkin and Surrounding Areas",
+      "text": "<p>Earwig problems in the Lufkin region vary significantly based on property age and landscape characteristics. Established neighborhoods with mature trees, dense vegetation, and older structures create ideal conditions for earwigs to shelter in bark crevices, foundation gaps, and cluttered outdoor spaces. The warm, humid East Texas climate—particularly during late spring through early fall—accelerates their activity cycles, making these areas especially prone to infestations. Homes in areas like Crown Colony and Fuller Springs, where landscaping has had decades to develop, often face greater pressure from these moisture-seeking pests.</p><p>Newer subdivisions typically present different challenges. While construction is tighter and vegetation is younger, earwigs still find entry points around utility penetrations and areas where mulch or leaf litter accumulates near homes. Lufkin's seasonal rainfall and morning dew create persistent moisture that earwigs seek year-round. Effective control depends on understanding these local conditions—whether your property has the dense shelter of mature trees or the moisture-retention patterns of newly installed landscaping. Our team assesses these property-specific factors to develop targeted strategies that address earwig vulnerabilities before they become difficult infestations.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:49:25.127874Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "628718f30325e664",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Seasonal Earwig Control Steps for Lufkin Homes",
+      "steps_items": [
+        {
+          "heading": "Spring: Moisture & Entry Points",
+          "text": "Spring rains in East TX create the damp conditions earwigs love. They seek shelter in mulch, leaf litter, and gaps around foundations. Elk Pest Pros inspects vulnerable entry points and implements targeted treatments to prevent colonies from establishing near your home."
+        },
+        {
+          "heading": "Summer: Peak Activity Season",
+          "text": "Summer heat drives earwigs indoors seeking cool, moist refuges—basements, bathrooms, and crawl spaces become prime targets. Populations peak during these months. Elk Pest Pros provides strategic applications and monitoring to manage active infestations before they spread throughout your home."
+        },
+        {
+          "heading": "Fall: Pre-Winter Preparation",
+          "text": "As temperatures drop in autumn, earwigs gravitate toward shelter for overwintering. Gaps, weatherstripping, and foundation cracks become highways into homes. Elk Pest Pros seals entry pathways and applies preventive treatments to block fall invasions before cold weather arrives."
+        },
+        {
+          "heading": "Winter: Indoor Management",
+          "text": "Winter dormancy doesn't eliminate indoor earwig problems—they hide in walls and warm spaces. Activity slows but isolated infestations persist. Elk Pest Pros addresses winter-sheltered populations and maintains protection to keep your home pest-free through spring's thaw."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:49:29.120172Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "cc08aa9346a77f21",
+      "_ai_locked": true
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Pest Control Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
+          "alt": "Ant exterminator in {city}",
+          "heading": "Ant Control",
+          "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
+          "url": "/ant-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
+          "alt": "Bed bug treatment in {city}",
+          "heading": "Bed Bug Treatment",
+          "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
+          "url": "/bed-bug-treatment-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
+          "alt": "Flea control in {city}",
+          "heading": "Flea Control",
+          "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
+          "url": "/flea-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
+          "alt": "Rodent control in {city}",
+          "heading": "Rat Control",
+          "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
+          "url": "/rat-control-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Earwig Exterminator FAQ — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the signs my Lufkin home has an earwig problem?",
+          "answer": "<p>Look for small, reddish-brown insects with distinctive pincers at the rear end, usually found in damp areas like bathrooms, basements, and kitchens. You may notice damage to plant leaves, seedlings, or flower petals in gardens. Musty odors in confined spaces and their droppings (tiny dark specks) are also telltale signs of an active infestation.</p>"
+        },
+        {
+          "question": "When is earwig season in the Lufkin area?",
+          "answer": "<p>Earwigs thrive in East Texas's warm, humid climate year-round but become most active and visible during spring and early summer months when they seek mates and establish colonies. Fall can bring a secondary surge as they move indoors seeking shelter before cooler weather. Summer moisture from our region's rainfall creates ideal breeding conditions.</p>"
+        },
+        {
+          "question": "How quickly can Elk Pest Pros respond to an earwig infestation?",
+          "answer": "<p>We understand active infestations need prompt attention. Contact us for our current availability and scheduling options. Our team works to accommodate urgent requests whenever possible, and we'll discuss timeline expectations when you reach out so you know what to expect.</p>"
+        },
+        {
+          "question": "What does the earwig control process involve?",
+          "answer": "<p>Our technicians inspect your home to identify harborage areas, entry points, and moisture sources earwigs favor. Treatment targets cracks, crevices, and damp zones with appropriate control methods. We'll explain the approach during the visit and answer questions about what we're treating and why, ensuring you understand each step.</p>"
+        },
+        {
+          "question": "Is earwig treatment safe for my children and pets?",
+          "answer": "<p>We prioritize safety for your family. Our technicians use methods and products appropriate for homes with children and pets, and we provide clear guidance on any precautions to take before and after service. Always inform us of any pets or health concerns when booking so we can tailor our approach accordingly.</p>"
+        },
+        {
+          "question": "How many visits does earwig control typically require?",
+          "answer": "<p>Most infestations resolve with one thorough treatment, though follow-up visits may be recommended depending on severity and conditions in your home. We'll assess the situation during the initial visit and explain our recommended timeline, including any monitoring or preventive steps for the following weeks.</p>"
+        },
+        {
+          "question": "Why hire a professional for earwig control instead of DIY products?",
+          "answer": "<p>Professional pest control targets the root causes—moisture, entry points, and hidden colonies—that store-bought sprays often miss. Our technicians know where earwigs hide and breed, apply treatments more effectively, and can identify conditions attracting them to your home. This approach delivers longer-lasting results than spot treatments alone.</p>"
+        },
+        {
+          "question": "What should I do to prepare my home before an earwig control visit?",
+          "answer": "<p>Clear clutter from areas we'll treat, especially basements, crawl spaces, and under sinks where earwigs hide. Remove pet food and cover aquariums. Ensure our technician can access all problem areas. We'll provide a full preparation checklist when you schedule, so you'll know exactly what helps us work most effectively.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:49:37.962629Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "862a18e23f3dc91f",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Dealing with earwigs in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Earwig Control in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/earwig-control-lufkin-tx/",
+    "meta_description": "Get rid of earwigs fast with a professional earwig exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
+    "meta_keywords": "earwig exterminator Lufkin TX, earwig control Lufkin TX, earwig removal Lufkin",
+    "og_title": "Earwig Exterminator in {city_state} | Fast, Guaranteed Earwig Control",
+    "og_description": "Get rid of earwigs fast with a professional earwig exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+    "og_image": "",
+    "service_name": "Earwig Control",
+    "service_type": "Earwig Control",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional earwig exterminator services in {city_state}. Targeted earwig control for homes and businesses with fast response and a re-treat guarantee.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Earwig Exterminator in Lufkin, TX\",\"serviceType\":\"Earwig Extermination\",\"description\":\"Professional earwig exterminator services in Lufkin, TX. Targeted earwig control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Elk Pest Pros\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"},\"url\":\"https://elkpestpros.com/earwig-exterminator-lufkin-tx/\"}]}",
+    "primary_keyword": "Earwig Control"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-08T00:46:51+00:00",
+  "template_version": "92d0e03b01b6952e0278c73a90189ba6"
+}

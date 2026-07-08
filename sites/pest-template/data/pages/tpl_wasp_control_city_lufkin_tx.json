@@ -1,0 +1,378 @@
+{
+  "template_id": "tpl_wasp_control",
+  "city_id": "city_lufkin_tx",
+  "slug": "wasp-control-lufkin-tx",
+  "title": "Wasp Control in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Wasp Control in {city_state}",
+      "hs_subtext": "<p>East Texas summers bring sustained heat and humidity that extend wasp season well into fall, creating active nesting periods when these stinging insects pose a genuine threat to families and outdoor spaces. Elk Pest Pros specializes in identifying and safely removing wasp nests before they become dangerous, protecting your home and yard without unnecessary risk. A professional approach means you can reclaim your outdoor areas with confidence, knowing the problem has been properly addressed.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Wasp",
+      "hs_caption2": "Exterminator",
+      "hs_photo_alt": "Wasp exterminator treating a {city_state} home",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/pest-template/uploads/media/wasps-katy_cbff6b.webp",
+      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:55:17.714907Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "82c8eda312f9ce13",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:var(--skin-subtle-bg,#f3f6f7);border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);padding:18px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 44px;\"><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Trained Technicians</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Free Estimates</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Re-Treat Guarantee</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Same-Day Service</span></div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/pest-template/uploads/media/about-wasp-exterminator-katy_b79b6f.webp",
+      "it_alt": "{business} technician applying wasp treatment along a baseboard in a {city_state} home",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Wasp Control Services in Lufkin",
+      "text": "<p>Lufkin's warm, humid climate creates ideal conditions for wasps to thrive, particularly during spring and summer months when nests multiply rapidly around homes and properties. These aggressive insects are drawn to shelter, food sources, and water—all abundant in residential yards, patios, and around trash areas. A single nest can house hundreds of wasps, and their painful stings pose a genuine safety risk to families, pets, and guests. The longer an active nest goes unaddressed, the more entrenched the colony becomes, making professional intervention essential before populations spiral out of control.</p><p>Elk Pest Pros approaches wasp control in Lufkin with a thorough, methodical strategy designed to eliminate nests safely and prevent reinfestation. Our trained technicians identify nest locations, assess the extent of the problem, and apply targeted removal techniques that protect your family and property. We don't simply knock down a nest and walk away—we follow up to ensure the area remains wasp-free and provide guidance on reducing conditions that attract them back. While we handle other pest concerns as well, our focus on wasp control means you get expert service when stinging insects threaten your home's safety and comfort.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:55:21.847220Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "ddc5d757d3f33ebf",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Choose Elk Pest Pros",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Trained Wasp Control Experts",
+          "text": "Our technicians understand wasp behavior and nesting patterns, ensuring safe removal and treatment. Professional training means your family stays protected throughout the process."
+        },
+        {
+          "heading": "Fast Response to Active Nests",
+          "text": "Wasp infestations demand urgency. We respond promptly to calls in Lufkin and surrounding areas, minimizing risk to you, your family, and pets."
+        },
+        {
+          "heading": "Thorough Treatment and Prevention",
+          "text": "We don't just remove visible nests—we treat areas where wasps gather and identify conditions attracting them. Our approach reduces the likelihood of quick reinfestation."
+        },
+        {
+          "heading": "Ready for Texas Summer Wasp Season",
+          "text": "East Texas heat peaks wasp activity from late spring through early fall. We help homeowners prepare and respond quickly when nests appear during these critical months."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:55:24.802916Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "17123b7c5d3e0334",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Wasp Treatment Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call Our {city} Team",
+          "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Inspection & Assessment",
+          "text": "Your technician inspects the home, identifies the species and where wasps are harboring, and builds a targeted treatment plan."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Treatment & Follow-Up",
+          "text": "We treat the areas where wasps live and get inside, then follow up to confirm the infestation is fully cleared."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Ready to get rid of wasps in {city}? Our trained technicians can get started fast.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/pest-template/uploads/media/best-wasp-pest-control-katy_4e9857.webp",
+      "it_alt": "A {city_state} family relaxing at home, protected by {business} wasp control",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Wasp Control for Lufkin and Surrounding Communities",
+      "text": "<p>Lufkin's diverse property types create varying wasp control challenges throughout the year. Established neighborhoods with mature trees and older structures provide ideal nesting sites—dense canopies offer shelter, while gaps in aging siding and eaves become attractive entry points. Newer subdivisions like Crown Colony may have fewer mature trees initially, but younger landscaping still develops quickly in East Texas's humid climate, creating fresh habitat as properties mature. Both property types remain vulnerable during spring and summer when wasps are most active, though the specific nest locations and access points differ significantly.</p><p>The region's warm, extended growing season means wasp activity can persist longer than in cooler climates. Properties in areas like Fuller Springs and throughout Lufkin benefit from early spring inspections—before nests become established—to reduce summer infestations. Older homes may require more thorough perimeter checks due to construction gaps, while newer builds still need attention to deck structures, soffit areas, and landscaping. Understanding how your property's age, tree coverage, and construction style influences wasp behavior helps Elk Pest Pros develop a targeted control strategy suited to your specific situation and local seasonal patterns.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:55:28.991066Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "5c6610cb3dbb6c25",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Seasonal Wasp Control Guide for Lufkin Homeowners",
+      "steps_items": [
+        {
+          "heading": "Spring: Nesting Begins",
+          "text": "<p>As temperatures warm across East Texas, wasps emerge from dormancy and begin building nests on eaves, soffits, and sheltered areas around homes. Early spring intervention is critical to prevent colonies from establishing. Elk Pest Pros identifies and removes active nests before populations expand, protecting your family and outdoor spaces.</p>"
+        },
+        {
+          "heading": "Summer: Peak Activity",
+          "text": "<p>Lufkin's hot, humid summers create ideal conditions for wasp colonies to thrive and become aggressive, especially around food sources and outdoor gatherings. Increased activity near homes in areas like Crown Colony and Fuller Springs makes professional management essential. Elk Pest Pros provides targeted treatments to reduce wasp populations and minimize stinging risks during peak season.</p>"
+        },
+        {
+          "heading": "Fall: Preparation Phase",
+          "text": "<p>As fall arrives, wasps become more defensive as they prepare for winter, increasing sting incidents during yard work and home maintenance. Treating remaining nests and removing food attractants now prevents late-season encounters. Elk Pest Pros helps secure your property before cold weather arrives, reducing overwinter populations.</p>"
+        },
+        {
+          "heading": "Winter: Dormancy Monitoring",
+          "text": "<p>Winter brings dormancy, but protected spaces under eaves, attics, and sheds shelter queen wasps waiting for spring. Inspecting these areas and addressing potential overwintering sites now prevents severe infestations next season. Elk Pest Pros performs preventive checks to keep your Lufkin home wasp-free year-round.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:55:33.677106Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "f66750235d75c7f5",
+      "_ai_locked": true
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Pest Control Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
+          "alt": "Ant exterminator in {city}",
+          "heading": "Ant Control",
+          "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
+          "url": "/ant-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
+          "alt": "Bed bug treatment in {city}",
+          "heading": "Bed Bug Treatment",
+          "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
+          "url": "/bed-bug-treatment-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
+          "alt": "Flea control in {city}",
+          "heading": "Flea Control",
+          "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
+          "url": "/flea-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
+          "alt": "Rodent control in {city}",
+          "heading": "Rat Control",
+          "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
+          "url": "/rat-control-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Wasp Exterminator FAQ — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What does your wasp control treatment process actually involve?",
+          "answer": "<p>Our technicians begin with a thorough inspection to identify nests, entry points, and wasp species. We then apply targeted treatments to eliminate active nests and seal potential future nesting sites. The approach depends on nest location and size—some require direct nest treatment, while others benefit from perimeter defense. We'll explain each step before we begin.</p>"
+        },
+        {
+          "question": "How many visits does wasp control typically require in Lufkin?",
+          "answer": "<p>Most active infestations are resolved in one comprehensive visit. However, if nests are discovered in multiple locations or high-risk areas need preventive treatment, a follow-up visit may be recommended. We'll assess your situation during the initial inspection and discuss the expected timeline with you upfront.</p>"
+        },
+        {
+          "question": "How quickly can Elk Pest Pros respond to a wasp problem?",
+          "answer": "<p>We understand that active wasp nests create urgent safety concerns. We prioritize same-day or next-day service for confirmed infestations whenever possible. Contact us as soon as you spot a nest, and we'll work to schedule you quickly. Response times vary by current demand, but we aim to protect your family without unnecessary delay.</p>"
+        },
+        {
+          "question": "Is wasp control treatment safe around children and pets?",
+          "answer": "<p>Your family's safety is our priority. We use methods and materials appropriate for homes with children and pets, and we provide clear guidance on precautions before and after treatment. Always inform us of any young children, pregnant household members, or pets so we can tailor our approach accordingly. We'll explain what to expect and any temporary restrictions.</p>"
+        },
+        {
+          "question": "What factors affect the cost of wasp control service?",
+          "answer": "<p>Treatment cost depends on nest size, location (ground, roof, or interior), accessibility, number of nests, and whether preventive perimeter work is needed. We offer free estimates so you know the full scope before any work begins. Our technician will inspect your property and provide a transparent quote based on your specific situation.</p>"
+        },
+        {
+          "question": "When is wasp season in Texas and when should I prepare?",
+          "answer": "<p>Wasp activity peaks in late spring through early fall in Texas, with nests most visible and aggressive from June through September. If you've had problems before, late spring is the ideal time to call for preventive treatment before populations build up. Early action protects you during the most dangerous months.</p>"
+        },
+        {
+          "question": "What are the warning signs my home needs professional wasp control?",
+          "answer": "<p>Visible nests under eaves, around windows, or on exterior walls are the clearest sign. Also watch for increased wasp activity near doors, food, or trash areas, or if you've been stung on your property. Suspicious paper-like structures in walls, attics, or sheds warrant inspection. Don't wait for an injury—early intervention is safer and easier.</p>"
+        },
+        {
+          "question": "Is professional wasp control better than DIY sprays and traps?",
+          "answer": "<p>DIY products often fail to reach hidden nests or the queen, leaving colonies intact. Professional treatment targets the root cause, eliminates nests completely, and prevents re-infestation through preventive measures. DIY attempts can also be dangerous if nests are high, large, or in difficult-to-access spots. Our trained technicians safely handle what store-bought solutions cannot.</p>"
+        },
+        {
+          "question": "What should I do to prepare before your wasp control visit?",
+          "answer": "<p>Clear outdoor play areas and remove children or pets indoors during treatment. If possible, note all visible nests or high-activity zones and point them out to our technician. Ensure access to exterior areas and any attic or basement spaces where nests might hide. Follow any specific pre-visit instructions we provide when confirming your appointment.</p>"
+        },
+        {
+          "question": "How can I prevent wasps from returning after treatment?",
+          "answer": "<p>Secure trash cans, remove standing water, and trim vegetation away from the home's exterior. Keep food and pet dishes indoors. Seal cracks, gaps, and vents where wasps might nest. Eliminate exposed meat or sweet food sources. We can recommend a preventive perimeter treatment in spring to deter new colonies before they establish. Ongoing vigilance keeps future problems at bay.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-08T00:55:45.479847Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "5ce9ae9552e8a54f",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Dealing with wasps in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Wasp Control in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/wasp-control-lufkin-tx/",
+    "meta_description": "Get rid of wasps fast with a professional wasp exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
+    "meta_keywords": "wasp exterminator Lufkin TX, wasp control Lufkin TX, wasp removal Lufkin",
+    "og_title": "Wasp Exterminator in {city_state} | Fast, Guaranteed Wasp Control",
+    "og_description": "Get rid of wasps fast with a professional wasp exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+    "og_image": "",
+    "service_name": "Wasp Control",
+    "service_type": "Wasp Control",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional wasp exterminator services in {city_state}. Targeted wasp control for homes and businesses with fast response and a re-treat guarantee.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Wasp Exterminator in Lufkin, TX\",\"serviceType\":\"Wasp Extermination\",\"description\":\"Professional wasp exterminator services in Lufkin, TX. Targeted wasp control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Elk Pest Pros\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"},\"url\":\"https://elkpestpros.com/wasp-exterminator-lufkin-tx/\"}]}",
+    "primary_keyword": "Wasp Control"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-08T00:46:51+00:00",
+  "template_version": "506f2cd966e69fab0c07f5962d376d90"
+}

@@ -54,6 +54,26 @@ function _services_links_render(array $cfg, string $pathPrefix = ''): string {
             ? $photo : $pathPrefix . $photo;
     }
 
+    // Resolve every row to [name, url], and — when a page-index is available —
+    // drop links whose landing page hasn't been built for this city (avoids 404s
+    // on partial builds). Single-segment relative slugs only; external/deep/custom
+    // links always pass. If PAGE_INDEX_FILE is missing we can't tell, so show all.
+    $existSlugs = null;
+    if (defined('PAGE_INDEX_FILE') && file_exists(PAGE_INDEX_FILE)) {
+        $pi = json_decode((string)file_get_contents(PAGE_INDEX_FILE), true);
+        $existSlugs = is_array($pi) ? $pi : [];
+    }
+    $links = [];
+    foreach ($services as $svc) {
+        [$name, $url] = _services_links_row($svc, $pattern);
+        if ($name === '') continue;
+        if ($existSlugs !== null && isset($url[0]) && $url[0] === '/') {
+            $slug = trim((string)parse_url($url, PHP_URL_PATH), '/');
+            if ($slug !== '' && strpos($slug, '/') === false && !isset($existSlugs[$slug])) continue;
+        }
+        $links[] = [$name, $url];
+    }
+
     ob_start();
 
     if ($style === 'light') {
@@ -66,9 +86,7 @@ function _services_links_render(array $cfg, string $pathPrefix = ''): string {
             echo '</div>';
         }
         echo '<div class="lg-grid lg-light-grid lg-cols-' . $cols . '">';
-        foreach ($services as $svc) {
-            [$name, $url] = _services_links_row($svc, $pattern);
-            if ($name === '') continue;
+        foreach ($links as [$name, $url]) {
             echo '<a href="' . h($url) . '" class="lg-light-link">' . h($name) . '</a>';
         }
         echo '</div></div></div>';
@@ -86,9 +104,7 @@ function _services_links_render(array $cfg, string $pathPrefix = ''): string {
         }
         echo '<div class="lg-grid-wrap container">';
         echo '<div class="lg-grid lg-cols-' . $cols . '">';
-        foreach ($services as $svc) {
-            [$name, $url] = _services_links_row($svc, $pattern);
-            if ($name === '') continue;
+        foreach ($links as [$name, $url]) {
             echo '<a href="' . h($url) . '" class="lg-link">' . h($name) . '</a>';
         }
         echo '</div></div>';
