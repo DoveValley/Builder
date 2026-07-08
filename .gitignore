@@ -25,3 +25,6 @@ multisite/hero_style.json
 
 # Generation backups (created by generate.py on each landing regen)
 sites/*/data/pages/*.bak
+
+# Anthropic API key (secret — never commit)
+.ai_key
