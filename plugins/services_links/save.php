@@ -31,13 +31,16 @@ for ($i = 0; $i < $n; $i++) {
     $services[] = ['name' => $name, 'url' => $url];
 }
 
-// Sync: append landing templates that aren't already in the list. Uses each
-// template's real slug_pattern (authoritative link) and seo.service_name.
+// Sync: REPLACE the list with exactly the current landing templates — one row per
+// template, using its real slug_pattern (authoritative link) and seo.service_name.
+// This removes stale/orphan rows and adds any new templates, so the list is always
+// an accurate mirror of templates.json.
 $syncMsg = '';
 if ($action === 'sync') {
     $templates = (defined('TEMPLATES_FILE') && file_exists(TEMPLATES_FILE))
         ? (json_decode(file_get_contents(TEMPLATES_FILE), true) ?: []) : [];
-    $added = 0;
+    $services = [];   // full replace — discard the posted rows
+    $seen     = [];
     foreach ($templates as $t) {
         if (!is_array($t)) continue;
         $slug = trim($t['slug_pattern'] ?? '');
@@ -52,9 +55,8 @@ if ($action === 'sync') {
         if ($name === '') continue;
         $seen[$url] = true;
         $services[] = ['name' => $name, 'url' => $url];
-        $added++;
     }
-    $syncMsg = $added > 0 ? ($added . '+service(s)+added+from+templates.') : 'Already+in+sync+—+no+new+templates.';
+    $syncMsg = count($services) . '+service(s)+loaded+from+templates+(list+replaced).';
 }
 
 // Background photo upload

@@ -23,11 +23,11 @@ $services = $cfg['services'] ?? [];
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:12px;flex-wrap:wrap;">
                 <h2 style="margin:0;">Service Links</h2>
                 <button type="submit" name="action" value="sync" class="btn"
-                    onclick="return confirm('Sync from Landing Templates?\n\nAdds any templates not already listed (using each template\'s real slug) and keeps your current rows and edits.');">
+                    onclick="return confirm('Sync from Landing Templates?\n\nThis REPLACES the list with exactly your current landing templates (one row per template, using its real slug). Any manual rows or edits below will be discarded.');">
                     &#128260; Sync from Landing Templates
                 </button>
             </div>
-            <p class="hint" style="margin-bottom:12px;">Each row is a service <strong>name</strong> + its <strong>link</strong>. <strong>Sync</strong> pulls names and links from your Landing Templates (using each template's real slug — it only <em>adds</em> missing ones, never overwrites your edits). Links may use <code>{city_slug}</code> and other tokens, resolved per city at render.</p>
+            <p class="hint" style="margin-bottom:12px;">Each row is a service <strong>name</strong> + its <strong>link</strong>. <strong>Sync</strong> <em>replaces</em> the whole list with your current Landing Templates — one row per template, using each template's real slug (removes stale/orphan rows, adds new ones). Edit freely after syncing; re-syncing resets to the templates again. Links may use <code>{city_slug}</code> and other tokens, resolved per city at render.</p>
             <table style="width:100%;border-collapse:collapse;">
                 <thead><tr style="text-align:left;">
                     <th style="padding:4px 8px;font-size:.78rem;color:#64748b;">Name</th>
