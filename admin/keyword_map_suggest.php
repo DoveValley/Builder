@@ -59,7 +59,7 @@ if ($grounded) {
     "Report the representative Volume and KD you used per service (integers; KD 0-100).\n\n".
     "KEYWORD DATA:\n{$ahrefs}\n\n".
     "Return ONLY JSON, no prose: {\"services\":[{\"service\":\"Service Name\",\"tier\":\"high\",\"volume\":1200,\"kd\":9}, ...]} — up to 20 services, most valuable first.";
-    $model = 'claude-sonnet-5'; $maxTok = 4000; $timeout = 90;
+    $model = 'claude-sonnet-5'; $maxTok = 8000; $timeout = 120;
 } else {
     $prompt =
     "You are planning the landing-page service list for a LOCAL lead-generation website. {$ctx}".
@@ -70,7 +70,7 @@ if ($grounded) {
     "- low   = niche / low search volume / low lead value (candidate to cut or fold)\n\n".
     "Rules: 15-20 services max. Consolidate keyword variants of the SAME service into ONE (e.g. control/treatment/exterminator = one service). Favor high-lead-value services. Be realistic about demand.\n".
     "Return ONLY JSON, no prose: {\"services\":[{\"service\":\"Service Name\",\"tier\":\"high\"}, ...]}";
-    $model = 'claude-haiku-4-5-20251001'; $maxTok = 1500; $timeout = 45;
+    $model = 'claude-haiku-4-5-20251001'; $maxTok = 2500; $timeout = 45;
 }
 
 $payload = json_encode([
@@ -104,23 +104,36 @@ if ($httpCode !== 200 || !is_array($j)) {
 
 $text = '';
 foreach (($j['content'] ?? []) as $block) { if (($block['type'] ?? '') === 'text') $text .= $block['text']; }
+$text = preg_replace('/```(?:json)?/i', '', $text);   // drop code fences
 
-// Extract the JSON object from the response (tolerate stray prose/code fences).
+$validTier = ['high', 'medium', 'low'];
+$addRow = function (array $s) use (&$out, $validTier) {
+    $name = trim((string)($s['service'] ?? ''));
+    if ($name === '' || count($out) >= 25) return;
+    $row = ['service' => $name, 'tier' => in_array($s['tier'] ?? '', $validTier, true) ? $s['tier'] : 'medium'];
+    if (isset($s['volume']) && $s['volume'] !== '') $row['volume'] = preg_replace('/[^0-9]/', '', (string)$s['volume']);
+    if (isset($s['kd'])     && $s['kd']     !== '') $row['kd']     = preg_replace('/[^0-9]/', '', (string)$s['kd']);
+    $out[] = $row;
+};
+
+// Tier 1: parse the whole {...} object (normal case).
 $out = [];
 if (preg_match('/\{.*\}/s', $text, $m)) {
     $parsed = json_decode($m[0], true);
-    $validTier = ['high', 'medium', 'low'];
-    foreach (($parsed['services'] ?? []) as $s) {
-        $name = trim((string)($s['service'] ?? ''));
-        if ($name === '') continue;
-        $tier = in_array($s['tier'] ?? '', $validTier, true) ? $s['tier'] : 'medium';
-        $row = ['service' => $name, 'tier' => $tier];
-        if (isset($s['volume']) && $s['volume'] !== '') $row['volume'] = preg_replace('/[^0-9]/', '', (string)$s['volume']);
-        if (isset($s['kd'])     && $s['kd']     !== '') $row['kd']     = preg_replace('/[^0-9]/', '', (string)$s['kd']);
-        $out[] = $row;
-        if (count($out) >= 25) break;
+    if (is_array($parsed) && !empty($parsed['services'])) {
+        foreach ($parsed['services'] as $s) if (is_array($s)) $addRow($s);
     }
 }
-if (!$out) { echo json_encode(['error' => 'Could not parse suggestions from the model. Try again.']); exit; }
+// Tier 2 (fallback): response was truncated/malformed — salvage each complete
+// {"service": "...", ...} object individually (drops any half-written trailing one).
+if (!$out && preg_match_all('/\{[^{}]*?"service"\s*:\s*"[^"]+"[^{}]*?\}/s', $text, $mm)) {
+    foreach ($mm[0] as $obj) { $o = json_decode($obj, true); if (is_array($o)) $addRow($o); }
+}
+
+if (!$out) {
+    // Surface enough to diagnose (stop_reason often reveals max_tokens truncation).
+    $snip = trim(mb_substr($text, 0, 180));
+    echo json_encode(['error' => 'Could not parse suggestions (stop: ' . ($j['stop_reason'] ?? '?') . '). Try again or shorten the pasted data. Model said: ' . $snip]); exit;
+}
 
 echo json_encode(['services' => $out, 'grounded' => $grounded]);
