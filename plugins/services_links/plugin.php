@@ -72,6 +72,21 @@ function _services_links_passes(array $filter, $svc): bool {
 function _services_links_render(array $cfg, string $pathPrefix = '', array $attrs = []): string {
     global $data;
 
+    // ── resolve "self" against the current page's slug ──────────────────────────
+    // [services_links brand="self"] on a brand-hub page lists that page's own
+    // brand; appliance_type="self" on a type-hub page lists its own appliance.
+    // So one hub master works for every clone (filter derived from the page slug).
+    if (($attrs['brand'] ?? '') === 'self' || ($attrs['appliance_type'] ?? '') === 'self' || ($attrs['type'] ?? '') === 'self') {
+        global $slug;
+        $base = (string)($slug ?? '');
+        $citySlug = $data['site_vars']['city_slug'] ?? '';
+        if ($citySlug !== '') $base = preg_replace('/-' . preg_quote($citySlug, '/') . '$/', '', $base);
+        $self = appliance_derive_slug($base);
+        if (($attrs['brand'] ?? '')          === 'self') $attrs['brand']          = $self['brand'];
+        if (($attrs['appliance_type'] ?? '') === 'self') $attrs['appliance_type'] = $self['appliance_type'];
+        if (($attrs['type'] ?? '')           === 'self') $attrs['type']           = $self['appliance_type'];
+    }
+
     // ── resolve filter ────────────────────────────────────────────────────────
     $fBrand = isset($attrs['brand'])          ? _services_links_norm($attrs['brand'])          : '';
     $fType  = isset($attrs['appliance_type']) ? _services_links_norm($attrs['appliance_type']) : (isset($attrs['type']) ? _services_links_norm($attrs['type']) : '');

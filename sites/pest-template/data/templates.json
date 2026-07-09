@@ -208,7 +208,8 @@
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Cockroach Exterminator in {city_state}\",\"serviceType\":\"Cockroach Extermination\",\"description\":\"Professional cockroach exterminator services in {city_state}. Targeted roach control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "cockroach exterminator",
             "secondary_keywords": "roach exterminator, cockroach control, roach control, cockroach pest control, german cockroach treatment, get rid of roaches"
-        }
+        },
+        "base_role": "Extermination"
     },
     {
         "id": "tpl_ant_exterminator",
@@ -4856,7 +4857,8 @@
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Termite Inspection in {city_state}\",\"serviceType\":\"Termite Inspection\",\"description\":\"Professional termite inspection services in {city_state} with a thorough on-site inspection and a written report of findings.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "termite inspection",
             "secondary_keywords": "termite inspection cost, free termite inspection, termite inspection near me, real estate termite inspection"
-        }
+        },
+        "base_role": "Inspection"
     },
     {
         "id": "tpl_pest_inspection",
@@ -5541,7 +5543,8 @@
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Residential Pest Control in {city_state}\",\"serviceType\":\"Residential Pest Control\",\"description\":\"Professional residential pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "residential pest control",
             "secondary_keywords": "residential exterminator, home pest control, house pest control, family pest control"
-        }
+        },
+        "base_role": "Category"
     },
     {
         "id": "tpl_commercial_pest_control",
