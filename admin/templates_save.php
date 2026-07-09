@@ -218,6 +218,34 @@ if ($action === 'duplicate') {
     exit;
 }
 
+// ── set_base — flag/unflag a template as an "Master Template" (the master a batch clones from) ──
+if ($action === 'set_base') {
+    $id  = trim($_POST['template_id'] ?? '');
+    $on  = !empty($_POST['on']);
+    $templates = _tpl_load();
+    $found = false;
+    foreach ($templates as &$t) {
+        if (($t['id'] ?? '') === $id) {
+            if ($on) { $t['base'] = true; } else { unset($t['base']); }
+            $found = true;
+            break;
+        }
+    }
+    unset($t);
+
+    if (!$found) {
+        header('Location: index.php?tab=templates&msg=error:Template+not+found');
+        exit;
+    }
+    if (!_tpl_save($templates)) {
+        header('Location: index.php?tab=templates&msg=error:Could+not+update+template');
+        exit;
+    }
+    $msg = $on ? 'success:Moved+to+Master+Template' : 'success:Moved+to+Templates';
+    header('Location: index.php?tab=templates&msg=' . $msg);
+    exit;
+}
+
 // ── delete ────────────────────────────────────────────────────────────────────
 if ($action === 'delete') {
     $id = trim($_POST['template_id'] ?? '');

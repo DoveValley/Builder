@@ -97,6 +97,56 @@
 
 <?php elseif ($editingTemplate === null): ?>
 
+    <?php
+    // Partition templates: "Master Template" (base masters) vs the rest.
+    $baseTemplates    = array_values(array_filter($templates, fn($t) => !empty($t['base'])));
+    $regularTemplates = array_values(array_filter($templates, fn($t) => empty($t['base'])));
+
+    // Renders one template row (Edit / base-toggle / Duplicate / Delete).
+    $renderTplRow = function (array $tpl, bool $isBase) use ($csrfToken) {
+        ?>
+        <div class="repeat-row" style="align-items:center;">
+            <div style="flex:1;">
+                <strong><?= h($tpl['title'] ?: '(untitled)') ?></strong><br>
+                <span class="hint">
+                    Slug pattern: <code><?= h($tpl['slug_pattern'] ?? '') ?></code>
+                    &mdash;
+                    <?= count($tpl['content_blocks'] ?? []) ?> block<?= count($tpl['content_blocks'] ?? []) !== 1 ? 's' : '' ?>
+                    &mdash;
+                    <?= count($tpl['generation_steps'] ?? []) ?> generation step<?= count($tpl['generation_steps'] ?? []) !== 1 ? 's' : '' ?>
+                </span>
+            </div>
+            <a class="btn btn-secondary btn-small" href="?tab=templates&template=<?= h($tpl['id']) ?>">Edit</a>
+
+            <form action="templates_save.php" method="post" style="display:inline;">
+                <input type="hidden" name="action" value="set_base">
+                <input type="hidden" name="template_id" value="<?= h($tpl['id']) ?>">
+                <input type="hidden" name="on" value="<?= $isBase ? '0' : '1' ?>">
+                <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+                <button type="submit" class="btn btn-secondary btn-small" title="<?= $isBase ? 'Move back to the Templates list' : 'Mark as an Master Template (base master)' ?>">
+                    <?= $isBase ? '&darr; Move to Templates' : '&uarr; Set as Master' ?>
+                </button>
+            </form>
+
+            <form action="templates_save.php" method="post" style="display:inline;">
+                <input type="hidden" name="action" value="duplicate">
+                <input type="hidden" name="template_id" value="<?= h($tpl['id']) ?>">
+                <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+                <button type="submit" class="btn btn-secondary btn-small">Duplicate</button>
+            </form>
+
+            <form action="templates_save.php" method="post" style="display:inline;"
+                  onsubmit="return confirm('Delete template \'<?= h(addslashes($tpl['title'])) ?>\'? This cannot be undone.');">
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="template_id" value="<?= h($tpl['id']) ?>">
+                <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+                <button type="submit" class="remove-row" title="Delete template">&times;</button>
+            </form>
+        </div>
+        <?php
+    };
+    ?>
+
     <!-- ── List view ─────────────────────────────────────────────────── -->
     <div class="card">
         <h2>Add a New Template</h2>
@@ -227,42 +277,30 @@
         </details>
     </div>
 
+    <!-- ── Master Template (base masters) ─────────────────────────────── -->
     <div class="card">
-        <h2>Templates</h2>
-        <?php if (empty($templates)): ?>
-            <p class="hint">No templates yet. Add one above.</p>
+        <h2>Master Template</h2>
+        <p class="hint" style="margin-bottom:16px;">
+            The master template(s) the <strong>Bulk Template Generator</strong> clones from. Kept separate here
+            so the base pattern is easy to find. Use <strong>&uarr; Set as Master</strong> on any template below to move it here,
+            or <strong>&darr; Move to Templates</strong> to send it back.
+        </p>
+        <?php if (empty($baseTemplates)): ?>
+            <p class="hint">No master template set. Use <strong>&uarr; Set as Master</strong> on a template below to mark your base master.</p>
         <?php else: ?>
             <div class="repeat-items">
-            <?php foreach ($templates as $tpl): ?>
-                <div class="repeat-row" style="align-items:center;">
-                    <div style="flex:1;">
-                        <strong><?= h($tpl['title'] ?: '(untitled)') ?></strong><br>
-                        <span class="hint">
-                            Slug pattern: <code><?= h($tpl['slug_pattern'] ?? '') ?></code>
-                            &mdash;
-                            <?= count($tpl['content_blocks'] ?? []) ?> block<?= count($tpl['content_blocks'] ?? []) !== 1 ? 's' : '' ?>
-                            &mdash;
-                            <?= count($tpl['generation_steps'] ?? []) ?> generation step<?= count($tpl['generation_steps'] ?? []) !== 1 ? 's' : '' ?>
-                        </span>
-                    </div>
-                    <a class="btn btn-secondary btn-small" href="?tab=templates&template=<?= h($tpl['id']) ?>">Edit</a>
+            <?php foreach ($baseTemplates as $tpl) $renderTplRow($tpl, true); ?>
+            </div>
+        <?php endif; ?>
+    </div>
 
-                    <form action="templates_save.php" method="post" style="display:inline;">
-                        <input type="hidden" name="action" value="duplicate">
-                        <input type="hidden" name="template_id" value="<?= h($tpl['id']) ?>">
-                        <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
-                        <button type="submit" class="btn btn-secondary btn-small">Duplicate</button>
-                    </form>
-
-                    <form action="templates_save.php" method="post" style="display:inline;"
-                          onsubmit="return confirm('Delete template \'<?= h(addslashes($tpl['title'])) ?>\'? This cannot be undone.');">
-                        <input type="hidden" name="action" value="delete">
-                        <input type="hidden" name="template_id" value="<?= h($tpl['id']) ?>">
-                        <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
-                        <button type="submit" class="remove-row" title="Delete template">&times;</button>
-                    </form>
-                </div>
-            <?php endforeach; ?>
+    <div class="card">
+        <h2>Templates</h2>
+        <?php if (empty($regularTemplates)): ?>
+            <p class="hint"><?= empty($templates) ? 'No templates yet. Add one above.' : 'All templates are in the Master Template section above.' ?></p>
+        <?php else: ?>
+            <div class="repeat-items">
+            <?php foreach ($regularTemplates as $tpl) $renderTplRow($tpl, false); ?>
             </div>
         <?php endif; ?>
     </div>
