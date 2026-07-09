@@ -107,6 +107,15 @@
                 "fq_items": []
             },
             {
+                "type": "testimonials",
+                "anchor": "reviews",
+                "tm_label": "Reviews",
+                "tm_main_heading": "What {city} Homeowners Say About {business}",
+                "tm_subtext": "",
+                "tm_cols": 3,
+                "tm_items": []
+            },
+            {
                 "type": "custom_html",
                 "anchor": "related",
                 "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
@@ -228,6 +237,15 @@
                 "fq_items": []
             },
             {
+                "type": "testimonials",
+                "anchor": "reviews",
+                "tm_label": "Reviews",
+                "tm_main_heading": "What {city} Homeowners Say About {business}",
+                "tm_subtext": "",
+                "tm_cols": 3,
+                "tm_items": []
+            },
+            {
                 "type": "custom_html",
                 "anchor": "other_types",
                 "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]"
@@ -342,6 +360,15 @@
                 "ai_inject_field": "fq_items",
                 "ai_inject_mode": "replace",
                 "fq_items": []
+            },
+            {
+                "type": "testimonials",
+                "anchor": "reviews",
+                "tm_label": "Reviews",
+                "tm_main_heading": "What {city} Homeowners Say About {business}",
+                "tm_subtext": "",
+                "tm_cols": 3,
+                "tm_items": []
             },
             {
                 "type": "custom_html",

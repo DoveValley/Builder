@@ -16,11 +16,13 @@
             "secondary": []
         },
         {
-            "primary": "washing machine repair {city}, {ST}",
-            "slug": "washing-machine-repair",
+            "primary": "washer repair {city}, {ST}",
+            "slug": "washer-repair",
             "section": "landing",
             "tier": "",
-            "secondary": []
+            "secondary": [
+                "washing machine repair"
+            ]
         },
         {
             "primary": "dryer repair {city}, {ST}",
@@ -1080,5 +1082,5 @@
             "secondary": []
         }
     ],
-    "updated_at": "2026-07-09T20:32:10+00:00"
+    "updated_at": "2026-07-09T21:31:19+00:00"
 }
