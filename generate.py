@@ -233,6 +233,8 @@ def build_context(site_vars, city_data, page_data=None, hood_threshold=DEFAULT_H
         'service':       '',
         'keyword':       '',
         'secondary_keywords': '',
+        'brand':          '',
+        'appliance_type': '',
     }
 
     if page_data:
@@ -245,6 +247,11 @@ def build_context(site_vars, city_data, page_data=None, hood_threshold=DEFAULT_H
         # Variant phrasings for this page, from the keyword map (seo.secondary_keywords).
         # Prompts should weave these in naturally where they fit — never keyword-stuff.
         ctx['secondary_keywords'] = seo.get('secondary_keywords', '')
+        # Niche facets (generic passthrough): appliance pages set seo.brand /
+        # seo.appliance_type so prompts can write brand- and appliance-specific
+        # copy. Empty for niches (e.g. pest) that don't populate them.
+        ctx['brand']          = seo.get('brand', '')
+        ctx['appliance_type'] = seo.get('appliance_type', '')
 
     return ctx
 
