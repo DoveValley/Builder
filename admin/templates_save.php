@@ -226,7 +226,7 @@ if ($action === 'set_base') {
     $found = false;
     foreach ($templates as &$t) {
         if (($t['id'] ?? '') === $id) {
-            if ($on) { $t['base'] = true; } else { unset($t['base']); }
+            if ($on) { $t['base'] = true; } else { unset($t['base'], $t['base_role']); }
             $found = true;
             break;
         }
@@ -243,6 +243,35 @@ if ($action === 'set_base') {
     }
     $msg = $on ? 'success:Moved+to+Master+Template' : 'success:Moved+to+Templates';
     header('Location: index.php?tab=templates&msg=' . $msg);
+    exit;
+}
+
+// ── set_master_role — free-text archetype label for a master (any niche) ──
+if ($action === 'set_master_role') {
+    $id   = trim($_POST['template_id'] ?? '');
+    // free text, any niche (e.g. "Brand Hub", "Extermination"); sanitised + capped.
+    $role = trim(preg_replace('/\s+/', ' ', strip_tags((string)($_POST['base_role'] ?? ''))));
+    if (mb_strlen($role) > 40) $role = mb_substr($role, 0, 40);
+    $templates = _tpl_load();
+    $found = false;
+    foreach ($templates as &$t) {
+        if (($t['id'] ?? '') === $id) {
+            $t['base'] = true;                       // role only applies to masters
+            if ($role === '') unset($t['base_role']); else $t['base_role'] = $role;
+            $found = true;
+            break;
+        }
+    }
+    unset($t);
+    if (!$found) {
+        header('Location: index.php?tab=templates&msg=error:Template+not+found');
+        exit;
+    }
+    if (!_tpl_save($templates)) {
+        header('Location: index.php?tab=templates&msg=error:Could+not+update+template');
+        exit;
+    }
+    header('Location: index.php?tab=templates&msg=success:Master+role+set');
     exit;
 }
 

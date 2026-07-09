@@ -98,16 +98,30 @@
 <?php elseif ($editingTemplate === null): ?>
 
     <?php
+    // Masters carry a free-text "role" label (any niche): appliance uses Home /
+    // Type Hub / Brand Hub / Leaf; pest uses Extermination / Inspection / Category;
+    // etc. It's an organizational label — nothing is hardcoded to a niche.
+    $roleSuggestions = ['Home', 'Type Hub', 'Brand Hub', 'Leaf', 'Category', 'Hub', 'Extermination', 'Inspection'];
+
     // Partition templates: "Master Template" (base masters) vs the rest.
     $baseTemplates    = array_values(array_filter($templates, fn($t) => !empty($t['base'])));
     $regularTemplates = array_values(array_filter($templates, fn($t) => empty($t['base'])));
+    // Group masters by their role label (labelled first, alphabetical; unlabelled last).
+    usort($baseTemplates, function ($a, $b) {
+        $ra = trim($a['base_role'] ?? ''); $rb = trim($b['base_role'] ?? '');
+        if (($ra === '') !== ($rb === '')) return $ra === '' ? 1 : -1;   // unlabelled to the bottom
+        return strcasecmp($ra, $rb);
+    });
 
-    // Renders one template row (Edit / base-toggle / Duplicate / Delete).
+    // Renders one template row (Edit / base-toggle / Duplicate / Delete; + role label for masters).
     $renderTplRow = function (array $tpl, bool $isBase) use ($csrfToken) {
+        $role = trim($tpl['base_role'] ?? '');
         ?>
         <div class="repeat-row" style="align-items:center;">
             <div style="flex:1;">
-                <strong><?= h($tpl['title'] ?: '(untitled)') ?></strong><br>
+                <strong><?= h($tpl['title'] ?: '(untitled)') ?></strong>
+                <?php if ($isBase): ?><span style="display:inline-block;margin-left:6px;padding:1px 8px;background:<?= $role !== '' ? '#7c3aed' : '#94a3b8' ?>;color:#fff;border-radius:10px;font-size:.68rem;font-weight:700;vertical-align:middle;"><?= h($role !== '' ? $role : 'unlabelled') ?></span><?php endif; ?>
+                <br>
                 <span class="hint">
                     Slug pattern: <code><?= h($tpl['slug_pattern'] ?? '') ?></code>
                     &mdash;
@@ -116,6 +130,17 @@
                     <?= count($tpl['generation_steps'] ?? []) ?> generation step<?= count($tpl['generation_steps'] ?? []) !== 1 ? 's' : '' ?>
                 </span>
             </div>
+
+            <?php if ($isBase): ?>
+            <form action="templates_save.php" method="post" style="display:inline;" title="Master role / archetype label (free text)">
+                <input type="hidden" name="action" value="set_master_role">
+                <input type="hidden" name="template_id" value="<?= h($tpl['id']) ?>">
+                <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+                <input type="text" name="base_role" value="<?= h($role) ?>" list="master-role-suggest" placeholder="role e.g. Brand Hub" style="width:120px;padding:2px 6px;font-size:.82rem;">
+                <button type="submit" class="btn btn-secondary btn-small">Set role</button>
+            </form>
+            <?php endif; ?>
+
             <a class="btn btn-secondary btn-small" href="?tab=templates&template=<?= h($tpl['id']) ?>">Edit</a>
 
             <form action="templates_save.php" method="post" style="display:inline;">
@@ -123,7 +148,7 @@
                 <input type="hidden" name="template_id" value="<?= h($tpl['id']) ?>">
                 <input type="hidden" name="on" value="<?= $isBase ? '0' : '1' ?>">
                 <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
-                <button type="submit" class="btn btn-secondary btn-small" title="<?= $isBase ? 'Move back to the Templates list' : 'Mark as an Master Template (base master)' ?>">
+                <button type="submit" class="btn btn-secondary btn-small" title="<?= $isBase ? 'Move back to the Templates list' : 'Mark as a Master Template (base master)' ?>">
                     <?= $isBase ? '&darr; Move to Templates' : '&uarr; Set as Master' ?>
                 </button>
             </form>
@@ -280,10 +305,14 @@
     <!-- ── Master Template (base masters) ─────────────────────────────── -->
     <div class="card">
         <h2>Master Template</h2>
+        <datalist id="master-role-suggest"><?php foreach ($roleSuggestions as $rs): ?><option value="<?= h($rs) ?>"><?php endforeach; ?></datalist>
         <p class="hint" style="margin-bottom:16px;">
             The master template(s) the <strong>Bulk Template Generator</strong> clones from. Kept separate here
             so the base pattern is easy to find. Use <strong>&uarr; Set as Master</strong> on any template below to move it here,
             or <strong>&darr; Move to Templates</strong> to send it back.
+            <br>With <strong>3+ masters</strong> (different page archetypes), give each a <strong>role label</strong>
+            (free text &mdash; e.g. Home, Type Hub, Brand Hub, Leaf for appliance; Extermination, Inspection, Category for pest).
+            They sort by label so the archetypes read top-down.
         </p>
         <?php if (empty($baseTemplates)): ?>
             <p class="hint">No master template set. Use <strong>&uarr; Set as Master</strong> on a template below to mark your base master.</p>
