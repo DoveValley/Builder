@@ -1,28 +1,53 @@
 {
     "theme": {
-        "header_bg": "#120575",
+        "header_bg": "#1e5fa8",
         "header_text": "#ffffff",
         "content_bg": "#ffffff",
         "content_text": "#888c92",
-        "footer_bg": "#120575",
+        "footer_bg": "#123a63",
         "footer_text": "#ffffff",
-        "accent_color": "#fd783b",
+        "accent_color": "#f47c20",
         "primary_font": "Inclusive Sans, sans-serif",
         "button_radius": "5",
         "analytics_head": "",
         "facebook_pixel": "",
         "font_family": "Inclusive Sans, sans-serif",
         "header_top_bg": "#ffffff",
-        "heading_color": "#120575",
+        "heading_color": "#123a63",
         "font_size_body": 16,
         "font_size_h1": 3,
         "font_size_h2": 2.25,
         "font_size_h3": 1.63,
         "font_size_h4": 1.5,
-        "heading_font": ""
+        "heading_font": "",
+        "accent2_color": "#f5a623",
+        "btn_text": "#ffffff",
+        "border_color": "#e5e7eb",
+        "skins": {
+            "light": {
+                "bg": "#ffffff",
+                "heading": "#1a2e5a",
+                "text": "#555e6d"
+            },
+            "dark": {
+                "bg": "#0d1f3c",
+                "heading": "#ffffff",
+                "text": "#e2e8f0"
+            },
+            "accent": {
+                "bg": "#2563eb",
+                "heading": "#ffffff",
+                "text": "#dbeafe"
+            },
+            "subtle": {
+                "bg": "#f8fafc",
+                "heading": "#1a2e5a",
+                "text": "#555e6d"
+            }
+        }
     },
     "header": {
-        "logo": "sites/appliance-site/uploads/logo_1781487556_80cb06.png",
+        "logo": "uploads/logo_wells-appliance-repair.png",
         "phone": "{phone}",
         "city": "{city_state}",
         "topbar_text": "",
@@ -67,7 +92,8 @@
         "show_sponsored": true,
         "cta_text": "",
         "cta_url": "",
-        "site_name": "Wells Appliance Repair"
+        "site_name": "Wells Appliance Repair",
+        "favicon": "uploads/favicon_wells.png"
     },
     "content_blocks": [
         {
@@ -607,7 +633,8 @@
         "bc_mid_label": "",
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"PestControlService\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"description\": \"{business} provides professional pest control services across {state}, including cockroach, termite, mosquito, rodent, and wildlife control for homes and businesses in the communities we serve.\",\n            \"areaServed\": {\n                \"@type\": \"State\",\n                \"name\": \"{state}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Fr 08:00-18:00, Sa 09:00-13:00\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
-        "primary_keyword": "Pest Control"
+        "primary_keyword": "Pest Control",
+        "secondary_keywords": ""
     },
     "footer": {
         "logo": "",
@@ -817,7 +844,9 @@
                 "service_description": "",
                 "bc_label": "Privacy Policy",
                 "bc_mid_label": "",
-                "bc_mid_url": ""
+                "bc_mid_url": "",
+                "primary_keyword": "",
+                "secondary_keywords": ""
             }
         },
         "page_5ecf42631f084": {
@@ -975,7 +1004,9 @@
                 "service_description": "",
                 "bc_label": "Terms and Conditions",
                 "bc_mid_label": "",
-                "bc_mid_url": ""
+                "bc_mid_url": "",
+                "primary_keyword": "",
+                "secondary_keywords": ""
             }
         },
         "page_6a30c3339c03d": {
@@ -1007,7 +1038,9 @@
                 "service_description": "",
                 "bc_label": "Contact Us",
                 "bc_mid_label": "",
-                "bc_mid_url": ""
+                "bc_mid_url": "",
+                "primary_keyword": "",
+                "secondary_keywords": ""
             }
         }
     },
@@ -1034,7 +1067,7 @@
         "lb_price_range": "$$",
         "lb_hours": "Mo-Fr 08:00-18:00, Sa 09:00-13:00",
         "lb_description": "{business} provides professional pest control services in {city_state} including cockroach extermination, termite treatment, mosquito control, and more.",
-        "lb_logo": "{website}/uploads/logo_1781487556_80cb06.png",
+        "lb_logo": "{website}/uploads/logo_wells-appliance-repair.png",
         "lb_rating": "4.8",
         "lb_review_count": "534"
     },
@@ -1051,7 +1084,8 @@
         "city_image": "sites/appliance-site/uploads/media/city-scenic-lufkin-tx.webp",
         "city_image_alt": "Downtown Lufkin, TX",
         "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
-        "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG"
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+        "email": "contact@yourbusiness.com"
     },
     "posts": {
         "post_6a30bb2590334": {
@@ -1144,7 +1178,9 @@
                 "service_description": "",
                 "bc_label": "",
                 "bc_mid_label": "Blog",
-                "bc_mid_url": "/blog"
+                "bc_mid_url": "/blog",
+                "primary_keyword": "",
+                "secondary_keywords": ""
             }
         }
     },
@@ -1288,5 +1324,10 @@
         "accent": "accent",
         "accent_custom": "#fd783b",
         "anchor": "pest_services"
+    },
+    "breadcrumbs": {
+        "enabled": true,
+        "hero_bg_mode": "auto",
+        "hero_bg_color": ""
     }
 }
