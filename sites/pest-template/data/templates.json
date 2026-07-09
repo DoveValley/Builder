@@ -132,28 +132,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -194,7 +194,7 @@
             "seo_title": "Cockroach Exterminator in {city_state} | Fast, Guaranteed Roach Control",
             "canonical_url": "",
             "meta_description": "Get rid of roaches fast with a professional cockroach exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "cockroach exterminator {city} {SS}, roach control {city} {SS}, cockroach removal {city}",
+            "meta_keywords": "cockroach exterminator {city} {SS}, roach exterminator, cockroach control, roach control",
             "og_title": "Cockroach Exterminator in {city_state} | Fast, Guaranteed Roach Control",
             "og_description": "Get rid of roaches fast with a professional cockroach exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -206,16 +206,16 @@
             "bc_mid_label": "",
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Cockroach Exterminator in {city_state}\",\"serviceType\":\"Cockroach Extermination\",\"description\":\"Professional cockroach exterminator services in {city_state}. Targeted roach control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
-            "primary_keyword": "Cockroach Exterminator",
-            "secondary_keywords": "roach exterminator, cockroach control, roach control, cockroach treatment, german cockroach treatment"
+            "primary_keyword": "cockroach exterminator",
+            "secondary_keywords": "roach exterminator, cockroach control, roach control, cockroach pest control, german cockroach treatment, get rid of roaches"
         }
     },
     {
         "id": "tpl_ant_exterminator",
-        "title": "Ant Exterminator in {city_state} | {business}",
-        "slug_pattern": "ant-exterminator-{city_slug}",
+        "title": "Ant Pest Control in {city_state} | {business}",
+        "slug_pattern": "ant-pest-control-{city_slug}",
         "page_type": "template",
-        "service": "Ant Exterminator",
+        "service": "Ant Pest Control",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -224,13 +224,13 @@
         "content_blocks": [
             {
                 "type": "hero_split",
-                "hs_heading": "Ant Exterminator in {city_state}",
-                "hs_subtext": "<p>Fast, targeted ant control for {city_state} homes and businesses. Our trained technicians find where ants hide and get inside, treat the source, and back the work with a re-treat guarantee.</p>",
+                "hs_heading": "Ant Pest Control in {city_state}",
+                "hs_subtext": "<p>Reliable ant pest control for {city_state} homes and businesses. Our trained local technicians treat the problem at the source and back the work with a re-treat guarantee.</p>",
                 "hs_btn_text": "{phone}",
                 "hs_btn_url": "tel:{tel}",
-                "hs_caption1": "Ant",
-                "hs_caption2": "Exterminator",
-                "hs_photo_alt": "Ant exterminator treating a {city_state} home",
+                "hs_caption1": "Ant Pest",
+                "hs_caption2": "Control",
+                "hs_photo_alt": "Ant Pest Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
                 "hs_photo": "sites/pest-template/uploads/media/ant-exterminator-katy-tx_db35c5.webp",
@@ -252,7 +252,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
                 "it_photo": "sites/pest-template/uploads/media/about-ant-exterminator-katy_1c114b.webp",
-                "it_alt": "{business} technician applying ant treatment along a baseboard in a {city_state} home",
+                "it_alt": "Ant Pest Control in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -311,7 +311,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
                 "it_photo": "sites/pest-template/uploads/media/best-ant-exterminator-katy_3ee145.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} ant control",
+                "it_alt": "Ant Pest Control for {city_state} properties",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -342,28 +342,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -401,23 +401,23 @@
             }
         ],
         "seo": {
-            "seo_title": "Ant Exterminator in {city_state} | {business}",
+            "seo_title": "Ant Pest Control in {city_state} | {business}",
             "canonical_url": "",
-            "meta_description": "Get rid of ants fast with a professional ant exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "ant exterminator {city} {SS}, ant control {city} {SS}, ant removal {city}",
-            "og_title": "Ant Exterminator in {city_state} | Fast, Guaranteed Ant Control",
-            "og_description": "Get rid of ants fast with a professional ant exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+            "meta_description": "Professional ant pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
+            "meta_keywords": "ant pest control {city} {SS}, ant exterminator, ant control, ant treatment",
+            "og_title": "Ant Pest Control in {city_state} | {business}",
+            "og_description": "Professional ant pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
             "og_image": "",
-            "service_name": "Ant Exterminator",
-            "service_type": "Ant Exterminator",
+            "service_name": "Ant Pest Control",
+            "service_type": "Ant Pest Control",
             "service_area": "{city}, {SS}",
             "service_description": "Professional ant exterminator services in {city_state}. Targeted ant control for homes and businesses with fast response and a re-treat guarantee.",
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Ant Exterminator in {city_state}\",\"serviceType\":\"Ant Extermination\",\"description\":\"Professional ant exterminator services in {city_state}. Targeted ant control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
-            "primary_keyword": "ant exterminator",
-            "secondary_keywords": "ant control, ant pest control, ant treatment, ant removal"
+            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Ant Pest Control in {city_state}\",\"serviceType\":\"Ant Pest Control\",\"description\":\"Professional ant pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "primary_keyword": "ant pest control",
+            "secondary_keywords": "ant exterminator, ant control, ant treatment, ant removal, get rid of ants"
         }
     },
     {
@@ -552,28 +552,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -614,7 +614,7 @@
             "seo_title": "Fire Ant Control in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Get rid of fire ants fast with a professional fire ant exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "fire ant exterminator {city} {SS}, fire ant control {city} {SS}, fire ant removal {city}",
+            "meta_keywords": "fire ant control {city} {SS}, fire ant treatment, fire ant exterminator, fire ant yard treatment",
             "og_title": "Fire ant Exterminator in {city_state} | Fast, Guaranteed Fire ant Control",
             "og_description": "Get rid of fire ants fast with a professional fire ant exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -627,7 +627,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Fire ant Exterminator in {city_state}\",\"serviceType\":\"Fire ant Extermination\",\"description\":\"Professional fire ant exterminator services in {city_state}. Targeted fire ant control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "fire ant control",
-            "secondary_keywords": "fire ant treatment, fire ant exterminator, fire ant yard treatment"
+            "secondary_keywords": "fire ant treatment, fire ant exterminator, fire ant yard treatment, fire ant killer, fire ant mound treatment"
         }
     },
     {
@@ -762,28 +762,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -824,7 +824,7 @@
             "seo_title": "Carpenter Ant Control in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Get rid of carpenter ants fast with a professional carpenter ant exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "carpenter ant exterminator {city} {SS}, carpenter ant control {city} {SS}, carpenter ant removal {city}",
+            "meta_keywords": "carpenter ant control {city} {SS}, carpenter ant exterminator, carpenter ant treatment, carpenter ant removal",
             "og_title": "Carpenter ant Exterminator in {city_state} | Fast, Guaranteed Carpenter ant Control",
             "og_description": "Get rid of carpenter ants fast with a professional carpenter ant exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -837,15 +837,15 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Carpenter ant Exterminator in {city_state}\",\"serviceType\":\"Carpenter ant Extermination\",\"description\":\"Professional carpenter ant exterminator services in {city_state}. Targeted carpenter ant control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "carpenter ant control",
-            "secondary_keywords": "carpenter ant exterminator, carpenter ant treatment"
+            "secondary_keywords": "carpenter ant exterminator, carpenter ant treatment, carpenter ant removal, carpenter ant damage"
         }
     },
     {
         "id": "tpl_bed_bug_exterminator",
-        "title": "Bed Bug Exterminator in {city_state} | {business}",
-        "slug_pattern": "bed-bug-exterminator-{city_slug}",
+        "title": "Bed Bug Control in {city_state} | {business}",
+        "slug_pattern": "bed-bug-control-{city_slug}",
         "page_type": "template",
-        "service": "Bed Bug Exterminator",
+        "service": "Bed Bug Control",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -854,13 +854,13 @@
         "content_blocks": [
             {
                 "type": "hero_split",
-                "hs_heading": "Bed Bug Exterminator in {city_state}",
-                "hs_subtext": "<p>Fast, targeted bed bug control for {city_state} homes and businesses. Our trained technicians find where bed bugs hide and get inside, treat the source, and back the work with a re-treat guarantee.</p>",
+                "hs_heading": "Bed Bug Control in {city_state}",
+                "hs_subtext": "<p>Reliable bed bug control for {city_state} homes and businesses. Our trained local technicians treat the problem at the source and back the work with a re-treat guarantee.</p>",
                 "hs_btn_text": "{phone}",
                 "hs_btn_url": "tel:{tel}",
-                "hs_caption1": "Bed bug",
-                "hs_caption2": "Exterminator",
-                "hs_photo_alt": "Bed bug exterminator treating a {city_state} home",
+                "hs_caption1": "Bed Bug",
+                "hs_caption2": "Control",
+                "hs_photo_alt": "Bed Bug Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
                 "hs_photo": "sites/pest-template/uploads/media/bed-bug-exterminator-katy-tx_10746b.webp",
@@ -882,7 +882,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
                 "it_photo": "sites/pest-template/uploads/media/about-bed-bug-exterminator-katy_67236d.webp",
-                "it_alt": "{business} technician applying bed bug treatment along a baseboard in a {city_state} home",
+                "it_alt": "Bed Bug Control in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -941,7 +941,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
                 "it_photo": "sites/pest-template/uploads/media/best-bed-bug-exterminator-katy_970238.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} bed bug control",
+                "it_alt": "Bed Bug Control for {city_state} properties",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -972,28 +972,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -1031,23 +1031,23 @@
             }
         ],
         "seo": {
-            "seo_title": "Bed Bug Exterminator in {city_state} | {business}",
+            "seo_title": "Bed Bug Control in {city_state} | {business}",
             "canonical_url": "",
-            "meta_description": "Get rid of bed bugs fast with a professional bed bug exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "bed bug exterminator {city} {SS}, bed bug control {city} {SS}, bed bug removal {city}",
-            "og_title": "Bed bug Exterminator in {city_state} | Fast, Guaranteed Bed bug Control",
-            "og_description": "Get rid of bed bugs fast with a professional bed bug exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+            "meta_description": "Professional bed bug control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
+            "meta_keywords": "bed bug control {city} {SS}, bed bug exterminator, bed bug treatment, bed bug removal",
+            "og_title": "Bed Bug Control in {city_state} | {business}",
+            "og_description": "Professional bed bug control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
             "og_image": "",
-            "service_name": "Bed Bug Exterminator",
-            "service_type": "Bed Bug Exterminator",
+            "service_name": "Bed Bug Control",
+            "service_type": "Bed Bug Control",
             "service_area": "{city}, {SS}",
             "service_description": "Professional bed bug exterminator services in {city_state}. Targeted bed bug control for homes and businesses with fast response and a re-treat guarantee.",
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bed bug Exterminator in {city_state}\",\"serviceType\":\"Bed bug Extermination\",\"description\":\"Professional bed bug exterminator services in {city_state}. Targeted bed bug control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
-            "primary_keyword": "bed bug exterminator",
-            "secondary_keywords": "bed bug treatment, bed bug control, bed bug removal, bed bug heat treatment, heat treatment for bed bugs"
+            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bed Bug Control in {city_state}\",\"serviceType\":\"Bed Bug Control\",\"description\":\"Professional bed bug control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "primary_keyword": "bed bug control",
+            "secondary_keywords": "bed bug exterminator, bed bug treatment, bed bug removal, bed bug heat treatment, bed bug pest control, get rid of bed bugs"
         }
     },
     {
@@ -1182,28 +1182,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -1244,7 +1244,7 @@
             "seo_title": "Termite Treatment in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Get rid of termites fast with a professional termite exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "termite exterminator {city} {SS}, termite control {city} {SS}, termite removal {city}",
+            "meta_keywords": "termite treatment {city} {SS}, termite control, termite exterminator, termite removal",
             "og_title": "Termite Exterminator in {city_state} | Fast, Guaranteed Termite Control",
             "og_description": "Get rid of termites fast with a professional termite exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -1257,7 +1257,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Termite Exterminator in {city_state}\",\"serviceType\":\"Termite Extermination\",\"description\":\"Professional termite exterminator services in {city_state}. Targeted termite control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "termite treatment",
-            "secondary_keywords": "termite control, termite exterminator, termite removal, termite fumigation, tent fumigation"
+            "secondary_keywords": "termite control, termite exterminator, termite removal, subterranean termite treatment, termite pest control, termite bond"
         }
     },
     {
@@ -1392,28 +1392,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -1454,7 +1454,7 @@
             "seo_title": "Mosquito Control in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Get rid of mosquitoes fast with a professional mosquito exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "mosquito exterminator {city} {SS}, mosquito control {city} {SS}, mosquito removal {city}",
+            "meta_keywords": "mosquito control {city} {SS}, mosquito treatment, mosquito exterminator, mosquito spray service",
             "og_title": "Mosquito Exterminator in {city_state} | Fast, Guaranteed Mosquito Control",
             "og_description": "Get rid of mosquitoes fast with a professional mosquito exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -1467,15 +1467,15 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Mosquito Exterminator in {city_state}\",\"serviceType\":\"Mosquito Extermination\",\"description\":\"Professional mosquito exterminator services in {city_state}. Targeted mosquito control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "mosquito control",
-            "secondary_keywords": "mosquito treatment, mosquito spray service, backyard mosquito control, mosquito misting system, mosquito misting installation"
+            "secondary_keywords": "mosquito treatment, mosquito exterminator, mosquito spray service, backyard mosquito control, mosquito misting system, mosquito yard treatment"
         }
     },
     {
         "id": "tpl_flea_exterminator",
-        "title": "Flea Exterminator in {city_state} | {business}",
-        "slug_pattern": "flea-exterminator-{city_slug}",
+        "title": "Flea Pest Control in {city_state} | {business}",
+        "slug_pattern": "flea-pest-control-{city_slug}",
         "page_type": "template",
-        "service": "Flea Exterminator",
+        "service": "Flea Pest Control",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -1484,13 +1484,13 @@
         "content_blocks": [
             {
                 "type": "hero_split",
-                "hs_heading": "Flea Exterminator in {city_state}",
-                "hs_subtext": "<p>Fast, targeted flea control for {city_state} homes and businesses. Our trained technicians find where fleas hide and get inside, treat the source, and back the work with a re-treat guarantee.</p>",
+                "hs_heading": "Flea Pest Control in {city_state}",
+                "hs_subtext": "<p>Reliable flea pest control for {city_state} homes and businesses. Our trained local technicians treat the problem at the source and back the work with a re-treat guarantee.</p>",
                 "hs_btn_text": "{phone}",
                 "hs_btn_url": "tel:{tel}",
-                "hs_caption1": "Flea",
-                "hs_caption2": "Exterminator",
-                "hs_photo_alt": "Flea exterminator treating a {city_state} home",
+                "hs_caption1": "Flea Pest",
+                "hs_caption2": "Control",
+                "hs_photo_alt": "Flea Pest Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
                 "hs_photo": "sites/pest-template/uploads/media/flea-exterminator-katy-tx_b65819.webp",
@@ -1512,7 +1512,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
                 "it_photo": "sites/pest-template/uploads/media/about-flea-exterminator-katy_f798d2.webp",
-                "it_alt": "{business} technician applying flea treatment along a baseboard in a {city_state} home",
+                "it_alt": "Flea Pest Control in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -1571,7 +1571,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
                 "it_photo": "sites/pest-template/uploads/media/best-flea-exterminator-katy_5a0eb0.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} flea control",
+                "it_alt": "Flea Pest Control for {city_state} properties",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -1602,28 +1602,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -1661,31 +1661,31 @@
             }
         ],
         "seo": {
-            "seo_title": "Flea Exterminator in {city_state} | {business}",
+            "seo_title": "Flea Pest Control in {city_state} | {business}",
             "canonical_url": "",
-            "meta_description": "Get rid of fleas fast with a professional flea exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "flea exterminator {city} {SS}, flea control {city} {SS}, flea removal {city}",
-            "og_title": "Flea Exterminator in {city_state} | Fast, Guaranteed Flea Control",
-            "og_description": "Get rid of fleas fast with a professional flea exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+            "meta_description": "Professional flea pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
+            "meta_keywords": "flea pest control {city} {SS}, flea exterminator, flea control, flea treatment",
+            "og_title": "Flea Pest Control in {city_state} | {business}",
+            "og_description": "Professional flea pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
             "og_image": "",
-            "service_name": "Flea Exterminator",
-            "service_type": "Flea Exterminator",
+            "service_name": "Flea Pest Control",
+            "service_type": "Flea Pest Control",
             "service_area": "{city}, {SS}",
             "service_description": "Professional flea exterminator services in {city_state}. Targeted flea control for homes and businesses with fast response and a re-treat guarantee.",
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Flea Exterminator in {city_state}\",\"serviceType\":\"Flea Extermination\",\"description\":\"Professional flea exterminator services in {city_state}. Targeted flea control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
-            "primary_keyword": "flea exterminator",
-            "secondary_keywords": "flea control, flea treatment, flea removal, flea and tick yard treatment, flea and tick control"
+            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Flea Pest Control in {city_state}\",\"serviceType\":\"Flea Pest Control\",\"description\":\"Professional flea pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "primary_keyword": "flea pest control",
+            "secondary_keywords": "flea exterminator, flea control, flea treatment, flea removal, flea and tick control, get rid of fleas"
         }
     },
     {
         "id": "tpl_tick_control",
-        "title": "Tick Control in {city_state} | {business}",
-        "slug_pattern": "tick-control-{city_slug}",
+        "title": "Tick Treatment in {city_state} | {business}",
+        "slug_pattern": "tick-treatment-{city_slug}",
         "page_type": "template",
-        "service": "Tick Control",
+        "service": "Tick Treatment",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -1694,13 +1694,13 @@
         "content_blocks": [
             {
                 "type": "hero_split",
-                "hs_heading": "Tick Control in {city_state}",
-                "hs_subtext": "<p>Fast, targeted tick control for {city_state} homes and businesses. Our trained technicians find where ticks hide and get inside, treat the source, and back the work with a re-treat guarantee.</p>",
+                "hs_heading": "Tick Treatment in {city_state}",
+                "hs_subtext": "<p>Reliable tick treatment for {city_state} homes and businesses. Our trained local technicians treat the problem at the source and back the work with a re-treat guarantee.</p>",
                 "hs_btn_text": "{phone}",
                 "hs_btn_url": "tel:{tel}",
                 "hs_caption1": "Tick",
-                "hs_caption2": "Exterminator",
-                "hs_photo_alt": "Tick exterminator treating a {city_state} home",
+                "hs_caption2": "Treatment",
+                "hs_photo_alt": "Tick Treatment in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
                 "hs_photo": "sites/pest-template/uploads/media/tick-control-katy-tx_31b8de.webp",
@@ -1722,7 +1722,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
                 "it_photo": "sites/pest-template/uploads/media/about-tick-control-katy_f9a090.webp",
-                "it_alt": "{business} technician applying tick treatment along a baseboard in a {city_state} home",
+                "it_alt": "Tick Treatment in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -1781,7 +1781,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
                 "it_photo": "sites/pest-template/uploads/media/best-tick-control-katy_468411.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} tick control",
+                "it_alt": "Tick Treatment for {city_state} properties",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -1812,28 +1812,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -1871,23 +1871,23 @@
             }
         ],
         "seo": {
-            "seo_title": "Tick Control in {city_state} | {business}",
+            "seo_title": "Tick Treatment in {city_state} | {business}",
             "canonical_url": "",
-            "meta_description": "Get rid of ticks fast with a professional tick exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "tick exterminator {city} {SS}, tick control {city} {SS}, tick removal {city}",
-            "og_title": "Tick Exterminator in {city_state} | Fast, Guaranteed Tick Control",
-            "og_description": "Get rid of ticks fast with a professional tick exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+            "meta_description": "Professional tick treatment in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
+            "meta_keywords": "tick treatment {city} {SS}, tick control, tick exterminator, tick yard treatment",
+            "og_title": "Tick Treatment in {city_state} | {business}",
+            "og_description": "Professional tick treatment in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
             "og_image": "",
-            "service_name": "Tick Control",
-            "service_type": "Tick Control",
+            "service_name": "Tick Treatment",
+            "service_type": "Tick Treatment",
             "service_area": "{city}, {SS}",
             "service_description": "Professional tick exterminator services in {city_state}. Targeted tick control for homes and businesses with fast response and a re-treat guarantee.",
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Tick Exterminator in {city_state}\",\"serviceType\":\"Tick Extermination\",\"description\":\"Professional tick exterminator services in {city_state}. Targeted tick control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
-            "primary_keyword": "tick control",
-            "secondary_keywords": "tick treatment, tick exterminator, tick yard treatment"
+            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Tick Treatment in {city_state}\",\"serviceType\":\"Tick Treatment\",\"description\":\"Professional tick treatment services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "primary_keyword": "tick treatment",
+            "secondary_keywords": "tick control, tick exterminator, tick yard treatment, flea and tick treatment, get rid of ticks"
         }
     },
     {
@@ -2022,28 +2022,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -2084,7 +2084,7 @@
             "seo_title": "Rat Exterminator in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Get rid of rats fast with a professional rat exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "rat exterminator {city} {SS}, rat control {city} {SS}, rat removal {city}",
+            "meta_keywords": "rat exterminator {city} {SS}, rat control, rat pest control, rat removal",
             "og_title": "Rat Exterminator in {city_state} | Fast, Guaranteed Rat Control",
             "og_description": "Get rid of rats fast with a professional rat exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -2097,7 +2097,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Rat Exterminator in {city_state}\",\"serviceType\":\"Rat Extermination\",\"description\":\"Professional rat exterminator services in {city_state}. Targeted rat control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "rat exterminator",
-            "secondary_keywords": "rat control, rat pest control, rat removal, rodent control, rodent exterminator"
+            "secondary_keywords": "rat control, rat pest control, rat removal, rodent control, rodent exterminator, get rid of rats"
         }
     },
     {
@@ -2232,28 +2232,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -2294,7 +2294,7 @@
             "seo_title": "Mouse Exterminator in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Get rid of mice fast with a professional mouse exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "mouse exterminator {city} {SS}, mouse control {city} {SS}, mouse removal {city}",
+            "meta_keywords": "mouse exterminator {city} {SS}, mouse control, mice control, mice exterminator",
             "og_title": "Mouse Exterminator in {city_state} | Fast, Guaranteed Mouse Control",
             "og_description": "Get rid of mice fast with a professional mouse exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -2307,15 +2307,15 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Mouse Exterminator in {city_state}\",\"serviceType\":\"Mouse Extermination\",\"description\":\"Professional mouse exterminator services in {city_state}. Targeted mouse control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "mouse exterminator",
-            "secondary_keywords": "mouse control, mice control, mice exterminator"
+            "secondary_keywords": "mouse control, mice control, mice exterminator, mouse removal, get rid of mice"
         }
     },
     {
         "id": "tpl_spider_control",
-        "title": "Spider Control in {city_state} | {business}",
-        "slug_pattern": "spider-control-{city_slug}",
+        "title": "Spider Pest Control in {city_state} | {business}",
+        "slug_pattern": "spider-pest-control-{city_slug}",
         "page_type": "template",
-        "service": "Spider Control",
+        "service": "Spider Pest Control",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -2324,13 +2324,13 @@
         "content_blocks": [
             {
                 "type": "hero_split",
-                "hs_heading": "Spider Control in {city_state}",
-                "hs_subtext": "<p>Fast, targeted spider control for {city_state} homes and businesses. Our trained technicians find where spiders hide and get inside, treat the source, and back the work with a re-treat guarantee.</p>",
+                "hs_heading": "Spider Pest Control in {city_state}",
+                "hs_subtext": "<p>Reliable spider pest control for {city_state} homes and businesses. Our trained local technicians treat the problem at the source and back the work with a re-treat guarantee.</p>",
                 "hs_btn_text": "{phone}",
                 "hs_btn_url": "tel:{tel}",
-                "hs_caption1": "Spider",
-                "hs_caption2": "Exterminator",
-                "hs_photo_alt": "Spider exterminator treating a {city_state} home",
+                "hs_caption1": "Spider Pest",
+                "hs_caption2": "Control",
+                "hs_photo_alt": "Spider Pest Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
                 "hs_photo": "sites/pest-template/uploads/media/spider-exterminator-katy-tx_2aeaab.webp",
@@ -2352,7 +2352,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
                 "it_photo": "sites/pest-template/uploads/media/about-spider-exterminator-katy_19881c.webp",
-                "it_alt": "{business} technician applying spider treatment along a baseboard in a {city_state} home",
+                "it_alt": "Spider Pest Control in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -2411,7 +2411,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
                 "it_photo": "sites/pest-template/uploads/media/best-spider-exterminator-katy_c031b7.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} spider control",
+                "it_alt": "Spider Pest Control for {city_state} properties",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -2442,28 +2442,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -2501,31 +2501,31 @@
             }
         ],
         "seo": {
-            "seo_title": "Spider Control in {city_state} | {business}",
+            "seo_title": "Spider Pest Control in {city_state} | {business}",
             "canonical_url": "",
-            "meta_description": "Get rid of spiders fast with a professional spider exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "spider exterminator {city} {SS}, spider control {city} {SS}, spider removal {city}",
-            "og_title": "Spider Exterminator in {city_state} | Fast, Guaranteed Spider Control",
-            "og_description": "Get rid of spiders fast with a professional spider exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+            "meta_description": "Professional spider pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
+            "meta_keywords": "spider pest control {city} {SS}, spider control, spider exterminator, spider treatment",
+            "og_title": "Spider Pest Control in {city_state} | {business}",
+            "og_description": "Professional spider pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
             "og_image": "",
-            "service_name": "Spider Control",
-            "service_type": "Spider Control",
+            "service_name": "Spider Pest Control",
+            "service_type": "Spider Pest Control",
             "service_area": "{city}, {SS}",
             "service_description": "Professional spider exterminator services in {city_state}. Targeted spider control for homes and businesses with fast response and a re-treat guarantee.",
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Spider Exterminator in {city_state}\",\"serviceType\":\"Spider Extermination\",\"description\":\"Professional spider exterminator services in {city_state}. Targeted spider control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
-            "primary_keyword": "spider control",
-            "secondary_keywords": "spider exterminator, spider pest control, spider treatment, spider removal"
+            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Spider Pest Control in {city_state}\",\"serviceType\":\"Spider Pest Control\",\"description\":\"Professional spider pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "primary_keyword": "spider pest control",
+            "secondary_keywords": "spider control, spider exterminator, spider treatment, spider removal, get rid of spiders"
         }
     },
     {
         "id": "tpl_scorpion_control",
-        "title": "Scorpion Control in {city_state} | {business}",
-        "slug_pattern": "scorpion-control-{city_slug}",
+        "title": "Scorpion Pest Control in {city_state} | {business}",
+        "slug_pattern": "scorpion-pest-control-{city_slug}",
         "page_type": "template",
-        "service": "Scorpion Control",
+        "service": "Scorpion Pest Control",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -2534,13 +2534,13 @@
         "content_blocks": [
             {
                 "type": "hero_split",
-                "hs_heading": "Scorpion Control in {city_state}",
-                "hs_subtext": "<p>Fast, targeted scorpion control for {city_state} homes and businesses. Our trained technicians find where scorpions hide and get inside, treat the source, and back the work with a re-treat guarantee.</p>",
+                "hs_heading": "Scorpion Pest Control in {city_state}",
+                "hs_subtext": "<p>Reliable scorpion pest control for {city_state} homes and businesses. Our trained local technicians treat the problem at the source and back the work with a re-treat guarantee.</p>",
                 "hs_btn_text": "{phone}",
                 "hs_btn_url": "tel:{tel}",
-                "hs_caption1": "Scorpion",
-                "hs_caption2": "Exterminator",
-                "hs_photo_alt": "Scorpion exterminator treating a {city_state} home",
+                "hs_caption1": "Scorpion Pest",
+                "hs_caption2": "Control",
+                "hs_photo_alt": "Scorpion Pest Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
                 "hs_photo": "sites/pest-template/uploads/media/pest-exterminator-katy-tx_968a64.webp",
@@ -2562,7 +2562,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
                 "it_photo": "sites/pest-template/uploads/media/about-pest-exterminator-katy_44058f.webp",
-                "it_alt": "{business} technician applying scorpion treatment along a baseboard in a {city_state} home",
+                "it_alt": "Scorpion Pest Control in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -2621,7 +2621,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
                 "it_photo": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} scorpion control",
+                "it_alt": "Scorpion Pest Control for {city_state} properties",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -2652,28 +2652,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -2711,23 +2711,23 @@
             }
         ],
         "seo": {
-            "seo_title": "Scorpion Control in {city_state} | {business}",
+            "seo_title": "Scorpion Pest Control in {city_state} | {business}",
             "canonical_url": "",
-            "meta_description": "Get rid of scorpions fast with a professional scorpion exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "scorpion exterminator {city} {SS}, scorpion control {city} {SS}, scorpion removal {city}",
-            "og_title": "Scorpion Exterminator in {city_state} | Fast, Guaranteed Scorpion Control",
-            "og_description": "Get rid of scorpions fast with a professional scorpion exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+            "meta_description": "Professional scorpion pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
+            "meta_keywords": "scorpion pest control {city} {SS}, scorpion control, scorpion exterminator, scorpion treatment",
+            "og_title": "Scorpion Pest Control in {city_state} | {business}",
+            "og_description": "Professional scorpion pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
             "og_image": "",
-            "service_name": "Scorpion Control",
-            "service_type": "Scorpion Control",
+            "service_name": "Scorpion Pest Control",
+            "service_type": "Scorpion Pest Control",
             "service_area": "{city}, {SS}",
             "service_description": "Professional scorpion exterminator services in {city_state}. Targeted scorpion control for homes and businesses with fast response and a re-treat guarantee.",
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Scorpion Exterminator in {city_state}\",\"serviceType\":\"Scorpion Extermination\",\"description\":\"Professional scorpion exterminator services in {city_state}. Targeted scorpion control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
-            "primary_keyword": "scorpion control",
-            "secondary_keywords": "scorpion exterminator, scorpion treatment, scorpion removal"
+            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Scorpion Pest Control in {city_state}\",\"serviceType\":\"Scorpion Pest Control\",\"description\":\"Professional scorpion pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "primary_keyword": "scorpion pest control",
+            "secondary_keywords": "scorpion control, scorpion exterminator, scorpion treatment, scorpion removal, get rid of scorpions"
         }
     },
     {
@@ -2862,28 +2862,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -2924,7 +2924,7 @@
             "seo_title": "Wasp Exterminator in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Get rid of wasps fast with a professional wasp exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "wasp exterminator {city} {SS}, wasp control {city} {SS}, wasp removal {city}",
+            "meta_keywords": "wasp exterminator {city} {SS}, wasp control, wasp pest control, wasp removal",
             "og_title": "Wasp Exterminator in {city_state} | Fast, Guaranteed Wasp Control",
             "og_description": "Get rid of wasps fast with a professional wasp exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -2937,7 +2937,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Wasp Exterminator in {city_state}\",\"serviceType\":\"Wasp Extermination\",\"description\":\"Professional wasp exterminator services in {city_state}. Targeted wasp control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "wasp exterminator",
-            "secondary_keywords": "wasp control, wasp pest control, wasp removal"
+            "secondary_keywords": "wasp control, wasp pest control, wasp removal, wasp spray service, get rid of wasps"
         }
     },
     {
@@ -3072,28 +3072,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -3134,7 +3134,7 @@
             "seo_title": "Yellow Jacket Control in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Get rid of yellow jackets fast with a professional yellow jacket exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "yellow jacket exterminator {city} {SS}, yellow jacket control {city} {SS}, yellow jacket removal {city}",
+            "meta_keywords": "yellow jacket control {city} {SS}, yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal",
             "og_title": "Yellow jacket Exterminator in {city_state} | Fast, Guaranteed Yellow jacket Control",
             "og_description": "Get rid of yellow jackets fast with a professional yellow jacket exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -3147,7 +3147,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Yellow jacket Exterminator in {city_state}\",\"serviceType\":\"Yellow jacket Extermination\",\"description\":\"Professional yellow jacket exterminator services in {city_state}. Targeted yellow jacket control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "yellow jacket control",
-            "secondary_keywords": "yellow jacket exterminator, yellow jacket nest removal"
+            "secondary_keywords": "yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal, get rid of yellow jackets"
         }
     },
     {
@@ -3282,28 +3282,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -3344,7 +3344,7 @@
             "seo_title": "Silverfish Control in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Get rid of silverfish fast with a professional silverfish exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "silverfish exterminator {city} {SS}, silverfish control {city} {SS}, silverfish removal {city}",
+            "meta_keywords": "silverfish control {city} {SS}, silverfish exterminator, silverfish treatment, silverfish removal",
             "og_title": "Silverfish Exterminator in {city_state} | Fast, Guaranteed Silverfish Control",
             "og_description": "Get rid of silverfish fast with a professional silverfish exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -3357,7 +3357,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Silverfish Exterminator in {city_state}\",\"serviceType\":\"Silverfish Extermination\",\"description\":\"Professional silverfish exterminator services in {city_state}. Targeted silverfish control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "silverfish control",
-            "secondary_keywords": "silverfish exterminator, silverfish treatment"
+            "secondary_keywords": "silverfish exterminator, silverfish treatment, silverfish removal, get rid of silverfish"
         }
     },
     {
@@ -3492,28 +3492,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -3554,7 +3554,7 @@
             "seo_title": "Centipede Control in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Get rid of centipedes fast with a professional centipede exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "centipede exterminator {city} {SS}, centipede control {city} {SS}, centipede removal {city}",
+            "meta_keywords": "centipede control {city} {SS}, centipede exterminator, millipede control, centipede treatment",
             "og_title": "Centipede Exterminator in {city_state} | Fast, Guaranteed Centipede Control",
             "og_description": "Get rid of centipedes fast with a professional centipede exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -3567,7 +3567,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Centipede Exterminator in {city_state}\",\"serviceType\":\"Centipede Extermination\",\"description\":\"Professional centipede exterminator services in {city_state}. Targeted centipede control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "centipede control",
-            "secondary_keywords": "millipede control, centipede exterminator"
+            "secondary_keywords": "centipede exterminator, millipede control, centipede treatment, get rid of centipedes"
         }
     },
     {
@@ -3702,28 +3702,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -3764,7 +3764,7 @@
             "seo_title": "Cricket Control in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Get rid of crickets fast with a professional cricket exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "cricket exterminator {city} {SS}, cricket control {city} {SS}, cricket removal {city}",
+            "meta_keywords": "cricket control {city} {SS}, cricket exterminator, cricket treatment, cricket removal",
             "og_title": "Cricket Exterminator in {city_state} | Fast, Guaranteed Cricket Control",
             "og_description": "Get rid of crickets fast with a professional cricket exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -3777,7 +3777,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Cricket Exterminator in {city_state}\",\"serviceType\":\"Cricket Extermination\",\"description\":\"Professional cricket exterminator services in {city_state}. Targeted cricket control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "cricket control",
-            "secondary_keywords": "cricket exterminator, cricket treatment"
+            "secondary_keywords": "cricket exterminator, cricket treatment, cricket removal, get rid of crickets"
         }
     },
     {
@@ -3912,28 +3912,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -3974,7 +3974,7 @@
             "seo_title": "Stink Bug Control in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Get rid of stink bugs fast with a professional stink bug exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "stink bug exterminator {city} {SS}, stink bug control {city} {SS}, stink bug removal {city}",
+            "meta_keywords": "stink bug control {city} {SS}, stink bug exterminator, boxelder bug control, overwintering pests",
             "og_title": "Stink bug Exterminator in {city_state} | Fast, Guaranteed Stink bug Control",
             "og_description": "Get rid of stink bugs fast with a professional stink bug exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -3987,7 +3987,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Stink bug Exterminator in {city_state}\",\"serviceType\":\"Stink bug Extermination\",\"description\":\"Professional stink bug exterminator services in {city_state}. Targeted stink bug control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "stink bug control",
-            "secondary_keywords": "stink bug exterminator, boxelder bug control, overwintering pests"
+            "secondary_keywords": "stink bug exterminator, boxelder bug control, overwintering pests, get rid of stink bugs"
         }
     },
     {
@@ -4122,28 +4122,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -4184,7 +4184,7 @@
             "seo_title": "Wasp Nest Removal in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Get rid of wasps fast with a professional wasp exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "wasp exterminator {city} {SS}, wasp control {city} {SS}, wasp removal {city}",
+            "meta_keywords": "wasp nest removal {city} {SS}, wasp nest treatment, wasp nest removal near me, remove wasp nest",
             "og_title": "Wasp Exterminator in {city_state} | Fast, Guaranteed Wasp Control",
             "og_description": "Get rid of wasps fast with a professional wasp exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -4197,7 +4197,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Wasp Exterminator in {city_state}\",\"serviceType\":\"Wasp Extermination\",\"description\":\"Professional wasp exterminator services in {city_state}. Targeted wasp control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "wasp nest removal",
-            "secondary_keywords": "wasp nest treatment, nest removal near me"
+            "secondary_keywords": "wasp nest treatment, wasp nest removal near me, remove wasp nest, wasp nest exterminator"
         }
     },
     {
@@ -4332,28 +4332,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -4394,7 +4394,7 @@
             "seo_title": "Hornet Removal in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Get rid of hornets fast with a professional hornet exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "hornet exterminator {city} {SS}, hornet control {city} {SS}, hornet removal {city}",
+            "meta_keywords": "hornet removal {city} {SS}, hornet exterminator, hornet nest removal, hornet control",
             "og_title": "Hornet Exterminator in {city_state} | Fast, Guaranteed Hornet Control",
             "og_description": "Get rid of hornets fast with a professional hornet exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -4407,7 +4407,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Hornet Exterminator in {city_state}\",\"serviceType\":\"Hornet Extermination\",\"description\":\"Professional hornet exterminator services in {city_state}. Targeted hornet control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "hornet removal",
-            "secondary_keywords": "hornet exterminator, hornet nest removal"
+            "secondary_keywords": "hornet exterminator, hornet nest removal, hornet control, get rid of hornets"
         }
     },
     {
@@ -4542,28 +4542,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -4604,7 +4604,7 @@
             "seo_title": "Bee Removal in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Get rid of bees fast with a professional bee exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-            "meta_keywords": "bee exterminator {city} {SS}, bee control {city} {SS}, bee removal {city}",
+            "meta_keywords": "bee removal {city} {SS}, bee relocation, honey bee removal, live bee removal",
             "og_title": "Bee Exterminator in {city_state} | Fast, Guaranteed Bee Control",
             "og_description": "Get rid of bees fast with a professional bee exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
             "og_image": "",
@@ -4617,7 +4617,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bee Exterminator in {city_state}\",\"serviceType\":\"Bee Extermination\",\"description\":\"Professional bee exterminator services in {city_state}. Targeted bee control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "bee removal",
-            "secondary_keywords": "bee relocation, honey bee removal, live bee removal"
+            "secondary_keywords": "bee relocation, honey bee removal, live bee removal, bee hive removal, bee control"
         }
     },
     {
@@ -4780,28 +4780,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -4842,7 +4842,7 @@
             "seo_title": "Termite Inspection in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Professional termite inspection in {city_state} from {business}. Trained inspectors, a thorough on-site inspection, and a clear written report of findings. Call {phone}.",
-            "meta_keywords": "termite inspection {city} {SS}, termite inspection near me {city}",
+            "meta_keywords": "termite inspection {city} {SS}, termite inspection cost, free termite inspection, termite inspection near me",
             "og_title": "Termite Inspection in {city_state} | {business}",
             "og_description": "Professional termite inspection in {city_state} from {business}. Trained inspectors, a thorough on-site inspection, and a clear written report of findings. Call {phone}.",
             "og_image": "",
@@ -4855,7 +4855,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Termite Inspection in {city_state}\",\"serviceType\":\"Termite Inspection\",\"description\":\"Professional termite inspection services in {city_state} with a thorough on-site inspection and a written report of findings.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "termite inspection",
-            "secondary_keywords": "termite inspection cost, free termite inspection"
+            "secondary_keywords": "termite inspection cost, free termite inspection, termite inspection near me, real estate termite inspection"
         }
     },
     {
@@ -5017,28 +5017,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -5079,7 +5079,7 @@
             "seo_title": "Pest Inspection in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Professional pest inspection in {city_state} from {business}. Trained inspectors, a thorough on-site inspection, and a clear written report of findings. Call {phone}.",
-            "meta_keywords": "pest inspection {city} {SS}, pest inspection near me {city}",
+            "meta_keywords": "pest inspection {city} {SS}, home pest inspection, pest control inspection, pest inspection near me",
             "og_title": "Pest Inspection in {city_state} | {business}",
             "og_description": "Professional pest inspection in {city_state} from {business}. Trained inspectors, a thorough on-site inspection, and a clear written report of findings. Call {phone}.",
             "og_image": "",
@@ -5092,7 +5092,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Pest Inspection in {city_state}\",\"serviceType\":\"Pest Inspection\",\"description\":\"Professional pest inspection services in {city_state} with a thorough on-site inspection and a written report of findings.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "pest inspection",
-            "secondary_keywords": "home pest inspection, pest control inspection"
+            "secondary_keywords": "home pest inspection, pest control inspection, pest inspection near me, pest inspection cost"
         }
     },
     {
@@ -5254,28 +5254,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -5316,7 +5316,7 @@
             "seo_title": "WDI Inspection in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Professional wdi inspection in {city_state} from {business}. Trained inspectors, a thorough on-site inspection, and a clear written report of findings. Call {phone}.",
-            "meta_keywords": "wdi inspection {city} {SS}, wdi inspection near me {city}",
+            "meta_keywords": "wdi inspection {city} {SS}, real estate termite inspection, wood destroying insect inspection, termite letter",
             "og_title": "WDI Inspection in {city_state} | {business}",
             "og_description": "Professional wdi inspection in {city_state} from {business}. Trained inspectors, a thorough on-site inspection, and a clear written report of findings. Call {phone}.",
             "og_image": "",
@@ -5329,7 +5329,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"WDI Inspection in {city_state}\",\"serviceType\":\"WDI Inspection\",\"description\":\"Professional wdi inspection services in {city_state} with a thorough on-site inspection and a written report of findings.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "wdi inspection",
-            "secondary_keywords": "real estate termite inspection, wood destroying insect inspection, termite letter"
+            "secondary_keywords": "real estate termite inspection, wood destroying insect inspection, termite letter, wdi report, va termite inspection"
         }
     },
     {
@@ -5465,28 +5465,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -5527,7 +5527,7 @@
             "seo_title": "Residential Pest Control in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Professional residential pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
-            "meta_keywords": "residential pest control {city} {SS}, residential pest control near me {city}",
+            "meta_keywords": "residential pest control {city} {SS}, residential exterminator, home pest control, house pest control",
             "og_title": "Residential Pest Control in {city_state} | {business}",
             "og_description": "Professional residential pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
             "og_image": "",
@@ -5540,7 +5540,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Residential Pest Control in {city_state}\",\"serviceType\":\"Residential Pest Control\",\"description\":\"Professional residential pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "residential pest control",
-            "secondary_keywords": "residential exterminator, home pest control, house pest control"
+            "secondary_keywords": "residential exterminator, home pest control, house pest control, family pest control"
         }
     },
     {
@@ -5675,28 +5675,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -5737,7 +5737,7 @@
             "seo_title": "Commercial Pest Control in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Professional commercial pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
-            "meta_keywords": "commercial pest control {city} {SS}, commercial pest control near me {city}",
+            "meta_keywords": "commercial pest control {city} {SS}, commercial exterminator, business pest control, office pest control",
             "og_title": "Commercial Pest Control in {city_state} | {business}",
             "og_description": "Professional commercial pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
             "og_image": "",
@@ -5885,28 +5885,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -5947,7 +5947,7 @@
             "seo_title": "Emergency Pest Control in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Professional emergency pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
-            "meta_keywords": "emergency pest control {city} {SS}, emergency pest control near me {city}",
+            "meta_keywords": "emergency pest control {city} {SS}, same day pest control, 24 hour pest control, same day exterminator",
             "og_title": "Emergency Pest Control in {city_state} | {business}",
             "og_description": "Professional emergency pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
             "og_image": "",
@@ -5960,7 +5960,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Emergency Pest Control in {city_state}\",\"serviceType\":\"Emergency Pest Control\",\"description\":\"Professional emergency pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "emergency pest control",
-            "secondary_keywords": "same day pest control, 24 hour pest control, same day exterminator, emergency exterminator"
+            "secondary_keywords": "same day pest control, 24 hour pest control, same day exterminator, emergency exterminator, 24 hour exterminator"
         }
     },
     {
@@ -6095,28 +6095,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -6157,7 +6157,7 @@
             "seo_title": "Restaurant Pest Control in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Professional restaurant pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
-            "meta_keywords": "restaurant pest control {city} {SS}, restaurant pest control near me {city}",
+            "meta_keywords": "restaurant pest control {city} {SS}, commercial kitchen pest control, food service pest control, restaurant exterminator",
             "og_title": "Restaurant Pest Control in {city_state} | {business}",
             "og_description": "Professional restaurant pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
             "og_image": "",
@@ -6170,7 +6170,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Restaurant Pest Control in {city_state}\",\"serviceType\":\"Restaurant Pest Control\",\"description\":\"Professional restaurant pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "restaurant pest control",
-            "secondary_keywords": "commercial kitchen pest control, food service pest control"
+            "secondary_keywords": "commercial kitchen pest control, food service pest control, restaurant exterminator, food safety pest control"
         }
     },
     {
@@ -6333,28 +6333,28 @@
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
                         "alt": "Ant exterminator in {city}",
-                        "heading": "Ant Control",
+                        "heading": "Ant Pest Control",
                         "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                        "url": "/ant-exterminator-{city_slug}"
+                        "url": "/ant-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
                         "alt": "Bed bug treatment in {city}",
-                        "heading": "Bed Bug Treatment",
+                        "heading": "Bed Bug Control",
                         "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                        "url": "/bed-bug-exterminator-{city_slug}"
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
                         "alt": "Flea control in {city}",
-                        "heading": "Flea Control",
+                        "heading": "Flea Pest Control",
                         "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                        "url": "/flea-exterminator-{city_slug}"
+                        "url": "/flea-pest-control-{city_slug}"
                     },
                     {
                         "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
                         "alt": "Rodent control in {city}",
-                        "heading": "Rat Control",
+                        "heading": "Rat Exterminator",
                         "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
                         "url": "/rat-exterminator-{city_slug}"
                     }
@@ -6395,7 +6395,7 @@
             "seo_title": "Pest Control Plans in {city_state} | {business}",
             "canonical_url": "",
             "meta_description": "Professional pest control plans in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
-            "meta_keywords": "pest control plans {city} {SS}, pest control plans near me {city}",
+            "meta_keywords": "pest control plans {city} {SS}, quarterly pest control, monthly pest control, year-round pest control",
             "og_title": "Pest Control Plans in {city_state} | {business}",
             "og_description": "Professional pest control plans in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
             "og_image": "",
@@ -6408,7 +6408,7 @@
             "bc_mid_url": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Pest Control Plans in {city_state}\",\"serviceType\":\"Pest Control Plans\",\"description\":\"Professional pest control plans services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
             "primary_keyword": "pest control plans",
-            "secondary_keywords": "quarterly pest control, monthly pest control, year-round pest control"
+            "secondary_keywords": "quarterly pest control, monthly pest control, year-round pest control, recurring pest control, pest control service plans"
         }
     }
 ]

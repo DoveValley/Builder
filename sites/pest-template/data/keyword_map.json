@@ -16,14 +16,45 @@
             ]
         },
         {
-            "primary": "residential pest control {city}, {ST}",
-            "slug": "residential-pest-control",
+            "primary": "cockroach exterminator {city}, {ST}",
+            "slug": "cockroach-exterminator",
             "section": "landing",
-            "tier": "medium-2",
+            "tier": "high-1",
             "secondary": [
-                "residential exterminator",
-                "home pest control",
-                "house pest control"
+                "roach exterminator",
+                "cockroach control",
+                "roach control",
+                "cockroach pest control",
+                "german cockroach treatment",
+                "get rid of roaches"
+            ]
+        },
+        {
+            "primary": "bed bug control {city}, {ST}",
+            "slug": "bed-bug-control",
+            "section": "landing",
+            "tier": "high-1",
+            "secondary": [
+                "bed bug exterminator",
+                "bed bug treatment",
+                "bed bug removal",
+                "bed bug heat treatment",
+                "bed bug pest control",
+                "get rid of bed bugs"
+            ]
+        },
+        {
+            "primary": "termite treatment {city}, {ST}",
+            "slug": "termite-treatment",
+            "section": "landing",
+            "tier": "high-1",
+            "secondary": [
+                "termite control",
+                "termite exterminator",
+                "termite removal",
+                "subterranean termite treatment",
+                "termite pest control",
+                "termite bond"
             ]
         },
         {
@@ -40,61 +71,42 @@
             ]
         },
         {
-            "primary": "emergency pest control {city}, {ST}",
-            "slug": "emergency-pest-control",
+            "primary": "termite inspection {city}, {ST}",
+            "slug": "termite-inspection",
             "section": "landing",
-            "tier": "medium-1",
+            "tier": "high-2",
             "secondary": [
-                "same day pest control",
-                "24 hour pest control",
-                "same day exterminator",
-                "emergency exterminator"
+                "termite inspection cost",
+                "free termite inspection",
+                "termite inspection near me",
+                "real estate termite inspection"
             ]
         },
         {
-            "primary": "pest control plans {city}, {ST}",
-            "slug": "pest-control-plans",
+            "primary": "mosquito control {city}, {ST}",
+            "slug": "mosquito-control",
             "section": "landing",
-            "tier": "low-1",
+            "tier": "high-2",
             "secondary": [
-                "quarterly pest control",
-                "monthly pest control",
-                "year-round pest control"
+                "mosquito treatment",
+                "mosquito exterminator",
+                "mosquito spray service",
+                "backyard mosquito control",
+                "mosquito misting system",
+                "mosquito yard treatment"
             ]
         },
         {
-            "primary": "pest inspection {city}, {ST}",
-            "slug": "pest-inspection",
-            "section": "landing",
-            "tier": "medium-2",
-            "secondary": [
-                "home pest inspection",
-                "pest control inspection"
-            ]
-        },
-        {
-            "primary": "cockroach exterminator {city}, {ST}",
-            "slug": "cockroach-exterminator",
-            "section": "landing",
-            "tier": "high-1",
-            "secondary": [
-                "roach exterminator",
-                "cockroach control",
-                "roach control",
-                "cockroach treatment",
-                "german cockroach treatment"
-            ]
-        },
-        {
-            "primary": "ant exterminator {city}, {ST}",
-            "slug": "ant-exterminator",
+            "primary": "ant pest control {city}, {ST}",
+            "slug": "ant-pest-control",
             "section": "landing",
             "tier": "high-3",
             "secondary": [
+                "ant exterminator",
                 "ant control",
-                "ant pest control",
                 "ant treatment",
-                "ant removal"
+                "ant removal",
+                "get rid of ants"
             ]
         },
         {
@@ -105,101 +117,9 @@
             "secondary": [
                 "fire ant treatment",
                 "fire ant exterminator",
-                "fire ant yard treatment"
-            ]
-        },
-        {
-            "primary": "carpenter ant control {city}, {ST}",
-            "slug": "carpenter-ant-control",
-            "section": "landing",
-            "tier": "medium-3",
-            "secondary": [
-                "carpenter ant exterminator",
-                "carpenter ant treatment"
-            ]
-        },
-        {
-            "primary": "bed bug exterminator {city}, {ST}",
-            "slug": "bed-bug-exterminator",
-            "section": "landing",
-            "tier": "high-1",
-            "secondary": [
-                "bed bug treatment",
-                "bed bug control",
-                "bed bug removal",
-                "bed bug heat treatment",
-                "heat treatment for bed bugs"
-            ]
-        },
-        {
-            "primary": "termite treatment {city}, {ST}",
-            "slug": "termite-treatment",
-            "section": "landing",
-            "tier": "high-1",
-            "secondary": [
-                "termite control",
-                "termite exterminator",
-                "termite removal",
-                "termite fumigation",
-                "tent fumigation"
-            ]
-        },
-        {
-            "primary": "termite inspection {city}, {ST}",
-            "slug": "termite-inspection",
-            "section": "landing",
-            "tier": "high-2",
-            "secondary": [
-                "termite inspection cost",
-                "free termite inspection"
-            ]
-        },
-        {
-            "primary": "wdi inspection {city}, {ST}",
-            "slug": "wdi-inspection",
-            "section": "landing",
-            "tier": "medium-3",
-            "secondary": [
-                "real estate termite inspection",
-                "wood destroying insect inspection",
-                "termite letter"
-            ]
-        },
-        {
-            "primary": "mosquito control {city}, {ST}",
-            "slug": "mosquito-control",
-            "section": "landing",
-            "tier": "high-2",
-            "secondary": [
-                "mosquito treatment",
-                "mosquito spray service",
-                "backyard mosquito control",
-                "mosquito misting system",
-                "mosquito misting installation"
-            ]
-        },
-        {
-            "primary": "flea exterminator {city}, {ST}",
-            "slug": "flea-exterminator",
-            "section": "landing",
-            "tier": "medium-1",
-            "secondary": [
-                "flea control",
-                "flea treatment",
-                "flea removal",
-                "flea and tick yard treatment",
-                "flea and tick control"
-            ]
-        },
-        {
-            "primary": "tick control {city}, {ST}",
-            "slug": "tick-control",
-            "section": "landing",
-            "tier": "medium-2",
-            "secondary": [
-                "tick treatment",
-                "tick exterminator",
-                "tick yard treatment"
+                "fire ant yard treatment",
+                "fire ant killer",
+                "fire ant mound treatment"
             ]
         },
         {
@@ -212,7 +132,47 @@
                 "rat pest control",
                 "rat removal",
                 "rodent control",
-                "rodent exterminator"
+                "rodent exterminator",
+                "get rid of rats"
+            ]
+        },
+        {
+            "primary": "restaurant pest control {city}, {ST}",
+            "slug": "restaurant-pest-control",
+            "section": "landing",
+            "tier": "high-3",
+            "secondary": [
+                "commercial kitchen pest control",
+                "food service pest control",
+                "restaurant exterminator",
+                "food safety pest control"
+            ]
+        },
+        {
+            "primary": "emergency pest control {city}, {ST}",
+            "slug": "emergency-pest-control",
+            "section": "landing",
+            "tier": "medium-1",
+            "secondary": [
+                "same day pest control",
+                "24 hour pest control",
+                "same day exterminator",
+                "emergency exterminator",
+                "24 hour exterminator"
+            ]
+        },
+        {
+            "primary": "flea pest control {city}, {ST}",
+            "slug": "flea-pest-control",
+            "section": "landing",
+            "tier": "medium-1",
+            "secondary": [
+                "flea exterminator",
+                "flea control",
+                "flea treatment",
+                "flea removal",
+                "flea and tick control",
+                "get rid of fleas"
             ]
         },
         {
@@ -223,30 +183,59 @@
             "secondary": [
                 "mouse control",
                 "mice control",
-                "mice exterminator"
+                "mice exterminator",
+                "mouse removal",
+                "get rid of mice"
             ]
         },
         {
-            "primary": "spider control {city}, {ST}",
-            "slug": "spider-control",
+            "primary": "spider pest control {city}, {ST}",
+            "slug": "spider-pest-control",
             "section": "landing",
             "tier": "medium-1",
             "secondary": [
+                "spider control",
                 "spider exterminator",
-                "spider pest control",
                 "spider treatment",
-                "spider removal"
+                "spider removal",
+                "get rid of spiders"
             ]
         },
         {
-            "primary": "scorpion control {city}, {ST}",
-            "slug": "scorpion-control",
+            "primary": "residential pest control {city}, {ST}",
+            "slug": "residential-pest-control",
             "section": "landing",
-            "tier": "medium-3",
+            "tier": "medium-2",
             "secondary": [
-                "scorpion exterminator",
-                "scorpion treatment",
-                "scorpion removal"
+                "residential exterminator",
+                "home pest control",
+                "house pest control",
+                "family pest control"
+            ]
+        },
+        {
+            "primary": "pest inspection {city}, {ST}",
+            "slug": "pest-inspection",
+            "section": "landing",
+            "tier": "medium-2",
+            "secondary": [
+                "home pest inspection",
+                "pest control inspection",
+                "pest inspection near me",
+                "pest inspection cost"
+            ]
+        },
+        {
+            "primary": "tick treatment {city}, {ST}",
+            "slug": "tick-treatment",
+            "section": "landing",
+            "tier": "medium-2",
+            "secondary": [
+                "tick control",
+                "tick exterminator",
+                "tick yard treatment",
+                "flea and tick treatment",
+                "get rid of ticks"
             ]
         },
         {
@@ -257,37 +246,9 @@
             "secondary": [
                 "wasp control",
                 "wasp pest control",
-                "wasp removal"
-            ]
-        },
-        {
-            "primary": "wasp nest removal {city}, {ST}",
-            "slug": "wasp-nest-removal",
-            "section": "landing",
-            "tier": "low-1",
-            "secondary": [
-                "wasp nest treatment",
-                "nest removal near me"
-            ]
-        },
-        {
-            "primary": "hornet removal {city}, {ST}",
-            "slug": "hornet-removal",
-            "section": "landing",
-            "tier": "medium-3",
-            "secondary": [
-                "hornet exterminator",
-                "hornet nest removal"
-            ]
-        },
-        {
-            "primary": "yellow jacket control {city}, {ST}",
-            "slug": "yellow-jacket-control",
-            "section": "landing",
-            "tier": "low-1",
-            "secondary": [
-                "yellow jacket exterminator",
-                "yellow jacket nest removal"
+                "wasp removal",
+                "wasp spray service",
+                "get rid of wasps"
             ]
         },
         {
@@ -298,17 +259,96 @@
             "secondary": [
                 "bee relocation",
                 "honey bee removal",
-                "live bee removal"
+                "live bee removal",
+                "bee hive removal",
+                "bee control"
             ]
         },
         {
-            "primary": "restaurant pest control {city}, {ST}",
-            "slug": "restaurant-pest-control",
+            "primary": "carpenter ant control {city}, {ST}",
+            "slug": "carpenter-ant-control",
             "section": "landing",
-            "tier": "high-3",
+            "tier": "medium-3",
             "secondary": [
-                "commercial kitchen pest control",
-                "food service pest control"
+                "carpenter ant exterminator",
+                "carpenter ant treatment",
+                "carpenter ant removal",
+                "carpenter ant damage"
+            ]
+        },
+        {
+            "primary": "wdi inspection {city}, {ST}",
+            "slug": "wdi-inspection",
+            "section": "landing",
+            "tier": "medium-3",
+            "secondary": [
+                "real estate termite inspection",
+                "wood destroying insect inspection",
+                "termite letter",
+                "wdi report",
+                "va termite inspection"
+            ]
+        },
+        {
+            "primary": "scorpion pest control {city}, {ST}",
+            "slug": "scorpion-pest-control",
+            "section": "landing",
+            "tier": "medium-3",
+            "secondary": [
+                "scorpion control",
+                "scorpion exterminator",
+                "scorpion treatment",
+                "scorpion removal",
+                "get rid of scorpions"
+            ]
+        },
+        {
+            "primary": "hornet removal {city}, {ST}",
+            "slug": "hornet-removal",
+            "section": "landing",
+            "tier": "medium-3",
+            "secondary": [
+                "hornet exterminator",
+                "hornet nest removal",
+                "hornet control",
+                "get rid of hornets"
+            ]
+        },
+        {
+            "primary": "pest control plans {city}, {ST}",
+            "slug": "pest-control-plans",
+            "section": "landing",
+            "tier": "low-1",
+            "secondary": [
+                "quarterly pest control",
+                "monthly pest control",
+                "year-round pest control",
+                "recurring pest control",
+                "pest control service plans"
+            ]
+        },
+        {
+            "primary": "wasp nest removal {city}, {ST}",
+            "slug": "wasp-nest-removal",
+            "section": "landing",
+            "tier": "low-1",
+            "secondary": [
+                "wasp nest treatment",
+                "wasp nest removal near me",
+                "remove wasp nest",
+                "wasp nest exterminator"
+            ]
+        },
+        {
+            "primary": "yellow jacket control {city}, {ST}",
+            "slug": "yellow-jacket-control",
+            "section": "landing",
+            "tier": "low-1",
+            "secondary": [
+                "yellow jacket exterminator",
+                "yellow jacket nest removal",
+                "yellow jacket removal",
+                "get rid of yellow jackets"
             ]
         },
         {
@@ -318,7 +358,9 @@
             "tier": "low-2",
             "secondary": [
                 "silverfish exterminator",
-                "silverfish treatment"
+                "silverfish treatment",
+                "silverfish removal",
+                "get rid of silverfish"
             ]
         },
         {
@@ -327,8 +369,10 @@
             "section": "landing",
             "tier": "low-2",
             "secondary": [
+                "centipede exterminator",
                 "millipede control",
-                "centipede exterminator"
+                "centipede treatment",
+                "get rid of centipedes"
             ]
         },
         {
@@ -338,7 +382,9 @@
             "tier": "low-3",
             "secondary": [
                 "cricket exterminator",
-                "cricket treatment"
+                "cricket treatment",
+                "cricket removal",
+                "get rid of crickets"
             ]
         },
         {
@@ -349,9 +395,10 @@
             "secondary": [
                 "stink bug exterminator",
                 "boxelder bug control",
-                "overwintering pests"
+                "overwintering pests",
+                "get rid of stink bugs"
             ]
         }
     ],
-    "updated_at": "2026-07-09T12:34:52+00:00"
+    "updated_at": "2026-07-09T18:44:33+00:00"
 }
