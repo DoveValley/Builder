@@ -247,5 +247,30 @@
     "output_tokens": 3309,
     "api_calls": 12,
     "estimated_cost_usd": 0.024187
+  },
+  {
+    "run_id": "ebde8fd8-72b4-4258-9931-dfd5f85fe642",
+    "started_at": "2026-07-08T00:47:21.170705Z",
+    "finished_at": "2026-07-08T00:56:16.579618Z",
+    "duration_ms": 535408,
+    "dry_run": false,
+    "options": {
+      "site": "pest-template",
+      "page": "landing",
+      "all": true,
+      "file": null,
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 114,
+    "pages_skipped": 17,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 114,
+    "cities_researched": 0,
+    "input_tokens": 74571,
+    "output_tokens": 44169,
+    "api_calls": 114,
+    "estimated_cost_usd": 0.295416
   }
 ]
