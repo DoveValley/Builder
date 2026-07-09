@@ -9,7 +9,34 @@ $services = $cfg['services'] ?? [];
 <div class="admin-section">
 
     <div class="card" style="margin-bottom:16px;">
-        <p class="hint">Use <code>[services_links]</code> in any <strong>Custom HTML</strong> block to render this list as a styled grid of city-resolved service links.</p>
+        <p class="hint" style="margin-bottom:10px;">Use <code>[services_links]</code> in any <strong>Custom HTML</strong> block to render this list as a styled grid of city-resolved service links.</p>
+
+        <details>
+            <summary style="cursor:pointer;font-weight:700;color:#120575;">Shortcode reference &mdash; filter to a subset (for hub pages)</summary>
+            <p class="hint" style="margin:10px 0;">
+                Add attributes to render only a matching subset instead of the whole list. The subset is
+                derived from each row's <strong>slug</strong> (nothing to tag or maintain &mdash; it can't drift).
+                A filtered grid that matches nothing renders nothing.
+            </p>
+            <table style="width:100%;border-collapse:collapse;font-size:.85rem;">
+                <thead><tr style="text-align:left;border-bottom:2px solid #e2e8f0;">
+                    <th style="padding:6px 8px;">Shortcode</th><th style="padding:6px 8px;">Renders</th>
+                </tr></thead>
+                <tbody>
+                    <tr style="border-bottom:1px solid #eef2f6;"><td style="padding:6px 8px;"><code>[services_links]</code></td><td style="padding:6px 8px;">The full list (unchanged default).</td></tr>
+                    <tr style="border-bottom:1px solid #eef2f6;"><td style="padding:6px 8px;"><code>[services_links brand="whirlpool"]</code></td><td style="padding:6px 8px;">That brand's pages &mdash; use on a <strong>brand hub</strong>. (Value is slugified: <code>brand="Sub Zero"</code> works.)</td></tr>
+                    <tr style="border-bottom:1px solid #eef2f6;"><td style="padding:6px 8px;"><code>[services_links appliance_type="refrigerator"]</code></td><td style="padding:6px 8px;">That appliance across all brands &mdash; use on an <strong>appliance-type hub</strong>. (<code>washing machine</code> = <code>washer</code>.)</td></tr>
+                    <tr style="border-bottom:1px solid #eef2f6;"><td style="padding:6px 8px;"><code>[services_links role="brand_hub"]</code></td><td style="padding:6px 8px;">All brand hubs &mdash; use on the <strong>homepage</strong>.</td></tr>
+                    <tr style="border-bottom:1px solid #eef2f6;"><td style="padding:6px 8px;"><code>[services_links role="type_hub"]</code></td><td style="padding:6px 8px;">All appliance-type hubs &mdash; use on the <strong>homepage</strong>.</td></tr>
+                    <tr><td style="padding:6px 8px;"><code>[services_links brand="lg" heading="LG Appliances We Repair" cols="4"]</code></td><td style="padding:6px 8px;">Any filter, plus optional per-instance <code>heading=</code> / <code>cols=</code> override.</td></tr>
+                </tbody>
+            </table>
+            <p class="hint" style="margin:10px 0 0;">
+                Filters (<code>brand</code>, <code>appliance_type</code>, <code>role</code>) apply to appliance-repair sites,
+                where each slug encodes brand + appliance. On other niches, use the bare <code>[services_links]</code> grid.
+                The list below is what gets filtered &mdash; keep it in sync with your templates via <strong>Sync from Landing Templates</strong>.
+            </p>
+        </details>
     </div>
 
     <form method="post" action="plugin_save.php" enctype="multipart/form-data">
