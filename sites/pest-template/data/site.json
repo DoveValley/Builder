@@ -1159,6 +1159,22 @@
                 "url": "/cockroach-exterminator-{city_slug}"
             },
             {
+                "name": "Ant Exterminator",
+                "url": "/ant-exterminator-{city_slug}"
+            },
+            {
+                "name": "Fire Ant Control",
+                "url": "/fire-ant-control-{city_slug}"
+            },
+            {
+                "name": "Carpenter Ant Control",
+                "url": "/carpenter-ant-control-{city_slug}"
+            },
+            {
+                "name": "Bed Bug Exterminator",
+                "url": "/bed-bug-exterminator-{city_slug}"
+            },
+            {
                 "name": "Termite Treatment",
                 "url": "/termite-treatment-{city_slug}"
             },
@@ -1167,36 +1183,80 @@
                 "url": "/mosquito-control-{city_slug}"
             },
             {
-                "name": "Flea Control",
-                "url": "/flea-control-{city_slug}"
+                "name": "Flea Exterminator",
+                "url": "/flea-exterminator-{city_slug}"
             },
             {
-                "name": "Bed Bug Treatment",
-                "url": "/bed-bug-treatment-{city_slug}"
+                "name": "Tick Control",
+                "url": "/tick-control-{city_slug}"
             },
             {
-                "name": "Ant Control",
-                "url": "/ant-control-{city_slug}"
+                "name": "Rat Exterminator",
+                "url": "/rat-exterminator-{city_slug}"
             },
             {
-                "name": "Rat Control",
-                "url": "/rat-control-{city_slug}"
-            },
-            {
-                "name": "Mouse Control",
-                "url": "/mouse-control-{city_slug}"
+                "name": "Mouse Exterminator",
+                "url": "/mouse-exterminator-{city_slug}"
             },
             {
                 "name": "Spider Control",
                 "url": "/spider-control-{city_slug}"
             },
             {
-                "name": "Wasp Control",
-                "url": "/wasp-control-{city_slug}"
+                "name": "Scorpion Control",
+                "url": "/scorpion-control-{city_slug}"
             },
             {
-                "name": "Tick Control",
-                "url": "/tick-control-{city_slug}"
+                "name": "Wasp Exterminator",
+                "url": "/wasp-exterminator-{city_slug}"
+            },
+            {
+                "name": "Yellow Jacket Control",
+                "url": "/yellow-jacket-control-{city_slug}"
+            },
+            {
+                "name": "Silverfish Control",
+                "url": "/silverfish-control-{city_slug}"
+            },
+            {
+                "name": "Centipede Control",
+                "url": "/centipede-control-{city_slug}"
+            },
+            {
+                "name": "Cricket Control",
+                "url": "/cricket-control-{city_slug}"
+            },
+            {
+                "name": "Stink Bug Control",
+                "url": "/stink-bug-control-{city_slug}"
+            },
+            {
+                "name": "Wasp Nest Removal",
+                "url": "/wasp-nest-removal-{city_slug}"
+            },
+            {
+                "name": "Hornet Removal",
+                "url": "/hornet-removal-{city_slug}"
+            },
+            {
+                "name": "Bee Removal",
+                "url": "/bee-removal-{city_slug}"
+            },
+            {
+                "name": "Termite Inspection",
+                "url": "/termite-inspection-{city_slug}"
+            },
+            {
+                "name": "Pest Inspection",
+                "url": "/pest-inspection-{city_slug}"
+            },
+            {
+                "name": "WDI Inspection",
+                "url": "/wdi-inspection-{city_slug}"
+            },
+            {
+                "name": "Residential Pest Control",
+                "url": "/residential-pest-control-{city_slug}"
             },
             {
                 "name": "Commercial Pest Control",
@@ -1207,36 +1267,12 @@
                 "url": "/emergency-pest-control-{city_slug}"
             },
             {
-                "name": "Pest Inspection",
-                "url": "/pest-inspection-{city_slug}"
+                "name": "Restaurant Pest Control",
+                "url": "/restaurant-pest-control-{city_slug}"
             },
             {
-                "name": "Bat Removal",
-                "url": "/bat-removal-{city_slug}"
-            },
-            {
-                "name": "Earwig Control",
-                "url": "/earwig-control-{city_slug}"
-            },
-            {
-                "name": "Silverfish Control",
-                "url": "/silverfish-control-{city_slug}"
-            },
-            {
-                "name": "Grub Treatment",
-                "url": "/grub-treatment-{city_slug}"
-            },
-            {
-                "name": "Thrips Treatment",
-                "url": "/thrips-treatment-{city_slug}"
-            },
-            {
-                "name": "Whitefly Treatment",
-                "url": "/whitefly-treatment-{city_slug}"
-            },
-            {
-                "name": "Residential Pest Control",
-                "url": "/residential-pest-control-{city_slug}"
+                "name": "Pest Control Plans",
+                "url": "/pest-control-plans-{city_slug}"
             }
         ],
         "url_pattern": "/{service_slug}-{city_slug}",
