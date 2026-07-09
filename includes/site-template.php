@@ -76,7 +76,7 @@ if (empty($seo['og_image'])) {
     <link rel="preload" as="image" href="<?= h($heroPreloadSrc) ?>" fetchpriority="high">
     <?php endif; ?>
     <title><?= h($pageTitle) ?></title>
-    <?php $favicon = $data['header']['favicon'] ?? ''; if ($favicon !== ''): $faviconUrl = h(($assetPathPrefix ?? '/') . $favicon); ?>
+    <?php $favicon = $data['header']['favicon'] ?? ''; if ($favicon !== ''): $faviconUrl = h(admin_upload_url($favicon)); ?>
     <link rel="icon" type="image/x-icon" href="<?= $faviconUrl ?>">
     <link rel="icon" type="image/png" sizes="32x32" href="<?= $faviconUrl ?>">
     <link rel="apple-touch-icon" href="<?= $faviconUrl ?>">
@@ -395,7 +395,7 @@ if ($firstBlockHero) {
     <div class="footer-bottom">
         <div class="container footer-bottom-inner">
             <?php if (!empty($footer['logo']) && !empty($footer['logo_in_copyright_bar'])): ?>
-                <img class="footer-bottom-logo" src="<?= h(($assetPathPrefix ?? '') . $footer['logo']) ?>" alt="Logo">
+                <img class="footer-bottom-logo" src="<?= h(admin_upload_url($footer['logo'])) ?>" alt="Logo">
             <?php endif; ?>
             <div class="footer-copyright"><?= h(str_replace('{year}', date('Y'), resolve_shortcodes($footer['copyright'] ?? ''))) ?></div>
             <?php $footerSocials = array_filter($footer['socials'] ?? []); ?>
