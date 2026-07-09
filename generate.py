@@ -232,6 +232,7 @@ def build_context(site_vars, city_data, page_data=None, hood_threshold=DEFAULT_H
         'neighborhoods': _effective_neighborhoods(city_data, hood_threshold),
         'service':       '',
         'keyword':       '',
+        'secondary_keywords': '',
     }
 
     if page_data:
@@ -241,6 +242,9 @@ def build_context(site_vars, city_data, page_data=None, hood_threshold=DEFAULT_H
         keyword = seo.get('seo_title', '') or f"{service} {ctx['city']}".strip()
         ctx['service'] = service
         ctx['keyword'] = keyword
+        # Variant phrasings for this page, from the keyword map (seo.secondary_keywords).
+        # Prompts should weave these in naturally where they fit — never keyword-stuff.
+        ctx['secondary_keywords'] = seo.get('secondary_keywords', '')
 
     return ctx
 
