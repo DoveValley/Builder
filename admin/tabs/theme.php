@@ -98,6 +98,35 @@
                 ?>
             </div>
 
+            <!-- Brand assets: generated logo + favicon (palette -> assets cascade) -->
+            <div class="card">
+                <h2>Brand — Logo &amp; Favicon</h2>
+                <p class="hint" style="margin-bottom:12px;">
+                    Generate a two-tone wordmark logo + a monogram favicon from your business name
+                    (<code><?= h($data['site_vars']['business'] ?? '(set business name in Header)') ?></code>)
+                    in the palette above. Change colors, then click Generate — it saves the palette <em>and</em> regenerates both.
+                    (Prefer your own artwork? Upload it on the <strong>Header</strong> tab instead.)
+                </p>
+                <div style="display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap;margin-bottom:14px;">
+                    <div>
+                        <div class="hint" style="margin-bottom:4px;">Current logo</div>
+                        <?php if (!empty($data['header']['logo'])): ?>
+                            <img src="../<?= h($data['header']['logo']) ?>?v=<?= time() ?>" alt="logo" style="max-height:52px;max-width:300px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:6px;" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'hint',textContent:'(set — preview unavailable here)'}))">
+                        <?php else: ?><span class="hint">none yet</span><?php endif; ?>
+                    </div>
+                    <div>
+                        <div class="hint" style="margin-bottom:4px;">Favicon</div>
+                        <?php if (!empty($data['header']['favicon'])): ?>
+                            <img src="../<?= h($data['header']['favicon']) ?>?v=<?= time() ?>" alt="favicon" style="width:44px;height:44px;border:1px solid #e5e7eb;border-radius:6px;" onerror="this.style.display='none'">
+                        <?php else: ?><span class="hint">none yet</span><?php endif; ?>
+                    </div>
+                </div>
+                <button type="button" class="btn" onclick="var f=document.getElementById('theme-form'); f.querySelector('[name=section]').value='generate_brand'; f.submit();">
+                    &#9881; Generate logo &amp; favicon from name + colors
+                </button>
+                <span class="hint" style="display:block;margin-top:6px;">Needs ImageMagick on the server. The wordmark uses the first word in the accent color and the rest in the heading color.</span>
+            </div>
+
             <!-- ③ HEADER & FOOTER -->
             <div class="card">
                 <h2>③ Header &amp; Footer</h2>
