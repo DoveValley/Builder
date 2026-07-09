@@ -406,5 +406,286 @@
             "appliance_type": "",
             "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Appliance Repair in {city_state}\",\"serviceType\":\"Appliance Repair\",\"description\":\"Factory-trained {brand} appliance repair in {city_state} from {business}. Same-day service, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
         }
+    },
+    {
+        "id": "tpl_whirlpool_appliance_repair",
+        "page_type": "template",
+        "title": "Whirlpool Appliance Repair in {city_state} | {business}",
+        "slug_pattern": "whirlpool-appliance-repair-{city_slug}",
+        "generation_steps": [
+            {
+                "step": "city_vars"
+            }
+        ],
+        "content_blocks": [
+            {
+                "type": "hero_split",
+                "hs_heading": "Whirlpool Appliance Repair in {city_state}",
+                "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+                "hs_btn_text": "Call {phone}",
+                "hs_btn_url": "tel:{tel}",
+                "hs_caption1": "Whirlpool",
+                "hs_caption2": "Appliance Repair",
+                "hs_photo": "",
+                "hs_photo_alt": "Whirlpool Appliance Repair in {city_state}",
+                "hs_image_side": "right",
+                "hs_bg_color": "#f3f6f7",
+                "ai_type_id": "hero_subtext",
+                "ai_inject_field": "hs_subtext",
+                "ai_inject_mode": "replace"
+            },
+            {
+                "type": "custom_html",
+                "anchor": "trust_bar",
+                "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}"
+            },
+            {
+                "type": "custom_html",
+                "anchor": "brand_appliances",
+                "html": "[services_links brand=\"self\" heading=\"Whirlpool Appliances We Repair in {city_state}\" cols=\"4\"]"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "common_problems",
+                "ai_mode": "standalone",
+                "ai_render_as": "feature_columns",
+                "fc_num_cols": 3
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "feature_columns_local",
+                "ai_mode": "standalone",
+                "ai_render_as": "feature_columns"
+            },
+            {
+                "type": "cta_banner",
+                "anchor": "mid_cta",
+                "cb_text": "Need Whirlpool appliance repair in {city}? Our technicians know your brand.",
+                "cb_btn_text": "Call {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "header",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact"
+            },
+            {
+                "type": "faq_two_col",
+                "fq_heading": "Appliance Repair FAQ — {city_state}",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": []
+            },
+            {
+                "type": "testimonials",
+                "anchor": "reviews",
+                "tm_label": "Reviews",
+                "tm_main_heading": "What {city} Homeowners Say About {business}",
+                "tm_subtext": "",
+                "tm_cols": 3,
+                "tm_items": []
+            },
+            {
+                "type": "custom_html",
+                "anchor": "other_brands",
+                "html": "[services_links role=\"brand_hub\" heading=\"Other Brands We Service\"]"
+            },
+            {
+                "type": "cta_banner",
+                "cb_text": "Book your {city} Whirlpool repair today.",
+                "cb_btn_text": "Call {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "accent",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact"
+            }
+        ],
+        "seo": {
+            "seo_title": "Whirlpool Appliance Repair in {city_state} | {business}",
+            "canonical_url": "",
+            "meta_description": "Factory-trained Whirlpool appliance repair in {city_state} from {business}. Same-day service, upfront pricing, warranty. Call {phone}.",
+            "meta_keywords": "appliance repair {city} {SS}",
+            "og_title": "Whirlpool Appliance Repair in {city_state} | {business}",
+            "og_description": "Factory-trained Whirlpool appliance repair in {city_state} from {business}. Same-day service, upfront pricing, warranty. Call {phone}.",
+            "og_image": "",
+            "service_name": "Whirlpool Appliance Repair",
+            "service_type": "Whirlpool Appliance Repair",
+            "service_area": "{city}, {SS}",
+            "service_description": "Factory-trained Whirlpool appliance repair in {city_state} from {business}. Same-day service, upfront pricing, warranty. Call {phone}.",
+            "bc_label": "",
+            "bc_mid_label": "",
+            "bc_mid_url": "",
+            "primary_keyword": "whirlpool appliance repair",
+            "secondary_keywords": "",
+            "brand": "Whirlpool",
+            "appliance_type": "",
+            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Appliance Repair in {city_state}\",\"serviceType\":\"Whirlpool Appliance Repair\",\"description\":\"Factory-trained Whirlpool appliance repair in {city_state} from {business}. Same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+        },
+        "service": "Whirlpool Appliance Repair"
+    },
+    {
+        "id": "tpl_whirlpool_refrigerator_repair",
+        "page_type": "template",
+        "title": "Whirlpool Refrigerator Repair in {city_state} | {business}",
+        "slug_pattern": "whirlpool-refrigerator-repair-{city_slug}",
+        "generation_steps": [
+            {
+                "step": "city_vars"
+            }
+        ],
+        "content_blocks": [
+            {
+                "type": "hero_split",
+                "hs_heading": "Whirlpool Refrigerator Repair in {city_state}",
+                "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+                "hs_btn_text": "Call {phone}",
+                "hs_btn_url": "tel:{tel}",
+                "hs_caption1": "Whirlpool",
+                "hs_caption2": "Refrigerator Repair",
+                "hs_photo": "",
+                "hs_photo_alt": "Whirlpool Refrigerator Repair in {city_state}",
+                "hs_image_side": "right",
+                "hs_bg_color": "#f3f6f7",
+                "ai_type_id": "hero_subtext",
+                "ai_inject_field": "hs_subtext",
+                "ai_inject_mode": "replace"
+            },
+            {
+                "type": "custom_html",
+                "anchor": "trust_bar",
+                "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "common_problems",
+                "ai_mode": "standalone",
+                "ai_render_as": "feature_columns",
+                "fc_num_cols": 3
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "feature_columns_local",
+                "ai_mode": "standalone",
+                "ai_render_as": "feature_columns"
+            },
+            {
+                "type": "steps",
+                "steps_heading": "How Our Repair Service Works",
+                "steps_items": [
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Call or Book Online",
+                        "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Diagnose & Quote",
+                        "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Repair & Warranty",
+                        "text": "We complete the repair with quality parts and back the work with a warranty."
+                    }
+                ]
+            },
+            {
+                "type": "cta_banner",
+                "anchor": "mid_cta",
+                "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+                "cb_btn_text": "Call {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "header",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "local_relevance",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "right",
+                "it_photo": "",
+                "it_alt": "Appliance repair for {city_state} homes"
+            },
+            {
+                "type": "faq_two_col",
+                "fq_heading": "Appliance Repair FAQ — {city_state}",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": []
+            },
+            {
+                "type": "testimonials",
+                "anchor": "reviews",
+                "tm_label": "Reviews",
+                "tm_main_heading": "What {city} Homeowners Say About {business}",
+                "tm_subtext": "",
+                "tm_cols": 3,
+                "tm_items": []
+            },
+            {
+                "type": "custom_html",
+                "anchor": "related",
+                "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+            },
+            {
+                "type": "cta_banner",
+                "cb_text": "Book your {city} appliance repair today.",
+                "cb_btn_text": "Call {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "accent",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact"
+            },
+            {
+                "type": "custom_html",
+                "anchor": "pest_services",
+                "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+            }
+        ],
+        "seo": {
+            "seo_title": "Whirlpool Refrigerator Repair in {city_state} | {business}",
+            "canonical_url": "",
+            "meta_description": "Whirlpool refrigerator repair in {city_state} from {business}. Factory-trained techs, same-day service, warranty. Call {phone}.",
+            "meta_keywords": "appliance repair {city} {SS}",
+            "og_title": "Whirlpool Refrigerator Repair in {city_state} | {business}",
+            "og_description": "Whirlpool refrigerator repair in {city_state} from {business}. Factory-trained techs, same-day service, warranty. Call {phone}.",
+            "og_image": "",
+            "service_name": "Whirlpool Refrigerator Repair",
+            "service_type": "Whirlpool Refrigerator Repair",
+            "service_area": "{city}, {SS}",
+            "service_description": "Whirlpool refrigerator repair in {city_state} from {business}. Factory-trained techs, same-day service, warranty. Call {phone}.",
+            "bc_label": "",
+            "bc_mid_label": "",
+            "bc_mid_url": "",
+            "primary_keyword": "whirlpool refrigerator repair",
+            "secondary_keywords": "",
+            "brand": "Whirlpool",
+            "appliance_type": "Refrigerator",
+            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Refrigerator Repair in {city_state}\",\"serviceType\":\"Whirlpool Refrigerator Repair\",\"description\":\"Whirlpool refrigerator repair in {city_state} from {business}. Factory-trained techs, same-day service, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+        },
+        "service": "Whirlpool Refrigerator Repair"
     }
 ]
