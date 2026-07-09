@@ -11,6 +11,9 @@ $kwMap  = file_exists($kwFile) ? (json_decode(file_get_contents($kwFile), true) 
 $services = $kwMap['services'] ?? [];
 $niche    = trim($kwMap['niche'] ?? '');
 
+require_once __DIR__ . '/../../includes/keyword_roles.php';
+$roleInfo = keyword_map_roles($kwMap);   // page-role derivation for the structure summary + badges
+
 $tierOpts = [
     'high-1' => 'High', 'high-2' => 'High 2', 'high-3' => 'High 3',
     'medium-1' => 'Medium', 'medium-2' => 'Medium 2', 'medium-3' => 'Medium 3',
@@ -37,14 +40,15 @@ $lbl = 'display:block;font-size:.72rem;font-weight:600;color:#64748b;margin:0 0 
 // Render the saved keywords for one section, one stacked .kw-item block per keyword.
 // Each block emits exactly one of every kw_* field so the POST arrays stay index-aligned.
 $numStyle = 'flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 7px;background:#7c3aed;color:#fff;border-radius:12px;font-size:.78rem;font-weight:700;';
-$renderItems = function (array $rows, string $section) use ($tierOpts, $lbl, $numStyle) {
+$renderItems = function (array $rows, string $section) use ($tierOpts, $lbl, $numStyle, $roleInfo) {
     foreach ($rows as $idx => $s):
         $nm = $s['primary'] ?? ''; $sl = $s['slug'] ?? ''; $ti = $s['tier'] ?? '';
         $secStr = implode(', ', array_map('trim', (array)($s['secondary'] ?? [])));
+        $roleLab = $roleInfo['roles'][$sl]['label'] ?? '';
     ?>
         <div class="kw-item" style="border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;margin-bottom:10px;background:#fff;">
             <div style="margin-bottom:8px;">
-                <label style="<?= $lbl ?>">Primary keyword</label>
+                <label style="<?= $lbl ?>">Primary keyword <?php if ($roleLab): ?><span style="<?= keyword_role_chip_style($roleLab) ?>margin-left:6px;"><?= h($roleLab) ?></span><?php endif; ?></label>
                 <div style="display:flex;gap:8px;align-items:center;">
                     <span class="kw-num" style="<?= $numStyle ?>"><?= $idx + 1 ?></span>
                     <input type="text" name="kw_primary[]" value="<?= h($nm) ?>" style="flex:1;min-width:0;">
@@ -107,6 +111,43 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $lbl, $nu
         </ol>
         <p class="hint" style="margin:6px 0 0;">Full write-up: <code>docs/landing-page-build-process-V1-20260709.md</code></p>
     </details>
+
+    <?php if (!empty($services)): ?>
+    <details class="card" style="margin-bottom:16px;" open>
+        <summary style="cursor:pointer;font-weight:700;color:#120575;font-size:1.02rem;">
+            Site structure &mdash; page roles derived from slugs
+            <span style="font-weight:400;color:#64748b;font-size:.85rem;">(<?= count($services) ?> pages &middot; <?= h($roleInfo['mode']) ?> mode)</span>
+        </summary>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px;">
+            <?php foreach ($roleInfo['counts'] as $lab => $n): ?>
+                <span style="<?= keyword_role_chip_style($lab) ?>font-size:.8rem;padding:4px 12px;"><?= h($lab) ?>: <?= (int)$n ?></span>
+            <?php endforeach; ?>
+        </div>
+        <?php if ($roleInfo['mode'] === 'appliance' && (!empty($roleInfo['byBrand']) || !empty($roleInfo['byType']))): ?>
+        <div style="display:flex;gap:28px;flex-wrap:wrap;margin-top:10px;">
+            <div>
+                <div class="hint" style="font-weight:600;margin-bottom:4px;">Leaf pages per brand</div>
+                <div style="font-size:.8rem;column-width:150px;">
+                    <?php foreach ($roleInfo['byBrand'] as $b => $n): ?><div><?= h($b) ?> &mdash; <?= (int)$n ?></div><?php endforeach; ?>
+                </div>
+            </div>
+            <div>
+                <div class="hint" style="font-weight:600;margin-bottom:4px;">Leaf pages per appliance type</div>
+                <div style="font-size:.8rem;column-width:170px;">
+                    <?php foreach ($roleInfo['byType'] as $t => $n): ?><div><?= h($t) ?> &mdash; <?= (int)$n ?></div><?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
+        <p class="hint" style="margin:10px 0 0;">
+            <?php if ($roleInfo['mode'] === 'appliance'): ?>
+                Precise appliance roles: <strong>Home</strong> (head term) &rarr; <strong>Type Hubs</strong> (one per appliance) + <strong>Brand Hubs</strong> (one per brand) &rarr; <strong>Leaf</strong> pages (brand &times; appliance). Each leaf links up to both its brand hub and its type hub.
+            <?php else: ?>
+                Generic roles: <strong>Home</strong> (section) &middot; <strong>Hub</strong> (a broader term nested inside &ge;2 other slugs) &middot; <strong>Leaf</strong> (everything else). Load an appliance-repair map to see the precise brand/type hub split.
+            <?php endif; ?>
+        </p>
+    </details>
+    <?php endif; ?>
 
     <div class="card" style="margin-bottom:16px;">
         <h2 style="margin-top:0;margin-bottom:8px;">How to build your keyword map</h2>
