@@ -16,24 +16,18 @@ $kwFile = dirname(TEMPLATES_FILE) . '/keyword_map.json';
 $action = $_POST['action'] ?? '';
 
 if ($action === 'save_primaries') {
-    // Carry over any existing secondary keywords for services that already exist (match by slug).
     $existing = file_exists($kwFile) ? (json_decode(file_get_contents($kwFile), true) ?: []) : [];
-    $prevBySlug = [];
-    foreach (($existing['services'] ?? []) as $s) {
-        if (!empty($s['slug'])) $prevBySlug[$s['slug']] = $s['secondary'] ?? [];
-    }
 
-    $names  = $_POST['kw_primary'] ?? [];
-    $slugs  = $_POST['kw_slug']    ?? [];
-    $tiers  = $_POST['kw_tier']    ?? [];
-    $stats  = $_POST['kw_status']  ?? [];
-    $vols   = $_POST['kw_volume']  ?? [];
-    $kds    = $_POST['kw_kd']       ?? [];
+    $names  = $_POST['kw_primary']   ?? [];
+    $slugs  = $_POST['kw_slug']      ?? [];
+    $tiers  = $_POST['kw_tier']      ?? [];
+    $sects  = $_POST['kw_section']   ?? [];
+    $seces  = $_POST['kw_secondary'] ?? [];
     if (!is_array($names)) $names = [];
 
     $slugify = fn(string $s) => trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($s)), '-');
-    $validTier   = ['high', 'medium', 'low', ''];
-    $validStatus = ['primary', 'fold', 'cut'];
+    $validTier    = ['high-1','high-2','high-3','medium-1','medium-2','medium-3','low-1','low-2','low-3',''];
+    $validSection = ['home', 'core', 'landing'];
 
     $services = [];
     $seen = [];
@@ -44,37 +38,33 @@ if ($action === 'save_primaries') {
         $slug = $slugify($slug);
         if ($slug === '' || isset($seen[$slug])) continue;
         $seen[$slug] = true;
-        $tier   = in_array($tiers[$i] ?? '', $validTier, true)   ? ($tiers[$i] ?? '') : '';
-        $status = in_array($stats[$i] ?? '', $validStatus, true) ? ($stats[$i] ?? 'primary') : 'primary';
+        $tier    = in_array($tiers[$i] ?? '', $validTier, true)    ? ($tiers[$i] ?? '') : '';
+        $section = in_array($sects[$i] ?? '', $validSection, true) ? ($sects[$i] ?? 'landing') : 'landing';
+        // Secondary keywords: one textarea per keyword, comma- or line-separated.
+        $secondary = array_values(array_filter(
+            array_map('trim', preg_split('/[\r\n,]+/', (string)($seces[$i] ?? ''))),
+            fn($x) => $x !== ''
+        ));
         $services[] = [
             'primary'   => $primary,
             'slug'      => $slug,
+            'section'   => $section,
             'tier'      => $tier,
-            'status'    => $status,
-            'volume'    => trim((string)($vols[$i] ?? '')),
-            'kd'        => trim((string)($kds[$i] ?? '')),
-            'secondary' => $prevBySlug[$slug] ?? [],
+            'secondary' => $secondary,
         ];
     }
 
-    // Keep the pasted Ahrefs data (capped) so it persists + powers Stage 2.
-    $ahrefs = (string)($_POST['ahrefs_data'] ?? ($existing['ahrefs_data'] ?? ''));
-    if (strlen($ahrefs) > 200000) $ahrefs = substr($ahrefs, 0, 200000);
-
     $map = [
-        'niche'         => trim($_POST['niche'] ?? ($existing['niche'] ?? '')),
-        'ahrefs_data'   => $ahrefs,
-        'services'      => $services,
-        'stage'         => 'secondary',   // primaries solidified → Stage 2 unlocked
-        'updated_at'    => date('c'),
+        'niche'      => trim($_POST['niche'] ?? ($existing['niche'] ?? '')),
+        'services'   => $services,
+        'updated_at' => date('c'),
     ];
     $content = json_encode($map, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     $tmp = $kwFile . '.tmp.' . getmypid();
     if (file_put_contents($tmp, $content) === false || !rename($tmp, $kwFile)) {
         header('Location: index.php?tab=keywords&msg=error:Could+not+save+keyword+map'); exit;
     }
-    $kept = count(array_filter($services, fn($s) => $s['status'] === 'primary'));
-    header('Location: index.php?tab=keywords&msg=success:Primaries+solidified+(' . $kept . '+primary+of+' . count($services) . ').'); exit;
+    header('Location: index.php?tab=keywords&msg=success:Keyword+map+saved+(' . count($services) . '+keyword' . (count($services) === 1 ? '' : 's') . ').'); exit;
 }
 
 header('Location: index.php?tab=keywords');
