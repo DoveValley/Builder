@@ -1,0 +1,123 @@
+{
+    "city_intro": {
+        "label": "City Intro",
+        "description": "Standalone SEO intro (H2 + 2 paragraphs, 160-190 words) about the service in the target city.",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt": "You are writing SEO content for {business}, a trained, locally operated appliance repair company serving {city}, {state}.\n\nTarget keyword: \"{service} {city}\".\n\nWrite a city intro section:\n1. heading_text (H2): 6-10 words, includes \"{city}\" and references {service} or local demand for it.\n2. text: exactly 2 flowing paragraphs, 160-190 words total.\n   - Para 1: Why homeowners in {city} need {service} — the disruption and cost of a broken appliance and why timely, professional repair matters.\n   - Para 2: How {business} helps with {service} specifically — factory-trained technicians, accurate diagnosis, quality parts, upfront pricing, and warranty-backed work. Keep the focus on {service}; you may briefly note they also repair other appliances and brands, but do NOT list them. End forward-looking.\n\nUse \"{city}\" 2-3 times. No bullets, no headings inside text. Wrap each paragraph in <p>...</p>.\n\nACCURACY RULES (critical): Use only well-established general knowledge about {city} and its region. Do NOT invent or state as fact: statistics, prices, part costs, success rates, review counts, years in business, awards, certifications, specific ZIP codes, specific neighborhood names, local ordinances, or any local detail you are not confident is true. If unsure about a specific detail for {city}, write about the broader region or state instead. NEVER quote specific prices or part costs, never guarantee a repair outcome or that a given unit is repairable, and do not cite specific replacement part numbers. Use the standard two-letter abbreviation for {state} where it reads naturally. Write in original wording; do not copy competitor phrasing.\nTone: reassuring, professional, and prompt, with appropriate urgency for a broken appliance.\n\nLOCAL AREAS - the real, verified {city} neighborhoods you ARE permitted to name (pick only a few, not all): {neighborhoods}\nThese provided names are the ONE exception to the accuracy rules above about naming neighborhoods. If that line lists actual names, choose ONLY 2 OR 3 of them and name those as natural in-sentence examples - always woven into prose, NEVER a bulleted or \"we serve X, Y, Z\" list, and never add a name not on that line. If that line is blank or still shows the literal token {neighborhoods}, name NO specific neighborhoods, streets, or ZIP codes and speak only in general area terms. Wrap paragraphs in <p>...</p>.\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p><p>...</p>\"}\n\nRelated search terms for this page: {secondary_keywords}. Where it reads naturally, work a few of these variant phrasings into the copy. Prioritize readability — never list keywords, repeat them, or stuff them; if a term does not fit naturally, leave it out.",
+        "ai_output_schema": {
+            "heading_text": "string",
+            "text": "html_string"
+        },
+        "default_fields": {
+            "skin": "light",
+            "heading_level": "h2"
+        },
+        "_compiled_from": "city_intro",
+        "_niche": "appliance repair"
+    },
+    "hero_subtext": {
+        "label": "Hero Subtext (Inject)",
+        "description": "Injects 2-3 city-specific sentences into the next hero_split block's hs_subtext field.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": "next",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "ai_prompt": "You are writing hero subtext for {business}, a trained, locally operated appliance repair company, for a page targeting {city}, {state}.\n\nWrite 2-3 sentences (40-60 words total):\n- Open with a {city}-relevant statement about how much households rely on their appliances and the disruption when one breaks down.\n- Center on {service} — the specific repair {business} handles on this page. Do NOT list other appliances or brands.\n- Close with a value statement (fast/same-day, factory-trained, warranty-backed).\n\nNo bullets. No exclamation marks. Professional, not sales-y.\n\nACCURACY RULES (critical): Use only well-established general knowledge about {city} and its region. Do NOT invent or state as fact: statistics, prices, part costs, success rates, review counts, years in business, awards, certifications, specific ZIP codes, specific neighborhood names, local ordinances, or any local detail you are not confident is true. If unsure about a specific detail for {city}, write about the broader region or state instead. NEVER quote specific prices or part costs, never guarantee a repair outcome or that a given unit is repairable, and do not cite specific replacement part numbers. Use the standard two-letter abbreviation for {state} where it reads naturally. Write in original wording; do not copy competitor phrasing.\nTone: reassuring, professional, and prompt, with appropriate urgency for a broken appliance.\n\nLOCAL AREAS - the real, verified {city} neighborhoods you ARE permitted to name (pick only a few, not all): {neighborhoods}\nThese provided names are the ONE exception to the accuracy rules above about naming neighborhoods. If that line lists actual names, choose ONLY 2 OR 3 of them and name those as natural in-sentence examples - always woven into prose, NEVER a bulleted or \"we serve X, Y, Z\" list, and never add a name not on that line. If that line is blank or still shows the literal token {neighborhoods}, name NO specific neighborhoods, streets, or ZIP codes and speak only in general area terms. Wrap paragraphs in <p>...</p>.\n\nReturn JSON only: {\"text\": \"2-3 sentences here\"}",
+        "ai_output_schema": {
+            "text": "string"
+        },
+        "default_fields": [],
+        "_compiled_from": "hero_subtext",
+        "_niche": "appliance repair"
+    },
+    "feature_columns_local": {
+        "label": "Feature Columns - Local (Standalone)",
+        "description": "4-column feature_columns block: 3 core benefits + 1 city-specific column.",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt": "You are writing feature columns for {business}, a trained, locally operated appliance repair company, for a {city}, {state} page.\n\nfc_heading: 6-10 words, city-aware and benefit-focused (e.g. \"Why {city} Homeowners Choose {business}\").\n\nWrite exactly 4 columns:\n- Columns 1-3: core benefits of {business}'s {service} — factory-trained technicians, fast/same-day response, upfront pricing and free estimates, genuine/quality parts, and warranty-backed repairs. Do NOT list other appliances or brands.\n- Column 4: a {city}-relevant benefit (local, responsive service across the {city} area).\n\nEach column: heading 3-5 words (benefit-focused); text 20-30 words, concrete.\n\nACCURACY RULES (critical): Use only well-established general knowledge about {city} and its region. Do NOT invent or state as fact: statistics, prices, part costs, success rates, review counts, years in business, awards, certifications, specific ZIP codes, specific neighborhood names, local ordinances, or any local detail you are not confident is true. If unsure about a specific detail for {city}, write about the broader region or state instead. NEVER quote specific prices or part costs, never guarantee a repair outcome or that a given unit is repairable, and do not cite specific replacement part numbers. Use the standard two-letter abbreviation for {state} where it reads naturally. Write in original wording; do not copy competitor phrasing.\nTone: reassuring, professional, and prompt, with appropriate urgency for a broken appliance.\n\nLOCAL AREAS - the real, verified {city} neighborhoods you ARE permitted to name (pick only a few, not all): {neighborhoods}\nThese provided names are the ONE exception to the accuracy rules above about naming neighborhoods. If that line lists actual names, choose ONLY 2 OR 3 of them and name those as natural in-sentence examples - always woven into prose, NEVER a bulleted or \"we serve X, Y, Z\" list, and never add a name not on that line. If that line is blank or still shows the literal token {neighborhoods}, name NO specific neighborhoods, streets, or ZIP codes and speak only in general area terms. Wrap paragraphs in <p>...</p>.\n\nReturn JSON only: {\"fc_heading\": \"...\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}\n\nRelated search terms for this page: {secondary_keywords}. Where it reads naturally, work a few of these variant phrasings into the copy. Prioritize readability — never list keywords, repeat them, or stuff them; if a term does not fit naturally, leave it out.",
+        "ai_output_schema": {
+            "fc_heading": "string",
+            "columns": "array"
+        },
+        "default_fields": {
+            "skin": "light",
+            "fc_heading": "",
+            "fc_num_cols": 4,
+            "columns": []
+        },
+        "_compiled_from": "feature_columns_local",
+        "_niche": "appliance repair"
+    },
+    "faq_local": {
+        "label": "FAQ - Local (Full Set)",
+        "description": "Generates a full set of 8 distinct service + local FAQ items, replacing the block's fq_items.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": "next",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "ai_prompt": "You are writing FAQ content for {business}, a trained, locally operated appliance repair company, for a {city}, {state} page.\n\nWrite 8 DISTINCT FAQ items a {city} homeowner searching for {service} would ask. Every question AND answer must be about {service} specifically — do NOT ask about other appliances or unrelated services.\n\nThe 8 questions must each cover a DIFFERENT intent — no two may be rephrasings of the same question. Choose 8 distinct ones from these real buyer questions: what the {service} process involves and what to expect; how quickly {business} can come out and whether same-day service is available; the common problems/symptoms that lead to this repair; whether it is worth repairing versus replacing the appliance; what affects the cost and whether free estimates or diagnostics are offered (NEVER state specific prices or part costs); whether the technicians are factory-trained and work on the customer's brand; whether the repair and parts are warranty-backed; how to prepare for the technician's visit; the signs an appliance needs professional repair rather than a DIY fix; how to help prevent the problem from recurring.\n\nRoughly half the questions should naturally include \"{city}\"; the rest stay general to {service}.\n\nEach item:\n- question: a distinct, natural search-style question (8-15 words).\n- answer: 40-80 words, specific and genuinely helpful — no filler.\n\nACCURACY RULES (critical): Use only well-established general knowledge about {city} and its region. Do NOT invent or state as fact: statistics, prices, part costs, success rates, review counts, years in business, awards, certifications, specific ZIP codes, specific neighborhood names, local ordinances, or any local detail you are not confident is true. If unsure about a specific detail for {city}, write about the broader region or state instead. NEVER quote specific prices or part costs, never guarantee a repair outcome or that a given unit is repairable, and do not cite specific replacement part numbers. Use the standard two-letter abbreviation for {state} where it reads naturally. Write in original wording; do not copy competitor phrasing.\nTone: reassuring, professional, and prompt, with appropriate urgency for a broken appliance.\n\nLOCAL AREAS - the real, verified {city} neighborhoods you ARE permitted to name (pick only a few, not all): {neighborhoods}\nThese provided names are the ONE exception to the accuracy rules above about naming neighborhoods. If that line lists actual names, choose ONLY 2 OR 3 of them and name those as natural in-sentence examples - always woven into prose, NEVER a bulleted or \"we serve X, Y, Z\" list, and never add a name not on that line. If that line is blank or still shows the literal token {neighborhoods}, name NO specific neighborhoods, streets, or ZIP codes and speak only in general area terms. Wrap paragraphs in <p>...</p>.\n\nReturn JSON only: {\"items\": [{\"question\": \"...\", \"answer\": \"...\"}, ... exactly 8 objects ...]}\n\nRelated search terms for this page: {secondary_keywords}. Make sure the FAQ set collectively covers the distinct intents behind these variant phrasings. Phrase questions the way a real homeowner would — never keyword-stuff, and skip any term that does not map to a natural question.",
+        "ai_output_schema": {
+            "items": "array"
+        },
+        "default_fields": [],
+        "_compiled_from": "faq_local",
+        "_niche": "appliance repair"
+    },
+    "seasonal_calendar": {
+        "label": "Seasonal Calendar (Standalone)",
+        "description": "4-step seasonal breakdown of pressure/demand by season for the region. Opt-in for seasonal niches.",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt": "You are writing a seasonal appliance-care guide for {business}, an appliance repair company, for {city}, {state}.\n\nsteps_heading: 5-9 words referencing seasonal appliance care in {city}.\n\nWrite exactly 4 items, one per season (Spring, Summer, Fall, Winter):\n- heading: the season plus a 2-4 word theme.\n- text: 25-40 words on how that season affects home appliances in {city}'s region (e.g. summer heat straining refrigerators and freezers; heavy laundry loads; holiday-season oven and range use; winter demands) and how {business} helps keep them running.\n\nBase patterns on the region's real climate and typical household usage. Do not invent specific data.\n\nACCURACY RULES (critical): Use only well-established general knowledge about {city} and its region. Do NOT invent or state as fact: statistics, prices, part costs, success rates, review counts, years in business, awards, certifications, specific ZIP codes, specific neighborhood names, local ordinances, or any local detail you are not confident is true. If unsure about a specific detail for {city}, write about the broader region or state instead. NEVER quote specific prices or part costs, never guarantee a repair outcome or that a given unit is repairable, and do not cite specific replacement part numbers. Use the standard two-letter abbreviation for {state} where it reads naturally. Write in original wording; do not copy competitor phrasing.\nTone: reassuring, professional, and prompt, with appropriate urgency for a broken appliance.\n\nLOCAL AREAS - the real, verified {city} neighborhoods you ARE permitted to name (pick only a few, not all): {neighborhoods}\nThese provided names are the ONE exception to the accuracy rules above about naming neighborhoods. If that line lists actual names, choose ONLY 2 OR 3 of them and name those as natural in-sentence examples - always woven into prose, NEVER a bulleted or \"we serve X, Y, Z\" list, and never add a name not on that line. If that line is blank or still shows the literal token {neighborhoods}, name NO specific neighborhoods, streets, or ZIP codes and speak only in general area terms. Wrap paragraphs in <p>...</p>.\n\nReturn JSON only: {\"steps_heading\": \"...\", \"steps_items\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}",
+        "ai_output_schema": {
+            "steps_heading": "string",
+            "steps_items": "array"
+        },
+        "default_fields": {
+            "skin": "light",
+            "steps_heading": "",
+            "steps_items": []
+        },
+        "_compiled_from": "seasonal_calendar",
+        "_niche": "appliance repair"
+    },
+    "local_relevance": {
+        "label": "Local Relevance / Neighborhood-type (Standalone)",
+        "description": "Standalone text on local property/area characteristics. Generic-safe by default (no invented place names); upgrades to named neighborhoods only when the enrichment step supplies verified names.",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt": "You are writing a local-relevance section for {business}, a trained, locally operated appliance repair company, for {city}, {state}.\n\nheading_text (H2): 5-9 words referencing serving {city} and the surrounding area.\n\ntext: 1-2 paragraphs (110-150 words) on serving homes across the {city} area — how a mix of older, established neighborhoods and newer subdivisions means a wide range of appliance ages, brands, and models, and how {business} responds quickly across the area with factory-trained technicians and the right parts. Whether to name specific neighborhoods is governed by the LOCAL AREAS line below.\n\nACCURACY RULES (critical): Use only well-established general knowledge about {city} and its region. Do NOT invent or state as fact: statistics, prices, part costs, success rates, review counts, years in business, awards, certifications, specific ZIP codes, specific neighborhood names, local ordinances, or any local detail you are not confident is true. If unsure about a specific detail for {city}, write about the broader region or state instead. NEVER quote specific prices or part costs, never guarantee a repair outcome or that a given unit is repairable, and do not cite specific replacement part numbers. Use the standard two-letter abbreviation for {state} where it reads naturally. Write in original wording; do not copy competitor phrasing.\nTone: reassuring, professional, and prompt, with appropriate urgency for a broken appliance.\n\nLOCAL AREAS - the real, verified {city} neighborhoods you ARE permitted to name (pick only a few, not all): {neighborhoods}\nThese provided names are the ONE exception to the accuracy rules above about naming neighborhoods. If that line lists actual names, choose ONLY 2 OR 3 of them and name those as natural in-sentence examples - always woven into prose, NEVER a bulleted or \"we serve X, Y, Z\" list, and never add a name not on that line. If that line is blank or still shows the literal token {neighborhoods}, name NO specific neighborhoods, streets, or ZIP codes and speak only in general area terms. Wrap paragraphs in <p>...</p>.\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p>\"}\n\nRelated search terms for this page: {secondary_keywords}. Where it reads naturally, work a few of these variant phrasings into the copy. Prioritize readability — never list keywords, repeat them, or stuff them; if a term does not fit naturally, leave it out.",
+        "ai_output_schema": {
+            "heading_text": "string",
+            "text": "html_string"
+        },
+        "default_fields": {
+            "skin": "light",
+            "heading_level": "h2"
+        },
+        "_compiled_from": "local_relevance",
+        "_niche": "appliance repair"
+    }
+}
