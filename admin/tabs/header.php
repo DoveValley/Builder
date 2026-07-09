@@ -114,7 +114,7 @@
                     <div style="background:#1a1a2e;padding:14px 18px;border-radius:8px;display:inline-flex;align-items:flex-end;gap:20px;margin-bottom:12px;">
                         <?php foreach ([16 => 'Browser tab', 32 => 'Taskbar', 48 => 'Desktop', 180 => 'iOS'] as $px => $label): ?>
                         <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
-                            <img src="../<?= h($header['favicon']) ?>?v=<?= time() ?>" alt="<?= $px ?>px" style="width:<?= $px ?>px;height:<?= $px ?>px;image-rendering:pixelated;flex-shrink:0;">
+                            <img src="<?= h(admin_upload_url($header['favicon'])) ?>?v=<?= time() ?>" alt="<?= $px ?>px" style="width:<?= $px ?>px;height:<?= $px ?>px;image-rendering:pixelated;flex-shrink:0;">
                             <span style="font-size:.68rem;color:#94a3b8;"><?= $px ?>px<br><?= $label ?></span>
                         </div>
                         <?php endforeach; ?>
@@ -139,7 +139,7 @@
                 <div class="form-group">
                     <div class="current-image">
                         <?php if (!empty($header['logo'])): ?>
-                            <img src="../<?= h($header['logo']) ?>" alt="Current logo">
+                            <img src="<?= h(admin_upload_url($header['logo'])) ?>" alt="Current logo">
                         <?php else: ?>
                             <span class="none">No logo uploaded yet.</span>
                         <?php endif; ?>

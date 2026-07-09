@@ -111,13 +111,13 @@
                     <div>
                         <div class="hint" style="margin-bottom:4px;">Current logo</div>
                         <?php if (!empty($data['header']['logo'])): ?>
-                            <img src="../<?= h($data['header']['logo']) ?>?v=<?= time() ?>" alt="logo" style="max-height:52px;max-width:300px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:6px;" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'hint',textContent:'(set — preview unavailable here)'}))">
+                            <img src="<?= h(admin_upload_url($data['header']['logo'])) ?>?v=<?= time() ?>" alt="logo" style="max-height:52px;max-width:300px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:6px;" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'hint',textContent:'(set — preview unavailable)'}))">
                         <?php else: ?><span class="hint">none yet</span><?php endif; ?>
                     </div>
                     <div>
                         <div class="hint" style="margin-bottom:4px;">Favicon</div>
                         <?php if (!empty($data['header']['favicon'])): ?>
-                            <img src="../<?= h($data['header']['favicon']) ?>?v=<?= time() ?>" alt="favicon" style="width:44px;height:44px;border:1px solid #e5e7eb;border-radius:6px;" onerror="this.style.display='none'">
+                            <img src="<?= h(admin_upload_url($data['header']['favicon'])) ?>?v=<?= time() ?>" alt="favicon" style="width:44px;height:44px;border:1px solid #e5e7eb;border-radius:6px;" onerror="this.style.display='none'">
                         <?php else: ?><span class="hint">none yet</span><?php endif; ?>
                     </div>
                 </div>

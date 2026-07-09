@@ -253,3 +253,15 @@ function tab_header(string $title, string $description, string $docAnchor): void
        . 'justify-content:center;margin-top:2px;" title="View documentation">?</a>';
     echo '</div>';
 }
+
+/* Browser URL for an active-site upload (site-relative path like "uploads/x.png").
+   Maps to the site's real web path — sites/{id}/uploads/... on multisite,
+   /uploads/... on a root single-site — so admin thumbnails actually resolve. */
+function admin_upload_url(string $path): string {
+    $path = ltrim($path, '/');
+    if ($path === '') return '';
+    if (defined('UPLOAD_URL') && strncmp($path, 'uploads/', 8) === 0) {
+        return '/' . preg_replace('#^uploads/#', UPLOAD_URL, $path);
+    }
+    return '/' . $path;
+}
