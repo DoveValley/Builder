@@ -70,6 +70,44 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $lbl, $nu
 <div class="tab-content" style="<?= $tab === 'keywords' ? '' : 'display:none;' ?>">
 <?php tab_header('Keywords', 'Manual keyword map, organised by page role. Type every primary and its secondary keywords — nothing is auto-filled, seeded, or AI-generated.', 'tab-keywords'); ?>
 
+    <?php
+    // Overall build process — the keyword map (this tab) is Phase 0, the source
+    // of truth everything downstream is generated from. Full doc:
+    // docs/landing-page-build-process-V1-20260709.md
+    $procSteps = [
+        ['0',  'Keyword map',            'This tab — which pages exist, each page&rsquo;s primary keyword, slug, and secondaries.', true],
+        ['1',  'Master template',        'Build/audit the reusable block skeleton per archetype.', false],
+        ['2',  'Bulk-generate templates','Clone the master into the noun-service pages (find/replace + dry-run).', false],
+        ['3',  'Images',                 'Assign hero / intro / local images from the media library.', false],
+        ['4',  'Inspection archetype',   'Inspection-intent pages, if the niche has them.', false],
+        ['5',  'Category / plans',       'Broad category pages + a pricing/plans page.', false],
+        ['6',  'Cross-links',            'Sync related-service cards + the services grid to the templates.', false],
+        ['7',  'Generate city pages',    'Pass A (structure) &rarr; Pass B (AI content), per city.', false],
+        ['8',  'Schema + grid',          'Service-area homepage LocalBusiness node; sync services grid.', false],
+        ['9',  'Secondary keywords',     'Woven into the content by the AI generator (from this map).', false],
+        ['10', 'Deploy',                 'Set logo / phone / deploy.json, build, FTP, verify live.', false],
+    ];
+    ?>
+    <details class="card" style="margin-bottom:16px;" open>
+        <summary style="cursor:pointer;font-weight:700;color:#120575;font-size:1.02rem;">
+            Overall build process &mdash; keyword map &rarr; templates &rarr; deploy
+            <span style="font-weight:400;color:#64748b;font-size:.85rem;">(you are on Phase 0)</span>
+        </summary>
+        <ol style="list-style:none;margin:14px 0 4px;padding:0;">
+            <?php foreach ($procSteps as [$n, $title, $desc, $cur]): ?>
+            <li style="display:flex;gap:12px;align-items:flex-start;padding:8px 10px;margin-bottom:6px;border-radius:6px;<?= $cur ? 'background:#f5f3ff;border:1px solid #c4b5fd;' : '' ?>">
+                <span style="flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;background:<?= $cur ? '#7c3aed' : '#e2e8f0' ?>;color:<?= $cur ? '#fff' : '#475569' ?>;border-radius:13px;font-size:.8rem;font-weight:700;"><?= h($n) ?></span>
+                <div>
+                    <span style="font-weight:600;color:#1f2937;"><?= h($title) ?></span>
+                    <?php if ($cur): ?><span style="margin-left:6px;font-size:.72rem;font-weight:700;color:#7c3aed;">&larr; YOU ARE HERE</span><?php endif; ?>
+                    <br><span class="hint" style="font-size:.82rem;"><?= $desc ?></span>
+                </div>
+            </li>
+            <?php endforeach; ?>
+        </ol>
+        <p class="hint" style="margin:6px 0 0;">Full write-up: <code>docs/landing-page-build-process-V1-20260709.md</code></p>
+    </details>
+
     <div class="card" style="margin-bottom:16px;">
         <h2 style="margin-top:0;margin-bottom:8px;">How to build your keyword map</h2>
         <p class="hint" style="margin:0 0 10px;">
