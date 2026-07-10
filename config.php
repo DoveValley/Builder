@@ -97,13 +97,13 @@ unset($_activeSiteId, $_msBase);
 // Page starters are global (shared across all sites)
 define('STARTERS_FILE', BASE_DIR . '/data/page_starters.json');
 
-// Anthropic API key — set via admin AI tab, env var, or hardcode here.
-// Priority: env var → .ai_key file → empty string.
-$_aiKey = getenv('ANTHROPIC_API_KEY') ?: '';
-if (!$_aiKey) {
-    $_aiKeyFile = __DIR__ . '/.ai_key';
-    if (file_exists($_aiKeyFile)) $_aiKey = trim(file_get_contents($_aiKeyFile));
-    unset($_aiKeyFile);
-}
+// Anthropic API key. Priority: .ai_key file (set via admin AI tab) → env var.
+// The explicit, admin-managed .ai_key intentionally wins over ambient env vars:
+// a stale env key (e.g. a placeholder in /etc/apache2/envvars exported to the web
+// server) would otherwise silently override the key you set and cause
+// "invalid x-api-key". The env var remains a fallback when no .ai_key exists.
+$_aiKeyFile = __DIR__ . '/.ai_key';
+$_aiKey = file_exists($_aiKeyFile) ? trim(file_get_contents($_aiKeyFile)) : '';
+if ($_aiKey === '') $_aiKey = getenv('ANTHROPIC_API_KEY') ?: '';
 define('ANTHROPIC_API_KEY', $_aiKey);
-unset($_aiKey);
+unset($_aiKey, $_aiKeyFile);

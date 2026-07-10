@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_wine_cooler_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "wine-cooler-repair-lufkin-tx",
+  "title": "Wine Cooler Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Wine Cooler Repair in {city_state}",
+      "hs_subtext": "In Lufkin households, a wine cooler that stops maintaining temperature can quickly spoil valuable collections and disrupt entertaining plans. Wells Appliance Repair provides specialized wine cooler repair service to restore proper cooling and humidity control. Our factory-trained technicians deliver prompt service backed by warranty, getting your unit working reliably again.",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Wine Cooler",
+      "hs_caption2": "Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-wine-cooler.webp",
+      "hs_photo_alt": "Wine Cooler Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:02:34.333722Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "7feb5d30f6071123",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-4.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Wine Cooler Repair Services in Lufkin",
+      "text": "<p>A wine cooler that stops working disrupts more than just your daily routine—it puts your collection at risk and can lead to costly replacement expenses if left unaddressed. In Lufkin, homeowners who rely on wine coolers for proper temperature and humidity control understand that prompt, professional repair is essential. A malfunctioning unit can allow temperatures to fluctuate, potentially damaging bottles and affecting the taste and value of your wine. Delayed repairs only compound the problem, making early diagnosis and quality service a smart investment in protecting both your appliance and your collection.</p><p>Wells Appliance Repair brings factory-trained technicians to your Lufkin home ready to diagnose and repair wine cooler issues accurately. We understand the precision these units require and approach every repair with attention to detail, using quality parts and transparent, upfront pricing so you know exactly what to expect. Our warranty-backed service gives you confidence that your wine cooler is in capable hands. Whether your unit needs a thermostat adjustment, compressor work, or other repairs, we're committed to restoring reliable cooling quickly and professionally, helping you get back to enjoying your collection worry-free.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:02:37.951595Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "54bdd5c8bd8072d6",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "by_brand",
+      "html": "[services_links appliance_type=\"self\" heading=\"Repair by Brand in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Not Cooling Properly",
+          "text": "A wine cooler that fails to reach or maintain the correct temperature often has a faulty thermostat, compressor issues, or refrigerant leaks. Wells Appliance Repair technicians diagnose the root cause and restore proper cooling performance."
+        },
+        {
+          "heading": "Compressor Won't Start",
+          "text": "If your wine cooler's compressor won't engage, the culprit may be a defective start relay, capacitor failure, or electrical connection problem. Our technicians test and replace faulty components to get your unit running again."
+        },
+        {
+          "heading": "Leaking Water Inside",
+          "text": "Water pooling inside a wine cooler typically stems from a clogged drain line, cracked drain pan, or frozen condensation line. Wells Appliance Repair clears blockages and repairs damage so moisture drains properly away."
+        },
+        {
+          "heading": "Loud or Strange Noises",
+          "text": "Excessive vibration, rattling, or unusual sounds usually indicate loose components, a failing compressor, or fan motor problems. Our technicians identify the noise source and make necessary repairs to restore quiet operation."
+        },
+        {
+          "heading": "Door Seal Is Leaking",
+          "text": "Warm air escaping around the door gasket allows temperature swings and moisture buildup. A worn or misaligned seal is the typical cause. Wells Appliance Repair replaces the gasket and adjusts the door for a tight fit."
+        },
+        {
+          "heading": "Display Panel Not Working",
+          "text": "A blank or unresponsive digital display may result from a burnt-out control board, loose wiring, or power supply fault. Our technicians test the electrical system and repair or replace failed components."
+        }
+      ],
+      "fc_heading": "Common Wine Cooler Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:02:42.139672Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "d819b8af98ac6ea9",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Wine Cooler Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Wine Cooler Experts",
+          "text": "Our technicians specialize in wine cooler diagnosis and repair, understanding temperature control, humidity systems, and cooling mechanisms unique to wine storage. We arrive prepared to handle the complexities of your unit correctly."
+        },
+        {
+          "heading": "Accurate Diagnosis, Fast Solutions",
+          "text": "We pinpoint wine cooler faults on the first visit—whether compressor, thermostat, or seal issues—and offer same-day repair when parts are available. No guesswork, no repeat trips."
+        },
+        {
+          "heading": "Upfront Pricing and Warranty Assurance",
+          "text": "Receive a free estimate before any wine cooler repair work begins. All repairs are backed by our warranty, so you have confidence in the quality and durability of your service."
+        },
+        {
+          "heading": "Local Lufkin Response You Can Count On",
+          "text": "We serve Lufkin and surrounding areas with prompt, professional service. When your wine cooler needs repair, reach a local, trained team ready to help quickly."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:02:45.523158Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "6bfb451077e59d78",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need this appliance repaired in {city}? Call our team.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a wine cooler repair visit?",
+          "answer": "Our technician will inspect your unit, identify the issue, and explain the problem and repair options before proceeding. We'll test cooling function, check seals and temperature controls, and address any mechanical or electrical concerns. Most visits take 1–2 hours depending on complexity. We'll also walk you through proper operation to prevent future issues."
+        },
+        {
+          "question": "Why is my wine cooler not cooling properly anymore?",
+          "answer": "Common cooling issues include refrigerant leaks, compressor failure, blocked vents, faulty thermostats, or condenser coil buildup. Door seals can also degrade, letting cold air escape. Some problems—like dust accumulation—may be preventable, while others like compressor wear require professional repair. Our technician will diagnose the exact cause."
+        },
+        {
+          "question": "How fast can Wells Appliance Repair come out to Lufkin?",
+          "answer": "We serve the Lufkin area with prompt response times and offer same-day service when availability allows. Call us to discuss your wine cooler issue and we'll schedule the soonest convenient appointment. For urgent cooling loss, we prioritize quick dispatch to prevent wine damage."
+        },
+        {
+          "question": "Should I repair my wine cooler or buy a new one?",
+          "answer": "Repair usually makes sense if your unit is under 10 years old and the fault is isolated—like a thermostat or seal. Older units with compressor failure may cost more to repair. We'll provide an honest assessment during diagnosis so you can weigh repair cost against replacement value."
+        },
+        {
+          "question": "Do your technicians work on all wine cooler brands?",
+          "answer": "Yes, our technicians are trained to service most major wine cooler brands and models. Whether your unit is built-in, freestanding, or a specialty wine cellar, we have the expertise to diagnose and repair it. Bring your model number if available to speed up troubleshooting."
+        },
+        {
+          "question": "What factors affect the cost of wine cooler repair?",
+          "answer": "Cost depends on the diagnosed problem, parts needed, labor time, and your unit's complexity. A thermostat replacement differs greatly from compressor work. We offer free diagnostics so you know the issue and estimated repair scope before committing. This helps you make an informed decision."
+        },
+        {
+          "question": "Are wine cooler repairs and parts covered by warranty?",
+          "answer": "Yes, we back our repairs and parts with warranty coverage. The exact terms depend on the repair scope and parts used. We'll provide warranty details in writing when the job is complete, giving you confidence in the work and protection if an issue recurs."
+        },
+        {
+          "question": "How can I prevent wine cooler problems in the future?",
+          "answer": "Keep vents and condenser coils clear of dust by cleaning regularly. Ensure door seals are tight and the unit sits on level ground. Maintain proper temperature settings and avoid frequent door openings. Our technician can show you best-practice habits during the repair visit to extend your cooler's life."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:42:33.699104Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "af70b0c33cc52d1c",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_types",
+      "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Schedule your {city} repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Wine Cooler Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/wine-cooler-repair-lufkin-tx/",
+    "meta_description": "Professional wine cooler repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "wine cooler repair Lufkin TX, wine cooler not cooling, wine cellar cooling repair",
+    "og_title": "Wine Cooler Repair in {city_state} | {business}",
+    "og_description": "Professional wine cooler repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Wine Cooler Repair",
+    "service_type": "Wine Cooler Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional wine cooler repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "wine cooler repair",
+    "secondary_keywords": "wine fridge repair {city}, wine cooler not cooling, wine cellar cooling repair",
+    "brand": "",
+    "appliance_type": "Wine Cooler",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Wine Cooler Repair in Lufkin, TX\",\"serviceType\":\"Wine Cooler Repair\",\"description\":\"Professional wine cooler repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "e1ba114a969c3288a59d6a2db5483c8b"
+}

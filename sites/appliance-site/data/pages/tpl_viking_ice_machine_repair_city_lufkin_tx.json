@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_viking_ice_machine_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "viking-ice-machine-repair-lufkin-tx",
+  "title": "Viking Ice Machine Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Viking Ice Machine Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin, a functioning ice machine is often taken for granted until it stops working, leaving households without cold beverages and creating inconvenience across daily routines. Wells Appliance Repair specializes in Viking Ice Machine Repair, addressing breakdowns with factory-trained technicians who understand the specific demands of your equipment. We prioritize fast service with warranty-backed repairs, so you can restore normalcy to your home without delay.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Viking",
+      "hs_caption2": "Ice Machine Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-ice-machine.webp",
+      "hs_photo_alt": "Viking Ice Machine Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:23:50.923922Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "791e674738d14655"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-1.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Viking Ice Machine Repair Services in Lufkin, TX",
+      "text": "<p>A broken Viking ice machine disrupts daily life faster than most appliances. Whether you rely on ice for entertaining guests, running a business, or simply keeping your household comfortable, a unit that stops making ice creates immediate inconvenience and potential waste. The longer the machine sits idle, the greater the risk of further damage or costly replacement. That's why prompt, professional repair matters. In Lufkin and the surrounding area, homeowners and business owners turn to trusted technicians who understand these premium machines and can diagnose problems accurately before they spiral into bigger headaches.</p><p>Wells Appliance Repair brings factory-trained expertise to every Viking ice machine repair job. Our technicians are equipped to identify the root cause—whether it's a compressor issue, water line problem, or control board malfunction—and explain findings upfront so you know exactly what's needed. We source quality parts designed to restore reliable performance and back our work with a warranty you can trust. Beyond Viking units, we also service other leading appliance brands, but our commitment to precision diagnosis, honest pricing, and lasting results remains unwavering. When your ice machine isn't working, we're ready to get it running again.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:10:42.331095Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "9ecbb14120abd31e"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Ice Machine Not Making Ice",
+          "text": "Freezing issues often stem from a clogged water line, faulty water inlet valve, or low refrigerant levels. Our Lufkin technicians diagnose the root cause and restore full ice production quickly."
+        },
+        {
+          "heading": "Water Leaking Underneath",
+          "text": "Leaks typically result from cracked drain lines, misaligned drain pans, or worn seals. Wells Appliance Repair identifies the source and repairs it to prevent water damage to your floor."
+        },
+        {
+          "heading": "Ice Tastes or Smells Bad",
+          "text": "Poor ice quality usually points to a dirty water filter, contaminated water supply, or buildup inside the machine. Our technicians clean and sanitize the system to restore fresh-tasting ice."
+        },
+        {
+          "heading": "Machine Running Constantly",
+          "text": "Continuous cycling often signals a thermostat malfunction, refrigerant leak, or compressor issue. We diagnose whether your ice machine repair near me requires component replacement or refrigerant service."
+        },
+        {
+          "heading": "Loud Noises or Vibration",
+          "text": "Unusual sounds typically indicate loose components, a failing fan motor, or compressor problems. Wells Appliance Repair pinpoints the noise source and addresses it before further damage occurs."
+        },
+        {
+          "heading": "Machine Won't Turn On",
+          "text": "Power and control failures may involve a faulty power cord, circuit board issue, or control switch problem. Our technicians test and repair electrical components to get your commercial ice machine running again."
+        }
+      ],
+      "fc_heading": "Common Viking Ice Machine Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:10:46.535060Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "170289175c03646e"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Viking Ice Machine Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Viking Expertise",
+          "text": "Our technicians are trained on Viking ice machine systems and understand their unique components. We diagnose ice machine faults accurately and restore reliable ice production quickly."
+        },
+        {
+          "heading": "Genuine Parts, Fast Turnaround",
+          "text": "We stock authentic Viking ice machine parts and offer same-day repair service when possible. Upfront pricing and free estimates mean no surprises—just prompt, honest solutions."
+        },
+        {
+          "heading": "Warranty-Backed Repairs You Trust",
+          "text": "Every Viking ice machine repair is backed by our warranty. We stand behind our work so you can rely on your ice maker for years to come."
+        },
+        {
+          "heading": "Local Lufkin Service, Always Ready",
+          "text": "Wells Appliance Repair serves Lufkin and the surrounding area with responsive, same-day ice machine repair near you. Call us when your ice machine stops making ice—we're here to help."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:10:49.574870Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "9e6801d6ac0b5e07"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-1.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Throughout the Lufkin Area",
+      "text": "<p>Lufkin's mix of established neighborhoods and newer residential developments means homes across the area rely on appliances of varying ages and brands. Whether you live in Crown Colony, Fuller Springs, or anywhere else in the greater Lufkin region, you'll find that different vintages and models call for different expertise. Wells Appliance Repair understands this diversity and responds quickly with factory-trained technicians who know how to diagnose and repair the full range of units found in local homes—from older, dependable models to the latest energy-efficient appliances.</p><p>When your refrigerator stops cooling, your washing machine won't drain, or your ice machine is not making ice, a fast response matters. We maintain the right parts and diagnostic tools to serve homes and businesses across the Lufkin area without unnecessary delays. Our technicians arrive prepared to handle major brands and various repair scenarios, so whether you need a routine fix or face a more complex issue, you can count on prompt, professional service from a team that knows your community.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:10:52.939652Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "752cd08a25a3fa94"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a Viking ice machine repair visit?",
+          "answer": "Our technician will inspect your unit, diagnose the issue, explain what's wrong and your repair options, and then perform the work if you approve. We test the machine before leaving to ensure it's producing ice properly. The visit typically takes 1–2 hours depending on the problem's complexity. We'll answer your questions and show you any worn parts we replace."
+        },
+        {
+          "question": "How fast can Wells Appliance Repair come out for ice machine service in Lufkin?",
+          "answer": "We prioritize rapid response for broken ice machines since they're essential to many households. We offer same-day and next-day appointments throughout the Lufkin area when availability allows. Call us as soon as you notice a problem so we can fit you into our schedule quickly. Emergency service options may be available—ask when you contact us."
+        },
+        {
+          "question": "Why is my Viking ice machine not making ice anymore?",
+          "answer": "Common causes include a frozen water line, a faulty inlet valve, a broken evaporator, low refrigerant, or a clogged filter. Ice production can also stop if the thermostat is stuck or the compressor isn't running. Only a hands-on inspection reveals the exact problem. Don't assume it's an easy fix—professional diagnosis is worth the cost."
+        },
+        {
+          "question": "Should I repair my Viking ice machine or buy a new one?",
+          "answer": "That depends on the repair cost, your machine's age, and how often you use it. A newer unit with a minor issue usually warrants repair. Older machines with major problems (compressor failure, for example) may cost more to fix than replacement. We'll give you an honest assessment and estimate so you can make an informed choice without pressure."
+        },
+        {
+          "question": "Does Wells Appliance Repair offer free estimates for Viking ice machine repairs?",
+          "answer": "Yes, we provide free diagnostics and estimates. Our technician will identify the problem, explain the repair, and give you an upfront estimate before any work begins. You're never obligated to proceed. This transparent approach helps you understand what's wrong and what it will cost to fix."
+        },
+        {
+          "question": "Are your technicians trained to repair Viking brand ice machines?",
+          "answer": "Our technicians have hands-on training and experience with Viking ice machines and other major appliance brands. We work directly on your Viking unit and use manufacturer-standard repair methods. We stay current with Viking's designs and common failure points, so your machine receives expert care specific to its brand."
+        },
+        {
+          "question": "What warranty covers Viking ice machine repairs and replacement parts?",
+          "answer": "Our repairs and parts come with a service warranty. Details depend on the specific repair and part replaced. We'll explain warranty coverage clearly when we provide your estimate. Always review the warranty terms we offer before approving work so you know what's protected."
+        },
+        {
+          "question": "How can I prevent my Viking ice machine from breaking down again?",
+          "answer": "Replace filters regularly—a clogged filter strains your machine and causes premature failure. Keep the condenser clean and ensure good airflow around the unit. Check water lines for kinks or freezing, especially in cold months. Schedule annual maintenance to catch small issues before they become expensive repairs. Proper care extends your ice machine's lifespan significantly."
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:40:21.097353Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "ac7e32c33a21bb24"
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Viking Ice Machine Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/viking-ice-machine-repair-lufkin-tx/",
+    "meta_description": "Professional viking ice machine repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "viking ice machine repair Lufkin TX, ice machine not making ice, ice machine repair near me",
+    "og_title": "Viking Ice Machine Repair in {city_state} | {business}",
+    "og_description": "Professional viking ice machine repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Viking Ice Machine Repair",
+    "service_type": "Viking Ice Machine Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional viking ice machine repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "viking ice machine repair",
+    "secondary_keywords": "commercial ice machine repair {city}, ice machine not making ice, ice machine repair near me",
+    "brand": "Viking",
+    "appliance_type": "Ice Machine",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Viking Ice Machine Repair in Lufkin, TX\",\"serviceType\":\"Viking Ice Machine Repair\",\"description\":\"Professional viking ice machine repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "c022b7e71f3f54cbd87ce369717c9484"
+}

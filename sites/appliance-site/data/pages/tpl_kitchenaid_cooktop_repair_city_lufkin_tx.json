@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_kitchenaid_cooktop_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "kitchenaid-cooktop-repair-lufkin-tx",
+  "title": "KitchenAid Cooktop Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "KitchenAid Cooktop Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin homes, a kitchen cooktop is essential to daily life, and when it stops working, meal preparation and family routines come to a halt. Wells Appliance Repair specializes in KitchenAid cooktop repair, diagnosing and fixing issues with the precision and expertise your appliance deserves. Our factory-trained technicians work quickly to restore your cooktop, backed by warranty protection and a commitment to getting your kitchen back in working order.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "KitchenAid",
+      "hs_caption2": "Cooktop Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-cooktop.webp",
+      "hs_photo_alt": "KitchenAid Cooktop Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:24.597498Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "a78d454be55aa79c"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-1.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Expert KitchenAid Cooktop Repair in Lufkin, TX",
+      "text": "<p>A broken KitchenAid cooktop disrupts your kitchen and your routine. Whether you rely on gas, electric, or induction cooking, a malfunctioning burner or heating element forces you to rethink meals and can quickly become costly if left unaddressed. Homeowners throughout Lufkin depend on their cooktops daily, and when something goes wrong—whether a burner won't ignite, heat unevenly, or won't respond at all—prompt, professional repair is essential. Delaying the fix risks further damage and leaves your kitchen incomplete.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your Lufkin home for KitchenAid cooktop repair. Our technicians understand the nuances of KitchenAid's design and components, providing accurate diagnosis and reliable repair using quality parts backed by warranty. We stand behind our work with transparent, upfront pricing and a commitment to getting your cooktop working safely and efficiently again. While we also serve customers with other appliance brands and types, KitchenAid cooktop repair is a core strength. When your cooking surface needs attention, count on us to restore it promptly and right.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:58:25.714351Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "114072fa9ccefb13"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Burner Won't Ignite",
+          "text": "Gas cooktop burners may fail to ignite due to faulty spark modules, clogged ports, or igniter wear. Wells Appliance Repair technicians diagnose the ignition system and repair or replace the defective component."
+        },
+        {
+          "heading": "Uneven Heat Distribution",
+          "text": "Electric and induction cooktop repair often involves uneven heating caused by damaged elements, control board issues, or sensor malfunctions. Our technicians identify and restore proper temperature control across all burners."
+        },
+        {
+          "heading": "Cooktop Burner Not Working",
+          "text": "A single burner or zone may stop heating due to a broken element, relay failure, or wiring problem. Wells Appliance Repair tests each circuit and replaces failed components to restore full functionality."
+        },
+        {
+          "heading": "Control Panel Unresponsive",
+          "text": "Touchpad or dial controls may become unresponsive from water damage, electrical faults, or component failure. Our technicians repair or replace the control board to restore reliable operation."
+        },
+        {
+          "heading": "Surface Cracks or Damage",
+          "text": "Glass cooktop surfaces can crack from thermal shock, impacts, or manufacturing defects. Wells Appliance Repair assesses damage severity and recommends repair or replacement options tailored to your model."
+        },
+        {
+          "heading": "Error Code or Light Stays On",
+          "text": "Display warnings or persistent indicator lights signal sensor failures, ground faults, or internal malfunctions. Our technicians diagnose the underlying issue and restore your cooktop to normal operation."
+        }
+      ],
+      "fc_heading": "Common KitchenAid Cooktop Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:58:29.775257Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "253fbf56e351f2f7"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With KitchenAid Cooktop Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained KitchenAid Expertise",
+          "text": "Our technicians are trained on KitchenAid cooktop systems—gas, electric, and induction models. We understand your cooktop's unique design and deliver accurate diagnostics, whether a burner isn't working or ignition fails."
+        },
+        {
+          "heading": "Genuine Parts, Upfront Pricing",
+          "text": "We stock authentic KitchenAid cooktop components and provide free estimates before any work begins. You'll know repair costs upfront, with no surprises—backed by our warranty on parts and labor."
+        },
+        {
+          "heading": "Fast Response, Reliable Service",
+          "text": "Same-day and next-day repair appointments available for KitchenAid cooktop issues. We diagnose and repair quickly so your kitchen is back in action without extended downtime."
+        },
+        {
+          "heading": "Local Lufkin Service You Trust",
+          "text": "Wells Appliance Repair serves Lufkin and the surrounding area with prompt, professional KitchenAid cooktop repair. Local ownership means we're invested in your satisfaction and community reputation."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:58:32.916420Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "32b62b5aa4afcf98"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-1.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Fast Appliance Repair Service Across Lufkin",
+      "text": "<p>Lufkin's mix of established neighborhoods and newer residential areas means we encounter an impressive variety of appliance makes, models, and ages—from vintage units in older homes to the latest smart appliances in newer subdivisions. Whether you're dealing with a gas cooktop that won't ignite, an electric cooktop burner that's stopped working, or any other kitchen or laundry emergency, Wells Appliance Repair responds quickly throughout the area. Our factory-trained technicians carry the right parts and diagnostic tools to handle everything from standard to premium brands, so you don't wait longer than necessary for a working kitchen.</p><p>When an appliance fails, you need someone local who understands Lufkin homes and can arrive with the expertise to repair it right. We serve homeowners across the greater Lufkin region, including areas like Crown Colony and Fuller Springs, with the same commitment to prompt, professional service. Our technicians arrive prepared to troubleshoot and fix most common problems on the spot, and we maintain strong relationships with parts suppliers to source what we need efficiently. Call Wells Appliance Repair when your appliances stop working—we'll get your home running smoothly again.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:58:36.681718Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "503683b6222637f2"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a KitchenAid cooktop repair appointment?",
+          "answer": "<p>Our technician will diagnose the issue by inspecting burners, ignition systems, controls, and internal components. We'll explain what we find and discuss repair options with you before proceeding. Most visits take 1–2 hours depending on the problem's complexity. We bring common parts on our trucks, so many repairs are completed same-day.</p>"
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair come to my Lufkin home?",
+          "answer": "<p>We understand a broken cooktop disrupts your kitchen routine. We offer same-day and next-day appointments for KitchenAid cooktop repairs in the Lufkin area whenever possible. Contact us with your cooktop issue and we'll work to get you scheduled promptly.</p>"
+        },
+        {
+          "question": "What are common KitchenAid cooktop problems that need professional repair?",
+          "answer": "<p>Frequent issues include burners that won't ignite or heat, uneven heating across the cooking surface, control knobs or touchpads that malfunction, and gas or electric elements that cycle on and off erratically. Damaged glass cooktops and faulty igniters also require professional service.</p>"
+        },
+        {
+          "question": "Is my KitchenAid cooktop worth repairing or should I replace it?",
+          "answer": "<p>That depends on the cooktop's age, the repair cost relative to replacement, and your budget. Our technician can assess the damage and give you an honest recommendation. Many repairs are cost-effective, especially if your cooktop is otherwise in good condition.</p>"
+        },
+        {
+          "question": "What factors affect the cost of KitchenAid cooktop repair?",
+          "answer": "<p>Repair cost depends on the faulty component, labor time, and parts needed. Gas cooktops and induction models may have different pricing than electric coil units. We offer free estimates and diagnostics so you understand the expense before we proceed with any work.</p>"
+        },
+        {
+          "question": "Are your technicians trained to work on KitchenAid brand cooktops?",
+          "answer": "<p>Yes. Our technicians are trained on KitchenAid appliances and carry the expertise to repair gas, electric, and induction cooktops. We source factory-approved parts and follow manufacturer specifications to ensure reliable repairs.</p>"
+        },
+        {
+          "question": "How should I prepare my Lufkin kitchen before the repair technician arrives?",
+          "answer": "<p>Clear the cooktop and surrounding countertop of cookware, utensils, and clutter so the technician has easy access. If it's a gas cooktop, ensure the area is well-ventilated. Have your cooktop's model number ready if possible. Turn off the appliance and let it cool before the appointment.</p>"
+        },
+        {
+          "question": "How can I prevent KitchenAid cooktop problems from happening again?",
+          "answer": "<p>Clean spills promptly to prevent residue buildup on burners and controls. For gas cooktops, keep burner caps and grates clean and properly seated. Use appropriate cookware that sits flat on the surface. Avoid harsh scrubbing of glass tops. Regular maintenance extends your cooktop's lifespan and reduces repair frequency.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:31:22.529251Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "e379df325b3e449a"
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "KitchenAid Cooktop Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/kitchenaid-cooktop-repair-lufkin-tx/",
+    "meta_description": "Professional kitchenaid cooktop repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "kitchenaid cooktop repair Lufkin TX, gas cooktop repair, electric cooktop repair",
+    "og_title": "KitchenAid Cooktop Repair in {city_state} | {business}",
+    "og_description": "Professional kitchenaid cooktop repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "KitchenAid Cooktop Repair",
+    "service_type": "KitchenAid Cooktop Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional kitchenaid cooktop repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "kitchenaid cooktop repair",
+    "secondary_keywords": "gas cooktop repair, electric cooktop repair, induction cooktop repair, cooktop burner not working",
+    "brand": "KitchenAid",
+    "appliance_type": "Cooktop",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"KitchenAid Cooktop Repair in Lufkin, TX\",\"serviceType\":\"KitchenAid Cooktop Repair\",\"description\":\"Professional kitchenaid cooktop repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "4c1c7d30c6380bd9b1b05ec9239fa1df"
+}

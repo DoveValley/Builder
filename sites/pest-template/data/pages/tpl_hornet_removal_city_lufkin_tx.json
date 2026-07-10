@@ -1,0 +1,371 @@
+{
+  "template_id": "tpl_hornet_removal",
+  "city_id": "city_lufkin_tx",
+  "slug": "hornet-removal-lufkin-tx",
+  "title": "Hornet Removal in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Hornet Removal in {city_state}",
+      "hs_subtext": "<p>East Texas summers bring warm, humid conditions that create ideal nesting environments for hornets, with activity peaking from late spring through fall. Elk Pest Pros specializes in safe hornet removal for homeowners throughout the Lufkin area, including neighborhoods like Crown Colony and Fuller Springs, addressing active nests before they become a threat to your family. Professional removal protects your home and gives you peace of mind without the risk of handling these stinging insects yourself.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Hornet",
+      "hs_caption2": "Exterminator",
+      "hs_photo_alt": "Hornet exterminator treating a {city_state} home",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/pest-template/uploads/media/wasp-exterminator-katy-tx_f51d29.webp",
+      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T19:03:25.100516Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "4cad21e29d047813",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:var(--skin-subtle-bg,#f3f6f7);border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);padding:18px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 44px;\"><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Trained Technicians</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Free Estimates</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Re-Treat Guarantee</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Same-Day Service</span></div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/pest-template/uploads/media/about-wasp-exterminator-katy_b79b6f.webp",
+      "it_alt": "{business} technician applying hornet treatment along a baseboard in a {city_state} home",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Hornet Removal Services in Lufkin",
+      "text": "<p>Lufkin's warm, humid climate creates ideal conditions for hornets to thrive, especially during late spring through early fall when temperatures rise and insects become most active. Homeowners throughout the area—from Crown Colony to Fuller Springs—face regular encounters with these aggressive stinging insects as they build nests in eaves, trees, and other sheltered spots around properties. A single nest can house dozens of hornets, and their defensive behavior poses a genuine safety risk to families and pets. When you spot a nest or notice increased hornet activity near your home, professional hornet exterminator services become essential to protect your household.</p><p>Elk Pest Pros approaches hornet nest removal with careful assessment and proven removal techniques tailored to each situation in Lufkin. Our team identifies active nests, evaluates the safest removal strategy, and executes the work with thoroughness and attention to your family's safety. Rather than attempting DIY solutions that often provoke defensive behavior, we handle hornet control professionally so you can reclaim your outdoor spaces. We also follow up to monitor the area and address any returning activity, ensuring your peace of mind extends beyond the initial service. When hornets threaten your home, trust our local expertise to resolve the problem responsibly.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T19:03:29.876758Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "9c93a7fa5237f4b3",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Elk Pest Pros for Hornets",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Trained Technicians, Swift Response",
+          "text": "<p>Our technicians are equipped to identify hornet species and nests with precision. Fast response times mean active infestations are addressed before they escalate, protecting your family and property from stings and further colony growth.</p>"
+        },
+        {
+          "heading": "Thorough Removal and Follow-Up",
+          "text": "<p>Hornet nest removal requires more than surface treatment. We locate and eliminate nests completely, then inspect your property for entry points and conducive conditions. This thorough approach reduces the risk of reinfestation.</p>"
+        },
+        {
+          "heading": "Backed by Our Guarantee",
+          "text": "<p>We stand behind our hornet control work with a service guarantee you can rely on. If hornets return under the terms of our agreement, we'll retreat at no additional charge—giving you peace of mind.</p>"
+        },
+        {
+          "heading": "Ready for East Texas Summer Hornets",
+          "text": "<p>Warm, humid summers in the Lufkin area create ideal conditions for aggressive hornet activity. Our seasonal expertise means we know when and where colonies establish, allowing us to help you get ahead of peak nesting season.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T19:03:33.595614Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "880e7c5b755cf4a3",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Hornet Treatment Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call Our {city} Team",
+          "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Inspection & Assessment",
+          "text": "Your technician inspects the home, identifies the species and where hornets are harboring, and builds a targeted treatment plan."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Treatment & Follow-Up",
+          "text": "We treat the areas where hornets live and get inside, then follow up to confirm the infestation is fully cleared."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Ready to get rid of hornets in {city}? Our trained technicians can get started fast.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/pest-template/uploads/media/wasp-hornet-and-spider-control-katy_4ba358.webp",
+      "it_alt": "A {city_state} family relaxing at home, protected by {business} hornet control",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Hornet Removal Services Across Lufkin",
+      "text": "<p>Lufkin's mix of established neighborhoods and newer developments creates distinct environments for hornet activity. Older, tree-filled areas like Crown Colony feature mature oaks and pines that provide ideal nesting sites for hornets seeking shelter and hunting grounds. These established properties often have more structural crevices and overhanging branches where nests can develop undetected. Conversely, newer subdivisions such as Fuller Springs typically have younger landscaping with fewer dense trees, though hornets readily adapt by building nests on siding, eaves, and fence lines. The East Texas climate—warm springs, hot summers, and mild winters—creates an extended season when hornets remain active, making hornet control and nest removal services essential from late spring through fall.</p><p>Seasonal patterns in our region influence when hornet activity peaks. Spring warmth triggers queens to emerge and establish colonies, while summer heat drives increased foraging activity near homes and outdoor spaces. Whether your property has decades-old oak trees or freshly landscaped yards, professional hornet nest removal becomes important when you spot construction activity or aggressive behavior near your home. Elk Pest Pros understands how local property characteristics affect hornet populations and tailors removal strategies accordingly. Early detection and prompt action help prevent colonies from growing larger and more defensive, protecting your family and outdoor areas throughout the warm season.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T19:03:38.034146Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "fa8c1bdd31a82a4d",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Seasonal Hornet and Pest Threats in Lufkin Year-Round",
+      "steps_items": [
+        {
+          "heading": "Spring: Nesting Season Arrives",
+          "text": "Warming temperatures bring hornets and wasps emerging to build nests on homes and structures throughout the Lufkin area. Early intervention is critical—nests established in spring grow larger and more defensive by summer. Elk Pest Pros identifies and removes active nests before populations expand, protecting your family and property."
+        },
+        {
+          "heading": "Summer: Peak Activity and Risk",
+          "text": "Texas heat intensifies hornet activity and aggression as colonies mature and defend territories. Residents in Crown Colony and similar communities face increased stinging incidents near patios, garages, and entry points. Elk Pest Pros provides targeted removal and preventive treatments to reduce encounters during outdoor season."
+        },
+        {
+          "heading": "Fall: Preparation and Decline",
+          "text": "Cooling temperatures cause hornets to seek shelter in wall voids and roof eaves before winter dormancy. This is an ideal time to seal entry points and remove late-season nests. Elk Pest Pros helps homeowners winterize their properties and eliminate refuges where colonies may overwinter."
+        },
+        {
+          "heading": "Winter: Indoor Intrusions",
+          "text": "Though less active, dormant hornets and other pests shelter inside walls and attics during cold months. Discovery of nests in heated spaces requires careful removal. Elk Pest Pros safely handles winter pest calls and identifies vulnerabilities to prevent spring reinfestations when warmth returns."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T19:03:42.791698Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "03c8922cacae8230",
+      "_ai_locked": true
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Pest Control Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
+          "alt": "Ant exterminator in {city}",
+          "heading": "Ant Pest Control",
+          "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
+          "url": "/ant-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
+          "alt": "Bed bug treatment in {city}",
+          "heading": "Bed Bug Control",
+          "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
+          "url": "/bed-bug-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
+          "alt": "Flea control in {city}",
+          "heading": "Flea Pest Control",
+          "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
+          "url": "/flea-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
+          "alt": "Rodent control in {city}",
+          "heading": "Rat Exterminator",
+          "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
+          "url": "/rat-exterminator-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Hornet Exterminator FAQ — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What is the process for removing a hornet nest from my home?",
+          "answer": "<p>Our technicians locate the nest, assess its size and position, then safely remove it using professional-grade equipment and techniques. We work to eliminate the colony and secure entry points to prevent return. The approach depends on nest location—eaves, trees, and wall cavities each require different strategies. After removal, we discuss prevention measures to protect your home going forward.</p>"
+        },
+        {
+          "question": "How many visits does hornet removal typically require in Lufkin?",
+          "answer": "<p>Most hornet infestations are resolved in a single visit once the nest is located and accessible. However, if hornets have nested inside walls or multiple nests exist on the property, follow-up visits may be needed. We assess the full scope during inspection and explain what to expect before treatment begins.</p>"
+        },
+        {
+          "question": "When is hornet season in Texas and when should I call for removal?",
+          "answer": "<p>Hornets build nests in spring and summer, with peak activity from late summer through early fall in the Lufkin region. If you spot a nest—even a small one—contact us promptly. Nests grow quickly, and larger colonies are harder to manage. Early removal prevents the problem from worsening before cooler months arrive.</p>"
+        },
+        {
+          "question": "Is hornet removal treatment safe around children and pets?",
+          "answer": "<p>Yes. Our removal methods prioritize safety for your family and animals. We'll advise you on precautions to take before we arrive and which areas to keep clear during treatment. We use professional techniques that are far safer than DIY attempts, and we'll explain every step so you feel confident in the process.</p>"
+        },
+        {
+          "question": "What signs indicate I need professional hornet removal?",
+          "answer": "<p>Visible nests, increased hornet activity around your property, hornets entering walls or eaves, and finding dead hornets indoors are clear warning signs. Aggressive behavior near your home is another red flag. Don't wait for stings—professional removal eliminates the threat before the colony grows larger and more defensive.</p>"
+        },
+        {
+          "question": "How quickly can Elk Pest Pros respond to a hornet problem?",
+          "answer": "<p>We understand hornet infestations need fast attention. Contact us as soon as you notice activity, and we'll work to schedule your inspection promptly. Same-day or next-day service is often available depending on call volume. The sooner we assess the situation, the sooner we can remove the nest and restore your peace of mind.</p>"
+        },
+        {
+          "question": "Why is professional hornet removal better than DIY products?",
+          "answer": "<p>DIY sprays and traps are ineffective against established nests and expose you to stings and dangerous falls from height. Professional removal targets the entire colony with safe, proven methods. We handle the risk, use equipment you don't have, and ensure the nest won't return—giving you results and safety DIY cannot match.</p>"
+        },
+        {
+          "question": "What should I do to prepare before my hornet removal appointment?",
+          "answer": "<p>Keep children and pets indoors on the day of service and stay clear of the treatment area. If the nest is near a frequently used space, plan to avoid that area briefly. Let us know about any health concerns or sensitivities in your household. Our team will give you specific prep instructions when you schedule—follow them for the smoothest, safest removal.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T19:03:51.823180Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "42526412a14c7b49",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Dealing with hornets in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Hornet Removal in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/hornet-removal-lufkin-tx/",
+    "meta_description": "Get rid of hornets fast with a professional hornet exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
+    "meta_keywords": "hornet removal Lufkin TX, hornet exterminator, hornet nest removal, hornet control",
+    "og_title": "Hornet Exterminator in {city_state} | Fast, Guaranteed Hornet Control",
+    "og_description": "Get rid of hornets fast with a professional hornet exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+    "og_image": "",
+    "service_name": "Hornet Removal",
+    "service_type": "Hornet Removal",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional hornet exterminator services in {city_state}. Targeted hornet control for homes and businesses with fast response and a re-treat guarantee.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Hornet Exterminator in Lufkin, TX\",\"serviceType\":\"Hornet Extermination\",\"description\":\"Professional hornet exterminator services in Lufkin, TX. Targeted hornet control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Elk Pest Pros\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}",
+    "primary_keyword": "hornet removal",
+    "secondary_keywords": "hornet exterminator, hornet nest removal, hornet control, get rid of hornets"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T18:57:32+00:00",
+  "template_version": "467efec752d6ab718201c08837aa9ac3"
+}

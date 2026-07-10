@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_garbage_disposal_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "garbage-disposal-repair-lufkin-tx",
+  "title": "Garbage Disposal Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Garbage Disposal Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a broken garbage disposal quickly becomes a kitchen crisis, disrupting daily routines and creating backed-up water that demands immediate attention. Wells Appliance Repair specializes in garbage disposal repair, diagnosing issues from jammed blades to electrical faults and restoring proper function to get your kitchen back to normal. Our factory-trained technicians work promptly to address your repair needs, backed by warranty protection for your peace of mind.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Garbage Disposal",
+      "hs_caption2": "Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-garbage-disposal.webp",
+      "hs_photo_alt": "Garbage Disposal Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:53:30.471160Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "7b6fe5d14e5483c3",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-4.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Garbage Disposal Repair in Lufkin, TX",
+      "text": "<p>A broken garbage disposal can quickly become a major inconvenience for Lufkin homeowners. When your disposal stops working, you're left with backed-up sinks, unpleasant odors, and the stress of meal preparation disrupted. Beyond the immediate frustration, a damaged unit that goes unrepaired can lead to costly water damage or complete system failure, turning a simple repair into an expensive replacement. That's why prompt, professional garbage disposal repair matters—catching the problem early and fixing it right prevents bigger headaches down the road and restores your kitchen to normal.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your Lufkin home. Our technicians diagnose garbage disposal issues accurately, identify the root cause—whether it's a jam, electrical fault, or mechanical wear—and explain exactly what needs to happen next. We source quality replacement parts, provide upfront pricing so there are no surprises, and back our work with a warranty for your peace of mind. Whether your disposal needs a quick fix or a more involved repair, we handle the job thoroughly and professionally, so you can rely on your kitchen again.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:53:33.866231Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "513708bbbf0a4a87",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "by_brand",
+      "html": "[services_links appliance_type=\"self\" heading=\"Repair by Brand in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Won't Turn On",
+          "text": "A disposal that won't start may have a tripped reset button, blown circuit, or electrical connection issue. Our Lufkin technicians quickly diagnose the electrical problem and restore power safely."
+        },
+        {
+          "heading": "Drains Slowly or Clogs",
+          "text": "Slow drainage often results from food debris buildup, grease accumulation, or a jammed impeller. Wells Appliance Repair clears blockages and inspects internal components to restore proper flow."
+        },
+        {
+          "heading": "Leaking Water",
+          "text": "Leaks typically come from worn seals, loose connections, or cracks in the housing. Our technicians identify the source and repair or replace damaged components to stop water damage."
+        },
+        {
+          "heading": "Loud Grinding or Rattling",
+          "text": "Unusual noise usually signals loose mounting bolts, foreign objects stuck inside, or worn bearings. We locate and remove obstructions, tighten hardware, or repair internal wear."
+        },
+        {
+          "heading": "Foul Odors Coming Out",
+          "text": "Bad smells develop from trapped food particles, mold, or bacterial growth in the chamber. Wells Appliance Repair cleans the unit thoroughly and identifies any underlying mechanical issues."
+        },
+        {
+          "heading": "Won't Shut Off",
+          "text": "A disposal running continuously suggests a faulty switch, stuck motor, or electrical short. Our experienced technicians test and repair or replace the switch or motor as needed."
+        }
+      ],
+      "fc_heading": "Common Garbage Disposal Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:53:40.842475Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "8b8fad3df07c2d63",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Garbage Disposal Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Disposal Experts",
+          "text": "Our technicians specialize in garbage disposal repair and understand the mechanics of jam clearing, blade alignment, and motor function. We arrive equipped with accurate diagnostic tools to pinpoint the root cause quickly and efficiently."
+        },
+        {
+          "heading": "Right Parts, Fast Service",
+          "text": "We stock common garbage disposal components and offer same-day or next-day repair appointments across Lufkin. Upfront pricing and free estimates mean no surprises—only honest, warranty-backed work on your disposal."
+        },
+        {
+          "heading": "Reliable, Warrantied Repairs",
+          "text": "Every garbage disposal repair we complete is backed by our warranty, giving you confidence in the work. We focus on durable solutions, not quick fixes, so your disposal runs smoothly long-term."
+        },
+        {
+          "heading": "Local Lufkin Response",
+          "text": "Based right here in Lufkin, we respond quickly to your garbage disposal repair needs. We know our community and deliver prompt, professional service whenever you need us."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:53:43.911054Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "0533875ae62549d7",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need this appliance repaired in {city}? Call our team.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common garbage disposal problems in Lufkin homes?",
+          "answer": "<p>The most frequent issues we encounter are jams from food buildup or foreign objects, dull blades that fail to grind properly, leaks underneath the unit, and humming sounds when the motor won't turn. Clogs in the drain line are also common in older Lufkin homes. Identifying your symptom helps us diagnose the cause quickly.</p>"
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair come fix my garbage disposal?",
+          "answer": "<p>We prioritize rapid response for appliance breakdowns affecting your kitchen. Contact us directly to discuss your situation and availability—same-day appointments are often possible depending on our current schedule. We aim to get your disposal working again without unnecessary delay.</p>"
+        },
+        {
+          "question": "Is it better to repair or replace a broken garbage disposal?",
+          "answer": "<p>That depends on the unit's age, the specific problem, and repair cost versus replacement cost. Our technician will assess the damage and explain your options honestly. Sometimes a repair is the smart choice; other times, a new unit is more economical long-term. We help you make the right decision for your home.</p>"
+        },
+        {
+          "question": "What should I do to prepare before the garbage disposal repair technician arrives?",
+          "answer": "<p>Clear the area under your sink so the technician has easy access to the unit. Do not attempt to force the disposal or reach into it yourself. Make a note of any sounds, smells, or when the problem started. If water is pooling, place a bucket underneath. Turn off the power at the breaker before our arrival.</p>"
+        },
+        {
+          "question": "Are Wells Appliance Repair technicians trained to work on my garbage disposal brand?",
+          "answer": "<p>Our technicians are trained to diagnose and repair garbage disposals across all major manufacturers. Whether your unit is InSinkErator, Waste King, or another brand, we have the knowledge and tools to service it properly. We work with factory-standard parts and follow manufacturer guidelines.</p>"
+        },
+        {
+          "question": "Do garbage disposal repairs come with a warranty on parts and labor?",
+          "answer": "<p>Yes, we back our repairs with warranty coverage on both parts and labor. The specifics depend on the nature of the repair. Our team will explain the warranty terms clearly at the time of service so you know what protection you have after we leave.</p>"
+        },
+        {
+          "question": "What signs mean my garbage disposal needs professional repair, not DIY fixes?",
+          "answer": "<p>If your disposal jams repeatedly, leaks water, makes unusual grinding or humming sounds, or has a burning smell, call a professional. Attempting to disassemble or force a jammed unit risks serious injury. When the motor won't engage or water backs up, professional diagnosis is essential—DIY attempts often worsen the problem.</p>"
+        },
+        {
+          "question": "How can I prevent garbage disposal problems from happening again?",
+          "answer": "<p>Run cold water before, during, and after each use. Avoid putting fibrous foods, grease, bones, or non-food items down the drain. Use the disposal in short bursts rather than continuous operation. Regular maintenance—like grinding ice cubes occasionally—helps keep blades sharp. These simple habits extend the life of your unit significantly.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:25:57.575990Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "4bbc249139f414a4",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_types",
+      "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Schedule your {city} repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Garbage Disposal Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/garbage-disposal-repair-lufkin-tx/",
+    "meta_description": "Professional garbage disposal repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "garbage disposal repair Lufkin TX, garbage disposal not working, garbage disposal jammed",
+    "og_title": "Garbage Disposal Repair in {city_state} | {business}",
+    "og_description": "Professional garbage disposal repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Garbage Disposal Repair",
+    "service_type": "Garbage Disposal Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional garbage disposal repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "garbage disposal repair",
+    "secondary_keywords": "garbage disposal not working, garbage disposal jammed, garbage disposal replacement {city}",
+    "brand": "",
+    "appliance_type": "Garbage Disposal",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Garbage Disposal Repair in Lufkin, TX\",\"serviceType\":\"Garbage Disposal Repair\",\"description\":\"Professional garbage disposal repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "eb41e4f856faaa55a0e3ebd62c9eae88"
+}

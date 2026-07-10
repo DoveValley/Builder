@@ -42,7 +42,7 @@ $blogSettings = $data['blog_settings'];
 
 // Active tab
 $tab = $_GET['tab'] ?? 'header';
-if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'niche_brief', 'multisite'], true)) {
+if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'keywords', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'niche_brief', 'multisite'], true)) {
     $tab = 'header';
 }
 // Redirect legacy tab links into the Plugins tab.
@@ -275,6 +275,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'content' ? 'active' : '' ?>" href="?tab=content">Home Page</a>
         <a class="tab-link <?= $tab === 'pages' ? 'active' : '' ?>" href="?tab=pages">Core/Temp Pages</a>
         <a class="tab-link <?= $tab === 'starters' ? 'active' : '' ?>" href="?tab=starters">Page Starters</a>
+        <a class="tab-link <?= $tab === 'keywords' ? 'active' : '' ?>" href="?tab=keywords">&#128273; Keywords</a>
         <a class="tab-link <?= $tab === 'templates' ? 'active' : '' ?>" href="?tab=templates">Landing Templates</a>
         <a class="tab-link <?= $tab === 'cities' ? 'active' : '' ?>" href="?tab=cities">Landing Cities</a>
         <a class="tab-link <?= $tab === 'citypages' ? 'active' : '' ?>" href="?tab=citypages">Landing City Page Gen</a>
@@ -304,6 +305,9 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- ================= TEMPLATES TAB ================= -->
     <?php require __DIR__ . '/tabs/templates.php'; ?>
+
+    <!-- ================= KEYWORDS TAB ================= -->
+    <?php require __DIR__ . '/tabs/keywords.php'; ?>
 
     <!-- ================= CITIES TAB ================= -->
     <?php require __DIR__ . '/tabs/cities.php'; ?>

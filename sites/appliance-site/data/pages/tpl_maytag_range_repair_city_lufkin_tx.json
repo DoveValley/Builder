@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_maytag_range_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "maytag-range-repair-lufkin-tx",
+  "title": "Maytag Range Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Maytag Range Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a Maytag range is often central to daily routines, and when it stops working reliably, meal preparation and family rhythm suffer quickly. Wells Appliance Repair provides factory-trained service specifically for Maytag range repair, diagnosing and fixing issues with the precision your kitchen depends on. We're committed to prompt, warranty-backed repairs that get your range working again so your home runs smoothly.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Maytag",
+      "hs_caption2": "Range Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-stove.webp",
+      "hs_photo_alt": "Maytag Range Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:58.142330Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "d08dc6270535aaca"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-1.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Maytag Range Repair in Lufkin, TX",
+      "text": "<p>A broken Maytag range disrupts your kitchen and your routine. Whether burners aren't heating, the oven won't reach temperature, or ignition fails, a range outage leaves you unable to prepare meals for your family. The longer you wait, the more inconvenient life becomes—and attempting DIY fixes on a complex appliance can lead to costly damage. That's why timely, professional repair matters. In Lufkin, homeowners depend on their ranges daily, and a fast, accurate diagnosis from a trained technician can have you cooking again without the stress of a full replacement.</p><p>Wells Appliance Repair brings factory-trained expertise to every Maytag range repair call. Our technicians understand Maytag's design and engineering, allowing us to pinpoint issues quickly and recommend the right fix. We source quality replacement parts, provide upfront pricing so you know the cost before we begin, and back our work with a warranty for your peace of mind. Beyond Maytag ranges, we also service other appliance brands and types, but our focused knowledge of Maytag means you get a repair that's done right the first time. When your range stops working, contact Wells Appliance Repair and let's get your kitchen back in order.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:03:03.458432Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "059c19e7c5b65ecd"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Oven Won't Heat",
+          "text": "A faulty heating element, thermostat, or igniter can prevent your Maytag range oven from reaching temperature. Our Lufkin technicians diagnose the exact cause and replace the defective component to restore even baking and cooking."
+        },
+        {
+          "heading": "Burner Not Working",
+          "text": "Gas or electric range burner issues often stem from a failed igniter, broken coil element, or control switch problem. Wells Appliance Repair's technicians pinpoint which part is faulty and repair or replace it promptly."
+        },
+        {
+          "heading": "Uneven Oven Temperature",
+          "text": "Inconsistent heat inside your Maytag range oven may result from a malfunctioning thermostat, heating element wear, or airflow obstruction. Our service team diagnoses and corrects the issue to ensure reliable, even cooking performance."
+        },
+        {
+          "heading": "Range Won't Ignite",
+          "text": "Gas range ignition problems typically involve a damaged igniter, defective spark module, or faulty control board. Wells Appliance Repair's experienced technicians test and repair the ignition system to restore safe startup functionality."
+        },
+        {
+          "heading": "Door Latch Broken",
+          "text": "A cracked or worn door latch prevents your range door from closing properly and can trigger temperature control issues. Our electric range repair specialists replace the latch assembly and verify proper oven sealing and operation."
+        },
+        {
+          "heading": "Convection Fan Not Running",
+          "text": "If your Maytag range convection feature is silent or ineffective, the motor or fan blade may be faulty. Wells Appliance Repair diagnoses fan and motor problems and restores your convection cooking capability."
+        }
+      ],
+      "fc_heading": "Common Maytag Range Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:03:07.999209Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "db64e7e878f3f796"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Maytag Range Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Maytag Expertise",
+          "text": "Our technicians are trained specifically on Maytag Range systems—gas and electric models alike. We understand Maytag's engineering and diagnostics, ensuring accurate identification of range oven and burner issues on first visit."
+        },
+        {
+          "heading": "Genuine Parts, Fast Turnaround",
+          "text": "We stock authentic Maytag Range components and offer same-day or next-day service in most cases. Upfront estimates—no surprises—plus warranty-backed repairs give you confidence your range is fixed right."
+        },
+        {
+          "heading": "Honest Diagnosis, Clear Solutions",
+          "text": "Whether your Maytag Range burner isn't working or the oven needs repair, we provide transparent assessment and straightforward options. Free estimates help you decide before we proceed with any work."
+        },
+        {
+          "heading": "Lufkin's Local, Responsive Team",
+          "text": "We're based right here in Lufkin and serve the surrounding area with prompt, professional service. Fast response times and neighborly service mean your Maytag Range repair gets handled when you need it."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:03:15.890986Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "44ef1895aaf9156e"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-1.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Appliance Repair Across Lufkin",
+      "text": "<p>Lufkin's mix of established neighborhoods like Crown Colony and newer developments means homeowners depend on appliances of many different ages, makes, and models. Whether you're dealing with a gas range that won't ignite, an electric range with a burner that's stopped working, or an oven that's lost its heat, the variety of equipment across the area demands technicians who know them all. Wells Appliance Repair serves Lufkin and surrounding communities with factory-trained professionals ready to diagnose and repair what's broken quickly.</p><p>When an appliance fails, you need someone who can arrive promptly with the expertise to handle your specific unit. Our technicians carry the right parts and knowledge to address everything from range oven repair to complex refrigeration issues across Lufkin's diverse housing stock. We understand the urgency of a kitchen without working appliances and work to get your home running smoothly again as soon as possible.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:03:19.083562Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "594618a1b88ec872"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a Maytag Range repair visit?",
+          "answer": "Our technician will arrive, listen to your concern, and perform a thorough diagnostic of your range. We'll identify the root cause—whether it's a heating element, igniter, thermostat, or control issue—explain the problem clearly, and outline repair options. You'll understand what needs fixing and what it involves before we proceed."
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair come to Lufkin for my range?",
+          "answer": "We understand a broken range disrupts your daily routine. We aim for prompt scheduling in the Lufkin area and offer flexible appointment times. Contact us directly to discuss your availability and urgency; same-day service may be possible depending on current demand and your location."
+        },
+        {
+          "question": "Why isn't my Maytag Range burner heating or igniting?",
+          "answer": "Common causes include a faulty igniter, broken heating element, clogged burner ports, or a malfunctioning control board. Gas ranges may have igniter issues; electric models often face element burnout. The exact problem requires hands-on diagnosis, which our technician will perform to pinpoint the failure and recommend the right fix."
+        },
+        {
+          "question": "Is it better to repair or replace my Maytag Range?",
+          "answer": "That depends on the repair cost, your range's age, and its overall condition. A newer unit with a single component failure is usually worth repairing. Older ranges with recurring issues may be costlier to maintain long-term. We'll give you honest guidance after diagnosis so you can make an informed choice."
+        },
+        {
+          "question": "Does Wells Appliance Repair offer free estimates for Maytag Range repair?",
+          "answer": "Yes, we provide a diagnostic evaluation to identify your range's problem and discuss repair costs with you upfront. This helps you understand what's wrong and what the solution entails before committing, so there are no surprises."
+        },
+        {
+          "question": "Are your technicians trained to repair Maytag Ranges?",
+          "answer": "Our technicians are factory-trained on Maytag appliances and equipped to handle the full range of Maytag range models. We work with all major brands and stay current on repair procedures and parts, ensuring your appliance receives proper, reliable service."
+        },
+        {
+          "question": "What's covered by warranty on a Maytag Range repair?",
+          "answer": "We warranty our repairs and the parts we install. Warranty terms depend on the specific repair and part; our technician will explain coverage details when recommending the fix. This protects you if a repaired component fails again within the warranty period."
+        },
+        {
+          "question": "How can I prevent my Maytag Range from breaking down again?",
+          "answer": "Keep burner surfaces clean and free of spills to prevent igniter corrosion and element damage. Don't use the range for storage, as heat exposure damages controls. Have any unusual sounds, weak ignition, or uneven heating checked promptly before they worsen. Regular care extends your range's life."
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:34:18.955832Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "1bdfae959bcfc822"
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Maytag Range Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/maytag-range-repair-lufkin-tx/",
+    "meta_description": "Professional maytag range repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "maytag range repair Lufkin TX, electric range repair, range burner not working",
+    "og_title": "Maytag Range Repair in {city_state} | {business}",
+    "og_description": "Professional maytag range repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Maytag Range Repair",
+    "service_type": "Maytag Range Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional maytag range repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "maytag range repair",
+    "secondary_keywords": "gas range repair {city}, electric range repair, range burner not working, range oven repair",
+    "brand": "Maytag",
+    "appliance_type": "Range",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Maytag Range Repair in Lufkin, TX\",\"serviceType\":\"Maytag Range Repair\",\"description\":\"Professional maytag range repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "99cb7cf12749475dcef1e6fd41057c25"
+}

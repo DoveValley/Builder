@@ -153,6 +153,21 @@ while (!feof($pipes[1])) {
         $frac = substr($clean, 13); // "D/T"
         [$done, $tot] = array_map('intval', explode('/', $frac, 2));
         ndjson_emit(['type' => 'progress', 'done' => $done, 'total' => $tot]);
+    } elseif (str_starts_with($clean, '__WORKERS__ ')) {
+        // Effective worker count — tells the UI how many per-worker bars to draw
+        ndjson_emit(['type' => 'workers_init', 'count' => (int) substr($clean, 12)]);
+    } elseif (str_starts_with($clean, '__WORKER__ ')) {
+        // "slot done total page" — one worker's current page + block progress
+        $p = explode(' ', substr($clean, 11), 4);
+        if (count($p) === 4) {
+            ndjson_emit([
+                'type'  => 'worker',
+                'slot'  => (int) $p[0],
+                'done'  => (int) $p[1],
+                'total' => (int) $p[2],
+                'page'  => $p[3],
+            ]);
+        }
     } else {
         ndjson_emit(['type' => 'line', 'text' => $clean]);
     }

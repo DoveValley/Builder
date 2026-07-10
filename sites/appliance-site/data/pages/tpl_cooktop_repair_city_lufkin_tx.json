@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_cooktop_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "cooktop-repair-lufkin-tx",
+  "title": "Cooktop Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Cooktop Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a functioning cooktop is essential to daily routines, and when one stops working, meal preparation comes to a halt. Wells Appliance Repair provides trained, factory-backed cooktop repair service to get your cooking back on track. We handle the repair work locally with prompt service and warranty protection on the work we complete.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Cooktop",
+      "hs_caption2": "Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-cooktop.webp",
+      "hs_photo_alt": "Cooktop Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:51:10.801852Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "3c88ac67916a57b2",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-1.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Cooktop Repair Services for Lufkin Homeowners",
+      "text": "<p>A broken cooktop can quickly turn meal preparation into a frustrating ordeal, and the longer you wait, the more your household routine suffers. Whether your range top won't heat, burners are unresponsive, or controls are acting unpredictably, a malfunctioning cooktop disrupts one of the most essential appliances in your Lufkin home. Delaying professional repair often leads to safety concerns and can make a simple fix more expensive down the road. That's why homeowners throughout the Lufkin area trust trained technicians to diagnose and resolve cooktop problems promptly, restoring comfort and function to their kitchens.</p><p>Wells Appliance Repair specializes in cooktop repair, serving Lufkin with factory-trained technicians who understand the complexities of modern cooking surfaces. We perform thorough diagnostics to identify the root cause of your cooktop's failure, whether it involves electrical components, heating elements, or control boards. Our team uses quality replacement parts and stands behind every repair with warranty-backed workmanship. We provide upfront pricing before beginning work, so you know exactly what to expect—no surprises. Beyond cooktop repairs, we're equipped to service a full range of appliances and brands, but we take pride in delivering specialized expertise for your specific needs. Contact Wells Appliance Repair today to schedule your cooktop repair and get your kitchen running smoothly again.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:51:14.747667Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "0b6b3830071482b7",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "by_brand",
+      "html": "[services_links appliance_type=\"self\" heading=\"Repair by Brand in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Burner Won't Heat",
+          "text": "A non-heating burner often stems from a faulty heating element, broken igniter, or electrical connection issue. Our Lufkin technicians test each component and replace or repair what's needed to restore full cooking power."
+        },
+        {
+          "heading": "Uneven Heat or Hot Spots",
+          "text": "Uneven cooking temperatures usually point to a warped cooking surface, damaged element, or thermostat malfunction. Wells Appliance Repair diagnoses the root cause and repairs or replaces parts to even out your heat distribution."
+        },
+        {
+          "heading": "Igniter Clicks But No Flame",
+          "text": "If your igniter sparks repeatedly without lighting, the gas supply valve, igniter itself, or burner cap may be blocked or defective. Our technicians clean, adjust, or replace these components to restore reliable ignition."
+        },
+        {
+          "heading": "Glass Surface Cracks or Chips",
+          "text": "A cracked or chipped cooktop surface compromises safety and cooking performance. Wells Appliance Repair can assess whether the glass cooktop needs replacement or if a simple repair will restore safe operation."
+        },
+        {
+          "heading": "Controls Don't Respond",
+          "text": "Unresponsive knobs or touch controls often indicate a faulty control switch, wiring problem, or electronic board issue. Our technicians test and repair the control assembly to get your cooktop responding properly again."
+        },
+        {
+          "heading": "Gas Smell or Odor",
+          "text": "A persistent gas smell near your cooktop may signal a valve leak, loose connection, or damaged seal. Wells Appliance Repair inspects the gas line and components to locate and fix the source safely."
+        }
+      ],
+      "fc_heading": "Common Cooktop Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:51:19.186647Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "86668863a66b3ec4",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Cooktop Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Cooktop Specialists",
+          "text": "Our technicians understand gas, electric, and induction cooktop systems in depth. We diagnose heating element failures, ignition issues, and surface problems accurately, then repair with precision."
+        },
+        {
+          "heading": "Fast Service, Upfront Pricing",
+          "text": "We offer same-day cooktop repair appointments across Lufkin and deliver honest estimates before we start work. No surprises—just transparent service and prompt restoration of your cooking surface."
+        },
+        {
+          "heading": "Warranty-Backed Cooktop Repairs",
+          "text": "Every cooktop repair we complete is backed by our workmanship warranty. You can rely on the quality of our parts and labor to keep your stovetop cooking reliably."
+        },
+        {
+          "heading": "Local Lufkin Service You Can Count On",
+          "text": "We're trained, locally operated technicians serving Lufkin and surrounding areas. When your cooktop needs repair, we respond quickly and bring expertise right to your home."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:51:22.378946Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "b7b355ffe391fba4",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need this appliance repaired in {city}? Call our team.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a cooktop repair visit?",
+          "answer": "Our technician will inspect your cooktop, identify the root cause, and explain the issue and repair options before proceeding. We'll handle the repair on-site when possible, test it thoroughly, and walk you through what was done. The visit typically takes 1–2 hours depending on complexity."
+        },
+        {
+          "question": "How fast can Wells Appliance Repair come to Lufkin for cooktop repair?",
+          "answer": "We prioritize quick response times for cooktop issues since a broken cooktop disrupts meal preparation. We offer same-day and next-day appointments in the Lufkin area when available. Contact us with your details, and we'll confirm the soonest opening that works for you."
+        },
+        {
+          "question": "Why is my gas cooktop burner not igniting or lighting?",
+          "answer": "Common causes include a faulty igniter, blocked burner ports, a defective spark module, or ignition switch failure. Gas cooktops rely on precise ignition components; even a small blockage from food debris or grease can prevent spark. Professional diagnosis pinpoints the exact culprit so we repair only what's needed."
+        },
+        {
+          "question": "Should I repair my cooktop or buy a new one?",
+          "answer": "If your cooktop is under 10–12 years old and the repair cost is reasonable, repair is usually worthwhile. Newer models retain good resale value through repair. We'll assess the issue upfront so you can make an informed choice without guessing about replacement costs."
+        },
+        {
+          "question": "Does Wells Appliance Repair offer free cooktop diagnostics in Lufkin?",
+          "answer": "Yes, we provide a free diagnostic visit to identify what's wrong with your cooktop. We'll explain findings and repair costs upfront before you commit. This gives you clarity on whether a repair makes sense for your situation."
+        },
+        {
+          "question": "Are your cooktop technicians certified to work on my brand?",
+          "answer": "Our technicians are factory-trained and experienced across major cooktop brands—GE, Whirlpool, LG, Bosch, Samsung, and others. We work on gas, electric, and induction cooktops. Your brand and model don't limit us; we have access to the right parts and know-how."
+        },
+        {
+          "question": "Is cooktop repair covered by a warranty?",
+          "answer": "Yes, we warranty both labor and parts on cooktop repairs. If a repaired component fails within the warranty period, we'll fix it at no charge. Details are provided in writing after your repair is complete."
+        },
+        {
+          "question": "What can I do to prevent cooktop problems from happening again?",
+          "answer": "Keep burners and grates clean after each use to prevent grease buildup and ignition issues. Wipe spills promptly, avoid slamming grates, and don't let food debris clog ports. For electric cooktops, ensure cookware sits flat. These habits extend cooktop life and reduce repair frequency."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:23:05.179892Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "7384bd5a6dff1104",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_types",
+      "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Schedule your {city} repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Cooktop Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/cooktop-repair-lufkin-tx/",
+    "meta_description": "Professional cooktop repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "cooktop repair Lufkin TX, gas cooktop repair, electric cooktop repair",
+    "og_title": "Cooktop Repair in {city_state} | {business}",
+    "og_description": "Professional cooktop repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Cooktop Repair",
+    "service_type": "Cooktop Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional cooktop repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "cooktop repair",
+    "secondary_keywords": "gas cooktop repair, electric cooktop repair, induction cooktop repair, cooktop burner not working",
+    "brand": "",
+    "appliance_type": "Cooktop",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Cooktop Repair in Lufkin, TX\",\"serviceType\":\"Cooktop Repair\",\"description\":\"Professional cooktop repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "64a59faca1373cdb99189b2e7fbb5c23"
+}

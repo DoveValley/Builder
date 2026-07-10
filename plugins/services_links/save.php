@@ -1,20 +1,63 @@
 <?php
 // Services Links plugin save handler.
 // Auth + CSRF already verified by admin/plugin_save.php before this runs.
+// Two actions:
+//   save — persist the edited {name,url} rows + layout/text settings
+//   sync — merge in any landing template not already listed (never clobbers edits)
 
 $base   = 'index.php?tab=plugins&plugin=services_links';
 $action = $_POST['action'] ?? 'save';
-
-if ($action !== 'save') {
-    header('Location: ' . $base);
-    exit;
-}
+if (!in_array($action, ['save', 'sync'], true)) { header('Location: ' . $base); exit; }
 
 $data = load_data();
 
-// Parse services from textarea — one per line, trim blanks
-$rawText  = $_POST['services_text'] ?? '';
-$services = array_values(array_filter(array_map('trim', explode("\n", $rawText)), fn($s) => $s !== ''));
+// Parse the editable rows: parallel svc_name[] / svc_url[] arrays. Skip blank
+// names; dedupe by url (or name when url is blank).
+$names = $_POST['svc_name'] ?? [];
+$urls  = $_POST['svc_url']  ?? [];
+if (!is_array($names)) $names = [];
+if (!is_array($urls))  $urls  = [];
+
+$services = [];
+$seen     = [];
+$n = count($names);
+for ($i = 0; $i < $n; $i++) {
+    $name = trim((string)($names[$i] ?? ''));
+    if ($name === '') continue;
+    $url = sanitize_url(trim((string)($urls[$i] ?? '')));
+    $key = $url !== '' ? $url : strtolower($name);
+    if (isset($seen[$key])) continue;
+    $seen[$key] = true;
+    $services[] = ['name' => $name, 'url' => $url];
+}
+
+// Sync: REPLACE the list with exactly the current landing templates — one row per
+// template, using its real slug_pattern (authoritative link) and seo.service_name.
+// This removes stale/orphan rows and adds any new templates, so the list is always
+// an accurate mirror of templates.json.
+$syncMsg = '';
+if ($action === 'sync') {
+    $templates = (defined('TEMPLATES_FILE') && file_exists(TEMPLATES_FILE))
+        ? (json_decode(file_get_contents(TEMPLATES_FILE), true) ?: []) : [];
+    $services = [];   // full replace — discard the posted rows
+    $seen     = [];
+    foreach ($templates as $t) {
+        if (!is_array($t)) continue;
+        $slug = trim($t['slug_pattern'] ?? '');
+        if ($slug === '') continue;
+        $url = sanitize_url('/' . ltrim($slug, '/'));
+        if ($url === '' || isset($seen[$url])) continue;
+        $name = trim($t['seo']['service_name'] ?? '');
+        if ($name === '') {
+            $name = trim(preg_replace('/\s*\|.*$/', '', (string)($t['title'] ?? '')));
+            $name = trim(str_replace(['in {city_state}', '{city_state}'], '', $name));
+        }
+        if ($name === '') continue;
+        $seen[$url] = true;
+        $services[] = ['name' => $name, 'url' => $url];
+    }
+    $syncMsg = count($services) . '+service(s)+loaded+from+templates+(list+replaced).';
+}
 
 // Background photo upload
 $existing = trim($_POST['bg_photo_existing'] ?? '');
@@ -52,5 +95,6 @@ if (!$saved) {
     header('Location: ' . $base . '&msg=error:Could+not+save+—+check+file+permissions.');
     exit;
 }
-header('Location: ' . $base . '&msg=success:Services+Links+saved.');
+$msg = $action === 'sync' ? ('success:' . $syncMsg) : 'success:Services+Links+saved.';
+header('Location: ' . $base . '&msg=' . $msg);
 exit;

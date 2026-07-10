@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_maytag_refrigerator_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "maytag-refrigerator-repair-lufkin-tx",
+  "title": "Maytag Refrigerator Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Maytag Refrigerator Repair in {city_state}",
+      "hs_subtext": "<p>When a Maytag refrigerator stops working in a Lufkin home, the impact is immediate—food spoils, routines derail, and the urgency becomes real. Wells Appliance Repair specializes in Maytag refrigerator repair, bringing factory-trained expertise to diagnose and restore your unit promptly. We back our work with warranty coverage, so you can rely on your appliance again.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Maytag",
+      "hs_caption2": "Refrigerator Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-refrigerator.webp",
+      "hs_photo_alt": "Maytag Refrigerator Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:59.724485Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "5e9cbe0b8dc35773"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-2.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Maytag Refrigerator Repair in Lufkin, TX",
+      "text": "<p>When your Maytag refrigerator stops cooling or your ice maker fails, the disruption to your household is immediate and costly. A broken fridge puts perishable food at risk, forces you to buy replacements, and can lead to expensive emergency grocery runs. In Lufkin, where Texas heat makes reliable refrigeration essential, a malfunctioning appliance demands prompt professional attention. The longer you wait, the greater the risk of food waste and potential damage to the unit itself. That's why timely, expert repair matters—it protects your investment and restores peace of mind quickly.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your Lufkin home for Maytag refrigerator repair you can trust. Our technicians accurately diagnose cooling issues, compressor problems, ice maker failures, and other common concerns with precision and care. We use quality replacement parts, provide upfront pricing so there are no surprises, and back our work with a warranty you can rely on. Whether your Maytag needs a straightforward fix or more involved troubleshooting, we handle the job right the first time. We also service other major appliances and brands, but Maytag refrigerator repair is a cornerstone of what we do. Call Wells Appliance Repair today for same-day service and professional solutions tailored to your needs.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:03:23.248834Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "a1850d45ef660137"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Not Cooling Properly",
+          "text": "A refrigerator not cooling may stem from a faulty compressor, dirty condenser coils, or a failed thermostat. Wells Appliance Repair technicians diagnose the root cause and restore proper temperature control to keep your food fresh."
+        },
+        {
+          "heading": "Ice Maker Not Working",
+          "text": "When your ice maker stops producing ice, a clogged water line, defective fill valve, or broken ice maker assembly could be responsible. Our technicians troubleshoot and repair the issue to get you making ice again."
+        },
+        {
+          "heading": "Leaking Water Inside",
+          "text": "Water pooling inside your fridge typically indicates a blocked drain line, misaligned drain pan, or failed door seal. Wells Appliance Repair identifies the source and clears blockages or replaces worn components to stop the leak."
+        },
+        {
+          "heading": "Loud or Unusual Noises",
+          "text": "Strange sounds from your Maytag refrigerator often signal a worn fan motor, failing compressor, or loose components inside. Our technicians diagnose the noise and repair or replace the faulty part to restore quiet operation."
+        },
+        {
+          "heading": "Freezer Too Cold",
+          "text": "If your freezer runs excessively cold while the fridge section warms up, a stuck damper control or malfunctioning thermostat may be the culprit. Wells Appliance Repair adjusts or replaces these controls to balance temperatures properly."
+        },
+        {
+          "heading": "Frost Buildup on Walls",
+          "text": "Excessive frost inside your refrigerator points to a defective defrost timer, broken heater element, or failed damper door. Our refrigerator repair team identifies and fixes the defrost system to eliminate unwanted frost accumulation."
+        }
+      ],
+      "fc_heading": "Common Maytag Refrigerator Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:03:28.046985Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "d9c585bee8739e8d"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Maytag Refrigerator Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Maytag Expertise",
+          "text": "Our technicians are trained on Maytag refrigerator systems and components. We diagnose cooling issues, ice maker problems, and other faults accurately, then apply proven solutions backed by manufacturer knowledge."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock authentic Maytag refrigerator parts and complete repairs same day when possible. Upfront pricing and free estimates mean no surprises—just prompt, reliable repair work you can count on."
+        },
+        {
+          "heading": "Warranty-Backed Maytag Repairs",
+          "text": "Every Maytag refrigerator repair is guaranteed by our workmanship warranty. We stand behind our diagnostics and fixes, so you can rely on lasting results from a trained, accountable local team."
+        },
+        {
+          "heading": "Local Lufkin Refrigerator Service",
+          "text": "Wells Appliance Repair serves Lufkin and the surrounding area with responsive, same-day refrigerator repair. Call us for fast help when your fridge stops cooling or your ice maker fails."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:03:31.467206Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "6ef6fd4430ac96a1"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-2.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Expert Appliance Repair Across the Lufkin Area",
+      "text": "<p>From established neighborhoods like Crown Colony to newer developments such as Copeland Springs, the Lufkin area is home to a diverse mix of properties—and equally diverse appliances. Older homes may house vintage refrigerators and time-tested washers, while newer subdivisions contain the latest models with advanced features. This variety means our team encounters everything from a refrigerator not cooling properly to ice maker issues and beyond. Wells Appliance Repair is equipped to handle this range, with factory-trained technicians who understand the specific needs of different brands and ages of equipment.</p><p>When your appliance breaks down, time matters. We respond quickly across Lufkin and the surrounding communities, arriving with the knowledge and parts needed to diagnose and repair your unit efficiently. Whether you're searching for same-day refrigerator repair or need help with a washing machine, dishwasher, or range, our local team prioritizes getting your household back to normal. We keep a comprehensive inventory of common replacement components on hand and maintain the expertise to work on both legacy and contemporary models, so you can trust that help is nearby when you need it most.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:03:35.942273Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "69da511116b1fc71"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a Maytag refrigerator repair visit?",
+          "answer": "<p>Our technician will arrive with diagnostic tools to identify the issue—whether it's cooling failure, ice maker problems, or compressor concerns. They'll explain what they find, discuss repair options, and proceed with your approval. Most visits include thorough testing and parts replacement if needed. We'll walk you through maintenance tips before we leave to help prevent future issues.</p>"
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair come to Lufkin for refrigerator repair?",
+          "answer": "<p>We understand a broken refrigerator is urgent in the Texas heat. We offer same-day service availability for Lufkin-area customers when you call early. Response times depend on current demand and your location within the region. Call us to schedule the fastest available appointment and confirm timing for your home.</p>"
+        },
+        {
+          "question": "Why is my Maytag refrigerator not cooling properly?",
+          "answer": "<p>Common causes include a faulty thermostat, blocked vents restricting airflow, a failing compressor, or refrigerant leaks. Dirty condenser coils or a broken evaporator fan can also prevent cooling. Ice buildup in the defrost drain is another frequent culprit. A professional diagnosis is essential because symptoms often point to multiple potential issues that require specialized equipment to confirm.</p>"
+        },
+        {
+          "question": "Is it worth repairing my Maytag refrigerator or should I replace it?",
+          "answer": "<p>That depends on the repair cost relative to replacement, your unit's age, and its overall condition. Newer Maytag refrigerators with isolated component failures are typically worth repairing. Older units with multiple problems or a failed compressor may favor replacement. We'll provide an honest assessment during diagnosis so you can make an informed decision.</p>"
+        },
+        {
+          "question": "Do you offer free estimates for Maytag refrigerator repair in Lufkin?",
+          "answer": "<p>Yes, we provide diagnostic service to identify what's wrong with your Maytag. We'll explain the repair needed and discuss costs transparently before proceeding. This lets you understand the scope and make a confident decision without surprise fees or hidden charges.</p>"
+        },
+        {
+          "question": "Are your technicians trained to repair Maytag refrigerators specifically?",
+          "answer": "<p>Our technicians are factory-trained and experienced with Maytag appliances across all major refrigerator models and types. They understand Maytag's systems, components, and engineering, ensuring repairs are done correctly using appropriate parts and methods specific to your brand.</p>"
+        },
+        {
+          "question": "What warranty covers my Maytag refrigerator repair?",
+          "answer": "<p>We back our repairs and parts with warranty protection. Specific terms depend on the component replaced and the scope of work. We'll detail the warranty coverage before completing your repair so you know what's protected and for how long.</p>"
+        },
+        {
+          "question": "When should I call a professional instead of trying DIY Maytag refrigerator repair?",
+          "answer": "<p>Call immediately if your refrigerator isn't cooling, has a burning smell, leaks water, or makes unusual noises. These indicate compressor, electrical, or refrigerant issues that require specialized tools and certification to handle safely. Attempting these repairs yourself risks damage, injury, and voiding warranties. Trust a trained professional.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:34:28.001012Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "41d4a3b9263b8092"
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Maytag Refrigerator Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/maytag-refrigerator-repair-lufkin-tx/",
+    "meta_description": "Professional maytag refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "maytag refrigerator repair Lufkin TX, refrigerator not cooling, fridge repair near me",
+    "og_title": "Maytag Refrigerator Repair in {city_state} | {business}",
+    "og_description": "Professional maytag refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Maytag Refrigerator Repair",
+    "service_type": "Maytag Refrigerator Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional maytag refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "maytag refrigerator repair",
+    "secondary_keywords": "refrigerator not cooling, fridge repair near me, same day refrigerator repair, ice maker not working",
+    "brand": "Maytag",
+    "appliance_type": "Refrigerator",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Maytag Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"Maytag Refrigerator Repair\",\"description\":\"Professional maytag refrigerator repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "6afd394f7c9e556dbaeb4e881fef4d24"
+}

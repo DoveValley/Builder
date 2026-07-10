@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_wolf_range_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "wolf-range-repair-lufkin-tx",
+  "title": "Wolf Range Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Wolf Range Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin, a functioning kitchen range is essential to daily family life, and when one stops working, the disruption affects everything from meal preparation to your routine. Wells Appliance Repair specializes in Wolf Range repair, addressing issues with these premium cooking appliances so you can restore full kitchen function. Our factory-trained technicians deliver prompt, warranty-backed service to get your Wolf Range back in operation.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Wolf",
+      "hs_caption2": "Range Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-stove.webp",
+      "hs_photo_alt": "Wolf Range Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:24:17.153394Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ca8b2a3db93c765b"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-1.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Wolf Range Repair for Lufkin Homes",
+      "text": "<p>A broken Wolf range can quickly turn your kitchen into a source of frustration. When your range burners won't heat, the oven temperature won't hold steady, or ignition fails, meal preparation becomes stressful and your daily routine falls apart. For homeowners in Lufkin, a malfunctioning gas or electric range isn't just an inconvenience—it's a significant disruption that calls for prompt, professional attention. Delaying repairs can lead to safety concerns and may cause minor issues to worsen into costly damage. That's why choosing a trusted, knowledgeable repair partner matters so much when your Wolf range needs work.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your Lufkin home, with technicians who understand Wolf ranges inside and out. We begin every job with a thorough, accurate diagnosis to pinpoint exactly what's wrong, whether it's a burner not working, an oven temperature issue, or an electrical problem. We source quality parts and stand behind our work with a warranty, so you can trust the repair will last. We also handle other appliance brands and types, but Wolf ranges are among our specialties. From the moment you call, we're focused on getting your kitchen back in working order with upfront pricing and honest service that puts your peace of mind first.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:14:36.818978Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "b7ce2e2d1b64014a"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Burners Won't Ignite",
+          "text": "Gas burners may fail to light due to faulty ignition switches, clogged burner ports, or igniter issues. Our technicians diagnose the root cause and repair or replace the defective component to restore proper range burner function."
+        },
+        {
+          "heading": "Oven Not Heating",
+          "text": "An oven that won't reach temperature often points to a broken heating element, thermostat malfunction, or control board failure. Wells Appliance Repair's technicians test and replace the faulty part to get your range oven repair completed promptly."
+        },
+        {
+          "heading": "Uneven Cooking Results",
+          "text": "Hot spots, cold zones, or inconsistent baking can stem from a damaged heating element, poor air circulation, or calibration drift. Our experienced technicians inspect and repair the underlying cause to restore even heat distribution."
+        },
+        {
+          "heading": "Burner Flame Issues",
+          "text": "Low flames, yellow flames, or no flame at the burner may indicate clogged ports, regulator problems, or gas line obstructions. We diagnose and clear blockages or replace worn parts to restore proper burner performance."
+        },
+        {
+          "heading": "Control Panel Not Responding",
+          "text": "Unresponsive knobs, buttons, or electronic displays often result from control board failure, loose connections, or sensor malfunction. Our technicians test circuitry and repair or replace components to restore full functionality."
+        },
+        {
+          "heading": "Self-Cleaning Cycle Stalled",
+          "text": "A self-cleaning cycle that won't start, stops mid-cycle, or locks the door may involve a faulty latch, thermostat, or control module. Wells Appliance Repair diagnoses and repairs the issue so your electric range repair is complete."
+        }
+      ],
+      "fc_heading": "Common Wolf Range Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:14:41.442053Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "ad90a7e6e69cb6b3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Wolf Range Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Wolf Expertise",
+          "text": "Our technicians are trained on Wolf Range construction and controls. We diagnose burner, oven, and ignition issues accurately, then source genuine Wolf parts to restore your range to factory performance."
+        },
+        {
+          "heading": "Fast Diagnosis, Upfront Pricing",
+          "text": "We arrive promptly for Wolf Range repair, perform a thorough inspection, and provide a free estimate before any work begins. No surprises—just honest pricing and clear next steps."
+        },
+        {
+          "heading": "Warranty-Backed Wolf Range Repairs",
+          "text": "Every Wolf Range repair we complete is backed by our workmanship warranty. You can rely on both our expertise and our commitment to standing behind the job."
+        },
+        {
+          "heading": "Local Lufkin Service, Same-Day Response",
+          "text": "Based right here in Lufkin, we respond quickly to range repair calls across the area. When your Wolf Range needs attention, we're ready to help without the wait."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:14:44.603225Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "73e69b4d2348a73f"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-1.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Across the Lufkin Area",
+      "text": "<p>Lufkin's neighborhoods span everything from well-established homes in areas like Crown Colony and Fuller Springs to newer subdivisions, which means the appliances we service represent decades of different makes, models, and ages. A kitchen range in one home might be a classic gas model, while the next calls for electric range repair or modern convection technology. Our factory-trained technicians are equipped to handle this full spectrum, arriving quickly with the right diagnostic skills and parts inventory to address whatever's broken—whether it's a range burner not working, an oven heating unevenly, or any other appliance malfunction across your home.</p><p>When an appliance stops working, you need someone local who understands Lufkin's homes and can respond promptly. Wells Appliance Repair combines hands-on expertise with genuine commitment to getting your family back to normal as fast as possible. We stock common replacement parts and maintain the training to service major brands, so we're ready to tackle your repair the day you call.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:14:49.032400Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "594618a1b88ec872"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What's involved in the Wolf Range repair process from start to finish?",
+          "answer": "We begin with a thorough inspection to diagnose the exact issue—whether it's a burner, ignition system, oven temperature problem, or control malfunction. Once we identify the problem, we explain what's needed and discuss repair options with you. We then perform the repair using quality parts and test everything to ensure it works properly before we leave."
+        },
+        {
+          "question": "How fast can Wells Appliance Repair come out for Wolf Range service in Lufkin?",
+          "answer": "We understand a broken range disrupts your kitchen routine. We offer prompt scheduling for Lufkin-area customers and work to accommodate urgent repair needs. Same-day service availability depends on current demand and the nature of your repair. Contact us directly with your situation, and we'll let you know the quickest time we can arrive."
+        },
+        {
+          "question": "What are common Wolf Range problems that need professional repair?",
+          "answer": "Typical issues include burners that won't ignite or stay lit, uneven oven heating, a range that won't turn on, malfunctioning control knobs, and temperature sensors that aren't reading correctly. Gas models may have ignition or valve problems, while electric models often have heating element or electrical issues. Professional diagnosis is important because symptoms can point to different root causes."
+        },
+        {
+          "question": "Should I repair my Wolf Range or buy a new one?",
+          "answer": "That depends on the repair cost, your range's age, and repair frequency. A single issue on a relatively new Wolf Range is usually worth fixing. If your range is older and experiencing multiple problems, replacement may be more economical long-term. We'll provide an honest assessment during diagnosis to help you make an informed decision."
+        },
+        {
+          "question": "Does Wells Appliance Repair offer free estimates for Wolf Range repair?",
+          "answer": "Yes, we provide diagnostic evaluations so you understand the problem and repair scope before committing. We'll explain what's wrong, what needs to be fixed, and what you can expect, so there are no surprises. This helps you decide whether to proceed with confidence."
+        },
+        {
+          "question": "Are your technicians trained to work on Wolf Range appliances?",
+          "answer": "Our technicians are factory-trained on Wolf Range models and stay current with their repair requirements. We have the expertise and proper tools to diagnose and repair gas and electric Wolf ranges safely and correctly. We're committed to working on your specific brand with the skill it deserves."
+        },
+        {
+          "question": "What warranty covers Wolf Range repairs performed by Wells Appliance Repair?",
+          "answer": "We stand behind our repairs with warranty coverage on both parts and labor. The specific terms depend on the repair and parts used, so we'll detail the warranty for your job when we complete it. This protection gives you peace of mind that your repair is backed by our commitment to quality."
+        },
+        {
+          "question": "How should I prepare my home before the Wolf Range technician arrives?",
+          "answer": "Clear the area around your range so the technician has safe, easy access. If your range is built-in, ensure the space is accessible. Have any documentation or warranty information handy if you have it. Let us know in advance if there are pets or access concerns. These simple steps help us work efficiently and complete your repair faster."
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:43:15.354755Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "97071c9a050de932"
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Wolf Range Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/wolf-range-repair-lufkin-tx/",
+    "meta_description": "Professional wolf range repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "wolf range repair Lufkin TX, electric range repair, range burner not working",
+    "og_title": "Wolf Range Repair in {city_state} | {business}",
+    "og_description": "Professional wolf range repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Wolf Range Repair",
+    "service_type": "Wolf Range Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional wolf range repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "wolf range repair",
+    "secondary_keywords": "gas range repair {city}, electric range repair, range burner not working, range oven repair",
+    "brand": "Wolf",
+    "appliance_type": "Range",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Wolf Range Repair in Lufkin, TX\",\"serviceType\":\"Wolf Range Repair\",\"description\":\"Professional wolf range repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "dc612d9cd4df542d14d4424921e42fab"
+}

@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_stove_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "stove-repair-lufkin-tx",
+  "title": "Stove Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Stove Repair in {city_state}",
+      "hs_subtext": "In Lufkin households, a functioning stove is essential to daily life, and when one stops working, it disrupts meals and routines quickly. Wells Appliance Repair provides factory-trained stove repair service to get your cooking back on track with prompt, reliable work. We back our repairs with a warranty, so you can trust the job is done right.",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Stove",
+      "hs_caption2": "Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-stove.webp",
+      "hs_photo_alt": "Stove Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:59:28.972648Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "86f3790045580d18",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-3.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Stove Repair Services in Lufkin, TX",
+      "text": "<p>A broken stove disrupts the heart of your home and your daily routine. Whether you rely on your range for weeknight dinners or meal prep, a malfunctioning cooktop or oven means cold meals, wasted time, and mounting frustration. The longer you wait, the greater the risk of further damage—and the higher your repair costs can climb. In Lufkin, homeowners depend on their kitchen appliances working reliably, which is why prompt, professional stove repair is essential. Attempting DIY fixes or ignoring the problem only compounds the issue and puts safety at risk.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your Lufkin home. Our technicians diagnose stove problems accurately—from heating element failures and ignition issues to thermostat malfunctions—and explain exactly what's wrong before work begins. We source quality replacement parts and stand behind every repair with a warranty, so you can trust the job is done right. We also service a full range of other home appliances and major brands, but our focus on stove repair means you're getting specialists who know these units inside and out. When your stove stops working, call Wells Appliance Repair for fast, honest service and peace of mind.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:59:32.808834Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "bf99d81779c96307",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "by_brand",
+      "html": "[services_links appliance_type=\"self\" heading=\"Repair by Brand in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Oven Won't Heat",
+          "text": "A faulty heating element, broken igniter, or malfunctioning thermostat often prevents your oven from reaching temperature. Wells Appliance Repair technicians diagnose the root cause and replace the defective component quickly."
+        },
+        {
+          "heading": "Burners Not Lighting",
+          "text": "Clogged burner ports, a faulty ignition switch, or damaged spark electrode can stop your stovetop burners from igniting. Our technicians clean, test, and repair or replace the problem part."
+        },
+        {
+          "heading": "Uneven Cooking",
+          "text": "Hot spots or cold zones often indicate a failing heating element or a temperature sensor issue. Wells Appliance Repair will inspect and replace worn parts to restore even heat distribution."
+        },
+        {
+          "heading": "Door Seal Leaking Heat",
+          "text": "A worn or damaged door gasket allows heat to escape and affects cooking performance. We'll examine the seal and install a replacement to restore proper insulation and efficiency."
+        },
+        {
+          "heading": "Self-Clean Cycle Stuck",
+          "text": "The self-cleaning function may lock up due to a faulty latch, control board issue, or sensor malfunction. Our technicians diagnose and repair the cause so your cycle completes properly."
+        },
+        {
+          "heading": "Control Knob or Display Issues",
+          "text": "Broken knobs, unresponsive buttons, or a flickering display can prevent you from controlling temperature and settings. Wells Appliance Repair replaces controls and repairs electrical connections to restore full function."
+        }
+      ],
+      "fc_heading": "Common Stove Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:59:36.991836Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "f302d2334e69bdaa",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Stove Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Stove Technicians",
+          "text": "Our technicians specialize in stove repair and are trained on gas, electric, and convection models. We diagnose heating elements, ignition systems, and temperature issues with precision, ensuring your stove works reliably."
+        },
+        {
+          "heading": "Honest Pricing, Free Estimates",
+          "text": "We provide upfront, transparent estimates for stove repairs before any work begins. No hidden fees—just honest pricing and a clear explanation of what your stove needs to run safely again."
+        },
+        {
+          "heading": "Warranty-Backed Stove Repairs",
+          "text": "Every stove repair we complete is backed by our service warranty. We stand behind our work and the parts we install, giving you confidence in the durability of your repair."
+        },
+        {
+          "heading": "Local Lufkin Response You Can Count On",
+          "text": "We're locally operated and responsive to Lufkin homes and businesses. Quick scheduling, reliable arrival times, and personal service from technicians who know your community."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:59:39.890416Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "a91adb4f814b3243",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need this appliance repaired in {city}? Call our team.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a stove repair visit?",
+          "answer": "<p>Our technician will arrive, inspect your stove thoroughly, identify the root cause, and explain what's wrong and what repairs are needed. We'll discuss your options and next steps before beginning any work. The visit typically includes a diagnostic assessment, detailed explanation, and either immediate repair or a scheduled follow-up with parts ordered.</p>"
+        },
+        {
+          "question": "Can Wells Appliance Repair service my stove brand in Lufkin?",
+          "answer": "<p>We work on most major stove brands and models, whether gas or electric. Our technicians are factory-trained and familiar with the components and systems across leading manufacturers. Call us with your stove's brand and model, and we'll confirm we can help get it working again.</p>"
+        },
+        {
+          "question": "How quickly can a stove repair technician come to my home?",
+          "answer": "<p>We prioritize fast response times for stove repairs because a broken stove disrupts your household. We offer same-day and next-day appointments based on current demand. Contact us as soon as your stove stops working, and we'll schedule the soonest available time that works for you.</p>"
+        },
+        {
+          "question": "What are common stove problems that need professional repair?",
+          "answer": "<p>Frequent issues include burners that won't ignite or heat unevenly, a broken oven that won't reach temperature, faulty igniters, damaged heating elements, gas valve problems, and thermostat failures. If your stove isn't heating, igniting, or maintaining temperature, professional diagnosis is the best step forward.</p>"
+        },
+        {
+          "question": "Is stove repair worth it or should I buy a new one?",
+          "answer": "<p>That depends on the repair cost, your stove's age, and its condition overall. A free diagnostic helps clarify whether repair is practical. Newer stoves with a single component failure are often worth repairing; older units with multiple issues may favor replacement. We'll give you honest guidance on what makes sense.</p>"
+        },
+        {
+          "question": "Does Wells Appliance Repair offer free stove diagnostics in Lufkin?",
+          "answer": "<p>Yes, we provide free diagnostics to identify what's wrong with your stove. This assessment helps you understand the repair scope and any associated work before you commit. Call us to schedule a visit and learn exactly what your stove needs.</p>"
+        },
+        {
+          "question": "Are stove repairs and parts covered by warranty?",
+          "answer": "<p>All our repairs and replacement parts come backed by warranty, giving you confidence in the work we do. We stand behind our service and want you to feel secure once your stove is fixed. Ask our technician about the specific warranty terms for your repair.</p>"
+        },
+        {
+          "question": "When should I call a professional instead of attempting stove repair myself?",
+          "answer": "<p>Gas stoves especially require professional repair—improper handling creates safety hazards. Electrical work on electric stoves also carries risk. If you're unsure about any component, smell gas, see visible damage, or have attempted a fix that didn't work, stop and call us. Professional help prevents injury and further damage.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:37:41.241004Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "e4d09954483469a9",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_types",
+      "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Schedule your {city} repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Stove Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/stove-repair-lufkin-tx/",
+    "meta_description": "Professional stove repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "stove repair Lufkin TX, stove burner not working, electric stove repair",
+    "og_title": "Stove Repair in {city_state} | {business}",
+    "og_description": "Professional stove repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Stove Repair",
+    "service_type": "Stove Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional stove repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "stove repair",
+    "secondary_keywords": "stove burner not working, gas stove repair {city}, electric stove repair, stovetop repair near me",
+    "brand": "",
+    "appliance_type": "Stove",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Stove Repair in Lufkin, TX\",\"serviceType\":\"Stove Repair\",\"description\":\"Professional stove repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "bc2e7eedb2afff19839a96afab2c6d84"
+}

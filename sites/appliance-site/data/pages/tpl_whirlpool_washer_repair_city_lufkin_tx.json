@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_whirlpool_washer_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "whirlpool-washer-repair-lufkin-tx",
+  "title": "Whirlpool Washer Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Whirlpool Washer Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a broken washer disrupts daily routines and can quickly pile up. Wells Appliance Repair specializes in Whirlpool washer repairs, diagnosing and fixing issues with the same-day responsiveness and factory-trained expertise that get your laundry back on track. Our warranty-backed service means you can trust the work is done right.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Whirlpool",
+      "hs_caption2": "Washer Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-washing-machine.webp",
+      "hs_photo_alt": "Whirlpool Washer Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:24:10.012096Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "6608401c86ec6ca7"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-3.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Whirlpool Washer Repair in Lufkin, TX",
+      "text": "<p>A broken Whirlpool washer disrupts your entire household routine. When your washing machine won't spin, won't drain, or fails to start, laundry piles up quickly, and the inconvenience compounds daily. Replacing a quality appliance can cost thousands of dollars, which is why professional repair is often the smarter choice. In Lufkin, homeowners depend on their washers year-round, and a timely, expert diagnosis and repair can restore your appliance and save you significant expense. Addressing the problem promptly prevents water damage, mold growth, and further wear on internal components.</p><p>Wells Appliance Repair brings factory-trained expertise to every Whirlpool washer repair job in Lufkin. Our technicians accurately diagnose the root cause—whether it's a motor issue, pump failure, or control board problem—and use quality replacement parts to ensure lasting results. We provide upfront pricing so you know exactly what to expect, and we stand behind our work with a warranty you can trust. While we also service other appliance brands and types, our deep knowledge of Whirlpool systems means faster, more reliable solutions for your washing machine repair needs. When your washer breaks down, call us for prompt, professional service that gets your laundry routine back on track.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:13:32.798703Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "8abb884c3b809edf"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Won't Drain",
+          "text": "A washer not draining is often caused by a clogged drain hose, faulty pump, or lid switch issue. Our technicians quickly diagnose the source and restore proper drainage so your wash cycle completes normally."
+        },
+        {
+          "heading": "Won't Spin",
+          "text": "When a washer won't spin, the drum belt, motor, or clutch may be worn or broken. Wells Appliance Repair technicians inspect and repair these components to get your clothes properly wrung out again."
+        },
+        {
+          "heading": "Leaking Water",
+          "text": "Water pooling around your washer typically points to a damaged door seal, cracked tub, or loose inlet hose connection. We locate the leak source and repair it to prevent water damage to your home."
+        },
+        {
+          "heading": "Not Filling or Fills Slowly",
+          "text": "Poor water flow during a wash cycle often stems from a stuck inlet valve, kinked hose, or water supply issue. Our repair team checks water pressure and valve function to restore normal fill rates."
+        },
+        {
+          "heading": "Loud or Vibrating Excessively",
+          "text": "Banging, grinding, or excessive vibration usually indicates worn drum bearings, a foreign object inside, or an unbalanced load. Wells Appliance Repair diagnoses the noise source and performs the necessary repairs or adjustments."
+        },
+        {
+          "heading": "Won't Start or Respond",
+          "text": "A washer that won't start may have a defective control board, broken lid switch, or power issue. We test the electrical components and repair or replace the faulty part to get your machine running."
+        }
+      ],
+      "fc_heading": "Common Whirlpool Washer Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:13:37.119332Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "10caf869e99444fb"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Whirlpool Washer Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Whirlpool Expertise",
+          "text": "Our technicians are trained on Whirlpool washer systems and components. We diagnose drum, motor, and drain issues accurately—whether your washer won't spin or drain properly—and fix them right the first time."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock authentic Whirlpool parts and offer same-day or next-day repair appointments. Free estimates upfront mean no surprises. Your washing machine repair is backed by our warranty on parts and labor."
+        },
+        {
+          "heading": "Transparent Pricing, Honest Diagnosis",
+          "text": "Before any work begins, we provide a clear, upfront estimate with no hidden fees. We explain what's wrong with your Whirlpool washer and why repair is needed—so you decide with confidence."
+        },
+        {
+          "heading": "Local Lufkin Response, Always",
+          "text": "We're based in Lufkin and serve the surrounding area with prompt, neighborly service. Call for a same-day appointment or to schedule your washing machine repair at a time that works for you."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:13:40.658376Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "d5923481f5cc0873"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-3.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Fast Appliance Repair Service Throughout Lufkin, TX",
+      "text": "<p>Lufkin's neighborhoods span everything from established, tree-lined streets to newer residential developments—which means the appliances we service range from vintage models to brand-new units. Whether you're in Crown Colony, Fuller Springs, or anywhere across the greater Lufkin area, our factory-trained technicians understand the unique repair needs that come with that diversity. A washing machine repair call might involve a unit that's been running reliably for decades, or one fresh from the showroom. We arrive equipped with knowledge of multiple brands and models, and we carry the right parts to address common issues like a washer not draining or a washer that won't spin—minimizing downtime and getting your home back to normal quickly.</p><p>When an appliance breaks down, every hour matters. That's why Wells Appliance Repair keeps response times short across the Lufkin region. Our technicians diagnose problems thoroughly and communicate clearly about what needs to happen next. We handle everything from routine maintenance to urgent repairs, treating each job with the care it deserves. If you're searching for reliable appliance repair near you in Lufkin, we're ready to help—no matter what brand you own or how old your equipment is.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:13:44.498370Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "d9856fbe815d5a88"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a Whirlpool washer repair appointment?",
+          "answer": "<p>Our technician will diagnose the issue by running tests and inspecting components like the drum, pump, and motor. We'll explain what we find and discuss repair options before proceeding. Most visits take 1–2 hours. We'll handle the repair on-site when possible, clean up afterward, and walk you through any maintenance tips to prevent future problems.</p>"
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair come to my Lufkin home?",
+          "answer": "<p>We understand a broken washer disrupts your routine. We offer same-day and next-day service appointments throughout the Lufkin area whenever possible. Call or request service online, and our scheduling team will find the earliest available slot. Emergency repairs are accommodated based on availability.</p>"
+        },
+        {
+          "question": "Why is my Whirlpool washer not draining water?",
+          "answer": "<p>A washer that won't drain commonly has a clogged drain hose, a faulty drain pump, or a blocked filter trap. Occasionally, the lid switch or control board malfunctions. Don't force the cycle—standing water can damage the tub and promote mold. A technician will identify the exact cause and replace or clear the problem component.</p>"
+        },
+        {
+          "question": "Is it worth repairing my Whirlpool washer or should I replace it?",
+          "answer": "<p>Repair makes sense for most washers under 8–10 years old, especially if the breakdown is a single component like a pump or belt. Older machines with multiple failing parts may cost more to fix. We'll provide an honest assessment during diagnosis so you can make an informed decision about repair versus replacement.</p>"
+        },
+        {
+          "question": "What factors affect the cost of Whirlpool washer repair?",
+          "answer": "<p>Cost depends on the faulty part, labor time, and whether the repair requires ordering components. A simple belt replacement costs less than a new control board. We offer free diagnostic visits so you know the exact problem and repair scope before committing. This helps you decide whether to proceed or explore other options.</p>"
+        },
+        {
+          "question": "Are your technicians trained to repair Whirlpool washers specifically?",
+          "answer": "<p>Yes. Our technicians are factory-trained on Whirlpool appliances and familiar with all current and legacy models. We use manufacturer-approved parts and diagnostic tools to ensure your washer is repaired to Whirlpool standards. You can trust the repair is done right the first time.</p>"
+        },
+        {
+          "question": "Does Whirlpool washer repair include a warranty on parts and labor?",
+          "answer": "<p>We back our repairs with a warranty on both parts and labor. Coverage terms depend on the repair scope—we'll explain the specific warranty when we present the estimate. This gives you confidence that if something goes wrong post-repair, we've got you covered.</p>"
+        },
+        {
+          "question": "How can I prevent my Whirlpool washer from breaking down again?",
+          "answer": "<p>Use the correct detergent amount and type for your machine—excess suds strain the pump. Clean the filter trap regularly and inspect hoses for cracks or bulges. Don't overload the drum. Leave the door open between cycles to prevent mold. Run a cleaning cycle monthly. These habits extend washer life and reduce repair frequency.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:42:25.215978Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "8a44cd44cceb33f8"
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Whirlpool Washer Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/whirlpool-washer-repair-lufkin-tx/",
+    "meta_description": "Professional whirlpool washer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "whirlpool washer repair Lufkin TX, washing machine repair, washer not draining",
+    "og_title": "Whirlpool Washer Repair in {city_state} | {business}",
+    "og_description": "Professional whirlpool washer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Whirlpool Washer Repair",
+    "service_type": "Whirlpool Washer Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional whirlpool washer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "whirlpool washer repair",
+    "secondary_keywords": "washing machine repair, washer not draining, washer won't spin, washing machine repair near me",
+    "brand": "Whirlpool",
+    "appliance_type": "Washer",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Washer Repair in Lufkin, TX\",\"serviceType\":\"Whirlpool Washer Repair\",\"description\":\"Professional whirlpool washer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "8fdfb60cb722bf397f173a0a93c8dfc5"
+}

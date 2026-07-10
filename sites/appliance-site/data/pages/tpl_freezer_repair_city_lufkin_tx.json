@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_freezer_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "freezer-repair-lufkin-tx",
+  "title": "Freezer Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Freezer Repair in {city_state}",
+      "hs_subtext": "In Lufkin households, a broken freezer means lost food, wasted money, and urgent stress. Wells Appliance Repair handles freezer repairs with factory-trained technicians who understand the specific systems that keep your unit running. We stand behind our work with warranty coverage and aim to get your freezer back in service quickly so your family isn't left without cold storage.",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Freezer",
+      "hs_caption2": "Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-freezer.webp",
+      "hs_photo_alt": "Freezer Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:52:41.423120Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "dce3e539bc258501",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-3.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Freezer Repair Services in Lufkin, TX",
+      "text": "<p>A broken freezer in your Lufkin home is more than an inconvenience—it's a race against time. When your freezer stops working properly, food spoils quickly, groceries are lost, and your household routine disrupts. Whether the issue is a slow freeze, temperature fluctuations, frost buildup, or a complete shutdown, a malfunctioning freezer demands prompt, professional attention. Waiting too long risks costly food waste and potential damage to the unit itself. That's why homeowners throughout Lufkin trust experienced repair technicians to diagnose and fix freezer problems before minor issues become major headaches.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your door, equipped to handle freezer repair for all major brands and models. Our technicians perform thorough diagnostic work to pinpoint the exact cause of your freezer's malfunction, then deliver honest, upfront pricing before any work begins. We use quality replacement parts and stand behind our repairs with a warranty, ensuring your freezer runs reliably again. Beyond freezer service, we're equipped to repair other appliances in your home, but our commitment remains the same: fast, dependable solutions that get your household back on track. When your freezer needs help, Wells Appliance Repair is ready to restore it.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:52:45.358160Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "70cc7bf34c072e32",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "by_brand",
+      "html": "[services_links appliance_type=\"self\" heading=\"Repair by Brand in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Not Freezing Cold Enough",
+          "text": "A freezer that won't reach proper temperature may have a faulty thermostat, dirty condenser coils, or a refrigerant leak. Our technicians diagnose the cause and restore your unit's cooling performance."
+        },
+        {
+          "heading": "Ice Buildup Inside",
+          "text": "Excessive frost and ice accumulation often signals a broken defrost timer, faulty heater element, or clogged drain line. Wells Appliance Repair identifies the source and clears the problem quickly."
+        },
+        {
+          "heading": "Freezer Won't Start",
+          "text": "When your freezer refuses to power on, the issue may be a tripped circuit breaker, defective start relay, or failed compressor. Our technicians test components and restore operation."
+        },
+        {
+          "heading": "Water Pooling Inside",
+          "text": "Standing water inside your freezer typically results from a blocked or frozen drain line, cracked pan, or seal failure. We locate and repair the leak to prevent food spoilage."
+        },
+        {
+          "heading": "Loud Noises or Vibrating",
+          "text": "Unusual grinding, rattling, or humming sounds often come from a worn fan motor, loose parts, or compressor issues. Wells Appliance Repair pinpoints the noise and restores quiet operation."
+        },
+        {
+          "heading": "Door Won't Close or Seal",
+          "text": "A door that won't shut properly or leaks cold air may have a damaged gasket, misaligned frame, or broken latch. Our technicians repair or replace the seal to restore efficiency."
+        }
+      ],
+      "fc_heading": "Common Freezer Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:52:49.244190Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "922240910fae369c",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Freezer Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Freezer Experts",
+          "text": "Our technicians specialize in freezer diagnostics and repair. We're trained to identify compressor failures, thermostat faults, and seal problems quickly, ensuring accurate solutions for your unit."
+        },
+        {
+          "heading": "Right Parts, Fast Results",
+          "text": "We stock genuine freezer components and common replacement parts. Same-day repair is often possible because we arrive prepared to handle most freezer issues on your first visit."
+        },
+        {
+          "heading": "Upfront Pricing, Warranty Protection",
+          "text": "Free estimates let you decide before we begin work. All freezer repairs come backed by our warranty, so you're protected if problems resurface after service."
+        },
+        {
+          "heading": "Local Lufkin Service, Prompt Response",
+          "text": "Based right here in Lufkin, we respond quickly to freezer emergencies across the area. Expect professional, neighborly service when your freezer needs repair."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:52:57.565986Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "4203d8ba631c2d42",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need this appliance repaired in {city}? Call our team.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a freezer repair visit?",
+          "answer": "<p>Our technician will arrive at your home, inspect the freezer thoroughly, and identify the root cause—whether it's a thermostat malfunction, compressor issue, or seal problem. We'll explain the findings and recommended repairs before proceeding. Most appointments take 1–2 hours, though complex repairs may take longer. We'll answer your questions and leave your freezer running reliably.</p>"
+        },
+        {
+          "question": "How fast can Wells Appliance Repair service a freezer in Lufkin?",
+          "answer": "<p>We understand a broken freezer is urgent. We offer same-day and next-day appointments throughout the Lufkin area when availability allows. Call us as soon as you notice a problem, and we'll work to fit you into our schedule quickly. Our goal is to minimize food loss and get your freezer working again without delay.</p>"
+        },
+        {
+          "question": "What are common signs a freezer needs professional repair?",
+          "answer": "<p>Watch for frost buildup, ice not forming, unusual noises, or a warm interior. A sealed freezer that leaks water, runs constantly, or has a broken door seal also signals trouble. If your freezer stops working suddenly or temperature won't hold, don't wait—professional repair prevents food spoilage and prevents further damage to the unit.</p>"
+        },
+        {
+          "question": "Should I repair my freezer or buy a new one?",
+          "answer": "<p>We'll help you decide. If your freezer is less than 8–10 years old and the repair cost is reasonable, repair usually makes sense. Older units or major compressor failures may justify replacement. During your consultation, we'll give you an honest assessment so you can make the best choice for your budget and needs.</p>"
+        },
+        {
+          "question": "Do you offer free freezer diagnostics in Lufkin?",
+          "answer": "<p>Yes. We provide a thorough diagnostic to identify the problem and explain your repair options. You'll receive an estimate for parts and labor so you know the full cost upfront before we begin any work. There's no surprise billing—you're in control of the decision.</p>"
+        },
+        {
+          "question": "Are your freezer repairs and parts covered by warranty?",
+          "answer": "<p>We stand behind our work. Parts and labor carry warranty protection so you have peace of mind. Ask our technician about warranty terms when they arrive. We want you confident that your freezer is fixed right and will keep running reliably after we leave.</p>"
+        },
+        {
+          "question": "How do I prepare my home for a freezer repair technician?",
+          "answer": "<p>Clear the area around your freezer so the technician has easy access. If possible, remove perishables or transfer them to another freezer beforehand. Have your freezer model and serial number handy—you'll find these on a sticker inside or on the back. Let us know about any unusual sounds or behavior you've noticed.</p>"
+        },
+        {
+          "question": "What can I do to prevent freezer problems from happening again?",
+          "answer": "<p>Keep the door seals clean and check that they close tightly. Don't block air vents inside the freezer with food packages. Defrost manually if frost builds up, or use the auto-defrost feature if your model has one. Keep the coils clean and ensure adequate space around the unit for airflow. We can also share specific maintenance tips for your freezer type.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:24:37.335349Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "2a7bb210adb036e5",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_types",
+      "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Schedule your {city} repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Freezer Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/freezer-repair-lufkin-tx/",
+    "meta_description": "Professional freezer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "freezer repair Lufkin TX, freezer not freezing, upright freezer repair",
+    "og_title": "Freezer Repair in {city_state} | {business}",
+    "og_description": "Professional freezer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Freezer Repair",
+    "service_type": "Freezer Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional freezer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "freezer repair",
+    "secondary_keywords": "freezer not freezing, chest freezer repair {city}, upright freezer repair, freezer repair near me",
+    "brand": "",
+    "appliance_type": "Freezer",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Freezer Repair in Lufkin, TX\",\"serviceType\":\"Freezer Repair\",\"description\":\"Professional freezer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "800fb8723fb4c57e30ca6dfb5350f123"
+}

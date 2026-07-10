@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_ice_maker_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "ice-maker-repair-lufkin-tx",
+  "title": "Ice Maker Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Ice Maker Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a broken ice maker disrupts daily routines and can leave families without a convenient source of ice when they need it most. Wells Appliance Repair specializes in diagnosing and repairing ice maker issues, restoring this essential appliance to working order. Our factory-trained technicians deliver prompt service backed by warranty coverage, so you can rely on dependable results.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Ice Maker",
+      "hs_caption2": "Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-ice-machine.webp",
+      "hs_photo_alt": "Ice Maker Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:55:00.436130Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "fa7a8786d395fe8f",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-4.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Ice Maker Repair in Lufkin, Texas",
+      "text": "<p>A broken ice maker can disrupt your daily routine faster than you might expect. Whether your refrigerator suddenly stops producing ice or dispenses it inconsistently, the problem affects not just convenience but also the overall function of your appliance. In Lufkin's warm climate, a reliable ice maker is often essential for comfort and hospitality. A malfunctioning unit left unrepaired can lead to costly secondary damage, higher energy bills, or even the need for a full refrigerator replacement. That's why prompt, professional diagnosis and repair matter so much—addressing the issue early saves you money and restores normalcy to your kitchen.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your Lufkin home to diagnose and repair ice maker problems accurately. Our technicians understand the mechanics of ice makers across different refrigerator models and brands, pinpointing the root cause quickly rather than guessing at a fix. We source quality replacement parts, provide upfront pricing so there are no surprises, and back our work with a warranty you can trust. Whether your ice maker needs a simple adjustment, a component replacement, or a more involved repair, we handle it with the same professionalism and care. When your ice maker fails, Wells Appliance Repair is ready to get it working again.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:55:04.357053Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "f5368e11156853f7",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "by_brand",
+      "html": "[services_links appliance_type=\"self\" heading=\"Repair by Brand in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Ice maker won't produce ice",
+          "text": "A frozen water line, clogged filter, or faulty inlet valve often stops ice production. Wells Appliance Repair technicians diagnose the blockage or valve failure and restore normal operation quickly."
+        },
+        {
+          "heading": "Leaking water underneath",
+          "text": "Water pooling below your ice maker signals a cracked water line, misaligned drain, or failed seal. Our technicians locate the leak source and repair or replace the damaged component."
+        },
+        {
+          "heading": "Ice tastes or smells bad",
+          "text": "Dirty or expired water filters, bacterial buildup, or contaminated supply lines cause off-flavored ice. We replace filters, flush lines, and sanitize the system to restore fresh ice quality."
+        },
+        {
+          "heading": "Loud grinding or jamming noise",
+          "text": "A worn motor, stuck auger, or ice jam creates grinding sounds during operation. Wells Appliance Repair clears obstructions and repairs or replaces worn mechanical parts."
+        },
+        {
+          "heading": "Ice cubes too small or hollow",
+          "text": "Low water pressure, a restricted inlet valve, or improper freezer temperature cause undersized or hollow cubes. Our technicians check pressure, valves, and temperature settings to restore proper ice size."
+        },
+        {
+          "heading": "Ice maker stuck or won't cycle",
+          "text": "Frozen water, a faulty thermostat, or a broken ejector arm prevent the ice maker from cycling. Wells Appliance Repair diagnoses the fault and repairs components to resume normal cycles."
+        }
+      ],
+      "fc_heading": "Common Ice Maker Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:55:08.937247Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "307c8f24e3d4560b",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Ice Maker Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Ice Maker Experts",
+          "text": "Our technicians specialize in ice maker diagnosis and repair across all major refrigerator brands. We understand the unique mechanisms that keep ice production running smoothly and restore your unit quickly."
+        },
+        {
+          "heading": "Right Parts, Fast Service",
+          "text": "We stock genuine ice maker components and deliver same-day or next-day repairs whenever possible. Accurate troubleshooting means we install only what's needed, minimizing downtime and keeping costs fair."
+        },
+        {
+          "heading": "Warranty-Backed Repairs You Can Count On",
+          "text": "Every ice maker repair is backed by our service warranty, giving you peace of mind. We stand behind our work and explain findings upfront before any repair begins."
+        },
+        {
+          "heading": "Local Lufkin Service, Always Ready",
+          "text": "Based right here in Lufkin, we respond promptly to ice maker emergencies across the area. When your freezer isn't making ice, we're just a call away with trained technicians and the right tools."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:55:12.162544Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "8a0f9e8000c94c15",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need this appliance repaired in {city}? Call our team.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common ice maker problems in Lufkin refrigerators?",
+          "answer": "The most frequent issues we see include water supply line clogs, frozen fill tubes, faulty inlet valves, and broken ejector arms. Temperature fluctuations in Texas heat can also cause ice buildup. If your ice maker produces little to no ice, dispenses partial cubes, or leaks water, these are telltale signs a professional diagnosis is needed."
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair visit for ice maker service?",
+          "answer": "We prioritize same-day and next-day appointments for ice maker repairs in the Lufkin area. Contact us as soon as you notice the problem to check availability. Quick service prevents water damage and restores functionality faster, so we work to fit urgent repairs into our schedule promptly."
+        },
+        {
+          "question": "Should I repair my ice maker or replace the entire refrigerator?",
+          "answer": "Repair is usually the smart choice. Most ice makers fail because of a single component like a valve, water line, or motor—not the entire refrigerator. Our technician will assess the damage and help you decide. If the fridge is old or the repair cost approaches replacement value, we'll give you honest guidance."
+        },
+        {
+          "question": "What should I expect during an ice maker repair visit?",
+          "answer": "Our technician will inspect the water supply line, inlet valve, ejector arm, and ice bucket for visible damage. They'll test water flow and electrical connections. Most repairs take 1–2 hours. We'll explain the problem, show you the faulty part if applicable, and discuss next steps before proceeding."
+        },
+        {
+          "question": "Do you offer free ice maker repair estimates in Lufkin?",
+          "answer": "Yes, we provide free diagnostics so you know exactly what's wrong and what repair will cost before you commit. No surprise charges. This helps homeowners in the Lufkin area make confident decisions about whether to repair or replace."
+        },
+        {
+          "question": "Are your ice maker repairs backed by a warranty?",
+          "answer": "Yes. Our repairs include warranty coverage on labor and parts we install. If the same issue reoccurs within the warranty period, we'll address it at no extra charge. Warranty terms are explained before work begins so you have peace of mind."
+        },
+        {
+          "question": "What can I do to prevent ice maker problems from happening again?",
+          "answer": "Keep your freezer at 0°F or below to prevent ice buildup. Replace refrigerator water filters every 6 months to avoid clogs in the inlet valve. Check that the water line isn't kinked or crushed. Run the ice maker regularly—disuse can cause components to seize. These simple steps extend the life of your ice maker significantly."
+        },
+        {
+          "question": "When should I call a professional instead of trying DIY ice maker repair?",
+          "answer": "Call us if water leaks, ice won't dispense, or the ice maker runs constantly. These issues involve pressurized water lines, electrical components, and specialized parts that require training and tools. DIY fixes risk water damage, electrical hazard, or voiding warranties. Our technicians handle the repair safely and correctly."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:28:50.761152Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "e00f8e8ce2be807c",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_types",
+      "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Schedule your {city} repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Ice Maker Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/ice-maker-repair-lufkin-tx/",
+    "meta_description": "Professional ice maker repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "ice maker repair Lufkin TX, ice maker not making ice, refrigerator ice maker repair",
+    "og_title": "Ice Maker Repair in {city_state} | {business}",
+    "og_description": "Professional ice maker repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Ice Maker Repair",
+    "service_type": "Ice Maker Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional ice maker repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "ice maker repair",
+    "secondary_keywords": "ice maker not making ice, refrigerator ice maker repair, ice maker repair near me",
+    "brand": "",
+    "appliance_type": "Ice Maker",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Ice Maker Repair in Lufkin, TX\",\"serviceType\":\"Ice Maker Repair\",\"description\":\"Professional ice maker repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "4e64e87bbf33275d47eafc0b0b5df875"
+}

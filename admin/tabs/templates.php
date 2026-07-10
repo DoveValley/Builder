@@ -97,6 +97,81 @@
 
 <?php elseif ($editingTemplate === null): ?>
 
+    <?php
+    // Masters carry a free-text "role" label (any niche): appliance uses Home /
+    // Type Hub / Brand Hub / Leaf; pest uses Extermination / Inspection / Category;
+    // etc. It's an organizational label — nothing is hardcoded to a niche.
+    $roleSuggestions = ['Home', 'Type Hub', 'Brand Hub', 'Leaf', 'Category', 'Hub', 'Extermination', 'Inspection'];
+
+    // Partition templates: "Master Template" (base masters) vs the rest.
+    $baseTemplates    = array_values(array_filter($templates, fn($t) => !empty($t['base'])));
+    $regularTemplates = array_values(array_filter($templates, fn($t) => empty($t['base'])));
+    // Group masters by their role label (labelled first, alphabetical; unlabelled last).
+    usort($baseTemplates, function ($a, $b) {
+        $ra = trim($a['base_role'] ?? ''); $rb = trim($b['base_role'] ?? '');
+        if (($ra === '') !== ($rb === '')) return $ra === '' ? 1 : -1;   // unlabelled to the bottom
+        return strcasecmp($ra, $rb);
+    });
+
+    // Renders one template row (Edit / base-toggle / Duplicate / Delete; + role label for masters).
+    $renderTplRow = function (array $tpl, bool $isBase) use ($csrfToken) {
+        $role = trim($tpl['base_role'] ?? '');
+        ?>
+        <div class="repeat-row" style="align-items:center;">
+            <div style="flex:1;">
+                <strong><?= h($tpl['title'] ?: '(untitled)') ?></strong>
+                <?php if ($isBase): ?><span style="display:inline-block;margin-left:6px;padding:1px 8px;background:<?= $role !== '' ? '#7c3aed' : '#94a3b8' ?>;color:#fff;border-radius:10px;font-size:.68rem;font-weight:700;vertical-align:middle;"><?= h($role !== '' ? $role : 'unlabelled') ?></span><?php endif; ?>
+                <br>
+                <span class="hint">
+                    Slug pattern: <code><?= h($tpl['slug_pattern'] ?? '') ?></code>
+                    &mdash;
+                    <?= count($tpl['content_blocks'] ?? []) ?> block<?= count($tpl['content_blocks'] ?? []) !== 1 ? 's' : '' ?>
+                    &mdash;
+                    <?= count($tpl['generation_steps'] ?? []) ?> generation step<?= count($tpl['generation_steps'] ?? []) !== 1 ? 's' : '' ?>
+                </span>
+            </div>
+
+            <?php if ($isBase): ?>
+            <form action="templates_save.php" method="post" style="display:inline;" title="Master role / archetype label (free text)">
+                <input type="hidden" name="action" value="set_master_role">
+                <input type="hidden" name="template_id" value="<?= h($tpl['id']) ?>">
+                <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+                <input type="text" name="base_role" value="<?= h($role) ?>" list="master-role-suggest" placeholder="role e.g. Brand Hub" style="width:120px;padding:2px 6px;font-size:.82rem;">
+                <button type="submit" class="btn btn-secondary btn-small">Set role</button>
+            </form>
+            <?php endif; ?>
+
+            <a class="btn btn-secondary btn-small" href="?tab=templates&template=<?= h($tpl['id']) ?>">Edit</a>
+
+            <form action="templates_save.php" method="post" style="display:inline;">
+                <input type="hidden" name="action" value="set_base">
+                <input type="hidden" name="template_id" value="<?= h($tpl['id']) ?>">
+                <input type="hidden" name="on" value="<?= $isBase ? '0' : '1' ?>">
+                <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+                <button type="submit" class="btn btn-secondary btn-small" title="<?= $isBase ? 'Move back to the Templates list' : 'Mark as a Master Template (base master)' ?>">
+                    <?= $isBase ? '&darr; Move to Templates' : '&uarr; Set as Master' ?>
+                </button>
+            </form>
+
+            <form action="templates_save.php" method="post" style="display:inline;">
+                <input type="hidden" name="action" value="duplicate">
+                <input type="hidden" name="template_id" value="<?= h($tpl['id']) ?>">
+                <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+                <button type="submit" class="btn btn-secondary btn-small">Duplicate</button>
+            </form>
+
+            <form action="templates_save.php" method="post" style="display:inline;"
+                  onsubmit="return confirm('Delete template \'<?= h(addslashes($tpl['title'])) ?>\'? This cannot be undone.');">
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="template_id" value="<?= h($tpl['id']) ?>">
+                <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+                <button type="submit" class="remove-row" title="Delete template">&times;</button>
+            </form>
+        </div>
+        <?php
+    };
+    ?>
+
     <!-- ── List view ─────────────────────────────────────────────────── -->
     <div class="card">
         <h2>Add a New Template</h2>
@@ -121,42 +196,140 @@
         </form>
     </div>
 
+    <?php
+    // ── Bulk Template Generator (niche-agnostic) ──────────────────────────────
+    $bulk       = $_SESSION['tpl_bulk'] ?? null;
+    unset($_SESSION['tpl_bulk']);
+    $bulkBase   = $bulk['base']   ?? '';
+    $bulkRows   = $bulk['rows']   ?? '';
+    $bulkReport = $bulk['report'] ?? [];
+    $mediaFiles = [];
+    $mdir = rtrim(UPLOAD_DIR, '/') . '/media';
+    if (is_dir($mdir)) {
+        foreach (scandir($mdir) as $f) {
+            if (preg_match('/\.(jpe?g|png|webp)$/i', $f)) $mediaFiles[] = $f;
+        }
+    }
+    sort($mediaFiles);
+    ?>
+    <div class="card" id="bulkgen">
+        <h2>Bulk Template Generator</h2>
+        <p class="hint" style="margin-bottom:14px;">
+            Clone a base template into many at once. Each row becomes a new landing template with the
+            <strong>same block structure and image count</strong> as the base, its subject words swapped, and its own images.
+            Nothing here is niche-specific — pick any base template and paste that niche's rows, and it works the same way.
+        </p>
+        <form action="templates_save.php" method="post">
+            <input type="hidden" name="action" value="bulk_generate">
+            <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+            <div class="form-group">
+                <label>Base template <span class="hint">(the prototype that gets cloned)</span></label>
+                <select name="base_id" required>
+                    <option value="">— pick a base template —</option>
+                    <?php foreach ($templates as $t): ?>
+                        <option value="<?= h($t['id']) ?>" <?= $bulkBase === $t['id'] ? 'selected' : '' ?>><?= h($t['title'] ?: $t['id']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Rows <span class="hint">(one template per line, pipe-delimited)</span></label>
+                <textarea name="rows" rows="9" style="font-family:monospace;font-size:0.82rem;"
+                    placeholder="Mosquito Control | mosquito-control | Mosquito Control | cockroach=mosquito;roach=mosquito;roaches=mosquitoes | mosquito-katy_aa45f9.webp | about-mosquito-control-katy_68697d.webp | best-mosquito-control-katy_44af32.webp"><?= h($bulkRows) ?></textarea>
+                <span class="hint" style="display:block;margin-top:6px;">
+                    Columns: <code>Service | slug-base | Primary keyword | find=repl;… | hero img | intro img | local img | Title(optional)</code><br>
+                    Only <strong>Service</strong> is required. <strong>find=repl</strong> swaps the base's subject words — whole-word &amp; case-aware, so
+                    <code>cockroach=mosquito</code> also fixes <code>Cockroach</code>/<code>COCKROACH</code> (plurals need their own pair, e.g. <code>roaches=mosquitoes</code>).
+                    Images are bare filenames from this site's media library (or a full path); blank keeps the base's image. Lines starting with <code>#</code> are skipped.
+                </span>
+            </div>
+            <div style="display:flex;gap:10px;">
+                <button type="submit" name="mode" value="preview" class="btn" style="background:#64748b;">Preview (dry run)</button>
+                <button type="submit" name="mode" value="commit" class="btn"
+                    onclick="return confirm('Generate these templates and append them to templates.json?\nA backup (templates.json.bak) is saved first.');">Generate Templates</button>
+            </div>
+        </form>
+
+        <?php if ($bulkReport): ?>
+            <div style="margin-top:18px;">
+                <h3 style="margin-bottom:8px;">Preview — <?= count($bulkReport) ?> template(s) will be created</h3>
+                <div style="overflow-x:auto;">
+                <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+                    <thead><tr style="text-align:left;border-bottom:2px solid #e2e8f0;">
+                        <th style="padding:6px 8px;">Service</th><th style="padding:6px 8px;">New id</th>
+                        <th style="padding:6px 8px;">Slug pattern</th><th style="padding:6px 8px;">Images (hero / intro / local)</th>
+                        <th style="padding:6px 8px;">Checks</th>
+                    </tr></thead>
+                    <tbody>
+                    <?php foreach ($bulkReport as $r): ?>
+                        <tr style="border-bottom:1px solid #eef2f6;">
+                            <td style="padding:6px 8px;"><strong><?= h($r['service']) ?></strong></td>
+                            <td style="padding:6px 8px;"><code><?= h($r['id']) ?></code></td>
+                            <td style="padding:6px 8px;"><code><?= h($r['slug']) ?></code></td>
+                            <td style="padding:6px 8px;font-size:0.76rem;">
+                                <?php foreach (['hero','intro','local'] as $slot): $p = $r['images'][$slot] ?? ''; ?>
+                                    <?= $slot[0] ?>: <?= $p ? h(basename($p)) : '<span style="color:#94a3b8;">(base)</span>' ?><br>
+                                <?php endforeach; ?>
+                            </td>
+                            <td style="padding:6px 8px;">
+                                <?php if ($r['leftover'] > 0): ?>
+                                    <span style="color:#b45309;">⚠ <?= (int)$r['leftover'] ?> leftover subject word(s)</span><br>
+                                <?php endif; ?>
+                                <?php if (!empty($r['img_missing'])): ?>
+                                    <span style="color:#dc2626;">⚠ missing: <?= h(implode(', ', $r['img_missing'])) ?></span><br>
+                                <?php endif; ?>
+                                <?php if ($r['leftover'] === 0 && empty($r['img_missing'])): ?>
+                                    <span style="color:#16a34a;">✓ clean</span>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+                </div>
+                <p class="hint" style="margin-top:8px;">
+                    Review above, then click <strong>Generate Templates</strong> to commit.
+                    <strong style="color:#b45309;">⚠ leftover</strong> = the base's subject word is still present (add/fix a find=repl pair).
+                    <strong style="color:#dc2626;">⚠ missing</strong> = image file not found in the media library.
+                </p>
+            </div>
+        <?php endif; ?>
+
+        <details style="margin-top:14px;">
+            <summary style="cursor:pointer;">Available media files (<?= count($mediaFiles) ?>) — for image columns</summary>
+            <div style="font-family:monospace;font-size:0.72rem;column-width:220px;margin-top:8px;max-height:260px;overflow:auto;">
+                <?php foreach ($mediaFiles as $f): ?><div><?= h($f) ?></div><?php endforeach; ?>
+            </div>
+        </details>
+    </div>
+
+    <!-- ── Master Template (base masters) ─────────────────────────────── -->
     <div class="card">
-        <h2>Templates</h2>
-        <?php if (empty($templates)): ?>
-            <p class="hint">No templates yet. Add one above.</p>
+        <h2>Master Template</h2>
+        <datalist id="master-role-suggest"><?php foreach ($roleSuggestions as $rs): ?><option value="<?= h($rs) ?>"><?php endforeach; ?></datalist>
+        <p class="hint" style="margin-bottom:16px;">
+            The master template(s) the <strong>Bulk Template Generator</strong> clones from. Kept separate here
+            so the base pattern is easy to find. Use <strong>&uarr; Set as Master</strong> on any template below to move it here,
+            or <strong>&darr; Move to Templates</strong> to send it back.
+            <br>With <strong>3+ masters</strong> (different page archetypes), give each a <strong>role label</strong>
+            (free text &mdash; e.g. Home, Type Hub, Brand Hub, Leaf for appliance; Extermination, Inspection, Category for pest).
+            They sort by label so the archetypes read top-down.
+        </p>
+        <?php if (empty($baseTemplates)): ?>
+            <p class="hint">No master template set. Use <strong>&uarr; Set as Master</strong> on a template below to mark your base master.</p>
         <?php else: ?>
             <div class="repeat-items">
-            <?php foreach ($templates as $tpl): ?>
-                <div class="repeat-row" style="align-items:center;">
-                    <div style="flex:1;">
-                        <strong><?= h($tpl['title'] ?: '(untitled)') ?></strong><br>
-                        <span class="hint">
-                            Slug pattern: <code><?= h($tpl['slug_pattern'] ?? '') ?></code>
-                            &mdash;
-                            <?= count($tpl['content_blocks'] ?? []) ?> block<?= count($tpl['content_blocks'] ?? []) !== 1 ? 's' : '' ?>
-                            &mdash;
-                            <?= count($tpl['generation_steps'] ?? []) ?> generation step<?= count($tpl['generation_steps'] ?? []) !== 1 ? 's' : '' ?>
-                        </span>
-                    </div>
-                    <a class="btn btn-secondary btn-small" href="?tab=templates&template=<?= h($tpl['id']) ?>">Edit</a>
+            <?php foreach ($baseTemplates as $tpl) $renderTplRow($tpl, true); ?>
+            </div>
+        <?php endif; ?>
+    </div>
 
-                    <form action="templates_save.php" method="post" style="display:inline;">
-                        <input type="hidden" name="action" value="duplicate">
-                        <input type="hidden" name="template_id" value="<?= h($tpl['id']) ?>">
-                        <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
-                        <button type="submit" class="btn btn-secondary btn-small">Duplicate</button>
-                    </form>
-
-                    <form action="templates_save.php" method="post" style="display:inline;"
-                          onsubmit="return confirm('Delete template \'<?= h(addslashes($tpl['title'])) ?>\'? This cannot be undone.');">
-                        <input type="hidden" name="action" value="delete">
-                        <input type="hidden" name="template_id" value="<?= h($tpl['id']) ?>">
-                        <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
-                        <button type="submit" class="remove-row" title="Delete template">&times;</button>
-                    </form>
-                </div>
-            <?php endforeach; ?>
+    <div class="card">
+        <h2>Templates</h2>
+        <?php if (empty($regularTemplates)): ?>
+            <p class="hint"><?= empty($templates) ? 'No templates yet. Add one above.' : 'All templates are in the Master Template section above.' ?></p>
+        <?php else: ?>
+            <div class="repeat-items">
+            <?php foreach ($regularTemplates as $tpl) $renderTplRow($tpl, false); ?>
             </div>
         <?php endif; ?>
     </div>

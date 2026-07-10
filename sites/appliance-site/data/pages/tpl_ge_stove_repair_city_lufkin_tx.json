@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_ge_stove_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "ge-stove-repair-lufkin-tx",
+  "title": "GE Stove Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "GE Stove Repair in {city_state}",
+      "hs_subtext": "In Lufkin households, a functioning stove is essential to daily routines, and a breakdown quickly disrupts meal preparation and family schedules. Wells Appliance Repair provides trained GE stove repair service to get your unit running again with minimal downtime. Our factory-trained technicians back their work with a warranty, ensuring reliable service when you need it most.",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "GE",
+      "hs_caption2": "Stove Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-stove.webp",
+      "hs_photo_alt": "GE Stove Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:21:59.812908Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "758d219d915e67a4"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-1.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional GE Stove Repair for Lufkin Homeowners",
+      "text": "<p>A broken GE stove disrupts your daily routine and leaves your kitchen unable to function. Whether a burner has stopped working, your stovetop won't heat evenly, or your range has stopped responding altogether, you need fast, reliable repair to restore normalcy to your home. In Lufkin, TX, a malfunctioning stove isn't just an inconvenience—it's a significant disruption that can affect meal preparation and family gatherings. Delaying professional repair risks further damage and potentially unsafe operation. Timely intervention by a trained technician prevents minor issues from becoming costly replacements and ensures your kitchen is back in action quickly.</p><p>Wells Appliance Repair specializes in GE stove repair for Lufkin residents, bringing factory-trained expertise directly to your home. Our technicians are equipped to diagnose problems accurately—from electric stove issues to gas stove complications—and source quality replacement parts when needed. We provide upfront pricing so you know exactly what to expect, and we stand behind our work with a warranty on repairs. Beyond GE appliances, we also service other major brands and appliance types, but our focus on GE stove repair ensures you receive specialized knowledge for your specific model. When your stove needs attention, contact Wells Appliance Repair for prompt, professional service you can trust.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:54:34.894991Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "7f2a34e85fe40869"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Burner Won't Heat",
+          "text": "A stovetop burner that stays cool may have a faulty heating element, broken igniter, or electrical connection issue. Our Lufkin technicians diagnose the root cause and repair or replace the component to restore full heat."
+        },
+        {
+          "heading": "Uneven Oven Temperature",
+          "text": "When your oven cooks unevenly, the thermostat, heating element, or sensor may be malfunctioning. Wells Appliance Repair tests and repairs these parts so your meals bake and roast consistently throughout."
+        },
+        {
+          "heading": "Igniter Clicking But Not Lighting",
+          "text": "A gas stove repair often involves a spark igniter that clicks repeatedly without igniting the flame. This typically points to a faulty igniter, gas valve issue, or blocked burner port that our technicians can quickly fix."
+        },
+        {
+          "heading": "Glass Cooktop Cracked",
+          "text": "A cracked or shattered glass surface on electric stove tops poses a safety hazard and stops cooking. We replace the cooktop glass to restore a smooth, functional cooking surface in your Lufkin home."
+        },
+        {
+          "heading": "Self-Cleaning Cycle Stuck",
+          "text": "If your GE stove's self-cleaning mode won't complete or the door locks permanently, the latch mechanism or control board may be defective. Our technicians repair or replace these components to restore normal operation."
+        },
+        {
+          "heading": "Display or Touch Controls Not Working",
+          "text": "Unresponsive touch buttons or a blank display panel indicate a control board or membrane pad failure. Wells Appliance Repair diagnoses the issue and restores your stove's digital controls and settings quickly."
+        }
+      ],
+      "fc_heading": "Common GE Stove Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:54:39.907970Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "42acd8680184767c"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for GE Stove Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "GE Stove Expertise You Can Count On",
+          "text": "Our technicians are trained on GE stove systems and understand the specific components that control your burners, ignition, and heating elements. We diagnose stovetop repair issues accurately and use genuine GE parts to restore reliable performance."
+        },
+        {
+          "heading": "Fast Diagnosis, Upfront Pricing",
+          "text": "When your gas stove or electric stove fails, we arrive promptly and inspect your unit thoroughly. You'll receive an honest estimate before any work begins—no hidden fees, no surprises. Many stove burner repairs are completed the same day."
+        },
+        {
+          "heading": "Warranty-Backed GE Stove Repairs",
+          "text": "We stand behind our workmanship on every GE stove repair. Your repaired unit is backed by our service warranty, giving you confidence that your stovetop will heat reliably when you need it most."
+        },
+        {
+          "heading": "Local Lufkin Service, Fast Response",
+          "text": "Based right here in Lufkin, we respond quickly to your stove repair needs across the area. When your kitchen is down, we show up promptly to get your GE stove working again without unnecessary delays."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:54:43.471415Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "a5193b75cb8053c3"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-1.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Fast Appliance Repair Across the Lufkin Area",
+      "text": "<p>Wells Appliance Repair serves homes throughout Lufkin and the surrounding communities, where you'll find everything from established neighborhoods like Crown Colony and Fuller Springs to newer subdivisions. This mix means our technicians encounter a wide variety of appliance ages, brands, and models—from vintage ranges to the latest smart refrigerators. Whether you need a gas stove repair, electric stove troubleshooting, or help with any other major appliance, we're equipped to handle the full spectrum of what Lufkin households depend on.</p><p>When your stovetop stops working or another appliance fails, time matters. Our factory-trained technicians respond quickly across the Lufkin area, arriving with the knowledge and parts needed to diagnose and repair your unit efficiently. We understand that appliance breakdowns disrupt your daily routine, so we focus on fast, reliable service without unnecessary delays. If you're searching for appliance repair near you in the Lufkin region, we're here to get your home running smoothly again.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:54:46.383513Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "558d5fd9f01a658b"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a GE stove repair visit?",
+          "answer": "<p>Our technician will arrive, inspect your GE stove thoroughly, and diagnose the issue—whether it's a burner malfunction, ignition problem, or temperature control failure. We'll explain what we found, discuss repair options, and perform the work if you approve. Most repairs are completed in one visit, and we clean up after ourselves.</p>"
+        },
+        {
+          "question": "How fast can Wells Appliance Repair come to Lufkin for GE stove service?",
+          "answer": "<p>We understand a broken stove disrupts your routine. We offer prompt scheduling and work to accommodate urgent requests. Contact us with your GE stove issue, and we'll provide you with available appointment times. Same-day and next-day service is often possible depending on current demand.</p>"
+        },
+        {
+          "question": "What are common GE stove problems that need professional repair?",
+          "answer": "<p>Frequent issues include burners that won't light or heat unevenly, faulty ignition systems on gas models, broken heating elements on electric stoves, and temperature sensors that miscalibrate. Control knobs may stick, and oven racks can jam. These problems usually signal internal component failure requiring professional diagnosis and repair.</p>"
+        },
+        {
+          "question": "Is it better to repair or replace my GE stove?",
+          "answer": "<p>That depends on the repair cost, your stove's age, and its condition overall. We'll provide an honest assessment. If a single repair is affordable and your stove is relatively recent, repair often makes sense. If multiple components are failing or the unit is very old, replacement may be more practical long-term.</p>"
+        },
+        {
+          "question": "What factors affect the cost of GE stove repair?",
+          "answer": "<p>Repair cost depends on which component has failed—burner assemblies, ignition modules, and heating elements vary in complexity and availability. Whether your model is gas or electric also matters. We offer free diagnostics so you understand the issue and associated costs before authorizing any work.</p>"
+        },
+        {
+          "question": "Are your technicians trained to work on GE stoves specifically?",
+          "answer": "<p>Yes. Our technicians are factory-trained on GE appliances and stay current with GE stove models and repair procedures. We work on gas and electric GE stoves, understand their systems, and carry the right tools and parts knowledge to diagnose and repair them correctly.</p>"
+        },
+        {
+          "question": "Does Wells Appliance Repair warranty GE stove repairs and parts?",
+          "answer": "<p>We stand behind our work. Repairs and replacement parts come with warranty coverage that protects you if an issue recurs. We'll explain the warranty terms when we complete your repair so you know exactly what's covered.</p>"
+        },
+        {
+          "question": "How can I prevent GE stove problems from happening again?",
+          "answer": "<p>Keep burners and the cooktop clean after each use to prevent debris from damaging ignition components. Don't use excessive heat or leave burners unattended. For gas stoves, ensure the area around ignitors stays dry. Have your stove inspected if you notice slow ignition or uneven heating—early intervention prevents bigger failures.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:28:26.903042Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "d9edb1bd722b49f6"
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "GE Stove Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/ge-stove-repair-lufkin-tx/",
+    "meta_description": "Professional ge stove repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "ge stove repair Lufkin TX, stove burner not working, electric stove repair",
+    "og_title": "GE Stove Repair in {city_state} | {business}",
+    "og_description": "Professional ge stove repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "GE Stove Repair",
+    "service_type": "GE Stove Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional ge stove repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "ge stove repair",
+    "secondary_keywords": "stove burner not working, gas stove repair {city}, electric stove repair, stovetop repair near me",
+    "brand": "GE",
+    "appliance_type": "Stove",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Stove Repair in Lufkin, TX\",\"serviceType\":\"GE Stove Repair\",\"description\":\"Professional ge stove repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "ed49a1bcc49fce35e8e2621c91df3eee"
+}

@@ -1,0 +1,279 @@
+{
+  "template_id": "tpl_whirlpool_appliance_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "whirlpool-appliance-repair-lufkin-tx",
+  "title": "Whirlpool Appliance Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Whirlpool Appliance Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a broken Whirlpool washer or dryer quickly disrupts daily routines and adds stress to an already busy schedule. Wells Appliance Repair specializes in restoring these essential appliances, with factory-trained technicians who understand Whirlpool systems inside and out. We're committed to prompt service backed by warranty protection, so you can depend on your appliances again.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Whirlpool",
+      "hs_caption2": "Appliance Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-appliance.webp",
+      "hs_photo_alt": "Whirlpool Appliance Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:01:44.322510Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "e8d3ec899e946385",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-3.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Whirlpool Appliance Repair in Lufkin, Texas",
+      "text": "<p>When a Whirlpool appliance breaks down in Lufkin, the impact on your daily routine can be immediate and stressful. A malfunctioning refrigerator, washer, dryer, or dishwasher disrupts meal preparation, laundry schedules, and household efficiency—often at the most inconvenient times. Beyond the inconvenience, a delayed repair can lead to food waste, water damage, or further mechanical deterioration that drives up repair costs. That's why Lufkin homeowners trust professional Whirlpool appliance repair to restore their appliances quickly and correctly, minimizing downtime and protecting their investment.</p><p>Wells Appliance Repair specializes in Whirlpool appliance repair for Lufkin residents, bringing factory-trained technicians who understand Whirlpool engineering and diagnostics inside and out. Our team arrives prepared with accurate troubleshooting tools, genuine replacement parts when needed, and transparent upfront pricing—no surprises when the job is done. Every repair is backed by our warranty, ensuring your peace of mind. While we also service other leading appliance brands and models, our deep expertise in Whirlpool systems means faster diagnosis and more reliable results. Whether you're in Crown Colony, Fuller Springs, or elsewhere throughout the Lufkin area, we're ready to get your Whirlpool running dependably again.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:01:48.347693Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "56783c5fc43ee8f8",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "brand_appliances",
+      "html": "[services_links brand=\"self\" heading=\"Whirlpool Appliances We Repair in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Washer Won't Drain",
+          "text": "Clogged drain hoses, faulty drain pumps, or lid switch issues prevent water from emptying. Our Lufkin technicians inspect the drainage system, clear blockages, and replace worn components to restore proper function."
+        },
+        {
+          "heading": "Refrigerator Not Cooling",
+          "text": "Dirty condenser coils, refrigerant leaks, or failing compressors cause temperature rise. Wells Appliance Repair diagnoses cooling system faults and performs repairs to keep your food fresh and safe."
+        },
+        {
+          "heading": "Dishwasher Leaking Water",
+          "text": "Worn door seals, cracked spray arms, or faulty inlet valves lead to water pooling underneath. Our technicians locate the source, replace damaged seals and components, and test for reliable operation."
+        },
+        {
+          "heading": "Dryer Not Heating",
+          "text": "Broken heating elements, failed thermal fuses, or clogged vents prevent clothes from drying. Wells Appliance Repair clears blockages, tests electrical components, and restores heat output for faster drying cycles."
+        },
+        {
+          "heading": "Range Burners Won't Ignite",
+          "text": "Faulty igniter switches, broken spark modules, or moisture in ignition ports stop burners from lighting. Our technicians clean ignition systems, test electrical connections, and replace defective parts as needed."
+        }
+      ],
+      "fc_heading": "Common Whirlpool Appliance Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:01:52.790540Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "b906f67fd7e8ff49",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Whirlpool Appliance Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Whirlpool Technicians",
+          "text": "Our technicians are trained specifically on Whirlpool systems and components. We understand the engineering behind your Whirlpool appliance, enabling accurate diagnosis and reliable repair the first time."
+        },
+        {
+          "heading": "Genuine Whirlpool Parts In Stock",
+          "text": "We stock authentic Whirlpool replacement parts, ensuring your appliance receives the correct components. Genuine parts maintain performance and honor your appliance's warranty coverage."
+        },
+        {
+          "heading": "Upfront Pricing, Warranty Protection",
+          "text": "We provide free estimates with transparent, upfront pricing before any Whirlpool repair work begins. All repairs are warranty-backed, giving you confidence in our service quality."
+        },
+        {
+          "heading": "Same-Day Service Across Lufkin",
+          "text": "Wells responds promptly throughout the Lufkin area with same-day Whirlpool repair appointments available. Local service means faster response times and direct communication with your technician."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:01:55.840721Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "a69b1d351b95dffe",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need Whirlpool appliance repair in {city}? Our technicians know your brand.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What does the Whirlpool appliance repair process look like?",
+          "answer": "<p>Our technician will arrive with diagnostic equipment, inspect your Whirlpool unit for visible damage or error codes, test key components, and explain what we found. Once you approve the repair plan, we'll perform the service, test the appliance to confirm it works properly, and walk you through any maintenance tips before we leave.</p>"
+        },
+        {
+          "question": "Can Wells Appliance Repair come same-day for Whirlpool repair in Lufkin?",
+          "answer": "<p>We offer same-day and next-day service for Whirlpool appliances in the Lufkin area when availability allows. Call us as soon as your Whirlpool breaks down to check our schedule. The sooner you reach out, the sooner we can get a trained technician to your home.</p>"
+        },
+        {
+          "question": "What are common Whirlpool problems that need professional repair?",
+          "answer": "<p>Whirlpool washers frequently develop drum seal leaks or drainage issues; refrigerators may lose cooling or have ice maker failures; dryers commonly fail to heat or tumble. Range burners and oven elements also wear out. These symptoms point to worn seals, motor failure, or electrical faults—issues best handled by a professional.</p>"
+        },
+        {
+          "question": "Is it better to repair or replace my broken Whirlpool appliance?",
+          "answer": "<p>That depends on the repair cost, your appliance's age, and its condition. A newer Whirlpool with one failed part often makes financial sense to repair. Older units with multiple failing components may cost more to fix than replace. We'll explain your options honestly so you can decide what's right for your budget.</p>"
+        },
+        {
+          "question": "What factors affect the cost of Whirlpool appliance repair?",
+          "answer": "<p>Repair cost depends on which part failed, labor time, and Whirlpool model complexity. We offer free diagnostics so you'll know the problem and repair scope before authorizing work. This gives you a clear picture of what the repair will involve and helps you make an informed decision.</p>"
+        },
+        {
+          "question": "Are your technicians trained to work on Whirlpool appliances?",
+          "answer": "<p>Yes. Our technicians are trained on Whirlpool units and carry parts and tools specific to their repair. We work on Whirlpool washers, dryers, refrigerators, ranges, and dishwashers, so your brand appliance is in capable hands.</p>"
+        },
+        {
+          "question": "Does the Whirlpool repair work come with a warranty?",
+          "answer": "<p>Yes. We warranty our workmanship and the parts we install on your Whirlpool appliance. This protection gives you confidence that if something goes wrong with the repair itself, we'll make it right.</p>"
+        },
+        {
+          "question": "How should I prepare my home before the Whirlpool technician arrives?",
+          "answer": "<p>Clear the area around your Whirlpool appliance so our technician has easy access. If it's a washer or dryer, ensure the utility hookups are reachable. Make note of any error codes or unusual sounds you've heard—this information helps us diagnose faster and get your appliance running again.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:41:09.882331Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "7bf61ea4fe4a4597",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_brands",
+      "html": "[services_links role=\"brand_hub\" heading=\"Other Brands We Service\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} Whirlpool repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Whirlpool Appliance Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/whirlpool-appliance-repair-lufkin-tx/",
+    "meta_description": "Factory-trained Whirlpool appliance repair in {city_state} from {business}. Same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "appliance repair Lufkin TX, appliance repair near me",
+    "og_title": "Whirlpool Appliance Repair in {city_state} | {business}",
+    "og_description": "Factory-trained Whirlpool appliance repair in {city_state} from {business}. Same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Whirlpool Appliance Repair",
+    "service_type": "Whirlpool Appliance Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Factory-trained Whirlpool appliance repair in {city_state} from {business}. Same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "whirlpool appliance repair",
+    "secondary_keywords": "appliance repair near me, same day appliance repair {city}, home appliance repair {city}",
+    "brand": "Whirlpool",
+    "appliance_type": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Appliance Repair in Lufkin, TX\",\"serviceType\":\"Whirlpool Appliance Repair\",\"description\":\"Factory-trained Whirlpool appliance repair in Lufkin, TX from Wells Appliance Repair. Same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "f23fd842ed025d2f533f6d0938ea883e"
+}

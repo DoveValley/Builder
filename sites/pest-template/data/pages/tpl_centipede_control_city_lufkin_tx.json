@@ -1,0 +1,371 @@
+{
+  "template_id": "tpl_centipede_control",
+  "city_id": "city_lufkin_tx",
+  "slug": "centipede-control-lufkin-tx",
+  "title": "Centipede Control in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Centipede Control in {city_state}",
+      "hs_subtext": "<p>East Texas humidity and warm seasons create ideal conditions for centipedes to thrive in and around Lufkin homes, particularly in areas like Crown Colony and Fuller Springs where moisture and shelter are plentiful. Elk Pest Pros addresses centipede infestations with targeted inspection and treatment strategies designed to reduce their presence both indoors and in the spaces surrounding your property. When centipedes become a recurring problem, professional intervention gives homeowners peace of mind and helps restore comfort to their living spaces.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Centipede",
+      "hs_caption2": "Exterminator",
+      "hs_photo_alt": "Centipede exterminator treating a {city_state} home",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/pest-template/uploads/media/pest-exterminator-katy-tx_968a64.webp",
+      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T18:59:48.898511Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "7713d2d6ecb026fb",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:var(--skin-subtle-bg,#f3f6f7);border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);padding:18px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 44px;\"><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Trained Technicians</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Free Estimates</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Re-Treat Guarantee</span></div><div style=\"display:flex;align-items:center;gap:10px;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" style=\"flex-shrink:0;\"><path d=\"M20 6 9 17l-5-5\" stroke=\"var(--color-accent,#fd783b)\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span style=\"font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;\">Same-Day Service</span></div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/pest-template/uploads/media/about-pest-exterminator-katy_44058f.webp",
+      "it_alt": "{business} technician applying centipede treatment along a baseboard in a {city_state} home",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Centipede Control in Lufkin: Local Solutions",
+      "text": "<p>Lufkin's warm, humid climate creates ideal conditions for centipedes to thrive, particularly during the wetter months when these many-legged pests seek shelter in and around homes. The region's seasonal moisture and mild winters mean centipede activity can persist year-round, making infestations a genuine concern for homeowners throughout Lufkin and surrounding areas. Once centipedes establish themselves in crawl spaces, basements, or under mulch and leaf litter, they can multiply quickly and venture indoors in search of prey and damp environments. Without professional intervention, a small centipede problem can escalate into a persistent household nuisance.</p><p>Elk Pest Pros brings targeted expertise to centipede treatment and control, combining thorough inspection with strategic solutions designed for Lufkin's specific environment. Our team identifies entry points, moisture sources, and harborage areas that attract centipedes, then implements a comprehensive approach to eliminate active infestations and reduce future attraction. We understand that getting rid of centipedes requires more than a single application—our follow-up protocols ensure lasting results and give homeowners peace of mind. Whether you're dealing with an active centipede problem or want to prevent millipede and centipede issues before they start, Elk Pest Pros is ready to restore comfort to your home.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T18:59:53.802277Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "7a428e8d6087e8e4",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Choose Elk Pest Pros for Centipede Control",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Trained Technicians, Thorough Treatment",
+          "text": "<p>Our technicians understand centipede behavior and habitat preferences. We inspect your home systematically, identify entry points and moisture sources, then apply targeted treatment to eliminate active infestations and reduce conditions that attract them.</p>"
+        },
+        {
+          "heading": "Fast Response When You Need It",
+          "text": "<p>Centipede problems demand prompt action. We respond quickly to service requests so you're not living with these unwanted visitors longer than necessary. Quick scheduling means faster peace of mind for your household.</p>"
+        },
+        {
+          "heading": "Service Backed by Guarantees",
+          "text": "<p>We stand behind our centipede treatment work with service guarantees. If centipedes return within the guarantee period under normal conditions, we return to retreat at no extra charge—that's our commitment to your satisfaction.</p>"
+        },
+        {
+          "heading": "Prepared for East Texas Seasons",
+          "text": "<p>Lufkin's humid climate and warm seasons create ideal conditions for centipedes. Our year-round centipede exterminator service accounts for seasonal activity patterns in East Texas, protecting your home when these pests are most active and preventing reinfestation.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T18:59:57.872584Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "efcbffa85a9c1d96",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Centipede Treatment Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call Our {city} Team",
+          "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Inspection & Assessment",
+          "text": "Your technician inspects the home, identifies the species and where centipedes are harboring, and builds a targeted treatment plan."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Treatment & Follow-Up",
+          "text": "We treat the areas where centipedes live and get inside, then follow up to confirm the infestation is fully cleared."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Ready to get rid of centipedes in {city}? Our trained technicians can get started fast.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/pest-template/uploads/media/centipedes-katy_d74ba0.webp",
+      "it_alt": "A {city_state} family relaxing at home, protected by {business} centipede control",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Centipede Control Solutions for Lufkin",
+      "text": "<p>Lufkin's humid subtropical climate creates ideal conditions for centipedes and millipedes, particularly during our warmer months when moisture levels remain high. Older, established neighborhoods with mature trees, dense vegetation, and aging foundations provide excellent harborage for these pests—leaf litter, mulch, and structural gaps offer shelter and hunting grounds. Properties in areas like Crown Colony and Fuller Springs, where mature landscaping is common, often see increased centipede activity in crawl spaces and basements. Newer subdivisions may experience fewer infestations initially, but expanding vegetation and irrigation systems can eventually create the moist conditions these arthropods prefer.</p><p>Seasonal pest cycles in East Texas mean centipedes are most active from spring through fall, though they can remain problematic year-round in protected indoor spaces. Effective centipede treatment requires understanding your specific property—whether you're dealing with exposed foundations, extensive mulched beds, or standing moisture issues. Drainage problems, wood-to-soil contact, and cluttered storage areas all increase vulnerability. Our approach accounts for these property-specific factors, addressing both the immediate infestation and conditions that attract them. Whether you need millipede control in a historic home or centipede exterminator services for a newer property, we tailor our strategy to your Lufkin location's unique characteristics.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T19:00:02.178329Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "c20926d56909c0e2",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Seasonal Centipede Control Steps for Lufkin Homeowners",
+      "steps_items": [
+        {
+          "heading": "Spring: Moisture & Entry Points",
+          "text": "Spring rains in East Texas create the damp conditions centipedes seek. Homeowners often notice them emerging near foundations and crawl spaces. Elk Pest Pros inspects entry points, seals gaps, and reduces moisture sources to make your home less inviting to these fast-moving pests."
+        },
+        {
+          "heading": "Summer: Heat & Activity Peak",
+          "text": "Centipedes remain active through Lufkin's warm summers, hunting insects in yards and occasionally entering homes seeking cooler refuge. Regular pest management during this season helps prevent indoor infestations. Elk Pest Pros treats exterior perimeters and vulnerable areas to keep populations in check."
+        },
+        {
+          "heading": "Fall: Shelter-Seeking Behavior",
+          "text": "As temperatures drop, centipedes move toward shelter and warmth, making fall a critical time for indoor prevention. Homes in areas like Crown Colony and Kurth often experience increased activity as pests seek refuge. Elk Pest Pros helps seal cracks and treats entry zones before they establish inside."
+        },
+        {
+          "heading": "Winter: Indoor Intrusions",
+          "text": "Mild Texas winters mean centipedes remain active indoors, especially in basements and crawl spaces where moisture and insects persist. Elk Pest Pros provides targeted indoor treatments and identifies harborage areas to reduce encounters during the colder months."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T19:00:06.757852Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "cfe53e2aa2ac5e02",
+      "_ai_locked": true
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Pest Control Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
+          "alt": "Ant exterminator in {city}",
+          "heading": "Ant Pest Control",
+          "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
+          "url": "/ant-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
+          "alt": "Bed bug treatment in {city}",
+          "heading": "Bed Bug Control",
+          "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
+          "url": "/bed-bug-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
+          "alt": "Flea control in {city}",
+          "heading": "Flea Pest Control",
+          "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
+          "url": "/flea-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
+          "alt": "Rodent control in {city}",
+          "heading": "Rat Exterminator",
+          "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
+          "url": "/rat-exterminator-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Centipede Exterminator FAQ — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the signs my Lufkin home has a centipede problem?",
+          "answer": "<p>Look for fast-moving, elongated arthropods with many legs in basements, bathrooms, and damp areas. You may spot shed exoskeletons or notice droppings. Centipedes thrive in moisture, so they're often found near pipes, under sinks, or in crawl spaces. Seeing even one indoors signals an infestation worth addressing before populations grow.</p>"
+        },
+        {
+          "question": "When is centipede season in East Texas and why?",
+          "answer": "<p>Centipedes peak in spring and fall when humidity and temperatures are ideal. Summer heat and winter cold reduce activity, but they remain active year-round in moist indoor spaces like basements. Lufkin's humid subtropical climate keeps conditions favorable for centipedes longer than in drier regions, making proactive control important.</p>"
+        },
+        {
+          "question": "How does the centipede control process work at Elk Pest Pros?",
+          "answer": "<p>We inspect your home to locate entry points, harborage areas, and moisture sources. Treatment targets both interior hotspots and exterior perimeter barriers. We apply targeted solutions to baseboards, cracks, crawl spaces, and foundation areas. Our approach focuses on reducing moisture and eliminating the conditions centipedes need to survive and reproduce.</p>"
+        },
+        {
+          "question": "Is centipede treatment safe for my children and pets?",
+          "answer": "<p>Elk Pest Pros uses methods designed to protect your family while controlling centipedes. We advise you on any preparation needed before arrival and discuss pet safety during and after service. Always follow our specific guidance on re-entry timing and precautions to ensure everyone stays safe throughout treatment.</p>"
+        },
+        {
+          "question": "How many visits does centipede control usually require?",
+          "answer": "<p>Most centipede infestations require an initial service followed by one or two follow-up visits to ensure full control. The exact number depends on infestation severity, home size, and moisture levels. We'll provide a clear timeline during your inspection so you know what to expect.</p>"
+        },
+        {
+          "question": "What should I do to prepare my home before centipede treatment?",
+          "answer": "<p>Clear clutter from floors and baseboards so we can access treatment areas. Remove pet food and water bowls before service. Ensure entry to crawl spaces and basement areas is accessible. We'll give you detailed prep instructions when you schedule; following them helps the treatment work more effectively.</p>"
+        },
+        {
+          "question": "Does Elk Pest Pros offer a guarantee if centipedes return?",
+          "answer": "<p>We stand behind our centipede control services. If you experience a return of centipedes within the guarantee period, we'll return to retreat at no extra charge. Details and duration are explained in your service agreement—ask us to review coverage and what it covers when you book.</p>"
+        },
+        {
+          "question": "How can I prevent centipedes from coming back after treatment?",
+          "answer": "<p>Reduce moisture by fixing leaks, improving drainage, and using dehumidifiers in basements. Seal cracks and gaps around pipes and foundation. Remove hiding spots like leaf piles and mulch near your home's exterior. Store firewood away from the house. These steps make your home less attractive to centipedes and support long-term control.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T19:00:15.385933Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "5d1b44013c33e2fb",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Dealing with centipedes in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Centipede Control in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/centipede-control-lufkin-tx/",
+    "meta_description": "Get rid of centipedes fast with a professional centipede exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
+    "meta_keywords": "centipede control Lufkin TX, centipede exterminator, millipede control, centipede treatment",
+    "og_title": "Centipede Exterminator in {city_state} | Fast, Guaranteed Centipede Control",
+    "og_description": "Get rid of centipedes fast with a professional centipede exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+    "og_image": "",
+    "service_name": "Centipede Control",
+    "service_type": "Centipede Control",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional centipede exterminator services in {city_state}. Targeted centipede control for homes and businesses with fast response and a re-treat guarantee.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Centipede Exterminator in Lufkin, TX\",\"serviceType\":\"Centipede Extermination\",\"description\":\"Professional centipede exterminator services in Lufkin, TX. Targeted centipede control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Elk Pest Pros\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}",
+    "primary_keyword": "centipede control",
+    "secondary_keywords": "centipede exterminator, millipede control, centipede treatment, get rid of centipedes"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T18:57:32+00:00",
+  "template_version": "8513a265f5eccff195e613acb20416a8"
+}

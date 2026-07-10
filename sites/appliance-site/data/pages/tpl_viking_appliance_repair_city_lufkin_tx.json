@@ -1,0 +1,279 @@
+{
+  "template_id": "tpl_viking_appliance_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "viking-appliance-repair-lufkin-tx",
+  "title": "Viking Appliance Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Viking Appliance Repair in {city_state}",
+      "hs_subtext": "In the Lufkin area, a broken Viking range or cooktop can quickly disrupt meal preparation and daily routines for families who depend on reliable kitchen appliances. Wells Appliance Repair specializes in Viking appliance repair, addressing issues with the precision that these high-performance units require. Our factory-trained technicians deliver prompt service backed by warranty coverage, getting your kitchen back in working order.",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Viking",
+      "hs_caption2": "Appliance Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-appliance.webp",
+      "hs_photo_alt": "Viking Appliance Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:00:59.287154Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "aea7a456cc605c3c",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-1.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Viking Appliance Repair in Lufkin, TX",
+      "text": "<p>When a Viking appliance breaks down in your Lufkin home, the disruption goes beyond mere inconvenience. A malfunctioning refrigerator, range, or dishwasher can quickly cascade into food waste, meal preparation headaches, and mounting frustration—especially when you rely on these appliances daily. The longer a Viking unit sits idle, the greater the risk of secondary damage and the higher the cost of eventual replacement. That's why prompt, accurate repair from a trained technician matters so much. Addressing the problem right away protects your investment and restores peace of mind to your household.</p><p>Wells Appliance Repair brings factory-trained expertise directly to Lufkin homeowners who depend on Viking appliances. Our technicians understand Viking's engineering, design, and performance standards, allowing us to diagnose issues accurately and repair them with precision. We source quality parts, stand behind our work with warranty coverage, and provide upfront pricing so there are no surprises. Whether your Viking unit requires a straightforward fix or more involved attention, we approach every job with the same commitment to getting it right. While we also service other major appliance brands, our specialized knowledge of Viking equipment ensures your appliance receives the expert care it deserves.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:01:03.119581Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "403fe0ea53acaf91",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "brand_appliances",
+      "html": "[services_links brand=\"self\" heading=\"Viking Appliances We Repair in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Oven Not Heating Properly",
+          "text": "Faulty heating elements, thermostat issues, or ignition problems prevent your Viking oven from reaching the right temperature. Our technicians diagnose the root cause and repair or replace components to restore even, reliable heat."
+        },
+        {
+          "heading": "Refrigerator Not Cooling",
+          "text": "Compressor failure, refrigerant leaks, or blocked airflow cause your Viking fridge to warm up unexpectedly. Wells Appliance Repair's technicians inspect and repair cooling system faults to keep food fresh and safe."
+        },
+        {
+          "heading": "Dishwasher Won't Drain",
+          "text": "Clogs in drain lines, faulty pump motors, or valve blockages leave water standing in your Viking dishwasher. Our repair team clears obstructions and fixes drainage components to restore normal operation."
+        },
+        {
+          "heading": "Stovetop Burners Not Igniting",
+          "text": "Broken ignition switches, corroded burner caps, or electrical connection issues prevent your Viking cooktop from lighting. We diagnose ignition faults and replace damaged parts to get your burners working again."
+        },
+        {
+          "heading": "Range Hood Not Venting",
+          "text": "Grease buildup, damaged dampers, or motor failure reduce ventilation from your Viking range hood. Wells Appliance Repair cleans venting systems and repairs or replaces motors and damper assemblies."
+        }
+      ],
+      "fc_heading": "Common Viking Appliance Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:01:07.932492Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "ed84141e39eae8d3",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Viking Appliance Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Viking Technicians",
+          "text": "Our technicians receive specialized training on Viking appliance systems, components, and design. We understand Viking's engineering and apply that expertise to every repair, ensuring accurate diagnosis and reliable fixes."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock authentic Viking replacement parts and offer same-day or next-day repair availability. Upfront pricing before work begins—no surprises. Every repair is backed by our warranty for your peace of mind."
+        },
+        {
+          "heading": "Accurate Viking Diagnostics",
+          "text": "Viking appliances demand precision. We perform thorough diagnostics to identify the root cause, not just symptoms. This focused approach saves time and money while restoring your appliance correctly."
+        },
+        {
+          "heading": "Local Lufkin Response You Can Count On",
+          "text": "Based right here in Lufkin, we respond promptly to service calls across the area. Faster arrival times, familiar with local needs, and committed to serving our community with excellence."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:01:11.661046Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "c4a8edef6950f71f",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need Viking appliance repair in {city}? Our technicians know your brand.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a Viking appliance repair visit?",
+          "answer": "Our technician will arrive with diagnostic tools to identify the exact issue with your Viking unit. We'll explain what we find, discuss repair options, and provide a transparent estimate before proceeding. You're welcome to ask questions throughout. Most repairs are completed in a single visit, though we'll let you know upfront if parts need to be ordered."
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair service my Viking range in Lufkin?",
+          "answer": "We understand a broken Viking appliance disrupts your household. We offer same-day and next-day service for most Lufkin-area customers. Call us as soon as you notice a problem, and we'll work to fit you into our schedule promptly. Emergency repairs may be available depending on the situation."
+        },
+        {
+          "question": "What are common Viking appliance problems that need professional repair?",
+          "answer": "Viking appliances commonly develop issues like uneven heating in ranges, ice maker failures in refrigerators, and drainage problems in dishwashers. Gas ignition problems, control panel malfunctions, and burner inconsistencies are also frequent. These symptoms often require factory-level knowledge to diagnose and fix correctly without causing further damage."
+        },
+        {
+          "question": "Is it better to repair or replace my Viking appliance?",
+          "answer": "This depends on the appliance's age, the repair cost, and its current condition. We'll provide an honest assessment and estimate so you can make an informed choice. Many Viking appliances are built to last decades with proper repair—we'll help you decide what makes sense for your situation and budget."
+        },
+        {
+          "question": "What factors affect the cost of Viking appliance repair?",
+          "answer": "The repair cost depends on the problem's complexity, which parts need replacement, and how long the work takes. We offer free diagnostics to pinpoint the issue and provide a detailed estimate before we begin. This gives you full transparency so there are no surprises."
+        },
+        {
+          "question": "Are Wells technicians trained to work on Viking brand appliances?",
+          "answer": "Yes, our technicians are experienced with Viking appliances and understand their unique engineering and components. We stay current on Viking's systems and repair protocols to ensure your appliance is serviced correctly and safely."
+        },
+        {
+          "question": "Do you warranty Viking appliance repairs and replacement parts?",
+          "answer": "We stand behind our work. Repairs and parts we install are covered by warranty, giving you peace of mind. Ask us for full details on warranty terms when we provide your estimate."
+        },
+        {
+          "question": "How can I prevent Viking appliance problems from happening again?",
+          "answer": "During your repair visit, ask our technician for maintenance tips specific to your Viking model—like cleaning burner caps regularly, avoiding overloading, or scheduling preventive checks. Proper use and routine care extend your appliance's lifespan significantly and reduce the risk of costly future repairs."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:39:45.603253Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "15723eed90087ceb",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_brands",
+      "html": "[services_links role=\"brand_hub\" heading=\"Other Brands We Service\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} Viking repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Viking Appliance Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/viking-appliance-repair-lufkin-tx/",
+    "meta_description": "Professional viking appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "viking appliance repair Lufkin TX, appliance repair near me",
+    "og_title": "Viking Appliance Repair in {city_state} | {business}",
+    "og_description": "Professional viking appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Viking Appliance Repair",
+    "service_type": "Viking Appliance Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional viking appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "viking appliance repair",
+    "secondary_keywords": "appliance repair near me, same day appliance repair {city}, home appliance repair {city}",
+    "brand": "Viking",
+    "appliance_type": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Viking Appliance Repair in Lufkin, TX\",\"serviceType\":\"Viking Appliance Repair\",\"description\":\"Professional viking appliance repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "3e9d1b3fce1f1385771ec9d7a23e1897"
+}

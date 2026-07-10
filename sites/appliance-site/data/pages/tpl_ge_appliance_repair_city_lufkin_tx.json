@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_ge_appliance_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "ge-appliance-repair-lufkin-tx",
+  "title": "GE Appliance Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "GE Appliance Repair in {city_state}",
+      "hs_subtext": "In Lufkin households, a broken GE appliance creates immediate disruption—whether it's a refrigerator that won't cool or a washer that leaves clothes unwashed. Wells Appliance Repair specializes in restoring GE appliances to working order with factory-trained technicians who understand these units inside and out. We prioritize quick turnaround and back our work, so you can depend on your appliance again with confidence.",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "GE",
+      "hs_caption2": "Appliance Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-appliance.webp",
+      "hs_photo_alt": "GE Appliance Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:53:55.558593Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "8fc959f612b9d4b5",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-1.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "GE Appliance Repair in Lufkin, TX",
+      "text": "<p>When a GE refrigerator, dishwasher, or range breaks down in your Lufkin home, the disruption is immediate and costly. A malfunctioning appliance disrupts your daily routine, strains your household budget, and can lead to food spoilage or mounting repair bills if left unaddressed. The longer you wait, the greater the risk of secondary damage or a complete failure that forces an expensive replacement. That's why prompt, professional GE appliance repair in Lufkin matters so much—a timely diagnosis and repair by a trained technician can restore your appliance to full function and extend its useful life significantly.</p><p>Wells Appliance Repair brings factory-trained expertise directly to Lufkin homeowners who depend on their GE appliances. Our technicians understand GE's engineering and carry genuine parts to ensure accurate repairs that last. We provide upfront pricing before we begin work, so you know exactly what to expect, and we stand behind every repair with a warranty that gives you peace of mind. Whether your issue is a cooling problem, a drainage malfunction, or an electrical concern, we diagnose it thoroughly and fix it right the first time. We also service other major brands, but GE appliance repair is a cornerstone of our local work. When your GE appliance needs attention, count on Wells Appliance Repair to get you back on track quickly.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:53:59.388594Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "9e3c4ed94cacf4ac",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "brand_appliances",
+      "html": "[services_links brand=\"self\" heading=\"GE Appliances We Repair in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Refrigerator Not Cooling",
+          "text": "A GE fridge that isn't maintaining temperature may have a faulty compressor, blocked condenser coils, or a failed thermostat. Our Lufkin technicians diagnose the root cause and restore proper cooling to keep your food fresh."
+        },
+        {
+          "heading": "Dishwasher Won't Drain",
+          "text": "Standing water in your GE dishwasher often stems from a clogged filter, kinked drain hose, or defective drain pump. Wells Appliance Repair clears the blockage or replaces the faulty component to restore drainage."
+        },
+        {
+          "heading": "Washing Machine Leaking",
+          "text": "Water pooling around your GE washer typically indicates a worn door seal, cracked drum, or loose inlet hose connection. Our technicians locate the leak source and repair or replace the damaged part promptly."
+        },
+        {
+          "heading": "Electric Range Not Heating",
+          "text": "A GE electric range that won't heat may have a burned-out heating element, faulty control board, or broken switch. Wells Appliance Repair tests and replaces the defective component to restore cooking capability."
+        },
+        {
+          "heading": "Dryer Not Spinning",
+          "text": "Your GE dryer may stop tumbling due to a broken belt, worn drum rollers, or a faulty motor. Our experienced technicians identify the issue and repair or replace the worn part to get your laundry drying again."
+        },
+        {
+          "heading": "Error Code on Display",
+          "text": "GE appliances display error codes to signal specific malfunctions, from sensor problems to control failures. Wells Appliance Repair interprets the code and diagnoses the underlying issue for a lasting solution."
+        }
+      ],
+      "fc_heading": "Common GE Appliance Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:54:03.439442Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "39ec240e059d64a8",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for GE Appliance Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "GE-Trained Technicians",
+          "text": "Our technicians hold factory training specific to GE appliances, ensuring accurate diagnosis and proper repair of your unit's electrical and mechanical systems."
+        },
+        {
+          "heading": "Genuine GE Parts In Stock",
+          "text": "We stock authentic GE replacement parts and source others quickly, so your repair uses only manufacturer-approved components backed by warranty protection."
+        },
+        {
+          "heading": "Upfront Pricing, No Surprises",
+          "text": "We provide free estimates and transparent pricing before any GE appliance repair work begins, so you know costs upfront with no hidden fees."
+        },
+        {
+          "heading": "Fast Service Across Lufkin",
+          "text": "Wells responds promptly throughout the Lufkin area with same-day and next-day GE appliance repair appointments, minimizing downtime in your home."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:54:06.060417Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "1d15f31a9afed5ce",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need GE appliance repair in {city}? Our technicians know your brand.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a GE appliance repair visit?",
+          "answer": "Our technician will arrive, listen to your description of the problem, inspect the unit thoroughly, and diagnose the issue. We'll explain what we found, discuss repair options and costs before proceeding, and complete the work with quality parts and testing. You'll receive a summary of what was repaired and any maintenance tips to keep your GE running smoothly."
+        },
+        {
+          "question": "Can Wells Appliance Repair come out same-day for GE repairs in Lufkin?",
+          "answer": "We prioritize rapid response for appliance emergencies. Same-day service availability depends on current job schedules and the nature of your GE issue. Contact us as soon as your appliance fails, and we'll fit you in as quickly as possible. Many Lufkin homeowners can get a technician scheduled within 24 hours or less."
+        },
+        {
+          "question": "What are common GE appliance problems that need professional repair?",
+          "answer": "GE refrigerators often develop cooling issues, ice maker failures, or compressor problems. Washers and dryers may have drum bearings that fail, door latch issues, or heating element breakdowns. Dishwashers frequently experience spray arm clogs, water circulation problems, or latch malfunctions. Ranges can develop ignition or heating failures. These issues typically require professional diagnosis and repair skills."
+        },
+        {
+          "question": "Is it worth repairing my broken GE appliance or should I replace it?",
+          "answer": "That depends on the appliance age, repair cost estimate, and remaining lifespan. We'll provide a transparent diagnosis and honest recommendation. Generally, if repair costs are under half the replacement price and your GE is reasonably newer, repair makes financial sense. We help you weigh the options so you can decide confidently."
+        },
+        {
+          "question": "Do you offer free estimates or diagnostics for GE appliance repair?",
+          "answer": "Yes, we provide honest diagnostics and cost estimates before you commit to repair. This way you understand exactly what's wrong with your GE unit and what the work will cost. There's no obligation—you decide whether to proceed. Our upfront approach helps you avoid surprises and make informed decisions about your appliance."
+        },
+        {
+          "question": "Are your technicians trained to repair GE brand appliances?",
+          "answer": "Our technicians are trained in GE appliance repair across all major product lines—refrigerators, washers, dryers, dishwashers, ranges, and more. We're familiar with GE's engineering and common failure points, allowing us to diagnose and fix issues efficiently and correctly. You can trust your GE is in knowledgeable hands."
+        },
+        {
+          "question": "What warranty covers GE repairs performed by Wells Appliance Repair?",
+          "answer": "We stand behind our workmanship and the parts we install. Our repairs and replacement parts are backed by warranty coverage, giving you peace of mind that your GE appliance is protected. We'll explain the specific warranty terms when you approve the repair estimate."
+        },
+        {
+          "question": "How can I prevent GE appliance problems from happening again?",
+          "answer": "Follow GE's maintenance guidelines: clean refrigerator coils regularly, run dishwashers fully loaded, avoid overloading washers and dryers, and keep range vents clear. Replace filters and seals as needed, wipe gaskets, and run cleaning cycles when recommended. Proper use and routine care extend your GE appliance's lifespan and reduce repair frequency."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:26:06.768664Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "1773aab2a29126e2",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_brands",
+      "html": "[services_links role=\"brand_hub\" heading=\"Other Brands We Service\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} GE repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "GE Appliance Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/ge-appliance-repair-lufkin-tx/",
+    "meta_description": "Professional ge appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "ge appliance repair Lufkin TX, appliance repair near me",
+    "og_title": "GE Appliance Repair in {city_state} | {business}",
+    "og_description": "Professional ge appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "GE Appliance Repair",
+    "service_type": "GE Appliance Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional ge appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "ge appliance repair",
+    "secondary_keywords": "appliance repair near me, same day appliance repair {city}, home appliance repair {city}",
+    "brand": "GE",
+    "appliance_type": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Appliance Repair in Lufkin, TX\",\"serviceType\":\"GE Appliance Repair\",\"description\":\"Professional ge appliance repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "201238114adf1fc512bdb143e9c86d26"
+}

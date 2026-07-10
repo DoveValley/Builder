@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_outdoor_grill_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "outdoor-grill-repair-lufkin-tx",
+  "title": "Outdoor Grill Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Outdoor Grill Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin, a working outdoor grill is central to how families and neighbors gather, and when it stops performing reliably, it disrupts those plans quickly. Wells Appliance Repair handles outdoor grill repair with factory-trained service, getting your unit back in working order with prompt, warranty-backed work. You can count on professional repairs that restore your grill without the wait.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Outdoor Grill",
+      "hs_caption2": "Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-outdoor-grill.webp",
+      "hs_photo_alt": "Outdoor Grill Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:57:33.009552Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "fc9e3ec8237a8e8d",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-3.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Outdoor Grill Repair Services in Lufkin, TX",
+      "text": "<p>A broken outdoor grill can derail your weekend plans and leave your Lufkin home without one of its most enjoyed appliances. Whether your grill won't ignite, runs unevenly, or has stopped working altogether, the inconvenience hits fast—especially during grilling season. A malfunctioning grill disrupts family gatherings and outdoor entertaining, and the longer it sits unused, the greater the risk of further damage. Timely, professional repair is essential to restore function, prevent rust and corrosion, and avoid the expense of premature replacement. Choosing a qualified repair technician in Lufkin ensures your grill gets the right diagnosis and fix the first time.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your Lufkin home for outdoor grill repair that you can count on. Our technicians perform a thorough, accurate diagnosis to identify exactly what's wrong—whether it's a burner issue, gas flow problem, ignition failure, or something else entirely. We source quality replacement parts and use proven repair methods to restore your grill to reliable working condition. Every job is backed by upfront pricing so you know the cost before we begin, and our warranty-backed workmanship gives you peace of mind. Beyond grills, we service a wide range of outdoor and indoor appliances and brands, but we're committed to getting your specific grill running smoothly again. Contact Wells Appliance Repair today to schedule your service.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:57:37.264662Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "605ce8f53a4c68e1",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "by_brand",
+      "html": "[services_links appliance_type=\"self\" heading=\"Repair by Brand in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Grill Won't Heat Up",
+          "text": "Uneven or weak heat often stems from clogged burners, blocked gas lines, or a faulty igniter. Our technicians inspect the fuel system, clean obstructions, and test ignition components to restore full heating power."
+        },
+        {
+          "heading": "Igniter Not Sparking",
+          "text": "A non-functional spark igniter prevents safe startup and may indicate a worn electrode, loose wiring, or moisture damage. We diagnose the ignition system and replace or repair the faulty parts so you can fire up reliably."
+        },
+        {
+          "heading": "Gas Leak Smell",
+          "text": "Propane or natural gas odors near your grill signal a potential leak in hoses, connections, or fittings. Our team locates the source, tests all seals, and replaces damaged components to ensure safe operation."
+        },
+        {
+          "heading": "Flare-Ups and Uneven Flames",
+          "text": "Grease buildup, damaged flavorizer bars, or misaligned burners cause inconsistent cooking and dangerous flare-ups. We clean the grill interior, repair or replace damaged parts, and realign burners for even heat distribution."
+        },
+        {
+          "heading": "Rust and Corrosion Damage",
+          "text": "Outdoor exposure causes rust on grates, firebox walls, and internal components, affecting durability and safety. We assess corrosion severity and replace rusted parts or advise on protective maintenance to extend grill life."
+        },
+        {
+          "heading": "Control Knobs Not Working",
+          "text": "Stuck or unresponsive knobs may indicate corroded valves, broken stems, or debris in the valve assembly. Our technicians clean, repair, or replace valve components to restore smooth, reliable control of your burners."
+        }
+      ],
+      "fc_heading": "Common Outdoor Grill Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:57:42.223545Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "8a8a738e9bf73d30",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Outdoor Grill Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Grill Technicians",
+          "text": "Our technicians hold hands-on training in outdoor grill systems, burner assemblies, and ignition components. We diagnose grill problems accurately and recommend the right repair path—fast."
+        },
+        {
+          "heading": "Genuine Parts, Upfront Pricing",
+          "text": "We stock quality replacement parts for outdoor grills and provide free estimates before any work begins. No surprises—you know the cost of your grill repair upfront."
+        },
+        {
+          "heading": "Warranty-Backed Grill Repairs",
+          "text": "Every outdoor grill repair we complete is backed by our warranty. You can trust the work we do on your grill will hold up through many seasons."
+        },
+        {
+          "heading": "Same-Day Service Across Lufkin",
+          "text": "We serve Lufkin and the surrounding area with prompt, same-day grill repair when you need it. Local, responsive technicians ready to get your outdoor grill working again."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:57:45.151059Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "baab75837dbf66fb",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need this appliance repaired in {city}? Call our team.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during an outdoor grill repair visit?",
+          "answer": "Our technician will arrive with diagnostic tools to identify the issue—whether it's ignition problems, uneven heating, gas flow issues, or burner damage. We'll explain what we find, discuss repair options, and perform the work if you approve. Most repairs are completed in one visit. We'll test the grill thoroughly before we leave to ensure it's working safely and properly."
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair come out for grill repair in Lufkin?",
+          "answer": "We understand a broken grill disrupts your plans. We offer prompt scheduling for Lufkin-area customers and work to accommodate urgent requests when possible. Call us to discuss your situation and we'll let you know our current availability. Same-day service may be available depending on our schedule and your location."
+        },
+        {
+          "question": "What are the most common outdoor grill problems that need professional repair?",
+          "answer": "Frequent issues include gas leaks, faulty ignition systems that won't light, uneven or low flame distribution, rust and corrosion damage, and broken thermostats. Temperature control problems, clogged burners, and regulator failures are also common. These problems typically require professional diagnosis and parts replacement rather than DIY fixes."
+        },
+        {
+          "question": "Is it better to repair my grill or buy a new one?",
+          "answer": "That depends on the grill's age, the repair cost estimate, and its condition overall. We provide honest diagnostics and free estimates so you can make an informed decision. Newer grills with isolated problems are usually worth repairing. Older units with multiple failures or extensive rust may be better replaced. We'll help you weigh the options."
+        },
+        {
+          "question": "Do you offer free estimates for outdoor grill repair?",
+          "answer": "Yes. We provide free diagnostic evaluations so you know exactly what's wrong and what the repair will involve before you commit. Our technician will discuss findings with you upfront, explain your options, and answer questions about parts and labor. This transparency helps you decide what's best for your situation."
+        },
+        {
+          "question": "Are your grill repair technicians trained to work on my brand?",
+          "answer": "Our technicians are experienced with major grill brands and built-in grill systems. We carry knowledge of gas, propane, and charcoal models. During your free estimate, let us know your grill's brand and we'll confirm we can service it. We source quality parts compatible with your unit to ensure reliable repairs."
+        },
+        {
+          "question": "How do I prepare my outdoor grill for the repair technician's visit?",
+          "answer": "Clear the area around your grill so our technician has safe access. Turn off the gas supply at the tank or line before we arrive. If you know when the problem started or what triggered it, share that information—it helps with diagnosis. Have any warranty paperwork or purchase records available if you have them."
+        },
+        {
+          "question": "How can I prevent outdoor grill problems from happening again?",
+          "answer": "Perform seasonal maintenance: clean grates and burners regularly to prevent clogs, check for rust and address it promptly, cover your grill when not in use to protect from weather, and inspect gas lines for leaks annually. Proper storage during off-season and routine cleaning extend your grill's life significantly. Our technician can offer specific maintenance tips for your model."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:35:50.843879Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "c5818a04449a46ad",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_types",
+      "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Schedule your {city} repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Outdoor Grill Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/outdoor-grill-repair-lufkin-tx/",
+    "meta_description": "Professional outdoor grill repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "outdoor grill repair Lufkin TX, built-in grill repair, bbq grill repair near me",
+    "og_title": "Outdoor Grill Repair in {city_state} | {business}",
+    "og_description": "Professional outdoor grill repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Outdoor Grill Repair",
+    "service_type": "Outdoor Grill Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional outdoor grill repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "outdoor grill repair",
+    "secondary_keywords": "gas grill repair {city}, built-in grill repair, bbq grill repair near me",
+    "brand": "",
+    "appliance_type": "Outdoor Grill",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Outdoor Grill Repair in Lufkin, TX\",\"serviceType\":\"Outdoor Grill Repair\",\"description\":\"Professional outdoor grill repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "3330bde17142b3674aa116017e8f52f0"
+}

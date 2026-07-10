@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_frigidaire_refrigerator_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "frigidaire-refrigerator-repair-lufkin-tx",
+  "title": "Frigidaire Refrigerator Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Frigidaire Refrigerator Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin, a broken refrigerator disrupts your household within hours, putting perishables at risk and straining your family's routine. Wells Appliance Repair specializes in Frigidaire refrigerator repair, addressing cooling issues, compressor problems, and other failures that leave you without reliable food storage. Our factory-trained technicians deliver prompt, warranty-backed service to get your Frigidaire running again.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Frigidaire",
+      "hs_caption2": "Refrigerator Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-refrigerator.webp",
+      "hs_photo_alt": "Frigidaire Refrigerator Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:14:53.952510Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "3b81fe7f11531cda",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-2.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Frigidaire Refrigerator Repair in Lufkin, TX",
+      "text": "<p>A broken refrigerator in Lufkin is more than an inconvenience—it's a household crisis. When your Frigidaire stops cooling, food spoils, your budget takes a hit, and the stress compounds quickly. Whether the compressor has failed, the thermostat is malfunctioning, or frost is building up inside, a non-functioning refrigerator demands prompt, expert attention. Delaying repair only risks greater damage and higher costs down the road. That's why homeowners throughout Lufkin turn to trained professionals who understand these appliances inside and out, ensuring the problem is fixed right the first time and your kitchen runs smoothly again.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your Lufkin home for Frigidaire refrigerator repair. Our technicians diagnose the root cause accurately, source quality replacement components, and stand behind every repair with warranty-backed service. We believe in upfront, honest pricing so you know exactly what to expect—no surprises when the bill arrives. Whether your issue is a cooling malfunction, ice maker trouble, or door seal problem, we handle Frigidaire units with precision and care. While we also service other major appliances and brands, Frigidaire refrigerator repair is a cornerstone of our work in the Lufkin area. When your refrigerator needs help, we're ready to restore it and your peace of mind.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:14:58.269516Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "18d81be5d40a347a",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Not Cooling Properly",
+          "text": "A warm fridge often stems from a faulty compressor, dirty condenser coils, or a failing thermostat. Wells Appliance Repair technicians diagnose the root cause and restore proper cooling to keep your food fresh."
+        },
+        {
+          "heading": "Leaking Water Inside",
+          "text": "Interior water pooling usually results from a clogged defrost drain, frozen water line, or misaligned drain pan. Our technicians locate the blockage or damage and repair it to stop leaks and prevent mold."
+        },
+        {
+          "heading": "Ice Maker Not Working",
+          "text": "When ice stops dispensing, the culprit may be a frozen water line, faulty inlet valve, or broken ice maker assembly. Wells Appliance Repair identifies the issue and restores ice production quickly."
+        },
+        {
+          "heading": "Freezer Too Cold",
+          "text": "Over-freezing food happens when the thermostat malfunctions or damper control fails, letting cold air bypass the fridge section. Our technicians test and replace faulty components to balance temperatures correctly."
+        },
+        {
+          "heading": "Loud Noises or Vibration",
+          "text": "Unusual sounds often signal a worn compressor, fan motor, or loose components rattling inside. Wells Appliance Repair pinpoints the noise source and repairs or replaces worn parts to restore quiet operation."
+        },
+        {
+          "heading": "Door Won't Seal Properly",
+          "text": "A weak seal lets cold air escape, forcing the compressor to work harder and raising energy costs. Our technicians inspect the door gasket and hinges, replacing worn seals to restore an airtight closure."
+        }
+      ],
+      "fc_heading": "Common Frigidaire Refrigerator Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:15:04.505043Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "b77dd579c2a901d1",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Frigidaire Refrigerator Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Frigidaire Expertise",
+          "text": "Our technicians are trained on Frigidaire refrigerator systems and components. We diagnose cooling, ice-maker, and seal issues accurately, ensuring your unit gets the right fix first time."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock authentic Frigidaire replacement parts and offer same-day repair availability. Transparent upfront pricing and free estimates mean no surprise costs for your refrigerator repair."
+        },
+        {
+          "heading": "Warranty-Backed Refrigerator Repairs",
+          "text": "Every Frigidaire repair is backed by our workmanship warranty, giving you peace of mind. We stand behind our diagnostics and component replacements with confidence."
+        },
+        {
+          "heading": "Local Lufkin Service, Quick Response",
+          "text": "Based right here in Lufkin, we respond promptly to refrigerator emergencies across the area. Fast local service means less downtime for your kitchen and family."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:15:08.016430Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "f8fd78260cd5c670",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-2.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Throughout the Lufkin Area",
+      "text": "<p>Wells Appliance Repair serves homes across Lufkin and the surrounding communities with the same reliable, factory-trained expertise whether you're in an established neighborhood like Crown Colony or a newer subdivision. The Lufkin area is home to a diverse mix of housing ages and styles, which means our technicians regularly work on everything from vintage appliances in older homes to the latest models in recently built developments. That variety is exactly why we stock a comprehensive range of parts and maintain the training to handle any major brand or model you own.</p><p>When your refrigerator, washer, dryer, or oven breaks down, time matters. Our local team responds quickly across the Lufkin region, bringing factory-trained expertise and the right parts to get your appliance working again without unnecessary delay. We understand that a broken appliance disrupts your home, and we're committed to professional, prompt service that respects both your time and your budget.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:15:12.605355Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a21804b85cae7f4e",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a Frigidaire refrigerator repair visit?",
+          "answer": "<p>Our technician will diagnose the problem by inspecting cooling components, electrical connections, and refrigerant lines. We'll explain what we find and discuss repair options before proceeding. Once you approve, we'll perform the repair, test all functions, and walk you through care tips to prevent future issues.</p>"
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair come out to Lufkin for my broken fridge?",
+          "answer": "<p>We prioritize refrigerator repairs because a non-working fridge affects your food and family right away. Contact us today to schedule service—we offer flexible appointment times and work to accommodate urgent requests in the Lufkin area as quickly as possible.</p>"
+        },
+        {
+          "question": "Why is my Frigidaire refrigerator not cooling properly?",
+          "answer": "<p>Common cooling failures include a clogged condenser coil, faulty compressor, refrigerant leak, or broken thermostat. Ice buildup, a broken fan motor, or a malfunctioning defrost cycle can also stop your fridge from maintaining temperature. A professional diagnosis pinpoints the exact cause so you know what repair is needed.</p>"
+        },
+        {
+          "question": "Should I repair or replace my Frigidaire refrigerator?",
+          "answer": "<p>That depends on the repair cost, your fridge's age, and remaining lifespan. We'll provide an honest assessment—some repairs are economical and extend your appliance's life significantly, while others may cost more than replacement makes sense. We'll help you decide based on your specific situation.</p>"
+        },
+        {
+          "question": "Does Wells Appliance Repair offer free diagnostics for Frigidaire fridges?",
+          "answer": "<p>Yes, we offer a free diagnostic visit to identify what's wrong with your Frigidaire refrigerator. After we assess the issue, we'll explain repair costs and options so you can make an informed decision before any work begins.</p>"
+        },
+        {
+          "question": "Are your technicians trained to repair Frigidaire refrigerators specifically?",
+          "answer": "<p>Our technicians are factory-trained to service Frigidaire and other major appliance brands. They understand Frigidaire's cooling systems, ice makers, and controls, so your repair is handled by someone who knows your brand's design and common issues.</p>"
+        },
+        {
+          "question": "What signs mean my Frigidaire refrigerator needs professional repair, not DIY fixes?",
+          "answer": "<p>If your fridge isn't cooling, the ice maker is broken, there's visible frost buildup, or you hear unusual compressor noises, call a professional. Refrigerant leaks, electrical faults, and sealed-system problems require licensed expertise. DIY attempts can damage the unit or void warranties.</p>"
+        },
+        {
+          "question": "How can I prevent Frigidaire refrigerator problems from happening again?",
+          "answer": "<p>Clean condenser coils every few months, replace air filters as recommended, and avoid blocking vents with food. Keep the door seals clean and ensure the fridge sits level. Regular maintenance and prompt attention to temperature changes help your Frigidaire run reliably for years.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:25:37.809497Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "5c7a20f19828a44f",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Frigidaire Refrigerator Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/frigidaire-refrigerator-repair-lufkin-tx/",
+    "meta_description": "Professional frigidaire refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "frigidaire refrigerator repair Lufkin TX, refrigerator not cooling, fridge repair near me",
+    "og_title": "Frigidaire Refrigerator Repair in {city_state} | {business}",
+    "og_description": "Professional frigidaire refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Frigidaire Refrigerator Repair",
+    "service_type": "Frigidaire Refrigerator Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional frigidaire refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "frigidaire refrigerator repair",
+    "secondary_keywords": "refrigerator not cooling, fridge repair near me, same day refrigerator repair, ice maker not working",
+    "brand": "Frigidaire",
+    "appliance_type": "Refrigerator",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Frigidaire Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"Frigidaire Refrigerator Repair\",\"description\":\"Professional frigidaire refrigerator repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "9f4a70550120a58c124d9252b1d780e2"
+}

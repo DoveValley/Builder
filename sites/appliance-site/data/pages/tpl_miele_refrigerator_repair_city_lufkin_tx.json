@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_miele_refrigerator_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "miele-refrigerator-repair-lufkin-tx",
+  "title": "Miele Refrigerator Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Miele Refrigerator Repair in {city_state}",
+      "hs_subtext": "<p>In the Lufkin area, a refrigerator that stops working creates an immediate problem—perishable food, disrupted routines, and the stress of finding a reliable repair. Wells Appliance Repair specializes in Miele refrigerator repairs, addressing cooling issues, temperature control problems, and component failures with factory-trained expertise. We prioritize fast service to get your appliance running again, backed by our warranty and commitment to quality work.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Miele",
+      "hs_caption2": "Refrigerator Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-refrigerator.webp",
+      "hs_photo_alt": "Miele Refrigerator Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:23:10.585430Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "8d9f71687107ec20"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-1.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Miele Refrigerator Repair in Lufkin, TX",
+      "text": "<p>When your Miele refrigerator stops cooling or your ice maker stops working, the disruption to daily life is immediate and costly. A broken refrigerator means spoiled groceries, wasted food, and the urgent need to find a reliable repair solution. In Lufkin, homeowners depend on their appliances to function seamlessly, and a malfunctioning fridge can quickly become a financial and logistical headache. The longer the unit sits without professional attention, the greater the risk of food loss and further damage to internal components. That's why prompt, expert diagnosis and repair matter so much—a trained technician can often restore your appliance to full operation before significant damage occurs.</p><p>Wells Appliance Repair brings factory-trained expertise directly to Lufkin homeowners who need Miele refrigerator repair they can trust. Our technicians understand the precision engineering and specialized systems that Miele appliances demand, delivering accurate diagnosis and honest recommendations for every repair need. We use quality replacement parts, provide upfront pricing so you know what to expect, and back our work with a warranty that reflects our confidence in the job. Whether your refrigerator isn't cooling properly, the ice maker needs attention, or you need same-day service to prevent food waste, we're here to help. Contact Wells Appliance Repair today and experience the difference that professional, local service makes.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:04:58.824547Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "c809e8e099863ed3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Fridge Not Cooling",
+          "text": "Compressor failure, refrigerant leaks, or faulty thermostats commonly cause inadequate cooling. Our Lufkin technicians diagnose the root cause and restore proper temperature control to keep your food fresh."
+        },
+        {
+          "heading": "Ice Maker Not Working",
+          "text": "Frozen water lines, defective inlet valves, or broken ice maker assemblies prevent ice production. Wells Appliance Repair identifies the fault and performs same-day repairs whenever possible to restore ice-making function."
+        },
+        {
+          "heading": "Water Leaking Inside",
+          "text": "Clogged drain tubes, cracked drain pans, or misaligned door seals allow water to pool inside the cabinet. Our technicians clear blockages and replace worn seals to eliminate moisture damage and odors."
+        },
+        {
+          "heading": "Loud or Unusual Noises",
+          "text": "Worn fan motors, vibrating compressors, or loose internal components create grinding or humming sounds. We pinpoint the source and repair or replace the faulty part to restore quiet operation."
+        },
+        {
+          "heading": "Freezer Too Cold or Icy",
+          "text": "Stuck damper controls, malfunctioning defrost cycles, or thermostat errors cause excessive freezing and ice buildup. Our Miele-trained technicians adjust settings or replace failed components to balance temperatures correctly."
+        },
+        {
+          "heading": "Refrigerator Runs Constantly",
+          "text": "Leaking door gaskets, improper temperature sensor readings, or compressor issues force the unit to cycle continuously. We service or replace worn parts so your refrigerator operates efficiently and reduces energy waste."
+        }
+      ],
+      "fc_heading": "Common Miele Refrigerator Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:05:03.425230Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "bc9a6e050bc48af8"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Miele Refrigerator Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Miele Expertise",
+          "text": "Our technicians are trained on Miele refrigerator systems and components. We understand the precision engineering behind your unit, whether it's a cooling issue or ice maker malfunction, ensuring accurate diagnosis and reliable repair."
+        },
+        {
+          "heading": "Genuine Miele Parts On Hand",
+          "text": "We stock authentic Miele refrigerator parts and components. When your fridge needs repair, we install genuine replacements that match your unit's specifications, backed by our warranty on parts and workmanship."
+        },
+        {
+          "heading": "Same-Day Service Available",
+          "text": "Refrigerator problems need prompt attention. We offer same-day repair appointments across Lufkin, with free estimates upfront. No surprise charges—just honest pricing and fast turnaround to get your Miele cooling again."
+        },
+        {
+          "heading": "Local Lufkin Service You Can Count On",
+          "text": "As a trained, locally operated company, we're here when you need us. We serve the Lufkin area with responsive support and the expertise to handle your Miele refrigerator repair right the first time."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:05:06.686562Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "428d69a02ce1fe02"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-1.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Serving Lufkin and the Surrounding Communities",
+      "text": "<p>Lufkin's neighborhoods span everything from established areas like Downtown Lufkin and Crown Colony to newer subdivisions, which means homes across the region rely on refrigerators, washers, dryers, dishwashers, and other appliances of varying ages and brands. Whether you're dealing with a refrigerator not cooling, an ice maker that's stopped working, or any other appliance breakdown, Wells Appliance Repair responds quickly with factory-trained technicians who understand the full range of equipment found throughout East Texas homes. We stock the right parts and arrive prepared to diagnose and repair your unit efficiently.</p><p>When your appliance fails, time matters. Our local team knows the Lufkin area and can reach you promptly to get your kitchen, laundry room, or utility space back in order. We work with the brands and models commonly found in homes throughout the community, and we approach every repair with the professionalism and care your home deserves. Same-day service is a priority for us—because a broken appliance disrupts your whole routine.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:05:10.346796Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "69da511116b1fc71"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a Miele refrigerator repair visit?",
+          "answer": "<p>Our technician will begin with a thorough inspection to diagnose the issue—checking cooling performance, electrical connections, compressor function, and other key components. Once the problem is identified, we'll explain the repair needed and provide options. If you approve, we'll complete the repair on-site when possible, using quality parts suited to your Miele unit. Most visits take 1–3 hours depending on complexity.</p>"
+        },
+        {
+          "question": "Can Wells Appliance Repair come out same-day for Miele refrigerator repair in Lufkin?",
+          "answer": "<p>We understand a broken refrigerator is urgent. Same-day service availability depends on current demand and your location in the Lufkin area. Call us as soon as possible with your issue, and we'll work to schedule you promptly. We'll give you honest timing so you know when to expect our technician and can plan accordingly.</p>"
+        },
+        {
+          "question": "What are the most common Miele refrigerator problems you repair?",
+          "answer": "<p>Common issues include refrigerator not cooling adequately, ice maker malfunction or no ice production, frost buildup in the freezer, water leaks, and compressor problems. Miele units may also develop issues with the thermostat, sealed system leaks, or evaporator fan failures. These symptoms often indicate a refrigerant leak, electrical fault, or component wear that requires professional diagnosis and repair.</p>"
+        },
+        {
+          "question": "Is it better to repair or replace my Miele refrigerator?",
+          "answer": "<p>That depends on the repair cost, your unit's age, and remaining lifespan. Generally, if repairs cost less than 50% of a replacement unit's price and your Miele is less than 10–12 years old, repair is worthwhile. We'll provide a clear estimate so you can make an informed decision. If the compressor has failed or refrigerant leaks are extensive, replacement may be more economical long-term.</p>"
+        },
+        {
+          "question": "Do you offer free estimates or diagnostics for Miele refrigerator repair?",
+          "answer": "<p>Yes. We provide a free diagnostic evaluation to identify what's wrong with your Miele refrigerator. After inspection, we'll discuss the repair needed, explain your options, and give you a transparent estimate before any work begins. This way you understand the scope and cost before committing.</p>"
+        },
+        {
+          "question": "Are Wells Appliance Repair technicians trained to work on Miele refrigerators?",
+          "answer": "<p>Our technicians are trained and experienced in diagnosing and repairing Miele refrigerators. We know the brand's design, components, and common failure points, allowing us to work efficiently and accurately on your unit. We use appropriate parts and techniques to maintain your appliance's reliability and performance.</p>"
+        },
+        {
+          "question": "What warranty covers my Miele refrigerator repair?",
+          "answer": "<p>We stand behind our work with a warranty on repairs and parts we install. Specifics depend on the repair type and parts used. We'll explain the warranty terms when we provide your estimate so you understand what's covered and for how long. Original Miele manufacturer warranties may also apply to your unit—ask us if you have questions about coverage.</p>"
+        },
+        {
+          "question": "How can I prevent my Miele refrigerator from needing repair again?",
+          "answer": "<p>Keep the condenser coils clean by vacuuming them every 6 months, ensure door seals are tight and undamaged, avoid overloading shelves to allow airflow, and maintain the correct temperature settings. Don't block vents inside the fridge or freezer. Clean the water supply line inlet filter annually if your model has an ice maker. Regular maintenance helps catch small issues before they become costly repairs.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:35:32.662562Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "b4b074e0fd537a03"
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Miele Refrigerator Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/miele-refrigerator-repair-lufkin-tx/",
+    "meta_description": "Professional miele refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "miele refrigerator repair Lufkin TX, refrigerator not cooling, fridge repair near me",
+    "og_title": "Miele Refrigerator Repair in {city_state} | {business}",
+    "og_description": "Professional miele refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Miele Refrigerator Repair",
+    "service_type": "Miele Refrigerator Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional miele refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "miele refrigerator repair",
+    "secondary_keywords": "refrigerator not cooling, fridge repair near me, same day refrigerator repair, ice maker not working",
+    "brand": "Miele",
+    "appliance_type": "Refrigerator",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Miele Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"Miele Refrigerator Repair\",\"description\":\"Professional miele refrigerator repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "2bc7fb27231babb31bf3a5522f4f1b81"
+}

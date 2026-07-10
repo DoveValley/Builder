@@ -1,0 +1,1581 @@
+{
+    "theme": {
+        "header_bg": "#1e5fa8",
+        "header_text": "#ffffff",
+        "content_bg": "#ffffff",
+        "content_text": "#888c92",
+        "footer_bg": "#1f2937",
+        "footer_text": "#ffffff",
+        "accent_color": "#f59e0b",
+        "primary_font": "Inclusive Sans, sans-serif",
+        "button_radius": 6,
+        "analytics_head": "",
+        "facebook_pixel": "",
+        "font_family": "Inclusive Sans, sans-serif",
+        "header_top_bg": "#ffffff",
+        "heading_color": "#123a63",
+        "font_size_body": 16,
+        "font_size_h1": 3,
+        "font_size_h2": 2.25,
+        "font_size_h3": 1.63,
+        "font_size_h4": 1.5,
+        "heading_font": "",
+        "accent2_color": "#14b8a6",
+        "btn_text": "#ffffff",
+        "border_color": "#e5e7eb",
+        "skins": {
+            "light": {
+                "bg": "#ffffff",
+                "heading": "#1a2e5a",
+                "text": "#555e6d"
+            },
+            "dark": {
+                "bg": "#0d1f3c",
+                "heading": "#ffffff",
+                "text": "#e2e8f0"
+            },
+            "accent": {
+                "bg": "#2563eb",
+                "heading": "#ffffff",
+                "text": "#dbeafe"
+            },
+            "subtle": {
+                "bg": "#f8fafc",
+                "heading": "#1a2e5a",
+                "text": "#555e6d"
+            }
+        }
+    },
+    "header": {
+        "logo": "uploads/logo_wells-appliance-repair.png",
+        "phone": "{phone}",
+        "city": "{city_state}",
+        "topbar_text": "",
+        "topbar_link": "",
+        "menu": [
+            {
+                "label": "Home",
+                "url": "/",
+                "children": []
+            },
+            {
+                "label": "Services",
+                "url": "#services",
+                "children": []
+            }
+        ],
+        "socials": {
+            "facebook": "",
+            "instagram": "",
+            "twitter": "",
+            "youtube": "",
+            "linkedin": "",
+            "tiktok": "",
+            "yelp": ""
+        },
+        "nav_bg": "#0f8a8a",
+        "nav_text": "#ffffff",
+        "phone_btn_style": "outline",
+        "sticky": true,
+        "info_items": [
+            {
+                "icon": "🇺🇸",
+                "text": "Proudly American"
+            },
+            {
+                "icon": "",
+                "text": "Same-Day Appliance Repair"
+            }
+        ],
+        "logo_max_height": 72,
+        "phone_label": "Call Us:",
+        "show_sponsored": false,
+        "cta_text": "",
+        "cta_url": "",
+        "site_name": "Wells Appliance Repair",
+        "favicon": "uploads/favicon_wells.png",
+        "header_layout": "standard",
+        "sr_bar_height": 64
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "Appliance Repair in {city_state}",
+            "hs_subtext": "<p>In the Lufkin area, a broken appliance can quickly disrupt your household routine and daily comfort. {business} specializes in diagnosing and repairing all major home appliances, restoring functionality with factory-trained technicians who stand behind their work. We prioritize getting your appliance back in service promptly, backed by our warranty on repairs.</p>",
+            "hs_btn_text": "Call {phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "Appliance",
+            "hs_caption2": "Repair",
+            "hs_photo": "",
+            "hs_photo_alt": "Appliance repair technician in {city_state}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f3f6f7",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-09T23:39:08.202129Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "b116d77b881c7f00",
+            "_ai_locked": true
+        },
+        {
+            "type": "custom_html",
+            "anchor": "trust_bar",
+            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#123a63);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "",
+            "it_alt": "{business} appliance repair in {city_state}",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Professional Appliance Repair Service in Lufkin, TX",
+            "text": "<p>A broken appliance can disrupt your entire household routine, whether it's a refrigerator that's no longer keeping food cold, a washing machine that won't drain, or a dishwasher leaving dishes unclean. The longer the problem persists, the greater the risk of food spoilage, mounting laundry, or water damage—not to mention the stress and expense of emergency replacement. In Lufkin, homeowners depend on their appliances daily, and when something fails, prompt, professional diagnosis and repair can save you hundreds of dollars and restore normalcy to your home quickly.</p><p>{business} brings factory-trained expertise to every job, delivering accurate diagnosis and same-day appliance repair whenever possible. Our technicians use quality replacement parts, provide upfront pricing so there are no surprises, and stand behind our work with a warranty you can trust. Whether your appliance is a common brand or a specialty model, we approach every repair with the same commitment to thoroughness and care. When you need dependable appliance repair service in Lufkin, you can count on us to get the job done right the first time, so your home runs smoothly again.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-09T23:39:11.289813Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_intro",
+            "_ai_input_hash": "00d675a523b317cf",
+            "_ai_locked": true
+        },
+        {
+            "type": "custom_html",
+            "anchor": "services",
+            "html": "[services_links role=\"type_hub\" heading=\"Appliances We Repair in {city_state}\" cols=\"4\"]"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "brands",
+            "html": "[services_links role=\"brand_hub\" heading=\"Brands We Service\" cols=\"6\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "skin": "light",
+            "fc_heading": "Why Lufkin Homeowners Trust Wells for Appliance Repair",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Factory-Trained Technicians",
+                    "text": "Our technicians hold factory certifications across major appliance brands and models. This expertise means faster, more accurate diagnosis and repair of your home appliance, reducing guesswork and repeat visits."
+                },
+                {
+                    "heading": "Same-Day Service Available",
+                    "text": "We prioritize same-day appliance repair service when scheduling permits. Quick response gets your essential appliances back to work faster, minimizing disruption to your household routine."
+                },
+                {
+                    "heading": "Upfront Pricing & Warranty",
+                    "text": "Free estimates and transparent pricing before any work begins. All repairs backed by our warranty, so you have confidence that your appliance repair investment is protected."
+                },
+                {
+                    "heading": "Local Lufkin Service You Can Count On",
+                    "text": "Serving the Lufkin area with prompt, responsive appliance repair service. Our local presence means faster arrival times and genuine accountability to your neighborhood."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-09T23:39:14.291640Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "43f9cb11a99e508b",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "",
+            "it_alt": "Appliance repair across {city_state}",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Appliance Repair Service Across Lufkin and Nearby Areas",
+            "text": "<p>Lufkin's neighborhoods—from established areas like Crown Colony to newer subdivisions—house a diverse mix of appliances spanning multiple decades and manufacturers. Older homes may rely on vintage models requiring specialized knowledge, while newer construction often includes the latest high-efficiency units with complex electronics. {business} understands this variety and arrives equipped to handle whatever sits in your kitchen, laundry room, or garage. Our factory-trained technicians carry the right parts and diagnostic tools to address brands both common and uncommon, ensuring that whether your refrigerator, washer, dryer, or dishwasher needs attention, we have the expertise to help.</p><p>When an appliance breaks down, time matters. That's why we prioritize rapid response across the Lufkin area, dispatching experienced technicians who can often address your home appliance repair needs promptly. We stock a comprehensive inventory of components and components sourcing to minimize delays, and our team communicates clearly about what they find and what comes next. Same-day service is our goal whenever possible, so your household can return to normal as quickly as feasible.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-09T23:39:18.240618Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "0c78beadc420ba94",
+            "_ai_locked": true
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our Repair Service Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Call or Book Online",
+                    "text": "Tell us the appliance, brand, and symptom. We schedule quickly, often same-day."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Diagnose & Quote",
+                    "text": "A factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Repair & Warranty",
+                    "text": "We complete the repair with quality parts and back the work with a warranty."
+                }
+            ]
+        },
+        {
+            "type": "testimonials",
+            "anchor": "reviews",
+            "tm_label": "Reviews",
+            "tm_main_heading": "What {city} Homeowners Say About {business}",
+            "tm_subtext": "",
+            "tm_cols": 3,
+            "tm_items": []
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "Appliance Repair FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [
+                {
+                    "question": "What happens during an appliance repair appointment?",
+                    "answer": "<p>Our technician will inspect your appliance, diagnose the issue, explain what's wrong and your repair options, and provide a transparent estimate before proceeding. We'll handle the repair on-site when possible, test the appliance to ensure it's working properly, and walk you through next steps and care tips before we leave.</p>"
+                },
+                {
+                    "question": "Does {business} offer same-day service in Lufkin?",
+                    "answer": "<p>We understand a broken appliance disrupts your routine. We work hard to schedule same-day or next-day appointments for Lufkin customers whenever possible. Call us as soon as you notice a problem, and we'll find the quickest available slot to get your appliance back in working order.</p>"
+                },
+                {
+                    "question": "When should I call a professional instead of trying to fix it myself?",
+                    "answer": "<p>Call a professional if your appliance has electrical issues, gas leaks, refrigerant problems, or if you're unsure what's wrong. DIY attempts on complex repairs can void warranties, cause safety hazards, or worsen damage. When in doubt, a trained technician can assess whether it's safe to repair yourself or requires professional help.</p>"
+                },
+                {
+                    "question": "How do I know if repairing my appliance is worth the cost?",
+                    "answer": "<p>We'll provide an honest estimate so you can weigh repair costs against replacement. Generally, if repair costs are less than 50% of a new unit's price and your appliance has several years of life left, repair is worthwhile. We'll discuss both options transparently and let you decide what's best for your budget.</p>"
+                },
+                {
+                    "question": "Do you repair all major appliance brands and models?",
+                    "answer": "<p>We service a wide range of major brands and models, including refrigerators, washers, dryers, dishwashers, and ranges. Our technicians are trained on industry-standard systems across multiple manufacturers. Call us with your appliance details, and we'll confirm we can help or recommend next steps.</p>"
+                },
+                {
+                    "question": "What does a service call cost and do you offer free diagnostics?",
+                    "answer": "<p>We offer free diagnostic evaluations so you know exactly what's wrong before committing to repair. After diagnosis, we'll provide an upfront estimate with no hidden fees. Contact us to schedule your free assessment and understand the full scope of work needed.</p>"
+                },
+                {
+                    "question": "Are your repairs and replacement parts covered by warranty?",
+                    "answer": "<p>Yes. We stand behind our work with warranty coverage on both labor and parts. The specific terms depend on the repair and components used. We'll explain the warranty details when we provide your estimate so you know exactly what's protected.</p>"
+                },
+                {
+                    "question": "How can I prevent this appliance problem from happening again?",
+                    "answer": "<p>Our technicians will share maintenance tips specific to your appliance—such as cleaning filters, checking hoses, or running cycles properly. We'll also advise on usage habits that extend appliance life. Following these recommendations helps prevent repeat issues and keeps your unit running efficiently for years.</p>"
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-09T23:39:26.191890Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "6ee395bdca6007e0",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Broken appliance in {city}? {business} can help — usually same-day.",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact"
+        }
+    ],
+    "seo": {
+        "seo_title": "Appliance Repair in {city_state} | {business}",
+        "canonical_url": "",
+        "meta_description": "Appliance repair in {city_state} from {business}. All major brands and appliances — refrigerators, washers, dryers, ovens, and more. Factory-trained, same-day, warranty. Call {phone}.",
+        "meta_keywords": "appliance repair {city} {SS}, appliance repair near me {city}",
+        "og_title": "Appliance Repair in {city_state} | {business}",
+        "og_description": "Appliance repair in {city_state} from {business}. All major brands and appliances — refrigerators, washers, dryers, ovens, and more. Factory-trained, same-day, warranty. Call {phone}.",
+        "og_image": "sites/appliance-site/uploads/media/appliance-appliance.webp",
+        "service_name": "Appliance Repair",
+        "service_type": "Appliance Repair",
+        "service_area": "{city}, {SS}",
+        "service_description": "Appliance repair in {city_state} from {business}. All major brands and appliances — refrigerators, washers, dryers, ovens, and more. Factory-trained, same-day, warranty. Call {phone}.",
+        "bc_label": "",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"url\":\"{website}\",\"telephone\":\"{tel}\",\"description\":\"{business} provides appliance repair across {city_state} — all major brands and appliances, factory-trained technicians, same-day service, and warranty-backed repairs.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"priceRange\":\"$$\",\"openingHours\":\"Mo-Fr 08:00-18:00, Sa 09:00-13:00\"},{\"@type\":\"WebSite\",\"@id\":\"{website}/#website\",\"url\":\"{website}\",\"name\":\"{business}\",\"publisher\":{\"@id\":\"{website}/#localbusiness\"}}]}",
+        "primary_keyword": "appliance repair",
+        "secondary_keywords": "appliance repair service, home appliance repair, same day appliance repair",
+        "brand": "",
+        "appliance_type": ""
+    },
+    "footer": {
+        "logo": "",
+        "phone": "{phone}",
+        "columns": [
+            {
+                "type": "text",
+                "title": "About {business}",
+                "text": "<p>{business} provides fast, reliable appliance repair for homes across {city_state} and the surrounding area. Our factory-trained technicians service all major brands and appliances &mdash; refrigerators, washers, dryers, dishwashers, ovens, and more &mdash; with accurate diagnosis, upfront pricing, and warranty-backed repairs. We&rsquo;re committed to honest, same-day service that gets your household back to normal.</p>"
+            },
+            {
+                "type": "links",
+                "title": "Popular Repairs",
+                "links": [
+                    {
+                        "label": "Refrigerator Repair",
+                        "url": "/refrigerator-repair-{city_slug}"
+                    },
+                    {
+                        "label": "Washer Repair",
+                        "url": "/washer-repair-{city_slug}"
+                    },
+                    {
+                        "label": "Dryer Repair",
+                        "url": "/dryer-repair-{city_slug}"
+                    },
+                    {
+                        "label": "Dishwasher Repair",
+                        "url": "/dishwasher-repair-{city_slug}"
+                    },
+                    {
+                        "label": "Oven Repair",
+                        "url": "/oven-repair-{city_slug}"
+                    },
+                    {
+                        "label": "Privacy Policy",
+                        "url": "/privacy-policy"
+                    },
+                    {
+                        "label": "Terms and Conditions",
+                        "url": "/terms-and-conditions"
+                    },
+                    {
+                        "label": "Contact Us",
+                        "url": "/contact-us"
+                    }
+                ],
+                "text": ""
+            },
+            {
+                "type": "contact",
+                "title": "Contact Info",
+                "contact_extras": [],
+                "text": ""
+            }
+        ],
+        "copyright": "© Copyright {business}. All Rights Reserved.",
+        "bottom_links": [
+            {
+                "label": "Privacy Policy",
+                "url": "/privacy-policy"
+            },
+            {
+                "label": "Terms and Conditions",
+                "url": "/terms-and-conditions"
+            },
+            {
+                "label": "Contact Us",
+                "url": "/contact-us"
+            }
+        ],
+        "disclaimer": "",
+        "sticky_bar_text": "24/7 Support Line - Call Now",
+        "sticky_bar_info": "",
+        "logo_in_copyright_bar": true,
+        "col_count": 3,
+        "socials": {
+            "facebook": "",
+            "instagram": "",
+            "linkedin": "",
+            "youtube": "",
+            "twitter": ""
+        }
+    },
+    "pages": {
+        "page_8845f40cd5d04": {
+            "title": "Privacy Policy | {business}",
+            "slug": "privacy-policy",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h1",
+                    "text": "Privacy Policy\n<p>{business} respects your privacy and is committed to protecting it. This Privacy Policy explains what information we collect when you use {website} (the &ldquo;Website&rdquo;), how we use and share that information, and the choices available to you. The Website connects homeowners with independent appliance repair providers and does not itself perform appliance repair services.</p><p>By accessing or using the Website, you agree to the practices described in this policy. We may update this policy from time to time; continuing to use the Website after changes are posted means you accept the updated policy.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "A. Information We Collect\n<p>We collect information in a few different ways: information you give us directly, information collected automatically as you browse, and information generated when you call a number listed on the Website.</p><p><strong>Information you provide:</strong> name, phone number, address, email, and any details you submit through a form or request on the Website.</p><p><strong>Automatically collected information:</strong> browser type, device type, IP address, approximate location, pages viewed, search terms, and the date and time of your visit.</p><p><strong>Call information:</strong> if you call a number displayed on the Website, we and our call-tracking partners may record the date, time, duration, and content of that call for quality assurance and to route you to an appropriate provider.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "B. How We Use Information\n<p>We use the information we collect to operate and improve the Website, connect you with relevant appliance repair providers, respond to your inquiries, personalize the content and offers you see, measure and improve the performance of our advertising, detect and prevent fraud or abuse, and comply with legal obligations.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "C. Cookies and Similar Technologies\n<p>The Website uses cookies and similar tracking technologies (such as web beacons and pixel tags) for purposes including:</p><ul><li><strong>Functionality</strong> &mdash; remembering your preferences and keeping the Website working correctly</li><li><strong>Security</strong> &mdash; detecting and preventing fraudulent or unauthorized activity</li><li><strong>Analytics</strong> &mdash; understanding how visitors use the Website so we can improve it</li><li><strong>Advertising</strong> &mdash; showing you relevant ads on this Website and others, and measuring how well our ads perform</li></ul><p>Most browsers let you block or delete cookies through their settings. Doing so may limit some features of the Website. If your browser sends a \"do not track\" signal, please note we do not currently respond differently to that signal.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "D. How We Share Information\n<p>We may share information about you with:</p><ul><li><strong>Appliance repair providers</strong> &mdash; so they can respond to your request or call</li><li><strong>Service vendors</strong> &mdash; companies that host the Website, track and route calls, support our advertising, or otherwise help us operate the Website, under obligations to protect your information</li><li><strong>Advertising partners</strong> &mdash; who may use cookies to show you relevant ads based on your visit to the Website</li><li><strong>Successors</strong> &mdash; if {business} is involved in a merger, acquisition, or sale of assets, your information may transfer as part of that transaction</li><li><strong>Legal authorities</strong> &mdash; when required by law, subpoena, or other legal process, or to protect the rights, safety, or property of {business}, our users, or the public</li></ul><p>We do not sell your personal information to third parties for them to market their own unrelated products or services without your consent.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "E. Data Security\n<p>We use reasonable administrative and technical safeguards to protect the information we collect. However, no method of transmitting or storing data over the internet is completely secure, and we cannot guarantee absolute security. You share information with us at your own risk.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "F. Data Retention\n<p>We keep information for as long as needed to provide the Website, fulfill the purposes described in this policy, and meet our legal and accounting obligations. When information is no longer needed for these purposes, we take reasonable steps to delete or anonymize it.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "G. Children's Privacy\n<p>The Website is intended for adults and is not directed to children under 18. We do not knowingly collect personal information from anyone under 18. If you believe a child has provided us with personal information, please contact us at {email} so we can remove it.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "H. International Visitors\n<p>The Website is intended for use by residents of the United States. If you access the Website from outside the United States, your information may be transferred to and processed in the United States, which may not provide the same level of data protection as your home country. By using the Website, you consent to this transfer.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "I. Your Privacy Rights\n<p>Depending on where you live, you may have rights to know what personal information we hold about you, request a copy of it, ask us to correct or delete it, and opt out of certain uses such as targeted advertising or the sale of personal information. To exercise any of these rights, contact us at {email}. We will respond to verified requests consistent with applicable law.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "J. Contact Us\n<p>Questions or concerns about this Privacy Policy can be sent to {email} or by calling {phone}.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "K. Changes to This Policy\n<p>We may revise this Privacy Policy periodically. The version posted on the Website is always the most current, and changes take effect as soon as they are posted. We encourage you to review this page from time to time.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "meta_keywords": "",
+                "meta_description": "Read the {business} Privacy Policy to learn how we collect, use, and protect your information when you visit {website} or call our helpline.",
+                "og_title": "Privacy Policy | {business}",
+                "og_description": "How {business} collects, uses, and protects your information.",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "{website}/privacy-policy/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "Privacy Policy",
+                "bc_mid_label": "",
+                "bc_mid_url": "",
+                "primary_keyword": "",
+                "secondary_keywords": ""
+            }
+        },
+        "page_5ecf42631f084": {
+            "title": "Terms and Conditions | {business}",
+            "slug": "terms-and-conditions",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h1",
+                    "text": "Terms and Conditions\n<p>These Terms and Conditions (the &ldquo;Terms&rdquo;) govern your use of {website} (the &ldquo;Website&rdquo;). By accessing or using the Website, you agree to be bound by these Terms. If you do not agree, please do not use the Website.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "A. Who We Are\n<p>{business} operates the Website as a free service that helps homeowners find independent appliance repair providers in their area. We do not own, operate, or control any appliance repair business, and we do not perform appliance repair services ourselves. Any photos or videos of technicians shown on the Website are for illustration only and may depict models or stock imagery rather than an actual provider.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "B. Eligibility and Acceptance\n<p>The Website is intended for use by individuals 18 years of age or older who reside in the United States. By using the Website, you represent that you meet these requirements and agree to be bound by these Terms.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "C. Content Is Informational Only\n<p>Content on the Website &mdash; including articles, service descriptions, and pricing information &mdash; is provided for general informational purposes only and is not a substitute for advice from a licensed appliance repair professional. We make reasonable efforts to keep information accurate and current, but it may not always reflect the latest pricing, availability, or local regulations. You should confirm details directly with any provider before hiring them.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "D. Connecting You With Providers\n<p>When you call a number listed on the Website or submit a request, you direct us to share your information with one or more appliance repair providers so they can contact you about your request. {business} may receive compensation from providers for these introductions. This compensation does not affect the price you pay or the quality of service you receive, and you are never charged anything by {business} for using the Website.</p><p>We make no guarantee about the suitability, licensing, insurance, or quality of any provider. It is your responsibility to verify a provider's credentials, licensing, and insurance before hiring them. {business} is not a party to any agreement between you and a provider and is not responsible for the services a provider performs or fails to perform.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "E. Prohibited Conduct\n<p>When using the Website, you agree not to:</p><ul><li>Use the Website for any unlawful, fraudulent, or misleading purpose</li><li>Post or submit fake reviews, or offer or accept payment in exchange for reviews</li><li>Attempt to interfere with, disable, or gain unauthorized access to the Website or its systems</li><li>Use automated tools to scrape, crawl, or copy content from the Website without our written permission</li><li>Upload or transmit viruses, malicious code, or content that infringes another person's rights</li><li>Impersonate any person or misrepresent your affiliation with any person or entity</li></ul><p>We may suspend or terminate your access to the Website if we believe, in our reasonable judgment, that you have violated these Terms.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "F. Disclaimer of Warranties\n<p>The Website is provided \"as is\" and \"as available,\" without warranties of any kind, whether express or implied. We do not warrant that the Website will be uninterrupted, error-free, or that any information on it is complete or accurate. Your use of the Website is at your own risk.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "G. Limitation of Liability\n<p>To the fullest extent permitted by law, {business} and its officers, employees, and affiliates will not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Website, or from the acts or omissions of any appliance repair provider you connect with through the Website. Our total liability for any claim relating to the Website is limited to $150. Any claim must be brought within one year of the event giving rise to it.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "H. Indemnification\n<p>You agree to defend and hold {business} harmless from any claims, losses, or damages arising from your misuse of the Website, your violation of these Terms, or content you submit through the Website.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "I. Intellectual Property\n<p>All content on the Website &mdash; including text, graphics, logos, and images &mdash; is owned by {business} or its licensors and protected by copyright and trademark law. You may view and print pages from the Website for your own personal, non-commercial use. You may not copy, republish, modify, or create derivative works from any part of the Website, or use it for any commercial purpose, without our prior written consent.</p><p>If you believe content on the Website infringes your copyright, please contact us at {email} with details of the alleged infringement so we can investigate.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "J. Relationship to Our Privacy Policy\n<p>Your use of the Website is also governed by our <a href=\"/privacy-policy\">Privacy Policy</a>, which explains how we collect, use, and share information about you.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "K. Governing Law\n<p>These Terms are governed by the laws of the State of Texas, without regard to conflict-of-law rules that would apply the law of any other jurisdiction.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "L. Dispute Resolution\n<p>If a dispute arises out of your use of the Website, we encourage you to contact us first at {email} so we can try to resolve it informally. If a dispute cannot be resolved informally within 45 days, you and {business} agree that it will be resolved by binding individual arbitration rather than in court, except that either party may bring a claim in small claims court if it qualifies. You and {business} each waive the right to a jury trial and to participate in any class, mass, or representative action against the other.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "M. Changes to These Terms\n<p>We may update these Terms from time to time by posting a revised version on the Website. Continuing to use the Website after a revised version is posted means you accept the updated Terms. If any provision of these Terms is found unenforceable, the remaining provisions will remain in effect.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "N. Contact Us\n<p>Questions about these Terms can be directed to {email} or by calling {phone}.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "meta_keywords": "",
+                "meta_description": "Read the {business} Terms and Conditions governing your use of {website}, our advertising network, and our helpline.",
+                "og_title": "Terms and Conditions | {business}",
+                "og_description": "The terms governing your use of {website}.",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "{website}/terms-and-conditions/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "Terms and Conditions",
+                "bc_mid_label": "",
+                "bc_mid_url": "",
+                "primary_keyword": "",
+                "secondary_keywords": ""
+            }
+        },
+        "page_6a30c3339c03d": {
+            "title": "Contact Us",
+            "slug": "contact-us",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h1",
+                    "text": "Contact Us\n<p>Need fast, reliable appliance repair in {city_state}? Give {business} a call or send us an email and our factory-trained technicians will get your appliance back up and running.</p><p style=\"margin-top:24px;\"><a href=\"tel:{tel}\" class=\"cta-btn\">Call {phone}</a></p><p>Email: <a href=\"mailto:{email}\">{email}</a></p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "meta_keywords": "",
+                "meta_description": "Contact {business} — call or email to schedule fast, reliable appliance repair in {city_state}. Factory-trained technicians and same-day service.",
+                "og_title": "Contact Us | {business}",
+                "og_description": "Get in touch with {business} — call or email to schedule appliance repair in your area.",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "{website}/contact-us/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "Contact Us",
+                "bc_mid_label": "",
+                "bc_mid_url": "",
+                "primary_keyword": "",
+                "secondary_keywords": ""
+            }
+        }
+    },
+    "popups": {
+        "info": {
+            "enabled": false,
+            "heading": "How Your Calls Are Handled",
+            "image": "sites/appliance-site/uploads/media/how-your-calls-are-handled_f90e0e.webp",
+            "body": "<p>We offer a free, 24/7 confidential helpline to connect you with trusted appliance repair professionals tailored to your needs. This call routing service is sponsored advertising. {website} does not provide appliance repair services. Calls to our main helpline are answered by one of our advertising partners who can help match you with a suitable provider. By using {website} and calling, you agree to our terms and conditions. You'll never be charged for these calls or pressured to choose any particular service. Neither we nor our partners earn commissions from your choices. <strong>Notice of Call Recording and Data Use:</strong> By using {website} and calling, you agree to our Privacy Policy. To explore more appliance repair options, visit our {website} or call us anytime at {phone}.</p>"
+        }
+    },
+    "local_business": {
+        "lb_name": "{business}",
+        "lb_type": "HomeAndConstructionBusiness",
+        "lb_url": "{website}",
+        "lb_phone": "{phone}",
+        "lb_street": "",
+        "lb_city": "{city}",
+        "lb_state": "{SS}",
+        "lb_zip": "{zip}",
+        "lb_country": "US",
+        "lb_lat": "31.3382",
+        "lb_lng": "-94.7291",
+        "lb_price_range": "$$",
+        "lb_hours": "Mo-Fr 08:00-18:00, Sa 09:00-13:00",
+        "lb_description": "{business} provides professional appliance repair services in {city_state} including refrigerator, washer, dryer, dishwasher, oven, and range repair, and more.",
+        "lb_logo": "{website}/uploads/logo_wells-appliance-repair.png",
+        "lb_rating": "4.8",
+        "lb_review_count": "534"
+    },
+    "site_vars": {
+        "city": "Lufkin",
+        "state": "Texas",
+        "SS": "TX",
+        "city_slug": "lufkin-tx",
+        "business": "Wells Appliance Repair",
+        "phone": "936-867-4787",
+        "zip": "75901",
+        "website": "https://a.q111.xyz",
+        "tel": "+19368674787",
+        "city_image": "sites/appliance-site/uploads/media/city-scenic-lufkin-tx.webp",
+        "city_image_alt": "Downtown Lufkin, TX",
+        "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+        "email": "contact@a.q111.xyz"
+    },
+    "posts": {
+        "post_appl_refrigerator_signs": {
+            "title": "5 Warning Signs Your Refrigerator Needs Repair",
+            "slug": "signs-refrigerator-needs-repair",
+            "status": "published",
+            "published_at": "2026-07-08",
+            "updated_at": "2026-07-08",
+            "author": "{business}",
+            "tag": "Refrigerator",
+            "excerpt": "A refrigerator rarely fails all at once. Here are five early warning signs that mean it is time to call a repair technician in {city} before a small issue becomes a big one.",
+            "featured_image": "sites/appliance-site/uploads/media/appliance-refrigerator.webp",
+            "featured_image_alt": "Appliance technician inspecting a refrigerator in {city_state}",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "Catch Problems Before Your Food Does\n<p>Your refrigerator is the one appliance that runs every hour of every day, so it is easy to ignore until something goes wrong. The good news is that most refrigerators give you warning signs well before they quit completely. Spotting them early can save you a spoiled fridge full of groceries &mdash; and often a cheaper repair. Here are five signs it is time to have your refrigerator looked at by a professional in {city}.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "1. It Is Not Holding a Cold Temperature\n<p>If your milk is turning early or the fridge feels warmer than usual, the appliance is struggling to reach its set temperature. Common culprits are dirty condenser coils, a failing evaporator fan, or a worn door gasket letting cold air escape. A technician can pinpoint which one it is instead of you guessing and replacing parts that were fine.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "2. The Compressor Runs Constantly\n<p>A refrigerator should cycle on and off through the day. If yours runs nonstop &mdash; or you never hear it stop &mdash; it is working overtime to stay cold. That drives up your electric bill and shortens the life of the compressor, the single most expensive part to replace. Constant running usually points to a coolant, airflow, or thermostat problem worth diagnosing quickly.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "image_right",
+                    "heading_level": "h2",
+                    "text": "3. Water Pooling Inside or Underneath\n<p>Water on the floor or collecting in the crisper drawers is not normal. It often means a clogged or frozen defrost drain, a cracked water line, or a failing water filter housing. Left alone, standing water warps floors and invites mold, so it is worth addressing sooner rather than later.</p>",
+                    "photo": "sites/appliance-site/uploads/media/appliance-refrigerator.webp",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": "Refrigerator repair service in {city_state}"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "4. Heavy Frost or Ice Buildup\n<p>A thick layer of frost in a frost-free freezer, or ice forming on the back wall, signals a defrost system that has stopped working &mdash; typically a bad defrost heater, timer, or thermostat. Beyond the mess, the buildup blocks airflow and makes the whole unit work harder.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "5. New or Louder Noises\n<p>Buzzing, clicking, or rattling that was not there before can mean a struggling condenser fan, a failing compressor relay, or a worn motor. Noises are one of the easiest signs to write off, but they are often the earliest warning you get.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "When to Call a Professional in {city}\n<p>If you are seeing any of these signs, it is worth having your refrigerator diagnosed before the problem spreads to a more expensive component. {business} offers factory-trained technicians, upfront pricing, and same-day service across {city_state}. Call us at {phone} and we will get your refrigerator running dependably again.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "meta_keywords": "refrigerator repair {city}, refrigerator not cooling, fridge repair signs",
+                "meta_description": "Five warning signs your refrigerator needs repair &mdash; from warm temperatures to constant running &mdash; and when to call a technician in {city_state}.",
+                "og_title": "5 Warning Signs Your Refrigerator Needs Repair",
+                "og_description": "Spot refrigerator problems early. Five signs it is time to call an appliance repair pro in {city}.",
+                "og_image": "sites/appliance-site/uploads/media/appliance-refrigerator.webp",
+                "schema": "",
+                "canonical_url": "",
+                "service_name": "Refrigerator Repair",
+                "service_type": "",
+                "service_area": "{city_state}",
+                "service_description": "",
+                "primary_keyword": "refrigerator repair {city}",
+                "secondary_keywords": ""
+            }
+        },
+        "post_appl_dryer_not_drying": {
+            "title": "Why Your Dryer Isn't Drying: Common Causes and Fixes",
+            "slug": "why-dryer-not-drying",
+            "status": "published",
+            "published_at": "2026-07-09",
+            "updated_at": "2026-07-09",
+            "author": "{business}",
+            "tag": "Dryer",
+            "excerpt": "A dryer that runs but leaves clothes damp is one of the most common appliance complaints. Here is what usually causes it and when a {city} repair tech should step in.",
+            "featured_image": "sites/appliance-site/uploads/media/appliance-dryer.webp",
+            "featured_image_alt": "Appliance technician repairing a clothes dryer in {city_state}",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "Running but Not Drying? You Are Not Alone\n<p>Few things are more frustrating than pulling a load out of the dryer only to find it still damp. The drum is turning and you hear it running, so what gives? A dryer that runs without drying almost always comes down to airflow, heat, or moisture sensing. Here is how to tell what is going on with yours.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "A Clogged Vent or Lint Trap\n<p>This is the number one cause &mdash; and the most important for safety. When lint builds up in the trap, duct, or exterior vent, hot moist air cannot escape, so clothes stay wet and the dryer overheats. Clogged vents are also a leading cause of house fires. If your dryer is hot but clothes are damp and the cycle runs long, restricted airflow is the first thing to check.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "image_right",
+                    "heading_level": "h2",
+                    "text": "A Failed Heating Element or Thermal Fuse\n<p>If the dryer tumbles but never gets warm, the heating element or thermal fuse has likely failed. A blown thermal fuse often trips because of the airflow problem above, so a good technician will check the venting at the same time to keep the new part from failing again.</p>",
+                    "photo": "sites/appliance-site/uploads/media/appliance-dryer.webp",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": "Dryer repair service in {city_state}"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "A Worn Drum Seal or Bad Moisture Sensor\n<p>On sensor-dry cycles, a dirty or faulty moisture sensor can end the cycle early while clothes are still wet. A worn drum seal, meanwhile, lets warm air bypass the load. Both are common on older units and are usually straightforward fixes for a trained tech.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "When to Repair Instead of Guess\n<p>Because a dryer that will not dry often involves both an airflow issue and a failed part, it pays to have it diagnosed properly rather than swapping parts one at a time. {business} provides same-day dryer repair, genuine parts, and warranty-backed work throughout {city_state}. Call {phone} and we will get your laundry back on schedule.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "meta_keywords": "dryer repair {city}, dryer not drying, dryer no heat",
+                "meta_description": "Why your dryer runs but won't dry &mdash; clogged vents, heating elements, sensors &mdash; and when to call a dryer repair tech in {city_state}.",
+                "og_title": "Why Your Dryer Isn't Drying: Common Causes and Fixes",
+                "og_description": "Dryer running but clothes still wet? The common causes and when to call a pro in {city}.",
+                "og_image": "sites/appliance-site/uploads/media/appliance-dryer.webp",
+                "schema": "",
+                "canonical_url": "",
+                "service_name": "Dryer Repair",
+                "service_type": "",
+                "service_area": "{city_state}",
+                "service_description": "",
+                "primary_keyword": "dryer repair {city}",
+                "secondary_keywords": ""
+            }
+        }
+    },
+    "blog_settings": {
+        "blog_heading": "Appliance Repair Tips & Advice for {city}",
+        "blog_intro": "",
+        "posts_per_page": 9
+    },
+    "services_links": {
+        "services": [
+            {
+                "name": "Refrigerator Repair",
+                "url": "/refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Washer Repair",
+                "url": "/washer-repair-{city_slug}"
+            },
+            {
+                "name": "Dryer Repair",
+                "url": "/dryer-repair-{city_slug}"
+            },
+            {
+                "name": "Dishwasher Repair",
+                "url": "/dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Oven Repair",
+                "url": "/oven-repair-{city_slug}"
+            },
+            {
+                "name": "Range Repair",
+                "url": "/range-repair-{city_slug}"
+            },
+            {
+                "name": "Stove Repair",
+                "url": "/stove-repair-{city_slug}"
+            },
+            {
+                "name": "Cooktop Repair",
+                "url": "/cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Freezer Repair",
+                "url": "/freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Garbage Disposal Repair",
+                "url": "/garbage-disposal-repair-{city_slug}"
+            },
+            {
+                "name": "Ice Machine Repair",
+                "url": "/ice-machine-repair-{city_slug}"
+            },
+            {
+                "name": "Ice Maker Repair",
+                "url": "/ice-maker-repair-{city_slug}"
+            },
+            {
+                "name": "Wine Cooler Repair",
+                "url": "/wine-cooler-repair-{city_slug}"
+            },
+            {
+                "name": "Outdoor Grill Repair",
+                "url": "/outdoor-grill-repair-{city_slug}"
+            },
+            {
+                "name": "Trash Compactor Repair",
+                "url": "/trash-compactor-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Appliance Repair",
+                "url": "/whirlpool-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Refrigerator Repair",
+                "url": "/whirlpool-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Washer Repair",
+                "url": "/whirlpool-washer-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Dryer Repair",
+                "url": "/whirlpool-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Dishwasher Repair",
+                "url": "/whirlpool-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Oven Repair",
+                "url": "/whirlpool-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Range Repair",
+                "url": "/whirlpool-range-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Cooktop Repair",
+                "url": "/whirlpool-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Freezer Repair",
+                "url": "/whirlpool-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Maytag Appliance Repair",
+                "url": "/maytag-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Maytag Refrigerator Repair",
+                "url": "/maytag-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Maytag Washer Repair",
+                "url": "/maytag-washer-repair-{city_slug}"
+            },
+            {
+                "name": "Maytag Dryer Repair",
+                "url": "/maytag-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "Maytag Dishwasher Repair",
+                "url": "/maytag-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Maytag Oven Repair",
+                "url": "/maytag-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Maytag Range Repair",
+                "url": "/maytag-range-repair-{city_slug}"
+            },
+            {
+                "name": "Maytag Cooktop Repair",
+                "url": "/maytag-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "GE Appliance Repair",
+                "url": "/ge-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "GE Refrigerator Repair",
+                "url": "/ge-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "GE Washer Repair",
+                "url": "/ge-washer-repair-{city_slug}"
+            },
+            {
+                "name": "GE Dryer Repair",
+                "url": "/ge-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "GE Dishwasher Repair",
+                "url": "/ge-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "GE Oven Repair",
+                "url": "/ge-oven-repair-{city_slug}"
+            },
+            {
+                "name": "GE Range Repair",
+                "url": "/ge-range-repair-{city_slug}"
+            },
+            {
+                "name": "GE Stove Repair",
+                "url": "/ge-stove-repair-{city_slug}"
+            },
+            {
+                "name": "GE Cooktop Repair",
+                "url": "/ge-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "GE Freezer Repair",
+                "url": "/ge-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "GE Garbage Disposal Repair",
+                "url": "/ge-garbage-disposal-repair-{city_slug}"
+            },
+            {
+                "name": "GE Ice Machine Repair",
+                "url": "/ge-ice-machine-repair-{city_slug}"
+            },
+            {
+                "name": "GE Monogram Appliance Repair",
+                "url": "/ge-monogram-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "GE Monogram Refrigerator Repair",
+                "url": "/ge-monogram-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "GE Monogram Dishwasher Repair",
+                "url": "/ge-monogram-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "GE Monogram Oven Repair",
+                "url": "/ge-monogram-oven-repair-{city_slug}"
+            },
+            {
+                "name": "GE Monogram Cooktop Repair",
+                "url": "/ge-monogram-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "GE Monogram Freezer Repair",
+                "url": "/ge-monogram-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Kitchenaid Appliance Repair",
+                "url": "/kitchenaid-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Kitchenaid Refrigerator Repair",
+                "url": "/kitchenaid-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Kitchenaid Washer Repair",
+                "url": "/kitchenaid-washer-repair-{city_slug}"
+            },
+            {
+                "name": "Kitchenaid Dryer Repair",
+                "url": "/kitchenaid-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "Kitchenaid Dishwasher Repair",
+                "url": "/kitchenaid-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Kitchenaid Oven Repair",
+                "url": "/kitchenaid-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Kitchenaid Cooktop Repair",
+                "url": "/kitchenaid-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Kitchenaid Freezer Repair",
+                "url": "/kitchenaid-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "LG Appliance Repair",
+                "url": "/lg-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "LG Refrigerator Repair",
+                "url": "/lg-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "LG Washer Repair",
+                "url": "/lg-washer-repair-{city_slug}"
+            },
+            {
+                "name": "LG Dryer Repair",
+                "url": "/lg-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "LG Dishwasher Repair",
+                "url": "/lg-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "LG Oven Repair",
+                "url": "/lg-oven-repair-{city_slug}"
+            },
+            {
+                "name": "LG Cooktop Repair",
+                "url": "/lg-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "LG Freezer Repair",
+                "url": "/lg-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Samsung Appliance Repair",
+                "url": "/samsung-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Samsung Refrigerator Repair",
+                "url": "/samsung-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Samsung Washer Repair",
+                "url": "/samsung-washer-repair-{city_slug}"
+            },
+            {
+                "name": "Samsung Dryer Repair",
+                "url": "/samsung-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "Samsung Dishwasher Repair",
+                "url": "/samsung-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Samsung Oven Repair",
+                "url": "/samsung-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Samsung Cooktop Repair",
+                "url": "/samsung-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Samsung Freezer Repair",
+                "url": "/samsung-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Frigidaire Appliance Repair",
+                "url": "/frigidaire-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Frigidaire Refrigerator Repair",
+                "url": "/frigidaire-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Frigidaire Washer Repair",
+                "url": "/frigidaire-washer-repair-{city_slug}"
+            },
+            {
+                "name": "Frigidaire Dryer Repair",
+                "url": "/frigidaire-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "Frigidaire Dishwasher Repair",
+                "url": "/frigidaire-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Frigidaire Oven Repair",
+                "url": "/frigidaire-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Frigidaire Cooktop Repair",
+                "url": "/frigidaire-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Frigidaire Freezer Repair",
+                "url": "/frigidaire-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Bosch Appliance Repair",
+                "url": "/bosch-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Bosch Refrigerator Repair",
+                "url": "/bosch-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Bosch Washer Repair",
+                "url": "/bosch-washer-repair-{city_slug}"
+            },
+            {
+                "name": "Bosch Dryer Repair",
+                "url": "/bosch-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "Bosch Dishwasher Repair",
+                "url": "/bosch-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Bosch Oven Repair",
+                "url": "/bosch-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Bosch Cooktop Repair",
+                "url": "/bosch-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Bosch Freezer Repair",
+                "url": "/bosch-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Kenmore Appliance Repair",
+                "url": "/kenmore-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Kenmore Refrigerator Repair",
+                "url": "/kenmore-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Kenmore Washer Repair",
+                "url": "/kenmore-washer-repair-{city_slug}"
+            },
+            {
+                "name": "Kenmore Dryer Repair",
+                "url": "/kenmore-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "Kenmore Dishwasher Repair",
+                "url": "/kenmore-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Kenmore Oven Repair",
+                "url": "/kenmore-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Kenmore Cooktop Repair",
+                "url": "/kenmore-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Kenmore Freezer Repair",
+                "url": "/kenmore-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Amana Appliance Repair",
+                "url": "/amana-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Amana Refrigerator Repair",
+                "url": "/amana-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Amana Washer Repair",
+                "url": "/amana-washer-repair-{city_slug}"
+            },
+            {
+                "name": "Amana Dryer Repair",
+                "url": "/amana-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "Amana Dishwasher Repair",
+                "url": "/amana-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Amana Oven Repair",
+                "url": "/amana-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Amana Cooktop Repair",
+                "url": "/amana-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Amana Freezer Repair",
+                "url": "/amana-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Jennair Appliance Repair",
+                "url": "/jennair-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Jennair Refrigerator Repair",
+                "url": "/jennair-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Jennair Dishwasher Repair",
+                "url": "/jennair-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Jennair Oven Repair",
+                "url": "/jennair-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Jennair Range Repair",
+                "url": "/jennair-range-repair-{city_slug}"
+            },
+            {
+                "name": "Jennair Cooktop Repair",
+                "url": "/jennair-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Jennair Freezer Repair",
+                "url": "/jennair-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Dacor Appliance Repair",
+                "url": "/dacor-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Dacor Refrigerator Repair",
+                "url": "/dacor-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Dacor Dishwasher Repair",
+                "url": "/dacor-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Dacor Oven Repair",
+                "url": "/dacor-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Dacor Range Repair",
+                "url": "/dacor-range-repair-{city_slug}"
+            },
+            {
+                "name": "Dacor Cooktop Repair",
+                "url": "/dacor-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Dacor Freezer Repair",
+                "url": "/dacor-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Sub Zero Appliance Repair",
+                "url": "/sub-zero-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Sub Zero Refrigerator Repair",
+                "url": "/sub-zero-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Sub Zero Freezer Repair",
+                "url": "/sub-zero-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Sub Zero Wine Cooler Repair",
+                "url": "/sub-zero-wine-cooler-repair-{city_slug}"
+            },
+            {
+                "name": "Sub Zero Ice Machine Repair",
+                "url": "/sub-zero-ice-machine-repair-{city_slug}"
+            },
+            {
+                "name": "Wolf Appliance Repair",
+                "url": "/wolf-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Wolf Oven Repair",
+                "url": "/wolf-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Wolf Range Repair",
+                "url": "/wolf-range-repair-{city_slug}"
+            },
+            {
+                "name": "Wolf Cooktop Repair",
+                "url": "/wolf-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Wolf Outdoor Grill Repair",
+                "url": "/wolf-outdoor-grill-repair-{city_slug}"
+            },
+            {
+                "name": "Viking Appliance Repair",
+                "url": "/viking-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Viking Refrigerator Repair",
+                "url": "/viking-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Viking Dishwasher Repair",
+                "url": "/viking-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Viking Oven Repair",
+                "url": "/viking-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Viking Range Repair",
+                "url": "/viking-range-repair-{city_slug}"
+            },
+            {
+                "name": "Viking Cooktop Repair",
+                "url": "/viking-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Viking Freezer Repair",
+                "url": "/viking-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Viking Ice Machine Repair",
+                "url": "/viking-ice-machine-repair-{city_slug}"
+            },
+            {
+                "name": "Viking Outdoor Grill Repair",
+                "url": "/viking-outdoor-grill-repair-{city_slug}"
+            },
+            {
+                "name": "Thermador Appliance Repair",
+                "url": "/thermador-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Thermador Refrigerator Repair",
+                "url": "/thermador-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Thermador Dishwasher Repair",
+                "url": "/thermador-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Thermador Oven Repair",
+                "url": "/thermador-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Thermador Range Repair",
+                "url": "/thermador-range-repair-{city_slug}"
+            },
+            {
+                "name": "Thermador Cooktop Repair",
+                "url": "/thermador-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Thermador Freezer Repair",
+                "url": "/thermador-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Miele Appliance Repair",
+                "url": "/miele-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Miele Refrigerator Repair",
+                "url": "/miele-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Miele Washer Repair",
+                "url": "/miele-washer-repair-{city_slug}"
+            },
+            {
+                "name": "Miele Dryer Repair",
+                "url": "/miele-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "Miele Dishwasher Repair",
+                "url": "/miele-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Miele Oven Repair",
+                "url": "/miele-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Miele Freezer Repair",
+                "url": "/miele-freezer-repair-{city_slug}"
+            }
+        ],
+        "url_pattern": "/{service_slug}-{city_slug}",
+        "heading": "Appliance Repair Services in {city_state}",
+        "sublabel": "",
+        "subtext": "",
+        "style": "dark",
+        "cols": 5,
+        "bg_photo": "",
+        "overlay": "0.20",
+        "bg_color": "#ffffff",
+        "accent": "accent",
+        "accent_custom": "#fd783b",
+        "anchor": ""
+    },
+    "breadcrumbs": {
+        "enabled": true,
+        "hero_bg_mode": "auto",
+        "hero_bg_color": ""
+    }
+}

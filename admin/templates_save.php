@@ -218,6 +218,63 @@ if ($action === 'duplicate') {
     exit;
 }
 
+// ── set_base — flag/unflag a template as an "Master Template" (the master a batch clones from) ──
+if ($action === 'set_base') {
+    $id  = trim($_POST['template_id'] ?? '');
+    $on  = !empty($_POST['on']);
+    $templates = _tpl_load();
+    $found = false;
+    foreach ($templates as &$t) {
+        if (($t['id'] ?? '') === $id) {
+            if ($on) { $t['base'] = true; } else { unset($t['base'], $t['base_role']); }
+            $found = true;
+            break;
+        }
+    }
+    unset($t);
+
+    if (!$found) {
+        header('Location: index.php?tab=templates&msg=error:Template+not+found');
+        exit;
+    }
+    if (!_tpl_save($templates)) {
+        header('Location: index.php?tab=templates&msg=error:Could+not+update+template');
+        exit;
+    }
+    $msg = $on ? 'success:Moved+to+Master+Template' : 'success:Moved+to+Templates';
+    header('Location: index.php?tab=templates&msg=' . $msg);
+    exit;
+}
+
+// ── set_master_role — free-text archetype label for a master (any niche) ──
+if ($action === 'set_master_role') {
+    $id   = trim($_POST['template_id'] ?? '');
+    // free text, any niche (e.g. "Brand Hub", "Extermination"); sanitised + capped.
+    $role = trim(preg_replace('/\s+/', ' ', strip_tags((string)($_POST['base_role'] ?? ''))));
+    if (mb_strlen($role) > 40) $role = mb_substr($role, 0, 40);
+    $templates = _tpl_load();
+    $found = false;
+    foreach ($templates as &$t) {
+        if (($t['id'] ?? '') === $id) {
+            $t['base'] = true;                       // role only applies to masters
+            if ($role === '') unset($t['base_role']); else $t['base_role'] = $role;
+            $found = true;
+            break;
+        }
+    }
+    unset($t);
+    if (!$found) {
+        header('Location: index.php?tab=templates&msg=error:Template+not+found');
+        exit;
+    }
+    if (!_tpl_save($templates)) {
+        header('Location: index.php?tab=templates&msg=error:Could+not+update+template');
+        exit;
+    }
+    header('Location: index.php?tab=templates&msg=success:Master+role+set');
+    exit;
+}
+
 // ── delete ────────────────────────────────────────────────────────────────────
 if ($action === 'delete') {
     $id = trim($_POST['template_id'] ?? '');
@@ -393,6 +450,160 @@ if ($action === 'registry_delete') {
     }
     header('Location: index.php?tab=templates&msg=success:Registry+entry+deleted');
     exit;
+}
+
+// ── bulk_generate — clone a base template into many, via find/replace + images ──
+// Niche-agnostic: nothing here is pest-specific. It clones the chosen base
+// template, applies per-row case-aware find/replace over its blocks + seo body,
+// swaps the 3 image slots (hero + first two image_text blocks), and overrides the
+// clean metadata (id/title/slug/service + seo service fields). Reusable for any
+// niche — pick that niche's base template and paste that niche's rows.
+if ($action === 'bulk_generate') {
+    $mode    = (($_POST['mode'] ?? 'preview') === 'commit') ? 'commit' : 'preview';
+    $baseId  = trim($_POST['base_id'] ?? '');
+    $rawRows = (string)($_POST['rows'] ?? '');
+    $projRoot = dirname(__DIR__);
+
+    $templates = _tpl_load();
+    $base = null;
+    foreach ($templates as $t) { if (($t['id'] ?? '') === $baseId) { $base = $t; break; } }
+    if ($base === null) {
+        header('Location: index.php?tab=templates&msg=error:Pick+a+valid+base+template'); exit;
+    }
+
+    // Case-preserving replace of a whole word (word-boundaried so "roach" never
+    // eats "approach"). "Cockroach"→ucfirst, "COCKROACH"→upper, else lowercase.
+    $caseReplace = function (string $s, string $find, string $repl): string {
+        if ($find === '') return $s;
+        return preg_replace_callback('/\b' . preg_quote($find, '/') . '\b/i', function ($m) use ($repl) {
+            $o = $m[0];
+            $letters = preg_replace('/[^a-zA-Z]/', '', $o);
+            if ($letters !== '' && ctype_upper($letters)) return strtoupper($repl);
+            if (isset($o[0]) && ctype_upper($o[0]))       return ucfirst($repl);
+            return $repl;
+        }, $s);
+    };
+    $applyReplace = function (&$node, array $pairs) use (&$applyReplace, $caseReplace) {
+        if (is_array($node)) {
+            foreach ($node as &$v) $applyReplace($v, $pairs);
+            unset($v);
+        } elseif (is_string($node)) {
+            foreach ($pairs as [$f, $r]) $node = $caseReplace($node, $f, $r);
+        }
+    };
+    // Assign hero → first hero block's main (non-bg) image field; intro/local →
+    // it_photo of the 1st/2nd image_text block, in document order.
+    $assignImages = function (array &$blocks, string $hero, string $intro, string $local): array {
+        $done = []; $itN = 0;
+        foreach ($blocks as &$b) {
+            if (!is_array($b)) continue;
+            $type = $b['type'] ?? '';
+            if ($hero !== '' && strncmp($type, 'hero', 4) === 0) {
+                foreach ($b as $k => $v) {
+                    if (is_string($k) && isset($k[0]) && $k[0] === '_') continue;
+                    if (is_string($v) && preg_match('/\.(jpe?g|png|webp)$/i', $v)
+                        && stripos($v, 'uploads') !== false && stripos($k, 'bg') === false) {
+                        $b[$k] = $hero; $done['hero'] = $k; $hero = ''; break;
+                    }
+                }
+            }
+            if (($b['ai_render_as'] ?? '') === 'image_text' || $type === 'image_text') {
+                $img = $itN === 0 ? $intro : ($itN === 1 ? $local : '');
+                if ($img !== '') { $b['it_photo'] = $img; $done['it' . $itN] = $img; }
+                $itN++;
+            }
+        }
+        unset($b);
+        return $done;
+    };
+    $mediaPath = function (string $file): string {
+        $file = trim($file);
+        if ($file === '') return '';
+        if (strpos($file, '/') !== false) return $file;                 // already a path
+        return 'sites/' . ACTIVE_SITE_ID . '/uploads/media/' . $file;
+    };
+
+    $report = [];
+    foreach (preg_split('/\r\n|\r|\n/', $rawRows) as $line) {
+        $line = trim($line);
+        if ($line === '' || $line[0] === '#') continue;
+        $c = array_map('trim', explode('|', $line));
+        $service = $c[0] ?? '';
+        if ($service === '') continue;
+
+        $slugBase = ($c[1] ?? '') !== '' ? $c[1] : slugify($service);
+        $keyword  = ($c[2] ?? '') !== '' ? $c[2] : $service;
+        $pairs = [];
+        foreach (explode(';', $c[3] ?? '') as $p) {
+            $p = trim($p); if ($p === '') continue;
+            $kv = explode('=', $p, 2);
+            if (count($kv) === 2 && trim($kv[0]) !== '') $pairs[] = [trim($kv[0]), trim($kv[1])];
+        }
+        $heroImg  = $mediaPath($c[4] ?? '');
+        $introImg = $mediaPath($c[5] ?? '');
+        $localImg = $mediaPath($c[6] ?? '');
+        $title    = ($c[7] ?? '') !== '' ? $c[7] : ($service . ' in {city_state} | {business}');
+
+        $tpl = json_decode(json_encode($base), true);           // deep clone
+        if (!isset($tpl['content_blocks']) || !is_array($tpl['content_blocks'])) $tpl['content_blocks'] = [];
+        if (!isset($tpl['seo'])            || !is_array($tpl['seo']))            $tpl['seo'] = [];
+        $applyReplace($tpl['content_blocks'], $pairs);
+        $applyReplace($tpl['seo'], $pairs);
+        $imgDone = $assignImages($tpl['content_blocks'], $heroImg, $introImg, $localImg);
+
+        $newId = _tpl_make_id($service, $templates);
+        $tpl['id']            = $newId;
+        $tpl['title']         = $title;
+        $tpl['slug_pattern']  = $slugBase . '-{city_slug}';
+        $tpl['service']       = $service;
+        $tpl['seo']['service_name']    = $service;
+        $tpl['seo']['service_type']    = $service;
+        $tpl['seo']['seo_title']       = $title;
+        $tpl['seo']['primary_keyword'] = $keyword;
+        // Hero H1 = keyword + city, not the word-swapped base phrasing (e.g. avoid
+        // "Pest Exterminator" on a "Commercial Pest Control" page).
+        foreach ($tpl['content_blocks'] as &$hb) {
+            if (is_array($hb) && strncmp($hb['type'] ?? '', 'hero', 4) === 0 && isset($hb['hs_heading'])) {
+                $hb['hs_heading'] = $service . ' in {city_state}';
+                break;
+            }
+        }
+        unset($hb);
+
+        // leftover check: any find-word still present after replace = a stray base subject
+        $blob = json_encode($tpl);
+        $leftover = 0;
+        foreach ($pairs as [$f, $r]) $leftover += (int)preg_match_all('/\b' . preg_quote($f, '/') . '\b/i', $blob);
+        $imgMissing = [];
+        foreach (['hero' => $heroImg, 'intro' => $introImg, 'local' => $localImg] as $slot => $pth) {
+            if ($pth !== '' && !is_file($projRoot . '/' . $pth)) $imgMissing[] = $slot;
+        }
+
+        $report[] = [
+            'id' => $newId, 'title' => $title, 'slug' => $tpl['slug_pattern'], 'service' => $service,
+            'images' => ['hero' => $heroImg, 'intro' => $introImg, 'local' => $localImg],
+            'img_slots' => $imgDone, 'img_missing' => $imgMissing, 'leftover' => $leftover,
+        ];
+        $templates[] = $tpl;    // keeps _tpl_make_id unique across the batch
+    }
+
+    if (empty($report)) {
+        header('Location: index.php?tab=templates&msg=error:No+valid+rows+parsed'); exit;
+    }
+
+    if ($mode === 'preview') {
+        $_SESSION['tpl_bulk'] = ['base' => $baseId, 'rows' => $rawRows, 'report' => $report];
+        header('Location: index.php?tab=templates#bulkgen'); exit;
+    }
+
+    // commit — back up first, then save (built rows already appended to $templates)
+    @copy(TEMPLATES_FILE, TEMPLATES_FILE . '.bak');
+    if (!_tpl_save($templates)) {
+        header('Location: index.php?tab=templates&msg=error:Could+not+save+templates'); exit;
+    }
+    unset($_SESSION['tpl_bulk']);
+    $n = count($report);
+    header('Location: index.php?tab=templates&msg=success:' . $n . '+template(s)+generated+(backup+saved+to+templates.json.bak)'); exit;
 }
 
 header('Location: index.php?tab=templates');

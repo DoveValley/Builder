@@ -911,7 +911,7 @@ summary.block-card-header::-webkit-details-marker { display: none; }
 /* Intro section (label + heading + subhead above grid) */
 .pc-intro { max-width: 860px; margin: 0 0 36px; }
 .pc-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent); margin: 0 0 10px; }
-.pc-heading { font-size: 2.4rem; font-family: var(--font-heading, inherit); font-weight: 900; line-height: 1.1; color: var(--color-heading, #111); margin: 0 0 16px; }
+.pc-heading { font-size: clamp(1.5rem, 3.84vw, 2.4rem); font-family: var(--font-heading, inherit); font-weight: 900; line-height: 1.1; color: var(--color-heading, #111); margin: 0 0 16px; }
 .pc-subhead { font-size: 1rem; color: #555; line-height: 1.7; margin: 0; max-width: 820px; }
 /* Grid */
 .pc-grid { display: grid; gap: 24px; max-width: 1100px; margin: 0 auto; }
@@ -1475,6 +1475,7 @@ html, body {
     .step-item { text-align: left; display: flex; align-items: flex-start; gap: 16px; }
     .step-number { margin: 0; flex-shrink: 0; width: 44px; height: 44px; font-size: 1.1rem; }
     .step-icon   { margin: 0; flex-shrink: 0; width: 48px; height: 48px; }
+    .step-body   { flex: 1 1 auto; min-width: 0; }
     .step-heading { margin-top: 0; }
 
     /* Fix #18: card-link touch target */
@@ -2786,6 +2787,11 @@ body { padding-bottom: 70px; }
     .hg-tile-icon { width: 36px; height: 36px; }
     .hg-tile-label { font-size: 0.78rem; }
 }
+/* Very small screens: 2 columns so long pest labels don't cram into 3 narrow cells */
+@media (max-width: 480px) {
+    .hg-grid { grid-template-columns: repeat(2, 1fr); }
+    .hg-tile { min-height: 108px; }
+}
 
 /* ============================================================
    SERVICE CARDS GRID (icon circle + heading + text, centered)
@@ -3772,7 +3778,7 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 .block-testimonials { padding: 56px 0; }
 .tm-intro { margin-bottom: 40px; text-align: center; }
 .tm-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 10px; }
-.tm-main-heading { font-size: 2.6rem; font-family: var(--font-heading); font-weight: 900; margin: 0 0 12px; line-height: 1.15; }
+.tm-main-heading { font-size: clamp(1.6rem, 4.16vw, 2.6rem); font-family: var(--font-heading); font-weight: 900; margin: 0 0 12px; line-height: 1.15; }
 .tm-subtext { font-size: 1rem; color: #4b5563; margin: 0; }
 .tm-heading { text-align: center; margin-bottom: 36px; font-size: var(--font-size-h2, 2rem); font-family: var(--font-heading, inherit); font-weight: 800; line-height: 1.2; color: var(--color-heading, #120575); }
 .tm-grid { display: grid; gap: 24px; }

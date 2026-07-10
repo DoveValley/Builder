@@ -91,14 +91,14 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
 <main>
     <section id="share-claude" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
         <h1>Share with Claude <span class="pill">upload · conversations</span></h1>
-        <p class="sub">Drop an image here (a screenshot, a design, a photo) to put it on the server, then <strong>copy the path it gives you and paste it into the chat</strong> — Claude reads files off the VPS, not your Mac. You can also just <strong>paste a screenshot</strong> (Cmd-V) anywhere on this page. Kept for 7 days.</p>
+        <p class="sub">Drop an image <strong>or a file</strong> here (a screenshot, a design, a photo, a PDF, a spreadsheet, notes) to put it on the server, then <strong>copy the path it gives you and paste it into the chat</strong> — Claude reads files off the VPS, not your Mac. You can also just <strong>paste a screenshot</strong> (Cmd-V) anywhere on this page. Kept for 7 days.</p>
 
         <div id="cv-drop" style="border:2px dashed #94a3b8;border-radius:12px;background:#fff;padding:34px 20px;text-align:center;cursor:pointer;transition:.15s;max-width:720px;">
             <div style="font-size:2rem;">📎</div>
-            <div style="font-weight:700;color:#1e3a5f;margin-top:6px;">Drag &amp; drop an image here</div>
-            <div class="note" style="margin-top:4px;">or paste a screenshot with Cmd-V · JPG / PNG / WebP / GIF · max 12 MB</div>
-            <button type="button" id="cv-select" style="margin-top:14px;background:#1e3a5f;color:#fff;border:0;border-radius:6px;padding:9px 20px;font-weight:600;font-size:.9rem;cursor:pointer;">Select image…</button>
-            <input type="file" id="cv-file" accept="image/jpeg,image/png,image/webp,image/gif" style="display:none;">
+            <div style="font-weight:700;color:#1e3a5f;margin-top:6px;">Drag &amp; drop an image or file here</div>
+            <div class="note" style="margin-top:4px;">or paste a screenshot with Cmd-V · images · PDF · text/markdown/CSV/JSON · Office docs · zip · max 20 MB</div>
+            <button type="button" id="cv-select" style="margin-top:14px;background:#1e3a5f;color:#fff;border:0;border-radius:6px;padding:9px 20px;font-weight:600;font-size:.9rem;cursor:pointer;">Select file…</button>
+            <input type="file" id="cv-file" accept="image/*,.pdf,.txt,.md,.markdown,.csv,.tsv,.json,.xml,.yaml,.yml,.log,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.rtf,.odt,.ods,.odp,.zip" style="display:none;">
         </div>
 
         <div id="cv-result" style="display:none;max-width:720px;margin-top:16px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;">
@@ -118,9 +118,11 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
         <?php if ($convoFiles): ?>
         <h3 style="margin:24px 0 10px;color:#1e3a5f;">Recent uploads</h3>
         <div style="display:flex;flex-wrap:wrap;gap:14px;">
-            <?php foreach (array_slice($convoFiles, 0, 24) as $p): $n = basename($p); ?>
+            <?php foreach (array_slice($convoFiles, 0, 24) as $p): $n = basename($p);
+                $pext = strtolower(pathinfo($n, PATHINFO_EXTENSION));
+                $pisImg = in_array($pext, ['jpg','jpeg','png','webp','gif'], true); ?>
             <div style="width:150px;">
-                <a href="/uploads/convo/<?= $h($n) ?>" target="_blank"><img src="/uploads/convo/<?= $h($n) ?>" alt="" style="width:150px;height:110px;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;display:block;"></a>
+                <a href="/uploads/convo/<?= $h($n) ?>" target="_blank"><?php if ($pisImg): ?><img src="/uploads/convo/<?= $h($n) ?>" alt="" style="width:150px;height:110px;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;display:block;"><?php else: ?><span style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:150px;height:110px;border-radius:8px;border:1px solid #e2e8f0;background:#f1f5f9;color:#475569;"><span style="font-size:1.6rem;">📄</span><span style="font-size:.7rem;font-weight:700;margin-top:4px;"><?= $h(strtoupper($pext)) ?></span></span><?php endif; ?></a>
                 <input type="text" readonly onclick="this.select()" value="<?= $h($p) ?>" style="width:150px;font-family:monospace;font-size:.62rem;margin-top:4px;padding:3px 5px;border:1px solid #e2e8f0;border-radius:4px;">
             </div>
             <?php endforeach; ?>
@@ -358,8 +360,15 @@ var LAB_CSRF = <?= json_encode($csrf) ?>;
             drop.style.borderColor='#94a3b8'; drop.style.background='#fff';
             if(d.error){ statusEl.textContent='✗ '+d.error; statusEl.style.color='#991b1b'; pathI.value=''; return; }
             statusEl.textContent='✓ Uploaded — paste this path to Claude:'; statusEl.style.color='#065f46';
-            thumb.src=d.web+'?t='+Date.now(); pathI.value=d.abs_path;
-            meta.textContent=d.w+'×'+d.h+' · '+Math.round(d.size/1024)+' KB';
+            if(d.is_image){
+                thumb.style.display='';
+                thumb.src=d.web+'?t='+Date.now();
+                meta.textContent=d.w+'×'+d.h+' · '+Math.round(d.size/1024)+' KB';
+            } else {
+                thumb.style.display='none';
+                meta.textContent=(d.ext?d.ext.toUpperCase()+' · ':'')+Math.round(d.size/1024)+' KB';
+            }
+            pathI.value=d.abs_path;
             pathI.focus(); pathI.select();
         }).catch(function(){ statusEl.textContent='✗ upload failed'; statusEl.style.color='#991b1b'; });
     }

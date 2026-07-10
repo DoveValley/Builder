@@ -25,7 +25,7 @@
         <div class="container header-top-inner">
             <div class="site-logo">
                 <?php if (!empty($header['logo'])): ?>
-                    <a href="<?= h($homeUrl ?? '/') ?>"><img src="<?= h(($assetPathPrefix ?? '') . $header['logo']) ?>" alt="Logo" style="max-height:<?= $logoHeight ?>px;width:auto;display:block;"></a>
+                    <a href="<?= h($homeUrl ?? '/') ?>"><img src="<?= h(admin_upload_url($header['logo'])) ?>" alt="Logo" style="max-height:<?= $logoHeight ?>px;width:auto;display:block;"></a>
                 <?php else: ?>
                     <a href="<?= h($homeUrl ?? '/') ?>" class="logo-text"><?= h(SITE_TITLE) ?></a>
                 <?php endif; ?>

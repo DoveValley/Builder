@@ -1,0 +1,73 @@
+========================================================================
+REUSABLE PROMPT — LANDING-PAGE KEYWORD MAP FOR ANY NICHE
+Paste this into Claude, fill the [BRACKETS], and (optionally) attach a
+Google Keyword Planner or Ahrefs CSV export. Produces the same
+"one page per service, primary + secondary" list as the pest example.
+========================================================================
+
+--- COPY BELOW THIS LINE ------------------------------------------------
+
+You are an SEO strategist building a keyword map for a local, rank-and-rent
+lead-gen website. Produce a landing-page keyword list for this business.
+
+NICHE / INDUSTRY:   [e.g. pest control, HVAC, roofing, dumpster rental]
+BUSINESS MODEL:     rank-and-rent / lead-gen, ONE site per city, organic-only,
+                    no Google Business Profile, no physical address.
+LOCATION TOKENS:    use {city} and {ST} placeholders (I localize per site).
+TARGET PAGE COUNT:  [e.g. ~40, or "as many as the data supports"]
+KEYWORD DATA:       [attached CSV: Keyword Planner / Ahrefs export]
+                    OR "none — estimate from your own knowledge."
+CONTENT NOTE:       I will write genuinely unique content for every page.
+
+HOW TO BUILD IT
+1. GROUP BY SERVICE, NOT BY KEYWORD. Cluster all keyword variants that share
+   the same buyer intent into ONE service (e.g. "roach control", "cockroach
+   exterminator", "roach treatment" = one Cockroach page). One page per
+   service — never a separate URL per variant (that is a doorway pattern).
+2. PRIMARY = the highest-value phrase a buyer actually types, localized as
+   "<service> {city}, {ST}". SECONDARIES = the remaining variants, to be
+   woven into H2s / body / FAQ on that same page (not their own URLs).
+3. SCORE & RANK each service by:
+      Demand      = search volume (Keyword Planner buckets are fine)
+    x Winnability = LOW competition / KD wins (lower is better)
+    x Lead value  = CPC / top-of-page bid (higher = more valuable lead)
+   Put the money pages (high CPC + winnable + real demand) at the top.
+4. SPLIT a service into two pages ONLY when a sub-intent has its own distinct
+   buyer journey AND its own keyword demand (e.g. termite "treatment" vs
+   "inspection"). Otherwise keep it as one page.
+5. TAG any page with no search data as [LOW] — include it only if the business
+   truly offers it; it is topical-depth, not a traffic driver.
+6. EXCLUDE services that belong to a different trade than the stated niche
+   (say so explicitly if you drop any).
+
+PENALTY GUARDRAILS (must respect)
+- No thin/duplicate pages: if two pages could swap body text unnoticed, merge
+  them. Flag any near-duplicate clusters you create.
+- The list must support UNIQUE, useful content per page — and, in a multi-city
+  network, unique-enough content per CITY (city-name-swapping alone = doorway +
+  scaled-content-abuse risk). Note this where relevant.
+- Prefer real buyer-intent service terms over keyword-stuffed variants.
+
+OUTPUT FORMAT
+- Group pages into labeled categories (A, B, C ...).
+- Number every page. For each: page name, PRIMARY (with {city},{ST}),
+  SECONDARY (semicolon-separated), and — if data was provided —
+  Competition index and CPC range.
+- Suggest a URL slug pattern per page (e.g. cockroach-exterminator-{city}-{st}).
+- End with: total page count, how many are data-backed vs [LOW], the
+  recommended build order (money pages first), and any services you excluded
+  and why.
+- Also render the whole thing as a plain-text block I can save to a file.
+
+--- COPY ABOVE THIS LINE ------------------------------------------------
+
+
+TIPS
+- Best CSV columns to attach: Keyword, Avg monthly searches, Competition
+  (indexed value), Top of page bid (low/high). Segment the export to your
+  target metro if you can — local demand beats national.
+- To also WRITE the result into this builder's Keywords tab
+  (keyword_map.json), just tell Claude the site id + city/state after the list
+  is approved.
+- Re-run per niche by changing only the [BRACKETS] and the attached CSV.
+========================================================================

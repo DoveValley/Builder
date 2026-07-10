@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_amana_dishwasher_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "amana-dishwasher-repair-lufkin-tx",
+  "title": "Amana Dishwasher Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Amana Dishwasher Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin, a broken dishwasher quickly disrupts daily routines and backs up kitchen work for busy households. Wells Appliance Repair specializes in Amana dishwasher repairs, diagnosing and fixing issues with the prompt, factory-trained service your appliance deserves. We stand behind our work with warranty protection and aim to restore your kitchen to full function without unnecessary delay.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Amana",
+      "hs_caption2": "Dishwasher Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-dishwasher.webp",
+      "hs_photo_alt": "Amana Dishwasher Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:04:09.297733Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "9596072691c93ea3",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-3.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Amana Dishwasher Repair Services in Lufkin",
+      "text": "<p>A broken dishwasher in your Lufkin home creates immediate disruption to your daily routine and can quickly become costly if left unaddressed. Water damage, mold growth, and the expense of hand-washing dishes or replacing the unit altogether are real risks when repairs are delayed. Amana dishwashers are built to last, but when they malfunction—whether due to drainage issues, spray arm problems, or electronic failures—professional repair is essential. Waiting only allows minor issues to compound, potentially turning an affordable fix into a major replacement expense. Timely, expert service protects your appliance, your home, and your peace of mind.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your Lufkin address for Amana dishwasher repair that you can trust. Our technicians arrive prepared to diagnose the root cause accurately, avoiding guesswork and unnecessary part replacements. We use quality replacement components and stand behind our work with a warranty, so you know the job is done right the first time. We believe in upfront pricing with no hidden charges, clear communication throughout the repair process, and respect for your time and home. Whether your Amana dishwasher needs a straightforward repair or more involved troubleshooting, Wells Appliance Repair is ready to restore it to reliable operation and get your household back on track.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:04:13.612325Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "9769fd99c8d2ed06",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Won't Start or Run",
+          "text": "Issues with the door latch, control panel, or internal wiring can prevent your Amana dishwasher from starting. Our technicians diagnose the root cause and restore full operation quickly."
+        },
+        {
+          "heading": "Water Won't Drain",
+          "text": "Clogged drain hoses, filter blockages, or pump failures leave standing water inside. Wells Appliance Repair clears obstructions and repairs drainage components to get your dishwasher draining properly."
+        },
+        {
+          "heading": "Dishes Stay Dirty",
+          "text": "Poor wash results often stem from failing spray arms, clogged jets, or a weak wash pump. Our technicians inspect and repair these components to restore cleaning power."
+        },
+        {
+          "heading": "Leaking Water",
+          "text": "Door seals, inlet valves, or internal connections may develop leaks over time. We locate the leak source and replace worn seals or faulty parts to stop water escape."
+        },
+        {
+          "heading": "Loud Noise During Cycle",
+          "text": "Grinding or rattling sounds often indicate worn bearings, loose objects, or a damaged pump. Our repair team identifies the noise source and restores quiet operation."
+        },
+        {
+          "heading": "Not Heating Water",
+          "text": "A failed heating element or control board can prevent water from reaching proper temperature for effective cleaning. Wells Appliance Repair tests and replaces heating components as needed."
+        }
+      ],
+      "fc_heading": "Common Amana Dishwasher Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:04:17.909180Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "3a09432fe3eb6d63",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Amana Dishwasher Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Amana Experts",
+          "text": "Our technicians are trained on Amana dishwasher systems and components. We understand Amana's design and common issues, ensuring accurate diagnosis and reliable repairs every time."
+        },
+        {
+          "heading": "Genuine Amana Parts In Stock",
+          "text": "We keep authentic Amana dishwasher parts on hand for fast repairs. Using manufacturer-correct components protects your warranty and ensures your dishwasher performs as designed."
+        },
+        {
+          "heading": "Upfront Pricing & Warranty Coverage",
+          "text": "Free estimates and transparent pricing before work begins. All repairs backed by our warranty, so you have confidence in every Amana dishwasher service we complete."
+        },
+        {
+          "heading": "Local Lufkin Service You Can Count On",
+          "text": "We serve Lufkin and surrounding neighborhoods with prompt, same-day response when possible. Local ownership means we stand behind our work and know your community."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:04:20.769861Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "70e75c29f9116871",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-3.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Serving Lufkin and Surrounding Communities",
+      "text": "<p>Wells Appliance Repair serves homes throughout the Lufkin area, from established neighborhoods like Crown Colony and Fuller Springs to newer subdivisions across the region. This mix of older and newer communities means our technicians encounter a wide variety of appliance ages, brands, and models—each with its own repair needs. Whether you're dealing with a vintage refrigerator that's been running for decades or a modern washer with the latest features, we have the expertise to diagnose and fix the problem quickly.</p><p>When your appliance breaks down, you need a response you can count on. Our factory-trained technicians arrive equipped with the knowledge and parts required to handle repairs across all major brands and appliance types. We understand that a broken dishwasher, stove, or refrigerator disrupts your daily routine, which is why we prioritize fast service across the greater Lufkin area. Call Wells Appliance Repair today to schedule your appointment and get back to normal.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:04:23.890128Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a21804b85cae7f4e",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I do if my Amana dishwasher is leaking water?",
+          "answer": "<p>Water leaks in an Amana dishwasher often stem from a faulty door seal, cracked tub, or misaligned spray arm. Do not ignore leaks—they can damage your floor and cabinetry. Stop using the unit, dry the area thoroughly, and call Wells Appliance Repair right away. Our technicians will diagnose the exact source and repair or replace the failing component to prevent further water damage.</p>"
+        },
+        {
+          "question": "Why is my Amana dishwasher not draining properly?",
+          "answer": "<p>Poor drainage in an Amana dishwasher usually points to a clogged filter, kinked drain hose, or blocked drain pump. Food particles and mineral buildup are common culprits. Our technicians will inspect the entire drain system, clear obstructions, and test the pump to restore full drainage. Catching this early prevents standing water and odor problems.</p>"
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair service my Amana dishwasher in Lufkin?",
+          "answer": "<p>We understand a broken dishwasher disrupts your routine. We aim to schedule Amana dishwasher repairs promptly and offer same-day or next-day appointments when possible, depending on current demand. Contact us as soon as you notice a problem, and we'll get you on our calendar fast. Same-day availability is subject to booking time and service area capacity.</p>"
+        },
+        {
+          "question": "Should I repair or replace my Amana dishwasher?",
+          "answer": "<p>Repair is usually the smarter choice if your Amana dishwasher is less than 7–8 years old and the repair cost is reasonable relative to replacement. We can assess the issue and help you understand your options—sometimes a single part replacement restores full function. For older units with multiple failing components, replacement may be more economical. We'll give you an honest evaluation.</p>"
+        },
+        {
+          "question": "Do you offer a free diagnostic or estimate for Amana dishwasher repair?",
+          "answer": "<p>Yes. When you call Wells Appliance Repair, we'll ask about your Amana dishwasher's symptoms and discuss what may be wrong. We can often provide an estimate over the phone or during an in-home visit. This helps you understand the repair scope before you commit, so there are no surprises when we arrive.</p>"
+        },
+        {
+          "question": "Why isn't my Amana dishwasher cleaning dishes properly?",
+          "answer": "<p>Poor cleaning performance in an Amana dishwasher may result from a faulty spray arm, clogged jets, weak water pressure, or a malfunctioning wash motor. Hard water deposits and detergent buildup can also reduce effectiveness. Our technicians will inspect the spray system, check water inlet valves, and test motor function to restore powerful cleaning action.</p>"
+        },
+        {
+          "question": "Are your technicians trained to work on Amana brand dishwashers?",
+          "answer": "<p>Yes. Our technicians are trained to service Amana dishwashers and are familiar with their design, components, and common failure points. We work directly on Amana units across Lufkin and the surrounding area, and we use quality parts that match your appliance's specifications to ensure reliable repairs.</p>"
+        },
+        {
+          "question": "What signs mean my Amana dishwasher needs professional repair and not a DIY fix?",
+          "answer": "<p>If your Amana dishwasher is leaking, making unusual noise, not draining, or failing to heat water, seek professional help—these issues typically require specialized tools and parts knowledge. DIY attempts risk electrical hazards and further damage. Wells Appliance Repair can safely diagnose and repair these problems without putting your unit or home at risk.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:21:04.015853Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "41de3bc254d3dfdd",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Amana Dishwasher Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/amana-dishwasher-repair-lufkin-tx/",
+    "meta_description": "Professional amana dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "amana dishwasher repair Lufkin TX, dishwasher not draining, dishwasher leaking",
+    "og_title": "Amana Dishwasher Repair in {city_state} | {business}",
+    "og_description": "Professional amana dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Amana Dishwasher Repair",
+    "service_type": "Amana Dishwasher Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional amana dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "amana dishwasher repair",
+    "secondary_keywords": "dishwasher not draining, dishwasher leaking, dishwasher not cleaning, dishwasher repair near me",
+    "brand": "Amana",
+    "appliance_type": "Dishwasher",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Amana Dishwasher Repair in Lufkin, TX\",\"serviceType\":\"Amana Dishwasher Repair\",\"description\":\"Professional amana dishwasher repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "297d61715e4d66ac495f242fe3043bf9"
+}

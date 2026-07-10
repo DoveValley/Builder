@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_refrigerator_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "refrigerator-repair-lufkin-tx",
+  "title": "Refrigerator Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Refrigerator Repair in {city_state}",
+      "hs_subtext": "In Lufkin, a broken refrigerator disrupts daily life quickly, leaving perishables at risk and households scrambling for solutions. Wells Appliance Repair provides factory-trained service for refrigerator repair, diagnosing and addressing cooling issues with the expertise homeowners need when their appliance stops working. We back our work with warranty coverage and prioritize fast turnaround so your kitchen runs smoothly again.",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Refrigerator",
+      "hs_caption2": "Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-refrigerator.webp",
+      "hs_photo_alt": "Refrigerator Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:58:39.685025Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "2deb1589c4aeae00",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-2.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Refrigerator Repair in Lufkin You Can Trust",
+      "text": "<p>A broken refrigerator is more than an inconvenience—it's a household emergency. In Lufkin, where summer heat is intense and food spoilage happens fast, a malfunctioning fridge can lead to costly food waste and potential health concerns within hours. Whether your refrigerator is running constantly, leaking water, failing to cool, or making unusual noises, the problem demands prompt professional attention. Delaying repair only increases the risk of further damage and higher costs down the line. Homeowners throughout the Lufkin area understand that timely, expert intervention is essential to restore comfort, protect their groceries, and avoid the expense of a full replacement.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your home to diagnose and repair refrigerator issues accurately. Our technicians arrive prepared to identify the root cause—whether it's a faulty compressor, thermostat malfunction, refrigerant leak, or electrical problem—and explain what's happening in clear terms. We use quality replacement parts and back our work with a warranty you can count on, paired with upfront pricing so there are no surprises. From same-day service to honest assessments about your unit's condition, we're committed to getting your refrigerator running reliably again. When you need refrigerator repair in Lufkin, our team is ready to help.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:58:48.194096Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "40d3209dfa67c9e5",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "by_brand",
+      "html": "[services_links appliance_type=\"self\" heading=\"Repair by Brand in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Not Cooling Properly",
+          "text": "A refrigerator that's warm inside may have a faulty compressor, clogged condenser coils, or a failed thermostat. Wells Appliance Repair technicians diagnose the root cause and restore proper cooling to keep your food fresh."
+        },
+        {
+          "heading": "Leaking Water Inside",
+          "text": "Interior water pooling usually stems from a blocked defrost drain, frozen water supply line, or misaligned drain pan. Our technicians locate the leak source and clear blockages or repair components to stop the damage."
+        },
+        {
+          "heading": "Ice Maker Not Working",
+          "text": "A broken ice maker often results from a faulty water inlet valve, frozen supply line, or failed motor assembly. Wells Appliance Repair can troubleshoot and replace the defective part to restore ice production."
+        },
+        {
+          "heading": "Freezer Too Cold",
+          "text": "When your freezer runs too cold and damages food, a stuck damper, failed thermostat, or malfunctioning control board may be to blame. Our technicians will diagnose the issue and restore balanced temperatures."
+        },
+        {
+          "heading": "Loud Noise or Vibration",
+          "text": "Unusual sounds can signal a worn compressor, failing fan motor, or loose internal components. Wells Appliance Repair identifies noisy parts and repairs or replaces them to return your refrigerator to quiet operation."
+        },
+        {
+          "heading": "Water Dispenser Not Dispensing",
+          "text": "A dispenser that won't flow may have a frozen water line, faulty inlet valve, or air trapped in the supply. Our technicians clear blockages and check valves to restore water flow and convenience."
+        }
+      ],
+      "fc_heading": "Common Refrigerator Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:58:52.873838Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "af37e775287b1a78",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Refrigerator Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Refrigerator Technicians",
+          "text": "Our technicians are trained on refrigerator systems—cooling cycles, compressors, and thermostats. We diagnose issues accurately and repair them right the first time, not with guesswork."
+        },
+        {
+          "heading": "Genuine Parts, Fast Repairs",
+          "text": "We stock quality refrigerator components and perform same-day repairs when possible. Upfront pricing means no surprise bills—we quote before we work, backed by warranty coverage."
+        },
+        {
+          "heading": "Accurate Refrigerator Fault Diagnosis",
+          "text": "Whether your fridge isn't cooling, leaks water, or cycles constantly, we identify the root cause quickly. A free estimate lets you decide with confidence before repairs begin."
+        },
+        {
+          "heading": "Local Service Across Lufkin",
+          "text": "Based right here in Lufkin, we respond promptly to refrigerator repair calls throughout the area. You get fast, trustworthy service from neighbors who know your community."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:58:56.296737Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "721b9d5e26eafb9b",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need this appliance repaired in {city}? Call our team.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common refrigerator problems that require professional repair?",
+          "answer": "<p>The most frequent issues we address include refrigerators not cooling properly, ice makers that stop working, compressors that run constantly or fail to start, water leaks inside or underneath the unit, and faulty door seals that let warm air in. Many homeowners also call when they notice unusual noises or frost buildup. These symptoms often point to compressor failure, refrigerant leaks, thermostat issues, or clogged drainage lines—problems best diagnosed and fixed by a trained technician.</p>"
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair send a technician to my Lufkin home?",
+          "answer": "<p>We understand a broken refrigerator is urgent, especially in Texas heat. We work to schedule same-day or next-day service for most calls in the Lufkin area. Response times depend on current demand and your location within the region. When you call, our team will provide you with an honest timeframe and confirm the appointment. If your fridge has stopped cooling entirely, mention that so we can prioritize your service request.</p>"
+        },
+        {
+          "question": "Should I repair my refrigerator or replace it entirely?",
+          "answer": "<p>That depends on the age, make, and nature of the repair needed. A free diagnostic from our technician will reveal the exact problem and estimated repair cost, helping you make an informed decision. Generally, if your refrigerator is less than 8–10 years old and the repair cost is well below replacement, repair makes financial sense. Our technician will give you honest guidance without pressure to choose either option.</p>"
+        },
+        {
+          "question": "What should I do to prepare before the refrigerator repair technician arrives?",
+          "answer": "<p>Clear the area around and behind your refrigerator so the technician has safe, easy access. If the unit is built-in or recessed, note any tight spaces. Turn off the ice maker and water supply if applicable. Have the model and serial number ready—usually found on a sticker inside the fridge or on the back. If you know when the problem started or have observed specific symptoms, share those details. Remove any items blocking the back or sides of the unit.</p>"
+        },
+        {
+          "question": "Are your refrigerator repair technicians trained to work on my brand and model?",
+          "answer": "<p>Yes. Wells Appliance Repair employs factory-trained technicians experienced with all major refrigerator brands and models—from standard French-door units to high-end brands. Before we arrive, let us know your refrigerator's brand and model so we can arrive prepared with the right tools and knowledge. Our technicians stay current with the latest models and repair techniques to serve East TX homeowners effectively.</p>"
+        },
+        {
+          "question": "Do you offer free estimates or diagnostics for refrigerator repair in Lufkin?",
+          "answer": "<p>We offer a thorough diagnostic visit to identify what's wrong with your refrigerator and what it will take to fix it. This transparent approach means you'll know the problem and your options before committing to the repair. During the diagnostic, our technician explains findings clearly and discusses next steps. Contact us to schedule and discuss any upfront costs related to the diagnostic visit.</p>"
+        },
+        {
+          "question": "What warranty or guarantee backs your refrigerator repairs and parts?",
+          "answer": "<p>Wells Appliance Repair stands behind the work performed and parts installed. Our technicians use quality replacement components, and both labor and parts are warranty-backed. We'll discuss the specific warranty terms during your service visit so you know exactly what is covered and for how long. This protection gives you confidence that your repair is built to last.</p>"
+        },
+        {
+          "question": "How can I prevent refrigerator problems from happening again?",
+          "answer": "<p>Regular maintenance helps extend your refrigerator's lifespan. Clean the condenser coils every 6–12 months, check and clean door seals to ensure they close tightly, keep the interior organized to allow proper air circulation, and clear drain holes to prevent water backup. Avoid placing the fridge in direct sunlight or next to a heat source. During your repair visit, ask our technician for specific maintenance tips tailored to your model and the issue that was fixed.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:36:20.018466Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "df5055d22a30bda1",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_types",
+      "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Schedule your {city} repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Refrigerator Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/refrigerator-repair-lufkin-tx/",
+    "meta_description": "Professional refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "refrigerator repair Lufkin TX, refrigerator not cooling, fridge repair near me",
+    "og_title": "Refrigerator Repair in {city_state} | {business}",
+    "og_description": "Professional refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Refrigerator Repair",
+    "service_type": "Refrigerator Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "refrigerator repair",
+    "secondary_keywords": "refrigerator not cooling, fridge repair near me, same day refrigerator repair, ice maker not working",
+    "brand": "",
+    "appliance_type": "Refrigerator",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"Refrigerator Repair\",\"description\":\"Professional refrigerator repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "9554958cca22a82bcf1178399187c0ee"
+}

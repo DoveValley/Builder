@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_whirlpool_range_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "whirlpool-range-repair-lufkin-tx",
+  "title": "Whirlpool Range Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Whirlpool Range Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a Whirlpool range is often central to daily routines, and when it stops working, meal preparation comes to a halt. Wells Appliance Repair provides factory-trained service focused specifically on Whirlpool range repair, addressing issues from heating elements to ignition problems with the expertise your appliance demands. You'll benefit from prompt, warranty-backed service that gets your range back in operation without unnecessary delay.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Whirlpool",
+      "hs_caption2": "Range Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-stove.webp",
+      "hs_photo_alt": "Whirlpool Range Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:24:08.469939Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "b98730e71f79a262"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-1.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Whirlpool Range Repair Services in Lufkin, TX",
+      "text": "<p>When your Whirlpool range stops working properly, your kitchen comes to a standstill. Whether a burner isn't heating, the oven won't reach temperature, or ignition fails, a broken range disrupts your daily routine and forces you to rely on workarounds that waste time and money. In Lufkin, many homeowners depend on their ranges for everyday cooking, and delays in getting professional help only extend the frustration. Addressing range problems quickly with a trained technician prevents further damage, restores your cooking capability, and helps you avoid the cost of premature replacement.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your Lufkin home for Whirlpool range repair. Our technicians perform thorough diagnostics to pinpoint exactly what's wrong—whether it's an electric range issue, a gas range burner problem, or an oven malfunction—and explain your options upfront with transparent pricing. We use quality replacement parts and stand behind our work with warranty protection, so you can trust the repair will last. Beyond Whirlpool, we also service other major appliance brands and models, but we specialize in getting your range back online quickly and reliably. When your kitchen needs attention, Wells Appliance Repair is ready to help.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:13:17.336333Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "f5dc51d48fb0528f"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Oven Won't Heat",
+          "text": "A faulty heating element, damaged igniter, or thermostat failure often prevents your oven from reaching the right temperature. Wells Appliance Repair technicians diagnose the cause and restore even heating throughout your range."
+        },
+        {
+          "heading": "Range Burner Not Working",
+          "text": "Dead burners result from a broken coil element, failed control switch, or ignition issue on gas models. Our technicians test and replace the faulty component to get your range burner working again."
+        },
+        {
+          "heading": "Uneven Cooking",
+          "text": "Worn heating elements, a misaligned rack, or a malfunctioning convection fan cause hot and cold spots in your oven. Wells Appliance Repair identifies the problem and repairs your electric or gas range for consistent results."
+        },
+        {
+          "heading": "Igniter Clicks but Won't Light",
+          "text": "Gas range igniters that spark repeatedly without igniting usually indicate a weak electrode, moisture buildup, or gas supply issue. Our technicians clean, adjust, or replace the igniter to restore reliable ignition."
+        },
+        {
+          "heading": "Control Knob or Display Not Responding",
+          "text": "Stuck knobs or unresponsive touch controls stem from worn switches, loose wiring, or a faulty control board. Wells Appliance Repair diagnoses the electrical fault and restores your range's controls."
+        },
+        {
+          "heading": "Gas Smell or Unusual Odors",
+          "text": "Lingering gas odors, burning smells, or leaks from your range warrant immediate professional inspection. Our technicians safely identify leaks, clogs, or damaged seals and perform repairs to keep your kitchen safe."
+        }
+      ],
+      "fc_heading": "Common Whirlpool Range Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:13:22.288963Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "6e4982cad2293d90"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Whirlpool Range Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Whirlpool Expertise",
+          "text": "Our technicians are trained on Whirlpool Range systems—gas and electric models alike. We diagnose burner, oven, and ignition issues accurately, then apply proven solutions backed by manufacturer knowledge."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock authentic Whirlpool Range components and typically complete repairs same-day. Upfront estimates mean no surprises, and all work carries our warranty for peace of mind."
+        },
+        {
+          "heading": "Accurate Diagnosis, Honest Repair",
+          "text": "Whether your range burner isn't working or your oven needs attention, we identify the real fault—not just symptoms. We explain options clearly before any work begins."
+        },
+        {
+          "heading": "Local, Responsive Lufkin Service",
+          "text": "Wells Appliance Repair serves greater Lufkin promptly. Schedule repairs on your time, and expect a trained technician who knows Whirlpool Ranges and respects your home."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:13:25.558764Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "4439173645b28ec0"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-1.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Fast Appliance Repair Service Across Lufkin",
+      "text": "<p>Lufkin's neighborhoods span everything from established areas like Crown Colony and Fuller Springs to newer subdivisions, which means homes here rely on appliances of many different ages, brands, and models. Whether you're dealing with a gas range that won't heat evenly, an electric range with a burner that's stopped working, or any other kitchen or laundry emergency, Wells Appliance Repair responds promptly across the entire Lufkin area. Our factory-trained technicians arrive equipped with the knowledge and parts needed to diagnose and repair what's broken—often on the first visit.</p><p>When your oven needs repair or a critical appliance fails, waiting is not an option. We understand how central these machines are to daily life, which is why we prioritize quick service and honest diagnostics. Our technicians work on the range models and brands you actually own, backed by experience across Lufkin's diverse housing stock. We keep our schedule flexible to fit your needs and arrive ready to get your appliances running again.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:13:28.815956Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "594618a1b88ec872"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a Whirlpool Range repair visit?",
+          "answer": "Our technician will arrive with diagnostic tools to identify the exact problem—whether it's a burner issue, oven heating failure, or control malfunction. We'll explain what we find, discuss repair options, and perform the work on-site when possible. Most repairs are completed in a single visit, though some may require ordering parts."
+        },
+        {
+          "question": "How fast can Wells Appliance Repair come to my Lufkin home?",
+          "answer": "We understand a broken range disrupts your kitchen routine. We offer prompt scheduling for Lufkin-area homeowners and work to accommodate urgent requests. Contact us with your availability, and we'll let you know our earliest appointment window. Same-day service may be available depending on current demand."
+        },
+        {
+          "question": "What are common problems that require Whirlpool Range repair?",
+          "answer": "Frequent issues include burners that won't ignite or heat unevenly, ovens not reaching temperature or heating inconsistently, broken heating elements, faulty igniters, control panel malfunctions, and door latch problems. Some symptoms develop gradually; others appear suddenly. If your range isn't performing normally, professional diagnosis is wise."
+        },
+        {
+          "question": "Should I repair my Whirlpool Range or replace it entirely?",
+          "answer": "That depends on the repair cost, your range's age, and overall condition. Newer units with isolated problems are usually worth repairing. Older ranges with multiple failing components may justify replacement. We'll provide an honest assessment and estimate so you can make an informed decision for your situation."
+        },
+        {
+          "question": "Are Wells Appliance Repair technicians certified to work on Whirlpool Ranges?",
+          "answer": "Yes, our technicians are trained on major appliance brands including Whirlpool. We work directly with your range's components and systems, using genuine or equivalent parts. We're familiar with Whirlpool's design and common failure points, ensuring knowledgeable, reliable repair work."
+        },
+        {
+          "question": "What factors affect the cost of Whirlpool Range repair?",
+          "answer": "Repair cost depends on the specific problem, whether parts are needed, part availability, and repair complexity. A simple igniter replacement differs from a control board failure. We offer free diagnostics so you'll know the issue and cost estimate before we proceed. This transparency helps you budget accordingly."
+        },
+        {
+          "question": "Do Whirlpool Range repairs come with a warranty?",
+          "answer": "Yes, our repairs are backed by warranty coverage on both labor and parts. This gives you confidence that the work is guaranteed. Warranty terms vary by repair type, so we'll explain coverage details when we complete your job and provide documentation."
+        },
+        {
+          "question": "How can I prevent my Whirlpool Range from needing repair again?",
+          "answer": "Wipe spills promptly to prevent corrosion, avoid blocking vents, use appropriate cookware weight on grates, and keep the area around the range clean. Have burners and igniters inspected annually if you notice inconsistent heating. Regular gentle care extends appliance life and reduces unexpected breakdowns."
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:42:07.124106Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "1d219b823d9b2d42"
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Whirlpool Range Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/whirlpool-range-repair-lufkin-tx/",
+    "meta_description": "Professional whirlpool range repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "whirlpool range repair Lufkin TX, electric range repair, range burner not working",
+    "og_title": "Whirlpool Range Repair in {city_state} | {business}",
+    "og_description": "Professional whirlpool range repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Whirlpool Range Repair",
+    "service_type": "Whirlpool Range Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional whirlpool range repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "whirlpool range repair",
+    "secondary_keywords": "gas range repair {city}, electric range repair, range burner not working, range oven repair",
+    "brand": "Whirlpool",
+    "appliance_type": "Range",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Range Repair in Lufkin, TX\",\"serviceType\":\"Whirlpool Range Repair\",\"description\":\"Professional whirlpool range repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "b247bfe28cfb86712ba33828dd85f5a5"
+}

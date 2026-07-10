@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_samsung_washer_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "samsung-washer-repair-lufkin-tx",
+  "title": "Samsung Washer Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Samsung Washer Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin, a broken washer disrupts the entire household routine, leaving families scrambling to manage laundry without one of their most essential appliances. Wells Appliance Repair specializes in Samsung washer repair, with factory-trained technicians who understand the specific systems and components of your machine. We're committed to fast, reliable service backed by warranty protection, so your family can get back to normal quickly.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Samsung",
+      "hs_caption2": "Washer Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-washing-machine.webp",
+      "hs_photo_alt": "Samsung Washer Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:23:23.415955Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "56c1bc396574424c"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-2.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Samsung Washer Repair in Lufkin, TX",
+      "text": "<p>A broken Samsung washer disrupts your household routines and can quickly become an expensive problem. When your washing machine won't spin, won't drain, or stops mid-cycle, laundry piles up and the stress mounts—especially for busy families in Lufkin who rely on their appliances every day. Delaying professional repair often makes things worse, turning a simple fix into a costlier replacement. That's why prompt, expert diagnosis and repair matter so much. The sooner you address the issue, the better your chances of restoring your washer to full function without breaking your budget.</p><p>Wells Appliance Repair brings factory-trained technicians to your Lufkin home, equipped with the knowledge to diagnose and repair Samsung washers accurately. We listen carefully to your concern—whether it's a drainage issue, a spin cycle failure, or something less obvious—then perform a thorough inspection to identify the root cause. We use quality replacement parts, provide upfront pricing so there are no surprises, and stand behind our work with a warranty. Our goal is to restore your Samsung washer reliably and get your laundry routine back on track. When you need washing machine repair you can trust, Wells Appliance Repair is here to help.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:07:02.431625Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "22b06d39b6ea3f3b"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Won't Drain",
+          "text": "Clogs in the drain hose, pump failures, or door lock issues prevent water from emptying. Our technicians diagnose the blockage or faulty component and restore proper drainage so your washer operates normally again."
+        },
+        {
+          "heading": "Won't Spin",
+          "text": "A worn drum bearing, broken belt, or motor malfunction stops the spin cycle. Wells Appliance Repair's experienced technicians identify the cause and repair or replace the damaged part to get your washing machine spinning again."
+        },
+        {
+          "heading": "Leaking Water",
+          "text": "Worn door seals, cracked tubs, or loose hose connections cause puddles beneath your washer. Our repair specialists locate the leak source and seal or replace the faulty component to prevent water damage."
+        },
+        {
+          "heading": "Won't Start",
+          "text": "Control board glitches, faulty door locks, or power supply problems prevent the cycle from beginning. Wells Appliance Repair diagnoses the electrical or mechanical issue and restores your washing machine to working order."
+        },
+        {
+          "heading": "Error Code on Display",
+          "text": "Samsung washers display codes when sensors detect temperature, water level, or mechanical faults. Our technicians understand these signals and repair the underlying problem—whether sensor replacement or drum adjustment—to clear the error."
+        },
+        {
+          "heading": "Loud or Vibrating",
+          "text": "Foreign objects trapped in the drum, unbalanced loads, or worn suspension parts create noise and shaking. Wells Appliance Repair investigates the source and removes obstructions or replaces worn components for quiet, stable operation."
+        }
+      ],
+      "fc_heading": "Common Samsung Washer Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:07:06.691679Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "c837466402e112d9"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Samsung Washer Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Samsung Washer Expertise You Can Count On",
+          "text": "Our technicians are trained on Samsung washer systems and carry factory-correct parts. We diagnose issues accurately—whether your washer won't spin, won't drain, or shows error codes—and fix them right the first time."
+        },
+        {
+          "heading": "Fast Repair, Upfront Pricing",
+          "text": "We offer same-day service for Samsung washer repair in Lufkin. Free estimates upfront mean no surprises. Our warranty-backed work gives you confidence that your washing machine repair is done professionally."
+        },
+        {
+          "heading": "Right Parts, Right Solutions",
+          "text": "Samsung washers need precise components. We stock genuine parts and understand common failure points—drain issues, drum problems, control board faults. Fast diagnosis and proper replacement keep your washer running dependably."
+        },
+        {
+          "heading": "Local Service Across Lufkin",
+          "text": "Wells Appliance Repair serves Lufkin and the surrounding area with prompt, responsive service. Call us for fast washing machine repair near you—we're ready to help when you need us most."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:07:09.732523Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "3014b834b18d5421"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-2.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Across the Lufkin Area",
+      "text": "<p>Lufkin's neighborhoods span decades of development—from established communities like Crown Colony and Fuller Springs to newer subdivisions—which means our service area includes everything from vintage appliances to the latest models. Whether you're dealing with a washing machine that won't spin, a refrigerator acting up, or any other household appliance emergency, Wells Appliance Repair responds quickly throughout the region. Our factory-trained technicians arrive prepared to diagnose and repair a wide range of brands and ages, carrying the right parts to get your appliances working again without unnecessary delays.</p><p>When an appliance breaks down, time matters. We understand that a washer not draining or a malfunctioning dryer disrupts your entire household routine. That's why we focus on prompt, reliable service across the greater Lufkin area, bringing professional expertise to homes and families who depend on their appliances every day. From diagnosis to repair, our team handles the job thoroughly so you can get back to normal as soon as possible.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:07:12.909054Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "d9856fbe815d5a88"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a Samsung washer repair visit?",
+          "answer": "Our technician will first diagnose the problem by listening to your description and inspecting the unit. We'll run a test cycle if needed to identify the issue, explain findings and repair options, then perform the repair with quality parts. You'll receive an overview of what we found and how we fixed it before we leave."
+        },
+        {
+          "question": "How fast can Wells Appliance Repair come to Lufkin for washer service?",
+          "answer": "We understand a broken washer disrupts your household quickly. We offer prompt scheduling for Lufkin-area customers and work to accommodate urgent repairs. Contact us directly to discuss your timeline and availability—same-day service may be possible depending on our current schedule and your location."
+        },
+        {
+          "question": "Why is my Samsung washer not draining water properly?",
+          "answer": "Drain issues typically stem from a clogged drain hose, faulty drain pump, stuck foreign objects, or a malfunctioning water level sensor. Sometimes the problem is a kinked hose or lint buildup in the filter. A professional inspection identifies the exact cause so you get the right fix, not a guessed solution."
+        },
+        {
+          "question": "Should I repair my Samsung washer or buy a new one?",
+          "answer": "That depends on the repair cost, your washer's age, and whether it's a recurring problem. Many Samsung washers are reliable for 7–10 years. We'll provide an honest assessment of the repair versus replacement, helping you make a financially sound decision for your situation."
+        },
+        {
+          "question": "Does Wells Appliance Repair offer free Samsung washer diagnostics?",
+          "answer": "Yes, we offer free diagnostics to identify what's wrong with your Samsung washer. Once we explain the issue and repair options, you can decide whether to proceed. We're transparent about the work needed so you're never surprised by costs."
+        },
+        {
+          "question": "Are your technicians trained to repair Samsung washers specifically?",
+          "answer": "Our technicians are factory-trained and experienced with Samsung appliances. We work exclusively on major brands and stay current with Samsung's designs and common issues. You can trust we know your washer's systems and how to repair it correctly."
+        },
+        {
+          "question": "Do Samsung washer repairs come with a warranty on parts and labor?",
+          "answer": "Yes, our repairs and replacement parts are backed by warranty coverage. We stand behind our work and the components we install. Details about coverage length and terms will be explained when we discuss your specific repair."
+        },
+        {
+          "question": "How can I prevent Samsung washer problems from happening again?",
+          "answer": "Clean the rubber gasket and detergent dispenser regularly to prevent mold and buildup. Use the correct detergent amount and type for your model. Check hoses annually for cracks or bulges. Run a cleaning cycle monthly, and avoid overloading. These habits extend your washer's life and reduce repair frequency."
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:37:32.878875Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "db0e6903e315861a"
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Samsung Washer Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/samsung-washer-repair-lufkin-tx/",
+    "meta_description": "Professional samsung washer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "samsung washer repair Lufkin TX, washing machine repair, washer not draining",
+    "og_title": "Samsung Washer Repair in {city_state} | {business}",
+    "og_description": "Professional samsung washer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Samsung Washer Repair",
+    "service_type": "Samsung Washer Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional samsung washer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "samsung washer repair",
+    "secondary_keywords": "washing machine repair, washer not draining, washer won't spin, washing machine repair near me",
+    "brand": "Samsung",
+    "appliance_type": "Washer",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Samsung Washer Repair in Lufkin, TX\",\"serviceType\":\"Samsung Washer Repair\",\"description\":\"Professional samsung washer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "4392973d3c6f770e069698933276b74f"
+}

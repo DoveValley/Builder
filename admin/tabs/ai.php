@@ -242,6 +242,7 @@ function fmt_dur(int $ms): string {
         <div style="height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden;">
             <div id="ai-progress-bar" style="height:100%;width:0%;background:var(--color-accent,#fd783b);border-radius:4px;transition:width .3s ease;"></div>
         </div>
+        <div id="ai-workers" style="display:none;margin-top:12px;grid-template-columns:1fr 1fr;gap:6px 16px;"></div>
     </div>
     <div class="ai-console" id="ai-console"></div>
     <div class="ai-summary" id="ai-summary"></div>
@@ -402,6 +403,33 @@ function fmt_dur(int $ms): string {
     var progressBar  = document.getElementById('ai-progress-bar');
     var progressLbl  = document.getElementById('ai-progress-label');
     var progressRem  = document.getElementById('ai-progress-remain');
+    var workersWrap  = document.getElementById('ai-workers');
+    var workerBars   = {}; // slot -> { fill, label } DOM refs
+
+    function prettyPage(fname) {
+        // tpl_amana_dryer_repair_city_lufkin_tx.json -> "amana dryer repair"
+        return (fname || '')
+            .replace(/^tpl_/, '').replace(/\.json$/, '')
+            .replace(/_city_.*$/, '').replace(/_/g, ' ');
+    }
+    function buildWorkerRows(n) {
+        workerBars = {};
+        workersWrap.innerHTML = '';
+        for (var i = 0; i < n; i++) {
+            var row = document.createElement('div');
+            row.innerHTML =
+                '<div style="display:flex;justify-content:space-between;font-size:.72rem;color:#6b7280;margin-bottom:2px;">' +
+                  '<span style="font-weight:600;color:#374151;">W' + (i + 1) + '</span>' +
+                  '<span class="ai-w-lbl" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:160px;">idle</span>' +
+                '</div>' +
+                '<div style="height:6px;background:#e5e7eb;border-radius:3px;overflow:hidden;">' +
+                  '<div class="ai-w-fill" style="height:100%;width:0%;background:var(--color-accent,#fd783b);border-radius:3px;transition:width .3s ease;"></div>' +
+                '</div>';
+            workersWrap.appendChild(row);
+            workerBars[i] = { fill: row.querySelector('.ai-w-fill'), label: row.querySelector('.ai-w-lbl') };
+        }
+        workersWrap.style.display = n > 0 ? 'grid' : 'none';
+    }
     var scopeWrap    = document.getElementById('ai-scope-wrap');
     var researchWrap = document.getElementById('ai-research-wrap');
 
@@ -480,12 +508,25 @@ function fmt_dur(int $ms): string {
                 progressLbl.textContent = 'Block ' + done + ' of ' + total;
                 progressRem.textContent = (total - done) + ' remaining';
             }
+        } else if (msg.type === 'workers_init') {
+            progressWrap.style.display = '';
+            buildWorkerRows(msg.count);
+        } else if (msg.type === 'worker') {
+            var w = workerBars[msg.slot];
+            if (w) {
+                var wpct = msg.total > 0 ? Math.round((msg.done / msg.total) * 100) : 0;
+                w.fill.style.width = wpct + '%';
+                w.label.textContent = msg.done + '/' + msg.total + ' · ' + prettyPage(msg.page);
+                w.label.title = msg.page;
+            }
         } else if (msg.type === 'done') {
             clearInterval(ticker);
             btn.disabled = false;
             spinner.classList.remove('on');
             statusText.textContent = '';
             progressWrap.style.display = 'none';
+            workersWrap.style.display = 'none';
+            workersWrap.innerHTML = '';
 
             renderSummary(msg);
 
@@ -540,6 +581,9 @@ function fmt_dur(int $ms): string {
         progressBar.style.width    = '0%';
         progressLbl.textContent    = 'Block 0 of 0';
         progressRem.textContent    = '';
+        workersWrap.style.display  = 'none';
+        workersWrap.innerHTML      = '';
+        workerBars                 = {};
 
         var startedAt = Date.now();
         clearInterval(ticker);

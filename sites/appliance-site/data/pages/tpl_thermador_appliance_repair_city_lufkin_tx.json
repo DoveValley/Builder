@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_thermador_appliance_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "thermador-appliance-repair-lufkin-tx",
+  "title": "Thermador Appliance Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Thermador Appliance Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a Thermador appliance breaking down means more than a minor inconvenience—it disrupts daily routines and can impact meal preparation and home comfort. Wells Appliance Repair specializes in Thermador repair with factory-trained technicians who understand these premium appliances inside and out. We're committed to getting your unit back in service quickly with warranty-backed work you can depend on.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Thermador",
+      "hs_caption2": "Appliance Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-appliance.webp",
+      "hs_photo_alt": "Thermador Appliance Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:00:12.885662Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "5bc41ec95659e088",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-1.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Expert Thermador Appliance Repair in Lufkin, TX",
+      "text": "<p>When a Thermador appliance breaks down in your Lufkin home, the disruption goes beyond inconvenience. A malfunctioning refrigerator, range, dishwasher, or cooktop can disrupt your daily routine and strain your budget if left unaddressed. Thermador appliances are built for performance and precision, yet like any complex equipment, they require skilled attention when problems arise. Delaying professional repair can lead to worsening damage, higher costs down the road, and unnecessary stress. That's why homeowners in Lufkin turn to timely, expert service to get their kitchens back on track.</p><p>Wells Appliance Repair brings factory-trained expertise to every Thermador repair we handle. Our technicians understand Thermador's engineering and specifications, enabling accurate diagnosis and effective solutions from the first visit. We source quality replacement parts, provide upfront pricing so you know what to expect, and stand behind our work with a solid warranty. Whether your issue involves a cooling system, heating element, electrical component, or control board, we approach each repair with the care your premium appliance deserves. We also service other major brands and appliance types, but our Thermador-specific knowledge ensures your unit receives the specialized attention it needs. When you need Thermador appliance repair in Lufkin, count on Wells to restore your confidence and your kitchen.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:00:17.055244Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "749f44b70c1d2425",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "brand_appliances",
+      "html": "[services_links brand=\"self\" heading=\"Thermador Appliances We Repair in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Oven Not Heating Evenly",
+          "text": "Uneven baking or roasting often stems from a faulty heating element, temperature sensor, or convection fan malfunction. Wells Appliance Repair technicians diagnose the root cause and restore even heat distribution to your Thermador oven."
+        },
+        {
+          "heading": "Cooktop Burner Won't Ignite",
+          "text": "Gas or electric burners that fail to light may have a blocked igniter, damaged spark module, or clogged burner ports. Our technicians inspect, clean, and repair these components to get your cooktop working reliably again."
+        },
+        {
+          "heading": "Range Hood Not Venting",
+          "text": "Poor ventilation can result from a clogged filter, blocked ductwork, or a failing motor. Wells Appliance Repair clears blockages and tests fan motors to restore proper airflow and remove cooking odors effectively."
+        },
+        {
+          "heading": "Refrigerator Running Too Warm",
+          "text": "A warm Thermador fridge may indicate a failing compressor, refrigerant leak, or malfunctioning thermostat. Our technicians perform thorough diagnostics to identify the issue and restore proper cooling to protect your food."
+        },
+        {
+          "heading": "Dishwasher Not Draining Water",
+          "text": "Pooling water at the bottom usually points to a clogged drain pump, blocked filter, or kinked drainage hose. Wells Appliance Repair clears obstructions and tests the pump to ensure complete water removal after each cycle."
+        },
+        {
+          "heading": "Ice Maker Producing No Ice",
+          "text": "Frozen water supply lines, a stuck inlet valve, or a defective ice maker assembly commonly prevent ice production. Our technicians identify the culprit and repair or replace components to restore ice making functionality."
+        }
+      ],
+      "fc_heading": "Common Thermador Appliance Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:00:21.805504Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "3cc178a16c5357ed",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Thermador Appliance Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Thermador Expertise",
+          "text": "Our technicians are trained on Thermador's premium systems and construction. We understand their precision engineering and deliver repairs that restore performance to manufacturer standards."
+        },
+        {
+          "heading": "Genuine Thermador Parts in Stock",
+          "text": "We stock authentic Thermador components and source replacements quickly. Genuine parts ensure your appliance operates reliably and maintains its warranty coverage."
+        },
+        {
+          "heading": "Upfront Pricing, Warranty Protection",
+          "text": "Free estimates with transparent pricing before work begins. All Thermador repairs are backed by our warranty, giving you confidence in every job we complete."
+        },
+        {
+          "heading": "Fast Response Across Lufkin",
+          "text": "Same-day and next-day service throughout the Lufkin area. We schedule appointments that fit your life and arrive on time, every time."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:00:24.487708Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "c280417011d232d1",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need Thermador appliance repair in {city}? Our technicians know your brand.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What is the typical Thermador appliance repair process from start to finish?",
+          "answer": "We begin with a thorough diagnostic to identify the exact problem with your Thermador unit. Once we pinpoint the issue, we explain findings and repair options to you. If you approve, we perform the repair using quality parts and complete testing to ensure proper operation before we leave your home."
+        },
+        {
+          "question": "Can Wells Appliance Repair come out same-day for Thermador repairs in Lufkin?",
+          "answer": "We understand appliance breakdowns are urgent. Same-day service availability depends on current demand and your location within the Lufkin area. Contact us promptly with details about your Thermador issue, and we'll schedule the earliest available appointment and give you honest timing expectations."
+        },
+        {
+          "question": "What are common Thermador appliance problems that need professional repair?",
+          "answer": "Thermador ranges often experience ignition or burner issues; refrigerators may have compressor or cooling problems; dishwashers sometimes fail to drain or clean properly. Oven temperature fluctuations and control panel malfunctions also occur. If your Thermador shows any of these symptoms, professional diagnosis prevents further damage."
+        },
+        {
+          "question": "Should I repair my Thermador appliance or replace it?",
+          "answer": "This depends on the repair cost, your appliance's age, and remaining useful life. We provide honest diagnostics so you can make an informed choice. Many Thermador repairs are cost-effective and extend the unit's lifespan significantly. We'll never push unnecessary replacement—our goal is fair, reliable service."
+        },
+        {
+          "question": "Are Wells Appliance Repair technicians certified to work on Thermador brands?",
+          "answer": "Our technicians have training on major appliance brands including Thermador. We understand Thermador's engineering, components, and repair requirements. This expertise ensures quality diagnostics and repairs specific to your Thermador model, rather than generic appliance service."
+        },
+        {
+          "question": "Do you offer free estimates or diagnostics for Thermador appliance repair?",
+          "answer": "We charge a diagnostic fee to thoroughly evaluate your Thermador and identify the problem. This fee is applied toward repair costs if you proceed with us. We believe transparent pricing and honest assessment protect both you and our work quality."
+        },
+        {
+          "question": "How should I prepare my home for a Thermador repair technician visit?",
+          "answer": "Ensure the technician has safe access to your Thermador unit. Clear the area of clutter and obstacles. If your unit is built-in, confirm any cabinet doors or trim can be removed if needed. Have the model number visible and note any recent changes or sounds you've noticed—this helps us diagnose faster."
+        },
+        {
+          "question": "Does the Thermador repair and parts come with a warranty guarantee?",
+          "answer": "Warranty terms apply to our repair work and parts used. We stand behind our repairs and will address any issues that arise from our service. Specific warranty details depend on the repair scope. We discuss coverage with you before work begins so you know exactly what is protected."
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:38:33.158915Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "268e601938af692f"
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_brands",
+      "html": "[services_links role=\"brand_hub\" heading=\"Other Brands We Service\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} Thermador repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Thermador Appliance Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/thermador-appliance-repair-lufkin-tx/",
+    "meta_description": "Professional thermador appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "thermador appliance repair Lufkin TX, appliance repair near me",
+    "og_title": "Thermador Appliance Repair in {city_state} | {business}",
+    "og_description": "Professional thermador appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Thermador Appliance Repair",
+    "service_type": "Thermador Appliance Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional thermador appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "thermador appliance repair",
+    "secondary_keywords": "appliance repair near me, same day appliance repair {city}, home appliance repair {city}",
+    "brand": "Thermador",
+    "appliance_type": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Thermador Appliance Repair in Lufkin, TX\",\"serviceType\":\"Thermador Appliance Repair\",\"description\":\"Professional thermador appliance repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "f593316ad8c6c805fd8a95f698cc95be"
+}

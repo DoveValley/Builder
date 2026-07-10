@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_frigidaire_dishwasher_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "frigidaire-dishwasher-repair-lufkin-tx",
+  "title": "Frigidaire Dishwasher Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Frigidaire Dishwasher Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a broken dishwasher quickly becomes a daily frustration, disrupting routines and adding stress to busy families. Wells Appliance Repair specializes in Frigidaire Dishwasher Repair, diagnosing and fixing common issues to restore your kitchen's functionality. Our factory-trained technicians deliver prompt, warranty-backed service so you can get back to what matters.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Frigidaire",
+      "hs_caption2": "Dishwasher Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-dishwasher.webp",
+      "hs_photo_alt": "Frigidaire Dishwasher Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:12:57.402943Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ffcf514917c66857",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-2.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Frigidaire Dishwasher Repair Services in Lufkin",
+      "text": "<p>When your Frigidaire dishwasher stops working, daily routines come to a halt. Whether it's failing to drain, refusing to start, or leaving dishes unwashed, a broken dishwasher disrupts your household and creates extra work. In Lufkin, where families and busy professionals rely on dependable appliances, a malfunctioning Frigidaire dishwasher demands prompt attention. The longer you wait, the greater the risk of water damage, mold growth, or more costly repairs down the road. Professional repair is not just a convenience—it's a practical investment that restores your appliance quickly and prevents compounding damage.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your Lufkin home. Our technicians understand Frigidaire dishwashers inside and out, from control board issues to pump failures, and we perform thorough diagnostics to pinpoint the exact problem. We source quality replacement parts and stand behind our work with warranty coverage, ensuring you're not left with surprise expenses or recurring trouble. With upfront pricing and straightforward communication, you'll know exactly what to expect before we begin. Beyond Frigidaire units, we service other appliance brands and types, but we're especially skilled at getting your Frigidaire dishwasher back to peak performance. Let us restore your kitchen's efficiency and peace of mind.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:13:01.811254Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "268e79221e83263f",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Won't Start or Turn On",
+          "text": "Power supply issues, faulty door latch, or electrical control problems often prevent startup. Our Lufkin technicians diagnose the root cause and restore your dishwasher to working order promptly."
+        },
+        {
+          "heading": "Water Not Draining",
+          "text": "Clogged drain hoses, blocked filters, or pump failures leave standing water inside. Wells Appliance Repair clears obstructions and repairs drainage components so water flows freely again."
+        },
+        {
+          "heading": "Dishes Not Getting Clean",
+          "text": "Worn spray arms, malfunctioning wash jets, or inadequate water circulation result in spotty, dirty dishes. Our technicians inspect and repair spray mechanisms and water delivery systems."
+        },
+        {
+          "heading": "Leaking Water",
+          "text": "Cracked door seals, loose inlet hoses, or damaged tub walls cause water pooling under or around your dishwasher. We identify leaks and replace worn seals and connections."
+        },
+        {
+          "heading": "Loud Noise or Vibration",
+          "text": "Worn pump bearings, loose components, or debris in the motor create grinding or rattling sounds. Wells Appliance Repair technicians locate the noise source and repair or replace damaged parts."
+        },
+        {
+          "heading": "Not Heating Water Properly",
+          "text": "Faulty heating elements or thermostat failures prevent dishes from being sanitized effectively. Our team tests heating components and restores proper water temperature for clean, sanitized results."
+        }
+      ],
+      "fc_heading": "Common Frigidaire Dishwasher Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:13:05.810118Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "f7ee9840cfbecd5e",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Frigidaire Dishwasher Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Frigidaire Expertise",
+          "text": "Our technicians are trained on Frigidaire dishwasher systems and components. We diagnose wash cycle failures, door latch issues, and spray arm problems accurately. Proper diagnosis saves time and gets your dishwasher running right."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock authentic Frigidaire dishwasher parts and deliver same-day or next-day repair appointments across Lufkin. Upfront estimates before work begins—no surprises. All repairs backed by our warranty for peace of mind."
+        },
+        {
+          "heading": "Honest Diagnosis, Transparent Pricing",
+          "text": "Free estimates on every Frigidaire dishwasher repair. We explain what's wrong, what it costs, and what to expect. No pressure; you decide whether to proceed with full confidence in the work ahead."
+        },
+        {
+          "heading": "Local Lufkin Response, Anytime",
+          "text": "Wells Appliance Repair serves Lufkin and nearby areas with responsive scheduling. Call for fast service on your Frigidaire dishwasher—we show up on time, work efficiently, and stand behind every repair we complete."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:13:09.678986Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "1164f70a71af3866",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-2.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Serving Lufkin and Surrounding Communities",
+      "text": "<p>Wells Appliance Repair serves homes throughout the Lufkin area, from established neighborhoods like Crown Colony and Fuller Springs to newer subdivisions on the outskirts. This mix of older and newer communities means we encounter everything from vintage appliances that have served families for decades to the latest models with advanced features. Every appliance tells a different story, and every breakdown demands a quick, knowledgeable response. Our factory-trained technicians arrive equipped with the expertise and genuine parts needed to diagnose and repair washers, dryers, refrigerators, dishwashers, ovens, and more—whatever brand or age is sitting in your home.</p><p>When your appliance stops working, time matters. We understand that a broken refrigerator or washing machine disrupts your household, which is why Wells Appliance Repair prioritizes fast service across the greater Lufkin region. Our technicians know the appliances commonly found in local homes and come prepared to handle the repair on the first visit whenever possible. Whether you're dealing with a decades-old unit or a new purchase under warranty, we bring the same professional approach and commitment to getting your appliance running again.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:13:13.125004Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a21804b85cae7f4e",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I do if my Frigidaire dishwasher is leaking water?",
+          "answer": "<p>A leaking Frigidaire dishwasher often points to issues with the door seal, pump, or inlet valve. Stop using it immediately to prevent water damage to your floor and cabinets. Check underneath for puddles to pinpoint where water is escaping. Do not attempt DIY repairs on internal seals or valves—these require professional diagnosis. Contact Wells Appliance Repair for a technician to inspect the unit and determine the exact cause.</p>"
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair come out for Frigidaire dishwasher service in Lufkin?",
+          "answer": "<p>We understand a broken dishwasher disrupts your routine, so we prioritize fast response times for Lufkin-area customers. Same-day service is often available depending on current demand and your location within the region. When you call, ask about our next available appointment window. We'll confirm a time that works with your schedule and arrive fully equipped to diagnose and repair your Frigidaire unit.</p>"
+        },
+        {
+          "question": "Why isn't my Frigidaire dishwasher draining water properly?",
+          "answer": "<p>Poor drainage in a Frigidaire dishwasher is typically caused by a clogged drain filter, kinked drain hose, or a faulty drain pump. First, check the filter basket at the bottom and remove visible debris. If water still pools after cleaning, the problem likely lies deeper in the drain system. A trained technician can clear blockages, inspect the pump, and restore proper drainage without risking further damage to your appliance.</p>"
+        },
+        {
+          "question": "Is it worth repairing my older Frigidaire dishwasher or should I replace it?",
+          "answer": "<p>The answer depends on the repair cost, your unit's age, and remaining lifespan. We offer free diagnostics so you'll know exactly what's wrong before deciding. If the repair is affordable and your dishwasher is less than 8–10 years old, repair usually makes sense. If the unit is older and repairs are costly, replacement may be more economical long-term. We'll give you an honest assessment to help you choose.</p>"
+        },
+        {
+          "question": "Does Wells Appliance Repair offer free estimates for Frigidaire dishwasher repairs?",
+          "answer": "<p>Yes, we provide free diagnostics to identify the issue with your Frigidaire dishwasher. Our technician will examine the appliance, explain what they find, and discuss repair options and costs with you upfront. There's no obligation—you'll have all the information you need before authorizing any work. This approach lets you make an informed decision about moving forward with the repair.</p>"
+        },
+        {
+          "question": "Are your technicians trained to repair Frigidaire brand dishwashers?",
+          "answer": "<p>Yes. Wells Appliance Repair technicians are trained to service Frigidaire dishwashers and other major brands. We work directly on your Frigidaire unit using quality parts and established repair procedures. Our team stays current on common Frigidaire models and issues, ensuring your appliance is handled by someone who knows the brand well. You can trust that your dishwasher is in capable hands.</p>"
+        },
+        {
+          "question": "What warranty coverage do Frigidaire dishwasher repairs from Wells include?",
+          "answer": "<p>Our repairs and replacement parts are backed by warranty for your peace of mind. We stand behind our workmanship and the parts we install. Warranty terms vary based on the specific repair and parts used—our technician will explain coverage details before work begins. This protection means if something goes wrong shortly after repair, we'll address it without additional cost to you.</p>"
+        },
+        {
+          "question": "How can I prevent my Frigidaire dishwasher from needing repair again?",
+          "answer": "<p>Regular maintenance extends your Frigidaire's life. Rinse dishes before loading to prevent filter clogs, clean the door seal monthly, and run an empty hot cycle with a commercial cleaner quarterly to flush buildup. Check the drain hose for kinks and ensure the spray arms rotate freely. Don't overload the unit, and use the correct detergent amount. These simple steps reduce strain on the pump, motor, and valves, helping you avoid costly repairs.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:25:04.893399Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "c802e687cec68336",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Frigidaire Dishwasher Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/frigidaire-dishwasher-repair-lufkin-tx/",
+    "meta_description": "Professional frigidaire dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "frigidaire dishwasher repair Lufkin TX, dishwasher not draining, dishwasher leaking",
+    "og_title": "Frigidaire Dishwasher Repair in {city_state} | {business}",
+    "og_description": "Professional frigidaire dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Frigidaire Dishwasher Repair",
+    "service_type": "Frigidaire Dishwasher Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional frigidaire dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "frigidaire dishwasher repair",
+    "secondary_keywords": "dishwasher not draining, dishwasher leaking, dishwasher not cleaning, dishwasher repair near me",
+    "brand": "Frigidaire",
+    "appliance_type": "Dishwasher",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Frigidaire Dishwasher Repair in Lufkin, TX\",\"serviceType\":\"Frigidaire Dishwasher Repair\",\"description\":\"Professional frigidaire dishwasher repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "90a7c9e33b3d1f65e1d0df19ea660993"
+}

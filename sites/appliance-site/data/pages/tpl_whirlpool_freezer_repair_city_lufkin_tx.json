@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_whirlpool_freezer_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "whirlpool-freezer-repair-lufkin-tx",
+  "title": "Whirlpool Freezer Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Whirlpool Freezer Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin, a broken freezer means spoiled food, wasted groceries, and disrupted routines for families who depend on reliable cold storage. Wells Appliance Repair specializes in Whirlpool freezer repairs, with factory-trained technicians who diagnose and fix the problem efficiently. We stand behind our work with warranty-backed service, getting your freezer running again so you can get back to normal.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Whirlpool",
+      "hs_caption2": "Freezer Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-freezer.webp",
+      "hs_photo_alt": "Whirlpool Freezer Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:24:04.769855Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "f9052bd24e25b158"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-3.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Whirlpool Freezer Repair in Lufkin, TX",
+      "text": "<p>When your Whirlpool freezer stops working properly, the disruption to your household goes far beyond inconvenience. A freezer that's not freezing means thawing food, potential spoilage, and the cost of replacing groceries—not to mention the expense of emergency replacement if repair isn't addressed quickly. In Lufkin, families depend on their freezers to preserve meals and reduce food waste. Whether your unit is running but not maintaining temperature or has stopped completely, professional repair becomes essential. Delaying service only compounds the problem and may lead to compressor damage or other costly failures that could make repair impractical.</p><p>Wells Appliance Repair brings factory-trained expertise specifically to Whirlpool freezer repair throughout Lufkin and the surrounding area. Our technicians diagnose the root cause accurately—whether it's a refrigerant leak, thermostat malfunction, or airflow issue—and source quality replacement parts to restore your unit's performance. We believe in transparent, upfront pricing so you understand costs before any work begins, and we stand behind our repairs with a warranty on parts and labor. When you choose Wells for your Whirlpool freezer repair near you, you're choosing a locally operated team committed to getting your appliance back to reliable operation promptly and professionally.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:12:46.696404Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "63298cc1a8fe78b8"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Freezer Not Freezing",
+          "text": "When your Whirlpool freezer isn't maintaining proper temperature, the issue often stems from a faulty thermostat, clogged vents, or a failing compressor. Our technicians diagnose the root cause and restore freezing performance."
+        },
+        {
+          "heading": "Ice Buildup Inside",
+          "text": "Excessive frost and ice accumulation typically indicate a defrost cycle problem or a damaged door seal allowing warm air inside. Wells Appliance Repair identifies and repairs these issues to prevent further buildup."
+        },
+        {
+          "heading": "Leaking Water",
+          "text": "Water pooling inside or beneath your freezer usually points to a blocked defrost drain, cracked drain pan, or frozen supply line. Our technicians locate and fix the source of the leak."
+        },
+        {
+          "heading": "Compressor Running Constantly",
+          "text": "If your Whirlpool freezer runs without stopping, a worn compressor, refrigerant leak, or faulty temperature sensor may be responsible. We diagnose the problem and recommend the right repair solution."
+        },
+        {
+          "heading": "Loud or Unusual Noises",
+          "text": "Strange sounds from your upright or chest freezer often come from a failing fan motor, loose components, or vibration issues. Wells Appliance Repair pinpoints noisy parts and restores quiet operation."
+        },
+        {
+          "heading": "Door Won't Close Properly",
+          "text": "A misaligned door, worn gasket, or damaged hinges prevent a tight seal, warming your freezer and wasting energy. Our technicians repair or replace seals and hinges to restore proper closure."
+        }
+      ],
+      "fc_heading": "Common Whirlpool Freezer Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:12:51.456506Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "169ac02fe61d8864"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Whirlpool Freezer Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Whirlpool Expertise",
+          "text": "Our technicians are trained on Whirlpool freezer systems and understand their specific design and components. Whether your chest freezer or upright model isn't freezing properly, we diagnose the root cause accurately and repair it right the first time."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock authentic Whirlpool freezer parts and offer same-day or next-day repair appointments. Upfront pricing with a free estimate means no surprises—and every repair is backed by our warranty for your peace of mind."
+        },
+        {
+          "heading": "Reliable Freezer Repair You Can Count On",
+          "text": "From compressor issues to thermostat faults, we handle all Whirlpool freezer problems with proven solutions. Our warranty-backed work and transparent estimates let you rest assured your repair is done professionally and covered."
+        },
+        {
+          "heading": "Local Lufkin Service, Always Ready",
+          "text": "We serve Lufkin and the surrounding area with prompt, responsive service. Call for freezer repair near you—we show up on time and get your Whirlpool freezer working again quickly."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:12:55.143167Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "3fc9a0310db3e638"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-3.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Serving All of Lufkin",
+      "text": "<p>Lufkin is a community of diverse neighborhoods—from established areas like Crown Colony and Kurth to newer subdivisions—where homeowners depend on appliances of all ages and brands. Whether you're dealing with a freezer not freezing, a refrigerator on the fritz, or any other household appliance emergency, Wells Appliance Repair responds quickly across the entire Lufkin area with factory-trained technicians who know how to diagnose and repair the full range of models you'll find throughout the region. We understand that when an appliance fails, you need help fast.</p><p>Our team arrives equipped with the expertise and genuine parts needed to get your appliances back in working order. From chest freezer repair to upright models and everything in between, we handle the mix of older units and newer equipment that keeps Lufkin homes running. When you need freezer repair near you or service for any other major appliance, count on Wells Appliance Repair to deliver prompt, professional attention across the greater Lufkin area.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:12:58.536718Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "4f3718d8f7457a2e"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a Whirlpool freezer repair visit?",
+          "answer": "<p>Our technician will diagnose the issue by inspecting the freezer's cooling system, thermostat, compressor, and airflow. We'll explain what we find and discuss repair options before proceeding. Most visits include testing, component evaluation, and if you approve, repair or replacement of the faulty part. We'll walk you through the solution and answer your questions.</p>"
+        },
+        {
+          "question": "How fast can Wells Appliance Repair service my Whirlpool freezer in Lufkin?",
+          "answer": "<p>We prioritize quick response for broken freezers to prevent food loss. Same-day service is often available depending on our schedule and your location within the Lufkin area. Contact us right away with details about your freezer's symptoms, and we'll confirm the earliest appointment we can offer.</p>"
+        },
+        {
+          "question": "What are common Whirlpool freezer problems that need professional repair?",
+          "answer": "<p>Typical issues include freezers not reaching proper temperature, frost buildup, ice maker failure, strange noises, or compressor problems. You may also notice food thawing unexpectedly or the unit running constantly. These symptoms often point to thermostat, compressor, evaporator coil, or refrigerant issues that require professional diagnosis and repair.</p>"
+        },
+        {
+          "question": "Should I repair my Whirlpool freezer or buy a new one?",
+          "answer": "<p>That depends on the freezer's age, the repair cost relative to replacement, and its condition. A newer unit with a single faulty component is usually worth repairing. Older freezers with multiple problems or expensive compressor failures may be better replaced. We'll give you an honest assessment to help you decide.</p>"
+        },
+        {
+          "question": "What factors affect the cost of Whirlpool freezer repair?",
+          "answer": "<p>Cost depends on which component failed, whether parts are in stock, labor time, and repair complexity. A thermostat replacement is typically simpler than compressor work. We offer free diagnostics so you know the problem and cost estimate before we proceed with any repair.</p>"
+        },
+        {
+          "question": "Are your technicians trained to repair Whirlpool freezers specifically?",
+          "answer": "<p>Yes. Our technicians are trained on Whirlpool appliances and carry the knowledge to diagnose and repair both upright and chest freezer models. We work directly with Whirlpool systems and components, ensuring quality repairs that match manufacturer standards.</p>"
+        },
+        {
+          "question": "Do repairs and parts come with a warranty?",
+          "answer": "<p>Yes. We back our work and parts with a warranty, giving you peace of mind after repair. The specific terms depend on the repair and parts used. We'll explain the warranty coverage when we complete your Whirlpool freezer repair.</p>"
+        },
+        {
+          "question": "How can I prevent my Whirlpool freezer from breaking down again?",
+          "answer": "<p>Keep the condenser coils clean and unobstructed, check door seals regularly, avoid overloading the freezer, and maintain proper temperature settings. Don't leave the door open unnecessarily. If you notice frost buildup or temperature changes early, call for service quickly. Regular maintenance extends freezer life and prevents costly repairs.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:41:50.021596Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "d7f7fb5b948397a3"
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Whirlpool Freezer Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/whirlpool-freezer-repair-lufkin-tx/",
+    "meta_description": "Professional whirlpool freezer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "whirlpool freezer repair Lufkin TX, freezer not freezing, upright freezer repair",
+    "og_title": "Whirlpool Freezer Repair in {city_state} | {business}",
+    "og_description": "Professional whirlpool freezer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Whirlpool Freezer Repair",
+    "service_type": "Whirlpool Freezer Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional whirlpool freezer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "whirlpool freezer repair",
+    "secondary_keywords": "freezer not freezing, chest freezer repair {city}, upright freezer repair, freezer repair near me",
+    "brand": "Whirlpool",
+    "appliance_type": "Freezer",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Freezer Repair in Lufkin, TX\",\"serviceType\":\"Whirlpool Freezer Repair\",\"description\":\"Professional whirlpool freezer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "d19a328795b9411643714668e3306cd4"
+}

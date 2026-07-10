@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_maytag_oven_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "maytag-oven-repair-lufkin-tx",
+  "title": "Maytag Oven Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Maytag Oven Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin homes, a functioning oven is essential to daily life, and when one stops working, meal preparation grinds to a halt. Wells Appliance Repair specializes in Maytag oven repair, addressing everything from heating issues to control problems with factory-trained expertise. We understand the urgency of a broken oven and stand behind our work with service you can rely on.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Maytag",
+      "hs_caption2": "Oven Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-oven.webp",
+      "hs_photo_alt": "Maytag Oven Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:56.068066Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "76fc0f976af08a2e"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-4.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Maytag Oven Repair Services in Lufkin",
+      "text": "<p>When your Maytag oven stops working, your kitchen workflow comes to a halt—and so does your ability to prepare meals for your family. Whether you're dealing with an oven not heating properly, temperature control problems, or a gas oven that won't ignite, a broken oven creates real disruption in your daily life. In Lufkin, where families rely on their kitchens, putting off a repair only compounds frustration and can lead to costly damage if the underlying issue isn't addressed quickly. Professional repair from a trained technician ensures your oven is diagnosed accurately and restored safely, so you can get back to cooking without worry.</p><p>Wells Appliance Repair brings factory-trained expertise directly to Lufkin homeowners who need Maytag oven repair done right. Our technicians understand Maytag ovens inside and out—from electric oven components to gas oven systems—and we perform a thorough diagnosis to pinpoint exactly what's wrong. We use quality replacement parts, provide upfront pricing so there are no surprises, and stand behind our work with a warranty. While we also service other appliance brands and types, our focus on Maytag oven repair means you're getting specialized knowledge when you call us. If your oven needs attention, reach out today and let us help restore your kitchen to full working order.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:02:48.093165Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "4f01c1de17a3b6e0"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Oven Not Heating",
+          "text": "A Maytag oven that won't heat properly often stems from a faulty heating element, igniter, or thermostat. Our technicians diagnose the root cause and replace worn components to restore even, reliable heat."
+        },
+        {
+          "heading": "Temperature Won't Hold",
+          "text": "When your oven temperature fluctuates or won't stay consistent, a defective thermostat or sensor is usually responsible. Wells Appliance Repair tests and repairs temperature control issues to ensure precise cooking results."
+        },
+        {
+          "heading": "Oven Door Won't Close",
+          "text": "A damaged door latch, broken hinge, or warped frame prevents a secure seal. Our team inspects the door assembly and replaces faulty parts so your oven operates safely and efficiently."
+        },
+        {
+          "heading": "Igniter Won't Light",
+          "text": "Gas oven repair often requires replacing a worn or failed igniter that refuses to spark. Wells Appliance Repair technicians test ignition systems and install quality replacements to get your oven working again."
+        },
+        {
+          "heading": "Error Code on Display",
+          "text": "Control board faults or sensor errors trigger warning codes on your Maytag display. Our technicians read and diagnose these codes, identifying whether repair or component replacement is needed."
+        },
+        {
+          "heading": "Uneven Baking Results",
+          "text": "Hot spots, cold zones, or inconsistent browning usually indicate a faulty heating element or poor air circulation. We identify the cause and repair your electric oven repair needs for uniform, reliable baking."
+        }
+      ],
+      "fc_heading": "Common Maytag Oven Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:02:52.695920Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "1054f5ebd5f15878"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Maytag Oven Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Maytag Expertise",
+          "text": "Our technicians specialize in Maytag oven systems and understand their unique heating elements, controls, and assembly. Whether your oven isn't heating properly or struggling with temperature regulation, we diagnose and repair with manufacturer-level knowledge."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock authentic Maytag oven components and deliver same-day or next-day repairs whenever possible. Our upfront estimates mean no surprises—plus every repair is backed by our warranty, so you can use your oven with confidence."
+        },
+        {
+          "heading": "Accurate Diagnosis, Honest Pricing",
+          "text": "Oven temperature problems often hide simple fixes. We perform a thorough inspection, give you a free estimate upfront, and explain exactly what's needed. No guessing, no unnecessary work—just reliable Maytag oven repair done right."
+        },
+        {
+          "heading": "Local Lufkin Service You Can Count On",
+          "text": "Based right here in Lufkin, we respond quickly to your service calls across the area. When your Maytag oven fails, we're nearby and ready to get it working again fast."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:02:56.437189Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "97985ba623d20c78"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-4.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Throughout the Lufkin Area",
+      "text": "<p>Lufkin's neighborhoods span decades of development—from established areas like Crown Colony and Downtown Lufkin to newer subdivisions—which means homes here rely on appliances of every age, brand, and model. Whether you're dealing with an oven not heating, a refrigerator on the fritz, or any other major appliance breakdown, Wells Appliance Repair responds quickly across the entire region with factory-trained technicians who know how to diagnose and fix the equipment in your home, regardless of its vintage or complexity.</p><p>When an appliance fails, time matters. Our team carries the right parts and equipment to handle repairs on the spot whenever possible, minimizing your downtime. We understand that Lufkin families depend on reliable appliances every day, so we prioritize prompt, professional service whether you're in a longstanding neighborhood or a newer area on the outskirts. From electric oven repair to gas oven temperature problems and everything in between, Wells Appliance Repair is your trusted local choice for expert service across the greater Lufkin area.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:02:59.585182Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "77d798ced949f0a5"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect when Wells Appliance Repair comes to fix my Maytag oven?",
+          "answer": "<p>Our technician will arrive to diagnose the issue, inspect heating elements, gas lines (if applicable), thermostats, and electrical connections. We'll explain what we find and discuss repair options before proceeding. Most visits involve testing, component assessment, and repair or replacement of the faulty part. We'll clean up and walk you through any maintenance tips to prevent future problems.</p>"
+        },
+        {
+          "question": "Can I get same-day Maytag oven repair service in Lufkin?",
+          "answer": "<p>We offer prompt scheduling for Maytag oven repairs in the Lufkin area and aim to accommodate urgent requests whenever possible. Same-day availability depends on current demand and your location within our service territory. Call us with your symptoms and timeline; we'll do our best to get your oven working again quickly.</p>"
+        },
+        {
+          "question": "Why is my Maytag oven not heating properly?",
+          "answer": "<p>Common heating failures stem from faulty heating elements, a broken igniter (gas models), thermostat malfunction, or electrical issues. Electric ovens may have a failed bake or broil element; gas ovens often struggle with igniter problems. Temperature calibration errors can also cause uneven or insufficient heat. A trained technician can pinpoint the exact cause through testing.</p>"
+        },
+        {
+          "question": "Should I repair my Maytag oven or buy a new one?",
+          "answer": "<p>Repair makes sense if your oven is less than 10–12 years old and the repair cost is well below replacement price. Newer Maytag models often respond well to component fixes. If your unit is aging, has rust or corrosion inside, or requires multiple repairs, replacement may be wiser long-term. We can advise based on your specific situation.</p>"
+        },
+        {
+          "question": "What factors affect the cost of Maytag oven repair?",
+          "answer": "<p>Cost depends on which component has failed—heating elements, igniters, and thermostats vary in price—plus labor and diagnostic time. Whether your oven is electric or gas-powered also influences the repair path. We offer free estimates so you know the cost upfront before authorizing any work.</p>"
+        },
+        {
+          "question": "Are Wells Appliance Repair technicians trained to work on Maytag ovens?",
+          "answer": "<p>Yes, our technicians are equipped to diagnose and repair Maytag ovens. We're familiar with Maytag's design, common failure points, and proper repair procedures. We use quality parts and follow manufacturer standards to ensure your oven performs reliably after service.</p>"
+        },
+        {
+          "question": "Is my Maytag oven repair covered by warranty?",
+          "answer": "<p>We back our repairs with warranty coverage on parts and labor. The terms depend on the specific repair and parts used. We'll discuss warranty details with you when we explain the repair and before you approve the work, ensuring you understand your protection.</p>"
+        },
+        {
+          "question": "How can I prevent Maytag oven problems from happening again?",
+          "answer": "<p>Keep the interior clean to avoid buildup that stresses heating elements and vents. Avoid slamming the oven door, which can damage hinges and seals. Use appropriate cookware that doesn't block airflow. Have your oven inspected annually if it's older. Our technician can recommend specific maintenance steps during your repair visit.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:34:10.359333Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "5f0489e01217ab69"
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Maytag Oven Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/maytag-oven-repair-lufkin-tx/",
+    "meta_description": "Professional maytag oven repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "maytag oven repair Lufkin TX, oven not heating, electric oven repair",
+    "og_title": "Maytag Oven Repair in {city_state} | {business}",
+    "og_description": "Professional maytag oven repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Maytag Oven Repair",
+    "service_type": "Maytag Oven Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional maytag oven repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "maytag oven repair",
+    "secondary_keywords": "oven not heating, gas oven repair {city}, electric oven repair, oven temperature problems",
+    "brand": "Maytag",
+    "appliance_type": "Oven",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Maytag Oven Repair in Lufkin, TX\",\"serviceType\":\"Maytag Oven Repair\",\"description\":\"Professional maytag oven repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "742c73e3ac250f9256fef5226676c904"
+}

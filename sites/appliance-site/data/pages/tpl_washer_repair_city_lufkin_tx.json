@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_washer_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "washer-repair-lufkin-tx",
+  "title": "Washer Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Washer Repair in {city_state}",
+      "hs_subtext": "In Lufkin households, a washing machine breakdown quickly disrupts daily routines and creates an immediate need for reliable repair. Wells Appliance Repair provides factory-trained service for washer repairs, diagnosing and fixing issues so your laundry schedule can resume without unnecessary delay. Our locally operated team delivers prompt, warranty-backed repairs you can depend on.",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Washer",
+      "hs_caption2": "Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-washing-machine.webp",
+      "hs_photo_alt": "Washer Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:01:21.300162Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "f6706f46c71e72b8",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-2.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Washer Repair Services in Lufkin, TX",
+      "text": "<p>A broken washer in your Lufkin home can quickly turn into a major inconvenience. When your washing machine stops working, laundry piles up, routines get disrupted, and the cost of replacement looms large. Whether it's a leak, a drum that won't spin, or a cycle that won't start, a faulty washer demands prompt, professional attention. Ignoring the problem often leads to water damage or further mechanical breakdown, making the eventual repair far more expensive. That's why reaching out to a trained, local repair specialist as soon as trouble appears is always the smarter choice.</p><p>Wells Appliance Repair brings factory-trained expertise directly to Lufkin homeowners facing washer trouble. Our technicians diagnose the root cause accurately, source quality replacement parts when needed, and stand behind every repair with a warranty. We provide upfront pricing so you know exactly what to expect—no surprises, no guesswork. Whether your issue stems from electrical problems, mechanical wear, or component failure, we handle it with the skill and care your appliance deserves. We also service other major household appliances and brands, but we specialize in getting your washer back to reliable operation. When your family needs clean clothes and peace of mind, Wells Appliance Repair is ready to help.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:01:25.657832Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "53ca71bd5476c11b",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "by_brand",
+      "html": "[services_links appliance_type=\"self\" heading=\"Repair by Brand in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Won't Start or Power On",
+          "text": "A washer that won't start may have a faulty door latch, broken lid switch, or electrical issue. Our technicians test the power supply and components to identify and repair the root cause quickly."
+        },
+        {
+          "heading": "Leaking Water",
+          "text": "Water pooling around or under your washer usually points to a damaged hose, worn seal, or cracked tub. Wells Appliance Repair locates the leak, replaces worn parts, and restores watertight operation."
+        },
+        {
+          "heading": "Won't Drain Properly",
+          "text": "Clothes sitting in standing water suggest a clogged drain hose, broken pump, or filter blockage. Our technicians clear obstructions and repair pump failures to restore normal drainage."
+        },
+        {
+          "heading": "Loud Noise or Vibration",
+          "text": "Unusual banging, squealing, or excessive vibration often indicate worn drum bearings, foreign objects inside, or motor problems. We diagnose the source and repair or replace damaged components."
+        },
+        {
+          "heading": "Not Spinning or Agitating",
+          "text": "When a washer won't spin or agitate clothes, the drive belt, motor, or transmission may be worn or broken. Wells Appliance Repair tests and repairs these key components to restore proper operation."
+        },
+        {
+          "heading": "Error Codes or Display Issues",
+          "text": "Fault codes on the display signal various problems, from sensor failures to control board errors. Our technicians decode these messages and repair the underlying mechanical or electrical issue."
+        }
+      ],
+      "fc_heading": "Common Washer Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:01:29.680789Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "096b7f786a9277c8",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells Appliance Repair for Washers",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Washer Experts",
+          "text": "Our technicians have in-depth training on washer mechanics—from drum assemblies to water valve diagnostics. We pinpoint washer faults accurately, then repair them right the first time."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock quality washer replacement parts and offer same-day repair availability in most cases. Upfront pricing and free estimates mean no surprises when your washer breaks down."
+        },
+        {
+          "heading": "Warranty-Backed Washer Repairs",
+          "text": "Every washer repair we perform is backed by our warranty, giving you confidence. We stand behind our work and your peace of mind matters to us."
+        },
+        {
+          "heading": "Local Lufkin Washer Service",
+          "text": "We serve Lufkin and the surrounding area with prompt, professional washer repair. Quick response times and local expertise mean less downtime for your household."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:01:33.183798Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "e414fcaf90a6270d",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need this appliance repaired in {city}? Call our team.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a washer repair appointment?",
+          "answer": "Our technician will arrive at your scheduled time, diagnose the problem by running tests and inspecting components, explain what's wrong and your repair options, and discuss cost before proceeding. If you approve, we'll perform the repair on-site using quality parts. The entire visit typically takes one to two hours, depending on the issue's complexity."
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair come to my Lufkin home?",
+          "answer": "We understand a broken washer disrupts your routine. We offer flexible scheduling to get a technician to your Lufkin-area home promptly. Contact us with your availability, and we'll work to arrange a convenient appointment. Same-day service may be possible depending on current demand and your location."
+        },
+        {
+          "question": "Why is my washer not draining properly?",
+          "answer": "Common drainage issues include a clogged drain hose, blocked pump filter, or a malfunctioning drain pump. Lint, debris, or detergent buildup can restrict flow. Less often, a faulty lid switch prevents the cycle from completing. A professional inspection identifies the exact cause and ensures safe, effective repair without causing additional damage."
+        },
+        {
+          "question": "Is it better to repair or replace my washing machine?",
+          "answer": "Repair makes sense if the washer is relatively modern, the repair cost is reasonable compared to replacement, and the appliance has several years of life remaining. Older machines with frequent problems or major component failures may warrant replacement. Our technician can assess your specific situation and help you make an informed decision."
+        },
+        {
+          "question": "Do you offer free diagnostic fees for washer repair in Lufkin?",
+          "answer": "We provide upfront evaluation of your washer's condition and explain the repair needed. Contact us to discuss our service options, including diagnostic availability. We're transparent about what repairs cost and never charge you until you approve the work."
+        },
+        {
+          "question": "Are your washer repair technicians trained on my brand?",
+          "answer": "Our technicians are factory-trained and experienced with all major washer brands including Maytag, Whirlpool, LG, Samsung, GE, and Kenmore. Whether your washer is top-load or front-load, standard or high-efficiency, we have the expertise to diagnose and repair it correctly."
+        },
+        {
+          "question": "What warranty do you provide on washer repairs and parts?",
+          "answer": "We stand behind our work and the parts we install. All repairs and replacement components come with warranty coverage. We'll explain the specific terms when you approve your repair so you know exactly what's protected."
+        },
+        {
+          "question": "How can I prevent washer problems from happening again?",
+          "answer": "Check and clean the drain hose and pump filter regularly to prevent clogs. Use the correct amount of detergent—excess suds stress components. Don't overload the drum, and inspect hoses for cracks or bulges. Run a cleaning cycle monthly on high-efficiency washers. Our technician can offer additional maintenance tips specific to your model."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:41:01.506418Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "ea7c92d14894faa5",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_types",
+      "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Schedule your {city} repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Washer Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/washer-repair-lufkin-tx/",
+    "meta_description": "Professional washer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "washer repair Lufkin TX, washing machine repair, washer not draining",
+    "og_title": "Washer Repair in {city_state} | {business}",
+    "og_description": "Professional washer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Washer Repair",
+    "service_type": "Washer Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional washer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "washer repair",
+    "secondary_keywords": "washing machine repair, washer not draining, washer won't spin, washing machine repair near me",
+    "brand": "",
+    "appliance_type": "Washer",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Washer Repair in Lufkin, TX\",\"serviceType\":\"Washer Repair\",\"description\":\"Professional washer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "46d6545d66120a7acf638f607f29feb9"
+}

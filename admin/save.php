@@ -35,6 +35,11 @@ switch ($section) {
         require __DIR__ . '/save/theme_reset.php';
         break;
 
+    /* ---- GENERATE BRAND (palette -> logo + favicon) ---- */
+    case 'generate_brand':
+        require __DIR__ . '/save/generate_brand.php';
+        break;
+
     /* ---- CONTENT (home page + landing pages) ---- */
     case 'content':
         require __DIR__ . '/save/content.php';

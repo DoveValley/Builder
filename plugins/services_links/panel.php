@@ -4,29 +4,77 @@
 
 $cfg = $data['services_links'] ?? [];
 $services = $cfg['services'] ?? [];
-$servicesText = implode("\n", $services);
 ?>
 
 <div class="admin-section">
 
     <div class="card" style="margin-bottom:16px;">
-        <p class="hint">Use <code>[services_links]</code> in any <strong>Custom HTML</strong> block to render this list as a styled grid of city-resolved service links.</p>
+        <p class="hint" style="margin-bottom:10px;">Use <code>[services_links]</code> in any <strong>Custom HTML</strong> block to render this list as a styled grid of city-resolved service links.</p>
+
+        <details>
+            <summary style="cursor:pointer;font-weight:700;color:#120575;">Shortcode reference &mdash; filter to a subset (for hub pages)</summary>
+            <p class="hint" style="margin:10px 0;">
+                Add attributes to render only a matching subset instead of the whole list. The subset is
+                derived from each row's <strong>slug</strong> (nothing to tag or maintain &mdash; it can't drift).
+                A filtered grid that matches nothing renders nothing.
+            </p>
+            <table style="width:100%;border-collapse:collapse;font-size:.85rem;">
+                <thead><tr style="text-align:left;border-bottom:2px solid #e2e8f0;">
+                    <th style="padding:6px 8px;">Shortcode</th><th style="padding:6px 8px;">Renders</th>
+                </tr></thead>
+                <tbody>
+                    <tr style="border-bottom:1px solid #eef2f6;"><td style="padding:6px 8px;"><code>[services_links]</code></td><td style="padding:6px 8px;">The full list (unchanged default).</td></tr>
+                    <tr style="border-bottom:1px solid #eef2f6;"><td style="padding:6px 8px;"><code>[services_links brand="whirlpool"]</code></td><td style="padding:6px 8px;">That brand's pages &mdash; use on a <strong>brand hub</strong>. (Value is slugified: <code>brand="Sub Zero"</code> works.)</td></tr>
+                    <tr style="border-bottom:1px solid #eef2f6;"><td style="padding:6px 8px;"><code>[services_links appliance_type="refrigerator"]</code></td><td style="padding:6px 8px;">That appliance across all brands &mdash; use on an <strong>appliance-type hub</strong>. (<code>washing machine</code> = <code>washer</code>.)</td></tr>
+                    <tr style="border-bottom:1px solid #eef2f6;"><td style="padding:6px 8px;"><code>[services_links role="brand_hub"]</code></td><td style="padding:6px 8px;">All brand hubs &mdash; use on the <strong>homepage</strong>.</td></tr>
+                    <tr style="border-bottom:1px solid #eef2f6;"><td style="padding:6px 8px;"><code>[services_links role="type_hub"]</code></td><td style="padding:6px 8px;">All appliance-type hubs &mdash; use on the <strong>homepage</strong>.</td></tr>
+                    <tr><td style="padding:6px 8px;"><code>[services_links brand="lg" heading="LG Appliances We Repair" cols="4"]</code></td><td style="padding:6px 8px;">Any filter, plus optional per-instance <code>heading=</code> / <code>cols=</code> override.</td></tr>
+                </tbody>
+            </table>
+            <p class="hint" style="margin:10px 0 0;">
+                Filters (<code>brand</code>, <code>appliance_type</code>, <code>role</code>) apply to appliance-repair sites,
+                where each slug encodes brand + appliance. On other niches, use the bare <code>[services_links]</code> grid.
+                The list below is what gets filtered &mdash; keep it in sync with your templates via <strong>Sync from Landing Templates</strong>.
+            </p>
+        </details>
     </div>
 
     <form method="post" action="plugin_save.php" enctype="multipart/form-data">
         <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
         <input type="hidden" name="plugin_id"  value="services_links">
-        <input type="hidden" name="action"      value="save">
 
-        <div style="margin-bottom:16px;"><button type="submit" class="btn">Save Services Links</button></div>
+        <div style="margin-bottom:16px;"><button type="submit" name="action" value="save" class="btn">Save Services Links</button></div>
 
-        <!-- Service List -->
+        <!-- Service List (editable rows) -->
         <div class="card" style="margin-bottom:16px;">
-            <h2>Service Names</h2>
-            <p class="hint" style="margin-bottom:12px;">One service per line. The URL slug is derived automatically from the name.</p>
-            <div class="form-group">
-                <textarea name="services_text" rows="20" style="font-family:monospace;font-size:.85rem;"><?= h($servicesText) ?></textarea>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:12px;flex-wrap:wrap;">
+                <h2 style="margin:0;">Service Links</h2>
+                <button type="submit" name="action" value="sync" class="btn"
+                    onclick="return confirm('Sync from Landing Templates?\n\nThis REPLACES the list with exactly your current landing templates (one row per template, using its real slug). Any manual rows or edits below will be discarded.');">
+                    &#128260; Sync from Landing Templates
+                </button>
             </div>
+            <p class="hint" style="margin-bottom:12px;">Each row is a service <strong>name</strong> + its <strong>link</strong>. <strong>Sync</strong> <em>replaces</em> the whole list with your current Landing Templates — one row per template, using each template's real slug (removes stale/orphan rows, adds new ones). Edit freely after syncing; re-syncing resets to the templates again. Links may use <code>{city_slug}</code> and other tokens, resolved per city at render.</p>
+            <table style="width:100%;border-collapse:collapse;">
+                <thead><tr style="text-align:left;">
+                    <th style="padding:4px 8px;font-size:.78rem;color:#64748b;">Name</th>
+                    <th style="padding:4px 8px;font-size:.78rem;color:#64748b;">Link</th>
+                    <th style="width:44px;"></th>
+                </tr></thead>
+                <tbody id="svc-rows">
+                <?php foreach ($services as $s):
+                    $nm = is_array($s) ? ($s['name'] ?? '') : $s;
+                    $ur = is_array($s) ? ($s['url']  ?? '') : '';
+                ?>
+                    <tr>
+                        <td style="padding:3px 8px;"><input type="text" name="svc_name[]" value="<?= h($nm) ?>" style="width:100%;"></td>
+                        <td style="padding:3px 8px;"><input type="text" name="svc_url[]" value="<?= h($ur) ?>" placeholder="/service-slug-{city_slug}" style="width:100%;font-family:monospace;font-size:.82rem;"></td>
+                        <td style="padding:3px 8px;"><button type="button" class="btn btn-danger" style="padding:2px 9px;" onclick="this.closest('tr').remove()">&times;</button></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+            <button type="button" class="btn" style="margin-top:10px;" onclick="svcAddRow()">+ Add row</button>
         </div>
 
         <!-- Layout Settings -->
@@ -123,14 +171,26 @@ $servicesText = implode("\n", $services);
 
         <!-- URL Settings -->
         <div class="card" style="margin-bottom:16px;">
-            <h2>URL Pattern</h2>
+            <h2>URL Pattern <span class="hint" style="font-weight:normal;">(fallback)</span></h2>
             <div class="form-group">
                 <label>URL pattern</label>
                 <input type="text" name="url_pattern" value="<?= h($cfg['url_pattern'] ?? '/{service_slug}-{city_slug}') ?>" placeholder="/{service_slug}-{city_slug}">
-                <span class="hint"><code>{service_slug}</code> = slugified service name &nbsp;·&nbsp; <code>{city_slug}</code> = city slug from site vars</span>
+                <span class="hint">Only used for rows with a <strong>blank Link</strong> field (and legacy name-only entries): <code>{service_slug}</code> = slugified service name &nbsp;·&nbsp; <code>{city_slug}</code> = city slug. Rows with a Link use it as-is.</span>
             </div>
         </div>
 
-        <button type="submit" class="btn">Save Services Links</button>
+        <button type="submit" name="action" value="save" class="btn">Save Services Links</button>
     </form>
+
+    <script>
+    function svcAddRow(){
+        var tb = document.getElementById('svc-rows');
+        var tr = document.createElement('tr');
+        tr.innerHTML =
+            '<td style="padding:3px 8px;"><input type="text" name="svc_name[]" style="width:100%;"></td>' +
+            '<td style="padding:3px 8px;"><input type="text" name="svc_url[]" placeholder="/service-slug-{city_slug}" style="width:100%;font-family:monospace;font-size:.82rem;"></td>' +
+            '<td style="padding:3px 8px;"><button type="button" class="btn btn-danger" style="padding:2px 9px;" onclick="this.closest(\'tr\').remove()">&times;</button></td>';
+        tb.appendChild(tr);
+    }
+    </script>
 </div>

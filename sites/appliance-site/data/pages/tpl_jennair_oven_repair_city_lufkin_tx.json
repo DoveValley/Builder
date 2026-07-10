@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_jennair_oven_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "jennair-oven-repair-lufkin-tx",
+  "title": "JennAir Oven Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "JennAir Oven Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a broken JennAir oven disrupts more than just meal preparation—it affects your daily routine and confidence in the kitchen. Wells Appliance Repair specializes in JennAir oven repairs, with factory-trained technicians who understand these premium units and work to restore them quickly. We back our service with warranty coverage and prioritize prompt scheduling so your kitchen is functional again.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "JennAir",
+      "hs_caption2": "Oven Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-oven.webp",
+      "hs_photo_alt": "JennAir Oven Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:08.222864Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "bf39306e0a82a267"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-1.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "JennAir Oven Repair Services in Lufkin, TX",
+      "text": "<p>A malfunctioning JennAir oven disrupts your kitchen routine and can throw off meal planning for your entire household. Whether your oven is not heating properly, struggling with temperature control, or showing signs of wear, a breakdown demands prompt attention. The longer you delay, the greater the risk of further damage—and the more you'll rely on takeout and quick fixes. Professional JennAir oven repair in Lufkin ensures your appliance is diagnosed accurately and restored safely, so you can return to confident cooking without guesswork or safety concerns.</p><p>Wells Appliance Repair brings factory-trained expertise directly to Lufkin homeowners who need reliable JennAir oven repair. Our technicians understand JennAir's engineering and build quality, allowing us to pinpoint issues—whether electrical, gas-related, or mechanical—with precision. We arrive prepared with quality replacement parts, provide upfront pricing before any work begins, and stand behind our repairs with a solid warranty. While we also service other leading appliance brands and types, our focus on JennAir means you get specialized knowledge when it matters most. Trust us to get your oven working again, so you can focus on what you do best.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:55:50.979630Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "262b8e7881211956"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Oven Not Heating",
+          "text": "Whether electric or gas, a JennAir oven that won't reach temperature often points to a faulty heating element, igniter, or thermostat. Our technicians diagnose and repair the root cause quickly."
+        },
+        {
+          "heading": "Temperature Won't Hold",
+          "text": "Oven temperature problems—where heat fluctuates or won't stay consistent—typically stem from a defective thermostat or sensor. We test and replace these components to restore reliable cooking performance."
+        },
+        {
+          "heading": "Uneven Baking Results",
+          "text": "Hot spots and cold zones during cooking usually indicate a failing convection fan or heating element. Our repair team identifies the culprit and restores even heat distribution throughout your oven."
+        },
+        {
+          "heading": "Display or Control Issues",
+          "text": "Blank screens, unresponsive buttons, or error messages on your JennAir oven's display suggest electrical or control board problems. We diagnose and repair these issues to get you cooking again."
+        },
+        {
+          "heading": "Door Won't Close Properly",
+          "text": "A loose, misaligned, or damaged oven door compromises heat retention and safety. Wells Appliance Repair adjusts hinges, seals, and latches to ensure your door closes securely."
+        },
+        {
+          "heading": "Self-Cleaning Cycle Problems",
+          "text": "If your JennAir's self-cleaning mode won't activate or complete, a latch malfunction or control issue may be at fault. We repair or replace the faulty component to restore this convenient feature."
+        }
+      ],
+      "fc_heading": "Common JennAir Oven Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:55:55.157154Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "d349e24e5dc7cfa4"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With JennAir Oven Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained JennAir Expertise",
+          "text": "Our technicians are trained on JennAir ovens specifically, understanding their unique heating systems and controls. We diagnose temperature problems and heating failures accurately, then apply proven solutions backed by manufacturer knowledge."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock authentic JennAir oven components and schedule same-day or next-day repairs whenever possible. Upfront estimates—with no hidden fees—ensure you know costs before we begin work on your unit."
+        },
+        {
+          "heading": "Warranty-Backed Oven Repairs",
+          "text": "Every JennAir oven repair we complete is guaranteed. If an issue recurs within our warranty period, we return to fix it at no extra charge, giving you peace of mind."
+        },
+        {
+          "heading": "Local, Responsive Lufkin Service",
+          "text": "Based right here in Lufkin, we respond quickly to your repair request and serve the surrounding area with reliable, same-day availability when your JennAir oven stops working."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:55:58.721517Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "4830dcfa50fc7d9e"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-1.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Across the Lufkin Area",
+      "text": "<p>Wells Appliance Repair serves homes throughout Lufkin and the surrounding region, from established neighborhoods like Crown Colony and Fuller Springs to newer subdivisions. This mix of older and newer communities means we encounter a wide variety of appliance ages, brands, and models—each with its own repair needs. Whether you're dealing with an oven not heating properly, temperature problems with your electric or gas range, or any other household appliance failure, our factory-trained technicians are equipped to diagnose and resolve the issue promptly.</p><p>When your appliances break down, time matters. We respond quickly across the Lufkin area with the expertise and genuine parts needed to get your home running smoothly again. Our technicians arrive prepared to handle common repairs and complex issues alike, and we maintain the knowledge and inventory to address most makes and models without unnecessary delay. Count on Wells Appliance Repair to be a dependable partner when you need oven repair or service for any major appliance in your home.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:56:02.053444Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "77d798ced949f0a5"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common JennAir oven problems that need professional repair?",
+          "answer": "JennAir ovens frequently develop heating issues—either not reaching temperature or heating unevenly—often due to faulty heating elements or temperature sensors. Ignition problems in gas models, broken door seals, and malfunctioning convection fans are also typical. If your oven won't heat, cycles on and off, or shows temperature errors, professional diagnosis is warranted rather than guessing at the cause."
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair come out for JennAir oven service in Lufkin?",
+          "answer": "<p>We understand a broken oven disrupts your kitchen and meals. While same-day availability depends on current demand, we prioritize scheduling JennAir oven repairs promptly. Contact us directly with your situation, and we'll confirm the fastest appointment we can offer. Local Lufkin service means shorter wait times than many regional competitors.</p>"
+        },
+        {
+          "question": "Is it better to repair or replace my JennAir oven?",
+          "answer": "<p>That depends on the oven's age, the specific problem, and repair costs relative to replacement. Newer JennAir models with isolated component failures often make excellent repair candidates. We'll provide a clear diagnostic and honest recommendation—if repair costs approach 50–70% of a replacement unit's price, replacement may make sense. We never push unnecessary repairs.</p>"
+        },
+        {
+          "question": "What factors affect the cost of JennAir oven repair?",
+          "answer": "<p>Repair cost depends on which component has failed—heating elements, igniters, and sensors vary in complexity and parts cost. Labor time also varies: some fixes take an hour; others require multiple visits. The oven's model and age factor in too. We offer free diagnostics so you understand the specific issue and associated costs before proceeding.</p>"
+        },
+        {
+          "question": "Are your JennAir oven technicians factory-trained and certified?",
+          "answer": "<p>Our technicians are trained to service JennAir ovens and understand the brand's specific design, components, and repair procedures. We work directly on your JennAir unit with proper tools and parts knowledge, ensuring repairs meet manufacturer standards and don't void remaining coverage.</p>"
+        },
+        {
+          "question": "What should I do to prepare my home before the JennAir oven repair technician arrives?",
+          "answer": "<p>Ensure the technician has clear access to your oven and the surrounding area—remove clutter and any stored items nearby. If your oven is built-in, confirm there's room to open cabinet doors fully if needed. Note any error codes or specific behaviors you've observed, and have your oven's model number available. Keep pets in another room for safety.</p>"
+        },
+        {
+          "question": "Do JennAir oven repairs include a warranty on parts and labor?",
+          "answer": "<p>Yes, we warranty both parts and labor on JennAir oven repairs. This protection gives you confidence that if an issue recurs shortly after service, we stand behind our work. Warranty terms are discussed upfront before any repair begins, ensuring you understand what is covered.</p>"
+        },
+        {
+          "question": "How can I prevent JennAir oven problems from happening again?",
+          "answer": "<p>Keep the oven interior clean and free of debris, which can damage heating elements. Avoid slamming the door, which stresses hinges and seals. Use oven liners compatible with JennAir models, and follow the manual's cleaning guidance. Have any temperature inconsistencies checked promptly—small issues caught early often prevent costly failures later.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:29:36.212567Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "9cbad58e4f263918"
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "JennAir Oven Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/jennair-oven-repair-lufkin-tx/",
+    "meta_description": "Professional jennair oven repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "jennair oven repair Lufkin TX, oven not heating, electric oven repair",
+    "og_title": "JennAir Oven Repair in {city_state} | {business}",
+    "og_description": "Professional jennair oven repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "JennAir Oven Repair",
+    "service_type": "JennAir Oven Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional jennair oven repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "jennair oven repair",
+    "secondary_keywords": "oven not heating, gas oven repair {city}, electric oven repair, oven temperature problems",
+    "brand": "JennAir",
+    "appliance_type": "Oven",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"JennAir Oven Repair in Lufkin, TX\",\"serviceType\":\"JennAir Oven Repair\",\"description\":\"Professional jennair oven repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "e2d76fed5c398e61b4d0cc4a7e94d812"
+}

@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_ge_oven_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "ge-oven-repair-lufkin-tx",
+  "title": "GE Oven Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://a.q111.xyz",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "GE Oven Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a functional oven is essential to daily life, and when one stops working, it disrupts meals and routines quickly. Wells Appliance Repair specializes in GE oven repair, handling everything from heating issues to control failures with factory-trained expertise. We stand behind our work with warranty coverage and prioritize prompt service to get your kitchen back in order.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "GE",
+      "hs_caption2": "Oven Repair",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-oven.webp",
+      "hs_photo_alt": "GE Oven Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:21:54.522195Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "83e1a3d6f7dc1a1c"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-2.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional GE Oven Repair Services in Lufkin",
+      "text": "<p>A broken GE oven disrupts your kitchen and your routine, leaving you unable to prepare meals for your family. Whether your oven isn't heating properly, struggling with temperature control, or failing to ignite, the problem demands prompt professional attention. Delaying repair risks further damage and can turn a straightforward fix into a costlier replacement. For homeowners in Lufkin, a malfunctioning oven is more than an inconvenience—it's a disruption that affects your daily life and household comfort. Timely, expert repair restores both your appliance and your peace of mind.</p><p>Wells Appliance Repair brings factory-trained expertise to every GE oven repair we handle in Lufkin. Our technicians diagnose the root cause accurately, whether the issue involves heating elements, ignition systems, or temperature sensors, ensuring the right solution the first time. We use quality replacement parts and provide transparent, upfront pricing so you know exactly what to expect. Every repair is backed by our warranty, reflecting our confidence in the work we perform. Beyond GE ovens, we also service other major appliance brands and types, but our commitment to precision and care remains constant. When your GE oven needs attention, Wells Appliance Repair is ready to get it working again.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:53:48.991073Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "195b7339d6506628"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Oven Not Heating",
+          "text": "A GE oven that won't heat may have a faulty heating element, broken igniter, or electrical connection issue. Wells Appliance Repair technicians diagnose the root cause and restore your oven's heating performance."
+        },
+        {
+          "heading": "Temperature Not Accurate",
+          "text": "If your oven temperature fluctuates or runs hotter or colder than the dial shows, the thermostat or temperature sensor may need replacement. Our technicians calibrate and repair oven temperature problems efficiently."
+        },
+        {
+          "heading": "Won't Stay On",
+          "text": "An oven that shuts off mid-cycle often points to a faulty door latch, thermal fuse, or control board issue. Wells Appliance Repair diagnoses why your oven won't stay on and fixes it."
+        },
+        {
+          "heading": "Gas Oven Won't Ignite",
+          "text": "Gas oven repair typically involves a defective igniter, gas valve, or spark module that prevents ignition. Our technicians service gas ovens and restore safe, reliable operation."
+        },
+        {
+          "heading": "Uneven Baking Results",
+          "text": "Hot spots or cold zones inside your GE oven suggest a damaged heating element, broken fan, or blocked air vents. Wells Appliance Repair identifies and corrects uneven heat distribution issues."
+        },
+        {
+          "heading": "Display or Control Issues",
+          "text": "A dark display, unresponsive buttons, or erratic controls usually indicate a faulty control board or keypad. Our technicians repair or replace electric oven control components to restore full functionality."
+        }
+      ],
+      "fc_heading": "Common GE Oven Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:53:52.895331Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "f511b03bc01f56da"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for GE Oven Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained GE Expertise",
+          "text": "Our technicians are trained on GE oven systems and heating elements. We diagnose temperature problems and gas oven issues accurately, then apply proven GE-specific repair methods to restore reliable cooking performance."
+        },
+        {
+          "heading": "Genuine Parts, Fast Results",
+          "text": "We stock authentic GE oven components and prioritize same-day or next-day service. Upfront pricing—with free estimates—means no surprises. Every repair is warranty-backed so you cook with confidence."
+        },
+        {
+          "heading": "Accurate Diagnosis, Right Fix",
+          "text": "GE ovens not heating or holding temperature require precise troubleshooting. We identify the real fault—whether heating element, thermostat, or control board—and address it directly, not guesswork."
+        },
+        {
+          "heading": "Local Lufkin Service You Trust",
+          "text": "Wells Appliance Repair is locally owned and responsive across the Lufkin area. We show up on time, explain what's needed, and treat your home with respect—because we're your neighbors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:53:56.589356Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "1f5310b1ce21e451"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "sites/appliance-site/uploads/media/home-2.webp",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Serving Lufkin and the Surrounding Communities",
+      "text": "<p>Lufkin's neighborhoods span decades of residential development, from well-established areas like Crown Colony and Fuller Springs to newer subdivisions, each with its own mix of appliance ages and brands. When your oven stops heating, your refrigerator runs warm, or any major appliance fails, the wide range of models across the community means you need a repair team with broad expertise. Wells Appliance Repair responds quickly throughout the Lufkin area with factory-trained technicians who diagnose and repair electric ovens, gas ovens, and virtually every other household appliance—whether it's an older unit or the latest model.</p><p>Because homes throughout the region rely on different appliance brands and vintages, having the right parts in stock and the knowledge to handle older equipment is essential. Our technicians arrive prepared to address oven temperature problems, refrigeration issues, washer and dryer breakdowns, and countless other repairs on the same day whenever possible. We understand that a broken appliance disrupts your home and your schedule, which is why we prioritize fast, professional service across greater Lufkin without the long wait times.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:53:59.972006Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "77d798ced949f0a5"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "Why is my GE oven not heating up properly?",
+          "answer": "A GE oven that fails to reach or maintain the correct temperature often points to a faulty heating element, thermostat, or igniter (in gas models). Sometimes it's a control board issue. The only way to diagnose accurately is a hands-on inspection by a trained technician who can test each component and identify the exact culprit before recommending a repair or replacement path."
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair visit my home in Lufkin?",
+          "answer": "<p>Wells Appliance Repair serves the Lufkin area and prioritizes fast response times for appliance emergencies. Contact us directly for current availability and to discuss same-day or next-day service options. We'll work with your schedule to get your GE oven back in working order as quickly as possible.</p>"
+        },
+        {
+          "question": "What does a GE oven repair appointment actually involve?",
+          "answer": "<p>Our technician will inspect your oven, run diagnostic tests on the heating elements, thermostat, igniter, and controls, identify the root cause, and explain the issue and repair options to you upfront. If you approve, we'll perform the repair, test it thoroughly, and clean up. The visit typically takes 1–2 hours depending on the problem.</p>"
+        },
+        {
+          "question": "Should I repair my GE oven or buy a new one?",
+          "answer": "<p>That depends on the repair cost, your oven's age, and how often it breaks down. A single heating element or thermostat repair is usually worthwhile even on an older unit. Multiple failing parts or a control board failure on a 15+ year old oven may tip the scales toward replacement. We'll give you an honest assessment to help you decide.</p>"
+        },
+        {
+          "question": "Does Wells Appliance Repair offer free estimates for GE oven repairs?",
+          "answer": "<p>Yes. We offer free diagnostic visits so you understand exactly what's wrong with your GE oven and what repair options cost before you commit. This helps you make an informed decision without surprise fees or pressure to buy unnecessary parts.</p>"
+        },
+        {
+          "question": "Are your technicians trained to repair GE brand ovens?",
+          "answer": "<p>Our technicians are trained on major appliance brands including GE, whether your oven is electric or gas. We work directly with GE components and systems, and we source quality replacement parts that meet manufacturer standards to ensure reliable, lasting repairs.</p>"
+        },
+        {
+          "question": "What should I do to prepare before the GE oven repair technician arrives?",
+          "answer": "<p>Clear the area around your oven so the technician has easy access. If it's a gas oven, make sure the gas supply is on and functioning. Write down any symptoms you've noticed—temperature swings, unusual smells, strange sounds—so you can describe them clearly. Have your oven's model number handy if possible.</p>"
+        },
+        {
+          "question": "How can I prevent GE oven problems from happening again?",
+          "answer": "<p>Keep the oven clean inside and out to avoid blockages and buildup that strain components. Avoid slamming the door or placing excess weight on the racks. Use the self-clean feature sparingly on older GE models, as it puts stress on the heating element. Schedule routine maintenance checks if your oven gets heavy use. These habits extend the life of your oven and reduce breakdowns.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:28:01.038252Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "5de2f1341dcda8bc"
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "GE Oven Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/ge-oven-repair-lufkin-tx/",
+    "meta_description": "Professional ge oven repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "ge oven repair Lufkin TX, oven not heating, electric oven repair",
+    "og_title": "GE Oven Repair in {city_state} | {business}",
+    "og_description": "Professional ge oven repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "GE Oven Repair",
+    "service_type": "GE Oven Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional ge oven repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "ge oven repair",
+    "secondary_keywords": "oven not heating, gas oven repair {city}, electric oven repair, oven temperature problems",
+    "brand": "GE",
+    "appliance_type": "Oven",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Oven Repair in Lufkin, TX\",\"serviceType\":\"GE Oven Repair\",\"description\":\"Professional ge oven repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "9930b2c6703d79ea705623232aaa288a"
+}
