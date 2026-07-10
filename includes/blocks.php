@@ -1237,8 +1237,10 @@ function render_content_block($block, $pathPrefix = '') {
                 } else {
                     echo '<div class="step-number">' . ($n + 1) . '</div>';
                 }
+                echo '<div class="step-body">';
                 if ($stepHead) echo '<h3 class="step-heading">' . h($stepHead) . '</h3>';
                 if ($stepText) echo '<p class="step-text">' . h($stepText) . '</p>';
+                echo '</div>';
                 echo '</div>';
             }
             echo '</div></div>';
