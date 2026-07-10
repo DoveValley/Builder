@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "JennAir Refrigerator Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin, a broken refrigerator quickly disrupts daily life, leaving families without reliable food storage and facing costly spoilage. Wells Appliance Repair specializes in JennAir refrigerator repair, restoring your appliance with factory-trained expertise and prompt service. We stand behind our work with warranty protection, so you can depend on your kitchen again.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "JennAir",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:11.515345Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "b557714aeea5bd93"
     },
     {
       "type": "custom_html",

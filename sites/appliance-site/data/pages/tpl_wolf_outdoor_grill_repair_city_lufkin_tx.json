@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Wolf Outdoor Grill Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin, a working outdoor grill is central to how families gather and entertain, making a breakdown more than an inconvenience. Wells Appliance Repair provides factory-trained service for Wolf Outdoor Grill repairs, addressing everything from ignition and burner issues to control problems with the expertise your equipment deserves. We prioritize fast turnaround and stand behind our work with warranty coverage, so you can get back to hosting with confidence.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Wolf",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:24:13.569725Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "a950d6676fa747df"
     },
     {
       "type": "custom_html",

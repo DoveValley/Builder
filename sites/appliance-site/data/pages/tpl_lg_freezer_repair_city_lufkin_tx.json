@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "LG Freezer Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin households, a freezer breakdown means food waste, spoiled meals, and unexpected expense in a matter of hours. Wells Appliance Repair specializes in LG freezer repair, delivering factory-trained service to get your unit running again quickly and reliably. Our technicians stand behind their work with warranty-backed repairs, so you can trust your appliance is in capable hands.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "LG",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:44.778221Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "81a4b31f9a50f3dc"
     },
     {
       "type": "custom_html",

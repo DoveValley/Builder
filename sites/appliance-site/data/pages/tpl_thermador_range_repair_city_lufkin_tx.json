@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Thermador Range Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin, a dependable range is central to daily life, and when a Thermador Range stops working, it creates real disruption to your household routine. Wells Appliance Repair specializes in Thermador Range Repair with factory-trained technicians who understand the precision engineering behind these premium appliances. We stand behind our work with warranty coverage and aim to restore your range quickly so you can get back to cooking.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Thermador",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:23:40.159572Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "4e068d604edbea76"
     },
     {
       "type": "custom_html",

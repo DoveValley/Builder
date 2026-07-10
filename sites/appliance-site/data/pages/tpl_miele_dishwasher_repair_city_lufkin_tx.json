@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Miele Dishwasher Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin households, a broken dishwasher quickly disrupts daily routines, leaving dishes to pile up and adding stress to your schedule. Wells Appliance Repair specializes in Miele dishwasher repairs, addressing everything from drainage issues to control panel problems with factory-trained expertise. We understand the urgency of getting your kitchen back in order and stand behind our work with service warranties for added peace of mind.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Miele",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:23:03.131692Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "b7e71090825a241a"
     },
     {
       "type": "custom_html",

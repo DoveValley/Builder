@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Wolf Range Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin, a functioning kitchen range is essential to daily family life, and when one stops working, the disruption affects everything from meal preparation to your routine. Wells Appliance Repair specializes in Wolf Range repair, addressing issues with these premium cooking appliances so you can restore full kitchen function. Our factory-trained technicians deliver prompt, warranty-backed service to get your Wolf Range back in operation.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Wolf",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:24:17.153394Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ca8b2a3db93c765b"
     },
     {
       "type": "custom_html",

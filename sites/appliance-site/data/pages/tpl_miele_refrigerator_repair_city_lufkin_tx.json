@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Miele Refrigerator Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In the Lufkin area, a refrigerator that stops working creates an immediate problem—perishable food, disrupted routines, and the stress of finding a reliable repair. Wells Appliance Repair specializes in Miele refrigerator repairs, addressing cooling issues, temperature control problems, and component failures with factory-trained expertise. We prioritize fast service to get your appliance running again, backed by our warranty and commitment to quality work.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Miele",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:23:10.585430Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "8d9f71687107ec20"
     },
     {
       "type": "custom_html",

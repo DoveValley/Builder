@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "JennAir Dishwasher Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In the Lufkin area, a broken dishwasher disrupts daily routines and creates immediate household strain. Wells Appliance Repair specializes in JennAir dishwasher repair, addressing issues quickly and thoroughly to restore convenience to your home. Our factory-trained technicians deliver reliable service backed by warranty, ensuring your appliance works as intended.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "JennAir",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:04.781234Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "28ab5d93b5bf8ca0"
     },
     {
       "type": "custom_html",

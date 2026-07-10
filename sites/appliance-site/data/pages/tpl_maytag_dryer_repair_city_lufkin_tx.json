@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Maytag Dryer Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "In Lufkin households, a broken dryer quickly disrupts daily routines and adds stress to an already busy schedule. Wells Appliance Repair specializes in Maytag dryer repair, diagnosing and fixing issues efficiently so your laundry doesn't fall behind. Our factory-trained technicians deliver reliable service backed by warranty protection, getting your dryer working again promptly.",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Maytag",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:54.547013Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "369965090d957d49"
     },
     {
       "type": "custom_html",

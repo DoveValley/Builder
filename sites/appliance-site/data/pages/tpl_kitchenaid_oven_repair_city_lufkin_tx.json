@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "KitchenAid Oven Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin households, a KitchenAid oven is often central to daily cooking and meal preparation, so a malfunction creates real disruption. Wells Appliance Repair specializes in diagnosing and repairing KitchenAid ovens with factory-trained technicians who understand the precise engineering of these units. We're committed to prompt service with warranty-backed repairs, so you can return to reliable cooking without unnecessary delay.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "KitchenAid",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:31.632967Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "cc53e08c0c9b5e7d"
     },
     {
       "type": "custom_html",

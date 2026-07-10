@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Thermador Dishwasher Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin and the surrounding area, a functioning dishwasher is essential to daily household routines, and when a Thermador model stops working, it creates real disruption to your home. Wells Appliance Repair provides factory-trained service specifically for Thermador dishwasher repairs, addressing issues with precision and care. You'll receive prompt, warranty-backed service from a locally operated team committed to getting your appliance back to work.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Thermador",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:23:34.708282Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "0538071d3648b36d"
     },
     {
       "type": "custom_html",

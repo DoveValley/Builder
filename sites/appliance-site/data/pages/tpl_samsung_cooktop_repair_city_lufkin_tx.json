@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Samsung Cooktop Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin households, a broken cooktop doesn't just disrupt meal preparation—it affects the rhythm of daily life. Wells Appliance Repair specializes in Samsung cooktop repairs, bringing factory-trained expertise to get your unit working reliably again. We're committed to fast, warranty-backed service so your kitchen functions as it should.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Samsung",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:23:13.696723Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "2b5d47d01db77ac2"
     },
     {
       "type": "custom_html",

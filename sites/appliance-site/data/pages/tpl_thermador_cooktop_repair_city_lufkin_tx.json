@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Thermador Cooktop Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin households, a reliable cooktop is essential to daily life, and when one stops working, meal preparation comes to a halt. Wells Appliance Repair specializes in Thermador cooktop repair, addressing everything from burner issues to control problems with factory-trained technicians who understand your appliance inside and out. We prioritize getting your cooktop back in service quickly, backed by our commitment to quality workmanship and warranty protection.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Thermador",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:23:32.632473Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "b14abbbb30ddd19e"
     },
     {
       "type": "custom_html",

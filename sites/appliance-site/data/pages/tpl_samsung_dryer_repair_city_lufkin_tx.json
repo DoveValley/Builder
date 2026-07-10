@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Samsung Dryer Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin households, a working dryer is essential to daily life, and when yours stops performing, laundry quickly becomes a burden. Wells Appliance Repair specializes in Samsung dryer repair, diagnosing and resolving issues with the precision and care your appliance deserves. Our factory-trained technicians work promptly to restore your dryer to reliable operation, backed by our service warranty for peace of mind.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Samsung",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:23:16.822363Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "c3824300c2d4d769"
     },
     {
       "type": "custom_html",

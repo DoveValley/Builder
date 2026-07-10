@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "GE Monogram Freezer Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin households, a GE Monogram freezer failure means more than an inconvenience—it threatens food preservation and daily routine. Wells Appliance Repair specializes in GE Monogram freezer repair with factory-trained technicians who understand these premium units inside and out. We prioritize fast service backed by warranty support, so your freezer gets the professional attention it needs.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "GE Monogram",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:21:49.295827Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "e83b170963d9d23b"
     },
     {
       "type": "custom_html",

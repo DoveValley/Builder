@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Kenmore Dryer Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "In Lufkin households, a broken dryer quickly becomes a daily inconvenience that disrupts laundry routines and adds stress to busy families. Wells Appliance Repair specializes in Kenmore dryer repairs, using factory-trained technicians who diagnose and resolve issues efficiently. We back our work with a warranty and prioritize fast service so your laundry gets back on track.",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Kenmore",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:16.385751Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "a5a128f05c7fed2c"
     },
     {
       "type": "custom_html",

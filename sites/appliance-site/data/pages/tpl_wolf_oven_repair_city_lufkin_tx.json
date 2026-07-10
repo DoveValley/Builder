@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Wolf Oven Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin and the surrounding area, a functioning kitchen is central to daily life, and when a Wolf oven stops working, it creates an immediate gap in your home's routine. Wells Appliance Repair specializes in Wolf oven repair, diagnosing and fixing issues with the precision these high-performance units require. Our factory-trained technicians work to restore your oven promptly, backed by warranty protection for your peace of mind.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Wolf",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:24:15.309482Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "1d02f1853a4fb9af"
     },
     {
       "type": "custom_html",

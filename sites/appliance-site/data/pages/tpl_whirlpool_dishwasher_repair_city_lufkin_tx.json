@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Whirlpool Dishwasher Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin, a broken dishwasher quickly disrupts daily routines and backs up kitchen work. Wells Appliance Repair specializes in Whirlpool dishwasher repair, diagnosing and fixing issues with the precision that comes from factory-trained expertise. We deliver prompt service backed by warranty protection, so your appliance gets you back on track without unnecessary delay.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Whirlpool",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:24:01.144852Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "579377eb3f4e79b7"
     },
     {
       "type": "custom_html",

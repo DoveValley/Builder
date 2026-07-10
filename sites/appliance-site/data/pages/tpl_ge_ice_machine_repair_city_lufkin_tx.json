@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "GE Ice Machine Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin, a broken GE ice machine disrupts daily routines and puts strain on busy households that depend on reliable appliances. Wells Appliance Repair specializes in GE ice machine repair, diagnosing and fixing issues with the precision and expertise your machine needs. Our factory-trained technicians deliver prompt service backed by a warranty, so you can restore convenience to your home with confidence.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "GE",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:21:44.434113Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "a47d342fae8ff3ed"
     },
     {
       "type": "custom_html",

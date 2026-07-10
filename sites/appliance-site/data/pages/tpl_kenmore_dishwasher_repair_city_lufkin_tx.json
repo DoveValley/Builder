@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Kenmore Dishwasher Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin households, a broken dishwasher quickly becomes more than an inconvenience—it disrupts daily routines and leaves you managing dishes by hand. Wells Appliance Repair specializes in Kenmore dishwasher repair, with factory-trained technicians who diagnose and fix the problem efficiently. We back our work with warranty coverage and prioritize same-day service so your kitchen runs smoothly again.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Kenmore",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:14.655142Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "85ce316e2453c321"
     },
     {
       "type": "custom_html",

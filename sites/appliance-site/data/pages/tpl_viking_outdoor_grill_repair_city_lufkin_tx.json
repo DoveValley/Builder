@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Viking Outdoor Grill Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin, a working outdoor grill is central to weekend entertaining and family gatherings, so when yours stops heating or igniting, the disruption is immediate. Wells Appliance Repair specializes in Viking Outdoor Grill repair, diagnosing and restoring your unit with factory-trained expertise. We stand behind our work with warranty coverage and aim to get you grilling again quickly.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Viking",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:23:52.895208Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "77fd0f59d83e7ac1"
     },
     {
       "type": "custom_html",

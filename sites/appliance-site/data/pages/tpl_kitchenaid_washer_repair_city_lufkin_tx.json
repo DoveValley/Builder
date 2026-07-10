@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "KitchenAid Washer Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "In Lufkin households, a broken KitchenAid washer disrupts your routine and leaves laundry piling up fast. Wells Appliance Repair handles KitchenAid washer repairs with factory-trained technicians who understand these machines inside and out. We offer prompt service backed by warranty protection, so you can get back to normal without prolonged downtime.",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "KitchenAid",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:34.652031Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "e412cf9304d713f4"
     },
     {
       "type": "custom_html",

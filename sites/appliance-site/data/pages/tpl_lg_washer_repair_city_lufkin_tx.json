@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "LG Washer Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin households, a broken LG washer quickly becomes a major inconvenience, disrupting daily routines and piling up laundry. Wells Appliance Repair specializes in diagnosing and fixing LG washer issues with factory-trained technicians who understand these machines inside and out. We're committed to getting your washer back in service promptly with warranty-backed repairs you can rely on.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "LG",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:49.996128Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "0a7b8ca85b5fb115"
     },
     {
       "type": "custom_html",

@@ -53,7 +53,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Kenmore Freezer Repair in {city_state}",
-      "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+      "hs_subtext": "<p>In Lufkin, a functioning freezer is essential to keeping your household running smoothly, and a breakdown can quickly spoil groceries and disrupt your family's routine. Wells Appliance Repair specializes in Kenmore freezer repairs, diagnosing and restoring units with factory-trained expertise. We understand the urgency of a non-working freezer and work to get your unit back in service promptly, backed by our warranty on repairs.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Kenmore",
@@ -65,7 +65,12 @@
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
-      "_ai_locked": true
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:18.286622Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "d72e6b362f231a46"
     },
     {
       "type": "custom_html",
