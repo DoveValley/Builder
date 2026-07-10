@@ -1,0 +1,227 @@
+{
+    "_about": "Per-site Visual Identity library. Each preset = colors + font + button radius (+ optional bug icon) → drives theme, logo, favicon. single_preset_id = the preset applied to THIS site; in_rotation per preset = whether the multisite build rotates through it.",
+    "niche": "home services",
+    "single_preset_id": 0,
+    "presets": [
+        {
+            "id": 1,
+            "name": "Trust Blue",
+            "note": "Dependable blue — the safe all-round default",
+            "icon": "",
+            "in_rotation": true,
+            "theme": {
+                "accent_color": "#2563eb",
+                "header_bg": "#1e293b",
+                "footer_bg": "#1e293b",
+                "heading_color": "#1e293b",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Inter, sans-serif",
+                "heading_font": "",
+                "button_radius": "6"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Fresh Green",
+            "note": "Eco & reliable — lawn, plumbing, green services",
+            "icon": "",
+            "in_rotation": true,
+            "theme": {
+                "accent_color": "#16a34a",
+                "header_bg": "#14532d",
+                "footer_bg": "#14532d",
+                "heading_color": "#14532d",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Nunito, sans-serif",
+                "heading_font": "",
+                "button_radius": "10"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Bold Orange",
+            "note": "Energetic — HVAC, appliance, handyman",
+            "icon": "",
+            "in_rotation": true,
+            "theme": {
+                "accent_color": "#ea580c",
+                "header_bg": "#1f2937",
+                "footer_bg": "#1f2937",
+                "heading_color": "#1f2937",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Poppins, sans-serif",
+                "heading_font": "",
+                "button_radius": "4"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Emergency Red",
+            "note": "Urgent 24/7 — restoration, repair, plumbing",
+            "icon": "",
+            "in_rotation": true,
+            "theme": {
+                "accent_color": "#dc2626",
+                "header_bg": "#111827",
+                "footer_bg": "#111827",
+                "heading_color": "#111827",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Montserrat, sans-serif",
+                "heading_font": "",
+                "button_radius": "2"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Deep Teal",
+            "note": "Clean & modern — cleaning, HVAC, duct",
+            "icon": "",
+            "in_rotation": true,
+            "theme": {
+                "accent_color": "#0d9488",
+                "header_bg": "#0f3d5c",
+                "footer_bg": "#0f3d5c",
+                "heading_color": "#0f3d5c",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Poppins, sans-serif",
+                "heading_font": "",
+                "button_radius": "8"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Premium Gold",
+            "note": "Navy + gold — roofing, remodeling, premium jobs",
+            "icon": "",
+            "in_rotation": true,
+            "theme": {
+                "accent_color": "#d97706",
+                "header_bg": "#1e3a5f",
+                "footer_bg": "#1e3a5f",
+                "heading_color": "#1e3a5f",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Lato, sans-serif",
+                "heading_font": "",
+                "button_radius": "4"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 7,
+            "name": "Sky Slate",
+            "note": "Friendly sky blue — pools, windows, solar",
+            "icon": "",
+            "in_rotation": true,
+            "theme": {
+                "accent_color": "#0284c7",
+                "header_bg": "#334155",
+                "footer_bg": "#334155",
+                "heading_color": "#334155",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Open Sans, sans-serif",
+                "heading_font": "",
+                "button_radius": "12"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 8,
+            "name": "Crimson Steel",
+            "note": "Strong red on steel — electrical, garage, pest",
+            "icon": "",
+            "in_rotation": true,
+            "theme": {
+                "accent_color": "#b91c1c",
+                "header_bg": "#27272a",
+                "footer_bg": "#27272a",
+                "heading_color": "#27272a",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Roboto, sans-serif",
+                "heading_font": "",
+                "button_radius": "3"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 9,
+            "name": "Meadow",
+            "note": "Lime green — landscaping, tree, lawn care",
+            "icon": "",
+            "in_rotation": true,
+            "theme": {
+                "accent_color": "#65a30d",
+                "header_bg": "#365314",
+                "footer_bg": "#365314",
+                "heading_color": "#365314",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Mulish, sans-serif",
+                "heading_font": "",
+                "button_radius": "16"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 10,
+            "name": "Modern Indigo",
+            "note": "Pill-rounded indigo — modern, tech-forward brands",
+            "icon": "",
+            "in_rotation": true,
+            "theme": {
+                "accent_color": "#4f46e5",
+                "header_bg": "#3730a3",
+                "footer_bg": "#3730a3",
+                "heading_color": "#3730a3",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Raleway, sans-serif",
+                "heading_font": "",
+                "button_radius": "20"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        }
+    ]
+}

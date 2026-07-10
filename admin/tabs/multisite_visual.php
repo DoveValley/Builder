@@ -110,8 +110,8 @@ function msvCardHtml(i){
       +   '<div style="margin-top:8px;display:flex;align-items:center;gap:8px;"><img class="msv-fav" alt="favicon" width="44" height="44" style="border-radius:9px;border:1px solid #eee;"><span class="hint">favicon</span></div>'
       +   '<div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;">'
       +     (isSingle
-      +        ? '<div style="font-size:.85rem;color:#2563eb;font-weight:700;">★ This site’s brand</div>'
-      +        : '<button type="button" class="btn btn-secondary" style="padding:5px 10px;font-size:.85rem;align-self:flex-start;" onclick="msvUse('+i+')">Use for this site →</button>')
+                 ? '<div style="font-size:.85rem;color:#2563eb;font-weight:700;">★ This site’s brand</div>'
+                 : '<button type="button" class="btn btn-secondary" style="padding:5px 10px;font-size:.85rem;align-self:flex-start;" onclick="msvUse('+i+')">Use for this site →</button>')
       +     '<label style="margin:0;font-weight:400;display:flex;align-items:center;gap:7px;cursor:pointer;font-size:.9rem;">'
       +       '<input type="checkbox" class="msv-rot" data-i="'+i+'"'+(p.in_rotation!==false?' checked':'')+'> In multisite rotation</label>'
       +   '</div>'
