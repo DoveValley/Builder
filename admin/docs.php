@@ -623,7 +623,7 @@ tr:nth-child(even) td { background: #f8fafc; }
     <h3>① Theme Preset — the Visual Identity panel</h3>
     <p>At the top of the tab is the <strong>Visual Identity — Presets</strong> panel: this site's library of visual identities. Each preset bundles accent + dark colors, a font, a button radius, and a bug icon — and drives a generated <strong>logo + favicon</strong> (with live previews). It does three jobs, all here:</p>
     <ul>
-        <li><strong>Use for this site</strong> (radio) — applies that one preset to <em>this</em> site immediately: merges its colors (and its font + button style when <em>Apply font &amp; buttons too</em> is checked) into the theme and regenerates the logo + favicon in those colors. Apply-on-select, with an overwrite confirm. The choice is remembered as <code>single_preset_id</code>.</li>
+        <li><strong>Use for this site →</strong> (per-preset button) — applies that one preset to <em>this</em> site immediately: merges its colors (and its font + button style when <em>“Use for this site” applies font &amp; buttons too</em> is checked) into the theme and regenerates the logo + favicon in those colors. Apply-on-select, with an overwrite confirm; the applied preset then shows a <strong>★ This site's brand</strong> badge. The choice is remembered as <code>single_preset_id</code>.</li>
         <li><strong>In multisite rotation</strong> (checkbox) — whether the <a href="#ms-visual-identity">multisite build</a> rotates through this preset when generating clone sites.</li>
         <li><strong>Save library</strong> — persists the presets + both selections to <code>sites/{site}/multisite/theme_presets.json</code>.</li>
     </ul>

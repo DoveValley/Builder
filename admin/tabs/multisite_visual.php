@@ -53,13 +53,13 @@ $vpFonts = ['Inclusive Sans, sans-serif','Inter, sans-serif','Nunito, sans-serif
     <div id="msv-list"></div>
     <div style="margin-top:6px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
         <button type="button" class="btn btn-secondary" id="msv-add" onclick="msvAdd()">+ Add preset</button>
-        <button type="button" class="btn btn-secondary" onclick="msvSave()">Save library</button>
+        <button type="button" class="btn" onclick="msvSave()">Save library</button>
         <label style="margin:0 0 0 8px;font-weight:400;display:flex;align-items:center;gap:6px;cursor:pointer;">
-            <input type="checkbox" id="msv-typo" checked> Apply font &amp; buttons too
+            <input type="checkbox" id="msv-typo" checked> “Use for this site” applies font &amp; buttons too
         </label>
-        <button type="button" class="btn" onclick="msvApply()">Use selected preset for this site →</button>
         <span id="msv-msg" class="hint" style="margin-left:4px;"></span>
     </div>
+    <p class="hint" style="margin:8px 0 0;">Edit &amp; add presets, tick which are <strong>in multisite rotation</strong>, then <strong>Save library</strong>. To set <em>this</em> site's own brand, click <strong>Use for this site →</strong> on a preset (applies its look + regenerates the logo now).</p>
 
     <!-- Real POST for the single-site apply (full reload → shows the applied theme). -->
     <form id="msv-apply-form" action="save.php" method="post" style="display:none;">
@@ -108,9 +108,10 @@ function msvCardHtml(i){
       + '<div style="flex:0 0 250px;">'
       +   '<img class="msv-logo" alt="logo" style="width:100%;background:#fff;border:1px solid #eee;border-radius:6px;padding:8px;min-height:56px;">'
       +   '<div style="margin-top:8px;display:flex;align-items:center;gap:8px;"><img class="msv-fav" alt="favicon" width="44" height="44" style="border-radius:9px;border:1px solid #eee;"><span class="hint">favicon</span></div>'
-      +   '<div style="margin-top:10px;display:flex;flex-direction:column;gap:7px;">'
-      +     '<label style="margin:0;font-weight:400;display:flex;align-items:center;gap:7px;cursor:pointer;font-size:.9rem;">'
-      +       '<input type="radio" name="msv-single" class="msv-single" data-i="'+i+'"'+(isSingle?' checked':'')+'> <strong>Use for this site</strong>'+(isSingle?' <span class="hint" style="color:#2563eb;">(current)</span>':'')+'</label>'
+      +   '<div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;">'
+      +     (isSingle
+      +        ? '<div style="font-size:.85rem;color:#2563eb;font-weight:700;">★ This site’s brand</div>'
+      +        : '<button type="button" class="btn btn-secondary" style="padding:5px 10px;font-size:.85rem;align-self:flex-start;" onclick="msvUse('+i+')">Use for this site →</button>')
       +     '<label style="margin:0;font-weight:400;display:flex;align-items:center;gap:7px;cursor:pointer;font-size:.9rem;">'
       +       '<input type="checkbox" class="msv-rot" data-i="'+i+'"'+(p.in_rotation!==false?' checked':'')+'> In multisite rotation</label>'
       +   '</div>'
@@ -139,9 +140,6 @@ function msvRender(){
     });
     document.querySelectorAll('#msv-list .msv-rot').forEach(function(el){
         el.addEventListener('change', function(){ MSV[+el.getAttribute('data-i')].in_rotation = el.checked; });
-    });
-    document.querySelectorAll('#msv-list .msv-single').forEach(function(el){
-        el.addEventListener('change', function(){ if (el.checked){ MSV_SINGLE = +el.getAttribute('data-i'); } });
     });
     document.getElementById('msv-count').textContent = MSV.length + ' / 10 presets';
     document.getElementById('msv-add').disabled = MSV.length >= 10;
@@ -177,18 +175,17 @@ function msvSave(cb){
       })
       .catch(function(){ msg.style.color='#dc2626'; msg.textContent='Network error.'; if(cb)cb(false); });
 }
-function msvApply(){
-    if (MSV_SINGLE < 0){ alert('Pick a preset first — select "Use for this site" on one of the cards.'); return; }
-    var p = MSV[MSV_SINGLE];
+function msvUse(i){
+    var p = MSV[i];
     var typo = document.getElementById('msv-typo').checked;
-    var warn = 'Apply "'+(p.name||'preset')+'" to THIS site?\n\nThis overwrites the site\'s '
+    var warn = 'Make "'+(p.name||'preset')+'" this site\'s brand?\n\nThis overwrites the site\'s '
              + (typo ? 'colors, font and button style' : 'colors')
              + ' and regenerates the logo + favicon.';
     if (!confirm(warn)) return;
-    // Save the library first so the applied version matches what you see, then submit.
+    // Save the library first (so the applied version + any edits match), then apply.
     msvSave(function(ok){
         if(!ok) return;
-        document.getElementById('msv-apply-id').value = MSV_SINGLE + 1;
+        document.getElementById('msv-apply-id').value = i + 1;
         document.getElementById('msv-apply-typo').value = typo ? '1' : '';
         document.getElementById('msv-apply-form').submit();
     });
