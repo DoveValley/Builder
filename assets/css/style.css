@@ -2787,6 +2787,11 @@ body { padding-bottom: 70px; }
     .hg-tile-icon { width: 36px; height: 36px; }
     .hg-tile-label { font-size: 0.78rem; }
 }
+/* Very small screens: 2 columns so long pest labels don't cram into 3 narrow cells */
+@media (max-width: 480px) {
+    .hg-grid { grid-template-columns: repeat(2, 1fr); }
+    .hg-tile { min-height: 108px; }
+}
 
 /* ============================================================
    SERVICE CARDS GRID (icon circle + heading + text, centered)
