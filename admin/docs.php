@@ -282,6 +282,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#ai-standalone">Standalone mode</a>
         <a href="#ai-enrich">Enrich mode</a>
         <a href="#ai-locking">Locking</a>
+        <a href="#ai-concurrency">Concurrent generation (workers)</a>
         <a href="#ai-workflow">Full workflow</a>
 
         
@@ -1018,6 +1019,9 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
     <div class="callout warn">
         <p><strong>Cost warning:</strong> AI generation makes Anthropic API calls. Each page costs roughly $0.01–$0.05 depending on block count and model chosen. Review the estimate before confirming.</p>
     </div>
+
+    <h3>Live progress &amp; worker bars</h3>
+    <p>Landing pages generate <strong>concurrently</strong> (8 at a time by default). While a run is in flight the panel shows a global <em>Block X of Y</em> bar plus a grid of <strong>per-worker bars</strong> — one per worker slot, each naming the page it is building and its progress through that page's blocks. The bars build themselves from the run's own output; there is nothing to switch on. See <a href="#ai-concurrency">Concurrent generation (workers)</a> for how it works and when to drop to <code>--workers 1</code>.</p>
 
     <h3>City Coverage</h3>
     <p>A table showing how many pages exist for each template × city combination — effectively a summary of the status grid from the City Pages tab. Use this to quickly see which templates have gaps (cities that have not been generated yet).</p>
@@ -2425,6 +2429,35 @@ Output valid JSON only — no explanation.</code></pre>
         <li><code>locked_blocks: [0, 3, 7]</code> on the page (explicit index list, set by admin or tooling)</li>
     </ul>
     <p>To force-regenerate locked blocks, use the <strong>Force Regenerate</strong> option in the Generate tab — this ignores both lock sources and replaces all blocks fresh from the template.</p>
+</section>
+
+<section id="ai-concurrency">
+    <h2>Concurrent generation (workers)</h2>
+    <p>Landing-page generation runs <strong>in parallel</strong>. Since every city landing page is independent — each owns its own JSON file and shares nothing mutable with the others — <code>generate.py</code> spreads them across a pool of worker threads instead of processing one page at a time. On a large site this is the difference between roughly an hour and under ten minutes; the API cost is unchanged (the same blocks are generated either way).</p>
+
+    <h3>The <code>--workers</code> flag</h3>
+    <ul>
+        <li><code>--workers N</code> — number of landing pages generated at once. <strong>Default 8.</strong></li>
+        <li><code>--workers 1</code> — old sequential behaviour (one page at a time). Use it if you ever need to read the raw log linearly or suspect a concurrency issue.</li>
+        <li>Concurrency only kicks in with more than one page in scope; a single-page run is effectively sequential regardless of the flag.</li>
+        <li>Blocks <em>within</em> a single page still generate one after another (~30s/page). Only pages run in parallel — that is the layer that scales.</li>
+    </ul>
+    <div class="callout"><strong>Why this is safe.</strong> Pages never write to the same file, so there is no output contention. The three shared resources are explicitly locked: token/cost accounting (<code>_usage_lock</code>), the progress counter (<code>_progress_lock</code>, so the live bar stays monotonic), and the Anthropic client (<code>_client_lock</code>, created once and reused across threads). Transient/429 errors are retried with backoff inside each worker, so one flaky call doesn't fail the batch.</div>
+
+    <h3>Live progress in the AI Generation tab</h3>
+    <p>When a run starts, the panel shows two things at once:</p>
+    <ul>
+        <li>A <strong>global bar</strong> — <em>Block X of Y</em> across the whole run, with a remaining count.</li>
+        <li>A <strong>grid of per-worker bars</strong> — one small bar per worker slot, each showing the page that worker is currently building and its block progress within that page. Bars appear as soon as the run reports how many workers it launched, update as each block finishes, and clear when the run ends.</li>
+    </ul>
+    <p>This is driven by a small stdout protocol that <code>generate.py</code> prints and <code>admin/ai_generate.php</code> translates into a live NDJSON event stream for the browser:</p>
+    <table>
+        <tr><th>Line printed by generate.py</th><th>UI event</th><th>Drives</th></tr>
+        <tr><td><code>__WORKERS__ N</code></td><td><code>workers_init</code></td><td>How many per-worker bars to draw</td></tr>
+        <tr><td><code>__PROGRESS__ done/total</code></td><td><code>progress</code></td><td>The global bar</td></tr>
+        <tr><td><code>__WBAR__ slot done total page</code></td><td><code>worker</code></td><td>One worker's current page + block progress</td></tr>
+    </table>
+    <p>Each worker's slot number (0…N-1) is derived from its thread name, and a thread-local per-block callback fires once per completed block — advancing both that worker's own bar and the global bar. Nothing extra to configure: open the AI Generation tab, run a multi-page scope, and the worker grid appears automatically.</p>
 </section>
 
 <section id="ai-workflow">
@@ -4078,6 +4111,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><strong>Run campaign</strong> — set concurrency, limit and retries, optionally toggle <em>No AI</em> / <em>Force</em>, then Run. The run detaches into the background and the page polls a live progress bar (rows done, files uploaded, running cost).</li>
         <li><strong>Recent runs</strong> — a history of past runs with result + cost, each with a <strong>retry failed</strong> button that re-runs only that run's failed rows.</li>
     </ol>
+    <div class="callout"><strong>Two levels of concurrency.</strong> The tab's <em>concurrency</em> setting (the CLI <code>--jobs=N</code>) controls how many <strong>sites</strong> build at the same time — each is a separate <a href="#ms-process-model">process</a>. <em>Inside</em> each site, <code>build_one.php</code> invokes <code>generate.py</code> with its default <strong>8 landing-page workers</strong> (see <a href="#ai-concurrency">Concurrent generation</a>), so that site's pages generate in parallel too. The multisite progress bar tracks the <em>site</em> level — the per-worker bars from the AI Generation tab are not surfaced here, because each site is a detached background process whose page-level output is folded into its row's log. Effective peak API concurrency is roughly <code>jobs × 8</code>, so raise <em>jobs</em> gradually and watch for rate-limit backoff in the logs.</div>
     <p>Backed by <code>admin/multisite_api.php</code> (upload / status / run / run_status / list_runs / retry_failed / sample_csv / download_csv / list_versions / download_version / restore_version), <code>admin/multisite_preflight.php</code> (SSE pre-flight), the <a href="#ms-visual-identity">Visual Identity</a> panel (<code>admin/tabs/multisite_visual.php</code> + <code>admin/visual_preview.php</code> + <code>admin/visual_presets_save.php</code>), and CSRF-protected save handlers. The <strong>Niche Brief</strong> tab (see AI Content) authors the master's AI vocabulary.</p>
     <div class="callout tip">Start with a small <em>limit</em> (e.g. 2) and review the first sites before scaling to the full table.</div>
 </section>
@@ -4110,7 +4144,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <h2>Options &amp; flags</h2>
     <table>
         <tr><th>Flag</th><th>Effect</th></tr>
-        <tr><td><code>--jobs=N</code></td><td>Build up to N sites concurrently (default 1). Cuts wall-clock on AI runs.</td></tr>
+        <tr><td><code>--jobs=N</code></td><td>Build up to N <strong>sites</strong> concurrently (default 1). Cuts wall-clock on AI runs. Separate from the 8 landing-page workers each site build uses internally — see the "Two levels of concurrency" note under <a href="#ms-admin-multisite">The MultiSite tab</a>.</td></tr>
         <tr><td><code>--retries=N</code></td><td>Re-run a failed row up to N times.</td></tr>
         <tr><td><code>--no-ai</code></td><td>Skip AI generation (identity + build + deploy only) — fast.</td></tr>
         <tr><td><code>--force</code></td><td>Regenerate AI copy (ignore cache) + full FTP re-upload.</td></tr>
