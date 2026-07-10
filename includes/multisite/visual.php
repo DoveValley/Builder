@@ -43,9 +43,14 @@ function ms_pick_theme_preset(string $masterId, array $params): ?array {
         // Unrecognised value → fall through to the hash rotate rather than fail the row.
     }
 
+    // Auto-assign: rotate deterministically across only the presets flagged for the
+    // multisite rotation pool (in_rotation !== false). If none are flagged, fall back
+    // to all so a build never fails for lack of a pool.
+    $pool = array_values(array_filter($presets, fn($p) => ($p['in_rotation'] ?? true) !== false));
+    if (!$pool) $pool = $presets;
     $domain = preg_replace('#^https?://#i', '', rtrim($params['domain'] ?? '', '/'));
-    $idx = ms_variant($domain, count($presets), 'theme');
-    return $presets[$idx] ?? $presets[0];
+    $idx = ms_variant($domain, count($pool), 'theme');
+    return $pool[$idx] ?? $pool[0];
 }
 
 /** Perceived-luminance test — true if the color is light (→ use dark text on it). */

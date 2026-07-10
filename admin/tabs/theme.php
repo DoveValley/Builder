@@ -41,47 +41,18 @@
             </p>
         </div>
 
+        <!-- Visual Identity library (the "factory"): create presets, pick this site's
+             brand, flag the multisite rotation. Sits OUTSIDE the theme form. -->
+        <?php require __DIR__ . '/multisite_visual.php'; ?>
+
         <form action="save.php" method="post" id="theme-form">
             <input type="hidden" name="section" value="theme">
             <div style="margin-bottom:16px;"><button type="submit" class="btn">Save Theme</button></div>
 
-            <!-- ① THEME PRESET -->
-            <div class="card">
-                <h2>① Theme Preset <span class="hint" style="font-weight:400;">— start here</span></h2>
-                <?php if ($themePresets): ?>
-                <p class="hint" style="margin-bottom:12px;">Loads a full palette (colors, font, button shape) into the fields below. Review, then <strong>Save Theme</strong>.</p>
-                <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
-                    <select id="theme_preset_pick" style="min-width:220px;padding:6px;">
-                        <?php foreach ($themePresets as $ti => $p): ?>
-                        <option value="<?= (int)$ti ?>"><?= h($p['name'] ?? ('Preset ' . ($ti + 1))) ?><?= !empty($p['note']) ? ' — ' . h($p['note']) : '' ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                    <button type="button" class="btn btn-secondary" onclick="applyThemePreset()">Apply preset →</button>
-                    <span id="preset_applied_msg" class="hint" style="color:#059669;display:none;">Loaded — review the fields below, then Save Theme.</span>
-                </div>
-                <script>
-                var THEME_PRESETS = <?= json_encode($themePresets, JSON_UNESCAPED_SLASHES) ?>;
-                function _tpSet(id, v){ var el=document.getElementById(id); if(!el)return; el.value=v; var p=document.getElementById(id+'_picker'); if(p&&/^#[0-9a-fA-F]{6}$/.test(v))p.value=v; }
-                function applyThemePreset(){
-                    var p = THEME_PRESETS[document.getElementById('theme_preset_pick').value]; if(!p)return;
-                    var t = p.theme || {};
-                    ['footer_bg','footer_text','header_top_bg','content_bg','border_color','accent_color','accent2_color','btn_text'].forEach(function(k){ if(t[k]!=null)_tpSet(k,t[k]); });
-                    if(t.button_radius!=null)_tpSet('button_radius', t.button_radius);
-                    if(t.primary_font!=null)_tpSet('primary_font', t.primary_font);
-                    if(t.heading_font!=null)_tpSet('heading_font', t.heading_font);
-                    if(t.header_text!=null)_tpSet('nav_text', t.header_text);   // bar text mirrors header text
-                    if(t.skins){ for(var sk in t.skins){ for(var pr in t.skins[sk]){ _tpSet('skin_'+sk+'_'+pr, t.skins[sk][pr]); if(window.updateSkinSwatch)updateSkinSwatch(sk); } } }
-                    var nb = (p.header||{}).nav_bg || 'accent';
-                    var mode = (nb==='accent'||nb==='') ? 'accent' : 'custom';
-                    var r = document.querySelector('input[name=nav_bg_mode][value='+mode+']'); if(r){ r.checked=true; }
-                    if(mode==='custom')_tpSet('nav_bg_custom', nb);
-                    navBgModeToggle();
-                    document.getElementById('preset_applied_msg').style.display='inline';
-                }
-                </script>
-                <?php else: ?>
-                <p class="hint" style="margin:0;">No presets defined for this site's niche yet. Theme Presets live in <code>sites/{site}/multisite/theme_presets.json</code> — they give each generated site a distinct palette.</p>
-                <?php endif; ?>
+            <!-- ① THEME PRESET → now handled by the Visual Identity panel above -->
+            <div class="card" style="background:#f8fafc;border-left:3px solid #2563eb;">
+                <h2 style="margin-top:0;">① Theme Preset <span class="hint" style="font-weight:400;">— start here</span></h2>
+                <p class="hint" style="margin:0;">Use the <strong>Visual Identity — Presets</strong> panel at the top of this tab: click <strong>“Use for this site”</strong> on a preset to set this site's whole look (colors + font + buttons) and regenerate its logo &amp; favicon in one step. The fields below are for fine-tuning after.</p>
             </div>
 
             <!-- ② BRAND COLORS -->

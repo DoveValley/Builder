@@ -50,8 +50,26 @@ $researchOn  = !empty($nicheBrief['uses_research_fields']);
     <div id="ms-lint-results" style="margin-top:14px;"></div>
 </div>
 
-<!-- ===== VISUAL IDENTITY EDITOR (isolated include) ===== -->
-<?php require __DIR__ . '/multisite_visual.php'; ?>
+<!-- ===== VISUAL IDENTITY (summary — editor now lives on the Theme tab) ===== -->
+<?php
+$vpDocMs   = @json_decode((string)@file_get_contents(ACTIVE_SITE_DIR . '/multisite/theme_presets.json'), true) ?: [];
+$vpAllMs   = is_array($vpDocMs['presets'] ?? null) ? $vpDocMs['presets'] : [];
+$vpRotMs    = array_values(array_filter($vpAllMs, fn($p) => ($p['in_rotation'] ?? true) !== false));
+?>
+<div class="card" id="ms-visual">
+    <h3 style="margin-top:0;">Visual Identity — Presets</h3>
+    <?php if ($vpAllMs): ?>
+    <p class="hint" style="margin-bottom:8px;">This master has <strong><?= count($vpAllMs) ?></strong> preset<?= count($vpAllMs) === 1 ? '' : 's' ?>; the build rotates through the <strong><?= count($vpRotMs) ?></strong> flagged <em>in rotation</em> when generating sites (a row's <code>theme_preset</code> column overrides). Presets in rotation:</p>
+    <ul style="margin:0 0 10px 18px;line-height:1.7;">
+        <?php foreach ($vpAllMs as $p): $on = ($p['in_rotation'] ?? true) !== false; ?>
+        <li><?= $on ? '✅' : '⬜' ?> <strong><?= h($p['name'] ?? 'Preset') ?></strong> <span class="hint"><?= $on ? '' : '(single-site only)' ?></span></li>
+        <?php endforeach; ?>
+    </ul>
+    <?php else: ?>
+    <p class="hint" style="margin-bottom:8px;">No presets yet.</p>
+    <?php endif; ?>
+    <p class="hint" style="margin:0;">Create, edit, and flag presets — and pick this site's own brand — in the <strong>Visual Identity — Presets</strong> panel on the <a href="index.php?tab=theme#ms-visual">Theme tab</a>.</p>
+</div>
 
 <!-- ===== UPLOAD CARD ===== -->
 <div class="card" id="ms-upload">

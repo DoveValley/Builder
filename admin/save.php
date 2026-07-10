@@ -36,6 +36,10 @@ switch ($section) {
         break;
 
     /* ---- GENERATE BRAND (palette -> logo + favicon) ---- */
+    case 'apply_preset':
+        require __DIR__ . '/save/apply_preset.php';
+        break;
+
     case 'generate_brand':
         require __DIR__ . '/save/generate_brand.php';
         break;

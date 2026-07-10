@@ -29,11 +29,14 @@ foreach ($in as $p) {
     $radius = (string)max(0, min(50, (int)($p['radius'] ?? 5)));
     $icon   = basename((string)($p['icon'] ?? ''));
     if ($icon !== '' && !is_file($iconDir . $icon)) $icon = '';   // drop a missing icon
+    // Multisite rotation pool membership (default true = in the pool).
+    $inRotation = array_key_exists('in_rotation', $p) ? (bool)$p['in_rotation'] : true;
     $presets[] = [
         'id'   => $i,
         'name' => $name,
         'note' => trim((string)($p['note'] ?? '')),
         'icon' => $icon,
+        'in_rotation' => $inRotation,
         'theme' => [
             'accent_color'  => $accent,
             'header_bg'     => $dark,
@@ -53,9 +56,16 @@ if (!$presets) { echo json_encode(['ok' => false, 'error' => 'No valid presets.'
 
 $file     = ACTIVE_SITE_DIR . '/multisite/theme_presets.json';
 $existing = @json_decode((string)@file_get_contents($file), true) ?: [];
+
+// Single-site brand selection: which preset id this site itself uses (0/blank = none).
+$singleId = isset($_POST['single_preset_id']) && ctype_digit((string)$_POST['single_preset_id'])
+    ? (int)$_POST['single_preset_id'] : (int)($existing['single_preset_id'] ?? 0);
+if ($singleId > count($presets)) $singleId = 0;   // stale id (preset removed) → clear
+
 $doc = [
-    '_about'  => $existing['_about'] ?? 'Per-niche Theme Presets. Applied per site by the multisite build (merge preset.theme→data theme, preset.header→data header) + a generated logo/favicon in the preset colors with preset.icon.',
+    '_about'  => $existing['_about'] ?? 'Per-site Visual Identity library. Each preset = colors + font + button radius + bug icon → drives the theme, logo, and favicon. `single_preset_id` = the preset applied to THIS site; `in_rotation` per preset = whether the multisite build rotates through it when generating clones.',
     'niche'   => $existing['niche'] ?? '',
+    'single_preset_id' => $singleId,
     'presets' => $presets,
 ];
 
