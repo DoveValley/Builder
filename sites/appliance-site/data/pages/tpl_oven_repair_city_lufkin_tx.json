@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_oven_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "oven-repair-lufkin-tx",
+  "title": "Oven Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Oven Repair in {city_state}",
+      "hs_subtext": "In Lufkin households, a broken oven disrupts more than just dinner plans—it affects your family's routine and comfort. Wells Appliance Repair provides factory-trained oven repair service to get your unit working reliably again, with prompt, dependable service backed by warranty protection.",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Oven",
+      "hs_caption2": "Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "Oven Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:57:55.478976Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "06e32cda97c93723",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Oven Repair Services in Lufkin, TX",
+      "text": "<p>A broken oven disrupts your daily routine and forces your family to rely on takeout or limited cooking alternatives—an inconvenience that grows costly and frustrating quickly. In Lufkin, where home-cooked meals matter, a malfunctioning oven isn't just an appliance issue; it's a genuine hardship. Whether your oven won't heat, the door latch is broken, or the thermostat is unreliable, delays in repair can lead to further damage and higher replacement costs down the road. Professional oven repair matters because a trained technician diagnoses the root cause accurately, restores your appliance safely, and gets your kitchen back to normal—not a handyman with guesswork.</p><p>Wells Appliance Repair brings factory-trained expertise to every oven repair call in Lufkin. Our technicians diagnose problems methodically, source quality replacement parts, and stand behind our work with warranty protection. We believe in transparent, upfront pricing so you know exactly what to expect before we begin. Beyond ovens, we service a wide range of home appliances and brands, but we focus on getting your specific unit running reliably again. When your oven fails, you need fast, dependable help—not promises. Contact Wells Appliance Repair today to schedule your repair and restore comfort to your home.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:57:59.846470Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "9d1419376c899cc9",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "by_brand",
+      "html": "[services_links appliance_type=\"self\" heading=\"Repair by Brand in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Oven Won't Heat",
+          "text": "A non-heating oven often stems from a faulty heating element, broken igniter, or thermostat failure. Wells Appliance Repair technicians quickly diagnose the cause and restore your oven to working order."
+        },
+        {
+          "heading": "Temperature Won't Stay Consistent",
+          "text": "Uneven or fluctuating oven temperatures typically indicate a malfunctioning thermostat or sensor. Our experienced technicians test and replace these components so your food cooks evenly every time."
+        },
+        {
+          "heading": "Door Won't Close Properly",
+          "text": "A loose or damaged door seal, broken latch, or misaligned hinges prevent proper closure and heat retention. Wells Appliance Repair adjusts or replaces these parts to restore a tight seal."
+        },
+        {
+          "heading": "Interior Light Not Working",
+          "text": "A burnt-out bulb or faulty socket prevents you from seeing inside while cooking. We quickly replace the light assembly so you can monitor your meals without opening the door."
+        },
+        {
+          "heading": "Error Code on Display",
+          "text": "Digital ovens show error codes when sensors, controls, or heating elements malfunction. Our technicians interpret these signals and repair or replace the faulty component promptly."
+        },
+        {
+          "heading": "Oven Self-Clean Cycle Stuck",
+          "text": "If your self-cleaning cycle won't start or complete, the latch assembly or control board may be damaged. Wells Appliance Repair diagnoses the issue and restores full functionality to your oven."
+        }
+      ],
+      "fc_heading": "Common Oven Repair Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:58:03.778635Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "7f00dbe7a72910a7",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Oven Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Oven Specialists",
+          "text": "Our technicians are trained on gas and electric oven systems, heating elements, thermostats, and control boards. We diagnose oven faults accurately and repair them right the first time."
+        },
+        {
+          "heading": "Fast Oven Repair, Same-Day Service",
+          "text": "We understand a broken oven disrupts your kitchen routine. We respond promptly to Lufkin calls and aim for same-day or next-day oven repair service whenever possible."
+        },
+        {
+          "heading": "Upfront Pricing & Warranty Protection",
+          "text": "We provide free estimates before any oven repair work begins. All repairs are backed by our warranty, giving you confidence in quality workmanship and parts."
+        },
+        {
+          "heading": "Local Lufkin Oven Repair You Trust",
+          "text": "Wells Appliance Repair is locally operated and responsive to Lufkin homeowners. We serve your neighborhood with trained technicians who know your community and deliver reliable service."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:58:07.036448Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "f28972ad5d3e2d15",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need this appliance repaired in {city}? Call our team.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common oven problems that need professional repair?",
+          "answer": "Common oven issues include uneven heating, failure to heat at all, broken heating elements, malfunctioning thermostats, faulty door seals, ignition problems in gas models, and control board failures. If your oven won't reach temperature, cooks unevenly, or displays error codes, professional diagnosis is needed to identify the exact cause and determine the best repair path."
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair send a technician to Lufkin?",
+          "answer": "We understand a broken oven disrupts your household. We prioritize rapid scheduling for oven repairs across the Lufkin area and work to accommodate urgent requests when possible. Contact us with your situation, and we'll discuss availability and get you on the calendar as soon as we can."
+        },
+        {
+          "question": "Do you offer free estimates or diagnostics for oven repair?",
+          "answer": "Yes, we provide diagnostic evaluations so you understand what's wrong before committing to repair. This transparent approach lets you make an informed decision about whether to proceed. We'll explain findings clearly and discuss your options, including cost factors that influence the final price."
+        },
+        {
+          "question": "Are your oven repair technicians trained to work on my brand?",
+          "answer": "Our technicians are factory-trained and experienced with all major oven brands and models, whether electric or gas. They understand brand-specific systems, components, and repair procedures, ensuring your appliance is serviced correctly and safely, regardless of manufacturer."
+        },
+        {
+          "question": "Should I repair my broken oven or buy a new one?",
+          "answer": "The decision depends on the oven's age, the repair cost, and its condition overall. Newer ovens with single, repairable issues are usually worth fixing. Older models with multiple problems or significant damage may justify replacement. Our technician will assess your unit and provide honest guidance to help you decide."
+        },
+        {
+          "question": "What should I do to prepare before the oven repair technician arrives?",
+          "answer": "Clear the area around and beneath your oven so the technician has safe access. If your oven is built-in, ensure the kitchen is accessible. Have any warranty information handy and note when problems started and what you've observed. This context helps the technician diagnose faster and work more efficiently."
+        },
+        {
+          "question": "Will repairs to my oven include a warranty on parts and labor?",
+          "answer": "Yes, we stand behind our work with warranties on both parts and labor. This gives you confidence that the repair is reliable. We'll explain warranty terms clearly when you approve the service, so you know exactly what's covered."
+        },
+        {
+          "question": "When should I call a professional instead of trying to fix my oven myself?",
+          "answer": "Call a professional immediately if your oven won't heat, has electrical issues, shows error codes, or if you smell gas. Oven repairs involve high heat, electrical components, and gas lines—DIY attempts risk safety hazards and void warranties. Professional service ensures the job is done safely and correctly."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:58:15.165716Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "44fc2d0631c75ccc",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_types",
+      "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Schedule your {city} repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Oven Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/oven-repair-lufkin-tx/",
+    "meta_description": "Professional oven repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "oven repair Lufkin TX",
+    "og_title": "Oven Repair in {city_state} | {business}",
+    "og_description": "Professional oven repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Oven Repair",
+    "service_type": "Oven Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional oven repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "oven repair",
+    "secondary_keywords": "",
+    "brand": "",
+    "appliance_type": "Oven",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Oven Repair in Lufkin, TX\",\"serviceType\":\"Oven Repair\",\"description\":\"Professional oven repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "3bbccdd8f2298f251421f293459480b8"
+}

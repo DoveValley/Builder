@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_amana_refrigerator_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "amana-refrigerator-repair-lufkin-tx",
+  "title": "Amana Refrigerator Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Amana Refrigerator Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a refrigerator breakdown means far more than an inconvenience—it threatens food safety and daily routine. Wells Appliance Repair provides factory-trained service for Amana refrigerator repairs, handling everything from cooling issues to component failures with the precision your kitchen depends on. We're committed to prompt, warranty-backed repairs that get your appliance running reliably again.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Amana",
+      "hs_caption2": "Refrigerator Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "Amana Refrigerator Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:05:54.340469Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "520932d4acf45ad0",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Amana Refrigerator Repair Services in Lufkin, TX",
+      "text": "<p>A broken refrigerator is more than an inconvenience—it's a genuine household crisis. In Lufkin, where the climate demands reliable cooling year-round, a malfunctioning Amana refrigerator puts your food at risk and disrupts daily life within hours. Whether the compressor has stopped running, the ice maker has failed, or cooling has dropped suddenly, the longer you wait, the greater the risk of food spoilage and the higher your repair or replacement costs become. Professional repair from a trained technician is not a luxury; it's the fastest, most cost-effective way to restore your kitchen to normal.</p><p>Wells Appliance Repair specializes in Amana refrigerator repair throughout Lufkin and brings factory-trained expertise to every job. Our technicians understand Amana's design and engineering, allowing us to diagnose problems accurately and repair them right the first time. We source quality replacement parts, provide upfront pricing so you know what to expect, and stand behind our work with a warranty you can trust. Whether your issue is a cooling malfunction, electrical problem, or mechanical failure, we're equipped to help. When your Amana refrigerator needs repair, Wells Appliance Repair is your local partner—ready to get your appliance working again and your household back on track.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:05:58.446825Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "e90461a6c04587a0",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Fridge Not Cooling",
+          "text": "A warm refrigerator often stems from a faulty compressor, blocked airflow, or a failing thermostat. Our Lufkin technicians diagnose the root cause and restore proper cooling to keep your food safe."
+        },
+        {
+          "heading": "Freezer Not Freezing",
+          "text": "Frozen food thawing indicates issues with the evaporator coils, damper control, or refrigerant levels. Wells Appliance Repair identifies the problem and performs the necessary repairs quickly."
+        },
+        {
+          "heading": "Leaking Water Inside",
+          "text": "Interior puddles usually result from clogged drain lines, frozen defrost tubes, or a cracked drain pan. Our technicians clear blockages and repair damaged components to stop the leak."
+        },
+        {
+          "heading": "Water Pooling Outside",
+          "text": "Puddles beneath your refrigerator typically come from a misaligned drain line, broken water inlet valve, or defective door seal. We locate and fix the source to prevent floor damage."
+        },
+        {
+          "heading": "Ice Maker Not Working",
+          "text": "A silent ice maker may signal a stuck fill valve, frozen supply line, or faulty ice maker assembly. Wells Appliance Repair diagnoses and repairs the issue to restore ice production."
+        },
+        {
+          "heading": "Loud or Unusual Noises",
+          "text": "Strange sounds often come from a worn compressor, rattling fan blade, or loose interior components. Our technicians identify the noise source and repair or replace the faulty part."
+        }
+      ],
+      "fc_heading": "Common Amana Refrigerator Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:06:02.627584Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "44edc284263cd62e",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Amana Refrigerator Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Amana Expertise",
+          "text": "Our technicians hold training specific to Amana refrigerator systems, diagnostics, and repair procedures. We understand Amana's design and components, ensuring accurate troubleshooting and reliable fixes every time."
+        },
+        {
+          "heading": "Genuine Amana Parts In Stock",
+          "text": "We maintain genuine Amana refrigerator components on hand, reducing wait times. The right part, installed correctly, protects your warranty and restores proper cooling performance."
+        },
+        {
+          "heading": "Upfront Pricing, Warranty-Backed Work",
+          "text": "Receive a free estimate before any Amana refrigerator repair begins. Our work is backed by warranty, and you'll know costs upfront—no surprises when the job is done."
+        },
+        {
+          "heading": "Fast Response Across Lufkin",
+          "text": "Same-day appointments available for Amana refrigerator repair throughout Lufkin. We arrive promptly, diagnose efficiently, and get your refrigerator cooling again without unnecessary delay."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:06:06.182846Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "3577685a246d2620",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Serving Lufkin and Surrounding Communities",
+      "text": "<p>Wells Appliance Repair is here for homeowners across the Lufkin area, from established neighborhoods like Crown Colony and Fuller Springs to newer subdivisions throughout the region. Lufkin's mix of older and newer homes means our technicians regularly work on a wide variety of appliance ages, brands, and models. We understand that when your refrigerator, washer, oven, or dishwasher stops working, you need help fast—not days from now. That's why we dispatch factory-trained technicians who arrive equipped with the knowledge and parts needed to diagnose and repair your appliance promptly.</p><p>Whether your home has vintage appliances that have served your family for years or newer models installed in a recent build, we have the expertise and access to genuine components to get things running again. Our technicians stay current with the latest equipment and common issues across all major manufacturers. We're committed to serving Lufkin residents with honest, professional appliance repair service when you need it most.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:06:09.424128Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a21804b85cae7f4e",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common Amana refrigerator problems that need professional repair?",
+          "answer": "<p>Common issues include compressor failure, refrigerant leaks, faulty defrost cycles causing ice buildup, broken ice makers, and temperature control problems. You might notice the fridge running constantly, not cooling properly, leaking water, or making unusual noises. These symptoms usually require professional diagnosis and repair rather than DIY fixes.</p>"
+        },
+        {
+          "question": "Can Wells Appliance Repair come out same-day for my Amana refrigerator in Lufkin?",
+          "answer": "<p>We offer prompt service for Amana refrigerator repairs in the Lufkin area. Same-day availability depends on current demand and call time, so contact us directly to check scheduling. We prioritize urgent cooling issues to minimize food spoilage and get your appliance back online quickly.</p>"
+        },
+        {
+          "question": "Are your technicians trained to work on Amana refrigerators specifically?",
+          "answer": "<p>Yes, our technicians are trained on Amana refrigerators and other major brands. We understand Amana's build, components, and common failure points, ensuring accurate diagnosis and reliable repairs using proper techniques and quality parts matched to your model.</p>"
+        },
+        {
+          "question": "Should I repair or replace my Amana refrigerator?",
+          "answer": "<p>That depends on the repair cost, your unit's age, and repair frequency. We recommend professional evaluation first—many repairs are cost-effective and extend appliance life significantly. Our technicians can advise whether repair makes sense for your specific situation and budget.</p>"
+        },
+        {
+          "question": "Do you offer free estimates or diagnostics for Amana refrigerator repair?",
+          "answer": "<p>We provide diagnostic service to identify the exact problem with your Amana refrigerator. Contact us to discuss our estimate process and what's involved in assessing your unit. Knowing the cause helps you make an informed repair decision.</p>"
+        },
+        {
+          "question": "What should I do to prepare for an Amana refrigerator repair appointment?",
+          "answer": "<p>Clear the area around your refrigerator so the technician has access. Note any symptoms you've observed—sounds, temperature issues, leaks—and your model number if available. Keep children and pets away during service. We'll handle the rest and explain findings when complete.</p>"
+        },
+        {
+          "question": "Are Amana refrigerator repairs and parts covered by warranty?",
+          "answer": "<p>Our repairs come with warranty coverage on labor and parts. The specific warranty terms depend on the repair and parts used. We'll explain coverage details before and after service so you understand your protection.</p>"
+        },
+        {
+          "question": "How do I prevent future Amana refrigerator problems and breakdowns?",
+          "answer": "<p>Keep the condenser coils clean, ensure proper ventilation around the unit, check door seals regularly, and avoid overloading shelves. Have ice maker filters replaced as recommended. Regular maintenance catches small issues early, reducing the risk of costly failures later.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:06:16.901139Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "d8749a075b3fd46b",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Amana Refrigerator Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/amana-refrigerator-repair-lufkin-tx/",
+    "meta_description": "Professional amana refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "amana refrigerator repair Lufkin TX",
+    "og_title": "Amana Refrigerator Repair in {city_state} | {business}",
+    "og_description": "Professional amana refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Amana Refrigerator Repair",
+    "service_type": "Amana Refrigerator Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional amana refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "amana refrigerator repair",
+    "secondary_keywords": "",
+    "brand": "Amana",
+    "appliance_type": "Refrigerator",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Amana Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"Amana Refrigerator Repair\",\"description\":\"Professional amana refrigerator repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "88ab464551f7c78104342ba006297d9c"
+}

@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_dacor_range_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "dacor-range-repair-lufkin-tx",
+  "title": "Dacor Range Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Dacor Range Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a Dacor range is often central to daily cooking and meal preparation, making a breakdown more than an inconvenience. Wells Appliance Repair specializes in diagnosing and repairing Dacor ranges with factory-trained expertise tailored to these high-performance units. We're committed to prompt service backed by our warranty, so your kitchen gets back to normal quickly.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Dacor",
+      "hs_caption2": "Range Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "Dacor Range Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:11:37.027165Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "653573c336d1893b",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Dacor Range Repair for Lufkin Homeowners",
+      "text": "<p>When your Dacor range stops working, your kitchen loses its heart. A broken cooktop or oven disrupts meal preparation, strains your household routine, and can leave you scrambling for alternatives. The longer you wait, the greater the risk of further damage or the temptation to replace an otherwise sound appliance. In Lufkin, where family meals and home cooking remain central to daily life, timely professional repair is essential. A trained technician can diagnose the problem accurately, restore your range safely, and save you the substantial cost of premature replacement.</p><p>Wells Appliance Repair brings factory-trained expertise specifically to Dacor range repair in Lufkin. Our technicians understand Dacor's premium engineering and can pinpoint faults quickly and accurately, whether the issue lies in the ignition system, burners, oven controls, or internal components. We source quality replacement parts and stand behind our work with a warranty you can trust. We also provide upfront, honest pricing so you know exactly what to expect before we begin. Beyond Dacor ranges, we repair many other major appliances and brands throughout the area, but our depth of knowledge in Dacor repair means your premium range receives the specialized attention it deserves. When your Dacor range needs help, call Wells Appliance Repair and get back to cooking with confidence.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:11:41.018718Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "93b6d5b048c6c418",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Oven Won't Heat",
+          "text": "A non-heating oven often points to a faulty igniter, heating element, or thermostat issue. Wells Appliance Repair technicians diagnose the root cause and replace the defective component to restore even baking and roasting."
+        },
+        {
+          "heading": "Burners Not Igniting",
+          "text": "Gas burners that won't light may have a clogged igniter, damaged spark module, or gas supply obstruction. Our technicians clean, test, and repair the ignition system to get your cooktop working reliably again."
+        },
+        {
+          "heading": "Uneven Cooking or Hot Spots",
+          "text": "Inconsistent heat distribution across the oven can result from a damaged heating element, calibration drift, or airflow blockage. Wells Appliance Repair identifies the cause and restores even temperature performance for perfectly cooked meals."
+        },
+        {
+          "heading": "Control Knobs or Touch Panel Not Responding",
+          "text": "Non-responsive controls may stem from a faulty control board, stuck knob mechanism, or electrical connection issue. Our technicians troubleshoot and repair or replace the control system to restore full functionality."
+        },
+        {
+          "heading": "Self-Cleaning Cycle Won't Start",
+          "text": "A self-cleaning cycle that fails to initiate often indicates a latch mechanism problem, control board fault, or thermal sensor issue. Wells Appliance Repair diagnoses the issue and performs the necessary repair or replacement."
+        },
+        {
+          "heading": "Excessive Smoke or Odor",
+          "text": "Unusual smoke or burning smells during cooking may indicate a dirty burner, food debris in the oven, or a deteriorating heating element. Our technicians clean, inspect, and repair components to eliminate the problem safely."
+        }
+      ],
+      "fc_heading": "Common Dacor Range Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:11:45.848682Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "4ea78921b4727c0c",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Dacor Range Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Dacor Expertise",
+          "text": "Our technicians are trained on Dacor Range systems and understand their precision engineering. We diagnose and repair burners, ignition, temperature control, and convection issues accurately and efficiently."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock authentic Dacor Range components and offer same-day or next-day repair appointments. Upfront pricing with free estimates means no surprises—plus warranty-backed work gives you peace of mind."
+        },
+        {
+          "heading": "Accurate Dacor Range Diagnosis",
+          "text": "Rather than guessing, we perform thorough diagnostics on your Dacor Range to pinpoint the real problem. Clear explanations and honest recommendations help you decide the best repair path forward."
+        },
+        {
+          "heading": "Local Lufkin Service, Always Ready",
+          "text": "We're locally trained and responsive across Lufkin and the surrounding area. Quick scheduling and reliable visits mean your kitchen gets back to normal without the wait."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:11:48.872862Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "3d2465c87d36f864",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Serving Lufkin and Surrounding Communities",
+      "text": "<p>Wells Appliance Repair is here for homeowners throughout the Lufkin area, from established neighborhoods like Crown Colony and Fuller Springs to newer developments across the region. Whether your home was built decades ago or recently, you're likely relying on a mix of appliance ages and brands—and when something breaks down, you need fast, reliable help. Our factory-trained technicians understand the differences between older, time-tested models and the latest smart appliances, and we arrive equipped with the right parts and expertise to get your kitchen or laundry room running again.</p><p>We know that a broken refrigerator, oven, washer, or dryer disrupts your daily life. That's why we prioritize quick response times across Lufkin and the surrounding communities. No matter which neighborhood you're in or how common—or unusual—your appliance model is, we have the training and local presence to serve you promptly. When you call Wells Appliance Repair, you're getting a team that understands your area and is ready to help restore your home's comfort.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:11:52.360107Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a21804b85cae7f4e",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common Dacor Range problems that need professional repair?",
+          "answer": "Dacor Ranges frequently develop issues with burner ignition, uneven heating across the cooktop, oven temperature control problems, and malfunctioning convection fans. Display panel failures and gas valve issues also occur regularly. These problems often require factory-trained diagnosis to identify the exact root cause and prevent further damage to internal components."
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair come out for Dacor Range repair in Lufkin?",
+          "answer": "We understand a broken Dacor Range disrupts meal preparation for your household. Wells Appliance Repair offers prompt scheduling with same-day service availability for many Lufkin customers. Contact us to discuss your specific issue and availability—we'll work to get a trained technician to your home as soon as possible."
+        },
+        {
+          "question": "Is it worth repairing my Dacor Range or should I replace it?",
+          "answer": "The repair-versus-replace decision depends on the specific breakdown, your range's age, and repair costs relative to replacement. A professional diagnostic from Wells Appliance Repair will identify what's wrong and outline your options clearly. Many Dacor Range repairs—especially to burners, valves, or igniters—are cost-effective and restore years of reliable use."
+        },
+        {
+          "question": "What should I expect during the Dacor Range repair process?",
+          "answer": "Our technician will arrive, inspect your range thoroughly, identify the failure, and explain findings and repair options before proceeding. We'll perform the repair using quality parts, test all functions to confirm proper operation, and clean up afterward. Most repairs complete in a single visit, though complex issues may require parts ordering."
+        },
+        {
+          "question": "Are Wells Appliance Repair technicians factory-trained for Dacor Ranges?",
+          "answer": "Yes, our technicians are trained to service Dacor Ranges and understand the brand's specific engineering and components. Factory training ensures we diagnose accurately and use correct repair methods that preserve your appliance's performance and safety standards."
+        },
+        {
+          "question": "Do Dacor Range repairs come with a warranty on parts and labor?",
+          "answer": "Wells Appliance Repair stands behind our work. Parts and labor repairs are warranty-backed so you have confidence in the fix. Details will be explained during your service visit—ask your technician about specific coverage terms for your repair."
+        },
+        {
+          "question": "How should I prepare my home before the Dacor Range repair technician arrives?",
+          "answer": "Clear space around your Dacor Range for safe access and maneuvering. Ensure the kitchen is accessible and, if possible, have a household member present. Keep children and pets away during the repair. Have your range's model number available—it's typically on a label inside or near the unit."
+        },
+        {
+          "question": "Does Dacor Range repair cost depend on the problem, and do you offer free diagnostics?",
+          "answer": "Yes, repair costs vary based on what's broken and which parts are needed. Wells Appliance Repair provides a thorough diagnostic and detailed explanation of repair costs before we begin work. Contact us for a free estimate and professional assessment of your Dacor Range issue."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:12:00.623842Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "7cdaec94f175e1ca",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Dacor Range Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/dacor-range-repair-lufkin-tx/",
+    "meta_description": "Professional dacor range repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "dacor range repair Lufkin TX",
+    "og_title": "Dacor Range Repair in {city_state} | {business}",
+    "og_description": "Professional dacor range repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Dacor Range Repair",
+    "service_type": "Dacor Range Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional dacor range repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "dacor range repair",
+    "secondary_keywords": "",
+    "brand": "Dacor",
+    "appliance_type": "Range",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Dacor Range Repair in Lufkin, TX\",\"serviceType\":\"Dacor Range Repair\",\"description\":\"Professional dacor range repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "7f1122b9c2686f498871d3a370ad0a4e"
+}

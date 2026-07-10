@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_frigidaire_oven_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "frigidaire-oven-repair-lufkin-tx",
+  "title": "Frigidaire Oven Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Frigidaire Oven Repair in {city_state}",
+      "hs_subtext": "In Lufkin households, a functioning oven is essential to daily life, and when one fails, it disrupts meal preparation and routines quickly. Wells Appliance Repair specializes in Frigidaire oven repair, addressing issues from heating problems to control malfunctions with factory-trained expertise. Our team works promptly to restore your oven and stands behind repairs with a warranty, getting your kitchen back to normal without unnecessary delay.",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Frigidaire",
+      "hs_caption2": "Oven Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "Frigidaire Oven Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:14:17.044710Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "88447759405aa81a",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Frigidaire Oven Repair Services in Lufkin",
+      "text": "<p>A broken Frigidaire oven disrupts your daily routine and can strain your household budget. When your oven stops heating, won't ignite, or malfunctions, you lose a critical kitchen appliance—and the longer it sits idle, the greater the risk of further damage. In Lufkin, families depend on their ovens for everyday cooking, and a professional repair performed promptly can save you hundreds in replacement costs while restoring comfort and convenience to your home.</p><p>Wells Appliance Repair brings factory-trained expertise to every Frigidaire oven repair in Lufkin. Our technicians diagnose issues accurately, source quality replacement parts, and stand behind their work with warranty coverage. We provide upfront pricing so you know exactly what to expect, and we focus on getting your oven running reliably again—fast. Whether your unit requires a simple fix or more involved service, you can trust our commitment to quality workmanship and honest, professional care for your Frigidaire appliance.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:14:20.262665Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "c4154161082312a5",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Oven Not Heating",
+          "text": "A Frigidaire oven that won't reach temperature often points to a faulty heating element, broken thermostat, or igniter issues. Our technicians diagnose the root cause and replace worn components to restore proper baking and cooking."
+        },
+        {
+          "heading": "Uneven Cooking or Baking",
+          "text": "Hot spots and cold zones inside your oven usually stem from a damaged heating element, poor air circulation, or calibration drift. Wells Appliance Repair identifies the problem and recalibrates or repairs parts for consistent results."
+        },
+        {
+          "heading": "Door Won't Close Properly",
+          "text": "A loose, warped, or misaligned oven door can prevent proper sealing and heat retention. Our technicians inspect hinges, latches, and the door frame, then adjust or replace components to ensure a tight fit."
+        },
+        {
+          "heading": "Display or Controls Not Working",
+          "text": "Control panel failures and blank displays often involve faulty membrane switches, control boards, or wiring problems. Wells Appliance Repair tests and repairs or replaces these electronic components to restore full functionality."
+        },
+        {
+          "heading": "Self-Cleaning Cycle Issues",
+          "text": "If your Frigidaire oven's self-cleaning feature won't start or gets stuck, the issue may be a defective latch assembly, thermal fuse, or control module. Our technicians diagnose and repair these specialized components quickly."
+        },
+        {
+          "heading": "Excessive Smoke or Odors",
+          "text": "Smoke and burnt smells during normal use can indicate food debris, a damaged heating element, or insulation problems inside the oven cavity. We clean, inspect, and repair the source to eliminate the issue safely."
+        }
+      ],
+      "fc_heading": "Common Frigidaire Oven Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:14:24.804742Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "00d586f0e1a7b826",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Frigidaire Oven Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Frigidaire Experts",
+          "text": "Our technicians hold specialized training in Frigidaire oven systems and components. We diagnose heating, ignition, and control issues accurately, ensuring your oven repair is done right the first time."
+        },
+        {
+          "heading": "Genuine Parts, Warranty Protection",
+          "text": "We stock authentic Frigidaire oven parts and back every repair with warranty coverage. Upfront estimates—no surprise charges—let you decide before we begin work on your appliance."
+        },
+        {
+          "heading": "Fast, Same-Day Oven Service",
+          "text": "When your Frigidaire oven stops working, we respond promptly with same-day or next-day appointments. Quick diagnosis and repair minimize downtime in your kitchen."
+        },
+        {
+          "heading": "Local Lufkin Service You Can Count On",
+          "text": "We're trained, locally operated, and committed to serving Lufkin homes with reliable oven repair. Our responsive technicians arrive on schedule and treat your home with respect."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:14:29.463203Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "f71641f6d0a6b36e",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Appliance Repair Serving Lufkin",
+      "text": "<p>Wells Appliance Repair serves homes throughout the Lufkin area, from established neighborhoods like Crown Colony and Fuller Springs to newer developments across the region. This mix of older and newer homes means we encounter a diverse range of appliance ages, brands, and models—everything from vintage refrigerators that have served families for decades to the latest smart-enabled washers and dryers. Our factory-trained technicians are equipped to handle that variety, arriving with the knowledge and genuine parts needed to get your appliance working again.</p><p>When your washer stops mid-cycle or your refrigerator stops cooling, time matters. We respond quickly across the Lufkin region because we understand that a broken appliance disrupts your household. Our technicians arrive prepared with access to the right components and the expertise to diagnose and repair most units promptly. Whether you're in a long-established neighborhood or a newer subdivision, we're here to provide the fast, reliable service your family deserves.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:14:39.478363Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a21804b85cae7f4e",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common Frigidaire oven problems that need professional repair?",
+          "answer": "Frigidaire ovens frequently experience heating issues, temperature calibration problems, faulty ignition systems in gas models, and malfunctioning door latches. Display panel failures, thermostat breakdowns, and burner element problems are also typical. If your oven won't heat evenly, won't turn on, or shows error codes, professional diagnosis is needed to identify the specific component causing trouble."
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair service my Frigidaire oven in Lufkin?",
+          "answer": "<p>We understand a broken oven disrupts your kitchen routine. We work to schedule Frigidaire oven repairs promptly for Lufkin-area customers and offer same-day service when availability allows. Contact us with your appliance details and preferred timing, and we'll confirm the soonest appointment that works for your schedule.</p>"
+        },
+        {
+          "question": "Should I repair my Frigidaire oven or buy a new one?",
+          "answer": "<p>The repair-versus-replace decision depends on your oven's age, the specific problem, and repair costs relative to replacement. Many Frigidaire ovens are worth repairing, especially if they're relatively recent. Our technicians will diagnose the issue and explain your options so you can make an informed choice about what makes sense for your home.</p>"
+        },
+        {
+          "question": "Are Wells Appliance Repair technicians trained to work on Frigidaire ovens?",
+          "answer": "<p>Yes. Our technicians are factory-trained and experienced with Frigidaire appliances. They understand Frigidaire oven design, components, and controls, ensuring your repair is handled correctly by someone who knows your brand inside and out.</p>"
+        },
+        {
+          "question": "What should I do to prepare before the Frigidaire oven repair technician arrives?",
+          "answer": "<p>Clear the area around your oven for easy access. Note any error codes or unusual sounds you've observed and write down when the problem started. Ensure the technician can safely reach electrical outlets and gas connections if applicable. Have your oven's model and serial number available—they're typically on a sticker inside the oven or on the back panel.</p>"
+        },
+        {
+          "question": "Do Frigidaire oven repairs include a warranty on parts and labor?",
+          "answer": "<p>Yes. We stand behind our work. Repairs include warranty coverage on both parts and labor, giving you peace of mind that your Frigidaire oven is protected after service. Ask our technician about the specific terms when they complete your repair.</p>"
+        },
+        {
+          "question": "What does the Frigidaire oven repair process involve step by step?",
+          "answer": "<p>Our technician will inspect your oven, test its components, and run diagnostics to identify the root cause. They'll explain the problem and repair options before proceeding. Once approved, they'll perform the repair using quality replacement parts, then test the oven to confirm it's working properly. The whole process is transparent so you know exactly what's happening.</p>"
+        },
+        {
+          "question": "How can I prevent future Frigidaire oven problems after repair?",
+          "answer": "<p>Avoid slamming the oven door, keep the interior clean to prevent debris buildup, and use proper cookware on racks. Don't overload the oven, and wipe up spills promptly. Have your oven inspected annually if it's heavily used. Regular maintenance and gentle handling extend Frigidaire oven lifespan and reduce the need for repairs.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:14:51.706062Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "0fe4085a8cc45ce6",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Frigidaire Oven Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/frigidaire-oven-repair-lufkin-tx/",
+    "meta_description": "Professional frigidaire oven repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "frigidaire oven repair Lufkin TX",
+    "og_title": "Frigidaire Oven Repair in {city_state} | {business}",
+    "og_description": "Professional frigidaire oven repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Frigidaire Oven Repair",
+    "service_type": "Frigidaire Oven Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional frigidaire oven repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "frigidaire oven repair",
+    "secondary_keywords": "",
+    "brand": "Frigidaire",
+    "appliance_type": "Oven",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Frigidaire Oven Repair in Lufkin, TX\",\"serviceType\":\"Frigidaire Oven Repair\",\"description\":\"Professional frigidaire oven repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "f8252d0b42c1810dbb0c15afd5f03ea2"
+}

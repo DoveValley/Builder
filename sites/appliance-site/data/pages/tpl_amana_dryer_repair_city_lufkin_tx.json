@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_amana_dryer_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "amana-dryer-repair-lufkin-tx",
+  "title": "Amana Dryer Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Amana Dryer Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin, a working dryer is essential to keeping daily routines on track, and a breakdown can quickly disrupt laundry schedules for the entire household. Wells Appliance Repair specializes in Amana dryer repair, diagnosing and fixing issues that keep your unit from operating safely and efficiently. Our factory-trained technicians deliver prompt service backed by warranty protection, so you can get back to normal faster.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Amana",
+      "hs_caption2": "Dryer Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "Amana Dryer Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:04:35.681596Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ab9629e462e71a5c",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Amana Dryer Repair Services in Lufkin",
+      "text": "<p>When your Amana dryer stops working, laundry quickly becomes a household crisis. A broken dryer disrupts your daily routine, forces you to seek alternative solutions, and can lead to expensive emergency repairs if the underlying problem isn't addressed promptly. In Lufkin, where families depend on reliable home appliances, a malfunctioning dryer isn't just an inconvenience—it's a financial concern. Professional repair by a trained technician who understands your specific appliance is far more cost-effective than prolonged downtime or premature replacement, and it ensures the job is done safely and correctly the first time.</p><p>Wells Appliance Repair brings factory-trained expertise to every Amana dryer repair in Lufkin. Our technicians diagnose the root cause of your problem accurately, source genuine parts when needed, and provide upfront pricing so you know exactly what to expect. We stand behind our work with a warranty, giving you confidence that your repair will last. Whether your Amana dryer needs a heating element replacement, drum service, or electrical troubleshooting, we handle it with the same attention to detail and care we apply to all appliance brands. When you need fast, dependable Amana dryer repair in Lufkin, Wells Appliance Repair is ready to restore your appliance and your peace of mind.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:04:39.356667Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "c77835d91646019e",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Dryer Not Heating",
+          "text": "A dryer that runs but produces no heat often points to a faulty heating element, thermal fuse, or igniter. Wells Appliance Repair technicians test and replace these components to restore proper drying performance."
+        },
+        {
+          "heading": "Takes Too Long to Dry",
+          "text": "Slow drying usually stems from a clogged vent, restricted airflow, or a worn blower wheel. Our team clears blockages and inspects internal components to get your Amana dryer running efficiently again."
+        },
+        {
+          "heading": "Drum Won't Rotate",
+          "text": "When the drum stops spinning, a broken drum belt, idler pulley, or motor may be responsible. Wells Appliance Repair diagnoses the cause and replaces the worn part to restore normal operation."
+        },
+        {
+          "heading": "Dryer Won't Start",
+          "text": "A dryer that refuses to start may have a defective door latch, thermal fuse, or power supply issue. Our technicians test the electrical components and switches to pinpoint and repair the problem."
+        },
+        {
+          "heading": "Loud Noise During Cycle",
+          "text": "Grinding, squealing, or thumping sounds usually indicate a worn drum bearing, blower wheel, or idler pulley. Wells Appliance Repair identifies the source of the noise and replaces the faulty part."
+        },
+        {
+          "heading": "Lint Buildup & Poor Airflow",
+          "text": "Excessive lint in the vent system reduces efficiency and poses a fire hazard. We thoroughly clean ducts and vents, then check for blockages to ensure safe, optimal airflow through your dryer."
+        }
+      ],
+      "fc_heading": "Common Amana Dryer Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:04:44.388630Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "715048949e9ab645",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Amana Dryer Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Amana Expertise",
+          "text": "Our technicians are trained on Amana dryer construction and systems. We understand Amana-specific components and common dryer issues, ensuring accurate diagnosis and reliable repairs every time."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock quality replacement parts for Amana dryers and offer same-day or next-day service in most cases. Upfront pricing with free estimates means no surprises when your dryer stops working."
+        },
+        {
+          "heading": "Warranty-Backed Dryer Repairs",
+          "text": "Every Amana dryer repair is backed by our service warranty. We stand behind our work so you can rely on your dryer to perform when you need it most."
+        },
+        {
+          "heading": "Local Lufkin Service You Trust",
+          "text": "We're locally operated and serve the greater Lufkin area with prompt, professional response. When your Amana dryer needs repair, we're here to help quickly and thoroughly."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:04:47.783436Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "741ee76ff8252e59",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Across Lufkin and Surrounding Communities",
+      "text": "<p>Wells Appliance Repair serves homes throughout Lufkin and the surrounding areas, where neighborhoods range from established, time-tested communities to newer subdivisions. This mix means our technicians encounter appliances of many different ages, brands, and models—from older, reliable units still running strong to the latest high-tech systems. Whatever your refrigerator, washer, dryer, dishwasher, or range needs, we're equipped to diagnose and repair it promptly and professionally.</p><p>When your appliance breaks down, you need fast, dependable service. Our factory-trained technicians understand the ins and outs of today's major brands and carry the right parts to get repairs done efficiently. We respond quickly across the Lufkin area so your home can get back to normal without unnecessary delay. Whether you're in a longtime neighborhood or a newer development, Wells Appliance Repair is your local partner for honest, skilled appliance repair service.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:04:50.739162Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a21804b85cae7f4e",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common problems with Amana dryers?",
+          "answer": "Amana dryers frequently experience drum rollers wearing out, thermal fuses failing, lint filter issues causing airflow problems, and heating element failures. Some units develop door latch problems or have drum seal wear. Many of these symptoms show up as clothes not drying fully, excessive heat, or the dryer stopping mid-cycle. A professional inspection pinpoints exactly which component is failing."
+        },
+        {
+          "question": "How fast can Wells Appliance Repair come to my Lufkin home?",
+          "answer": "We understand a broken dryer disrupts your routine. We prioritize Lufkin-area service calls and offer same-day appointments when your schedule allows. Call to discuss your Amana dryer issue and we'll find the quickest available time slot. During peak seasons, we work to minimize wait times while ensuring thorough, quality repairs."
+        },
+        {
+          "question": "Is it worth repairing my Amana dryer or should I buy new?",
+          "answer": "That depends on the part failing and your dryer's age. We provide honest assessments—if the repair cost is reasonable and your unit has several years of life left, repair usually makes sense. We'll explain your options during diagnosis so you can decide confidently. Many Amana dryers are worth fixing, especially if the problem is isolated to one component."
+        },
+        {
+          "question": "What should I do to prepare before the technician arrives?",
+          "answer": "Ensure the dryer is accessible and has clear space around it for our technician to work safely. If possible, note when the problem started and describe what you've noticed—strange noises, lack of heat, or other symptoms. Have your Amana model number ready; it's usually on a sticker inside the door or on the back. Turn off the dryer and don't attempt repairs yourself."
+        },
+        {
+          "question": "Are your Amana dryer repairs covered by warranty?",
+          "answer": "Yes. Parts we install carry manufacturer warranty coverage, and our workmanship is backed by our service agreement. We'll explain the specific warranty terms for your repair when we complete the job. Keep your receipt for reference. This protection gives you confidence that your Amana dryer will run reliably after we leave."
+        },
+        {
+          "question": "What's involved in an Amana dryer repair visit?",
+          "answer": "Our technician will inspect your dryer, diagnose the issue, and explain what's wrong and what needs to be fixed. We'll discuss repair options and costs before proceeding. If you approve, we'll replace the faulty part, test the dryer thoroughly, and ensure it's working safely. The whole process typically takes one to two hours, depending on the problem."
+        },
+        {
+          "question": "Do you offer free diagnostics for Amana dryer problems?",
+          "answer": "We provide expert diagnostic service to identify exactly what's wrong with your Amana dryer. During the initial visit, we'll assess the issue and discuss repair options and what they'll involve. This honest evaluation helps you understand the problem and make an informed decision before committing to repairs."
+        },
+        {
+          "question": "When should I call a professional instead of trying DIY Amana dryer repair?",
+          "answer": "Call immediately if you notice burning smells, excessive heat, sparking, or electrical issues—these are safety hazards. Also call if you lack tools or experience working inside appliances. Amana dryers involve electrical components and precise reassembly; mistakes can damage the unit or create safety risks. Professional repair is the safest, most reliable choice for anything beyond basic lint filter cleaning."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:05:00.491431Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "a5ef562369fa1b75",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Amana Dryer Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/amana-dryer-repair-lufkin-tx/",
+    "meta_description": "Professional amana dryer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "amana dryer repair Lufkin TX",
+    "og_title": "Amana Dryer Repair in {city_state} | {business}",
+    "og_description": "Professional amana dryer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Amana Dryer Repair",
+    "service_type": "Amana Dryer Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional amana dryer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "amana dryer repair",
+    "secondary_keywords": "",
+    "brand": "Amana",
+    "appliance_type": "Dryer",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Amana Dryer Repair in Lufkin, TX\",\"serviceType\":\"Amana Dryer Repair\",\"description\":\"Professional amana dryer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "ea79d43e12f5566b5b0b9966d15966b8"
+}

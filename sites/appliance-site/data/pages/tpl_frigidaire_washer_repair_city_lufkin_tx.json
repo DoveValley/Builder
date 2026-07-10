@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_frigidaire_washer_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "frigidaire-washer-repair-lufkin-tx",
+  "title": "Frigidaire Washer Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Frigidaire Washer Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a broken washer disrupts daily routines and quickly becomes urgent. Wells Appliance Repair specializes in Frigidaire washer repair, with factory-trained technicians who diagnose and restore your unit reliably. We back our work with warranty protection and prioritize fast service to get your laundry back on track.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Frigidaire",
+      "hs_caption2": "Washer Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "Frigidaire Washer Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:15:27.225745Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ccd051af8e09f31a",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Frigidaire Washer Repair Services in Lufkin, TX",
+      "text": "<p>A broken washer in your Lufkin home is more than an inconvenience—it disrupts your entire household routine and can quickly become an expensive problem if ignored. When your Frigidaire washer stops working, you face mounting laundry, potential water damage if the unit leaks, and the temptation to rush into a costly replacement. That's why prompt, professional repair matters. A trained technician can diagnose the real issue, restore your appliance to working order, and help you avoid the substantial expense of buying new. For homeowners across Lufkin, getting your washer back in service fast is essential to maintaining peace of mind and protecting your investment.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your home for Frigidaire washer repair. Our technicians understand Frigidaire systems inside and out, perform thorough diagnostics to pinpoint the problem accurately, and source quality replacement parts to ensure lasting results. We believe in transparency—you'll receive upfront pricing before any work begins—and we stand behind our repairs with a warranty on labor and parts. Whether your Frigidaire washer needs a simple fix or more involved attention, you can trust us to handle it with professionalism and care. Contact Wells Appliance Repair today to schedule your service and get back to normal.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:15:32.567022Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "6e8ab191aa8d1b67",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Won't Start",
+          "text": "A washer that won't power on may have a faulty door latch, broken lid switch, or electrical control issue. Our technicians test each component and repair or replace the defective part to restore function."
+        },
+        {
+          "heading": "Leaking Water",
+          "text": "Water pooling under or around your washer often points to a worn door seal, cracked pump, or loose hose connection. Wells Appliance Repair diagnoses the leak source and makes the necessary repairs quickly."
+        },
+        {
+          "heading": "Won't Drain",
+          "text": "When water stays in the drum, a clogged drain pump, kinked hose, or filter blockage is usually to blame. Our technicians clear obstructions and test drainage to get your wash cycle working again."
+        },
+        {
+          "heading": "Loud or Vibrating",
+          "text": "Excessive noise and vibration typically stem from worn drum bearings, a foreign object in the tub, or an unbalanced load sensor issue. We inspect the drum assembly and repair worn parts to restore smooth operation."
+        },
+        {
+          "heading": "Not Spinning",
+          "text": "If the drum won't turn during the spin cycle, a broken belt, motor problem, or control board fault may be responsible. Our technicians test the mechanical and electrical components and complete the repair."
+        },
+        {
+          "heading": "Not Washing Clothes",
+          "text": "Poor cleaning results can result from a faulty water inlet valve, clogged detergent dispenser, or timing control malfunction. Wells Appliance Repair identifies the cause and restores your washer's cleaning performance."
+        }
+      ],
+      "fc_heading": "Common Frigidaire Washer Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:15:38.381301Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "e60492e8a28e8f88",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Frigidaire Washer Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Frigidaire Expertise",
+          "text": "Our technicians are trained on Frigidaire washer systems and components. We diagnose drum, motor, and control issues accurately, so your repair is done right the first time."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock authentic Frigidaire washer parts and offer same-day or next-day appointments. Upfront pricing with free estimates means no surprises—just prompt, reliable repair work backed by warranty."
+        },
+        {
+          "heading": "Accurate Diagnosis Saves Time",
+          "text": "Instead of guessing, we identify the exact washer fault—whether drainage, spin cycle, or fill problems. That precision keeps your repair efficient and your costs transparent."
+        },
+        {
+          "heading": "Local Lufkin Service You Trust",
+          "text": "Wells Appliance Repair is a trained, locally operated company serving Lufkin homes. We respond quickly to your Frigidaire washer repair needs with the professionalism and care your household deserves."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:15:41.701007Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "1738cd2965c6fb2a",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Serving Lufkin and Surrounding Areas",
+      "text": "<p>Wells Appliance Repair serves homes throughout Lufkin and the surrounding region, where neighborhoods range from well-established older areas like Crown Colony and Fuller Springs to newer residential developments. This mix means our technicians encounter a broad spectrum of appliance ages, brands, and models—from vintage units that have served families for decades to the latest smart-enabled machines. We understand that when an appliance breaks down, you need dependable repair service fast, which is why we dispatch factory-trained technicians promptly across the Lufkin area.</p><p>Our team arrives equipped with the knowledge and quality parts needed to diagnose and repair most major appliances, regardless of brand or model year. We handle everything from routine maintenance calls to complex repairs, working efficiently to get your kitchen and laundry running smoothly again. As a locally operated business, we're committed to serving our neighbors with honest, professional service and the kind of responsiveness that comes from being part of the community we serve.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:15:44.425693Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a21804b85cae7f4e",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common Frigidaire washer problems that need professional repair?",
+          "answer": "Frigidaire washers frequently develop issues like drum seal failures causing water leaks, lid latch malfunctions preventing operation, drain pump blockages leading to standing water, and motor problems resulting in no spin cycle. Agitator wear and electronic control board failures are also typical. If your washer won't drain, won't spin, leaks, or makes unusual noises, professional diagnosis is warranted."
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair come to my Lufkin home for washer service?",
+          "answer": "We prioritize rapid response for appliance emergencies in the Lufkin area. While same-day availability depends on our current schedule and your location, we work to accommodate urgent requests. Contact us with your situation and preferred availability, and we'll confirm the soonest appointment we can provide. Don't wait on a non-functioning washer—reach out today."
+        },
+        {
+          "question": "Should I repair my Frigidaire washer or buy a new one?",
+          "answer": "The repair-versus-replace decision depends on your washer's age, the specific problem, and repair costs relative to replacement. A free diagnostic from our technicians clarifies the issue and estimated repair scope, helping you make an informed choice. Newer Frigidaire units with isolated component failures often justify repair, while older machines with multiple problems may favor replacement."
+        },
+        {
+          "question": "Are Wells technicians trained to repair Frigidaire washers specifically?",
+          "answer": "Yes, our technicians are trained on Frigidaire appliances and understand their specific design, components, and common failure points. We work directly with Frigidaire washer models to ensure repairs meet manufacturer standards and your machine operates properly. When you call, let us know your model, and we'll confirm we service it."
+        },
+        {
+          "question": "What should I do to prepare before the Frigidaire washer technician arrives?",
+          "answer": "Clear the area around your washer for easy access and note any symptoms you've observed—when the problem started, what it does or doesn't do, and any error codes displayed. Have your washer's model and serial number available (usually on a sticker inside the door or on the back). Make sure your home is accessible at the scheduled time."
+        },
+        {
+          "question": "Do you offer a free estimate or diagnostic for Frigidaire washer repair?",
+          "answer": "We provide diagnostics to identify what's wrong with your Frigidaire washer. This helps you understand the repair scope before deciding to proceed. Contact us to discuss your washer's symptoms and learn more about our estimate process—we're transparent about what we find and what repair entails."
+        },
+        {
+          "question": "Are Frigidaire washer repairs and replacement parts covered by warranty?",
+          "answer": "Our repairs and parts are backed by warranty, giving you confidence in the work we perform. Warranty terms vary, so we discuss coverage details with you when the repair is complete. We stand behind our Frigidaire washer service and want you to feel secure in the fix."
+        },
+        {
+          "question": "What steps does a Frigidaire washer repair appointment typically involve?",
+          "answer": "Our technician will inspect your washer, run diagnostics to pinpoint the issue, explain the problem and repair options in plain terms, and provide a cost estimate before proceeding. Once approved, we perform the repair using quality parts, test the machine to confirm it operates properly, and walk you through any care tips to extend its life."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:15:56.450604Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "872f9d5a8356f686",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Frigidaire Washer Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/frigidaire-washer-repair-lufkin-tx/",
+    "meta_description": "Professional frigidaire washer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "frigidaire washer repair Lufkin TX",
+    "og_title": "Frigidaire Washer Repair in {city_state} | {business}",
+    "og_description": "Professional frigidaire washer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Frigidaire Washer Repair",
+    "service_type": "Frigidaire Washer Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional frigidaire washer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "frigidaire washer repair",
+    "secondary_keywords": "",
+    "brand": "Frigidaire",
+    "appliance_type": "Washer",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Frigidaire Washer Repair in Lufkin, TX\",\"serviceType\":\"Frigidaire Washer Repair\",\"description\":\"Professional frigidaire washer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "e2ad020bcdd0480d71324b5cc5eed786"
+}

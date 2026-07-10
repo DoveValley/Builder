@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_bosch_dryer_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "bosch-dryer-repair-lufkin-tx",
+  "title": "Bosch Dryer Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Bosch Dryer Repair in {city_state}",
+      "hs_subtext": "In Lufkin households, a dryer that won't heat or won't turn on creates immediate disruption to your routine and your family's comfort. Wells Appliance Repair specializes in Bosch dryer repair, addressing everything from heating element failures to drum and motor issues with factory-trained technicians. We stand behind our work with warranty coverage and aim to restore your appliance promptly so your home runs smoothly again.",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Bosch",
+      "hs_caption2": "Dryer Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "Bosch Dryer Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:07:39.173794Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "4d808ba4a0a8f12c",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Bosch Dryer Repair in Lufkin, TX",
+      "text": "<p>A broken dryer disrupts your entire household routine, leaving you scrambling to find alternative ways to dry clothes while laundry piles up. For Lufkin homeowners, a malfunctioning Bosch dryer isn't just an inconvenience—it's a costly problem that demands immediate, expert attention. The longer you delay professional repair, the greater the risk of additional damage, higher energy bills, or the need for a complete replacement. Bosch dryers are built to last, but like any complex appliance, they require skilled diagnosis and timely service to restore them to reliable operation.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your Lufkin home to service Bosch dryers with precision and care. Our technicians conduct thorough diagnostics to identify the root cause of your dryer's failure, source quality replacement parts when needed, and complete repairs with upfront, honest pricing so there are no surprises. Every repair we perform is backed by our warranty, giving you confidence that your dryer will perform as intended. While we also repair other major appliance brands, Bosch dryer repair is among our specialties. When your dryer stops working, prompt professional service keeps your home running smoothly again.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:07:43.167655Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "21c1deb1ce4f7541",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Not Heating Up",
+          "text": "A dryer that tumbles but produces no heat often points to a faulty heating element, thermal fuse, or thermostat. Wells Appliance Repair technicians diagnose the exact cause and restore your dryer's warmth."
+        },
+        {
+          "heading": "Won't Start",
+          "text": "When your Bosch dryer won't power on, the door latch, thermal fuse, or control board may be at fault. Our skilled technicians test each component and repair or replace what's needed."
+        },
+        {
+          "heading": "Drum Not Turning",
+          "text": "A stuck or silent drum usually stems from a worn belt, idler pulley, or motor failure. Wells Appliance Repair's team identifies the worn part and gets your dryer tumbling again."
+        },
+        {
+          "heading": "Takes Too Long to Dry",
+          "text": "Lengthy drying times often indicate a clogged vent, restricted lint filter housing, or failing heating element. Our technicians clean blockages and test heating components to restore efficient drying."
+        },
+        {
+          "heading": "Loud Noises or Squeaking",
+          "text": "Unusual sounds during operation typically come from worn drum seals, a failing blower wheel, or a damaged bearing. Wells Appliance Repair diagnoses the source and replaces worn components professionally."
+        },
+        {
+          "heading": "Door Won't Close Properly",
+          "text": "A latch that won't catch or a misaligned door can prevent your dryer from starting safely. Our technicians adjust or replace the door latch assembly to restore secure closure."
+        }
+      ],
+      "fc_heading": "Common Bosch Dryer Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:07:47.277151Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "ec23aec887a6b863",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Bosch Dryer Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Bosch Expertise",
+          "text": "Our technicians are factory-trained specifically on Bosch dryer systems. We understand Bosch's engineering, diagnostics, and repair procedures—ensuring accurate identification of dryer faults and reliable fixes the first time."
+        },
+        {
+          "heading": "Genuine Bosch Parts In Stock",
+          "text": "We keep genuine Bosch dryer components on hand for fast repairs. Using authentic parts maintains your dryer's performance and longevity, backed by our warranty on all workmanship."
+        },
+        {
+          "heading": "Fast Diagnosis, Upfront Pricing",
+          "text": "Same-day service available. We provide free estimates and transparent pricing before any Bosch dryer repair begins, so you know costs upfront with no surprises."
+        },
+        {
+          "heading": "Local Lufkin Service You Trust",
+          "text": "Wells Appliance Repair is locally owned and serves the Lufkin area promptly. We're your responsive, trained neighbor for professional Bosch dryer repair when you need it."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:07:50.388673Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "41403e6640e83b4a",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Across the Lufkin Area",
+      "text": "<p>Wells Appliance Repair serves homes throughout Lufkin and the surrounding communities with the same commitment to quality and speed. The Lufkin area spans everything from established neighborhoods like Crown Colony to newer subdivisions, which means our technicians encounter a broad range of appliance brands, ages, and models every day. Whether your refrigerator, washing machine, dishwasher, or oven needs attention, we're equipped to diagnose and repair units across manufacturers and generations. Our factory-trained team responds quickly to service calls across the region, arriving with the knowledge and parts necessary to get your appliance working again.</p><p>When an appliance breaks down, time matters. We understand that a malfunctioning refrigerator or water heater disrupts your household, which is why Wells Appliance Repair prioritizes fast turnaround for customers throughout the Lufkin area. Our technicians carry essential parts and diagnostic tools, and we maintain relationships with major suppliers to source what we need. We work on appliances in every condition and from every major brand, serving both longtime residents and newer families in the community. Call us as soon as you notice trouble—we're ready to help.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:07:54.228853Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a21804b85cae7f4e",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common problems with Bosch dryers?",
+          "answer": "<p>Bosch dryers frequently experience issues with heating elements that fail, thermostats that malfunction, drum rollers that wear out, and lint filter blockages that reduce airflow. Venting problems—whether internal or at the exterior exhaust—are also common culprits. If your dryer isn't heating, takes forever to dry clothes, or makes unusual noises, these are typical warning signs that professional diagnosis is needed.</p>"
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair service my Bosch dryer in Lufkin?",
+          "answer": "<p>We understand a broken dryer disrupts your routine. We work to schedule service appointments promptly for Lufkin-area customers and offer same-day or next-day availability depending on current demand. When you call, we'll give you a clear timeframe and answer any questions about what to expect during the visit.</p>"
+        },
+        {
+          "question": "What happens during a Bosch dryer repair visit?",
+          "answer": "<p>Our technician will inspect your dryer, test its components, and diagnose the exact cause of the problem. We'll explain what we found, discuss repair options and costs, and answer your questions before proceeding. If you approve, we'll complete the repair on-site when possible, using quality parts and ensuring your dryer operates safely before we leave.</p>"
+        },
+        {
+          "question": "Should I repair or replace my Bosch dryer?",
+          "answer": "<p>Repair usually makes sense if your Bosch dryer is under 8–10 years old, the repair cost is reasonable, and the unit is otherwise reliable. Replacement may be smarter for older units with multiple failing parts or repeat problems. We'll give you an honest assessment during diagnosis so you can make the best financial decision for your home.</p>"
+        },
+        {
+          "question": "Are your technicians trained to work on Bosch dryers?",
+          "answer": "<p>Yes. Our technicians are trained and experienced with Bosch appliances and understand their unique design and components. We work on Bosch dryers regularly and stay current with the brand's repair requirements so you can trust the work is done right.</p>"
+        },
+        {
+          "question": "Do you offer a free estimate or diagnostic for Bosch dryer problems?",
+          "answer": "<p>We offer a diagnostic visit to identify what's wrong with your Bosch dryer. During that visit, we'll explain the issue and provide a repair cost estimate before you decide to move forward. This lets you know exactly what you're paying for and why.</p>"
+        },
+        {
+          "question": "What should I do to prepare for your technician's visit?",
+          "answer": "<p>Clear the area around your dryer so our technician has easy access. Note any symptoms you've noticed—when the problem started, what sounds or behaviors you're seeing—and have that ready to share. Make sure the dryer is unplugged and safe before we arrive. We'll handle the rest.</p>"
+        },
+        {
+          "question": "How can I prevent Bosch dryer problems in the future?",
+          "answer": "<p>Clean the lint filter after every load—it's the single most important step. Inspect and clear the exhaust vent regularly to prevent blockages. Avoid overloading the drum, and use appropriate heat settings for your fabrics. Regular maintenance keeps your Bosch dryer running efficiently and extends its lifespan significantly.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:08:03.418880Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "278e8c92a6b22ac9",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Bosch Dryer Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/bosch-dryer-repair-lufkin-tx/",
+    "meta_description": "Professional bosch dryer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "bosch dryer repair Lufkin TX",
+    "og_title": "Bosch Dryer Repair in {city_state} | {business}",
+    "og_description": "Professional bosch dryer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Bosch Dryer Repair",
+    "service_type": "Bosch Dryer Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional bosch dryer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "bosch dryer repair",
+    "secondary_keywords": "",
+    "brand": "Bosch",
+    "appliance_type": "Dryer",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bosch Dryer Repair in Lufkin, TX\",\"serviceType\":\"Bosch Dryer Repair\",\"description\":\"Professional bosch dryer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "5e77612bd41c0628a4621252229f43e4"
+}

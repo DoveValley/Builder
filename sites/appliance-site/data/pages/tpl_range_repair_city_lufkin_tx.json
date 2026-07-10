@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_range_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "range-repair-lufkin-tx",
+  "title": "Range Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Range Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin homes, a range that stops working disrupts meal preparation and daily routines in ways few other appliances can match. Wells Appliance Repair specializes in diagnosing and repairing ranges to restore reliable cooking to your kitchen. Our factory-trained technicians work quickly to get your range back in service, backed by warranty support you can depend on.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Range",
+      "hs_caption2": "Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "Range Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:58:16.774966Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "a533bc340d65ca09",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Range Repair Services in Lufkin, TX",
+      "text": "<p>A broken range can quickly derail your daily routine and leave your kitchen unusable when you need it most. Whether your stovetop won't heat, the oven has stopped working, or burners are acting unpredictably, the longer you wait, the more your household suffers—and the risk of further damage grows. In Lufkin, where families and busy professionals depend on reliable kitchen appliances, timely professional range repair isn't just a convenience; it's essential to restoring comfort and preventing small issues from becoming costly replacements.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your home in Lufkin, diagnosing range problems accurately and fixing them right the first time. Our technicians work with quality parts and transparent pricing so you know exactly what to expect before we start. Every repair is backed by our commitment to your satisfaction, because we stand behind our work. We service a wide range of brands and appliance types, but we specialize in getting your range back to peak performance as quickly as possible. When your range needs attention, count on Wells Appliance Repair to deliver the professional, dependable service Lufkin homeowners trust.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:58:20.721212Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "382573d78854af88",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "by_brand",
+      "html": "[services_links appliance_type=\"self\" heading=\"Repair by Brand in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Oven Won't Heat",
+          "text": "A range oven that won't reach temperature may have a faulty heating element, thermostat, or igniter. Wells Appliance Repair technicians diagnose the cause and replace worn components to restore even baking and cooking."
+        },
+        {
+          "heading": "Burners Not Working",
+          "text": "Electric or gas burners may fail due to broken coil elements, clogged ports, or ignition problems. Our technicians inspect and repair faulty burners so your stovetop heats food properly and safely again."
+        },
+        {
+          "heading": "Temperature Running Hot",
+          "text": "A range cooking hotter than the dial shows often indicates a bad thermostat or sensor. Wells Appliance Repair tests and calibrates or replaces these parts to restore accurate temperature control."
+        },
+        {
+          "heading": "Self-Cleaning Not Working",
+          "text": "Self-cleaning ovens may jam, cycle incorrectly, or fail to reach cleaning temperature due to latch problems or heating issues. Our technicians repair or replace the faulty components responsible."
+        },
+        {
+          "heading": "Range Won't Ignite",
+          "text": "Gas ranges that won't light may have a clogged igniter, damaged spark module, or safety valve issue. Wells Appliance Repair diagnoses ignition problems and restores safe, reliable flame on your stovetop."
+        },
+        {
+          "heading": "Glass Top Cracked",
+          "text": "Cooktop glass can crack from thermal stress, impact, or manufacturing defects. While cracking calls for professional replacement, Wells Appliance Repair can often source and install the correct glass panel for your model."
+        }
+      ],
+      "fc_heading": "Common Range Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:58:25.275928Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "ab4ad721a7661b0c",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Range Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Range Technicians",
+          "text": "Our technicians hold factory certifications on major range brands and models. We understand electric, gas, and convection systems inside out, ensuring accurate diagnosis and reliable repairs every time."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock authentic replacement parts for ranges and dispatch the same day when possible. Quality components and swift turnaround mean your kitchen is back in order without unnecessary delays."
+        },
+        {
+          "heading": "Upfront Pricing, Warranty Protection",
+          "text": "Free estimates before any work begins—no surprises. All range repairs are backed by our warranty, so you can trust the job is done right and stands behind our work."
+        },
+        {
+          "heading": "Local Response Across Lufkin",
+          "text": "Based right here in Lufkin, we know our community and respond fast. Convenient scheduling and hometown service mean professional help arrives when you need it most."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:58:29.310571Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "4db5c09c497d43de",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need this appliance repaired in {city}? Call our team.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common range and stovetop problems that need professional repair?",
+          "answer": "Burners that won't heat, uneven cooking temperatures, ignition failures on gas ranges, broken heating elements, faulty thermostats, and damaged oven doors are frequent issues we address. Control knobs that won't turn, displays that malfunction, and heating elements that cycle on and off unexpectedly also warrant professional diagnosis. Identifying the exact cause requires trained inspection."
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair send a technician to my Lufkin home?",
+          "answer": "We understand a broken range disrupts your kitchen routine. We prioritize rapid scheduling for range repairs and offer same-day service availability in the Lufkin area when you call promptly. Contact us to confirm availability for your specific date and time needs—we work to accommodate your schedule."
+        },
+        {
+          "question": "Is it better to repair my range or buy a new one?",
+          "answer": "That depends on the range's age, the repair cost relative to replacement, and your long-term plans. Ranges under ten years old with isolated problems are typically worth repairing. Our technician can assess the issue and help you weigh repair versus replacement options during the visit, giving you clarity before committing."
+        },
+        {
+          "question": "What should I expect during a range repair appointment?",
+          "answer": "Our technician will inspect your range thoroughly, test components, and diagnose the problem. They'll explain what's wrong, discuss repair options, and answer your questions. If you approve, they'll perform the repair on-site when possible. The visit typically takes one to two hours depending on the issue's complexity and parts availability."
+        },
+        {
+          "question": "Do you offer free diagnostics or estimates for range repair?",
+          "answer": "Yes, we provide diagnostics to identify what's causing your range malfunction. We discuss findings and outline repair solutions with you before proceeding. This transparent approach helps you understand the problem and make an informed decision without surprise costs."
+        },
+        {
+          "question": "Are your technicians trained to work on my specific range brand?",
+          "answer": "Our technicians are factory-trained and experienced across major range brands including GE, Whirlpool, LG, Samsung, Maytag, and others. They understand brand-specific designs, components, and repair protocols. We use quality parts compatible with your appliance and stand behind our workmanship with warranty coverage on repairs and parts."
+        },
+        {
+          "question": "How do I know if my range needs professional repair versus DIY fixes?",
+          "answer": "If your range has electrical issues, gas line concerns, heating element failures, or control panel malfunctions, professional repair is essential—DIY attempts risk injury or further damage. Electrical and gas-powered appliances require licensed expertise. When in doubt, call us for assessment rather than risk safety or warranty voidance."
+        },
+        {
+          "question": "What can I do to prevent range problems from happening again?",
+          "answer": "Clean spills promptly to prevent corrosion, avoid blocking vents, and don't overload the oven. Use cookware sized appropriately for burner size, keep controls dry, and follow manufacturer guidelines. Regular maintenance and mindful use extend your range's lifespan. Our technician can offer specific prevention tips for your model during the repair visit."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:58:37.977809Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "0479345778ed3f11",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_types",
+      "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Schedule your {city} repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Range Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/range-repair-lufkin-tx/",
+    "meta_description": "Professional range repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "range repair Lufkin TX",
+    "og_title": "Range Repair in {city_state} | {business}",
+    "og_description": "Professional range repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Range Repair",
+    "service_type": "Range Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional range repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "range repair",
+    "secondary_keywords": "",
+    "brand": "",
+    "appliance_type": "Range",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Range Repair in Lufkin, TX\",\"serviceType\":\"Range Repair\",\"description\":\"Professional range repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "484f618e637c230197ab2a17e1889293"
+}

@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_dishwasher_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "dishwasher-repair-lufkin-tx",
+  "title": "Dishwasher Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Dishwasher Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a broken dishwasher disrupts more than just your kitchen routine—it adds stress and manual work to your daily life. Wells Appliance Repair specializes in diagnosing and restoring dishwashers to full function, with factory-trained technicians who understand what it takes to get yours running again. We back our work with warranty protection and prioritize prompt service so your home can return to normal.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Dishwasher",
+      "hs_caption2": "Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "Dishwasher Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:51:54.446472Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "d9e960c76133eae2",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Dishwasher Repair in Lufkin, TX",
+      "text": "<p>A broken dishwasher disrupts more than just your kitchen routine—it forces you back to hand-washing dishes, wastes time, and leaves you wondering whether a repair is worth the investment. Homeowners throughout Lufkin depend on their dishwashers to handle daily loads, and when one stops working, the inconvenience spreads quickly through the household. Water leaks, broken spray arms, faulty controls, or drainage issues can worsen if left unaddressed, potentially leading to costlier damage or replacement. That's why prompt, professional dishwasher repair matters: a trained technician can diagnose the real problem, restore your appliance to working order, and save you the expense and hassle of buying new.</p><p>Wells Appliance Repair brings factory-trained expertise to every dishwasher repair job in Lufkin. Our technicians start with a thorough, accurate diagnosis to identify exactly what's wrong, then source quality replacement parts and complete the work with care. We provide upfront pricing so you know the cost before we begin, and we back our repairs with a warranty for your peace of mind. Whether your dishwasher needs a simple fix or more involved service, we're committed to getting it running reliably again—and we're ready to help with other appliances too when the time comes.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:51:58.694956Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "f2c0ae31f8d9388c",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "by_brand",
+      "html": "[services_links appliance_type=\"self\" heading=\"Repair by Brand in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Won't Start or Run",
+          "text": "A dishwasher that won't start may have a faulty door latch, control panel issue, or electrical problem. Our Lufkin technicians will diagnose the root cause and restore it to working order."
+        },
+        {
+          "heading": "Won't Drain Water",
+          "text": "Standing water at the bottom signals a clogged drain hose, blocked filter, or pump failure. Wells Appliance Repair clears blockages and repairs drainage systems to eliminate pooling water."
+        },
+        {
+          "heading": "Leaking Water",
+          "text": "Leaks often stem from a worn door seal, cracked tub, or loose inlet valve. Our technicians identify the leak source and seal or replace the faulty component promptly."
+        },
+        {
+          "heading": "Dishes Not Getting Clean",
+          "text": "Poor cleaning results typically point to a clogged spray arm, worn wash pump, or low water pressure. We inspect and repair spray systems and water circulation to restore cleaning performance."
+        },
+        {
+          "heading": "Loud Noise or Vibration",
+          "text": "Grinding or rattling sounds often indicate a worn pump, loose filter basket, or foreign object inside. Wells Appliance Repair locates and removes the cause of excessive noise."
+        },
+        {
+          "heading": "Not Heating Water",
+          "text": "Dishes come out cold when the heating element fails or the thermostat malfunctions. Our technicians test heating components and replace parts to restore proper water temperature during wash cycles."
+        }
+      ],
+      "fc_heading": "Common Dishwasher Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:52:06.060982Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "86b01a6c4f7e6e67",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Dishwasher Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Dishwasher Experts",
+          "text": "Our technicians are trained to diagnose and repair dishwashers from multiple manufacturers. We understand common issues—from spray arm clogs to motor failures—and apply proven repair methods on every call."
+        },
+        {
+          "heading": "Honest Estimates, Fast Solutions",
+          "text": "We provide free estimates and transparent pricing before any dishwasher repair work begins. Same-day and next-day service means your kitchen gets back to normal without prolonged downtime."
+        },
+        {
+          "heading": "Warranty-Backed Dishwasher Repairs",
+          "text": "Every repair we complete is backed by our warranty. We stand behind our work and the parts we install, so you can trust your dishwasher will run reliably after we service it."
+        },
+        {
+          "heading": "Local Lufkin Service You Can Rely On",
+          "text": "Wells Appliance Repair is here for Lufkin families. We respond promptly to dishwasher repair requests across the area and treat your home with the care it deserves."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:52:09.535936Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "f0746dc214cd8682",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need this appliance repaired in {city}? Call our team.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common dishwasher problems that need professional repair?",
+          "answer": "<p>Common issues include water not draining, dishes coming out dirty, leaks underneath the unit, strange noises during the cycle, and the door latch failing. Spray arm clogs, filter buildup, and heating element failures are also frequent culprits. If you notice any of these symptoms, professional diagnosis helps identify the root cause quickly.</p>"
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair come to my Lufkin home?",
+          "answer": "<p>We understand a broken dishwasher disrupts your routine, which is why we prioritize fast scheduling for Lufkin homeowners. We offer same-day and next-day appointments whenever possible, depending on current demand. Call us right away to check availability and get your appliance back to working order as soon as we can.</p>"
+        },
+        {
+          "question": "What happens during a dishwasher repair service visit?",
+          "answer": "<p>Our technician will inspect your dishwasher, run a diagnostic cycle if needed, and identify the problem. They'll explain what's wrong and discuss your repair options before proceeding. Once approved, we perform the repair using quality parts, test the unit to ensure it's working properly, and walk you through any maintenance tips to keep it running well.</p>"
+        },
+        {
+          "question": "Should I repair my dishwasher or replace it entirely?",
+          "answer": "<p>That depends on the appliance's age, the repair cost, and how often it breaks down. Newer units with isolated issues are usually worth repairing. Older models with multiple problems may cost more to fix over time than replacement. We'll give you honest guidance during your service call so you can make the best financial decision.</p>"
+        },
+        {
+          "question": "Do Wells Appliance Repair technicians work on all dishwasher brands?",
+          "answer": "<p>Yes, our factory-trained technicians service all major dishwasher brands. Whether you own a Bosch, LG, Whirlpool, GE, Frigidaire, or another manufacturer, we have the expertise and parts knowledge to diagnose and repair your unit correctly and reliably.</p>"
+        },
+        {
+          "question": "What should I do to prepare for the dishwasher repair technician?",
+          "answer": "<p>Clear the area under and around your dishwasher so the technician can access it easily. Remove any dishes or items stored inside. If you've noticed specific sounds, leaks, or when the problem started, jot those details down—they help our technician pinpoint the issue faster. Be ready to discuss your appliance's age and repair history if applicable.</p>"
+        },
+        {
+          "question": "Are dishwasher repairs and replacement parts covered by warranty?",
+          "answer": "<p>We back our repairs with warranty coverage on both labor and parts. The specific terms depend on the repair and parts used, which our technician will explain during your service visit. This protection gives you confidence that if something goes wrong, we stand behind our work.</p>"
+        },
+        {
+          "question": "How can I prevent dishwasher problems from happening again?",
+          "answer": "<p>Run hot water in your sink before starting a cycle so the dishwasher fills with hot water immediately. Clean the filter regularly and remove food debris from the bottom. Rinse heavily soiled dishes before loading to prevent clogs. Use the correct detergent type and amount, and leave space between dishes for proper spray arm movement. These simple habits extend your dishwasher's lifespan significantly.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:52:18.715776Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "9f9a8a01930a6ee8",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_types",
+      "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Schedule your {city} repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Dishwasher Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/dishwasher-repair-lufkin-tx/",
+    "meta_description": "Professional dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "dishwasher repair Lufkin TX",
+    "og_title": "Dishwasher Repair in {city_state} | {business}",
+    "og_description": "Professional dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Dishwasher Repair",
+    "service_type": "Dishwasher Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "dishwasher repair",
+    "secondary_keywords": "",
+    "brand": "",
+    "appliance_type": "Dishwasher",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Dishwasher Repair in Lufkin, TX\",\"serviceType\":\"Dishwasher Repair\",\"description\":\"Professional dishwasher repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "ceaaba402a5cd4a6710324b1bb818c2f"
+}

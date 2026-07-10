@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_dacor_refrigerator_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "dacor-refrigerator-repair-lufkin-tx",
+  "title": "Dacor Refrigerator Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Dacor Refrigerator Repair in {city_state}",
+      "hs_subtext": "In Lufkin homes, a dependable refrigerator is essential to daily life, and a breakdown disrupts meal planning and food safety quickly. Wells Appliance Repair provides factory-trained service for Dacor refrigerator repair, addressing cooling issues, component failures, and other malfunctions that leave households without reliable cold storage. We offer prompt service backed by warranty protection, so you can restore your kitchen's functionality with confidence.",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Dacor",
+      "hs_caption2": "Refrigerator Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "Dacor Refrigerator Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:12:02.419268Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "949b541925bf8e29",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Dacor Refrigerator Repair Services in Lufkin",
+      "text": "<p>A broken Dacor refrigerator disrupts your entire household. Food spoils, your budget takes a hit, and the longer the unit sits idle, the greater the risk of permanent damage. In Lufkin, where families and businesses depend on reliable cooling year-round, a faulty fridge is more than an inconvenience—it's an urgent problem. Waiting for repair only compounds the issue, potentially turning a straightforward fix into a costly replacement. That's why professional, timely service from a technician who understands your specific appliance matters so much.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your Lufkin home, with technicians who specialize in Dacor refrigerator repair and diagnosis. We arrive prepared to accurately identify what's wrong, source quality replacement parts when needed, and explain our findings and pricing upfront—no surprises. Our work is backed by a warranty, so you can trust the repair will hold. Whether your Dacor is experiencing cooling issues, compressor problems, or control panel failures, we handle the job right the first time. We also service other major appliances and brands, but Dacor refrigerator repair is a cornerstone of what we do. When your fridge fails, call Wells Appliance Repair and get back to normal quickly.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:12:06.901211Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "edff1e253f948194",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Not Cooling Properly",
+          "text": "A warm fridge often points to a faulty evaporator fan, clogged condenser coils, or a failing compressor. Wells Appliance Repair's technicians diagnose the root cause and restore proper cooling performance."
+        },
+        {
+          "heading": "Ice Maker Not Working",
+          "text": "Ice maker failures typically stem from a frozen water line, broken inlet valve, or defective ice maker assembly. Our experienced technicians identify and repair the issue so you have ice again."
+        },
+        {
+          "heading": "Water Leaking Inside",
+          "text": "Interior leaks usually result from a clogged defrost drain, cracked drain pan, or misaligned water supply line. Wells Appliance Repair locates the source and fixes it to prevent water damage."
+        },
+        {
+          "heading": "Loud Noise or Vibration",
+          "text": "Strange sounds often indicate a worn compressor, loose fan blade, or damaged condenser fan motor. Our technicians inspect and repair the noisy component to restore quiet operation."
+        },
+        {
+          "heading": "Freezer Too Cold",
+          "text": "An overly cold freezer usually means a stuck damper control, faulty thermostat, or airflow imbalance between compartments. We diagnose and adjust or replace the problematic part."
+        },
+        {
+          "heading": "Door Seal Not Closing",
+          "text": "A poor door seal allows warm air in and wastes energy, often caused by a warped gasket or misaligned door. Wells Appliance Repair replaces or realigns the seal for a proper fit."
+        }
+      ],
+      "fc_heading": "Common Dacor Refrigerator Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:12:11.158949Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "eef843ace3972f84",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Dacor Refrigerator Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Dacor Expertise",
+          "text": "Our technicians are trained on Dacor refrigerator systems and components. We understand the engineering and diagnostics specific to Dacor models, ensuring accurate repairs the first time."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock authentic Dacor refrigerator parts and offer same-day or next-day service in most cases. Upfront pricing and free estimates mean no surprises—just reliable solutions for your Dacor."
+        },
+        {
+          "heading": "Warranty-Backed Dacor Repairs",
+          "text": "Every Dacor refrigerator repair we complete is backed by our service warranty. You can trust the work we do and the parts we install on your premium appliance."
+        },
+        {
+          "heading": "Local Lufkin Response",
+          "text": "We're here in Lufkin and serve the surrounding area promptly. When your Dacor refrigerator needs repair, we respond fast and work on your schedule, not ours."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:12:14.187652Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "5a590df9173d6438",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Across the Lufkin Area",
+      "text": "<p>Wells Appliance Repair serves homes throughout Lufkin and the surrounding region, where neighborhoods range from well-established areas like Crown Colony and Fuller Springs to newer residential developments. This variety means our technicians encounter appliances of many ages, brands, and models—from classic units that have served families for decades to the latest smart-enabled refrigerators and washers. We understand that a broken appliance demands fast attention, which is why we prioritize quick response times across the greater Lufkin area.</p><p>Our factory-trained technicians arrive equipped with the knowledge and genuine parts needed to handle the appliance diversity you'll find in East Texas homes. Whether your dryer won't start, your refrigerator isn't cooling, or your dishwasher needs attention, we bring professional expertise directly to your door. We work efficiently to diagnose the issue and get your household running smoothly again, because we know how essential reliable appliances are to daily life.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:12:17.369243Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a21804b85cae7f4e",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common Dacor refrigerator problems that require professional repair?",
+          "answer": "<p>Dacor refrigerators frequently develop issues with ice makers that jam or stop producing ice, compressors that run constantly without cooling properly, water dispensers that leak or fail, and temperature control failures where the fridge doesn't maintain the set temperature. Frost buildup in freezer sections and sealed door gaskets that crack are also typical problems we see. These symptoms warrant a professional diagnosis rather than guesswork.</p>"
+        },
+        {
+          "question": "How fast can Wells Appliance Repair come to my Lufkin home for Dacor refrigerator service?",
+          "answer": "<p>We prioritize urgent appliance repairs and work to schedule Dacor refrigerator service as quickly as possible for Lufkin customers. Contact us directly to discuss your situation—same-day or next-day appointments are often available depending on current demand and the nature of the problem. We'll give you an honest timeline when you call.</p>"
+        },
+        {
+          "question": "Is it cheaper to repair my Dacor refrigerator or buy a new one?",
+          "answer": "<p>That depends on the repair needed, your unit's age, and replacement costs. A straightforward ice maker or gasket repair on a newer Dacor often makes financial sense. Older units with failing compressors may not justify repair costs. We offer free diagnostics so you'll know the exact problem and repair cost before deciding—this helps you make an informed choice.</p>"
+        },
+        {
+          "question": "Do you offer a free estimate or diagnostic for Dacor refrigerator repairs?",
+          "answer": "<p>Yes. We provide a complimentary diagnostic visit to identify what's wrong with your Dacor refrigerator and explain the repair work needed. There's no obligation—you'll receive a clear estimate so you can decide whether to proceed, and you'll have the information you need to make the right choice for your situation.</p>"
+        },
+        {
+          "question": "Are your technicians trained to work on Dacor brand refrigerators?",
+          "answer": "<p>Our technicians are trained to service Dacor appliances and understand the brand's design and common failure points. We work with factory parts and manufacturer specifications to ensure repairs meet the standards your premium Dacor unit deserves. You can count on expertise specific to your appliance brand.</p>"
+        },
+        {
+          "question": "What should I do to prepare before the Dacor refrigerator technician arrives?",
+          "answer": "<p>Clear the area around your refrigerator so our technician has easy access to the front and sides. Note any symptoms you've noticed—such as unusual sounds, temperature changes, or when the problem started—and have that information ready. If possible, keep the refrigerator plugged in so we can diagnose it directly. A clear workspace makes the appointment faster and more efficient.</p>"
+        },
+        {
+          "question": "Does the Dacor refrigerator repair include a warranty on parts and labor?",
+          "answer": "<p>Yes, we stand behind our Dacor refrigerator repairs with warranty coverage on both parts and workmanship. This protects your investment and gives you confidence in the work we've completed. Ask us about the specific warranty terms when we provide your estimate.</p>"
+        },
+        {
+          "question": "How can I prevent my Dacor refrigerator from needing repair in the future?",
+          "answer": "<p>Regular maintenance extends your Dacor's lifespan: clean or replace the water filter annually, vacuum the condenser coils at least twice a year, and inspect door gaskets for cracks or gaps. Don't overload shelves, keep the temperature at manufacturer settings, and avoid blocking vents. These simple steps catch small issues before they become expensive repairs.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:12:28.033693Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "4ba90d0e33f6ff69",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Dacor Refrigerator Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/dacor-refrigerator-repair-lufkin-tx/",
+    "meta_description": "Professional dacor refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "dacor refrigerator repair Lufkin TX",
+    "og_title": "Dacor Refrigerator Repair in {city_state} | {business}",
+    "og_description": "Professional dacor refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Dacor Refrigerator Repair",
+    "service_type": "Dacor Refrigerator Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional dacor refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "dacor refrigerator repair",
+    "secondary_keywords": "",
+    "brand": "Dacor",
+    "appliance_type": "Refrigerator",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Dacor Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"Dacor Refrigerator Repair\",\"description\":\"Professional dacor refrigerator repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "7169ba1833fb9a4550896c16972c151c"
+}

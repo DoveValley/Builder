@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_kenmore_appliance_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "kenmore-appliance-repair-lufkin-tx",
+  "title": "Kenmore Appliance Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Kenmore Appliance Repair in {city_state}",
+      "hs_subtext": "In Lufkin households, a broken Kenmore appliance disrupts daily routines and can quickly become costly if left unrepaired. Wells Appliance Repair provides factory-trained service for Kenmore units, addressing issues promptly to restore your appliance to working order. Our locally operated team backs our work, ensuring you receive reliable service when you need it most.",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Kenmore",
+      "hs_caption2": "Appliance Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "Kenmore Appliance Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:55:45.547372Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "16874b1495a6d499",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Kenmore Appliance Repair in Lufkin, TX",
+      "text": "<p>A broken refrigerator, dishwasher, or washing machine can quickly disrupt your household routine and create unexpected stress. When your Kenmore appliance stops working, the longer it sits idle, the more your family feels the impact—and the risk of further damage grows. Homeowners across Lufkin depend on their major appliances every single day, and when one fails, timely, professional repair is the best way to restore comfort and avoid costly replacement. Choosing an experienced repair service means getting your appliance back in working order fast, with confidence in the solution.</p><p>Wells Appliance Repair specializes in Kenmore appliance repair and brings factory-trained expertise to every job in Lufkin. Our technicians diagnose problems accurately, use quality parts, and stand behind their work with a warranty you can trust. We provide upfront pricing so you know exactly what to expect, and we handle Kenmore repairs with the precision these appliances deserve. Whether your unit is under warranty or long out of it, we're committed to restoring it safely and reliably. When your Kenmore appliance needs help, count on Wells Appliance Repair to get you back to normal—promptly and professionally.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:55:49.269060Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "cfba28aa4da409c5",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "brand_appliances",
+      "html": "[services_links brand=\"self\" heading=\"Kenmore Appliances We Repair in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Refrigerator Not Cooling",
+          "text": "A warm fridge often stems from a faulty compressor, clogged condenser coils, or a failed thermostat. Our Lufkin technicians diagnose the root cause and restore proper cooling to keep your food fresh and safe."
+        },
+        {
+          "heading": "Washer Won't Drain",
+          "text": "Standing water in your Kenmore washer is usually caused by a clogged drain hose, broken pump, or jammed lint filter. Wells Appliance Repair clears blockages and repairs components to get your laundry cycle running smoothly again."
+        },
+        {
+          "heading": "Dishwasher Leaking Water",
+          "text": "Water pooling under or around your dishwasher typically points to a worn door seal, cracked tub, or damaged inlet valve. Our technicians inspect and repair the leak source to prevent water damage to your kitchen."
+        },
+        {
+          "heading": "Dryer Not Heating",
+          "text": "A tumbling but non-heating dryer often indicates a burned-out heating element, faulty thermostat, or blown thermal fuse. Wells Appliance Repair diagnoses the issue and replaces the failed component to restore drying performance."
+        },
+        {
+          "heading": "Oven Temperature Inaccurate",
+          "text": "Uneven cooking or incorrect temperature readings usually signal a faulty temperature sensor or malfunctioning control board. Our experienced technicians calibrate or replace the faulty part to ensure reliable, even baking and roasting results."
+        },
+        {
+          "heading": "Microwave Displaying Error Code",
+          "text": "Error codes on your Kenmore microwave display indicate various electrical or component faults that require professional diagnosis. Wells Appliance Repair's technicians decode the error and repair or replace the affected component quickly."
+        }
+      ],
+      "fc_heading": "Common Kenmore Appliance Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:55:53.524862Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "65b712c5ac20fbb6",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Kenmore Appliance Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Kenmore Experts",
+          "text": "Our technicians hold specialized training on Kenmore appliances, understanding their unique systems and components. This expertise ensures accurate diagnosis and reliable repairs you can count on."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock authentic Kenmore replacement parts and offer same-day or next-day service in most cases. Upfront pricing with free estimates means no surprises when your Kenmore needs attention."
+        },
+        {
+          "heading": "Warranty-Backed Repairs",
+          "text": "Every Kenmore repair we complete is backed by our workmanship warranty, giving you confidence in the quality and longevity of the fix."
+        },
+        {
+          "heading": "Local Lufkin Service You Trust",
+          "text": "Based right here in Lufkin, we respond quickly across the area. Fast, friendly, and nearby—professional Kenmore appliance repair when you need it most."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:55:56.639519Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "d0b2803dfe746cfe",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need Kenmore appliance repair in {city}? Our technicians know your brand.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What is the Kenmore appliance repair process at Wells in Lufkin?",
+          "answer": "<p>Our technicians begin with a thorough diagnosis to identify the exact issue with your Kenmore unit. We'll explain what we found, discuss repair options, and provide a transparent estimate before any work begins. Once you approve, we perform the repair using quality parts and test the appliance to ensure it operates properly before we leave.</p>"
+        },
+        {
+          "question": "How fast can Wells come out for Kenmore appliance repair?",
+          "answer": "<p>We understand a broken Kenmore appliance disrupts your home. We offer same-day and next-day service appointments throughout the Lufkin area when possible. Call us as soon as you notice the problem, and we'll work to fit you into our schedule promptly so you can get back to normal.</p>"
+        },
+        {
+          "question": "What are common problems that require Kenmore appliance repair?",
+          "answer": "<p>Kenmore washers frequently develop drain or drum issues; refrigerators may stop cooling or leak water; dryers lose heat or fail to tumble; ovens won't reach temperature; and dishwashers don't clean or drain properly. These symptoms usually point to specific mechanical or electrical failures our technicians diagnose and repair regularly.</p>"
+        },
+        {
+          "question": "Is it worth repairing a Kenmore appliance or should I replace it?",
+          "answer": "<p>That depends on the appliance's age, the repair cost, and its remaining lifespan. We'll give you an honest assessment during diagnosis so you can make an informed choice. Many Kenmore units are reliable and worth fixing; others may cost more to repair than replacement is worth. We'll help you decide what makes sense.</p>"
+        },
+        {
+          "question": "Are Wells technicians trained to work on Kenmore appliances?",
+          "answer": "<p>Yes. Our technicians have the training and experience to service Kenmore appliances across all major categories. We're familiar with Kenmore's design, components, and common failure points, so you can trust we'll diagnose and repair your unit correctly the first time.</p>"
+        },
+        {
+          "question": "What should I do to prepare for a Kenmore repair visit?",
+          "answer": "<p>Clear the area around your Kenmore appliance so our technician has safe, easy access. Note any unusual sounds, leaks, or error codes you've noticed. If it's a refrigerator or freezer, ensure the power is on unless instructed otherwise. Have your model number handy—it's usually on a sticker inside the unit. These steps help us work efficiently.</p>"
+        },
+        {
+          "question": "Do Kenmore repairs come with a warranty on parts and labor?",
+          "answer": "<p>Yes. We stand behind our work and the parts we install. Your repair includes warranty coverage on both labor and replacement components, giving you confidence that if something goes wrong shortly after we leave, we'll make it right.</p>"
+        },
+        {
+          "question": "How can I prevent Kenmore appliance problems from happening again?",
+          "answer": "<p>Regular maintenance extends Kenmore appliance life. Clean lint traps on dryers after every load, rinse dishes before loading your Kenmore dishwasher, don't overload washers, and keep refrigerator coils dust-free. During your repair visit, ask our technician for specific care tips for your model to help avoid repeat issues.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:56:05.076910Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "457987561c1472f5",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_brands",
+      "html": "[services_links role=\"brand_hub\" heading=\"Other Brands We Service\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} Kenmore repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Kenmore Appliance Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/kenmore-appliance-repair-lufkin-tx/",
+    "meta_description": "Professional kenmore appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "kenmore appliance repair Lufkin TX",
+    "og_title": "Kenmore Appliance Repair in {city_state} | {business}",
+    "og_description": "Professional kenmore appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Kenmore Appliance Repair",
+    "service_type": "Kenmore Appliance Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional kenmore appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "kenmore appliance repair",
+    "secondary_keywords": "",
+    "brand": "Kenmore",
+    "appliance_type": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Kenmore Appliance Repair in Lufkin, TX\",\"serviceType\":\"Kenmore Appliance Repair\",\"description\":\"Professional kenmore appliance repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "7b846fe5db1c3ed3f42c09f0c2f67ab6"
+}

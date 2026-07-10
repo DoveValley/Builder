@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_jennair_appliance_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "jennair-appliance-repair-lufkin-tx",
+  "title": "JennAir Appliance Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "JennAir Appliance Repair in {city_state}",
+      "hs_subtext": "In Lufkin, a broken JennAir appliance disrupts more than just your kitchen routine—it affects your daily comfort and meal planning. Wells Appliance Repair specializes in factory-trained JennAir service, addressing everything from cooling and cooking issues to specialized features that set premium appliances apart. We prioritize fast turnaround and warranty-backed work to get your JennAir running reliably again.",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "JennAir",
+      "hs_caption2": "Appliance Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "JennAir Appliance Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:55:23.882119Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "645bfd6c80ff84fa",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "JennAir Appliance Repair Services in Lufkin",
+      "text": "<p>When a JennAir appliance breaks down in your Lufkin home, the impact reaches far beyond the kitchen or laundry room. A malfunctioning refrigerator, range, dishwasher, or other premium appliance disrupts your daily routine and can lead to costly food spoilage, backed-up dishes, or uncomfortable living conditions. JennAir appliances are engineered for performance and longevity, but like any complex system, they occasionally need professional attention. Delaying repair only risks further damage and higher replacement costs down the road, which is why prompt, expert service matters so much for Lufkin homeowners who depend on their appliances.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your door, with technicians who understand JennAir's design and components inside and out. We diagnose problems accurately the first time, source genuine parts to restore reliability, and provide upfront pricing so there are no surprises. Every repair is backed by our commitment to quality workmanship, and we also service other appliance brands and types to keep your entire home running smoothly. When your JennAir appliance needs help, trust the local professionals in Lufkin who know how to make it right.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:55:27.493159Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "1ff03bcf42481aea",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "brand_appliances",
+      "html": "[services_links brand=\"self\" heading=\"JennAir Appliances We Repair in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Refrigerator Not Cooling",
+          "text": "Temperature control failures, compressor issues, or refrigerant leaks prevent proper cooling. Wells Appliance Repair technicians diagnose the root cause and restore your JennAir refrigerator to full function."
+        },
+        {
+          "heading": "Dishwasher Won't Drain",
+          "text": "Clogged filters, drain hose kinks, or pump failures leave standing water in your JennAir dishwasher. Our technicians clear blockages and repair drainage systems promptly."
+        },
+        {
+          "heading": "Oven Not Heating Evenly",
+          "text": "Faulty heating elements, thermostat malfunctions, or convection fan problems cause uneven baking in JennAir ranges. We identify and repair the source to restore consistent heat."
+        },
+        {
+          "heading": "Washing Machine Leaking",
+          "text": "Worn door seals, inlet valve failures, or hose cracks create water leaks in JennAir washers. Wells Appliance Repair finds the leak source and replaces damaged components."
+        },
+        {
+          "heading": "Cooktop Won't Ignite",
+          "text": "Faulty igniters, clogged burner ports, or electronic control issues prevent your JennAir cooktop from lighting. Our technicians clean and repair ignition systems and controls."
+        },
+        {
+          "heading": "Refrigerator Ice Maker Stuck",
+          "text": "Water line freezing, valve blockages, or mechanical jams stop ice production in JennAir refrigerators. Wells Appliance Repair clears frozen lines and repairs or replaces failed components."
+        }
+      ],
+      "fc_heading": "Common JennAir Appliance Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:55:31.257784Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "23ab17091cf6345e",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for JennAir Appliance Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained JennAir Expertise",
+          "text": "Our technicians are trained on JennAir systems and understand their precision engineering. We diagnose and repair JennAir appliances with the accuracy and care they demand."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock authentic JennAir replacement parts and deliver same-day or next-day service. Upfront pricing and free estimates mean no surprises—just reliable JennAir appliance repair."
+        },
+        {
+          "heading": "Warranty-Backed JennAir Repairs",
+          "text": "Every JennAir repair is backed by our service warranty. We stand behind our work so you can trust your appliance will perform as intended."
+        },
+        {
+          "heading": "Local Lufkin Service You Can Count On",
+          "text": "Wells is locally operated and responsive across Lufkin and the surrounding area. When your JennAir appliance needs repair, we're here quickly and ready to help."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:55:34.240924Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "8b8418d1df2e7986",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need JennAir appliance repair in {city}? Our technicians know your brand.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a JennAir appliance repair visit?",
+          "answer": "Our technician will arrive at your home, inspect your JennAir appliance, and diagnose the issue. We'll explain what we found, discuss repair options, and provide an estimate before proceeding. We carry common JennAir parts, so many repairs are completed on the first visit. The entire process is transparent, and we'll answer any questions you have."
+        },
+        {
+          "question": "Can Wells Appliance Repair come out the same day in Lufkin?",
+          "answer": "We understand appliance breakdowns are stressful. We work to schedule JennAir repairs as quickly as possible for Lufkin homeowners. Same-day availability depends on our current schedule and service area demand. Call us right away with details about your JennAir problem, and we'll give you honest timing and the next available appointment."
+        },
+        {
+          "question": "What are common JennAir appliance problems that need professional repair?",
+          "answer": "JennAir appliances often experience issues like cooling problems in refrigerators, burner or ignition failures on cooktops, oven temperature inconsistencies, and dishwasher drainage or spray arm problems. Some issues stem from seal wear, control board failures, or component age. If your JennAir isn't responding to controls or showing obvious malfunction, professional diagnosis is the safest route."
+        },
+        {
+          "question": "Is it better to repair or replace my broken JennAir appliance?",
+          "answer": "That depends on the repair cost, your appliance's age, and its current condition. Newer JennAir units with single, affordable repairs are usually worth fixing. Older units with recurring problems may cost more long-term. We provide honest estimates so you can make an informed choice—we won't push you toward a repair that doesn't make financial sense."
+        },
+        {
+          "question": "What factors affect the cost of JennAir appliance repair?",
+          "answer": "Repair costs depend on which JennAir component failed, whether the part is in stock, labor time required, and your appliance model. Premium JennAir parts and complex repairs cost more than simple fixes. We offer free diagnostics and estimates so you know the expense upfront before we proceed with any work."
+        },
+        {
+          "question": "Are your technicians trained to repair JennAir appliances?",
+          "answer": "Yes. Our technicians are trained and experienced with JennAir appliances and understand their premium engineering and specialized features. We work exclusively on major appliance brands like JennAir and stay current with repair techniques. You can trust that your JennAir is in capable hands."
+        },
+        {
+          "question": "Do JennAir repairs include a warranty on parts and labor?",
+          "answer": "Yes, our JennAir repairs are backed by warranty. We stand behind both the parts we install and the work we perform. Warranty details vary by repair type, so we'll explain coverage when we provide your estimate. This gives you confidence that your repair is protected."
+        },
+        {
+          "question": "How can I prevent future JennAir appliance problems in Lufkin?",
+          "answer": "Keep your JennAir clean and well-maintained—clear vents, replace filters on schedule, and avoid overloading. Run your dishwasher with proper detergent amounts, and don't force cooktop burners. Follow the manufacturer's maintenance tips in your manual. Regular care reduces strain on components and extends your appliance's life significantly."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:55:44.008041Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "df3ba9c0cbcdc456",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_brands",
+      "html": "[services_links role=\"brand_hub\" heading=\"Other Brands We Service\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} JennAir repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "JennAir Appliance Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/jennair-appliance-repair-lufkin-tx/",
+    "meta_description": "Professional jennair appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "jennair appliance repair Lufkin TX",
+    "og_title": "JennAir Appliance Repair in {city_state} | {business}",
+    "og_description": "Professional jennair appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "JennAir Appliance Repair",
+    "service_type": "JennAir Appliance Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional jennair appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "jennair appliance repair",
+    "secondary_keywords": "",
+    "brand": "JennAir",
+    "appliance_type": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"JennAir Appliance Repair in Lufkin, TX\",\"serviceType\":\"JennAir Appliance Repair\",\"description\":\"Professional jennair appliance repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "356e334a01152b2ccbc3eb41ad28782a"
+}

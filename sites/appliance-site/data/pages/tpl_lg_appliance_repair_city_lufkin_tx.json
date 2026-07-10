@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_lg_appliance_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "lg-appliance-repair-lufkin-tx",
+  "title": "LG Appliance Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "LG Appliance Repair in {city_state}",
+      "hs_subtext": "<p>When an LG refrigerator, washer, or dishwasher stops working, Lufkin households quickly feel the impact on daily routines and meal planning. Wells Appliance Repair specializes in LG appliance repairs, bringing factory-trained expertise to get your unit running reliably again. We handle repairs promptly with warranty-backed service, so you can depend on your LG appliances when you need them most.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "LG",
+      "hs_caption2": "Appliance Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "LG Appliance Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:56:28.546340Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "6e1d575a2b6f63b5",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional LG Appliance Repair Serving Lufkin Homeowners",
+      "text": "<p>When an LG refrigerator, washing machine, or dishwasher stops working, the disruption to your daily routine is immediate and frustrating. A broken appliance doesn't just inconvenience your household—it can lead to food spoilage, laundry pile-up, and the temptation to rush into an expensive replacement before exploring repair options. In Lufkin, where family routines depend on reliable kitchen and laundry appliances, prompt, professional repair is essential. Choosing a trained technician who understands LG's specific engineering and diagnostic requirements can mean the difference between a quick fix and prolonged downtime or unnecessary costs.</p><p>Wells Appliance Repair brings factory-trained expertise to every LG appliance repair job in Lufkin. Our technicians are equipped to accurately diagnose problems, source quality replacement parts when needed, and perform repairs backed by warranty confidence. We provide upfront pricing so you know exactly what to expect before work begins, and we stand behind our workmanship. Whether your LG unit needs a simple adjustment or a more involved repair, we approach each job with the same commitment to getting your appliance running reliably again. When your LG appliance fails, count on Wells Appliance Repair to restore function and peace of mind to your home.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:56:32.613184Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "b5f07158224e306b",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "brand_appliances",
+      "html": "[services_links brand=\"self\" heading=\"LG Appliances We Repair in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Refrigerator Not Cooling",
+          "text": "A warm fridge often stems from a faulty compressor, dirty condenser coils, or a failing thermostat. Our technicians diagnose the root cause and repair or replace the defective component to restore proper cooling."
+        },
+        {
+          "heading": "Washer Won't Drain",
+          "text": "Clogged drain hoses, stuck drain pumps, or filter blockages prevent water from emptying. Wells Appliance Repair clears obstructions and tests the drain system to get your LG washer draining normally again."
+        },
+        {
+          "heading": "Dryer Not Heating",
+          "text": "A non-heating dryer typically points to a broken heating element, thermal fuse, or faulty igniter in gas models. Our technicians inspect and replace the failed part so your clothes dry efficiently once more."
+        },
+        {
+          "heading": "Dishwasher Not Cleaning",
+          "text": "Poor cleaning results may indicate clogged spray arms, a defective wash pump, or mineral buildup on filters. We clean and repair the affected components to restore your LG dishwasher's cleaning performance."
+        },
+        {
+          "heading": "Oven Not Heating",
+          "text": "An oven that won't heat often has a faulty heating element, broken igniter, or control board issue. Wells Appliance Repair diagnoses the problem and replaces the defective part to restore proper baking and cooking."
+        },
+        {
+          "heading": "Loud or Vibrating Noise",
+          "text": "Unusual sounds during operation may come from worn drum bearings, loose foreign objects, or damaged suspension components. Our technicians locate the source and repair it to eliminate noise and restore quiet operation."
+        }
+      ],
+      "fc_heading": "Common LG Appliance Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:56:36.708603Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "ee6eb942ff6e8745",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for LG Appliance Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained LG Expertise",
+          "text": "Our technicians are trained specifically on LG systems and design. We understand LG appliance construction, electronics, and common fault patterns—delivering accurate diagnosis and reliable repair every time."
+        },
+        {
+          "heading": "Genuine LG Parts On Hand",
+          "text": "We stock authentic LG components to avoid delays. Using factory-correct parts ensures your appliance performs as LG designed it, with confidence and lasting results."
+        },
+        {
+          "heading": "Fast Service, Upfront Pricing",
+          "text": "Same-day appointments available. We provide free estimates before work begins and stand behind every LG repair with a warranty, so you know the cost and coverage upfront."
+        },
+        {
+          "heading": "Local Lufkin Response",
+          "text": "We're your neighborhood LG repair team. Serving Lufkin and surrounding areas with prompt, professional service—no long waits, no distant contractors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:56:39.752299Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "7df2ed9d75726b98",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need LG appliance repair in {city}? Our technicians know your brand.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during an LG appliance repair visit?",
+          "answer": "Our technician will arrive, inspect your LG appliance, identify the issue, and explain the problem and repair options before proceeding. We'll handle the repair on-site when possible, test the appliance to confirm it's working properly, and clean up after ourselves. You'll receive a clear explanation of what was wrong and what was fixed."
+        },
+        {
+          "question": "How fast can Wells Appliance Repair come to Lufkin for LG service?",
+          "answer": "We understand a broken LG appliance disrupts your home. We work to schedule service quickly and offer same-day appointments when availability allows. Contact us as soon as you notice a problem, and we'll fit you into our schedule promptly. Availability varies by day and season, so calling early improves your chances of rapid service."
+        },
+        {
+          "question": "What are common LG appliance problems that need professional repair?",
+          "answer": "LG washing machines often have drum or motor issues, refrigerators may develop cooling or ice-maker problems, and dishwashers can suffer from spray-arm or drainage failures. Dryers may lose heat or tumble capability. If your LG appliance shows unusual noises, leaks, temperature problems, or won't start, professional diagnosis is typically needed."
+        },
+        {
+          "question": "Is it better to repair or replace my broken LG appliance?",
+          "answer": "Repair makes sense when the appliance is relatively new, the repair cost is reasonable compared to replacement, and the unit has years of life remaining. We'll give you an honest assessment during diagnosis. If replacement is more economical long-term, we'll tell you. Our goal is helping you make the right choice for your situation."
+        },
+        {
+          "question": "Do you offer free diagnostics for LG appliance problems?",
+          "answer": "Yes, we provide a thorough diagnosis to identify what's wrong with your LG appliance and explain your repair options. Once we've assessed the issue and discussed it with you, we'll give you a clear estimate for the work needed. This helps you make an informed decision before committing to repairs."
+        },
+        {
+          "question": "Are your technicians trained to repair LG brand appliances?",
+          "answer": "Our technicians are factory-trained in LG appliance repair and have the expertise to handle the full range of LG models. We stay current with LG technology and repair procedures to ensure quality service. We use genuine LG parts and stand behind our work with warranty protection on both repairs and parts."
+        },
+        {
+          "question": "What warranty do you offer on LG appliance repairs?",
+          "answer": "We back our repair work with a warranty on labor and parts, giving you confidence that the job is done right. Warranty terms apply to the specific repair performed. We'll discuss the warranty details when you approve the estimate so you know exactly what's covered after we finish."
+        },
+        {
+          "question": "How can I prevent LG appliance problems from happening again?",
+          "answer": "Regular maintenance helps—clean filters, avoid overloading washers and dryers, wipe refrigerator seals, and don't leave standing water in dishwashers. During your repair visit, ask our technician for specific maintenance tips for your LG model. Small habits now can extend the life of your appliance and reduce future repair needs."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:56:47.991790Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "0819af394081ddb1",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_brands",
+      "html": "[services_links role=\"brand_hub\" heading=\"Other Brands We Service\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} LG repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "LG Appliance Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/lg-appliance-repair-lufkin-tx/",
+    "meta_description": "Professional lg appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "lg appliance repair Lufkin TX",
+    "og_title": "LG Appliance Repair in {city_state} | {business}",
+    "og_description": "Professional lg appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "LG Appliance Repair",
+    "service_type": "LG Appliance Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional lg appliance repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "lg appliance repair",
+    "secondary_keywords": "",
+    "brand": "LG",
+    "appliance_type": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"LG Appliance Repair in Lufkin, TX\",\"serviceType\":\"LG Appliance Repair\",\"description\":\"Professional lg appliance repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "52715ac2d84c2210c1042423a59448cc"
+}

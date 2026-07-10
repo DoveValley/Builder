@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_dacor_freezer_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "dacor-freezer-repair-lufkin-tx",
+  "title": "Dacor Freezer Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Dacor Freezer Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin, a broken freezer means more than an inconvenience—it threatens food safety and household budgets within days. Wells Appliance Repair specializes in Dacor freezer repairs, addressing compressor failures, temperature regulation issues, and other breakdowns that leave families without reliable cold storage. Our factory-trained technicians arrive promptly with the expertise and warranty backing to restore your freezer and peace of mind.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Dacor",
+      "hs_caption2": "Freezer Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "Dacor Freezer Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:10:43.239719Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "e77556f3465b9c1c",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Dacor Freezer Repair Services in Lufkin, TX",
+      "text": "<p>A broken freezer in your Lufkin home is more than an inconvenience—it's a threat to your food, your budget, and your peace of mind. When a Dacor freezer stops working properly, spoilage can happen quickly, and the cost of replacing groceries and potentially the unit itself adds up fast. That's why prompt, professional repair matters so much. The longer you wait, the greater the risk of food loss and the harder it becomes to diagnose what went wrong. Homeowners in Lufkin trust trained technicians to get their freezers back online before damage spreads.</p><p>Wells Appliance Repair specializes in Dacor freezer repair and brings factory-trained expertise directly to your home. Our technicians understand Dacor's engineering and common failure points, so we can diagnose problems accurately and recommend the right fix—not an unnecessary replacement. We source quality parts, provide upfront pricing so there are no surprises, and back our work with a warranty you can depend on. Whether your issue is frost buildup, temperature control, or a mechanical failure, we're equipped to handle it. When your Dacor freezer needs help, we're ready to restore it and your confidence.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:10:46.934619Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "4c5c9699f73c3180",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Freezer Not Cold Enough",
+          "text": "Frost buildup, a failing compressor, or low refrigerant levels often prevent Dacor freezers from maintaining proper temperature. Our technicians diagnose the root cause and restore full cooling performance."
+        },
+        {
+          "heading": "Ice Buildup Inside",
+          "text": "Excessive frost and ice formation typically stem from a faulty defrost cycle, clogged drain lines, or a failing thermostat. Wells Appliance Repair clears blockages and repairs defrost components to prevent recurring buildup."
+        },
+        {
+          "heading": "Water Pooling or Leaking",
+          "text": "Frozen or clogged drain lines and defective drain pans commonly cause water to accumulate inside or beneath your freezer. Our technicians clear obstructions and replace damaged drainage parts quickly."
+        },
+        {
+          "heading": "Loud or Strange Noises",
+          "text": "Grinding, buzzing, or rattling sounds often indicate worn fan motors, loose components, or an aging compressor. We identify the noise source and repair or replace the faulty part."
+        },
+        {
+          "heading": "Freezer Won't Turn On",
+          "text": "A tripped circuit breaker, bad power cord, or failed control board can prevent your Dacor freezer from starting. Wells Appliance Repair tests the electrical system and restores power and function."
+        },
+        {
+          "heading": "Door Seal Not Sealing",
+          "text": "A damaged or warped door gasket allows cold air to escape, forcing the compressor to work harder and energy bills to rise. We replace worn seals to restore proper insulation."
+        }
+      ],
+      "fc_heading": "Common Dacor Freezer Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:10:51.439545Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "180ea6b7597109e3",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Dacor Freezer Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Dacor Expertise",
+          "text": "Our technicians are trained on Dacor freezer systems and understand their unique design. We diagnose and repair Dacor units with precision, ensuring your freezer operates as intended."
+        },
+        {
+          "heading": "Genuine Dacor Parts On Hand",
+          "text": "We stock authentic Dacor freezer components to minimize repair time. Using manufacturer-correct parts protects your warranty and guarantees reliable, lasting performance for your unit."
+        },
+        {
+          "heading": "Upfront Pricing and Warranty",
+          "text": "Receive a free estimate before any Dacor freezer repair begins. Our work is warranty-backed, giving you confidence that your investment is protected from the start."
+        },
+        {
+          "heading": "Fast Response Across Lufkin",
+          "text": "Same-day service available for Dacor freezer emergencies throughout Lufkin. We arrive promptly to diagnose and resolve your freezer issue with minimal disruption to your home."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:10:54.495157Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "95036d02b372099f",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Across the Lufkin Area",
+      "text": "<p>Wells Appliance Repair serves homes throughout Lufkin and the surrounding region, where neighborhoods range from established areas like Crown Colony to newer subdivisions and everything in between. This mix means our technicians encounter appliances of all ages, brands, and models—from vintage units still running strong to the latest smart appliances. We understand that when your refrigerator, washer, dryer, dishwasher, or range stops working, you need help fast. Our factory-trained technicians arrive ready to diagnose and repair your unit with the right knowledge and parts to get your appliance back online.</p><p>Because Lufkin's housing spans decades of construction, homeowners rely on us to handle the full spectrum of appliance repair needs across the community. We stock common parts and draw on manufacturer training to address issues quickly, minimizing downtime in your home. Whether you're in Fuller Springs or another neighborhood nearby, we're committed to prompt, professional service that treats your appliance and your time with respect.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:10:57.840057Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a21804b85cae7f4e",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common Dacor freezer problems that need professional repair?",
+          "answer": "Dacor freezers commonly develop issues like inadequate cooling or frost buildup, compressor failures, thermostat malfunctions, and door seal problems. Ice buildup, unusual noises, or a unit that runs constantly but doesn't reach proper temperature are red flags. These symptoms require professional diagnosis since they often involve refrigerant systems or electrical components that demand trained expertise."
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair schedule a Dacor freezer repair in Lufkin?",
+          "answer": "We understand a broken freezer is urgent, especially in Texas heat. Contact us directly for current availability and scheduling. We work to accommodate prompt service appointments, and we can discuss your timeline when you call. The sooner you reach out, the sooner we can assess your unit and plan a visit that fits your schedule."
+        },
+        {
+          "question": "Is it better to repair or replace my Dacor freezer?",
+          "answer": "That depends on the repair cost, your freezer's age, and remaining lifespan. A technician's diagnosis is essential before deciding. Some repairs restore years of reliable use; others may cost close to replacement. We'll evaluate your unit thoroughly and help you understand your options without pressure. An honest assessment guides the best financial choice for your situation."
+        },
+        {
+          "question": "What should I do to prepare for a Dacor freezer repair technician's visit?",
+          "answer": "Clear the area around your freezer so the technician has safe access. If possible, note when the problem started and what symptoms you've observed—this helps our team diagnose faster. Keep the unit plugged in unless instructed otherwise; avoid attempting repairs yourself. Have your freezer's model and serial number available; they're typically on a label inside or on the back."
+        },
+        {
+          "question": "Are Wells Appliance Repair technicians trained to service Dacor freezers?",
+          "answer": "Yes, our technicians are trained to work on Dacor appliances and understand their specific systems. We stay current with manufacturer standards and repair procedures. This expertise ensures your Dacor freezer receives proper diagnosis and repair rather than generic troubleshooting, protecting your appliance and investment."
+        },
+        {
+          "question": "Do Dacor freezer repairs come with a warranty on parts and labor?",
+          "answer": "We stand behind our work with warranty coverage on both parts and labor. The specific terms depend on the repair performed. When we complete your service, we'll provide you with warranty details in writing so you know exactly what's covered and for how long. This protection gives you confidence in the repair."
+        },
+        {
+          "question": "What factors affect the cost of Dacor freezer repair?",
+          "answer": "Repair costs depend on the problem diagnosed, which parts need replacement, and the labor involved. A simple thermostat adjustment costs far less than a compressor repair. We offer free estimates so you know the investment before we proceed. This transparent approach lets you make an informed decision about moving forward."
+        },
+        {
+          "question": "How can I prevent my Dacor freezer from needing repair in the future?",
+          "answer": "Keep the door seals clean and intact to maintain proper cooling. Vacuum the condenser coils annually to prevent airflow blockages. Don't overload the unit, which forces the compressor to work harder. Maintain a stable room temperature around your freezer. During service, ask our technician for specific maintenance tips for your model to extend its lifespan."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:11:07.248918Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "fb507863cda3e54f",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Dacor Freezer Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/dacor-freezer-repair-lufkin-tx/",
+    "meta_description": "Professional dacor freezer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "dacor freezer repair Lufkin TX",
+    "og_title": "Dacor Freezer Repair in {city_state} | {business}",
+    "og_description": "Professional dacor freezer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Dacor Freezer Repair",
+    "service_type": "Dacor Freezer Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional dacor freezer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "dacor freezer repair",
+    "secondary_keywords": "",
+    "brand": "Dacor",
+    "appliance_type": "Freezer",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Dacor Freezer Repair in Lufkin, TX\",\"serviceType\":\"Dacor Freezer Repair\",\"description\":\"Professional dacor freezer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "ec10c3098df30eee4efcfbfae5f7e509"
+}

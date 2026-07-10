@@ -1,0 +1,326 @@
+{
+  "template_id": "tpl_dacor_dishwasher_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "dacor-dishwasher-repair-lufkin-tx",
+  "title": "Dacor Dishwasher Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Dacor Dishwasher Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a dishwasher breakdown disrupts daily routines and leaves dishes piling up fast. Wells Appliance Repair specializes in Dacor dishwasher repairs, diagnosing and restoring your unit with factory-trained expertise. We prioritize prompt service backed by warranty protection, so your kitchen runs smoothly again.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Dacor",
+      "hs_caption2": "Dishwasher Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "Dacor Dishwasher Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:10:17.713774Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "73ff859fbc05132e",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Dacor Dishwasher Repair Services in Lufkin",
+      "text": "<p>A broken dishwasher disrupts your daily routine and forces you back to hand-washing dishes—a frustration no Lufkin homeowner should tolerate for long. When your Dacor dishwasher stops cleaning, drains poorly, or fails to start, the longer you wait, the greater the risk of water damage, mold, or a complete system breakdown. Professional repair is not a luxury; it's a practical necessity. Timely diagnosis and repair by a trained technician can save you hundreds in potential water damage and restore your appliance's efficiency before minor issues become major expenses.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your Lufkin home, with technicians who understand Dacor dishwashers inside and out. We perform thorough, accurate diagnostics to identify the real problem—whether it's a faulty pump, control board issue, or spray arm malfunction—and we source quality parts to restore your unit to full working order. You'll receive upfront pricing before any work begins, honest communication throughout the repair, and warranty-backed service you can trust. Beyond Dacor dishwashers, we also repair other appliance brands and types, but our commitment to precise Dacor repair means your machine gets exactly what it needs. Contact Wells Appliance Repair today and get back to the convenience you deserve.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:10:21.752036Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "0d787ebfb58feff3",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Won't Start or Run",
+          "text": "A Dacor dishwasher that refuses to start may have a faulty door latch, failed control board, or electrical connection issue. Our Lufkin technicians diagnose the root cause and restore operation quickly."
+        },
+        {
+          "heading": "Not Draining Water",
+          "text": "Standing water inside after a cycle usually points to a clogged drain filter, kinked drain hose, or blocked pump. Wells Appliance Repair clears blockages and tests drainage to ensure proper function."
+        },
+        {
+          "heading": "Dishes Not Getting Clean",
+          "text": "Poor wash results often stem from a worn spray arm, clogged nozzles, malfunctioning pump, or low water temperature. Our technicians inspect and repair these components to restore cleaning performance."
+        },
+        {
+          "heading": "Leaking Water",
+          "text": "Water pooling under or around your Dacor dishwasher typically indicates a damaged door seal, cracked tub, or loose inlet connection. We identify the leak source and restore your unit to watertight condition."
+        },
+        {
+          "heading": "Loud or Unusual Noises",
+          "text": "Grinding, rattling, or squealing sounds often signal wear on the pump, spray arm, or motor bearings. Wells Appliance Repair diagnoses the noise source and repairs or replaces worn parts."
+        },
+        {
+          "heading": "Error Code on Display",
+          "text": "Control panel messages indicate sensor faults, drainage problems, or electronic failures requiring expert diagnosis. Our technicians read fault codes and perform targeted repairs to clear errors and restore normal operation."
+        }
+      ],
+      "fc_heading": "Common Dacor Dishwasher Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:10:26.786313Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "29f631e0d95c08b6",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Dacor Dishwasher Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Dacor Expertise",
+          "text": "Our technicians are trained on Dacor dishwasher systems and familiar with their engineering. We diagnose Dacor faults accurately and handle repairs with the precision your unit deserves."
+        },
+        {
+          "heading": "Genuine Dacor Parts On Hand",
+          "text": "We stock authentic Dacor replacement parts for common dishwasher repairs. Having the right components available means faster service and lasting results for your appliance."
+        },
+        {
+          "heading": "Upfront Pricing, Warranty Protection",
+          "text": "We provide free estimates and transparent pricing before any Dacor dishwasher work begins. Every repair is backed by our warranty, so you have peace of mind."
+        },
+        {
+          "heading": "Fast Response Across Lufkin",
+          "text": "Same-day and next-day service available throughout the Lufkin area. We're locally owned and committed to getting your Dacor dishwasher running again quickly."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:10:29.567793Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "192f67108939c7bc",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Serving Lufkin and the Surrounding Communities",
+      "text": "<p>Lufkin's mix of established neighborhoods and newer developments means homeowners rely on appliances of many different ages, brands, and models. Whether you're in an older home with vintage kitchen equipment or a newer residence with the latest smart appliances, Wells Appliance Repair has the expertise to handle your repair needs quickly. Our factory-trained technicians understand the specifics of each brand and model, and we maintain the right parts to get your appliance running again without unnecessary delays.</p><p>When an appliance breaks down, you need a local repair company that responds promptly and gets the job done right. We serve homes across the Lufkin area with the same commitment to quality service and transparent communication. From the moment you call, our goal is to schedule your appointment fast and show up ready to diagnose and repair your unit efficiently. Count on Wells Appliance Repair to be your trusted local partner whenever you need appliance service in the Lufkin region.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:10:32.556339Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a21804b85cae7f4e",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common Dacor dishwasher problems that need professional repair?",
+          "answer": "<p>Common issues include water not draining properly, dishes remaining dirty after cycles, loud grinding or spray arm noises, leaks underneath or around the door seal, and failure to start or respond to controls. Many Dacor models also develop issues with the wash pump, motor, or electronic control board. If you notice any of these symptoms, contact Wells Appliance Repair for diagnosis.</p>"
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair send a technician for my Dacor dishwasher in Lufkin?",
+          "answer": "<p>We understand how inconvenient a broken dishwasher is. We offer prompt scheduling for Lufkin-area customers and work to accommodate same-day or next-day service when possible. Call us right away with your symptoms and we'll discuss availability and get you on our schedule as fast as we can.</p>"
+        },
+        {
+          "question": "What should I do to prepare before the Dacor dishwasher repair technician arrives?",
+          "answer": "<p>Clear the space around and underneath your dishwasher so our technician can access all sides and connections. Remove any dishes, racks, or loose items from inside. Note when the problem started and what symptoms you've observed—this information helps us diagnose faster. Make sure we can reach your kitchen easily on the day of service.</p>"
+        },
+        {
+          "question": "Is it worth repairing my Dacor dishwasher or should I buy a new one?",
+          "answer": "<p>That depends on the repair cost, your dishwasher's age, and how often it breaks down. We'll diagnose the issue and explain your options honestly. Many Dacor repairs—like replacing a pump, motor, or latch—restore years of reliable service. We can help you decide whether repair or replacement makes the most sense for your situation.</p>"
+        },
+        {
+          "question": "Are Wells Appliance Repair technicians trained to work on Dacor dishwashers specifically?",
+          "answer": "<p>Yes. Our technicians are trained on Dacor appliances and understand the brand's engineering, parts, and common failure points. We work with Dacor's component specifications and repair procedures to ensure your dishwasher is fixed right the first time.</p>"
+        },
+        {
+          "question": "Do you offer a free estimate or diagnostic fee for Dacor dishwasher repair?",
+          "answer": "<p>We provide thorough diagnostics to identify exactly what's wrong with your Dacor dishwasher. Contact us to discuss our estimate process and any diagnostic fees. We'll give you a clear picture of what the repair involves before you decide to move forward.</p>"
+        },
+        {
+          "question": "What warranty coverage applies to Dacor dishwasher repairs from Wells Appliance Repair?",
+          "answer": "<p>We stand behind our work and warranty both labor and replacement parts. Ask our technician about the specific coverage that applies to your repair when they arrive. We want you confident that your Dacor dishwasher will run reliably after we fix it.</p>"
+        },
+        {
+          "question": "When should I call a professional instead of trying to fix my Dacor dishwasher myself?",
+          "answer": "<p>If your Dacor dishwasher has electrical, plumbing, or motor issues, leave it to a professional. DIY attempts can create safety hazards, void warranties, or cause more damage. If you're unsure whether a problem is simple or complex, call Wells Appliance Repair—it's safer and often saves money in the long run.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:10:41.478883Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "a70efa8a69c59716",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "Dacor Dishwasher Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/dacor-dishwasher-repair-lufkin-tx/",
+    "meta_description": "Professional dacor dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "dacor dishwasher repair Lufkin TX",
+    "og_title": "Dacor Dishwasher Repair in {city_state} | {business}",
+    "og_description": "Professional dacor dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Dacor Dishwasher Repair",
+    "service_type": "Dacor Dishwasher Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional dacor dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "dacor dishwasher repair",
+    "secondary_keywords": "",
+    "brand": "Dacor",
+    "appliance_type": "Dishwasher",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Dacor Dishwasher Repair in Lufkin, TX\",\"serviceType\":\"Dacor Dishwasher Repair\",\"description\":\"Professional dacor dishwasher repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "0663a8b9e280782913fbbf56335f0996"
+}

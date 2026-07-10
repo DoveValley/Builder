@@ -1,0 +1,283 @@
+{
+  "template_id": "tpl_ice_machine_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "ice-machine-repair-lufkin-tx",
+  "title": "Ice Machine Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "(281) 888-8888",
+    "tel": "+12818888888",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Ice Machine Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin, a functioning ice machine is essential for households that depend on it daily, and when one breaks down, it disrupts routines and comfort quickly. Wells Appliance Repair specializes in ice machine repair, bringing factory-trained expertise to get your unit running again. We back our work with warranty protection and prioritize prompt service so your home can return to normal.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "Ice Machine",
+      "hs_caption2": "Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "Ice Machine Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:54:38.724363Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ad96f84de160f405",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Ice Machine Repair Services in Lufkin",
+      "text": "<p>A broken ice machine can quickly turn into a household inconvenience that affects daily routines and entertaining. Whether you rely on it for everyday use or depend on it during Lufkin's warmer months, a malfunctioning ice maker disrupts comfort and can lead to costly food waste or emergency replacements if left unaddressed. The longer a broken unit sits idle, the greater the risk of secondary damage to internal components. That's why prompt, professional ice machine repair in Lufkin matters—early diagnosis and skilled repair work can restore your appliance and protect your investment before minor issues become major expenses.</p><p>Wells Appliance Repair brings factory-trained expertise to every ice machine repair job in Lufkin and the surrounding area. Our technicians accurately diagnose the root cause of your problem, whether it's a mechanical failure, electrical issue, or worn part, and source quality replacement components to get your unit running again. We provide upfront pricing so you know what to expect, and we stand behind our work with a warranty you can trust. Beyond ice machines, we service a broad range of household appliances and brands, but our commitment to precision and customer care remains constant. When your ice machine needs attention, Wells Appliance Repair is ready to help you restore reliable service.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:54:42.599913Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "df1f138d32d00bfc",
+      "_ai_locked": true
+    },
+    {
+      "type": "custom_html",
+      "anchor": "by_brand",
+      "html": "[services_links appliance_type=\"self\" heading=\"Repair by Brand in {city_state}\" cols=\"4\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Ice Not Freezing",
+          "text": "When your ice machine produces water instead of ice, the freezing mechanism may be failing or refrigerant levels could be low. Wells Appliance Repair technicians diagnose the underlying cause and restore proper ice production."
+        },
+        {
+          "heading": "Machine Won't Start",
+          "text": "A non-responsive ice machine often points to electrical issues, a faulty power switch, or control board problems. Our technicians test and repair the power supply and startup components to get your machine running again."
+        },
+        {
+          "heading": "Ice Tastes or Smells Bad",
+          "text": "Poor water quality, a dirty or clogged water filter, or contamination in the ice bin causes off-flavors and odors. We clean, replace filters, and sanitize your machine to restore clean, fresh ice."
+        },
+        {
+          "heading": "Leaking Water",
+          "text": "Water pooling under or around your ice machine suggests loose connections, cracked seals, or damaged water lines. Wells Appliance Repair identifies the leak source and replaces worn components to stop water damage."
+        },
+        {
+          "heading": "Loud Noises During Operation",
+          "text": "Grinding, rattling, or unusual sounds indicate loose parts, a struggling compressor, or worn bearings inside the machine. Our technicians inspect, tighten, or replace components causing the noise."
+        },
+        {
+          "heading": "Ice Buildup or Jamming",
+          "text": "Excess frost, ice clogs, or frozen moving parts prevent the machine from producing or dispensing ice properly. We defrost, clear blockages, and repair the ejector mechanism to restore smooth operation."
+        }
+      ],
+      "fc_heading": "Common Ice Machine Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:54:46.905187Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "531b5639889cc571",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for Ice Machine Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained Ice Machine Technicians",
+          "text": "Our technicians specialize in ice machine repair with factory training on common commercial and residential units. We diagnose freezing cycles, water supply issues, and component faults accurately to get your machine running again."
+        },
+        {
+          "heading": "Right Parts, Fast Repair",
+          "text": "We stock quality replacement parts for ice machines and offer same-day or next-day service in most cases. Upfront pricing and free estimates ensure no surprises—just reliable ice machine repair when you need it."
+        },
+        {
+          "heading": "Warranty-Backed Ice Machine Service",
+          "text": "Every ice machine repair we perform is backed by our service warranty, giving you confidence in the work. We stand behind our diagnostics and repairs with honest, professional craftsmanship."
+        },
+        {
+          "heading": "Local Lufkin Service You Can Count On",
+          "text": "Based right here in Lufkin, we respond promptly to ice machine repair calls across the area. Locally owned and trained, we're your neighbor—ready to help when your ice maker stops working."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:54:50.344404Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "70d13bf3bcaff98f",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need this appliance repaired in {city}? Call our team.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common ice machine problems in Lufkin homes?",
+          "answer": "<p>The most frequent issues we see are ice buildup or jamming, machines that produce little to no ice, water leaks, strange noises during the freeze cycle, and ice that tastes or smells off. These problems often stem from mineral deposits, clogged water lines, worn seals, or compressor wear. Understanding what symptom your unit is showing helps us diagnose the root cause quickly.</p>"
+        },
+        {
+          "question": "How fast can Wells Appliance Repair arrive for ice machine service?",
+          "answer": "<p>We offer same-day and next-day appointments for ice machine repairs in the Lufkin area. Call us as soon as you notice a problem, and we'll work to fit you into our schedule promptly. We know a broken ice maker is inconvenient, especially during Texas heat, so we prioritize rapid response.</p>"
+        },
+        {
+          "question": "Should I repair or replace my ice machine?",
+          "answer": "<p>That depends on the repair cost, your machine's age, and frequency of past breakdowns. Our technician will diagnose the issue and give you honest guidance on whether repair makes financial sense. Many mid-life ice machines are absolutely worth fixing; we'll help you decide what's best for your home.</p>"
+        },
+        {
+          "question": "Do you offer free estimates for ice machine repair?",
+          "answer": "<p>Yes. We provide a free diagnostic and cost estimate before you approve any work. Our technician will identify the problem, explain what needs to be done, and outline the repair cost so there are no surprises. You're under no obligation to proceed.</p>"
+        },
+        {
+          "question": "What should I do to prepare for the ice machine repair technician?",
+          "answer": "<p>Ensure the machine is accessible and that water and power sources are reachable. Turn off the ice maker before we arrive. If you've noticed any particular issues—like when the problem started or what sounds it's making—jot those down to share. Clear a small work area nearby so our technician has room to move and troubleshoot safely.</p>"
+        },
+        {
+          "question": "Are your ice machine repairs covered by a warranty?",
+          "answer": "<p>Yes. We back our repairs and parts with a warranty. The specific terms depend on the work performed, and our technician will explain coverage details once the repair is complete. This gives you confidence that the work is done right.</p>"
+        },
+        {
+          "question": "What does the ice machine repair process actually involve?",
+          "answer": "<p>Our technician will inspect the water line, compressor, evaporator, and electrical components to pinpoint the fault. Depending on the cause, we may clean mineral deposits, replace a faulty valve or seal, repair the water inlet, or service the compressor. You'll receive a full explanation of what we found and what we fixed before we leave.</p>"
+        },
+        {
+          "question": "How do I prevent ice machine problems from happening again?",
+          "answer": "<p>Regularly clean the exterior and interior components, and consider using filtered water to reduce mineral buildup. Keep the machine level and ensure proper ventilation around it. Check water line connections monthly for leaks. If your Lufkin area has hard water, a water softener or filter can extend the life of your ice maker significantly.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-09T23:54:59.009654Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "c70e14d89f2207a1",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "other_types",
+      "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Schedule your {city} repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    }
+  ],
+  "seo": {
+    "seo_title": "Ice Machine Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/ice-machine-repair-lufkin-tx/",
+    "meta_description": "Professional ice machine repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "ice machine repair Lufkin TX",
+    "og_title": "Ice Machine Repair in {city_state} | {business}",
+    "og_description": "Professional ice machine repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Ice Machine Repair",
+    "service_type": "Ice Machine Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional ice machine repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "ice machine repair",
+    "secondary_keywords": "",
+    "brand": "",
+    "appliance_type": "Ice Machine",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Ice Machine Repair in Lufkin, TX\",\"serviceType\":\"Ice Machine Repair\",\"description\":\"Professional ice machine repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-09T23:50:13+00:00",
+  "template_version": "b5183002f58b3bc8774668afba451b12"
+}
