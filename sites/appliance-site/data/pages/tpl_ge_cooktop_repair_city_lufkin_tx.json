@@ -1,200 +1,326 @@
 {
-    "template_id": "tpl_ge_cooktop_repair",
-    "city_id": "city_lufkin_tx",
-    "slug": "ge-cooktop-repair-lufkin-tx",
-    "title": "GE Cooktop Repair in {city_state} | {business}",
-    "city_vars": {
-        "id": "city_lufkin_tx",
-        "city": "Lufkin",
-        "SS": "TX",
-        "state": "Texas",
-        "city_slug": "lufkin-tx",
-        "zip": "75901",
-        "phone": "(281) 888-8888",
-        "tel": "+12818888888",
-        "website": "https://elkpestpros.com",
-        "tags": [],
-        "industries": [
-            "Forestry and timber/wood products manufacturing",
-            "Healthcare",
-            "Oil and gas equipment manufacturing",
-            "Education",
-            "Retail and distribution",
-            "Government/public administration"
-        ],
-        "top_employers": [
-            "CHI St. Luke's Health Memorial",
-            "Lufkin Industries (Baker Hughes)",
-            "Angelina College",
-            "Lufkin Independent School District",
-            "Georgia-Pacific",
-            "Temple-Inland",
-            "Brookshire Brothers",
-            "City of Lufkin",
-            "Angelina County",
-            "Walmart Supercenter",
-            "Diboll Healthcare System",
-            "Southern Plastics"
-        ],
-        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-        "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
-        "neighborhoods": [
-            "Downtown Lufkin",
-            "Crown Colony",
-            "Fuller Springs",
-            "Kurth",
-            "Copeland Springs",
-            "Brentwood"
-        ],
-        "population": 34187,
-        "_researched": 1
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "GE Cooktop Repair in {city_state}",
-            "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
-            "hs_btn_text": "Call {phone}",
-            "hs_btn_url": "tel:{tel}",
-            "hs_caption1": "GE",
-            "hs_caption2": "Cooktop Repair",
-            "hs_photo": "",
-            "hs_photo_alt": "GE Cooktop Repair in {city_state}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f3f6f7",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "trust_bar",
-            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "",
-            "it_alt": "Appliance repair technician in {city_state}"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "common_problems",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "fc_num_cols": 3
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns"
-        },
-        {
-            "type": "steps",
-            "steps_heading": "How Our Repair Service Works",
-            "steps_items": [
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Call or Book Online",
-                    "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Diagnose & Quote",
-                    "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Repair & Warranty",
-                    "text": "We complete the repair with quality parts and back the work with a warranty."
-                }
-            ]
-        },
-        {
-            "type": "cta_banner",
-            "anchor": "mid_cta",
-            "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "header",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "right",
-            "it_photo": "",
-            "it_alt": "Appliance repair for {city_state} homes"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "Appliance Repair FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": []
-        },
-        {
-            "type": "testimonials",
-            "anchor": "reviews",
-            "tm_label": "Reviews",
-            "tm_main_heading": "What {city} Homeowners Say About {business}",
-            "tm_subtext": "",
-            "tm_cols": 3,
-            "tm_items": []
-        },
-        {
-            "type": "custom_html",
-            "anchor": "related",
-            "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Book your {city} appliance repair today.",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "accent",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "pest_services",
-            "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
-        }
+  "template_id": "tpl_ge_cooktop_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "ge-cooktop-repair-lufkin-tx",
+  "title": "GE Cooktop Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
     ],
-    "seo": {
-        "seo_title": "GE Cooktop Repair in {city_state} | {business}",
-        "canonical_url": "https://elkpestpros.com/ge-cooktop-repair-lufkin-tx/",
-        "meta_description": "Professional ge cooktop repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
-        "meta_keywords": "ge cooktop repair Lufkin TX",
-        "og_title": "GE Cooktop Repair in {city_state} | {business}",
-        "og_description": "Professional ge cooktop repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
-        "og_image": "",
-        "service_name": "GE Cooktop Repair",
-        "service_type": "GE Cooktop Repair",
-        "service_area": "{city}, {SS}",
-        "service_description": "Professional ge cooktop repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
-        "bc_label": "",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "primary_keyword": "ge cooktop repair",
-        "secondary_keywords": "",
-        "brand": "GE",
-        "appliance_type": "Cooktop",
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Cooktop Repair in Lufkin, TX\",\"serviceType\":\"GE Cooktop Repair\",\"description\":\"Professional ge cooktop repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "GE Cooktop Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin homes, a kitchen cooktop is essential to daily life, and when one stops working, meal preparation and family routines come to a halt. Wells Appliance Repair specializes in GE Cooktop Repair, addressing everything from burner issues to control problems with factory-trained expertise. We understand the urgency of a broken cooktop and stand behind our work with service warranties, helping you get back to cooking quickly.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "GE",
+      "hs_caption2": "Cooktop Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "GE Cooktop Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:15:58.460032Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "6fca0bb6daad251e",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-07-10T00:03:32+00:00",
-    "template_version": "fd535572324624f579d8efb01ae591d6"
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "GE Cooktop Repair for Lufkin Homes",
+      "text": "<p>A broken GE cooktop can disrupt your kitchen routine and leave your family without a reliable way to prepare meals. When your cooktop stops heating evenly, won't ignite, or displays error codes, the longer you wait the more inconvenient life becomes. Beyond the daily frustration, a malfunctioning cooktop can pose safety concerns and may lead to costlier damage if the underlying issue goes unaddressed. That's why homeowners throughout Lufkin turn to professional repair rather than attempting DIY fixes or rushing into a premature replacement.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your Lufkin kitchen to diagnose and repair your GE cooktop with precision. Our technicians understand GE's design and controls inside and out, allowing us to pinpoint the root cause quickly and recommend the best path forward. We use quality replacement parts backed by warranties, provide upfront pricing so you know exactly what to expect, and stand behind our work with confidence. Whether your issue involves a burner element, ignition system, or control board, we handle GE cooktop repairs with the care your appliance deserves. Beyond cooktops, we also service other major appliances and brands throughout the area—but when it comes to getting your GE back in working order, you can count on Wells to deliver reliable, prompt results.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:16:02.702585Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "afeab9eafc120baf",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Burner Won't Heat",
+          "text": "A cooktop burner that won't heat may have a faulty heating element, broken igniter, or loose electrical connection. Wells Appliance Repair technicians diagnose the source and replace or repair the defective component quickly."
+        },
+        {
+          "heading": "Uneven Cooking Temperature",
+          "text": "Hot spots or cold zones across your cooking surface often stem from a damaged heating element or internal control board issue. Our technicians test and repair the heating circuit to restore even heat distribution."
+        },
+        {
+          "heading": "Igniter Clicking Continuously",
+          "text": "If your burner igniter clicks repeatedly without lighting, moisture, food debris, or a worn igniter spark module may be to blame. We clean, test, and replace igniters to get your cooktop firing properly again."
+        },
+        {
+          "heading": "Controls Not Responding",
+          "text": "Unresponsive touch controls or dial switches can result from water damage, electrical faults, or a failed control board. Wells Appliance Repair diagnoses the issue and restores your cooktop's full functionality."
+        },
+        {
+          "heading": "Glass Top Cracked or Damaged",
+          "text": "A cracked cooktop surface is unsafe and stops the appliance from working correctly. Our technicians can assess the damage and arrange a replacement glass top to restore safe operation."
+        },
+        {
+          "heading": "Burner Stays On Constantly",
+          "text": "A burner that won't shut off or remains at full heat typically signals a faulty control switch or thermostat malfunction. We identify and repair the control issue to restore normal operation."
+        }
+      ],
+      "fc_heading": "Common GE Cooktop Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:16:08.637657Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "ee570e0b875781df",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for GE Cooktop Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "GE Cooktop Expertise You Need",
+          "text": "Our technicians are trained on GE cooktop systems and understand their unique electrical and ignition components. We diagnose cooktop faults accurately and source genuine GE parts to restore reliable cooking performance."
+        },
+        {
+          "heading": "Fast, Upfront Cooktop Service",
+          "text": "We offer same-day GE cooktop repair appointments and free estimates before any work begins. Transparent pricing means no surprises—you'll know the cost upfront for your cooktop repair."
+        },
+        {
+          "heading": "Warranty-Backed GE Cooktop Repairs",
+          "text": "Every GE cooktop repair is backed by our warranty, giving you confidence in the work. We stand behind our service so your cooktop runs safely and dependably."
+        },
+        {
+          "heading": "Local Lufkin Service, Fast Response",
+          "text": "Based right here in Lufkin, we respond quickly to cooktop repair calls across our service area. Same-day appointments and honest service from your trusted neighborhood appliance repair team."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:16:14.619878Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "35a68b5d09ec7206",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Serving All of Lufkin",
+      "text": "<p>Lufkin's mix of long-established neighborhoods and newer residential areas means our service area includes homes with a remarkably diverse range of appliance ages and brands. Whether you're in a classic area like Crown Colony or a newer subdivision like Copeland Springs, your refrigerator, washer, dryer, dishwasher, or range may need attention at some point—and when it does, Wells Appliance Repair responds promptly across the entire region. Our factory-trained technicians arrive equipped with the knowledge and parts to handle older models alongside today's latest appliances.</p><p>When an essential appliance breaks down, waiting is not an option. We understand that a malfunctioning oven or washing machine disrupts your household, which is why we prioritize fast response times throughout the Lufkin area. Our technicians carry a comprehensive inventory of common replacement parts and components, reducing the need for multiple visits. We're committed to diagnosing your appliance issue accurately and explaining your repair options clearly—because a local, trained team should stand behind the work it performs.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:16:19.674337Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a21804b85cae7f4e",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common GE cooktop problems that need professional repair?",
+          "answer": "GE cooktops commonly develop burner ignition failures, uneven heating, control knob issues, and glass surface cracks. Electric coil models may have faulty elements, while smooth-top units often experience sensor malfunctions. Gas cooktops frequently need igniter replacement or valve repairs. If your cooktop won't heat, sparks inconsistently, or shows error codes, professional diagnosis is warranted."
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair service my GE cooktop in Lufkin?",
+          "answer": "<p>We understand a broken cooktop disrupts meal preparation. We aim to schedule GE cooktop repairs promptly for Lufkin homeowners and typically offer same-day or next-day service depending on availability and appointment demand. Contact us directly to discuss your timeline and get on our schedule as soon as possible.</p>"
+        },
+        {
+          "question": "Is it better to repair my GE cooktop or buy a new one?",
+          "answer": "Repair makes sense if your GE cooktop is under 10 years old, the malfunction is isolated (like a single burner or igniter), and repair cost estimates are reasonable relative to replacement. Newer models with electronics or multiple failing components may justify replacement. We provide honest assessments to help you decide what serves your household best."
+        },
+        {
+          "question": "What should I do to prepare before the GE cooktop repair technician arrives?",
+          "answer": "Clear the cooktop and surrounding countertop of items, cookware, and clutter so the technician can access all areas safely. Ensure the appliance is powered off. If it's a gas cooktop, confirm the gas shutoff valve is accessible. Have your model and serial number available (usually on the back or inside edge). Keep pets and children nearby supervised during the visit."
+        },
+        {
+          "question": "Does Wells Appliance Repair offer free diagnostics for GE cooktop issues?",
+          "answer": "<p>Yes, we offer free diagnostic evaluation when you schedule a GE cooktop repair visit. Our technician will identify the root cause and explain your repair options and associated costs upfront. This lets you make an informed decision before we proceed with any repair work.</p>"
+        },
+        {
+          "question": "Are your technicians trained to repair GE brand cooktops specifically?",
+          "answer": "Our technicians are factory-trained and experienced with GE appliances, including the full range of cooktop models—gas, electric coil, and smooth-top. They understand GE design, components, and repair protocols, ensuring your cooktop is serviced correctly and safely by someone who knows the brand inside out."
+        },
+        {
+          "question": "What warranty coverage comes with GE cooktop repairs from Wells?",
+          "answer": "<p>All parts we install carry a manufacturer warranty, and our workmanship is backed by our service warranty. This means you're protected if a repaired component fails unexpectedly. We'll discuss warranty details with you at the time of repair so you know exactly what's covered.</p>"
+        },
+        {
+          "question": "When should I call a professional instead of trying DIY fixes on my GE cooktop?",
+          "answer": "Call a professional if the cooktop won't ignite, heats unevenly, has visible cracks, displays error codes, or has electrical/gas component issues. DIY risks include electric shock, gas leaks, and voiding warranties. Even simple-seeming problems often require specialized tools and knowledge. It's safer and more cost-effective to have a trained technician diagnose and repair your GE cooktop."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:16:30.681372Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "efcd42437f2cc51f",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "GE Cooktop Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/ge-cooktop-repair-lufkin-tx/",
+    "meta_description": "Professional ge cooktop repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "ge cooktop repair Lufkin TX",
+    "og_title": "GE Cooktop Repair in {city_state} | {business}",
+    "og_description": "Professional ge cooktop repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "GE Cooktop Repair",
+    "service_type": "GE Cooktop Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional ge cooktop repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "ge cooktop repair",
+    "secondary_keywords": "",
+    "brand": "GE",
+    "appliance_type": "Cooktop",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Cooktop Repair in Lufkin, TX\",\"serviceType\":\"GE Cooktop Repair\",\"description\":\"Professional ge cooktop repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "fd535572324624f579d8efb01ae591d6"
 }

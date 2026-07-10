@@ -1,200 +1,326 @@
 {
-    "template_id": "tpl_ge_dryer_repair",
-    "city_id": "city_lufkin_tx",
-    "slug": "ge-dryer-repair-lufkin-tx",
-    "title": "GE Dryer Repair in {city_state} | {business}",
-    "city_vars": {
-        "id": "city_lufkin_tx",
-        "city": "Lufkin",
-        "SS": "TX",
-        "state": "Texas",
-        "city_slug": "lufkin-tx",
-        "zip": "75901",
-        "phone": "(281) 888-8888",
-        "tel": "+12818888888",
-        "website": "https://elkpestpros.com",
-        "tags": [],
-        "industries": [
-            "Forestry and timber/wood products manufacturing",
-            "Healthcare",
-            "Oil and gas equipment manufacturing",
-            "Education",
-            "Retail and distribution",
-            "Government/public administration"
-        ],
-        "top_employers": [
-            "CHI St. Luke's Health Memorial",
-            "Lufkin Industries (Baker Hughes)",
-            "Angelina College",
-            "Lufkin Independent School District",
-            "Georgia-Pacific",
-            "Temple-Inland",
-            "Brookshire Brothers",
-            "City of Lufkin",
-            "Angelina County",
-            "Walmart Supercenter",
-            "Diboll Healthcare System",
-            "Southern Plastics"
-        ],
-        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-        "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
-        "neighborhoods": [
-            "Downtown Lufkin",
-            "Crown Colony",
-            "Fuller Springs",
-            "Kurth",
-            "Copeland Springs",
-            "Brentwood"
-        ],
-        "population": 34187,
-        "_researched": 1
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "GE Dryer Repair in {city_state}",
-            "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
-            "hs_btn_text": "Call {phone}",
-            "hs_btn_url": "tel:{tel}",
-            "hs_caption1": "GE",
-            "hs_caption2": "Dryer Repair",
-            "hs_photo": "",
-            "hs_photo_alt": "GE Dryer Repair in {city_state}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f3f6f7",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "trust_bar",
-            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "",
-            "it_alt": "Appliance repair technician in {city_state}"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "common_problems",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "fc_num_cols": 3
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns"
-        },
-        {
-            "type": "steps",
-            "steps_heading": "How Our Repair Service Works",
-            "steps_items": [
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Call or Book Online",
-                    "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Diagnose & Quote",
-                    "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Repair & Warranty",
-                    "text": "We complete the repair with quality parts and back the work with a warranty."
-                }
-            ]
-        },
-        {
-            "type": "cta_banner",
-            "anchor": "mid_cta",
-            "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "header",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "right",
-            "it_photo": "",
-            "it_alt": "Appliance repair for {city_state} homes"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "Appliance Repair FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": []
-        },
-        {
-            "type": "testimonials",
-            "anchor": "reviews",
-            "tm_label": "Reviews",
-            "tm_main_heading": "What {city} Homeowners Say About {business}",
-            "tm_subtext": "",
-            "tm_cols": 3,
-            "tm_items": []
-        },
-        {
-            "type": "custom_html",
-            "anchor": "related",
-            "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Book your {city} appliance repair today.",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "accent",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "pest_services",
-            "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
-        }
+  "template_id": "tpl_ge_dryer_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "ge-dryer-repair-lufkin-tx",
+  "title": "GE Dryer Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
     ],
-    "seo": {
-        "seo_title": "GE Dryer Repair in {city_state} | {business}",
-        "canonical_url": "https://elkpestpros.com/ge-dryer-repair-lufkin-tx/",
-        "meta_description": "Professional ge dryer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
-        "meta_keywords": "ge dryer repair Lufkin TX",
-        "og_title": "GE Dryer Repair in {city_state} | {business}",
-        "og_description": "Professional ge dryer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
-        "og_image": "",
-        "service_name": "GE Dryer Repair",
-        "service_type": "GE Dryer Repair",
-        "service_area": "{city}, {SS}",
-        "service_description": "Professional ge dryer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
-        "bc_label": "",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "primary_keyword": "ge dryer repair",
-        "secondary_keywords": "",
-        "brand": "GE",
-        "appliance_type": "Dryer",
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Dryer Repair in Lufkin, TX\",\"serviceType\":\"GE Dryer Repair\",\"description\":\"Professional ge dryer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "GE Dryer Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a working dryer is essential to daily life, and when it stops running, laundry quickly piles up. Wells Appliance Repair specializes in GE dryer repair, diagnosing and fixing issues from heating problems to drum and vent concerns with factory-trained expertise. We focus on getting your dryer back in service promptly, backed by our warranty on repairs.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "GE",
+      "hs_caption2": "Dryer Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "GE Dryer Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:17:03.210843Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "38fa03497a7509a3",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-07-10T00:03:32+00:00",
-    "template_version": "fc1a34698be3117ab04bdc7223364711"
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional GE Dryer Repair Services in Lufkin",
+      "text": "<p>When your GE dryer stops working, laundry piles up fast and the inconvenience disrupts your entire household routine. A broken dryer isn't just an appliance issue—it's a daily problem that affects how you manage your home. Whether your unit won't heat, won't tumble, or simply won't start, the longer you wait, the more disruptive it becomes. That's why prompt, professional GE dryer repair in Lufkin matters. Attempting DIY fixes or delaying service risks further damage and higher repair costs down the road. Getting your dryer back in working order quickly restores peace of mind and keeps your home running smoothly.</p><p>Wells Appliance Repair specializes in GE dryer repair and brings factory-trained expertise to every job across Lufkin. Our technicians understand GE dryers inside and out, from their heating elements and drum assemblies to their control boards and door latches. We diagnose the root cause accurately so you know exactly what's needed before we begin work. We use quality replacement parts and stand behind every repair with a warranty, giving you confidence in the solution. You'll receive upfront pricing with no surprise charges, and we work efficiently to get your GE dryer back to you as quickly as possible. Whether you own another appliance that needs attention or simply want reliable service you can trust, Wells Appliance Repair is here to help.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:17:07.201239Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "1a9077756c97c2f3",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Dryer Won't Heat",
+          "text": "A heating element failure, thermal fuse blow, or faulty thermostat often prevents your GE dryer from producing heat. Our technicians diagnose the exact cause and replace the defective component to restore normal drying."
+        },
+        {
+          "heading": "Drum Not Turning",
+          "text": "When the drum stops rotating, a worn drum roller, broken belt, or motor issue is usually responsible. Wells Appliance Repair identifies the problem and repairs or replaces the damaged part so clothes dry properly again."
+        },
+        {
+          "heading": "Excessive Lint Buildup",
+          "text": "Lint accumulation in the vent duct or exhaust system reduces efficiency and creates a fire hazard. We clean and clear blocked vents and inspect airflow paths to ensure safe, efficient dryer operation."
+        },
+        {
+          "heading": "Door Latch Broken",
+          "text": "A broken door latch or strike prevents the dryer from starting or staying closed during a cycle. Our technicians replace the latch assembly so your dryer door closes securely and the machine operates normally."
+        },
+        {
+          "heading": "Loud Squeaking or Rumbling",
+          "text": "Worn drum bearings, idler pulleys, or glides cause squeaking and rumbling noises during operation. Wells Appliance Repair pinpoints the worn part and replaces it to eliminate the noise and prevent further damage."
+        },
+        {
+          "heading": "Won't Start at All",
+          "text": "A faulty door switch, blown thermal fuse, or failed control board may prevent your dryer from starting. Our experienced technicians test and replace the defective component to get your dryer running again."
+        }
+      ],
+      "fc_heading": "Common GE Dryer Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:17:11.804102Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "8c5875b7d94a29e6",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With GE Dryer Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "GE Dryer Expertise You Need",
+          "text": "Our technicians are trained on GE dryer systems and familiar with common issues across their models. We diagnose problems accurately and explain what's needed before we proceed with any repair work."
+        },
+        {
+          "heading": "Genuine Parts, Fast Service",
+          "text": "We stock quality GE dryer parts and aim for same-day or next-day service whenever possible. Our upfront estimates mean no surprises—you'll know the cost before we begin repairs on your GE unit."
+        },
+        {
+          "heading": "Warranty-Backed GE Repairs",
+          "text": "Every GE dryer repair we complete comes with our warranty, giving you confidence in the work. We stand behind our service and parts, so your dryer runs reliably after we finish."
+        },
+        {
+          "heading": "Local Lufkin Service, Quick Response",
+          "text": "Based right here in Lufkin, we respond quickly to GE dryer repair calls across the area. You get locally trained technicians who know your community and prioritize your time and convenience."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:17:16.683581Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "bf3ccfcfd47bcf8f",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Across the Lufkin Area",
+      "text": "<p>Wells Appliance Repair serves homes throughout Lufkin and the surrounding communities, where the mix of established neighborhoods and newer developments means we encounter everything from vintage appliances to the latest models. Whether your refrigerator, washer, dryer, dishwasher, or range needs attention, our factory-trained technicians are equipped to handle repairs across all major brands. We understand that a broken appliance disrupts your household, which is why we prioritize quick response times and arrive with the parts and expertise needed to get your equipment running again.</p><p>From Crown Colony to Fuller Springs and across the broader Lufkin region, our local service area lets us reach you promptly when you need us most. We stock common replacement parts and maintain the technical knowledge to diagnose problems accurately, whether your unit is several decades old or recently purchased. Our commitment to serving the Lufkin community means knowing the appliances in our neighbors' homes and delivering the same honest, professional service every time.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:17:20.097708Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a21804b85cae7f4e",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common GE dryer problems that need professional repair?",
+          "answer": "GE dryers frequently develop issues like no heat, tumbling but not drying, loud noises, broken door latches, and failure to start. Some problems stem from clogged vents or lint traps, while others involve worn drum rollers, thermal fuses, or heating elements. A professional can diagnose the root cause and recommend the appropriate fix rather than guessing at the problem."
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair come to Lufkin for my GE dryer?",
+          "answer": "We understand a broken dryer disrupts your routine, and we prioritize fast response times for Lufkin homeowners. Contact us directly to discuss your availability and learn about our scheduling options. We'll work to find a time that fits your schedule as soon as possible."
+        },
+        {
+          "question": "Is it better to repair my GE dryer or buy a new one?",
+          "answer": "That depends on the repair cost, your dryer's age, and its overall condition. Newer GE dryers with isolated problems are usually worth repairing. Older units with multiple failing parts may approach replacement costs. A professional diagnosis helps you make an informed decision without obligation or pressure to proceed."
+        },
+        {
+          "question": "What should I do to prepare before the GE dryer technician arrives?",
+          "answer": "Clear the area around your dryer so the technician has easy access. If possible, note when the problem started and what symptoms you've noticed. Ensure the laundry room is accessible and let us know if there are any safety concerns or pets we should be aware of on arrival."
+        },
+        {
+          "question": "Are Wells technicians trained to work on GE dryer models?",
+          "answer": "Yes, our technicians have the training and expertise to service GE dryers across their product lines. We stay current with GE specifications and repair procedures to ensure reliable, quality work on your specific model and keep your appliance running safely."
+        },
+        {
+          "question": "What signs mean my GE dryer needs professional repair instead of DIY fixes?",
+          "answer": "If your GE dryer won't heat, has burning smells, makes grinding noises, or fails to start despite troubleshooting, call a professional. Electrical and internal component issues pose safety risks and require proper tools and expertise. Attempting complex repairs without training can damage the unit further or create hazards."
+        },
+        {
+          "question": "Do GE dryer repairs come with a warranty in Lufkin?",
+          "answer": "We stand behind our work with warranty coverage on repairs and parts we install. The specific terms depend on the repair and parts involved. When you contact us, we'll explain the warranty details so you know your GE dryer is protected after service."
+        },
+        {
+          "question": "What factors affect the cost of GE dryer repair, and do you offer free estimates?",
+          "answer": "Repair costs depend on the part that failed, the complexity of the fix, and labor time required. We offer diagnostics to identify the exact issue before you commit to repairs. This transparent approach helps you understand what's wrong and what you can expect to invest without hidden surprises."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:17:29.027382Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "6c487c8e4f21dbc8",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "GE Dryer Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/ge-dryer-repair-lufkin-tx/",
+    "meta_description": "Professional ge dryer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "ge dryer repair Lufkin TX",
+    "og_title": "GE Dryer Repair in {city_state} | {business}",
+    "og_description": "Professional ge dryer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "GE Dryer Repair",
+    "service_type": "GE Dryer Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional ge dryer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "ge dryer repair",
+    "secondary_keywords": "",
+    "brand": "GE",
+    "appliance_type": "Dryer",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Dryer Repair in Lufkin, TX\",\"serviceType\":\"GE Dryer Repair\",\"description\":\"Professional ge dryer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "fc1a34698be3117ab04bdc7223364711"
 }

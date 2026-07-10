@@ -1,200 +1,326 @@
 {
-    "template_id": "tpl_ge_dishwasher_repair",
-    "city_id": "city_lufkin_tx",
-    "slug": "ge-dishwasher-repair-lufkin-tx",
-    "title": "GE Dishwasher Repair in {city_state} | {business}",
-    "city_vars": {
-        "id": "city_lufkin_tx",
-        "city": "Lufkin",
-        "SS": "TX",
-        "state": "Texas",
-        "city_slug": "lufkin-tx",
-        "zip": "75901",
-        "phone": "(281) 888-8888",
-        "tel": "+12818888888",
-        "website": "https://elkpestpros.com",
-        "tags": [],
-        "industries": [
-            "Forestry and timber/wood products manufacturing",
-            "Healthcare",
-            "Oil and gas equipment manufacturing",
-            "Education",
-            "Retail and distribution",
-            "Government/public administration"
-        ],
-        "top_employers": [
-            "CHI St. Luke's Health Memorial",
-            "Lufkin Industries (Baker Hughes)",
-            "Angelina College",
-            "Lufkin Independent School District",
-            "Georgia-Pacific",
-            "Temple-Inland",
-            "Brookshire Brothers",
-            "City of Lufkin",
-            "Angelina County",
-            "Walmart Supercenter",
-            "Diboll Healthcare System",
-            "Southern Plastics"
-        ],
-        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-        "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
-        "neighborhoods": [
-            "Downtown Lufkin",
-            "Crown Colony",
-            "Fuller Springs",
-            "Kurth",
-            "Copeland Springs",
-            "Brentwood"
-        ],
-        "population": 34187,
-        "_researched": 1
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "GE Dishwasher Repair in {city_state}",
-            "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
-            "hs_btn_text": "Call {phone}",
-            "hs_btn_url": "tel:{tel}",
-            "hs_caption1": "GE",
-            "hs_caption2": "Dishwasher Repair",
-            "hs_photo": "",
-            "hs_photo_alt": "GE Dishwasher Repair in {city_state}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f3f6f7",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "trust_bar",
-            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "",
-            "it_alt": "Appliance repair technician in {city_state}"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "common_problems",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "fc_num_cols": 3
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns"
-        },
-        {
-            "type": "steps",
-            "steps_heading": "How Our Repair Service Works",
-            "steps_items": [
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Call or Book Online",
-                    "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Diagnose & Quote",
-                    "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Repair & Warranty",
-                    "text": "We complete the repair with quality parts and back the work with a warranty."
-                }
-            ]
-        },
-        {
-            "type": "cta_banner",
-            "anchor": "mid_cta",
-            "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "header",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "right",
-            "it_photo": "",
-            "it_alt": "Appliance repair for {city_state} homes"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "Appliance Repair FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": []
-        },
-        {
-            "type": "testimonials",
-            "anchor": "reviews",
-            "tm_label": "Reviews",
-            "tm_main_heading": "What {city} Homeowners Say About {business}",
-            "tm_subtext": "",
-            "tm_cols": 3,
-            "tm_items": []
-        },
-        {
-            "type": "custom_html",
-            "anchor": "related",
-            "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Book your {city} appliance repair today.",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "accent",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "pest_services",
-            "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
-        }
+  "template_id": "tpl_ge_dishwasher_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "ge-dishwasher-repair-lufkin-tx",
+  "title": "GE Dishwasher Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "website": "https://elkpestpros.com",
+    "tags": [],
+    "industries": [
+      "Forestry and timber/wood products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Education",
+      "Retail and distribution",
+      "Government/public administration"
     ],
-    "seo": {
-        "seo_title": "GE Dishwasher Repair in {city_state} | {business}",
-        "canonical_url": "https://elkpestpros.com/ge-dishwasher-repair-lufkin-tx/",
-        "meta_description": "Professional ge dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
-        "meta_keywords": "ge dishwasher repair Lufkin TX",
-        "og_title": "GE Dishwasher Repair in {city_state} | {business}",
-        "og_description": "Professional ge dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
-        "og_image": "",
-        "service_name": "GE Dishwasher Repair",
-        "service_type": "GE Dishwasher Repair",
-        "service_area": "{city}, {SS}",
-        "service_description": "Professional ge dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
-        "bc_label": "",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "primary_keyword": "ge dishwasher repair",
-        "secondary_keywords": "",
-        "brand": "GE",
-        "appliance_type": "Dishwasher",
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Dishwasher Repair in Lufkin, TX\",\"serviceType\":\"GE Dishwasher Repair\",\"description\":\"Professional ge dishwasher repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call (281) 888-8888.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}"
+    "top_employers": [
+      "CHI St. Luke's Health Memorial",
+      "Lufkin Industries (Baker Hughes)",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "Georgia-Pacific",
+      "Temple-Inland",
+      "Brookshire Brothers",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart Supercenter",
+      "Diboll Healthcare System",
+      "Southern Plastics"
+    ],
+    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Crown Colony",
+      "Fuller Springs",
+      "Kurth",
+      "Copeland Springs",
+      "Brentwood"
+    ],
+    "population": 34187,
+    "_researched": 1
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "GE Dishwasher Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a broken dishwasher quickly becomes a daily frustration that disrupts your routine and leaves you managing dishes by hand. Wells Appliance Repair specializes in GE dishwasher repair, with factory-trained technicians who diagnose and fix the issue efficiently. We back our work with a warranty and aim to restore your appliance promptly so your home runs smoothly again.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "GE",
+      "hs_caption2": "Dishwasher Repair",
+      "hs_photo": "",
+      "hs_photo_alt": "GE Dishwasher Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:16:33.741049Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "70f42aa56cab8b1f",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-07-10T00:03:32+00:00",
-    "template_version": "e3255cd23b208887b5d79d66f089f9ca"
+    {
+      "type": "custom_html",
+      "anchor": "trust_bar",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100%;box-sizing:border-box;background:#f3f6f7;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 0;\"><div style=\"max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;font-weight:700;color:var(--color-heading,#120575);font-size:.95rem;\"><span>Factory-Trained Technicians</span><span>Same-Day Service</span><span>Upfront Pricing</span><span>Warranty on Repairs</span></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "GE Dishwasher Repair in Lufkin, TX",
+      "text": "<p>A broken GE dishwasher disrupts your daily routine and can quickly become costly if left unaddressed. When your appliance stops cleaning effectively, drains improperly, or fails to start, the longer you wait, the greater the risk of additional damage—and the higher your repair bill may climb. In Lufkin, families depend on their dishwashers to save time and keep their kitchens running smoothly. Professional repair from a trusted local technician ensures the problem is diagnosed accurately and fixed right the first time, restoring your peace of mind and your appliance's reliability.</p><p>Wells Appliance Repair brings factory-trained expertise to every GE dishwasher repair in Lufkin. Our technicians understand GE's engineering and design, allowing us to pinpoint issues quickly and recommend the most cost-effective solutions. We source quality parts, provide upfront pricing so you know what to expect, and back our work with warranty coverage. Whether your issue is electrical, mechanical, or related to water flow or drainage, we handle it with the care your appliance deserves. When your GE dishwasher needs professional attention, Wells Appliance Repair is here to get it working again—promptly and reliably.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:16:39.003800Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "234ed6191b6404e1",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Won't Start or Run",
+          "text": "A dishwasher that won't start may have a faulty door latch, broken control panel, or power supply issue. Wells Appliance Repair technicians diagnose the root cause and restore your dishwasher to working order."
+        },
+        {
+          "heading": "Water Not Draining",
+          "text": "Standing water at the bottom usually stems from a clogged drain hose, blocked filter, or failing drain pump. Our experienced technicians clear obstructions and repair or replace faulty drain components quickly."
+        },
+        {
+          "heading": "Dishes Still Dirty",
+          "text": "Poor cleaning can result from worn spray arms, a malfunctioning wash pump, or insufficient water flow. Wells Appliance Repair inspects and repairs these parts to restore powerful cleaning performance."
+        },
+        {
+          "heading": "Leaking Water",
+          "text": "Leaks typically come from a damaged door gasket, cracked tub, or loose inlet valve connections. Our technicians identify the leak source and perform precise repairs to stop water damage."
+        },
+        {
+          "heading": "Loud Noises During Cycle",
+          "text": "Strange sounds often indicate a worn pump bearing, loose spray arm, or foreign object inside the tub. Wells Appliance Repair locates the source and fixes it so your dishwasher runs quietly again."
+        },
+        {
+          "heading": "Not Heating Water",
+          "text": "Water that stays cold suggests a failed heating element or broken thermostat. Our technicians test heating components and replace defective parts to restore proper water temperature for effective cleaning."
+        }
+      ],
+      "fc_heading": "Common GE Dishwasher Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:16:42.869109Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "fd64da6c4439f399",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Wells for GE Dishwasher Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained GE Expertise",
+          "text": "Our technicians are trained on GE dishwasher systems and components. We understand GE-specific controls, spray arms, and filtration designs to diagnose and repair your unit accurately the first time."
+        },
+        {
+          "heading": "Genuine GE Parts Ready",
+          "text": "We stock authentic GE dishwasher parts for common repairs. Using factory-correct components ensures your GE dishwasher performs reliably and maintains its warranty coverage after service."
+        },
+        {
+          "heading": "Upfront Pricing, Warranty Coverage",
+          "text": "Free estimates on GE dishwasher repairs with transparent pricing before we start. All our work is warranty-backed, giving you confidence in your repair investment."
+        },
+        {
+          "heading": "Fast Local Service Across Lufkin",
+          "text": "Same-day appointments available for GE dishwasher repairs throughout Lufkin. We respond promptly because we're local and committed to keeping your kitchen running smoothly."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:16:45.915635Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "b71c4f17f8e0f2fe",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Call or Book Online",
+          "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Diagnose & Quote",
+          "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+        },
+        {
+          "image": "",
+          "alt": "",
+          "heading": "Repair & Warranty",
+          "text": "We complete the repair with quality parts and back the work with a warranty."
+        }
+      ]
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "",
+      "it_alt": "Appliance repair for {city_state} homes",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Across Lufkin and Surrounding Communities",
+      "text": "<p>Wells Appliance Repair serves homes throughout the Lufkin area, from established neighborhoods like Crown Colony and Fuller Springs to newer residential developments across the region. This mix of older and newer homes means our technicians encounter a wide variety of appliance ages, brands, and models—each with its own repair needs. Whether you're dealing with a vintage refrigerator that's been reliable for decades or a modern washer with the latest features, we have the knowledge and experience to diagnose and fix the problem efficiently.</p><p>When your appliance breaks down, time matters. Our factory-trained technicians respond quickly across Lufkin and the surrounding area, arriving equipped with the right parts and tools for most common repairs. We understand that a malfunctioning dishwasher, oven, or laundry appliance disrupts your daily routine, which is why we prioritize fast, dependable service. If you need appliance repair in the Lufkin area, contact Wells Appliance Repair today to schedule your service call.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:16:50.122935Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a21804b85cae7f4e",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common GE dishwasher problems that need professional repair?",
+          "answer": "<p>Common GE dishwasher issues include water not draining properly, dishes remaining dirty after cycles, leaks under the unit, failure to start, and unusual noises during operation. Spray arm blockages, filter clogs, door latch problems, and control board failures are frequent culprits. If your GE shows any of these symptoms, professional diagnosis ensures the root cause is correctly identified and repaired.</p>"
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair service my GE dishwasher in Lufkin?",
+          "answer": "<p>We prioritize rapid response for dishwasher repairs in the Lufkin area. While same-day service availability depends on current demand and the time of your call, we work to schedule appointments as quickly as possible. Contact us directly to check availability for your specific date and time needs.</p>"
+        },
+        {
+          "question": "Are your technicians trained to repair GE brand dishwashers specifically?",
+          "answer": "<p>Yes, our technicians are trained and experienced in GE dishwasher repair. We understand GE's design, components, and common issues, which allows us to diagnose and fix problems accurately and efficiently. Your GE is in capable hands with Wells Appliance Repair.</p>"
+        },
+        {
+          "question": "Should I repair my GE dishwasher or buy a new one?",
+          "answer": "<p>The decision depends on your unit's age, repair cost, and remaining lifespan. Most GE dishwashers remain cost-effective to repair when they're less than 8–10 years old. We recommend a professional evaluation to understand your repair costs and options before deciding. We'll help you make an informed choice for your situation.</p>"
+        },
+        {
+          "question": "What's included in your GE dishwasher repair estimate?",
+          "answer": "<p>Our estimate covers a thorough diagnostic of your GE dishwasher, identification of the problem, and a detailed breakdown of repair costs. We offer free diagnostics so you know exactly what's wrong and what repair will cost before committing. This transparency helps you make the best decision for your appliance.</p>"
+        },
+        {
+          "question": "Do GE dishwasher repairs come with a warranty on parts and labor?",
+          "answer": "<p>Yes, we back our GE dishwasher repairs with warranty coverage on both parts and labor. This gives you confidence that your repair is protected. Ask our technician about specific warranty terms when they arrive at your home.</p>"
+        },
+        {
+          "question": "How should I prepare my home for a GE dishwasher repair visit?",
+          "answer": "<p>Before our technician arrives, clear the area under and around your dishwasher for easy access. Turn off the water supply valve if you suspect a leak. Have your GE model number ready—it's typically on a label inside the door edge. Remove any dishes or items from the unit so the technician can inspect it thoroughly.</p>"
+        },
+        {
+          "question": "What are warning signs my GE dishwasher needs professional repair, not DIY fixes?",
+          "answer": "<p>If your GE dishwasher isn't draining, is leaking water, won't start, or makes grinding noises, professional repair is essential. Electrical issues, water valve problems, and motor failures require trained technicians and proper tools. Attempting DIY fixes can worsen damage and create safety hazards. When in doubt, call a professional.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T00:16:59.720993Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "f515c41f85f68ced",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "related",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    }
+  ],
+  "seo": {
+    "seo_title": "GE Dishwasher Repair in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/ge-dishwasher-repair-lufkin-tx/",
+    "meta_description": "Professional ge dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "ge dishwasher repair Lufkin TX",
+    "og_title": "GE Dishwasher Repair in {city_state} | {business}",
+    "og_description": "Professional ge dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "GE Dishwasher Repair",
+    "service_type": "GE Dishwasher Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional ge dishwasher repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "ge dishwasher repair",
+    "secondary_keywords": "",
+    "brand": "GE",
+    "appliance_type": "Dishwasher",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Dishwasher Repair in Lufkin, TX\",\"serviceType\":\"GE Dishwasher Repair\",\"description\":\"Professional ge dishwasher repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://elkpestpros.com\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-10T00:03:32+00:00",
+  "template_version": "e3255cd23b208887b5d79d66f089f9ca"
 }
