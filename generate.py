@@ -31,10 +31,13 @@ import glob
 import hashlib
 import json
 import os
+import random
 import re
 import sys
+import threading
 import time
 import uuid
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 
 INDENT = 2
@@ -58,15 +61,18 @@ MODEL_PRICING  = {mid: (float(m.get('input', 0)), float(m.get('output', 0)))
 # Cost fallback for a model missing from the catalog: the most expensive tier (never under-report).
 _COST_FALLBACK = max(MODEL_PRICING.values(), default=(5.00, 25.00))
 
-# Module-level usage accumulator keyed by model — avoids threading through every call signature
-_usage     = {'by_model': {}, 'api_calls': 0}
-_run_start = 0.0
+# Module-level usage accumulator keyed by model — avoids threading through every call signature.
+# Guarded by _usage_lock because block generation runs concurrently (ThreadPoolExecutor).
+_usage      = {'by_model': {}, 'api_calls': 0}
+_usage_lock = threading.Lock()
+_run_start  = 0.0
 
 def _tally_usage(model: str, input_tokens: int, output_tokens: int):
-    bucket = _usage['by_model'].setdefault(model, {'input_tokens': 0, 'output_tokens': 0})
-    bucket['input_tokens']  += input_tokens
-    bucket['output_tokens'] += output_tokens
-    _usage['api_calls'] += 1
+    with _usage_lock:
+        bucket = _usage['by_model'].setdefault(model, {'input_tokens': 0, 'output_tokens': 0})
+        bucket['input_tokens']  += input_tokens
+        bucket['output_tokens'] += output_tokens
+        _usage['api_calls'] += 1
 
 def _total_tokens() -> tuple[int, int]:
     total_in  = sum(v['input_tokens']  for v in _usage['by_model'].values())
@@ -89,20 +95,25 @@ def _warn(msg): print(_c('33', '!') + ' ' + msg)
 def _err(msg):  print(_c('31', '✗') + ' ' + msg)
 def _log(msg):  print(msg)
 
-# Progress tracking — emits __PROGRESS__ D/T lines parsed by ai_generate.php
+# Progress tracking — emits __PROGRESS__ D/T lines parsed by ai_generate.php.
+# _progress_lock keeps the increment + print atomic so lines stay monotonic and
+# un-interleaved when blocks are generated concurrently.
 _progress_total = 0
 _progress_done  = 0
+_progress_lock  = threading.Lock()
 
 def _set_total(n):
     global _progress_total, _progress_done
-    _progress_total = n
-    _progress_done  = 0
-    print(f'__PROGRESS__ 0/{n}', flush=True)
+    with _progress_lock:
+        _progress_total = n
+        _progress_done  = 0
+        print(f'__PROGRESS__ 0/{n}', flush=True)
 
 def _tick():
     global _progress_done
-    _progress_done += 1
-    print(f'__PROGRESS__ {_progress_done}/{_progress_total}', flush=True)
+    with _progress_lock:
+        _progress_done += 1
+        print(f'__PROGRESS__ {_progress_done}/{_progress_total}', flush=True)
 
 def _count_blocks(blocks, refresh):
     """Count blocks that will actually be called against the API."""
@@ -269,8 +280,31 @@ def substitute_vars(text, ctx):
 
 # ── Claude API ────────────────────────────────────────────────────────────────
 
+# Shared Anthropic client — created once and reused across worker threads (the SDK
+# client is safe to share and pools HTTP connections, so we don't rebuild it per call).
+_client      = None
+_client_lock = threading.Lock()
+
+# Transient errors worth retrying under concurrency (rate limits, overload, 5xx, network).
+_RETRY_MAX     = 6      # attempts per call
+_RETRY_BASE_S  = 2.0    # base backoff, grows exponentially with jitter
+
+def _get_client(api_key):
+    global _client
+    if _client is None:
+        with _client_lock:
+            if _client is None:
+                import anthropic
+                _client = anthropic.Anthropic(api_key=api_key)
+    return _client
+
+
 def call_claude(prompt, model, api_key, dry_run=False):
-    """Call the Claude API; return parsed JSON dict or None on failure."""
+    """Call the Claude API; return parsed JSON dict or None on failure.
+
+    Retries transient failures (rate limit / overloaded / 5xx / connection) with
+    exponential backoff + jitter so concurrent bursts self-heal instead of dropping
+    blocks. Bad JSON and other client errors are not retried (they won't fix themselves)."""
     if dry_run:
         _log(f'      [dry-run] {model} · {len(prompt)} char prompt')
         return {'heading_text': '[DRY RUN HEADING]', 'text': '<p>[Dry-run placeholder — no API call made.]</p>'}
@@ -281,40 +315,59 @@ def call_claude(prompt, model, api_key, dry_run=False):
         _err('anthropic package not installed. Run: pip3 install anthropic')
         sys.exit(1)
 
-    try:
-        client  = anthropic.Anthropic(api_key=api_key)
-        message = client.messages.create(
-            model=model,
-            # Room for the answer PLUS adaptive thinking: models like sonnet-5 think by
-            # default, and a 1024 cap let the thinking starve the JSON (truncated output).
-            # This is a ceiling, not a target — short blocks still stop at end_turn, so no
-            # extra cost — but it must clear thinking + a full research/FAQ payload.
-            max_tokens=8000,
-            messages=[{'role': 'user', 'content': prompt}],
-        )
-        # Use the text block(s) only — some models return a thinking/reasoning
-        # block first, which has no .text attribute. Assuming content[0] is text
-        # crashes on those; select by block type instead.
-        texts = [b.text for b in message.content if getattr(b, 'type', None) == 'text']
-        raw = (texts[-1] if texts else '').strip()
-        _tally_usage(model, message.usage.input_tokens, message.usage.output_tokens)
+    retryable = (
+        getattr(anthropic, 'RateLimitError', ()),
+        getattr(anthropic, 'InternalServerError', ()),
+        getattr(anthropic, 'OverloadedError', ()),
+        getattr(anthropic, 'APITimeoutError', ()),
+        getattr(anthropic, 'APIConnectionError', ()),
+    )
+    retryable = tuple(e for e in retryable if isinstance(e, type))
 
-        # Strip markdown code fences if the model wraps its output
-        if raw.startswith('```'):
-            parts = raw.split('```')
-            raw = parts[1] if len(parts) > 1 else raw
-            if raw.startswith('json'):
-                raw = raw[4:]
-            raw = raw.strip()
+    client = _get_client(api_key)
+    for attempt in range(1, _RETRY_MAX + 1):
+        try:
+            message = client.messages.create(
+                model=model,
+                # Room for the answer PLUS adaptive thinking: models like sonnet-5 think by
+                # default, and a 1024 cap let the thinking starve the JSON (truncated output).
+                # This is a ceiling, not a target — short blocks still stop at end_turn, so no
+                # extra cost — but it must clear thinking + a full research/FAQ payload.
+                max_tokens=8000,
+                messages=[{'role': 'user', 'content': prompt}],
+            )
+            # Use the text block(s) only — some models return a thinking/reasoning
+            # block first, which has no .text attribute. Assuming content[0] is text
+            # crashes on those; select by block type instead.
+            texts = [b.text for b in message.content if getattr(b, 'type', None) == 'text']
+            raw = (texts[-1] if texts else '').strip()
+            _tally_usage(model, message.usage.input_tokens, message.usage.output_tokens)
 
-        return json.loads(raw)
+            # Strip markdown code fences if the model wraps its output
+            if raw.startswith('```'):
+                parts = raw.split('```')
+                raw = parts[1] if len(parts) > 1 else raw
+                if raw.startswith('json'):
+                    raw = raw[4:]
+                raw = raw.strip()
 
-    except json.JSONDecodeError as exc:
-        _err(f'JSON parse failed: {exc}')
-        return None
-    except Exception as exc:
-        _err(f'API error: {exc}')
-        return None
+            return json.loads(raw)
+
+        except json.JSONDecodeError as exc:
+            _err(f'JSON parse failed: {exc}')
+            return None
+        except retryable as exc:
+            if attempt >= _RETRY_MAX:
+                _err(f'API error after {attempt} attempts: {exc}')
+                return None
+            delay = _RETRY_BASE_S * (2 ** (attempt - 1)) + random.uniform(0, 1)
+            delay = min(delay, 60.0)
+            _warn(f'    transient API error ({type(exc).__name__}); retry {attempt}/{_RETRY_MAX - 1} in {delay:.1f}s')
+            time.sleep(delay)
+        except Exception as exc:
+            _err(f'API error: {exc}')
+            return None
+    return None
 
 
 # ── Field helpers ─────────────────────────────────────────────────────────────
@@ -551,7 +604,7 @@ def process_core_pages(paths, site_data, registry, c_idx, api_key, refresh, dry_
 
     return total
 
-def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, dry_run, file_filter=None, model_override=None):
+def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, dry_run, file_filter=None, model_override=None, workers=1):
     _log('\n── Landing Pages ────────────────────────────────────')
     site_vars = site_data.get('site_vars', {})
     pages_dir = paths['pages_dir']
@@ -566,20 +619,20 @@ def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, d
     total = {'processed': 0, 'skipped': 0, 'errors': 0}
     threshold = _hood_threshold(paths)
 
-    for fpath in json_files:
+    def _process_one(fpath):
+        """Generate one page's blocks and save it. Self-contained so it can run in a
+        worker thread — pages are independent (each owns its own file). Returns
+        (fname, stats) or None when the page has nothing to do."""
         page_data = load_json(fpath)
         if not page_data:
-            continue
+            return None
 
         blocks = page_data.get('content_blocks', [])
         n_ai   = sum(1 for b in blocks if _needs_processing(b))
         if n_ai == 0:
-            continue
+            return None
 
         fname = os.path.basename(fpath)
-        _log(f'\n  {fname}')
-        _log(f'  {n_ai} block(s) to process')
-
         city_vars = page_data.get('city_vars', {})
         city_data = resolve_city(c_idx, city_vars)
         merged_city = {**city_vars, **city_data}
@@ -588,15 +641,39 @@ def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, d
             _warn(f'  No research data for {city_vars.get("city","?")} — run research step or enrich cities.json')
 
         ctx = build_context(site_vars, merged_city, page_data, threshold)
-        _log(f'  City: {ctx["city"]}, {ctx["SS"]}')
+        _log(f'  {fname} · {n_ai} block(s) · {ctx["city"]}, {ctx["SS"]}')
 
         new_blocks, stats = process_blocks(blocks, registry, ctx, api_key, refresh, dry_run, model_override)
-        _merge_stats(total, stats)
 
         if not dry_run:
             page_data['content_blocks'] = new_blocks
             save_json(fpath, page_data)
             _ok(f'  Saved {fname}')
+        return (fname, stats)
+
+    if workers and workers > 1 and len(json_files) > 1:
+        _log(f'  Concurrency: {workers} workers over {len(json_files)} page(s)')
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futures = {pool.submit(_process_one, f): f for f in json_files}
+            for fut in as_completed(futures):
+                try:
+                    res = fut.result()
+                except Exception as exc:
+                    _err(f'  Worker failed on {os.path.basename(futures[fut])}: {exc}')
+                    total['errors'] += 1
+                    continue
+                if res:
+                    _merge_stats(total, res[1])
+    else:
+        for fpath in json_files:
+            try:
+                res = _process_one(fpath)
+            except Exception as exc:
+                _err(f'  Failed on {os.path.basename(fpath)}: {exc}')
+                total['errors'] += 1
+                continue
+            if res:
+                _merge_stats(total, res[1])
 
     if total['processed'] == 0 and not total['errors'] and not file_filter:
         _log('  No processable blocks in landing pages')
@@ -890,7 +967,14 @@ def main():
                     help='Preview without calling API or writing files')
     ap.add_argument('--model',           default=None,
                     help='Override the model for every block (e.g. claude-sonnet-5)')
+    ap.add_argument('--workers',         type=int, default=8,
+                    help='Concurrent landing-page workers (default 8; 1 = sequential). '
+                         'Landing pages are independent, so this is the main speed lever. '
+                         'Transient rate-limit errors are retried automatically.')
     args = ap.parse_args()
+
+    if args.workers < 1:
+        args.workers = 1
 
     # research-only implies --research
     if args.research_only:
@@ -916,7 +1000,7 @@ def main():
     _log(f'generate.py · site={args.site}')
     scope = '--all' if args.all else ('--research-only' if args.research_only else args.page)
     _log(f'Scope    : {scope}' + (f' --file {args.file}' if args.file else ''))
-    _log(f'Research : {args.research}  |  Refresh : {args.refresh}  |  Dry run : {args.dry_run}')
+    _log(f'Research : {args.research}  |  Refresh : {args.refresh}  |  Dry run : {args.dry_run}  |  Workers : {args.workers}')
     if args.model:
         _log(f'Model    : {args.model} (override)')
     _log(f'{"═"*54}')
@@ -984,7 +1068,7 @@ def main():
         _merge_stats(total, process_core_pages(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, model_override))
 
     if args.all or args.page == 'landing':
-        _merge_stats(total, process_landing_pages(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, file_filter=args.file, model_override=model_override))
+        _merge_stats(total, process_landing_pages(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, file_filter=args.file, model_override=model_override, workers=args.workers))
 
     print_summary(total, researched)
     if not args.dry_run:
