@@ -1,7 +1,7 @@
 <?php
 /* ============================================================
    SHORTCODE SYSTEM
-   Tokens: {city} {state} {SS} {city_state} {city_slug} {business} {phone} {zip} {website} {business_domain} {rating} {review_count} {primary_keyword} {service} {city_image} {city_image_alt} {city_image_credit}
+   Tokens: {city} {state} {SS} {city_state} {city_slug} {business} {phone} {email} {zip} {website} {business_domain} {rating} {review_count} {primary_keyword} {service} {city_image} {city_image_alt} {city_image_credit}
    Values stored in $data['site_vars']. Applied at render time.
    {city_image}* tokens are populated by the City Image plugin (plugins/city-image).
    {primary_keyword}/{service} are PER-PAGE — read from $GLOBALS['_page_primary_keyword'],
@@ -21,6 +21,7 @@ function resolve_shortcodes(string $text): string {
     $tel          = $v['tel']       ?? '';
     $zip          = $v['zip']       ?? '';
     $website      = $v['website']   ?? '';
+    $email        = $v['email']     ?? '';
     $address      = $v['address']   ?? '';
     $lat          = $v['lat']       ?? '';
     $lng          = $v['lng']       ?? '';
@@ -32,7 +33,7 @@ function resolve_shortcodes(string $text): string {
     $map = [
         '{city}' => $city, '{state}' => $state, '{SS}' => $SS, '{city_state}' => $city_state,
         '{city_slug}' => $city_slug, '{business}' => $business, '{phone}' => $phone, '{tel}' => $tel,
-        '{zip}' => $zip, '{website}' => $website, '{business_domain}' => $business_domain,
+        '{zip}' => $zip, '{website}' => $website, '{business_domain}' => $business_domain, '{email}' => $email,
         '{rating}' => $rating, '{review_count}' => $review_count, '{address}' => $address,
         '{lat}' => $lat, '{lng}' => $lng, '{primary_keyword}' => $primary_keyword, '{service}' => $primary_keyword,
     ];

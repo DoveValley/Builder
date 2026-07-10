@@ -381,6 +381,10 @@
             {
                 "label": "Terms and Conditions",
                 "url": "/terms-and-conditions"
+            },
+            {
+                "label": "Contact Us",
+                "url": "/contact-us"
             }
         ],
         "disclaimer": "",
@@ -405,7 +409,7 @@
                 {
                     "type": "text",
                     "heading_level": "h1",
-                    "text": "Privacy Policy\n<p>{business} respects your privacy and is committed to protecting it. This Privacy Policy explains what information we collect when you use {website} (the &ldquo;Website&rdquo;), how we use and share that information, and the choices available to you. The Website connects homeowners with independent pest control providers and does not itself perform pest control services.</p><p>By accessing or using the Website, you agree to the practices described in this policy. We may update this policy from time to time; continuing to use the Website after changes are posted means you accept the updated policy.</p>",
+                    "text": "Privacy Policy\n<p>{business} respects your privacy and is committed to protecting it. This Privacy Policy explains what information we collect when you use {website} (the &ldquo;Website&rdquo;), how we use and share that information, and the choices available to you. The Website connects homeowners with independent appliance repair providers and does not itself perform appliance repair services.</p><p>By accessing or using the Website, you agree to the practices described in this policy. We may update this policy from time to time; continuing to use the Website after changes are posted means you accept the updated policy.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -423,7 +427,7 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "B. How We Use Information\n<p>We use the information we collect to operate and improve the Website, connect you with relevant pest control providers, respond to your inquiries, personalize the content and offers you see, measure and improve the performance of our advertising, detect and prevent fraud or abuse, and comply with legal obligations.</p>",
+                    "text": "B. How We Use Information\n<p>We use the information we collect to operate and improve the Website, connect you with relevant appliance repair providers, respond to your inquiries, personalize the content and offers you see, measure and improve the performance of our advertising, detect and prevent fraud or abuse, and comply with legal obligations.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -441,7 +445,7 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "D. How We Share Information\n<p>We may share information about you with:</p><ul><li><strong>Pest control providers</strong> &mdash; so they can respond to your request or call</li><li><strong>Service vendors</strong> &mdash; companies that host the Website, track and route calls, support our advertising, or otherwise help us operate the Website, under obligations to protect your information</li><li><strong>Advertising partners</strong> &mdash; who may use cookies to show you relevant ads based on your visit to the Website</li><li><strong>Successors</strong> &mdash; if {business} is involved in a merger, acquisition, or sale of assets, your information may transfer as part of that transaction</li><li><strong>Legal authorities</strong> &mdash; when required by law, subpoena, or other legal process, or to protect the rights, safety, or property of {business}, our users, or the public</li></ul><p>We do not sell your personal information to third parties for them to market their own unrelated products or services without your consent.</p>",
+                    "text": "D. How We Share Information\n<p>We may share information about you with:</p><ul><li><strong>Appliance repair providers</strong> &mdash; so they can respond to your request or call</li><li><strong>Service vendors</strong> &mdash; companies that host the Website, track and route calls, support our advertising, or otherwise help us operate the Website, under obligations to protect your information</li><li><strong>Advertising partners</strong> &mdash; who may use cookies to show you relevant ads based on your visit to the Website</li><li><strong>Successors</strong> &mdash; if {business} is involved in a merger, acquisition, or sale of assets, your information may transfer as part of that transaction</li><li><strong>Legal authorities</strong> &mdash; when required by law, subpoena, or other legal process, or to protect the rights, safety, or property of {business}, our users, or the public</li></ul><p>We do not sell your personal information to third parties for them to market their own unrelated products or services without your consent.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -468,7 +472,7 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "G. Children's Privacy\n<p>The Website is intended for adults and is not directed to children under 18. We do not knowingly collect personal information from anyone under 18. If you believe a child has provided us with personal information, please contact us at info@{business_domain} so we can remove it.</p>",
+                    "text": "G. Children's Privacy\n<p>The Website is intended for adults and is not directed to children under 18. We do not knowingly collect personal information from anyone under 18. If you believe a child has provided us with personal information, please contact us at {email} so we can remove it.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -486,7 +490,7 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "I. Your Privacy Rights\n<p>Depending on where you live, you may have rights to know what personal information we hold about you, request a copy of it, ask us to correct or delete it, and opt out of certain uses such as targeted advertising or the sale of personal information. To exercise any of these rights, contact us at info@{business_domain}. We will respond to verified requests consistent with applicable law.</p>",
+                    "text": "I. Your Privacy Rights\n<p>Depending on where you live, you may have rights to know what personal information we hold about you, request a copy of it, ask us to correct or delete it, and opt out of certain uses such as targeted advertising or the sale of personal information. To exercise any of these rights, contact us at {email}. We will respond to verified requests consistent with applicable law.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -495,7 +499,7 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "J. Contact Us\n<p>Questions or concerns about this Privacy Policy can be sent to info@{business_domain} or by calling {phone}.</p>",
+                    "text": "J. Contact Us\n<p>Questions or concerns about this Privacy Policy can be sent to {email} or by calling {phone}.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -547,7 +551,7 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "A. Who We Are\n<p>{business} operates the Website as a free service that helps homeowners find independent pest control providers in their area. We do not own, operate, or control any pest control business, and we do not perform pest control services ourselves. Any photos or videos of technicians shown on the Website are for illustration only and may depict models or stock imagery rather than an actual provider.</p>",
+                    "text": "A. Who We Are\n<p>{business} operates the Website as a free service that helps homeowners find independent appliance repair providers in their area. We do not own, operate, or control any appliance repair business, and we do not perform appliance repair services ourselves. Any photos or videos of technicians shown on the Website are for illustration only and may depict models or stock imagery rather than an actual provider.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -565,7 +569,7 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "C. Content Is Informational Only\n<p>Content on the Website &mdash; including articles, service descriptions, and pricing information &mdash; is provided for general informational purposes only and is not a substitute for advice from a licensed pest control professional. We make reasonable efforts to keep information accurate and current, but it may not always reflect the latest pricing, availability, or local regulations. You should confirm details directly with any provider before hiring them.</p>",
+                    "text": "C. Content Is Informational Only\n<p>Content on the Website &mdash; including articles, service descriptions, and pricing information &mdash; is provided for general informational purposes only and is not a substitute for advice from a licensed appliance repair professional. We make reasonable efforts to keep information accurate and current, but it may not always reflect the latest pricing, availability, or local regulations. You should confirm details directly with any provider before hiring them.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -574,7 +578,7 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "D. Connecting You With Providers\n<p>When you call a number listed on the Website or submit a request, you direct us to share your information with one or more pest control providers so they can contact you about your request. {business} may receive compensation from providers for these introductions. This compensation does not affect the price you pay or the quality of service you receive, and you are never charged anything by {business} for using the Website.</p><p>We make no guarantee about the suitability, licensing, insurance, or quality of any provider. It is your responsibility to verify a provider's credentials, licensing, and insurance before hiring them. {business} is not a party to any agreement between you and a provider and is not responsible for the services a provider performs or fails to perform.</p>",
+                    "text": "D. Connecting You With Providers\n<p>When you call a number listed on the Website or submit a request, you direct us to share your information with one or more appliance repair providers so they can contact you about your request. {business} may receive compensation from providers for these introductions. This compensation does not affect the price you pay or the quality of service you receive, and you are never charged anything by {business} for using the Website.</p><p>We make no guarantee about the suitability, licensing, insurance, or quality of any provider. It is your responsibility to verify a provider's credentials, licensing, and insurance before hiring them. {business} is not a party to any agreement between you and a provider and is not responsible for the services a provider performs or fails to perform.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -601,7 +605,7 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "G. Limitation of Liability\n<p>To the fullest extent permitted by law, {business} and its officers, employees, and affiliates will not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Website, or from the acts or omissions of any pest control provider you connect with through the Website. Our total liability for any claim relating to the Website is limited to $150. Any claim must be brought within one year of the event giving rise to it.</p>",
+                    "text": "G. Limitation of Liability\n<p>To the fullest extent permitted by law, {business} and its officers, employees, and affiliates will not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Website, or from the acts or omissions of any appliance repair provider you connect with through the Website. Our total liability for any claim relating to the Website is limited to $150. Any claim must be brought within one year of the event giving rise to it.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -619,7 +623,7 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "I. Intellectual Property\n<p>All content on the Website &mdash; including text, graphics, logos, and images &mdash; is owned by {business} or its licensors and protected by copyright and trademark law. You may view and print pages from the Website for your own personal, non-commercial use. You may not copy, republish, modify, or create derivative works from any part of the Website, or use it for any commercial purpose, without our prior written consent.</p><p>If you believe content on the Website infringes your copyright, please contact us at info@{business_domain} with details of the alleged infringement so we can investigate.</p>",
+                    "text": "I. Intellectual Property\n<p>All content on the Website &mdash; including text, graphics, logos, and images &mdash; is owned by {business} or its licensors and protected by copyright and trademark law. You may view and print pages from the Website for your own personal, non-commercial use. You may not copy, republish, modify, or create derivative works from any part of the Website, or use it for any commercial purpose, without our prior written consent.</p><p>If you believe content on the Website infringes your copyright, please contact us at {email} with details of the alleged infringement so we can investigate.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -646,7 +650,7 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "L. Dispute Resolution\n<p>If a dispute arises out of your use of the Website, we encourage you to contact us first at info@{business_domain} so we can try to resolve it informally. If a dispute cannot be resolved informally within 45 days, you and {business} agree that it will be resolved by binding individual arbitration rather than in court, except that either party may bring a claim in small claims court if it qualifies. You and {business} each waive the right to a jury trial and to participate in any class, mass, or representative action against the other.</p>",
+                    "text": "L. Dispute Resolution\n<p>If a dispute arises out of your use of the Website, we encourage you to contact us first at {email} so we can try to resolve it informally. If a dispute cannot be resolved informally within 45 days, you and {business} agree that it will be resolved by binding individual arbitration rather than in court, except that either party may bring a claim in small claims court if it qualifies. You and {business} each waive the right to a jury trial and to participate in any class, mass, or representative action against the other.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -664,7 +668,7 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "N. Contact Us\n<p>Questions about these Terms can be directed to info@{business_domain} or by calling {phone}.</p>",
+                    "text": "N. Contact Us\n<p>Questions about these Terms can be directed to {email} or by calling {phone}.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -698,7 +702,7 @@
                 {
                     "type": "text",
                     "heading_level": "h1",
-                    "text": "Contact Us\n<p>If you are interested in becoming part of our advertising network or have questions, give us a call or send us an email below.</p><p style=\"margin-top:24px;\"><a href=\"tel:{tel}\" class=\"cta-btn\">Call {phone}</a></p><p>Email: <a href=\"mailto:info@{business_domain}\">info@{business_domain}</a></p>",
+                    "text": "Contact Us\n<p>Need fast, reliable appliance repair in {city_state}? Give {business} a call or send us an email and our factory-trained technicians will get your appliance back up and running.</p><p style=\"margin-top:24px;\"><a href=\"tel:{tel}\" class=\"cta-btn\">Call {phone}</a></p><p>Email: <a href=\"mailto:{email}\">{email}</a></p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -707,9 +711,9 @@
             ],
             "seo": {
                 "meta_keywords": "",
-                "meta_description": "Contact {business} — call our free 24/7 helpline or email us to connect with a trusted pest control specialist in {city_state}.",
+                "meta_description": "Contact {business} — call or email to schedule fast, reliable appliance repair in {city_state}. Factory-trained technicians and same-day service.",
                 "og_title": "Contact Us | {business}",
-                "og_description": "Get in touch with {business} — call our free 24/7 helpline or send us an email.",
+                "og_description": "Get in touch with {business} — call or email to schedule appliance repair in your area.",
                 "og_image": "",
                 "schema": "",
                 "canonical_url": "{website}/contact-us/",
