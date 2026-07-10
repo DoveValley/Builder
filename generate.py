@@ -109,11 +109,30 @@ def _set_total(n):
         _progress_done  = 0
         print(f'__PROGRESS__ 0/{n}', flush=True)
 
+# Per-worker progress: each landing worker sets a thread-local block callback so the
+# admin UI can draw one live bar per worker slot. _tick() (fired once per block in the
+# worker's thread) advances both the global bar and that worker's own bar.
+_tls = threading.local()
+
+def _current_slot() -> int:
+    """Worker slot 0..N-1 parsed from the ThreadPoolExecutor thread name
+    ('genw_0', 'genw_1', …). Returns 0 on the main/sequential thread."""
+    name = threading.current_thread().name
+    tail = name.rsplit('_', 1)[-1] if '_' in name else ''
+    return int(tail) if tail.isdigit() else 0
+
+def _emit_worker(slot: int, page: str, done: int, total: int):
+    with _progress_lock:
+        print(f'__WORKER__ {slot} {done} {total} {page}', flush=True)
+
 def _tick():
     global _progress_done
     with _progress_lock:
         _progress_done += 1
         print(f'__PROGRESS__ {_progress_done}/{_progress_total}', flush=True)
+    cb = getattr(_tls, 'block_cb', None)   # per-worker bar (set by landing workers)
+    if cb:
+        cb()
 
 def _count_blocks(blocks, refresh):
     """Count blocks that will actually be called against the API."""
@@ -643,7 +662,24 @@ def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, d
         ctx = build_context(site_vars, merged_city, page_data, threshold)
         _log(f'  {fname} · {n_ai} block(s) · {ctx["city"]}, {ctx["SS"]}')
 
-        new_blocks, stats = process_blocks(blocks, registry, ctx, api_key, refresh, dry_run, model_override)
+        # Per-worker bar: total = blocks that will actually run (matches _tick, excludes
+        # locked-skipped). Hook a thread-local callback so each _tick advances this slot.
+        slot  = _current_slot()
+        n_gen = _count_blocks(blocks, refresh)
+        if n_gen > 0:
+            state = {'done': 0}
+            def _cb():
+                state['done'] += 1
+                _emit_worker(slot, fname, state['done'], n_gen)
+            _tls.block_cb = _cb
+            _emit_worker(slot, fname, 0, n_gen)
+        else:
+            _tls.block_cb = None
+
+        try:
+            new_blocks, stats = process_blocks(blocks, registry, ctx, api_key, refresh, dry_run, model_override)
+        finally:
+            _tls.block_cb = None
 
         if not dry_run:
             page_data['content_blocks'] = new_blocks
@@ -652,8 +688,10 @@ def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, d
         return (fname, stats)
 
     if workers and workers > 1 and len(json_files) > 1:
-        _log(f'  Concurrency: {workers} workers over {len(json_files)} page(s)')
-        with ThreadPoolExecutor(max_workers=workers) as pool:
+        eff = min(workers, len(json_files))
+        _log(f'  Concurrency: {eff} workers over {len(json_files)} page(s)')
+        print(f'__WORKERS__ {eff}', flush=True)   # tells the UI how many worker bars to draw
+        with ThreadPoolExecutor(max_workers=workers, thread_name_prefix='genw') as pool:
             futures = {pool.submit(_process_one, f): f for f in json_files}
             for fut in as_completed(futures):
                 try:
