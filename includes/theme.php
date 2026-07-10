@@ -40,7 +40,12 @@ function theme_css_vars($theme) {
         $num = preg_replace('/[^0-9.]/', '', (string)$val);
         $num = $num !== '' ? (float)$num : (float)$def;
         $num = max(0.5, min(6.0, $num));
-        $css .= "    --font-size-{$tag}: {$num}rem;\n";
+        // Fluid sizing: the theme value is the desktop ceiling; headings scale down on
+        // narrow viewports so long words (e.g. "Certification") don't break mid-word on
+        // phones. Desktop (>=~1000px) is unchanged — clamp caps at the theme value.
+        $floor = round(min($num, max(1.15, $num * 0.55)), 3);
+        $vw    = round($num * 1.6, 3);
+        $css .= "    --font-size-{$tag}: clamp({$floor}rem, {$vw}vw, {$num}rem);\n";
     }
     // Skin system — 4 named section palettes
     $skinDefaults = [
