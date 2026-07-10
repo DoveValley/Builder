@@ -1,8 +1,8 @@
 {
   "template_id": "tpl_tick_control",
   "city_id": "city_lufkin_tx",
-  "slug": "tick-control-lufkin-tx",
-  "title": "Tick Control in {city_state} | {business}",
+  "slug": "tick-treatment-lufkin-tx",
+  "title": "Tick Treatment in {city_state} | {business}",
   "city_vars": {
     "id": "city_lufkin_tx",
     "city": "Lufkin",
@@ -52,26 +52,26 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Tick Control in {city_state}",
-      "hs_subtext": "<p>East Texas summers create ideal conditions for ticks to thrive in yards and wooded areas around Lufkin, with peak activity stretching from spring through fall. Elk Pest Pros specializes in tick control tailored to the regional climate, reducing the population on your property and lowering exposure risk for your family. A targeted approach gives homeowners peace of mind during the seasons when ticks are most active.</p>",
+      "hs_heading": "Tick Treatment in {city_state}",
+      "hs_subtext": "<p>East Texas summers and warm seasons create ideal conditions for tick populations to thrive in yards and wooded areas around Lufkin. Elk Pest Pros specializes in tick treatment designed to reduce active infestations on your property, protecting your family and pets from exposure during the months when ticks are most active. A professional approach to tick management gives homeowners peace of mind and reclaims outdoor spaces for everyday use.</p>",
       "hs_btn_text": "{phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "Tick",
-      "hs_caption2": "Exterminator",
-      "hs_photo_alt": "Tick exterminator treating a {city_state} home",
+      "hs_caption2": "Treatment",
+      "hs_photo_alt": "Tick Treatment in {city_state}",
       "hs_image_side": "right",
       "hs_bg_color": "#f3f6f7",
-      "hs_photo": "sites/pest-template/uploads/media/ticks-katy_fd2b60.webp",
+      "hs_photo": "sites/pest-template/uploads/media/tick-control-katy-tx_31b8de.webp",
       "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
       "hs_mobile_order": "text_first",
       "ai_type_id": "hero_subtext",
       "ai_inject_field": "hs_subtext",
       "ai_inject_mode": "replace",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-07-08T00:54:49.383307Z",
+      "_ai_generated_at": "2026-07-09T19:10:02.153587Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "hero_subtext",
-      "_ai_input_hash": "1d5923d074501df5",
+      "_ai_input_hash": "7177bf5dc8df3690",
       "_ai_locked": true
     },
     {
@@ -86,20 +86,20 @@
       "ai_render_as": "image_text",
       "it_image_side": "left",
       "it_photo": "sites/pest-template/uploads/media/about-tick-control-katy_f9a090.webp",
-      "it_alt": "{business} technician applying tick treatment along a baseboard in a {city_state} home",
+      "it_alt": "Tick Treatment in a {city_state} home",
       "ai_inject_target": null,
       "ai_inject_field": null,
       "ai_inject_mode": null,
       "ai_prompt_override": "",
       "skin": "light",
       "heading_level": "h2",
-      "heading_text": "Effective Tick Control Solutions for Lufkin Homeowners",
-      "text": "<p>Lufkin's warm, humid climate creates ideal conditions for ticks to thrive throughout much of the year, particularly during spring and summer months when activity peaks. These parasitic pests hide in tall grasses, wooded areas, and brush, waiting to attach to pets, wildlife, and people who venture outdoors. For families in Lufkin enjoying the region's natural landscape, tick exposure poses a genuine concern—not only do their bites cause discomfort, but ticks can carry diseases that affect both humans and animals. Without proactive control measures, tick populations can establish themselves in yards and around homes, making outdoor spaces less enjoyable and creating ongoing risk.</p><p>Elk Pest Pros approaches tick control in Lufkin with a thorough, methodical strategy tailored to your property's specific conditions. Our trained technicians inspect yards, identify tick harborage areas, and implement targeted treatments designed to reduce populations at multiple life stages. We don't simply spray and leave—we follow up to monitor results and adjust our approach as needed, ensuring sustained protection throughout the season. Whether you're dealing with an active infestation or want to prevent ticks from becoming a problem, our focus on tick control means you receive specialized expertise. We're here to help Lufkin families reclaim their outdoor spaces with confidence.</p>",
+      "heading_text": "Professional Tick Treatment Services in Lufkin, TX",
+      "text": "<p>Lufkin's warm, humid climate creates ideal conditions for ticks to thrive throughout much of the year, making tick control a genuine concern for homeowners across the area. The region's wooded terrain and seasonal moisture mean that ticks can establish themselves in yards, tall grass, and brush with ease, posing a real risk to families and pets. Whether you're dealing with an active infestation or want to prevent ticks from becoming a problem, understanding the local pest cycle is the first step toward protecting your property and peace of mind.</p><p>Elk Pest Pros brings a thorough, methodical approach to tick yard treatment tailored to Lufkin's environment. Our team conducts a detailed inspection of your property to identify where ticks are harboring and breeding, then applies targeted treatments to eliminate them at every life stage. We focus on creating a comprehensive strategy—not just a one-time spray—with follow-up visits and guidance on reducing tick-friendly conditions around your home. Whether you need help with a current infestation or want to get rid of ticks before the problem escalates, we're here to deliver the kind of persistent, professional care that makes a real difference for Lufkin homeowners.</p>",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-07-08T00:54:53.473425Z",
+      "_ai_generated_at": "2026-07-09T19:10:05.900925Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "city_intro",
-      "_ai_input_hash": "0ba536d5bb52c0f3",
+      "_ai_input_hash": "8dd2d662ce194ea5",
       "_ai_locked": true
     },
     {
@@ -112,31 +112,31 @@
       "ai_inject_mode": null,
       "ai_prompt_override": "",
       "skin": "light",
-      "fc_heading": "Why Lufkin Homeowners Choose Elk Pest Pros",
+      "fc_heading": "Why Lufkin Homeowners Trust Elk Pest Pros for Tick Control",
       "fc_num_cols": 4,
       "columns": [
         {
-          "heading": "Trained Tick Control Specialists",
-          "text": "Our technicians receive ongoing training in tick identification, behavior, and treatment methods. We understand tick biology and habitat, ensuring we target the right areas and apply strategies that work where ticks live and breed."
+          "heading": "Trained Tick Treatment Experts",
+          "text": "<p>Our technicians understand tick behavior and habitat. They're equipped to identify infestation sources and apply targeted treatments where ticks hide—in tall grass, brush, and pet areas—ensuring thorough results across your property.</p>"
         },
         {
-          "heading": "Thorough, Multi-Step Treatment Approach",
-          "text": "We don't simply spray. Our tick control process includes yard inspection, identification of hot spots, targeted treatment of vegetation and ground cover, and follow-up monitoring. This comprehensive method addresses the full tick lifecycle on your property."
+          "heading": "Fast Response to Active Infestations",
+          "text": "<p>When ticks threaten your family's health, delays matter. We respond promptly to get rid of ticks before populations spread. Our team schedules appointments quickly and arrives ready to treat your yard effectively.</p>"
         },
         {
-          "heading": "Fast Response to Your Needs",
-          "text": "When ticks threaten your family's comfort and health, we prioritize quick scheduling and prompt service. Our local team understands the urgency and works to get you protected as soon as possible."
+          "heading": "Service Backed by Our Commitment",
+          "text": "<p>We stand behind our tick exterminator work. If ticks return within our guarantee window, we return to retreat your property at no extra cost—giving you peace of mind and protection for your family.</p>"
         },
         {
-          "heading": "East Texas Heat Means Year-Round Ticks",
-          "text": "The warm, humid climate of the Lufkin region creates ideal conditions for tick activity well beyond spring and summer. We help homeowners manage ticks across all seasons, protecting your yard and family throughout the year."
+          "heading": "Summer Tick Pressure in East Texas",
+          "text": "<p>Lufkin's warm, humid climate creates ideal conditions for tick populations to thrive spring through fall. Our local expertise means we know when tick activity peaks in the region and adjust yard treatment timing to protect your home when risk is highest.</p>"
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-07-08T00:54:57.432985Z",
+      "_ai_generated_at": "2026-07-09T19:10:10.623089Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "4ecd87ccf4b79c7b",
+      "_ai_input_hash": "a12746e6a2b245d2",
       "_ai_locked": true
     },
     {
@@ -182,20 +182,20 @@
       "ai_render_as": "image_text",
       "it_image_side": "right",
       "it_photo": "sites/pest-template/uploads/media/best-tick-control-katy_468411.webp",
-      "it_alt": "A {city_state} family relaxing at home, protected by {business} tick control",
+      "it_alt": "Tick Treatment for {city_state} properties",
       "ai_inject_target": null,
       "ai_inject_field": null,
       "ai_inject_mode": null,
       "ai_prompt_override": "",
       "skin": "light",
       "heading_level": "h2",
-      "heading_text": "Tick Control for Lufkin Area Homes",
-      "text": "<p>Lufkin's East Texas climate creates ideal conditions for tick activity throughout much of the year, with peak populations typically emerging in spring and remaining active through fall. The region's humidity and wooded terrain make tick control essential for both residential comfort and health protection. However, your specific tick challenges depend heavily on your property's characteristics. Established neighborhoods with mature trees and natural vegetation provide excellent habitat for ticks to thrive, while properties like those in Crown Colony with newer construction and maintained landscaping may face different exposure patterns based on proximity to wooded areas and how vegetation is managed.</p><p>Effective tick control in Lufkin requires understanding these local differences. Older, densely wooded properties attract more wildlife and ticks naturally, demanding more comprehensive yard treatment strategies. Newer subdivisions in areas like Fuller Springs may still encounter significant tick pressure depending on surrounding land use and how close homes sit to undeveloped or wooded spaces. Year-round monitoring is important because Lufkin's mild winters mean some tick species remain active even in cooler months. Elk Pest Pros designs tick control plans tailored to your specific property layout, vegetation density, and seasonal activity patterns to help reduce tick encounters on your Lufkin home.</p>",
+      "heading_text": "Tick Control Solutions for Lufkin and Surrounding Areas",
+      "text": "<p>Tick populations across the Lufkin region thrive in our humid, warm climate—particularly during spring through fall when activity peaks. The property characteristics that define different neighborhoods directly influence tick exposure and treatment approaches. Established areas like Crown Colony, with mature trees and dense vegetation, create ideal habitat for ticks seeking hosts and shade. These yards often require more comprehensive yard treatment strategies due to the structural complexity of the landscape. Newer subdivisions such as Copeland Springs typically feature younger landscaping with fewer ground-level harborage areas, though ticks remain a concern wherever wildlife passes through residential properties.</p><p>Regardless of neighborhood type, effective tick exterminator work in Lufkin depends on understanding local seasonal patterns and property-specific conditions. Older homes with overgrown perimeters and accumulated leaf litter present different challenges than newer construction, where tick control may focus on active recreation areas and pet zones. Our team evaluates your yard's unique features—tree coverage, moisture levels, pet activity, and wildlife corridors—to develop targeted flea and tick treatment plans. East Texas humidity and our mixed landscape of wooded and developed areas mean ticks remain a year-round consideration for many homeowners. Professional assessment helps identify problem areas early and prevent infestations before they establish.</p>",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-07-08T00:55:02.083425Z",
+      "_ai_generated_at": "2026-07-09T19:10:15.120856Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "local_relevance",
-      "_ai_input_hash": "54a3f78ea5dd7856",
+      "_ai_input_hash": "2c48dee49f6fd0ad",
       "_ai_locked": true
     },
     {
@@ -208,30 +208,30 @@
       "ai_inject_mode": null,
       "ai_prompt_override": "",
       "skin": "light",
-      "steps_heading": "Year-Round Tick Control for Lufkin's Changing Seasons",
+      "steps_heading": "Year-Round Tick Treatment & Seasonal Pest Control in Lufkin",
       "steps_items": [
         {
-          "heading": "Spring: Emerging Tick Activity",
-          "text": "As temperatures warm across East Texas, ticks become active after winter dormancy. Homeowners in areas like Crown Colony often notice increased tick populations in yards and wooded edges. Elk Pest Pros applies targeted treatments to help reduce tick activity before peak season arrives."
+          "heading": "Spring: Awakening Outdoor Pests",
+          "text": "As temperatures warm across East Texas, ticks emerge from winter dormancy and begin seeking hosts in yards and wooded areas. Spring also brings increased mosquito breeding in standing water. Elk Pest Pros helps homeowners protect their properties with targeted treatments before peak activity intensifies, reducing exposure risks for families and pets."
         },
         {
-          "heading": "Summer: Peak Infestation Risk",
-          "text": "Lufkin's hot, humid summers create ideal conditions for tick reproduction and mobility. Family outdoor activities and pet exposure increase risk significantly. Elk Pest Pros provides seasonal inspections and barrier treatments to help protect your property during these critical months."
+          "heading": "Summer: Peak Tick & Insect Season",
+          "text": "Lufkin's hot, humid summers create ideal conditions for ticks, mosquitoes, and other biting insects. Outdoor activities put families at greatest risk during these months. Elk Pest Pros provides comprehensive seasonal treatments and monitoring to manage active infestations and create safer outdoor spaces when recreation is at its height."
         },
         {
-          "heading": "Fall: Preparation and Persistence",
-          "text": "Tick activity remains elevated through fall as wildlife moves through residential areas preparing for winter. Properties near Fuller Springs and wooded regions face particular exposure. Elk Pest Pros helps homeowners implement preventive measures before cooler weather arrives."
+          "heading": "Fall: Preparing for Dormancy",
+          "text": "As cooler weather approaches, some tick populations remain active while others prepare for winter. Fall moisture can also increase pest activity in homes. Preventative treatments from Elk Pest Pros in autumn help reduce the pest burden heading into winter months and protect against indoor invaders seeking shelter."
         },
         {
-          "heading": "Winter: Monitoring and Maintenance",
-          "text": "While tick activity decreases in cooler months, some species remain present in protected microclimates around homes. Regular property inspections help prevent spring reinfestations. Elk Pest Pros recommends winter maintenance checks to keep tick populations managed year-round."
+          "heading": "Winter: Indoor & Shelter Pests",
+          "text": "While outdoor tick activity slows in winter, pests seek warmth and shelter indoors. East Texas winters are mild enough that some pest populations remain active year-round. Elk Pest Pros assists homeowners with interior inspections and treatments to address winter pest problems and maintain protection until spring returns."
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-07-08T00:55:05.925948Z",
+      "_ai_generated_at": "2026-07-09T19:10:20.420828Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "seasonal_calendar",
-      "_ai_input_hash": "9ef889fab5e2c3e8",
+      "_ai_input_hash": "ffe362b6155f3ec7",
       "_ai_locked": true
     },
     {
@@ -249,30 +249,30 @@
         {
           "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
           "alt": "Ant exterminator in {city}",
-          "heading": "Ant Control",
+          "heading": "Ant Pest Control",
           "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-          "url": "/ant-control-{city_slug}"
+          "url": "/ant-pest-control-{city_slug}"
         },
         {
           "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
           "alt": "Bed bug treatment in {city}",
-          "heading": "Bed Bug Treatment",
+          "heading": "Bed Bug Control",
           "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-          "url": "/bed-bug-treatment-{city_slug}"
+          "url": "/bed-bug-control-{city_slug}"
         },
         {
           "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
           "alt": "Flea control in {city}",
-          "heading": "Flea Control",
+          "heading": "Flea Pest Control",
           "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-          "url": "/flea-control-{city_slug}"
+          "url": "/flea-pest-control-{city_slug}"
         },
         {
           "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
           "alt": "Rodent control in {city}",
-          "heading": "Rat Control",
+          "heading": "Rat Exterminator",
           "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
-          "url": "/rat-control-{city_slug}"
+          "url": "/rat-exterminator-{city_slug}"
         }
       ]
     },
@@ -290,43 +290,43 @@
       "ai_inject_mode": "replace",
       "fq_items": [
         {
-          "question": "What does a professional tick control treatment process actually involve?",
-          "answer": "<p>Elk Pest Pros begins with a thorough inspection of your yard, focusing on tall grass, wooded edges, and shaded areas where ticks thrive. We then apply targeted treatments to vegetation and ground cover using professional-grade methods designed to reduce tick populations. Follow-up visits may be recommended depending on infestation severity and seasonal pressure to maintain control.</p>"
+          "question": "What does the tick treatment process actually involve?",
+          "answer": "<p>Our tick treatment starts with a thorough inspection of your yard, focusing on areas where ticks hide—tall grass, brush, wooded edges, and pet resting spots. We then apply targeted treatments to affected zones and provide guidance on yard maintenance. The process typically takes a few hours, and we'll explain what to expect during and after application.</p>"
         },
         {
-          "question": "When is tick season in Lufkin, TX, and when should I call for help?",
-          "answer": "<p>In the Lufkin area, ticks are active year-round, but populations typically peak in spring and early summer when temperatures warm and humidity increases. Fall can also bring elevated activity. If you notice ticks on pets, family members, or around your property, contact us promptly—early intervention prevents populations from exploding during peak months.</p>"
+          "question": "How fast can Elk Pest Pros come out for tick treatment in Lufkin?",
+          "answer": "<p>We understand tick infestations are urgent. We prioritize scheduling to accommodate active infestations quickly. Response times vary by season and current demand, so contact us directly to check availability. We're a locally operated team ready to help Lufkin residents get relief promptly.</p>"
         },
         {
-          "question": "How quickly can Elk Pest Pros respond to a tick control request in Lufkin?",
-          "answer": "<p>We understand tick infestations demand fast action. As a locally operated company serving the Lufkin area, we prioritize rapid scheduling for active tick problems. Contact us directly to discuss your situation and we'll work to get a technician to your home as soon as our service calendar permits.</p>"
+          "question": "Is tick treatment safe for my children and pets?",
+          "answer": "<p>Safety is our priority. We use methods appropriate for households with children and pets, and we'll provide clear pre-treatment instructions—such as temporary removal of pets or keeping kids indoors during application. Always follow our guidance to minimize exposure, and ask us about any specific health concerns when you call.</p>"
         },
         {
-          "question": "Is tick control treatment safe for my kids and pets during and after?",
-          "answer": "<p>Safety is our priority. Professional tick control methods are applied strategically to minimize exposure to your family and pets. We'll provide clear pre-treatment and post-treatment instructions—typically including brief yard access restrictions—to ensure safety. Always follow our guidance for the best protection and fastest return to normal use.</p>"
+          "question": "When do ticks become a problem in Lufkin, Texas?",
+          "answer": "<p>In East Texas, tick season intensifies in spring and early summer, though ticks remain active year-round in our mild climate. Peak activity typically runs March through July, with renewed concern in fall. If you notice ticks on pets or yourself during any season, don't wait—contact us for treatment.</p>"
         },
         {
-          "question": "What signs show my Lufkin home needs professional tick control?",
-          "answer": "<p>Watch for ticks on pets returning from outside, visible ticks in grass or on patio furniture, and family members finding ticks on their skin after yard time. Heavy brush, wooded lots, and homes near wildlife corridors face higher risk. If you spot even one or two ticks, professional treatment can prevent a larger infestation.</p>"
+          "question": "What signs mean my Lufkin home needs professional tick treatment?",
+          "answer": "<p>Look for ticks on pets after outdoor time, ticks on your clothing or skin, visible ticks in grass or on deck areas, or pets scratching excessively. If DIY efforts haven't resolved the problem, professional treatment is the next step. We can assess the infestation severity and recommend a plan during a free consultation.</p>"
         },
         {
-          "question": "How many visits does tick control typically require to work effectively?",
-          "answer": "<p>Most tick control programs involve an initial treatment followed by one or more follow-up visits spaced strategically through the season. The exact number depends on your yard size, infestation level, and local tick pressure. Our technician will outline a customized plan during inspection and explain the timeline for results.</p>"
+          "question": "Why hire a professional for tick treatment instead of doing it myself?",
+          "answer": "<p>Professional tick treatment targets both adult ticks and eggs in all affected areas—something DIY sprays often miss. We know where ticks hide, apply the right approach for your property size, and ensure thorough coverage. Over-the-counter products have limits; we deliver lasting results where home efforts fall short.</p>"
         },
         {
-          "question": "Why choose professional tick control over store-bought sprays and treatments?",
-          "answer": "<p>Professional treatments target tick habitats your yard more thoroughly than DIY products and are applied by trained technicians who know where ticks hide. We use methods designed for lasting results and can adjust strategy based on conditions. Store products often provide temporary relief and miss the root of the problem.</p>"
+          "question": "How do I prepare my yard before your tick treatment visit?",
+          "answer": "<p>Mow your lawn short, clear debris and leaf litter, trim low-hanging branches, and move children's toys or pet bedding away from treatment areas. Bring pets indoors and keep them inside during and briefly after application. We'll give you detailed pre-visit instructions when scheduling—follow them to maximize treatment effectiveness.</p>"
         },
         {
-          "question": "What should I do to prepare my yard before a tick control treatment visit?",
-          "answer": "<p>Before our arrival, mow your lawn and trim back brush and lower tree branches to improve treatment coverage. Remove yard toys, pet bowls, and outdoor furniture from treatment areas if possible. Our technician will provide a complete prep checklist when you schedule. These simple steps help us deliver maximum effectiveness.</p>"
+          "question": "What happens if ticks return after treatment, and is it guaranteed?",
+          "answer": "<p>We stand behind our work and will discuss our service terms with you upfront. If ticks return within the guarantee window, we'll return for re-treatment at no extra cost. Prevention between visits matters too—maintain your yard, check pets regularly, and follow our post-treatment guidance to prevent reinfestation.</p>"
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-07-08T00:55:15.879494Z",
+      "_ai_generated_at": "2026-07-09T19:10:30.098349Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "faq_local",
-      "_ai_input_hash": "8079fa956777fc18",
+      "_ai_input_hash": "8e455fd6570aa3ea",
       "_ai_locked": true
     },
     {
@@ -347,24 +347,25 @@
     }
   ],
   "seo": {
-    "seo_title": "Tick Control in {city_state} | {business}",
-    "canonical_url": "https://elkpestpros.com/tick-control-lufkin-tx/",
-    "meta_description": "Get rid of ticks fast with a professional tick exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
-    "meta_keywords": "tick exterminator Lufkin TX, tick control Lufkin TX, tick removal Lufkin",
-    "og_title": "Tick Exterminator in {city_state} | Fast, Guaranteed Tick Control",
-    "og_description": "Get rid of ticks fast with a professional tick exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+    "seo_title": "Tick Treatment in {city_state} | {business}",
+    "canonical_url": "https://elkpestpros.com/tick-treatment-lufkin-tx/",
+    "meta_description": "Professional tick treatment in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
+    "meta_keywords": "tick treatment Lufkin TX, tick control, tick exterminator, tick yard treatment",
+    "og_title": "Tick Treatment in {city_state} | {business}",
+    "og_description": "Professional tick treatment in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
     "og_image": "",
-    "service_name": "Tick Control",
-    "service_type": "Tick Control",
+    "service_name": "Tick Treatment",
+    "service_type": "Tick Treatment",
     "service_area": "{city}, {SS}",
     "service_description": "Professional tick exterminator services in {city_state}. Targeted tick control for homes and businesses with fast response and a re-treat guarantee.",
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Tick Exterminator in Lufkin, TX\",\"serviceType\":\"Tick Extermination\",\"description\":\"Professional tick exterminator services in Lufkin, TX. Targeted tick control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Elk Pest Pros\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"},\"url\":\"https://elkpestpros.com/tick-exterminator-lufkin-tx/\"}]}",
-    "primary_keyword": "Tick Control"
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Tick Treatment in Lufkin, TX\",\"serviceType\":\"Tick Treatment\",\"description\":\"Professional tick treatment services in Lufkin, TX for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://elkpestpros.com/#localbusiness\",\"name\":\"Elk Pest Pros\",\"telephone\":\"+12818888888\",\"url\":\"https://elkpestpros.com\"}}]}",
+    "primary_keyword": "tick treatment",
+    "secondary_keywords": "tick control, tick exterminator, tick yard treatment, flea and tick treatment, get rid of ticks"
   },
   "locked_blocks": [],
-  "generated_at": "2026-07-08T00:46:51+00:00",
-  "template_version": "ae7ee1b679fcaa61200192b8ebf3b8d9"
+  "generated_at": "2026-07-09T18:57:32+00:00",
+  "template_version": "ba6789d24076abbb07d383e7e836da34"
 }

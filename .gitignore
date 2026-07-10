@@ -26,5 +26,14 @@ multisite/hero_style.json
 # Generation backups (created by generate.py on each landing regen)
 sites/*/data/pages/*.bak
 
+# Ad-hoc data backups (.bak, .bak2, .bak-pest, etc.) left by rework/clone tools
+sites/*/data/*.bak
+sites/*/data/*.bak[0-9]
+sites/*/data/*.bak-*
+
+# Python bytecode cache
+__pycache__/
+*.pyc
+
 # Anthropic API key (secret — never commit)
 .ai_key
