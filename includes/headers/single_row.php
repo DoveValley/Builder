@@ -23,7 +23,8 @@
             <!-- Logo -->
             <div class="site-logo site-logo-sr">
                 <?php if (!empty($header['logo'])): ?>
-                    <a href="<?= h($homeUrl ?? '/') ?>"><img src="<?= h(admin_upload_url($header['logo'])) ?>" alt="Logo" style="max-height:<?= min($logoHeight, 52) ?>px;width:auto;display:block;"></a>
+                    <?php $srLogoH = (int) min($logoHeight, 52); ?>
+                    <a href="<?= h($homeUrl ?? '/') ?>"><img src="<?= h(admin_upload_url($header['logo'])) ?>" alt="Logo" <?= img_dim_attrs($header['logo'], $srLogoH) ?>style="max-height:<?= $srLogoH ?>px;height:auto;width:auto;max-width:100%;display:block;"></a>
                 <?php else: ?>
                     <a href="<?= h($homeUrl ?? '/') ?>" class="logo-text" style="color:<?= h($navText) ?>;"><?= h(SITE_TITLE) ?></a>
                 <?php endif; ?>

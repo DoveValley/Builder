@@ -265,3 +265,32 @@ function admin_upload_url(string $path): string {
     }
     return '/' . $path;
 }
+
+/* Filesystem path for a stored upload path ("uploads/x.png"), so the file can be
+   inspected server-side (e.g. getimagesize). Mirrors admin_upload_url's mapping. */
+function upload_fs_path(string $path): string {
+    $path = ltrim($path, '/');
+    if ($path === '') return '';
+    if (defined('UPLOAD_DIR') && strncmp($path, 'uploads/', 8) === 0) {
+        return rtrim(UPLOAD_DIR, '/') . '/' . substr($path, 8);
+    }
+    return (defined('BASE_DIR') ? BASE_DIR . '/' : '') . $path;
+}
+
+/* Reserve an image's box to prevent layout shift when it loads late (throttled mobile).
+   Reads the file's intrinsic dimensions and scales them to $displayHeight px, returning
+   ready-to-print `width="W" height="H"` attributes (with a trailing space) so the browser
+   knows the aspect ratio before the bytes arrive. Returns '' if the file can't be measured
+   (SVG, missing file) — callers keep their CSS sizing and simply don't get the hint. */
+function img_dim_attrs(string $storedPath, int $displayHeight): string {
+    if ($storedPath === '' || $displayHeight <= 0) return '';
+    $fs = upload_fs_path($storedPath);
+    if ($fs === '' || !is_file($fs)) return '';
+    $sz = @getimagesize($fs);
+    if (!$sz || empty($sz[0]) || empty($sz[1])) return '';
+    // Never scale a logo up past its intrinsic size — mirrors the max-height CSS.
+    $h = min($displayHeight, (int) $sz[1]);
+    $w = (int) round($h * $sz[0] / $sz[1]);
+    if ($w <= 0) return '';
+    return 'width="' . $w . '" height="' . $h . '" ';
+}
