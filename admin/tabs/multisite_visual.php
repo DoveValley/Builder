@@ -59,7 +59,7 @@ $vpFonts = ['Inclusive Sans, sans-serif','Inter, sans-serif','Nunito, sans-serif
         </label>
         <span id="msv-msg" class="hint" style="margin-left:4px;"></span>
     </div>
-    <p class="hint" style="margin:8px 0 0;">Edit &amp; add presets, tick which are <strong>in multisite rotation</strong>, then <strong>Save library</strong>. To set <em>this</em> site's own brand, click <strong>Use for this site →</strong> on a preset (applies its look + regenerates the logo now).</p>
+    <p class="hint" style="margin:8px 0 0;">Changes <strong>save automatically</strong> as you edit (icon, colors, font, rotation) — the “Saved” note confirms it; <strong>Save library</strong> is just a manual re-save. Tick which presets are <strong>in multisite rotation</strong>. To set <em>this</em> site's own brand, click <strong>Use for this site →</strong> on a preset (applies its look + regenerates the logo now).</p>
 
     <!-- Real POST for the single-site apply (full reload → shows the applied theme). -->
     <form id="msv-apply-form" action="save.php" method="post" style="display:none;">
@@ -137,9 +137,10 @@ function msvRender(){
         var card = el.closest('.msv-card'); var i = +card.getAttribute('data-i'); var k = el.getAttribute('data-k');
         var ev = (el.type === 'color' || el.tagName === 'SELECT') ? 'change' : 'input';
         el.addEventListener(ev, function(){ MSV[i][k] = el.value; if (k!=='name') msvPreview(i); });
+        el.addEventListener('change', msvAutoSave);   // auto-persist on commit/blur (icon, color, font, radius, name)
     });
     document.querySelectorAll('#msv-list .msv-rot').forEach(function(el){
-        el.addEventListener('change', function(){ MSV[+el.getAttribute('data-i')].in_rotation = el.checked; });
+        el.addEventListener('change', function(){ MSV[+el.getAttribute('data-i')].in_rotation = el.checked; msvAutoSave(); });
     });
     document.getElementById('msv-count').textContent = MSV.length + ' / 10 presets';
     document.getElementById('msv-add').disabled = MSV.length >= 10;
@@ -151,20 +152,21 @@ function msvAdd(){
               font:'Inter, sans-serif', radius:'6', in_rotation:true,
               icon:(MSV_ICONS[MSV.length % Math.max(1,MSV_ICONS.length)]||'')});
     msvRender();
+    msvAutoSave();
 }
 function msvRemove(i){
     if (MSV.length<=1){ alert('Keep at least one preset.'); return; }
     MSV.splice(i,1);
     if (MSV_SINGLE === i) MSV_SINGLE = -1; else if (MSV_SINGLE > i) MSV_SINGLE--;
     msvRender();
+    msvAutoSave();
 }
 // Called from the Brand icons card: assign uploaded icons to the presets in order.
 function msvAutoAssignIcons(){
     if (!MSV_ICONS.length){ alert('Upload some SVG icons first (Brand icons card above).'); return; }
     MSV.forEach(function(p,i){ p.icon = MSV_ICONS[i % MSV_ICONS.length]; });
     msvRender();
-    var msg = document.getElementById('msv-msg');
-    if (msg){ msg.style.color='#059669'; msg.textContent='Assigned an icon to each preset — review, then Save library.'; }
+    msvSave();   // persist immediately (sets its own "Saved N presets." message)
 }
 function msvPayload(){
     var fd = new FormData();
@@ -173,6 +175,10 @@ function msvPayload(){
     fd.append('single_preset_id', MSV_SINGLE >= 0 ? (MSV_SINGLE + 1) : 0);
     return fd;
 }
+// Debounced auto-save so preset edits (esp. picking an icon) persist without needing
+// to remember the "Save library" button — the #1 "it doesn't save" confusion.
+var msvSaveTimer = null;
+function msvAutoSave(){ clearTimeout(msvSaveTimer); msvSaveTimer = setTimeout(function(){ msvSave(); }, 600); }
 function msvSave(cb){
     var msg = document.getElementById('msv-msg'); msg.style.color='#64748b'; msg.textContent='Saving…';
     fetch('visual_presets_save.php', {method:'POST', body:msvPayload()})
