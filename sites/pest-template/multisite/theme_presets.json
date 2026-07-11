@@ -1,12 +1,14 @@
 {
     "_about": "Per-niche Theme Presets for this master. A Theme Preset is a named bundle of theme-tab values (colors + fonts + button radius) + the header nav color + a bug icon. Apply = deep-merge preset.theme into data['theme'], preset.header into data['header'], and generate a wordmark logo + favicon in the preset's colors with preset.icon (a bug from multisite/icons/, Apache-2.0 Noto Emoji) as an accent silhouette on a dark tile. Assignment per site: CSV 'theme_preset' column = id or name; blank = hash(domain) % count. See memory feedback_theme_naming + project_multisite_visual_styles.",
     "niche": "pest",
+    "single_preset_id": 8,
     "presets": [
         {
             "id": 1,
             "name": "Classic",
             "note": "Dark indigo + orange, rounded — the master's own palette. Cockroach mark.",
             "icon": "cockroach.svg",
+            "in_rotation": true,
             "theme": {
                 "accent_color": "#fd783b",
                 "header_bg": "#120575",
@@ -21,14 +23,14 @@
             },
             "header": {
                 "nav_bg": "accent"
-            },
-            "in_rotation": true
+            }
         },
         {
             "id": 2,
             "name": "Bold",
             "note": "Charcoal + red, sharp corners. Ant mark.",
             "icon": "ant.svg",
+            "in_rotation": true,
             "theme": {
                 "accent_color": "#dc2626",
                 "header_bg": "#1f2937",
@@ -43,14 +45,14 @@
             },
             "header": {
                 "nav_bg": "accent"
-            },
-            "in_rotation": true
+            }
         },
         {
             "id": 3,
             "name": "Fresh",
             "note": "Forest green + amber, pill buttons. Spider mark.",
             "icon": "spider.svg",
+            "in_rotation": true,
             "theme": {
                 "accent_color": "#f59e0b",
                 "header_bg": "#14532d",
@@ -65,14 +67,14 @@
             },
             "header": {
                 "nav_bg": "accent"
-            },
-            "in_rotation": true
+            }
         },
         {
             "id": 4,
             "name": "Trust",
             "note": "Teal-navy + teal, medium radius. Mosquito mark.",
             "icon": "mosquito.svg",
+            "in_rotation": true,
             "theme": {
                 "accent_color": "#0d9488",
                 "header_bg": "#0f3d5c",
@@ -87,8 +89,7 @@
             },
             "header": {
                 "nav_bg": "accent"
-            },
-            "in_rotation": true
+            }
         },
         {
             "id": 5,
@@ -222,6 +223,5 @@
                 "nav_bg": "accent"
             }
         }
-    ],
-    "single_preset_id": 0
+    ]
 }
