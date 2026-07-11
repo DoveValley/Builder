@@ -1,13 +1,13 @@
 {
     "_about": "Per-site Visual Identity library. Each preset = colors + font + button radius (+ optional bug icon) → drives theme, logo, favicon. single_preset_id = the preset applied to THIS site; in_rotation per preset = whether the multisite build rotates through it.",
     "niche": "home services",
-    "single_preset_id": 0,
+    "single_preset_id": 1,
     "presets": [
         {
             "id": 1,
             "name": "Trust Blue",
             "note": "Dependable blue — the safe all-round default",
-            "icon": "",
+            "icon": "dishwasher.svg",
             "in_rotation": true,
             "theme": {
                 "accent_color": "#2563eb",
@@ -17,9 +17,9 @@
                 "header_text": "#ffffff",
                 "footer_text": "#ffffff",
                 "header_top_bg": "#ffffff",
-                "primary_font": "Inter, sans-serif",
+                "primary_font": "Open Sans, sans-serif",
                 "heading_font": "",
-                "button_radius": "6"
+                "button_radius": "1"
             },
             "header": {
                 "nav_bg": "accent"
@@ -29,7 +29,7 @@
             "id": 2,
             "name": "Fresh Green",
             "note": "Eco & reliable — lawn, plumbing, green services",
-            "icon": "",
+            "icon": "dishwasher.svg",
             "in_rotation": true,
             "theme": {
                 "accent_color": "#16a34a",
@@ -51,7 +51,7 @@
             "id": 3,
             "name": "Bold Orange",
             "note": "Energetic — HVAC, appliance, handyman",
-            "icon": "",
+            "icon": "repair.svg",
             "in_rotation": true,
             "theme": {
                 "accent_color": "#ea580c",
@@ -61,9 +61,9 @@
                 "header_text": "#ffffff",
                 "footer_text": "#ffffff",
                 "header_top_bg": "#ffffff",
-                "primary_font": "Poppins, sans-serif",
+                "primary_font": "Merriweather, serif",
                 "heading_font": "",
-                "button_radius": "4"
+                "button_radius": "0"
             },
             "header": {
                 "nav_bg": "accent"
@@ -73,7 +73,7 @@
             "id": 4,
             "name": "Emergency Red",
             "note": "Urgent 24/7 — restoration, repair, plumbing",
-            "icon": "",
+            "icon": "washer.svg",
             "in_rotation": true,
             "theme": {
                 "accent_color": "#dc2626",
@@ -95,7 +95,7 @@
             "id": 5,
             "name": "Deep Teal",
             "note": "Clean & modern — cleaning, HVAC, duct",
-            "icon": "",
+            "icon": "refrigerator.svg",
             "in_rotation": true,
             "theme": {
                 "accent_color": "#0d9488",
@@ -117,7 +117,7 @@
             "id": 6,
             "name": "Premium Gold",
             "note": "Navy + gold — roofing, remodeling, premium jobs",
-            "icon": "",
+            "icon": "oven.svg",
             "in_rotation": true,
             "theme": {
                 "accent_color": "#d97706",
@@ -139,7 +139,7 @@
             "id": 7,
             "name": "Sky Slate",
             "note": "Friendly sky blue — pools, windows, solar",
-            "icon": "",
+            "icon": "dryer.svg",
             "in_rotation": true,
             "theme": {
                 "accent_color": "#0284c7",
@@ -161,7 +161,7 @@
             "id": 8,
             "name": "Crimson Steel",
             "note": "Strong red on steel — electrical, garage, pest",
-            "icon": "",
+            "icon": "dishwasher.svg",
             "in_rotation": true,
             "theme": {
                 "accent_color": "#b91c1c",
@@ -183,7 +183,7 @@
             "id": 9,
             "name": "Meadow",
             "note": "Lime green — landscaping, tree, lawn care",
-            "icon": "",
+            "icon": "refrigerator.svg",
             "in_rotation": true,
             "theme": {
                 "accent_color": "#65a30d",
@@ -205,7 +205,7 @@
             "id": 10,
             "name": "Modern Indigo",
             "note": "Pill-rounded indigo — modern, tech-forward brands",
-            "icon": "",
+            "icon": "wrench.svg",
             "in_rotation": true,
             "theme": {
                 "accent_color": "#4f46e5",

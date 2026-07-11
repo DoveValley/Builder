@@ -1,19 +1,19 @@
 {
     "theme": {
-        "header_bg": "#1e5fa8",
+        "header_bg": "#1e293b",
         "header_text": "#ffffff",
         "content_bg": "#ffffff",
         "content_text": "#888c92",
-        "footer_bg": "#1f2937",
+        "footer_bg": "#1e293b",
         "footer_text": "#ffffff",
-        "accent_color": "#f59e0b",
-        "primary_font": "Inclusive Sans, sans-serif",
-        "button_radius": 6,
+        "accent_color": "#2563eb",
+        "primary_font": "Inter, sans-serif",
+        "button_radius": 50,
         "analytics_head": "",
         "facebook_pixel": "",
-        "font_family": "Inclusive Sans, sans-serif",
+        "font_family": "Inter, sans-serif",
         "header_top_bg": "#ffffff",
-        "heading_color": "#123a63",
+        "heading_color": "#1a2e5a",
         "font_size_body": 16,
         "font_size_h1": 3,
         "font_size_h2": 2.25,
@@ -73,7 +73,7 @@
             "tiktok": "",
             "yelp": ""
         },
-        "nav_bg": "#0f8a8a",
+        "nav_bg": "accent",
         "nav_text": "#ffffff",
         "phone_btn_style": "outline",
         "sticky": true,
@@ -93,7 +93,7 @@
         "cta_text": "",
         "cta_url": "",
         "site_name": "Wells Appliance Repair",
-        "favicon": "uploads/favicon_wells.png",
+        "favicon": "uploads/favicon_wells-appliance-repair.png",
         "header_layout": "standard",
         "sr_bar_height": 64
     },
@@ -862,7 +862,10 @@
                 "service_area": "{city_state}",
                 "service_description": "",
                 "primary_keyword": "refrigerator repair {city}",
-                "secondary_keywords": ""
+                "secondary_keywords": "",
+                "bc_label": "",
+                "bc_mid_label": "Blog",
+                "bc_mid_url": "/blog"
             }
         },
         "post_appl_dryer_not_drying": {
@@ -936,7 +939,10 @@
                 "service_area": "{city_state}",
                 "service_description": "",
                 "primary_keyword": "dryer repair {city}",
-                "secondary_keywords": ""
+                "secondary_keywords": "",
+                "bc_label": "",
+                "bc_mid_label": "Blog",
+                "bc_mid_url": "/blog"
             }
         }
     },
