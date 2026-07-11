@@ -43,7 +43,7 @@ $vpFonts = ['Inclusive Sans, sans-serif','Inter, sans-serif','Nunito, sans-serif
         <li><strong>In multisite rotation</strong> — the multisite build rotates through the checked presets when generating clone sites (or a row's <code>theme_preset</code> column overrides).</li>
     </ul>
     <?php if (!$vpIcons): ?>
-        <p class="hint" style="color:#b45309;">No bug icons in <code>multisite/icons/</code> — presets render a wordmark logo + a monogram favicon.</p>
+        <p class="hint" style="color:#b45309;">No brand icons yet — add SVGs in the <strong>Brand icons</strong> card above. Until then presets render a wordmark logo + a monogram favicon.</p>
     <?php endif; ?>
     <div style="display:flex;gap:10px;align-items:center;margin:12px 0 16px;flex-wrap:wrap;">
         <label for="msv-name" style="margin:0;font-weight:600;">Preview name:</label>
@@ -121,7 +121,7 @@ function msvCardHtml(i){
       +   '<div style="display:flex;gap:14px;margin-top:8px;">'
       +     '<div><label style="margin-top:0;">Accent</label><input type="color" class="msv-f" data-k="accent" value="'+msvEsc(p.accent)+'"></div>'
       +     '<div><label style="margin-top:0;">Dark</label><input type="color" class="msv-f" data-k="dark" value="'+msvEsc(p.dark)+'"></div>'
-      +     '<div style="flex:1;"><label style="margin-top:0;">Bug icon</label><select class="msv-f" data-k="icon">'+icons+'</select></div>'
+      +     '<div style="flex:1;"><label style="margin-top:0;">Brand icon</label><select class="msv-f" data-k="icon">'+icons+'</select></div>'
       +   '</div>'
       +   '<div style="display:flex;gap:14px;margin-top:8px;">'
       +     '<div style="flex:1;"><label style="margin-top:0;">Font</label><select class="msv-f" data-k="font">'+fonts+'</select></div>'
@@ -157,6 +157,14 @@ function msvRemove(i){
     MSV.splice(i,1);
     if (MSV_SINGLE === i) MSV_SINGLE = -1; else if (MSV_SINGLE > i) MSV_SINGLE--;
     msvRender();
+}
+// Called from the Brand icons card: assign uploaded icons to the presets in order.
+function msvAutoAssignIcons(){
+    if (!MSV_ICONS.length){ alert('Upload some SVG icons first (Brand icons card above).'); return; }
+    MSV.forEach(function(p,i){ p.icon = MSV_ICONS[i % MSV_ICONS.length]; });
+    msvRender();
+    var msg = document.getElementById('msv-msg');
+    if (msg){ msg.style.color='#059669'; msg.textContent='Assigned an icon to each preset — review, then Save library.'; }
 }
 function msvPayload(){
     var fd = new FormData();

@@ -41,6 +41,59 @@
             </p>
         </div>
 
+        <!-- Brand icons: upload/manage the SVG icon library that feeds the presets -->
+        <?php
+        $iconDir  = ACTIVE_SITE_DIR . '/multisite/icons/';
+        $iconList = array_map('basename', glob($iconDir . '*.svg') ?: []);
+        sort($iconList);
+        ?>
+        <div class="card" id="brand-icons">
+            <h2 style="margin-top:0;">Brand icons <span class="hint" style="font-weight:400;">— SVG marks for logos &amp; favicons</span></h2>
+            <p class="hint" style="margin-bottom:12px;">Upload simple <strong>single-color silhouette SVGs</strong> (a wrench, house, leaf, tool…). Each preset below picks one — it becomes the colored mark in that preset's generated <strong>logo + favicon</strong>. Upload ~10 (one per preset), then click <strong>Auto-assign</strong>.</p>
+
+            <div id="icon-grid" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:14px;">
+                <?php if (!$iconList): ?>
+                    <span class="hint">No icons yet — upload SVGs below. (Presets render a wordmark + monogram favicon until you add some.)</span>
+                <?php else: foreach ($iconList as $ic):
+                    $prev = 'visual_preview.php?type=favicon&icon=' . urlencode($ic) . '&accent=%23334155&dark=%231e293b&name=x'; ?>
+                    <div style="text-align:center;width:88px;">
+                        <img src="<?= h($prev) ?>" alt="<?= h($ic) ?>" width="60" height="60" loading="lazy" style="border:1px solid #e5e7eb;border-radius:12px;background:#fff;">
+                        <div class="hint" style="font-size:.72rem;word-break:break-all;margin:3px 0 1px;"><?= h(preg_replace('/\.svg$/', '', $ic)) ?></div>
+                        <button type="button" onclick="iconDelete('<?= h(addslashes($ic)) ?>')" style="background:none;border:0;color:#dc2626;cursor:pointer;font-size:.74rem;padding:0;">✕ remove</button>
+                    </div>
+                <?php endforeach; endif; ?>
+            </div>
+
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+                <input type="file" id="icon-files" accept=".svg,image/svg+xml" multiple>
+                <button type="button" class="btn btn-secondary" onclick="iconUpload()">Upload SVG icons</button>
+                <button type="button" class="btn btn-secondary" onclick="msvAutoAssignIcons()">Auto-assign to presets</button>
+                <a class="btn btn-secondary" href="visual_montage.php" target="_blank" rel="noopener">Export logos + favicons ↗</a>
+                <span id="icon-msg" class="hint" style="margin-left:2px;"></span>
+            </div>
+            <p class="hint" style="margin:8px 0 0;">SVG only, ≤512&nbsp;KB each. The same icons drive the multisite build's per-site logos.</p>
+        </div>
+        <script>
+        function iconUpload(){
+            var inp = document.getElementById('icon-files'), msg = document.getElementById('icon-msg');
+            if(!inp.files.length){ msg.style.color='#dc2626'; msg.textContent='Choose SVG file(s) first.'; return; }
+            var fd = new FormData(); fd.append('csrf_token', <?= json_encode($csrfToken) ?>); fd.append('action','upload');
+            for(var i=0;i<inp.files.length;i++) fd.append('icons[]', inp.files[i]);
+            msg.style.color='#64748b'; msg.textContent='Uploading…';
+            fetch('visual_icon_upload.php',{method:'POST',body:fd}).then(function(r){return r.json();}).then(function(d){
+                if(d.added && d.added.length){ msg.style.color='#059669'; msg.textContent='Added '+d.added.length+(d.skipped&&d.skipped.length?(' · skipped '+d.skipped.length):'')+'. Reloading…'; setTimeout(function(){location.reload();},700); }
+                else { msg.style.color='#dc2626'; msg.textContent='Error: '+(d.error||(d.skipped&&d.skipped.length?d.skipped.join(', '):'upload failed')); }
+            }).catch(function(){ msg.style.color='#dc2626'; msg.textContent='Network error.'; });
+        }
+        function iconDelete(name){
+            if(!confirm('Remove icon "'+name+'"? Presets using it fall back to a wordmark/monogram.')) return;
+            var fd = new FormData(); fd.append('csrf_token', <?= json_encode($csrfToken) ?>); fd.append('action','delete'); fd.append('icon', name);
+            fetch('visual_icon_upload.php',{method:'POST',body:fd}).then(function(r){return r.json();}).then(function(d){
+                if(d.ok) location.reload(); else alert('Delete failed: '+(d.error||''));
+            }).catch(function(){ alert('Network error.'); });
+        }
+        </script>
+
         <!-- Visual Identity library (the "factory"): create presets, pick this site's
              brand, flag the multisite rotation. Sits OUTSIDE the theme form. -->
         <?php require __DIR__ . '/multisite_visual.php'; ?>

@@ -3678,8 +3678,15 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <h3>The generated favicon</h3>
     <p>The same bug tile is rendered at 128px and set as <code>header.favicon</code> — so no two sites ship a byte-identical favicon. See <a href="#spec-favicon">4a</a>.</p>
 
-    <h3>Bug icons</h3>
-    <p>19 bug SVGs live in <code>sites/{master}/multisite/icons/</code>: ant, cockroach, spider, mosquito, fly, beetle, ladybug, cricket, bee, caterpillar, butterfly, scorpion, worm, snail, rat, mouse, bat, lizard, snake. Source is <strong>Noto Emoji (Apache 2.0)</strong> — no attribution required; codepoints are recorded in <code>icons/LICENSE.txt</code>. Each colorizes to a preset's accent-on-dark-tile for the logo and favicon.</p>
+    <h3>Brand icons</h3>
+    <p>Icons live in <code>sites/{site}/multisite/icons/</code> as single-color silhouette SVGs; each colorizes to a preset's accent-on-dark tile for the logo mark and favicon. Manage them from the <strong>Brand icons</strong> card on the Theme tab (above the presets):</p>
+    <ul>
+        <li><strong>Upload</strong> — one or more <strong>SVG</strong> files (≤512&nbsp;KB each). Each is run through <code>sanitize_svg()</code> (strips <code>&lt;script&gt;</code>, <code>on*</code> handlers, external refs) before it's saved. SVG only — the generator needs a clean single-color shape to silhouette.</li>
+        <li><strong>Grid + delete</strong> — every icon shows as a tile thumbnail with a remove button.</li>
+        <li><strong>Auto-assign to presets</strong> — fills each preset's <em>Brand icon</em> with an uploaded icon in order (your "one icon per preset"), then review + Save library.</li>
+        <li><strong>Export logos + favicons</strong> — <code>admin/visual_montage.php</code> renders every preset's generated logo + favicon into one labeled PNG (opens in a new tab).</li>
+    </ul>
+    <p>Endpoints: <code>admin/visual_icon_upload.php</code> (upload/delete, CSRF), <code>admin/visual_montage.php</code> (export). The pest master ships a Noto Emoji set (Apache 2.0, no attribution; codepoints in <code>icons/LICENSE.txt</code>).</p>
 
     <h3>Editing presets in the admin</h3>
     <p>The <strong>Theme tab</strong> has the <strong>"Visual Identity — Presets"</strong> panel to view / edit / add / remove / save presets (up to 10) with <strong>live logo + favicon previews</strong>. Per preset: name, accent + dark color pickers, bug-icon dropdown, font, button radius, an <strong>In multisite rotation</strong> checkbox, and a <strong>Use for this site</strong> radio (single-site apply). Files: <code>admin/tabs/multisite_visual.php</code> (panel, included by the Theme tab), <code>admin/visual_preview.php</code> (streams the live preview PNG), <code>admin/visual_presets_save.php</code> (CSRF library save), and <code>admin/save/apply_preset.php</code> (single-site apply — <code>save.php</code> section <code>apply_preset</code>: merges the preset theme, optionally its font/buttons, regenerates the logo + favicon, records <code>single_preset_id</code>). The MultiSite tab shows a read-only rotation summary linking here.</p>
