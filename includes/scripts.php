@@ -289,7 +289,7 @@ function content_editor_scripts() {
                         </select>
                     </div>
                 </div>
-                <div class="form-group"><label>Text</label><textarea name="block_text[]" rows="4" class="rich-editor"></textarea></div>
+                <div class="form-group"><label>Text</label><textarea name="ir_text[]" rows="4" class="rich-editor"></textarea></div>
                 <div class="form-group"><label>Image alt text</label><input type="text" name="block_photo_alt[]" placeholder="Describe the image"></div>
                 <div class="current-image"><span class="none">No image uploaded yet.</span></div>
                 <label>Upload image</label>
@@ -343,6 +343,12 @@ function content_editor_scripts() {
                     <div class="form-group" style="flex:1 1 180px;"><label>Button 2 link</label><input type="text" name="hs_btn2_url[]" placeholder="e.g. /about"></div>
                 </div>
                 <div class="form-group"><label>Background color</label><input type="color" name="hs_bg_color[]" value="#f3f6f7"></div>
+                <div class="form-group"><label>Background texture / pattern (optional)</label>
+                    <input type="hidden" name="hs_bg_photo_existing[]" value="">
+                </div>
+                <div class="form-group"><label>Image position</label>
+                    <select name="hs_image_side[]"><option value="right" selected>Text left, image right</option><option value="left">Image left, text right</option></select>
+                </div>
                 <div class="form-group"><label>Right-side image</label>
                     <input type="file" name="hs_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
                     <input type="hidden" name="hs_photo_existing[]" value="">
@@ -351,6 +357,9 @@ function content_editor_scripts() {
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 180px;"><label>Caption line 1</label><input type="text" name="hs_caption1[]" placeholder="e.g. Pest Control"></div>
                     <div class="form-group" style="flex:1 1 180px;"><label>Caption line 2</label><input type="text" name="hs_caption2[]" placeholder="e.g. Katy, TX"></div>
+                </div>
+                <div class="form-group"><label>Mobile stacking order</label>
+                    <select name="hs_mobile_order[]"><option value="" selected>Default (HTML source order)</option><option value="img_first">Image first</option><option value="text_first">Text first</option></select>
                 </div>
             </div>
             <div class="block-fields block-fields-feature_split is-hidden">
@@ -371,9 +380,19 @@ function content_editor_scripts() {
                 </div>
                 <div class="form-group"><label>Image alt text</label><input type="text" name="fs_photo_alt[]"></div>
                 <div class="form-group"><label>Star badge text</label><input type="text" name="fs_star_text[]" placeholder="e.g. 5 Star Services"></div>
+                <div class="form-group"><label>Mobile stacking order</label>
+                    <select name="fs_mobile_order[]"><option value="" selected>Default (HTML source order)</option><option value="img_first">Image first</option><option value="text_first">Text / icon grid first</option></select>
+                </div>
             </div>
             <div class="block-fields block-fields-feature_columns is-hidden">
-                <div class="form-group"><label>Section heading</label><input type="text" name="fc_heading[]" placeholder="e.g. Our Services\"></div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:2 1 220px;"><label>Section heading</label><input type="text" name="fc_heading[]" placeholder="e.g. Our Services"></div>
+                    <div class="form-group" style="flex:0 0 80px;"><label>Level</label>
+                        <select name="fc_heading_level[]"><option value="h2" selected>H2</option><option value="h3">H3</option><option value="h4">H4</option></select>
+                    </div>
+                </div>
+                <div class="form-group"><label>Subheading</label><input type="text" name="fc_subheading[]" placeholder="e.g. 6 PMI certifications. Live instruction."></div>
+                <div class="form-group"><label>Background color</label><input type="color" name="fc_bg_color[]" value="#f3f6f7"></div>
                 <div class="form-group"><label>Number of columns</label>
                     <select name="fc_num_cols[]"><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option></select>
                 </div>
@@ -540,7 +559,12 @@ function content_editor_scripts() {
                 </div>
             </div>
             <div class="block-fields block-fields-cta_banner is-hidden">
-                <div class="form-group"><label>Banner text</label><input type="text" name="cb_text[]" placeholder="e.g. 24/7 Pest Control Services in Katy, TX"></div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:2 1 220px;"><label>Banner text</label><input type="text" name="cb_text[]" placeholder="e.g. 24/7 Pest Control Services in Katy, TX"></div>
+                    <div class="form-group" style="flex:0 0 80px;"><label>Level</label>
+                        <select name="cb_heading_level[]"><option value="h2" selected>H2</option><option value="h3">H3</option><option value="h4">H4</option></select>
+                    </div>
+                </div>
                 <div class="form-group"><label>Subtext (optional)</label><input type="text" name="cb_subtext[]"></div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 140px;"><label>Button text</label><input type="text" name="cb_btn_text[]"></div>
@@ -558,7 +582,12 @@ function content_editor_scripts() {
                 </div>
             </div>
             <div class="block-fields block-fields-faq_two_col is-hidden">
-                <div class="form-group"><label>Heading</label><input type="text" name="fq_heading[]" placeholder="e.g. FAQs – Pest Control in Katy"></div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:2 1 220px;"><label>Heading</label><input type="text" name="fq_heading[]" placeholder="e.g. FAQs – Pest Control in Katy"></div>
+                    <div class="form-group" style="flex:0 0 80px;"><label>Level</label>
+                        <select name="fq_heading_level[]"><option value="h2" selected>H2</option><option value="h3">H3</option><option value="h4">H4</option></select>
+                    </div>
+                </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 120px;"><label>Background</label><input type="color" name="fq_bg_color[]" value="#ffffff"></div>
                     <div class="form-group" style="flex:1 1 120px;"><label>Item box color</label><input type="color" name="fq_item_bg[]" value="#f0f2f8"></div>
@@ -606,7 +635,12 @@ function content_editor_scripts() {
             </div>
             <div class="block-fields block-fields-wide_banner is-hidden">
                 <div class="form-group"><label>Badge text</label><input type="text" name="wb_badge[]" placeholder="e.g. KATY, TEXAS'S SPECIALISTS"></div>
-                <div class="form-group"><label>Heading</label><input type="text" name="wb_heading[]" placeholder="Your First Choice For Katy Pest Pros in Katy, TX"></div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:2 1 220px;"><label>Heading</label><input type="text" name="wb_heading[]" placeholder="Your First Choice For Katy Pest Pros in Katy, TX"></div>
+                    <div class="form-group" style="flex:0 0 80px;"><label>Level</label>
+                        <select name="wb_heading_level[]"><option value="h2" selected>H2</option><option value="h3">H3</option><option value="h4">H4</option></select>
+                    </div>
+                </div>
                 <div class="form-group"><label>Subtext (optional)</label><textarea name="wb_subtext[]" rows="2"></textarea></div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 160px;"><label>Button text</label><input type="text" name="wb_btn_text[]" placeholder="e.g. Call Us"></div>
@@ -707,15 +741,25 @@ function content_editor_scripts() {
                 <button type="button" class="btn btn-secondary btn-small" onclick="addGalleryImg(this, 'new_${idx}')">+ Add image</button>
             </div>
             <div class="block-fields block-fields-steps is-hidden">
-                <div class="form-group"><label>Section heading (optional)</label>
-                    <input type="text" name="steps_heading[]" placeholder="e.g. Our Recovery Process">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:2 1 220px;"><label>Section heading (optional)</label>
+                        <input type="text" name="steps_heading[]" placeholder="e.g. Our Recovery Process">
+                    </div>
+                    <div class="form-group" style="flex:0 0 80px;"><label>Level</label>
+                        <select name="steps_heading_level[]"><option value="h2" selected>H2</option><option value="h3">H3</option><option value="h4">H4</option></select>
+                    </div>
                 </div>
                 <div class="steps-items-editor" id="steps_items_new_${idx}"></div>
                 <button type="button" class="btn btn-secondary btn-small" onclick="addStepItem(this, 'new_${idx}')">+ Add step</button>
             </div>
             <div class="block-fields block-fields-stats is-hidden">
-                <div class="form-group"><label>Section heading (optional)</label>
-                    <input type="text" name="stats_heading[]" placeholder="e.g. Why Choose Us">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:2 1 220px;"><label>Section heading (optional)</label>
+                        <input type="text" name="stats_heading[]" placeholder="e.g. Why Choose Us">
+                    </div>
+                    <div class="form-group" style="flex:0 0 80px;"><label>Level</label>
+                        <select name="stats_heading_level[]"><option value="h2" selected>H2</option><option value="h3">H3</option><option value="h4">H4</option></select>
+                    </div>
                 </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 160px;"><label>Background color</label>
@@ -729,6 +773,12 @@ function content_editor_scripts() {
                 <button type="button" class="btn btn-secondary btn-small" onclick="addStatItem(this, 'new_${idx}')">+ Add stat</button>
             </div>
             <div class="block-fields block-fields-pricing_cards is-hidden">
+                <div class="form-group"><label>Section label <span class="hint">(small caps above heading)</span></label>
+                    <input type="text" name="pc_label[]" placeholder="e.g. ALL PMI CERTIFICATIONS">
+                </div>
+                <div class="form-group"><label>Intro paragraph <span class="hint">(appears below heading)</span></label>
+                    <textarea name="pc_subheading[]" rows="2"></textarea>
+                </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:8px;">
                     <div class="form-group" style="flex:1 1 220px;"><label>Section heading (optional)</label>
                         <input type="text" name="pc_heading[]" placeholder="e.g. Six Classes. Every Career Stage.">
@@ -745,8 +795,16 @@ function content_editor_scripts() {
             </div>
             <div class="block-fields block-fields-stage_cards is-hidden">
                 <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
-                    <div class="form-group" style="flex:2 1 220px;"><label>Section heading (optional)</label>
+                    <div class="form-group" style="flex:1 1 160px;"><label>Label (small caps above heading)</label>
+                        <input type="text" name="sc_section_label[]" placeholder="FIND YOUR PATH">
+                    </div>
+                    <div class="form-group" style="flex:2 1 220px;"><label>Main heading</label>
                         <input type="text" name="sc_heading[]" placeholder="e.g. Every stage of your career.">
+                    </div>
+                </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                    <div class="form-group" style="flex:2 1 220px;"><label>Colored sub-heading line (accent color)</label>
+                        <input type="text" name="sc_subhead[]" placeholder="e.g. We have the right class.">
                     </div>
                     <div class="form-group" style="flex:0 0 80px;"><label>Columns</label>
                         <select name="sc_cols[]"><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option><option value="5">5</option></select>
@@ -786,8 +844,22 @@ function content_editor_scripts() {
                 <button type="button" class="btn btn-secondary btn-small" onclick="addLbItem(this, 'new_${idx}')">+ Add logo</button>
             </div>
             <div class="block-fields block-fields-cards is-hidden">
-                <div class="form-group"><label>Section heading (optional)</label>
-                    <input type="text" name="cards_heading[]" placeholder="e.g. Our Services">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:1 1 160px;"><label>Label (small caps above heading)</label>
+                        <input type="text" name="cards_label[]" placeholder="WHY CHOOSE US">
+                    </div>
+                    <div class="form-group" style="flex:2 1 220px;"><label>Main heading</label>
+                        <input type="text" name="cards_heading[]" placeholder="e.g. Our Services">
+                    </div>
+                    <div class="form-group" style="flex:0 0 80px;"><label>Level</label>
+                        <select name="cards_heading_level[]"><option value="h2" selected>H2</option><option value="h3">H3</option><option value="h4">H4</option></select>
+                    </div>
+                </div>
+                <div class="form-group"><label>Blue sub-heading line (accent color)</label>
+                    <input type="text" name="cards_subhead[]" placeholder="e.g. The authority.">
+                </div>
+                <div class="form-group"><label>Intro paragraph (optional)</label>
+                    <textarea name="cards_subtext[]" rows="2"></textarea>
                 </div>
                 <div class="form-group"><label>Number of columns</label>
                     <select name="cards_cols[]"><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option></select>
@@ -803,9 +875,11 @@ function content_editor_scripts() {
                     </div>
                     <div class="form-group"><label>Section heading color</label>
                         <select name="cards_head_color[]"><option value="accent">Accent</option><option value="header" selected>Header/Navy</option><option value="custom">Custom</option></select>
+                        <input type="color" name="cards_head_color_custom[]" value="#1a1a2e" style="display:none;">
                     </div>
                     <div class="form-group"><label>Card heading color</label>
                         <select name="cards_item_head_color[]"><option value="accent">Accent</option><option value="header" selected>Header/Navy</option><option value="custom">Custom</option></select>
+                        <input type="color" name="cards_item_head_color_custom[]" value="#1a1a2e" style="display:none;">
                     </div>
                     <div class="form-group"><label>Card text color</label>
                         <input type="color" name="cards_text_color[]" value="#333333" oninput="var t=this.nextElementSibling;if(t)t.value=this.value;">
@@ -826,6 +900,9 @@ function content_editor_scripts() {
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:2 1 220px;"><label>Section heading</label>
                         <input type="text" name="ct_heading[]" placeholder="e.g. Not All PMP Certification Training Is Equal">
+                    </div>
+                    <div class="form-group" style="flex:0 0 80px;"><label>Level</label>
+                        <select name="ct_heading_level[]"><option value="h2" selected>H2</option><option value="h3">H3</option><option value="h4">H4</option></select>
                     </div>
                     <div class="form-group" style="flex:0 0 120px;"><label>Background</label>
                         <input type="color" name="ct_bg[]" value="#ffffff">
@@ -1053,8 +1130,12 @@ function content_editor_scripts() {
         row.className = 'fc-col-row';
         row.innerHTML = `
             <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;">
+                <div class="form-group" style="flex:0 0 120px;">
+                    <label>SVG icon <span class="hint">(paste inline SVG)</span></label>
+                    <textarea name="fc_col_icon[${blockIdx}][]" rows="3" style="font-size:0.72rem;font-family:monospace;"></textarea>
+                </div>
                 <div class="form-group" style="flex:0 0 80px;">
-                    <label>Icon/image</label>
+                    <label>Photo</label>
                     <input type="file" name="fc_col_image[${blockIdx}][]" accept="image/png,image/jpeg,image/gif,image/webp" style="font-size:0.78rem;">
                     <input type="hidden" id="${uid}" name="fc_col_image_existing[${blockIdx}][]" value="">
                     <button type="button" class="btn btn-small btn-secondary" style="margin-top:4px;" onclick="openImgPicker(function(url){var i=document.getElementById('${uid}');if(i)i.value=url;})">📷 Library</button>
@@ -1501,6 +1582,14 @@ function content_editor_scripts() {
                         <textarea name="cards_text[${blockIdx}][]" rows="2"></textarea>
                     </div>
                     <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:2 1 180px;"><label>Icon SVG <span class="hint">(inline SVG — shows in blue box above title)</span></label>
+                            <textarea name="cards_icon[${blockIdx}][]" rows="2" style="font-family:monospace;font-size:.78rem;"></textarea>
+                        </div>
+                        <div class="form-group" style="flex:1 1 120px;"><label>Badge pill text</label>
+                            <input type="text" name="cards_badge[${blockIdx}][]" placeholder="e.g. Guaranteed">
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 140px;"><label>Link URL</label>
                             <input type="text" name="cards_link[${blockIdx}][]" placeholder="/service-page">
                         </div>
@@ -1528,8 +1617,16 @@ function content_editor_scripts() {
                     <div class="form-group"><label>Card name / title</label>
                         <input type="text" name="pc_name[${blockIdx}][]" placeholder="e.g. PMP®">
                     </div>
-                    <div class="form-group"><label>Badge text <span class="hint">(optional)</span></label>
-                        <input type="text" name="pc_badge[${blockIdx}][]" placeholder="e.g. MOST POPULAR">
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:1 1 120px;"><label>Badge text</label>
+                            <input type="text" name="pc_badge[${blockIdx}][]" placeholder="e.g. MOST POPULAR">
+                        </div>
+                        <div class="form-group" style="flex:0 0 60px;"><label>Color</label>
+                            <input type="color" name="pc_badge_color[${blockIdx}][]" value="#2563eb">
+                        </div>
+                    </div>
+                    <div class="form-group"><label>Inner badge <span class="hint">(gray pill inside card)</span></label>
+                        <input type="text" name="pc_inner_badge[${blockIdx}][]" placeholder="e.g. PMI FLAGSHIP CREDENTIAL">
                     </div>
                     <div class="form-group"><label>Sub-label <span class="hint">(optional)</span></label>
                         <input type="text" name="pc_sublabel[${blockIdx}][]" placeholder="e.g. PMI FLAGSHIP CREDENTIAL">
@@ -1545,8 +1642,11 @@ function content_editor_scripts() {
                     <div class="form-group"><label>Feature checklist <span class="hint">(one item per line)</span></label>
                         <textarea name="pc_features[${blockIdx}][]" rows="4" style="font-size:0.85rem;"></textarea>
                     </div>
-                    <div class="form-group"><label>Meta line</label>
+                    <div class="form-group"><label>Meta line 1 <span class="hint">(e.g. 4 days · Live online)</span></label>
                         <input type="text" name="pc_meta[${blockIdx}][]" placeholder="4 Days · Live online · Flexible scheduling">
+                    </div>
+                    <div class="form-group"><label>Meta line 2 <span class="hint">(e.g. Mon–Thu · 9AM–5PM)</span></label>
+                        <input type="text" name="pc_meta2[${blockIdx}][]" placeholder="Flexible scheduling">
                     </div>
                     <div style="display:flex;gap:8px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 100px;"><label>Button text</label>
