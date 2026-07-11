@@ -843,6 +843,24 @@ function content_editor_scripts() {
                 <div class="lb-items-editor" id="lb_items_new_${idx}"></div>
                 <button type="button" class="btn btn-secondary btn-small" onclick="addLbItem(this, 'new_${idx}')">+ Add logo</button>
             </div>
+            <div class="block-fields block-fields-trust_bar is-hidden">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                    <div class="form-group" style="flex:1 1 160px;"><label>Background</label>
+                        <select name="tb_bg[]">
+                            <option value="subtle" selected>Subtle (theme skin)</option>
+                            <option value="accent">Accent color</option>
+                            <option value="header">Header color</option>
+                            <option value="footer">Footer color</option>
+                            <option value="custom">Custom…</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex:0 0 100px;"><label>Custom color</label>
+                        <input type="color" name="tb_bg_custom[]" value="#f3f6f7">
+                    </div>
+                </div>
+                <div class="tb-items-editor" id="tb_items_new_${idx}"></div>
+                <button type="button" class="btn btn-secondary btn-small" onclick="addTbItem(this, 'new_${idx}')">+ Add badge</button>
+            </div>
             <div class="block-fields block-fields-cards is-hidden">
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 160px;"><label>Label (small caps above heading)</label>
@@ -1478,6 +1496,19 @@ function content_editor_scripts() {
             </div>
             <div class="form-group" style="flex:1 1 160px;"><label>Alt text</label><input type="text" name="lb_alt[${blockIdx}][]" placeholder="e.g. PMI Premier ATP Partner"></div>
             <div class="form-group" style="flex:1 1 160px;"><label>Link (optional)</label><input type="text" name="lb_url[${blockIdx}][]" placeholder="https://..."></div>
+            <div style="padding-top:22px;"><button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)">&times; Remove</button></div>
+        `;
+        editor.appendChild(row);
+    }
+
+    function addTbItem(btn, blockIdx) {
+        const editor = document.getElementById('tb_items_' + blockIdx);
+        const row = document.createElement('div');
+        row.className = 'faq-item-row';
+        row.style.cssText = 'display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;';
+        row.innerHTML = `
+            <div class="form-group" style="flex:1 1 200px;"><label>Badge label</label><input type="text" name="tb_label[${blockIdx}][]" placeholder="e.g. Free Estimates"></div>
+            <div class="form-group" style="flex:2 1 260px;"><label>Icon SVG (leave blank for default checkmark)</label><textarea name="tb_icon[${blockIdx}][]" rows="3" style="font-size:0.72rem;font-family:monospace;" placeholder="<svg …>…</svg>"></textarea></div>
             <div style="padding-top:22px;"><button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)">&times; Remove</button></div>
         `;
         editor.appendChild(row);

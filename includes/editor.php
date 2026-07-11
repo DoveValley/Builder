@@ -2066,6 +2066,46 @@ function render_content_blocks_editor($blocks) {
                     <button type="button" class="btn btn-secondary btn-small" onclick="addLbItem(this, <?= $i ?>)">+ Add logo</button>
                 </div>
 
+                <?php /* ---- TRUST BAR FIELDS ---- */ ?>
+                <div class="block-fields block-fields-trust_bar <?= $type !== 'trust_bar' ? 'is-hidden' : '' ?>">
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                        <div class="form-group" style="flex:1 1 160px;">
+                            <label>Background</label>
+                            <?php $tbBg = $block['tb_bg'] ?? 'subtle'; ?>
+                            <select name="tb_bg[]">
+                                <option value="subtle" <?= $tbBg === 'subtle' ? 'selected' : '' ?>>Subtle (theme skin)</option>
+                                <option value="accent" <?= $tbBg === 'accent' ? 'selected' : '' ?>>Accent color</option>
+                                <option value="header" <?= $tbBg === 'header' ? 'selected' : '' ?>>Header color</option>
+                                <option value="footer" <?= $tbBg === 'footer' ? 'selected' : '' ?>>Footer color</option>
+                                <option value="custom" <?= $tbBg === 'custom' ? 'selected' : '' ?>>Custom…</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="flex:0 0 100px;">
+                            <label>Custom color</label>
+                            <input type="color" name="tb_bg_custom[]" value="<?= h($block['tb_bg_custom'] ?? '#f3f6f7') ?>">
+                        </div>
+                    </div>
+                    <div class="tb-items-editor" id="tb_items_<?= $i ?>">
+                        <?php $tbItems = $block['tb_items'] ?? [['label'=>'','icon'=>'']]; ?>
+                        <?php foreach ($tbItems as $tbItem): ?>
+                        <div class="faq-item-row" style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;">
+                            <div class="form-group" style="flex:1 1 200px;">
+                                <label>Badge label</label>
+                                <input type="text" name="tb_label[<?= $i ?>][]" value="<?= h($tbItem['label'] ?? '') ?>" placeholder="e.g. Free Estimates">
+                            </div>
+                            <div class="form-group" style="flex:2 1 260px;">
+                                <label>Icon SVG (leave blank for default checkmark)</label>
+                                <textarea name="tb_icon[<?= $i ?>][]" rows="3" style="font-size:0.72rem;font-family:monospace;" placeholder="&lt;svg …&gt;…&lt;/svg&gt;"><?= h($tbItem['icon'] ?? '') ?></textarea>
+                            </div>
+                            <div style="padding-top:22px;">
+                                <button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)">&times; Remove</button>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-small" onclick="addTbItem(this, <?= $i ?>)">+ Add badge</button>
+                </div>
+
                 <?php /* ---- STAGE CARDS FIELDS ---- */ ?>
                 <div class="block-fields block-fields-stage_cards <?= $type !== 'stage_cards' ? 'is-hidden' : '' ?>">
                     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">

@@ -311,7 +311,7 @@ if ($firstBlockHero) {
     foreach ($contentBlocks as $block):
         $btype = $block['type'] ?? '';
         // Blocks that manage their own .container must be full-width here to avoid double-wrapping
-        $isFullWidth = in_array($btype, ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','cta_card','map_info','hero_split','feature_split','faq_two_col','image_features','service_cards','tab_services','blog_list','stats','email_banner','cards','custom_html','comparison_table','testimonials','stage_cards','logo_bar','video','contact_form','buttons_grid']);
+        $isFullWidth = in_array($btype, ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','cta_card','map_info','hero_split','feature_split','faq_two_col','image_features','service_cards','tab_services','blog_list','stats','email_banner','cards','custom_html','comparison_table','testimonials','stage_cards','logo_bar','trust_bar','video','contact_form','buttons_grid']);
         $blockIdx++;
     ?>
         <?php

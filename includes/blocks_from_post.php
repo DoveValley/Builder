@@ -838,6 +838,29 @@ function parse_blocks_from_post(): array {
                 if (empty($lbLogoItems) && $block['lb_heading'] === '') continue 2;
                 break;
 
+            case 'trust_bar':
+                $tbBg = trim($_POST['tb_bg'][$i] ?? 'subtle');
+                $block['tb_bg'] = in_array($tbBg, ['subtle','accent','header','footer','custom'], true) ? $tbBg : 'subtle';
+                $tbBgCustom = trim($_POST['tb_bg_custom'][$i] ?? '#f3f6f7');
+                $block['tb_bg_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $tbBgCustom) ? $tbBgCustom : '#f3f6f7';
+                $tbLabels = $_POST['tb_label'][$i] ?? [];
+                $tbIcons  = $_POST['tb_icon'][$i]  ?? [];
+                $tbItems  = [];
+                foreach ($tbLabels as $ti => $tbLabel) {
+                    $tbLabel = trim($tbLabel);
+                    if ($tbLabel === '') continue;
+                    $tbIconRaw = trim($tbIcons[$ti] ?? '');
+                    $tbIcon = '';
+                    if ($tbIconRaw !== '') {
+                        $san = sanitize_svg($tbIconRaw);
+                        $tbIcon = ($san !== false) ? $san : '';
+                    }
+                    $tbItems[] = ['label' => $tbLabel, 'icon' => $tbIcon];
+                }
+                $block['tb_items'] = $tbItems;
+                if (empty($tbItems)) continue 2;
+                break;
+
             case 'video':
                 $block['vid_heading'] = trim($_POST['vid_heading'][$i] ?? '');
                 $block['vid_url']     = sanitize_url(trim($_POST['vid_url'][$i] ?? ''));
