@@ -76,7 +76,7 @@ if (empty($seo['og_image'])) {
     <link rel="preload" as="image" href="<?= h($heroPreloadSrc) ?>" fetchpriority="high">
     <?php endif; ?>
     <title><?= h($pageTitle) ?></title>
-    <?php $favicon = $data['header']['favicon'] ?? ''; if ($favicon !== ''): $faviconUrl = h(admin_upload_url($favicon)); ?>
+    <?php $favicon = $data['header']['favicon'] ?? ''; if ($favicon !== ''): $faviconUrl = h(admin_upload_url_v($favicon)); ?>
     <link rel="icon" type="image/x-icon" href="<?= $faviconUrl ?>">
     <link rel="icon" type="image/png" sizes="32x32" href="<?= $faviconUrl ?>">
     <link rel="apple-touch-icon" href="<?= $faviconUrl ?>">

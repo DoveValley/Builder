@@ -266,6 +266,19 @@ function admin_upload_url(string $path): string {
     return '/' . $path;
 }
 
+/* Browser URL for an upload with a cache-busting ?v=<mtime> appended. Regenerated
+   logos/favicons reuse the same filename, so without this browsers keep serving the
+   stale cached image after a rebrand + redeploy. mtime changes when the file is
+   regenerated, so the URL changes and caches bust. Falls back to the plain URL when
+   the file can't be stat'd. */
+function admin_upload_url_v(string $path): string {
+    $url = admin_upload_url($path);
+    if ($url === '') return '';
+    $fs = upload_fs_path($path);
+    $mt = ($fs !== '' && is_file($fs)) ? @filemtime($fs) : 0;
+    return $mt ? $url . (strpos($url, '?') !== false ? '&' : '?') . 'v=' . $mt : $url;
+}
+
 /* Filesystem path for a stored upload path ("uploads/x.png"), so the file can be
    inspected server-side (e.g. getimagesize). Mirrors admin_upload_url's mapping. */
 function upload_fs_path(string $path): string {
