@@ -150,20 +150,23 @@ if (empty($seo['og_image'])) {
     // Google Fonts loader — only requests fonts that need network loading
     $gfSystemFonts = ['sans-serif','serif','monospace','Arial, sans-serif','Helvetica, sans-serif','Verdana, sans-serif','Trebuchet MS, sans-serif','Georgia, serif'];
     $gfMap = [
-        'Open Sans'    => 'Open+Sans:wght@400;600;700',
-        'Noto Serif'   => 'Noto+Serif:wght@400;700',
-        'Roboto'       => 'Roboto:wght@400;500;700',
-        'Lato'         => 'Lato:wght@400;700',
-        'Montserrat'   => 'Montserrat:wght@400;600;700',
-        'Raleway'      => 'Raleway:wght@400;600;700',
-        'Poppins'      => 'Poppins:wght@400;600;700',
-        'Nunito'       => 'Nunito:wght@400;600;700',
-        'Mulish'       => 'Mulish:wght@400;600;700',
-        'Inter'        => 'Inter:wght@400;500;600;700',
-        'Source Sans Pro' => 'Source+Sans+3:wght@400;600;700',
+        // Weight lists include 800/900 because block headings use font-weight 800–900;
+        // without them the browser fakes bold. Each request verified to return 200 from
+        // css2 (a weight the font lacks would 400 and break ALL font loading).
+        'Open Sans'    => 'Open+Sans:wght@400;600;700;800',
+        'Noto Serif'   => 'Noto+Serif:wght@400;700;800;900',
+        'Roboto'       => 'Roboto:wght@400;500;700;900',
+        'Lato'         => 'Lato:wght@400;700;900',
+        'Montserrat'   => 'Montserrat:wght@400;600;700;800;900',
+        'Raleway'      => 'Raleway:wght@400;600;700;800;900',
+        'Poppins'      => 'Poppins:wght@400;600;700;800;900',
+        'Nunito'       => 'Nunito:wght@400;600;700;800;900',
+        'Mulish'       => 'Mulish:wght@400;600;700;800;900',
+        'Inter'        => 'Inter:wght@400;500;600;700;800;900',
+        'Source Sans Pro' => 'Source+Sans+3:wght@400;600;700;800;900',
         'Inclusive Sans'  => 'Inclusive+Sans:ital@0;1',
-        'Playfair Display'=> 'Playfair+Display:wght@400;700',
-        'Merriweather' => 'Merriweather:wght@400;700',
+        'Playfair Display'=> 'Playfair+Display:wght@400;700;800;900',
+        'Merriweather' => 'Merriweather:wght@400;700;900',
     ];
     $gfFamilies = [];
     foreach ([$theme['primary_font'] ?? '', $theme['heading_font'] ?? ''] as $fontStr) {
