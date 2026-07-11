@@ -61,7 +61,17 @@ $email   = substr(strip_tags($email),   0, 200);
 $phone   = substr(strip_tags($phone),   0, 50);
 $message = substr(strip_tags($message), 0, 5000);
 
-$to = defined('CONTACT_EMAIL') && CONTACT_EMAIL !== '' ? CONTACT_EMAIL : '';
+// Recipient resolution (multi-site aware): the ACTIVE site's own configured email
+// wins — set via the admin (site_vars.email), so each site's form reaches its own
+// inbox. Fall back to the global CONTACT_EMAIL constant only if the site has no valid
+// email. This keeps a multi-site factory correct without a per-site config file.
+$to = '';
+$siteEmail = trim(load_data()['site_vars']['email'] ?? '');
+if ($siteEmail !== '' && filter_var($siteEmail, FILTER_VALIDATE_EMAIL)) {
+    $to = $siteEmail;
+} elseif (defined('CONTACT_EMAIL') && CONTACT_EMAIL !== '') {
+    $to = CONTACT_EMAIL;
+}
 if ($to === '') {
     cf_redirect($returnPath, 'error');
 }
