@@ -9,10 +9,14 @@ register_plugin(
     __DIR__
 );
 
-// Inject schedule CSS in <head> when this plugin is active.
-// Both schedule.css and card.css are loaded together since card widget
-// can appear on the same page as the table widget.
+// Inject schedule CSS in <head> — but only on pages that actually use a course
+// shortcode. These are render-blocking stylesheets; loading them on every page of
+// a non-course site (e.g. appliance/pest) needlessly delayed first paint. The
+// _page_has_course_sc flag is set by site-template.php before this hook runs.
+// Both schedule.css and card.css load together since the card widget can appear
+// on the same page as the table widget.
 add_hook('head_styles', function(string $pfx): void {
+    if (empty($GLOBALS['_page_has_course_sc'])) return;
     echo '<link rel="stylesheet" href="' . h($pfx) . 'assets/css/schedule.css">' . "\n";
     echo '<link rel="stylesheet" href="' . h($pfx) . 'assets/css/card.css">' . "\n";
 });

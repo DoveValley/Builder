@@ -200,6 +200,17 @@ function _render_course_card_html(string $type, int $startTab, string $instanceI
 <?php return ob_get_clean();
 }
 
+/* True if any content block on the current page contains a course shortcode.
+   The course-widget CSS is render-blocking and lives in <head>, which renders
+   before block bodies populate the shortcode-data globals — so we pre-scan the
+   raw blocks here to decide whether that CSS is needed at all on this page. */
+function page_uses_course_shortcodes(array $blocks): bool {
+    $blob = json_encode($blocks);
+    if ($blob === false) return false;
+    return stripos($blob, '[course_schedule') !== false
+        || stripos($blob, '[course_card') !== false;
+}
+
 function apply_course_shortcodes(string $html): string {
     $html = preg_replace_callback(
         '/\[course_schedule(?:\s[^\]]+)?\]/i',

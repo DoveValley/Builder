@@ -177,12 +177,23 @@ if (empty($seo['og_image'])) {
         }
     }
     if ($gfFamilies):
+        $gfHref = 'https://fonts.googleapis.com/css2?' . implode('&', array_map(fn($f) => 'family=' . $f, $gfFamilies)) . '&display=swap';
     ?>
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?<?= implode('&', array_map(fn($f) => 'family=' . $f, $gfFamilies)) ?>&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <?php /* Load font CSS async so it never blocks first paint — display=swap already
+             paints text in the fallback, then swaps to the web font when it arrives. */ ?>
+    <link rel="preload" as="style" href="<?= h($gfHref) ?>">
+    <link rel="stylesheet" href="<?= h($gfHref) ?>" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="<?= h($gfHref) ?>"></noscript>
     <?php endif; ?>
     <link rel="stylesheet" href="<?= h($assetPathPrefix ?? '') ?>assets/css/style.css?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/style.css') ?>">
-    <?php run_hook('head_styles', $assetPathPrefix ?? ''); ?>
+    <?php
+    // Flag whether this page actually uses a course shortcode, so plugins that add
+    // render-blocking <head> CSS (schedule plugin) can skip it on pages that don't.
+    $GLOBALS['_page_has_course_sc'] = page_uses_course_shortcodes($contentBlocks ?? []);
+    run_hook('head_styles', $assetPathPrefix ?? '');
+    ?>
     <style><?= theme_css_vars($theme) ?>
     body { font-family: var(--font-primary, sans-serif); }
     h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading, var(--font-primary, sans-serif)); }
