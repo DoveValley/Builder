@@ -259,6 +259,7 @@ def build_context(site_vars, city_data, page_data=None, hood_threshold=DEFAULT_H
         'top_employers': ', '.join(employers)  if isinstance(employers, list)  else str(employers),
         'salary_note':   city_data.get('salary_note', ''),
         'market_blurb':  city_data.get('market_blurb', ''),
+        'population':    str(city_data.get('population', '') or ''),
         'neighborhoods': _effective_neighborhoods(city_data, hood_threshold),
         'service':       '',
         'keyword':       '',

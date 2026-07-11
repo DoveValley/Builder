@@ -672,6 +672,8 @@ function render_content_block($block, $pathPrefix = '') {
             $infoCredit  = $block['mi_info_credit']   ?? '';
             $headColor   = $block['mi_head_color']    ?? 'header';
             $headColorC  = $block['mi_head_color_custom'] ?? '#120575';
+            // Which side the map sits on — 'left' (default) or 'right'.
+            $mapSide     = (($block['mi_map_side'] ?? 'left') === 'right') ? 'right' : 'left';
 
             $headStyle = resolve_color($headColor, $headColorC);
 
@@ -681,23 +683,23 @@ function render_content_block($block, $pathPrefix = '') {
                     ? $infoPhoto : $pathPrefix.$infoPhoto;
             }
 
+            // Build each panel, then emit in the order dictated by $mapSide.
+            $mapPanel = '<div class="mi-panel mi-map-panel">';
+            if ($mapHeading) $mapPanel .= '<h2 class="mi-heading" style="color:'.$headStyle.';">'.h($mapHeading).'</h2>';
+            if ($mapEmbed)   $mapPanel .= '<div class="mi-map-wrap">'.$mapEmbed.'</div>';
+            $mapPanel .= '</div>';
+
+            $infoPanel = '<div class="mi-panel mi-info-panel">';
+            if ($infoHeading) $infoPanel .= '<h2 class="mi-heading" style="color:'.$headStyle.';">'.h($infoHeading).'</h2>';
+            // text_to_html renders multi-paragraph plain text (and passes through AI <p> HTML)
+            if ($infoText)    $infoPanel .= '<div class="mi-text">'.text_to_html($infoText).'</div>';
+            if ($infoPhotoSrc) $infoPanel .= '<img src="'.h($infoPhotoSrc).'" alt="'.h($infoAlt).'" class="mi-photo" loading="lazy">';
+            if ($infoPhotoSrc && $infoCredit) $infoPanel .= '<p class="mi-credit" style="font-size:11px;color:#999;margin-top:6px;">'.h($infoCredit).'</p>';
+            $infoPanel .= '</div>';
+
             echo '<div class="content-block block-map-info"'.$anchorAttr.'>';
             echo '<div class="container mi-grid">';
-
-            // LEFT: map
-            echo '<div class="mi-panel mi-map-panel">';
-            if ($mapHeading) echo '<h2 class="mi-heading" style="color:'.$headStyle.';">'.h($mapHeading).'</h2>';
-            if ($mapEmbed)   echo '<div class="mi-map-wrap">'.$mapEmbed.'</div>';
-            echo '</div>';
-
-            // RIGHT: info
-            echo '<div class="mi-panel mi-info-panel">';
-            if ($infoHeading) echo '<h2 class="mi-heading" style="color:'.$headStyle.';">'.h($infoHeading).'</h2>';
-            if ($infoText)    echo '<p class="mi-text">'.h($infoText).'</p>';
-            if ($infoPhotoSrc) echo '<img src="'.h($infoPhotoSrc).'" alt="'.h($infoAlt).'" class="mi-photo" loading="lazy">';
-            if ($infoPhotoSrc && $infoCredit) echo '<p class="mi-credit" style="font-size:11px;color:#999;margin-top:6px;">'.h($infoCredit).'</p>';
-            echo '</div>';
-
+            echo $mapSide === 'right' ? $infoPanel.$mapPanel : $mapPanel.$infoPanel;
             echo '</div></div>';
             break;
 

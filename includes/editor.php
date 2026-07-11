@@ -737,8 +737,15 @@ function render_content_blocks_editor($blocks) {
                         </select>
                         <input type="color" name="mi_head_color_custom[]" value="<?= h($block['mi_head_color_custom'] ?? '#120575') ?>" style="margin-top:4px;">
                     </div>
+                    <div class="form-group">
+                        <label>Map position</label>
+                        <select name="mi_map_side[]">
+                            <option value="left"  <?= ($block['mi_map_side'] ?? 'left') === 'left'  ? 'selected' : '' ?>>Map on left, info on right (default)</option>
+                            <option value="right" <?= ($block['mi_map_side'] ?? 'left') === 'right' ? 'selected' : '' ?>>Map on right, info on left</option>
+                        </select>
+                    </div>
 
-                    <h4 style="margin:14px 0 8px;font-size:0.95rem;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">Left Panel — Map</h4>
+                    <h4 style="margin:14px 0 8px;font-size:0.95rem;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">Map Panel</h4>
                     <div class="form-group">
                         <label>Map panel heading</label>
                         <input type="text" name="mi_map_heading[]" value="<?= h($block['mi_map_heading'] ?? '') ?>" placeholder="e.g. Katy, Texas Map">
@@ -749,7 +756,7 @@ function render_content_blocks_editor($blocks) {
                         <span class="hint">Go to Google Maps → Share → Embed a map → copy the &lt;iframe&gt; code.</span>
                     </div>
 
-                    <h4 style="margin:14px 0 8px;font-size:0.95rem;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">Right Panel — Info</h4>
+                    <h4 style="margin:14px 0 8px;font-size:0.95rem;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">Info Panel</h4>
                     <div class="form-group">
                         <label>Info panel heading</label>
                         <input type="text" name="mi_info_heading[]" value="<?= h($block['mi_info_heading'] ?? '') ?>" placeholder="e.g. Katy, TX Information">

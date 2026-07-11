@@ -256,6 +256,7 @@ function parse_blocks_from_post(): array {
                 $rawEmbed = trim($_POST['mi_map_embed'][$i] ?? '');
                 $rawEmbed = preg_replace('/\s+on\w+\s*=\s*("[^"]*"|\'[^\']*\'|[^\s>]*)/i', '', $rawEmbed);
                 $block['mi_map_embed'] = preg_match('/<iframe[^>]*>.*<\/iframe>/is', $rawEmbed) ? $rawEmbed : '';
+                $block['mi_map_side'] = (($_POST['mi_map_side'][$i] ?? 'left') === 'right') ? 'right' : 'left';
                 $mhc = in_array($_POST['mi_head_color'][$i] ?? '', ['accent','header','custom']) ? $_POST['mi_head_color'][$i] : 'header';
                 $block['mi_head_color'] = $mhc;
                 $mcc = trim($_POST['mi_head_color_custom'][$i] ?? '#120575');
