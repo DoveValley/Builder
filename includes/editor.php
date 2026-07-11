@@ -490,11 +490,7 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <div class="form-group">
                         <label>Left panel background</label>
-                        <select name="sc_left_bg[]">
-                            <option value="accent" <?= ($block['sc_left_bg'] ?? 'accent') === 'accent' ? 'selected' : '' ?>>Accent color (global theme)</option>
-                            <option value="header" <?= ($block['sc_left_bg'] ?? '') === 'header' ? 'selected' : '' ?>>Header/nav color (global theme)</option>
-                            <option value="custom" <?= ($block['sc_left_bg'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom color</option>
-                        </select>
+                        <?= color_mode_select('sc_left_bg', $block['sc_left_bg'] ?? 'accent', 'accent') ?>
                     </div>
                     <div class="form-group">
                         <label>Custom left color (only if Custom selected above)</label>
@@ -516,11 +512,7 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <div class="form-group">
                         <label>Right panel background</label>
-                        <select name="sc_right_bg[]">
-                            <option value="header" <?= ($block['sc_right_bg'] ?? 'header') === 'header' ? 'selected' : '' ?>>Header/nav color (global theme)</option>
-                            <option value="accent" <?= ($block['sc_right_bg'] ?? '') === 'accent' ? 'selected' : '' ?>>Accent color (global theme)</option>
-                            <option value="custom" <?= ($block['sc_right_bg'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom color</option>
-                        </select>
+                        <?= color_mode_select('sc_right_bg', $block['sc_right_bg'] ?? 'header', 'header') ?>
                     </div>
                     <div class="form-group">
                         <label>Custom right color (only if Custom selected above)</label>
@@ -705,11 +697,7 @@ function render_content_blocks_editor($blocks) {
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">
                             <label>Card background</label>
-                            <select name="cc_bg[]">
-                                <option value="accent" <?= ($block['cc_bg'] ?? 'accent') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                                <option value="header" <?= ($block['cc_bg'] ?? '') === 'header' ? 'selected' : '' ?>>Header (global)</option>
-                                <option value="custom" <?= ($block['cc_bg'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                            </select>
+                            <?= color_mode_select('cc_bg', $block['cc_bg'] ?? 'accent', 'accent') ?>
                             <input type="color" name="cc_bg_custom[]" value="<?= h($block['cc_bg_custom'] ?? '#fd783b') ?>" style="margin-top:4px;">
                         </div>
                         <div class="form-group" style="flex:1 1 120px;">
@@ -730,11 +718,7 @@ function render_content_blocks_editor($blocks) {
                 <div class="block-fields block-fields-map_info <?= $type !== 'map_info' ? 'is-hidden' : '' ?>">
                     <div class="form-group">
                         <label>Heading color</label>
-                        <select name="mi_head_color[]">
-                            <option value="header" <?= ($block['mi_head_color'] ?? 'header') === 'header' ? 'selected' : '' ?>>Header (global)</option>
-                            <option value="accent" <?= ($block['mi_head_color'] ?? '') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                            <option value="custom" <?= ($block['mi_head_color'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                        </select>
+                        <?= color_mode_select('mi_head_color', $block['mi_head_color'] ?? 'header', 'header') ?>
                         <input type="color" name="mi_head_color_custom[]" value="<?= h($block['mi_head_color_custom'] ?? '#120575') ?>" style="margin-top:4px;">
                     </div>
                     <div class="form-group">
@@ -803,11 +787,7 @@ function render_content_blocks_editor($blocks) {
                         </div>
                         <div class="form-group">
                             <label>Label / accent color</label>
-                            <select name="lg_accent[]">
-                                <option value="accent" <?= ($block['lg_accent'] ?? 'accent') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                                <option value="header" <?= ($block['lg_accent'] ?? '') === 'header' ? 'selected' : '' ?>>Header (global)</option>
-                                <option value="custom" <?= ($block['lg_accent'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                            </select>
+                            <?= color_mode_select('lg_accent', $block['lg_accent'] ?? 'accent', 'accent') ?>
                             <input type="color" name="lg_accent_custom[]" value="<?= h($block['lg_accent_custom'] ?? '#fd783b') ?>" style="margin-top:4px;">
                         </div>
                     </div>
@@ -960,11 +940,7 @@ function render_content_blocks_editor($blocks) {
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">
                             <label>Background color</label>
-                            <select name="cb_bg[]">
-                                <option value="accent" <?= ($block['cb_bg'] ?? 'accent') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                                <option value="header" <?= ($block['cb_bg'] ?? '') === 'header' ? 'selected' : '' ?>>Header (global)</option>
-                                <option value="custom" <?= ($block['cb_bg'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                            </select>
+                            <?= color_mode_select('cb_bg', $block['cb_bg'] ?? 'accent', 'accent') ?>
                             <input type="color" name="cb_bg_custom[]" value="<?= h($block['cb_bg_custom'] ?? '#fd783b') ?>" style="margin-top:4px;">
                         </div>
                         <div class="form-group" style="flex:1 1 120px;">
@@ -1012,20 +988,12 @@ function render_content_blocks_editor($blocks) {
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">
                             <label>Heading color</label>
-                            <select name="fq_head_color[]">
-                                <option value="header" <?= ($block['fq_head_color'] ?? 'header') === 'header' ? 'selected' : '' ?>>Header (global)</option>
-                                <option value="accent" <?= ($block['fq_head_color'] ?? '') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                                <option value="custom" <?= ($block['fq_head_color'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                            </select>
+                            <?= color_mode_select('fq_head_color', $block['fq_head_color'] ?? 'header', 'header') ?>
                             <input type="color" name="fq_head_color_custom[]" value="<?= h($block['fq_head_color_custom'] ?? '#120575') ?>" style="margin-top:4px;">
                         </div>
                         <div class="form-group" style="flex:1 1 160px;">
                             <label>+ Icon background</label>
-                            <select name="fq_icon_bg[]">
-                                <option value="accent" <?= ($block['fq_icon_bg'] ?? 'accent') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                                <option value="header" <?= ($block['fq_icon_bg'] ?? '') === 'header' ? 'selected' : '' ?>>Header (global)</option>
-                                <option value="custom" <?= ($block['fq_icon_bg'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                            </select>
+                            <?= color_mode_select('fq_icon_bg', $block['fq_icon_bg'] ?? 'accent', 'accent') ?>
                             <input type="color" name="fq_icon_bg_custom[]" value="<?= h($block['fq_icon_bg_custom'] ?? '#fd783b') ?>" style="margin-top:4px;">
                         </div>
                     </div>
@@ -1058,20 +1026,12 @@ function render_content_blocks_editor($blocks) {
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">
                             <label>Checkmark / accent color</label>
-                            <select name="if_check_color[]">
-                                <option value="accent" <?= ($block['if_check_color'] ?? 'accent') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                                <option value="header" <?= ($block['if_check_color'] ?? '') === 'header' ? 'selected' : '' ?>>Header (global)</option>
-                                <option value="custom" <?= ($block['if_check_color'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                            </select>
+                            <?= color_mode_select('if_check_color', $block['if_check_color'] ?? 'accent', 'accent') ?>
                             <input type="color" name="if_check_color_custom[]" value="<?= h($block['if_check_color_custom'] ?? '#fd783b') ?>" style="margin-top:4px;">
                         </div>
                         <div class="form-group" style="flex:1 1 160px;">
                             <label>Heading / text color</label>
-                            <select name="if_head_color[]">
-                                <option value="header" <?= ($block['if_head_color'] ?? 'header') === 'header' ? 'selected' : '' ?>>Header (global)</option>
-                                <option value="accent" <?= ($block['if_head_color'] ?? '') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                                <option value="custom" <?= ($block['if_head_color'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                            </select>
+                            <?= color_mode_select('if_head_color', $block['if_head_color'] ?? 'header', 'header') ?>
                             <input type="color" name="if_head_color_custom[]" value="<?= h($block['if_head_color_custom'] ?? '#120575') ?>" style="margin-top:4px;">
                         </div>
                     </div>
@@ -1177,11 +1137,7 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <div class="form-group">
                         <label>Badge / button color</label>
-                        <select name="wb_badge_bg[]">
-                            <option value="accent" <?= ($block['wb_badge_bg'] ?? 'accent') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                            <option value="header" <?= ($block['wb_badge_bg'] ?? '') === 'header' ? 'selected' : '' ?>>Header (global)</option>
-                            <option value="custom" <?= ($block['wb_badge_bg'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                        </select>
+                        <?= color_mode_select('wb_badge_bg', $block['wb_badge_bg'] ?? 'accent', 'accent') ?>
                         <input type="color" name="wb_badge_bg_custom[]" value="<?= h($block['wb_badge_bg_custom'] ?? '#fd783b') ?>" style="margin-top:4px;">
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
@@ -1238,20 +1194,12 @@ function render_content_blocks_editor($blocks) {
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">
                             <label>Badge background</label>
-                            <select name="sc_badge_bg[]">
-                                <option value="accent" <?= ($block['sc_badge_bg'] ?? 'accent') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                                <option value="header" <?= ($block['sc_badge_bg'] ?? '') === 'header' ? 'selected' : '' ?>>Header (global)</option>
-                                <option value="custom" <?= ($block['sc_badge_bg'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                            </select>
+                            <?= color_mode_select('sc_badge_bg', $block['sc_badge_bg'] ?? 'accent', 'accent') ?>
                             <input type="color" name="sc_badge_bg_custom[]" value="<?= h($block['sc_badge_bg_custom'] ?? '#fd783b') ?>" style="margin-top:4px;">
                         </div>
                         <div class="form-group" style="flex:1 1 160px;">
                             <label>Heading color</label>
-                            <select name="sc_head_color[]">
-                                <option value="header" <?= ($block['sc_head_color'] ?? 'header') === 'header' ? 'selected' : '' ?>>Header (global)</option>
-                                <option value="accent" <?= ($block['sc_head_color'] ?? '') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                                <option value="custom" <?= ($block['sc_head_color'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                            </select>
+                            <?= color_mode_select('sc_head_color', $block['sc_head_color'] ?? 'header', 'header') ?>
                             <input type="color" name="sc_head_color_custom[]" value="<?= h($block['sc_head_color_custom'] ?? '#120575') ?>" style="margin-top:4px;">
                         </div>
                         <div class="form-group" style="flex:1 1 160px;">
@@ -1348,20 +1296,12 @@ function render_content_blocks_editor($blocks) {
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 180px;">
                             <label>Odd tiles (1st, 3rd, 5th…)</label>
-                            <select name="hg_color1[]">
-                                <option value="accent" <?= ($block['hg_color1'] ?? 'accent') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                                <option value="header" <?= ($block['hg_color1'] ?? '') === 'header' ? 'selected' : '' ?>>Header color (global)</option>
-                                <option value="custom" <?= ($block['hg_color1'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                            </select>
+                            <?= color_mode_select('hg_color1', $block['hg_color1'] ?? 'accent', 'accent') ?>
                             <input type="color" name="hg_color1_custom[]" value="<?= h($block['hg_color1_custom'] ?? '#fd783b') ?>" style="margin-top:6px;">
                         </div>
                         <div class="form-group" style="flex:1 1 180px;">
                             <label>Even tiles (2nd, 4th, 6th…)</label>
-                            <select name="hg_color2[]">
-                                <option value="header" <?= ($block['hg_color2'] ?? 'header') === 'header' ? 'selected' : '' ?>>Header color (global)</option>
-                                <option value="accent" <?= ($block['hg_color2'] ?? '') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                                <option value="custom" <?= ($block['hg_color2'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                            </select>
+                            <?= color_mode_select('hg_color2', $block['hg_color2'] ?? 'header', 'header') ?>
                             <input type="color" name="hg_color2_custom[]" value="<?= h($block['hg_color2_custom'] ?? '#120575') ?>" style="margin-top:6px;">
                         </div>
                     </div>
@@ -1409,11 +1349,7 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <div class="form-group">
                         <label>Active tab background color</label>
-                        <select name="ts_active_bg[]">
-                            <option value="header" <?= ($block['ts_active_bg'] ?? 'header') === 'header' ? 'selected' : '' ?>>Header/nav color (global)</option>
-                            <option value="accent" <?= ($block['ts_active_bg'] ?? '') === 'accent' ? 'selected' : '' ?>>Accent color (global)</option>
-                            <option value="custom" <?= ($block['ts_active_bg'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                        </select>
+                        <?= color_mode_select('ts_active_bg', $block['ts_active_bg'] ?? 'header', 'header') ?>
                     </div>
                     <div class="form-group">
                         <label>Custom active color (if Custom above)</label>
@@ -1851,11 +1787,7 @@ function render_content_blocks_editor($blocks) {
                         </div>
                         <div class="form-group" style="flex:0 0 140px;">
                             <label>Button color</label>
-                            <select name="bg_color[]">
-                                <option value="accent" <?= ($block['bg_color'] ?? 'accent') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                                <option value="header" <?= ($block['bg_color'] ?? '') === 'header' ? 'selected' : '' ?>>Header (global)</option>
-                                <option value="custom" <?= ($block['bg_color'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                            </select>
+                            <?= color_mode_select('bg_color', $block['bg_color'] ?? 'accent', 'accent') ?>
                             <input type="color" name="bg_color_custom[]" value="<?= h($block['bg_color_custom'] ?? '#fd783b') ?>" style="margin-top:4px;">
                         </div>
                     </div>
@@ -1898,11 +1830,7 @@ function render_content_blocks_editor($blocks) {
                         </div>
                         <div class="form-group" style="flex:1 1 130px;">
                             <label>Star color</label>
-                            <select name="tm_accent[]">
-                                <option value="accent" <?= ($block['tm_accent'] ?? 'accent') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                                <option value="header" <?= ($block['tm_accent'] ?? '') === 'header' ? 'selected' : '' ?>>Header (global)</option>
-                                <option value="custom" <?= ($block['tm_accent'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                            </select>
+                            <?= color_mode_select('tm_accent', $block['tm_accent'] ?? 'accent', 'accent') ?>
                             <input type="color" name="tm_accent_custom[]" value="<?= h($block['tm_accent_custom'] ?? '#f59e0b') ?>" style="margin-top:4px;">
                         </div>
                         <div class="form-group" style="flex:0 0 90px;">
@@ -2140,11 +2068,7 @@ function render_content_blocks_editor($blocks) {
                         </div>
                         <div class="form-group" style="flex:1 1 120px;">
                             <label>Number color</label>
-                            <select name="sc_accent[]">
-                                <option value="accent" <?= ($block['sc_accent'] ?? 'accent') === 'accent' ? 'selected' : '' ?>>Accent (global)</option>
-                                <option value="header" <?= ($block['sc_accent'] ?? '') === 'header' ? 'selected' : '' ?>>Header (global)</option>
-                                <option value="custom" <?= ($block['sc_accent'] ?? '') === 'custom' ? 'selected' : '' ?>>Custom</option>
-                            </select>
+                            <?= color_mode_select('sc_accent', $block['sc_accent'] ?? 'accent', 'accent') ?>
                             <input type="color" name="sc_accent_custom[]" value="<?= h($block['sc_accent_custom'] ?? '#f5a623') ?>" style="margin-top:4px;">
                         </div>
                     </div>

@@ -100,3 +100,24 @@ function resolve_color($which, $custom = '#333333') {
     if ($which === 'footer')   return $themeCache['footer_bg']    ?? '#120575';
     return $custom ?: '#333333';
 }
+
+/**
+ * Render a shared color-mode <select> for the block editor.
+ *
+ * Admin-UI only: emits the standard {accent, header, footer, custom} option set
+ * used by ~19 block color pickers. The matching resolve_color() renderer already
+ * supports every one of these values, so this does not change how any block renders.
+ *
+ * @param string $name    The field name (without the trailing "[]", which is added).
+ * @param string $current The currently stored value (pass $block['field'] ?? $default).
+ * @param string $default Fallback selection when $current is empty/unrecognized.
+ */
+function color_mode_select(string $name, string $current, string $default = 'accent'): string {
+    $modes = ['accent' => 'Accent (global)', 'header' => 'Header (global)', 'footer' => 'Footer (global)', 'custom' => 'Custom'];
+    $val = array_key_exists($current, $modes) ? $current : $default;
+    $out = '<select name="' . htmlspecialchars($name) . '[]">';
+    foreach ($modes as $v => $label) {
+        $out .= '<option value="' . $v . '"' . ($val === $v ? ' selected' : '') . '>' . $label . '</option>';
+    }
+    return $out . '</select>';
+}

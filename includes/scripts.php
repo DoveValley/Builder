@@ -403,14 +403,14 @@ function content_editor_scripts() {
                 <div class="form-group"><label>Left heading</label><input type="text" name="sc_left_heading[]" placeholder="e.g. Serving the Greater Katy, TX Area"></div>
                 <div class="form-group"><label>Left text</label><textarea name="sc_left_text[]" rows="3"></textarea></div>
                 <div class="form-group"><label>Left background</label>
-                    <select name="sc_left_bg[]"><option value="accent" selected>Accent (global)</option><option value="header">Header color (global)</option><option value="custom">Custom</option></select>
+                    <?= color_mode_select('sc_left_bg', '', 'accent') ?>
                 </div>
                 <div class="form-group"><label>Custom left color</label><input type="color" name="sc_left_bg_custom[]" value="#fd783b"></div>
                 <div class="form-group"><label>Right label text</label><input type="text" name="sc_right_label[]" placeholder="e.g. Call The Katy Pest Pros Team"></div>
                 <div class="form-group"><label>Right phone number</label><input type="text" name="sc_right_phone[]" placeholder="e.g. (281) 215-0160"></div>
                 <div class="form-group"><label>Right phone link</label><input type="text" name="sc_right_phone_url[]" placeholder="tel:+12812150160"></div>
                 <div class="form-group"><label>Right background</label>
-                    <select name="sc_right_bg[]"><option value="header" selected>Header color (global)</option><option value="accent">Accent (global)</option><option value="custom">Custom</option></select>
+                    <?= color_mode_select('sc_right_bg', '', 'header') ?>
                 </div>
                 <div class="form-group"><label>Custom right color</label><input type="color" name="sc_right_bg_custom[]" value="#120575"></div>
             </div>
@@ -489,7 +489,7 @@ function content_editor_scripts() {
                 </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 140px;"><label>Background</label>
-                        <select name="cc_bg[]"><option value="accent" selected>Accent</option><option value="header">Header</option><option value="custom">Custom</option></select>
+                        <?= color_mode_select('cc_bg', '', 'accent') ?>
                         <input type="color" name="cc_bg_custom[]" value="#fd783b" style="margin-top:4px;">
                     </div>
                     <div class="form-group" style="flex:1 1 100px;"><label>Border radius (px)</label><input type="number" name="cc_radius[]" value="12" min="0" max="40"></div>
@@ -500,7 +500,7 @@ function content_editor_scripts() {
             </div>
             <div class="block-fields block-fields-map_info is-hidden">
                 <div class="form-group"><label>Heading color</label>
-                    <select name="mi_head_color[]"><option value="header" selected>Header</option><option value="accent">Accent</option><option value="custom">Custom</option></select>
+                    <?= color_mode_select('mi_head_color', '', 'header') ?>
                     <input type="color" name="mi_head_color_custom[]" value="#120575" style="margin-top:4px;">
                 </div>
                 <div class="form-group"><label>Map position</label>
@@ -529,7 +529,7 @@ function content_editor_scripts() {
                     <div class="form-group"><label>Small label text</label><input type="text" name="lg_sublabel[]" placeholder="e.g. Top Rated Katy, TX Pest Experts"></div>
                     <div class="form-group"><label>Background color</label><input type="color" name="lg_bg_color[]" value="#ffffff"></div>
                     <div class="form-group"><label>Accent color</label>
-                        <select name="lg_accent[]"><option value="accent" selected>Accent (global)</option><option value="header">Header (global)</option><option value="custom">Custom</option></select>
+                        <?= color_mode_select('lg_accent', '', 'accent') ?>
                         <input type="color" name="lg_accent_custom[]" value="#fd783b" style="margin-top:4px;">
                     </div>
                 </div>
@@ -572,7 +572,7 @@ function content_editor_scripts() {
                 </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 140px;"><label>Background</label>
-                        <select name="cb_bg[]"><option value="accent" selected>Accent</option><option value="header">Header</option><option value="custom">Custom</option></select>
+                        <?= color_mode_select('cb_bg', '', 'accent') ?>
                         <input type="color" name="cb_bg_custom[]" value="#fd783b" style="margin-top:4px;">
                     </div>
                     <div class="form-group" style="flex:1 1 100px;"><label>Text color</label><input type="color" name="cb_text_color[]" value="#ffffff"></div>
@@ -594,11 +594,11 @@ function content_editor_scripts() {
                 </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 140px;"><label>Heading color</label>
-                        <select name="fq_head_color[]"><option value="header" selected>Header</option><option value="accent">Accent</option><option value="custom">Custom</option></select>
+                        <?= color_mode_select('fq_head_color', '', 'header') ?>
                         <input type="color" name="fq_head_color_custom[]" value="#120575" style="margin-top:4px;">
                     </div>
                     <div class="form-group" style="flex:1 1 140px;"><label>Icon color</label>
-                        <select name="fq_icon_bg[]"><option value="accent" selected>Accent</option><option value="header">Header</option><option value="custom">Custom</option></select>
+                        <?= color_mode_select('fq_icon_bg', '', 'accent') ?>
                         <input type="color" name="fq_icon_bg_custom[]" value="#fd783b" style="margin-top:4px;">
                     </div>
                 </div>
@@ -609,11 +609,11 @@ function content_editor_scripts() {
                 <div class="form-group"><label>Background color</label><input type="color" name="if_bg_color[]" value="#f3f6f7"></div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 140px;"><label>Check color</label>
-                        <select name="if_check_color[]"><option value="accent" selected>Accent</option><option value="header">Header</option><option value="custom">Custom</option></select>
+                        <?= color_mode_select('if_check_color', '', 'accent') ?>
                         <input type="color" name="if_check_color_custom[]" value="#fd783b" style="margin-top:4px;">
                     </div>
                     <div class="form-group" style="flex:1 1 140px;"><label>Heading color</label>
-                        <select name="if_head_color[]"><option value="header" selected>Header</option><option value="accent">Accent</option><option value="custom">Custom</option></select>
+                        <?= color_mode_select('if_head_color', '', 'header') ?>
                         <input type="color" name="if_head_color_custom[]" value="#120575" style="margin-top:4px;">
                     </div>
                 </div>
@@ -650,7 +650,7 @@ function content_editor_scripts() {
                     </div>
                 </div>
                 <div class="form-group"><label>Badge / button color</label>
-                    <select name="wb_badge_bg[]"><option value="accent" selected>Accent (global)</option><option value="header">Header (global)</option><option value="custom">Custom</option></select>
+                    <?= color_mode_select('wb_badge_bg', '', 'accent') ?>
                     <input type="color" name="wb_badge_bg_custom[]" value="#fd783b" style="margin-top:4px;">
                 </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
@@ -679,11 +679,11 @@ function content_editor_scripts() {
                 </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 140px;"><label>Badge color</label>
-                        <select name="sc_badge_bg[]"><option value="accent" selected>Accent</option><option value="header">Header</option><option value="custom">Custom</option></select>
+                        <?= color_mode_select('sc_badge_bg', '', 'accent') ?>
                         <input type="color" name="sc_badge_bg_custom[]" value="#fd783b" style="margin-top:4px;">
                     </div>
                     <div class="form-group" style="flex:1 1 140px;"><label>Heading color</label>
-                        <select name="sc_head_color[]"><option value="header" selected>Header</option><option value="accent">Accent</option><option value="custom">Custom</option></select>
+                        <?= color_mode_select('sc_head_color', '', 'header') ?>
                         <input type="color" name="sc_head_color_custom[]" value="#120575" style="margin-top:4px;">
                     </div>
                     <div class="form-group" style="flex:1 1 140px;"><label>Icon circle bg</label>
@@ -707,11 +707,11 @@ function content_editor_scripts() {
                 </div>
                 <div class="form-group"><label>Image alt text</label><input type="text" name="hg_photo_alt[]" placeholder="e.g. Pest control technician Katy TX"></div>
                 <div class="form-group"><label>Odd tile color</label>
-                    <select name="hg_color1[]"><option value="accent" selected>Accent (global)</option><option value="header">Header (global)</option><option value="custom">Custom</option></select>
+                    <?= color_mode_select('hg_color1', '', 'accent') ?>
                     <input type="color" name="hg_color1_custom[]" value="#fd783b" style="margin-top:4px;">
                 </div>
                 <div class="form-group"><label>Even tile color</label>
-                    <select name="hg_color2[]"><option value="header" selected>Header (global)</option><option value="accent">Accent (global)</option><option value="custom">Custom</option></select>
+                    <?= color_mode_select('hg_color2', '', 'header') ?>
                     <input type="color" name="hg_color2_custom[]" value="#120575" style="margin-top:4px;">
                 </div>
                 <div class="hg-items-editor" id="hg_items_new_${idx}"></div>
@@ -724,7 +724,7 @@ function content_editor_scripts() {
                 </div>
                 <div class="form-group"><label>Heading</label><input type="text" name="ts_heading[]" placeholder="Section heading"></div>
                 <div class="form-group"><label>Active tab background</label>
-                    <select name="ts_active_bg[]"><option value="header" selected>Header color (global)</option><option value="accent">Accent (global)</option><option value="custom">Custom</option></select>
+                    <?= color_mode_select('ts_active_bg', '', 'header') ?>
                 </div>
                 <div class="form-group"><label>Custom active color</label><input type="color" name="ts_active_bg_custom[]" value="#120575"></div>
                 <div class="ts-tabs-editor" id="ts_tabs_new_${idx}"></div>
@@ -813,7 +813,7 @@ function content_editor_scripts() {
                         <input type="color" name="sc_bg[]" value="#f8fafc">
                     </div>
                     <div class="form-group" style="flex:1 1 120px;"><label>Number color</label>
-                        <select name="sc_accent[]"><option value="accent" selected>Accent (global)</option><option value="header">Header (global)</option><option value="custom">Custom</option></select>
+                        <?= color_mode_select('sc_accent', '', 'accent') ?>
                         <input type="color" name="sc_accent_custom[]" value="" style="margin-top:4px;">
                     </div>
                 </div>
@@ -1055,11 +1055,7 @@ function content_editor_scripts() {
                         <input type="color" name="tm_text_color[]" value="#374151">
                     </div>
                     <div class="form-group" style="flex:1 1 130px;"><label>Star color</label>
-                        <select name="tm_accent[]">
-                            <option value="accent" selected>Accent (global)</option>
-                            <option value="header">Header (global)</option>
-                            <option value="custom">Custom</option>
-                        </select>
+                        <?= color_mode_select('tm_accent', '', 'accent') ?>
                         <input type="color" name="tm_accent_custom[]" value="#f59e0b" style="margin-top:4px;">
                     </div>
                     <div class="form-group" style="flex:0 0 90px;"><label>Columns</label>
