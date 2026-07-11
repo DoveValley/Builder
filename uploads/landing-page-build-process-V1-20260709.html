@@ -1,0 +1,195 @@
+<!doctype html><html><head><meta charset=utf-8><title>Landing-Page Build Process</title><style>body{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;max-width:860px;margin:40px auto;padding:0 24px;color:#1f2937;line-height:1.55;}
+h1{font-size:1.9rem;color:#120575;border-bottom:3px solid #fd783b;padding-bottom:8px;}
+h2{font-size:1.35rem;color:#120575;margin-top:2em;border-bottom:1px solid #e5e7eb;padding-bottom:4px;}
+h3{font-size:1.08rem;color:#374151;margin-top:1.5em;}
+code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:.86em;color:#b4004e;}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.9rem;}
+th,td{border:1px solid #e5e7eb;padding:6px 10px;text-align:left;vertical-align:top;}
+th{background:#f8fafc;color:#120575;}
+blockquote{border-left:4px solid #fd783b;background:#fff7f2;margin:1em 0;padding:8px 16px;color:#7c2d12;}
+hr{border:none;border-top:1px solid #e5e7eb;margin:2em 0;}
+strong{color:#111827;}
+@media print{body{margin:0;max-width:none;}h2{page-break-after:avoid;}table,blockquote{page-break-inside:avoid;}}</style></head><body><h1>Landing-Page Build Process — Keyword Map → 30 Templates → Deploy</h1>
+<p><strong>Version:</strong> V1 · 2026-07-09 <strong>Worked example:</strong> pest-template (Elk Pest Pros / elkpestpros.com), 30 pest landing pages, Lufkin TX as the proof city. <strong>Branch:</strong> <code>multisite-generator-phase0</code> (commits <code>4b92c43</code> → <code>b0fcd9d</code>)</p>
+<p>This documents the exact, repeatable process used to go from a keyword map to a full validated page set — and the final deploy step (held pending site config). It is <strong>niche-agnostic</strong>: swap the keyword map + master template + AI prompts and the same steps produce another niche&#039;s pages.</p>
+<hr>
+<h2>The mental model</h2>
+<p>Three human-authored inputs per niche; everything else is mechanical:</p>
+<ol>
+<li><strong>Keyword map</strong> (<code>keyword_map.json</code>) — *which* pages exist + each page&#039;s target keyword.</li>
+<li><strong>Master template(s)</strong> — the reusable block skeleton per archetype.</li>
+<li><strong>AI prompts</strong> (<code>ai_block_types.json</code> registry) — niche-neutral, <code>{service}</code>-driven.</li>
+</ol>
+<p>Two generation passes turn a template × city into a live page:</p>
+<ul>
+<li><strong>Pass A — structure</strong> (<code>includes/generation/engine.php</code> → <code>generate_city_pages()</code>;</li>
+</ul>
+<p>  admin trigger <code>admin/generate.php</code> / City Pages tab). Clones the template per   city, resolves <code>{city}</code>/<code>{SS}</code>/<code>{city_slug}</code> etc., writes   <code>data/pages/{templateId}_{cityId}.json</code>, rebuilds <code>page-index.json</code>. <strong>No AI, no cost.</strong></p>
+<ul>
+<li><strong>Pass B — AI content</strong> (<code>generate.py</code>; admin trigger <code>admin/ai_generate.php</code> / AI tab).</li>
+</ul>
+<p>  Fills each page&#039;s AI blocks from the prompt registry. <strong>Costs ~$0.20/city for 30 pages.</strong></p>
+<blockquote>⚠️ Pass A and Pass B are <strong>separate actions</strong> and must run in that order.</blockquote>
+<hr>
+<h2>Phase 0 — Keyword map (the plan)</h2>
+<p>Built on the <strong>Keywords tab</strong> → writes <code>data/keyword_map.json</code>:</p>
+<p>``<code> services[]: { primary, slug, section: home|core|landing, tier, secondary[] } </code>``</p>
+<ul>
+<li><code>section: landing</code> entries = the landing pages to build.</li>
+<li><code>primary</code> = target keyword; <code>slug</code> = URL base; <code>secondary[]</code> = variant phrasings</li>
+</ul>
+<p>  that live <strong>on the page</strong>, not as separate URLs (rank-and-rent rule).</p>
+<p><strong>Worked example:</strong> 30 landing services confirmed complete (primary + slug + 2–5 secondaries each). This is the source list for everything downstream.</p>
+<hr>
+<h2>Phase 1 — Master template: audit &amp; fix</h2>
+<p>The proven master (cockroach = extermination archetype) block order: <code>hero_split → trust bar (custom_html) → AI city_intro → AI feature_columns_local → steps → mid CTA → AI local_relevance → AI seasonal_calendar → service_cards (related) → AI faq_local → CTA → [services_links]</code>.</p>
+<p>Key facts confirmed:</p>
+<ul>
+<li><strong>AI prompts are <code>{service}</code>-driven</strong> → AI blocks auto-adapt per service, so</li>
+</ul>
+<p>  cloning needs *no* prompt changes and only the *static* blocks need attention.</p>
+<ul>
+<li><strong><code>{service}</code>/<code>{keyword}</code> do NOT resolve in static block text</strong> (only in AI</li>
+</ul>
+<p>  prompts). So for static text, <strong>find/replace is the only lever</strong> — keep the   master&#039;s pest words consistent (all &quot;cockroach/roach&quot;) so one pair-set cleans a clone.</p>
+<p><strong>Defect fixed:</strong> the Service schema hardcoded <code>&quot;url&quot;:&quot;…cockroach-exterminator-{city_slug}/&quot;</code>. A word-swap fixes &quot;cockroach&quot; but not the slug base, so every clone&#039;s JSON-LD <code>url</code> would mismatch its real slug (404). <strong>Fix: drop <code>url</code> from the Service node</strong> — the canonical <code>&lt;link&gt;</code> already establishes URL identity. (commit <code>4b92c43</code>)</p>
+<p>Admin: added a <strong>Master Template</strong> section (base-flag partition) to the Templates tab.</p>
+<hr>
+<h2>Phase 2 — Bulk-generate the noun-service templates (21)</h2>
+<p>Tool: <strong>Bulk Template Generator</strong> (<code>admin/templates_save.php</code> <code>bulk_generate</code>). Row format: <code>Service | slug-base | primary keyword | find=repl;… | hero|intro|local img | Title</code>.</p>
+<ul>
+<li><code>find=repl</code> = case-aware whole-word swaps (e.g. <code>cockroach=termite;cockroaches=termites;roach=termite;roaches=termites</code>).</li>
+<li><strong>Dry-run first</strong> — flags ⚠ leftover subject words and ⚠ missing images per row.</li>
+</ul>
+<p>  (Verified 0 leftover across all 21 before committing.)</p>
+<ul>
+<li>The generator overrides <code>service</code> + SEO service fields and forces hero H1 to</li>
+</ul>
+<p>  <code>&quot;{service} in {city_state}&quot;</code>.</p>
+<p><strong>Archetype split discovered:</strong> of the 30, ~21 are single-pest nouns that fit the extermination master; the other ~9 (inspections, category/plans) are different *intents* needing their own archetype — do <strong>not</strong> force them through one master.</p>
+<hr>
+<h2>Phase 3 — Images</h2>
+<p>Media library (<code>uploads/media/</code>) held a full katypestpros scrape with <code>{service}</code> / <code>about-{service}</code> / <code>best-{service}</code> triads + per-pest bug photos.</p>
+<ul>
+<li>Coverage vs 21: <strong>16 exact matches, 5 on a neutral pest fallback</strong></li>
+</ul>
+<p>  (scorpion/cricket/stink bug/bee/centipede — flagged for future custom art).</p>
+<ul>
+<li>Assigned 3 slots per template: hero (<code>hs_photo</code>), city-intro <code>it_photo</code>,</li>
+</ul>
+<p>  local-relevance <code>it_photo</code>. Alt text auto-inherited the swapped service noun.</p>
+<hr>
+<h2>Phase 4 — Inspection archetype (3)</h2>
+<p>pest / termite / WDI inspection — built <strong>directly off the master skeleton</strong> (only 3, closely related), termite-inspection flagged as the inspection master. (commit <code>cbe14a1</code>)</p>
+<p>Static changes (AI blocks reused unchanged — they adapt to <code>{service}</code>):</p>
+<ul>
+<li>steps → <strong>&quot;How Our {service} Works&quot;: Schedule → On-Site Inspection → Written Report</strong></li>
+<li>trust bar → Trained Inspectors / Detailed Written Report / Fast Scheduling</li>
+<li>seasonal AI block → <strong>static &quot;What We Inspect&quot; <code>feature_columns</code></strong> (per-service coverage)</li>
+<li>schema serviceType per service, no <code>url</code></li>
+</ul>
+<p>Validated: termite-inspection × Lufkin renders correct end-to-end.</p>
+<hr>
+<h2>Phase 5 — Category / plans archetype (5)</h2>
+<p>residential (master) / commercial / emergency / restaurant pest control + pest control plans. (commit <code>f219360</code>)</p>
+<ul>
+<li><strong>Category pages:</strong> broad multi-pest framing, general treatment steps, &quot;Pests We</li>
+</ul>
+<p>  Treat&quot; grid, seasonal kept. AI blocks adapt to <code>{service}</code>.</p>
+<ul>
+<li><strong>Plans page:</strong> <code>pricing_cards</code> — 3 tiers (One-Time / Quarterly / Monthly),</li>
+</ul>
+<p>  feature lists + <strong>&quot;Call for a quote&quot;</strong> and <strong>NO invented prices</strong> (never fabricate   pricing/stats); seasonal dropped in favor of pricing.</p>
+<hr>
+<h2>Phase 6 — Cross-link fix (all 30)</h2>
+<p>The master&#039;s <code>service_cards</code> &quot;related services&quot; linked to <strong>old slugs</strong> (<code>/ant-control</code>, <code>/bed-bug-treatment</code>, <code>/flea-control</code>, <code>/rat-control</code>) that no longer matched template slugs → 404 on every page. Rewrote <strong>120 links</strong> across all 30 to the real slugs (<code>ant-exterminator</code>, etc.). (commit <code>f219360</code>)</p>
+<blockquote>Recurring lesson: <strong>manually-maintained lists drift from templates.</strong> Same class</blockquote>
+<blockquote>of bug hit the <code>[services_links]</code> grid (Phase 8).</blockquote>
+<hr>
+<h2>Phase 7 — Generate the full city page set (Lufkin)</h2>
+<ol>
+<li><strong>Pass A</strong> — all 30 templates × Lufkin → 30 pages, 0 errors.</li>
+<li><strong>Orphan cleanup</strong> — deleted 11 stale page files from previously-removed</li>
+</ol>
+<p>   templates (they&#039;d pollute the page index, <code>[services_links]</code>, and Pass B cost).    Rebuilt page-index to a clean 30.</p>
+<ol>
+<li><strong>Pass B</strong> — AI content for all 30 (~$0.20, 76 blocks). 30/30, 0 errors.</li>
+</ol>
+<p>Gotchas:</p>
+<ul>
+<li><strong><code>force_locked</code> in Pass A wipes existing AI content</strong> — don&#039;t force-lock over</li>
+</ul>
+<p>  already-filled pages at scale (re-run costs AI again).</p>
+<ul>
+<li>CLI runs as <strong>root</strong>; page files must be <code>chown www-data:www-data</code> afterward or</li>
+</ul>
+<p>  the admin can&#039;t rewrite them.</p>
+<ul>
+<li>Pass B has a 10-min foreground cap here — run it <strong>in the background</strong> for a full set.</li>
+</ul>
+<hr>
+<h2>Phase 8 — Schema &amp; services-grid polish</h2>
+<ul>
+<li><strong>SAB homepage LocalBusiness node</strong> added to <code>seo.schema</code>: <code>PestControlService</code></li>
+</ul>
+<p>  with <code>@id {website}/#localbusiness</code> (matches the landing pages&#039; <code>provider @id</code>),   <code>areaServed</code> only — <strong>no street address, no geo, no aggregateRating</strong> (the   <code>local_business</code> config&#039;s 4.8/534 is fabricated and must never enter live schema).   Correct service-area modeling (&quot;we work in your area&quot;). (commit <code>fe79515</code>)</p>
+<ul>
+<li><strong><code>[services_links]</code> grid</strong> was showing only 10 of 30: the plugin hides links to</li>
+</ul>
+<p>  pages that don&#039;t exist, and its config was a stale 21-item list (old slugs +   orphan services). <strong>Regenerated the list from templates.json</strong> → 30 links, 0   broken, everywhere the grid renders. (commit <code>3c56b1d</code>)</p>
+<hr>
+<h2>Phase 9 — Wire keyword-map secondaries into content</h2>
+<p>Closed the gap where <code>keyword_map.secondary[]</code> was written but never consumed. (commit <code>b0fcd9d</code>)</p>
+<ol>
+<li><strong>Plumbing:</strong> synced <code>seo.secondary_keywords</code> on all 30 templates from the map by slug.</li>
+<li><strong><code>generate.py</code>:</strong> exposed <code>{secondary_keywords}</code> in <code>build_context</code></li>
+</ol>
+<p>   (from the page&#039;s <code>seo.secondary_keywords</code>).</p>
+<ol>
+<li><strong>Prompts:</strong> city_intro / feature_columns_local / local_relevance / faq_local now</li>
+</ol>
+<p>   weave the variants in <strong>naturally, with an explicit anti-stuffing guardrail</strong>    (skip terms that don&#039;t fit); the FAQ is told to cover the distinct intents.</p>
+<p>Validated on termite: &quot;termite control/exterminator/removal&quot; surfaced; &quot;termite fumigation&quot;/&quot;tent fumigation&quot; correctly omitted (don&#039;t fit standard treatment) — guardrail working. Note: modern <code>&lt;meta name=&quot;keywords&quot;&gt;</code> is ignored by Google, so <code>secondary_keywords</code> is a <strong>data carrier into generation</strong>, not an SEO tag.</p>
+<hr>
+<h2>Phase 10 — Deploy to elkpestpros.com  ⏳ HELD</h2>
+<p><strong>Model:</strong> one multi-city site under elkpestpros.com (all cities as landing pages, one domain, one deploy). Infra is ready: <code>deploy.json</code> has FTP + <code>canonical_domain: https://elkpestpros.com</code>; static build does trailing-slash canonicalization + sitemap.</p>
+<p><strong>Blockers (parked — must fix before go-live, they hit every page):</strong></p>
+<ul>
+<li><strong>Logo</strong> — still the Katy Pest Pros image (<code>header.logo</code>); body copy says Elk Pest Pros.</li>
+<li><strong>Phone</strong> — placeholder <code>(281) 888-8888</code> display vs. real <code>936-201-5555</code> tel;</li>
+</ul>
+<p>  <code>site_vars.phone</code>/<code>tel</code> disagree.</p>
+<p><strong>Deploy steps (when unblocked):</strong></p>
+<ol>
+<li>Fix <code>header.logo</code> + <code>site_vars.phone</code>/<code>tel</code> (+ <code>local_business.lb_logo</code>).</li>
+<li>Static build (30 Lufkin pages + homepage).</li>
+<li>FTP deploy → overwrites the 2 stale pages currently live and adds the other 28.</li>
+<li>Verify live: 200s on all slugs, <code>sitemap.xml</code>, resolved schema, trailing-slash</li>
+</ol>
+<p>   canonicals, no 301 chains.</p>
+<p><strong>Current live state (checked 2026-07-09):</strong> elkpestpros.com serves only a stale 2-page prior deploy (termite-treatment + cockroach-exterminator) with broken internal links. <strong>None of this session&#039;s 30-page set is deployed yet.</strong></p>
+<hr>
+<h2>Commit checkpoints (this branch)</h2>
+<table><thead><tr><th>Commit</th><th>What</th></tr></thead><tbody><tr><td><code>4b92c43</code></td><td>Master Template section + 21 bulk templates + schema-url fix + images</td></tr><tr><td><code>cbe14a1</code></td><td>Inspection archetype (3)</td></tr><tr><td><code>f219360</code></td><td>Category/plans archetype (5) + 120 cross-link fixes</td></tr><tr><td><code>fe79515</code></td><td>SAB homepage LocalBusiness schema</td></tr><tr><td><code>3c56b1d</code></td><td>services_links grid synced to 30</td></tr><tr><td><code>b0fcd9d</code></td><td>keyword-map secondaries wired into generation</td></tr></tbody></table>
+<p>Generated city pages are kept <strong>uncommitted as artifacts</strong> (regenerable per real city).</p>
+<hr>
+<h2>Repeatable checklist for a NEW niche</h2>
+<ol>
+<li>Build the <strong>keyword map</strong> on the Keywords tab (primary + slug + secondaries, by section).</li>
+<li>Build/adapt the <strong>master template(s)</strong> — one per archetype the niche needs.</li>
+<li>Fill the <strong>prompt registry</strong> with niche-neutral <code>{service}</code>-driven prompts.</li>
+<li>Sync <code>secondary_keywords</code> from the map onto the templates.</li>
+<li>Bulk-generate noun-service templates; build divergent archetypes directly.</li>
+<li>Assign images; sync <code>[services_links]</code> + related-service cross-links to the templates.</li>
+<li>Add the SAB homepage LocalBusiness node.</li>
+<li>Pass A → orphan cleanup → Pass B (background); validate one page per archetype.</li>
+<li>Set site config (logo, phone, <code>deploy.json</code>), build, FTP deploy, verify live.</li>
+</ol>
+<h3>Standing gotchas</h3>
+<ul>
+<li>Manual lists (services_links, related-service cards) <strong>drift</strong> — always re-sync from templates.</li>
+<li>Never fabricate prices/ratings/stats; model service-area businesses with <code>areaServed</code>, no address.</li>
+<li><code>force_locked</code> on Pass A wipes AI content; <code>chown www-data</code> after any root-run generation.</li>
+<li>Keep the master&#039;s static pest words consistent so one find/replace pair-set cleans a clone.</li>
+</ul>
+</body></html>
