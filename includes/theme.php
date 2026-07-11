@@ -14,6 +14,11 @@ function theme_css_vars($theme) {
         '--color-highlight'     => $theme['accent2_color'] ?? '#f5a623',
         '--color-btn-text'      => $theme['btn_text']      ?? '#ffffff',
         '--color-border'        => $theme['border_color']  ?? '#e5e7eb',
+        // Shared semantic colors (Phase 3): centralize values that blocks used to
+        // hardcode, so they theme consistently. Defaults preserve the prior look.
+        '--color-success'       => $theme['success_color'] ?? '#16a34a', // checks, "winner" column, result badges
+        '--color-media-fallback'=> $theme['media_fallback']?? '#1a1a2e', // bg behind blocks with no image set
+        '--color-muted'         => $theme['muted_color']   ?? '#6b7280', // captions, secondary text
         '--btn-radius'          => ($theme['button_radius'] ?? '5') . 'px',
     ];
     $font = $theme['primary_font'] ?? ($theme['font_family'] ?? 'sans-serif');

@@ -634,7 +634,7 @@ function render_content_block($block, $pathPrefix = '') {
                     $ccChecklistHtml = '<ul style="list-style:none;padding:0;margin:16px 0 0;text-align:left;">';
                     foreach ($ccItems as $ccItem) {
                         $ccChecklistHtml .= '<li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">'
-                            . '<span style="color:#22c55e;font-size:1.15rem;flex-shrink:0;line-height:1.4;">✓</span>'
+                            . '<span style="color:var(--color-success);font-size:1.15rem;flex-shrink:0;line-height:1.4;">✓</span>'
                             . '<span>' . h($ccItem) . '</span>'
                             . '</li>';
                     }
@@ -753,7 +753,7 @@ function render_content_block($block, $pathPrefix = '') {
                 // Dark style: bg image with overlay
                 $bgStyle = $photoSrc
                     ? 'background-image:url('.h($photoSrc).');background-size:cover;background-position:center;'
-                    : 'background:#1a1a2e;';
+                    : 'background:var(--color-media-fallback);';
                 echo '<div class="content-block block-links-grid"'.$anchorAttr.' style="'.$bgStyle.'">';
                 echo '<div class="lg-overlay" style="background:rgba(0,0,0,'.h($overlay).');">';
                 if ($heading || $subtext) {
@@ -984,7 +984,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $bgStyle = 'background:'.h($bgColor).';';
                 $overlayStyle = '';
             } else {
-                $bgStyle = 'background:#1a1a2e;';
+                $bgStyle = 'background:var(--color-media-fallback);';
                 $overlayStyle = 'background:rgba(0,0,0,'.h($overlayOpacity).');';
             }
 
@@ -1096,7 +1096,7 @@ function render_content_block($block, $pathPrefix = '') {
             echo '<div class="content-block block-hero-grid"'.$anchorAttr.'>';
 
             // LEFT: image with overlay + text
-            echo '<div class="hg-left" style="'.($photoSrc ? 'background-image:url('.h($photoSrc).');background-size:cover;background-position:'.h(get_focal_point($photo)).';' : 'background:#1a1a2e;').'">';
+            echo '<div class="hg-left" style="'.($photoSrc ? 'background-image:url('.h($photoSrc).');background-size:cover;background-position:'.h(get_focal_point($photo)).';' : 'background:var(--color-media-fallback);').'">';
             echo '<div class="hg-overlay">';
             if ($label)   echo '<div class="hg-label">'.h($label).'</div>';
             if ($heading) echo '<h2 class="hg-heading">'.h($heading).'</h2>';
@@ -1789,24 +1789,24 @@ function render_content_block($block, $pathPrefix = '') {
                 echo '<div style="overflow-x:auto;">';
                 echo '<table style="width:100%;border-collapse:collapse;font-size:0.95rem;">';
                 echo '<thead><tr>';
-                echo '<th style="text-align:left;padding:12px 16px;border-bottom:2px solid #e5e7eb;width:34%;color:#6b7280;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;"></th>';
-                echo '<th style="text-align:center;padding:12px 16px;border-bottom:2px solid #e5e7eb;background:#f9fafb;color:#6b7280;font-weight:600;font-size:.9rem;">' . h($ctCol1Head) . '</th>';
+                echo '<th style="text-align:left;padding:12px 16px;border-bottom:2px solid var(--color-border);width:34%;color:var(--color-muted);font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;"></th>';
+                echo '<th style="text-align:center;padding:12px 16px;border-bottom:2px solid var(--color-border);background:#f9fafb;color:var(--color-muted);font-weight:600;font-size:.9rem;">' . h($ctCol1Head) . '</th>';
                 echo '<th style="text-align:center;padding:12px 16px;background:'.h($ctAccent).';color:#ffffff;font-weight:700;font-size:.95rem;border-radius:8px 8px 0 0;">' . h($ctCol2Head) . '</th>';
                 echo '</tr></thead><tbody>';
                 foreach ($ctRows as $ri => $ctRow) {
                     $rowBg   = $ri % 2 === 0 ? '#ffffff' : '#f9fafb';
-                    $col2Bg  = $ri % 2 === 0 ? '#f0fdf4' : '#dcfce7';
+                    $col2Bg  = $ri % 2 === 0 ? 'color-mix(in srgb, var(--color-success) 7%, #ffffff)' : 'color-mix(in srgb, var(--color-success) 14%, #ffffff)';
                     echo '<tr>';
-                    echo '<td style="padding:14px 16px;color:#374151;font-weight:600;border-bottom:1px solid #e5e7eb;background:'.$rowBg.';">' . h($ctRow['feature']) . '</td>';
-                    echo '<td style="padding:14px 16px;text-align:center;color:#6b7280;border-bottom:1px solid #e5e7eb;background:'.($ri % 2 === 0 ? '#f9fafb' : '#f3f4f6').';">' . h($ctRow['col1']) . '</td>';
-                    echo '<td style="padding:14px 16px;text-align:center;color:#15803d;font-weight:600;border-bottom:1px solid #d1fae5;background:'.$col2Bg.';">' . h($ctRow['col2']) . '</td>';
+                    echo '<td style="padding:14px 16px;color:#374151;font-weight:600;border-bottom:1px solid var(--color-border);background:'.$rowBg.';">' . h($ctRow['feature']) . '</td>';
+                    echo '<td style="padding:14px 16px;text-align:center;color:var(--color-muted);border-bottom:1px solid var(--color-border);background:'.($ri % 2 === 0 ? '#f9fafb' : '#f3f4f6').';">' . h($ctRow['col1']) . '</td>';
+                    echo '<td style="padding:14px 16px;text-align:center;color:var(--color-success);font-weight:600;border-bottom:1px solid color-mix(in srgb, var(--color-success) 25%, #ffffff);background:'.$col2Bg.';">' . h($ctRow['col2']) . '</td>';
                     echo '</tr>';
                 }
                 echo '</tbody></table></div>';
             }
 
             if ($ctCallout) {
-                echo '<p style="margin:24px 0 0;padding:16px 20px;background:#f0fdf4;border-left:4px solid '.h($ctAccent).';color:#374151;font-size:.92rem;border-radius:0 6px 6px 0;">' . h($ctCallout) . '</p>';
+                echo '<p style="margin:24px 0 0;padding:16px 20px;background:color-mix(in srgb, var(--color-success) 8%, #ffffff);border-left:4px solid '.h($ctAccent).';color:#374151;font-size:.92rem;border-radius:0 6px 6px 0;">' . h($ctCallout) . '</p>';
             }
             echo '</div></div></div>';
             break;
