@@ -1570,7 +1570,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $name        = $item['name']         ?? '';
                 $location    = $item['location']     ?? '';
                 $initials    = strtoupper(substr(trim($item['initials'] ?? ''), 0, 2));
-                $avatarColor = $item['avatar_color'] ?? '#2563eb';
+                $avatarColor = $item['avatar_color'] ?? 'var(--color-header-bg)';
                 if ($avatarColor === 'highlight') $avatarColor = 'var(--color-highlight)';
                 if ($avatarColor === 'accent')    $avatarColor = 'var(--color-accent)';
                 $resultBadge = trim($item['result_badge'] ?? '');
