@@ -843,6 +843,7 @@ function parse_blocks_from_post(): array {
                 $block['tb_bg'] = in_array($tbBg, ['subtle','accent','header','footer','custom'], true) ? $tbBg : 'subtle';
                 $tbBgCustom = trim($_POST['tb_bg_custom'][$i] ?? '#f3f6f7');
                 $block['tb_bg_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $tbBgCustom) ? $tbBgCustom : '#f3f6f7';
+                $block['tb_show_icons'] = !empty($_POST['tb_show_icons'][$i]);
                 $tbLabels = $_POST['tb_label'][$i] ?? [];
                 $tbIcons  = $_POST['tb_icon'][$i]  ?? [];
                 $tbItems  = [];

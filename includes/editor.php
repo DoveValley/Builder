@@ -2084,6 +2084,9 @@ function render_content_blocks_editor($blocks) {
                             <label>Custom color</label>
                             <input type="color" name="tb_bg_custom[]" value="<?= h($block['tb_bg_custom'] ?? '#f3f6f7') ?>">
                         </div>
+                        <div class="form-group" style="flex:0 0 auto;">
+                            <label><input type="checkbox" name="tb_show_icons[]" value="1" style="width:auto;margin-right:6px;" <?= ($block['tb_show_icons'] ?? true) ? 'checked' : '' ?>>Show icons</label>
+                        </div>
                     </div>
                     <div class="tb-items-editor" id="tb_items_<?= $i ?>">
                         <?php $tbItems = $block['tb_items'] ?? [['label'=>'','icon'=>'']]; ?>

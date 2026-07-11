@@ -1684,13 +1684,17 @@ function render_content_block($block, $pathPrefix = '') {
             $tbBg       = $block['tb_bg']        ?? 'subtle';
             $tbBgCustom = $block['tb_bg_custom'] ?? '#f3f6f7';
             $tbItems    = $block['tb_items']     ?? [];
+            $tbShowIcons = $block['tb_show_icons'] ?? true;   // false = text-only badges
             $tbCheck    = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M20 6 9 17l-5-5" stroke="var(--color-accent,#fd783b)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
             $tbRows = '';
             foreach ($tbItems as $tbItem) {
                 $tbLabel = trim($tbItem['label'] ?? '');
                 if ($tbLabel === '') continue;
-                $tbIcon = trim($tbItem['icon'] ?? '');
-                $tbIconOut = $tbIcon !== '' ? $tbIcon : $tbCheck;
+                $tbIconOut = '';
+                if ($tbShowIcons) {
+                    $tbIcon = trim($tbItem['icon'] ?? '');
+                    $tbIconOut = $tbIcon !== '' ? $tbIcon : $tbCheck;
+                }
                 $tbRows .= '<div style="display:flex;align-items:center;gap:10px;">'.$tbIconOut
                     .'<span style="font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;">'
                     .h(resolve_shortcodes($tbLabel)).'</span></div>';

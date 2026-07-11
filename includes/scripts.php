@@ -857,6 +857,9 @@ function content_editor_scripts() {
                     <div class="form-group" style="flex:0 0 100px;"><label>Custom color</label>
                         <input type="color" name="tb_bg_custom[]" value="#f3f6f7">
                     </div>
+                    <div class="form-group" style="flex:0 0 auto;">
+                        <label><input type="checkbox" name="tb_show_icons[]" value="1" style="width:auto;margin-right:6px;" checked>Show icons</label>
+                    </div>
                 </div>
                 <div class="tb-items-editor" id="tb_items_new_${idx}"></div>
                 <button type="button" class="btn btn-secondary btn-small" onclick="addTbItem(this, 'new_${idx}')">+ Add badge</button>
