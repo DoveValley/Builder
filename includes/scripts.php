@@ -34,6 +34,35 @@ function content_editor_scripts() {
     /* Legacy alias */
     function toggleBlockImage(select) { switchBlockType(select); }
 
+    /* Re-index every block field's block-key to its current DOM position, right before
+       submit. This makes the position the single source of truth for the positional POST
+       arrays that parse_blocks_from_post() reads as $_POST['field'][$i] — immune to
+       reorder / delete / clone / new-block insertion, and to whatever placeholder key
+       (positional [], baked [<i>], or [new_N]) the panel emitted. The FIRST [..] group
+       (block key) is rewritten; any nested [] (repeater item index) is left untouched. */
+    function reindexBlockFields() {
+        const container = document.getElementById('content-blocks');
+        if (!container) return;
+        const cards = container.querySelectorAll(':scope > .block-card');
+        cards.forEach(function (card, pos) {
+            card.querySelectorAll('[name]').forEach(function (el) {
+                el.name = el.name.replace(/^([A-Za-z_][A-Za-z0-9_]*)\[[^\]]*\]/, '$1[' + pos + ']');
+            });
+        });
+    }
+
+    /* Wire re-indexing to the block-editor form's submit (fires for the Save button and
+       for moveBlock's requestSubmit; harmlessly idempotent if run twice). */
+    (function () {
+        function wire() {
+            const cb = document.getElementById('content-blocks');
+            const form = cb && cb.closest('form');
+            if (form) form.addEventListener('submit', reindexBlockFields);
+        }
+        if (document.readyState !== 'loading') wire();
+        else document.addEventListener('DOMContentLoaded', wire);
+    })();
+
     /* Move block up/down — auto-saves immediately to avoid data loss */
     function moveBlock(e, btn, dir) {
         e.stopPropagation();
@@ -49,7 +78,14 @@ function content_editor_scripts() {
             const next = card.nextElementSibling;
             if (next) { container.insertBefore(next, card); moved = true; }
         }
-        if (moved) btn.closest('form').submit();
+        if (moved) {
+            // Re-index explicitly (covers the no-requestSubmit fallback), then submit via
+            // requestSubmit() so the form's submit listeners fire (reindex + CSRF) — a
+            // plain .submit() would fire neither.
+            reindexBlockFields();
+            const form = btn.closest('form');
+            if (form.requestSubmit) form.requestSubmit(); else form.submit();
+        }
     }
 
     /* Clone a block — deep-copies the block accordion and inserts it below */
