@@ -647,5 +647,30 @@
     "output_tokens": 11296,
     "api_calls": 29,
     "estimated_cost_usd": 0.075001
+  },
+  {
+    "run_id": "a6537a39-3461-4f29-b06a-a56f36100cce",
+    "started_at": "2026-07-11T15:17:24.144632Z",
+    "finished_at": "2026-07-11T15:17:29.264555Z",
+    "duration_ms": 5119,
+    "dry_run": false,
+    "options": {
+      "site": "appliance-site",
+      "page": "homepage",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 1,
+    "pages_skipped": 5,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 1,
+    "cities_researched": 0,
+    "input_tokens": 993,
+    "output_tokens": 301,
+    "api_calls": 1,
+    "estimated_cost_usd": 0.007494
   }
 ]
