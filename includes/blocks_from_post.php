@@ -53,7 +53,8 @@ function parse_blocks_from_post(): array {
                 $block['hero_subtext']    = trim($_POST['hero_subtext'][$i]    ?? '');
                 $block['hero_btn_text']   = trim($_POST['hero_btn_text'][$i]   ?? '');
                 $block['hero_btn_url']    = sanitize_url($_POST['hero_btn_url'][$i]    ?? '');
-                $block['hero_text_color'] = trim($_POST['hero_text_color'][$i] ?? '#ffffff');
+                $htc = trim($_POST['hero_text_color'][$i] ?? '#ffffff');
+                $block['hero_text_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $htc) ? $htc : '#ffffff';
                 $bgColor = trim($_POST['hero_bg_color'][$i] ?? '');
                 $block['hero_bg_color'] = preg_match('/^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/', $bgColor) ? $bgColor : '#1e3a5f';
                 $block['hero_bg_image'] = trim($_POST['hero_bg_image_existing'][$i] ?? '');
@@ -255,7 +256,10 @@ function parse_blocks_from_post(): array {
                 // Sanitize map embed — only allow iframe tag, strip event attributes
                 $rawEmbed = trim($_POST['mi_map_embed'][$i] ?? '');
                 $rawEmbed = preg_replace('/\s+on\w+\s*=\s*("[^"]*"|\'[^\']*\'|[^\s>]*)/i', '', $rawEmbed);
-                $block['mi_map_embed'] = preg_match('/<iframe[^>]*>.*<\/iframe>/is', $rawEmbed) ? $rawEmbed : '';
+                // Store ONLY the matched <iframe>…</iframe>, not the whole input — a payload
+                // like "<script>…</script><iframe…></iframe>" must not survive just because
+                // an iframe is present. Non-greedy so we capture a single embed.
+                $block['mi_map_embed'] = preg_match('/<iframe[^>]*>.*?<\/iframe>/is', $rawEmbed, $ifr) ? $ifr[0] : '';
                 $block['mi_map_side'] = (($_POST['mi_map_side'][$i] ?? 'left') === 'right') ? 'right' : 'left';
                 $mhc = in_array($_POST['mi_head_color'][$i] ?? '', ['accent','header','custom']) ? $_POST['mi_head_color'][$i] : 'header';
                 $block['mi_head_color'] = $mhc;
@@ -927,10 +931,16 @@ function parse_blocks_from_post(): array {
             $enrichTypeId = trim($_POST['enrich_ai_type_id'][$i] ?? '');
             if ($enrichTypeId !== '') {
                 $block['ai_type_id']     = $enrichTypeId;
-                $block['ai_inject_field'] = trim($_POST['enrich_ai_inject_field'][$i] ?? '');
-                $enrichModeRaw = trim($_POST['enrich_ai_inject_mode'][$i] ?? 'replace');
+                // Prefer the registry definition (authoritative) so a type freshly attached
+                // via the panel gets correct inject config even though the hidden round-trip
+                // fields still reflect the block's previous state. Fall back to POST values.
+                $def = function_exists('ai_get_block_type') ? ai_get_block_type($enrichTypeId) : null;
+                $block['ai_inject_field'] = ($def['ai_inject_field'] ?? '') !== ''
+                    ? $def['ai_inject_field']
+                    : trim($_POST['enrich_ai_inject_field'][$i] ?? '');
+                $enrichModeRaw = $def['ai_inject_mode'] ?? trim($_POST['enrich_ai_inject_mode'][$i] ?? 'replace');
                 $block['ai_inject_mode'] = in_array($enrichModeRaw, ['replace','append','prepend']) ? $enrichModeRaw : 'replace';
-                $enrichModel = trim($_POST['enrich_ai_model'][$i] ?? '');
+                $enrichModel = ($def['ai_model'] ?? '') !== '' ? $def['ai_model'] : trim($_POST['enrich_ai_model'][$i] ?? '');
                 if ($enrichModel !== '') $block['ai_model'] = $enrichModel;
                 $block['_ai_locked'] = ($_POST['enrich_ai_locked'][$i] ?? '0') === '1';
                 if (($_POST['enrich_ai_meta_generated'][$i] ?? '0') === '1') {

@@ -6,11 +6,20 @@ function content_editor_scripts() {
     $blockTypes = json_encode(array_keys(allowed_block_types()));
     $bpThumbs   = json_encode(block_thumbnails());
     $bpLabels   = json_encode(allowed_block_types());
+    // AI enrich types that write into a map_info block's info text (e.g. city_spotlight),
+    // as [type_id => label], for the "AI City Info text" dropdown on new map_info blocks.
+    $miAiTypes  = [];
+    foreach (ai_load_registry() as $tid => $def) {
+        if (is_array($def) && ($def['ai_inject_field'] ?? '') === 'mi_info_text') {
+            $miAiTypes[$tid] = $def['label'] ?? $tid;
+        }
+    }
     ?>
     <script>
     const BLOCK_TYPES = <?= $blockTypes ?>;
     const BP_THUMBS   = <?= $bpThumbs ?>;
     const BP_LABELS   = <?= $bpLabels ?>;
+    const MI_AI_TYPES = <?= json_encode($miAiTypes, JSON_UNESCAPED_UNICODE) ?>;
 
     /* Show only the fields panel matching the selected block type */
     function switchBlockType(select) {
@@ -150,6 +159,24 @@ function content_editor_scripts() {
 
         const thumbHtml = BP_THUMBS[type] || BP_THUMBS['text'] || '';
         const typeLabel  = BP_LABELS[type]  || type;
+
+        // AI enrich control — visible dropdown for map_info (attach City Spotlight etc.),
+        // hidden field for every other type. Emitting exactly one enrich_ai_type_id[] per
+        // block keeps the positional POST arrays aligned with block_type[].
+        let enrichField;
+        if (type === 'map_info') {
+            let opts = '<option value="">— None (write the info text yourself) —</option>';
+            for (const tid in MI_AI_TYPES) {
+                opts += `<option value="${tid}">${MI_AI_TYPES[tid]}</option>`;
+            }
+            enrichField = `<div class="form-group" style="margin-top:6px;padding-top:12px;border-top:1px dashed #e2e8f0;">
+                <label>✦ AI City Info text <span class="hint">(optional)</span></label>
+                <select name="enrich_ai_type_id[]">${opts}</select>
+                <span class="hint">Attach an AI type, click Save, then run AI &rarr; Generate. AI writes only the info paragraph; the map, photo &amp; headings stay as set.</span>
+            </div>`;
+        } else {
+            enrichField = '<input type="hidden" name="enrich_ai_type_id[]" value="">';
+        }
 
         card.innerHTML = `
             <summary class="block-card-header">
@@ -855,6 +882,126 @@ function content_editor_scripts() {
                 <input type="hidden" name="ai_meta_model_used[]" value="">
                 <input type="hidden" name="ai_meta_ai_type[]" value="">
             </div>
+            <div class="block-fields block-fields-video is-hidden">
+                <div class="form-group"><label>Heading (optional)</label>
+                    <input type="text" name="vid_heading[]" placeholder="e.g. See Us In Action">
+                </div>
+                <div class="form-group"><label>YouTube or Vimeo URL</label>
+                    <input type="url" name="vid_url[]" placeholder="https://www.youtube.com/watch?v=...">
+                    <span class="hint">Paste a YouTube or Vimeo link — the embed is generated automatically.</span>
+                </div>
+                <div class="form-group"><label>Caption (optional)</label>
+                    <input type="text" name="vid_caption[]" placeholder="Optional text shown below the video">
+                </div>
+                <div class="form-group"><label>Width</label>
+                    <select name="vid_width[]">
+                        <option value="contained" selected>Contained (800px max)</option>
+                        <option value="full">Full width</option>
+                    </select>
+                </div>
+            </div>
+            <div class="block-fields block-fields-testimonials is-hidden">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:2 1 220px;"><label>Section heading (optional)</label>
+                        <input type="text" name="tm_heading[]" placeholder="e.g. What Our Customers Say">
+                    </div>
+                    <div class="form-group" style="flex:0 0 80px;"><label>Level</label>
+                        <select name="tm_heading_level[]">
+                            <option value="h2" selected>H2</option>
+                            <option value="h3">H3</option>
+                            <option value="h4">H4</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:1 1 130px;"><label>Background color</label>
+                        <input type="color" name="tm_bg_color[]" value="#f8fafc">
+                    </div>
+                    <div class="form-group" style="flex:1 1 130px;"><label>Text color</label>
+                        <input type="color" name="tm_text_color[]" value="#374151">
+                    </div>
+                    <div class="form-group" style="flex:1 1 130px;"><label>Star color</label>
+                        <select name="tm_accent[]">
+                            <option value="accent" selected>Accent (global)</option>
+                            <option value="header">Header (global)</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                        <input type="color" name="tm_accent_custom[]" value="#f59e0b" style="margin-top:4px;">
+                    </div>
+                    <div class="form-group" style="flex:0 0 90px;"><label>Columns</label>
+                        <select name="tm_cols[]">
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tm-items-editor" id="tm_items_new_${idx}"></div>
+                <button type="button" class="btn btn-secondary btn-small" onclick="addTmItem(this, 'new_${idx}')">+ Add review</button>
+            </div>
+            <div class="block-fields block-fields-team is-hidden">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:2 1 220px;"><label>Section heading</label>
+                        <input type="text" name="team_heading[]" placeholder="e.g. Meet Our Instructors">
+                    </div>
+                    <div class="form-group" style="flex:0 0 80px;"><label>Columns</label>
+                        <select name="team_cols[]">
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group"><label>Section subheading (optional)</label>
+                    <input type="text" name="team_subheading[]" placeholder="e.g. PMI-certified instructors with real-world PM experience">
+                </div>
+                <div class="team-members-editor" id="team_members_new_${idx}"></div>
+                <button type="button" class="btn btn-secondary btn-small" onclick="addTeamMember(this, 'new_${idx}')">+ Add person</button>
+            </div>
+            <div class="block-fields block-fields-email_banner is-hidden">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                    <div class="form-group" style="flex:2 1 220px;"><label>Heading</label>
+                        <input type="text" name="eb_heading[]" placeholder="Free PMP Practice Exam — See If You're Ready">
+                    </div>
+                    <div class="form-group" style="flex:0 0 100px;"><label>Background</label>
+                        <input type="color" name="eb_bg[]" value="#2563eb">
+                    </div>
+                </div>
+                <div class="form-group"><label>Subtext (below heading)</label>
+                    <input type="text" name="eb_subtext[]" placeholder="50 questions, instant scoring, personalized study plan.">
+                </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+                    <div class="form-group" style="flex:1 1 180px;"><label>Email input placeholder</label>
+                        <input type="text" name="eb_placeholder[]" value="Enter your email">
+                    </div>
+                    <div class="form-group" style="flex:1 1 180px;"><label>Button text</label>
+                        <input type="text" name="eb_btn_text[]" value="Get My Free Exam →">
+                    </div>
+                    <div class="form-group" style="flex:1 1 180px;"><label>Button URL</label>
+                        <input type="text" name="eb_btn_url[]" value="#" placeholder="https://...">
+                    </div>
+                </div>
+                <div class="form-group"><label>Form action URL <span class="hint">(optional — leave blank to use button URL)</span></label>
+                    <input type="text" name="eb_form_action[]" placeholder="https://your-email-service.com/subscribe">
+                </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;">
+                    <div class="form-group" style="flex:0 0 120px;"><label>Trust badge image</label>
+                        <input type="file" name="eb_badge_image[new_${idx}]" accept="image/png,image/jpeg,image/gif,image/webp" style="font-size:0.78rem;">
+                        <input type="hidden" name="eb_badge_existing[]" value="">
+                    </div>
+                    <div class="form-group" style="flex:1 1 220px;"><label>Trust badge text</label>
+                        <input type="text" name="eb_badge_text[]" placeholder="Premier Authorized Training Partner (ATP) of the Project Management Institute®">
+                    </div>
+                </div>
+            </div>
+            ${enrichField}
+            <input type="hidden" name="enrich_ai_inject_field[]" value="">
+            <input type="hidden" name="enrich_ai_inject_mode[]" value="replace">
+            <input type="hidden" name="enrich_ai_model[]" value="">
+            <input type="hidden" name="enrich_ai_locked[]" value="0">
+            <input type="hidden" name="enrich_ai_meta_generated[]" value="">
+            <input type="hidden" name="enrich_ai_meta_generated_at[]" value="">
+            <input type="hidden" name="enrich_ai_meta_model[]" value="">
+            <input type="hidden" name="enrich_ai_meta_type[]" value="">
         `;
         container.appendChild(card);
         const sel = card.querySelector('.block-type-select');

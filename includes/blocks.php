@@ -55,7 +55,13 @@ function get_focal_point(string $url): string {
 function allowed_block_types() {
     return [
         'text'            => 'Text only',
+        'hero'            => 'Hero (full-width headline + CTA over background image)',
         'image_right'     => 'Image + Text (choose side)',
+        'image_left'      => 'Image + Text (image left)',
+        'image_text'      => 'Image + Text + Button',
+        'faq'             => 'FAQ (single-column accordion)',
+        'html_two_col'    => 'HTML Two Column (raw HTML left + right)',
+        'buttons_grid'    => 'Buttons Grid (row of button links)',
         'hero_split'      => 'Hero Split (default image right)',
         'feature_split'   => 'Feature Split (default image left, icon grid right)',
         'split_cta'       => 'Split CTA (colored left panel + phone right panel)',
@@ -68,7 +74,7 @@ function allowed_block_types() {
         'cta_banner'      => 'CTA Banner (solid color, centered text)',
         'links_grid'      => 'Links Grid (bg image, heading, link buttons grid)',
         'cta_card'        => 'CTA Card (colored box, heading left, phone button right)',
-        'map_info'        => 'Map + Info (Google map left, text + photo right)',
+        'map_info'        => 'Map + Info (map, photo & text — map left/right + optional AI City Spotlight)',
         'feature_columns' => 'Feature Columns (icon + heading + text)',
         'custom_html'     => 'Custom HTML',
         'steps'           => 'Process Steps (Step 1, 2, 3…)',
@@ -173,7 +179,7 @@ function block_descriptions(): array {
         'split_cta'        => 'Two-column CTA: text left, button or form right',
         'email_banner'     => 'Email capture strip with input & submit button',
         'cta_button'       => 'Single centered button link',
-        'map_info'         => 'Embedded map with address & contact details',
+        'map_info'         => 'Embedded Google map beside a photo + info panel. Pick which side the map sits on, and optionally let AI write the city info text (City Spotlight).',
         'contact_form'     => 'Name / email / message form with spam protection',
         'ai_block'         => 'Placeholder filled by the AI generator — renders as any block type once generated',
     ];
