@@ -571,6 +571,111 @@ def _merge_stats(total, s):
     for k in total:
         total[k] += s.get(k, 0)
 
+def generate_site_spotlight(paths, site_data, registry, c_idx, api_key, refresh, dry_run, model_override=None):
+    """Generate the City Spotlight prose ONCE PER CITY and store it in cities.json[city].city_spotlight.
+
+    Every page's Map+Info block renders it via the {city_spotlight} shortcode token:
+      - single-city sites (pest/appliance): the primary city's profile is mirrored to
+        site_vars.city_spotlight and reused on every page;
+      - multi-city sites (granite): each city's profile is written into that city's generated
+        pages' city_vars, which override site_vars at render — so each city shows its own text.
+    Never per page: the spotlight is written once per CITY and shared across that city's pages.
+    Idempotent: skips cities that already have a spotlight, unless --refresh. Returns count generated.
+    """
+    reg_entry = registry.get('city_spotlight')
+    if not reg_entry:
+        return 0  # capability not installed for this site
+    prompt_t = reg_entry.get('ai_prompt', '')
+    if not prompt_t:
+        return 0
+
+    model     = model_override or reg_entry.get('ai_model', MODEL_DEFAULT)
+    site_vars = site_data.setdefault('site_vars', {})
+
+    cities_raw = load_json(paths['cities'])
+    if isinstance(cities_raw, list):
+        rows = cities_raw
+    elif isinstance(cities_raw, dict):
+        rows = list(cities_raw.values())
+    else:
+        rows = []
+    if not rows:
+        rows = [site_vars]  # no cities.json — treat site_vars as the single "city"
+
+    _log('\n── City Spotlight (once per city) ───────────────────')
+
+    # Seed the primary city's row from an existing site_vars value (no API call) so a
+    # single-city site generated under the older site_vars-only path doesn't regenerate.
+    prim = resolve_city(c_idx, site_vars)
+    if site_vars.get('city_spotlight') and prim.get('id'):
+        for row in rows:
+            if isinstance(row, dict) and row.get('id') == prim['id'] and not row.get('city_spotlight'):
+                row['city_spotlight'] = site_vars['city_spotlight']
+
+    generated = 0
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        if row.get('city_spotlight') and not refresh:
+            _log(f'  {row.get("city","?")}, {row.get("SS","?")} — present, skipping')
+            continue
+        ctx    = build_context(site_vars, row, site_data, _hood_threshold(paths))
+        prompt = substitute_vars(prompt_t, ctx)
+        if dry_run:
+            _log(f'  [dry-run] {row.get("city","?")}, {row.get("SS","?")}')
+            continue
+        ai_out = call_claude(prompt, model, api_key, dry_run=False)
+        if ai_out is None:
+            _warn(f'  {row.get("city","?")} — generation failed')
+            continue
+        text = (ai_out.get('mi_info_text') or ai_out.get('text') or '').strip()
+        if not text:
+            _warn(f'  {row.get("city","?")} — empty text')
+            continue
+        row['city_spotlight'] = text
+        generated += 1
+        _ok(f'  {row.get("city","?")}, {row.get("SS","?")} ({len(text)} chars)')
+
+    if dry_run:
+        return 0
+
+    # Persist cities.json (unless rows were synthesised from site_vars)
+    if cities_raw:
+        save_json(paths['cities'], cities_raw)
+
+    # Mirror the primary city → site_vars (single-city render + multi-city fallback)
+    prim = resolve_city(cities_index(paths), site_vars)
+    if prim.get('city_spotlight'):
+        site_vars['city_spotlight'] = prim['city_spotlight']
+    save_json(paths['site_json'], site_data)
+
+    # Propagate each city's text into its already-generated city pages' city_vars
+    by_key = {}
+    for row in rows:
+        if isinstance(row, dict) and row.get('city_spotlight'):
+            for k in (row.get('id'), row.get('city_slug')):
+                if k:
+                    by_key[k] = row['city_spotlight']
+    pages_dir = paths.get('pages_dir')
+    synced = 0
+    if by_key and pages_dir and os.path.isdir(pages_dir):
+        for pf in sorted(glob.glob(os.path.join(pages_dir, '*.json'))):
+            pd = load_json(pf)
+            if not isinstance(pd, dict):
+                continue
+            cv  = pd.get('city_vars') or {}
+            key = pd.get('city_id') or cv.get('id') or cv.get('city_slug')
+            sp  = by_key.get(key)
+            if sp and cv.get('city_spotlight') != sp:
+                pd.setdefault('city_vars', {})['city_spotlight'] = sp
+                save_json(pf, pd)
+                synced += 1
+    if synced:
+        _ok(f'  Propagated city_spotlight into {synced} city page(s) city_vars')
+
+    return generated
+
+
 def process_homepage(paths, site_data, registry, c_idx, api_key, refresh, dry_run, model_override=None):
     _log('\n── Homepage ─────────────────────────────────────────')
     site_vars = site_data.get('site_vars', {})
@@ -1078,6 +1183,10 @@ def main():
 
     # Reload city index after research may have written new data
     c_idx = cities_index(paths)
+
+    # ── Step 1b: City Spotlight (once per site; every page reuses {city_spotlight}) ──
+    generate_site_spotlight(paths, site_data, registry, c_idx, api_key,
+                            args.refresh, args.dry_run, args.model or None)
 
     # ── Step 2: Content generation ────────────────────────────────────────────
     model_override = args.model or None

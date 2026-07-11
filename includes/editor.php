@@ -764,6 +764,7 @@ function render_content_blocks_editor($blocks) {
                     <div class="form-group">
                         <label>Info text</label>
                         <textarea name="mi_info_text[]" rows="4"><?= h($block['mi_info_text'] ?? '') ?></textarea>
+                        <span class="hint">Type <code>{city_spotlight}</code> to reuse the site's once-per-generation AI city profile (recommended) &middot; <code>{city}</code>/<code>{state}</code>/<code>{SS}</code> also work &middot; or attach a per-page AI type via <strong>&#10022; AI City Info text</strong> below.</span>
                     </div>
                     <div class="form-group">
                         <label>Info photo (optional)</label>
@@ -2330,9 +2331,24 @@ function render_content_blocks_editor($blocks) {
                     <input type="hidden" name="ai_meta_ai_type[]"      value="<?= h($aiAiType) ?>">
                 </div>
 
-                <?php /* Round-trip AI enrich config for non-ai_block enriched blocks */ ?>
+                <?php /* AI enrich config for non-ai_block enriched blocks. For map_info this is a
+                         visible dropdown (attach City Spotlight etc.); other types round-trip via hidden field. */ ?>
                 <?php $enrichTypeId = (!empty($block['ai_type_id']) && $type !== 'ai_block') ? $block['ai_type_id'] : ''; ?>
+                <?php if ($type === 'map_info'):
+                    $miAiTypes = array_filter(ai_load_registry(), fn($e) => is_array($e) && ($e['ai_inject_field'] ?? '') === 'mi_info_text'); ?>
+                <div class="form-group" style="margin-top:6px;padding-top:12px;border-top:1px dashed #e2e8f0;">
+                    <label>&#10022; AI City Info text <span class="hint">(optional)</span></label>
+                    <select name="enrich_ai_type_id[]">
+                        <option value="">&mdash; None (write the info text yourself) &mdash;</option>
+                        <?php foreach ($miAiTypes as $tid => $def): ?>
+                        <option value="<?= h($tid) ?>" <?= $enrichTypeId === $tid ? 'selected' : '' ?>><?= h($def['label'] ?? $tid) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <span class="hint">Attach an AI type, click <strong>Save</strong>, then run <strong>AI &rarr; Generate</strong>. AI writes only the info paragraph &mdash; the map, photo &amp; headings stay exactly as set.</span>
+                </div>
+                <?php else: ?>
                 <input type="hidden" name="enrich_ai_type_id[]"      value="<?= h($enrichTypeId) ?>">
+                <?php endif; ?>
                 <input type="hidden" name="enrich_ai_inject_field[]"  value="<?= h($enrichTypeId ? ($block['ai_inject_field'] ?? '') : '') ?>">
                 <input type="hidden" name="enrich_ai_inject_mode[]"   value="<?= h($enrichTypeId ? ($block['ai_inject_mode']  ?? 'replace') : 'replace') ?>">
                 <input type="hidden" name="enrich_ai_model[]"         value="<?= h($enrichTypeId ? ($block['ai_model'] ?? '') : '') ?>">

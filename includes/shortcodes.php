@@ -30,12 +30,17 @@ function resolve_shortcodes(string $text): string {
     $review_count = $lb['lb_review_count'] ?? '';
     $city_state   = $city && $SS ? $city . ', ' . $SS : $city . $SS;
     $primary_keyword = $GLOBALS['_page_primary_keyword'] ?? '';   // per-page, set by site-template.php
+    // City Spotlight — AI-written city profile, generated ONCE per site and stored in
+    // site_vars.city_spotlight (see generate.py generate_site_spotlight). Every page's
+    // Map+Info block reuses it via this token, so it never runs per page.
+    $city_spotlight = $v['city_spotlight'] ?? '';
     $map = [
         '{city}' => $city, '{state}' => $state, '{SS}' => $SS, '{city_state}' => $city_state,
         '{city_slug}' => $city_slug, '{business}' => $business, '{phone}' => $phone, '{tel}' => $tel,
         '{zip}' => $zip, '{website}' => $website, '{business_domain}' => $business_domain, '{email}' => $email,
         '{rating}' => $rating, '{review_count}' => $review_count, '{address}' => $address,
         '{lat}' => $lat, '{lng}' => $lng, '{primary_keyword}' => $primary_keyword, '{service}' => $primary_keyword,
+        '{city_spotlight}' => $city_spotlight,
     ];
     // Plugins may contribute their own tokens (e.g. City Image plugin adds {city_image}*).
     // Guard on hook presence so the hot path pays nothing when no plugin registers tokens.

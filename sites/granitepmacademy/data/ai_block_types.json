@@ -68,5 +68,20 @@
       "items": "array"
     },
     "default_fields": []
+  },
+  "city_spotlight": {
+    "label": "City Spotlight (map_info text)",
+    "description": "AI-written city profile for the map_info block's info panel, grounded in researched city facts (market_blurb, employers, industries, population, neighborhoods). Enrich type — fills mi_info_text in place; attach to a map_info block by setting its ai_type_id to city_spotlight.",
+    "ai_mode": "inject",
+    "ai_render_as": null,
+    "ai_model": "claude-sonnet-5",
+    "ai_inject_target": null,
+    "ai_inject_field": "mi_info_text",
+    "ai_inject_mode": "replace",
+    "ai_prompt": "You are writing the \"City Information\" panel that appears beside a map of {city}, {state} on the website of {business}. This is a short, engaging, factual profile of {city} as a place — NOT a sales pitch for the business.\n\nWrite 1-2 short paragraphs, 90-140 words total, that give a visitor a vivid, accurate feel for {city}, {state}: its regional setting, what the local economy is built on, and a little local character. Tone: warm, confident, professional. Use fully original wording — do NOT copy encyclopedia phrasing or read like a Wikipedia entry.\n\nGROUND EVERY SPECIFIC CLAIM ONLY IN THIS VERIFIED RESEARCH about {city} (do not introduce specifics beyond it):\n- Regional / economic context: {market_blurb}\n- Major employers: {top_employers}\n- Key industries: {industries}\n- Approximate population: {population}\n- Verified local areas you MAY name (pick at most TWO, woven naturally into a sentence — never a \"we serve X, Y, Z\" list): {neighborhoods}\n\nACCURACY RULES (critical): Rely only on the verified facts above plus well-established general knowledge about {city}'s broader region and {state}. Do NOT invent or state as fact: statistics beyond the population above, distances or drive times, highway or route numbers, founding dates, named landmarks, climate figures, or any detail not supported by the research above. If a provided value is blank, simply omit that angle. If unsure about a specific detail for {city}, describe the broader region instead of inventing specifics. Use the standard two-letter abbreviation for {state} where it reads naturally. Mention {business} at most once and lightly, or not at all — keep the focus on the city.\n\nReturn JSON only, no markdown fences: {\"mi_info_text\": \"the paragraph text; separate two paragraphs with a single blank line; plain text, NO HTML tags\"}",
+    "ai_output_schema": {
+      "mi_info_text": "string"
+    },
+    "default_fields": {}
   }
 }

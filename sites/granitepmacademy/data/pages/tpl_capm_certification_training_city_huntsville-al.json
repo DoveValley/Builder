@@ -1,331 +1,348 @@
 {
-  "template_id": "tpl_capm_certification_training_city",
-  "city_id": "huntsville-al",
-  "slug": "capm-certification-training-huntsville-al",
-  "title": "CAPM Certification Training {city}",
-  "city_vars": {
-    "id": "huntsville-al",
-    "city": "Huntsville",
-    "state": "Alabama",
-    "SS": "AL",
-    "city_slug": "huntsville-al",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [],
-    "industries": [
-      "defense/military",
-      "aerospace",
-      "technology",
-      "government",
-      "manufacturing",
-      "cybersecurity"
+    "template_id": "tpl_capm_certification_training_city",
+    "city_id": "huntsville-al",
+    "slug": "capm-certification-training-huntsville-al",
+    "title": "CAPM Certification Training {city}",
+    "city_vars": {
+        "id": "huntsville-al",
+        "city": "Huntsville",
+        "state": "Alabama",
+        "SS": "AL",
+        "city_slug": "huntsville-al",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [],
+        "industries": [
+            "defense/military",
+            "aerospace",
+            "technology",
+            "government",
+            "manufacturing",
+            "cybersecurity"
+        ],
+        "top_employers": [
+            "Redstone Arsenal",
+            "NASA Marshall Space Flight Center",
+            "Boeing",
+            "Lockheed Martin",
+            "Raytheon Technologies",
+            "Northrop Grumman",
+            "Leidos",
+            "SAIC",
+            "Dynetics",
+            "Huntsville Hospital",
+            "BAE Systems",
+            "Jacobs Engineering"
+        ],
+        "salary_note": "PMP-certified project managers in Huntsville, Alabama typically earn between $95,000 and $130,000 annually, with defense and aerospace contractors often paying at the higher end of that range.",
+        "market_blurb": "Huntsville is one of the fastest-growing tech and defense hubs in the southeastern United States, home to a dense concentration of federal agencies, military commands, and defense contractors centered around Redstone Arsenal and NASA Marshall Space Flight Center. The city's dominant industries of aerospace, defense, and government contracting place a high premium on structured project delivery, making PMP certification a recognized credential that directly supports contract compliance and program execution requirements. Professionals holding PMP certification in Huntsville gain a measurable competitive advantage when pursuing roles with major contractors and government clients who frequently require or strongly prefer certified project managers on federally funded programs.",
+        "city_spotlight": "Huntsville, AL sits at the heart of one of the Southeast's most dynamic tech and defense corridors, anchored by Redstone Arsenal and NASA Marshall Space Flight Center. Aerospace, cybersecurity, and advanced manufacturing drive daily life here, with major employers like Boeing, Lockheed Martin, Raytheon Technologies, Northrop Grumman, and Leidos working alongside federal agencies on complex, high-stakes programs.\n\nThat concentration of government and contractor work means projects run on discipline, documentation, and deadlines. Structured project delivery isn't optional in this town — it's the expectation, which is why credentials like PMP certification carry real weight with employers and contract clients alike. Huntsville blends engineering precision with genuine Southern warmth, making it a city where technical ambition and community pride grow side by side.",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-huntsville-al.webp",
+        "city_image_alt": "Huntsville Art Museum - front façade and stairs 2023, AL",
+        "city_image_credit": "Photo: American Diabetio, CC BY-SA 4.0"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "CAPM Certification Training in {city}, {SS}",
+            "hs_subtext": "In Huntsville's defense and aerospace sector, project management expertise is essential for mission-critical success at organizations like Redstone Arsenal and NASA Marshall. Granite PM Academy's PMI-authorized, live-virtual instructor-led CAPM training equips you with industry-recognized credentials. Graduates advance into higher-responsibility roles and competitive salaries within Huntsville's thriving defense contracting ecosystem.",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#capm_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "CAPM certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-30T00:58:10.531695Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Growing Demand for CAPM Certification in Huntsville's Defense Hub",
+            "text": "<p>Huntsville has emerged as one of the Southeast's most dynamic centers for aerospace, defense, and government contracting, with major employers like Redstone Arsenal, NASA Marshall Space Flight Center, Lockheed Martin, and Raytheon Technologies driving sustained demand for skilled project managers. Organizations across these industries rely on structured project delivery methodologies to meet federal compliance requirements and execute complex, mission-critical programs. CAPM Certification in Huntsville is increasingly recognized as a foundational credential that demonstrates your understanding of core project management principles—knowledge that directly supports contract requirements and gives you credibility with government clients and prime contractors who value certified professionals on their teams.</p><p>For Huntsville professionals, earning your CAPM Certification opens doors to roles with competitive compensation and clear advancement pathways. PMP-certified project managers in Huntsville typically earn between $95,000 and $130,000 annually, with defense and aerospace contractors often paying at the higher end of that range. CAPM Certification serves as the logical first step toward PMP eligibility, positioning you to build a long-term career in a region where project management expertise is consistently in demand. As Huntsville continues to grow and federal spending on defense and space programs remains strong, professionals with CAPM Certification are well-positioned to advance into leadership roles and command higher salaries.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-30T00:58:14.223870Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "Why Huntsville Professionals Choose Granite PM Academy",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Premier ATP Authorization",
+                    "text": "As a PMI Premier Authorized Training Partner, we deliver officially recognized CAPM training that meets the highest industry standards for quality and curriculum excellence."
+                },
+                {
+                    "heading": "Expert Instructors, Proven Results",
+                    "text": "Our experienced instructors bring real-world project management expertise and consistently deliver high pass rates, ensuring you're exam-ready on your first attempt."
+                },
+                {
+                    "heading": "Flexible Live-Virtual Training Options",
+                    "text": "Attend live instructor-led sessions online or in-person with scheduling that fits your busy professional life without sacrificing engagement or learning quality."
+                },
+                {
+                    "heading": "Advance Your Defense/Aerospace Career",
+                    "text": "CAPM certification is essential for Redstone Arsenal, NASA Marshall, and Lockheed Martin roles. Huntsville's premier defense sector values certified project managers—accelerate your advancement today."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-30T00:58:17.388601Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "CAPM Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual CAPM Training",
+                    "badge": "BEST VALUE",
+                    "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$795",
+                    "period": "per person",
+                    "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#capm_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
+                },
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need project management experience to take the CAPM?",
+                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+                },
+                {
+                    "question": "Is the CAPM a good starting credential for {city} professionals?",
+                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+                },
+                {
+                    "question": "How does the CAPM differ from the PMP?",
+                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+                },
+                {
+                    "question": "Is this training delivered online?",
+                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+                },
+                {
+                    "question": "What salary can CAPM certification bring in Huntsville's defense and aerospace sector?",
+                    "answer": "CAPM certification significantly boosts earning potential in Huntsville's dominant industries. Project managers with CAPM credentials at major employers like Redstone Arsenal, NASA Marshall, Boeing, and Lockheed Martin typically earn $95,000–$130,000 annually, with defense contractors often paying at the higher end. Certification demonstrates competency valued by these high-paying sectors."
+                },
+                {
+                    "question": "How long does CAPM training take while working full-time in Huntsville?",
+                    "answer": "Granite PM Academy's CAPM training accommodates Huntsville professionals working full-time. Most candidates complete training in 4–6 weeks through flexible scheduling—evening and weekend classes are available. This allows employees at NASA, Lockheed Martin, Raytheon, and other major employers to earn certification without sacrificing job responsibilities or income."
+                },
+                {
+                    "question": "What salary can CAPM certified professionals expect in Huntsville Alabama?",
+                    "answer": "CAPM certification significantly enhances earning potential in Huntsville's defense and aerospace sector. While entry-level project coordinators start lower, CAPM-certified professionals at major employers like Redstone Arsenal, NASA Marshall, Boeing, and Lockheed Martin typically earn $60,000–$85,000. The credential positions you for rapid advancement to PMP-level roles, where Huntsville salaries reach $95,000–$130,000 annually."
+                },
+                {
+                    "question": "Is CAPM certification in demand at Huntsville defense and aerospace companies?",
+                    "answer": "Yes. Huntsville's major employers—Lockheed Martin, Raytheon Technologies, Northrop Grumman, SAIC, and others—actively seek CAPM and PMP-certified professionals for project coordination and management roles. Defense and aerospace contractors prioritize formal credentials for compliance, security clearances, and program management excellence, making CAPM highly competitive in this market."
+                },
+                {
+                    "question": "How much can a CAPM-certified project manager earn in Huntsville, Alabama?",
+                    "answer": "While the CAPM is an entry-level credential, it positions you for growth in Huntsville's thriving defense and aerospace sector. PMP-certified project managers in the area earn $95,000–$130,000 annually, with employers like Lockheed Martin, Raytheon, and Boeing paying at the higher end. Earning your CAPM first builds the foundation to reach those salary levels faster."
+                },
+                {
+                    "question": "Is there strong demand for CAPM certification among Huntsville defense and aerospace employers?",
+                    "answer": "Absolutely. Huntsville's concentration of defense contractors and federal agencies — including Redstone Arsenal, NASA Marshall Space Flight Center, Northrop Grumman, and Leidos — creates consistent demand for credentialed project managers. Many of these organizations prioritize PMI certifications when hiring and promoting. A CAPM signals formal PM training and helps candidates stand out in Huntsville's highly competitive, clearance-driven job market."
+                },
+                {
+                    "question": "What salary can CAPM certification help me earn in Huntsville's defense sector?",
+                    "answer": "CAPM certification significantly boosts earning potential in Huntsville's dominant defense and aerospace industries. PMP-certified project managers in the region earn $95,000–$130,000 annually, with contractors like Lockheed Martin, Raytheon, and Boeing paying at the higher end. CAPM demonstrates foundational PM competency, positioning you for advancement and higher compensation in these well-paying sectors."
+                },
+                {
+                    "question": "How long does CAPM training take while working full-time in Huntsville?",
+                    "answer": "Granite PM Academy's CAPM training typically requires 23–40 hours of instruction, completable in 2–4 weeks with part-time study. Many Huntsville professionals working at Redstone Arsenal, NASA Marshall, or major contractors balance training alongside full-time roles through evening and weekend classes, making certification achievable without career interruption."
+                }
+            ],
+            "ai_type_id": "faq_additions",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-06-30T00:58:20.172918Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_additions",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left"
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Launch Your PM Career from {city}",
+            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#capm_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "top_employers": [
-      "Redstone Arsenal",
-      "NASA Marshall Space Flight Center",
-      "Boeing",
-      "Lockheed Martin",
-      "Raytheon Technologies",
-      "Northrop Grumman",
-      "Leidos",
-      "SAIC",
-      "Dynetics",
-      "Huntsville Hospital",
-      "BAE Systems",
-      "Jacobs Engineering"
-    ],
-    "salary_note": "PMP-certified project managers in Huntsville, Alabama typically earn between $95,000 and $130,000 annually, with defense and aerospace contractors often paying at the higher end of that range.",
-    "market_blurb": "Huntsville is one of the fastest-growing tech and defense hubs in the southeastern United States, home to a dense concentration of federal agencies, military commands, and defense contractors centered around Redstone Arsenal and NASA Marshall Space Flight Center. The city's dominant industries of aerospace, defense, and government contracting place a high premium on structured project delivery, making PMP certification a recognized credential that directly supports contract compliance and program execution requirements. Professionals holding PMP certification in Huntsville gain a measurable competitive advantage when pursuing roles with major contractors and government clients who frequently require or strongly prefer certified project managers on federally funded programs."
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "CAPM Certification Training in {city}, {SS}",
-      "hs_subtext": "In Huntsville's defense and aerospace sector, project management expertise is essential for mission-critical success at organizations like Redstone Arsenal and NASA Marshall. Granite PM Academy's PMI-authorized, live-virtual instructor-led CAPM training equips you with industry-recognized credentials. Graduates advance into higher-responsibility roles and competitive salaries within Huntsville's thriving defense contracting ecosystem.",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#capm_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "CAPM certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-30T00:58:10.531695Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "CAPM Certification Training {city} {SS} | PMI Exam Prep | {business}",
+        "canonical_url": "https://granitepmacademy.com/capm-certification-training-huntsville-al/",
+        "meta_description": "CAPM certification training in {city}, {SS} from a PMI Premier ATP. 3-day live-virtual course satisfies the 23 contact hour requirement. Enroll online.",
+        "meta_keywords": "CAPM certification training Huntsville, AL, CAPM exam prep Huntsville, certified associate project management Huntsville, AL",
+        "og_title": "CAPM Certification Training in {city}, {SS} | {business}",
+        "og_description": "Earn your CAPM in {city_state} with Granite PM Academy — PMI Premier ATP. Live-virtual instruction, no experience required.",
+        "og_image": "",
+        "service_name": "CAPM Certification Training",
+        "service_type": "Course",
+        "service_area": "{city}, {SS}",
+        "service_description": "PMI-aligned CAPM certification training for aspiring project managers in {city_state}.",
+        "bc_label": "CAPM Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"WebPage\",\n            \"@id\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/#webpage\",\n            \"url\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/\",\n            \"name\": \"CAPM Certification Training in Huntsville, AL | Granite PM Academy\",\n            \"description\": \"PMI Premier Authorized CAPM certification training in Huntsville, AL. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n            \"isPartOf\": {\n                \"@id\": \"https://granitepmacademy.com/#website\"\n            },\n            \"about\": {\n                \"@id\": \"https://granitepmacademy.com/#organization\"\n            },\n            \"breadcrumb\": {\n                \"@type\": \"BreadcrumbList\",\n                \"itemListElement\": [\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 1,\n                        \"name\": \"Home\",\n                        \"item\": \"https://granitepmacademy.com/\"\n                    },\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 2,\n                        \"name\": \"CAPM Certification Training in Huntsville, AL\",\n                        \"item\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/\"\n                    }\n                ]\n            }\n        },\n        {\n            \"@type\": \"Course\",\n            \"@id\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/#course\",\n            \"name\": \"CAPM Certification Training in Huntsville, AL\",\n            \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Huntsville, AL. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n            \"url\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/\",\n            \"provider\": {\n                \"@id\": \"https://granitepmacademy.com/#organization\"\n            },\n            \"offers\": [\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"Live Virtual (3-Day)\",\n                    \"price\": \"795\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/\"\n                },\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"On-Demand (Self-Paced)\",\n                    \"price\": \"495\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/\"\n                }\n            ],\n            \"aggregateRating\": {\n                \"@type\": \"AggregateRating\",\n                \"ratingValue\": \"4.8\",\n                \"reviewCount\": \"422\",\n                \"bestRating\": \"5\",\n                \"worstRating\": \"1\"\n            }\n        },\n        {\n            \"@type\": \"EducationalOccupationalCredential\",\n            \"@id\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/#credential\",\n            \"name\": \"Certified Associate in Project Management (CAPM)\",\n            \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n            \"credentialCategory\": \"Professional Certification\",\n            \"recognizedBy\": {\n                \"@type\": \"Organization\",\n                \"name\": \"Project Management Institute (PMI)\",\n                \"url\": \"https://www.pmi.org\"\n            },\n            \"url\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/\"\n        },\n        {\n            \"@type\": \"FAQPage\",\n            \"mainEntity\": [\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Do I need project management experience to take the CAPM?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education — which our course fulfills.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is the CAPM a good starting credential for Huntsville professionals?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in Huntsville, AL. It demonstrates PM knowledge to employers even before you have years of experience.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How does the CAPM differ from the PMP?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The PMP requires 36–60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is this training delivered online?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Yes. Our CAPM training is fully live-virtual — no travel required. Huntsville students attend via video conference from wherever they are.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What salary can CAPM certification bring in Huntsville's defense and aerospace sector?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"CAPM certification significantly boosts earning potential in Huntsville's dominant industries. Project managers with CAPM credentials at major employers like Redstone Arsenal, NASA Marshall, Boeing, and Lockheed Martin typically earn $95,000–$130,000 annually, with defense contractors often paying at the higher end. Certification demonstrates competency valued by these high-paying sectors.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How long does CAPM training take while working full-time in Huntsville?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Granite PM Academy's CAPM training accommodates Huntsville professionals working full-time. Most candidates complete training in 4–6 weeks through flexible scheduling—evening and weekend classes are available. This allows employees at NASA, Lockheed Martin, Raytheon, and other major employers to earn certification without sacrificing job responsibilities or income.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What salary can CAPM certified professionals expect in Huntsville Alabama?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"CAPM certification significantly enhances earning potential in Huntsville's defense and aerospace sector. While entry-level project coordinators start lower, CAPM-certified professionals at major employers like Redstone Arsenal, NASA Marshall, Boeing, and Lockheed Martin typically earn $60,000–$85,000. The credential positions you for rapid advancement to PMP-level roles, where Huntsville salaries reach $95,000–$130,000 annually.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is CAPM certification in demand at Huntsville defense and aerospace companies?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Yes. Huntsville's major employers—Lockheed Martin, Raytheon Technologies, Northrop Grumman, SAIC, and others—actively seek CAPM and PMP-certified professionals for project coordination and management roles. Defense and aerospace contractors prioritize formal credentials for compliance, security clearances, and program management excellence, making CAPM highly competitive in this market.\"\n                    }\n                }\n            ]\n        }\n    ]\n}"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Growing Demand for CAPM Certification in Huntsville's Defense Hub",
-      "text": "<p>Huntsville has emerged as one of the Southeast's most dynamic centers for aerospace, defense, and government contracting, with major employers like Redstone Arsenal, NASA Marshall Space Flight Center, Lockheed Martin, and Raytheon Technologies driving sustained demand for skilled project managers. Organizations across these industries rely on structured project delivery methodologies to meet federal compliance requirements and execute complex, mission-critical programs. CAPM Certification in Huntsville is increasingly recognized as a foundational credential that demonstrates your understanding of core project management principles—knowledge that directly supports contract requirements and gives you credibility with government clients and prime contractors who value certified professionals on their teams.</p><p>For Huntsville professionals, earning your CAPM Certification opens doors to roles with competitive compensation and clear advancement pathways. PMP-certified project managers in Huntsville typically earn between $95,000 and $130,000 annually, with defense and aerospace contractors often paying at the higher end of that range. CAPM Certification serves as the logical first step toward PMP eligibility, positioning you to build a long-term career in a region where project management expertise is consistently in demand. As Huntsville continues to grow and federal spending on defense and space programs remains strong, professionals with CAPM Certification are well-positioned to advance into leadership roles and command higher salaries.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-30T00:58:14.223870Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "Why Huntsville Professionals Choose Granite PM Academy",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Premier ATP Authorization",
-          "text": "As a PMI Premier Authorized Training Partner, we deliver officially recognized CAPM training that meets the highest industry standards for quality and curriculum excellence."
-        },
-        {
-          "heading": "Expert Instructors, Proven Results",
-          "text": "Our experienced instructors bring real-world project management expertise and consistently deliver high pass rates, ensuring you're exam-ready on your first attempt."
-        },
-        {
-          "heading": "Flexible Live-Virtual Training Options",
-          "text": "Attend live instructor-led sessions online or in-person with scheduling that fits your busy professional life without sacrificing engagement or learning quality."
-        },
-        {
-          "heading": "Advance Your Defense/Aerospace Career",
-          "text": "CAPM certification is essential for Redstone Arsenal, NASA Marshall, and Lockheed Martin roles. Huntsville's premier defense sector values certified project managers—accelerate your advancement today."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-30T00:58:17.388601Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "CAPM Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual CAPM Training",
-          "badge": "BEST VALUE",
-          "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$795",
-          "period": "per person",
-          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#capm_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ PMP® + PMI-ACP® Certified"
-        },
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need project management experience to take the CAPM?",
-          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-        },
-        {
-          "question": "Is the CAPM a good starting credential for {city} professionals?",
-          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-        },
-        {
-          "question": "How does the CAPM differ from the PMP?",
-          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-        },
-        {
-          "question": "Is this training delivered online?",
-          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-        },
-        {
-          "question": "What salary can CAPM certification bring in Huntsville's defense and aerospace sector?",
-          "answer": "CAPM certification significantly boosts earning potential in Huntsville's dominant industries. Project managers with CAPM credentials at major employers like Redstone Arsenal, NASA Marshall, Boeing, and Lockheed Martin typically earn $95,000–$130,000 annually, with defense contractors often paying at the higher end. Certification demonstrates competency valued by these high-paying sectors."
-        },
-        {
-          "question": "How long does CAPM training take while working full-time in Huntsville?",
-          "answer": "Granite PM Academy's CAPM training accommodates Huntsville professionals working full-time. Most candidates complete training in 4–6 weeks through flexible scheduling—evening and weekend classes are available. This allows employees at NASA, Lockheed Martin, Raytheon, and other major employers to earn certification without sacrificing job responsibilities or income."
-        },
-        {
-          "question": "What salary can CAPM certified professionals expect in Huntsville Alabama?",
-          "answer": "CAPM certification significantly enhances earning potential in Huntsville's defense and aerospace sector. While entry-level project coordinators start lower, CAPM-certified professionals at major employers like Redstone Arsenal, NASA Marshall, Boeing, and Lockheed Martin typically earn $60,000–$85,000. The credential positions you for rapid advancement to PMP-level roles, where Huntsville salaries reach $95,000–$130,000 annually."
-        },
-        {
-          "question": "Is CAPM certification in demand at Huntsville defense and aerospace companies?",
-          "answer": "Yes. Huntsville's major employers—Lockheed Martin, Raytheon Technologies, Northrop Grumman, SAIC, and others—actively seek CAPM and PMP-certified professionals for project coordination and management roles. Defense and aerospace contractors prioritize formal credentials for compliance, security clearances, and program management excellence, making CAPM highly competitive in this market."
-        },
-        {
-          "question": "How much can a CAPM-certified project manager earn in Huntsville, Alabama?",
-          "answer": "While the CAPM is an entry-level credential, it positions you for growth in Huntsville's thriving defense and aerospace sector. PMP-certified project managers in the area earn $95,000–$130,000 annually, with employers like Lockheed Martin, Raytheon, and Boeing paying at the higher end. Earning your CAPM first builds the foundation to reach those salary levels faster."
-        },
-        {
-          "question": "Is there strong demand for CAPM certification among Huntsville defense and aerospace employers?",
-          "answer": "Absolutely. Huntsville's concentration of defense contractors and federal agencies — including Redstone Arsenal, NASA Marshall Space Flight Center, Northrop Grumman, and Leidos — creates consistent demand for credentialed project managers. Many of these organizations prioritize PMI certifications when hiring and promoting. A CAPM signals formal PM training and helps candidates stand out in Huntsville's highly competitive, clearance-driven job market."
-        },
-        {
-          "question": "What salary can CAPM certification help me earn in Huntsville's defense sector?",
-          "answer": "CAPM certification significantly boosts earning potential in Huntsville's dominant defense and aerospace industries. PMP-certified project managers in the region earn $95,000–$130,000 annually, with contractors like Lockheed Martin, Raytheon, and Boeing paying at the higher end. CAPM demonstrates foundational PM competency, positioning you for advancement and higher compensation in these well-paying sectors."
-        },
-        {
-          "question": "How long does CAPM training take while working full-time in Huntsville?",
-          "answer": "Granite PM Academy's CAPM training typically requires 23–40 hours of instruction, completable in 2–4 weeks with part-time study. Many Huntsville professionals working at Redstone Arsenal, NASA Marshall, or major contractors balance training alongside full-time roles through evening and weekend classes, making certification achievable without career interruption."
-        }
-      ],
-      "ai_type_id": "faq_additions",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-06-30T00:58:20.172918Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_additions",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Launch Your PM Career from {city}",
-      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#capm_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "CAPM Certification Training {city} {SS} | PMI Exam Prep | {business}",
-    "canonical_url": "https://granitepmacademy.com/capm-certification-training-huntsville-al/",
-    "meta_description": "CAPM certification training in {city}, {SS} from a PMI Premier ATP. 3-day live-virtual course satisfies the 23 contact hour requirement. Enroll online.",
-    "meta_keywords": "CAPM certification training Huntsville, AL, CAPM exam prep Huntsville, certified associate project management Huntsville, AL",
-    "og_title": "CAPM Certification Training in {city}, {SS} | {business}",
-    "og_description": "Earn your CAPM in {city_state} with Granite PM Academy — PMI Premier ATP. Live-virtual instruction, no experience required.",
-    "og_image": "",
-    "service_name": "CAPM Certification Training",
-    "service_type": "Course",
-    "service_area": "{city}, {SS}",
-    "service_description": "PMI-aligned CAPM certification training for aspiring project managers in {city_state}.",
-    "bc_label": "CAPM Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"WebPage\",\n            \"@id\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/#webpage\",\n            \"url\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/\",\n            \"name\": \"CAPM Certification Training in Huntsville, AL | Granite PM Academy\",\n            \"description\": \"PMI Premier Authorized CAPM certification training in Huntsville, AL. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n            \"isPartOf\": {\n                \"@id\": \"https://granitepmacademy.com/#website\"\n            },\n            \"about\": {\n                \"@id\": \"https://granitepmacademy.com/#organization\"\n            },\n            \"breadcrumb\": {\n                \"@type\": \"BreadcrumbList\",\n                \"itemListElement\": [\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 1,\n                        \"name\": \"Home\",\n                        \"item\": \"https://granitepmacademy.com/\"\n                    },\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 2,\n                        \"name\": \"CAPM Certification Training in Huntsville, AL\",\n                        \"item\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/\"\n                    }\n                ]\n            }\n        },\n        {\n            \"@type\": \"Course\",\n            \"@id\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/#course\",\n            \"name\": \"CAPM Certification Training in Huntsville, AL\",\n            \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Huntsville, AL. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n            \"url\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/\",\n            \"provider\": {\n                \"@id\": \"https://granitepmacademy.com/#organization\"\n            },\n            \"offers\": [\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"Live Virtual (3-Day)\",\n                    \"price\": \"795\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/\"\n                },\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"On-Demand (Self-Paced)\",\n                    \"price\": \"495\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/\"\n                }\n            ],\n            \"aggregateRating\": {\n                \"@type\": \"AggregateRating\",\n                \"ratingValue\": \"4.8\",\n                \"reviewCount\": \"422\",\n                \"bestRating\": \"5\",\n                \"worstRating\": \"1\"\n            }\n        },\n        {\n            \"@type\": \"EducationalOccupationalCredential\",\n            \"@id\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/#credential\",\n            \"name\": \"Certified Associate in Project Management (CAPM)\",\n            \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n            \"credentialCategory\": \"Professional Certification\",\n            \"recognizedBy\": {\n                \"@type\": \"Organization\",\n                \"name\": \"Project Management Institute (PMI)\",\n                \"url\": \"https://www.pmi.org\"\n            },\n            \"url\": \"https://granitepmacademy.com/capm-certification-training-huntsville-al/\"\n        },\n        {\n            \"@type\": \"FAQPage\",\n            \"mainEntity\": [\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Do I need project management experience to take the CAPM?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education — which our course fulfills.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is the CAPM a good starting credential for Huntsville professionals?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in Huntsville, AL. It demonstrates PM knowledge to employers even before you have years of experience.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How does the CAPM differ from the PMP?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The PMP requires 36–60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is this training delivered online?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Yes. Our CAPM training is fully live-virtual — no travel required. Huntsville students attend via video conference from wherever they are.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What salary can CAPM certification bring in Huntsville's defense and aerospace sector?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"CAPM certification significantly boosts earning potential in Huntsville's dominant industries. Project managers with CAPM credentials at major employers like Redstone Arsenal, NASA Marshall, Boeing, and Lockheed Martin typically earn $95,000–$130,000 annually, with defense contractors often paying at the higher end. Certification demonstrates competency valued by these high-paying sectors.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How long does CAPM training take while working full-time in Huntsville?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Granite PM Academy's CAPM training accommodates Huntsville professionals working full-time. Most candidates complete training in 4–6 weeks through flexible scheduling—evening and weekend classes are available. This allows employees at NASA, Lockheed Martin, Raytheon, and other major employers to earn certification without sacrificing job responsibilities or income.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What salary can CAPM certified professionals expect in Huntsville Alabama?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"CAPM certification significantly enhances earning potential in Huntsville's defense and aerospace sector. While entry-level project coordinators start lower, CAPM-certified professionals at major employers like Redstone Arsenal, NASA Marshall, Boeing, and Lockheed Martin typically earn $60,000–$85,000. The credential positions you for rapid advancement to PMP-level roles, where Huntsville salaries reach $95,000–$130,000 annually.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is CAPM certification in demand at Huntsville defense and aerospace companies?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Yes. Huntsville's major employers—Lockheed Martin, Raytheon Technologies, Northrop Grumman, SAIC, and others—actively seek CAPM and PMP-certified professionals for project coordination and management roles. Defense and aerospace contractors prioritize formal credentials for compliance, security clearances, and program management excellence, making CAPM highly competitive in this market.\"\n                    }\n                }\n            ]\n        }\n    ]\n}"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-06-30T00:07:36+00:00",
-  "template_version": "c9dc114088a16894563efc516f61f33d"
+    "locked_blocks": [],
+    "generated_at": "2026-06-30T00:07:36+00:00",
+    "template_version": "c9dc114088a16894563efc516f61f33d"
 }

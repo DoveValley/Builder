@@ -47,7 +47,8 @@
       "Brentwood"
     ],
     "population": 34187,
-    "_researched": 1
+    "_researched": 1,
+    "city_spotlight": "Lufkin sits at the heart of the Piney Woods, serving as the commercial anchor for Deep East Texas and the seat of Angelina County. The surrounding forests built the city's original economy, and timber and wood products manufacturing still run deep in its identity, though the modern base has broadened considerably. Lufkin Industries' oil field equipment work, alongside healthcare, education, retail, and government offices, now gives the local economy a sturdier, more diverse footing than its lumber-town roots alone.\n\nWith roughly 34,000 residents, Lufkin feels sized just right — big enough for full-service hospitals, a community college, and steady employers, yet small enough that neighborhoods like Crown Colony and Kurth still carry a distinct, close-knit character. It's a working city, proud of its piney landscape and its role as the region's steady hub."
   },
   "content_blocks": [
     {
@@ -297,6 +298,19 @@
       "type": "custom_html",
       "anchor": "pest_services",
       "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#65a30d",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left"
     }
   ],
   "seo": {

@@ -55,7 +55,9 @@ function city_image_api(string $url): array {
  * or null when the article has no page image.
  */
 function city_image_wikipedia_lead(string $city, string $state): ?array {
-    $wp = city_image_api('https://en.wikipedia.org/w/api.php?action=query&format=json'
+    // redirects=1 so "San Antonio, Texas" (a redirect) resolves to the real "San Antonio"
+    // article and its lead image; without it, redirect-titled cities return no pageimage.
+    $wp = city_image_api('https://en.wikipedia.org/w/api.php?action=query&format=json&redirects=1'
         . '&prop=pageimages&piprop=original|name&titles=' . rawurlencode("$city, $state"));
     foreach (($wp['query']['pages'] ?? []) as $pg) {
         $src = $pg['original']['source'] ?? '';
@@ -141,8 +143,12 @@ function city_image_download(string $srcUrl, string $outDirAbs, string $citySlug
 
     $base = 'city-scenic-' . preg_replace('/[^a-z0-9\-]/', '', strtolower($citySlug)) . '.webp';
     $dest = rtrim($outDirAbs, '/') . '/' . $base;
+    // -auto-orient MUST come before -strip: it bakes the EXIF orientation into the
+    // pixels, then -strip drops the (now-applied) metadata. Without it, images that
+    // rely on an EXIF orientation tag (e.g. shot rotated) render sideways/upside-down
+    // because WebP doesn't honour the orientation tag the way the source JPEG did.
     $cmd  = implode(' ', array_map('escapeshellarg', [
-        $bin, $tmp . '[0]', '-resize', $maxW . 'x>', '-strip', '-quality', '82', $dest,
+        $bin, $tmp . '[0]', '-auto-orient', '-resize', $maxW . 'x>', '-strip', '-quality', '82', $dest,
     ]));
     exec($cmd . ' 2>&1', $o, $rc);
     @unlink($tmp);
