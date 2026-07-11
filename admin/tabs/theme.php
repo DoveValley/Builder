@@ -19,10 +19,6 @@
             <?php
         };
 
-        // This site's Theme Presets (per-niche, optional) for the picker.
-        $presetData   = @json_decode((string)@file_get_contents(ACTIVE_SITE_DIR . '/multisite/theme_presets.json'), true);
-        $themePresets = is_array($presetData['presets'] ?? null) ? $presetData['presets'] : [];
-
         // Current header-bar color: 'accent' (follow brand) or a stored hex.
         $navBgCur   = $header['nav_bg'] ?? 'accent';
         $navIsAccent = ($navBgCur === 'accent' || $navBgCur === '');
@@ -100,6 +96,9 @@
 
         <form action="save.php" method="post" id="theme-form">
             <input type="hidden" name="section" value="theme">
+            <!-- Static CSRF: the index.php submit-listener only fires on real submits, not on
+                 the programmatic f.submit() used by the Generate button below — so carry it here. -->
+            <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
             <div style="margin-bottom:16px;"><button type="submit" class="btn">Save Theme</button></div>
 
             <!-- ① THEME PRESET → now handled by the Visual Identity panel above -->

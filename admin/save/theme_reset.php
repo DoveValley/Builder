@@ -8,4 +8,8 @@
         foreach ($resetKeys as $k) {
             if (isset($defaults[$k])) $data['theme'][$k] = $defaults[$k];
         }
+        // The header bar is driven by header.nav_bg / header.nav_text (see save/theme.php),
+        // not the theme.* keys above — reset those too or the bar keeps its custom colors.
+        $data['header']['nav_bg']   = 'accent';
+        $data['header']['nav_text'] = $defaults['header_text'] ?? '#ffffff';
         $message = 'success:Colors reset to default.';

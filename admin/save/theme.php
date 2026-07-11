@@ -5,7 +5,7 @@
         $colorKeys = ['header_top_bg','content_bg','footer_bg','footer_text','accent_color','accent2_color','btn_text','border_color'];
         foreach ($colorKeys as $key) {
             $value = trim($_POST[$key] ?? '');
-            if (preg_match('/^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/', $value)) $data['theme'][$key] = $value;
+            if (preg_match('/^#[0-9a-fA-F]{6}$/', $value)) $data['theme'][$key] = $value;
         }
         // Header bar color (merged, option A) — 'accent' mode follows the brand, else a custom hex.
         // Lives in data['header']['nav_bg']; the header partials + sticky bars read it, and
@@ -13,13 +13,13 @@
         $navMode = ($_POST['nav_bg_mode'] ?? 'accent') === 'custom' ? 'custom' : 'accent';
         if ($navMode === 'custom') {
             $navHex = trim($_POST['nav_bg_custom'] ?? '');
-            if (preg_match('/^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/', $navHex)) $data['header']['nav_bg'] = $navHex;
+            if (preg_match('/^#[0-9a-fA-F]{6}$/', $navHex)) $data['header']['nav_bg'] = $navHex;
         } else {
             $data['header']['nav_bg'] = 'accent';
         }
         // Header bar text — one control drives both the bar (nav_text) and menu links (theme.header_text).
         $navText = trim($_POST['nav_text'] ?? '');
-        if (preg_match('/^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/', $navText)) {
+        if (preg_match('/^#[0-9a-fA-F]{6}$/', $navText)) {
             $data['header']['nav_text']  = $navText;
             $data['theme']['header_text'] = $navText;
         }
@@ -53,10 +53,18 @@
             foreach ($props as $prop) {
                 $fkey = "skin_{$skinKey}_{$prop}";
                 $val  = trim($_POST[$fkey] ?? '');
-                if (preg_match('/^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/', $val)) {
+                if (preg_match('/^#[0-9a-fA-F]{6}$/', $val)) {
                     $data['theme']['skins'][$skinKey][$prop] = $val;
                 }
             }
+        }
+        // Keep theme.heading_color in sync with the Light skin's heading (the tab's
+        // "site-wide heading color"). The CSS cascades --color-heading from the skin, but
+        // the generated wordmark logo reads theme.heading_color — without this the logo's
+        // dark color would stay the #000000 default instead of the chosen heading color.
+        if (isset($data['theme']['skins']['light']['heading']) &&
+            preg_match('/^#[0-9a-fA-F]{6}$/', $data['theme']['skins']['light']['heading'])) {
+            $data['theme']['heading_color'] = $data['theme']['skins']['light']['heading'];
         }
         // Analytics snippets — stored as-is (admin only, trusted input)
         $data['theme']['analytics_head']  = $_POST['analytics_head']  ?? '';
