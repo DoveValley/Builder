@@ -10,19 +10,8 @@
         "base_role": "",
         "content_blocks": [
             {
-                "type": "hero_split",
-                "hs_heading": "Addiction Treatment Insurance Coverage",
-                "hs_subtext": "<p>Not sure if your health insurance covers rehab? {business} is a free, confidential service that helps you verify your addiction treatment benefits and find care that works with your plan — for any major insurer.</p>",
-                "hs_btn_text": "Verify My Coverage — {phone}",
-                "hs_btn_url": "tel:{tel}",
-                "hs_caption1": "",
-                "hs_caption2": "",
-                "hs_photo_alt": "Checking health insurance coverage for addiction treatment and rehab",
-                "hs_image_side": "right",
-                "hs_bg_color": "#eef4fb",
-                "hs_photo": "",
-                "hs_bg_photo": "",
-                "hs_mobile_order": "text_first"
+                "type": "custom_html",
+                "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Addiction Treatment Insurance Coverage</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Not sure if your health insurance covers rehab? {business} is a free, confidential service that helps you verify your addiction treatment benefits and find care that works with your plan — for any major insurer.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Verify My Coverage — {phone}</a></div></div></div>"
             },
             {
                 "type": "feature_columns",
@@ -135,19 +124,8 @@
         "base_role": "",
         "content_blocks": [
             {
-                "type": "hero_split",
-                "hs_heading": "{company} Rehab Coverage",
-                "hs_subtext": "<p>Wondering whether {company} covers addiction treatment? {business} helps you confirm your {company} rehab benefits — detox, inpatient, and outpatient — and find care that accepts your plan. Free, confidential, no obligation.</p>",
-                "hs_btn_text": "Check My {company} Coverage — {phone}",
-                "hs_btn_url": "tel:{tel}",
-                "hs_caption1": "",
-                "hs_caption2": "",
-                "hs_photo_alt": "{company} insurance coverage for rehab and addiction treatment",
-                "hs_image_side": "right",
-                "hs_bg_color": "#eef4fb",
-                "hs_photo": "",
-                "hs_bg_photo": "",
-                "hs_mobile_order": "text_first"
+                "type": "custom_html",
+                "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;font-weight:700;letter-spacing:.03em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:18px;font-size:15px;\">{company}™</div><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">{company} Rehab Coverage</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Wondering whether {company} covers addiction treatment? {business} helps you confirm your {company} rehab benefits — detox, inpatient, and outpatient — and find care that accepts your plan. Free, confidential, no obligation.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Check My {company} Coverage — {phone}</a></div></div></div>"
             },
             {
                 "type": "feature_columns",
@@ -276,19 +254,8 @@
         "base_role": "",
         "content_blocks": [
             {
-                "type": "hero_split",
-                "hs_heading": "Rehab That Takes Insurance in {state}",
-                "hs_subtext": "<p>Looking for rehab that takes insurance in {state}? {business} helps {state} residents verify their addiction treatment benefits and connect with covered detox, inpatient, and outpatient programs. Free and confidential.</p>",
-                "hs_btn_text": "Verify My Coverage — {phone}",
-                "hs_btn_url": "tel:{tel}",
-                "hs_caption1": "",
-                "hs_caption2": "",
-                "hs_photo_alt": "Rehab that takes insurance in {state}",
-                "hs_image_side": "right",
-                "hs_bg_color": "#eef4fb",
-                "hs_photo": "",
-                "hs_bg_photo": "",
-                "hs_mobile_order": "text_first"
+                "type": "custom_html",
+                "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Rehab That Takes Insurance in {state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Looking for rehab that takes insurance in {state}? {business} helps {state} residents verify their addiction treatment benefits and connect with covered detox, inpatient, and outpatient programs. Free and confidential.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Verify My Coverage — {phone}</a></div></div></div>"
             },
             {
                 "type": "feature_columns",
@@ -373,19 +340,8 @@
         "base_role": "",
         "content_blocks": [
             {
-                "type": "hero_split",
-                "hs_heading": "Rehab That Takes Insurance in {city_state}",
-                "hs_subtext": "<p>Searching for rehab that takes insurance in {city_state}? {business} helps you verify your benefits and find covered addiction treatment near {city} — detox, inpatient, and outpatient. Free, confidential, no obligation.</p>",
-                "hs_btn_text": "Verify My Coverage — {phone}",
-                "hs_btn_url": "tel:{tel}",
-                "hs_caption1": "",
-                "hs_caption2": "",
-                "hs_photo_alt": "Rehab that takes insurance in {city}, {SS}",
-                "hs_image_side": "right",
-                "hs_bg_color": "#eef4fb",
-                "hs_photo": "",
-                "hs_bg_photo": "",
-                "hs_mobile_order": "text_first"
+                "type": "custom_html",
+                "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Rehab That Takes Insurance in {city_state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Searching for rehab that takes insurance in {city_state}? {business} helps you verify your benefits and find covered addiction treatment near {city} — detox, inpatient, and outpatient. Free, confidential, no obligation.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Verify My Coverage — {phone}</a></div></div></div>"
             },
             {
                 "type": "feature_columns",
@@ -470,19 +426,8 @@
         "base_role": "",
         "content_blocks": [
             {
-                "type": "hero_split",
-                "hs_heading": "{company} Rehab Coverage in {state}",
-                "hs_subtext": "<p>Does {company} cover rehab in {state}? {business} helps {state} residents confirm their {company} addiction treatment benefits and find covered detox, inpatient, and outpatient care. Free and confidential.</p>",
-                "hs_btn_text": "Check My {company} Coverage — {phone}",
-                "hs_btn_url": "tel:{tel}",
-                "hs_caption1": "",
-                "hs_caption2": "",
-                "hs_photo_alt": "{company} rehab coverage in {state}",
-                "hs_image_side": "right",
-                "hs_bg_color": "#eef4fb",
-                "hs_photo": "",
-                "hs_bg_photo": "",
-                "hs_mobile_order": "text_first"
+                "type": "custom_html",
+                "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;font-weight:700;letter-spacing:.03em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:18px;font-size:15px;\">{company}™</div><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">{company} Rehab Coverage in {state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Does {company} cover rehab in {state}? {business} helps {state} residents confirm their {company} addiction treatment benefits and find covered detox, inpatient, and outpatient care. Free and confidential.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Check My {company} Coverage — {phone}</a></div></div></div>"
             },
             {
                 "type": "feature_columns",
@@ -583,19 +528,8 @@
         "base_role": "",
         "content_blocks": [
             {
-                "type": "hero_split",
-                "hs_heading": "{company} Rehab Coverage in {city_state}",
-                "hs_subtext": "<p>Wondering if {company} covers rehab in {city_state}? {business} helps you verify your {company} benefits and find addiction treatment in {city} that works with your plan. Free, confidential, no obligation.</p>",
-                "hs_btn_text": "Check My {company} Coverage — {phone}",
-                "hs_btn_url": "tel:{tel}",
-                "hs_caption1": "",
-                "hs_caption2": "",
-                "hs_photo_alt": "{company} rehab coverage in {city}, {SS}",
-                "hs_image_side": "right",
-                "hs_bg_color": "#eef4fb",
-                "hs_photo": "",
-                "hs_bg_photo": "",
-                "hs_mobile_order": "text_first"
+                "type": "custom_html",
+                "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;font-weight:700;letter-spacing:.03em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:18px;font-size:15px;\">{company}™</div><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">{company} Rehab Coverage in {city_state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Wondering if {company} covers rehab in {city_state}? {business} helps you verify your {company} benefits and find addiction treatment in {city} that works with your plan. Free, confidential, no obligation.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Check My {company} Coverage — {phone}</a></div></div></div>"
             },
             {
                 "type": "feature_columns",

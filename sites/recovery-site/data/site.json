@@ -91,19 +91,8 @@
     },
     "content_blocks": [
         {
-            "type": "hero_split",
-            "hs_heading": "Rehab That Takes Insurance",
-            "hs_subtext": "<p>{business} helps you find addiction treatment covered by your health insurance — detox, inpatient, and outpatient. Verify your benefits for free and connect with rehab that works with your plan. Confidential, no obligation.</p>",
-            "hs_btn_text": "Verify My Coverage — {phone}",
-            "hs_btn_url": "tel:{tel}",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "Finding rehab that takes insurance for addiction treatment",
-            "hs_image_side": "right",
-            "hs_bg_color": "#eef4fb",
-            "hs_photo": "",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "text_first"
+            "type": "custom_html",
+            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Rehab That Takes Insurance</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>{business} helps you find addiction treatment covered by your health insurance — detox, inpatient, and outpatient. Verify your benefits for free and connect with rehab that works with your plan. Confidential, no obligation.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Verify My Coverage — {phone}</a></div></div></div>"
         },
         {
             "type": "feature_columns",
