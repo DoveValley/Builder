@@ -55,6 +55,54 @@ function recovery_url_breakdown(): array {
     return $b;
 }
 
+/** Recursive dir delete (no exec dependency) — for a clean build. */
+function recovery_rrmdir(string $dir): void {
+    if (!is_dir($dir)) return;
+    $it = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS),
+        RecursiveIteratorIterator::CHILD_FIRST
+    );
+    foreach ($it as $f) { $f->isDir() ? @rmdir($f->getPathname()) : @unlink($f->getPathname()); }
+    @rmdir($dir);
+}
+
+/**
+ * Full gated static build: clean output → factory build_static_site() (base) → plugin
+ * matrix build → complete sitemap.xml + _manifest.txt. Reused by build_cli.php and the
+ * panel Build/Deploy action. Caller sets the progress sink. Returns build summary.
+ */
+function recovery_full_build(string $outputBase, string $canonical = 'https://r.q111.xyz'): array {
+    if (!function_exists('build_static_site')) require_once BASE_DIR . '/includes/static_build.php';
+    $out = rtrim($outputBase, '/') . '/';
+    recovery_rrmdir(rtrim($out, '/'));           // clean → factory prune is a no-op
+    @mkdir($out, 0755, true);
+
+    $base   = build_static_site($out, $canonical, '');   // factory: home/legal/assets/uploads (UNCHANGED)
+    $matrix = recovery_build_static($out, load_data());  // plugin: matrix pages
+
+    // complete sitemap + manifest from what's actually on disk
+    $locs = [];
+    $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($out, FilesystemIterator::SKIP_DOTS));
+    foreach ($it as $f) {
+        if ($f->getFilename() !== 'index.html') continue;
+        $rel = trim(substr($f->getPath(), strlen(rtrim($out, '/'))), '/');
+        $locs[] = $rel === '' ? '/' : '/' . $rel . '/';
+    }
+    sort($locs);
+    $sm = '<?xml version="1.0" encoding="UTF-8"?>' . "\n"
+        . '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+    foreach ($locs as $l) $sm .= '  <url><loc>' . htmlspecialchars(rtrim($canonical, '/') . $l) . '</loc></url>' . "\n";
+    $sm .= '</urlset>' . "\n";
+    file_put_contents($out . 'sitemap.xml', $sm);
+
+    $bd = recovery_url_breakdown();
+    $man = "Recovery Dawn — build manifest\nTotal pages: " . count($locs) . "\nMatrix: " . array_sum($bd)
+         . "\n" . implode("\n", array_map(fn($k, $v) => "  $k: $v", array_keys($bd), array_values($bd))) . "\n";
+    file_put_contents($out . '_manifest.txt', $man);
+
+    return ['pages' => count($locs), 'matrix' => $matrix['pages'], 'base' => $base, 'breakdown' => $bd];
+}
+
 /**
  * Render every matrix page to $outputBase/{path}/index.html, reusing the factory's
  * gen_write() (trailing-slash + upload-path rewriting) and site-template. Mirrors the

@@ -114,6 +114,32 @@ switch ($action) {
         $json = json_encode($cfg, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
         $done($json !== false && file_put_contents($deployFile, $json) !== false, 'Deploy settings saved');
     }
+
+    case 'build_only':
+    case 'build_deploy': {
+        @set_time_limit(0); @ignore_user_abort(true);
+        require_once __DIR__ . '/build.php';
+        require_once BASE_DIR . '/includes/static_build.php';
+        if (function_exists('progress_set_sink')) progress_set_sink(function (...$a) {});
+
+        $deployFile = ACTIVE_SITE_DIR . '/deploy.json';
+        $cfg = is_file($deployFile) ? (json_decode(file_get_contents($deployFile), true) ?: []) : [];
+        $out = ACTIVE_SITE_DIR . '/output/';
+        $b   = recovery_full_build($out, $cfg['canonical_domain'] ?? 'https://r.q111.xyz');
+
+        if ($action === 'build_only') $done(true, 'Built ' . $b['pages'] . ' pages to output/.');
+
+        if (empty($cfg['ftp_host']) || empty($cfg['ftp_user']) || empty($cfg['ftp_pass'])) {
+            $fail('Built ' . $b['pages'] . ' pages, but FTP settings are incomplete — enter host, username, and password first.');
+        }
+        require_once BASE_DIR . '/includes/multisite/deploy.php';
+        $r = deploy_site($cfg, $out, ACTIVE_SITE_DIR . '/deploy_manifest.json', !empty($_POST['force_all']));
+        if (($r['status'] ?? '') === 'fatal') {
+            $fail('Built ' . $b['pages'] . ' pages. Deploy failed: ' . ($r['msg'] ?? 'error'));
+        }
+        $done(true, 'Built ' . $b['pages'] . ' pages · uploaded ' . ($r['uploaded'] ?? 0) . ' file(s)'
+                    . (!empty($r['failed']) ? ', ' . $r['failed'] . ' failed' : ''));
+    }
 }
 
 $fail('Unknown action');

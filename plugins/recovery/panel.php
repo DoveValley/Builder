@@ -10,6 +10,7 @@
  */
 
 require_once __DIR__ . '/data.php';
+require_once __DIR__ . '/build.php';   // recovery_enumerate_urls() for the page-count hint
 
 $cfg        = recovery_config();
 $carriers   = recovery_carriers();
@@ -327,6 +328,25 @@ $total = 1 + $nCarrier + $nState + ($nState * $nCarrier) + $nCity + ($publishCC 
         </label>
       </div>
       <button type="submit" class="btn">Save deploy settings</button>
+    </form>
+
+    <hr style="margin:18px 0;border:none;border-top:1px solid #eee;">
+    <p class="hint" style="margin-bottom:10px;">
+      Builds the gated set (~<?= (int) count(recovery_enumerate_urls()) ?> pages) to
+      <code>output/</code>, then FTP-uploads only new/changed files. First deploy can take a few minutes.
+    </p>
+    <form method="post" action="plugin_save.php"
+          onsubmit="return this.action_build_deploy ? confirm('Build the gated static site and deploy over FTP now?') : true;">
+      <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+      <input type="hidden" name="plugin_id"  value="recovery">
+      <label style="font-weight:normal;display:block;margin-bottom:12px;">
+        <input type="checkbox" name="force_all" value="1"> Force full re-upload (ignore manifest)
+      </label>
+      <button type="submit" name="action" value="build_only" class="btn btn-secondary">Build only</button>
+      <button type="submit" name="action" value="build_deploy" class="btn" style="margin-left:8px;"
+              onclick="return confirm('Build the gated static site and deploy over FTP now? First deploy can take a few minutes.');">
+        &#128640; Build &amp; Deploy
+      </button>
     </form>
   </div>
 
