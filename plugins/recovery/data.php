@@ -102,6 +102,12 @@ function recovery_template_by_id(string $id): ?array {
     return null;
 }
 
+// ── Target keywords per page type (REFERENCE ONLY — do not generate pages) ───
+function recovery_keywords(): array {
+    $k = _recovery_load_json('keywords.json');
+    return $k['types'] ?? [];
+}
+
 // ── Per-request entity context (drives {company}* tokens; see plugin.php) ────
 function recovery_set_ctx(array $ctx): void { $GLOBALS['_recovery_ctx'] = $ctx; }
 function recovery_ctx(): array { return $GLOBALS['_recovery_ctx'] ?? []; }

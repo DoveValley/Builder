@@ -1,0 +1,54 @@
+{
+  "_note": "REFERENCE ONLY. Target keywords per page type — these do NOT generate pages (the matrix does). Primary drives the template title/H1/meta; secondaries are woven into H2s, FAQ, and body copy. Tokens {company}/{state}/{city} fill per page.",
+  "types": {
+    "hub": {
+      "primary": "addiction treatment insurance coverage",
+      "secondary": [
+        "does insurance cover rehab",
+        "rehab that takes insurance",
+        "health insurance for rehab",
+        "using insurance for addiction treatment"
+      ]
+    },
+    "company_national": {
+      "primary": "{company} rehab coverage",
+      "secondary": [
+        "does {company} cover rehab",
+        "{company} addiction treatment coverage",
+        "{company} inpatient rehab coverage",
+        "is rehab covered by {company}"
+      ]
+    },
+    "state": {
+      "primary": "rehab that takes insurance in {state}",
+      "secondary": [
+        "{state} addiction treatment insurance",
+        "drug rehab covered by insurance {state}",
+        "{state} rehab insurance"
+      ]
+    },
+    "city": {
+      "primary": "rehab that takes insurance in {city}",
+      "secondary": [
+        "{city} addiction treatment",
+        "alcohol rehab {city} that takes insurance",
+        "detox {city} insurance"
+      ]
+    },
+    "state_company": {
+      "primary": "{company} rehab coverage in {state}",
+      "secondary": [
+        "does {company} cover rehab in {state}",
+        "{company} addiction treatment {state}"
+      ]
+    },
+    "city_company": {
+      "primary": "{company} rehab coverage in {city}",
+      "secondary": [
+        "does {company} cover rehab in {city}",
+        "{company} drug rehab {city}",
+        "rehab in {city} that takes {company}"
+      ]
+    }
+  }
+}

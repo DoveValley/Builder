@@ -17,6 +17,7 @@ $states     = recovery_states();
 $cities     = recovery_cities();
 $templates  = recovery_all_templates();
 $types      = recovery_types();
+$keywords   = recovery_keywords();
 
 // First rows → build example preview URLs.
 $exState   = $states[0]['slug']   ?? '';
@@ -57,6 +58,36 @@ $total = 1 + $nCarrier + $nState + ($nState * $nCarrier) + $nCity + ($publishCC 
       Full docs: <a href="docs.php?doc=recovery" target="_blank" rel="noopener"><strong>Docs → Recovery Site &nearr;</strong></a>
       &nbsp;·&nbsp; <strong><?= (int) $total ?></strong> pages will publish with the current matrix + phasing.
     </p>
+  </div>
+
+  <!-- ── Target keywords (reference only) ─────────────────────────────────── -->
+  <div class="card" style="margin-bottom:16px;">
+    <h2>&#128273; Target keywords <span class="hint">(reference only)</span></h2>
+    <p class="hint" style="margin-bottom:12px;">
+      Target phrases for each page type — use these when authoring the templates below (primary → title/H1/meta;
+      secondaries → H2s, FAQ, body). <strong>Reference only: these do not generate pages — the matrix does.</strong>
+      Tokens <code>{company}</code>/<code>{state}</code>/<code>{city}</code> fill in per page.
+    </p>
+    <table style="width:100%;border-collapse:collapse;">
+      <thead>
+        <tr style="text-align:left;border-bottom:1px solid #ddd;">
+          <th style="padding:6px 8px;">Type</th>
+          <th style="padding:6px 8px;">Primary keyword</th>
+          <th style="padding:6px 8px;">Secondary keywords</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php foreach ($types as $key => $meta):
+          $kw = $keywords[$key] ?? []; ?>
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:8px;"><strong><?= h($meta['label']) ?></strong></td>
+          <td style="padding:8px;"><code><?= h($kw['primary'] ?? '—') ?></code></td>
+          <td style="padding:8px;" class="hint"><?= h(implode(' · ', $kw['secondary'] ?? [])) ?></td>
+        </tr>
+      <?php endforeach; ?>
+      </tbody>
+    </table>
+    <p class="hint" style="margin-top:10px;">Source: <code>data/recovery/keywords.json</code></p>
   </div>
 
   <!-- ── 1. Page templates (map each type → a template) ───────────────────── -->
