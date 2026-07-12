@@ -81,6 +81,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
 <div id="side">
     <div class="logo">Site Factory <small>Test Lab</small></div>
     <a href="#share-claude" style="color:#93c5fd;font-weight:700;">📎 Share with Claude</a>
+    <a href="#keyword-lists" style="color:#86efac;font-weight:700;">🔑 Keyword lists</a>
     <button type="button" class="active">Hero text overlay</button>
     <a class="back" href="#preset-check" style="color:#fd783b;">↓ Theme Preset check</a>
     <a class="back" href="#logo-gen" style="color:#fd783b;">↓ Logo generator</a>
@@ -128,6 +129,37 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
             <?php endforeach; ?>
         </div>
         <?php endif; ?>
+    </section>
+
+    <section id="keyword-lists" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
+        <h1>Keyword lists <span class="pill">niche · research</span></h1>
+        <p class="sub">Finalized primary-page keyword lists per niche, saved under <code>uploads/</code>. Each becomes the source for that site's <code>keyword_map.json</code>. Click <strong>Copy</strong> for the plain text or <strong>Download</strong> for the <code>.txt</code>.</p>
+        <?php
+        $kwFiles = glob(BASE_DIR . '/uploads/*keywords*.txt') ?: [];
+        sort($kwFiles);
+        if (!$kwFiles): ?>
+        <p class="note">No keyword lists saved yet. Drop a <code>*-keywords.txt</code> into <code>uploads/</code> and it appears here.</p>
+        <?php else: foreach ($kwFiles as $kf): $kn = basename($kf); $kbody = (string)file_get_contents($kf); ?>
+        <div style="max-width:720px;margin-bottom:22px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                <strong style="color:#1e3a5f;font-family:monospace;font-size:.85rem;"><?= $h($kn) ?></strong>
+                <span class="note" style="margin-left:auto;"><?= substr_count($kbody, "\n") ?> lines</span>
+                <button type="button" class="kw-copy" style="background:#1e3a5f;color:#fff;border:0;border-radius:6px;padding:6px 14px;font-weight:600;cursor:pointer;">Copy</button>
+                <a href="/uploads/<?= $h($kn) ?>" download style="background:#16a34a;color:#fff;border-radius:6px;padding:6px 14px;font-weight:600;text-decoration:none;">Download</a>
+            </div>
+            <pre class="kw-body" style="white-space:pre-wrap;font-family:monospace;font-size:.8rem;color:#334155;background:#f8fafc;border:1px solid #eef2f7;border-radius:8px;padding:14px;max-height:420px;overflow:auto;margin:0;"><?= $h($kbody) ?></pre>
+        </div>
+        <?php endforeach; endif; ?>
+        <script>
+        document.querySelectorAll('.kw-copy').forEach(function(btn){
+            btn.addEventListener('click', function(){
+                var pre = btn.closest('div').parentElement.querySelector('.kw-body');
+                navigator.clipboard.writeText(pre.textContent).then(function(){
+                    var t = btn.textContent; btn.textContent = '✓ Copied'; setTimeout(function(){ btn.textContent = t; }, 1400);
+                });
+            });
+        });
+        </script>
     </section>
 
     <section id="preset-check" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
