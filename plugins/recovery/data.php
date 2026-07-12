@@ -25,9 +25,11 @@ function recovery_data_dir(): string {
 }
 
 function _recovery_load_json(string $file): array {
+    static $cache = [];   // memoize per request/build (state/national pages read facilities.json many times)
+    if (array_key_exists($file, $cache)) return $cache[$file];
     $path = recovery_data_dir() . $file;
     $rows = is_file($path) ? (json_decode(file_get_contents($path), true) ?: []) : [];
-    return is_array($rows) ? $rows : [];
+    return $cache[$file] = (is_array($rows) ? $rows : []);
 }
 
 function recovery_carriers(): array { return _recovery_load_json('carriers.json'); }
@@ -100,6 +102,13 @@ function recovery_template_by_id(string $id): ?array {
     if ($id === '') return null;
     foreach (recovery_all_templates() as $t) if (($t['id'] ?? '') === $id) return $t;
     return null;
+}
+
+// ── SAMHSA facility listings (real .gov data), keyed by city slug ────────────
+function recovery_facilities(string $citySlug): array {
+    if ($citySlug === '') return [];
+    $all = _recovery_load_json('facilities.json');
+    return $all[$citySlug] ?? [];
 }
 
 // ── Target keywords per page type (REFERENCE ONLY — do not generate pages) ───

@@ -75,6 +75,18 @@ function recovery_render_route(array $m, array $data, string $path = ''): array 
     // Fill AI-enriched blocks (ai_fill markers) from the matched entity's cached ai bundle.
     $payload['content_blocks'] = recovery_apply_ai($payload['content_blocks'] ?? [], $m);
 
+    // Real SAMHSA facility listings on every geo/carrier page, inserted after the AI intro(s).
+    if (in_array($m['type'], ['city', 'city_company', 'state', 'state_company', 'hub', 'company_national'], true)) {
+        $fb = recovery_facilities_block($m);
+        if ($fb) {
+            $ins = 1;
+            foreach ($payload['content_blocks'] as $idx => $b) {
+                if (in_array($b['ai_fill'] ?? '', ['intro', 'intro2'], true)) $ins = $idx + 1;
+            }
+            array_splice($payload['content_blocks'], $ins, 0, [$fb]);
+        }
+    }
+
     // Canonical URL: the plugin renders before page.php sets $slug, so the site-template's
     // lb_url-based canonical can't derive here. Set it explicitly from the request path;
     // site-template resolves {website} and forces a trailing slash.
@@ -191,6 +203,90 @@ function recovery_cc_published(string $stateSlug, string $citySlug): bool {
     if (empty($cfg['phasing']['publish_city_company'])) return false;
     $c = recovery_city($stateSlug, $citySlug);
     return $c !== null && (int) ($c['population'] ?? 0) >= (int) ($cfg['phasing']['min_city_population'] ?? 0);
+}
+
+/** Map a carrier to the SAMHSA payment category it falls under. */
+function recovery_carrier_paytype(string $slug): string {
+    if ($slug === 'medicaid') return 'Medicaid';
+    if ($slug === 'medicare') return 'Medicare';
+    if ($slug === 'tricare')  return 'Military insurance';
+    return 'Private insurance';
+}
+
+/**
+ * Real facility-listings block (custom_html) from SAMHSA data for the matched city.
+ * On carrier pages, filters to facilities accepting that carrier's payment category and
+ * frames it honestly ("call to verify {carrier}") — SAMHSA doesn't confirm specific carriers.
+ */
+function recovery_facilities_block(array $m): ?array {
+    // City page → that city's facilities; state page → aggregate the state's cities (deduped).
+    $facs = [];
+    if (!empty($m['city'])) {
+        $facs = recovery_facilities($m['city']);
+    } else {
+        // state page → that state's cities; national (hub / company) → all cities. Deduped.
+        $seen = [];
+        foreach (recovery_cities() as $c) {
+            if (!empty($m['state']) && ($c['state'] ?? '') !== $m['state']) continue;
+            foreach (recovery_facilities($c['slug']) as $f) {
+                $k = strtolower(($f['name'] ?? '') . '|' . ($f['city'] ?? ''));
+                if ($k === '|' || isset($seen[$k])) continue;
+                $seen[$k] = 1; $facs[] = $f;
+            }
+        }
+    }
+    if (!$facs) return null;
+
+    $carrier = !empty($m['company']) ? (recovery_carrier($m['company'])['name'] ?? '') : '';
+    if (!empty($m['company'])) {
+        $pt = recovery_carrier_paytype($m['company']);
+        $facs = array_values(array_filter($facs, fn($f) => in_array($pt, $f['payment'] ?? [], true)));
+    }
+    if (!$facs) return null;
+
+    $sRow = recovery_state($m['state'] ?? '');
+    if (!empty($m['city'])) {
+        $cityName = recovery_city($m['state'], $m['city'])['name'] ?? $m['city'];
+        $place = 'Near ' . htmlspecialchars($cityName) . ', ' . ($sRow['ss'] ?? '');
+        $facs  = array_slice($facs, 0, 6);
+        $heading = $carrier ? "Treatment Centers {$place} That Accept Insurance" : "Treatment Centers {$place}";
+    } elseif (!empty($m['state'])) {
+        $place = 'in ' . htmlspecialchars($sRow['name'] ?? $m['state']);
+        $facs  = array_slice($facs, 0, 8);
+        $heading = $carrier ? "Treatment Centers {$place} That Accept Insurance" : "Treatment Centers {$place}";
+    } else {
+        $facs  = array_slice($facs, 0, 8);   // national (hub / company_national)
+        $heading = $carrier ? "Treatment Centers That Accept " . htmlspecialchars($carrier) . " Insurance" : "Featured Treatment Centers";
+    }
+    $note = 'Verified facility data from <a href="https://findtreatment.gov" target="_blank" rel="noopener">SAMHSA&rsquo;s FindTreatment.gov</a>. {business} is a free referral service'
+          . ($carrier ? " &mdash; call each center to confirm " . htmlspecialchars($carrier) . " coverage." : ".");
+
+    $cards = '';
+    foreach ($facs as $f) {
+        $addr  = htmlspecialchars(trim(($f['street'] ?? '') . ', ' . ($f['city'] ?? '') . ', ' . ($f['state'] ?? '') . ' ' . ($f['zip'] ?? ''), ', '));
+        $tags  = '';
+        foreach (($f['levels'] ?? []) as $lv) $tags .= '<span class="rd-tag">' . htmlspecialchars($lv) . '</span>';
+        $pay   = htmlspecialchars(implode(' &middot; ', $f['payment'] ?? []));
+        $tel   = preg_replace('/[^0-9]/', '', $f['phone'] ?? '');
+        $miles = ($f['miles'] ?? '') !== '' ? '<span class="rd-miles">' . round((float) $f['miles'], 1) . ' mi</span>' : '';
+        $dir   = (!empty($f['lat']) && !empty($f['lng'])) ? '<a class="rd-dir" href="https://maps.google.com/?q=' . $f['lat'] . ',' . $f['lng'] . '" target="_blank" rel="noopener">Get directions</a>' : '';
+        $verify= $carrier ? '<p class="rd-verify">Accepts private insurance &mdash; call to verify ' . htmlspecialchars($carrier) . ' insurance coverage.</p>' : '';
+        $cards .= '<div class="rd-card">'
+            . '<div class="rd-badge"><span class="rd-verified">&#10003; SAMHSA-listed</span>' . $miles . '</div>'
+            . '<div class="rd-info"><h3>' . htmlspecialchars($f['name'] ?? '') . '</h3>'
+            . '<p class="rd-addr">&#128205; ' . $addr . '</p>'
+            . ($tags ? '<div class="rd-tags">' . $tags . '</div>' : '')
+            . ($pay ? '<p class="rd-pay"><strong>Accepts:</strong> ' . $pay . '</p>' : '')
+            . $verify . '</div>'
+            . '<div class="rd-cta"><a class="rd-phone" href="tel:' . $tel . '">&#128222; ' . htmlspecialchars($f['phone'] ?? '') . '</a>' . $dir . '</div>'
+            . '</div>';
+    }
+    $css = '<style>.rd-listings{max-width:1040px;margin:0 auto}.rd-card{display:flex;gap:18px;border:1px solid #e2e8f0;border-radius:12px;padding:18px;margin-bottom:16px;background:#fff;flex-wrap:wrap;box-shadow:0 1px 3px rgba(0,0,0,.04)}.rd-badge{display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;min-width:110px}.rd-verified{background:#e8f0fe;color:#1f5c86;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;white-space:nowrap}.rd-miles{color:#64748b;font-size:12px}.rd-info{flex:1;min-width:230px}.rd-info h3{margin:0 0 6px;font-size:1.18rem;color:#0e2a45}.rd-addr{margin:0 0 8px;color:#475569;font-size:.92rem}.rd-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.rd-tag{background:#0e2a45;color:#fff;font-size:12px;font-weight:600;padding:3px 10px;border-radius:6px}.rd-pay{margin:0 0 6px;font-size:.9rem;color:#334155}.rd-verify{margin:0;font-size:.85rem;color:#64748b;font-style:italic}.rd-cta{display:flex;flex-direction:column;gap:8px;justify-content:center;min-width:180px}.rd-phone{background:#1f5c86;color:#fff;font-weight:700;padding:12px 18px;border-radius:8px;text-decoration:none;text-align:center}.rd-dir{color:#1f5c86;text-align:center;font-size:.88rem;text-decoration:none}</style>';
+    $html = '<div class="rd-listings">' . $css
+        . '<h2 style="text-align:center;font-size:1.6rem;margin:0 0 8px;color:#0e2a45;">' . $heading . '</h2>'
+        . '<p style="text-align:center;color:#64748b;max-width:740px;margin:0 auto 24px;font-size:.9rem;">' . $note . '</p>'
+        . $cards . '</div>';
+    return ['type' => 'custom_html', 'html' => $html];
 }
 
 function recovery_nav_block(array $m): ?array {
