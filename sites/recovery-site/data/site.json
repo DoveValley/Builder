@@ -227,7 +227,7 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "",
+        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"{website}/#organization\",\"name\":\"{business}\",\"url\":\"{website}\",\"description\":\"{business} is a free informational and referral service that helps people find addiction treatment covered by their health insurance.\",\"areaServed\":\"US\",\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"{tel}\",\"contactType\":\"customer service\",\"availableLanguage\":\"English\"}},{\"@type\":\"WebSite\",\"@id\":\"{website}/#website\",\"url\":\"{website}\",\"name\":\"{business}\",\"publisher\":{\"@id\":\"{website}/#organization\"},\"inLanguage\":\"en-US\"}]}",
         "primary_keyword": "rehab that takes insurance",
         "secondary_keywords": "rehab insurance coverage, drug rehab insurance, alcohol rehab coverage, does insurance cover rehab, detox insurance coverage"
     },
