@@ -117,6 +117,14 @@ function recovery_breadcrumbs(array $m): array {
  * anchors. This is what wires the matrix together for crawlers + users. Links are built
  * in PHP from the matrix data (not tokens), so anchors carry real carrier/city names.
  */
+/** True if the city×company page for this city is published under the current phase gate. */
+function recovery_cc_published(string $stateSlug, string $citySlug): bool {
+    $cfg = recovery_config();
+    if (empty($cfg['phasing']['publish_city_company'])) return false;
+    $c = recovery_city($stateSlug, $citySlug);
+    return $c !== null && (int) ($c['population'] ?? 0) >= (int) ($cfg['phasing']['min_city_population'] ?? 0);
+}
+
 function recovery_nav_block(array $m): ?array {
     $heading = '';
     $links   = [];   // [url, anchor]
@@ -141,12 +149,27 @@ function recovery_nav_block(array $m): ?array {
             foreach (recovery_carriers() as $c) $links[] = ["/$st/{$c['slug']}", "Rehabs accepting {$c['name']} in $sName"];
             break;
         case 'city':
-            $heading = "Rehabs by Insurance in $ciName, $ss";
-            foreach (recovery_carriers() as $c) $links[] = ["/$st/$ci/{$c['slug']}", "Best rehabs accepting {$c['name']} in $ciName"];
+            // Link to city×company only if that level is published; else fall back to the
+            // national carrier pages (which ARE published) so no link 404s under the gate.
+            if (recovery_cc_published($st, $ci)) {
+                $heading = "Rehabs by Insurance in $ciName, $ss";
+                foreach (recovery_carriers() as $c) $links[] = ["/$st/$ci/{$c['slug']}", "Best rehabs accepting {$c['name']} in $ciName"];
+            } else {
+                $heading = 'Rehabs by Insurance Carrier';
+                foreach (recovery_carriers() as $c) $links[] = ["/insurance/{$c['slug']}", "Best rehabs accepting {$c['name']}"];
+            }
             break;
         case 'state_company':
-            $heading = "Rehabs Accepting $coName by City in $sName";
-            foreach (recovery_cities() as $c) if (($c['state'] ?? '') === $st) $links[] = ["/$st/{$c['slug']}/$co", "Rehabs accepting $coName in {$c['name']}, $ss"];
+            // City×company if published, else the city hubs (published).
+            foreach (recovery_cities() as $c) {
+                if (($c['state'] ?? '') !== $st) continue;
+                if (recovery_cc_published($st, $c['slug'])) $links[] = ["/$st/{$c['slug']}/$co", "Rehabs accepting $coName in {$c['name']}, $ss"];
+            }
+            if ($links) { $heading = "Rehabs Accepting $coName by City in $sName"; }
+            else {
+                $heading = "Drug & Alcohol Rehabs by City in $sName";
+                foreach (recovery_cities() as $c) if (($c['state'] ?? '') === $st) $links[] = ["/$st/{$c['slug']}", "Drug & alcohol rehabs in {$c['name']}, $ss"];
+            }
             break;
         case 'city_company':
             $heading = 'Related';
