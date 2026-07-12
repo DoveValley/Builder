@@ -92,508 +92,133 @@
     "content_blocks": [
         {
             "type": "hero_split",
-            "hs_heading": "Mold Remediation in {city_state}",
-            "hs_subtext": "<p>East Texas humidity and seasonal rainfall create persistent moisture conditions that encourage mold growth in homes and businesses throughout the Lufkin area, particularly in basements, crawlspaces, and poorly ventilated rooms. Elk Mold Pros specializes in mold remediation—identifying affected areas, containing the problem safely, and removing mold through thorough, professional methods designed to restore indoor air quality. For property owners concerned about mold's presence in their home or building, professional remediation protects your investment and helps create a healthier indoor environment.</p>",
-            "hs_btn_text": "{phone}",
+            "hs_heading": "Rehab That Takes Insurance",
+            "hs_subtext": "<p>{business} helps you find addiction treatment covered by your health insurance — detox, inpatient, and outpatient. Verify your benefits for free and connect with rehab that works with your plan. Confidential, no obligation.</p>",
+            "hs_btn_text": "Verify My Coverage — {phone}",
             "hs_btn_url": "tel:{tel}",
-            "hs_caption1": "Free Inspection &amp; Testing",
-            "hs_caption2": "Inspection · Testing · Removal · Prevention",
-            "hs_photo_alt": "Mold remediation in {city}, {SS}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Finding rehab that takes insurance for addiction treatment",
             "hs_image_side": "right",
-            "hs_bg_color": "#f0fdf4",
-            "hs_photo": "sites/recovery-site/uploads/media/mold-remediation-technician-cleaning-moldy-wall.webp",
-            "hs_bg_photo": "sites/recovery-site/uploads/media/hero-bg-light.webp",
-            "hs_mobile_order": "",
-            "id": "home_hero",
-            "ai_type_id": "hero_subtext",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-12T04:42:34.973458Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_locked": true,
-            "_ai_input_hash": "e45256220dcf1cda"
+            "hs_bg_color": "#eef4fb",
+            "hs_photo": "",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "text_first"
         },
         {
-            "id": "home_city_intro",
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-sonnet-5",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Lufkin's Humid Climate Drives Rising Mold Remediation Needs",
-            "text": "<p>Lufkin's warm, humid climate and generous seasonal rainfall create conditions where moisture can linger in homes and businesses long after a storm passes. Properties in neighborhoods like Crown Colony, Fuller Springs, and Downtown Lufkin often deal with high humidity, poor attic ventilation, or slow plumbing leaks that quietly feed mold growth in crawl spaces, bathrooms, and around windows. Over time, unchecked moisture can affect indoor air quality and may cause discomfort for sensitive occupants, making early attention to mold growth an important part of maintaining a healthy Lufkin property.</p><p>Elk Mold Pros approaches every Lufkin mold remediation project with careful inspection, safe containment practices, and thorough removal methods designed to address the source of moisture, not just the visible mold. Our process focuses on limiting cross-contamination during cleanup and confirming that affected materials are properly treated or removed before closing out a job. We also follow up with property owners to help ensure conditions remain stable, and while our team is equipped to assist with other pest-related concerns as well, mold remediation remains a specialty we take seriously. As Lufkin continues to grow, we look forward to helping more property owners protect their indoor spaces.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-12T04:42:42.547192Z",
-            "_ai_model": "claude-sonnet-5",
-            "_ai_type": "city_intro",
-            "_ai_locked": true,
-            "_ai_input_hash": "db38b3d288af6422"
-        },
-        {
-            "type": "feature_split",
-            "fs_heading": "Mold Problems We Handle in {city}",
-            "fs_subtext": "{city}&rsquo;s humidity, plumbing leaks, and water intrusion create ideal conditions for mold. We handle every type, including:",
-            "fs_photo_alt": "Mold remediation technician in {city}, {SS}",
-            "fs_star_text": "5 Star Service",
-            "fs_bg_color": "#f0fdf4",
-            "fs_accent": "#16a34a",
-            "fs_image_side": "left",
-            "fs_mobile_order": "text_first",
-            "fs_photo": "sites/recovery-site/uploads/media/mold-inspection-mold-growth-on-wall.webp",
-            "fs_items": [
+            "type": "feature_columns",
+            "fc_heading": "Using Your Insurance for Addiction Treatment",
+            "fc_subheading": "Most health plans cover rehab. {business} helps you understand and use your benefits.",
+            "fc_heading_level": "h2",
+            "fc_num_cols": 3,
+            "fc_bg_color": "#ffffff",
+            "columns": [
                 {
                     "icon": "",
-                    "alt": "Black mold removal {city} {SS}",
-                    "heading": "Black &amp; Toxic Mold",
-                    "text": "Stachybotrys and other toxic mold behind walls and in damp spaces that need safe containment and removal."
+                    "image": "",
+                    "alt": "Insurance parity protections for addiction treatment",
+                    "heading": "Coverage Is Protected",
+                    "text": "Federal parity laws require most health plans to cover substance-use treatment comparably to other medical care."
                 },
                 {
                     "icon": "",
-                    "alt": "Bathroom and shower mold {city} {SS}",
-                    "heading": "Bathroom &amp; Shower Mold",
-                    "text": "Mold on tile, grout, ceilings, and drywall in high-moisture bathrooms and showers."
+                    "image": "",
+                    "alt": "Addiction treatment covered by insurance",
+                    "heading": "What Insurance Covers",
+                    "text": "Detox, inpatient and residential rehab, PHP and IOP, outpatient care, and medication-assisted treatment are commonly covered."
                 },
                 {
                     "icon": "",
-                    "alt": "Attic mold removal {city} {SS}",
-                    "heading": "Attic &amp; Roof Mold",
-                    "text": "Mold from roof leaks and poor ventilation growing on sheathing, rafters, and insulation."
-                },
-                {
-                    "icon": "",
-                    "alt": "Crawl space and basement mold {city} {SS}",
-                    "heading": "Crawl Space &amp; Basement Mold",
-                    "text": "Chronic below-grade moisture that fuels mold threatening structure and indoor air quality."
-                },
-                {
-                    "icon": "",
-                    "alt": "HVAC and air conditioner mold {city} {SS}",
-                    "heading": "HVAC &amp; Air Duct Mold",
-                    "text": "Mold in air conditioners, vents, and ductwork that circulates spores throughout the property."
-                },
-                {
-                    "icon": "",
-                    "alt": "Water damage mold {city} {SS}",
-                    "heading": "Water Damage Mold",
-                    "text": "Mold that develops after leaks, floods, or burst pipes when moisture isn&rsquo;t fully dried."
+                    "image": "",
+                    "alt": "Verify rehab benefits for free",
+                    "heading": "Verify Before You Go",
+                    "text": "We check your specific plan for free so you know your coverage and out-of-pocket costs up front."
                 }
             ]
         },
         {
-            "type": "split_cta",
-            "sc_left_heading": "Serving the Greater {city_state} Area",
-            "sc_left_text": "Whether you&rsquo;re a homeowner, business owner, or property manager, mold needs prompt, professional attention. Every job is backed by certified technicians, clear communication, transparent pricing, and thorough removal &mdash; done right the first time.",
-            "sc_right_label": "Call The {business} Team",
-            "sc_right_phone": "{phone}",
-            "sc_right_phone_url": "tel:{tel}",
-            "sc_left_bg": "accent",
-            "sc_right_bg": "header",
-            "sc_left_bg_custom": "#16a34a",
-            "sc_right_bg_custom": "#14532d"
-        },
-        {
-            "type": "tab_services",
-            "ts_badge1": "{business}",
-            "ts_badge2": "MOLD SERVICES {city}, {SS}",
-            "ts_heading": "Professional Mold Remediation Serving {city_state}",
-            "ts_active_bg": "header",
-            "ts_active_bg_custom": "#14532d",
-            "ts_tabs": [
-                {
-                    "label": "Mold Inspection",
-                    "icon": "",
-                    "photo": "sites/recovery-site/uploads/media/mold-inspection-and-testing.webp",
-                    "alt": "Mold inspection {city} {SS}",
-                    "desc": "A thorough inspection locates visible and hidden mold and the moisture source feeding it."
-                },
-                {
-                    "label": "Mold Testing",
-                    "icon": "",
-                    "photo": "sites/recovery-site/uploads/media/mold-inspection-mold-growth-on-wall.webp",
-                    "alt": "Mold testing {city} {SS}",
-                    "desc": "Air and surface sampling with lab analysis identifies the mold type and spore levels present."
-                },
-                {
-                    "label": "Containment &amp; Removal",
-                    "icon": "",
-                    "photo": "sites/recovery-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp",
-                    "alt": "Mold removal {city} {SS}",
-                    "desc": "Sealed containment, HEPA filtration, and safe removal of mold-infested materials."
-                },
-                {
-                    "label": "Drying &amp; Prevention",
-                    "icon": "",
-                    "photo": "sites/recovery-site/uploads/media/mold-prevention-and-maintenance.webp",
-                    "alt": "Mold prevention {city} {SS}",
-                    "desc": "Correcting the moisture source and drying the space to keep mold from returning."
-                }
-            ]
-        },
-        {
-            "type": "hero_grid",
-            "hg_label": "{business}",
-            "hg_heading": "Trusted Mold Remediation in {city_state}",
-            "hg_body": "<p>When mold appears, our providers identify the type, extent, and moisture source to build the right remediation plan. Certified specialists follow proven containment and removal standards for safe, thorough results &mdash; protecting your property and your indoor air quality.</p>",
-            "hg_btn_text": "Call Us",
-            "hg_btn_url": "tel:{tel}",
-            "hg_photo_alt": "Mold remediation in {city}, {SS}",
-            "hg_photo": "sites/recovery-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp",
-            "hg_color1": "accent",
-            "hg_color2": "header",
-            "hg_color1_custom": "#16a34a",
-            "hg_color2_custom": "#14532d",
-            "hg_items": [
-                {
-                    "icon": "",
-                    "label": "Black Mold Removal",
-                    "alt": "Black mold removal {city} {SS}"
-                },
-                {
-                    "icon": "",
-                    "label": "Attic Mold",
-                    "alt": "Attic mold removal {city} {SS}"
-                },
-                {
-                    "icon": "",
-                    "label": "Crawl Space Mold",
-                    "alt": "Crawl space mold {city} {SS}"
-                },
-                {
-                    "icon": "",
-                    "label": "Basement Mold",
-                    "alt": "Basement mold {city} {SS}"
-                },
-                {
-                    "icon": "",
-                    "label": "Bathroom &amp; Shower Mold",
-                    "alt": "Bathroom mold {city} {SS}"
-                },
-                {
-                    "icon": "",
-                    "label": "HVAC &amp; AC Mold",
-                    "alt": "HVAC mold {city} {SS}"
-                }
-            ]
-        },
-        {
-            "type": "service_cards",
-            "sc_badge": "PROFESSIONAL {city}, {SS} MOLD SERVICES",
-            "sc_heading": "Mold Remediation Services in {city_state}",
-            "sc_cols": 4,
-            "sc_badge_bg": "accent",
-            "sc_head_color": "header",
-            "sc_badge_bg_custom": "#16a34a",
-            "sc_head_color_custom": "#14532d",
-            "sc_icon_bg": "#f0fdf4",
-            "sc_items": [
-                {
-                    "icon": "",
-                    "alt": "Mold removal {city} {SS}",
-                    "heading": "Mold Removal in {city_state}",
-                    "text": "Certified removal of mold from walls, floors, and hidden spaces &mdash; safely and completely.",
-                    "url": "/mold-removal-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Black mold removal {city} {SS}",
-                    "heading": "Black Mold Removal in {city_state}",
-                    "text": "Safe containment and removal of toxic black mold to protect your health and property.",
-                    "url": "/black-mold-removal-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Mold inspection {city} {SS}",
-                    "heading": "Mold Inspection in {city_state}",
-                    "text": "Thorough inspection to find visible and hidden mold and the moisture source behind it.",
-                    "url": "/mold-inspection-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Mold testing {city} {SS}",
-                    "heading": "Mold Testing in {city_state}",
-                    "text": "Air and surface sampling with lab analysis to confirm mold type and spore levels.",
-                    "url": "/mold-testing-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Mold mitigation {city} {SS}",
-                    "heading": "Mold Mitigation in {city_state}",
-                    "text": "Emergency containment and moisture control to stop mold from spreading further.",
-                    "url": "/mold-mitigation-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Mold damage restoration {city} {SS}",
-                    "heading": "Mold Damage Restoration in {city_state}",
-                    "text": "Repair and restoration of drywall, structure, and finishes damaged by mold.",
-                    "url": "/mold-damage-restoration-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Attic mold removal {city} {SS}",
-                    "heading": "Attic Mold Removal in {city_state}",
-                    "text": "Removal of mold from attic sheathing, rafters, and insulation, plus ventilation fixes.",
-                    "url": "/attic-mold-removal-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Crawl space mold removal {city} {SS}",
-                    "heading": "Crawl Space Mold Removal in {city_state}",
-                    "text": "Below-grade mold removal and moisture control to protect structure and air quality.",
-                    "url": "/crawl-space-mold-removal-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Commercial mold remediation {city} {SS}",
-                    "heading": "Commercial Mold Remediation in {city_state}",
-                    "text": "Remediation for offices, retail, and multi-unit properties with minimal downtime.",
-                    "url": "/commercial-mold-remediation-{city_slug}"
-                }
-            ]
-        },
-        {
-            "type": "wide_banner",
-            "wb_badge": "{city}, {SS} MOLD SPECIALISTS",
-            "wb_heading": "Your First Choice for Mold Remediation in {city_state}",
-            "wb_subtext": "",
-            "wb_btn_text": "Call Us",
-            "wb_btn_url": "tel:{tel}",
-            "wb_btn_style": "filled",
-            "wb_centered": false,
-            "wb_photo_alt": "Mold remediation in {city}, {SS}",
-            "wb_overlay": "0.50",
-            "wb_bg_color": "#14532d",
-            "wb_badge_bg": "accent",
-            "wb_badge_bg_custom": "#16a34a",
-            "wb_photo": "sites/recovery-site/uploads/media/home-banner.webp"
-        },
-        {
-            "type": "image_features",
-            "if_heading": "Safe, Thorough Mold Removal",
-            "if_intro": "Mold spreads and degrades your air quality the longer it&rsquo;s left untreated. Our providers act fast to contain the area, remove mold at the source, and correct the moisture problem &mdash; so it doesn&rsquo;t come back.",
-            "if_closing": "Every job is handled by trained, certified mold remediation technicians, giving you peace of mind from inspection through final clearance.",
-            "if_phone_label": "Call Us 24/7",
-            "if_phone": "{phone}",
-            "if_phone_url": "tel:{tel}",
-            "if_photo_alt": "Mold remediation in {city}, {SS}",
-            "if_bg_color": "#f0fdf4",
-            "if_check_color": "accent",
-            "if_head_color": "header",
-            "if_check_color_custom": "#16a34a",
-            "if_head_color_custom": "#14532d",
-            "if_photo": "sites/recovery-site/uploads/media/mold-removal-and-remediation.webp",
-            "if_features": [
-                "Free mold inspection &amp; testing",
-                "Sealed containment &amp; HEPA filtration",
-                "Safe removal of mold-infested materials",
-                "Moisture control &amp; prevention"
-            ]
-        },
-        {
-            "id": "home_seasonal",
-            "type": "ai_block",
-            "ai_type_id": "seasonal_calendar",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-sonnet-5",
-            "skin": "light",
-            "steps_heading": "Lufkin Seasonal Mold Guide: Year-Round Remediation Insights",
+            "type": "steps",
+            "steps_heading": "How {business} Works",
             "steps_items": [
                 {
-                    "heading": "Spring Moisture Surge",
-                    "text": "<p>Spring rains and rising humidity across Lufkin, including areas like Crown Colony, often push moisture into crawl spaces and attics. Elk Mold Pros inspects vulnerable areas early, helping homeowners address dampness before it develops into a larger indoor air quality concern.</p>"
+                    "image": "",
+                    "alt": "Call for a free insurance benefits check",
+                    "heading": "Call for a Free Benefits Check",
+                    "text": "Share your insurance details. No cost, no obligation."
                 },
                 {
-                    "heading": "Summer Humidity Buildup",
-                    "text": "<p>East Texas summers bring thick, sustained humidity that can overwhelm air conditioning systems and encourage condensation in ductwork or bathrooms. Elk Mold Pros helps Fuller Springs and neighboring property owners identify hidden moisture sources and apply careful containment and removal practices.</p>"
+                    "image": "",
+                    "alt": "We verify your addiction treatment coverage",
+                    "heading": "We Verify Your Coverage",
+                    "text": "We confirm what your plan covers for addiction treatment and what you would pay."
                 },
                 {
-                    "heading": "Fall Rainfall Transition",
-                    "text": "<p>As temperatures shift, periodic fall storms can leave roofs, gutters, and foundations exposed to lingering moisture. Elk Mold Pros assists Downtown Lufkin residents and others by checking for leaks and moisture intrusion, supporting healthier indoor conditions as seasons change.</p>"
+                    "image": "",
+                    "alt": "Get matched to covered rehab",
+                    "heading": "Get Matched to Covered Care",
+                    "text": "We connect you with treatment that works with your insurance."
                 },
                 {
-                    "heading": "Winter Condensation Watch",
-                    "text": "<p>Cooler winter days combined with indoor heating can create condensation on windows, walls, and pipes throughout the region. Elk Mold Pros offers thorough assessments and safe remediation guidance to help property owners manage moisture buildup during these milder Texas winters.</p>"
+                    "image": "",
+                    "alt": "Start addiction treatment",
+                    "heading": "Start Treatment",
+                    "text": "Begin care with your benefits applied, often within days."
                 }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-12T04:42:50.948340Z",
-            "_ai_model": "claude-sonnet-5",
-            "_ai_type": "seasonal_calendar",
-            "_ai_locked": true,
-            "_ai_input_hash": "a15355cd66773476"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "Mold Remediation FAQs — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#f0f2f8",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "fq_items": [
-                {
-                    "question": "What does mold remediation involve and what should I expect?",
-                    "answer": "<p>Mold remediation is the process of safely removing mold colonies and contaminated materials from your property. Elk Mold Pros identifies affected areas, contains the mold to prevent spores from spreading, removes contaminated drywall or materials, cleans and treats surfaces, and restores affected spaces. You can expect professional containment practices, detailed documentation, and guidance on next steps to protect your indoor air quality and property.</p>"
-                },
-                {
-                    "question": "How quickly can Elk Mold Pros respond to mold remediation in Lufkin?",
-                    "answer": "<p>We understand that mold growth requires prompt attention. Contact Elk Mold Pros directly to discuss your situation and learn about availability for a remediation assessment. Response times vary based on project scope and current demand, but our team works to schedule inspections and remediation efficiently once you reach out.</p>"
-                },
-                {
-                    "question": "What factors affect the cost of mold remediation in my Lufkin home?",
-                    "answer": "<p>Remediation costs depend on the extent of mold growth, types of materials affected, how much containment and removal is needed, and whether structural repairs are necessary. A thorough inspection by Elk Mold Pros will reveal the full scope and help explain pricing for your specific situation. We recommend getting a detailed estimate before work begins.</p>"
-                },
-                {
-                    "question": "How should I prepare my Lufkin property before mold remediation begins?",
-                    "answer": "<p>Before remediation, clear access to affected areas and seal off pets and occupants from contaminated spaces. Elm Mold Pros will guide you on any specific preparation steps needed for your property. During remediation, containment and ventilation controls are put in place to isolate the work area and protect the rest of your home or business from cross-contamination.</p>"
-                },
-                {
-                    "question": "What can I do to prevent mold from returning after remediation?",
-                    "answer": "<p>Prevent mold regrowth by controlling indoor moisture: fix leaks promptly, maintain proper ventilation in bathrooms and kitchens, keep humidity levels moderate, and ensure gutters and drainage direct water away from your foundation. Regular inspections of prone areas—especially after heavy rain or water events—help catch early moisture problems before mold can develop again.</p>"
-                },
-                {
-                    "question": "Why does Lufkin's humid climate make mold remediation important year-round?",
-                    "answer": "<p>East Texas experiences high humidity and significant seasonal rainfall, creating ideal conditions for mold growth indoors. Lufkin's warm, moist climate means homes and businesses are vulnerable to mold year-round, particularly in basements, crawl spaces, and areas with poor ventilation or undetected water intrusion. Prompt remediation and moisture control are essential to protect your property and indoor air quality.</p>"
-                }
-            ],
-            "id": "home_faq",
-            "ai_type_id": "faq_local",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-12T04:42:58.369920Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_locked": true,
-            "_ai_input_hash": "ef30d4f5cee382c2"
-        },
-        {
-            "id": "home_local_rel",
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-sonnet-5",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Serving Lufkin and Surrounding East Texas Communities",
-            "text": "<p>Lufkin's warm, humid climate and generous seasonal rainfall create moisture challenges that vary depending on a property's age and construction. In established areas like Downtown Lufkin, older homes often feature aging plumbing, original insulation, and mature tree canopies that limit sunlight and airflow, allowing dampness to linger longer around foundations and rooflines. Newer subdivisions, such as those near Crown Colony, tend to have tighter building envelopes, which can trap humidity indoors if ventilation systems aren't properly balanced. Neighborhoods like Kurth, with a mix of older and newer construction, may face both concerns at once. Our team evaluates each property's unique layout, drainage, and building materials to identify moisture sources and address mold growth through safe containment and thorough remediation, supporting healthier indoor air quality for homes and businesses throughout the Lufkin area.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-12T04:43:04.739613Z",
-            "_ai_model": "claude-sonnet-5",
-            "_ai_type": "local_relevance",
-            "_ai_locked": true,
-            "_ai_input_hash": "4c51e037633bdb43"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Certified Mold Remediation in {city_state}",
-            "cb_subtext": "",
-            "cb_btn_text": "Call Now — {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "accent",
-            "cb_bg_custom": "#16a34a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
+            ]
         },
         {
             "type": "custom_html",
-            "html": "[services_links]"
+            "html": "<div style=\"max-width:1100px;margin:0 auto;\"><h2 style=\"font-size:1.6rem;margin:0 0 8px;\">Check Rehab Coverage by Insurance Carrier</h2><p style=\"margin:0 0 16px;color:#555;\">See what your plan covers for addiction treatment.</p><ul style=\"list-style:none;padding:0;margin:0 0 20px;column-count:3;column-gap:32px;line-height:1.9;\"><li><a href=\"/insurance/aetna\">Aetna rehab coverage</a></li><li><a href=\"/insurance/cigna\">Cigna rehab coverage</a></li><li><a href=\"/insurance/unitedhealthcare\">UnitedHealthcare rehab coverage</a></li><li><a href=\"/insurance/bluecross-blueshield\">Blue Cross Blue Shield rehab coverage</a></li><li><a href=\"/insurance/anthem\">Anthem rehab coverage</a></li><li><a href=\"/insurance/humana\">Humana rehab coverage</a></li><li><a href=\"/insurance/kaiser-permanente\">Kaiser Permanente rehab coverage</a></li><li><a href=\"/insurance/optum\">Optum rehab coverage</a></li><li><a href=\"/insurance/ambetter\">Ambetter rehab coverage</a></li><li><a href=\"/insurance/molina-healthcare\">Molina Healthcare rehab coverage</a></li><li><a href=\"/insurance/tricare\">Tricare rehab coverage</a></li><li><a href=\"/insurance/medicaid\">Medicaid rehab coverage</a></li></ul><p style=\"margin:0 0 32px;\"><a href=\"/insurance/\"><strong>See all insurance carriers &rarr;</strong></a></p><h2 style=\"font-size:1.6rem;margin:0 0 16px;\">Rehab That Takes Insurance by State</h2><ul style=\"list-style:none;padding:0;margin:0;column-count:2;column-gap:32px;line-height:1.9;\"><li><a href=\"/california\">Rehab that takes insurance in California</a></li><li><a href=\"/texas\">Rehab that takes insurance in Texas</a></li><li><a href=\"/arizona\">Rehab that takes insurance in Arizona</a></li><li><a href=\"/florida\">Rehab that takes insurance in Florida</a></li></ul></div>"
         },
         {
-            "type": "cta_card",
-            "cc_heading": "Mold in Your {city} Property? Call for a Free Inspection",
-            "cc_text": "Don&rsquo;t let mold spread &mdash; it damages your property and your air quality. Call {business} to connect with certified {city_state} mold specialists for inspection, testing, safe removal, and prevention. Fast response and honest pricing.",
-            "cc_btn_text": "{phone}",
-            "cc_btn_url": "tel:{tel}",
-            "cc_btn_style": "outline",
-            "cc_align": "split",
-            "cc_bg": "accent",
-            "cc_bg_custom": "#16a34a",
-            "cc_radius": 12
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#14532d",
-            "mi_info_photo": "{city_image}"
-        },
-        {
-            "type": "cta_card",
-            "cc_heading": "The Values That Make Us {city}&rsquo;s Most Trusted Mold Team",
-            "cc_text": "We&rsquo;re trusted across {city} for more than just mold removal &mdash; it&rsquo;s how we work. Clear communication, honest pricing, and proven containment and remediation standards deliver results you can count on. Certified providers who treat your property with care &mdash; because getting your home safe and healthy is always the priority. That&rsquo;s why local property owners choose us and refer us.",
-            "cc_btn_text": "",
-            "cc_btn_url": "",
-            "cc_btn_style": "outline",
-            "cc_align": "center",
-            "cc_bg": "accent",
-            "cc_bg_custom": "#16a34a",
-            "cc_radius": 0
-        },
-        {
-            "type": "links_grid",
-            "lg_heading": "Professional Mold Remediation in {city_state}",
-            "lg_subtext": "",
-            "lg_sublabel": "Trusted {city_state} Mold Removal &amp; Remediation",
-            "lg_photo_alt": "",
-            "lg_style": "light",
-            "lg_cols": 4,
-            "lg_overlay": "0.00",
-            "lg_bg_color": "#ffffff",
-            "lg_accent": "accent",
-            "lg_accent_custom": "#16a34a",
-            "lg_photo": "sites/recovery-site/uploads/media/water-damage-services-bg.webp",
-            "lg_links": [
+            "type": "faq_two_col",
+            "fq_heading": "Rehab and Insurance — Frequently Asked Questions",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#f1f5f9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_items": [
                 {
-                    "label": "Mold Removal",
-                    "url": "/mold-removal-{city_slug}"
+                    "question": "Does insurance cover rehab?",
+                    "answer": "Most plans cover at least part of addiction treatment because of federal parity and ACA rules. The exact amount depends on your specific plan, and {business} can verify your benefits for free."
                 },
                 {
-                    "label": "Black Mold Removal",
-                    "url": "/black-mold-removal-{city_slug}"
+                    "question": "What addiction treatment is covered by insurance?",
+                    "answer": "Depending on your plan, coverage can include detox, inpatient and residential rehab, PHP, IOP, outpatient care, and medication-assisted treatment."
                 },
                 {
-                    "label": "Mold Inspection",
-                    "url": "/mold-inspection-{city_slug}"
+                    "question": "How much does rehab cost with insurance?",
+                    "answer": "It depends on your deductible, copay, and whether the facility is in-network. Many people pay far less than the sticker price once benefits are applied."
                 },
                 {
-                    "label": "Mold Testing",
-                    "url": "/mold-testing-{city_slug}"
+                    "question": "How do I find rehab that takes my insurance?",
+                    "answer": "Start by verifying your benefits. {business} confirms what your plan covers and connects you with treatment that accepts it, for free."
                 },
                 {
-                    "label": "Mold Mitigation",
-                    "url": "/mold-mitigation-{city_slug}"
-                },
-                {
-                    "label": "Attic Mold Removal",
-                    "url": "/attic-mold-removal-{city_slug}"
-                },
-                {
-                    "label": "Crawl Space Mold Removal",
-                    "url": "/crawl-space-mold-removal-{city_slug}"
-                },
-                {
-                    "label": "Basement Mold Removal",
-                    "url": "/basement-mold-removal-{city_slug}"
+                    "question": "Is {business} free and confidential?",
+                    "answer": "Yes. Checking your coverage is free, private, and carries no obligation to enter treatment."
                 }
             ]
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "closing_cta",
+            "cb_text": "Find rehab that takes your insurance today.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
         }
     ],
     "seo": {
-        "seo_title": "Addiction Treatment Insurance Coverage | {business}",
+        "seo_title": "Rehab That Takes Insurance — Addiction Treatment Covered by Your Plan | {business}",
         "canonical_url": "https://r.q111.xyz",
-        "meta_description": "Recovery Dawn helps you check whether your health insurance covers addiction treatment and rehab — compare coverage by carrier across California, Texas, Arizona, and Florida.",
+        "meta_description": "Find rehab that takes insurance. {business} helps you verify your addiction treatment benefits and find covered detox, inpatient, and outpatient care — free and confidential.",
         "meta_keywords": "addiction treatment insurance, rehab insurance coverage, does insurance cover rehab, drug rehab insurance, alcohol rehab coverage",
-        "og_title": "Addiction Treatment Insurance Coverage | {business}",
-        "og_description": "Recovery Dawn helps you check whether your health insurance covers addiction treatment and rehab — compare coverage by carrier across California, Texas, Arizona, and Florida.",
+        "og_title": "Rehab That Takes Insurance — Addiction Treatment Covered by Your Plan | {business}",
+        "og_description": "Find rehab that takes insurance. {business} helps you verify your addiction treatment benefits and find covered detox, inpatient, and outpatient care — free and confidential.",
         "og_image": "",
         "service_name": "Addiction Treatment",
         "service_type": "Addiction Treatment",
@@ -603,7 +228,7 @@
         "bc_mid_label": "",
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"HomeAndConstructionBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"description\": \"{business} connects {state} property owners with certified mold inspection and remediation specialists, providing mold testing, black mold removal, safe containment, and moisture control for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"State\",\n                \"name\": \"{state}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Su 00:00-23:59\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
-        "primary_keyword": "addiction treatment insurance coverage",
+        "primary_keyword": "rehab that takes insurance",
         "secondary_keywords": "rehab insurance coverage, drug rehab insurance, alcohol rehab coverage, does insurance cover rehab, detox insurance coverage"
     },
     "footer": {
