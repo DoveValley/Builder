@@ -238,54 +238,50 @@
             {
                 "type": "text",
                 "title": "About {business}",
-                "text": "<p>We connect {city} property owners with trained, experienced water and storm damage restoration specialists through our advertising network. Our providers bring years of hands-on experience in water extraction, structural drying, and flood, sewage, and storm damage cleanup for homes and businesses across {city}. Whether it is a burst pipe, a flooded basement, or storm damage, every job is handled with speed, care, and professionalism. We believe in honest service, clear communication, and getting your property back to normal fast &mdash; because your peace of mind is our priority.</p>"
+                "text": "<p>{business} is a free service that helps people find addiction treatment covered by their health insurance. We connect individuals and families with treatment providers and advertising partners nationwide, helping you verify your benefits and find detox, inpatient, and outpatient care that works with your plan. Reaching out is confidential, with no cost or obligation. {business} is not a treatment provider or insurance company.</p>"
             },
             {
                 "type": "links",
                 "title": "Quick Links",
+                "text": "",
                 "links": [
                     {
-                        "label": "Water Damage Restoration",
-                        "url": "/water-damage-restoration-{city_slug}"
+                        "label": "Insurance Coverage",
+                        "url": "/insurance/"
                     },
                     {
-                        "label": "Flood Damage Restoration",
-                        "url": "/flood-damage-restoration-{city_slug}"
+                        "label": "Rehab in California",
+                        "url": "/california"
                     },
                     {
-                        "label": "Storm Damage Restoration",
-                        "url": "/storm-damage-restoration-{city_slug}"
+                        "label": "Rehab in Texas",
+                        "url": "/texas"
                     },
                     {
-                        "label": "Sewage Cleanup",
-                        "url": "/sewage-cleanup-{city_slug}"
+                        "label": "Rehab in Arizona",
+                        "url": "/arizona"
                     },
                     {
-                        "label": "24/7 Emergency",
-                        "url": "/emergency-water-damage-{city_slug}"
+                        "label": "Rehab in Florida",
+                        "url": "/florida"
                     },
                     {
                         "label": "Privacy Policy",
                         "url": "/privacy-policy"
                     },
                     {
-                        "label": "Terms and Conditions",
+                        "label": "Terms & Conditions",
                         "url": "/terms-and-conditions"
                     },
                     {
-                        "label": "Contact Us & Advertising",
+                        "label": "Contact & Advertising",
                         "url": "/contact-us"
-                    },
-                    {
-                        "label": "Blog",
-                        "url": "/blog"
                     }
-                ],
-                "text": ""
+                ]
             },
             {
                 "type": "contact",
-                "title": "Contact Info",
+                "title": "Contact",
                 "contact_extras": [],
                 "text": ""
             }
@@ -301,9 +297,9 @@
                 "url": "/terms-and-conditions"
             }
         ],
-        "disclaimer": "<p>Disclaimer: {business_domain} is a free service that helps property owners connect with local restoration service providers. All contractors and providers are independent, and {business_domain} does not warrant or guarantee any work performed. It is the property owner&rsquo;s responsibility to verify that any hired contractor carries the license and insurance required for the work being performed, and to confirm the scope of water mitigation and restoration work &mdash; including drying, sanitizing, and any structural repairs &mdash; before work begins. All persons depicted in any photo or video are actors or models and not contractors listed on {business_domain}. Any advertiser relationships are clearly marked as &ldquo;Sponsored&rdquo; or &ldquo;Ad&rdquo;. See our Terms and Conditions for further details.</p>",
-        "sticky_bar_text": "24/7 Support Line - Call Now",
-        "sticky_bar_info": "Calls are answered by our advertising partners who can help match you with a suitable provider.",
+        "disclaimer": "<p>Disclaimer: {business_domain} ({business}) is a free informational and referral service — not a treatment provider, medical practice, or insurance company. We help connect people with addiction-treatment providers and advertising partners; we do not provide medical advice, diagnosis, or treatment, and nothing on this site guarantees insurance coverage, admission, or any particular outcome. Insurance benefits vary by plan &mdash; always verify your own coverage. Calls may be answered by our advertising partners. Insurance carrier names and logos are trademarks of their respective owners, used for identification only; {business} is not affiliated with or endorsed by any carrier. If you or someone you know is in crisis, call or text 988 (Suicide &amp; Crisis Lifeline), or 911 for emergencies. See our Terms and Conditions for details.</p>",
+        "sticky_bar_text": "Confidential 24/7 Helpline — Call Now",
+        "sticky_bar_info": "Calls are answered by our advertising partners, who can help you verify your insurance and find treatment options.",
         "logo_in_copyright_bar": true,
         "col_count": 3,
         "socials": {
