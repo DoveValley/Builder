@@ -73,10 +73,43 @@ function recovery_render_route(array $m, array $data, string $path = ''): array 
         $payload['seo']['canonical_url'] = '{website}/' . trim($path, '/') . '/';
     }
 
+    // Breadcrumbs (Home › State › City › Carrier) — matches the nested URL; drives the
+    // visible bar + BreadcrumbList microdata. page.php sets $bcItems from this.
+    $payload['breadcrumbs'] = recovery_breadcrumbs($m);
+
     // 3. Append the internal-link mesh (SEO silo: hubs → entities, entities → up).
     $nav = recovery_nav_block($m);
     if ($nav) $payload['content_blocks'][] = $nav;
     return $payload;
+}
+
+/** Breadcrumb trail matching the nested URL. Returns [['name'=>..,'url'=>..], ...]. */
+function recovery_breadcrumbs(array $m): array {
+    $st = $m['state'] ?? ''; $ci = $m['city'] ?? ''; $co = $m['company'] ?? '';
+    $sName = $st ? (recovery_state($st)['name'] ?? $st) : '';
+    $ciName = ($st && $ci) ? (recovery_city($st, $ci)['name'] ?? $ci) : '';
+    $coName = $co ? (recovery_carrier($co)['name'] ?? $co) : '';
+    $bc = [['name' => 'Home', 'url' => '/']];
+    switch ($m['type']) {
+        case 'hub':
+            $bc[] = ['name' => 'Insurance', 'url' => '/insurance/']; break;
+        case 'company_national':
+            $bc[] = ['name' => 'Insurance', 'url' => '/insurance/'];
+            $bc[] = ['name' => $coName, 'url' => "/insurance/$co/"]; break;
+        case 'state':
+            $bc[] = ['name' => $sName, 'url' => "/$st/"]; break;
+        case 'city':
+            $bc[] = ['name' => $sName, 'url' => "/$st/"];
+            $bc[] = ['name' => $ciName, 'url' => "/$st/$ci/"]; break;
+        case 'state_company':
+            $bc[] = ['name' => $sName, 'url' => "/$st/"];
+            $bc[] = ['name' => $coName, 'url' => "/$st/$co/"]; break;
+        case 'city_company':
+            $bc[] = ['name' => $sName, 'url' => "/$st/"];
+            $bc[] = ['name' => $ciName, 'url' => "/$st/$ci/"];
+            $bc[] = ['name' => $coName, 'url' => "/$st/$ci/$co/"]; break;
+    }
+    return $bc;
 }
 
 /**

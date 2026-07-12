@@ -26,6 +26,7 @@ if ($rawPath !== '' && !empty($GLOBALS['_hooks']['route_request'])) {
         $contentBlocks = $routed['content_blocks'] ?? [];
         $seo           = $routed['seo'] ?? [];
         $pageTitle     = ($routed['title'] ?? '') !== '' ? $routed['title'] : SITE_TITLE;
+        if (!empty($routed['breadcrumbs']) && is_array($routed['breadcrumbs'])) $bcItems = $routed['breadcrumbs'];
         if (!empty($routed['status'])) http_response_code((int) $routed['status']);
 
         require __DIR__ . '/includes/site-template.php';

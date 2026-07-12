@@ -211,7 +211,7 @@ if (empty($seo['og_image'])) {
         }
     }
     // Breadcrumb HTML nav — only on slug pages (not homepage)
-    if (!empty($slug)) {
+    if (!empty($slug) && !isset($bcItems)) {   // skip if a caller (e.g. a route plugin) pre-set $bcItems
         $bcItems = [['name' => 'Home', 'url' => '/']];
         if (!empty($seo['bc_mid_label'])) {
             $midUrlRel = trim($seo['bc_mid_url'] ?? '');
@@ -253,7 +253,7 @@ $firstBlockHero = in_array($firstBlockType, ['hero','hero_split','hero_grid','he
 $bcSettings     = $data['breadcrumbs'] ?? [];
 $bcEnabled      = $bcSettings['enabled'] ?? true;
 $bcPageHide     = !empty($seo['bc_hide'] ?? false);
-$showBreadcrumb = $bcEnabled && !$bcPageHide && !empty($slug) && isset($bcItems);
+$showBreadcrumb = $bcEnabled && !$bcPageHide && !empty($bcItems);
 $bcHeroBgMode   = $bcSettings['hero_bg_mode']  ?? 'auto';
 $bcHeroBgColor  = $bcSettings['hero_bg_color'] ?? '';
 
