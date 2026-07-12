@@ -127,32 +127,32 @@ function recovery_nav_block(array $m): ?array {
 
     switch ($m['type']) {
         case 'hub':
-            $heading = 'Check Rehab Coverage by Insurance Carrier';
-            foreach (recovery_carriers() as $c) $links[] = ["/insurance/{$c['slug']}", "{$c['name']} rehab coverage"];
-            foreach (recovery_states() as $s)   $links[] = ["/{$s['slug']}", "Rehab that takes insurance in {$s['name']}"];
+            $heading = 'Best Rehabs by Insurance Carrier';
+            foreach (recovery_carriers() as $c) $links[] = ["/insurance/{$c['slug']}", "Best rehabs accepting {$c['name']}"];
+            foreach (recovery_states() as $s)   $links[] = ["/{$s['slug']}", "Drug & alcohol rehabs in {$s['name']}"];
             break;
         case 'company_national':
-            $heading = "$coName Rehab Coverage by State";
-            foreach (recovery_states() as $s) $links[] = ["/{$s['slug']}/$co", "$coName rehab coverage in {$s['name']}"];
+            $heading = "Rehabs Accepting $coName by State";
+            foreach (recovery_states() as $s) $links[] = ["/{$s['slug']}/$co", "Best rehabs accepting $coName in {$s['name']}"];
             break;
         case 'state':
-            $heading = "Rehab Coverage by City in $sName";
-            foreach (recovery_cities() as $c) if (($c['state'] ?? '') === $st) $links[] = ["/$st/{$c['slug']}", "Rehab that takes insurance in {$c['name']}, $ss"];
-            foreach (recovery_carriers() as $c) $links[] = ["/$st/{$c['slug']}", "{$c['name']} coverage in $sName"];
+            $heading = "Rehabs by City in $sName";
+            foreach (recovery_cities() as $c) if (($c['state'] ?? '') === $st) $links[] = ["/$st/{$c['slug']}", "Drug & alcohol rehabs in {$c['name']}, $ss"];
+            foreach (recovery_carriers() as $c) $links[] = ["/$st/{$c['slug']}", "Rehabs accepting {$c['name']} in $sName"];
             break;
         case 'city':
-            $heading = "Insurance Carriers Accepted in $ciName, $ss";
-            foreach (recovery_carriers() as $c) $links[] = ["/$st/$ci/{$c['slug']}", "{$c['name']} rehab coverage in $ciName"];
+            $heading = "Rehabs by Insurance in $ciName, $ss";
+            foreach (recovery_carriers() as $c) $links[] = ["/$st/$ci/{$c['slug']}", "Best rehabs accepting {$c['name']} in $ciName"];
             break;
         case 'state_company':
-            $heading = "$coName Rehab Coverage by City in $sName";
-            foreach (recovery_cities() as $c) if (($c['state'] ?? '') === $st) $links[] = ["/$st/{$c['slug']}/$co", "$coName coverage in {$c['name']}, $ss"];
+            $heading = "Rehabs Accepting $coName by City in $sName";
+            foreach (recovery_cities() as $c) if (($c['state'] ?? '') === $st) $links[] = ["/$st/{$c['slug']}/$co", "Rehabs accepting $coName in {$c['name']}, $ss"];
             break;
         case 'city_company':
-            $heading = 'Related Coverage';
-            $links[] = ["/$st/$ci", "All rehab coverage in $ciName, $ss"];
-            $links[] = ["/insurance/$co", "$coName rehab coverage nationwide"];
-            $links[] = ["/$st/$co", "$coName rehab coverage in $sName"];
+            $heading = 'Related';
+            $links[] = ["/$st/$ci", "All drug & alcohol rehabs in $ciName, $ss"];
+            $links[] = ["/insurance/$co", "Best rehabs accepting $coName nationwide"];
+            $links[] = ["/$st/$co", "Best rehabs accepting $coName in $sName"];
             break;
     }
     if (!$links) return null;

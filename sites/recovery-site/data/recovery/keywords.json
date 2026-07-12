@@ -1,53 +1,63 @@
 {
-  "_note": "REFERENCE ONLY. Target keywords per page type — these do NOT generate pages (the matrix does). Primary drives the template title/H1/meta; secondaries are woven into H2s, FAQ, and body copy. Tokens {company}/{state}/{city} fill per page.",
+  "_note": "REFERENCE ONLY. Target keywords per page type — these do NOT generate pages (the matrix does). Primary drives the template H1/title/meta; secondaries are woven into H2s, FAQ, and body copy. Tokens {company}/{state}/{city} fill per page.",
   "types": {
     "hub": {
-      "primary": "addiction treatment insurance coverage",
+      "primary": "Treatment Centers that Accept Health Insurance",
       "secondary": [
-        "does insurance cover rehab",
         "rehab that takes insurance",
-        "health insurance for rehab",
-        "using insurance for addiction treatment"
+        "drug rehab that accepts insurance",
+        "alcohol rehab covered by insurance",
+        "inpatient rehab that takes insurance",
+        "does insurance cover rehab"
       ]
     },
     "company_national": {
-      "primary": "{company} rehab coverage",
+      "primary": "Best Rehabs Accepting {company}",
       "secondary": [
-        "does {company} cover rehab",
-        "{company} addiction treatment coverage",
+        "rehabs that accept {company}",
+        "{company} drug rehab",
         "{company} inpatient rehab coverage",
-        "is rehab covered by {company}"
+        "does {company} cover rehab",
+        "{company} addiction treatment"
       ]
     },
     "state": {
-      "primary": "rehab that takes insurance in {state}",
+      "primary": "Drug & Alcohol Rehabs in {state}",
       "secondary": [
-        "{state} addiction treatment insurance",
-        "drug rehab covered by insurance {state}",
-        "{state} rehab insurance"
+        "rehabs in {state} that take insurance",
+        "{state} drug rehab",
+        "{state} alcohol rehab",
+        "inpatient rehab in {state}",
+        "detox centers in {state}"
       ]
     },
     "city": {
-      "primary": "rehab that takes insurance in {city}",
+      "primary": "Drug & Alcohol Rehabs in {city}",
       "secondary": [
-        "{city} addiction treatment",
-        "alcohol rehab {city} that takes insurance",
-        "detox {city} insurance"
+        "rehabs in {city} that take insurance",
+        "{city} drug rehab",
+        "{city} alcohol rehab",
+        "detox in {city}",
+        "inpatient rehab in {city}"
       ]
     },
     "state_company": {
-      "primary": "{company} rehab coverage in {state}",
+      "primary": "Best Rehabs Accepting {company} in {state}",
       "secondary": [
-        "does {company} cover rehab in {state}",
-        "{company} addiction treatment {state}"
+        "{state} rehabs that accept {company}",
+        "{company} drug rehab in {state}",
+        "{company} inpatient rehab {state}",
+        "does {company} cover rehab in {state}"
       ]
     },
     "city_company": {
-      "primary": "{company} rehab coverage in {city}",
+      "primary": "Best Rehabs Accepting {company} in {city}",
       "secondary": [
-        "does {company} cover rehab in {city}",
-        "{company} drug rehab {city}",
-        "rehab in {city} that takes {company}"
+        "{city} rehabs that accept {company}",
+        "{company} drug rehab in {city}",
+        "{company} inpatient rehab {city}",
+        "rehab in {city} that takes {company}",
+        "does {company} cover rehab in {city}"
       ]
     }
   }
