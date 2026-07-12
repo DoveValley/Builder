@@ -235,6 +235,10 @@
                 "text": "",
                 "links": [
                     {
+                        "label": "About Us",
+                        "url": "/about"
+                    },
+                    {
                         "label": "Insurance Coverage",
                         "url": "/insurance/"
                     },
@@ -255,6 +259,10 @@
                         "url": "/florida"
                     },
                     {
+                        "label": "Guides & Resources",
+                        "url": "/blog"
+                    },
+                    {
                         "label": "Privacy Policy",
                         "url": "/privacy-policy"
                     },
@@ -265,6 +273,10 @@
                     {
                         "label": "Contact & Advertising",
                         "url": "/contact-us"
+                    },
+                    {
+                        "label": "Editorial Policy",
+                        "url": "/editorial-policy"
                     }
                 ]
             },
@@ -595,6 +607,160 @@
                 "meta_description": "Contact {business} to check your insurance coverage for addiction treatment or to join our advertising network.",
                 "canonical_url": ""
             }
+        },
+        "page_about": {
+            "title": "About Us | {business}",
+            "slug": "about",
+            "page_type": "core",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h1",
+                    "heading_text": "About {business}",
+                    "text": "<p>{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance. We connect individuals and families with treatment providers and advertising partners, and help you verify your benefits — confidentially, with no cost or obligation.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "What We Do",
+                    "text": "<p>Finding treatment is hard enough without fighting your insurance. We make the first step simpler: tell us your plan, and we help you understand what your benefits may cover and connect you with providers that accept your insurance — detox, inpatient, outpatient, and medication-assisted treatment.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "What We Are Not",
+                    "text": "<p>{business} is <strong>not</strong> a treatment provider, medical or clinical practice, or an insurance company. We do not provide medical advice, diagnosis, or treatment, and we do not decide what your plan covers. Coverage is always determined by your insurer, and you should verify your own benefits before making decisions.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "How {business} Is Funded",
+                    "text": "<p>Our service is free to you. {business} is supported by advertising: some providers and partners pay to be featured or to receive calls, and calls to our helpline may be answered by an advertising partner who can help you. That compensation may influence which providers are shown. We are transparent about this because trust matters — you will never be charged for using {business}, and there is never any obligation to enter treatment.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Our Commitment",
+                    "text": "<p>We believe getting help should be straightforward and stigma-free. We aim to give clear, honest information, keep your details confidential, and never pressure you toward any particular provider. When something is uncertain — like exactly what your plan covers — we will tell you to verify it rather than guess.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "If You Are in Crisis",
+                    "text": "<p>If you or someone you know is in crisis, call or text <strong>988</strong> (the Suicide &amp; Crisis Lifeline) or call <strong>911</strong> for emergencies. Free, confidential support is available 24/7. You can also reach the SAMHSA National Helpline any time at <strong>1-800-662-4357</strong>.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Contact Us",
+                    "text": "<p>Questions, or interested in advertising with us? Call <a href=\"tel:{tel}\">{phone}</a> or email <a href=\"mailto:{email}\">{email}</a>. See our <a href=\"/contact-us\">contact page</a> for more.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "seo_title": "About {business} — Free Rehab Insurance Help",
+                "meta_description": "{business} is a free service that helps people find drug and alcohol rehabs that accept their insurance. Learn who we are, what we do, and how we are funded.",
+                "canonical_url": ""
+            }
+        },
+        "page_editorial": {
+            "title": "Editorial Policy | {business}",
+            "slug": "editorial-policy",
+            "page_type": "core",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h1",
+                    "heading_text": "Editorial Policy",
+                    "text": "<p><em>Last updated: July 2026.</em></p><p>This page explains how {business} creates its content, the sources we rely on, and how we keep information accurate. Our goal is to give clear, trustworthy guidance about using insurance for addiction treatment.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "How We Create Our Content",
+                    "text": "<p>Our content is written in plain language and reviewed for accuracy and tone before publishing. We focus on being genuinely useful — explaining how insurance coverage generally works, what to ask, and how to verify your own benefits — rather than making promises we cannot keep. We do not fabricate statistics, prices, facility names, or success rates.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Our Sources",
+                    "text": "<p>Where we describe coverage rules and treatment, we rely on authoritative public sources, including:</p><ul><li><a href=\"https://www.samhsa.gov/find-help/national-helpline\" target=\"_blank\" rel=\"noopener nofollow\">SAMHSA</a> — the Substance Abuse and Mental Health Services Administration</li><li><a href=\"https://findtreatment.gov\" target=\"_blank\" rel=\"noopener nofollow\">FindTreatment.gov</a> — SAMHSA’s national treatment locator</li><li><a href=\"https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/mental-health-parity\" target=\"_blank\" rel=\"noopener nofollow\">Mental Health Parity and Addiction Equity Act</a> (U.S. Department of Labor / HHS)</li><li><a href=\"https://www.medicaid.gov\" target=\"_blank\" rel=\"noopener nofollow\">Medicaid.gov</a> and <a href=\"https://www.medicare.gov\" target=\"_blank\" rel=\"noopener nofollow\">Medicare.gov</a></li><li><a href=\"https://988lifeline.org\" target=\"_blank\" rel=\"noopener nofollow\">988 Suicide &amp; Crisis Lifeline</a></li></ul><p>For plan-specific coverage, the definitive source is always your own insurer and plan documents.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Accuracy and Updates",
+                    "text": "<p>Insurance rules and treatment options change, so content may be updated over time. Because coverage varies by plan, employer, and state, we describe general patterns and consistently direct readers to verify their own benefits. Nothing here guarantees coverage, admission, or any outcome.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Not Medical, Legal, or Insurance Advice",
+                    "text": "<p>{business} is a free informational and referral service, not a treatment provider or insurance company. Our content is for general information only and is not a substitute for professional medical, legal, or insurance advice. Always consult a qualified professional and your insurer about your specific situation.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Corrections",
+                    "text": "<p>If you spot something inaccurate or out of date, please tell us at <a href=\"mailto:{email}\">{email}</a> and we will review it.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "seo_title": "Editorial Policy | {business}",
+                "meta_description": "How {business} creates content, the authoritative sources we rely on (SAMHSA, HHS, CMS), and how we keep information accurate.",
+                "canonical_url": ""
+            }
         }
     },
     "popups": {
@@ -642,7 +808,1358 @@
         "city_spotlight": "",
         "business_domain": "r.q111.xyz"
     },
-    "posts": [],
+    "posts": {
+        "post_doesinsurancecoverrehab": {
+            "title": "Does Health Insurance Cover Rehab?",
+            "slug": "does-insurance-cover-rehab",
+            "status": "published",
+            "published_at": "2026-07-12",
+            "updated_at": "2026-07-12",
+            "author": "Recovery Dawn Editorial Team",
+            "tag": "Coverage",
+            "excerpt": "Most health insurance plans do cover addiction and mental-health treatment, though what's covered varies widely. Understanding your benefits and how to access them is the first step toward getting help.",
+            "featured_image": "",
+            "featured_image_alt": "",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "p",
+                    "text": "<p>If you're wondering whether your health insurance will help pay for rehab or addiction treatment, you're asking the right question. The short answer: most health insurance plans do cover some form of addiction and mental-health treatment—but the details matter, and they're different for every plan.</p><p>This guide explains how insurance coverage for rehab typically works, what you need to know to check your own benefits, and how to move forward. If you're in crisis or having thoughts of suicide, please call or text 988 (the Suicide and Crisis Lifeline) or call 911.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "How Insurance Typically Covers Rehab and Addiction Treatment",
+                    "text": "<p>Most health insurance plans—whether through your employer, the marketplace, Medicaid, or Medicare—include coverage for substance use disorder treatment and mental health services. This is required under federal law (the Mental Health Parity and Addiction Equity Act), which means insurers can't treat addiction differently from other medical conditions.</p><p>Coverage usually includes:</p><ul><li>Outpatient counseling and therapy</li><li>Intensive outpatient programs (IOP)</li><li>Inpatient or residential rehab</li><li>Detoxification services</li><li>Medication-assisted treatment (MAT)</li><li>Support groups and peer recovery services</li></ul><p>However, <strong>what your plan covers specifically</strong>—how long, where, how much you pay out-of-pocket—depends entirely on your individual plan. Two people with different insurance policies may have very different coverage.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "What Varies Between Plans",
+                    "text": "<p>Insurance plans differ in several key ways that affect your treatment access:</p><ul><li><strong>Deductible:</strong> The amount you pay before insurance kicks in. This varies widely.</li><li><strong>Copays and coinsurance:</strong> What you pay per visit or as a percentage of the cost.</li><li><strong>In-network vs. out-of-network:</strong> You'll usually pay less for providers in your plan's network.</li><li><strong>Length of coverage:</strong> Some plans cover 28 days of inpatient rehab; others cover more or less.</li><li><strong>Prior authorization:</strong> Your doctor or treatment provider may need approval from your insurer before starting treatment.</li><li><strong>Covered treatment types:</strong> Some plans emphasize outpatient care; others cover residential programs.</li></ul><p>Because these details are so individual, <strong>it's essential that you verify your own benefits directly</strong> rather than assuming what's covered.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "How to Check What Your Insurance Covers",
+                    "text": "<p>Start by gathering basic information:</p><ul><li>Have your insurance card handy (the member ID and group number are on it).</li><li>Call the customer service number on the back of your card.</li><li>Ask specifically about coverage for substance use disorder treatment, mental health services, and rehab.</li><li>Write down: your deductible, copays, whether prior authorization is required, and which providers are in-network.</li><li>Ask if there are any limits on the number of visits or days of care covered.</li></ul><p>If you don't have insurance or want help understanding your options, Recovery Dawn is a free referral service. We can help you understand your benefits and connect you with treatment resources. You don't have to figure this out alone.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "If You Don't Have Insurance or Are Uninsured",
+                    "text": "<p>Not having insurance doesn't mean you can't access treatment. Many treatment providers offer sliding-scale fees based on income, payment plans, or accept Medicaid on a case-by-case basis. Community health centers and federally qualified health centers (FQHCs) often provide low-cost or free addiction services.</p><p>If you qualify, you may be able to enroll in Medicaid or a marketplace plan during open enrollment or after a qualifying life event (like job loss or moving). Recovery Dawn can help you explore these options and connect you with treatment resources in your area.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Next Steps",
+                    "text": "<p>If you're ready to explore treatment options:</p><ul><li>Verify your insurance benefits by calling your plan's customer service number.</li><li>Contact Recovery Dawn for free help understanding your coverage and finding treatment options that work for you.</li><li>If you're in immediate crisis, call or text 988 or go to your nearest emergency room.</li></ul><p>Getting help is possible, and your insurance can be part of making that happen.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "Frequently Asked Questions",
+                    "fq_bg_color": "#ffffff",
+                    "fq_item_bg": "#f1f5f9",
+                    "fq_head_color": "header",
+                    "fq_icon_bg": "accent",
+                    "fq_items": [
+                        {
+                            "question": "Will my insurance cover the full cost of rehab?",
+                            "answer": "It depends on your specific plan. Most plans cover some costs, but you may have a deductible, copays, or coinsurance to pay. Coverage amounts and out-of-pocket costs vary widely. To know what you'll pay, contact your insurance company directly and verify your benefits before starting treatment."
+                        },
+                        {
+                            "question": "Do I need prior authorization to start treatment?",
+                            "answer": "Many plans require prior authorization before you begin inpatient or intensive outpatient treatment. Your treatment provider can usually handle this request with your insurer, but it's worth asking your insurance company in advance so there are no delays."
+                        },
+                        {
+                            "question": "What if my insurance denies coverage or says treatment isn't 'medically necessary'?",
+                            "answer": "You have the right to appeal a denial. Ask your treatment provider or insurance company for the denial reason in writing, then submit an appeal with any supporting clinical information. You can also file a complaint with your state's insurance commissioner if you believe the denial violates parity laws. Recovery Dawn can point you toward resources for understanding your appeal options."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "anchor": "closing_cta",
+                    "cb_text": "Not sure what your plan covers? Get a free, confidential benefits check.",
+                    "cb_subtext": "",
+                    "cb_btn_text": "Check Your Coverage",
+                    "cb_btn_url": "/insurance/",
+                    "cb_bg": "header",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Sources & Help",
+                    "text": "<p>For authoritative information and free help, see:</p><ul><li><a href=\"https://findtreatment.gov\" target=\"_blank\" rel=\"noopener nofollow\">FindTreatment.gov</a> — SAMHSA’s national treatment locator</li><li><a href=\"https://www.samhsa.gov/find-help/national-helpline\" target=\"_blank\" rel=\"noopener nofollow\">SAMHSA National Helpline</a> — 1-800-662-4357, free and confidential, 24/7</li><li><a href=\"https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/mental-health-parity\" target=\"_blank\" rel=\"noopener nofollow\">Mental Health Parity and Addiction Equity Act</a> (U.S. Dept. of Labor / HHS)</li><li><a href=\"https://988lifeline.org\" target=\"_blank\" rel=\"noopener nofollow\">988 Suicide &amp; Crisis Lifeline</a></li></ul><p><em>{business} is a free informational and referral service, not a treatment provider or insurer. Coverage varies by plan — always verify your own benefits.</em></p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "seo_title": "Does Health Insurance Cover Rehab? | {business}",
+                "meta_description": "Most health insurance plans do cover addiction and mental-health treatment, though what's covered varies widely. Understanding your benefits and how to access them is the first step toward getting help.",
+                "primary_keyword": "Does Health Insurance Cover Rehab?",
+                "secondary_keywords": "",
+                "meta_keywords": "",
+                "og_title": "",
+                "og_description": "",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "",
+                "bc_mid_label": "Guides",
+                "bc_mid_url": "/blog"
+            }
+        },
+        "post_howtoverifyrehabbenefits": {
+            "title": "How to Verify Your Insurance Benefits for Rehab",
+            "slug": "how-to-verify-rehab-benefits",
+            "status": "published",
+            "published_at": "2026-07-12",
+            "updated_at": "2026-07-12",
+            "author": "Recovery Dawn Editorial Team",
+            "tag": "Coverage",
+            "excerpt": "Step-by-step guidance on how to check what your health insurance covers for addiction and mental-health treatment—and what questions to ask when you call.",
+            "featured_image": "",
+            "featured_image_alt": "",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "p",
+                    "text": "<p>If you're thinking about getting help for addiction or a mental-health concern, one of the first practical questions is: what will my insurance cover? The answer depends entirely on your specific plan. This guide walks you through how to find out—and what to do once you know.</p><p>You don't need to be a policy expert. All you need is your insurance card, 15 minutes, and a willingness to ask direct questions. We'll break it down step by step.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Step 1: Find Your Insurance Information",
+                    "text": "<p>Start by locating your health insurance card or policy documents. You'll need:</p><ul><li>Your member ID number</li><li>Your group number (if applicable)</li><li>The customer service phone number on the back of your card</li><li>Your date of birth</li></ul><p>If you don't have a physical card, you can usually log into your insurance company's online portal or mobile app to find this information. If you're unsure what plan you have, check your employer's benefits documents or the paperwork you received when you enrolled.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Step 2: Call Your Insurance Company's Customer Service Line",
+                    "text": "<p>Call the number on the back of your insurance card and ask to speak with someone in the benefits or customer service department. Have your member ID ready. You may be asked to verify your identity.</p><p>It's normal to wait on hold or be transferred. The person who answers may not specialize in behavioral health benefits, so be prepared to ask to speak with someone in that department if needed.</p><p>Tip: Call during business hours (usually 8 a.m. to 6 p.m. weekdays) for the shortest wait times. Consider taking notes or asking if the call can be recorded for your records.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Step 3: Ask These Specific Questions",
+                    "text": "<p>When you reach a representative, ask these concrete questions about addiction and mental-health treatment coverage:</p><ul><li><strong>Does my plan cover inpatient or residential rehab?</strong> (These are treatment stays where you live at a facility.)</li><li><strong>Does my plan cover outpatient treatment?</strong> (These are appointments you attend without staying overnight.)</li><li><strong>What is my deductible, and have I met it?</strong> (This is the amount you pay out of pocket before insurance kicks in.)</li><li><strong>What is my copay or coinsurance for mental-health and addiction services?</strong> (Copay is a flat fee; coinsurance is a percentage you pay.)</li><li><strong>Are there any limits on the number of treatment days or sessions covered?</strong></li><li><strong>Do I need a referral or prior authorization before I can enter treatment?</strong> (Prior authorization means the insurance company must approve the treatment plan in advance.)</li><li><strong>Are there in-network providers or facilities I should use?</strong> (Using in-network providers typically costs less.)</li><li><strong>What happens if I go to an out-of-network facility?</strong> (Out-of-network care may cost significantly more.)</li></ul><p>Write down the answers, including the name and date of the call. If the representative isn't sure, ask them to research it and call you back, or get a direct contact or reference number.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Step 4: Understand What You Learned",
+                    "text": "<p><strong>Coverage type:</strong> Your plan may cover inpatient treatment, outpatient treatment, both, or neither. Many plans cover at least some outpatient services.</p><p><strong>Cost-sharing:</strong> Even with coverage, you may owe money out of pocket. Your deductible, copay, or coinsurance applies. Ask the representative to estimate your cost based on the type of treatment you're considering.</p><p><strong>Prior authorization:</strong> If your plan requires it, treatment cannot start until your insurance approves it. This usually happens quickly but can take a few business days. The treatment provider often handles this paperwork, but it's good to know upfront.</p><p><strong>Network status:</strong> Staying in-network almost always saves you money. Ask your representative for a list of in-network providers or facilities, or ask where to find them online.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Step 5: Next Steps",
+                    "text": "<p>Once you understand your benefits, you have options:</p><ul><li><strong>Contact a treatment provider directly.</strong> Tell them your insurance plan name and ask if they accept it. They can often verify your benefits with your insurance company and help handle prior authorization if needed.</li><li><strong>Use a referral service.</strong> Recovery Dawn can help you understand your benefits and connect you with treatment options that accept your insurance. This service is free.</li><li><strong>If you're in crisis,</strong> call or text 988 (Suicide and Crisis Lifeline) to speak with someone right away. If you're in immediate danger, call 911.</li></ul><p>Remember: your benefits verification is specific to your plan. Costs, coverage, and requirements can vary widely. Always verify directly with your insurance company before committing to a treatment program.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "Frequently Asked Questions",
+                    "fq_bg_color": "#ffffff",
+                    "fq_item_bg": "#f1f5f9",
+                    "fq_head_color": "header",
+                    "fq_icon_bg": "accent",
+                    "fq_items": [
+                        {
+                            "question": "What if my insurance company won't tell me whether they cover rehab?",
+                            "answer": "They're required by law to provide benefit information to plan members. If you're having trouble, ask to speak with a supervisor or request the information in writing. You can also contact your state's insurance commissioner's office for help. Recovery Dawn can also guide you through understanding what questions to ask."
+                        },
+                        {
+                            "question": "Do I need a referral from my doctor to start treatment?",
+                            "answer": "It depends on your plan. Some plans require a referral; others don't. This is one of the key questions to ask your insurance company. If a referral is required, your primary care doctor or a mental-health provider can usually issue one quickly."
+                        },
+                        {
+                            "question": "What if I can't afford my out-of-pocket costs even with insurance?",
+                            "answer": "Many treatment providers offer payment plans, sliding-scale fees based on income, or can connect you with financial assistance programs. Tell the provider upfront about your concerns—they may have options. You can also ask your insurance company about appeals if you believe a service should be covered differently, or explore community health centers that offer low-cost care."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "anchor": "closing_cta",
+                    "cb_text": "Not sure what your plan covers? Get a free, confidential benefits check.",
+                    "cb_subtext": "",
+                    "cb_btn_text": "Check Your Coverage",
+                    "cb_btn_url": "/insurance/",
+                    "cb_bg": "header",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Sources & Help",
+                    "text": "<p>For authoritative information and free help, see:</p><ul><li><a href=\"https://findtreatment.gov\" target=\"_blank\" rel=\"noopener nofollow\">FindTreatment.gov</a> — SAMHSA’s national treatment locator</li><li><a href=\"https://www.samhsa.gov/find-help/national-helpline\" target=\"_blank\" rel=\"noopener nofollow\">SAMHSA National Helpline</a> — 1-800-662-4357, free and confidential, 24/7</li><li><a href=\"https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/mental-health-parity\" target=\"_blank\" rel=\"noopener nofollow\">Mental Health Parity and Addiction Equity Act</a> (U.S. Dept. of Labor / HHS)</li><li><a href=\"https://988lifeline.org\" target=\"_blank\" rel=\"noopener nofollow\">988 Suicide &amp; Crisis Lifeline</a></li></ul><p><em>{business} is a free informational and referral service, not a treatment provider or insurer. Coverage varies by plan — always verify your own benefits.</em></p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "seo_title": "How to Verify Your Insurance Benefits for Rehab | {business}",
+                "meta_description": "Step-by-step guidance on how to check what your health insurance covers for addiction and mental-health treatment—and what questions to ask when you call.",
+                "primary_keyword": "How to Verify Your Insurance Benefits for Rehab",
+                "secondary_keywords": "",
+                "meta_keywords": "",
+                "og_title": "",
+                "og_description": "",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "",
+                "bc_mid_label": "Guides",
+                "bc_mid_url": "/blog"
+            }
+        },
+        "post_levelsofcareexplained": {
+            "title": "Inpatient vs. Outpatient vs. PHP vs. IOP: Levels of Care Explained",
+            "slug": "levels-of-care-explained",
+            "status": "published",
+            "published_at": "2026-07-12",
+            "updated_at": "2026-07-12",
+            "author": "Recovery Dawn Editorial Team",
+            "tag": "Treatment",
+            "excerpt": "Addiction treatment comes in different intensities—from outpatient counseling to round-the-clock residential care. Understanding each level of care can help you find the right fit for your situation and insurance benefits.",
+            "featured_image": "",
+            "featured_image_alt": "",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "p",
+                    "text": "<p>When you're thinking about treatment for substance use, one of the first questions is: what level of care do I need? The answer depends on your medical situation, support system, work or school commitments, and insurance coverage. Treatment isn't one-size-fits-all, and the right level of care for you might be different from someone else's path.</p><p>This guide breaks down the main levels of care in plain language so you can have an informed conversation with a healthcare provider, your insurance company, or a treatment referral service like Recovery Dawn.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Outpatient Treatment",
+                    "text": "<p><strong>What it is:</strong> You live at home and visit a treatment facility or provider for counseling, therapy, or group sessions—usually a few hours per week. Outpatient is the least intensive level of care.</p><p><strong>Who it's for:</strong> People with mild to moderate substance use concerns, strong support at home, stable housing and work/school, and no serious medical complications. It's also a common step after completing a more intensive program.</p><p><strong>What to expect:</strong> Sessions might include individual therapy, group counseling, skill-building, or peer support. Your schedule is flexible so you can keep working, studying, or caring for family. You manage your own recovery support outside of sessions.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Intensive Outpatient Program (IOP)",
+                    "text": "<p><strong>What it is:</strong> A step up from standard outpatient care. You attend treatment sessions several times per week for several hours at a time—often 9–20 hours per week—while still living at home.</p><p><strong>Who it's for:</strong> People who need more structure and support than weekly therapy, but don't require 24-hour monitoring. IOP works well if you have medical stability, a safe home, and commitment to frequent attendance.</p><p><strong>What to expect:</strong> You'll usually have group therapy, individual counseling, educational sessions, and sometimes skills training or family support. You stay in your own life but dedicate significant time to treatment. Many people combine IOP with work or school part-time.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Partial Hospitalization Program (PHP)",
+                    "text": "<p><strong>What it is:</strong> Also called \"day hospital\" treatment. You attend a clinical program during the day (often 6–8 hours) and return home at night. PHP is more intensive than IOP but less restrictive than inpatient care.</p><p><strong>Who it's for:</strong> People who need significant clinical support, structured environment, and monitoring—but don't require overnight supervision. This might include those stepping down from inpatient care or those who have tried outpatient care without sufficient progress.</p><p><strong>What to expect:</strong> You'll have group and individual therapy, medical oversight, possibly medication management, psychiatric evaluation, and skills training. You're in a treatment setting with clinical staff nearby, but you leave for evenings and nights. PHP provides more structure and access to doctors than IOP.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Inpatient / Residential Treatment",
+                    "text": "<p><strong>What it is:</strong> You stay at a treatment facility 24/7 for days or weeks. Inpatient care is the most intensive level and includes round-the-clock medical and psychiatric oversight.</p><p><strong>Who it's for:</strong> People with severe substance use, medical complications, mental health crises, high relapse risk, unsafe home environments, or previous treatment failures. Inpatient care is also appropriate when detoxification (safely managing withdrawal) is needed.</p><p><strong>What to expect:</strong> You'll have a structured schedule with therapy (individual and group), medical care, psychiatric evaluation and treatment, medication management if needed, meals, and a safe environment. Staff are available around the clock. Length of stay varies—typically a week to a month, depending on your needs and insurance coverage.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Detoxification (Medically Supervised Withdrawal)",
+                    "text": "<p><strong>What it is:</strong> Medical care specifically designed to safely manage withdrawal symptoms when you stop using alcohol or certain drugs. Detox can happen in an inpatient hospital, a dedicated detox facility, or sometimes in an outpatient setting with close medical support.</p><p><strong>Who it's for:</strong> Anyone stopping heavy alcohol use, opioids, or benzodiazepines, where withdrawal can be medically serious or dangerous. Detox is not the same as treatment for substance use—it's a medical safety step, often the first phase before treatment begins.</p><p><strong>What to expect:</strong> Medical staff monitor vital signs, manage withdrawal symptoms (which can include pain, anxiety, nausea, or shakiness), provide medications if appropriate, and prepare you for the next level of care. Detox alone doesn't address the underlying substance use—treatment usually follows.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "Frequently Asked Questions",
+                    "fq_bg_color": "#ffffff",
+                    "fq_item_bg": "#f1f5f9",
+                    "fq_head_color": "header",
+                    "fq_icon_bg": "accent",
+                    "fq_items": [
+                        {
+                            "question": "How do I know which level of care is right for me?",
+                            "answer": "A healthcare provider, addiction medicine doctor, or treatment referral specialist can assess your medical history, current substance use, mental health, living situation, and support system to recommend an appropriate level. You can also call 988 (Suicide & Crisis Lifeline) to talk through your situation with a counselor who can provide guidance. Insurance coverage and facility availability also play a role in the final decision."
+                        },
+                        {
+                            "question": "Will my insurance cover these levels of care?",
+                            "answer": "Most health insurance plans do cover addiction treatment at multiple levels, but coverage varies widely by plan—including which programs are in-network, how long they'll pay for, and what your out-of-pocket costs are. You'll need to verify your own benefits by calling your insurance company or contacting a free referral service like Recovery Dawn, which can help you understand what your plan covers and connect you with options."
+                        },
+                        {
+                            "question": "Can I switch levels of care once I start treatment?",
+                            "answer": "Yes, absolutely. Treatment is flexible and responsive. If you start in outpatient care and realize you need more support, you can move to IOP or PHP. Conversely, if you complete inpatient care, you'll typically transition to a less intensive program for ongoing recovery. Your treatment team can work with you and your insurance to arrange appropriate transitions based on your progress and needs."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "anchor": "closing_cta",
+                    "cb_text": "Not sure what your plan covers? Get a free, confidential benefits check.",
+                    "cb_subtext": "",
+                    "cb_btn_text": "Check Your Coverage",
+                    "cb_btn_url": "/insurance/",
+                    "cb_bg": "header",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Sources & Help",
+                    "text": "<p>For authoritative information and free help, see:</p><ul><li><a href=\"https://findtreatment.gov\" target=\"_blank\" rel=\"noopener nofollow\">FindTreatment.gov</a> — SAMHSA’s national treatment locator</li><li><a href=\"https://www.samhsa.gov/find-help/national-helpline\" target=\"_blank\" rel=\"noopener nofollow\">SAMHSA National Helpline</a> — 1-800-662-4357, free and confidential, 24/7</li><li><a href=\"https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/mental-health-parity\" target=\"_blank\" rel=\"noopener nofollow\">Mental Health Parity and Addiction Equity Act</a> (U.S. Dept. of Labor / HHS)</li><li><a href=\"https://988lifeline.org\" target=\"_blank\" rel=\"noopener nofollow\">988 Suicide &amp; Crisis Lifeline</a></li></ul><p><em>{business} is a free informational and referral service, not a treatment provider or insurer. Coverage varies by plan — always verify your own benefits.</em></p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "seo_title": "Inpatient vs. Outpatient vs. PHP vs. IOP: Levels of Care Explained | {business}",
+                "meta_description": "Addiction treatment comes in different intensities—from outpatient counseling to round-the-clock residential care. Understanding each level of care can help you find the right fit for your situation and insurance benefits.",
+                "primary_keyword": "Inpatient vs. Outpatient vs. PHP vs. IOP: Levels of Care Explained",
+                "secondary_keywords": "",
+                "meta_keywords": "",
+                "og_title": "",
+                "og_description": "",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "",
+                "bc_mid_label": "Guides",
+                "bc_mid_url": "/blog"
+            }
+        },
+        "post_doesinsurancecoverdetox": {
+            "title": "Does Insurance Cover Detox?",
+            "slug": "does-insurance-cover-detox",
+            "status": "published",
+            "published_at": "2026-07-12",
+            "updated_at": "2026-07-12",
+            "author": "Recovery Dawn Editorial Team",
+            "tag": "Treatment",
+            "excerpt": "Many insurance plans cover medically supervised detox, but coverage varies widely. Here's how to understand your benefits and find out what's included in your plan.",
+            "featured_image": "",
+            "featured_image_alt": "",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "p",
+                    "text": "<p>If you or someone you care about is thinking about detox, one of the first questions is often: will insurance cover it? The short answer is that many plans do cover medically supervised detoxification, but what's covered—and how much you'll pay—depends on your specific plan, your health history, and the treatment setting you choose.</p><p>This guide walks you through how insurance typically works with detox, what questions to ask your plan, and how to find out what's available to you. Remember: you don't have to figure this out alone. If you're in crisis or having thoughts of self-harm, please reach out to 988 (call or text, available 24/7).</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "What insurance usually covers for detox",
+                    "text": "<p>Most major insurance plans—including Medicare, Medicaid, and many commercial plans—do offer some coverage for medically supervised detoxification. \"Medically supervised\" means a doctor or medical team is monitoring you as your body adjusts, which is important because withdrawal can be physically serious.</p><p>Insurance typically covers detox in these settings:</p><ul><li>Hospital inpatient detox units</li><li>Dedicated detox facilities</li><li>Residential treatment programs that include detox</li><li>Some outpatient detox programs (depending on your plan)</li></ul><p>The level of coverage—deductibles, copays, length of stay, which facilities are in-network—varies significantly from plan to plan. That's why verifying your own benefits is the crucial next step.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "How to check your coverage",
+                    "text": "<p>To find out what detox services your plan covers, you'll need to contact your insurance carrier directly. You can find the customer service number on your insurance card or the carrier's website. Have your member ID and policy number ready.</p><p>When you call, ask these specific questions:</p><ul><li>Does my plan cover medically supervised detoxification?</li><li>What's my deductible, and have I met it this year?</li><li>What's my copay or coinsurance for inpatient or outpatient detox?</li><li>Are there limits on the length of stay or number of days covered?</li><li>Do I need prior authorization (pre-approval) before starting detox?</li><li>Which detox facilities or providers are in-network?</li><li>What are my out-of-pocket costs?</li></ul><p>Write down the name of the person you speak with and any confirmation numbers—this documentation can be helpful later.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Prior authorization and other requirements",
+                    "text": "<p>Many insurance plans require \"prior authorization\" before covering detox. This means the plan wants to review your situation first to confirm the service is medically necessary. Your doctor or the treatment facility usually handles this paperwork, but it's good to know it may add a day or two to the timeline.</p><p>Some plans also require you to try outpatient care first before covering inpatient detox, or they may limit how many days they'll pay for. These rules vary widely, so asking about them when you verify your benefits is essential.</p><p>If your plan denies coverage or approves only partial coverage, you have the right to appeal. Your doctor or the treatment facility can help advocate for you in that process.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "If you don't have insurance or coverage is limited",
+                    "text": "<p>Not having insurance (or having a plan with limited coverage) doesn't mean you can't access detox. Some options to explore:</p><ul><li>Medicaid programs (if you're eligible) often cover detox with minimal or no out-of-pocket cost</li><li>Free or low-cost community health centers sometimes offer detox services or referrals</li><li>Some treatment facilities offer sliding-scale fees based on income</li><li>Hospital emergency departments must provide emergency detox care regardless of insurance</li><li>SAMHSA's National Helpline (1-800-662-4357, free and confidential) can connect you with local resources</li></ul><p>Recovery Dawn can also help you understand your coverage options and connect you with resources in your area—at no cost to you.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Next steps",
+                    "text": "<p>If you're ready to move forward, here's a practical path:</p><ul><li>Call your insurance company to verify what detox services are covered and what you'll pay</li><li>Contact a treatment facility or your doctor to discuss options and start the referral process</li><li>Ask about prior authorization timelines—knowing how long approval takes helps you plan</li><li>Reach out to Recovery Dawn if you want help understanding your benefits or finding treatment options</li></ul><p>If you're in immediate crisis or having thoughts of self-harm, please call or text 988 right now. It's free, confidential, and available 24/7.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "Frequently Asked Questions",
+                    "fq_bg_color": "#ffffff",
+                    "fq_item_bg": "#f1f5f9",
+                    "fq_head_color": "header",
+                    "fq_icon_bg": "accent",
+                    "fq_items": [
+                        {
+                            "question": "Does my insurance have to cover detox?",
+                            "answer": "Most major insurance plans do cover medically supervised detox, but coverage varies widely. Federal law requires certain plans to cover addiction treatment, but the specific benefits depend on your plan. Contact your carrier to confirm what's covered in your policy."
+                        },
+                        {
+                            "question": "How much will detox cost me out of pocket?",
+                            "answer": "Your out-of-pocket costs depend on your specific plan: deductible, copay, coinsurance, and whether the facility is in-network. These costs vary significantly. Call your insurance company with your member ID to get an estimate for your situation."
+                        },
+                        {
+                            "question": "What if my insurance denies coverage for detox?",
+                            "answer": "You have the right to appeal. Your doctor or the treatment facility can help submit an appeal with clinical justification. If you need help navigating this, Recovery Dawn can point you toward resources, or you can contact SAMHSA's National Helpline at 1-800-662-4357 for guidance."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "anchor": "closing_cta",
+                    "cb_text": "Not sure what your plan covers? Get a free, confidential benefits check.",
+                    "cb_subtext": "",
+                    "cb_btn_text": "Check Your Coverage",
+                    "cb_btn_url": "/insurance/",
+                    "cb_bg": "header",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Sources & Help",
+                    "text": "<p>For authoritative information and free help, see:</p><ul><li><a href=\"https://findtreatment.gov\" target=\"_blank\" rel=\"noopener nofollow\">FindTreatment.gov</a> — SAMHSA’s national treatment locator</li><li><a href=\"https://www.samhsa.gov/find-help/national-helpline\" target=\"_blank\" rel=\"noopener nofollow\">SAMHSA National Helpline</a> — 1-800-662-4357, free and confidential, 24/7</li><li><a href=\"https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/mental-health-parity\" target=\"_blank\" rel=\"noopener nofollow\">Mental Health Parity and Addiction Equity Act</a> (U.S. Dept. of Labor / HHS)</li><li><a href=\"https://988lifeline.org\" target=\"_blank\" rel=\"noopener nofollow\">988 Suicide &amp; Crisis Lifeline</a></li></ul><p><em>{business} is a free informational and referral service, not a treatment provider or insurer. Coverage varies by plan — always verify your own benefits.</em></p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "seo_title": "Does Insurance Cover Detox? | {business}",
+                "meta_description": "Many insurance plans cover medically supervised detox, but coverage varies widely. Here's how to understand your benefits and find out what's included in your plan.",
+                "primary_keyword": "Does Insurance Cover Detox?",
+                "secondary_keywords": "",
+                "meta_keywords": "",
+                "og_title": "",
+                "og_description": "",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "",
+                "bc_mid_label": "Guides",
+                "bc_mid_url": "/blog"
+            }
+        },
+        "post_doesmedicaidcoveraddictiontreatment": {
+            "title": "Does Medicaid Cover Addiction Treatment?",
+            "slug": "does-medicaid-cover-addiction-treatment",
+            "status": "published",
+            "published_at": "2026-07-12",
+            "updated_at": "2026-07-12",
+            "author": "Recovery Dawn Editorial Team",
+            "tag": "Coverage",
+            "excerpt": "Medicaid covers addiction and substance-use treatment in all 50 states, though specific services and costs vary by state and plan. Learn what's typically covered and how to check your benefits.",
+            "featured_image": "",
+            "featured_image_alt": "",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "p",
+                    "text": "<p>If you have Medicaid, you have access to addiction and mental-health treatment. Medicaid is a state and federal program designed to help people with lower incomes afford health care—and that includes treatment for substance use and co-occurring mental-health conditions.</p><p>Every state's Medicaid program covers some form of addiction treatment, but what's covered, how much you pay, and which providers are available depend on your state, your specific plan, and your individual circumstances. This guide explains what's generally covered and how to find out what applies to you.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "What Medicaid typically covers for addiction treatment",
+                    "text": "<p>Most state Medicaid programs cover several levels of care for substance-use treatment:</p><ul><li><strong>Inpatient or residential treatment</strong> — 24-hour medical or therapeutic care, often for acute withdrawal or intensive stabilization</li><li><strong>Outpatient programs</strong> — scheduled appointments at a clinic or facility (standard outpatient, intensive outpatient, or partial hospitalization)</li><li><strong>Medication-assisted treatment (MAT)</strong> — medications like methadone, buprenorphine, or naltrexone, often paired with counseling</li><li><strong>Behavioral therapy and counseling</strong> — individual, group, or family sessions</li><li><strong>Peer support and recovery services</strong> — some states cover support groups and recovery coaching</li><li><strong>Detoxification services</strong> — medical supervision during withdrawal</li></ul><p>Medicaid may also cover mental-health treatment, which is important because substance use and mental-health conditions often co-occur.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Coverage varies significantly by state",
+                    "text": "<p>Medicaid is jointly funded and administered by federal and state governments, so each state sets its own rules. This means coverage, copayments, deductibles, and the network of treatment providers differ where you live.</p><p>Some states cover more expansive services or have lower out-of-pocket costs than others. Some states have carved out specialized substance-use treatment programs within Medicaid. The best way to understand what your state covers is to contact your state Medicaid office or your plan directly.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "How to check your Medicaid coverage for addiction treatment",
+                    "text": "<p><strong>Verify your benefits before seeking treatment.</strong> Here's how:</p><ul><li><strong>Call the number on the back of your Medicaid card.</strong> Ask specifically about addiction treatment, substance-use services, and mental-health coverage. Ask about copayments, deductibles, and pre-authorization requirements.</li><li><strong>Contact your state Medicaid office.</strong> Search online for \"[your state] Medicaid\" to find the phone number and website. They can explain what your plan covers and direct you to in-network providers.</li><li><strong>Ask about in-network providers.</strong> Treatment facilities and counselors that are in-network will cost less than out-of-network providers. Your plan can give you a list.</li><li><strong>Ask if pre-authorization is required.</strong> Some treatments need approval before you start; your provider or Medicaid can help with this.</li></ul><p>Have your Medicaid member ID ready when you call, and take notes on what you learn.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "What you may have to pay",
+                    "text": "<p>Medicaid covers addiction treatment with lower out-of-pocket costs than many other insurance plans, but you may have some costs depending on your state and plan:</p><ul><li><strong>Copayments</strong> — small flat fees per visit (often $0–$5)</li><li><strong>Deductibles</strong> — an amount you pay before coverage kicks in (varies by state)</li><li><strong>Coinsurance</strong> — a percentage of the cost you share (less common in Medicaid addiction treatment)</li></ul><p>The specifics depend entirely on your state and plan. Some states have reduced or eliminated copayments for substance-use treatment to remove barriers to care. <strong>Always verify your exact out-of-pocket costs with your plan before starting treatment</strong>—don't assume coverage based on this article.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "If you need help now",
+                    "text": "<p>If you or someone you know is struggling with substance use and needs immediate support, help is available:</p><ul><li><strong>Call or text 988</strong> (the Suicide and Crisis Lifeline) to speak with someone who can listen and help connect you to local resources.</li><li><strong>Call 911</strong> if there's a medical emergency or risk of harm.</li><li><strong>Visit SAMHSA's National Helpline</strong> (1-800-662-4357, free and confidential, 24/7) to get referrals to local treatment providers and support services.</li></ul><p>You don't need to have insurance figured out before reaching out. Once you connect with a treatment provider or counselor, they can often help you navigate your Medicaid benefits or find resources if coverage is a barrier.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "Frequently Asked Questions",
+                    "fq_bg_color": "#ffffff",
+                    "fq_item_bg": "#f1f5f9",
+                    "fq_head_color": "header",
+                    "fq_icon_bg": "accent",
+                    "fq_items": [
+                        {
+                            "question": "Do I need prior approval before starting Medicaid addiction treatment?",
+                            "answer": "Some treatments require pre-authorization from your Medicaid plan, while others don't. Call the number on your Medicaid card or contact your state Medicaid office to ask. Your treatment provider can also help request authorization if it's needed."
+                        },
+                        {
+                            "question": "Does Medicaid cover medication-assisted treatment?",
+                            "answer": "Most states cover medication-assisted treatment (MAT) including buprenorphine, methadone, and naltrexone through Medicaid, though the specifics vary by state. Check with your plan to confirm coverage and which medications and providers are available to you."
+                        },
+                        {
+                            "question": "What if I'm on a Medicaid managed-care plan instead of fee-for-service?",
+                            "answer": "Managed-care plans are health insurance plans run by private companies but funded by Medicaid. They still must cover addiction treatment, but the specific services, copayments, and in-network providers may differ. Contact your managed-care plan directly to understand your coverage."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "anchor": "closing_cta",
+                    "cb_text": "Not sure what your plan covers? Get a free, confidential benefits check.",
+                    "cb_subtext": "",
+                    "cb_btn_text": "Check Your Coverage",
+                    "cb_btn_url": "/insurance/",
+                    "cb_bg": "header",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Sources & Help",
+                    "text": "<p>For authoritative information and free help, see:</p><ul><li><a href=\"https://findtreatment.gov\" target=\"_blank\" rel=\"noopener nofollow\">FindTreatment.gov</a> — SAMHSA’s national treatment locator</li><li><a href=\"https://www.samhsa.gov/find-help/national-helpline\" target=\"_blank\" rel=\"noopener nofollow\">SAMHSA National Helpline</a> — 1-800-662-4357, free and confidential, 24/7</li><li><a href=\"https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/mental-health-parity\" target=\"_blank\" rel=\"noopener nofollow\">Mental Health Parity and Addiction Equity Act</a> (U.S. Dept. of Labor / HHS)</li><li><a href=\"https://988lifeline.org\" target=\"_blank\" rel=\"noopener nofollow\">988 Suicide &amp; Crisis Lifeline</a></li></ul><p><em>{business} is a free informational and referral service, not a treatment provider or insurer. Coverage varies by plan — always verify your own benefits.</em></p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "seo_title": "Does Medicaid Cover Addiction Treatment? | {business}",
+                "meta_description": "Medicaid covers addiction and substance-use treatment in all 50 states, though specific services and costs vary by state and plan. Learn what's typically covered and how to check your benefits.",
+                "primary_keyword": "Does Medicaid Cover Addiction Treatment?",
+                "secondary_keywords": "",
+                "meta_keywords": "",
+                "og_title": "",
+                "og_description": "",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "",
+                "bc_mid_label": "Guides",
+                "bc_mid_url": "/blog"
+            }
+        },
+        "post_medicationassistedtreatmentcoverage": {
+            "title": "What Is Medication-Assisted Treatment (MAT) and Is It Covered?",
+            "slug": "medication-assisted-treatment-coverage",
+            "status": "published",
+            "published_at": "2026-07-12",
+            "updated_at": "2026-07-12",
+            "author": "Recovery Dawn Editorial Team",
+            "tag": "Treatment",
+            "excerpt": "Medication-assisted treatment (MAT) combines FDA-approved medications with counseling to treat opioid and alcohol use disorders. Most insurance plans cover MAT, but benefits vary—here's what you need to know.",
+            "featured_image": "",
+            "featured_image_alt": "",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "p",
+                    "text": "<p>Medication-assisted treatment (MAT) is an evidence-based approach that uses FDA-approved medications alongside counseling and behavioral health services to treat opioid and alcohol use disorders. If you or someone you care about is considering MAT, it's natural to wonder whether your insurance will cover it—and the good news is that many plans do.</p><p>This guide explains what MAT is, how insurance typically handles coverage, and how to find out what your specific plan will pay for. Remember: coverage details vary by plan, employer, and state, so you'll need to verify your benefits directly with your insurance company or with help from a free resource like Recovery Dawn.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "What is medication-assisted treatment?",
+                    "text": "<p>Medication-assisted treatment combines prescription medications with counseling, therapy, and support services. The medications are FDA-approved and work differently depending on the substance being treated:</p><ul><li><strong>For opioid use disorder:</strong> medications like buprenorphine, methadone, and naltrexone reduce cravings and withdrawal symptoms, making it easier to stay engaged in recovery.</li><li><strong>For alcohol use disorder:</strong> medications like naltrexone, acamprosate, and disulfiram support recovery by reducing cravings or creating aversion to alcohol.</li></ul><p>MAT is typically provided in outpatient clinics, primary care offices, or specialized addiction treatment programs. The medication is one part of a comprehensive plan that usually includes counseling, group therapy, case management, and other support services tailored to your needs.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "How does insurance typically cover MAT?",
+                    "text": "<p>Most health insurance plans—including Medicaid, Medicare, and commercial plans—cover medication-assisted treatment. However, coverage varies widely depending on your specific plan, your employer's benefits design, and your state's regulations.</p><p>Coverage usually includes:</p><ul><li>The prescription medication itself (subject to your plan's formulary and copay/coinsurance)</li><li>Medical visits and provider consultations</li><li>Counseling and behavioral health services</li><li>Lab work and monitoring</li></ul><p>You may have out-of-pocket costs like deductibles, copays, or coinsurance. Some plans require prior authorization before starting MAT, meaning your provider may need to get approval from your insurance company first. A few plans have specific limits on how long they'll cover MAT or which medications they prefer, though many states now have parity laws that require mental health and addiction treatment to be covered as robustly as other medical care.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "How to find out if your insurance covers MAT",
+                    "text": "<p>The most reliable way to understand your coverage is to contact your insurance company directly or review your plan documents. Here's what to do:</p><ul><li><strong>Find your member ID:</strong> Look on your insurance card, your plan's website, or in emails from your insurance company.</li><li><strong>Call your insurance company's member services line:</strong> Ask whether your plan covers MAT, what medications are covered, whether prior authorization is required, and what your copay or coinsurance might be.</li><li><strong>Ask about in-network providers:</strong> Your plan may have a list of addiction treatment providers and prescribers who participate in your network. In-network care typically costs less out-of-pocket.</li><li><strong>Ask about your deductible and out-of-pocket maximum:</strong> This helps you understand your total potential costs.</li></ul><p>If you're unsure how to navigate this or need help understanding your benefits, Recovery Dawn offers free support in reviewing your coverage and connecting you with appropriate treatment options. You can reach out without cost or obligation.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "What if your plan doesn't seem to cover MAT—or you need help now?",
+                    "text": "<p>If your insurance company denies coverage or you don't have insurance, there are still options. Many community health centers, Federally Qualified Health Centers (FQHCs), and public treatment programs offer MAT on a sliding-fee basis based on income. Some states also fund addiction treatment programs directly through their health departments.</p><p>Recovery Dawn can help you understand your coverage options and connect you with treatment programs that may work for your situation and budget.</p><p><strong>If you're in crisis or having thoughts of harming yourself:</strong> Please reach out for immediate support. Call or text 988 (Suicide and Crisis Lifeline), available 24/7, or call 911 for a medical emergency.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Next steps",
+                    "text": "<p>Getting help starts with understanding what's available to you. Here's a practical path forward:</p><ul><li><strong>Gather your insurance information:</strong> Have your member ID and plan name ready.</li><li><strong>Verify your benefits:</strong> Call your insurance company or check your plan documents to ask about MAT coverage.</li><li><strong>Reach out for help:</strong> If verifying benefits feels overwhelming, Recovery Dawn is free and can help you understand your coverage and options.</li><li><strong>Talk to a provider:</strong> Once you know what your insurance covers, your primary care doctor, a mental health professional, or an addiction medicine specialist can discuss whether MAT is right for you.</li></ul><p>Recovery is possible, and getting the right information about coverage is an important first step.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "Frequently Asked Questions",
+                    "fq_bg_color": "#ffffff",
+                    "fq_item_bg": "#f1f5f9",
+                    "fq_head_color": "header",
+                    "fq_icon_bg": "accent",
+                    "fq_items": [
+                        {
+                            "question": "Does my insurance definitely cover MAT?",
+                            "answer": "Most plans do cover medication-assisted treatment, but your specific coverage depends on your individual plan, your employer's benefits design, and your state. You'll need to verify your benefits directly with your insurance company by calling the member services number on your insurance card or checking your plan documents. Recovery Dawn can also help you understand what your plan covers."
+                        },
+                        {
+                            "question": "Will I have to pay out-of-pocket for MAT?",
+                            "answer": "You may have out-of-pocket costs like deductibles, copays, or coinsurance—the exact amount depends on your specific plan. Some people pay little or nothing if they meet their deductible or qualify for cost-sharing reductions. The best way to know is to contact your insurance company and ask about your copay, deductible, and out-of-pocket maximum for addiction treatment services."
+                        },
+                        {
+                            "question": "What if I don't have insurance?",
+                            "answer": "Uninsured individuals can access MAT through community health centers, Federally Qualified Health Centers (FQHCs), public health department programs, and sliding-scale treatment clinics that adjust fees based on income. Recovery Dawn can help you find programs in your area that offer affordable or free care."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "anchor": "closing_cta",
+                    "cb_text": "Not sure what your plan covers? Get a free, confidential benefits check.",
+                    "cb_subtext": "",
+                    "cb_btn_text": "Check Your Coverage",
+                    "cb_btn_url": "/insurance/",
+                    "cb_bg": "header",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Sources & Help",
+                    "text": "<p>For authoritative information and free help, see:</p><ul><li><a href=\"https://findtreatment.gov\" target=\"_blank\" rel=\"noopener nofollow\">FindTreatment.gov</a> — SAMHSA’s national treatment locator</li><li><a href=\"https://www.samhsa.gov/find-help/national-helpline\" target=\"_blank\" rel=\"noopener nofollow\">SAMHSA National Helpline</a> — 1-800-662-4357, free and confidential, 24/7</li><li><a href=\"https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/mental-health-parity\" target=\"_blank\" rel=\"noopener nofollow\">Mental Health Parity and Addiction Equity Act</a> (U.S. Dept. of Labor / HHS)</li><li><a href=\"https://988lifeline.org\" target=\"_blank\" rel=\"noopener nofollow\">988 Suicide &amp; Crisis Lifeline</a></li></ul><p><em>{business} is a free informational and referral service, not a treatment provider or insurer. Coverage varies by plan — always verify your own benefits.</em></p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "seo_title": "What Is Medication-Assisted Treatment (MAT) and Is It Covered? | {business}",
+                "meta_description": "Medication-assisted treatment (MAT) combines FDA-approved medications with counseling to treat opioid and alcohol use disorders. Most insurance plans cover MAT, but benefits vary—here's what you need to know.",
+                "primary_keyword": "What Is Medication-Assisted Treatment (MAT) and Is It Covered?",
+                "secondary_keywords": "",
+                "meta_keywords": "",
+                "og_title": "",
+                "og_description": "",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "",
+                "bc_mid_label": "Guides",
+                "bc_mid_url": "/blog"
+            }
+        },
+        "post_howtopayforrehabwithoutinsurance": {
+            "title": "How to Pay for Rehab Without Insurance",
+            "slug": "how-to-pay-for-rehab-without-insurance",
+            "status": "published",
+            "published_at": "2026-07-12",
+            "updated_at": "2026-07-12",
+            "author": "Recovery Dawn Editorial Team",
+            "tag": "Costs",
+            "excerpt": "Treatment is possible without insurance. Explore Medicaid, sliding-scale clinics, state programs, payment plans, and employer benefits to find affordable options.",
+            "featured_image": "",
+            "featured_image_alt": "",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "p",
+                    "text": "<p>If you don't have health insurance, or your insurance doesn't cover addiction and mental-health treatment, paying for care can feel overwhelming. The good news: treatment options exist at many price points, and you have more resources available than you might think.</p><p>This guide walks you through common ways people pay for treatment without traditional insurance coverage. Every situation is different, so we encourage you to explore the options that fit your circumstances—and reach out to your local treatment facilities directly to ask about their specific programs and costs.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Medicaid and State Health Programs",
+                    "text": "<p>Medicaid is a joint federal-state program that covers low-income individuals and families. In many states, Medicaid covers addiction and mental-health treatment, including inpatient rehab, outpatient counseling, and medication-assisted treatment. Eligibility and covered services vary by state.</p><p>If you think you may qualify, contact your state's Medicaid office or visit healthcare.gov to apply. Many treatment centers can help you understand whether Medicaid might cover your care once you've determined eligibility. Some states also offer uninsured programs specifically for addiction treatment—ask your local health department or substance-use agency what's available in your area.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Sliding-Scale and Free Clinics",
+                    "text": "<p>Many community mental-health centers and addiction-treatment programs offer sliding-scale fees, meaning what you pay is based on your income. Others offer free or low-cost services to uninsured and underinsured people. These clinics are often run by nonprofits or government agencies.</p><p>To find sliding-scale options near you, contact your county health department, search SAMHSA's National Helpline (call 1-800-662-4357, free and confidential, 24/7), or ask your primary-care doctor for referrals. When you call a treatment center, ask directly: \"Do you offer sliding-scale fees or free services for uninsured patients?\" This is a common question, and staff can explain your options.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Payment Plans and Financing",
+                    "text": "<p>Some treatment facilities allow you to pay for care over time through an in-house payment plan. Others may accept third-party medical financing (like care-credit or healthcare loans), though these typically involve interest and require a credit check.</p><p>Before entering treatment, ask the facility's admissions or financial-counseling team whether they offer payment plans. Be honest about your budget so they can help you understand what arrangements might work. Payment flexibility is worth asking about—it's a normal part of how facilities help people access care.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Employee Assistance Programs (EAPs)",
+                    "text": "<p>If you're employed, your employer may offer an Employee Assistance Program (EAP), which often includes free or low-cost counseling and referrals for addiction and mental-health treatment. EAPs are confidential and don't usually show up on your insurance bill or employer records.</p><p>Check your employee handbook, benefits website, or call your HR department to ask if your workplace offers an EAP. Even if you don't have health insurance through work, you may still have access to this benefit. Some EAPs also offer services to family members.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Government and Community Resources",
+                    "text": "<p>Many states, counties, and cities fund substance-use and mental-health treatment directly through their health departments or substance-abuse agencies. These programs are often free or low-cost for residents. You can also find support groups (like AA, NA, and SMART Recovery) that are free or ask for voluntary donations.</p><p>Start by contacting your state's substance-abuse or mental-health authority, or call SAMHSA's National Helpline at 1-800-662-4357 (free, confidential, 24/7). If you're in crisis, call or text 988 (Suicide and Crisis Lifeline) or go to your nearest emergency room. These services can connect you with local resources and help you understand what programs exist in your community.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "Frequently Asked Questions",
+                    "fq_bg_color": "#ffffff",
+                    "fq_item_bg": "#f1f5f9",
+                    "fq_head_color": "header",
+                    "fq_icon_bg": "accent",
+                    "fq_items": [
+                        {
+                            "question": "Will treatment centers work with me if I can't afford their full price?",
+                            "answer": "Yes—many facilities expect that cost is a barrier and have systems in place to help. Call their financial-counseling or admissions department and explain your situation. Ask about sliding-scale fees, payment plans, Medicaid, or free/low-cost alternatives they recommend. Being honest about your budget helps them find real options for you."
+                        },
+                        {
+                            "question": "How do I know if I qualify for Medicaid in my state?",
+                            "answer": "Medicaid eligibility is based on income and varies by state. Visit healthcare.gov or contact your state Medicaid office to learn the income limits and application process where you live. Many treatment facilities can also help you understand whether you may qualify once you've provided some basic information."
+                        },
+                        {
+                            "question": "What should I do right now if I'm in crisis and can't afford treatment immediately?",
+                            "answer": "Call or text 988 (Suicide and Crisis Lifeline) or go to your nearest emergency room. These services are free and available 24/7. Crisis support can connect you with local resources and help you understand next steps—you don't need insurance or money to reach out. If you're unsafe, call 911."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "anchor": "closing_cta",
+                    "cb_text": "Not sure what your plan covers? Get a free, confidential benefits check.",
+                    "cb_subtext": "",
+                    "cb_btn_text": "Check Your Coverage",
+                    "cb_btn_url": "/insurance/",
+                    "cb_bg": "header",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Sources & Help",
+                    "text": "<p>For authoritative information and free help, see:</p><ul><li><a href=\"https://findtreatment.gov\" target=\"_blank\" rel=\"noopener nofollow\">FindTreatment.gov</a> — SAMHSA’s national treatment locator</li><li><a href=\"https://www.samhsa.gov/find-help/national-helpline\" target=\"_blank\" rel=\"noopener nofollow\">SAMHSA National Helpline</a> — 1-800-662-4357, free and confidential, 24/7</li><li><a href=\"https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/mental-health-parity\" target=\"_blank\" rel=\"noopener nofollow\">Mental Health Parity and Addiction Equity Act</a> (U.S. Dept. of Labor / HHS)</li><li><a href=\"https://988lifeline.org\" target=\"_blank\" rel=\"noopener nofollow\">988 Suicide &amp; Crisis Lifeline</a></li></ul><p><em>{business} is a free informational and referral service, not a treatment provider or insurer. Coverage varies by plan — always verify your own benefits.</em></p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "seo_title": "How to Pay for Rehab Without Insurance | {business}",
+                "meta_description": "Treatment is possible without insurance. Explore Medicaid, sliding-scale clinics, state programs, payment plans, and employer benefits to find affordable options.",
+                "primary_keyword": "How to Pay for Rehab Without Insurance",
+                "secondary_keywords": "",
+                "meta_keywords": "",
+                "og_title": "",
+                "og_description": "",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "",
+                "bc_mid_label": "Guides",
+                "bc_mid_url": "/blog"
+            }
+        },
+        "post_mentalhealthparitylaw": {
+            "title": "What Is the Mental Health Parity Law?",
+            "slug": "mental-health-parity-law",
+            "status": "published",
+            "published_at": "2026-07-12",
+            "updated_at": "2026-07-12",
+            "author": "Recovery Dawn Editorial Team",
+            "tag": "Coverage",
+            "excerpt": "The Mental Health Parity Law requires insurance plans to cover mental health and addiction treatment as fairly as medical care. Learn what this means for your benefits.",
+            "featured_image": "",
+            "featured_image_alt": "",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "p",
+                    "text": "<p>If you've ever felt like your insurance treated mental health differently than physical health, you're not alone—and there's a federal law designed to change that. The Mental Health Parity and Addiction Equity Act (often called the Parity Law) requires most health insurance plans to cover addiction and mental health treatment on equal terms with medical and surgical care.</p><p>This doesn't mean your plan covers everything, but it does mean your insurer can't use stricter rules, higher costs, or tighter limits just because you're seeking treatment for addiction or mental illness. Understanding this law can help you know what to expect when you reach out for help.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "What Does Parity Actually Mean?",
+                    "text": "<p>Parity means \"equal.\" The Parity Law says that if your insurance plan covers medical care (like surgery, diabetes treatment, or physical therapy), it must cover mental health and addiction treatment in a way that's just as accessible and affordable.</p><p>In practice, this means your plan cannot:</p><ul><li>Require more approvals or wait for mental health care than for other medical care</li><li>Set visit limits or coverage duration limits that are stricter for mental health than for medical care</li><li>Charge you higher out-of-pocket costs (copays, coinsurance, or deductibles) specifically because you're getting mental health or addiction treatment</li><li>Create barriers to treatment, like requiring you to try one type of therapy before covering another, unless those same rules apply to medical care</li></ul><p>The goal is to remove obstacles so you can get the help you need without being penalized for seeking it.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "What Types of Coverage Does It Cover?",
+                    "text": "<p>The Parity Law applies to a wide range of mental health and addiction services, including:</p><ul><li>Outpatient therapy and counseling</li><li>Inpatient or residential treatment</li><li>Intensive outpatient programs (IOP)</li><li>Medication-assisted treatment (MAT)</li><li>Psychiatric medication and evaluation</li><li>Detoxification and withdrawal management</li><li>Support services and case management</li></ul><p>Your specific plan's coverage still depends on what services are included in your policy. The Parity Law ensures that if your plan covers mental health care at all, it must do so fairly—but it doesn't require plans to cover every possible treatment. That's why verifying your own benefits is so important.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Who Is Covered by This Law?",
+                    "text": "<p>The Parity Law applies to most private health insurance plans, including employer-sponsored plans and plans sold on the health insurance marketplace. It also applies to some Medicaid and Medicare plans, though the rules vary by state and plan type.</p><p>If you're on a very small employer plan (fewer than 50 employees), there may be limited exceptions. If you're uninsured or on a plan that doesn't technically cover mental health care, the Parity Law doesn't create new coverage—but it does mean that if your plan covers any mental health services, those services must be treated fairly.</p><p>Not sure if your plan is covered? When you call to verify your benefits, you can ask whether your insurance follows the Mental Health Parity Law.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "How Does This Affect Your Out-of-Pocket Costs?",
+                    "text": "<p>The Parity Law requires that your costs for mental health and addiction treatment be comparable to your costs for other medical care. If your plan has a copay for visiting a primary care doctor, your copay for a therapy session should follow a similar pattern. If you have a deductible, it should apply equally to both medical and mental health care.</p><p>That said, your actual out-of-pocket costs depend on your specific plan—and plans vary widely. Some plans have higher costs overall; some have lower ones. The Parity Law prevents your plan from charging you more simply because you're seeking mental health care, but it doesn't determine your plan's cost structure.</p><p>To understand your actual costs, contact your insurance company directly and ask about coverage for the specific treatment type you're considering. Be prepared to verify your benefits before starting care.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "What If Your Claim Is Denied?",
+                    "text": "<p>If your insurance denies coverage for mental health or addiction treatment, and you believe the denial violates the Parity Law, you have options. You can ask your insurer for a written explanation of why the claim was denied, and you can file an appeal. Many plans have multiple levels of appeal, and some allow external review by an independent third party.</p><p>You can also file a complaint with your state's Department of Insurance or with the U.S. Department of Labor if your plan is employer-sponsored. Recovery Dawn can provide information about the appeals process and resources in your state, but we're not insurance brokers or legal advisors—if you need detailed help with a complex denial, consider reaching out to a patient advocate or legal aid organization.</p><p>If you're in crisis and need immediate support while navigating these steps, call or text 988 (Suicide and Crisis Lifeline) or call 911.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "Frequently Asked Questions",
+                    "fq_bg_color": "#ffffff",
+                    "fq_item_bg": "#f1f5f9",
+                    "fq_head_color": "header",
+                    "fq_icon_bg": "accent",
+                    "fq_items": [
+                        {
+                            "question": "Does the Parity Law mean my insurance covers everything?",
+                            "answer": "No. The Parity Law ensures that mental health and addiction treatment are covered fairly—not that everything is covered. Your plan still gets to decide which services it includes. But if your plan covers certain services, it must cover mental health and addiction treatment on equal terms."
+                        },
+                        {
+                            "question": "Can my insurance company require prior approval for mental health treatment?",
+                            "answer": "Your insurer can require prior approval (also called pre-authorization), but only if they use the same standard for mental health as they do for comparable medical care. They can't impose stricter approval rules just because you're seeking treatment for addiction or mental illness."
+                        },
+                        {
+                            "question": "How do I find out if my plan follows the Parity Law?",
+                            "answer": "Most major plans do, but the best way to confirm is to call your insurance company directly and ask about coverage for the specific treatment you're considering. You can also ask whether your plan complies with the Mental Health Parity and Addiction Equity Act. Recovery Dawn can help you find your plan's number and prepare for that call."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "anchor": "closing_cta",
+                    "cb_text": "Not sure what your plan covers? Get a free, confidential benefits check.",
+                    "cb_subtext": "",
+                    "cb_btn_text": "Check Your Coverage",
+                    "cb_btn_url": "/insurance/",
+                    "cb_bg": "header",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Sources & Help",
+                    "text": "<p>For authoritative information and free help, see:</p><ul><li><a href=\"https://findtreatment.gov\" target=\"_blank\" rel=\"noopener nofollow\">FindTreatment.gov</a> — SAMHSA’s national treatment locator</li><li><a href=\"https://www.samhsa.gov/find-help/national-helpline\" target=\"_blank\" rel=\"noopener nofollow\">SAMHSA National Helpline</a> — 1-800-662-4357, free and confidential, 24/7</li><li><a href=\"https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/mental-health-parity\" target=\"_blank\" rel=\"noopener nofollow\">Mental Health Parity and Addiction Equity Act</a> (U.S. Dept. of Labor / HHS)</li><li><a href=\"https://988lifeline.org\" target=\"_blank\" rel=\"noopener nofollow\">988 Suicide &amp; Crisis Lifeline</a></li></ul><p><em>{business} is a free informational and referral service, not a treatment provider or insurer. Coverage varies by plan — always verify your own benefits.</em></p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "seo_title": "What Is the Mental Health Parity Law? | {business}",
+                "meta_description": "The Mental Health Parity Law requires insurance plans to cover mental health and addiction treatment as fairly as medical care. Learn what this means for your benefits.",
+                "primary_keyword": "What Is the Mental Health Parity Law?",
+                "secondary_keywords": "",
+                "meta_keywords": "",
+                "og_title": "",
+                "og_description": "",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "",
+                "bc_mid_label": "Guides",
+                "bc_mid_url": "/blog"
+            }
+        },
+        "post_howmuchdoesrehabcostwithinsurance": {
+            "title": "How Much Does Rehab Cost With Insurance?",
+            "slug": "how-much-does-rehab-cost-with-insurance",
+            "status": "published",
+            "published_at": "2026-07-12",
+            "updated_at": "2026-07-12",
+            "author": "Recovery Dawn Editorial Team",
+            "tag": "Costs",
+            "excerpt": "Rehab costs with insurance depend on your plan's deductible, copay, coinsurance, and whether a facility is in-network. We explain what affects your out-of-pocket costs and how to verify your benefits.",
+            "featured_image": "",
+            "featured_image_alt": "",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "p",
+                    "text": "<p>If you're considering rehab and have health insurance, you're probably wondering: what will this actually cost me? The answer isn't the same for everyone—your out-of-pocket costs depend on your specific plan, the type of treatment you need, and where you go for care. Understanding how your insurance works is an important first step toward getting help.</p><p>Recovery Dawn is a free informational and referral service. We can't tell you exactly what your plan will pay or what you'll owe—that requires looking at your actual benefits. But we can walk you through the factors that affect rehab costs with insurance, and show you how to find those answers for yourself.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "What Your Insurance May Cover",
+                    "text": "<p>Most health insurance plans include some coverage for addiction and mental-health treatment, including residential (inpatient) rehab, outpatient programs, and related services. But \"coverage\" doesn't mean free—it means your insurance company will pay part of the bill, and you'll likely pay part of it too.</p><p>The amount your plan covers and what you owe depends on several factors built into your specific plan.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "The Main Costs That Come Out of Your Pocket",
+                    "text": "<p><strong>Deductible:</strong> This is the amount you pay out-of-pocket before your insurance kicks in. Some plans have higher deductibles than others. If your deductible hasn't been met yet this year, you may need to pay some of it before your plan starts covering rehab.</p><p><strong>Copay:</strong> A fixed amount you pay per visit or per day of care. For example, you might have a copay for each therapy session or each night in a facility.</p><p><strong>Coinsurance:</strong> A percentage of the cost you pay after your deductible is met. Your plan might cover most of the cost, but you pay a percentage of what remains.</p><p><strong>Out-of-pocket maximum:</strong> The most you'll have to pay in a year. Once you reach this limit, your plan covers 100% of covered services for the rest of that year.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "In-Network vs. Out-of-Network",
+                    "text": "<p>Facilities that are <em>in-network</em> with your insurance plan have agreed to your plan's rates, and you'll usually pay less out-of-pocket. Out-of-network facilities may cost significantly more, and your insurance may cover a smaller percentage of the bill.</p><p>If you find a treatment program you want to use, ask whether they're in-network with your plan. If you don't have a specific facility in mind yet, we can help you explore options and verify coverage.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Other Things That Affect Cost",
+                    "text": "<ul><li><strong>Length of stay:</strong> Longer programs generally cost more, though your insurance may set limits on how many days are covered.</li><li><strong>Level of care:</strong> Residential inpatient treatment is typically more expensive than outpatient programs, but your plan may cover both.</li><li><strong>Additional services:</strong> Some costs—like medication, psychiatric evaluations, or specialized therapies—may be covered differently or have their own copays or deductibles.</li><li><strong>Your plan type:</strong> HMO, PPO, EPO, and other plan types have different rules about what's covered and how much flexibility you have in choosing providers.</li></ul>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "How to Find Out What Your Plan Will Pay",
+                    "text": "<p>The best way to know your actual out-of-pocket costs is to contact your insurance company directly or check your plan documents. You can usually find customer service contact information on your insurance card.</p><p>When you call, ask about:</p><ul><li>Your deductible and whether it's been met this year</li><li>Copay and coinsurance amounts for rehab or mental-health treatment</li><li>Your out-of-pocket maximum</li><li>Whether specific facilities or treatment programs are in-network</li><li>How many days of inpatient treatment are covered per year</li><li>Whether you need preauthorization before starting treatment</li></ul><p>Having these details before you choose a treatment program helps you plan and avoid surprises. Recovery Dawn can also help you understand your benefits and connect you with treatment options that work for your plan and situation.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "Frequently Asked Questions",
+                    "fq_bg_color": "#ffffff",
+                    "fq_item_bg": "#f1f5f9",
+                    "fq_head_color": "header",
+                    "fq_icon_bg": "accent",
+                    "fq_items": [
+                        {
+                            "question": "Does insurance always cover rehab?",
+                            "answer": "Most health insurance plans include some coverage for addiction and mental-health treatment, but coverage varies by plan. To know whether your specific plan covers rehab, you'll need to contact your insurance company or review your plan documents. Recovery Dawn can help you understand how to check."
+                        },
+                        {
+                            "question": "What if I can't afford my out-of-pocket costs?",
+                            "answer": "Some treatment programs offer financial assistance, payment plans, or sliding-scale fees. When you're exploring options, ask about these possibilities. If you're in crisis and need immediate support, you can call or text 988 to speak with someone anytime, and they can help connect you with resources in your area."
+                        },
+                        {
+                            "question": "Can I use my insurance to pay for treatment I start right away?",
+                            "answer": "In many cases, yes—insurance can cover treatment that starts immediately. However, some plans require preauthorization before you begin, so it's best to contact your insurance company as soon as possible if you're ready to start. Recovery Dawn can help you navigate this quickly."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "anchor": "closing_cta",
+                    "cb_text": "Not sure what your plan covers? Get a free, confidential benefits check.",
+                    "cb_subtext": "",
+                    "cb_btn_text": "Check Your Coverage",
+                    "cb_btn_url": "/insurance/",
+                    "cb_bg": "header",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Sources & Help",
+                    "text": "<p>For authoritative information and free help, see:</p><ul><li><a href=\"https://findtreatment.gov\" target=\"_blank\" rel=\"noopener nofollow\">FindTreatment.gov</a> — SAMHSA’s national treatment locator</li><li><a href=\"https://www.samhsa.gov/find-help/national-helpline\" target=\"_blank\" rel=\"noopener nofollow\">SAMHSA National Helpline</a> — 1-800-662-4357, free and confidential, 24/7</li><li><a href=\"https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/mental-health-parity\" target=\"_blank\" rel=\"noopener nofollow\">Mental Health Parity and Addiction Equity Act</a> (U.S. Dept. of Labor / HHS)</li><li><a href=\"https://988lifeline.org\" target=\"_blank\" rel=\"noopener nofollow\">988 Suicide &amp; Crisis Lifeline</a></li></ul><p><em>{business} is a free informational and referral service, not a treatment provider or insurer. Coverage varies by plan — always verify your own benefits.</em></p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "seo_title": "How Much Does Rehab Cost With Insurance? | {business}",
+                "meta_description": "Rehab costs with insurance depend on your plan's deductible, copay, coinsurance, and whether a facility is in-network. We explain what affects your out-of-pocket costs and how to verify your benefits.",
+                "primary_keyword": "How Much Does Rehab Cost With Insurance?",
+                "secondary_keywords": "",
+                "meta_keywords": "",
+                "og_title": "",
+                "og_description": "",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "",
+                "bc_mid_label": "Guides",
+                "bc_mid_url": "/blog"
+            }
+        },
+        "post_innetworkvsoutofnetworkrehab": {
+            "title": "In-Network vs. Out-of-Network Rehab: What It Means for You",
+            "slug": "in-network-vs-out-of-network-rehab",
+            "status": "published",
+            "published_at": "2026-07-12",
+            "updated_at": "2026-07-12",
+            "author": "Recovery Dawn Editorial Team",
+            "tag": "Coverage",
+            "excerpt": "In-network treatment providers have negotiated rates with your insurance plan, usually lowering your out-of-pocket costs. Out-of-network providers may offer more choices but typically cost significantly more. Understanding the difference helps you find care that fits your budget and needs.",
+            "featured_image": "",
+            "featured_image_alt": "",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "p",
+                    "text": "<p>When you're looking for addiction or mental-health treatment, one of the first questions your insurance plan will raise is whether a facility or provider is \"in-network\" or \"out-of-network.\" This distinction affects how much you'll pay—and sometimes, what your plan will cover at all. Knowing the difference empowers you to make informed decisions about your care without being blindsided by costs.</p><p>Recovery Dawn is here to help you understand your benefits and connect you with treatment options that work for your situation. This article explains in-network versus out-of-network treatment in plain language, so you can advocate for yourself.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "What Does \"In-Network\" Mean?",
+                    "text": "<p>In-network providers have a contract with your insurance plan. That contract means they've agreed to accept your insurance and charge negotiated rates. In practical terms: your insurance company has already worked out a deal with that provider on pricing.</p><p>When you use an in-network provider, your insurance typically covers a larger portion of the cost, and your out-of-pocket expense is usually lower. You might owe a copay, coinsurance (a percentage of the bill), or both—but the total amount is often predictable and manageable.</p><p>Most insurance plans encourage in-network use by covering it more generously than out-of-network care.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "What Does \"Out-of-Network\" Mean?",
+                    "text": "<p>Out-of-network providers do not have a contract with your insurance plan. They set their own rates, and your insurance may cover only a small portion—or sometimes nothing at all. You could end up responsible for a much larger share of the bill.</p><p>Even when insurance does cover out-of-network care, you typically pay more out-of-pocket than you would for in-network treatment. Deductibles, coinsurance, and copays often apply differently for out-of-network providers, sometimes less favorably.</p><p>That said, out-of-network facilities may offer specialized programs, locations, or philosophies that matter to your recovery. The higher cost is a real consideration, but it's not always a dealbreaker if that's the right fit for you.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "How This Affects Your Costs",
+                    "text": "<p>Your out-of-pocket cost depends on your specific insurance plan and how much treatment you need. In-network providers generally mean lower costs because of negotiated rates, but you'll still owe something based on your plan's rules.</p><p>Out-of-network care can be significantly more expensive because there's no agreed-upon rate. Your plan may only cover a small percentage, leaving you to pay the rest. You may also face higher deductibles or different coinsurance rules.</p><p><strong>The key point:</strong> always verify your own benefits before choosing a provider. Call your insurance company or check your plan documents to learn what your coverage looks like for both in-network and out-of-network treatment. Costs vary widely from plan to plan, and a representative can give you specific numbers for your situation.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "How to Find In-Network Providers",
+                    "text": "<p>Your insurance company's website usually has a provider directory or search tool. You can search for addiction treatment, mental-health facilities, or rehabilitation centers in your area and filter by in-network status. Calling your plan's customer-service number is another reliable way to get a list of in-network providers that offer the type of care you need.</p><p>Recovery Dawn can help you understand your benefits and point you toward treatment options. We're a free informational and referral service—we don't treat patients or manage insurance ourselves, but we can help you navigate the process and connect you with resources in your area.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Making Your Decision",
+                    "text": "<p>Ideally, you'll find in-network treatment that meets your needs and fits your budget. But recovery looks different for everyone. If an out-of-network provider offers specialized care, a better fit, or treatment at a location that works for you, the higher cost may be worth it—as long as you understand what you'll pay and can plan accordingly.</p><p>Don't let cost alone stop you from seeking help. If you're in crisis or having thoughts of suicide, call or text <strong>988</strong> (Suicide & Crisis Lifeline) anytime, day or night. It's free and confidential. For medical emergencies, call 911.</p><p>Start by verifying your benefits with your insurance company, then contact Recovery Dawn. We're here to help you make sense of your coverage and find treatment that works for you.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "faq_two_col",
+                    "fq_heading": "Frequently Asked Questions",
+                    "fq_bg_color": "#ffffff",
+                    "fq_item_bg": "#f1f5f9",
+                    "fq_head_color": "header",
+                    "fq_icon_bg": "accent",
+                    "fq_items": [
+                        {
+                            "question": "Will my insurance cover out-of-network treatment?",
+                            "answer": "Some plans do offer out-of-network coverage, but usually at a lower rate than in-network care. Coverage depends entirely on your specific plan. Contact your insurance company to ask about out-of-network benefits before you commit to out-of-network treatment."
+                        },
+                        {
+                            "question": "What if I can't find in-network treatment that fits my needs?",
+                            "answer": "Talk to your insurance company about your options. Some plans allow exceptions or pre-authorizations for out-of-network care if in-network options don't meet your clinical needs. You can also reach out to Recovery Dawn for guidance on navigating your benefits and finding treatment that works for you."
+                        },
+                        {
+                            "question": "How do I know what I'll actually pay out-of-pocket?",
+                            "answer": "Call your insurance plan and ask them to estimate your out-of-pocket costs for the specific treatment (inpatient, outpatient, etc.) at a specific provider. They can tell you what your deductible, copay, and coinsurance will be. Get this in writing if possible so there's no confusion later."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "anchor": "closing_cta",
+                    "cb_text": "Not sure what your plan covers? Get a free, confidential benefits check.",
+                    "cb_subtext": "",
+                    "cb_btn_text": "Check Your Coverage",
+                    "cb_btn_url": "/insurance/",
+                    "cb_bg": "header",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Sources & Help",
+                    "text": "<p>For authoritative information and free help, see:</p><ul><li><a href=\"https://findtreatment.gov\" target=\"_blank\" rel=\"noopener nofollow\">FindTreatment.gov</a> — SAMHSA’s national treatment locator</li><li><a href=\"https://www.samhsa.gov/find-help/national-helpline\" target=\"_blank\" rel=\"noopener nofollow\">SAMHSA National Helpline</a> — 1-800-662-4357, free and confidential, 24/7</li><li><a href=\"https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/mental-health-parity\" target=\"_blank\" rel=\"noopener nofollow\">Mental Health Parity and Addiction Equity Act</a> (U.S. Dept. of Labor / HHS)</li><li><a href=\"https://988lifeline.org\" target=\"_blank\" rel=\"noopener nofollow\">988 Suicide &amp; Crisis Lifeline</a></li></ul><p><em>{business} is a free informational and referral service, not a treatment provider or insurer. Coverage varies by plan — always verify your own benefits.</em></p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "seo_title": "In-Network vs. Out-of-Network Rehab: What It Means for You | {business}",
+                "meta_description": "In-network treatment providers have negotiated rates with your insurance plan, usually lowering your out-of-pocket costs. Out-of-network providers may offer more choices but typically cost significantly more. Understanding the difference helps you find care that fits your budget and needs.",
+                "primary_keyword": "In-Network vs. Out-of-Network Rehab: What It Means for You",
+                "secondary_keywords": "",
+                "meta_keywords": "",
+                "og_title": "",
+                "og_description": "",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "",
+                "bc_mid_label": "Guides",
+                "bc_mid_url": "/blog"
+            }
+        }
+    },
     "blog_settings": {
         "blog_heading": "Recovery & Insurance Insights",
         "blog_intro": "Guidance on using your insurance for addiction treatment, recovery resources, and coverage tips.",
