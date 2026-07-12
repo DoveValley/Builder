@@ -295,5 +295,60 @@
         "pages_skipped": 0,
         "pages_backed_up": 30,
         "errors": []
+    },
+    {
+        "run_id": "052fc1ccef0d9d88",
+        "started_at": "2026-07-12T00:50:28+00:00",
+        "finished_at": "2026-07-12T00:50:28+00:00",
+        "duration_ms": 1,
+        "dry_run": false,
+        "options": {
+            "template_ids": [
+                "tpl_flood_damage_restoration"
+            ],
+            "city_ids": null,
+            "tag_filter": "",
+            "force_locked": false
+        },
+        "pages_written": 1,
+        "pages_skipped": 0,
+        "pages_backed_up": 0,
+        "errors": []
+    },
+    {
+        "run_id": "4e3163dce3ba00da",
+        "started_at": "2026-07-12T01:05:23+00:00",
+        "finished_at": "2026-07-12T01:05:23+00:00",
+        "duration_ms": 6,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": null,
+            "tag_filter": "",
+            "force_locked": false
+        },
+        "pages_written": 26,
+        "pages_skipped": 0,
+        "pages_backed_up": 0,
+        "errors": []
+    },
+    {
+        "run_id": "dede722666ebb5e2",
+        "started_at": "2026-07-12T05:02:32+00:00",
+        "finished_at": "2026-07-12T05:02:32+00:00",
+        "duration_ms": 4,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": [
+                "city_lufkin_tx"
+            ],
+            "tag_filter": "",
+            "force_locked": false
+        },
+        "pages_written": 13,
+        "pages_skipped": 0,
+        "pages_backed_up": 0,
+        "errors": []
     }
 ]
