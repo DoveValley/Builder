@@ -40,7 +40,7 @@ if (defined('ACTIVE_SITE_ID') && ACTIVE_SITE_ID === RECOVERY_SITE_ID) {
     add_hook('route_request', function (string $path, array $data): ?array {
         $match = recovery_match_route($path);
         if ($match === null) return null;            // not a matrix URL — let core handle it
-        return recovery_render_route($match, $data);
+        return recovery_render_route($match, $data, $path);
     });
 
     // {company}* tokens for mapped templates. Reads the per-request entity context

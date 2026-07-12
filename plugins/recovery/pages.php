@@ -20,7 +20,7 @@
 
 require_once __DIR__ . '/data.php';
 
-function recovery_render_route(array $m, array $data): array {
+function recovery_render_route(array $m, array $data, string $path = ''): array {
     // 1. Resolve the matched entity → site_vars overrides + token context.
     $sv  = [];
     $ctx = ['type' => $m['type']];
@@ -63,6 +63,14 @@ function recovery_render_route(array $m, array $data): array {
     } else {
         $payload = _recovery_placeholder_for($m);
         $payload['site_vars'] = $sv;
+    }
+
+    // Canonical URL: the plugin renders before page.php sets $slug, so the site-template's
+    // lb_url-based canonical can't derive here. Set it explicitly from the request path;
+    // site-template resolves {website} and forces a trailing slash.
+    $payload['seo'] = is_array($payload['seo'] ?? null) ? $payload['seo'] : [];
+    if (trim($path, '/') !== '') {
+        $payload['seo']['canonical_url'] = '{website}/' . trim($path, '/') . '/';
     }
 
     // 3. Append the internal-link mesh (SEO silo: hubs → entities, entities → up).
