@@ -321,6 +321,18 @@
                 "cb_bg": "header",
                 "cb_text_color": "#ffffff",
                 "cb_padding": "normal"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "{state} Area Map",
+                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={state}&z=6&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_info_heading": "Addiction Treatment in {state}",
+                "mi_info_text": "<p>{business} helps {state} residents find drug and alcohol rehabs that accept their insurance — detox, inpatient, and outpatient — across the state. We verify your benefits for free and connect you with covered treatment. Call {phone} for a confidential check, no obligation.</p>",
+                "mi_info_photo": "",
+                "mi_info_alt": "",
+                "mi_info_credit": "",
+                "mi_head_color": "header",
+                "mi_map_side": "left"
             }
         ],
         "seo": {
@@ -431,6 +443,18 @@
                 "cb_bg": "header",
                 "cb_text_color": "#ffffff",
                 "cb_padding": "normal"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "{city_state} Area Map",
+                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_info_heading": "Addiction Treatment in {city_state}",
+                "mi_info_text": "<p>{business} helps people in {city_state} find drug and alcohol rehabs that accept their health insurance — detox, inpatient, and outpatient. We verify your benefits for free and connect you with covered treatment near {city}. Call {phone} for a confidential check, no obligation.</p>",
+                "mi_info_photo": "{city_image}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_head_color": "header",
+                "mi_map_side": "left"
             }
         ],
         "seo": {

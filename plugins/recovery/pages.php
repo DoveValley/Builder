@@ -41,6 +41,13 @@ function recovery_render_route(array $m, array $data, string $path = ''): array 
             $sv['city_slug']  = $c['slug'] ?? '';
             $sv['city_state'] = trim(($c['name'] ?? '') . ', ' . $ss, ', ');
             $ctx['city']      = $c['name'] ?? '';
+            // Expose the matched city's photo so {city_image}* (city-image plugin tokens)
+            // resolve per page — used by the map_info block. Absent → tokens stay empty.
+            if (!empty($c['image'])) {
+                $sv['city_image']        = $c['image'];
+                $sv['city_image_alt']    = $c['image_alt'] ?? '';
+                $sv['city_image_credit'] = $c['image_credit'] ?? '';
+            }
         }
     }
     if (!empty($m['company'])) {
