@@ -72,6 +72,9 @@ function recovery_render_route(array $m, array $data, string $path = ''): array 
         $payload['site_vars'] = $sv;
     }
 
+    // Fill AI-enriched blocks (ai_fill markers) from the matched entity's cached ai bundle.
+    $payload['content_blocks'] = recovery_apply_ai($payload['content_blocks'] ?? [], $m);
+
     // Canonical URL: the plugin renders before page.php sets $slug, so the site-template's
     // lb_url-based canonical can't derive here. Set it explicitly from the request path;
     // site-template resolves {website} and forces a trailing slash.
@@ -124,6 +127,64 @@ function recovery_breadcrumbs(array $m): array {
  * anchors. This is what wires the matrix together for crawlers + users. Links are built
  * in PHP from the matrix data (not tokens), so anchors carry real carrier/city names.
  */
+/**
+ * Which entity's ai bundle feeds a page: primary (main subject) + secondary (local
+ * flavor on intersections). Returns ['primary'=>?ai, 'secondary'=>?ai].
+ */
+function recovery_ai_sources(array $m): array {
+    $carrier = !empty($m['company']) ? (recovery_carrier($m['company'])['ai'] ?? null) : null;
+    $city    = (!empty($m['state']) && !empty($m['city'])) ? (recovery_city($m['state'], $m['city'])['ai'] ?? null) : null;
+    $state   = !empty($m['state']) ? (recovery_state($m['state'])['ai'] ?? null) : null;
+    switch ($m['type']) {
+        case 'company_national': return ['primary' => $carrier, 'secondary' => null];
+        case 'state':            return ['primary' => $state,   'secondary' => null];
+        case 'city':             return ['primary' => $city,    'secondary' => null];
+        case 'state_company':    return ['primary' => $carrier, 'secondary' => $state];
+        case 'city_company':     return ['primary' => $carrier, 'secondary' => $city];
+    }
+    return ['primary' => null, 'secondary' => null];
+}
+
+/**
+ * Fill blocks tagged with `ai_fill` from the matched entity's cached ai bundle. Untagged
+ * blocks and missing-ai cases are left as their hand-written template content (graceful).
+ *   ai_fill: intro → primary intro_html · intro2 → secondary intro_html ·
+ *            features → primary feature_points · faq → primary+secondary faq (deduped) ·
+ *            local → secondary (else primary) local_note
+ */
+function recovery_apply_ai(array $blocks, array $m): array {
+    $s = recovery_ai_sources($m);
+    $P = $s['primary']; $S = $s['secondary'];
+    foreach ($blocks as $i => $b) {
+        $fill = $b['ai_fill'] ?? '';
+        if ($fill === '') continue;
+        if ($fill === 'intro'  && !empty($P['intro_html'])) $blocks[$i]['text'] = $P['intro_html'];
+        if ($fill === 'intro2' && !empty($S['intro_html'])) $blocks[$i]['text'] = $S['intro_html'];
+        if ($fill === 'features' && !empty($P['feature_points'])) {
+            $cols = [];
+            foreach ($P['feature_points'] as $fp) {
+                $cols[] = ['icon' => '', 'image' => '', 'alt' => $fp['heading'] ?? '', 'heading' => $fp['heading'] ?? '', 'text' => $fp['text'] ?? ''];
+            }
+            if ($cols) { $blocks[$i]['columns'] = $cols; $blocks[$i]['fc_num_cols'] = count($cols); }
+        }
+        if ($fill === 'faq') {
+            $items = []; $seen = [];
+            foreach (array_merge($P['faq'] ?? [], $S['faq'] ?? []) as $q) {
+                $k = strtolower(trim($q['q'] ?? ''));
+                if ($k === '' || isset($seen[$k])) continue;
+                $seen[$k] = 1;
+                $items[] = ['question' => $q['q'], 'answer' => $q['a']];
+            }
+            if ($items) $blocks[$i]['fq_items'] = array_slice($items, 0, 8);
+        }
+        if ($fill === 'local') {
+            $note = $S['local_note'] ?? ($P['local_note'] ?? '');
+            if ($note !== '') $blocks[$i]['mi_info_text'] = '<p>' . $note . '</p>';
+        }
+    }
+    return $blocks;
+}
+
 /** True if the city×company page for this city is published under the current phase gate. */
 function recovery_cc_published(string $stateSlug, string $citySlug): bool {
     $cfg = recovery_config();

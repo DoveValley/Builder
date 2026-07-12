@@ -42,7 +42,8 @@
                         "heading": "Free & Confidential",
                         "text": "Checking your options costs nothing and carries no obligation to enter treatment."
                     }
-                ]
+                ],
+                "ai_fill": "features"
             },
             {
                 "type": "steps",
@@ -92,7 +93,8 @@
                         "question": "Is this free and confidential?",
                         "answer": "Yes. It is free, private, and there is no obligation to enter treatment."
                     }
-                ]
+                ],
+                "ai_fill": "faq"
             },
             {
                 "type": "cta_banner",
@@ -126,6 +128,17 @@
             {
                 "type": "custom_html",
                 "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;font-weight:700;letter-spacing:.03em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:18px;font-size:15px;\">{company}™</div><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Best Rehabs Accepting {company}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Looking for a rehab that takes {company}? {business} helps you find drug and alcohol treatment centers that accept {company} — detox, inpatient, and outpatient. Free, confidential, no obligation.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab — {phone}</a></div></div></div>"
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "{company} & Addiction Treatment",
+                "text": "<p>{business} helps you find drug and alcohol rehabs that accept {company}. We verify your benefits for free and connect you with covered treatment — confidential, no obligation.</p>",
+                "ai_fill": "intro",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
             },
             {
                 "type": "feature_columns",
@@ -163,7 +176,8 @@
                         "heading": "MAT & Dual Diagnosis",
                         "text": "Medication-assisted treatment and mental-health care may be included."
                     }
-                ]
+                ],
+                "ai_fill": "features"
             },
             {
                 "type": "steps",
@@ -213,7 +227,8 @@
                         "question": "How much will rehab cost with {company}?",
                         "answer": "Out-of-pocket costs depend on your deductible, copay, and whether the center is in-network. We can help you understand your {company} benefits first."
                     }
-                ]
+                ],
+                "ai_fill": "faq"
             },
             {
                 "type": "text",
@@ -259,6 +274,17 @@
                 "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Drug & Alcohol Rehabs in {state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Searching for drug and alcohol rehabs in {state}? {business} helps {state} residents find treatment centers that accept their insurance — detox, inpatient, and outpatient. Free and confidential.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab — {phone}</a></div></div></div>"
             },
             {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "Rehab & Insurance in {state}",
+                "text": "<p>{business} helps {state} residents find rehabs that accept their insurance — detox, inpatient, and outpatient — across the state.</p>",
+                "ai_fill": "intro",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
+            },
+            {
                 "type": "feature_columns",
                 "fc_heading": "Rehabs Across {state}",
                 "fc_subheading": "How {business} helps {state} residents find covered treatment.",
@@ -287,7 +313,8 @@
                         "heading": "Free Verification",
                         "text": "We check your plan so you know your {state} options and costs before you go."
                     }
-                ]
+                ],
+                "ai_fill": "features"
             },
             {
                 "type": "faq_two_col",
@@ -309,7 +336,8 @@
                         "question": "Which insurers do {state} rehabs accept?",
                         "answer": "Many {state} centers accept major carriers such as Aetna, Cigna, UnitedHealthcare, and Blue Cross Blue Shield. See the links below."
                     }
-                ]
+                ],
+                "ai_fill": "faq"
             },
             {
                 "type": "cta_banner",
@@ -332,7 +360,8 @@
                 "mi_info_alt": "",
                 "mi_info_credit": "",
                 "mi_head_color": "header",
-                "mi_map_side": "left"
+                "mi_map_side": "left",
+                "ai_fill": "local"
             }
         ],
         "seo": {
@@ -355,6 +384,17 @@
             {
                 "type": "custom_html",
                 "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Drug & Alcohol Rehabs in {city_state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Searching for drug and alcohol rehabs in {city_state}? {business} helps you find treatment centers near {city} that accept your insurance — detox, inpatient, and outpatient. Free, confidential, no obligation.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab — {phone}</a></div></div></div>"
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "Rehab & Insurance in {city_state}",
+                "text": "<p>{business} helps people in {city_state} find rehabs that accept their insurance, from detox to outpatient care.</p>",
+                "ai_fill": "intro",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
             },
             {
                 "type": "feature_columns",
@@ -385,7 +425,8 @@
                         "heading": "Confidential Help",
                         "text": "Reaching out is free and private, with no obligation to enter treatment."
                     }
-                ]
+                ],
+                "ai_fill": "features"
             },
             {
                 "type": "steps",
@@ -431,7 +472,8 @@
                         "question": "Is help finding a {city} rehab confidential?",
                         "answer": "Yes. It is free, private, and there is no obligation to enter treatment."
                     }
-                ]
+                ],
+                "ai_fill": "faq"
             },
             {
                 "type": "cta_banner",
@@ -454,7 +496,8 @@
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
                 "mi_head_color": "header",
-                "mi_map_side": "left"
+                "mi_map_side": "left",
+                "ai_fill": "local"
             }
         ],
         "seo": {
@@ -477,6 +520,28 @@
             {
                 "type": "custom_html",
                 "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;font-weight:700;letter-spacing:.03em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:18px;font-size:15px;\">{company}™</div><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Best Rehabs Accepting {company} in {state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Looking for a rehab in {state} that takes {company}? {business} helps {state} residents find treatment centers that accept {company} — detox, inpatient, and outpatient. Free and confidential.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab — {phone}</a></div></div></div>"
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "{company} & Addiction Treatment",
+                "text": "<p>{business} helps you find drug and alcohol rehabs that accept {company}. We verify your benefits for free and connect you with covered treatment — confidential, no obligation.</p>",
+                "ai_fill": "intro",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "Treatment in {state}",
+                "text": "<p>{business} helps {state} residents find rehabs that accept their insurance — detox, inpatient, and outpatient — across the state.</p>",
+                "ai_fill": "intro2",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
             },
             {
                 "type": "feature_columns",
@@ -514,7 +579,8 @@
                         "heading": "MAT & Dual Diagnosis",
                         "text": "Medication-assisted treatment and mental-health care may be included."
                     }
-                ]
+                ],
+                "ai_fill": "features"
             },
             {
                 "type": "faq_two_col",
@@ -536,7 +602,8 @@
                         "question": "How do I use my {company} benefits in {state}?",
                         "answer": "Call for a free benefits check. We confirm your {company} coverage and connect you with {state} rehabs that accept it."
                     }
-                ]
+                ],
+                "ai_fill": "faq"
             },
             {
                 "type": "text",
@@ -569,7 +636,8 @@
                 "mi_info_alt": "",
                 "mi_info_credit": "",
                 "mi_head_color": "header",
-                "mi_map_side": "left"
+                "mi_map_side": "left",
+                "ai_fill": "local"
             }
         ],
         "seo": {
@@ -592,6 +660,28 @@
             {
                 "type": "custom_html",
                 "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;font-weight:700;letter-spacing:.03em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:18px;font-size:15px;\">{company}™</div><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Best Rehabs Accepting {company} in {city_state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Looking for a rehab in {city_state} that takes {company}? {business} helps you find treatment centers near {city} that accept {company} — detox, inpatient, and outpatient. Free, confidential, no obligation.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab — {phone}</a></div></div></div>"
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "{company} & Addiction Treatment",
+                "text": "<p>{business} helps you find drug and alcohol rehabs that accept {company}. We verify your benefits for free and connect you with covered treatment — confidential, no obligation.</p>",
+                "ai_fill": "intro",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "Treatment in {city_state}",
+                "text": "<p>{business} helps people in {city_state} find rehabs that accept their insurance, from detox to outpatient care.</p>",
+                "ai_fill": "intro2",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
             },
             {
                 "type": "feature_columns",
@@ -629,7 +719,8 @@
                         "heading": "MAT & Dual Diagnosis",
                         "text": "Medication-assisted treatment and mental-health care may be included."
                     }
-                ]
+                ],
+                "ai_fill": "features"
             },
             {
                 "type": "steps",
@@ -683,7 +774,8 @@
                         "question": "Is contacting {business} confidential?",
                         "answer": "Yes. Checking your {company} options is free, confidential, and carries no obligation."
                     }
-                ]
+                ],
+                "ai_fill": "faq"
             },
             {
                 "type": "text",
@@ -716,7 +808,8 @@
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
                 "mi_head_color": "header",
-                "mi_map_side": "left"
+                "mi_map_side": "left",
+                "ai_fill": "local"
             }
         ],
         "seo": {
