@@ -99,6 +99,21 @@ switch ($action) {
         $rows  = array_filter(recovery_cities(), fn($r) => !(($r['slug'] ?? '') === $slug && ($r['state'] ?? '') === $state));
         $done(recovery_save_rows('cities.json', $rows), 'City removed');
     }
+    case 'deploy_save': {
+        // Writes the site's own deploy.json (same schema the factory deploy reads) — no
+        // factory file is modified. Mirrors admin/deploy_save.php's field handling.
+        $deployFile = ACTIVE_SITE_DIR . '/deploy.json';
+        $cfg = is_file($deployFile) ? (json_decode(file_get_contents($deployFile), true) ?: []) : [];
+        $cfg['canonical_domain'] = rtrim(sanitize_url(trim($_POST['canonical_domain'] ?? '')), '/');
+        $cfg['ftp_host']    = preg_replace('#^ftps?://#i', '', trim($_POST['ftp_host'] ?? ''));
+        $cfg['ftp_port']    = max(1, min(65535, (int) ($_POST['ftp_port'] ?? 21)));
+        $cfg['ftp_user']    = trim($_POST['ftp_user'] ?? '');
+        if (trim($_POST['ftp_pass'] ?? '') !== '') $cfg['ftp_pass'] = trim($_POST['ftp_pass']);
+        $cfg['ftp_path']    = '/' . ltrim(trim($_POST['ftp_path'] ?? '/'), '/');
+        $cfg['ftp_passive'] = !empty($_POST['ftp_passive']);
+        $json = json_encode($cfg, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        $done($json !== false && file_put_contents($deployFile, $json) !== false, 'Deploy settings saved');
+    }
 }
 
 $fail('Unknown action');

@@ -18,6 +18,8 @@ $cities     = recovery_cities();
 $templates  = recovery_all_templates();
 $types      = recovery_types();
 $keywords   = recovery_keywords();
+$deployFile = (defined('ACTIVE_SITE_DIR') && ACTIVE_SITE_DIR !== '') ? ACTIVE_SITE_DIR . '/deploy.json' : '';
+$deploy     = ($deployFile && is_file($deployFile)) ? (json_decode(file_get_contents($deployFile), true) ?: []) : [];
 
 // First rows → build example preview URLs.
 $exState   = $states[0]['slug']   ?? '';
@@ -275,6 +277,56 @@ $total = 1 + $nCarrier + $nState + ($nState * $nCarrier) + $nCity + ($publishCC 
         <input type="number" name="min_city_population" min="0" value="<?= (int) ($cfg['phasing']['min_city_population'] ?? 0) ?>" style="width:160px;">
       </div>
       <button type="submit" class="btn">Save phasing</button>
+    </form>
+  </div>
+
+  <!-- ── 6. Deploy (FTP) ──────────────────────────────────────────────────── -->
+  <div class="card" style="margin-top:16px;">
+    <h2>6 · Deploy (FTP)</h2>
+    <p class="hint" style="margin-bottom:12px;">
+      The gated static build is written to <code>sites/<?= h(ACTIVE_SITE_ID) ?>/output/</code>. These credentials
+      save to <code>sites/<?= h(ACTIVE_SITE_ID) ?>/deploy.json</code> — gitignored and blocked from web access.
+      Only new/changed files are uploaded on deploy.
+    </p>
+    <form method="post" action="plugin_save.php" autocomplete="off">
+      <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+      <input type="hidden" name="plugin_id"  value="recovery">
+      <input type="hidden" name="action"     value="deploy_save">
+
+      <div class="form-group">
+        <label>Canonical domain</label>
+        <input type="url" name="canonical_domain" value="<?= h($deploy['canonical_domain'] ?? 'https://r.q111.xyz') ?>" placeholder="https://r.q111.xyz">
+      </div>
+      <div class="form-group">
+        <label>FTP host</label>
+        <input type="text" name="ftp_host" value="<?= h($deploy['ftp_host'] ?? '') ?>" placeholder="ftp.yourhost.com" autocomplete="off">
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <div class="form-group" style="flex:1;min-width:180px;">
+          <label>FTP username</label>
+          <input type="text" name="ftp_user" value="<?= h($deploy['ftp_user'] ?? '') ?>" autocomplete="off">
+        </div>
+        <div class="form-group" style="width:110px;">
+          <label>Port</label>
+          <input type="number" name="ftp_port" value="<?= (int)($deploy['ftp_port'] ?? 21) ?>" min="1" max="65535">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>FTP password</label>
+        <input type="password" name="ftp_pass" value="" autocomplete="new-password"
+               placeholder="<?= !empty($deploy['ftp_pass']) ? '(saved — leave blank to keep)' : 'FTP password' ?>">
+      </div>
+      <div class="form-group">
+        <label>Remote path</label>
+        <input type="text" name="ftp_path" value="<?= h($deploy['ftp_path'] ?? '/public_html') ?>" placeholder="/public_html">
+      </div>
+      <div class="form-group">
+        <label style="font-weight:normal;">
+          <input type="checkbox" name="ftp_passive" value="1" <?= (!array_key_exists('ftp_passive', $deploy) || !empty($deploy['ftp_passive'])) ? 'checked' : '' ?>>
+          Passive mode (recommended)
+        </label>
+      </div>
+      <button type="submit" class="btn">Save deploy settings</button>
     </form>
   </div>
 
