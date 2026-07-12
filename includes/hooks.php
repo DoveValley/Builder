@@ -22,3 +22,17 @@ function filter_hook(string $name, $value, ...$args) {
     foreach ($hooks as $h) $value = ($h['fn'])($value, ...$args);
     return $value;
 }
+
+// route_hook() — routing dispatch: fire listeners in priority order, FIRST non-null
+// result wins (short-circuits). Generic; a no-op when no listener is registered.
+// Listener signature: fn(...$args): ?array  — return null to pass, or a render
+// payload array to claim the request. See page.php's route_request seam.
+function route_hook(string $name, ...$args): ?array {
+    $hooks = $GLOBALS['_hooks'][$name] ?? [];
+    usort($hooks, fn($a, $b) => $a['priority'] <=> $b['priority']);
+    foreach ($hooks as $h) {
+        $res = ($h['fn'])(...$args);
+        if ($res !== null) return $res;
+    }
+    return null;
+}

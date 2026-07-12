@@ -3,11 +3,38 @@ require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/functions.php';
 
 $data = load_data();
-$raw  = $_GET['slug'] ?? '';
-$slug = is_string($raw) ? slugify($raw) : '';
+
+// Raw request path (slashes intact), captured BEFORE slugify() flattens it. Nested
+// pretty URLs arrive as ?path=a/b/c (see .htaccess); single-segment slugs still
+// arrive as ?slug=. Either can be claimed by a route_request plugin.
+$rawPath = $_GET['path'] ?? $_GET['slug'] ?? '';
+$rawPath = is_string($rawPath) ? trim($rawPath, '/') : '';
 
 $assetPathPrefix = '/';
 $homeUrl         = '/';
+
+// ── 0. Plugin routing hook ───────────────────────────────────────────────────
+// Let a plugin claim this URL (e.g. the recovery matrix's nested pages). No-op
+// unless a plugin registered 'route_request'; first non-null match wins. Rendering
+// stays here in core, so plugins reuse the full block library + site-template.
+if ($rawPath !== '' && !empty($GLOBALS['_hooks']['route_request'])) {
+    $routed = route_hook('route_request', $rawPath, $data);
+    if (is_array($routed)) {
+        if (!empty($routed['site_vars']) && is_array($routed['site_vars'])) {
+            $data['site_vars'] = array_merge($data['site_vars'] ?? [], $routed['site_vars']);
+        }
+        $contentBlocks = $routed['content_blocks'] ?? [];
+        $seo           = $routed['seo'] ?? [];
+        $pageTitle     = ($routed['title'] ?? '') !== '' ? $routed['title'] : SITE_TITLE;
+        if (!empty($routed['status'])) http_response_code((int) $routed['status']);
+
+        require __DIR__ . '/includes/site-template.php';
+        exit;
+    }
+}
+
+$raw  = $_GET['slug'] ?? $rawPath;
+$slug = is_string($raw) ? slugify($raw) : '';
 
 // ── 1. Check generated city pages (page-index.json) ──────────────────────────
 // page-index.json maps slug → filename inside PAGES_DIR.

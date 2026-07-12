@@ -151,6 +151,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <button type="button" class="doc-tab" data-doc="multisite" onclick="switchDoc('multisite')">MultiSite Gen</button>
         <button type="button" class="doc-tab" data-doc="devenv" onclick="switchDoc('devenv')">DevEnv</button>
         <button type="button" class="doc-tab" data-doc="extending" onclick="switchDoc('extending')">Extending</button>
+        <button type="button" class="doc-tab" data-doc="recovery" onclick="switchDoc('recovery')">&#128657; Recovery Site</button>
         <button type="button" class="doc-tab" onclick="location.href='playground.php'" style="background:#fd783b;color:#fff;">🧪 Test Lab</button>
     </div>
     <div class="search-wrap">
@@ -306,6 +307,18 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#howto-plugin">Add a plugin / hooks</a>
         <a href="#howto-update-docs">Update this docs page</a>
     
+    </nav>
+
+    <nav id="recovery-nav" hidden>
+        <a class="nav-group" href="#rec-overview">Overview &amp; vision</a>
+        <a href="#rec-urls">URL structure (6 types)</a>
+        <a href="#rec-files">Where everything lives</a>
+        <a href="#rec-factory">Factory isolation</a>
+        <a href="#rec-authoring">Authoring: blocks + AI</a>
+        <a href="#rec-matrix">Managing the matrix</a>
+        <a href="#rec-phasing">Phasing &amp; publishing</a>
+        <a href="#rec-build">Rendering &amp; build</a>
+        <a href="#rec-reverse">Removing / reverting</a>
     </nav>
 
     <nav id="multisite-nav" hidden>
@@ -2746,6 +2759,187 @@ register_plugin('my_id', 'My Plugin', 'One-line description.', '&amp;#128268;', 
 
 
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════ RECOVERY SITE DOCUMENTATION ════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<div id="doc-recovery" hidden>
+<h1>&#128657; Recovery Insurance Site</h1>
+<p style="font-size:0.95rem;color:#475569;max-width:760px;">
+A programmatic <strong>recovery-insurance directory</strong> (addiction-recovery + insurance — a YMYL niche).
+Unlike the other sites (flat, single-segment landing pages), this one is a <strong>nested URL matrix</strong> of
+states × cities × insurance carriers. To keep the shared factory untouched, <strong>everything different is
+quarantined in one plugin</strong>: <code>plugins/recovery/</code>. This page documents exactly what exists, where,
+and why it cannot affect the other sites.
+</p>
+
+<section id="rec-overview">
+<h2>Overview &amp; vision</h2>
+<p><strong>Vertical-first.</strong> The site will grow into a multi-vertical recovery directory (like recovery.com);
+insurance is the first vertical. Root is reserved for the future directory shell, and each vertical owns its own
+geo tree. <strong>This phase = insurance landing pages only.</strong></p>
+<p><strong><code>{company}</code> = the insurance carrier</strong> (Aetna, Cigna, UnitedHealthcare, Blue Cross Blue
+Shield, Humana, … ~25), the same set at every level. No treatment-center entities this phase.</p>
+<p><strong>Phased rollout:</strong> launch 1 state + a few cities, prove indexing/ranking, then grow. The URL
+structure is permanent; growth only adds rows. Phasing controls page <em>count</em>, not structure — see
+<a href="#rec-phasing">Phasing</a>.</p>
+<p><strong>Container:</strong> the site is <code>sites/recovery-site/</code> (created via Sites → + New Site, cloned
+from mold-site). The plugin activates <em>only</em> for this site id.</p>
+<a class="back-top" href="#rec-overview">&uarr; top</a>
+</section>
+
+<section id="rec-urls">
+<h2>URL structure (frozen)</h2>
+<p>Six page types. Browse hubs are nested; <code>{company}</code> is disambiguated from <code>{city}</code> by a
+known-carrier lookup (all slugs are closed sets we own).</p>
+<table>
+<thead><tr><th>#</th><th>Type key</th><th>URL</th><th>Example</th><th>Count</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><code>hub</code></td><td><code>/insurance/</code></td><td><code>/insurance/</code></td><td>1</td></tr>
+<tr><td>2</td><td><code>company_national</code></td><td><code>/insurance/{company}</code></td><td><code>/insurance/aetna</code></td><td>~25</td></tr>
+<tr><td>3</td><td><code>state</code></td><td><code>/{state}</code></td><td><code>/texas</code></td><td>50</td></tr>
+<tr><td>4</td><td><code>city</code></td><td><code>/{state}/{city}</code></td><td><code>/texas/houston</code></td><td>many</td></tr>
+<tr><td>5</td><td><code>state_company</code></td><td><code>/{state}/{company}</code></td><td><code>/texas/aetna</code></td><td>50×25</td></tr>
+<tr><td>6</td><td><code>city_company</code></td><td><code>/{state}/{city}/{company}</code></td><td><code>/texas/houston/aetna</code></td><td>many×25</td></tr>
+</tbody>
+</table>
+<a class="back-top" href="#rec-overview">&uarr; top</a>
+</section>
+
+<section id="rec-files">
+<h2>Where everything lives</h2>
+<p>This is the complete map. <strong>Plugin + site-data files are new; only 3 core files were touched (all
+generic, additive, dormant for other sites).</strong></p>
+
+<h3>Plugin code — <code>plugins/recovery/</code> (all new)</h3>
+<table>
+<thead><tr><th>File</th><th>Responsibility</th></tr></thead>
+<tbody>
+<tr><td><code>plugin.php</code></td><td>Registration + (site-guarded) <code>route_request</code> &amp; <code>shortcode_tokens</code> hooks</td></tr>
+<tr><td><code>router.php</code></td><td><code>recovery_match_route($path)</code> → one of the 6 types, or null</td></tr>
+<tr><td><code>pages.php</code></td><td><code>recovery_render_route($m,$data)</code> → payload; renders the mapped template, else a placeholder</td></tr>
+<tr><td><code>data.php</code></td><td>Matrix + config loaders/savers; template lookup; entity token context</td></tr>
+<tr><td><code>panel.php</code></td><td>Admin UI (Plugins → Recovery Insurance): template mapping, matrix manager, phasing</td></tr>
+<tr><td><code>save.php</code></td><td>Save handler (via <code>admin/plugin_save.php</code>): mapping, phasing, carrier/state/city CRUD</td></tr>
+<tr><td><code>build.php</code></td><td><code>recovery_enumerate_urls()</code> for the static build + the phase gate</td></tr>
+<tr><td><code>README.md</code></td><td>Short developer summary (mirrors this page)</td></tr>
+</tbody>
+</table>
+
+<h3>Site data — <code>sites/recovery-site/data/recovery/</code> (all new, per-site)</h3>
+<table>
+<thead><tr><th>File</th><th>Contents</th></tr></thead>
+<tbody>
+<tr><td><code>carriers.json</code></td><td><code>[{slug,name}, …]</code> — the ~25 insurance carriers</td></tr>
+<tr><td><code>states.json</code></td><td><code>[{slug,name,ss}, …]</code></td></tr>
+<tr><td><code>cities.json</code></td><td><code>[{slug,name,state,population?}, …]</code> (<code>state</code> = state slug)</td></tr>
+<tr><td><code>config.json</code></td><td><code>{ templates:{type→template_id}, phasing:{…} }</code></td></tr>
+</tbody>
+</table>
+<p class="hint">Block content + AI live in the site's normal <code>data/templates.json</code> (the Templates tab) — the
+plugin only stores <em>which</em> template each type uses.</p>
+
+<h3>Core seams — 3 files, +50/−2 lines, generic &amp; dormant</h3>
+<table>
+<thead><tr><th>File</th><th>Change</th></tr></thead>
+<tbody>
+<tr><td><code>includes/hooks.php</code></td><td>+ <code>route_hook()</code> — fire listeners, first non-null wins (a no-op with no listener)</td></tr>
+<tr><td><code>page.php</code></td><td>Fire <code>route_request</code> on the raw path <em>before</em> <code>slugify()</code>; render + exit if a plugin claims it</td></tr>
+<tr><td><code>.htaccess</code></td><td>One rule: multi-segment paths → <code>page.php?path=a/b/c</code> (single-segment slugs unchanged)</td></tr>
+</tbody>
+</table>
+<a class="back-top" href="#rec-overview">&uarr; top</a>
+</section>
+
+<section id="rec-factory">
+<h2>Factory isolation — why this can't break the other sites</h2>
+<ol style="font-size:0.9rem;line-height:1.8;">
+<li><strong>Per-site activation.</strong> <code>plugin.php</code> only registers its hooks when
+<code>ACTIVE_SITE_ID === 'recovery-site'</code>. For appliance/pest/granite/mold/water it registers nothing.</li>
+<li><strong>No-op core seam.</strong> The <code>page.php</code> hook does nothing unless a plugin registered
+<code>route_request</code> <em>and</em> returns an array. With no listener, existing flat-slug routing is byte-for-byte
+unchanged.</li>
+<li><strong>Reuse by calling, not editing.</strong> Blocks, the Templates tab, AI, SEO, shortcodes are all
+<em>called</em> from the plugin — never modified. <code>blocks.php</code>, <code>editor.php</code>,
+<code>save.php</code>, <code>generate.py</code> are untouched.</li>
+<li><strong>Data is per-site.</strong> The matrix + config live under <code>sites/recovery-site/data/recovery/</code>,
+not in any shared location.</li>
+</ol>
+<p>Net blast radius: revert the 3 core files and delete <code>plugins/recovery/</code> +
+<code>sites/recovery-site/data/recovery/</code> → the factory is exactly what it was. See
+<a href="#rec-reverse">Removing / reverting</a>.</p>
+<a class="back-top" href="#rec-overview">&uarr; top</a>
+</section>
+
+<section id="rec-authoring">
+<h2>Authoring: blocks + AI (yes, the full experience)</h2>
+<p>You author each URL type's page the same way you build any site — using the existing
+<strong>Templates tab</strong> — then point the type at that template.</p>
+<ol style="font-size:0.9rem;line-height:1.8;">
+<li><strong>Build a template</strong> in <a href="index.php?tab=templates">Templates</a> — full block palette
+(hero, cards, faq, cta, map_info, …) + the <strong>Generate</strong> AI button. One template per type (6 total);
+low-count types like the hub can be a hand-built template too.</li>
+<li><strong>Map it</strong> in <a href="index.php?tab=plugins&amp;plugin=recovery">Plugins → Recovery Insurance →
+Page templates</a>: choose which template renders each type. Save.</li>
+<li><strong>Tokens fill per page.</strong> At render, entity values are injected so
+<code>{city}</code>, <code>{SS}</code>, <code>{city_state}</code>, <code>{company}</code>, <code>{company_slug}</code>
+resolve to the right carrier/city/state for that URL.</li>
+</ol>
+<p class="hint">Until a type is mapped, its pages render a labelled placeholder block (so routing is verifiable and
+nothing errors mid-setup).</p>
+<a class="back-top" href="#rec-overview">&uarr; top</a>
+</section>
+
+<section id="rec-matrix">
+<h2>Managing the matrix</h2>
+<p>In <a href="index.php?tab=plugins&amp;plugin=recovery">Plugins → Recovery Insurance</a>, the Carriers / States /
+Cities cards add and remove rows (written to the JSON files above). Slugs auto-derive from names; cities carry an
+optional <code>population</code> used by the phase gate. Adding a carrier grows every level that includes carriers;
+adding a city grows the city and city×company levels.</p>
+<a class="back-top" href="#rec-overview">&uarr; top</a>
+</section>
+
+<section id="rec-phasing">
+<h2>Phasing &amp; publishing</h2>
+<p>The <strong>city × company</strong> level is by far the largest and thinnest — the doorway/thin-content risk in a
+YMYL niche. The panel's <strong>Phasing</strong> card gates it:</p>
+<ul style="font-size:0.9rem;line-height:1.7;">
+<li><strong>Publish city × company</strong> — off while proving indexing on hubs + state×company first.</li>
+<li><strong>Minimum city population</strong> — build city×company only for larger cities; skip the thin tail.</li>
+</ul>
+<p>The gate lives in <code>build.php</code> (<code>recovery_enumerate_urls()</code>), so it changes what the static
+build emits — never core. The panel header shows the live publishable page count.</p>
+<a class="back-top" href="#rec-overview">&uarr; top</a>
+</section>
+
+<section id="rec-build">
+<h2>Rendering &amp; build</h2>
+<p><strong>Dynamic (preview / Apache):</strong> a request like <code>/texas/houston/aetna</code> hits the
+<code>route_request</code> hook → <code>recovery_render_route()</code> loads the mapped template's blocks, sets entity
+site_vars, and renders through <code>includes/site-template.php</code> (the shared template).</p>
+<p><strong>Static deploy:</strong> the site deploys as static HTML, so the builder calls
+<code>recovery_enumerate_urls()</code> to walk the (phase-gated) matrix and renders each URL to
+<code>slug/index.html</code>. Same block renderer either way.</p>
+<p class="hint">Local <code>php -S</code> does not process <code>.htaccess</code>, so nested pretty URLs only route on
+Apache or via <code>?path=…</code>. Test with <code>page.php?path=texas/houston/aetna</code> locally.</p>
+<a class="back-top" href="#rec-overview">&uarr; top</a>
+</section>
+
+<section id="rec-reverse">
+<h2>Removing / reverting</h2>
+<p>To remove the recovery site entirely and leave the factory pristine:</p>
+<ol style="font-size:0.9rem;line-height:1.8;">
+<li>Delete <code>plugins/recovery/</code>.</li>
+<li>Delete <code>sites/recovery-site/</code> (or just its <code>data/recovery/</code>).</li>
+<li>Revert the 3 core seams (<code>includes/hooks.php</code>, <code>page.php</code>, <code>.htaccess</code>) — or
+leave them: <code>route_hook()</code> and the seam are generic and inert with no plugin registered.</li>
+</ol>
+<p>No other file references the recovery site.</p>
+<a class="back-top" href="#rec-overview">&uarr; top</a>
+</section>
+
+</div><!-- /#doc-recovery -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
 <!-- ═══════════════════════ DEVENV DOCUMENTATION ═══════════════════════════ -->
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <div id="doc-devenv" hidden>
@@ -4258,6 +4452,7 @@ const DOCS = {
     multisite: ['doc-multisite', 'multisite-nav', 'MultiSite Documentation'],
     devenv:    ['doc-devenv',    'devenv-nav',    'DevEnv Documentation'],
     extending: ['doc-extending', 'extending-nav', 'Extending / Developer'],
+    recovery:  ['doc-recovery',  'recovery-nav',  'Recovery Site'],
 };
 function switchDoc(which) {
     if (!DOCS[which]) which = 'concepts';

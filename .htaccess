@@ -44,4 +44,11 @@
 
     # /some-slug -> /page.php?slug=some-slug
     RewriteRule ^([a-zA-Z0-9-]+)/?$ page.php?slug=$1 [L,QSA]
+
+    # Nested pretty URLs (plugin-routed matrix pages, e.g. /texas/houston/aetna)
+    # -> page.php?path=full/path. The route_request hook decides; unclaimed paths
+    # fall through to a normal 404. (Single-segment slugs hit the rule above first.)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^([a-zA-Z0-9/_-]+)/?$ page.php?path=$1 [L,QSA]
 </IfModule>
