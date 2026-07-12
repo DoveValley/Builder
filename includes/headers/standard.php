@@ -27,7 +27,7 @@
                 <?php if (!empty($header['logo'])): ?>
                     <a href="<?= h($homeUrl ?? '/') ?>"><img src="<?= h(admin_upload_url_v($header['logo'])) ?>" alt="Logo" <?= img_dim_attrs($header['logo'], (int) $logoHeight) ?>style="max-height:<?= $logoHeight ?>px;height:auto;width:auto;max-width:100%;display:block;"></a>
                 <?php else: ?>
-                    <a href="<?= h($homeUrl ?? '/') ?>" class="logo-text"><?= h(SITE_TITLE) ?></a>
+                    <a href="<?= h($homeUrl ?? '/') ?>" class="logo-text"><?= h(($__brand = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__brand : SITE_TITLE) ?></a>
                 <?php endif; ?>
             </div>
             <div class="header-info-items">

@@ -26,7 +26,7 @@
                     <?php $srLogoH = (int) min($logoHeight, 52); ?>
                     <a href="<?= h($homeUrl ?? '/') ?>"><img src="<?= h(admin_upload_url_v($header['logo'])) ?>" alt="Logo" <?= img_dim_attrs($header['logo'], $srLogoH) ?>style="max-height:<?= $srLogoH ?>px;height:auto;width:auto;max-width:100%;display:block;"></a>
                 <?php else: ?>
-                    <a href="<?= h($homeUrl ?? '/') ?>" class="logo-text" style="color:<?= h($navText) ?>;"><?= h(SITE_TITLE) ?></a>
+                    <a href="<?= h($homeUrl ?? '/') ?>" class="logo-text" style="color:<?= h($navText) ?>;"><?= h(($__brand = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__brand : SITE_TITLE) ?></a>
                 <?php endif; ?>
             </div>
 

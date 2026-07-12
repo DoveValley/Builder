@@ -87,7 +87,7 @@
         "cta_text": "",
         "cta_url": "",
         "favicon": "",
-        "site_name": "Recovery Dawn"
+        "site_name": "{business}"
     },
     "content_blocks": [
         {
@@ -216,7 +216,7 @@
         "seo_title": "Rehab That Takes Insurance — Addiction Treatment Covered by Your Plan | {business}",
         "canonical_url": "https://r.q111.xyz",
         "meta_description": "Find rehab that takes insurance. {business} helps you verify your addiction treatment benefits and find covered detox, inpatient, and outpatient care — free and confidential.",
-        "meta_keywords": "addiction treatment insurance, rehab insurance coverage, does insurance cover rehab, drug rehab insurance, alcohol rehab coverage",
+        "meta_keywords": "rehab that takes insurance, does insurance cover rehab, addiction treatment coverage, drug rehab insurance, alcohol rehab coverage",
         "og_title": "Rehab That Takes Insurance — Addiction Treatment Covered by Your Plan | {business}",
         "og_description": "Find rehab that takes insurance. {business} helps you verify your addiction treatment benefits and find covered detox, inpatient, and outpatient care — free and confidential.",
         "og_image": "",
@@ -227,7 +227,7 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"HomeAndConstructionBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"description\": \"{business} connects {state} property owners with certified mold inspection and remediation specialists, providing mold testing, black mold removal, safe containment, and moisture control for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"State\",\n                \"name\": \"{state}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Su 00:00-23:59\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
+        "schema": "",
         "primary_keyword": "rehab that takes insurance",
         "secondary_keywords": "rehab insurance coverage, drug rehab insurance, alcohol rehab coverage, does insurance cover rehab, detox insurance coverage"
     },
@@ -319,7 +319,8 @@
                 {
                     "type": "text",
                     "heading_level": "h1",
-                    "text": "Privacy Policy\n<p>{business} respects your privacy and is committed to protecting it. This Privacy Policy explains what information we collect when you use {website} (the &ldquo;Website&rdquo;), how we use and share that information, and the choices available to you. The Website connects homeowners with independent water damage restoration providers and does not itself perform water damage restoration services.</p><p>By accessing or using the Website, you agree to the practices described in this policy. We may update this policy from time to time; continuing to use the Website after changes are posted means you accept the updated policy.</p>",
+                    "heading_text": "Privacy Policy",
+                    "text": "<p><em>Last updated: July 2026.</em></p><p>{business} (\"we,\" \"us,\" or \"our\") operates {business_domain}. This Privacy Policy explains what information we collect, how we use and share it, and the choices you have. By using our site or contacting us, you agree to this policy.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -328,7 +329,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "A. Information We Collect\n<p>We collect information in a few different ways: information you give us directly, information collected automatically as you browse, and information generated when you call a number listed on the Website.</p><p><strong>Information you provide:</strong> name, phone number, address, email, and any details you submit through a form or request on the Website.</p><p><strong>Automatically collected information:</strong> browser type, device type, IP address, approximate location, pages viewed, search terms, and the date and time of your visit.</p><p><strong>Call information:</strong> if you call a number displayed on the Website, we and our call-tracking partners may record the date, time, duration, and content of that call for quality assurance and to route you to an appropriate provider.</p>",
+                    "heading_text": "Who We Are",
+                    "text": "<p>{business} is a free informational and referral service that helps people find addiction-treatment options that may be covered by their health insurance. We are not a treatment provider, medical practice, or insurance company, and we do not collect medical records or protected health information.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -337,7 +339,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "B. How We Use Information\n<p>We use the information we collect to operate and improve the Website, connect you with relevant water damage restoration providers, respond to your inquiries, personalize the content and offers you see, measure and improve the performance of our advertising, detect and prevent fraud or abuse, and comply with legal obligations.</p>",
+                    "heading_text": "Information We Collect",
+                    "text": "<p><strong>Information you give us:</strong> your name, phone number, email address, general location, and any details you choose to share when you call us or submit a form.</p><p><strong>Information collected automatically:</strong> IP address, browser type, device information, pages viewed, and similar usage data, gathered through cookies and analytics tools.</p><p>Please do not send us medical records, diagnoses, or other sensitive health information.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -346,7 +349,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "C. Cookies and Similar Technologies\n<p>The Website uses cookies and similar tracking technologies (such as web beacons and pixel tags) for purposes including:</p><ul><li><strong>Functionality</strong> &mdash; remembering your preferences and keeping the Website working correctly</li><li><strong>Security</strong> &mdash; detecting and preventing fraudulent or unauthorized activity</li><li><strong>Analytics</strong> &mdash; understanding how visitors use the Website so we can improve it</li><li><strong>Advertising</strong> &mdash; showing you relevant ads on this Website and others, and measuring how well our ads perform</li></ul><p>Most browsers let you block or delete cookies through their settings. Doing so may limit some features of the Website. If your browser sends a \"do not track\" signal, please note we do not currently respond differently to that signal.</p>",
+                    "heading_text": "How We Use Your Information",
+                    "text": "<p>We use your information to respond to your inquiry, help you understand your insurance benefits, connect you with treatment providers and advertising partners, operate and improve our site, and comply with law.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -355,7 +359,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "D. How We Share Information\n<p>We may share information about you with:</p><ul><li><strong>Water damage restoration providers</strong> &mdash; so they can respond to your request or call</li><li><strong>Service vendors</strong> &mdash; companies that host the Website, track and route calls, support our advertising, or otherwise help us operate the Website, under obligations to protect your information</li><li><strong>Advertising partners</strong> &mdash; who may use cookies to show you relevant ads based on your visit to the Website</li><li><strong>Successors</strong> &mdash; if {business} is involved in a merger, acquisition, or sale of assets, your information may transfer as part of that transaction</li><li><strong>Legal authorities</strong> &mdash; when required by law, subpoena, or other legal process, or to protect the rights, safety, or property of {business}, our users, or the public</li></ul><p>We do not sell your personal information to third parties for them to market their own unrelated products or services without your consent.</p>",
+                    "heading_text": "How We Share Your Information",
+                    "text": "<p>We may share the contact details you provide with treatment providers and advertising partners so they can assist you, and with service vendors who support our operations. We may also disclose information when required by law or to protect our rights. We do not sell your information for unrelated third-party marketing.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -364,7 +369,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "E. Data Security\n<p>We use reasonable administrative and technical safeguards to protect the information we collect. However, no method of transmitting or storing data over the internet is completely secure, and we cannot guarantee absolute security. You share information with us at your own risk.</p>",
+                    "heading_text": "Phone Calls, Texts, and Consent",
+                    "text": "<p>When you contact us or submit your information, you consent to be contacted by {business} and our advertising partners by phone, text message, and email at the number and address you provide, including through automated technology, for the purpose of discussing treatment and insurance options. Consent is not a condition of any service. Message and data rates may apply. You may opt out at any time (see \"Your Choices\" below).</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -373,7 +379,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "F. Data Retention\n<p>We keep information for as long as needed to provide the Website, fulfill the purposes described in this policy, and meet our legal and accounting obligations. When information is no longer needed for these purposes, we take reasonable steps to delete or anonymize it.</p>",
+                    "heading_text": "Cookies and Analytics",
+                    "text": "<p>We use cookies and similar technologies to run the site, remember preferences, and measure traffic. You can control cookies through your browser settings; disabling them may affect site functionality.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -382,7 +389,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "G. Children's Privacy\n<p>The Website is intended for adults and is not directed to children under 18. We do not knowingly collect personal information from anyone under 18. If you believe a child has provided us with personal information, please contact us at info@{business_domain} so we can remove it.</p>",
+                    "heading_text": "Insurance Carriers and Third-Party Links",
+                    "text": "<p>Insurance carrier names and logos are the trademarks of their respective owners and are used for identification only. {business} is not affiliated with, endorsed by, or acting on behalf of any insurance carrier. Our site may link to third-party sites we do not control and are not responsible for.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -391,7 +399,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "H. International Visitors\n<p>The Website is intended for use by residents of the United States. If you access the Website from outside the United States, your information may be transferred to and processed in the United States, which may not provide the same level of data protection as your home country. By using the Website, you consent to this transfer.</p>",
+                    "heading_text": "Data Security",
+                    "text": "<p>We use reasonable administrative and technical measures to protect the information we handle. No method of transmission or storage is completely secure, however, and we cannot guarantee absolute security.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -400,7 +409,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "I. Your Privacy Rights\n<p>Depending on where you live, you may have rights to know what personal information we hold about you, request a copy of it, ask us to correct or delete it, and opt out of certain uses such as targeted advertising or the sale of personal information. To exercise any of these rights, contact us at info@{business_domain}. We will respond to verified requests consistent with applicable law.</p>",
+                    "heading_text": "Your Choices",
+                    "text": "<p>You may request access to or deletion of your information, opt out of marketing calls or texts (reply STOP to texts), unsubscribe from emails, or ask to be placed on our internal Do Not Call list by contacting us at {email}.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -409,7 +419,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "J. Contact Us\n<p>Questions or concerns about this Privacy Policy can be sent to info@{business_domain} or by calling {phone}.</p>",
+                    "heading_text": "Children’s Privacy",
+                    "text": "<p>Our site is intended for adults 18 and older. We do not knowingly collect information from children. If you believe a child has provided us information, please contact us and we will remove it.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -418,7 +429,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "K. Changes to This Policy\n<p>We may revise this Privacy Policy periodically. The version posted on the Website is always the most current, and changes take effect as soon as they are posted. We encourage you to review this page from time to time.</p>",
+                    "heading_text": "Changes and Contact",
+                    "text": "<p>We may update this policy from time to time; the \"last updated\" date reflects the latest version. Questions? Contact us at {email} or {phone}.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -426,22 +438,9 @@
                 }
             ],
             "seo": {
-                "meta_keywords": "",
-                "meta_description": "Read the {business} Privacy Policy to learn how we collect, use, and protect your information when you visit {website} or call our helpline.",
-                "og_title": "Privacy Policy | {business}",
-                "og_description": "How {business} collects, uses, and protects your information.",
-                "og_image": "",
-                "schema": "",
-                "canonical_url": "{website}/privacy-policy/",
-                "service_name": "",
-                "service_type": "",
-                "service_area": "",
-                "service_description": "",
-                "bc_label": "Privacy Policy",
-                "bc_mid_label": "",
-                "bc_mid_url": "",
-                "primary_keyword": "",
-                "secondary_keywords": ""
+                "seo_title": "Privacy Policy | {business}",
+                "meta_description": "How {business} collects, uses, and protects your information. Read the {business} privacy policy.",
+                "canonical_url": ""
             }
         },
         "page_5ecf42631f084": {
@@ -452,7 +451,8 @@
                 {
                     "type": "text",
                     "heading_level": "h1",
-                    "text": "Terms and Conditions\n<p>These Terms and Conditions (the &ldquo;Terms&rdquo;) govern your use of {website} (the &ldquo;Website&rdquo;). By accessing or using the Website, you agree to be bound by these Terms. If you do not agree, please do not use the Website.</p>",
+                    "heading_text": "Terms and Conditions",
+                    "text": "<p><em>Last updated: July 2026.</em></p><p>These Terms and Conditions govern your use of {business_domain}, operated by {business}. By using the site or contacting us, you agree to these terms. If you do not agree, please do not use the site.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -461,7 +461,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "A. Who We Are\n<p>{business} operates the Website as a free service that helps homeowners find independent water damage restoration providers in their area. We do not own, operate, or control any water damage restoration business, and we do not perform water damage restoration services ourselves. Any photos or videos of technicians shown on the Website are for illustration only and may depict models or stock imagery rather than an actual provider.</p>",
+                    "heading_text": "What {business} Is — and Is Not",
+                    "text": "<p>{business} is a free informational and referral service that helps connect people with addiction-treatment providers and advertising partners. We are not a treatment provider, medical or clinical practice, or an insurance company. We do not provide medical advice, diagnosis, or treatment, and we do not determine insurance coverage.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -470,7 +471,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "B. Eligibility and Acceptance\n<p>The Website is intended for use by individuals 18 years of age or older who reside in the United States. By using the Website, you represent that you meet these requirements and agree to be bound by these Terms.</p>",
+                    "heading_text": "Not Medical Advice — Emergencies",
+                    "text": "<p>Nothing on this site is medical advice. Always consult a qualified professional about treatment decisions. If you or someone else is in crisis, call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline) or call <strong>911</strong> for emergencies.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -479,7 +481,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "C. Content Is Informational Only\n<p>Content on the Website &mdash; including articles, service descriptions, and pricing information &mdash; is provided for general informational purposes only and is not a substitute for advice from a licensed water damage restoration professional. We make reasonable efforts to keep information accurate and current, but it may not always reflect the latest pricing, availability, or local regulations. You should confirm details directly with any provider before hiring them.</p>",
+                    "heading_text": "No Guarantee of Coverage or Outcomes",
+                    "text": "<p>Insurance benefits vary by plan and are determined solely by your insurer. We do not guarantee that any treatment will be covered, that you will be admitted to any program, or that any particular result or outcome will occur. Always verify your own benefits directly with your insurer.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -488,7 +491,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "D. Connecting You With Providers\n<p>When you call a number listed on the Website or submit a request, you direct us to share your information with one or more water damage restoration providers so they can contact you about your request. {business} may receive compensation from providers for these introductions. This compensation does not affect the price you pay or the quality of service you receive, and you are never charged anything by {business} for using the Website.</p><p>We make no guarantee about the suitability, licensing, insurance, or quality of any provider. It is your responsibility to verify a provider's credentials, licensing, and insurance before hiring them. {business} is not a party to any agreement between you and a provider and is not responsible for the services a provider performs or fails to perform.</p>",
+                    "heading_text": "Advertising and Referral Relationships",
+                    "text": "<p>Some listings, calls, and content may be provided by or directed to our advertising partners, and we may be compensated when you contact a partner. Calls placed through the site may be answered by advertising partners. This compensation may affect which providers are shown.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -497,7 +501,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "E. Prohibited Conduct\n<p>When using the Website, you agree not to:</p><ul><li>Use the Website for any unlawful, fraudulent, or misleading purpose</li><li>Post or submit fake reviews, or offer or accept payment in exchange for reviews</li><li>Attempt to interfere with, disable, or gain unauthorized access to the Website or its systems</li><li>Use automated tools to scrape, crawl, or copy content from the Website without our written permission</li><li>Upload or transmit viruses, malicious code, or content that infringes another person's rights</li><li>Impersonate any person or misrepresent your affiliation with any person or entity</li></ul><p>We may suspend or terminate your access to the Website if we believe, in our reasonable judgment, that you have violated these Terms.</p>",
+                    "heading_text": "Your Responsibilities",
+                    "text": "<p>You agree to provide accurate information and to independently verify any provider’s licensing, credentials, and your own insurance coverage before making treatment decisions. You are responsible for your interactions with any provider or partner.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -506,7 +511,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "F. Disclaimer of Warranties\n<p>The Website is provided \"as is\" and \"as available,\" without warranties of any kind, whether express or implied. We do not warrant that the Website will be uninterrupted, error-free, or that any information on it is complete or accurate. Your use of the Website is at your own risk.</p>",
+                    "heading_text": "Trademarks and Intellectual Property",
+                    "text": "<p>Insurance carrier names and logos are trademarks of their respective owners, used here for identification only; {business} is not affiliated with or endorsed by any carrier. All other site content is owned by {business} or its licensors and may not be copied without permission.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -515,7 +521,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "G. Limitation of Liability\n<p>To the fullest extent permitted by law, {business} and its officers, employees, and affiliates will not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Website, or from the acts or omissions of any water damage restoration provider you connect with through the Website. Our total liability for any claim relating to the Website is limited to $150. Any claim must be brought within one year of the event giving rise to it.</p>",
+                    "heading_text": "Disclaimer of Warranties",
+                    "text": "<p>The site and its content are provided \"as is\" and \"as available,\" without warranties of any kind, express or implied, including accuracy, fitness for a particular purpose, or non-infringement.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -524,7 +531,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "H. Indemnification\n<p>You agree to defend and hold {business} harmless from any claims, losses, or damages arising from your misuse of the Website, your violation of these Terms, or content you submit through the Website.</p>",
+                    "heading_text": "Limitation of Liability",
+                    "text": "<p>To the fullest extent permitted by law, {business} and its owners, employees, and partners are not liable for any indirect, incidental, or consequential damages arising from your use of the site or any provider or partner you connect with through it.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -533,7 +541,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "I. Intellectual Property\n<p>All content on the Website &mdash; including text, graphics, logos, and images &mdash; is owned by {business} or its licensors and protected by copyright and trademark law. You may view and print pages from the Website for your own personal, non-commercial use. You may not copy, republish, modify, or create derivative works from any part of the Website, or use it for any commercial purpose, without our prior written consent.</p><p>If you believe content on the Website infringes your copyright, please contact us at info@{business_domain} with details of the alleged infringement so we can investigate.</p>",
+                    "heading_text": "Indemnification",
+                    "text": "<p>You agree to indemnify and hold harmless {business} from any claims or expenses arising out of your use of the site or your violation of these terms.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -542,43 +551,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "J. Relationship to Our Privacy Policy\n<p>Your use of the Website is also governed by our <a href=\"/privacy-policy\">Privacy Policy</a>, which explains how we collect, use, and share information about you.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "K. Governing Law\n<p>These Terms are governed by the laws of the State of Texas, without regard to conflict-of-law rules that would apply the law of any other jurisdiction.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "L. Dispute Resolution\n<p>If a dispute arises out of your use of the Website, we encourage you to contact us first at info@{business_domain} so we can try to resolve it informally. If a dispute cannot be resolved informally within 45 days, you and {business} agree that it will be resolved by binding individual arbitration rather than in court, except that either party may bring a claim in small claims court if it qualifies. You and {business} each waive the right to a jury trial and to participate in any class, mass, or representative action against the other.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "M. Changes to These Terms\n<p>We may update these Terms from time to time by posting a revised version on the Website. Continuing to use the Website after a revised version is posted means you accept the updated Terms. If any provision of these Terms is found unenforceable, the remaining provisions will remain in effect.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "N. Contact Us\n<p>Questions about these Terms can be directed to info@{business_domain} or by calling {phone}.</p>",
+                    "heading_text": "Changes, Governing Law, and Contact",
+                    "text": "<p>We may update these terms at any time; continued use means you accept the changes. These terms are governed by the laws of the United States and the state in which {business} operates, without regard to conflict-of-law rules. Questions? Contact us at {email} or {phone}.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -586,33 +560,41 @@
                 }
             ],
             "seo": {
-                "meta_keywords": "",
-                "meta_description": "Read the {business} Terms and Conditions governing your use of {website}, our advertising network, and our helpline.",
-                "og_title": "Terms and Conditions | {business}",
-                "og_description": "The terms governing your use of {website}.",
-                "og_image": "",
-                "schema": "",
-                "canonical_url": "{website}/terms-and-conditions/",
-                "service_name": "",
-                "service_type": "",
-                "service_area": "",
-                "service_description": "",
-                "bc_label": "Terms and Conditions",
-                "bc_mid_label": "",
-                "bc_mid_url": "",
-                "primary_keyword": "",
-                "secondary_keywords": ""
+                "seo_title": "Terms and Conditions | {business}",
+                "meta_description": "The terms governing use of {business_domain}, a free addiction-treatment referral and advertising service.",
+                "canonical_url": ""
             }
         },
         "page_6a30c3339c03d": {
-            "title": "Contact Us",
+            "title": "Contact Us | {business}",
             "slug": "contact-us",
             "page_type": "other",
             "content_blocks": [
                 {
                     "type": "text",
                     "heading_level": "h1",
-                    "text": "Contact Us\n<p>If you are interested in becoming part of our advertising network or have questions, give us a call or send us an email below.</p><p style=\"margin-top:24px;\"><a href=\"tel:{tel}\" class=\"cta-btn\">Call {phone}</a></p><p>Email: <a href=\"mailto:info@{business_domain}\">info@{business_domain}</a></p>",
+                    "heading_text": "Contact {business}",
+                    "text": "<p>Have a question, or want to check whether your insurance covers addiction treatment? We are here to help — confidentially, with no cost or obligation.</p><p style=\"margin-top:20px;\"><a href=\"tel:{tel}\" class=\"cta-btn\">Call {phone}</a></p><p style=\"margin-top:12px;\">Email: <a href=\"mailto:{email}\">{email}</a></p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "Advertising &amp; Partnerships",
+                    "text": "<p>Are you a treatment provider interested in joining our advertising network? Reach out at {email} and we will get back to you. Please note that {business} is a referral and advertising service, not a treatment provider or insurance company.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "In Crisis?",
+                    "text": "<p>If you or someone you know is struggling or in danger, call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline), or call <strong>911</strong> for emergencies. Help is available 24/7.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -620,22 +602,9 @@
                 }
             ],
             "seo": {
-                "meta_keywords": "",
-                "meta_description": "Contact {business} — call our free 24/7 helpline or email us to connect with a trusted water damage restoration specialist in {city_state}.",
-                "og_title": "Contact Us | {business}",
-                "og_description": "Get in touch with {business} — call our free 24/7 helpline or send us an email.",
-                "og_image": "",
-                "schema": "",
-                "canonical_url": "{website}/contact-us/",
-                "service_name": "",
-                "service_type": "",
-                "service_area": "",
-                "service_description": "",
-                "bc_label": "Contact Us",
-                "bc_mid_label": "",
-                "bc_mid_url": "",
-                "primary_keyword": "",
-                "secondary_keywords": ""
+                "seo_title": "Contact Us | {business}",
+                "meta_description": "Contact {business} to check your insurance coverage for addiction treatment or to join our advertising network.",
+                "canonical_url": ""
             }
         }
     },
@@ -643,26 +612,26 @@
         "info": {
             "enabled": true,
             "heading": "How Your Calls Are Handled",
-            "image": "sites/recovery-site/uploads/media/how-your-calls-are-handled.webp",
-            "body": "<p>We offer a free, 24/7 confidential helpline to connect you with trusted water damage restoration professionals tailored to your needs. This call routing service is sponsored advertising. {website} does not provide water damage restoration services. Calls to our main helpline are answered by one of our advertising partners who can help match you with a suitable provider. By using {website} and calling, you agree to our terms and conditions. You'll never be charged for these calls or pressured to choose any particular service. Neither we nor our partners earn commissions from your choices. <strong>Notice of Call Recording and Data Use:</strong> By using {website} and calling, you agree to our Privacy Policy. To explore more water damage restoration options, visit our {website} or call us anytime at {phone}.</p>"
+            "image": "",
+            "body": "<p>{business} offers a free, confidential helpline that connects you with addiction-treatment providers and advertising partners. This call-routing service is sponsored advertising. {business} is not a treatment provider or insurance company. Calls to our helpline are answered by one of our advertising partners, who can help you verify your insurance benefits and find treatment options. By calling or using {website}, you agree to our Terms and Conditions and Privacy Policy, and you consent to be contacted about treatment and coverage options. You will never be charged for these calls. <strong>Call recording &amp; data use:</strong> calls may be recorded and your information handled as described in our Privacy Policy. If you are in crisis, call or text <strong>988</strong>. Questions? Call {phone}.</p>"
         }
     },
     "local_business": {
         "lb_name": "{business}",
-        "lb_type": "HomeAndConstructionBusiness",
+        "lb_type": "Organization",
         "lb_url": "{website}",
         "lb_phone": "{phone}",
         "lb_street": "",
-        "lb_city": "{city}",
-        "lb_state": "{SS}",
-        "lb_zip": "{zip}",
+        "lb_city": "",
+        "lb_state": "",
+        "lb_zip": "",
         "lb_country": "US",
-        "lb_lat": "31.3382",
-        "lb_lng": "-94.7291",
-        "lb_price_range": "$$",
-        "lb_hours": "Mo-Su 00:00-23:59",
-        "lb_description": "{business} connects {city_state} property owners with water and storm damage restoration specialists — including 24/7 water extraction, flood cleanup, structural drying, and sewage cleanup.",
-        "lb_logo": "{website}/uploads/logo_elk-mold-pros.png",
+        "lb_lat": "",
+        "lb_lng": "",
+        "lb_price_range": "",
+        "lb_hours": "",
+        "lb_description": "{business} is a free service that helps people find addiction treatment covered by their health insurance, connecting individuals and families with treatment providers and advertising partners nationwide.",
+        "lb_logo": "",
         "lb_rating": "",
         "lb_review_count": ""
     },
@@ -686,69 +655,16 @@
     },
     "posts": [],
     "blog_settings": {
-        "blog_heading": "Water Damage Tips & News for {city}",
-        "blog_intro": "",
+        "blog_heading": "Recovery & Insurance Insights",
+        "blog_intro": "Guidance on using your insurance for addiction treatment, recovery resources, and coverage tips.",
         "posts_per_page": 9
     },
     "services_links": {
-        "services": [
-            {
-                "name": "Mold Removal",
-                "url": "/mold-removal-{city_slug}"
-            },
-            {
-                "name": "Black Mold Removal",
-                "url": "/black-mold-removal-{city_slug}"
-            },
-            {
-                "name": "Mold Inspection",
-                "url": "/mold-inspection-{city_slug}"
-            },
-            {
-                "name": "Mold Testing",
-                "url": "/mold-testing-{city_slug}"
-            },
-            {
-                "name": "Mold Mitigation",
-                "url": "/mold-mitigation-{city_slug}"
-            },
-            {
-                "name": "Mold Damage Restoration",
-                "url": "/mold-damage-restoration-{city_slug}"
-            },
-            {
-                "name": "Commercial Mold Remediation",
-                "url": "/commercial-mold-remediation-{city_slug}"
-            },
-            {
-                "name": "Attic Mold Removal",
-                "url": "/attic-mold-removal-{city_slug}"
-            },
-            {
-                "name": "Crawl Space Mold Removal",
-                "url": "/crawl-space-mold-removal-{city_slug}"
-            },
-            {
-                "name": "Basement Mold Removal",
-                "url": "/basement-mold-removal-{city_slug}"
-            },
-            {
-                "name": "Air Conditioner Mold Removal",
-                "url": "/air-conditioner-mold-removal-{city_slug}"
-            },
-            {
-                "name": "Mold Prevention",
-                "url": "/mold-prevention-{city_slug}"
-            },
-            {
-                "name": "Indoor Air Quality Testing",
-                "url": "/air-quality-testing-{city_slug}"
-            }
-        ],
+        "services": [],
         "url_pattern": "/{service_slug}-{city_slug}",
-        "heading": "Our Mold Remediation Services in {city_state}",
+        "heading": "",
         "sublabel": "",
-        "subtext": "We connect {city_state} property owners with certified specialists for the full range of mold services &mdash; from inspection and testing to black mold removal, containment, and prevention. Fast, reliable local response.",
+        "subtext": "",
         "style": "dark",
         "cols": 5,
         "bg_photo": "",
