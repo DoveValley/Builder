@@ -1,0 +1,482 @@
+[
+  {
+    "id": "rec_hub",
+    "base": false,
+    "title": "Addiction Treatment Insurance Coverage",
+    "slug_pattern": "/insurance/",
+    "page_type": "recovery_hub",
+    "service": "Addiction Treatment",
+    "generation_steps": [],
+    "base_role": "",
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Addiction Treatment Insurance Coverage",
+        "hs_subtext": "<p>Not sure if your health insurance covers rehab? {business} is a free, confidential service that helps you verify your addiction treatment benefits and find care that works with your plan — for any major insurer.</p>",
+        "hs_btn_text": "Verify My Coverage — {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Checking health insurance coverage for addiction treatment and rehab",
+        "hs_image_side": "right",
+        "hs_bg_color": "#eef4fb",
+        "hs_photo": "",
+        "hs_bg_photo": "",
+        "hs_mobile_order": "text_first"
+      },
+      {
+        "type": "feature_columns",
+        "fc_heading": "How Insurance Covers Addiction Treatment",
+        "fc_subheading": "Most health plans include some level of rehab coverage. Here is what to know before you commit to anything.",
+        "fc_heading_level": "h2",
+        "fc_num_cols": 3,
+        "fc_bg_color": "#ffffff",
+        "columns": [
+          { "icon": "", "image": "", "alt": "Insurance parity protections for addiction and mental-health treatment", "heading": "Parity Protections", "text": "Federal law requires most health plans to cover substance-use and mental-health treatment comparably to other medical care." },
+          { "icon": "", "image": "", "alt": "Types of addiction treatment commonly covered by insurance", "heading": "What Is Often Covered", "text": "Detox, inpatient and residential rehab, PHP and IOP, outpatient care, and medication-assisted treatment are commonly covered, subject to your plan." },
+          { "icon": "", "image": "", "alt": "Verifying rehab benefits before entering treatment", "heading": "Verify Before You Go", "text": "Coverage varies by plan, deductible, and network. A quick benefits check shows what you would actually pay out of pocket." }
+        ]
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Coverage Verification Works",
+        "steps_items": [
+          { "image": "", "alt": "Call for a free insurance benefits check", "heading": "Call for a Free Benefits Check", "text": "Share your insurance details. There is no cost and no obligation." },
+          { "image": "", "alt": "We verify your addiction treatment coverage", "heading": "We Verify Your Coverage", "text": "We confirm what your plan covers for addiction treatment and what you would pay." },
+          { "image": "", "alt": "Get matched to covered treatment options", "heading": "Get Matched to Covered Care", "text": "We connect you with treatment options that work with your insurance." }
+        ]
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "Insurance and Rehab Coverage — FAQs",
+        "fq_bg_color": "#ffffff",
+        "fq_item_bg": "#f1f5f9",
+        "fq_head_color": "header",
+        "fq_icon_bg": "accent",
+        "fq_items": [
+          { "question": "Does health insurance cover rehab?", "answer": "Most plans cover at least part of addiction treatment because of federal parity and ACA rules. The exact amount depends on your specific plan, and {business} can verify your benefits for free." },
+          { "question": "Which insurance companies cover addiction treatment?", "answer": "Major carriers including Aetna, Cigna, UnitedHealthcare, and Blue Cross Blue Shield commonly include rehab benefits. Choose your carrier from the list below to learn more." },
+          { "question": "How much does rehab cost with insurance?", "answer": "It depends on your deductible, copay, and whether the facility is in-network. Many people pay far less than the sticker price once benefits are applied." },
+          { "question": "Is checking my coverage confidential?", "answer": "Yes. It is free, private, and there is no obligation to enter treatment." }
+        ]
+      },
+      {
+        "type": "cta_banner",
+        "anchor": "closing_cta",
+        "cb_text": "Find out what your insurance covers for addiction treatment.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call Now — {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "normal"
+      }
+    ],
+    "seo": {
+      "seo_title": "Addiction Treatment Insurance Coverage — Verify Your Rehab Benefits | {business}",
+      "meta_description": "Does your insurance cover rehab? {business} helps you verify addiction treatment benefits for major carriers, free and confidential. Check your coverage now.",
+      "canonical_url": ""
+    }
+  },
+
+  {
+    "id": "rec_company_national",
+    "base": false,
+    "title": "{company} Rehab Coverage",
+    "slug_pattern": "/insurance/{company}",
+    "page_type": "recovery_company",
+    "service": "Addiction Treatment",
+    "generation_steps": [],
+    "base_role": "",
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "{company} Rehab Coverage",
+        "hs_subtext": "<p>Wondering whether {company} covers addiction treatment? {business} helps you confirm your {company} rehab benefits — detox, inpatient, and outpatient — and find care that accepts your plan. Free, confidential, no obligation.</p>",
+        "hs_btn_text": "Check My {company} Coverage — {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "{company} insurance coverage for rehab and addiction treatment",
+        "hs_image_side": "right",
+        "hs_bg_color": "#eef4fb",
+        "hs_photo": "",
+        "hs_bg_photo": "",
+        "hs_mobile_order": "text_first"
+      },
+      {
+        "type": "feature_columns",
+        "fc_heading": "What {company} May Cover for Addiction Treatment",
+        "fc_subheading": "Coverage depends on your specific {company} plan. Here is what these plans often include.",
+        "fc_heading_level": "h2",
+        "fc_num_cols": 4,
+        "fc_bg_color": "#ffffff",
+        "columns": [
+          { "icon": "", "image": "", "alt": "{company} medical detox coverage", "heading": "Medical Detox", "text": "Supervised detox is commonly covered when it is medically necessary." },
+          { "icon": "", "image": "", "alt": "{company} inpatient and residential rehab coverage", "heading": "Inpatient and Residential", "text": "Many {company} plans include residential rehab, subject to your plan terms." },
+          { "icon": "", "image": "", "alt": "{company} outpatient PHP and IOP coverage", "heading": "Outpatient (PHP and IOP)", "text": "Day programs and intensive outpatient are frequently covered options." },
+          { "icon": "", "image": "", "alt": "{company} medication-assisted treatment and dual-diagnosis coverage", "heading": "MAT and Dual Diagnosis", "text": "Medication-assisted treatment and co-occurring mental-health care may be included." }
+        ]
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How to Use Your {company} Benefits",
+        "steps_items": [
+          { "image": "", "alt": "Call for a free {company} benefits check", "heading": "Call for a Free Benefits Check", "text": "Tell us your {company} plan details. There is no cost and no obligation." },
+          { "image": "", "alt": "We verify your {company} coverage", "heading": "We Verify Your {company} Coverage", "text": "We confirm what your {company} plan covers for addiction treatment." },
+          { "image": "", "alt": "Get matched to treatment that accepts {company}", "heading": "Get Matched to Covered Care", "text": "We connect you with treatment options that accept {company}." }
+        ]
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{company} Rehab Coverage — FAQs",
+        "fq_bg_color": "#ffffff",
+        "fq_item_bg": "#f1f5f9",
+        "fq_head_color": "header",
+        "fq_icon_bg": "accent",
+        "fq_items": [
+          { "question": "Does {company} cover rehab?", "answer": "In most cases {company} plans include some coverage for addiction treatment, because federal law requires most health plans to treat substance-use care like other medical care. Exact benefits depend on your specific {company} plan, and we can verify yours for free." },
+          { "question": "What addiction treatment does {company} cover?", "answer": "Depending on your plan, {company} may cover detox, inpatient and residential rehab, partial hospitalization (PHP), intensive outpatient (IOP), outpatient care, and medication-assisted treatment." },
+          { "question": "How much will treatment cost with {company}?", "answer": "Out-of-pocket costs depend on your deductible, copay, and whether the facility is in-network. We can help you understand your {company} benefits before you commit." },
+          { "question": "Do I have to use an in-network facility?", "answer": "In-network care usually costs less, but many plans include some out-of-network benefits. We can review your {company} plan and explain your options." }
+        ]
+      },
+      {
+        "type": "text",
+        "heading_level": "h2",
+        "text": "Disclaimer: {business} is a free informational and referral service, not a treatment provider or insurance company. {company} is a trademark of its owner, and {business} is not affiliated with or endorsed by {company}. Coverage varies by plan, so always verify your own benefits. If you are in crisis, call or text 988.",
+        "photo": "",
+        "photo_ratio": "landscape",
+        "photo_position": "center",
+        "photo_alt": ""
+      },
+      {
+        "type": "cta_banner",
+        "anchor": "closing_cta",
+        "cb_text": "Verify your {company} rehab coverage today.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call Now — {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "normal"
+      }
+    ],
+    "seo": {
+      "seo_title": "{company} Rehab Coverage — Does {company} Cover Addiction Treatment? | {business}",
+      "meta_description": "Does {company} cover rehab? {business} helps you verify your {company} addiction treatment benefits — detox, inpatient, and outpatient — free and confidential.",
+      "canonical_url": ""
+    }
+  },
+
+  {
+    "id": "rec_state",
+    "base": false,
+    "title": "Rehab That Takes Insurance in {state}",
+    "slug_pattern": "/{state}",
+    "page_type": "recovery_state",
+    "service": "Addiction Treatment",
+    "generation_steps": [],
+    "base_role": "",
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Rehab That Takes Insurance in {state}",
+        "hs_subtext": "<p>Looking for rehab that takes insurance in {state}? {business} helps {state} residents verify their addiction treatment benefits and connect with covered detox, inpatient, and outpatient programs. Free and confidential.</p>",
+        "hs_btn_text": "Verify My Coverage — {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Rehab that takes insurance in {state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#eef4fb",
+        "hs_photo": "",
+        "hs_bg_photo": "",
+        "hs_mobile_order": "text_first"
+      },
+      {
+        "type": "feature_columns",
+        "fc_heading": "Addiction Treatment Coverage in {state}",
+        "fc_subheading": "How insurance helps {state} residents get into treatment.",
+        "fc_heading_level": "h2",
+        "fc_num_cols": 3,
+        "fc_bg_color": "#ffffff",
+        "columns": [
+          { "icon": "", "image": "", "alt": "Insurance parity for addiction treatment in {state}", "heading": "Coverage Is Protected", "text": "Most plans available in {state} must cover substance-use treatment comparably to other medical care." },
+          { "icon": "", "image": "", "alt": "Covered treatment options across {state}", "heading": "Options Across {state}", "text": "From detox to outpatient care, covered programs are available across {state} for in-network and many out-of-network plans." },
+          { "icon": "", "image": "", "alt": "Free benefits verification for {state} residents", "heading": "Free Verification", "text": "We check your specific plan so you know your {state} coverage and costs before you go." }
+        ]
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{state} Rehab Insurance — FAQs",
+        "fq_bg_color": "#ffffff",
+        "fq_item_bg": "#f1f5f9",
+        "fq_head_color": "header",
+        "fq_icon_bg": "accent",
+        "fq_items": [
+          { "question": "How do I find rehab that takes my insurance in {state}?", "answer": "Start by verifying your benefits. {business} confirms what your plan covers and connects you with {state} treatment options that accept it, for free." },
+          { "question": "What types of treatment are covered in {state}?", "answer": "Depending on your plan, coverage can include detox, inpatient and residential rehab, PHP, IOP, outpatient care, and medication-assisted treatment." },
+          { "question": "Which insurance companies cover rehab in {state}?", "answer": "Major carriers such as Aetna, Cigna, UnitedHealthcare, and Blue Cross Blue Shield commonly cover addiction treatment for {state} residents. See the carrier links below." }
+        ]
+      },
+      {
+        "type": "cta_banner",
+        "anchor": "closing_cta",
+        "cb_text": "Find rehab that takes your insurance in {state}.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call Now — {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "normal"
+      }
+    ],
+    "seo": {
+      "seo_title": "Rehab That Takes Insurance in {state} — Verify Your Coverage | {business}",
+      "meta_description": "Find rehab that takes insurance in {state}. {business} helps {state} residents verify addiction treatment benefits and find covered care, free and confidential.",
+      "canonical_url": ""
+    }
+  },
+
+  {
+    "id": "rec_city",
+    "base": false,
+    "title": "Rehab That Takes Insurance in {city_state}",
+    "slug_pattern": "/{state}/{city}",
+    "page_type": "recovery_city",
+    "service": "Addiction Treatment",
+    "generation_steps": [],
+    "base_role": "",
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Rehab That Takes Insurance in {city_state}",
+        "hs_subtext": "<p>Searching for rehab that takes insurance in {city_state}? {business} helps you verify your benefits and find covered addiction treatment near {city} — detox, inpatient, and outpatient. Free, confidential, no obligation.</p>",
+        "hs_btn_text": "Verify My Coverage — {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Rehab that takes insurance in {city}, {SS}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#eef4fb",
+        "hs_photo": "",
+        "hs_bg_photo": "",
+        "hs_mobile_order": "text_first"
+      },
+      {
+        "type": "feature_columns",
+        "fc_heading": "Finding Covered Treatment in {city}",
+        "fc_subheading": "How {business} helps you use your insurance for addiction treatment near {city}.",
+        "fc_heading_level": "h2",
+        "fc_num_cols": 3,
+        "fc_bg_color": "#ffffff",
+        "columns": [
+          { "icon": "", "image": "", "alt": "Local addiction treatment options in {city}, {SS}", "heading": "Local Options", "text": "We help you find covered treatment in and around {city_state}, from detox to outpatient care." },
+          { "icon": "", "image": "", "alt": "Verify insurance benefits for rehab in {city}", "heading": "Know Your Costs", "text": "We verify your specific plan so you understand your {city} coverage and out-of-pocket costs first." },
+          { "icon": "", "image": "", "alt": "Confidential help finding rehab in {city}", "heading": "Confidential Help", "text": "Reaching out is free and private, with no obligation to enter treatment." }
+        ]
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{city} Rehab Coverage — FAQs",
+        "fq_bg_color": "#ffffff",
+        "fq_item_bg": "#f1f5f9",
+        "fq_head_color": "header",
+        "fq_icon_bg": "accent",
+        "fq_items": [
+          { "question": "How do I find rehab that takes my insurance in {city}?", "answer": "Verify your benefits first. {business} confirms what your plan covers and connects you with treatment near {city_state} that accepts it, for free." },
+          { "question": "What treatment is covered near {city}?", "answer": "Depending on your plan, coverage can include detox, inpatient and residential rehab, PHP, IOP, outpatient care, and medication-assisted treatment." },
+          { "question": "Is help finding treatment in {city} confidential?", "answer": "Yes. It is free, private, and there is no obligation to enter treatment." }
+        ]
+      },
+      {
+        "type": "cta_banner",
+        "anchor": "closing_cta",
+        "cb_text": "Find rehab that takes your insurance in {city_state}.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call Now — {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "normal"
+      }
+    ],
+    "seo": {
+      "seo_title": "Rehab That Takes Insurance in {city_state} — Verify Coverage | {business}",
+      "meta_description": "Find rehab that takes insurance in {city_state}. {business} helps you verify addiction treatment benefits and find covered care near {city}, free and confidential.",
+      "canonical_url": ""
+    }
+  },
+
+  {
+    "id": "rec_state_company",
+    "base": false,
+    "title": "{company} Rehab Coverage in {state}",
+    "slug_pattern": "/{state}/{company}",
+    "page_type": "recovery_state_company",
+    "service": "Addiction Treatment",
+    "generation_steps": [],
+    "base_role": "",
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "{company} Rehab Coverage in {state}",
+        "hs_subtext": "<p>Does {company} cover rehab in {state}? {business} helps {state} residents confirm their {company} addiction treatment benefits and find covered detox, inpatient, and outpatient care. Free and confidential.</p>",
+        "hs_btn_text": "Check My {company} Coverage — {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "{company} rehab coverage in {state}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#eef4fb",
+        "hs_photo": "",
+        "hs_bg_photo": "",
+        "hs_mobile_order": "text_first"
+      },
+      {
+        "type": "feature_columns",
+        "fc_heading": "What {company} Covers for Treatment in {state}",
+        "fc_subheading": "Coverage depends on your specific {company} plan. Here is what {state} members often have access to.",
+        "fc_heading_level": "h2",
+        "fc_num_cols": 4,
+        "fc_bg_color": "#ffffff",
+        "columns": [
+          { "icon": "", "image": "", "alt": "{company} detox coverage in {state}", "heading": "Medical Detox", "text": "Supervised detox is commonly covered when medically necessary." },
+          { "icon": "", "image": "", "alt": "{company} inpatient rehab coverage in {state}", "heading": "Inpatient and Residential", "text": "Many {company} plans in {state} include residential rehab." },
+          { "icon": "", "image": "", "alt": "{company} outpatient coverage in {state}", "heading": "Outpatient (PHP and IOP)", "text": "Day programs and intensive outpatient are frequently covered." },
+          { "icon": "", "image": "", "alt": "{company} MAT and dual-diagnosis coverage in {state}", "heading": "MAT and Dual Diagnosis", "text": "Medication-assisted treatment and mental-health care may be included." }
+        ]
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{company} Coverage in {state} — FAQs",
+        "fq_bg_color": "#ffffff",
+        "fq_item_bg": "#f1f5f9",
+        "fq_head_color": "header",
+        "fq_icon_bg": "accent",
+        "fq_items": [
+          { "question": "Does {company} cover rehab in {state}?", "answer": "In most cases {company} plans in {state} include coverage for addiction treatment. The exact benefits depend on your specific plan, and we can verify yours for free." },
+          { "question": "What does {company} cover in {state}?", "answer": "Depending on your plan, {company} may cover detox, inpatient and residential rehab, PHP, IOP, outpatient care, and medication-assisted treatment across {state}." },
+          { "question": "How do I use my {company} benefits in {state}?", "answer": "Call for a free benefits check. We confirm your {company} coverage and connect you with {state} treatment that accepts your plan." }
+        ]
+      },
+      {
+        "type": "text",
+        "heading_level": "h2",
+        "text": "Disclaimer: {business} is a free informational and referral service, not a treatment provider or insurance company. {company} is a trademark of its owner, and {business} is not affiliated with or endorsed by {company}. Coverage varies by plan, so always verify your own benefits. If you are in crisis, call or text 988.",
+        "photo": "",
+        "photo_ratio": "landscape",
+        "photo_position": "center",
+        "photo_alt": ""
+      },
+      {
+        "type": "cta_banner",
+        "anchor": "closing_cta",
+        "cb_text": "Verify your {company} rehab coverage in {state}.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call Now — {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "normal"
+      }
+    ],
+    "seo": {
+      "seo_title": "{company} Rehab Coverage in {state} — Does {company} Cover Rehab? | {business}",
+      "meta_description": "Does {company} cover rehab in {state}? {business} helps {state} residents verify {company} addiction treatment benefits and find covered care, free and confidential.",
+      "canonical_url": ""
+    }
+  },
+
+  {
+    "id": "rec_city_company",
+    "base": false,
+    "title": "{company} Rehab Coverage in {city_state}",
+    "slug_pattern": "/{state}/{city}/{company}",
+    "page_type": "recovery_city_company",
+    "service": "Addiction Treatment",
+    "generation_steps": [],
+    "base_role": "",
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "{company} Rehab Coverage in {city_state}",
+        "hs_subtext": "<p>Wondering if {company} covers rehab in {city_state}? {business} helps you verify your {company} benefits and find addiction treatment in {city} that works with your plan. Free, confidential, no obligation.</p>",
+        "hs_btn_text": "Check My {company} Coverage — {phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "{company} rehab coverage in {city}, {SS}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#eef4fb",
+        "hs_photo": "",
+        "hs_bg_photo": "",
+        "hs_mobile_order": "text_first"
+      },
+      {
+        "type": "feature_columns",
+        "fc_heading": "What {company} May Cover in {city}",
+        "fc_subheading": "Coverage depends on your specific {company} plan. Here is what these plans often include for treatment near {city_state}.",
+        "fc_heading_level": "h2",
+        "fc_num_cols": 4,
+        "fc_bg_color": "#ffffff",
+        "columns": [
+          { "icon": "", "image": "", "alt": "{company} detox coverage in {city}, {SS}", "heading": "Medical Detox", "text": "Supervised detox is commonly covered when medically necessary." },
+          { "icon": "", "image": "", "alt": "{company} inpatient rehab coverage in {city}", "heading": "Inpatient and Residential", "text": "Many {company} plans include residential rehab near {city}." },
+          { "icon": "", "image": "", "alt": "{company} outpatient coverage in {city}", "heading": "Outpatient (PHP and IOP)", "text": "Day programs and intensive outpatient are frequently covered." },
+          { "icon": "", "image": "", "alt": "{company} MAT and dual-diagnosis coverage in {city}", "heading": "MAT and Dual Diagnosis", "text": "Medication-assisted treatment and mental-health care may be included." }
+        ]
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How to Use Your {company} Benefits in {city}",
+        "steps_items": [
+          { "image": "", "alt": "Free {company} benefits check for {city}", "heading": "Call for a Free Benefits Check", "text": "Tell us your {company} plan details. No cost, no obligation." },
+          { "image": "", "alt": "Verify {company} coverage for {city} treatment", "heading": "We Verify Your Coverage", "text": "We confirm what your {company} plan covers for addiction treatment in {city}." },
+          { "image": "", "alt": "Get matched to {city} treatment that accepts {company}", "heading": "Get Matched Locally", "text": "We connect you with treatment near {city_state} that accepts {company}." }
+        ]
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{company} Rehab Coverage in {city_state} — FAQs",
+        "fq_bg_color": "#ffffff",
+        "fq_item_bg": "#f1f5f9",
+        "fq_head_color": "header",
+        "fq_icon_bg": "accent",
+        "fq_items": [
+          { "question": "Does {company} cover rehab in {city}?", "answer": "In most cases {company} plans include some coverage for addiction treatment near {city}, because federal law requires most health plans to treat substance-use care like other medical care. Your exact benefits depend on your plan, and we can verify yours for free." },
+          { "question": "What treatment does {company} cover in {city}?", "answer": "Depending on your plan, {company} may cover detox, inpatient and residential rehab, PHP, IOP, outpatient care, and medication-assisted treatment in and around {city_state}." },
+          { "question": "How much will treatment cost with {company} in {city}?", "answer": "Out-of-pocket costs depend on your deductible, copay, and whether the {city} facility is in-network. We can help you understand your {company} benefits before you commit." },
+          { "question": "Do I have to use an in-network facility in {city}?", "answer": "In-network care usually costs less, but many plans include out-of-network benefits. We can review your {company} plan and explain your options in {city}." },
+          { "question": "Is contacting {business} confidential?", "answer": "Yes. Checking your {company} coverage is free, confidential, and carries no obligation to enter treatment." }
+        ]
+      },
+      {
+        "type": "text",
+        "heading_level": "h2",
+        "text": "Disclaimer: {business} is a free informational and referral service, not a treatment provider or insurance company. {company} is a trademark of its owner, and {business} is not affiliated with or endorsed by {company}. Coverage varies by plan, so always verify your own benefits. If you are in crisis, call or text 988.",
+        "photo": "",
+        "photo_ratio": "landscape",
+        "photo_position": "center",
+        "photo_alt": ""
+      },
+      {
+        "type": "cta_banner",
+        "anchor": "closing_cta",
+        "cb_text": "Verify your {company} coverage for addiction treatment in {city_state}.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call Now — {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "normal"
+      }
+    ],
+    "seo": {
+      "seo_title": "{company} Rehab Coverage in {city_state} — Does {company} Cover Rehab? | {business}",
+      "meta_description": "Does {company} cover rehab in {city_state}? {business} helps you verify {company} addiction treatment benefits and find covered care near {city}, free and confidential.",
+      "canonical_url": ""
+    }
+  }
+]

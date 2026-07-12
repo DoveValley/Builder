@@ -50,22 +50,81 @@ function recovery_render_route(array $m, array $data): array {
     }
     recovery_set_ctx($ctx);   // {company}* tokens read this (plugin.php shortcode_tokens hook)
 
-    // 2. Preferred: render the mapped template's blocks.
+    // 2. Preferred: render the mapped template's blocks. Fallback: placeholder.
     $cfg = recovery_config();
     $tpl = recovery_template_by_id($cfg['templates'][$m['type']] ?? '');
     if ($tpl && !empty($tpl['content_blocks'])) {
-        return [
+        $payload = [
             'title'          => $tpl['title'] ?? '',
             'seo'            => is_array($tpl['seo'] ?? null) ? $tpl['seo'] : [],
             'content_blocks' => $tpl['content_blocks'],
             'site_vars'      => $sv,
         ];
+    } else {
+        $payload = _recovery_placeholder_for($m);
+        $payload['site_vars'] = $sv;
     }
 
-    // 3. Fallback placeholder (unmapped type).
-    $p = _recovery_placeholder_for($m);
-    $p['site_vars'] = $sv;
-    return $p;
+    // 3. Append the internal-link mesh (SEO silo: hubs → entities, entities → up).
+    $nav = recovery_nav_block($m);
+    if ($nav) $payload['content_blocks'][] = $nav;
+    return $payload;
+}
+
+/**
+ * Build the contextual internal-link block for a page (custom_html), with keyword-rich
+ * anchors. This is what wires the matrix together for crawlers + users. Links are built
+ * in PHP from the matrix data (not tokens), so anchors carry real carrier/city names.
+ */
+function recovery_nav_block(array $m): ?array {
+    $heading = '';
+    $links   = [];   // [url, anchor]
+    $st = $m['state'] ?? ''; $ci = $m['city'] ?? ''; $co = $m['company'] ?? '';
+    $sRow = $st ? recovery_state($st) : null; $sName = $sRow['name'] ?? $st; $ss = $sRow['ss'] ?? '';
+    $ciRow = ($st && $ci) ? recovery_city($st, $ci) : null; $ciName = $ciRow['name'] ?? $ci;
+    $coRow = $co ? recovery_carrier($co) : null; $coName = $coRow['name'] ?? $co;
+
+    switch ($m['type']) {
+        case 'hub':
+            $heading = 'Check Rehab Coverage by Insurance Carrier';
+            foreach (recovery_carriers() as $c) $links[] = ["/insurance/{$c['slug']}", "{$c['name']} rehab coverage"];
+            foreach (recovery_states() as $s)   $links[] = ["/{$s['slug']}", "Rehab that takes insurance in {$s['name']}"];
+            break;
+        case 'company_national':
+            $heading = "$coName Rehab Coverage by State";
+            foreach (recovery_states() as $s) $links[] = ["/{$s['slug']}/$co", "$coName rehab coverage in {$s['name']}"];
+            break;
+        case 'state':
+            $heading = "Rehab Coverage by City in $sName";
+            foreach (recovery_cities() as $c) if (($c['state'] ?? '') === $st) $links[] = ["/$st/{$c['slug']}", "Rehab that takes insurance in {$c['name']}, $ss"];
+            foreach (recovery_carriers() as $c) $links[] = ["/$st/{$c['slug']}", "{$c['name']} coverage in $sName"];
+            break;
+        case 'city':
+            $heading = "Insurance Carriers Accepted in $ciName, $ss";
+            foreach (recovery_carriers() as $c) $links[] = ["/$st/$ci/{$c['slug']}", "{$c['name']} rehab coverage in $ciName"];
+            break;
+        case 'state_company':
+            $heading = "$coName Rehab Coverage by City in $sName";
+            foreach (recovery_cities() as $c) if (($c['state'] ?? '') === $st) $links[] = ["/$st/{$c['slug']}/$co", "$coName coverage in {$c['name']}, $ss"];
+            break;
+        case 'city_company':
+            $heading = 'Related Coverage';
+            $links[] = ["/$st/$ci", "All rehab coverage in $ciName, $ss"];
+            $links[] = ["/insurance/$co", "$coName rehab coverage nationwide"];
+            $links[] = ["/$st/$co", "$coName rehab coverage in $sName"];
+            break;
+    }
+    if (!$links) return null;
+
+    $lis = '';
+    foreach ($links as [$url, $anchor]) {
+        $lis .= '<li style="margin:0 0 8px;"><a href="' . htmlspecialchars($url) . '">' . htmlspecialchars($anchor) . '</a></li>';
+    }
+    $html = '<div style="max-width:1100px;margin:0 auto;padding:8px 0;">'
+          . '<h2 style="font-size:1.4rem;margin:0 0 16px;">' . htmlspecialchars($heading) . '</h2>'
+          . '<ul style="list-style:none;padding:0;margin:0;column-count:2;column-gap:40px;line-height:1.6;">'
+          . $lis . '</ul></div>';
+    return ['type' => 'custom_html', 'html' => $html];
 }
 
 /** Guaranteed-to-render placeholder built from the core `text` block. */
