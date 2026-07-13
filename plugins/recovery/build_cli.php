@@ -22,7 +22,12 @@ require_once BASE_DIR . '/includes/static_build.php';
 if (function_exists('progress_set_sink')) progress_set_sink(function (...$a) {});
 
 $out = getenv('RECOVERY_OUTPUT') ?: (BASE_DIR . '/sites/recovery-site/output');
-$b   = recovery_full_build($out, 'https://r.q111.xyz');
+// Canonical domain from the site's deploy.json (falls back to staging) — keeps CLI builds
+// in sync with the panel's Build & Deploy so canonicals/sitemap match the live domain.
+$deployFile = ACTIVE_SITE_DIR . '/deploy.json';
+$dcfg = is_file($deployFile) ? (json_decode(file_get_contents($deployFile), true) ?: []) : [];
+$canonical = $dcfg['canonical_domain'] ?: 'https://r.q111.xyz';
+$b   = recovery_full_build($out, $canonical);
 
 echo "Recovery build → " . rtrim($out, '/') . "/\n";
 echo "Total pages: {$b['pages']}  (matrix: {$b['matrix']})\n";
