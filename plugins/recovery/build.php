@@ -45,6 +45,30 @@ function recovery_enumerate_urls(): array {
     return $urls;
 }
 
+/**
+ * Coverage of the per-intersection AI layer: how many publishable state×carrier and
+ * city×carrier pages have a unique bundle in ai_intersections.json vs. still falling
+ * back to composed fragments. Drives the panel's "Per-page AI content" card.
+ */
+function recovery_intersection_coverage(): array {
+    $cfg       = recovery_config();
+    $publishCC = !empty($cfg['phasing']['publish_city_company']);
+    $minPop    = (int) ($cfg['phasing']['min_city_population'] ?? 0);
+    $ai = _recovery_load_json('ai_intersections.json');
+
+    $keys = [];
+    foreach (recovery_states() as $s) {
+        foreach (recovery_carriers() as $c) $keys[] = "{$s['slug']}/{$c['slug']}";   // state × company
+    }
+    if ($publishCC) foreach (recovery_cities() as $ci) {
+        if ((int) ($ci['population'] ?? 0) < $minPop) continue;
+        foreach (recovery_carriers() as $c) $keys[] = "{$ci['state']}/{$ci['slug']}/{$c['slug']}"; // city × company
+    }
+    $need = count($keys); $have = 0;
+    foreach ($keys as $k) if (!empty($ai[$k]['intro_html'])) $have++;
+    return ['need' => $need, 'have' => $have, 'missing' => $need - $have];
+}
+
 /** Count publishable URLs by type (for the deploy manifest / preview). */
 function recovery_url_breakdown(): array {
     $b = ['hub'=>0,'company_national'=>0,'state'=>0,'city'=>0,'state_company'=>0,'city_company'=>0];
@@ -96,7 +120,7 @@ function recovery_full_build(string $outputBase, string $canonical = 'https://r.
     file_put_contents($out . 'sitemap.xml', $sm);
 
     $bd = recovery_url_breakdown();
-    $man = "Recovery Dawn — build manifest\nTotal pages: " . count($locs) . "\nMatrix: " . array_sum($bd)
+    $man = "Recovery — build manifest\nTotal pages: " . count($locs) . "\nMatrix: " . array_sum($bd)
          . "\n" . implode("\n", array_map(fn($k, $v) => "  $k: $v", array_keys($bd), array_values($bd))) . "\n";
     file_put_contents($out . '_manifest.txt', $man);
 

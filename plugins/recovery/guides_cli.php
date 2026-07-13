@@ -79,7 +79,7 @@ foreach ($topics as [$slug, $title, $tag, $focus]) {
 
     $d['posts'][$pid] = [
         'title'=>$title,'slug'=>$slug,'status'=>'published','published_at'=>date('Y-m-d'),'updated_at'=>date('Y-m-d'),
-        'author'=>'Recovery Dawn Editorial Team','tag'=>$tag,'excerpt'=>$ai['excerpt'] ?? '','featured_image'=>'','featured_image_alt'=>'',
+        'author'=>'{business} Editorial Team','tag'=>$tag,'excerpt'=>$ai['excerpt'] ?? '','featured_image'=>'','featured_image_alt'=>'',
         'content_blocks'=>$blocks,
         'seo'=>['seo_title'=>"$title | {business}",'meta_description'=>$ai['excerpt'] ?? '','primary_keyword'=>$title,'secondary_keywords'=>'','meta_keywords'=>'','og_title'=>'','og_description'=>'','og_image'=>'','schema'=>'','canonical_url'=>'','service_name'=>'','service_type'=>'','service_area'=>'','service_description'=>'','bc_label'=>'','bc_mid_label'=>'Guides','bc_mid_url'=>'/blog'],
     ];

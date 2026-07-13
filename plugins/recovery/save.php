@@ -115,6 +115,27 @@ switch ($action) {
         $done($json !== false && file_put_contents($deployFile, $json) !== false, 'Deploy settings saved');
     }
 
+    case 'enrich_intersections': {
+        // Spawn the intersection-AI runner in the BACKGROUND (300+ API calls can't run
+        // inside a web request). Idempotent + single-writer, so we just guard against a
+        // second concurrent run (two full-file writers would race).
+        $already = trim((string) @shell_exec('pgrep -f enrich_intersections_cli.php 2>/dev/null'));
+        if ($already !== '') $fail('An intersection AI run is already in progress — let it finish first.');
+
+        $script = __DIR__ . '/enrich_intersections_cli.php';
+        $php    = is_file(PHP_BINDIR . '/php') ? PHP_BINDIR . '/php' : (is_file('/usr/bin/php') ? '/usr/bin/php' : 'php');
+        $args   = ' --parallel=6';
+        $st     = preg_replace('/[^a-z0-9\-]/', '', strtolower($_POST['state'] ?? ''));
+        if ($st !== '')             $args .= ' --state=' . escapeshellarg($st);
+        if (!empty($_POST['refresh'])) $args .= ' --refresh';
+
+        $cmd = 'nohup env ' . escapeshellarg('MULTISITE_SITE_BASE=' . ACTIVE_SITE_DIR)
+             . ' ' . escapeshellarg($php) . ' ' . escapeshellarg($script) . $args
+             . ' > /tmp/enrich_intersections.log 2>&1 &';
+        @exec($cmd);
+        $done(true, 'Intersection AI generation started in the background — refresh this page to watch coverage climb.');
+    }
+
     case 'build_only':
     case 'build_deploy': {
         @set_time_limit(0); @ignore_user_abort(true);

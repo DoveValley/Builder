@@ -24,6 +24,6 @@ if (function_exists('progress_set_sink')) progress_set_sink(function (...$a) {})
 $out = getenv('RECOVERY_OUTPUT') ?: (BASE_DIR . '/sites/recovery-site/output');
 $b   = recovery_full_build($out, 'https://r.q111.xyz');
 
-echo "Recovery Dawn build → " . rtrim($out, '/') . "/\n";
+echo "Recovery build → " . rtrim($out, '/') . "/\n";
 echo "Total pages: {$b['pages']}  (matrix: {$b['matrix']})\n";
 foreach ($b['breakdown'] as $k => $v) printf("  %-18s %d\n", $k, $v);

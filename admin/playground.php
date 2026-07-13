@@ -82,6 +82,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
     <div class="logo">Site Factory <small>Test Lab</small></div>
     <a href="#share-claude" style="color:#93c5fd;font-weight:700;">📎 Share with Claude</a>
     <a href="#keyword-lists" style="color:#86efac;font-weight:700;">🔑 Keyword lists</a>
+    <a href="#water-icons" style="color:#7dd3fc;font-weight:700;">💧 Water icons</a>
     <button type="button" class="active">Hero text overlay</button>
     <a class="back" href="#preset-check" style="color:#fd783b;">↓ Theme Preset check</a>
     <a class="back" href="#logo-gen" style="color:#fd783b;">↓ Logo generator</a>
@@ -90,6 +91,27 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
     <a class="back" href="index.php">← Admin</a>
 </div>
 <main>
+    <section id="water-icons" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
+        <h1>Water icons <span class="pill">Recovery Wellspring · pick one</span></h1>
+        <p class="sub">Simple water-themed SVG options for the logo/favicon. Tell me the letter you want and I'll set it as the site logo + favicon (currently live: <strong>B · Waves</strong>).</p>
+        <div style="display:flex;flex-wrap:wrap;gap:20px;">
+            <?php
+            $__wicons = [
+              'A · Drop' => '<circle cx="32" cy="32" r="32" fill="#1e4e8c"/><path d="M32 13 C 32 13 45 31 45 40 a13 13 0 1 1 -26 0 C 19 31 32 13 32 13 Z" fill="#fff"/><path d="M26 40 a6 6 0 0 1 4 -9" fill="none" stroke="#1e4e8c" stroke-width="2.4" stroke-linecap="round"/>',
+              'B · Waves (live)' => '<circle cx="32" cy="32" r="32" fill="#1e4e8c"/><g fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round"><path d="M14 26 q6 -6 12 0 t12 0 t12 0"/><path d="M14 34 q6 -6 12 0 t12 0 t12 0"/><path d="M14 42 q6 -6 12 0 t12 0 t12 0"/></g>',
+              'C · Drop + ripple' => '<circle cx="32" cy="32" r="32" fill="#1e4e8c"/><path d="M32 12 C 32 12 43 27 43 35 a11 11 0 1 1 -22 0 C 21 27 32 12 32 12 Z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M18 52 q14 6 28 0"/><path d="M24 58 q8 4 16 0"/></g>',
+              'D · Drop + wave' => '<circle cx="32" cy="32" r="32" fill="#1e4e8c"/><path d="M32 12 C 32 12 44 29 44 38 a12 12 0 1 1 -24 0 C 20 29 32 12 32 12 Z" fill="#fff"/><path d="M21 40 q5 -5 11 0 t11 0 v9 a12 12 0 0 1 -22 0 Z" fill="#38bdf8"/>',
+              'E · Waterfall' => '<circle cx="32" cy="32" r="32" fill="#1e4e8c"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M32 13 C 28 11 22 12 19 18"/><path d="M32 13 C 36 11 42 12 45 18"/><path d="M21 20 C 20 30 19 41 24 49"/><path d="M27 17 C 27 30 27 43 30 50"/><path d="M32 16 C 32 30 33 44 34 50"/><path d="M37 17 C 37 30 37 43 38 50"/><path d="M43 20 C 44 30 45 41 40 49"/><ellipse cx="32" cy="49" rx="21" ry="7"/><ellipse cx="32" cy="49.5" rx="13" ry="4.2"/></g>',
+            ];
+            foreach ($__wicons as $label => $body): ?>
+              <div style="text-align:center;">
+                <svg viewBox="0 0 64 64" width="96" height="96" style="border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.12);"><?= $body ?></svg>
+                <div style="font-weight:700;color:#1e3a5f;font-size:.82rem;margin-top:8px;"><?= $h($label) ?></div>
+              </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
     <section id="share-claude" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
         <h1>Share with Claude <span class="pill">upload · conversations</span></h1>
         <p class="sub">Drop an image <strong>or a file</strong> here (a screenshot, a design, a photo, a PDF, a spreadsheet, notes) to put it on the server, then <strong>copy the path it gives you and paste it into the chat</strong> — Claude reads files off the VPS, not your Mac. You can also just <strong>paste a screenshot</strong> (Cmd-V) anywhere on this page. Kept for 7 days.</p>

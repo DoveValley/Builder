@@ -154,16 +154,48 @@ function recovery_breadcrumbs(array $m): array {
  * Which entity's ai bundle feeds a page: primary (main subject) + secondary (local
  * flavor on intersections). Returns ['primary'=>?ai, 'secondary'=>?ai].
  */
+/**
+ * Evergreen, carrier/geo-agnostic FAQs used to top single-entity pages up to the 8-10
+ * the SEO audit wants. Shortcode-driven ({business}) so they follow any rebrand. YMYL-safe:
+ * no guarantees, stats, or prices — everything defers to "verify your benefits".
+ */
+function recovery_generic_faqs(): array {
+    return [
+        ['q' => 'Does health insurance cover drug and alcohol rehab?',
+         'a' => 'Many health plans cover medically necessary addiction treatment under their behavioral-health benefits, but what is covered depends on your specific plan. {business} can help you check your coverage at no cost.'],
+        ['q' => 'How do I find out what my plan covers?',
+         'a' => 'Call the member number on your insurance card, or ask {business} to help you review your benefits and the questions to ask your insurer.'],
+        ['q' => 'What levels of care are available?',
+         'a' => 'Options range from medical detox and residential/inpatient care to partial hospitalization (PHP), intensive outpatient (IOP), and standard outpatient programs. The right level depends on your needs.'],
+        ['q' => 'Is contacting {business} free and confidential?',
+         'a' => 'Yes. {business} is a free referral service and your information is kept confidential — there is no obligation.'],
+        ['q' => 'What if I don’t have insurance or my plan won’t cover care?',
+         'a' => 'Many facilities offer self-pay, sliding-scale, or state-funded options. Ask about payment plans and financial assistance when you call.'],
+        ['q' => 'Does coverage include mental health along with addiction treatment?',
+         'a' => 'Federal parity rules generally require plans that cover behavioral health to treat it comparably to medical care, but you should confirm your specific benefits.'],
+    ];
+}
+
 function recovery_ai_sources(array $m): array {
     $carrier = !empty($m['company']) ? (recovery_carrier($m['company'])['ai'] ?? null) : null;
     $city    = (!empty($m['state']) && !empty($m['city'])) ? (recovery_city($m['state'], $m['city'])['ai'] ?? null) : null;
     $state   = !empty($m['state']) ? (recovery_state($m['state'])['ai'] ?? null) : null;
     switch ($m['type']) {
-        case 'company_national': return ['primary' => $carrier, 'secondary' => null];
-        case 'state':            return ['primary' => $state,   'secondary' => null];
-        case 'city':             return ['primary' => $city,    'secondary' => null];
-        case 'state_company':    return ['primary' => $carrier, 'secondary' => $state];
-        case 'city_company':     return ['primary' => $carrier, 'secondary' => $city];
+        // Single-entity pages carry one bundle (4 FAQs); top up with the evergreen pool
+        // (+ the state's FAQs on city pages) so every page lists 8-10 (SEO target).
+        case 'company_national': return ['primary' => $carrier, 'secondary' => null, 'faq_extra' => recovery_generic_faqs()];
+        case 'state':            return ['primary' => $state,   'secondary' => null, 'faq_extra' => recovery_generic_faqs()];
+        case 'city':             return ['primary' => $city,    'secondary' => null, 'faq_extra' => array_merge($state['faq'] ?? [], recovery_generic_faqs())];
+        case 'state_company':
+            $ix = recovery_intersection_ai($m['state'] . '/' . $m['company']);
+            // Intersection copy is the primary source; its 4 unique FAQs are topped up with
+            // the carrier + state entity FAQs so the page still lists 8-10 (SEO target).
+            return $ix ? ['primary' => $ix, 'secondary' => null, 'faq_extra' => array_merge($carrier['faq'] ?? [], $state['faq'] ?? [])]
+                       : ['primary' => $carrier, 'secondary' => $state];
+        case 'city_company':
+            $ix = recovery_intersection_ai($m['state'] . '/' . $m['city'] . '/' . $m['company']);
+            return $ix ? ['primary' => $ix, 'secondary' => null, 'faq_extra' => array_merge($carrier['faq'] ?? [], $city['faq'] ?? [])]
+                       : ['primary' => $carrier, 'secondary' => $city];
     }
     return ['primary' => null, 'secondary' => null];
 }
@@ -182,7 +214,11 @@ function recovery_apply_ai(array $blocks, array $m): array {
         $fill = $b['ai_fill'] ?? '';
         if ($fill === '') continue;
         if ($fill === 'intro'  && !empty($P['intro_html'])) $blocks[$i]['text'] = $P['intro_html'];
-        if ($fill === 'intro2' && !empty($S['intro_html'])) $blocks[$i]['text'] = $S['intro_html'];
+        if ($fill === 'intro2') {
+            // intersection bundle carries its own second paragraph; composed fallback uses the secondary entity's intro.
+            $t = !empty($P['intro2_html']) ? $P['intro2_html'] : ($S['intro_html'] ?? '');
+            if ($t !== '') $blocks[$i]['text'] = $t;
+        }
         if ($fill === 'features' && !empty($P['feature_points'])) {
             $cols = [];
             foreach ($P['feature_points'] as $fp) {
@@ -191,14 +227,16 @@ function recovery_apply_ai(array $blocks, array $m): array {
             if ($cols) { $blocks[$i]['columns'] = $cols; $blocks[$i]['fc_num_cols'] = count($cols); }
         }
         if ($fill === 'faq') {
+            // Intersection-specific FAQs first, then entity FAQs (carrier/city/state) to
+            // reach the 8-10 the SEO audit wants. Deduped by question.
             $items = []; $seen = [];
-            foreach (array_merge($P['faq'] ?? [], $S['faq'] ?? []) as $q) {
+            foreach (array_merge($P['faq'] ?? [], $S['faq'] ?? [], $s['faq_extra'] ?? []) as $q) {
                 $k = strtolower(trim($q['q'] ?? ''));
                 if ($k === '' || isset($seen[$k])) continue;
                 $seen[$k] = 1;
                 $items[] = ['question' => $q['q'], 'answer' => $q['a']];
             }
-            if ($items) $blocks[$i]['fq_items'] = array_slice($items, 0, 8);
+            if ($items) $blocks[$i]['fq_items'] = array_slice($items, 0, 9);
         }
         if ($fill === 'local') {
             $note = $S['local_note'] ?? ($P['local_note'] ?? '');

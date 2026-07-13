@@ -111,6 +111,15 @@ function recovery_facilities(string $citySlug): array {
     return $all[$citySlug] ?? [];
 }
 
+// ── Per-intersection AI bundles (unique city×carrier / state×carrier copy) ───
+// Keyed "{state}/{city}/{company}" and "{state}/{company}". Falls back to composed
+// entity fragments (recovery_ai_sources) when an intersection bundle is absent.
+function recovery_intersection_ai(string $key): ?array {
+    $all = _recovery_load_json('ai_intersections.json');
+    $b = $all[$key] ?? null;
+    return (is_array($b) && !empty($b['intro_html'])) ? $b : null;
+}
+
 // ── Target keywords per page type (REFERENCE ONLY — do not generate pages) ───
 function recovery_keywords(): array {
     $k = _recovery_load_json('keywords.json');

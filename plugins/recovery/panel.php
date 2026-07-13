@@ -256,6 +256,62 @@ $total = 1 + $nCarrier + $nState + ($nState * $nCarrier) + $nCity + ($publishCC 
     </form>
   </div>
 
+  <!-- ── 4b. Per-page AI content (intersection enrichment) ────────────────── -->
+  <?php $cov = recovery_intersection_coverage();
+        $covPct = $cov['need'] > 0 ? round(100 * $cov['have'] / $cov['need']) : 0;
+        $aiRunning = trim((string) @shell_exec('pgrep -f enrich_intersections_cli.php 2>/dev/null')) !== ''; ?>
+  <div class="card">
+    <h2>4b · Per-page AI content <span class="hint">(unique intersection copy)</span></h2>
+    <p class="hint" style="margin-bottom:12px;">
+      Each <strong>city × carrier</strong> and <strong>state × carrier</strong> page gets its own AI-written
+      intro, second section, features, FAQ, and map note — so pages aren't stitched from shared carrier/city
+      fragments (which reads as thin/duplicate content). <strong>Run this after adding cities or carriers.</strong>
+    </p>
+    <p style="margin:0 0 12px;">
+      <strong><?= (int) $cov['have'] ?></strong> of <strong><?= (int) $cov['need'] ?></strong>
+      intersection pages have unique AI (<?= $covPct ?>%)
+      <?php if ($cov['missing'] > 0): ?>
+        <span style="color:#b45309;font-weight:600;">· <?= (int) $cov['missing'] ?> missing</span>
+      <?php else: ?>
+        <span style="color:#15803d;font-weight:600;">· all covered &#10003;</span>
+      <?php endif; ?>
+      <?php if ($aiRunning): ?><br><span style="color:#1d4ed8;">&#9203; A generation run is in progress — refresh to watch it climb.</span><?php endif; ?>
+    </p>
+    <?php if ($cov['missing'] > 0 && !$aiRunning): ?>
+    <form method="post" action="plugin_save.php"
+          onsubmit="return confirm('Generate unique AI for the missing intersection pages in the background? This calls the AI API.');">
+      <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+      <input type="hidden" name="plugin_id"  value="recovery">
+      <input type="hidden" name="action"     value="enrich_intersections">
+      <label style="font-weight:normal;margin-right:12px;">State
+        <select name="state">
+          <option value="">All states</option>
+          <?php foreach ($states as $s): ?>
+            <option value="<?= h($s['slug']) ?>"><?= h($s['name']) ?></option>
+          <?php endforeach; ?>
+        </select>
+      </label>
+      <label style="font-weight:normal;margin-right:12px;">
+        <input type="checkbox" name="refresh" value="1"> Regenerate existing (overwrite)
+      </label>
+      <button type="submit" class="btn">Generate missing intersection AI</button>
+    </form>
+    <?php elseif (!$aiRunning): ?>
+    <form method="post" action="plugin_save.php"
+          onsubmit="return confirm('Regenerate ALL intersection AI (overwrite existing)? This calls the AI API.');">
+      <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+      <input type="hidden" name="plugin_id"  value="recovery">
+      <input type="hidden" name="action"     value="enrich_intersections">
+      <input type="hidden" name="refresh"    value="1">
+      <button type="submit" class="btn btn-secondary">Regenerate all (overwrite)</button>
+    </form>
+    <?php endif; ?>
+    <p class="hint" style="margin-top:10px;">
+      Runs in the background (~6 parallel requests). Idempotent — only missing pages are generated unless you
+      tick overwrite. Progress log: <code>/tmp/enrich_intersections.log</code>.
+    </p>
+  </div>
+
   <!-- ── 5. Phasing / publish ─────────────────────────────────────────────── -->
   <div class="card">
     <h2>5 · Phasing &amp; publish</h2>
