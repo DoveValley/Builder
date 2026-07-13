@@ -75,6 +75,17 @@ function recovery_render_route(array $m, array $data, string $path = ''): array 
     // Fill AI-enriched blocks (ai_fill markers) from the matched entity's cached ai bundle.
     $payload['content_blocks'] = recovery_apply_ai($payload['content_blocks'] ?? [], $m);
 
+    // Keep FAQ answers open by default on directory pages (better UX + all answer text
+    // visible on paint, not gated behind a click). Plugin-scoped CSS — the factory faq
+    // blocks render answers with a `hidden` attr + accordion; we override just on these
+    // pages. `!important` beats the UA `[hidden]{display:none}` rule; toggle icon hidden.
+    array_unshift($payload['content_blocks'], ['type' => 'custom_html', 'html' =>
+        '<div class="content-block" style="display:none"><style>'
+        . '.block-faq-two-col .fq-answer,.block-faq .faq-answer{display:block !important}'
+        . '.block-faq-two-col .fq-icon,.block-faq .faq-icon{display:none}'
+        . '.block-faq-two-col .fq-btn,.block-faq .faq-question{cursor:default}'
+        . '</style></div>']);
+
     // Real SAMHSA facility listings on every geo/carrier page, inserted after the AI intro(s).
     if (in_array($m['type'], ['city', 'city_company', 'state', 'state_company', 'hub', 'company_national'], true)) {
         $fb = recovery_facilities_block($m);
@@ -238,6 +249,7 @@ function recovery_facilities_block(array $m): ?array {
     if (!$facs) return null;
 
     $carrier = !empty($m['company']) ? (recovery_carrier($m['company'])['name'] ?? '') : '';
+    $carrierH = htmlspecialchars($carrier);
     if (!empty($m['company'])) {
         $pt = recovery_carrier_paytype($m['company']);
         $facs = array_values(array_filter($facs, fn($f) => in_array($pt, $f['payment'] ?? [], true)));
@@ -249,28 +261,52 @@ function recovery_facilities_block(array $m): ?array {
         $cityName = recovery_city($m['state'], $m['city'])['name'] ?? $m['city'];
         $place = 'Near ' . htmlspecialchars($cityName) . ', ' . ($sRow['ss'] ?? '');
         $facs  = array_slice($facs, 0, 6);
-        $heading = $carrier ? "Treatment Centers {$place} That Accept Insurance" : "Treatment Centers {$place}";
+        $heading = $carrier ? "Featured {$carrierH} Rehabs {$place}" : "Featured Rehabs {$place}";
     } elseif (!empty($m['state'])) {
         $place = 'in ' . htmlspecialchars($sRow['name'] ?? $m['state']);
         $facs  = array_slice($facs, 0, 8);
-        $heading = $carrier ? "Treatment Centers {$place} That Accept Insurance" : "Treatment Centers {$place}";
+        $heading = $carrier ? "Featured {$carrierH} Rehabs {$place}" : "Featured Rehabs {$place}";
     } else {
         $facs  = array_slice($facs, 0, 8);   // national (hub / company_national)
-        $heading = $carrier ? "Treatment Centers That Accept " . htmlspecialchars($carrier) . " Insurance" : "Featured Treatment Centers";
+        $heading = $carrier ? "Featured {$carrierH} Rehabs" : "Featured Rehabs That Accept Insurance";
     }
     $note = 'Verified facility data from <a href="https://findtreatment.gov" target="_blank" rel="noopener">SAMHSA&rsquo;s FindTreatment.gov</a>. {business} is a free referral service'
           . ($carrier ? " &mdash; call each center to confirm " . htmlspecialchars($carrier) . " coverage." : ".");
 
     $cards = '';
+    $ldItems = [];   // ItemList of MedicalBusiness facilities (rich-result eligibility)
     foreach ($facs as $f) {
         $addr  = htmlspecialchars(trim(($f['street'] ?? '') . ', ' . ($f['city'] ?? '') . ', ' . ($f['state'] ?? '') . ' ' . ($f['zip'] ?? ''), ', '));
         $tags  = '';
         foreach (($f['levels'] ?? []) as $lv) $tags .= '<span class="rd-tag">' . htmlspecialchars($lv) . '</span>';
-        $pay   = htmlspecialchars(implode(' &middot; ', $f['payment'] ?? []));
+        $pay   = implode(' &middot; ', array_map('htmlspecialchars', $f['payment'] ?? []));
         $tel   = preg_replace('/[^0-9]/', '', $f['phone'] ?? '');
         $miles = ($f['miles'] ?? '') !== '' ? '<span class="rd-miles">' . round((float) $f['miles'], 1) . ' mi</span>' : '';
         $dir   = (!empty($f['lat']) && !empty($f['lng'])) ? '<a class="rd-dir" href="https://maps.google.com/?q=' . $f['lat'] . ',' . $f['lng'] . '" target="_blank" rel="noopener">Get directions</a>' : '';
         $verify= $carrier ? '<p class="rd-verify">Accepts private insurance &mdash; call to verify ' . htmlspecialchars($carrier) . ' insurance coverage.</p>' : '';
+
+        // structured-data entry for this facility
+        $node = ['@type' => ['MedicalBusiness', 'MedicalClinic'], 'name' => (string)($f['name'] ?? '')];
+        $street = trim(($f['street'] ?? ''));
+        if ($street !== '' || ($f['city'] ?? '') !== '') {
+            $node['address'] = array_filter([
+                '@type' => 'PostalAddress',
+                'streetAddress'   => $street ?: null,
+                'addressLocality' => ($f['city'] ?? '') ?: null,
+                'addressRegion'   => ($f['state'] ?? '') ?: null,
+                'postalCode'      => ($f['zip'] ?? '') ?: null,
+                'addressCountry'  => 'US',
+            ]);
+        }
+        if (($f['phone'] ?? '') !== '') $node['telephone'] = (string)$f['phone'];
+        if (!empty($f['lat']) && !empty($f['lng'])) {
+            $node['geo'] = ['@type' => 'GeoCoordinates', 'latitude' => (float)$f['lat'], 'longitude' => (float)$f['lng']];
+        }
+        if (!empty($f['payment'])) $node['paymentAccepted'] = implode(', ', $f['payment']);
+        if (!empty($f['levels']))  $node['availableService'] = array_map(
+            fn($lv) => ['@type' => 'MedicalProcedure', 'name' => $lv], $f['levels']);
+        $ldItems[] = ['@type' => 'ListItem', 'position' => count($ldItems) + 1, 'item' => $node];
+
         $cards .= '<div class="rd-card">'
             . '<div class="rd-badge"><span class="rd-verified">&#10003; SAMHSA-listed</span>' . $miles . '</div>'
             . '<div class="rd-info"><h3>' . htmlspecialchars($f['name'] ?? '') . '</h3>'
@@ -281,11 +317,19 @@ function recovery_facilities_block(array $m): ?array {
             . '<div class="rd-cta"><a class="rd-phone" href="tel:' . $tel . '">&#128222; ' . htmlspecialchars($f['phone'] ?? '') . '</a>' . $dir . '</div>'
             . '</div>';
     }
-    $css = '<style>.rd-listings{max-width:1040px;margin:0 auto}.rd-card{display:flex;gap:18px;border:1px solid #e2e8f0;border-radius:12px;padding:18px;margin-bottom:16px;background:#fff;flex-wrap:wrap;box-shadow:0 1px 3px rgba(0,0,0,.04)}.rd-badge{display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;min-width:110px}.rd-verified{background:#e8f0fe;color:#1f5c86;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;white-space:nowrap}.rd-miles{color:#64748b;font-size:12px}.rd-info{flex:1;min-width:230px}.rd-info h3{margin:0 0 6px;font-size:1.18rem;color:#0e2a45}.rd-addr{margin:0 0 8px;color:#475569;font-size:.92rem}.rd-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.rd-tag{background:#0e2a45;color:#fff;font-size:12px;font-weight:600;padding:3px 10px;border-radius:6px}.rd-pay{margin:0 0 6px;font-size:.9rem;color:#334155}.rd-verify{margin:0;font-size:.85rem;color:#64748b;font-style:italic}.rd-cta{display:flex;flex-direction:column;gap:8px;justify-content:center;min-width:180px}.rd-phone{background:#1f5c86;color:#fff;font-weight:700;padding:12px 18px;border-radius:8px;text-decoration:none;text-align:center}.rd-dir{color:#1f5c86;text-align:center;font-size:.88rem;text-decoration:none}</style>';
+    $css = '<style>.rd-listings{max-width:1040px;margin:0 auto}.rd-card{display:flex;gap:18px;border:2px solid #94a3b8;border-radius:12px;padding:18px;margin-bottom:16px;background:#fff;flex-wrap:wrap;box-shadow:0 1px 3px rgba(0,0,0,.04)}.rd-badge{display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;min-width:110px}.rd-verified{background:#e8f0fe;color:#1f5c86;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;white-space:nowrap}.rd-miles{color:#64748b;font-size:12px}.rd-info{flex:1;min-width:230px}.rd-info h3{margin:0 0 6px;font-size:1.18rem;color:#0e2a45}.rd-addr{margin:0 0 8px;color:#475569;font-size:.92rem}.rd-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.rd-tag{background:#0e2a45;color:#fff;font-size:12px;font-weight:600;padding:3px 10px;border-radius:6px}.rd-pay{margin:0 0 6px;font-size:.9rem;color:#334155}.rd-verify{margin:0;font-size:.85rem;color:#64748b;font-style:italic}.rd-cta{display:flex;flex-direction:column;gap:8px;justify-content:center;min-width:180px}.rd-phone{background:#1f5c86;color:#fff;font-weight:700;padding:12px 18px;border-radius:8px;text-decoration:none;text-align:center}.rd-dir{color:#1f5c86;text-align:center;font-size:.88rem;text-decoration:none}</style>';
+    // ItemList JSON-LD over the real facilities. Default slash-escaping is left ON so a
+    // stray "</script>" in any field can't break out of the script element.
+    $ld = json_encode(
+        ['@context' => 'https://schema.org', '@type' => 'ItemList', 'name' => strip_tags($heading), 'itemListElement' => $ldItems],
+        JSON_UNESCAPED_UNICODE
+    );
+    $schema = $ld !== false ? '<script type="application/ld+json">' . $ld . '</script>' : '';
+
     $html = '<div class="rd-listings">' . $css
         . '<h2 style="text-align:center;font-size:1.6rem;margin:0 0 8px;color:#0e2a45;">' . $heading . '</h2>'
         . '<p style="text-align:center;color:#64748b;max-width:740px;margin:0 auto 24px;font-size:.9rem;">' . $note . '</p>'
-        . $cards . '</div>';
+        . $cards . $schema . '</div>';
     return ['type' => 'custom_html', 'html' => $html];
 }
 
