@@ -312,7 +312,7 @@ function recovery_facilities_block(array $m): ?array {
           . ($carrier ? " &mdash; call each center to confirm " . htmlspecialchars($carrier) . " coverage." : ".");
 
     $cards = '';
-    $ldItems = [];   // ItemList of MedicalBusiness facilities (rich-result eligibility)
+    $ldItems = [];   // ItemList of MedicalOrganization facilities (rich-result eligibility)
     foreach ($facs as $f) {
         $addr  = htmlspecialchars(trim(($f['street'] ?? '') . ', ' . ($f['city'] ?? '') . ', ' . ($f['state'] ?? '') . ' ' . ($f['zip'] ?? ''), ', '));
         $tags  = '';
@@ -324,7 +324,10 @@ function recovery_facilities_block(array $m): ?array {
         $verify= $carrier ? '<p class="rd-verify">Accepts private insurance &mdash; call to verify ' . htmlspecialchars($carrier) . ' insurance coverage.</p>' : '';
 
         // structured-data entry for this facility
-        $node = ['@type' => ['MedicalBusiness', 'MedicalClinic'], 'name' => (string)($f['name'] ?? '')];
+        // Facilities are genuine third-party medical orgs (verified SAMHSA data) — mark them
+        // MedicalOrganization/MedicalClinic. (The directory itself stays Organization/WebSite —
+        // never MedicalOrganization — to avoid a YMYL misrepresentation flag.)
+        $node = ['@type' => ['MedicalOrganization', 'MedicalClinic'], 'name' => (string)($f['name'] ?? ''), 'medicalSpecialty' => 'Addiction Medicine'];
         $street = trim(($f['street'] ?? ''));
         if ($street !== '' || ($f['city'] ?? '') !== '') {
             $node['address'] = array_filter([
