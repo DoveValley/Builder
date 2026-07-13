@@ -136,6 +136,22 @@ switch ($action) {
         $done(true, 'Intersection AI generation started in the background — refresh this page to watch coverage climb.');
     }
 
+    case 'build_deploy_bg': {
+        // Background Build & Deploy for the panel progress meter. Spawns deploy_cli.php
+        // (writes deploy_status.json, polled by the panel). Guard against a second run.
+        $already = trim((string) @shell_exec('pgrep -f "recovery/deploy_cli.php" 2>/dev/null'));
+        if ($already !== '') $fail('A deploy is already in progress.');
+        // seed the status so the meter shows immediately
+        @file_put_contents(ACTIVE_SITE_DIR . '/deploy_status.json', json_encode(['phase' => 'build', 'running' => true, 'ts' => time(), 'msg' => 'Starting…']));
+        $script = __DIR__ . '/deploy_cli.php';
+        $php    = is_file(PHP_BINDIR . '/php') ? PHP_BINDIR . '/php' : (is_file('/usr/bin/php') ? '/usr/bin/php' : 'php');
+        $args   = !empty($_POST['force_all']) ? ' --force' : '';
+        @exec('nohup env ' . escapeshellarg('MULTISITE_SITE_BASE=' . ACTIVE_SITE_DIR)
+            . ' ' . escapeshellarg($php) . ' ' . escapeshellarg($script) . $args
+            . ' > /tmp/recovery_deploy.log 2>&1 &');
+        $done(true, 'Build & Deploy started — watch the progress bar.');
+    }
+
     case 'build_only':
     case 'build_deploy': {
         @set_time_limit(0); @ignore_user_abort(true);

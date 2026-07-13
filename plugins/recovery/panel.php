@@ -391,19 +391,86 @@ $total = 1 + $nCarrier + $nState + ($nState * $nCarrier) + $nCity + ($publishCC 
       Builds the gated set (~<?= (int) count(recovery_enumerate_urls()) ?> pages) to
       <code>output/</code>, then FTP-uploads only new/changed files. First deploy can take a few minutes.
     </p>
-    <form method="post" action="plugin_save.php"
-          onsubmit="return this.action_build_deploy ? confirm('Build the gated static site and deploy over FTP now?') : true;">
+    <form id="rd-deploy-form" method="post" action="plugin_save.php"
+          onsubmit="return this.action_build_only ? confirm('Build the gated static site now?') : true;">
       <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
       <input type="hidden" name="plugin_id"  value="recovery">
       <label style="font-weight:normal;display:block;margin-bottom:12px;">
-        <input type="checkbox" name="force_all" value="1"> Force full re-upload (ignore manifest)
+        <input type="checkbox" name="force_all" id="rd-force" value="1"> Force full re-upload (ignore manifest)
       </label>
       <button type="submit" name="action" value="build_only" class="btn btn-secondary">Build only</button>
-      <button type="submit" name="action" value="build_deploy" class="btn" style="margin-left:8px;"
-              onclick="return confirm('Build the gated static site and deploy over FTP now? First deploy can take a few minutes.');">
+      <button type="button" id="rd-deploy-btn" class="btn" style="margin-left:8px;" onclick="rdStartDeploy()">
         &#128640; Build &amp; Deploy
       </button>
     </form>
+
+    <!-- live progress meter -->
+    <div id="rd-progress" style="display:none;margin-top:16px;max-width:640px;">
+      <div style="background:#e2e8f0;border-radius:8px;height:20px;overflow:hidden;position:relative;">
+        <div id="rd-bar" style="height:100%;width:0;background:#0e7490;transition:width .3s ease;border-radius:8px;"></div>
+      </div>
+      <div id="rd-progress-text" style="margin-top:8px;font-size:.85rem;color:#334155;">Starting…</div>
+    </div>
+
+    <script>
+    (function () {
+      var polling = false;
+      window.rdStartDeploy = function () {
+        if (!confirm('Build the gated static site and deploy over FTP now? First deploy can take a few minutes.')) return;
+        var form = document.getElementById('rd-deploy-form');
+        var btn  = document.getElementById('rd-deploy-btn');
+        var box  = document.getElementById('rd-progress');
+        btn.disabled = true; box.style.display = 'block';
+        rdSetText('Starting…'); rdSetBar(0, true);
+        var fd = new FormData();
+        fd.append('csrf_token', form.querySelector('[name=csrf_token]').value);
+        fd.append('plugin_id', 'recovery');
+        fd.append('action', 'build_deploy_bg');
+        if (document.getElementById('rd-force').checked) fd.append('force_all', '1');
+        fetch('plugin_save.php', { method: 'POST', body: fd, credentials: 'same-origin' })
+          .then(function () { setTimeout(rdPoll, 800); })
+          .catch(function () { rdSetText('Could not start the deploy.'); btn.disabled = false; });
+      };
+      function rdSetText(t) { document.getElementById('rd-progress-text').textContent = t; }
+      function rdSetBar(pct, indeterminate) {
+        var bar = document.getElementById('rd-bar');
+        bar.style.width = (indeterminate ? 30 : pct) + '%';
+        bar.style.opacity = indeterminate ? '0.55' : '1';
+      }
+      function rdPoll() {
+        if (polling) return; polling = true;
+        fetch('../plugins/recovery/deploy_status.php', { credentials: 'same-origin' })
+          .then(function (r) { return r.json(); })
+          .then(function (s) {
+            polling = false;
+            var phase = s.phase || 'idle';
+            if (phase === 'upload' && s.total > 0) {
+              var pct = Math.round((s.done / s.total) * 100);
+              rdSetBar(pct, false);
+              rdSetText('Uploading ' + s.done + ' / ' + s.total + ' files (' + pct + '%)');
+            } else if (phase === 'build' || (phase === 'upload' && !s.total)) {
+              rdSetBar(0, true);
+              rdSetText(s.msg || 'Building…');
+            }
+            if (s.running === false) {
+              var ok = phase === 'done';
+              rdSetBar(100, false);
+              document.getElementById('rd-bar').style.background = ok ? '#0e7490' : '#dc2626';
+              rdSetText(s.msg || (ok ? 'Done.' : 'Failed.'));
+              document.getElementById('rd-deploy-btn').disabled = false;
+              return; // stop polling
+            }
+            setTimeout(rdPoll, 1500);
+          })
+          .catch(function () { polling = false; setTimeout(rdPoll, 2500); });
+      }
+      // If a deploy is already running when the panel loads, resume the meter.
+      fetch('../plugins/recovery/deploy_status.php', { credentials: 'same-origin' })
+        .then(function (r) { return r.json(); })
+        .then(function (s) { if (s && s.running) { document.getElementById('rd-progress').style.display = 'block'; document.getElementById('rd-deploy-btn').disabled = true; rdPoll(); } })
+        .catch(function () {});
+    })();
+    </script>
   </div>
 
 </div>
