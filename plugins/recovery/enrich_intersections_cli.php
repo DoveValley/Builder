@@ -73,8 +73,8 @@ foreach ($jobs as $j) {
     if (!$refresh && !empty($ai[$j['key']]['intro_html'])) continue;
     $pending[$j['key']] = $j;
 }
-$total = count($jobs); $todo = count($pending); $ok = 0;
-$save = function () use (&$ai, $dir) {
+$total = count($jobs); $todo = count($pending); $ok = 0; $skip = $total - $todo;
+$save = function () use (&$ai, $dir, $outName) {
     file_put_contents($dir . $outName, json_encode($ai, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
 };
 fwrite($log, "START jobs=$total todo=$todo state=" . ($onlyState ?: 'ALL') . " parallel=$conc\n"); fflush($log);
