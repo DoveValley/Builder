@@ -84,6 +84,8 @@ function recovery_render_route(array $m, array $data, string $path = ''): array 
         . '.block-faq-two-col .fq-answer,.block-faq .faq-answer{display:block !important}'
         . '.block-faq-two-col .fq-icon,.block-faq .faq-icon{display:none}'
         . '.block-faq-two-col .fq-btn,.block-faq .faq-question{cursor:default}'
+        // a11y: underline inline prose links so they aren't distinguished by color alone
+        . '.block-text a,.mi-text a,.rd-listings a:not(.rd-phone){text-decoration:underline}'
         . '</style></div>']);
 
     // Real SAMHSA facility listings on every geo/carrier page, inserted after the AI intro(s).
