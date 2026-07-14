@@ -409,7 +409,7 @@ if ($firstBlockHero) {
     <div class="footer-bottom">
         <div class="container footer-bottom-inner">
             <?php if (!empty($footer['logo']) && !empty($footer['logo_in_copyright_bar'])): ?>
-                <img class="footer-bottom-logo" src="<?= h(admin_upload_url($footer['logo'])) ?>" alt="Logo">
+                <img class="footer-bottom-logo" src="<?= h(admin_upload_url($footer['logo'])) ?>" alt="<?= h(($__footLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footLogoAlt : SITE_TITLE) ?>">
             <?php endif; ?>
             <div class="footer-copyright"><?= h(str_replace('{year}', date('Y'), resolve_shortcodes($footer['copyright'] ?? ''))) ?></div>
             <?php $footerSocials = array_filter($footer['socials'] ?? []); ?>
