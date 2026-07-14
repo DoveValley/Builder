@@ -37,7 +37,7 @@ progress_set_sink(function (array $p) use ($write, &$phase) {
 $write(['msg' => 'Building pages…']);
 
 $cfg       = is_file(ACTIVE_SITE_DIR . '/deploy.json') ? (json_decode(file_get_contents(ACTIVE_SITE_DIR . '/deploy.json'), true) ?: []) : [];
-$canonical = $cfg['canonical_domain'] ?: 'https://recoverywellspring.com';
+$canonical = $cfg['canonical_domain'] ?: 'https://recoverydawn.com';
 $out       = ACTIVE_SITE_DIR . '/output/';
 
 $b = recovery_full_build($out, $canonical);
