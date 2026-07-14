@@ -1,8 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Recovery Dawn">
-  <circle cx="32" cy="32" r="32" fill="#0891b2"/>
-  <g fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round">
-    <path d="M14 26 q6 -6 12 0 t12 0 t12 0"/>
-    <path d="M14 34 q6 -6 12 0 t12 0 t12 0"/>
-    <path d="M14 42 q6 -6 12 0 t12 0 t12 0"/>
+  <defs>
+    <linearGradient id="fv-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a6fa0"/>
+      <stop offset="1" stop-color="#0e2a45"/>
+    </linearGradient>
+    <linearGradient id="fv-sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd888"/>
+      <stop offset="1" stop-color="#e8933f"/>
+    </linearGradient>
+    <clipPath id="fv-c"><circle cx="32" cy="32" r="32"/></clipPath>
+  </defs>
+  <g clip-path="url(#fv-c)">
+    <rect width="64" height="64" fill="url(#fv-sky)"/>
+    <!-- rays -->
+    <g stroke="#ffd888" stroke-width="3" stroke-linecap="round">
+      <line x1="32" y1="7" x2="32" y2="17"/>
+      <line x1="15" y1="12" x2="21" y2="21"/>
+      <line x1="49" y1="12" x2="43" y2="21"/>
+      <line x1="5" y1="25" x2="16" y2="30"/>
+      <line x1="59" y1="25" x2="48" y2="30"/>
+    </g>
+    <!-- sun rising over the horizon -->
+    <circle cx="32" cy="41" r="15" fill="url(#fv-sun)"/>
+    <rect x="0" y="41" width="64" height="23" fill="#0b2138"/>
+    <line x1="0" y1="41" x2="64" y2="41" stroke="#ffd888" stroke-width="2.4" opacity="0.9"/>
   </g>
 </svg>
