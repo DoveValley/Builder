@@ -465,5 +465,29 @@
         "pages_skipped": 0,
         "pages_backed_up": 1,
         "errors": []
+    },
+    {
+        "run_id": "c27dc78c9b0efe49",
+        "started_at": "2026-07-15T03:23:09+00:00",
+        "finished_at": "2026-07-15T03:23:09+00:00",
+        "duration_ms": 4,
+        "dry_run": false,
+        "options": {
+            "template_ids": [
+                "tpl_pmp_certification_training_city"
+            ],
+            "city_ids": [
+                "huntsville-al",
+                "tampa-fl",
+                "minneapolis-mn",
+                "charlotte-nc"
+            ],
+            "tag_filter": "",
+            "force_locked": true
+        },
+        "pages_written": 4,
+        "pages_skipped": 0,
+        "pages_backed_up": 4,
+        "errors": []
     }
 ]

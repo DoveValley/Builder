@@ -692,5 +692,30 @@
     "output_tokens": 2839,
     "api_calls": 12,
     "estimated_cost_usd": 0.021987
+  },
+  {
+    "run_id": "e6605083-d5a4-4890-898c-7dcd1fcfb977",
+    "started_at": "2026-07-15T03:23:18.334841Z",
+    "finished_at": "2026-07-15T03:23:48.741549Z",
+    "duration_ms": 30406,
+    "dry_run": false,
+    "options": {
+      "site": "granitepmacademy",
+      "page": "landing",
+      "all": false,
+      "file": "tpl_pmp_certification_training_city_",
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 28,
+    "pages_skipped": 7,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 28,
+    "cities_researched": 0,
+    "input_tokens": 18706,
+    "output_tokens": 8687,
+    "api_calls": 28,
+    "estimated_cost_usd": 0.062141
   }
 ]
