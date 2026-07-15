@@ -158,5 +158,104 @@
         },
         "_compiled_from": "capm_pathway",
         "_niche": "Project Management Certification Training"
+    },
+    "national_hero_subtext": {
+        "label": "National Hero Subtext (Inject)",
+        "description": "2-3 sentence hero subtext for a national hub page; no city.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": "next",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "ai_prompt": "You are writing hero subtext for {business}, a project management certification training academy (a PMI Authorized Training Partner), for the NATIONWIDE page targeting \"{keyword}\". Do NOT reference any specific city.\n\nWrite 2-3 sentences, 40-60 words, in a single <p>...</p>:\n- Open on the professional value/recognition of {service} for project managers across the U.S.\n- Center on what {business} delivers: live-virtual, instructor-led, satisfies PMI's contact-hour education requirement for this credential.\n- Close with a concrete career value.\nNo bullets, no exclamation marks.\n\nACCURACY: Use PMI marks correctly (PMP, CAPM, PMI are registered marks of the Project Management Institute). Never invent pass rates, student counts, salary figures, or employer lists — state only what the research returns, and keep salary references as qualitative ranges rather than fabricated precise numbers. Do not imply endorsement by any named employer. Never reuse a sentence verbatim across cities; vary sentence structure and the facts you lead with, not just the city name. Do not pad with generic filler — every paragraph must say something specific to this city or this credential. Do not state a specific PMI contact-hour count (such as 35 or 23) or specific eligibility numbers in generated prose — refer to such requirements generically; exact figures belong only in fixed page sections.\nTone: Professional, authoritative, and encouraging — speaks to career-focused adults without hype. Open each page on the single most distinctive feature of THIS city's project-management market (its dominant industry or a specific major employer) so no two city pages begin the same way. Match search intent: a reader searching for certification in their city wants to know the schedule/format, cost, eligibility, and whether the credential is worth it for their local career — answer those plainly.. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON only: {\"text\": \"<p>...</p>\"}",
+        "ai_output_schema": {
+            "text": "string"
+        },
+        "default_fields": [],
+        "_compiled_from": "national_hero_subtext",
+        "_niche": "Project Management Certification Training"
+    },
+    "national_intro": {
+        "label": "National Intro (Standalone)",
+        "description": "Authoritative national SEO intro: H2 + 2 paragraphs on the credential and how the academy delivers it.",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt": "You are writing the national SEO intro for {business}, a project management certification training academy (a PMI Authorized Training Partner), for the page targeting \"{keyword}\". Nationwide page — do NOT name any city.\n\n1. heading_text (H2): 6-10 words, includes the page focus ({service}).\n2. text: exactly 2 paragraphs, 180-220 words total, each wrapped in <p>...</p>.\n   - Para 1: What {service} involves and why the credential is in demand across U.S. industries — the PMP is the globally recognized standard for project managers and project management is a growing profession. Authoritative and specific, not fluffy.\n   - Para 2: How {business} delivers {service} — PMI Authorized Training Partner, live-virtual and instructor-led, satisfies the contact-hour education requirement, taught by active certified practitioners, with exam preparation. End forward-looking toward certification.\nUse \"{service}\" 2-3 times naturally. No bullets, no sub-headings.\n\nACCURACY: Use PMI marks correctly (PMP, CAPM, PMI are registered marks of the Project Management Institute). Never invent pass rates, student counts, salary figures, or employer lists — state only what the research returns, and keep salary references as qualitative ranges rather than fabricated precise numbers. Do not imply endorsement by any named employer. Never reuse a sentence verbatim across cities; vary sentence structure and the facts you lead with, not just the city name. Do not pad with generic filler — every paragraph must say something specific to this city or this credential. Do not state a specific PMI contact-hour count (such as 35 or 23) or specific eligibility numbers in generated prose — refer to such requirements generically; exact figures belong only in fixed page sections.\nTone: Professional, authoritative, and encouraging — speaks to career-focused adults without hype. Open each page on the single most distinctive feature of THIS city's project-management market (its dominant industry or a specific major employer) so no two city pages begin the same way. Match search intent: a reader searching for certification in their city wants to know the schedule/format, cost, eligibility, and whether the credential is worth it for their local career — answer those plainly.. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p><p>...</p>\"}",
+        "ai_output_schema": {
+            "heading_text": "string",
+            "text": "html_string"
+        },
+        "default_fields": {
+            "skin": "light",
+            "heading_level": "h2"
+        },
+        "_compiled_from": "national_intro",
+        "_niche": "Project Management Certification Training"
+    },
+    "national_features": {
+        "label": "National Feature Columns (Standalone)",
+        "description": "4 benefit columns of real academy differentiators; national, no city.",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt": "You are writing feature columns for {business}, a project management certification training academy (a PMI Authorized Training Partner), for the nationwide \"{service}\" page. No city names.\n\nfc_heading: 6-10 words, benefit-focused (vary the phrasing).\nWrite exactly 4 columns, each a real differentiator of {business}'s {service}:\n1. PMI Authorized Training Partner status — curriculum rigor and PMI-accepted contact hours.\n2. Live-virtual, instructor-led format that satisfies the contact-hour education requirement — attend from anywhere in the U.S.\n3. Instructors who are active certified practitioners.\n4. Exam-preparation support and the pass guarantee.\nEach column: heading 3-5 words (benefit-focused); text 20-30 words, concrete and non-generic.\n\nACCURACY: Use PMI marks correctly (PMP, CAPM, PMI are registered marks of the Project Management Institute). Never invent pass rates, student counts, salary figures, or employer lists — state only what the research returns, and keep salary references as qualitative ranges rather than fabricated precise numbers. Do not imply endorsement by any named employer. Never reuse a sentence verbatim across cities; vary sentence structure and the facts you lead with, not just the city name. Do not pad with generic filler — every paragraph must say something specific to this city or this credential. Do not state a specific PMI contact-hour count (such as 35 or 23) or specific eligibility numbers in generated prose — refer to such requirements generically; exact figures belong only in fixed page sections.\nTone: Professional, authoritative, and encouraging — speaks to career-focused adults without hype. Open each page on the single most distinctive feature of THIS city's project-management market (its dominant industry or a specific major employer) so no two city pages begin the same way. Match search intent: a reader searching for certification in their city wants to know the schedule/format, cost, eligibility, and whether the credential is worth it for their local career — answer those plainly.. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON only: {\"fc_heading\": \"...\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}",
+        "ai_output_schema": {
+            "fc_heading": "string",
+            "columns": "array"
+        },
+        "default_fields": {
+            "skin": "light",
+            "fc_heading": "",
+            "fc_num_cols": 4,
+            "columns": []
+        },
+        "_compiled_from": "national_features",
+        "_niche": "Project Management Certification Training"
+    },
+    "national_value": {
+        "label": "National Career Value (Standalone)",
+        "description": "H2 + 2 paragraphs on the professional value/ROI of the credential; national, qualitative on pay, no fabricated numbers.",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt": "You are writing a career-value section for {business}, a project management certification training academy, for the nationwide \"{service}\" page. Do NOT name specific cities or employers.\n\nheading_text (H2): 5-9 words about the professional value of the credential.\ntext: 2 paragraphs, 150-190 words, each wrapped in <p>...</p>:\n   - Para 1: Why the credential matters professionally across the U.S. — recognized across industries such as IT, healthcare, construction, finance, and government; it signals standardized project-management competence and is frequently preferred or required in project-manager job postings. You may note certified project managers generally command stronger earning power (QUALITATIVE ONLY — never a specific salary figure or percentage).\n   - Para 2: Who benefits and the ROI — career advancement, credibility, readiness for larger projects. Connect completing {service} with {business} to advancing a PM career.\nNo bullets. Do not fabricate statistics, salary figures, or percentages.\n\nACCURACY: Use PMI marks correctly (PMP, CAPM, PMI are registered marks of the Project Management Institute). Never invent pass rates, student counts, salary figures, or employer lists — state only what the research returns, and keep salary references as qualitative ranges rather than fabricated precise numbers. Do not imply endorsement by any named employer. Never reuse a sentence verbatim across cities; vary sentence structure and the facts you lead with, not just the city name. Do not pad with generic filler — every paragraph must say something specific to this city or this credential. Do not state a specific PMI contact-hour count (such as 35 or 23) or specific eligibility numbers in generated prose — refer to such requirements generically; exact figures belong only in fixed page sections.\nTone: Professional, authoritative, and encouraging — speaks to career-focused adults without hype. Open each page on the single most distinctive feature of THIS city's project-management market (its dominant industry or a specific major employer) so no two city pages begin the same way. Match search intent: a reader searching for certification in their city wants to know the schedule/format, cost, eligibility, and whether the credential is worth it for their local career — answer those plainly.. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p><p>...</p>\"}",
+        "ai_output_schema": {
+            "heading_text": "string",
+            "text": "html_string"
+        },
+        "default_fields": {
+            "skin": "light",
+            "heading_level": "h2"
+        },
+        "_compiled_from": "national_value",
+        "_niche": "Project Management Certification Training"
+    },
+    "national_faq": {
+        "label": "National FAQ (Inject, append)",
+        "description": "Appends national FAQ items to reach a full set; secondaries woven lightly.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": "next",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "append",
+        "ai_prompt": "You are writing FAQ items for {business}, a project management certification training academy, for the nationwide \"{service}\" page. These are ADDED to existing FAQs — ask questions likely NOT already covered, that a nationwide {service} searcher would ask. Do NOT reference a city.\n\nWrite exactly 7 FAQ items. Cover a MIX: eligibility, the exam, how long certification takes, cost/ROI, the online/live-virtual format, PMP vs other credentials, and whether it is worth it.\nEach item:\n- question: specific and searchable, 8-15 words.\n- answer: 40-70 words, accurate, wrapped in <p>...</p>. Never fabricate prices, pass rates, or timelines.\n\nAcross the set you MAY naturally echo one or two of these searcher phrasings where they genuinely fit a question or answer — never force or list them, keep the primary keyword the focus: {secondary_keywords}.\n\nACCURACY: Use PMI marks correctly (PMP, CAPM, PMI are registered marks of the Project Management Institute). Never invent pass rates, student counts, salary figures, or employer lists — state only what the research returns, and keep salary references as qualitative ranges rather than fabricated precise numbers. Do not imply endorsement by any named employer. Never reuse a sentence verbatim across cities; vary sentence structure and the facts you lead with, not just the city name. Do not pad with generic filler — every paragraph must say something specific to this city or this credential. Do not state a specific PMI contact-hour count (such as 35 or 23) or specific eligibility numbers in generated prose — refer to such requirements generically; exact figures belong only in fixed page sections.\nTone: Professional, authoritative, and encouraging — speaks to career-focused adults without hype. Open each page on the single most distinctive feature of THIS city's project-management market (its dominant industry or a specific major employer) so no two city pages begin the same way. Match search intent: a reader searching for certification in their city wants to know the schedule/format, cost, eligibility, and whether the credential is worth it for their local career — answer those plainly.. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON only: {\"items\": [{\"question\": \"...\", \"answer\": \"<p>...</p>\"}, ... 7 items total]}",
+        "ai_output_schema": {
+            "items": "array"
+        },
+        "default_fields": [],
+        "_compiled_from": "national_faq",
+        "_niche": "Project Management Certification Training"
     }
 }

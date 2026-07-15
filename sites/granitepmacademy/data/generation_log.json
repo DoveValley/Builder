@@ -842,5 +842,55 @@
     "output_tokens": 9451,
     "api_calls": 35,
     "estimated_cost_usd": 0.072806
+  },
+  {
+    "run_id": "c7d00c49-7eca-4798-99bf-cc4f1078eecf",
+    "started_at": "2026-07-15T04:51:32.413271Z",
+    "finished_at": "2026-07-15T04:51:56.388980Z",
+    "duration_ms": 23975,
+    "dry_run": false,
+    "options": {
+      "site": "granitepmacademy",
+      "page": "core",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 5,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 5,
+    "cities_researched": 0,
+    "input_tokens": 2729,
+    "output_tokens": 1787,
+    "api_calls": 5,
+    "estimated_cost_usd": 0.011664
+  },
+  {
+    "run_id": "6474479f-0197-4b26-bf4b-609302956aff",
+    "started_at": "2026-07-15T05:02:33.255473Z",
+    "finished_at": "2026-07-15T05:04:18.514143Z",
+    "duration_ms": 105258,
+    "dry_run": false,
+    "options": {
+      "site": "granitepmacademy",
+      "page": "core",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 22,
+    "pages_skipped": 5,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 22,
+    "cities_researched": 0,
+    "input_tokens": 11995,
+    "output_tokens": 8314,
+    "api_calls": 22,
+    "estimated_cost_usd": 0.053565
   }
 ]
