@@ -78,6 +78,17 @@
         ]
       },
       {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": ""
+      },
+      {
         "type": "pricing_cards",
         "pc_heading": "PMP Certification Training — Enrollment Options",
         "pc_cols": "2",
@@ -112,6 +123,17 @@
       {
         "type": "custom_html",
         "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "pmp_pathway",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": ""
       },
       {
         "type": "testimonials",
@@ -185,7 +207,7 @@
             "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
           }
         ],
-        "ai_type_id": "faq_additions",
+        "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "append",
         "ai_model": "claude-haiku-4-5-20251001"
@@ -201,7 +223,11 @@
         "mi_head_color": "header",
         "mi_head_color_custom": "#1f2937",
         "mi_info_photo": "{city_image}",
-        "mi_map_side": "left"
+        "mi_map_side": "left",
+        "ai_type_id": "city_spotlight",
+        "ai_inject_field": "mi_info_text",
+        "ai_inject_mode": "replace",
+        "ai_model": "claude-haiku-4-5-20251001"
       },
       {
         "type": "cta_banner",
@@ -216,21 +242,21 @@
       }
     ],
     "seo": {
-      "seo_title": "",
+      "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
       "canonical_url": "{website}/pmp-certification-training-{city_slug}/",
-      "meta_description": "",
+      "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
       "meta_keywords": "PMP certification training {city_state}, PMP exam prep {city}, PMP course {city} {SS}, project management certification {city_state}, PMI PMP training {city}",
-      "og_title": "",
-      "og_description": "",
+      "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+      "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
       "og_image": "",
-      "service_name": "",
-      "service_type": "",
-      "service_area": "",
-      "service_description": "",
-      "bc_label": "",
+      "service_name": "PMP Certification Training",
+      "service_type": "Professional Certification Training",
+      "service_area": "{city}, {SS}",
+      "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+      "bc_label": "PMP Certification Training {city}",
       "bc_mid_label": "",
       "bc_mid_url": "",
-      "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"{website}/pmp-certification-training-{city_slug}/#webpage\",\r\n      \"url\": \"{website}/pmp-certification-training-{city_slug}/\",\r\n      \"name\": \"PMP Certification Training in {city}, {SS} | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in {city}, {SS}. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"{website}/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"{website}/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"{website}/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in {city}, {SS}\",\r\n            \"item\": \"{website}/pmp-certification-training-{city_slug}/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"{website}/pmp-certification-training-{city_slug}/#course\",\r\n      \"name\": \"PMP Certification Training in {city}, {SS}\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in {city}, {SS}. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"{website}/pmp-certification-training-{city_slug}/\",\r\n      \"provider\": {\r\n        \"@id\": \"{website}/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"{website}/pmp-certification-training-{city_slug}/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"{website}/pmp-certification-training-{city_slug}/\"\r\n        }\r\n      ],\r\n      \"aggregateRating\": {\r\n        \"@type\": \"AggregateRating\",\r\n        \"ratingValue\": \"4.8\",\r\n        \"reviewCount\": \"422\",\r\n        \"bestRating\": \"5\",\r\n        \"worstRating\": \"1\"\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"{website}/pmp-certification-training-{city_slug}/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"{website}/pmp-certification-training-{city_slug}/\"\r\n    }\r\n  ]\r\n}"
+      "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"{website}/pmp-certification-training-{city_slug}/#webpage\",\r\n      \"url\": \"{website}/pmp-certification-training-{city_slug}/\",\r\n      \"name\": \"PMP Certification Training in {city}, {SS} | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in {city}, {SS}. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"{website}/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"{website}/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"{website}/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in {city}, {SS}\",\r\n            \"item\": \"{website}/pmp-certification-training-{city_slug}/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"{website}/pmp-certification-training-{city_slug}/#course\",\r\n      \"name\": \"PMP Certification Training in {city}, {SS}\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in {city}, {SS}. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"{website}/pmp-certification-training-{city_slug}/\",\r\n      \"provider\": {\r\n        \"@id\": \"{website}/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"{website}/pmp-certification-training-{city_slug}/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"{website}/pmp-certification-training-{city_slug}/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"{website}/pmp-certification-training-{city_slug}/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"{website}/pmp-certification-training-{city_slug}/\"\r\n    }\r\n  ]\r\n}"
     }
   },
   {

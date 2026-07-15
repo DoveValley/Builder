@@ -444,5 +444,26 @@
         "pages_skipped": 0,
         "pages_backed_up": 25,
         "errors": []
+    },
+    {
+        "run_id": "7e2d1a2711ae080f",
+        "started_at": "2026-07-15T03:01:13+00:00",
+        "finished_at": "2026-07-15T03:01:13+00:00",
+        "duration_ms": 2,
+        "dry_run": false,
+        "options": {
+            "template_ids": [
+                "tpl_pmp_certification_training_city"
+            ],
+            "city_ids": [
+                "san-antonio-tx"
+            ],
+            "tag_filter": "",
+            "force_locked": true
+        },
+        "pages_written": 1,
+        "pages_skipped": 0,
+        "pages_backed_up": 1,
+        "errors": []
     }
 ]

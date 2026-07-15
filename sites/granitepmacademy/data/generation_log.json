@@ -667,5 +667,30 @@
     "output_tokens": 1820,
     "api_calls": 5,
     "estimated_cost_usd": 0.041463
+  },
+  {
+    "run_id": "7258467b-ab38-46d2-97b3-1ed3cae9abbe",
+    "started_at": "2026-07-15T03:01:33.729248Z",
+    "finished_at": "2026-07-15T03:02:10.420690Z",
+    "duration_ms": 36691,
+    "dry_run": false,
+    "options": {
+      "site": "granitepmacademy",
+      "page": "landing",
+      "all": false,
+      "file": "tpl_pmp_certification_training_city_san-antonio-tx",
+      "refresh": true,
+      "research": false
+    },
+    "pages_written": 7,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 7,
+    "cities_researched": 0,
+    "input_tokens": 7792,
+    "output_tokens": 2839,
+    "api_calls": 12,
+    "estimated_cost_usd": 0.021987
   }
 ]

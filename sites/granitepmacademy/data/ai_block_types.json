@@ -1,87 +1,140 @@
 {
-  "city_market_intro": {
-    "label": "City Market Intro",
-    "description": "170–200 word standalone text block on PM certification demand in the target city. References local industries, employers, salary.",
-    "ai_mode": "standalone",
-    "ai_render_as": "text",
-    "ai_model": "claude-sonnet-5",
-    "ai_inject_target": null,
-    "ai_inject_field": null,
-    "ai_inject_mode": null,
-    "ai_prompt": "You are writing SEO content for {business}, a PMI Premier Authorized Training Partner offering live-virtual {service}.\r\n\r\nTarget page: {service} in {city}, {SS}\r\nTarget keyword: \"{service} {city}\"\r\n\r\nCity context (use this — do not invent facts):\r\n- Key industries: {industries}\r\n- Major employers actively hiring certified PMs: {top_employers}\r\n- Salary context: {salary_note}\r\n- Market background: {market_blurb}\r\n\r\nWrite a city market intro section with:\r\n1. A heading (H2): 6–10 words, includes \"{city}\" and references the PM market or demand\r\n2. Body: exactly 2 paragraphs, 160–190 words total\r\n   - Para 1: Why this certification matters for {city} professionals specifically. Name 2–3 real local employers or industries.\r\n   - Para 2: Career impact — salary and advancement in {city}. Reference the salary note. End forward-looking.\r\n\r\nRules: Use \"{city}\" 2–3 times across both paragraphs. Mention the certification name at least 3 times. Do not invent statistics, companies, or facts not provided. Flowing paragraphs only — no bullets.\r\n\r\nReturn JSON only, no explanation:\r\n{\"heading_text\": \"...\", \"text\": \"<p>...</p><p>...</p>\"}",
-    "ai_output_schema": {
-      "heading_text": "string",
-      "text": "html_string"
+    "hero_subtext": {
+        "label": "Hero Subtext (Inject)",
+        "description": "2-3 sentence hero subtext, opens on the city's PM market, centers on the page's credential.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": "next",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "ai_prompt": "You are writing hero subtext for {business}, a project management certification training academy (a PMI Authorized Training Partner), for a page targeting \"{service}\" in {city}, {state}.\n\nWrite 2-3 sentences, 40-60 words total, wrapped in a single <p>...</p>:\n- Open on something specific to {city}'s project-management market — its dominant industry or a major local employer type — so this opening is not interchangeable with any other city.\n- Center on {service}: what {business} delivers on this page (live-virtual, instructor-led, satisfies PMI's 35 contact-hour education requirement). Do NOT list the other certifications offered.\n- Close with a concrete career value for aspiring or working project manager in {city}.\n\nNo bullets, no exclamation marks.\n\nACCURACY: Use PMI marks correctly (PMP, CAPM, PMI are registered marks of the Project Management Institute). Never invent pass rates, student counts, salary figures, or employer lists — state only what the research returns, and keep salary references as qualitative ranges rather than fabricated precise numbers. Do not imply endorsement by any named employer. Never reuse a sentence verbatim across cities; vary sentence structure and the facts you lead with, not just the city name. Do not pad with generic filler — every paragraph must say something specific to this city or this credential.\nTone: Professional, authoritative, and encouraging — speaks to career-focused adults without hype. Open each page on the single most distinctive feature of THIS city's project-management market (its dominant industry or a specific major employer) so no two city pages begin the same way. Match search intent: a reader searching for certification in their city wants to know the schedule/format, cost, eligibility, and whether the credential is worth it for their local career — answer those plainly.. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON only: {\"text\": \"<p>...</p>\"}",
+        "ai_output_schema": {
+            "text": "string"
+        },
+        "default_fields": [],
+        "_compiled_from": "hero_subtext",
+        "_niche": "Project Management Certification Training"
     },
-    "default_fields": {
-      "skin": "light",
-      "heading_level": "h2"
+    "city_market_intro": {
+        "label": "City Market Intro (Standalone)",
+        "description": "SEO intro: H2 + 2 paragraphs on why this credential matters in the target city and how the academy delivers it.",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt": "You are writing the SEO intro section for {business}, a project management certification training academy (a PMI Authorized Training Partner), for the page targeting \"{keyword}\".\n\nCity: {city}, {state}. Local market context you may draw on (use only what is given, never invent): industries = {industries}; major employers = {top_employers}; market note = {market_blurb}.\n\n1. heading_text (H2): 6-10 words, includes \"{city}\" and references {service} or local demand for project managers.\n2. text: exactly 2 paragraphs, 160-200 words total, each wrapped in <p>...</p>.\n   - Para 1: Why {service} matters for professionals in {city} specifically. LEAD with the single most distinctive sector or employer in this city's PM market (from the context above) — do not open the same way you would for any other city.\n   - Para 2: How {business} delivers {service} — PMI-authorized, live-virtual and instructor-led, satisfies the 35 contact-hour requirement, taught by active certified practitioners. End forward-looking toward the reader's certification.\n\nUse \"{city}\" 2-3 times naturally. No bullets, no sub-headings inside text.\n\nACCURACY: Use PMI marks correctly (PMP, CAPM, PMI are registered marks of the Project Management Institute). Never invent pass rates, student counts, salary figures, or employer lists — state only what the research returns, and keep salary references as qualitative ranges rather than fabricated precise numbers. Do not imply endorsement by any named employer. Never reuse a sentence verbatim across cities; vary sentence structure and the facts you lead with, not just the city name. Do not pad with generic filler — every paragraph must say something specific to this city or this credential.\nTone: Professional, authoritative, and encouraging — speaks to career-focused adults without hype. Open each page on the single most distinctive feature of THIS city's project-management market (its dominant industry or a specific major employer) so no two city pages begin the same way. Match search intent: a reader searching for certification in their city wants to know the schedule/format, cost, eligibility, and whether the credential is worth it for their local career — answer those plainly.. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p><p>...</p>\"}",
+        "ai_output_schema": {
+            "heading_text": "string",
+            "text": "html_string"
+        },
+        "default_fields": {
+            "skin": "light",
+            "heading_level": "h2"
+        },
+        "_compiled_from": "city_market_intro",
+        "_niche": "Project Management Certification Training"
+    },
+    "feature_columns_local": {
+        "label": "Feature Columns — Local (Standalone)",
+        "description": "4 benefit columns: 3 core academy differentiators + 1 city-specific column grounded in local employer demand.",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt": "You are writing feature columns for {business}, a project management certification training academy (a PMI Authorized Training Partner), for the \"{service}\" page targeting {city}, {state}.\n\nLocal context (use only what is given): industries = {industries}; major employers = {top_employers}.\n\nfc_heading: 6-10 words, city-aware and benefit-focused (vary the phrasing — do not reuse a stock heading).\n\nWrite exactly 4 columns:\n- Columns 1-3: real differentiators of {business}'s {service} — PMI Authorized Training Partner status, live-virtual instructor-led format satisfying the 35 contact-hour requirement, instructors who are active certified practitioners, and exam-preparation support. Choose three distinct angles; do not repeat the same idea.\n- Column 4: a {city}-specific benefit — tie the credential to demand among local employers or industries above, grounded in Serve professionals in {city}, {SS} who want a PMI-authorized path to certification, tying the training to the local job market and the employers hiring project and program managers there..\n\nEach column: heading 3-5 words (benefit-focused); text 20-30 words, concrete and non-generic.\n\nACCURACY: Use PMI marks correctly (PMP, CAPM, PMI are registered marks of the Project Management Institute). Never invent pass rates, student counts, salary figures, or employer lists — state only what the research returns, and keep salary references as qualitative ranges rather than fabricated precise numbers. Do not imply endorsement by any named employer. Never reuse a sentence verbatim across cities; vary sentence structure and the facts you lead with, not just the city name. Do not pad with generic filler — every paragraph must say something specific to this city or this credential.\nTone: Professional, authoritative, and encouraging — speaks to career-focused adults without hype. Open each page on the single most distinctive feature of THIS city's project-management market (its dominant industry or a specific major employer) so no two city pages begin the same way. Match search intent: a reader searching for certification in their city wants to know the schedule/format, cost, eligibility, and whether the credential is worth it for their local career — answer those plainly.. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON only: {\"fc_heading\": \"...\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}",
+        "ai_output_schema": {
+            "fc_heading": "string",
+            "columns": "array"
+        },
+        "default_fields": {
+            "skin": "light",
+            "fc_heading": "",
+            "fc_num_cols": 4,
+            "columns": []
+        },
+        "_compiled_from": "feature_columns_local",
+        "_niche": "Project Management Certification Training"
+    },
+    "local_relevance": {
+        "label": "Local Career Relevance (Standalone)",
+        "description": "Entity-rich section: which local employers/projects hire certified PMs, salary/demand context — the anti-doorway block.",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt": "You are writing a local career-relevance section for {business}, a project management certification training academy, for the \"{service}\" page targeting {city}, {state}. This is the most city-specific section on the page — it must not read like it could describe any other city.\n\nUse ONLY these researched facts (never invent employers, projects, or numbers): major employers = {top_employers}; notable local projects/initiatives = {notable_projects}; compensation note = {salary_note}; credential demand = {credential_demand}; industries = {industries}.\n\nheading_text (H2): 5-9 words about project-management careers in {city}.\n\ntext: 2 paragraphs, 150-190 words total, each wrapped in <p>...</p>:\n- Para 1: Who hires certified project managers in {city}. Name 2-4 of the real employers above and, where it fits, reference a real local project/initiative from the list — as concrete illustrations of local PM demand.\n- Para 2: Why the credential is worth it here — weave in the compensation/demand context qualitatively (never state a fabricated figure), and connect completing {service} with {business} to advancing in the {city} market.\n\nNo bullets. If a fact above is blank, simply omit it — do not fill the gap with an invented specific.\n\nACCURACY: Use PMI marks correctly (PMP, CAPM, PMI are registered marks of the Project Management Institute). Never invent pass rates, student counts, salary figures, or employer lists — state only what the research returns, and keep salary references as qualitative ranges rather than fabricated precise numbers. Do not imply endorsement by any named employer. Never reuse a sentence verbatim across cities; vary sentence structure and the facts you lead with, not just the city name. Do not pad with generic filler — every paragraph must say something specific to this city or this credential.\nTone: Professional, authoritative, and encouraging — speaks to career-focused adults without hype. Open each page on the single most distinctive feature of THIS city's project-management market (its dominant industry or a specific major employer) so no two city pages begin the same way. Match search intent: a reader searching for certification in their city wants to know the schedule/format, cost, eligibility, and whether the credential is worth it for their local career — answer those plainly.. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p><p>...</p>\"}",
+        "ai_output_schema": {
+            "heading_text": "string",
+            "text": "html_string"
+        },
+        "default_fields": {
+            "skin": "light",
+            "heading_level": "h2"
+        },
+        "_compiled_from": "local_relevance",
+        "_niche": "Project Management Certification Training"
+    },
+    "pmp_pathway": {
+        "label": "Certification Pathway (Standalone, steps)",
+        "description": "5-step path to the credential (eligibility → contact hours → application → exam → maintenance), framed for the target city.",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt": "You are writing a step-by-step certification pathway for {business}, a project management certification training academy (a PMI Authorized Training Partner), for the \"{service}\" page targeting {city}, {state}.\n\nsteps_heading: 5-9 words, references the path to {service} for {city} professionals.\n\nWrite exactly 5 steps that reflect the real PMI process for this credential:\n1. Confirm eligibility (the education + project-experience requirements PMI sets for this credential).\n2. Complete the required 35 contact hours of formal education — delivered by {business}'s live-virtual, instructor-led course.\n3. Submit the PMI application and pay the exam fee.\n4. Prepare and sit for the exam — with {business}'s exam-preparation support.\n5. Maintain the credential (earning PDUs across the standard 3-year renewal cycle).\n\nEach step: heading 3-6 words; text 25-40 words, practical and specific to the reader's next action. You may only state well-established PMI facts (e.g. the 35 contact-hour requirement, the 3-year renewal cycle). Do not invent exam fees, pass rates, or timelines.\n\nACCURACY: Use PMI marks correctly (PMP, CAPM, PMI are registered marks of the Project Management Institute). Never invent pass rates, student counts, salary figures, or employer lists — state only what the research returns, and keep salary references as qualitative ranges rather than fabricated precise numbers. Do not imply endorsement by any named employer. Never reuse a sentence verbatim across cities; vary sentence structure and the facts you lead with, not just the city name. Do not pad with generic filler — every paragraph must say something specific to this city or this credential.\nTone: Professional, authoritative, and encouraging — speaks to career-focused adults without hype. Open each page on the single most distinctive feature of THIS city's project-management market (its dominant industry or a specific major employer) so no two city pages begin the same way. Match search intent: a reader searching for certification in their city wants to know the schedule/format, cost, eligibility, and whether the credential is worth it for their local career — answer those plainly.. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON only: {\"steps_heading\": \"...\", \"steps_items\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}",
+        "ai_output_schema": {
+            "steps_heading": "string",
+            "steps_items": "array"
+        },
+        "default_fields": {
+            "skin": "light",
+            "steps_heading": "",
+            "steps_items": []
+        },
+        "_compiled_from": "pmp_pathway",
+        "_niche": "Project Management Certification Training"
+    },
+    "faq_local": {
+        "label": "FAQ — Local (Inject, append)",
+        "description": "Appends 4 city-specific FAQ items to the next faq_two_col block, alongside the real factual FAQs kept in the template.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": "next",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "append",
+        "ai_prompt": "You are writing city-specific FAQ items for {business}, a project management certification training academy, for the \"{service}\" page targeting {city}, {state}. These are ADDED to existing general FAQs, so ask only questions a {city} professional would search that are specific to their local market — do NOT repeat generic eligibility/format/pricing questions.\n\nLocal context (use only what is given): major employers = {top_employers}; compensation note = {salary_note}; credential demand = {credential_demand}; industries = {industries}.\n\nWrite exactly 4 FAQ items. Suggested angles (pick 4 distinct ones): is {service} worth it for careers in {city}; which {city} employers or industries value the credential; what project managers in {city} typically earn (qualitative only); whether {city} professionals can attend the live-virtual course from where they work; how the local job market affects certification timing.\n\nEach item:\n- question: specific and searchable, 8-15 words; at least half naturally include \"{city}\".\n- answer: 40-70 words, grounded in the real context above, wrapped in <p>...</p>. Never fabricate a salary figure, pass rate, price, or employer.\n\nACCURACY: Use PMI marks correctly (PMP, CAPM, PMI are registered marks of the Project Management Institute). Never invent pass rates, student counts, salary figures, or employer lists — state only what the research returns, and keep salary references as qualitative ranges rather than fabricated precise numbers. Do not imply endorsement by any named employer. Never reuse a sentence verbatim across cities; vary sentence structure and the facts you lead with, not just the city name. Do not pad with generic filler — every paragraph must say something specific to this city or this credential.\nTone: Professional, authoritative, and encouraging — speaks to career-focused adults without hype. Open each page on the single most distinctive feature of THIS city's project-management market (its dominant industry or a specific major employer) so no two city pages begin the same way. Match search intent: a reader searching for certification in their city wants to know the schedule/format, cost, eligibility, and whether the credential is worth it for their local career — answer those plainly.. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON only: {\"items\": [{\"question\": \"...\", \"answer\": \"<p>...</p>\"}, ... 4 items total]}",
+        "ai_output_schema": {
+            "items": "array"
+        },
+        "default_fields": [],
+        "_compiled_from": "faq_local",
+        "_niche": "Project Management Certification Training"
+    },
+    "city_spotlight": {
+        "label": "City Spotlight (map_info text)",
+        "description": "Short map-panel blurb spotlighting the city as a project-management hub; distinct from the longer local-relevance section.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": "mi_info_text",
+        "ai_inject_mode": "replace",
+        "ai_prompt": "You are writing a short spotlight blurb for the map panel on {business}'s \"{service}\" page targeting {city}, {state}. Keep it distinct from any longer local section — this is a tight, map-adjacent caption.\n\nUse only these researched facts: market note = {market_blurb}; major employers = {top_employers}; notable projects = {notable_projects}; industries = {industries}.\n\nWrite 2-3 sentences, 60-90 words total, wrapped in <p>...</p>, spotlighting {city} as a place where project managers are in demand — reference one concrete local sector, employer, or project from the context. Close by noting {business} serves {city} professionals with live-virtual {service}.\n\nDo not invent facts; omit anything not provided.\n\nACCURACY: Use PMI marks correctly (PMP, CAPM, PMI are registered marks of the Project Management Institute). Never invent pass rates, student counts, salary figures, or employer lists — state only what the research returns, and keep salary references as qualitative ranges rather than fabricated precise numbers. Do not imply endorsement by any named employer. Never reuse a sentence verbatim across cities; vary sentence structure and the facts you lead with, not just the city name. Do not pad with generic filler — every paragraph must say something specific to this city or this credential.\nTone: Professional, authoritative, and encouraging — speaks to career-focused adults without hype. Open each page on the single most distinctive feature of THIS city's project-management market (its dominant industry or a specific major employer) so no two city pages begin the same way. Match search intent: a reader searching for certification in their city wants to know the schedule/format, cost, eligibility, and whether the credential is worth it for their local career — answer those plainly.. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON only: {\"mi_info_text\": \"<p>...</p>\"}",
+        "ai_output_schema": {
+            "mi_info_text": "string"
+        },
+        "default_fields": [],
+        "_compiled_from": "city_spotlight",
+        "_niche": "Project Management Certification Training"
     }
-  },
-  "hero_subtext": {
-    "label": "Hero Subtext (Inject)",
-    "description": "Injects 2–3 sentences into the next hero_split hs_subtext field. City-specific, mentions live-virtual delivery.",
-    "ai_mode": "inject",
-    "ai_render_as": null,
-    "ai_model": "claude-sonnet-5",
-    "ai_inject_target": "next",
-    "ai_inject_field": "hs_subtext",
-    "ai_inject_mode": "replace",
-    "ai_prompt": "You are writing hero subtext for {business}, a PMI Premier Authorized Training Partner, for a {service} page targeting {city}, {SS}.\r\n\r\nCity context:\r\n- Key industries: {industries}\r\n- Major employers: {top_employers}\r\n\r\nWrite 2–3 sentences of hero subtext (40–60 words total):\r\n- Open with a city-specific statement referencing a dominant local industry or major employer and why this certification matters there\r\n- Mention live-virtual instructor-led training or PMI authorization in sentence 2\r\n- Close with a value statement: career advancement, salary impact, or pass rate\r\n\r\nRules: Professional tone. No bullets. No exclamation marks. Not sales-y.\r\n\r\nReturn JSON only:\r\n{\"text\": \"2-3 sentences here\"}",
-    "ai_output_schema": {
-      "text": "string"
-    },
-    "default_fields": []
-  },
-  "feature_columns_local": {
-    "label": "Feature Columns — Local (Standalone)",
-    "description": "4-column feature_columns block: 3 product benefits + 1 city-specific column referencing local industries or employers.",
-    "ai_mode": "standalone",
-    "ai_render_as": "feature_columns",
-    "ai_model": "claude-sonnet-5",
-    "ai_inject_target": null,
-    "ai_inject_field": null,
-    "ai_inject_mode": null,
-    "ai_prompt": "You are writing feature columns for {business}, a PMI Premier Authorized Training Partner, for a {service} page targeting {city}, {SS}.\r\n\r\nCity context:\r\n- Key industries: {industries}\r\n- Major employers: {top_employers}\r\n\r\nWrite exactly 4 feature columns:\r\n- Columns 1–3: Core product benefits. Choose 3 from: live instructor-led training, PMI Premier ATP authorization, high pass rate, experienced instructors, flexible live-virtual scheduling, small class sizes, comprehensive exam prep\r\n- Column 4: A city-specific benefit. Why this certification is especially valuable for professionals in {city}. Reference the dominant local industry or a major employer by name.\r\n\r\nSection heading (fc_heading):\r\n- 6–10 words, city-aware, benefit-focused\r\n- Example: \"Why Huntsville Engineers Choose Granite PM Academy\"\r\n\r\nEach column:\r\n- heading: 3–5 words, benefit-focused\r\n- text: 20–30 words, concrete and specific\r\n\r\nReturn JSON only:\r\n{\"fc_heading\": \"Why {city} Professionals Choose Granite PM Academy\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}",
-    "ai_output_schema": {
-      "columns": "array",
-      "fc_heading": "string"
-    },
-    "default_fields": {
-      "skin": "light",
-      "fc_heading": "",
-      "fc_num_cols": 4,
-      "columns": []
-    }
-  },
-  "faq_additions": {
-    "label": "FAQ Additions (Inject)",
-    "description": "Appends 2 city-specific FAQ items to the next faq_two_col block's fq_items array.",
-    "ai_mode": "inject",
-    "ai_render_as": null,
-    "ai_model": "claude-sonnet-5",
-    "ai_inject_target": "next",
-    "ai_inject_field": "fq_items",
-    "ai_inject_mode": "append",
-    "ai_prompt": "You are writing FAQ content for {business}, a PMI Premier Authorized Training Partner, for a {service} page targeting {city}, {SS}.\r\n\r\nCity context:\r\n- Key industries: {industries}\r\n- Major employers: {top_employers}\r\n- Salary context: {salary_note}\r\n\r\nWrite exactly 2 city-specific FAQ items. These should answer questions a {city} professional would search for. Good topics:\r\n- Certification salary in {city} or within a named local industry\r\n- Certification job demand in {city} or at specific local employers\r\n- How certification helps professionals in the dominant local sector\r\n- How long training takes while working full-time in {city}\r\n\r\nEach FAQ:\r\n- question: a specific, searchable question (10–15 words), naturally includes \"{city}\"\r\n- answer: 40–70 words. Reference real local context — industries, employers, or salary data above.\r\n\r\nReturn JSON only:\r\n{\"items\": [{\"question\": \"...\", \"answer\": \"...\"}, {\"question\": \"...\", \"answer\": \"...\"}]}",
-    "ai_output_schema": {
-      "items": "array"
-    },
-    "default_fields": []
-  },
-  "city_spotlight": {
-    "label": "City Spotlight (map_info text)",
-    "description": "AI-written city profile for the map_info block's info panel, grounded in researched city facts (market_blurb, employers, industries, population, neighborhoods). Enrich type — fills mi_info_text in place; attach to a map_info block by setting its ai_type_id to city_spotlight.",
-    "ai_mode": "inject",
-    "ai_render_as": null,
-    "ai_model": "claude-sonnet-5",
-    "ai_inject_target": null,
-    "ai_inject_field": "mi_info_text",
-    "ai_inject_mode": "replace",
-    "ai_prompt": "You are writing the \"City Information\" panel that appears beside a map of {city}, {state} on the website of {business}. This is a short, engaging, factual profile of {city} as a place — NOT a sales pitch for the business.\n\nWrite 1-2 short paragraphs, 90-140 words total, that give a visitor a vivid, accurate feel for {city}, {state}: its regional setting, what the local economy is built on, and a little local character. Tone: warm, confident, professional. Use fully original wording — do NOT copy encyclopedia phrasing or read like a Wikipedia entry.\n\nGROUND EVERY SPECIFIC CLAIM ONLY IN THIS VERIFIED RESEARCH about {city} (do not introduce specifics beyond it):\n- Regional / economic context: {market_blurb}\n- Major employers: {top_employers}\n- Key industries: {industries}\n- Approximate population: {population}\n- Verified local areas you MAY name (pick at most TWO, woven naturally into a sentence — never a \"we serve X, Y, Z\" list): {neighborhoods}\n\nACCURACY RULES (critical): Rely only on the verified facts above plus well-established general knowledge about {city}'s broader region and {state}. Do NOT invent or state as fact: statistics beyond the population above, distances or drive times, highway or route numbers, founding dates, named landmarks, climate figures, or any detail not supported by the research above. If a provided value is blank, simply omit that angle. If unsure about a specific detail for {city}, describe the broader region instead of inventing specifics. Use the standard two-letter abbreviation for {state} where it reads naturally. Mention {business} at most once and lightly, or not at all — keep the focus on the city.\n\nReturn JSON only, no markdown fences: {\"mi_info_text\": \"the paragraph text; separate two paragraphs with a single blank line; plain text, NO HTML tags\"}",
-    "ai_output_schema": {
-      "mi_info_text": "string"
-    },
-    "default_fields": {}
-  }
 }

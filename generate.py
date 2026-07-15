@@ -246,6 +246,7 @@ def build_context(site_vars, city_data, page_data=None, hood_threshold=DEFAULT_H
     """Merge all data sources into a flat substitution context dict."""
     industries = city_data.get('industries', [])
     employers  = city_data.get('top_employers', [])
+    projects   = city_data.get('notable_projects', [])
 
     ctx = {
         'business':      site_vars.get('business', ''),
@@ -259,6 +260,8 @@ def build_context(site_vars, city_data, page_data=None, hood_threshold=DEFAULT_H
         'top_employers': ', '.join(employers)  if isinstance(employers, list)  else str(employers),
         'salary_note':   city_data.get('salary_note', ''),
         'market_blurb':  city_data.get('market_blurb', ''),
+        'notable_projects': ', '.join(projects) if isinstance(projects, list) else str(projects),
+        'credential_demand': city_data.get('credential_demand', ''),
         'population':    str(city_data.get('population', '') or ''),
         'neighborhoods': _effective_neighborhoods(city_data, hood_threshold),
         'service':       '',
