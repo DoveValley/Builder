@@ -174,6 +174,7 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $lbl, $nu
 
         <div style="display:flex;justify-content:flex-end;gap:10px;margin-bottom:12px;">
             <button type="button" class="btn" style="background:#0f766e;" onclick="kwDownload()" title="Download the current keyword map (including unsaved edits) as a text file">&#11015; Download Niche Keyword Info</button>
+            <button type="button" class="btn" style="background:#0369a1;" onclick="kwDownloadPriSec()" title="Download a plain text list of all primary + secondary keywords (including unsaved edits) — one per line, for pasting into keyword tools">&#11015; Download Pri/Sec Keywords</button>
             <button type="submit" class="btn">Save</button>
         </div>
 
@@ -304,6 +305,33 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $lbl, $nu
         var a=document.createElement('a');
         a.href=URL.createObjectURL(blob);
         a.download=(kwDlSlug(niche)||'niche')+'-keyword-map.txt';
+        document.body.appendChild(a); a.click();
+        setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },100);
+    }
+    // Flat primary/secondary keyword list — one keyword per line, secondaries
+    // deduped (case-insensitive). Built from the live form so unsaved edits are
+    // included. Handy for pasting into Keyword Planner / Ahrefs / a rank tracker.
+    function kwDownloadPriSec(){
+        var niche=(document.querySelector('input[name="niche"]').value||'').trim();
+        var prims=[], secs=[], seen={};
+        var pins=document.querySelectorAll('input[name="kw_primary[]"]');
+        for(var i=0;i<pins.length;i++){ var p=(pins[i].value||'').trim(); if(p) prims.push(p); }
+        var tas=document.querySelectorAll('textarea[name="kw_secondary[]"]');
+        for(var j=0;j<tas.length;j++){
+            var parts=(tas[j].value||'').split(/[\r\n,]+/);
+            for(var k=0;k<parts.length;k++){
+                var s=parts[k].trim(); if(!s) continue;
+                var key=s.toLowerCase(); if(seen[key]) continue; seen[key]=1; secs.push(s);
+            }
+        }
+        var bar=new Array(73).join('='), rule=new Array(73).join('-');
+        var txt=bar+'\n'+(niche||'NICHE').toUpperCase()+' — PRIMARY / SECONDARY KEYWORDS\n'+bar+'\n';
+        txt+='\nPRIMARY KEYWORDS ('+prims.length+')\n'+rule+'\n'+(prims.length?prims.join('\n')+'\n':'  (none)\n');
+        txt+='\nSECONDARY KEYWORDS ('+secs.length+', deduped)\n'+rule+'\n'+(secs.length?secs.join('\n')+'\n':'  (none)\n');
+        var blob=new Blob([txt],{type:'text/plain;charset=utf-8'});
+        var a=document.createElement('a');
+        a.href=URL.createObjectURL(blob);
+        a.download=(kwDlSlug(niche)||'niche')+'-pri-sec-keywords.txt';
         document.body.appendChild(a); a.click();
         setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },100);
     }
