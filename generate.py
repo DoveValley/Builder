@@ -280,7 +280,9 @@ def build_context(site_vars, city_data, page_data=None, hood_threshold=DEFAULT_H
         ctx['keyword'] = keyword
         # Variant phrasings for this page, from the keyword map (seo.secondary_keywords).
         # Prompts should weave these in naturally where they fit — never keyword-stuff.
-        ctx['secondary_keywords'] = seo.get('secondary_keywords', '')
+        # Resolve any {city}/{SS}/etc. tokens inside the list so city-agnostic
+        # templates yield city-specific phrasings.
+        ctx['secondary_keywords'] = substitute_vars(seo.get('secondary_keywords', ''), ctx)
         # Niche facets (generic passthrough): appliance pages set seo.brand /
         # seo.appliance_type so prompts can write brand- and appliance-specific
         # copy. Empty for niches (e.g. pest) that don't populate them.
