@@ -97,6 +97,36 @@
 
 <?php elseif ($editingTemplate === null): ?>
 
+    <!-- ── How to build a GREAT-SEO template (process + Claude prompt) ───── -->
+    <details class="card" id="tpl-greatseo" style="background:#f8fafc;border-left:3px solid #7c3aed;">
+        <summary style="cursor:pointer;font-weight:700;font-size:1.02rem;color:#4c1d95;list-style:none;user-select:none;"><span style="display:inline-block;width:1em;">&#9656;</span> How to build a GREAT-SEO landing template <span style="font-weight:400;font-size:.8rem;color:#64748b;">(process + a ready-to-paste Claude prompt)</span></summary>
+        <div style="margin-top:14px;font-size:.9rem;line-height:1.6;color:#334155;">
+            <p style="margin:0 0 8px;">A template is one of <strong>three human inputs</strong>; everything else is mechanical. Get these right and two passes (structure, then AI) produce unique, grounded, keyword-focused pages for every city.</p>
+            <ol style="margin:0 0 12px 18px;padding:0;">
+                <li><strong>Keyword map</strong> (<a href="?tab=keywords">Keywords</a>) — each page's ONE primary + a few secondaries.</li>
+                <li><strong>Niche brief + archetypes</strong> (<a href="?tab=niche_brief">Niche Brief</a>) — the AI voice, guardrails, research fields, and per-block prompts. Fold the SEO rules into <em>tone</em> (angle-variation, search-intent) and <em>guardrails</em> (no boilerplate, no fabricated numbers). Then <em>Compile</em>.</li>
+                <li><strong>Template blocks</strong> (this tab) — true-AI blocks for local/descriptive content + real-DATA blocks (pricing, schedule, stats, testimonials) that stay factual.</li>
+            </ol>
+            <p style="margin:0 0 4px;font-weight:700;color:#4c1d95;">The GREAT-SEO rules</p>
+            <ul style="margin:0 0 12px 18px;padding:0;">
+                <li><strong>One primary is the focus</strong> — in the &lt;title&gt;, H1 hero, intro H2, and slug. Don't dilute it.</li>
+                <li><strong>Secondaries are light</strong> — FAQ block only, one long-tail per page, only if natural. Never stuff.</li>
+                <li><strong>Uniqueness</strong> — each page leads with the most distinctive fact about THAT city (real employer / industry / project) so no two open alike. That's the anti-doorway defense.</li>
+                <li><strong>Never fabricate</strong> — no invented pass rates, review counts, salaries (ranges from research only), or contact-hour numbers in AI prose. Remove any fake <code>aggregateRating</code> from schema.</li>
+                <li><strong>Real signals rank high</strong> — real prices, real schedule, real guarantees. AI prose supports; it never stars.</li>
+            </ul>
+            <p style="margin:0 0 4px;font-weight:700;color:#4c1d95;">The 8 phases (what Claude runs)</p>
+            <p style="margin:0 0 12px;">1 Keyword map → 2 Niche brief → 3 Archetypes + <code>compile.php</code> → 4 City research (real employers/salary/projects) → 5 Template block skeleton (~11-12 blocks; fill SEO incl <code>service_name</code>; strip fake rating) → 6 Generate (Pass A structure <code>force_locked</code> when blocks change, then Pass B AI <code>--file … --refresh</code>) → 7 Verify (HTTP 200, no stray tokens, no fabricated stats, FAQ open, valid schema) → 8 Deploy (<strong>session-mode build</strong>, force, verify images 200 + 301s).</p>
+            <p style="margin:0 0 6px;font-weight:700;color:#4c1d95;">Reusable Claude prompt — paste into Claude Code to build/rework a template this way</p>
+            <textarea id="tplPrompt" readonly rows="10" style="width:100%;font-family:ui-monospace,monospace;font-size:.72rem;line-height:1.45;background:#0f172a;color:#e2e8f0;border-radius:6px;padding:10px;border:0;"><?= h(@file_get_contents(BASE_DIR . '/uploads/template-build-prompt.txt')) ?></textarea>
+            <div style="margin-top:8px;display:flex;gap:8px;align-items:center;">
+                <button type="button" class="btn btn-small" onclick="(function(t){t.select();document.execCommand('copy');this.textContent='✓ Copied';setTimeout(()=>this.textContent='⎘ Copy prompt',1500);}).call(this,document.getElementById('tplPrompt'))">&#9096; Copy prompt</button>
+                <a class="btn btn-secondary btn-small" href="/uploads/template-build-prompt.txt" download="template-build-prompt.txt">&#11015; Download .txt</a>
+                <span class="hint" style="margin:0;">Full write-up: <a href="docs.php?doc=reference#template-great-seo" target="_blank">Docs → Templates</a> · <code>docs/landing-page-build-process-V1-20260709.md</code></span>
+            </div>
+        </div>
+    </details>
+
     <?php
     // Masters carry a free-text "role" label (any niche): appliance uses Home /
     // Type Hub / Brand Hub / Leaf; pest uses Extermination / Inspection / Category;

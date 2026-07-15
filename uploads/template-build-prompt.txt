@@ -1,0 +1,126 @@
+========================================================================
+REUSABLE PROMPT — BUILD / REWORK A "GREAT-SEO" CITY-LANDING TEMPLATE
+Paste this into Claude Code (running in the site factory) when you want to
+create or rework a landing template the way the granitepmacademy PMP/CAPM/
+AI-Training templates were built. Niche-agnostic: it drives off the keyword
+map + niche brief + archetypes, so it works for any service business.
+========================================================================
+
+--- COPY BELOW THIS LINE ------------------------------------------------
+
+You are reworking a city-landing TEMPLATE for the site "[SITE_ID]" into a
+great-SEO, true-AI-block template, then generating + verifying it across all
+cities. The goal: every generated page is unique, grounded in real local data,
+factually accurate, and keyword-focused on ONE primary — with zero fabricated
+stats. Follow this process and STOP for my OK before deleting anything or
+deploying.
+
+MENTAL MODEL — three human inputs, everything else mechanical:
+  1. Keyword map  (data/keyword_map.json)      — which pages + each page's primary/secondary
+  2. Niche brief + archetypes (sites/[SITE_ID]/multisite/)  — the AI voice, guardrails, prompts
+  3. Template block skeleton (data/templates.json)  — true-AI blocks + real-data blocks
+Two passes turn a template×city into a page: Pass A = structure (PHP, free),
+Pass B = AI content (generate.py, ~$0.01-0.02/page). Then build + deploy.
+
+======================  GREAT-SEO PRINCIPLES  ==========================
+Apply these to every template:
+  • ONE primary keyword is the focus — in the <title> (seo.seo_title), H1
+    hero, the intro H2, and the URL slug. Do NOT dilute it.
+  • Secondaries: weave LIGHTLY and only in the FAQ block (one long-tail per
+    page, only if natural). Never in the intro/hero/features. Never stuff.
+  • Uniqueness at scale = the anti-doorway defense. Each page's AI prose must
+    LEAD with the single most distinctive fact about THAT city (dominant
+    employer/industry/project) so no two cities open alike.
+  • Entity-richness: name REAL local employers + REAL projects (from research)
+    — these are entities Google ties to the city.
+  • NEVER fabricate: pass rates, review counts, salaries (ranges only, from
+    research), student counts, contact-hour numbers in AI prose, eligibility
+    numbers. Remove any hardcoded fake aggregateRating from schema.
+  • Proprietary/real signals rank high: real prices (courses.json/pricing),
+    real schedule shortcode, real guarantees — AI prose supports, never stars.
+  • True AI blocks for all descriptive/local content; real-DATA blocks
+    (pricing, schedule, stats, testimonials) stay factual, never AI-invented.
+  • Ship a few cities first, verify, THEN scale.
+
+======================  STEP-BY-STEP  ==================================
+
+PHASE 1 — Keyword map (source of truth). Confirm data/keyword_map.json has
+  this template's page: { primary, slug, section:landing, secondary[] }.
+  The slug here is authoritative. If reworking to a new slug, plan 301s.
+
+PHASE 2 — Niche brief (sites/[SITE_ID]/multisite/niche_brief.json). NOTE: the
+  multisite/ dir is GITIGNORED (only the compiled data/ai_block_types.json is
+  tracked). Set/verify:
+    - offerings, tone, guardrails  (fold GREAT-SEO directives into tone:
+      angle-variation + search-intent; into guardrails: no-boilerplate +
+      no-fabrication, incl. "no specific contact-hour/eligibility numbers in prose")
+    - research_prompt fields (industries, top_employers, salary_note,
+      market_blurb, notable_projects, credential_demand …)
+    - enabled_archetypes = every AI block the template uses
+
+PHASE 3 — Archetypes (sites/[SITE_ID]/multisite/archetypes.json = per-master
+  prompt overrides, merged over shared multisite/ai/archetypes.json).
+    - Write each enabled block's prompt: niche-flavored, {service}-driven,
+      grounded in the research tokens, with the angle-variation + no-fabrication
+      rules. Keep credential/service FACTS accurate per block (e.g. a PMP
+      pathway ≠ a CAPM pathway — different hours/eligibility; make a separate
+      archetype rather than reuse a wrong one).
+    - Generic-ize any number that differs by service (contact hours, etc.) —
+      put exact figures in per-template STATIC blocks, not shared prompts.
+    - {secondary_keywords} token: only in the FAQ archetype, "at most one, if natural".
+    - Compile:  php multisite/ai/compile.php --master=[SITE_ID]
+    - GOTCHA: compile MERGE is non-destructive — a pre-existing hand-authored
+      (unstamped) entry in data/ai_block_types.json BLOCKS the archetype
+      override. Delete the stale hand-authored key first, then recompile.
+
+PHASE 4 — City research (cities.json real data). Each city needs the research
+  fields. run_research_step SKIPS already-researched cities (no --refresh for
+  research). To ADD new fields to existing cities, write a small surgical enrich
+  script (anthropic SDK, model claude-sonnet-5) that fills ONLY the missing
+  fields and merges them in — never force full re-research (clobbers good data).
+  GOTCHA: Sonnet returns a ThinkingBlock first — extract
+  next(b for b in msg.content if b.type=='text').
+
+PHASE 5 — Template block skeleton (data/templates.json). Target ~11-12 blocks:
+    hero_split[inject hero_subtext] · ai city_market_intro(text) ·
+    ai feature_columns_local · stats(real) · ai local_relevance(text) ·
+    pricing_cards(real) · custom_html[course_schedule shortcode] ·
+    ai <service>_pathway(steps, only if credential facts are certain) ·
+    testimonials(real) · faq_two_col[inject faq_local, fq_open:true] ·
+    map_info[inject city_spotlight] · cta_banner
+  Also: set seo.seo_title/meta_description/service_name (service_name drives
+  the {service} token), seo.secondary_keywords (token form, {city}/{SS}),
+  bc_label; REMOVE fabricated aggregateRating from seo.schema; fix any stale
+  copy (wrong service name / hours) in static blocks.
+
+PHASE 6 — Generate (run as root → chown -R www-data:www-data data/ after each):
+    Pass A (structure), via a session-mode shim OR filtered generate_city_pages:
+      generate_city_pages(['template_ids'=>['<tpl>'],'city_ids'=>[...],
+        'confirmed_cost'=>true,'force_locked'=>true])   // force_locked when blocks changed
+      GOTCHA: Pass A re-bakes city_vars into ALL pages → it dirties every page
+      (whitespace + refreshed city_spotlight). After, `git checkout` the pages
+      you didn't intend to touch.
+    Pass B (AI):
+      MULTISITE_SITE_BASE=... python3 generate.py --site-dir ... --page landing \
+        --file "<exact_template_filename_prefix>" [--refresh]
+      (--refresh only when you changed a prompt; locked blocks need it.)
+
+PHASE 7 — Verify (render every page fresh, no cache):
+    - HTTP 200, ZERO unresolved {city}/{SS} tokens, ZERO PHP warnings
+    - primary keyword dominant; secondaries minimal
+    - real employers/projects present; NO fabricated stats; facts correct
+    - FAQ open (aria-expanded="true"); valid Course/FAQ/Breadcrumb schema
+    (headless: chromium-browser --headless=new --no-sandbox … via a preview shim)
+
+PHASE 8 — Deploy (STOP for my OK — outward-facing). Build in ACTIVE-SITE
+  SESSION MODE, not worker mode, or upload paths 404 on the live host:
+      <?php session_start(); $_SESSION['active_site']='[SITE_ID]';
+      require config.php; require functions.php;
+      build_static_site(BASE_DIR.'/output/[SITE_ID]/', $canonical, $web3); ?>
+  Then deploy_site($cfg, output/[SITE_ID]/, deploy_manifest.json, $forceAll=true).
+  chown -R www-data output/ + sites/[SITE_ID]/ after. Verify live: images 200,
+  old slugs 301 to new, CSS fix present (cache-busted).
+
+Report status after each phase. Commit per coherent unit. Push only when I say.
+
+--- COPY ABOVE THIS LINE ------------------------------------------------

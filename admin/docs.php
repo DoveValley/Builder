@@ -937,6 +937,40 @@ tr:nth-child(even) td { background: #f8fafc; }
     <div class="callout">
         <p>Do not hardcode city names into template block content — use <code>{city}</code>, <code>{SS}</code>, <code>{city_slug}</code> shortcodes so generated pages resolve the correct values for each city.</p>
     </div>
+
+    <h3 id="template-great-seo">Building a GREAT-SEO template (the repeatable process)</h3>
+    <p>This is the exact process used to build the granitepmacademy PMP / CAPM / AI-Training city templates — niche-agnostic, driven by the keyword map + niche brief + archetypes. A ready-to-paste Claude prompt lives at the top of the <strong>Templates</strong> tab ("How to build a GREAT-SEO landing template") and as <code>uploads/template-build-prompt.txt</code>.</p>
+
+    <p><strong>Three human inputs, everything else mechanical:</strong></p>
+    <ol>
+        <li><strong>Keyword map</strong> (<code>data/keyword_map.json</code>, Keywords tab) — which pages exist + each page's ONE primary keyword and a few secondaries.</li>
+        <li><strong>Niche brief + archetypes</strong> (<code>sites/{site}/multisite/</code>, Niche Brief tab — <em>gitignored</em>; only the compiled <code>data/ai_block_types.json</code> is tracked) — the AI voice, guardrails, research fields, and the per-block prompts.</li>
+        <li><strong>Template block skeleton</strong> (this tab) — true-AI blocks for local/descriptive content + real-DATA blocks (pricing, schedule, stats, testimonials) that stay factual.</li>
+    </ol>
+
+    <p><strong>The GREAT-SEO rules baked into every template:</strong></p>
+    <ul>
+        <li><strong>One primary is the focus</strong> — in <code>seo.seo_title</code> (the &lt;title&gt;), the H1 hero, the intro H2, and the slug. Never dilute it.</li>
+        <li><strong>Secondaries stay light</strong> — woven only in the FAQ block (one long-tail per page, only if natural); never in intro/hero/features; never stuffed. Wired via the <code>{secondary_keywords}</code> token in the <code>faq_local</code> archetype only.</li>
+        <li><strong>Uniqueness at scale</strong> — each page's AI prose LEADS with the single most distinctive fact about that city (real employer / industry / project from research), so no two cities open alike. This is the anti-doorway defense.</li>
+        <li><strong>Never fabricate</strong> — no invented pass rates, review counts, salaries (qualitative ranges from research only), student counts, or contact-hour/eligibility numbers in AI prose. Remove any hardcoded fake <code>aggregateRating</code> from the schema.</li>
+        <li><strong>Real signals rank high</strong> — real prices, the real course-schedule shortcode, real guarantees. AI prose supports; it never stars.</li>
+    </ul>
+
+    <p><strong>The eight phases:</strong></p>
+    <ol>
+        <li><strong>Keyword map</strong> — confirm the page's primary/secondaries + authoritative slug (plan 301s if the slug changes).</li>
+        <li><strong>Niche brief</strong> — set offerings, tone (angle-variation + search-intent), guardrails (no-boilerplate + no-fabrication, incl. "no specific hour/eligibility numbers in prose"), research fields, and <code>enabled_archetypes</code>.</li>
+        <li><strong>Archetypes</strong> — write each block's niche-flavored, <code>{service}</code>-driven prompt; keep service FACTS accurate per block (e.g. a PMP pathway ≠ a CAPM pathway — different hours/eligibility → a separate archetype, not a reused wrong one); generic-ize numbers that differ by service (put exact figures in per-template static blocks). Then <code>php multisite/ai/compile.php --master={site}</code>. <em>Gotcha:</em> compile's merge is non-destructive — a pre-existing hand-authored (unstamped) registry entry blocks the archetype override; delete the stale key first, then recompile.</li>
+        <li><strong>City research</strong> — <code>cities.json</code> real employers/salary/projects/demand. <code>run_research_step</code> skips already-researched cities; to ADD fields, run a small surgical enrich script (Sonnet) that merges only the missing fields — never force full re-research (clobbers good data).</li>
+        <li><strong>Template block skeleton</strong> — ~11-12 blocks: hero[hero_subtext] · ai city_market_intro · ai feature_columns_local · stats · ai local_relevance · pricing_cards · custom_html[schedule shortcode] · ai pathway (only if credential facts are certain) · testimonials · faq_two_col[faq_local, <code>fq_open:true</code>] · map_info[city_spotlight] · cta_banner. Fill <code>seo.seo_title</code>/<code>meta_description</code>/<code>service_name</code> (drives the <code>{service}</code> token) + <code>secondary_keywords</code>; remove fabricated <code>aggregateRating</code>; fix stale static copy.</li>
+        <li><strong>Generate</strong> — Pass A structure (<code>generate_city_pages</code>, <code>force_locked</code> when blocks changed) then Pass B AI (<code>generate.py --file … --refresh</code>). Run as root → <code>chown -R www-data data/</code> after. <em>Gotcha:</em> Pass A re-bakes <code>city_vars</code> into ALL pages (dirties every page) — <code>git checkout</code> the ones you didn't mean to touch.</li>
+        <li><strong>Verify</strong> — render each page fresh: HTTP 200, zero unresolved <code>{city}</code>/<code>{SS}</code> tokens, zero PHP warnings, primary dominant, real entities present, no fabricated stats, facts correct, FAQ open, valid Course/FAQ/Breadcrumb schema.</li>
+        <li><strong>Deploy</strong> — build in <strong>active-site session mode</strong> (set <code>$_SESSION['active_site']</code> before <code>config.php</code>), NOT worker mode (<code>MULTISITE_SITE_BASE</code>), or the <code>sites/{id}/uploads/</code> → <code>/uploads/</code> rewrite is skipped and every image 404s on the live host. Force deploy, then verify live: images 200, old slugs 301, CSS present (cache-busted).</li>
+    </ol>
+    <div class="callout">
+        <p>Generation runs as root but the admin runs as <code>www-data</code> — always <code>chown -R www-data:www-data</code> the touched <code>data/</code> / <code>output/</code> / <code>sites/{id}/</code> after any CLI build so the panel can still edit them.</p>
+    </div>
 </section>
 
 <section id="tab-cities">
