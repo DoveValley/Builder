@@ -767,5 +767,30 @@
     "output_tokens": 22371,
     "api_calls": 75,
     "estimated_cost_usd": 0.162249
+  },
+  {
+    "run_id": "7089c8e9-b4b3-4536-a9f5-2f754cf56672",
+    "started_at": "2026-07-15T03:42:23.786390Z",
+    "finished_at": "2026-07-15T03:42:53.834282Z",
+    "duration_ms": 30047,
+    "dry_run": false,
+    "options": {
+      "site": "granitepmacademy",
+      "page": "landing",
+      "all": false,
+      "file": "tpl_capm_certification_training_city_",
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 35,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 35,
+    "cities_researched": 0,
+    "input_tokens": 24080,
+    "output_tokens": 10811,
+    "api_calls": 35,
+    "estimated_cost_usd": 0.078135
   }
 ]

@@ -521,7 +521,7 @@
   },
   {
     "id": "tpl_capm_certification_training_city",
-    "title": "CAPM Certification Training {city}",
+    "title": "CAPM Certification & Boot Camp {city}",
     "slug_pattern": "capm-certification-training-{city_slug}",
     "page_type": "template",
     "generation_steps": [
@@ -532,7 +532,7 @@
     "content_blocks": [
       {
         "type": "hero_split",
-        "hs_heading": "CAPM Certification Training in {city}, {SS}",
+        "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
         "hs_subtext": "<p>Granite PM Academy’s CAPM Certification Training in {city_state} prepares you to earn the Certified Associate in Project Management credential. Our three-day live-virtual course satisfies PMI’s 23 contact hour requirement and is ideal for professionals launching or transitioning into project management.</p>",
         "hs_btn_text": "See Upcoming Dates",
         "hs_btn_url": "#capm_schedule",
@@ -588,8 +588,8 @@
             "label": "Of organizations hold PMI Premier ATP status — we do"
           },
           {
-            "number": "35",
-            "label": "PMI contact hours included with every PMP course"
+            "number": "23",
+            "label": "PMI contact hours included with every CAPM course"
           },
           {
             "number": "90",
@@ -598,13 +598,24 @@
         ]
       },
       {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": ""
+      },
+      {
         "type": "pricing_cards",
-        "pc_heading": "CAPM Certification Training — Enrollment Options",
+        "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
         "pc_cols": "2",
         "pc_bg": "#f0f4f8",
         "pc_items": [
           {
-            "name": "Live-Virtual CAPM Training",
+            "name": "Live-Virtual CAPM Boot Camp",
             "badge": "BEST VALUE",
             "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
             "sublabel": "",
@@ -632,6 +643,17 @@
       {
         "type": "custom_html",
         "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "capm_pathway",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": ""
       },
       {
         "type": "testimonials",
@@ -701,10 +723,11 @@
             "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
           }
         ],
-        "ai_type_id": "faq_additions",
+        "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "append",
-        "ai_model": "claude-haiku-4-5-20251001"
+        "ai_model": "claude-haiku-4-5-20251001",
+        "fq_open": true
       },
       {
         "type": "map_info",
@@ -717,7 +740,11 @@
         "mi_head_color": "header",
         "mi_head_color_custom": "#1f2937",
         "mi_info_photo": "{city_image}",
-        "mi_map_side": "left"
+        "mi_map_side": "left",
+        "ai_type_id": "city_spotlight",
+        "ai_inject_field": "mi_info_text",
+        "ai_inject_mode": "replace",
+        "ai_model": "claude-haiku-4-5-20251001"
       },
       {
         "type": "cta_banner",
@@ -732,21 +759,22 @@
       }
     ],
     "seo": {
-      "seo_title": "CAPM Certification Training {city} {SS} | PMI Exam Prep | {business}",
+      "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
       "canonical_url": "{website}/capm-certification-training-{city_slug}/",
-      "meta_description": "CAPM certification training in {city}, {SS} from a PMI Premier ATP. 3-day live-virtual course satisfies the 23 contact hour requirement. Enroll online.",
-      "meta_keywords": "CAPM certification training {city_state}, CAPM exam prep {city}, certified associate project management {city_state}",
-      "og_title": "CAPM Certification Training in {city}, {SS} | {business}",
-      "og_description": "Earn your CAPM in {city_state} with Granite PM Academy — PMI Premier ATP. Live-virtual instruction, no experience required.",
+      "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
+      "meta_keywords": "CAPM certification {city_state}, CAPM boot camp {city}, CAPM training {city_state}, CAPM classes {city} {SS}, CAPM exam prep {city}",
+      "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
+      "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
       "og_image": "",
-      "service_name": "CAPM Certification Training",
-      "service_type": "Course",
+      "service_name": "CAPM Certification & Boot Camp",
+      "service_type": "Professional Certification Training",
       "service_area": "{city}, {SS}",
-      "service_description": "PMI-aligned CAPM certification training for aspiring project managers in {city_state}.",
-      "bc_label": "CAPM Training {city}",
+      "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
+      "bc_label": "CAPM Certification & Boot Camp {city}",
       "bc_mid_label": "",
       "bc_mid_url": "",
-      "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"{website}/capm-certification-training-{city_slug}/#webpage\",\n      \"url\": \"{website}/capm-certification-training-{city_slug}/\",\n      \"name\": \"CAPM Certification Training in {city}, {SS} | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in {city}, {SS}. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"{website}/#website\"\n      },\n      \"about\": {\n        \"@id\": \"{website}/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"{website}/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification Training in {city}, {SS}\",\n            \"item\": \"{website}/capm-certification-training-{city_slug}/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"{website}/capm-certification-training-{city_slug}/#course\",\n      \"name\": \"CAPM Certification Training in {city}, {SS}\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in {city}, {SS}. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"{website}/capm-certification-training-{city_slug}/\",\n      \"provider\": {\n        \"@id\": \"{website}/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"{website}/capm-certification-training-{city_slug}/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"{website}/capm-certification-training-{city_slug}/\"\n        }\n      ],\n      \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": \"4.8\",\n        \"reviewCount\": \"422\",\n        \"bestRating\": \"5\",\n        \"worstRating\": \"1\"\n      }\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"{website}/capm-certification-training-{city_slug}/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"{website}/capm-certification-training-{city_slug}/\"\n    }\n  ]\n}"
+      "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"{website}/capm-certification-training-{city_slug}/#webpage\",\n      \"url\": \"{website}/capm-certification-training-{city_slug}/\",\n      \"name\": \"CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in {city}, {SS}. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"{website}/#website\"\n      },\n      \"about\": {\n        \"@id\": \"{website}/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"{website}/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in {city}, {SS}\",\n            \"item\": \"{website}/capm-certification-training-{city_slug}/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"{website}/capm-certification-training-{city_slug}/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in {city}, {SS}\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in {city}, {SS}. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"{website}/capm-certification-training-{city_slug}/\",\n      \"provider\": {\n        \"@id\": \"{website}/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"{website}/capm-certification-training-{city_slug}/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"{website}/capm-certification-training-{city_slug}/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"{website}/capm-certification-training-{city_slug}/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"{website}/capm-certification-training-{city_slug}/\"\n    }\n  ]\n}",
+      "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
     }
   },
   {
