@@ -792,5 +792,55 @@
     "output_tokens": 10811,
     "api_calls": 35,
     "estimated_cost_usd": 0.078135
+  },
+  {
+    "run_id": "8f309891-ac92-4c20-a7b3-379d1406aff8",
+    "started_at": "2026-07-15T03:47:22.503994Z",
+    "finished_at": "2026-07-15T03:47:46.852410Z",
+    "duration_ms": 24348,
+    "dry_run": false,
+    "options": {
+      "site": "granitepmacademy",
+      "page": "landing",
+      "all": false,
+      "file": "tpl_cpmai_certification_training_city_",
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 30,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 30,
+    "cities_researched": 0,
+    "input_tokens": 20605,
+    "output_tokens": 8713,
+    "api_calls": 30,
+    "estimated_cost_usd": 0.06417
+  },
+  {
+    "run_id": "dfcdb189-bc33-48b8-9677-78169a29e66c",
+    "started_at": "2026-07-15T03:49:20.304632Z",
+    "finished_at": "2026-07-15T03:49:59.253274Z",
+    "duration_ms": 38948,
+    "dry_run": false,
+    "options": {
+      "site": "granitepmacademy",
+      "page": "landing",
+      "all": false,
+      "file": "tpl_cpmai_certification_training_city_",
+      "refresh": true,
+      "research": false
+    },
+    "pages_written": 30,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 30,
+    "cities_researched": 0,
+    "input_tokens": 25551,
+    "output_tokens": 9451,
+    "api_calls": 35,
+    "estimated_cost_usd": 0.072806
   }
 ]

@@ -1,352 +1,393 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "huntsville-al",
-    "slug": "cpmai-certification-training-huntsville-al",
-    "title": "CPMAI Certification Training {city}",
-    "city_vars": {
-        "id": "huntsville-al",
-        "city": "Huntsville",
-        "state": "Alabama",
-        "SS": "AL",
-        "city_slug": "huntsville-al",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [],
-        "industries": [
-            "defense/military",
-            "aerospace",
-            "technology",
-            "government",
-            "manufacturing",
-            "cybersecurity"
-        ],
-        "top_employers": [
-            "Redstone Arsenal",
-            "NASA Marshall Space Flight Center",
-            "Boeing",
-            "Lockheed Martin",
-            "Raytheon Technologies",
-            "Northrop Grumman",
-            "Leidos",
-            "SAIC",
-            "Dynetics",
-            "Huntsville Hospital",
-            "BAE Systems",
-            "Jacobs Engineering"
-        ],
-        "salary_note": "PMP-certified project managers in Huntsville, Alabama typically earn between $95,000 and $130,000 annually, with defense and aerospace contractors often paying at the higher end of that range.",
-        "market_blurb": "Huntsville is one of the fastest-growing tech and defense hubs in the southeastern United States, home to a dense concentration of federal agencies, military commands, and defense contractors centered around Redstone Arsenal and NASA Marshall Space Flight Center. The city's dominant industries of aerospace, defense, and government contracting place a high premium on structured project delivery, making PMP certification a recognized credential that directly supports contract compliance and program execution requirements. Professionals holding PMP certification in Huntsville gain a measurable competitive advantage when pursuing roles with major contractors and government clients who frequently require or strongly prefer certified project managers on federally funded programs.",
-        "city_spotlight": "Huntsville, AL sits at the heart of one of the Southeast's most dynamic tech and defense corridors, anchored by Redstone Arsenal and NASA Marshall Space Flight Center. Aerospace, cybersecurity, and advanced manufacturing drive daily life here, with major employers like Boeing, Lockheed Martin, Raytheon Technologies, Northrop Grumman, and Leidos working alongside federal agencies on complex, high-stakes programs.\n\nThat concentration of government and contractor work means projects run on discipline, documentation, and deadlines. Structured project delivery isn't optional in this town — it's the expectation, which is why credentials like PMP certification carry real weight with employers and contract clients alike. Huntsville blends engineering precision with genuine Southern warmth, making it a city where technical ambition and community pride grow side by side.",
-        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-huntsville-al.webp",
-        "city_image_alt": "Huntsville Art Museum - front façade and stairs 2023, AL",
-        "city_image_credit": "Photo: American Diabetio, CC BY-SA 4.0"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CPMAI Certification Training in {city}, {SS}",
-            "hs_subtext": "Huntsville's defense and aerospace sectors demand project leaders who can navigate complex, mission-critical initiatives at companies like Redstone Arsenal and NASA Marshall. Granite PM Academy delivers PMI-authorized, live-virtual instructor-led training designed for these high-stakes environments. Our CPMAI graduates advance into senior roles with significantly improved earning potential and industry-leading certification pass rates.",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CPMAI AI project management training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-30T00:59:02.080873Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Why CPMAI Certification Matters in Huntsville's Defense and Aerospace Sector",
-            "text": "<p>Huntsville has emerged as one of the Southeast's premier defense and aerospace hubs, anchored by Redstone Arsenal, NASA Marshall Space Flight Center, and major contractors like Boeing, Lockheed Martin, and Raytheon Technologies. In this mission-critical environment, structured project management isn't optional—it's essential for contract compliance and program execution on federally funded initiatives. CPMAI Certification Training equips Huntsville professionals with the advanced competencies that defense and aerospace organizations actively seek. Whether you're supporting complex weapons systems, space exploration programs, or government technology initiatives, CPMAI Certification demonstrates your mastery of agile and hybrid delivery frameworks that these industries increasingly demand alongside traditional waterfall approaches.</p><p>The career payoff for certified project managers in Huntsville is substantial. PMP-certified professionals in the region typically earn between $95,000 and $130,000 annually, with defense and aerospace contractors often compensating at the higher end of that range. Completing CPMAI Certification Training positions you for faster advancement into senior program management roles, enhanced earning potential, and greater influence on high-stakes initiatives across government and defense sectors. As Huntsville continues its rapid growth as a technology and defense innovation center, certified project managers are well-positioned to capitalize on the steady demand from major employers competing for talent with credentials that drive mission success.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-30T00:59:05.578590Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Why Huntsville Professionals Choose Granite PM Academy",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Premier ATP Authorization",
-                    "text": "As a PMI Premier Authorized Training Partner, we deliver officially recognized CPMAI certification training that meets the highest industry standards and prepares you for exam success."
-                },
-                {
-                    "heading": "Live Instructor-Led Expertise",
-                    "text": "Learn from experienced project management professionals who understand real-world challenges. Our live instructors provide personalized guidance, answer questions in real-time, and share practical insights."
-                },
-                {
-                    "heading": "Flexible Live-Virtual Scheduling",
-                    "text": "Attend classes online or in-person with scheduling that fits your busy professional life. Choose session times that work around your job at Redstone Arsenal, NASA Marshall, or local tech firms."
-                },
-                {
-                    "heading": "Defense & Aerospace Industry Advantage",
-                    "text": "CPMAI certification is highly valued by Huntsville's major employers—Lockheed Martin, Boeing, and Raytheon Technologies. Stand out for promotions, clearance advancement, and competitive project leadership roles in defense contracting."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-30T00:59:08.487939Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_locked": true
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CPMAI Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CPMAI Training",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "What salary can PMP certified project managers earn in Huntsville Alabama?",
-                    "answer": "PMP-certified project managers in Huntsville typically earn $95,000–$130,000 annually. Defense and aerospace contractors like Redstone Arsenal, Lockheed Martin, Raytheon Technologies, and Boeing often pay at the higher end, recognizing the certification's value in managing complex, regulated projects critical to national security and space exploration missions."
-                },
-                {
-                    "question": "How is PMP certification valuable for Huntsville defense and aerospace professionals?",
-                    "answer": "Huntsville's major employers—Redstone Arsenal, NASA Marshall, Boeing, and Lockheed Martin—require or strongly prefer PMP certification for project leadership roles. The credential demonstrates competency in managing high-stakes, regulated programs in defense and aerospace, directly supporting career advancement and competitive positioning within Huntsville's defense-focused job market."
-                },
-                {
-                    "question": "What salary can PMP-certified project managers expect in Huntsville?",
-                    "answer": "PMP-certified project managers in Huntsville typically earn $95,000–$130,000 annually. Defense and aerospace contractors like Redstone Arsenal, Lockheed Martin, Boeing, and Raytheon Technologies often pay at the higher end. The certification is highly valued across Huntsville's dominant sectors, particularly government contracting and advanced manufacturing roles."
-                },
-                {
-                    "question": "How does CPMAI certification help advance careers at Huntsville defense contractors?",
-                    "answer": "CPMAI certification strengthens your credibility for senior project roles at major Huntsville employers—Redstone Arsenal, NASA Marshall, Lockheed Martin, and Northrop Grumman. It demonstrates mastery of complex project governance and risk management, critical for defense and aerospace programs. Many contractors require or prefer certified professionals for leadership advancement and contract bids."
-                },
-                {
-                    "question": "How much can CPMAI-certified professionals earn working in Huntsville's defense sector?",
-                    "answer": "In Huntsville, AI project managers with certifications like CPMAI can command strong salaries, particularly at defense and aerospace contractors such as Lockheed Martin, Raytheon Technologies, Northrop Grumman, and Leidos. PMP-certified project managers in the area already earn $95,000–$130,000 annually, and adding AI-focused credentials positions professionals at the higher end of that range."
-                },
-                {
-                    "question": "Is there strong job demand for CPMAI-certified professionals in Huntsville right now?",
-                    "answer": "Yes. Huntsville's booming defense, aerospace, and government contracting ecosystem — anchored by Redstone Arsenal, NASA Marshall Space Flight Center, Boeing, SAIC, and Dynetics — is rapidly integrating AI into complex programs. Employers actively seek project managers who understand AI lifecycle management, making CPMAI certification a competitive differentiator for professionals targeting these high-growth local opportunities."
-                },
-                {
-                    "question": "What salary can PMP certification earn in Huntsville defense and aerospace?",
-                    "answer": "PMP-certified project managers in Huntsville typically earn $95,000–$130,000 annually. Defense contractors like Lockheed Martin, Raytheon, and Northrop Grumman often pay at the higher end. Redstone Arsenal and NASA Marshall employers value certification heavily, making it a strong ROI for career advancement in Huntsville's dominant industries."
-                },
-                {
-                    "question": "How long does CPMAI certification training take while working full-time in Huntsville?",
-                    "answer": "CPMAI training typically requires 40 hours of instruction, completable in 2–4 weeks with part-time evening or weekend schedules. Huntsville professionals in demanding roles at Boeing, Leidos, and SAIC can balance training around work commitments. Granite PM Academy offers flexible scheduling to accommodate full-time employment."
-                }
-            ],
-            "ai_type_id": "faq_additions",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-30T00:59:11.157018Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_additions",
-            "_ai_locked": true
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "huntsville-al",
+  "slug": "ai-training-huntsville-al",
+  "title": "AI Training {city}",
+  "city_vars": {
+    "id": "huntsville-al",
+    "city": "Huntsville",
+    "state": "Alabama",
+    "SS": "AL",
+    "city_slug": "huntsville-al",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [],
+    "industries": [
+      "defense/military",
+      "aerospace",
+      "technology",
+      "government",
+      "manufacturing",
+      "cybersecurity"
     ],
-    "seo": {
-        "seo_title": "CPMAI Certification Training {city} {SS} | AI Project Management | {business}",
-        "canonical_url": "https://granitepmacademy.com/cpmai-certification-training-huntsville-al/",
-        "meta_description": "CPMAI AI project management certification training in {city}, {SS}. Live-virtual course from Granite PM Academy. Cognilytica CPMAI methodology.",
-        "meta_keywords": "CPMAI certification training Huntsville, AL, AI project management training Huntsville, AL, Cognilytica CPMAI Huntsville",
-        "og_title": "CPMAI Certification Training in {city}, {SS} | {business}",
-        "og_description": "Earn the CPMAI credential in {city_state} with Granite PM Academy. Master AI project management from anywhere.",
-        "og_image": "",
-        "service_name": "CPMAI Certification Training",
-        "service_type": "Course",
-        "service_area": "{city}, {SS}",
-        "service_description": "CPMAI certification training for project managers working with AI initiatives in {city_state}.",
-        "bc_label": "CPMAI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"WebPage\",\n            \"@id\": \"https://granitepmacademy.com/cpmai-certification-training-huntsville-al/#webpage\",\n            \"url\": \"https://granitepmacademy.com/cpmai-certification-training-huntsville-al/\",\n            \"name\": \"CPMAI Certification Training in Huntsville, AL — AI for PMs | Granite PM Academy\",\n            \"description\": \"CPMAI certification training in Huntsville, AL for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n            \"isPartOf\": {\n                \"@id\": \"https://granitepmacademy.com/#website\"\n            },\n            \"about\": {\n                \"@id\": \"https://granitepmacademy.com/#organization\"\n            },\n            \"breadcrumb\": {\n                \"@type\": \"BreadcrumbList\",\n                \"itemListElement\": [\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 1,\n                        \"name\": \"Home\",\n                        \"item\": \"https://granitepmacademy.com/\"\n                    },\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 2,\n                        \"name\": \"CPMAI Certification Training in Huntsville, AL\",\n                        \"item\": \"https://granitepmacademy.com/cpmai-certification-training-huntsville-al/\"\n                    }\n                ]\n            }\n        },\n        {\n            \"@type\": \"Course\",\n            \"@id\": \"https://granitepmacademy.com/cpmai-certification-training-huntsville-al/#course\",\n            \"name\": \"CPMAI Certification Training in Huntsville, AL\",\n            \"description\": \"CPMAI certification training for project managers in Huntsville, AL who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n            \"url\": \"https://granitepmacademy.com/cpmai-certification-training-huntsville-al/\",\n            \"provider\": {\n                \"@id\": \"https://granitepmacademy.com/#organization\"\n            },\n            \"offers\": [\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"Live Virtual (3-Day)\",\n                    \"price\": \"1495\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"https://granitepmacademy.com/cpmai-certification-training-huntsville-al/\"\n                },\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"On-Demand (Self-Paced)\",\n                    \"price\": \"795\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"https://granitepmacademy.com/cpmai-certification-training-huntsville-al/\"\n                }\n            ],\n            \"aggregateRating\": {\n                \"@type\": \"AggregateRating\",\n                \"ratingValue\": \"4.8\",\n                \"reviewCount\": \"422\",\n                \"bestRating\": \"5\",\n                \"worstRating\": \"1\"\n            }\n        },\n        {\n            \"@type\": \"EducationalOccupationalCredential\",\n            \"@id\": \"https://granitepmacademy.com/cpmai-certification-training-huntsville-al/#credential\",\n            \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n            \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n            \"credentialCategory\": \"Professional Certification\",\n            \"recognizedBy\": {\n                \"@type\": \"Organization\",\n                \"name\": \"Project Management Institute (PMI)\",\n                \"url\": \"https://www.pmi.org\"\n            },\n            \"url\": \"https://granitepmacademy.com/cpmai-certification-training-huntsville-al/\"\n        },\n        {\n            \"@type\": \"FAQPage\",\n            \"mainEntity\": [\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What is the CPMAI certification?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Who should pursue the CPMAI in Huntsville?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The CPMAI is ideal for project managers, program managers, and IT professionals in Huntsville, AL who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is there a prerequisite for the CPMAI course?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How is the CPMAI different from the PMP?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is this course delivered online?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Yes. Our CPMAI training is 100% live-virtual. Huntsville professionals attend via video conference — no travel required.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What salary can PMP certified project managers earn in Huntsville Alabama?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"PMP-certified project managers in Huntsville typically earn $95,000–$130,000 annually. Defense and aerospace contractors like Redstone Arsenal, Lockheed Martin, Raytheon Technologies, and Boeing often pay at the higher end, recognizing the certification's value in managing complex, regulated projects critical to national security and space exploration missions.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How is PMP certification valuable for Huntsville defense and aerospace professionals?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Huntsville's major employers—Redstone Arsenal, NASA Marshall, Boeing, and Lockheed Martin—require or strongly prefer PMP certification for project leadership roles. The credential demonstrates competency in managing high-stakes, regulated programs in defense and aerospace, directly supporting career advancement and competitive positioning within Huntsville's defense-focused job market.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What salary can PMP-certified project managers expect in Huntsville?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"PMP-certified project managers in Huntsville typically earn $95,000–$130,000 annually. Defense and aerospace contractors like Redstone Arsenal, Lockheed Martin, Boeing, and Raytheon Technologies often pay at the higher end. The certification is highly valued across Huntsville's dominant sectors, particularly government contracting and advanced manufacturing roles.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How does CPMAI certification help advance careers at Huntsville defense contractors?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"CPMAI certification strengthens your credibility for senior project roles at major Huntsville employers—Redstone Arsenal, NASA Marshall, Lockheed Martin, and Northrop Grumman. It demonstrates mastery of complex project governance and risk management, critical for defense and aerospace programs. Many contractors require or prefer certified professionals for leadership advancement and contract bids.\"\n                    }\n                }\n            ]\n        }\n    ]\n}"
+    "top_employers": [
+      "Redstone Arsenal",
+      "NASA Marshall Space Flight Center",
+      "Boeing",
+      "Lockheed Martin",
+      "Raytheon Technologies",
+      "Northrop Grumman",
+      "Leidos",
+      "SAIC",
+      "Dynetics",
+      "Huntsville Hospital",
+      "BAE Systems",
+      "Jacobs Engineering"
+    ],
+    "salary_note": "PMP-certified project managers in Huntsville, Alabama typically earn between $95,000 and $130,000 annually, with defense and aerospace contractors often paying at the higher end of that range.",
+    "market_blurb": "Huntsville is one of the fastest-growing tech and defense hubs in the southeastern United States, home to a dense concentration of federal agencies, military commands, and defense contractors centered around Redstone Arsenal and NASA Marshall Space Flight Center. The city's dominant industries of aerospace, defense, and government contracting place a high premium on structured project delivery, making PMP certification a recognized credential that directly supports contract compliance and program execution requirements. Professionals holding PMP certification in Huntsville gain a measurable competitive advantage when pursuing roles with major contractors and government clients who frequently require or strongly prefer certified project managers on federally funded programs.",
+    "city_spotlight": "<p>Huntsville's aerospace and defense sector—anchored by NASA Marshall Space Flight Center, Redstone Arsenal, and major contractors like Boeing, Lockheed Martin, and Raytheon Technologies—demands structured project delivery and federal compliance expertise. PMP certification is a recognized credential that directly supports contract requirements on federally funded programs, giving certified professionals measurable competitive advantage in roles across the region's dominant industries. Granite PM Academy serves Huntsville professionals with live-virtual Project Management Certification Training designed around the schedules of working project managers.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-huntsville-al.webp",
+    "city_image_alt": "Huntsville Art Museum - front façade and stairs 2023, AL",
+    "city_image_credit": "Photo: American Diabetio, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Huntsville_Art_Museum_-_front_fa%C3%A7ade_and_stairs_2023.jpg",
+    "notable_projects": [
+      "NASA Marshall Space Flight Center's Space Launch System (SLS) program",
+      "FBI's new campus and relocation of operations to Redstone Arsenal",
+      "Mazda Toyota Manufacturing USA assembly plant in Huntsville",
+      "Blue Origin's rocket engine manufacturing facility in Huntsville"
+    ],
+    "credential_demand": "Given the concentration of aerospace, defense, and government contracting employers in Huntsville, PMP certification is commonly listed as a preferred or required qualification in project and program manager job postings from firms like Boeing, Lockheed Martin, Northrop Grumman, and Leidos, while CAPM is often valued for entry-level roles supporting these programs."
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "AI Training in {city}, {SS} for Project Managers",
+      "hs_subtext": "<p>Huntsville's aerospace and defense sector demands project managers who can integrate AI tools into complex, regulated workflows. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that satisfies PMI's contact-hour requirements, letting you earn recognition without leaving your schedule. Master AI applications specific to defense and engineering projects, positioning yourself for advancement in one of the region's fastest-growing technical sectors.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:31.133342Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "e0f2078458bceb20",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-06-30T00:07:36+00:00",
-    "template_version": "288c800b61da44aec98f7685bc4978fb"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "AI Training for Project Managers in Huntsville",
+      "text": "<p>Huntsville's rapid expansion as a defense and aerospace hub—anchored by Redstone Arsenal, NASA Marshall Space Flight Center, and major contractors including Boeing, Lockheed Martin, and Raytheon Technologies—has created sustained demand for project managers who can lead complex, federally funded programs. In this environment, artificial intelligence is reshaping how teams plan schedules, allocate resources, and manage risk across large-scale initiatives. Project managers in Huntsville who understand how to integrate AI tools into their planning and execution workflows gain a decisive edge when competing for roles with government agencies and prime contractors where structured delivery and compliance are non-negotiable. AI competency is no longer a differentiator—it is becoming table stakes for advancement in the region's dominant sectors.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers instructor-led AI training for project managers in a live-virtual format designed to fit working schedules. Our courses are taught by active certified practitioners with hands-on experience in defense, aerospace, and government contracting environments. Each program satisfies the contact-hour requirements recognized by PMI and equips you with practical frameworks for deploying AI in real project contexts. Whether you are pursuing PMP or CAPM certification or advancing an existing credential, our curriculum bridges the gap between theoretical AI concepts and the decision-making you face daily in Huntsville's demanding market. Enroll today and position yourself for the certifications and roles that define career growth in this region.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:36.205318Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "410b55d20967dcc8",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "AI Skills for Huntsville's Defense and Aerospace Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential Path",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your PMP® or CAPM® training meets all PMI standards. This credential directly qualifies for advancement roles at Redstone Arsenal, Boeing, Lockheed Martin, and other major Huntsville employers."
+        },
+        {
+          "heading": "Live Instructor-Led, Schedule Flexible",
+          "text": "Attend live-virtual sessions with active certified practitioners who bring real project experience from aerospace and defense sectors. You complete required contact hours on your schedule while learning from instructors managing complex programs in Huntsville's industries today."
+        },
+        {
+          "heading": "Exam Prep Built Into Training",
+          "text": "Granite PM Academy integrates exam-preparation content and practice assessments throughout your live sessions, not as an add-on. Walk into your PMP® or CAPM® exam confident, with instructors who have guided hundreds of Huntsville professionals to certification success."
+        },
+        {
+          "heading": "Local Employer Demand, Rising Salaries",
+          "text": "Huntsville's defense contractors, NASA Marshall, and aerospace firms actively seek certified project and program managers. A PMI credential positions you for roles managing high-stakes contracts and programs where employers in the region invest heavily in certified leadership talent."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:40.588738Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "5596d9f6d31ea725",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Huntsville's Aerospace Hub",
+      "text": "<p>Huntsville's economy centers on aerospace, defense, and government contracting—industries where certified project managers are in steady demand. Redstone Arsenal and NASA Marshall Space Flight Center anchor the region's employer base, alongside major defense contractors including Boeing, Lockheed Martin, Northrop Grumman, and Leidos. These organizations actively recruit PMP®-certified professionals to lead complex programs such as NASA Marshall's Space Launch System (SLS) initiative and the FBI's ongoing relocation and campus expansion at Redstone Arsenal. The concentration of federal and prime-contractor work means project management roles span satellite systems, propulsion technology, manufacturing, and mission-critical infrastructure—each requiring rigorous credential validation.</p><p>A PMP® or CAPM® credential opens direct pathways to advancement in Huntsville's competitive market. Employers including Boeing, Lockheed Martin, Northrop Grumman, and Leidos routinely list PMP® certification as a preferred or required qualification for program and project manager positions, and entry-level candidates benefit from CAPM® recognition in support roles. Salary ranges for certified project managers in Huntsville reflect the technical complexity and federal oversight of local work, typically spanning the mid-to-upper five figures with defense and aerospace contractors at the higher end. Completing Granite PM Academy's AI Training for Project Managers equips you with both PMI-aligned fundamentals and contemporary tools increasingly adopted across Huntsville's largest employers—positioning you to compete effectively and advance your earning potential in a market where certification is not optional but expected.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:45.405404Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "44451499d5dcf33d",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "AI Training for Project Managers — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual AI Training for PMs",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is AI project management training worth it for Huntsville aerospace and defense careers?",
+          "answer": "<p>Yes. Huntsville's dominant employers—NASA Marshall Space Flight Center, Boeing, Lockheed Martin, Northrop Grumman, and Raytheon Technologies—increasingly integrate AI into mission-critical planning and risk management. Adding AI competency to your PMP or CAPM strengthens your candidacy for roles managing complex, technology-forward programs where human oversight of AI tools is essential. The credential signals readiness for the next generation of defense and aerospace projects.</p>"
+        },
+        {
+          "question": "Which Huntsville employers specifically hire for AI-trained project managers?",
+          "answer": "<p>Major contractors managing government and aerospace contracts—including Boeing, Lockheed Martin, Northrop Grumman, Leidos, SAIC, Dynetics, BAE Systems, and Jacobs Engineering—routinely post for project managers with both PMP certification and emerging technical skills. While AI project management training is not yet a hard requirement, it differentiates you in a competitive Huntsville market where government contracting dominates and program complexity is exceptionally high.</p>"
+        },
+        {
+          "question": "Can I attend Granite PM Academy's live-virtual AI training from my Huntsville workplace?",
+          "answer": "<p>Yes. Our live-virtual format allows you to join from your office, home, or any secure location with reliable internet. Many Huntsville professionals attending defense and aerospace employers appreciate the flexibility to log in directly from their workplace or during breaks. Check with your employer's IT and security policies—some government contract environments have restricted access to external platforms during work hours.</p>"
+        },
+        {
+          "question": "Should I get PMP certification before or alongside AI training in Huntsville's job market?",
+          "answer": "<p>Huntsville's top employers—particularly those with government contracts—list PMP as preferred or required first. Pursue PMP certification as your foundation, then layer AI training to stay competitive. Given the rapid adoption of AI tools in aerospace and defense planning, adding the AI credential within 6–12 months of your PMP demonstrates commitment to continuous learning and appeals strongly to program managers reviewing candidates for leadership roles.</p>"
+        },
+        {
+          "question": "Is AI project management training worth it for Huntsville aerospace and defense careers?",
+          "answer": "<p>Yes. Huntsville's dominant employers—NASA Marshall Space Flight Center, Boeing, Lockheed Martin, Northrop Grumman, and Raytheon Technologies—increasingly integrate AI into program planning, risk analysis, and resource optimization. AI training equips you to lead these initiatives and positions you competitively for roles that combine traditional project management expertise with emerging technical competency, particularly valuable in a market where PMP certification is already a preferred or required qualification.</p>"
+        },
+        {
+          "question": "Do Huntsville employers like Lockheed Martin and Boeing value AI certification for PMs?",
+          "answer": "<p>Defense and aerospace contractors in Huntsville actively seek project managers who understand AI's application to scheduling, forecasting, and decision-making. While PMP remains the baseline credential these firms require or prefer, supplementary AI training differentiates candidates for senior roles, program oversight, and emerging technology initiatives. This is especially relevant at organizations managing complex, long-cycle government contracts where AI-driven analytics directly impact cost and schedule performance.</p>"
+        },
+        {
+          "question": "Can I attend Huntsville AI project management training from my workplace or remotely?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to participate from your office, home, or facility—critical flexibility for Huntsville professionals at Redstone Arsenal, Jacobs Engineering, SAIC, Leidos, and other major employers where schedule demands are high. You'll engage with instructors and peers in real time without commuting, making it practical for full-time project managers balancing ongoing delivery commitments.</p>"
+        },
+        {
+          "question": "Should I pursue AI training now given Huntsville's current job market for PMs?",
+          "answer": "<p>Timing favors action. Huntsville's concentration of aerospace, defense, and government contracting work continues to grow, and PMP-certified managers already earn competitive salaries at the higher end of the regional range. Adding AI competency now positions you ahead of the curve as these employers integrate machine learning and automation into their project portfolios, increasing your advancement prospects in a candidate-competitive market.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:51.714318Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "28306f87df5a96cb",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Huntsville's aerospace and defense sector—anchored by NASA Marshall Space Flight Center, Redstone Arsenal, and major contractors like Boeing, Lockheed Martin, and Raytheon Technologies—creates sustained demand for PMP-certified project managers on federally funded programs. Contract compliance and structured delivery requirements across space exploration, missile defense, and advanced manufacturing make PMP certification a competitive credential that directly strengthens your candidacy with government clients and prime contractors. Granite PM Academy delivers live-virtual AI Training for Project Managers to Huntsville professionals seeking to advance their careers in this high-opportunity market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:53.673826Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "20f34694d47a148d",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-huntsville-al/",
+    "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Huntsville, AL, AI courses Huntsville, CPMAI certification Huntsville, AI project management training Huntsville, AL, AI for project managers Huntsville",
+    "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "AI Training for Project Managers",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "AI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-huntsville-al/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-huntsville-al/\",\n      \"name\": \"AI Training for Project Managers in Huntsville, AL — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Huntsville, AL for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Huntsville, AL\",\n            \"item\": \"https://granitepmacademy.com/ai-training-huntsville-al/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-huntsville-al/#course\",\n      \"name\": \"AI Training for Project Managers in Huntsville, AL\",\n      \"description\": \"CPMAI certification training for project managers in Huntsville, AL who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-huntsville-al/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-huntsville-al/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-huntsville-al/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-huntsville-al/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-huntsville-al/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-15T03:47:22+00:00",
+  "template_version": "34904477c4a9ac7ea4d6a4fc948de3ee"
 }

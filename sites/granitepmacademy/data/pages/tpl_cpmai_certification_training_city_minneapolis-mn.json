@@ -1,352 +1,393 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "minneapolis-mn",
-    "slug": "cpmai-certification-training-minneapolis-mn",
-    "title": "CPMAI Certification Training {city}",
-    "city_vars": {
-        "id": "minneapolis-mn",
-        "city": "Minneapolis",
-        "state": "Minnesota",
-        "SS": "MN",
-        "city_slug": "minneapolis-mn",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [],
-        "industries": [
-            "healthcare",
-            "finance",
-            "technology",
-            "retail/consumer goods",
-            "manufacturing",
-            "insurance"
-        ],
-        "top_employers": [
-            "UnitedHealth Group",
-            "Mayo Clinic",
-            "Target Corporation",
-            "Best Buy",
-            "U.S. Bancorp",
-            "Ameriprise Financial",
-            "3M",
-            "Medtronic",
-            "General Mills",
-            "Allina Health",
-            "Fairview Health Services",
-            "Hennepin Healthcare"
-        ],
-        "salary_note": "PMP-certified project managers in Minneapolis, Minnesota typically earn between $95,000 and $130,000 annually, with professionals in healthcare, financial services, and technology often commanding salaries at the higher end of that range.",
-        "market_blurb": "Minneapolis boasts a robust and diverse project management job market anchored by a concentration of Fortune 500 headquarters including UnitedHealth Group, Target, and U.S. Bancorp, creating consistent demand for skilled PMs across healthcare, finance, retail, and technology sectors. The city's large healthcare ecosystem, spanning major health systems and medical device companies like Medtronic, places particular value on structured project delivery and compliance-driven methodologies. PMP certification signals to Minneapolis employers that a candidate possesses the standardized skills and professional rigor needed to manage complex, cross-functional initiatives in these heavily regulated and competitive industries.",
-        "city_spotlight": "Set along the Mississippi River in the heart of Minnesota, Minneapolis carries itself with a quiet, practical confidence. It's a city built on big employers and bigger ambitions, home to corporate headquarters like UnitedHealth Group, Target, U.S. Bancorp, 3M, and General Mills, alongside a deep bench of healthcare and medical technology players such as Medtronic, Mayo Clinic, Allina Health, and Fairview Health Services.\n\nThat mix gives the local economy real range, spanning finance, retail, technology, manufacturing, and insurance alongside healthcare's steady pull. It's a place where structured, disciplined project work isn't just appreciated, it's expected, and where professionals who can manage complexity across regulated, fast-moving industries tend to find plenty of room to grow.",
-        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-minneapolis-mn.webp",
-        "city_image_alt": "Minneapolis Skyline looking south, MN",
-        "city_image_credit": "Photo: BpA9543, CC BY-SA 4.0"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CPMAI Certification Training in {city}, {SS}",
-            "hs_subtext": "Minneapolis's healthcare and financial services sectors demand project managers who can drive innovation and manage complex initiatives at scale. Granite PM Academy's PMI-authorized, live-virtual CPMAI training equips you with industry-recognized credentials from your location. Graduates advance into leadership roles and command competitive salaries across Minnesota's thriving enterprise organizations.",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CPMAI AI project management training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-30T00:59:12.894623Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "CPMAI Certification Demand in Minneapolis Project Management",
-            "text": "<p>Minneapolis hosts a thriving project management market driven by world-class organizations across healthcare, finance, and technology. Companies like UnitedHealth Group, Mayo Clinic, Target Corporation, and U.S. Bancorp actively recruit certified project managers to lead complex initiatives in heavily regulated environments. The CPMAI Certification Training equips professionals with the advanced competencies these employers demand, signaling mastery of stakeholder engagement, risk management, and integrated change control. For Minneapolis professionals seeking competitive advantage, CPMAI Certification Training represents a strategic credential that aligns with the city's emphasis on structured, compliance-driven project delivery.</p><p>Career advancement in Minneapolis rewards certified project managers with significant earning potential. Professionals holding the CPMAI Certification in Minneapolis typically command salaries between $95,000 and $130,000 annually, with healthcare, financial services, and technology sectors offering premium compensation. This certification positions you for leadership roles across Minneapolis's Fortune 500 ecosystem and expanding healthcare infrastructure. As organizations increasingly prioritize governance and stakeholder alignment, CPMAI Certification Training becomes the credential that unlocks advancement, higher compensation, and access to the city's most prestigious project management opportunities.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-30T00:59:17.097553Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Why Minneapolis Professionals Choose Granite PM Academy",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "Live Instructor-Led Training",
-                    "text": "Engage with expert instructors in real-time sessions. Ask questions, clarify complex concepts, and receive personalized guidance throughout your CPMAI certification journey."
-                },
-                {
-                    "heading": "PMI Premier ATP Authorization",
-                    "text": "Train with a PMI Premier Authorized Training Partner. Earn REP credits while mastering project management skills recognized globally by industry leaders."
-                },
-                {
-                    "heading": "Proven High Pass Rate",
-                    "text": "Our comprehensive curriculum and experienced instructors deliver exceptional CPMAI exam results. Join hundreds of successful graduates in Minneapolis and beyond."
-                },
-                {
-                    "heading": "Advance in Healthcare & Tech Leadership",
-                    "text": "CPMAI certification opens doors at UnitedHealth Group, Mayo Clinic, and Minneapolis tech firms. Gain competitive credentials for project management roles in Minnesota's fastest-growing sectors."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-30T00:59:19.685481Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_locked": true
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CPMAI Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CPMAI Training",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "What salary can PMP-certified project managers expect in Minneapolis?",
-                    "answer": "PMP-certified project managers in Minneapolis typically earn $95,000–$130,000 annually. Professionals in healthcare, finance, and technology—key sectors with major employers like UnitedHealth Group, U.S. Bancorp, and Medtronic—often command salaries at the higher end. Certification significantly enhances earning potential across Minneapolis's dominant industries."
-                },
-                {
-                    "question": "Is PMP certification in demand at Minneapolis healthcare and tech companies?",
-                    "answer": "Yes. Minneapolis healthcare leaders like Mayo Clinic and Allina Health, plus tech firms, actively seek PMP-certified professionals to manage complex projects. Finance and insurance sectors—including Ameriprise Financial and UnitedHealth Group—also prioritize certified project managers. Certification directly aligns with local employer needs and competitive hiring requirements."
-                },
-                {
-                    "question": "What salary can PMP-certified project managers expect in Minneapolis?",
-                    "answer": "PMP-certified project managers in Minneapolis typically earn $95,000–$130,000 annually. Professionals in healthcare, finance, and technology—major sectors featuring employers like UnitedHealth Group, U.S. Bancorp, and Best Buy—often command salaries at the higher end. Certification significantly boosts earning potential across these competitive industries."
-                },
-                {
-                    "question": "How long does CPMAI certification training take while working full-time in Minneapolis?",
-                    "answer": "Most professionals complete CPMAI training in 4–6 weeks while maintaining full-time employment. Granite PM Academy offers flexible scheduling designed for busy Minneapolis professionals in healthcare, finance, and manufacturing. Many students balance coursework with demanding roles at major employers like Mayo Clinic and Medtronic through evening and weekend options."
-                },
-                {
-                    "question": "What salary can CPMAI-certified professionals expect in Minneapolis, Minnesota?",
-                    "answer": "CPMAI-certified professionals in Minneapolis can expect competitive salaries, particularly in healthcare and financial services. PMP-certified project managers in the region typically earn $95,000–$130,000 annually, and adding AI project management credentials like CPMAI can position you at the higher end of that range with employers like UnitedHealth Group, Medtronic, U.S. Bancorp, and Ameriprise Financial."
-                },
-                {
-                    "question": "Is CPMAI certification in demand among Minneapolis employers in healthcare and finance?",
-                    "answer": "Yes. Minneapolis is home to major healthcare and financial institutions—including Mayo Clinic, Allina Health, Target, and U.S. Bancorp—that are actively integrating AI into their operations. CPMAI certification signals expertise in managing AI-driven projects, making certified professionals highly attractive to these employers as they scale technology initiatives across their organizations."
-                },
-                {
-                    "question": "What salary can PMP-certified project managers expect in Minneapolis?",
-                    "answer": "PMP-certified project managers in Minneapolis typically earn $95,000–$130,000 annually. Professionals in healthcare, financial services, and technology—sectors dominated by UnitedHealth Group, Mayo Clinic, U.S. Bancorp, and Medtronic—often command salaries at the higher end. Certification significantly boosts earning potential across these high-demand industries."
-                },
-                {
-                    "question": "Is project management certification in demand at Minneapolis major employers?",
-                    "answer": "Yes. Minneapolis's largest employers—UnitedHealth Group, Target, Best Buy, 3M, and Medtronic—actively seek PMP-certified professionals for leadership and operational roles. Healthcare, finance, and technology sectors especially value certification. Granite PM Academy's CPMAI training directly prepares you for these competitive local opportunities."
-                }
-            ],
-            "ai_type_id": "faq_additions",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-30T00:59:22.209985Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_additions",
-            "_ai_locked": true
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "minneapolis-mn",
+  "slug": "ai-training-minneapolis-mn",
+  "title": "AI Training {city}",
+  "city_vars": {
+    "id": "minneapolis-mn",
+    "city": "Minneapolis",
+    "state": "Minnesota",
+    "SS": "MN",
+    "city_slug": "minneapolis-mn",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [],
+    "industries": [
+      "healthcare",
+      "finance",
+      "technology",
+      "retail/consumer goods",
+      "manufacturing",
+      "insurance"
     ],
-    "seo": {
-        "seo_title": "CPMAI Certification Training {city} {SS} | AI Project Management | {business}",
-        "canonical_url": "https://granitepmacademy.com/cpmai-certification-training-minneapolis-mn/",
-        "meta_description": "CPMAI AI project management certification training in {city}, {SS}. Live-virtual course from Granite PM Academy. Cognilytica CPMAI methodology.",
-        "meta_keywords": "CPMAI certification training Minneapolis, MN, AI project management training Minneapolis, MN, Cognilytica CPMAI Minneapolis",
-        "og_title": "CPMAI Certification Training in {city}, {SS} | {business}",
-        "og_description": "Earn the CPMAI credential in {city_state} with Granite PM Academy. Master AI project management from anywhere.",
-        "og_image": "",
-        "service_name": "CPMAI Certification Training",
-        "service_type": "Course",
-        "service_area": "{city}, {SS}",
-        "service_description": "CPMAI certification training for project managers working with AI initiatives in {city_state}.",
-        "bc_label": "CPMAI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"WebPage\",\n            \"@id\": \"https://granitepmacademy.com/cpmai-certification-training-minneapolis-mn/#webpage\",\n            \"url\": \"https://granitepmacademy.com/cpmai-certification-training-minneapolis-mn/\",\n            \"name\": \"CPMAI Certification Training in Minneapolis, MN — AI for PMs | Granite PM Academy\",\n            \"description\": \"CPMAI certification training in Minneapolis, MN for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n            \"isPartOf\": {\n                \"@id\": \"https://granitepmacademy.com/#website\"\n            },\n            \"about\": {\n                \"@id\": \"https://granitepmacademy.com/#organization\"\n            },\n            \"breadcrumb\": {\n                \"@type\": \"BreadcrumbList\",\n                \"itemListElement\": [\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 1,\n                        \"name\": \"Home\",\n                        \"item\": \"https://granitepmacademy.com/\"\n                    },\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 2,\n                        \"name\": \"CPMAI Certification Training in Minneapolis, MN\",\n                        \"item\": \"https://granitepmacademy.com/cpmai-certification-training-minneapolis-mn/\"\n                    }\n                ]\n            }\n        },\n        {\n            \"@type\": \"Course\",\n            \"@id\": \"https://granitepmacademy.com/cpmai-certification-training-minneapolis-mn/#course\",\n            \"name\": \"CPMAI Certification Training in Minneapolis, MN\",\n            \"description\": \"CPMAI certification training for project managers in Minneapolis, MN who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n            \"url\": \"https://granitepmacademy.com/cpmai-certification-training-minneapolis-mn/\",\n            \"provider\": {\n                \"@id\": \"https://granitepmacademy.com/#organization\"\n            },\n            \"offers\": [\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"Live Virtual (3-Day)\",\n                    \"price\": \"1495\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"https://granitepmacademy.com/cpmai-certification-training-minneapolis-mn/\"\n                },\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"On-Demand (Self-Paced)\",\n                    \"price\": \"795\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"https://granitepmacademy.com/cpmai-certification-training-minneapolis-mn/\"\n                }\n            ],\n            \"aggregateRating\": {\n                \"@type\": \"AggregateRating\",\n                \"ratingValue\": \"4.8\",\n                \"reviewCount\": \"422\",\n                \"bestRating\": \"5\",\n                \"worstRating\": \"1\"\n            }\n        },\n        {\n            \"@type\": \"EducationalOccupationalCredential\",\n            \"@id\": \"https://granitepmacademy.com/cpmai-certification-training-minneapolis-mn/#credential\",\n            \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n            \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n            \"credentialCategory\": \"Professional Certification\",\n            \"recognizedBy\": {\n                \"@type\": \"Organization\",\n                \"name\": \"Project Management Institute (PMI)\",\n                \"url\": \"https://www.pmi.org\"\n            },\n            \"url\": \"https://granitepmacademy.com/cpmai-certification-training-minneapolis-mn/\"\n        },\n        {\n            \"@type\": \"FAQPage\",\n            \"mainEntity\": [\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What is the CPMAI certification?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Who should pursue the CPMAI in Minneapolis?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The CPMAI is ideal for project managers, program managers, and IT professionals in Minneapolis, MN who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is there a prerequisite for the CPMAI course?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How is the CPMAI different from the PMP?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is this course delivered online?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Yes. Our CPMAI training is 100% live-virtual. Minneapolis professionals attend via video conference — no travel required.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What salary can PMP-certified project managers expect in Minneapolis?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"PMP-certified project managers in Minneapolis typically earn $95,000–$130,000 annually. Professionals in healthcare, finance, and technology—key sectors with major employers like UnitedHealth Group, U.S. Bancorp, and Medtronic—often command salaries at the higher end. Certification significantly enhances earning potential across Minneapolis's dominant industries.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is PMP certification in demand at Minneapolis healthcare and tech companies?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Yes. Minneapolis healthcare leaders like Mayo Clinic and Allina Health, plus tech firms, actively seek PMP-certified professionals to manage complex projects. Finance and insurance sectors—including Ameriprise Financial and UnitedHealth Group—also prioritize certified project managers. Certification directly aligns with local employer needs and competitive hiring requirements.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What salary can PMP-certified project managers expect in Minneapolis?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"PMP-certified project managers in Minneapolis typically earn $95,000–$130,000 annually. Professionals in healthcare, finance, and technology—major sectors featuring employers like UnitedHealth Group, U.S. Bancorp, and Best Buy—often command salaries at the higher end. Certification significantly boosts earning potential across these competitive industries.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How long does CPMAI certification training take while working full-time in Minneapolis?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Most professionals complete CPMAI training in 4–6 weeks while maintaining full-time employment. Granite PM Academy offers flexible scheduling designed for busy Minneapolis professionals in healthcare, finance, and manufacturing. Many students balance coursework with demanding roles at major employers like Mayo Clinic and Medtronic through evening and weekend options.\"\n                    }\n                }\n            ]\n        }\n    ]\n}"
+    "top_employers": [
+      "UnitedHealth Group",
+      "Mayo Clinic",
+      "Target Corporation",
+      "Best Buy",
+      "U.S. Bancorp",
+      "Ameriprise Financial",
+      "3M",
+      "Medtronic",
+      "General Mills",
+      "Allina Health",
+      "Fairview Health Services",
+      "Hennepin Healthcare"
+    ],
+    "salary_note": "PMP-certified project managers in Minneapolis, Minnesota typically earn between $95,000 and $130,000 annually, with professionals in healthcare, financial services, and technology often commanding salaries at the higher end of that range.",
+    "market_blurb": "Minneapolis boasts a robust and diverse project management job market anchored by a concentration of Fortune 500 headquarters including UnitedHealth Group, Target, and U.S. Bancorp, creating consistent demand for skilled PMs across healthcare, finance, retail, and technology sectors. The city's large healthcare ecosystem, spanning major health systems and medical device companies like Medtronic, places particular value on structured project delivery and compliance-driven methodologies. PMP certification signals to Minneapolis employers that a candidate possesses the standardized skills and professional rigor needed to manage complex, cross-functional initiatives in these heavily regulated and competitive industries.",
+    "city_spotlight": "<p>Minneapolis's Fortune 500 anchors—UnitedHealth Group, Target, and U.S. Bancorp—drive consistent demand for credentialed project managers across healthcare, finance, and retail. The city's major health systems and medical device manufacturers like Medtronic particularly value PMP® certification, which signals the standardized rigor and compliance expertise needed for complex, regulated initiatives. Granite PM Academy delivers live-virtual PMP® and CAPM® training designed for Minneapolis professionals balancing work and study.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-minneapolis-mn.webp",
+    "city_image_alt": "Minneapolis Skyline looking south, MN",
+    "city_image_credit": "Photo: BpA9543, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Minneapolis_Skyline_looking_south.jpg",
+    "notable_projects": [
+      "U.S. Bank Stadium (Minnesota Vikings stadium) construction and ongoing upgrades in downtown Minneapolis",
+      "Mayo Clinic's 'Bold. Forward.' campus transformation and expansion initiatives in Rochester, MN, which coordinates with Minneapolis-area operations",
+      "Minneapolis-St. Paul light rail transit expansion projects (e.g., METRO Blue Line extension) led by Metro Transit/Metropolitan Council",
+      "UnitedHealth Group's corporate campus expansions in Minnetonka, MN, near Minneapolis"
+    ],
+    "credential_demand": "PMP certification is frequently listed as preferred or required in project manager job postings from large Minneapolis-area employers in healthcare, finance, and technology sectors. Overall demand for project management professionals remains strong in the region given the concentration of major corporate headquarters and healthcare systems."
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "AI Training in {city}, {SS} for Project Managers",
+      "hs_subtext": "<p>Minneapolis's healthcare and medical-device sectors rely on project managers who can navigate complex, regulated environments where AI-driven tools are reshaping planning and risk management. Granite PM Academy delivers instructor-led AI Training for Project Managers in a live-virtual format that satisfies PMI contact-hour requirements, equipping you to lead smarter decision-making across clinical trials, device launches, and operational improvements. Master AI applications that set you apart in Minnesota's competitive healthcare-tech job market.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:31.278847Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "cca216520a52ff08",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-06-30T00:07:36+00:00",
-    "template_version": "288c800b61da44aec98f7685bc4978fb"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "AI Training for Project Managers in Minneapolis",
+      "text": "<p>Minneapolis's healthcare and medical device sector—anchored by industry leaders like UnitedHealth Group, Mayo Clinic, and Medtronic—demands project managers who can navigate both clinical complexity and rapid technological change. AI is reshaping how healthcare organizations manage cross-functional initiatives, from digital transformation to regulatory compliance, making AI competency essential for PMs competing in Minneapolis's high-stakes healthcare and finance markets. Fortune 500 employers across the city increasingly expect certified project managers to understand how artificial intelligence impacts project planning, resource allocation, and risk management. For professionals in Minneapolis seeking advancement in healthcare delivery, financial services, or medical device development, combining PMP® or CAPM® certification with practical AI training positions you as a competitive candidate ready to lead innovation-driven initiatives in your organization.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led AI training designed specifically for project managers pursuing or advancing their PMI® credentials. Our courses satisfy the contact-hour requirements for PMP® and CAPM® certification while teaching you how to apply AI tools and frameworks to real-world project scenarios—from predictive analytics to workflow automation. Led by active certified practitioners with experience in Minneapolis's largest regulated industries, our instructors ground every lesson in practical application so you leave ready to implement these skills immediately. Whether you're building your first certification or renewing your credential, Granite PM Academy's AI-focused training equips you with the knowledge employers in Minneapolis value and the PMI credentials that prove your professional competency.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:35.634290Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "86cea4dd9ad39398",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "AI Training for Project Managers in Minneapolis",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Guarantees Credential Recognition",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMP® or CAPM® certification earns respect from UnitedHealth Group, Mayo Clinic, Target, and other Minneapolis employers who verify training legitimacy before hiring or promoting project managers."
+        },
+        {
+          "heading": "Live Virtual Instruction Fits Your Schedule",
+          "text": "Attend live-virtual instructor-led classes that satisfy PMI contact-hour requirements without commuting across the Twin Cities. Your instructors are active certified practitioners managing real projects at healthcare systems, financial firms, and tech companies hiring locally right now."
+        },
+        {
+          "heading": "Expert Instructors, Focused Exam Prep",
+          "text": "Learn from practitioners currently working in Minneapolis industries—healthcare, finance, manufacturing, insurance. Granite PM Academy's structured exam-preparation support bridges classroom concepts to PMP® and CAPM® test performance, raising first-attempt pass confidence."
+        },
+        {
+          "heading": "Credential Demand Across Minneapolis Industries",
+          "text": "Healthcare giants like Allina Health and Fairview, plus financial services and retail employers across Minneapolis, actively hire certified project managers. The PMP® and CAPM® credentials unlock advancement and salary growth in the local job market where these employers invest heavily."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:39.655734Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "d3af20b2d58de23f",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Minneapolis",
+      "text": "<p>Minneapolis is home to a concentrated cluster of Fortune 500 employers and major healthcare systems that actively recruit certified project managers. UnitedHealth Group, Mayo Clinic, Target Corporation, Best Buy, U.S. Bancorp, Ameriprise Financial, 3M, Medtronic, General Mills, Allina Health, Fairview Health Services, and Hennekel Healthcare all maintain significant operations in the region and regularly post project management roles. Real local demand is evident in major initiatives like the U.S. Bank Stadium construction and upgrades in downtown Minneapolis, Mayo Clinic's Bold. Forward. campus transformation in Rochester coordinating with Minneapolis-area operations, and the Minneapolis–St. Paul light rail transit expansion projects led by Metro Transit. UnitedHealth Group's corporate campus expansions in Minnetonka further underscore the region's ongoing need for skilled project leaders who can manage complex, multi-year programs.</p><p>The PMP® credential carries real weight in Minneapolis's job market. Healthcare, financial services, and technology employers in the region frequently list PMP® certification as preferred or required, and professionals who hold it command salaries in the higher end of the local range for project managers. Completing AI Training for Project Managers through Granite PM Academy positions you to compete effectively for these roles and advance into senior project leadership within Minneapolis's major employers. As organizations across healthcare, finance, and technology continue to expand and modernize, demand for certified project management expertise remains strong, making now an ideal time to build the credentials that employers here actively seek.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:43.920826Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "861327b4ca6c42c5",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "AI Training for Project Managers — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual AI Training for PMs",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is AI training worth it for project managers in Minneapolis?",
+          "answer": "<p>Minneapolis's concentration of healthcare systems, financial services firms, and technology employers—including UnitedHealth Group, Mayo Clinic, U.S. Bancorp, and Medtronic—increasingly integrate AI into project workflows. Learning AI tools positions you competitively for roles managing digital transformation, data initiatives, and automation projects. Combined with PMP certification, AI training directly addresses skill gaps these major regional employers actively seek.</p>"
+        },
+        {
+          "question": "Which Minneapolis employers value AI project management certification most?",
+          "answer": "<p>Healthcare systems like Mayo Clinic and Allina Health, financial institutions such as U.S. Bancorp and Ameriprise Financial, and tech-forward retailers including Target and Best Buy regularly post roles requiring or preferring project managers skilled in emerging technologies. Manufacturing and insurance sectors in the region also prioritize candidates who can bridge traditional project governance with AI-driven process improvement—a profile the AI training credential directly strengthens.</p>"
+        },
+        {
+          "question": "Can I attend the live-virtual AI training course from my Minneapolis workplace?",
+          "answer": "<p>Yes. The live-virtual format lets you join from your office, home office, or any location with reliable internet—ideal if your employer (whether at a downtown Minneapolis corporate headquarters or a healthcare campus) allows attendance during work hours. Confirm with your manager or HR on participation policies; many regional employers in finance and healthcare support professional development during business hours or offer tuition assistance.</p>"
+        },
+        {
+          "question": "When should Minneapolis project managers pursue AI certification given local job demand?",
+          "answer": "<p>Minneapolis's strong demand for project management talent across healthcare, finance, and technology makes timing flexible, but pursuing certification before your next role transition maximizes impact. With PMP-certified professionals in the region commanding competitive salaries, adding AI expertise now positions you for higher-responsibility roles and advancement within growing digital initiatives at major local employers.</p>"
+        },
+        {
+          "question": "Is AI training worth it for project managers in Minneapolis tech roles?",
+          "answer": "<p>Yes. Minneapolis hosts major technology and financial services headquarters where AI-driven project management is reshaping how teams operate. UnitedHealth Group, Target, Best Buy, and U.S. Bancorp increasingly embed AI into their PM workflows. Adding AI competency to your PMP® credential makes you competitive for senior roles and positions you to lead digital transformation initiatives—skills that command higher compensation in this market.</p>"
+        },
+        {
+          "question": "Which Minneapolis employers value AI project management certification most?",
+          "answer": "<p>Healthcare systems (Mayo Clinic, Medtronic, Allina Health, Fairview), financial institutions (Ameriprise Financial, U.S. Bancorp), and technology-driven retailers (Target, Best Buy) actively seek project managers who understand AI implementation. These sectors are concentrated in Minneapolis and consistently list PMP® certification as preferred or required. AI training deepens your relevance to their strategic priorities and hiring criteria.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual AI project management training from my Minneapolis office?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to join from your workplace, home, or any location with reliable internet. This flexibility suits Minneapolis professionals managing schedules across corporate campuses in the Twin Cities. You'll participate in real-time instruction and peer discussion without commuting, making it practical for full-time employees at major employers.</p>"
+        },
+        {
+          "question": "Does Minneapolis job market demand affect when to pursue AI certification?",
+          "answer": "<p>Strong demand for PMP®-certified project managers in Minneapolis—especially in healthcare, finance, and technology—means timing your certification strategically can accelerate your advancement. The concentration of major employers in these sectors creates consistent openings. Starting your AI training soon positions you to capitalize on current hiring activity and salary competitiveness before the market shifts.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:51.320776Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "b27e58a1d702beae",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Minneapolis's Fortune 500 presence—anchored by UnitedHealth Group, Target, and U.S. Bancorp—fuels sustained demand for project managers across healthcare, finance, and retail. Major infrastructure initiatives like the METRO Blue Line expansion and U.S. Bank Stadium upgrades underscore the city's need for PMs skilled in complex, regulated delivery. Granite PM Academy delivers live-virtual AI Training for Project Managers to Minneapolis professionals seeking the expertise and credentials these employers value.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:52.970741Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "f7d29df61ca965da",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-minneapolis-mn/",
+    "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Minneapolis, MN, AI courses Minneapolis, CPMAI certification Minneapolis, AI project management training Minneapolis, MN, AI for project managers Minneapolis",
+    "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "AI Training for Project Managers",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "AI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-minneapolis-mn/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-minneapolis-mn/\",\n      \"name\": \"AI Training for Project Managers in Minneapolis, MN — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Minneapolis, MN for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Minneapolis, MN\",\n            \"item\": \"https://granitepmacademy.com/ai-training-minneapolis-mn/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-minneapolis-mn/#course\",\n      \"name\": \"AI Training for Project Managers in Minneapolis, MN\",\n      \"description\": \"CPMAI certification training for project managers in Minneapolis, MN who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-minneapolis-mn/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-minneapolis-mn/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-minneapolis-mn/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-minneapolis-mn/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-minneapolis-mn/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-15T03:47:22+00:00",
+  "template_version": "34904477c4a9ac7ea4d6a4fc948de3ee"
 }

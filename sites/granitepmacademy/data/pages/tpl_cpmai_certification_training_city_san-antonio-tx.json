@@ -1,342 +1,391 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "san-antonio-tx",
-    "slug": "cpmai-certification-training-san-antonio-tx",
-    "title": "CPMAI Certification Training {city}",
-    "city_vars": {
-        "id": "san-antonio-tx",
-        "city": "San Antonio",
-        "state": "Texas",
-        "SS": "TX",
-        "city_slug": "san-antonio-tx",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [],
-        "industries": [
-            "defense/military",
-            "healthcare",
-            "finance/insurance",
-            "technology",
-            "energy",
-            "government"
-        ],
-        "top_employers": [
-            "USAA",
-            "H-E-B",
-            "Baptist Health System",
-            "Rackspace",
-            "Valero",
-            "CPS Energy",
-            "CHRISTUS Health",
-            "University Health",
-            "City of San Antonio",
-            "Joint Base San Antonio (JBSA)"
-        ],
-        "salary_note": "PMP-certified project managers in San Antonio average $105,000–$125,000 annually, with defense and healthcare sector roles frequently reaching $130,000+",
-        "market_blurb": "San Antonio is home to Joint Base San Antonio, one of the largest US military installations, alongside a major healthcare corridor and a growing tech sector anchored by USAA and Rackspace. All three sectors actively recruit PMP-certified project managers to lead infrastructure, IT, and operational initiatives.",
-        "city_spotlight": "San Antonio carries the steady, layered energy of a city built on service and steel. Joint Base San Antonio anchors a defense and military presence that ranks among the largest in the country, while a robust healthcare corridor and a rising tech scene, shaped by names like USAA and Rackspace, keep the economy diversified and forward-looking. Add in energy, finance, and government work, and you get a workforce that's used to complexity and scale.\n\nEmployers such as H-E-B, Valero, CPS Energy, CHRISTUS Health, and the City of San Antonio round out a job market where infrastructure, IT, and operations leadership are always in demand. It's a place where Texas hospitality meets serious institutional muscle, and where project managers find no shortage of meaningful work to lead.",
-        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-san-antonio-tx.webp",
-        "city_image_alt": "San Antonio Botanical Garden Overlook View, TX",
-        "city_image_credit": "Photo: Jouaienttoi, CC BY-SA 4.0"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CPMAI Certification Training in {city}, {SS}",
-            "hs_subtext": "San Antonio's defense and healthcare sectors demand skilled project managers who can navigate complex, regulated environments. Granite PM Academy delivers PMI-authorized, live-virtual instructor-led CPMAI training designed for working professionals. Graduates advance their careers with credentials recognized across industries while significantly improving earning potential and job security.",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CPMAI AI project management training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-30T00:59:23.593488Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Growing PM Demand in San Antonio's Defense and Healthcare Sectors",
-            "text": "<p>San Antonio's economy is anchored by three major sectors actively recruiting certified project managers: defense and military operations centered at Joint Base San Antonio, a thriving healthcare corridor led by Baptist Health System and CHRISTUS Health, and a growing technology hub powered by USAA and Rackspace. Professionals seeking to advance in these industries recognize that CPMAI Certification Training equips them with the globally recognized credentials employers demand. Whether you're managing mission-critical defense projects, coordinating healthcare infrastructure initiatives, or leading IT transformations, CPMAI Certification Training in San Antonio provides the framework and credentials to compete for leadership roles across these high-demand sectors.</p><p>The financial incentive to pursue CPMAI Certification Training is substantial in San Antonio. Project managers holding industry-recognized certifications command salaries averaging $105,000–$125,000 annually, with roles in defense and healthcare frequently exceeding $130,000. Earning your CPMAI Certification Training credential positions you to qualify for these premium positions and accelerates your path to senior project and program management roles. As San Antonio's economy continues to expand across defense, healthcare, and technology, certified professionals are positioned to lead the next wave of organizational growth and secure competitive compensation packages that reflect their expertise.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-30T00:59:27.329909Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Why San Antonio Professionals Choose Granite PM Academy",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "Live Instructor-Led Training",
-                    "text": "Learn from experienced PMs in real-time with interactive Q&A, personalized feedback, and immediate clarification of complex concepts throughout your certification journey."
-                },
-                {
-                    "heading": "PMI Premier ATP Authorized",
-                    "text": "Train with PMI's most trusted partner. Our premier authorization ensures curriculum excellence, instructor credentials, and direct alignment with official CPMAI exam standards."
-                },
-                {
-                    "heading": "Proven High Pass Rates",
-                    "text": "Our structured approach and comprehensive exam prep deliver consistently high first-attempt pass rates, saving you time and certification costs."
-                },
-                {
-                    "heading": "Essential for San Antonio Defense & Tech Leaders",
-                    "text": "JBSA, Rackspace, and USAA prioritize CPMAI-certified PMs for leadership roles. Gain the competitive credential San Antonio's top employers actively seek and reward."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-30T00:59:30.402425Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_locked": true
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CPMAI Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CPMAI Training",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "What salary can PMP-certified project managers expect in San Antonio?",
-                    "answer": "PMP-certified project managers in San Antonio earn $105,000–$125,000 annually on average, with defense and healthcare roles frequently exceeding $130,000. Major employers like USAA, Joint Base San Antonio, Baptist Health System, and CHRISTUS Health actively seek certified professionals, making certification a direct path to higher-paying positions in the region's dominant sectors."
-                },
-                {
-                    "question": "How long does CPMAI certification training take while working full-time in San Antonio?",
-                    "answer": "Granite PM Academy's CPMAI training typically requires 40 hours of instruction, completable in 2–4 weeks with evening and weekend options ideal for San Antonio professionals balancing full-time roles at employers like Rackspace, H-E-B, or CPS Energy. Flexible scheduling ensures working professionals can earn certification without career interruption."
-                },
-                {
-                    "question": "What salary can PMP-certified project managers expect in San Antonio?",
-                    "answer": "PMP-certified project managers in San Antonio typically earn $105,000–$125,000 annually, with defense and healthcare roles often exceeding $130,000. Major employers like USAA, JBSA, Baptist Health System, and Valero actively seek certified professionals. Certification significantly boosts earning potential across San Antonio's dominant industries."
-                },
-                {
-                    "question": "How long does CPMAI certification training take while working full-time in San Antonio?",
-                    "answer": "Most professionals complete CPMAI training in 4–6 weeks while maintaining full-time employment. Granite PM Academy offers flexible scheduling designed for San Antonio's working professionals in defense, healthcare, and energy sectors. Weekend and evening classes accommodate busy schedules at employers like CHRISTUS Health and CPS Energy."
-                },
-                {
-                    "question": "What salary can a PMP-certified project manager expect in San Antonio?",
-                    "answer": "PMP-certified project managers in San Antonio average $105,000–$125,000 annually, with defense and healthcare roles often reaching $130,000+. USAA, JBSA contractors, Baptist Health System, and Valero actively hire certified PMs, offering competitive compensation packages and strong advancement opportunities in these high-demand sectors."
-                },
-                {
-                    "question": "How long does CPMAI certification training take while working full-time in San Antonio?",
-                    "answer": "Granite PM Academy offers flexible scheduling designed for San Antonio's working professionals. Most participants complete CPMAI training in 4–6 weeks with evening and weekend classes, allowing you to maintain your role at employers like H-E-B, Rackspace, or CPS Energy while earning your credential."
-                }
-            ],
-            "ai_type_id": "faq_additions",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-06-30T00:59:32.755571Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_additions",
-            "_ai_locked": true
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "san-antonio-tx",
+  "slug": "ai-training-san-antonio-tx",
+  "title": "AI Training {city}",
+  "city_vars": {
+    "id": "san-antonio-tx",
+    "city": "San Antonio",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "san-antonio-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [],
+    "industries": [
+      "defense/military",
+      "healthcare",
+      "finance/insurance",
+      "technology",
+      "energy",
+      "government"
     ],
-    "seo": {
-        "seo_title": "CPMAI Certification Training {city} {SS} | AI Project Management | {business}",
-        "canonical_url": "https://granitepmacademy.com/cpmai-certification-training-san-antonio-tx/",
-        "meta_description": "CPMAI AI project management certification training in {city}, {SS}. Live-virtual course from Granite PM Academy. Cognilytica CPMAI methodology.",
-        "meta_keywords": "CPMAI certification training San Antonio, TX, AI project management training San Antonio, TX, Cognilytica CPMAI San Antonio",
-        "og_title": "CPMAI Certification Training in {city}, {SS} | {business}",
-        "og_description": "Earn the CPMAI credential in {city_state} with Granite PM Academy. Master AI project management from anywhere.",
-        "og_image": "",
-        "service_name": "CPMAI Certification Training",
-        "service_type": "Course",
-        "service_area": "{city}, {SS}",
-        "service_description": "CPMAI certification training for project managers working with AI initiatives in {city_state}.",
-        "bc_label": "CPMAI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"WebPage\",\n            \"@id\": \"https://granitepmacademy.com/cpmai-certification-training-san-antonio-tx/#webpage\",\n            \"url\": \"https://granitepmacademy.com/cpmai-certification-training-san-antonio-tx/\",\n            \"name\": \"CPMAI Certification Training in San Antonio, TX — AI for PMs | Granite PM Academy\",\n            \"description\": \"CPMAI certification training in San Antonio, TX for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n            \"isPartOf\": {\n                \"@id\": \"https://granitepmacademy.com/#website\"\n            },\n            \"about\": {\n                \"@id\": \"https://granitepmacademy.com/#organization\"\n            },\n            \"breadcrumb\": {\n                \"@type\": \"BreadcrumbList\",\n                \"itemListElement\": [\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 1,\n                        \"name\": \"Home\",\n                        \"item\": \"https://granitepmacademy.com/\"\n                    },\n                    {\n                        \"@type\": \"ListItem\",\n                        \"position\": 2,\n                        \"name\": \"CPMAI Certification Training in San Antonio, TX\",\n                        \"item\": \"https://granitepmacademy.com/cpmai-certification-training-san-antonio-tx/\"\n                    }\n                ]\n            }\n        },\n        {\n            \"@type\": \"Course\",\n            \"@id\": \"https://granitepmacademy.com/cpmai-certification-training-san-antonio-tx/#course\",\n            \"name\": \"CPMAI Certification Training in San Antonio, TX\",\n            \"description\": \"CPMAI certification training for project managers in San Antonio, TX who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n            \"url\": \"https://granitepmacademy.com/cpmai-certification-training-san-antonio-tx/\",\n            \"provider\": {\n                \"@id\": \"https://granitepmacademy.com/#organization\"\n            },\n            \"offers\": [\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"Live Virtual (3-Day)\",\n                    \"price\": \"1495\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"https://granitepmacademy.com/cpmai-certification-training-san-antonio-tx/\"\n                },\n                {\n                    \"@type\": \"Offer\",\n                    \"name\": \"On-Demand (Self-Paced)\",\n                    \"price\": \"795\",\n                    \"priceCurrency\": \"USD\",\n                    \"availability\": \"https://schema.org/InStock\",\n                    \"url\": \"https://granitepmacademy.com/cpmai-certification-training-san-antonio-tx/\"\n                }\n            ],\n            \"aggregateRating\": {\n                \"@type\": \"AggregateRating\",\n                \"ratingValue\": \"4.8\",\n                \"reviewCount\": \"422\",\n                \"bestRating\": \"5\",\n                \"worstRating\": \"1\"\n            }\n        },\n        {\n            \"@type\": \"EducationalOccupationalCredential\",\n            \"@id\": \"https://granitepmacademy.com/cpmai-certification-training-san-antonio-tx/#credential\",\n            \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n            \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n            \"credentialCategory\": \"Professional Certification\",\n            \"recognizedBy\": {\n                \"@type\": \"Organization\",\n                \"name\": \"Project Management Institute (PMI)\",\n                \"url\": \"https://www.pmi.org\"\n            },\n            \"url\": \"https://granitepmacademy.com/cpmai-certification-training-san-antonio-tx/\"\n        },\n        {\n            \"@type\": \"FAQPage\",\n            \"mainEntity\": [\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What is the CPMAI certification?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Who should pursue the CPMAI in San Antonio?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The CPMAI is ideal for project managers, program managers, and IT professionals in San Antonio, TX who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is there a prerequisite for the CPMAI course?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How is the CPMAI different from the PMP?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"Is this course delivered online?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Yes. Our CPMAI training is 100% live-virtual. San Antonio professionals attend via video conference — no travel required.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What salary can PMP-certified project managers expect in San Antonio?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"PMP-certified project managers in San Antonio earn $105,000–$125,000 annually on average, with defense and healthcare roles frequently exceeding $130,000. Major employers like USAA, Joint Base San Antonio, Baptist Health System, and CHRISTUS Health actively seek certified professionals, making certification a direct path to higher-paying positions in the region's dominant sectors.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How long does CPMAI certification training take while working full-time in San Antonio?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Granite PM Academy's CPMAI training typically requires 40 hours of instruction, completable in 2–4 weeks with evening and weekend options ideal for San Antonio professionals balancing full-time roles at employers like Rackspace, H-E-B, or CPS Energy. Flexible scheduling ensures working professionals can earn certification without career interruption.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"What salary can PMP-certified project managers expect in San Antonio?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"PMP-certified project managers in San Antonio typically earn $105,000–$125,000 annually, with defense and healthcare roles often exceeding $130,000. Major employers like USAA, JBSA, Baptist Health System, and Valero actively seek certified professionals. Certification significantly boosts earning potential across San Antonio's dominant industries.\"\n                    }\n                },\n                {\n                    \"@type\": \"Question\",\n                    \"name\": \"How long does CPMAI certification training take while working full-time in San Antonio?\",\n                    \"acceptedAnswer\": {\n                        \"@type\": \"Answer\",\n                        \"text\": \"Most professionals complete CPMAI training in 4–6 weeks while maintaining full-time employment. Granite PM Academy offers flexible scheduling designed for San Antonio's working professionals in defense, healthcare, and energy sectors. Weekend and evening classes accommodate busy schedules at employers like CHRISTUS Health and CPS Energy.\"\n                    }\n                }\n            ]\n        }\n    ]\n}"
+    "top_employers": [
+      "USAA",
+      "H-E-B",
+      "Baptist Health System",
+      "Rackspace",
+      "Valero",
+      "CPS Energy",
+      "CHRISTUS Health",
+      "University Health",
+      "City of San Antonio",
+      "Joint Base San Antonio (JBSA)"
+    ],
+    "salary_note": "PMP-certified project managers in San Antonio average $105,000–$125,000 annually, with defense and healthcare sector roles frequently reaching $130,000+",
+    "market_blurb": "San Antonio is home to Joint Base San Antonio, one of the largest US military installations, alongside a major healthcare corridor and a growing tech sector anchored by USAA and Rackspace. All three sectors actively recruit PMP-certified project managers to lead infrastructure, IT, and operational initiatives.",
+    "city_spotlight": "<p>San Antonio's defense and military sector, anchored by Joint Base San Antonio, drives sustained demand for PMP-certified project managers across infrastructure, mission expansion, and operational leadership roles. Beyond JBSA, the city's healthcare corridor and tech leaders like USAA and Rackspace actively recruit certified professionals to manage complex IT and enterprise initiatives. Granite PM Academy delivers live-virtual Project Management Certification Training designed for San Antonio professionals seeking PMP or CAPM credentials on a flexible schedule.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-san-antonio-tx.webp",
+    "city_image_alt": "San Antonio Botanical Garden Overlook View, TX",
+    "city_image_credit": "Photo: Jouaienttoi, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:San_Antonio_Botanical_Garden_Overlook_View.jpg",
+    "notable_projects": [
+      "USAA corporate campus expansions in San Antonio",
+      "CPS Energy infrastructure and grid modernization projects",
+      "Joint Base San Antonio facility and mission expansion initiatives",
+      "San Antonio International Airport terminal expansion program"
+    ],
+    "credential_demand": "PMP certification is commonly listed as preferred or required in San Antonio job postings for project and program manager roles, particularly within healthcare systems, defense/military contracting, and energy/utility employers like CPS Energy. Overall demand for formal project management skills remains steady across the region's healthcare, government, and technology sectors."
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "AI Training in {city}, {SS} for Project Managers",
+      "hs_subtext": "<p>San Antonio's defense and aerospace sector relies on project managers who can leverage emerging technologies to manage complex, regulated initiatives. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that fulfills PMI contact-hour requirements while equipping you with practical skills to lead innovation-driven teams. Master AI applications in planning, risk analysis, and resource optimization—capabilities that strengthen your candidacy for senior roles across the region's government contracting and manufacturing ecosystem.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:31.442882Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "8ac3f80804dc0688",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-06-30T00:07:36+00:00",
-    "template_version": "288c800b61da44aec98f7685bc4978fb"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "AI Training for Project Managers in San Antonio",
+      "text": "<p>Joint Base San Antonio, one of the largest military installations in the United States, drives sustained demand for project managers who can lead complex defense and infrastructure initiatives across the region. Alongside JBSA's presence, San Antonio's healthcare corridor and technology sector—anchored by industry leaders like USAA and Rackspace—are rapidly integrating artificial intelligence into project workflows. Project managers in San Antonio who understand how to apply AI tools to planning, resource allocation, risk management, and team coordination gain a measurable competitive advantage in a market where these skills directly influence hiring and advancement decisions.</p><p>Granite PM Academy delivers instructor-led, live-virtual AI training designed specifically for project managers pursuing PMP® and CAPM® credentials. As a PMI® Authorized Training Partner, we ensure every course satisfies the contact-hour requirements recognized by the Project Management Institute, taught by active certified practitioners who bring real-world experience from the industries that define San Antonio's economy. Whether you're advancing your career at a major employer or building expertise for your next role, our structured approach combines certification readiness with practical AI competency—positioning you to manage projects with greater intelligence and confidence.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:35.440310Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "cf7685e8c0bc2d23",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "AI-Ready Project Managers: San Antonio's Defense and Tech Edge",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy's PMI Authorized Training Partner status means your PMP® or CAPM® certification meets the rigorous standards that USAA, Rackspace, and defense contractors expect. No shortcuts, no questions about validity."
+        },
+        {
+          "heading": "Live Instruction Builds Real Project Skills",
+          "text": "Our live-virtual, instructor-led format satisfies PMI's contact-hour requirements while letting you attend from home or the office. Active certified practitioners teach—not recordings—so you learn how AI tools apply to actual defense and healthcare project workflows."
+        },
+        {
+          "heading": "Exam Prep Built Into Every Session",
+          "text": "Structured exam-preparation support is woven throughout the course, not tacked on. Practice tests, case reviews, and instructor feedback target the questions that trip up candidates most, raising confidence before test day."
+        },
+        {
+          "heading": "Local Hiring Power for Your Resume",
+          "text": "San Antonio's major employers—JBSA, Baptist Health System, Valero, CPS Energy, and City of San Antonio—actively recruit PMP® and CAPM® holders for program management roles. Your credential directly addresses the skills these organizations list in job postings."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:39.537091Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "5ef3db0c63c8b72c",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Across San Antonio's Major Sectors",
+      "text": "<p>San Antonio's defense and military presence, anchored by Joint Base San Antonio, drives consistent demand for skilled project managers across the region's largest employers. USAA, one of the city's most prominent corporate anchors, regularly hires certified project managers for its ongoing campus expansions and technology initiatives. Healthcare systems including Baptist Health System and CHRISTUS Health also depend on certified professionals to oversee complex operational and infrastructure projects. Beyond these sectors, CPS Energy's grid modernization and infrastructure projects, along with San Antonio International Airport's terminal expansion program, reflect the breadth of opportunity for PMs with formal credentials in energy, government, and transportation industries.</p><p>The PMP® credential carries particular weight in San Antonio's job market, where it appears frequently as a preferred or required qualification in postings from healthcare systems, defense contractors, and utility employers. Salaries for certified project managers in the region are competitive, with defense and healthcare sector roles often commanding premium compensation. By completing AI Training for Project Managers through Granite PM Academy, you'll gain skills directly applicable to San Antonio's most active employers and highest-growth project categories—positioning yourself to advance into roles where both demand and compensation reward formal project management expertise. The credential strengthens your standing in a local market where steady, sector-wide hiring means sustained career growth.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:44.575300Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "dffb46367f5c244f",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "AI Training for Project Managers — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual AI Training for PMs",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is AI project management training worth it for San Antonio defense contractors?",
+          "answer": "<p>Yes. Defense and military contracting roles at JBSA and prime contractors across San Antonio increasingly require formal project management credentials alongside AI literacy. PMP certification is listed as preferred or required in many postings for program roles in this sector, and adding AI competency strengthens your candidacy for roles managing complex, technology-driven defense initiatives where salary ranges frequently exceed $130,000.</p>"
+        },
+        {
+          "question": "Which San Antonio employers actively hire certified project managers?",
+          "answer": "<p>USAA, H-E-B, Baptist Health System, Rackspace, Valero, CPS Energy, CHRISTUS Health, and City of San Antonio all maintain steady demand for PMP-certified professionals. Healthcare systems particularly value certification in project and program management roles, and energy/utility employers like CPS Energy frequently list PMP as preferred. These employers span healthcare, technology, finance, energy, and government sectors.</p>"
+        },
+        {
+          "question": "Can San Antonio project managers take the live-virtual course from their workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to attend from your office, home, or another location with a stable internet connection. This flexibility suits San Antonio's distributed workforce across USAA, healthcare systems, and government agencies, letting you balance training with your current role without commuting to a physical classroom.</p>"
+        },
+        {
+          "question": "When should San Antonio professionals pursue AI project management certification?",
+          "answer": "<p>Now. PMP credential demand in San Antonio remains steady across healthcare, government, and defense sectors, and AI literacy is becoming a differentiator. Early certification positions you ahead as these industries adopt AI tools; delaying means competing with others who have already combined traditional PM credentials with AI skills, particularly in roles that command salaries in the $105,000–$125,000+ range.</p>"
+        },
+        {
+          "question": "Do San Antonio defense contractors value AI project management training?",
+          "answer": "<p>Yes. Joint Base San Antonio and defense-sector employers in the region increasingly seek project managers who understand AI integration within compliance-heavy environments. AI Training for Project Managers equips you to lead modernization initiatives—a competitive advantage in San Antonio's robust defense and military contracting sector, where formal credentials and emerging technical literacy directly influence promotion and contract-leadership opportunities.</p>"
+        },
+        {
+          "question": "Will AI project management skills help me advance at San Antonio healthcare employers?",
+          "answer": "<p>Strongly likely. Baptist Health System, CHRISTUS Health, and University Health regularly hire project managers for digital transformation, operational efficiency, and clinical technology roles. AI competency is increasingly valuable in healthcare settings managing complex implementations. Combined with PMP certification, AI training positions you for senior roles and compensation ranges typical of healthcare program management in San Antonio.</p>"
+        },
+        {
+          "question": "Can I attend the live-virtual AI training course from my San Antonio workplace?",
+          "answer": "<p>Yes. The live-virtual format allows you to join from your office, home, or any location with reliable internet—ideal if you work at USAA, H-E-B, CPS Energy, or other major San Antonio employers with flexible IT policies. Confirm your employer's remote-meeting protocols beforehand, but the course is designed for working professionals balancing full-time roles.</p>"
+        },
+        {
+          "question": "Is AI training worth taking now in San Antonio's job market?",
+          "answer": "<p>Timing favors early adoption. San Antonio's healthcare, energy, and government sectors are actively hiring project managers with modern skills; PMP certification remains preferred or required in most postings. Adding AI expertise distinguishes you from other candidates and aligns with employer demand for leaders who can manage technology-driven change—positioning you for roles and salary ranges competitive with the region's strongest sectors.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:50.398218Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "cae209dc0ccf0f1b",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>San Antonio's defense and military sector, anchored by Joint Base San Antonio, drives steady demand for PMP-certified project managers across infrastructure, IT, and operations—complemented by growth in healthcare, finance, and energy. Major employers like USAA, CPS Energy, and Baptist Health System actively recruit certified professionals to lead modernization and expansion initiatives. Granite PM Academy delivers live-virtual AI Training for Project Managers to San Antonio professionals seeking credentials that align with local career advancement.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-15T03:49:51.922438Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "b647331609b066d6",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-san-antonio-tx/",
+    "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training San Antonio, TX, AI courses San Antonio, CPMAI certification San Antonio, AI project management training San Antonio, TX, AI for project managers San Antonio",
+    "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "AI Training for Project Managers",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "AI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-san-antonio-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-san-antonio-tx/\",\n      \"name\": \"AI Training for Project Managers in San Antonio, TX — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in San Antonio, TX for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in San Antonio, TX\",\n            \"item\": \"https://granitepmacademy.com/ai-training-san-antonio-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-san-antonio-tx/#course\",\n      \"name\": \"AI Training for Project Managers in San Antonio, TX\",\n      \"description\": \"CPMAI certification training for project managers in San Antonio, TX who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-san-antonio-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-san-antonio-tx/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-san-antonio-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-san-antonio-tx/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-san-antonio-tx/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-07-15T03:47:22+00:00",
+  "template_version": "34904477c4a9ac7ea4d6a4fc948de3ee"
 }

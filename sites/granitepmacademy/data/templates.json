@@ -1009,8 +1009,8 @@
   },
   {
     "id": "tpl_cpmai_certification_training_city",
-    "title": "CPMAI Certification Training {city}",
-    "slug_pattern": "cpmai-certification-training-{city_slug}",
+    "title": "AI Training {city}",
+    "slug_pattern": "ai-training-{city_slug}",
     "page_type": "template",
     "generation_steps": [
       {
@@ -1020,13 +1020,13 @@
     "content_blocks": [
       {
         "type": "hero_split",
-        "hs_heading": "CPMAI Certification Training in {city}, {SS}",
+        "hs_heading": "AI Training in {city}, {SS} for Project Managers",
         "hs_subtext": "<p>Granite PM Academy’s CPMAI Certification Training in {city_state} prepares you to manage AI and machine learning projects using the Cognilytica CPMAI methodology. A growing credential for project managers working with AI initiatives.</p>",
         "hs_btn_text": "See Upcoming Dates",
         "hs_btn_url": "#cpmai_schedule",
         "hs_caption1": "",
         "hs_caption2": "",
-        "hs_photo_alt": "CPMAI AI project management training {city} {SS}",
+        "hs_photo_alt": "AI training for project managers {city} {SS}",
         "hs_image_side": "right",
         "hs_bg_color": "#f0f4f8",
         "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
@@ -1076,23 +1076,30 @@
             "label": "Of organizations hold PMI Premier ATP status — we do"
           },
           {
-            "number": "35",
-            "label": "PMI contact hours included with every PMP course"
-          },
-          {
             "number": "90",
             "label": "Day pass guarantee — or your next course is free"
           }
         ]
       },
       {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": ""
+      },
+      {
         "type": "pricing_cards",
-        "pc_heading": "CPMAI Certification Training — Enrollment Options",
+        "pc_heading": "AI Training for Project Managers — Enrollment Options",
         "pc_cols": "2",
         "pc_bg": "#f0f4f8",
         "pc_items": [
           {
-            "name": "Live-Virtual CPMAI Training",
+            "name": "Live-Virtual AI Training for PMs",
             "badge": "AI-FOCUSED",
             "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
             "sublabel": "",
@@ -1193,10 +1200,11 @@
             "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
           }
         ],
-        "ai_type_id": "faq_additions",
+        "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "append",
-        "ai_model": "claude-haiku-4-5-20251001"
+        "ai_model": "claude-haiku-4-5-20251001",
+        "fq_open": true
       },
       {
         "type": "map_info",
@@ -1209,7 +1217,11 @@
         "mi_head_color": "header",
         "mi_head_color_custom": "#1f2937",
         "mi_info_photo": "{city_image}",
-        "mi_map_side": "left"
+        "mi_map_side": "left",
+        "ai_type_id": "city_spotlight",
+        "ai_inject_field": "mi_info_text",
+        "ai_inject_mode": "replace",
+        "ai_model": "claude-haiku-4-5-20251001"
       },
       {
         "type": "cta_banner",
@@ -1224,21 +1236,22 @@
       }
     ],
     "seo": {
-      "seo_title": "CPMAI Certification Training {city} {SS} | AI Project Management | {business}",
-      "canonical_url": "{website}/cpmai-certification-training-{city_slug}/",
-      "meta_description": "CPMAI AI project management certification training in {city}, {SS}. Live-virtual course from Granite PM Academy. Cognilytica CPMAI methodology.",
-      "meta_keywords": "CPMAI certification training {city_state}, AI project management training {city_state}, Cognilytica CPMAI {city}",
-      "og_title": "CPMAI Certification Training in {city}, {SS} | {business}",
-      "og_description": "Earn the CPMAI credential in {city_state} with Granite PM Academy. Master AI project management from anywhere.",
+      "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+      "canonical_url": "{website}/ai-training-{city_slug}/",
+      "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+      "meta_keywords": "AI training {city_state}, AI courses {city}, CPMAI certification {city}, AI project management training {city_state}, AI for project managers {city}",
+      "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+      "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
       "og_image": "",
-      "service_name": "CPMAI Certification Training",
-      "service_type": "Course",
+      "service_name": "AI Training for Project Managers",
+      "service_type": "Professional Training",
       "service_area": "{city}, {SS}",
-      "service_description": "CPMAI certification training for project managers working with AI initiatives in {city_state}.",
-      "bc_label": "CPMAI Training {city}",
+      "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+      "bc_label": "AI Training {city}",
       "bc_mid_label": "",
       "bc_mid_url": "",
-      "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"{website}/cpmai-certification-training-{city_slug}/#webpage\",\n      \"url\": \"{website}/cpmai-certification-training-{city_slug}/\",\n      \"name\": \"CPMAI Certification Training in {city}, {SS} — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in {city}, {SS} for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"{website}/#website\"\n      },\n      \"about\": {\n        \"@id\": \"{website}/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"{website}/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CPMAI Certification Training in {city}, {SS}\",\n            \"item\": \"{website}/cpmai-certification-training-{city_slug}/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"{website}/cpmai-certification-training-{city_slug}/#course\",\n      \"name\": \"CPMAI Certification Training in {city}, {SS}\",\n      \"description\": \"CPMAI certification training for project managers in {city}, {SS} who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"{website}/cpmai-certification-training-{city_slug}/\",\n      \"provider\": {\n        \"@id\": \"{website}/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"{website}/cpmai-certification-training-{city_slug}/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"{website}/cpmai-certification-training-{city_slug}/\"\n        }\n      ],\n      \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": \"4.8\",\n        \"reviewCount\": \"422\",\n        \"bestRating\": \"5\",\n        \"worstRating\": \"1\"\n      }\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"{website}/cpmai-certification-training-{city_slug}/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"{website}/cpmai-certification-training-{city_slug}/\"\n    }\n  ]\n}"
+      "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"{website}/ai-training-{city_slug}/#webpage\",\n      \"url\": \"{website}/ai-training-{city_slug}/\",\n      \"name\": \"AI Training for Project Managers in {city}, {SS} — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in {city}, {SS} for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"{website}/#website\"\n      },\n      \"about\": {\n        \"@id\": \"{website}/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"{website}/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in {city}, {SS}\",\n            \"item\": \"{website}/ai-training-{city_slug}/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"{website}/ai-training-{city_slug}/#course\",\n      \"name\": \"AI Training for Project Managers in {city}, {SS}\",\n      \"description\": \"CPMAI certification training for project managers in {city}, {SS} who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"{website}/ai-training-{city_slug}/\",\n      \"provider\": {\n        \"@id\": \"{website}/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"{website}/ai-training-{city_slug}/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"{website}/ai-training-{city_slug}/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"{website}/ai-training-{city_slug}/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"{website}/ai-training-{city_slug}/\"\n    }\n  ]\n}",
+      "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
     }
   }
 ]
