@@ -160,7 +160,8 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
         $data = $siteData;
         $contentBlocks   = $page['content_blocks'] ?? [];
         $seo             = $page['seo'] ?? [];
-        $pageTitle       = ($page['title'] ?? '') !== '' ? $page['title'] : SITE_TITLE;
+        // Prefer the SEO title for the <title> tag (matches homepage + blog); fall back to page title.
+        $pageTitle       = !empty($seo['seo_title']) ? $seo['seo_title'] : (($page['title'] ?? '') !== '' ? $page['title'] : SITE_TITLE);
         $assetPathPrefix = '/';
         $homeUrl         = '/';
         $slug            = $pageSlug;
@@ -198,7 +199,8 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
             $data['site_vars'] = array_merge($data['site_vars'] ?? [], $cityVars);
             $contentBlocks   = $gen['content_blocks'] ?? [];
             $seo             = $gen['seo'] ?? [];
-            $pageTitle       = ($gen['title'] ?? '') !== '' ? $gen['title'] : SITE_TITLE;
+            // Prefer the SEO title for the <title> tag (matches homepage + blog); fall back to page title.
+            $pageTitle       = !empty($seo['seo_title']) ? $seo['seo_title'] : (($gen['title'] ?? '') !== '' ? $gen['title'] : SITE_TITLE);
             $assetPathPrefix = '/';
             $homeUrl         = '/';
             $slug            = $citySlug;
