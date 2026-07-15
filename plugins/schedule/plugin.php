@@ -17,8 +17,11 @@ register_plugin(
 // on the same page as the table widget.
 add_hook('head_styles', function(string $pfx): void {
     if (empty($GLOBALS['_page_has_course_sc'])) return;
-    echo '<link rel="stylesheet" href="' . h($pfx) . 'assets/css/schedule.css">' . "\n";
-    echo '<link rel="stylesheet" href="' . h($pfx) . 'assets/css/card.css">' . "\n";
+    $cssBase = dirname(__DIR__, 2) . '/assets/css/';
+    $schVer  = (int) @filemtime($cssBase . 'schedule.css');
+    $cardVer = (int) @filemtime($cssBase . 'card.css');
+    echo '<link rel="stylesheet" href="' . h($pfx) . 'assets/css/schedule.css?v=' . $schVer . '">' . "\n";
+    echo '<link rel="stylesheet" href="' . h($pfx) . 'assets/css/card.css?v=' . $cardVer . '">' . "\n";
 });
 
 // Inject inline course data + JS before </body>, but only when shortcodes
