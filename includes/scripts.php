@@ -587,6 +587,9 @@ function content_editor_scripts() {
                     <div class="form-group" style="flex:0 0 80px;"><label>Level</label>
                         <select name="fq_heading_level[]"><option value="h2" selected>H2</option><option value="h3">H3</option><option value="h4">H4</option></select>
                     </div>
+                    <div class="form-group" style="flex:0 0 150px;"><label>Answers open?</label>
+                        <select name="fq_open[]"><option value="0" selected>Click to expand</option><option value="1">Open (no click)</option></select>
+                    </div>
                 </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 120px;"><label>Background</label><input type="color" name="fq_bg_color[]" value="#ffffff"></div>

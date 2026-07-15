@@ -210,7 +210,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "append",
-        "ai_model": "claude-haiku-4-5-20251001"
+        "ai_model": "claude-haiku-4-5-20251001",
+        "fq_open": true
       },
       {
         "type": "map_info",

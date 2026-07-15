@@ -345,6 +345,7 @@ function parse_blocks_from_post(): array {
                 $block['fq_heading'] = trim($_POST['fq_heading'][$i]  ?? '');
                 $fqHlRaw = trim($_POST['fq_heading_level'][$i] ?? 'h2');
                 $block['fq_heading_level'] = in_array($fqHlRaw, ['h2','h3','h4']) ? $fqHlRaw : 'h2';
+                $block['fq_open'] = ($_POST['fq_open'][$i] ?? '0') === '1';
                 $bgc = trim($_POST['fq_bg_color'][$i]   ?? '#ffffff');
                 $block['fq_bg_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $bgc) ? $bgc : '#ffffff';
                 $ibc = trim($_POST['fq_item_bg'][$i]    ?? '#f0f2f8');

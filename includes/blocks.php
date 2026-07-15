@@ -866,6 +866,7 @@ function render_content_block($block, $pathPrefix = '') {
             $uid = 'fq_'.substr(md5(serialize($block)),0,6);
 
             $fqSkin   = $block['skin'] ?? '';
+            $fqOpen   = !empty($block['fq_open']);   // start expanded (answers visible, no click)
             $fqBgOut  = $fqSkin !== '' ? "var(--skin-{$fqSkin}-bg)" : h($bgColor);
             echo '<div class="content-block block-faq-two-col"'.$anchorAttr.' style="background:'.$fqBgOut.';">';
             echo '<div class="container">';
@@ -877,11 +878,11 @@ function render_content_block($block, $pathPrefix = '') {
                 if (!$q) continue;
                 $iid = $uid.'_'.$qi;
                 echo '<div class="fq-item" style="background:'.h($itemBg).';">';
-                echo '<button class="fq-btn" onclick="toggleFq(\''.$iid.'\')" aria-expanded="false">';
-                echo '<span class="fq-icon" style="background:'.$iconStyle.';">+</span>';
+                echo '<button class="fq-btn" onclick="toggleFq(\''.$iid.'\')" aria-expanded="'.($fqOpen ? 'true' : 'false').'">';
+                echo '<span class="fq-icon" style="background:'.$iconStyle.';">'.($fqOpen ? '&#8722;' : '+').'</span>';
                 echo '<span class="fq-question">'.h($q).'</span>';
                 echo '</button>';
-                echo '<div class="fq-answer" id="'.$iid.'" hidden>'.text_to_html($a).'</div>';
+                echo '<div class="fq-answer" id="'.$iid.'"'.($fqOpen ? '' : ' hidden').'>'.text_to_html($a).'</div>';
                 echo '</div>';
             }
             echo '</div></div></div>';

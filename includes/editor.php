@@ -973,6 +973,14 @@ function render_content_blocks_editor($blocks) {
                                 <?php endforeach; ?>
                             </select>
                         </div>
+                        <div class="form-group" style="flex:0 0 150px;">
+                            <label>Answers open?</label>
+                            <select name="fq_open[]">
+                                <option value="0" <?= empty($block['fq_open']) ? 'selected' : '' ?>>Click to expand</option>
+                                <option value="1" <?= !empty($block['fq_open']) ? 'selected' : '' ?>>Open (no click)</option>
+                            </select>
+                            <span class="hint">Show all answers without clicking</span>
+                        </div>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 140px;">
