@@ -717,5 +717,30 @@
     "output_tokens": 8687,
     "api_calls": 28,
     "estimated_cost_usd": 0.062141
+  },
+  {
+    "run_id": "e4b9bcc3-ab92-410a-bd81-bc22ddaab833",
+    "started_at": "2026-07-15T03:27:51.248855Z",
+    "finished_at": "2026-07-15T03:28:19.277467Z",
+    "duration_ms": 28028,
+    "dry_run": false,
+    "options": {
+      "site": "granitepmacademy",
+      "page": "landing",
+      "all": false,
+      "file": "tpl_pmp_bootcamp_city_",
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 35,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 35,
+    "cities_researched": 0,
+    "input_tokens": 23112,
+    "output_tokens": 10857,
+    "api_calls": 35,
+    "estimated_cost_usd": 0.077397
   }
 ]

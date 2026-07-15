@@ -273,13 +273,13 @@
     "content_blocks": [
       {
         "type": "hero_split",
-        "hs_heading": "PMP Exam Prep Bootcamp in {city}, {SS}",
+        "hs_heading": "PMP Boot Camp in {city}, {SS}",
         "hs_subtext": "<p>Granite PM Academy’s PMP Bootcamp in {city_state} is an intensive four-day program designed for professionals who need to prepare for the PMP exam efficiently. Live-virtual instruction, 500+ practice questions, and a 90-day pass guarantee.</p>",
         "hs_btn_text": "See Upcoming Dates",
         "hs_btn_url": "#pmp_boot_schedule",
         "hs_caption1": "",
         "hs_caption2": "",
-        "hs_photo_alt": "PMP bootcamp {city} {SS}",
+        "hs_photo_alt": "PMP boot camp {city} {SS}",
         "hs_image_side": "right",
         "hs_bg_color": "#f0f4f8",
         "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
@@ -339,13 +339,24 @@
         ]
       },
       {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": ""
+      },
+      {
         "type": "pricing_cards",
-        "pc_heading": "PMP Bootcamp — Enrollment Options",
+        "pc_heading": "PMP Boot Camp — Enrollment Options",
         "pc_cols": "2",
         "pc_bg": "#f0f4f8",
         "pc_items": [
           {
-            "name": "PMP Exam Prep Bootcamp",
+            "name": "PMP Boot Camp",
             "badge": "INTENSIVE",
             "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
             "sublabel": "",
@@ -373,6 +384,17 @@
       {
         "type": "custom_html",
         "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "pmp_pathway",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": ""
       },
       {
         "type": "testimonials",
@@ -442,10 +464,11 @@
             "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
           }
         ],
-        "ai_type_id": "faq_additions",
+        "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "append",
-        "ai_model": "claude-haiku-4-5-20251001"
+        "ai_model": "claude-haiku-4-5-20251001",
+        "fq_open": true
       },
       {
         "type": "map_info",
@@ -458,7 +481,11 @@
         "mi_head_color": "header",
         "mi_head_color_custom": "#1f2937",
         "mi_info_photo": "{city_image}",
-        "mi_map_side": "left"
+        "mi_map_side": "left",
+        "ai_type_id": "city_spotlight",
+        "ai_inject_field": "mi_info_text",
+        "ai_inject_mode": "replace",
+        "ai_model": "claude-haiku-4-5-20251001"
       },
       {
         "type": "cta_banner",
@@ -473,21 +500,21 @@
       }
     ],
     "seo": {
-      "seo_title": "PMP Exam Prep Bootcamp {city} {SS} | Intensive PMP Training | {business}",
+      "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
       "canonical_url": "{website}/pmp-bootcamp-{city_slug}/",
-      "meta_description": "Intensive PMP exam prep bootcamp in {city}, {SS}. 4-day live-virtual course from a PMI Premier ATP. 500+ practice questions and 90-day pass guarantee.",
-      "meta_keywords": "PMP bootcamp {city_state}, PMP exam prep bootcamp {city}, intensive PMP training {city_state}",
-      "og_title": "PMP Bootcamp in {city}, {SS} | {business}",
-      "og_description": "Accelerate your PMP prep with Granite PM Academy’s intensive bootcamp. Live-virtual from {city}. PMI Premier ATP.",
+      "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+      "meta_keywords": "PMP boot camp {city_state}, PMP bootcamp {city}, PMP certification boot camp {city_state}, PMP bootcamp near me, intensive PMP training {city}",
+      "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+      "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
       "og_image": "",
-      "service_name": "PMP Exam Prep Bootcamp",
-      "service_type": "Course",
+      "service_name": "PMP Boot Camp",
+      "service_type": "Professional Certification Training",
       "service_area": "{city}, {SS}",
-      "service_description": "Intensive live-virtual PMP exam prep bootcamp for project managers in {city_state}.",
-      "bc_label": "PMP Bootcamp {city}",
+      "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+      "bc_label": "PMP Boot Camp {city}",
       "bc_mid_label": "",
       "bc_mid_url": "",
-      "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"{website}/pmp-bootcamp-{city_slug}/#webpage\",\n      \"url\": \"{website}/pmp-bootcamp-{city_slug}/\",\n      \"name\": \"PMP Bootcamp in {city}, {SS} — Pass in 4 Days | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in {city}, {SS}. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"{website}/#website\"\n      },\n      \"about\": {\n        \"@id\": \"{website}/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"{website}/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in {city}, {SS}\",\n            \"item\": \"{website}/pmp-bootcamp-{city_slug}/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"{website}/pmp-bootcamp-{city_slug}/#course\",\n      \"name\": \"PMP Exam Prep Bootcamp in {city}, {SS}\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in {city}, {SS}. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"{website}/pmp-bootcamp-{city_slug}/\",\n      \"provider\": {\n        \"@id\": \"{website}/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"{website}/pmp-bootcamp-{city_slug}/\"\n        }\n      ],\n      \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": \"4.8\",\n        \"reviewCount\": \"422\",\n        \"bestRating\": \"5\",\n        \"worstRating\": \"1\"\n      }\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"{website}/pmp-bootcamp-{city_slug}/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"{website}/pmp-bootcamp-{city_slug}/\"\n    }\n  ]\n}"
+      "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"{website}/pmp-bootcamp-{city_slug}/#webpage\",\n      \"url\": \"{website}/pmp-bootcamp-{city_slug}/\",\n      \"name\": \"PMP Boot Camp in {city}, {SS} | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in {city}, {SS}. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"{website}/#website\"\n      },\n      \"about\": {\n        \"@id\": \"{website}/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"{website}/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in {city}, {SS}\",\n            \"item\": \"{website}/pmp-bootcamp-{city_slug}/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"{website}/pmp-bootcamp-{city_slug}/#course\",\n      \"name\": \"PMP Boot Camp in {city}, {SS}\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in {city}, {SS}. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"{website}/pmp-bootcamp-{city_slug}/\",\n      \"provider\": {\n        \"@id\": \"{website}/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"{website}/pmp-bootcamp-{city_slug}/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"{website}/pmp-bootcamp-{city_slug}/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"{website}/pmp-bootcamp-{city_slug}/\"\n    }\n  ]\n}"
     }
   },
   {

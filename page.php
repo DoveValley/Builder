@@ -64,7 +64,11 @@ if (file_exists(PAGE_INDEX_FILE)) {
 
             $contentBlocks = $gen['content_blocks'] ?? [];
             $seo           = $gen['seo']            ?? [];
-            $pageTitle     = ($gen['title'] ?? '') !== '' ? $gen['title'] : SITE_TITLE;
+            // Prefer the SEO title for the <title> tag (consistent with the other
+            // page routes); fall back to the page title, then the site title.
+            $pageTitle     = !empty($seo['seo_title'])
+                                ? $seo['seo_title']
+                                : (($gen['title'] ?? '') !== '' ? $gen['title'] : SITE_TITLE);
 
             require __DIR__ . '/includes/site-template.php';
             exit;

@@ -489,5 +489,30 @@
         "pages_skipped": 0,
         "pages_backed_up": 4,
         "errors": []
+    },
+    {
+        "run_id": "4269f501f0f40ebe",
+        "started_at": "2026-07-15T03:27:51+00:00",
+        "finished_at": "2026-07-15T03:27:51+00:00",
+        "duration_ms": 5,
+        "dry_run": false,
+        "options": {
+            "template_ids": [
+                "tpl_pmp_bootcamp_city"
+            ],
+            "city_ids": [
+                "san-antonio-tx",
+                "huntsville-al",
+                "tampa-fl",
+                "minneapolis-mn",
+                "charlotte-nc"
+            ],
+            "tag_filter": "",
+            "force_locked": true
+        },
+        "pages_written": 5,
+        "pages_skipped": 0,
+        "pages_backed_up": 5,
+        "errors": []
     }
 ]
