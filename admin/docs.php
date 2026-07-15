@@ -723,6 +723,27 @@ tr:nth-child(even) td { background: #f8fafc; }
         <li><strong>Slug</strong> — the URL path; changing this changes the page's URL immediately</li>
         <li><strong>Schema Markup (JSON-LD)</strong> — paste the page's complete structured data here. See the <a href="#schema-overview">Schema Workflow</a> section for how to write it. Supports shortcodes; validates live as you type.</li>
     </ul>
+
+    <h3 id="core-great-seo">Building a GREAT-SEO national hub page</h3>
+    <p>Core pages are the authoritative <strong>national hubs</strong> that link <em>down</em> to the city landing pages. This is the national counterpart to the <a href="#template-great-seo">landing-template process</a> — the same GREAT-SEO discipline, but different mechanics. A ready-to-paste Claude prompt is at the top of the <strong>Core / Template Pages</strong> tab and as <code>uploads/core-page-build-prompt.txt</code>.</p>
+
+    <p><strong>How core pages differ from city landing pages:</strong></p>
+    <ul>
+        <li>They live hand-built in <code>site.json['pages']</code> — edited on this tab, NOT in the template×city engine.</li>
+        <li>They are <strong>national</strong> — one page per service, no <code>{city}</code>, not grounded in <code>cities.json</code>. The city AI blocks (<code>city_market_intro</code>, <code>local_relevance</code>, <code>city_spotlight</code>) can't be used — they need a city.</li>
+        <li>Their job is <strong>depth + authority</strong> on a hard head term (not uniqueness at scale) — build on the page's existing authority blocks rather than cloning a landing template.</li>
+        <li>AI is filled by <code>generate.py</code>'s core-pages pass (<code>--page core</code> → <code>process_core_pages</code>), which only processes pages that have <code>ai_block</code>s (so it naturally scopes to the page you edited).</li>
+    </ul>
+
+    <p><strong>National AI archetypes</strong> (build once in the niche brief, reuse across all hubs) — grounded in <code>{service}</code> + <code>{business}</code> + known facts, <em>no</em> <code>{city}</code>/<code>cities.json</code>: <code>national_hero_subtext</code>, <code>national_intro</code> (text), <code>national_features</code> (feature_columns), <code>national_value</code> (text), <code>national_faq</code> (inject, append). Compile with <code>php multisite/ai/compile.php --master={site}</code>.</p>
+
+    <p><strong>Block plan per hub:</strong> hero[<code>national_hero_subtext</code>] · <code>national_intro</code> · <code>national_features</code> · stats(real) · comparison_table(real) · schedule · <code>national_value</code> · steps(real) · cards(real) · testimonials(real) · <strong>hub→city cards</strong> (link the matching city pages) · faq_two_col[<code>national_faq</code>, <code>fq_open:true</code>, ~15] · cta. (Skip hub→city cards where there are no matching city pages; a light touch is fine for odd pages like PDU renewal.)</p>
+
+    <p><strong>The GREAT-SEO rules:</strong> one primary is the focus (set <code>seo.seo_title</code> — the static build uses it for the <code>&lt;title&gt;</code>, not the internal <code>title</code> label); secondaries light and FAQ-only (a 1-word variant is fine 1–2× in FAQ); never fabricate pass rates / review counts / star ratings / student counts / salaries; real signals (prices, schedule, guarantee) rank high while AI prose supports.</p>
+
+    <div class="callout">
+        <p><strong>Soften to factual — the easy-to-miss part.</strong> Unverifiable claims hide in more than the stats bar: comparison rows, wide_banner, cards text, <em>static FAQ answers</em>, <code>seo.schema</code> (Course description), and og/meta descriptions. Grep the whole page JSON for the numbers (99%, 50,000, 4.9, "pass rate") and neutralize each; keep only real facts (contact hours, PMI ATP, money-back guarantee, exam-domain weights, real exam fees). Deploy with a session-mode build + force (see <a href="#template-great-seo">landing process</a>).</p>
+    </div>
 </section>
 
 <section id="tab-blog">

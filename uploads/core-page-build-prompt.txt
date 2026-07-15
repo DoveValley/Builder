@@ -1,0 +1,84 @@
+========================================================================
+REUSABLE PROMPT — BUILD / REWORK A "GREAT-SEO" CORE NATIONAL HUB PAGE
+Paste into Claude Code (in the site factory) to rework a core/national hub
+page the way the granitepmacademy PMP/CAPM/CPMAI/PDU hubs were done. This is
+the NATIONAL-page counterpart to the city-landing template process — same
+GREAT-SEO discipline, DIFFERENT mechanics.
+========================================================================
+
+--- COPY BELOW THIS LINE ------------------------------------------------
+
+You are reworking a CORE / NATIONAL hub page for the site "[SITE_ID]" into a
+great-SEO page with AI content, then generating + verifying + deploying it.
+Core pages are the authoritative hubs that link DOWN to the city landing
+pages. STOP for my OK before deploying.
+
+HOW CORE PAGES DIFFER FROM CITY LANDING PAGES (read first):
+  • They live hand-built in site.json['pages'] — NOT in templates.json, NOT
+    in the template×city engine. Edited on the "Core / Template Pages" tab.
+  • They are NATIONAL — one page per service, NO {city}, NOT grounded in
+    cities.json. So the city archetypes (city_market_intro, local_relevance,
+    city_spotlight) CANNOT be used — they need a city.
+  • Their job is DEPTH + AUTHORITY on a hard head term (not uniqueness at
+    scale). Don't clone the landing template wholesale — build on the page's
+    existing authority blocks.
+  • AI content is filled by generate.py's CORE-PAGES pass (process_core_pages),
+    which only processes pages that HAVE ai_blocks (so it naturally scopes to
+    just the page you edited).
+
+GREAT-SEO RULES (same as landings):
+  • ONE primary keyword is the focus — <title> (seo.seo_title), H1 hero, intro
+    H2. Never dilute it.
+  • Secondaries LIGHT and FAQ-only (one long-tail per Q where natural; a
+    1-word variant like "bootcamp" is fine 1-2x in FAQ). Never stuff.
+  • NEVER fabricate: pass rates, review counts / star ratings, student counts,
+    years, salaries. Remove any fake aggregateRating. Keep only real facts
+    (contact hours, PMI ATP, money-back guarantee, real exam weights/fees).
+  • Real signals rank high (prices, schedule, guarantee); AI prose supports.
+
+NATIONAL ARCHETYPES (build once, reuse across all hubs) — grounded in
+{service} + {business} + known facts, NO {city}/cities.json tokens:
+  • national_hero_subtext (inject hs_subtext)
+  • national_intro (text)          — authoritative overview + national demand
+  • national_features (feature_columns) — real differentiators
+  • national_value (text)          — career value / ROI (QUALITATIVE on pay)
+  • national_faq (inject fq_items, append) — reach ~15 total; secondaries here
+  Enable in the niche brief; compile: php multisite/ai/compile.php --master=[SITE_ID]
+
+BLOCK STRATEGY (per hub — build on what's there):
+  hero[national_hero_subtext] · national_intro · national_features · stats(real,
+  softened) · comparison_table(real) · schedule custom_html · national_value ·
+  steps(real) · cards(real) · testimonials(real) · HUB→CITY cards(links to the
+  matching city pages) · faq_two_col[national_faq, fq_open:true, 15] · cta.
+  (For a page with no matching city pages, skip the hub→city cards. For an
+  odd page like PDU, a lighter touch is fine: SEO + hero subtext + FAQ.)
+
+STEPS:
+1. Confirm the page's national primary + secondaries from the keyword map
+   (home/core section).
+2. Build/verify the national archetypes (above) + compile.
+3. Set the page's seo.service_name (drives {service}), seo.primary_keyword,
+   seo.secondary_keywords. IMPORTANT: the static build uses seo.seo_title for
+   the <title> — set it (and og_title) to the primary; don't rely on the
+   internal `title` field.
+4. Rework the blocks: add the AI blocks, keep the real authority blocks, add
+   the hub→city cards, upgrade the FAQ (national_faq append, fq_open).
+5. SOFTEN TO FACTUAL — remove every unverifiable claim EVERYWHERE it hides:
+   stats items, comparison rows, wide_banner, cards text, static FAQ answers,
+   seo.schema, and og/meta descriptions. Grep the whole page JSON for the
+   numbers (e.g. 99%, 50,000, 4.9, "pass rate") and neutralize each.
+6. Generate:  MULTISITE_SITE_BASE=... generate.py --site-dir ... --page core
+   (only pages with ai_blocks process; locked blocks skip). chown -R www-data
+   data/ after. GOTCHA: the core pass also re-bakes city_spotlight into the
+   city landing page files — `git checkout` those you didn't intend to touch.
+7. Verify: render each hub — HTTP 200, 0 PHP warnings, primary dominant,
+   0 fabricated stats (grep 99%/50,000/4.9/aggregateRating = 0), FAQ open,
+   correct H1 + <title>, hub→city links present.
+8. Deploy (my OK): session-mode build (set $_SESSION['active_site'] before
+   config.php — NOT MULTISITE_SITE_BASE worker mode), then
+   deploy_site(cfg, output/[SITE_ID]/, deploy_manifest.json, force=true).
+   Verify live: correct titles, images 200, no fabricated stats.
+
+Report after each phase. Commit per coherent unit. Push only when I say.
+
+--- COPY ABOVE THIS LINE ------------------------------------------------
