@@ -469,69 +469,216 @@ $total = 1 + $nCarrier + $nState + ($nState * $nCarrier) + $nCity + ($publishCC 
     </form>
 
     <!-- live progress meter -->
-    <div id="rd-progress" style="display:none;margin-top:16px;max-width:640px;">
-      <div style="background:#e2e8f0;border-radius:8px;height:20px;overflow:hidden;position:relative;">
-        <div id="rd-bar" style="height:100%;width:0;background:#0e7490;transition:width .3s ease;border-radius:8px;"></div>
+    <style>
+      #rd-progress .rd-step { flex:1; text-align:center; font-size:.74rem; font-weight:600; padding:6px 4px; border-radius:6px;
+        background:#f1f5f9; color:#94a3b8; border:1px solid #e2e8f0; transition:all .2s; }
+      #rd-progress .rd-step.active { background:#0e7490; color:#fff; border-color:#0e7490; }
+      #rd-progress .rd-step.done   { background:#ecfdf5; color:#047857; border-color:#a7f3d0; }
+      #rd-progress .rd-step.error  { background:#fef2f2; color:#b91c1c; border-color:#fecaca; }
+      #rd-log .l-warn  { color:#fbbf24; }
+      #rd-log .l-error, #rd-log .l-fatal { color:#f87171; }
+      #rd-log .l-done  { color:#4ade80; font-weight:600; }
+      #rd-log .l-log   { color:#cbd5e1; }
+    </style>
+    <div id="rd-progress" style="display:none;margin-top:18px;max-width:720px;">
+      <!-- phase steps -->
+      <div style="display:flex;gap:8px;margin-bottom:12px;">
+        <div class="rd-step" data-step="build">1 &middot; Build</div>
+        <div class="rd-step" data-step="upload">2 &middot; Upload</div>
+        <div class="rd-step" data-step="finish">Done</div>
       </div>
-      <div id="rd-progress-text" style="margin-top:8px;font-size:.85rem;color:#334155;">Starting…</div>
+      <!-- bar -->
+      <div style="background:#e2e8f0;border-radius:8px;height:22px;overflow:hidden;position:relative;">
+        <div id="rd-bar" style="height:100%;width:0;background:#0e7490;transition:width .3s ease;border-radius:8px;"></div>
+        <span id="rd-bar-pct" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#0f172a;"></span>
+      </div>
+      <!-- stat row -->
+      <div style="display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px;font-size:.78rem;color:#475569;">
+        <span id="rd-stat-count"></span>
+        <span id="rd-stat-elapsed"></span>
+        <span id="rd-stat-eta"></span>
+        <span id="rd-stat-rate"></span>
+      </div>
+      <div id="rd-progress-text" style="margin-top:6px;font-size:.85rem;color:#334155;font-weight:600;">Starting…</div>
+      <div id="rd-stall" style="display:none;margin-top:6px;font-size:.8rem;color:#b45309;"></div>
+      <!-- live log tail -->
+      <div id="rd-log" style="margin-top:10px;background:#0f172a;border-radius:6px;padding:10px 12px;
+        font-family:Menlo,Consolas,monospace;font-size:.74rem;line-height:1.5;max-height:190px;overflow-y:auto;display:none;"></div>
+      <!-- persistent issues -->
+      <div id="rd-issues" style="display:none;margin-top:10px;padding:10px 12px;background:#fef2f2;border:1px solid #fecaca;
+        border-radius:6px;font-size:.78rem;color:#991b1b;"></div>
     </div>
 
     <script>
     (function () {
-      var polling = false;
+      var polling = false, POLL_URL = '../plugins/recovery/deploy_status.php';
+      var uploadStartTs = 0;          // server ts when the upload phase began (for rate/ETA)
+      var lastTs = 0, lastTsChange = 0; // for stall detection (uses client delta only)
+      var logAtBottom = true;
+      var expectStarted = 0;          // only trust a status file whose run started >= this
+
       window.rdStartDeploy = function () {
         if (!confirm('Build the gated static site and deploy over FTP now? First deploy can take a few minutes.')) return;
         var form = document.getElementById('rd-deploy-form');
         var btn  = document.getElementById('rd-deploy-btn');
-        var box  = document.getElementById('rd-progress');
-        btn.disabled = true; box.style.display = 'block';
-        rdSetText('Starting…'); rdSetBar(0, true);
+        btn.disabled = true;
+        document.getElementById('rd-progress').style.display = 'block';
+        uploadStartTs = 0; lastTs = 0; lastTsChange = Date.now(); expectStarted = 0;
+        setSteps('build'); setBar(0, true); setText('Starting…');
+        document.getElementById('rd-issues').style.display = 'none';
+        document.getElementById('rd-log').style.display = 'none';
+        document.getElementById('rd-log').innerHTML = '';
         var fd = new FormData();
         fd.append('csrf_token', form.querySelector('[name=csrf_token]').value);
         fd.append('plugin_id', 'recovery');
         fd.append('action', 'build_deploy_bg');
         if (document.getElementById('rd-force').checked) fd.append('force_all', '1');
         fetch('plugin_save.php', { method: 'POST', body: fd, credentials: 'same-origin' })
-          .then(function () { setTimeout(rdPoll, 800); })
-          .catch(function () { rdSetText('Could not start the deploy.'); btn.disabled = false; });
+          .then(function (r) { return r.json().catch(function () { return { success: false, message: 'Unexpected server response — deploy may not have started.' }; }); })
+          .then(function (res) {
+            if (!res || res.success === false) { setText((res && res.message) || 'Could not start the deploy.'); btn.disabled = false; return; }
+            expectStarted = res.started || 0;   // reject any status file older than this run
+            if (res.launched === false) setText('Started, but the background process was not detected — watching for it…');
+            setTimeout(rdPoll, 700);
+          })
+          .catch(function () { setText('Could not start the deploy.'); btn.disabled = false; });
       };
-      function rdSetText(t) { document.getElementById('rd-progress-text').textContent = t; }
-      function rdSetBar(pct, indeterminate) {
+
+      function setText(t) { document.getElementById('rd-progress-text').textContent = t; }
+      function setBar(pct, indeterminate) {
         var bar = document.getElementById('rd-bar');
-        bar.style.width = (indeterminate ? 30 : pct) + '%';
-        bar.style.opacity = indeterminate ? '0.55' : '1';
+        bar.style.width = (indeterminate ? 100 : Math.max(0, Math.min(100, pct))) + '%';
+        bar.style.opacity = indeterminate ? '0.4' : '1';
+        bar.style.backgroundImage = indeterminate
+          ? 'repeating-linear-gradient(45deg,rgba(255,255,255,.25) 0 10px,transparent 10px 20px)' : 'none';
+        document.getElementById('rd-bar-pct').textContent = indeterminate ? '' : (Math.round(pct) + '%');
       }
+      function setSteps(active) {
+        var order = ['build', 'upload', 'finish'], ai = order.indexOf(active);
+        document.querySelectorAll('#rd-progress .rd-step').forEach(function (el) {
+          var i = order.indexOf(el.dataset.step);
+          el.className = 'rd-step' + (active === 'error' ? (el.dataset.step === 'finish' ? ' error' : ' done')
+            : (i < ai ? ' done' : (i === ai ? ' active' : '')));
+        });
+      }
+      function fmtDur(s) {
+        s = Math.max(0, Math.round(s));
+        var m = Math.floor(s / 60); return m + ':' + ('0' + (s % 60)).slice(-2);
+      }
+      function esc(t) { return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+      function renderLog(log) {
+        var box = document.getElementById('rd-log');
+        if (!log || !log.length) return;
+        box.style.display = 'block';
+        logAtBottom = (box.scrollTop + box.clientHeight >= box.scrollHeight - 8);
+        box.innerHTML = log.map(function (e) {
+          return '<div class="l-' + (e.t || 'log') + '">' + esc(e.m) + '</div>';
+        }).join('');
+        if (logAtBottom) box.scrollTop = box.scrollHeight; // stick to bottom unless user scrolled up
+      }
+      function renderIssues(issues) {
+        var box = document.getElementById('rd-issues');
+        if (!issues || !issues.length) { box.style.display = 'none'; return; }
+        box.style.display = 'block';
+        box.innerHTML = '<strong>&#9888; ' + issues.length + ' issue' + (issues.length !== 1 ? 's' : '') + ':</strong>'
+          + issues.slice(-12).map(function (e) { return '<div style="margin-top:3px;font-family:monospace;">' + esc(e.m) + '</div>'; }).join('');
+      }
+
       function rdPoll() {
         if (polling) return; polling = true;
-        fetch('../plugins/recovery/deploy_status.php', { credentials: 'same-origin' })
+        fetch(POLL_URL, { credentials: 'same-origin' })
           .then(function (r) { return r.json(); })
           .then(function (s) {
             polling = false;
-            var phase = s.phase || 'idle';
-            if (phase === 'upload' && s.total > 0) {
-              var pct = Math.round((s.done / s.total) * 100);
-              rdSetBar(pct, false);
-              rdSetText('Uploading ' + s.done + ' / ' + s.total + ' files (' + pct + '%)');
-            } else if (phase === 'build' || (phase === 'upload' && !s.total)) {
-              rdSetBar(0, true);
-              rdSetText(s.msg || 'Building…');
+
+            // Ignore a stale/previous status file — only trust the run we just started.
+            // (Prevents an old completed deploy from flashing "Done" instantly.)
+            if (expectStarted && (!s.started || s.started < expectStarted)) {
+              setSteps('build'); setBar(0, true);
+              setText('Starting…');
+              setTimeout(rdPoll, 800);
+              return;
             }
+
+            var phase = s.phase || 'idle';
+            var elapsed = (s.ts && s.started) ? (s.ts - s.started) : 0;
+
+            // stall detection — has the server timestamp advanced recently?
+            if (s.ts !== lastTs) { lastTs = s.ts; lastTsChange = Date.now(); }
+            var stall = document.getElementById('rd-stall');
+            if (s.running && (Date.now() - lastTsChange) > 30000) {
+              stall.style.display = 'block';
+              stall.textContent = '⚠ No updates for ' + Math.round((Date.now() - lastTsChange) / 1000)
+                + 's — the background process may have stalled. Check sites/recovery-site/deploy_cli.log.';
+            } else { stall.style.display = 'none'; }
+
+            renderLog(s.log);
+            renderIssues(s.issues);
+
+            document.getElementById('rd-stat-elapsed').textContent = 'Elapsed ' + fmtDur(elapsed);
+
+            if (phase === 'build') {
+              setSteps('build');
+              if (s.build_total > 0) {
+                var bp = Math.round((s.build_done / s.build_total) * 100);
+                setBar(bp, false);
+                document.getElementById('rd-stat-count').textContent = 'Build ' + s.build_done + ' / ' + s.build_total + ' steps';
+              } else { setBar(0, true); document.getElementById('rd-stat-count').textContent = ''; }
+              document.getElementById('rd-stat-eta').textContent = '';
+              document.getElementById('rd-stat-rate').textContent = '';
+              setText(s.msg || 'Building…');
+            } else if (phase === 'upload') {
+              setSteps('upload');
+              if (!uploadStartTs) uploadStartTs = s.ts || 0;
+              if (s.up_total > 0) {
+                var up = Math.round((s.up_done / s.up_total) * 100);
+                setBar(up, false);
+                document.getElementById('rd-stat-count').textContent = 'Upload ' + s.up_done + ' / ' + s.up_total + ' files';
+                var upElapsed = (s.ts && uploadStartTs) ? (s.ts - uploadStartTs) : 0;
+                if (upElapsed > 1 && s.up_done > 0) {
+                  var rate = s.up_done / upElapsed;
+                  document.getElementById('rd-stat-rate').textContent = rate.toFixed(1) + ' files/s';
+                  document.getElementById('rd-stat-eta').textContent = 'ETA ' + fmtDur((s.up_total - s.up_done) / rate);
+                }
+              } else { setBar(0, true); document.getElementById('rd-stat-count').textContent = 'Connecting to FTP…'; }
+              setText(s.msg || 'Uploading…');
+            }
+
             if (s.running === false) {
               var ok = phase === 'done';
-              rdSetBar(100, false);
-              document.getElementById('rd-bar').style.background = ok ? '#0e7490' : '#dc2626';
-              rdSetText(s.msg || (ok ? 'Done.' : 'Failed.'));
+              setSteps(ok ? 'finish' : 'error');
+              setBar(100, false);
+              var bar = document.getElementById('rd-bar');
+              bar.style.background = ok ? '#059669' : '#dc2626';
+              document.getElementById('rd-bar-pct').textContent = ok ? '✓ Done' : 'Failed';
+              document.getElementById('rd-stat-eta').textContent = '';
+              document.getElementById('rd-stat-rate').textContent = '';
+              document.getElementById('rd-stat-count').textContent =
+                (s.pages != null ? s.pages + ' pages' : '') + (s.uploaded != null ? ' · ' + s.uploaded + ' uploaded' : '')
+                + (s.failed ? ' · ' + s.failed + ' failed' : '');
+              stall.style.display = 'none';
+              setText(s.msg || (ok ? 'Done.' : 'Failed.'));
               document.getElementById('rd-deploy-btn').disabled = false;
               return; // stop polling
             }
-            setTimeout(rdPoll, 1500);
+            setTimeout(rdPoll, 1200);
           })
           .catch(function () { polling = false; setTimeout(rdPoll, 2500); });
       }
+
       // If a deploy is already running when the panel loads, resume the meter.
-      fetch('../plugins/recovery/deploy_status.php', { credentials: 'same-origin' })
+      fetch(POLL_URL, { credentials: 'same-origin' })
         .then(function (r) { return r.json(); })
-        .then(function (s) { if (s && s.running) { document.getElementById('rd-progress').style.display = 'block'; document.getElementById('rd-deploy-btn').disabled = true; rdPoll(); } })
+        .then(function (s) {
+          if (s && s.running) {
+            document.getElementById('rd-progress').style.display = 'block';
+            document.getElementById('rd-deploy-btn').disabled = true;
+            expectStarted = s.started || 0;   // trust the run already in flight
+            lastTs = s.ts || 0; lastTsChange = Date.now();
+            rdPoll();
+          }
+        })
         .catch(function () {});
     })();
     </script>

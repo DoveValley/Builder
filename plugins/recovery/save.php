@@ -137,19 +137,51 @@ switch ($action) {
     }
 
     case 'build_deploy_bg': {
-        // Background Build & Deploy for the panel progress meter. Spawns deploy_cli.php
-        // (writes deploy_status.json, polled by the panel). Guard against a second run.
-        $already = trim((string) @shell_exec('pgrep -f "recovery/deploy_cli.php" 2>/dev/null'));
-        if ($already !== '') $fail('A deploy is already in progress.');
-        // seed the status so the meter shows immediately
-        @file_put_contents(ACTIVE_SITE_DIR . '/deploy_status.json', json_encode(['phase' => 'build', 'running' => true, 'ts' => time(), 'msg' => 'Starting…']));
+        // Background Build & Deploy for the panel progress meter. This is an AJAX
+        // endpoint (fetch), so it responds JSON — not a redirect like $done/$fail.
+        $jsonOut = function (array $payload) {
+            header('Content-Type: application/json');
+            echo json_encode($payload);
+            exit;
+        };
+
+        // Guard against a second concurrent run. The "[d]" bracket trick keeps the
+        // pattern from matching pgrep's own command line (a plain "deploy_cli.php"
+        // pattern self-matches and reports a phantom "already in progress").
+        $already = trim((string) @shell_exec('pgrep -f "[d]eploy_cli.php" 2>/dev/null'));
+        if ($already !== '') $jsonOut(['success' => false, 'message' => 'A deploy is already in progress.']);
+
+        // FTP must be configured, or the background run would just fail invisibly.
+        $cfgFile = ACTIVE_SITE_DIR . '/deploy.json';
+        $cfg = is_file($cfgFile) ? (json_decode(file_get_contents($cfgFile), true) ?: []) : [];
+        if (empty($cfg['ftp_host']) || empty($cfg['ftp_user']) || empty($cfg['ftp_pass'])) {
+            $jsonOut(['success' => false, 'message' => 'FTP settings are incomplete — enter host, username, and password first.']);
+        }
+
+        // Seed the status so the meter shows immediately (same shape deploy_cli.php writes).
+        $now = time();
+        @file_put_contents(ACTIVE_SITE_DIR . '/deploy_status.json', json_encode([
+            'phase' => 'build', 'running' => true, 'ts' => $now, 'started' => $now,
+            'msg' => 'Starting…', 'log' => [['t' => 'log', 'm' => 'Starting build…', 'ts' => $now]], 'issues' => [],
+            'build_done' => 0, 'build_total' => 0, 'up_done' => 0, 'up_total' => 0,
+        ]));
+
+        // Spawn. Log to a site-dir file (www-data-owned) — a shared /tmp file can be
+        // left root-owned by a prior CLI run, which makes the redirect (and the whole
+        // spawn) fail silently as www-data.
         $script = __DIR__ . '/deploy_cli.php';
         $php    = is_file(PHP_BINDIR . '/php') ? PHP_BINDIR . '/php' : (is_file('/usr/bin/php') ? '/usr/bin/php' : 'php');
         $args   = !empty($_POST['force_all']) ? ' --force' : '';
+        $bgLog  = ACTIVE_SITE_DIR . '/deploy_cli.log';
         @exec('nohup env ' . escapeshellarg('MULTISITE_SITE_BASE=' . ACTIVE_SITE_DIR)
             . ' ' . escapeshellarg($php) . ' ' . escapeshellarg($script) . $args
-            . ' > /tmp/recovery_deploy.log 2>&1 &');
-        $done(true, 'Build & Deploy started — watch the progress bar.');
+            . ' > ' . escapeshellarg($bgLog) . ' 2>&1 &');
+
+        // Confirm it actually launched so the panel can report a hard failure instead
+        // of spinning forever on the seed.
+        usleep(400000);
+        $launched = trim((string) @shell_exec('pgrep -f "[d]eploy_cli.php" 2>/dev/null')) !== '';
+        $jsonOut(['success' => true, 'started' => $now, 'launched' => $launched]);
     }
 
     case 'build_only':

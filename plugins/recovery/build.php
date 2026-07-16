@@ -137,8 +137,17 @@ function recovery_build_static(string $outputBase, array $siteData): array {
     if (!function_exists('gen_write')) require_once BASE_DIR . '/includes/static_build.php';
     $outputBase = rtrim($outputBase, '/') . '/';
 
+    // Materialise the URL list up front so we can report determinate progress
+    // (the matrix is the bulk of the build — hundreds of carrier×city pages).
+    $urls  = recovery_enumerate_urls();
+    $urls  = is_array($urls) ? $urls : iterator_to_array($urls, false);
+    $total = count($urls);
+    if (function_exists('progress_log')) progress_log("Building {$total} matrix pages…");
+
     $built = [];
-    foreach (recovery_enumerate_urls() as $path) {
+    $seen  = 0;
+    foreach ($urls as $path) {
+        if (function_exists('progress_tick') && (++$seen % 10 === 0 || $seen === $total)) progress_tick($seen, $total);
         $m = recovery_match_route($path);
         if ($m === null) continue;
         $routed = recovery_render_route($m, $siteData, $path);
