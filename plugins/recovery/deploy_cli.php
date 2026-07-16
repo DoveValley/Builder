@@ -62,7 +62,10 @@ progress_set_sink(function (array $p) use ($write, &$phase, &$lastMsg, &$counts,
         $lastMsg = $p['msg'];
         $log[] = ['t' => $type, 'm' => $p['msg'], 'ts' => time()];
         if (count($log) > 30) array_shift($log);
-        if (in_array($type, ['warn', 'error', 'fatal'], true)) {
+        // Real problems get pinned to the issues list. The "Force push" line is an
+        // informational warn (not a failure) — keep it in the log tail only, so a
+        // normal --force run doesn't read as "1 issue".
+        if (in_array($type, ['warn', 'error', 'fatal'], true) && stripos($p['msg'], 'force push') === false) {
             $issues[] = ['t' => $type, 'm' => $p['msg']];
             if (count($issues) > 60) array_shift($issues);
         }
