@@ -20,6 +20,18 @@ $templates  = recovery_all_templates();
 $types      = recovery_types();
 $keywords   = recovery_keywords();
 $deployFile = (defined('ACTIVE_SITE_DIR') && ACTIVE_SITE_DIR !== '') ? ACTIVE_SITE_DIR . '/deploy.json' : '';
+
+// Flatten keywords per page type for the client-side download buttons (below).
+$kwExport = [];
+foreach ($types as $key => $meta) {
+    $kw = $keywords[$key] ?? [];
+    $kwExport[] = [
+        'label'     => $meta['label'] ?? $key,
+        'primary'   => $kw['primary'] ?? '',
+        'secondary' => array_values($kw['secondary'] ?? []),
+    ];
+}
+$kwNiche = $data['site_vars']['business'] ?? 'Recovery';
 $deploy     = ($deployFile && is_file($deployFile)) ? (json_decode(file_get_contents($deployFile), true) ?: []) : [];
 
 // First rows → build example preview URLs.
@@ -90,8 +102,60 @@ $total = 1 + $nCarrier + $nState + ($nState * $nCarrier) + $nCity + ($publishCC 
       <?php endforeach; ?>
       </tbody>
     </table>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <button type="button" class="btn" style="background:#0f766e;" onclick="recKwDownloadMap()"
+        title="Download the keyword map (per page type: primary + secondaries) as a text file">&#11015; Download Keyword Map</button>
+      <button type="button" class="btn" style="background:#0369a1;" onclick="recKwDownloadPriSec()"
+        title="Download a plain list of all primary + secondary keywords, one per line, for pasting into keyword tools">&#11015; Download Pri/Sec Keywords</button>
+    </div>
     <p class="hint" style="margin-top:10px;">Source: <code>data/recovery/keywords.json</code></p>
   </div>
+
+  <script>
+    var RECOVERY_KW    = <?= json_encode($kwExport, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>;
+    var RECOVERY_NICHE = <?= json_encode($kwNiche, JSON_UNESCAPED_UNICODE) ?>;
+    function recKwSlug(s){ return (s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); }
+    function recKwSave(txt, name){
+        var blob=new Blob([txt],{type:'text/plain;charset=utf-8'});
+        var a=document.createElement('a');
+        a.href=URL.createObjectURL(blob); a.download=name;
+        document.body.appendChild(a); a.click();
+        setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },100);
+    }
+    // Per-page-type keyword map (primary + secondaries). Reference only — the
+    // matrix generates pages, so tokens {company}/{state}/{city} stay unresolved.
+    function recKwDownloadMap(){
+        var bar=new Array(73).join('='), rule=new Array(73).join('-');
+        var txt=bar+'\n'+(RECOVERY_NICHE||'RECOVERY').toUpperCase()+' — MATRIX KEYWORD MAP (by page type)\n';
+        txt+='Reference only — the matrix generates pages, not these keywords.\n';
+        txt+='Tokens {company} / {state} / {city} fill in per page.\n'+bar+'\n';
+        for(var i=0;i<RECOVERY_KW.length;i++){
+            var t=RECOVERY_KW[i];
+            txt+='\n'+(i+1)+'.  '+(t.label||'').toUpperCase()+'\n'+rule+'\n';
+            txt+='    primary:    '+(t.primary||'—')+'\n';
+            txt+='    secondary:  '+((t.secondary&&t.secondary.length)?t.secondary.join('; '):'—')+'\n';
+        }
+        recKwSave(txt, (recKwSlug(RECOVERY_NICHE)||'recovery')+'-keyword-map.txt');
+    }
+    // Flat primary/secondary list, one keyword per line, deduped case-insensitively.
+    function recKwDownloadPriSec(){
+        var prims=[], secs=[], seen={};
+        for(var i=0;i<RECOVERY_KW.length;i++){
+            var t=RECOVERY_KW[i];
+            if(t.primary){ var pk='p:'+t.primary.toLowerCase(); if(!seen[pk]){ seen[pk]=1; prims.push(t.primary); } }
+            var sl=t.secondary||[];
+            for(var j=0;j<sl.length;j++){
+                var s=(sl[j]||'').trim(); if(!s) continue;
+                var sk='s:'+s.toLowerCase(); if(seen[sk]) continue; seen[sk]=1; secs.push(s);
+            }
+        }
+        var bar=new Array(73).join('='), rule=new Array(73).join('-');
+        var txt=bar+'\n'+(RECOVERY_NICHE||'RECOVERY').toUpperCase()+' — PRIMARY / SECONDARY KEYWORDS\n'+bar+'\n';
+        txt+='\nPRIMARY KEYWORDS ('+prims.length+')\n'+rule+'\n'+(prims.length?prims.join('\n')+'\n':'  (none)\n');
+        txt+='\nSECONDARY KEYWORDS ('+secs.length+', deduped)\n'+rule+'\n'+(secs.length?secs.join('\n')+'\n':'  (none)\n');
+        recKwSave(txt, (recKwSlug(RECOVERY_NICHE)||'recovery')+'-pri-sec-keywords.txt');
+    }
+  </script>
 
   <!-- ── 1. Page templates (map each type → a template) ───────────────────── -->
   <div class="card" style="margin-bottom:16px;">
