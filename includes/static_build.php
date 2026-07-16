@@ -141,6 +141,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
     $slug            = '';
 
     ob_start();
+    unset($bcItems, $bcSchemaItems);   // reset per-page (static build renders all pages in one process)
     require BASE_DIR . '/includes/site-template.php';
     $html = ob_get_clean();
     gen_write($outputBase . 'index.html', $html);
@@ -168,6 +169,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
         $_SERVER['REQUEST_URI'] = '/' . $pageSlug;
 
         ob_start();
+        unset($bcItems, $bcSchemaItems);   // reset per-page (static build renders all pages in one process)
         require BASE_DIR . '/includes/site-template.php';
         $html = ob_get_clean();
 
@@ -207,6 +209,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
             $_SERVER['REQUEST_URI'] = '/' . $citySlug;
 
             ob_start();
+            unset($bcItems, $bcSchemaItems);   // reset per-page (static build renders all pages in one process)
             require BASE_DIR . '/includes/site-template.php';
             $html = ob_get_clean();
 
@@ -295,6 +298,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
             $_SERVER['REQUEST_URI'] = '/blog';
 
             ob_start();
+            unset($bcItems, $bcSchemaItems);   // reset per-page (static build renders all pages in one process)
             require BASE_DIR . '/includes/site-template.php';
             $html = ob_get_clean();
 
@@ -341,6 +345,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
             $_SERVER['REQUEST_URI'] = '/blog/' . $postSlug;
 
             ob_start();
+            unset($bcItems, $bcSchemaItems);   // reset per-page (static build renders all pages in one process)
             require BASE_DIR . '/includes/site-template.php';
             $html = ob_get_clean();
 
@@ -374,6 +379,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
     $_SERVER['REQUEST_URI'] = '/404';
 
     ob_start();
+    unset($bcItems, $bcSchemaItems);   // reset per-page (static build renders all pages in one process)
     require BASE_DIR . '/includes/site-template.php';
     $html = ob_get_clean();
     gen_write($outputBase . '404.html', $html);
