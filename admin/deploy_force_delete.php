@@ -43,11 +43,24 @@ if ($passive) ftp_pasv($conn, true);
 
 fdel_sse("Connected to $host");
 
+// ── Enter the target dir so all operations use paths RELATIVE to it ───────────
+// On chrooted FTP servers (e.g. Hostinger Pure-FTPd) the login home already IS
+// the configured path, so passing absolute "/public_html/..." to DELE/RMD/CWD
+// yields "550 No such file or directory" even though LIST tolerates it. We chdir
+// once and then recurse using bare/relative names, which the server accepts.
+if (!@ftp_chdir($conn, $path)) {
+    ftp_close($conn);
+    fdel_sse("Could not change to remote path '$path'. Check FTP Remote Path setting.", 'fatal');
+    exit;
+}
+$path = rtrim(@ftp_pwd($conn) ?: $path, '/') ?: '/';
+fdel_sse("Working directory: $path");
+
 // ── Diagnose the raw listing format ──────────────────────────────────────────
-$testRaw = @ftp_rawlist($conn, $path);
+$testRaw = @ftp_rawlist($conn, '.');
 if (!is_array($testRaw) || count($testRaw) === 0) {
     ftp_close($conn);
-    fdel_sse("Remote path '$path' returned no listing. Check FTP Remote Path setting.", 'fatal');
+    fdel_sse("Remote path '$path' returned no listing (it may already be empty). Nothing to delete.", 'fatal');
     exit;
 }
 // Show first 3 lines so format is visible in the log
@@ -79,34 +92,48 @@ function fdel_parse_entry(string $item): ?array {
 $deleted = 0;
 $failed  = 0;
 
-function fdel_recurse($conn, string $dir, string $base, int &$deleted, int &$failed): void {
-    $raw = @ftp_rawlist($conn, $dir);
+// Recurses the current working directory. All DELE/RMD/CWD calls use bare
+// (relative) names so they resolve correctly on chrooted FTP servers.
+function fdel_recurse($conn, int &$deleted, int &$failed): void {
+    $raw = @ftp_rawlist($conn, '.');
     if (!is_array($raw)) return;
 
+    // Collect entries first — deleting while iterating the live listing is fine,
+    // but buffering keeps the loop stable across recursion.
+    $entries = [];
     foreach ($raw as $item) {
         $e = fdel_parse_entry($item);
         if (!$e) continue;
+        if ($e['name'] === '.' || $e['name'] === '..') continue;
+        $entries[] = $e;
+    }
+
+    foreach ($entries as $e) {
         $name = $e['name'];
-        if ($name === '.' || $name === '..') continue;
-        $full = rtrim($dir, '/') . '/' . $name;
 
         if ($e['type'] === 'd') {
-            fdel_recurse($conn, $full, $base, $deleted, $failed);
-            @ftp_rmdir($conn, $full);
+            if (@ftp_chdir($conn, $name)) {
+                fdel_recurse($conn, $deleted, $failed);
+                @ftp_chdir($conn, '..');
+                @ftp_rmdir($conn, $name);
+            } else {
+                $failed++;
+                fdel_sse("Failed to enter dir: " . (@ftp_pwd($conn) ?: '') . "/$name", 'warn');
+            }
         } else {
-            if (@ftp_delete($conn, $full)) {
+            if (@ftp_delete($conn, $name)) {
                 $deleted++;
                 if ($deleted % 20 === 0) fdel_sse("Deleted $deleted files…");
             } else {
                 $failed++;
-                fdel_sse("Failed: $full", 'warn');
+                fdel_sse("Failed: " . (@ftp_pwd($conn) ?: '') . "/$name", 'warn');
             }
         }
     }
 }
 
 fdel_sse("Deleting all files under $path …", 'warn');
-fdel_recurse($conn, $path, $path, $deleted, $failed);
+fdel_recurse($conn, $deleted, $failed);
 
 // Clear local manifest so next push re-uploads everything
 $manifestFile = ACTIVE_SITE_DIR . '/deploy_manifest.json';

@@ -171,6 +171,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a href="#data-flow">Data flow</a>
         <a href="#routing">URL routing</a>
         <a href="#file-structure">File structure</a>
+        <a href="#image-handling">Image handling</a>
 
         
     </nav>
@@ -568,6 +569,61 @@ tr:nth-child(even) td { background: #f8fafc; }
 ├── router.php           Local dev URL router
 ├── generate.py          AI generation script
 └── ai_block_types.json  AI block type registry</code></pre>
+</section>
+
+<section id="image-handling">
+    <h2>Image handling</h2>
+    <p>The mental model: <strong><code>uploads/</code> holds the file, <code>site.json</code> holds a relative path string that points at it.</strong> No image bytes ever live in the JSON — only references. Those references are turned into real URLs at render time, and copied into the built site at deploy time.</p>
+
+    <h3>1. Upload &amp; validation — <code>save_uploaded_file()</code></h3>
+    <p>Every image entering the system passes through one function in <code>includes/helpers.php</code>:</p>
+    <ul>
+        <li><strong>Size cap:</strong> anything over <strong>8&nbsp;MB</strong> is rejected.</li>
+        <li><strong>Type check:</strong> the real MIME is read with <code>finfo</code> (not the filename) — raster <code>jpeg / png / gif / webp</code> plus <code>svg</code> are allowed; anything else is refused.</li>
+        <li><strong>SVGs are sanitized</strong> via <code>sanitize_svg()</code> — strips <code>&lt;script&gt;</code>, <code>on*</code> handlers and <code>javascript:</code> URIs before saving. GIFs pass through raw (raster, no script risk).</li>
+        <li><strong>Filename</strong> is rewritten as <code>time + random</code> — the original name is never kept, so uploads can't collide or leak the source name.</li>
+        <li><strong>Returns a relative path</strong> like <code>uploads/1720000000_ab12.webp</code>. That string is what gets stored in <code>site.json</code>.</li>
+    </ul>
+
+    <h3>2. Storage — files in <code>uploads/</code>, paths in <code>site.json</code></h3>
+    <ul>
+        <li>The <strong>file</strong> is written to <code>UPLOAD_DIR</code> — for multi-site that's <code>sites/{id}/uploads/</code>.</li>
+        <li>The <strong>path string</strong> (<code>uploads/…</code>) is saved into the block's <code>photo</code> / <code>bg_photo</code> / <code>featured_image</code> field.</li>
+        <li><code>uploads/media/</code> is a pre-populated <strong>media library</strong> (scraped images). Reuse those by assigning their path straight into a JSON field — no re-upload needed. Check dimensions with <code>sips -g pixelWidth -g pixelHeight &lt;file&gt;</code> first.</li>
+    </ul>
+
+    <h3>3. Render — prefix resolution (<code>includes/blocks.php</code>)</h3>
+    <p>Public pages set <code>$assetPathPrefix = '/'</code>, which flows into <code>render_content_block($block, $pathPrefix)</code>. Each image is emitted as <code>&lt;img src="{$pathPrefix}{$photo}" loading="lazy"&gt;</code> → <code>/uploads/filename.webp</code>. Two guards run throughout the renderer:</p>
+    <ul>
+        <li><strong>External URLs are left alone</strong> — a value starting with <code>http</code> or <code>//</code> is used verbatim, never prefixed.</li>
+        <li><strong>Background images</strong> get <code>background-position</code> from <code>get_focal_point()</code>, so hero/banner crops stay centered on the subject.</li>
+    </ul>
+
+    <h3>4. Static build — images baked into <code>output/</code> (<code>includes/static_build.php</code>)</h3>
+    <ul>
+        <li>Every page is rendered to HTML with <code>$assetPathPrefix = '/'</code>.</li>
+        <li><strong>Path flattening:</strong> because stored paths may be <code>sites/{id}/uploads/…</code>, the build rewrites <code>/{UPLOAD_URL}</code> → <code>/uploads/</code> in the HTML so output is domain-flat.</li>
+        <li><strong>Files are copied in:</strong> <code>assets/</code> → <code>output/assets/</code> and <code>UPLOAD_DIR</code> → <code>output/uploads/</code>. The built <code>output/</code> folder is fully self-contained — HTML + CSS + JS + all images.</li>
+    </ul>
+    <div class="callout warn">
+        <p><strong>Session mode vs worker mode.</strong> Building a master site via <code>MULTISITE_SITE_BASE</code> (worker mode) can skip the <code>sites/{id}/uploads → /uploads</code> rewrite → images 404 on deploy. Build in <strong>session mode</strong> (active-site session shim) instead, or force a redeploy after.</p>
+    </div>
+
+    <h3>5. Deploy — images ship like any other file</h3>
+    <p><code>deploy_site()</code> walks all of <code>output/</code> and FTP-uploads it, <strong>incremental by md5 manifest</strong> — only files whose hash differs from <code>deploy_manifest.json</code> are sent. Images are just files in that set.</p>
+    <div class="callout warn">
+        <p><strong>Deleting files off the server?</strong> If you delete via <em>Deploy → DELETE All</em>, it also clears the local manifest, so the next redeploy re-uploads <em>everything</em> (images included). But if you delete manually (hPanel / another FTP client) <strong>without</strong> clearing the manifest, an incremental deploy will wrongly skip those files — use a <strong>Force deploy</strong> (<code>deploy_ftp.php?force=1</code>) to re-push everything.</p>
+    </div>
+
+    <h3>Quick reference</h3>
+    <ul>
+        <li>Upload / validate → <code>save_uploaded_file()</code> (<code>includes/helpers.php</code>)</li>
+        <li>Field UI helper → <code>render_photo_upload_fields()</code></li>
+        <li>Render prefix → <code>render_content_block($block, $pathPrefix)</code> (<code>includes/blocks.php</code>)</li>
+        <li>Focal point → <code>get_focal_point()</code></li>
+        <li>Bake + flatten + copy → <code>build_static_site()</code> (<code>includes/static_build.php</code>)</li>
+        <li>Upload to host → <code>deploy_site()</code> (<code>includes/multisite/deploy.php</code>)</li>
+    </ul>
 </section>
 
 </div><!-- /#doc-concepts -->
