@@ -746,6 +746,29 @@ tr:nth-child(even) td { background: #f8fafc; }
     </div>
 </section>
 
+<section id="home-great-seo">
+    <h2>Building a GREAT-SEO homepage</h2>
+    <p>The homepage is the <strong>top of the cluster</strong> — it links <em>down</em> to every core hub. It lives in <code>site.json['content_blocks']</code> (ROOT, not the <code>pages</code> dict) and its SEO is the root <code>seo{}</code> object. AI is filled by <code>generate.py --page homepage</code> (<code>process_homepage</code>). It's the national counterpart to a <a href="#core-great-seo">core hub</a>, just broader — so it reuses the same <code>national_*</code> archetypes.</p>
+
+    <p><strong>Primary keyword = the cluster parent, not a service.</strong> Pick the broadest head term the whole site is about (e.g. <code>PMP Certification</code>). Check it in Ahrefs: the <em>Parent Topic</em> column tells you which keywords share one SERP — if most of your secondaries roll up to the primary's parent, the homepage ranks them automatically as authority grows, so you don't spend a page on each. Don't lead the title with a same-parent variant that's higher-competition for no extra reach.</p>
+
+    <p><strong>Set these root <code>seo</code> fields BEFORE generating</strong> (they drive the AI + the deployed <code>&lt;title&gt;</code>): <code>service_name</code> = the head term (this becomes <code>{service}</code> in every archetype prompt), <code>seo_title</code> (static build uses this, not the internal <code>title</code>), <code>meta_description</code> / <code>og_*</code>. Also update the home entry's primary + secondary on the <strong>Keywords</strong> tab.</p>
+
+    <p><strong>Block plan (breadth + brand + authority, not single-service depth):</strong> hero[<code>national_hero_subtext</code>] · <code>national_intro</code> · differentiators (keep strong static <code>feature_columns</code> if it already carries real claims — don't replace it with generic <code>national_features</code>) · stats(real) · <strong>hub-links block</strong> (cards/links_grid → ALL core hubs, keyword anchors) · pricing_cards · <code>national_value</code> · stage_cards · testimonials(real) · email capture · faq_two_col[<code>national_faq</code>, expand to ~12–15, dedupe] · closing CTA. Keep secondaries FAQ-only; keep the body focused on the primary.</p>
+
+    <div class="callout warn">
+        <p><strong>Gotcha — an inserted <code>ai_block</code> needs the full registry scaffold or it renders NOTHING.</strong> <code>render_content_block()</code>'s <code>ai_block</code> case only renders when the block has <code>_ai_generated</code> AND <code>ai_render_as</code> (blocks.php ~1875). A minimal <code>{type:"ai_block", ai_type_id:"…"}</code> generates its content fine but shows blank on the page. Fix: merge the registry fields into the block — <code>ai_mode, ai_render_as, ai_model, ai_inject_target, ai_inject_field, ai_inject_mode</code> (from <code>ai_block_types.json</code>).</p>
+    </div>
+
+    <div class="callout">
+        <p><strong>Gotcha — <code>generate.py --page homepage</code> re-bakes <code>city_spotlight</code> into all city pages</strong> (a Pass-A side effect) even though you only touched the homepage. After the run, restore the collateral: <code>git checkout -- sites/{id}/data/pages/ sites/{id}/meta.json sites/{id}/data/generation_log.json</code>, and <code>chown -R www-data sites/{id}/data</code> (the CLI runs as root).</p>
+    </div>
+
+    <p><strong>Same soften-to-factual pass as the hubs</strong> — and specifically check the homepage <code>seo.schema</code> and <code>seo.global_schema_blocks</code> for a fabricated <code>aggregateRating</code> (star rating / review count); strip it. Keep real claims (PMI Premier ATP, 90-day guarantee, contact hours) only if verified with the client.</p>
+
+    <p><strong>Deploy:</strong> session-mode build + forced FTP (see <a href="#dev-ftp">Headless CLI deploy</a> under DevEnv, or the <a href="#template-great-seo">landing process</a>) so upload paths flatten to <code>/uploads/</code> and every page's footer/nav refreshes.</p>
+</section>
+
 <section id="tab-blog">
     <h2>Tab: Blog</h2>
     <p>Manages blog posts. Each post uses the same block system as landing pages and also has post-specific metadata: title, slug, status, date, author, tags, featured image, and excerpt.</p>
@@ -3528,6 +3551,23 @@ require __DIR__ . '/index.php';</code></pre>
     <div class="callout warn">
         <p>Both <code>deploy.json</code> (contains FTP credentials) and <code>deploy_manifest.json</code> are blocked from web access by <code>.htaccess</code>. Keep that rule intact.</p>
     </div>
+
+    <h3>Headless CLI deploy (session-mode) — for the CLI agent</h3>
+    <p>The admin build/deploy endpoints derive the active site from <code>$_SESSION['active_site']</code> and require an admin session, so from the shell you drive them with a tiny <strong>session-mode shim</strong>. This is the pattern that build + force-deploys a single site correctly (upload paths flatten to <code>/uploads/</code>; worker-mode via <code>MULTISITE_SITE_BASE</code> would skip that rewrite and 404 the images):</p>
+    <pre><code>&lt;?php // _deploy_cli.php at webroot — delete after use
+define('STATIC_BUILD', true);
+session_start();
+$_SESSION['admin_logged_in'] = true;
+$_SESSION['active_site']      = 'SITE_ID';
+session_write_close();
+require_once __DIR__.'/config.php';
+require_once __DIR__.'/includes/functions.php';
+require_once __DIR__.'/includes/multisite/deploy.php';
+$cfg = json_decode(file_get_contents(ACTIVE_SITE_DIR.'/deploy.json'), true);
+$out = BASE_DIR.'/output/'.ACTIVE_SITE_ID.'/';
+build_static_site($out, rtrim($cfg['canonical_domain'],'/'), $cfg['web3forms_key'] ?? '');
+deploy_site($cfg, $out, ACTIVE_SITE_DIR.'/deploy_manifest.json', true); // true = force</code></pre>
+    <p>Run it as the admin user so output stays writable by the panel: <code>sudo -u www-data php _deploy_cli.php</code>, then delete the shim. Pass <code>true</code> as the last arg to <code>deploy_site</code> for a <strong>forced</strong> re-upload (incremental sync can skip assets the old manifest already lists → stale/unstyled pages). After a content change touching every page (footer/nav/schema), always force.</p>
 </section>
 
 <section id="dev-audit">
