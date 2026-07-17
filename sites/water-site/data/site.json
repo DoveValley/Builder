@@ -47,6 +47,7 @@
         }
     },
     "header": {
+        "site_name": "{business}",
         "logo": "uploads/logo_elk-restoration-pros.png",
         "phone": "{phone}",
         "city": "{city_state}",
@@ -115,7 +116,7 @@
             "_ai_generated_at": "2026-07-12T00:34:41.910303Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "hero_subtext",
-            "_ai_locked": true,
+            "_ai_locked": false,
             "_ai_input_hash": "55da8076bd6bbe52"
         },
         {
@@ -133,7 +134,7 @@
             "_ai_generated_at": "2026-07-12T00:34:51.027571Z",
             "_ai_model": "claude-sonnet-5",
             "_ai_type": "city_intro",
-            "_ai_locked": true,
+            "_ai_locked": false,
             "_ai_input_hash": "0164767552de5788"
         },
         {
@@ -427,7 +428,7 @@
             "_ai_generated_at": "2026-07-12T00:35:00.861417Z",
             "_ai_model": "claude-sonnet-5",
             "_ai_type": "seasonal_calendar",
-            "_ai_locked": true,
+            "_ai_locked": false,
             "_ai_input_hash": "ca48caabf640cebd"
         },
         {
@@ -471,7 +472,7 @@
             "_ai_generated_at": "2026-07-12T01:03:53.788410Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "faq_local",
-            "_ai_locked": true,
+            "_ai_locked": false,
             "_ai_input_hash": "932cd600fd442878"
         },
         {
@@ -489,7 +490,7 @@
             "_ai_generated_at": "2026-07-12T00:35:13.412809Z",
             "_ai_model": "claude-sonnet-5",
             "_ai_type": "local_relevance",
-            "_ai_locked": true,
+            "_ai_locked": false,
             "_ai_input_hash": "ccda5a5710888edd"
         },
         {
@@ -935,7 +936,7 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "text": "K. Governing Law\n<p>These Terms are governed by the laws of the State of Texas, without regard to conflict-of-law rules that would apply the law of any other jurisdiction.</p>",
+                    "text": "K. Governing Law\n<p>These Terms are governed by the laws of the State of {state}, without regard to conflict-of-law rules that would apply the law of any other jurisdiction.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
