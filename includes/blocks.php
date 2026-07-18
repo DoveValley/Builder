@@ -1221,21 +1221,9 @@ function render_content_block($block, $pathPrefix = '') {
             $heading    = $block['steps_heading'] ?? '';
             $stHeadTag  = in_array($block['steps_heading_level'] ?? '', ['h2','h3','h4']) ? $block['steps_heading_level'] : 'h2';
             $items   = $block['steps_items']   ?? [];
-            // HowTo schema
-            if ($heading && !empty($items)) {
-                $howToSteps = [];
-                foreach ($items as $n => $step) {
-                    $sHead = trim($step['heading'] ?? '');
-                    $sText = trim($step['text']    ?? '');
-                    if ($sHead || $sText) {
-                        $howToSteps[] = ['@type' => 'HowToStep', 'name' => $sHead, 'text' => $sText, 'position' => $n + 1];
-                    }
-                }
-                if ($howToSteps) {
-                    $howTo = ['@context' => 'https://schema.org', '@type' => 'HowTo', 'name' => resolve_shortcodes($heading), 'step' => $howToSteps];
-                    echo '<script type="application/ld+json">' . json_encode($howTo, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) . '</script>' . "\n";
-                }
-            }
+            // NOTE: HowTo JSON-LD used to be emitted here, but Google deprecated HowTo
+            // rich results (2023) — the markup produced no SERP feature, so it was removed
+            // to keep output lean. The visible steps UI below is unaffected.
             echo '<div class="content-block block-steps"' . $anchorAttr . '>';
             if ($heading) echo '<'.$stHeadTag.' class="section-heading">' . h($heading) . '</'.$stHeadTag.'>';
             echo '<div class="steps-grid">';
