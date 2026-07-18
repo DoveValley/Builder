@@ -106,6 +106,11 @@ function recovery_render_route(array $m, array $data, string $path = ''): array 
     $payload['seo'] = is_array($payload['seo'] ?? null) ? $payload['seo'] : [];
     if (trim($path, '/') !== '') {
         $payload['seo']['canonical_url'] = '{website}/' . trim($path, '/') . '/';
+        // Stamp the per-URL page identity into the JSON-LD (MedicalWebPage @id/url). The
+        // template ships a __CANONICAL__ placeholder because it's shared across many URLs.
+        if (!empty($payload['seo']['schema'])) {
+            $payload['seo']['schema'] = str_replace('__CANONICAL__', $payload['seo']['canonical_url'], $payload['seo']['schema']);
+        }
     }
 
     // Breadcrumbs (Home › State › City › Carrier) — matches the nested URL; drives the
@@ -369,7 +374,7 @@ function recovery_facilities_block(array $m): ?array {
     );
     $schema = $ld !== false ? '<script type="application/ld+json">' . $ld . '</script>' : '';
 
-    $html = '<div class="rd-listings">' . $css
+    $html = '<div class="rd-listings" id="featured-rehabs">' . $css
         . '<h2 style="text-align:center;font-size:1.6rem;margin:0 0 8px;color:#0e2a45;">' . $heading . '</h2>'
         . '<p style="text-align:center;color:#64748b;max-width:740px;margin:0 auto 24px;font-size:.9rem;">' . $note . '</p>'
         . $cards . $schema . '</div>';

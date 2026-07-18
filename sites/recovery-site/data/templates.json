@@ -1,822 +1,829 @@
 [
-  {
-    "id": "rec_hub",
-    "base": false,
-    "title": "Treatment Centers that Accept Health Insurance",
-    "slug_pattern": "/insurance/",
-    "page_type": "recovery_hub",
-    "service": "Addiction Treatment",
-    "generation_steps": [],
-    "base_role": "",
-    "content_blocks": [
-      {
-        "type": "custom_html",
-        "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Treatment Centers that Accept Health Insurance</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>{business} helps you find drug and alcohol rehabs and treatment centers that accept your health insurance. Tell us your plan and we connect you with covered options — free, confidential, no obligation.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab — {phone}</a></div></div></div>"
-      },
-      {
-        "type": "feature_columns",
-        "fc_heading": "Finding a Rehab That Takes Your Insurance",
-        "fc_subheading": "Most health plans cover treatment. We help you find centers that accept yours.",
-        "fc_heading_level": "h2",
-        "fc_num_cols": 3,
-        "fc_bg_color": "#ffffff",
-        "columns": [
-          {
-            "icon": "",
-            "image": "",
-            "alt": "Rehabs and treatment centers that accept health insurance",
-            "heading": "Covered Options",
-            "text": "Detox, inpatient, and outpatient rehab are commonly covered. We help you find centers that accept your plan."
-          },
-          {
-            "icon": "",
-            "image": "",
-            "alt": "Treatment centers accepting major insurance carriers",
-            "heading": "Any Major Insurer",
-            "text": "Aetna, Cigna, UnitedHealthcare, Blue Cross Blue Shield and more — we match you with rehabs that take your plan."
-          },
-          {
-            "icon": "",
-            "image": "",
-            "alt": "Free confidential rehab insurance check",
-            "heading": "Free & Confidential",
-            "text": "Checking your options costs nothing and carries no obligation to enter treatment."
-          }
+    {
+        "id": "rec_hub",
+        "base": false,
+        "title": "Rehabs That Accept Insurance",
+        "slug_pattern": "/insurance/",
+        "page_type": "recovery_hub",
+        "service": "Addiction Treatment",
+        "generation_steps": [],
+        "base_role": "",
+        "content_blocks": [
+            {
+                "type": "custom_html",
+                "anchor": "hub-hero",
+                "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:84px 0;\"><div style=\"max-width:920px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);border-radius:30px;padding:7px 18px;font-size:.78rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:22px;\">Free &amp; Confidential Coverage Check</div><h1 style=\"font-size:2.7rem;line-height:1.12;margin:0 0 18px;color:#fff;font-weight:800;\">Find Rehabs That Accept Insurance</h1><div style=\"font-size:1.18rem;line-height:1.65;opacity:.96;max-width:730px;margin:0 auto 30px;\"><p style=\"margin:0;\">{business} helps you find drug and alcohol rehabs and treatment centers that accept your health insurance &mdash; detox, inpatient, and outpatient. Tell us your plan and we&rsquo;ll connect you with covered care. No cost, no obligation.</p></div><div style=\"display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-bottom:28px;\"><a href=\"/contact-us/\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:800;padding:16px 32px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Verify My Coverage</a><a href=\"#featured-rehabs\" style=\"display:inline-block;background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7);font-weight:700;padding:14px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Browse Rehabs &rarr;</a></div><div style=\"display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;font-size:.95rem;font-weight:600;opacity:.95;\"><span>&#10003; Most major insurers</span><span>&#10003; 100% confidential</span><span>&#10003; No referral fees</span></div></div></div></div>"
+            },
+            {
+                "type": "custom_html",
+                "anchor": "hub-intro",
+                "ai_fill": "intro",
+                "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#f6f9fb;padding:58px 0;border-bottom:1px solid #e5edf2;\"><div style=\"max-width:940px;margin:0 auto;padding:0 24px;\"><h2 style=\"font-size:2rem;font-weight:800;color:#0e2a45;margin:0 0 18px;line-height:1.18;text-align:center;\">How to Find a Rehab That Accepts Your Insurance</h2><div style=\"font-size:1.06rem;line-height:1.75;color:#475569;\"><p style=\"margin:0 0 16px;\">Most major health plans cover medically necessary addiction and mental-health treatment under their behavioral-health benefits &mdash; often including medical detox, residential and inpatient care, partial hospitalization (PHP), and intensive outpatient (IOP) programs. What&rsquo;s covered, and how much you pay out of pocket, depends on your specific plan. {business} helps you cut through the paperwork: tell us your insurer and we&rsquo;ll help you understand your benefits and match you with rehabs that accept your coverage.</p><p style=\"margin:0;\">Verifying your coverage is free and confidential, with no obligation to enter treatment. Start by choosing the carrier you&rsquo;re insured under below.</p></div><div style=\"margin-top:32px;\"><p style=\"text-align:center;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0e7490;margin:0 0 16px;\">Rehabs by Insurance Carrier</p><div style=\"display:flex;flex-wrap:wrap;gap:10px;justify-content:center;\"><a href=\"/insurance/aetna/\" style=\"display:inline-block;background:#fff;border:1px solid #cfe0e6;color:#0e7490;font-weight:700;font-size:.95rem;padding:9px 18px;border-radius:24px;text-decoration:none;\">Aetna</a><a href=\"/insurance/cigna/\" style=\"display:inline-block;background:#fff;border:1px solid #cfe0e6;color:#0e7490;font-weight:700;font-size:.95rem;padding:9px 18px;border-radius:24px;text-decoration:none;\">Cigna</a><a href=\"/insurance/bluecross-blueshield/\" style=\"display:inline-block;background:#fff;border:1px solid #cfe0e6;color:#0e7490;font-weight:700;font-size:.95rem;padding:9px 18px;border-radius:24px;text-decoration:none;\">BlueCross BlueShield</a><a href=\"/insurance/united-healthcare/\" style=\"display:inline-block;background:#fff;border:1px solid #cfe0e6;color:#0e7490;font-weight:700;font-size:.95rem;padding:9px 18px;border-radius:24px;text-decoration:none;\">UnitedHealthcare</a><a href=\"/insurance/humana/\" style=\"display:inline-block;background:#fff;border:1px solid #cfe0e6;color:#0e7490;font-weight:700;font-size:.95rem;padding:9px 18px;border-radius:24px;text-decoration:none;\">Humana</a><a href=\"/insurance/kaiser-permanente/\" style=\"display:inline-block;background:#fff;border:1px solid #cfe0e6;color:#0e7490;font-weight:700;font-size:.95rem;padding:9px 18px;border-radius:24px;text-decoration:none;\">Kaiser Permanente</a><a href=\"/insurance/medicaid/\" style=\"display:inline-block;background:#fff;border:1px solid #cfe0e6;color:#0e7490;font-weight:700;font-size:.95rem;padding:9px 18px;border-radius:24px;text-decoration:none;\">Medicaid</a><a href=\"/insurance/medicare/\" style=\"display:inline-block;background:#fff;border:1px solid #cfe0e6;color:#0e7490;font-weight:700;font-size:.95rem;padding:9px 18px;border-radius:24px;text-decoration:none;\">Medicare</a><a href=\"/insurance/tricare/\" style=\"display:inline-block;background:#fff;border:1px solid #cfe0e6;color:#0e7490;font-weight:700;font-size:.95rem;padding:9px 18px;border-radius:24px;text-decoration:none;\">Tricare</a></div></div></div></div></div>"
+            },
+            {
+                "type": "feature_columns",
+                "fc_heading": "Finding a Rehab That Takes Your Insurance",
+                "fc_subheading": "Most health plans cover treatment. We help you find centers that accept yours.",
+                "fc_heading_level": "h2",
+                "fc_num_cols": 3,
+                "fc_bg_color": "#ffffff",
+                "columns": [
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "Rehabs and treatment centers that accept health insurance",
+                        "heading": "Covered Options",
+                        "text": "Detox, inpatient, and outpatient rehab are commonly covered. We help you find centers that accept your plan."
+                    },
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "Treatment centers accepting major insurance carriers",
+                        "heading": "Any Major Insurer",
+                        "text": "Aetna, Cigna, UnitedHealthcare, Blue Cross Blue Shield and more — we match you with rehabs that take your plan."
+                    },
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "Free confidential rehab insurance check",
+                        "heading": "Free & Confidential",
+                        "text": "Checking your options costs nothing and carries no obligation to enter treatment."
+                    }
+                ],
+                "ai_fill": "features"
+            },
+            {
+                "type": "steps",
+                "steps_heading": "How We Match You With a Rehab That Takes Your Insurance",
+                "steps_items": [
+                    {
+                        "image": "",
+                        "alt": "Free insurance check for rehab",
+                        "heading": "Call for a Free Check",
+                        "text": "Share your insurance details. No cost, no obligation."
+                    },
+                    {
+                        "image": "",
+                        "alt": "Verify insurance for treatment",
+                        "heading": "We Verify Your Insurance",
+                        "text": "We confirm what your plan covers and which centers accept it."
+                    },
+                    {
+                        "image": "",
+                        "alt": "Get matched with covered rehabs",
+                        "heading": "Connect With Covered Rehabs",
+                        "text": "We connect you with treatment centers that accept your insurance."
+                    }
+                ]
+            },
+            {
+                "type": "faq_two_col",
+                "fq_heading": "Rehabs & Insurance — FAQs",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#f1f5f9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_items": [
+                    {
+                        "question": "Which treatment centers accept health insurance?",
+                        "answer": "Many drug and alcohol rehabs accept major insurance. The centers available to you depend on your specific plan — {business} can check your options for free."
+                    },
+                    {
+                        "question": "Does insurance cover drug and alcohol rehab?",
+                        "answer": "Most plans cover at least part of addiction treatment because of federal parity and ACA rules. Exact benefits depend on your plan."
+                    },
+                    {
+                        "question": "How do I find a rehab that takes my insurance?",
+                        "answer": "Start with a free benefits check. {business} confirms your coverage and connects you with treatment centers that accept it."
+                    },
+                    {
+                        "question": "Is this free and confidential?",
+                        "answer": "Yes. It is free, private, and there is no obligation to enter treatment."
+                    }
+                ],
+                "ai_fill": "faq"
+            },
+            {
+                "type": "cta_banner",
+                "anchor": "closing_cta",
+                "cb_text": "Find a treatment center that accepts your insurance.",
+                "cb_subtext": "",
+                "cb_btn_text": "Find a Covered Rehab",
+                "cb_btn_url": "#featured-rehabs",
+                "cb_bg": "header",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "normal"
+            }
         ],
-        "ai_fill": "features"
-      },
-      {
-        "type": "steps",
-        "steps_heading": "How We Match You With a Rehab That Takes Your Insurance",
-        "steps_items": [
-          {
-            "image": "",
-            "alt": "Free insurance check for rehab",
-            "heading": "Call for a Free Check",
-            "text": "Share your insurance details. No cost, no obligation."
-          },
-          {
-            "image": "",
-            "alt": "Verify insurance for treatment",
-            "heading": "We Verify Your Insurance",
-            "text": "We confirm what your plan covers and which centers accept it."
-          },
-          {
-            "image": "",
-            "alt": "Get matched with covered rehabs",
-            "heading": "Connect With Covered Rehabs",
-            "text": "We connect you with treatment centers that accept your insurance."
-          }
-        ]
-      },
-      {
-        "type": "faq_two_col",
-        "fq_heading": "Rehabs & Insurance — FAQs",
-        "fq_bg_color": "#ffffff",
-        "fq_item_bg": "#f1f5f9",
-        "fq_head_color": "header",
-        "fq_icon_bg": "accent",
-        "fq_items": [
-          {
-            "question": "Which treatment centers accept health insurance?",
-            "answer": "Many drug and alcohol rehabs accept major insurance. The centers available to you depend on your specific plan — {business} can check your options for free."
-          },
-          {
-            "question": "Does insurance cover drug and alcohol rehab?",
-            "answer": "Most plans cover at least part of addiction treatment because of federal parity and ACA rules. Exact benefits depend on your plan."
-          },
-          {
-            "question": "How do I find a rehab that takes my insurance?",
-            "answer": "Start with a free benefits check. {business} confirms your coverage and connects you with treatment centers that accept it."
-          },
-          {
-            "question": "Is this free and confidential?",
-            "answer": "Yes. It is free, private, and there is no obligation to enter treatment."
-          }
+        "seo": {
+            "seo_title": "Rehabs That Accept Insurance | {business}",
+            "meta_description": "Find rehabs and treatment centers that accept your insurance. {business} verifies your benefits free and matches you with covered detox, inpatient & outpatient care.",
+            "canonical_url": "",
+            "schema": "{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"Organization\", \"@id\": \"{website}/#organization\", \"name\": \"{business}\", \"url\": \"{website}\", \"description\": \"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\", \"logo\": \"{website}/uploads/logo-recovery-dawn.svg\", \"areaServed\": \"US\"}, {\"@type\": \"WebSite\", \"@id\": \"{website}/#website\", \"url\": \"{website}\", \"name\": \"{business}\", \"publisher\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}, {\"@type\": \"MedicalWebPage\", \"@id\": \"__CANONICAL__#webpage\", \"url\": \"__CANONICAL__\", \"name\": \"Rehabs That Accept Insurance | {business}\", \"description\": \"Find drug & alcohol rehabs and treatment centers that accept your health insurance. {business} matches you with covered options — free & confidential.\", \"isPartOf\": {\"@id\": \"{website}/#website\"}, \"about\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\", \"medicalAudience\": {\"@type\": \"MedicalAudience\", \"audienceType\": \"Patient\"}}]}"
+        }
+    },
+    {
+        "id": "rec_company_national",
+        "base": false,
+        "title": "Best Rehabs Accepting {company}",
+        "slug_pattern": "/insurance/{company}",
+        "page_type": "recovery_company",
+        "service": "Addiction Treatment",
+        "generation_steps": [],
+        "base_role": "",
+        "content_blocks": [
+            {
+                "type": "custom_html",
+                "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;font-weight:700;letter-spacing:.03em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:18px;font-size:15px;\">{company}™</div><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Best Rehabs Accepting {company}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Looking for a rehab that takes {company}? {business} helps you find drug and alcohol treatment centers that accept {company} — detox, inpatient, and outpatient. Free, confidential, no obligation.</p></div><a href=\"#featured-rehabs\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab</a></div></div></div>"
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "Rehabs That Accept {company}",
+                "text": "<p>{business} helps you find drug and alcohol rehabs that accept {company}. We verify your benefits for free and connect you with covered treatment — confidential, no obligation.</p>",
+                "ai_fill": "intro",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
+            },
+            {
+                "type": "feature_columns",
+                "fc_heading": "What Rehabs Accepting {company} Offer",
+                "fc_subheading": "Coverage depends on your {company} plan. Centers that accept {company} commonly provide:",
+                "fc_heading_level": "h2",
+                "fc_num_cols": 4,
+                "fc_bg_color": "#ffffff",
+                "columns": [
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "{company} detox rehab",
+                        "heading": "Medical Detox",
+                        "text": "Supervised detox is commonly covered when medically necessary."
+                    },
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "{company} inpatient rehab",
+                        "heading": "Inpatient & Residential",
+                        "text": "Many {company} plans include residential rehab, subject to your plan."
+                    },
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "{company} outpatient rehab",
+                        "heading": "Outpatient (PHP & IOP)",
+                        "text": "Day programs and intensive outpatient are frequently covered."
+                    },
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "{company} MAT and dual diagnosis",
+                        "heading": "MAT & Dual Diagnosis",
+                        "text": "Medication-assisted treatment and mental-health care may be included."
+                    }
+                ],
+                "ai_fill": "features"
+            },
+            {
+                "type": "steps",
+                "steps_heading": "How to Find a Rehab That Takes {company}",
+                "steps_items": [
+                    {
+                        "image": "",
+                        "alt": "Free {company} benefits check",
+                        "heading": "Free {company} Benefits Check",
+                        "text": "Tell us your {company} plan details. No cost, no obligation."
+                    },
+                    {
+                        "image": "",
+                        "alt": "Verify {company} rehab coverage",
+                        "heading": "We Verify Your Coverage",
+                        "text": "We confirm what your {company} plan covers for rehab."
+                    },
+                    {
+                        "image": "",
+                        "alt": "Matched with rehabs accepting {company}",
+                        "heading": "Matched With {company} Rehabs",
+                        "text": "We connect you with treatment centers that accept {company}."
+                    }
+                ]
+            },
+            {
+                "type": "faq_two_col",
+                "fq_heading": "Rehabs That Accept {company} — FAQs",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#f1f5f9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_items": [
+                    {
+                        "question": "What rehabs accept {company}?",
+                        "answer": "Many drug and alcohol rehabs accept {company}. The centers available depend on your specific {company} plan — we can check for free."
+                    },
+                    {
+                        "question": "Does {company} cover drug and alcohol rehab?",
+                        "answer": "In most cases {company} plans include some coverage for addiction treatment. Exact benefits depend on your plan."
+                    },
+                    {
+                        "question": "What treatment does {company} cover?",
+                        "answer": "Depending on your plan, {company} may cover detox, inpatient and residential rehab, PHP, IOP, outpatient care, and medication-assisted treatment."
+                    },
+                    {
+                        "question": "How much will rehab cost with {company}?",
+                        "answer": "Out-of-pocket costs depend on your deductible, copay, and whether the center is in-network. We can help you understand your {company} benefits first."
+                    }
+                ],
+                "ai_fill": "faq"
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "",
+                "text": "Disclaimer: {business} is a free informational and referral service, not a treatment provider or insurance company. {company} is a trademark of its owner, and {business} is not affiliated with or endorsed by {company}. Coverage and admission depend on your plan and the facility — always verify your own benefits. If you are in crisis, call or text 988.",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
+            },
+            {
+                "type": "cta_banner",
+                "anchor": "closing_cta",
+                "cb_text": "Find the best rehabs accepting {company}.",
+                "cb_subtext": "",
+                "cb_btn_text": "Find a Covered Rehab",
+                "cb_btn_url": "#featured-rehabs",
+                "cb_bg": "header",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "normal"
+            }
         ],
-        "ai_fill": "faq"
-      },
-      {
-        "type": "cta_banner",
-        "anchor": "closing_cta",
-        "cb_text": "Find a treatment center that accepts your insurance.",
-        "cb_subtext": "",
-        "cb_btn_text": "Call Now — {phone}",
-        "cb_btn_url": "tel:{tel}",
-        "cb_bg": "header",
-        "cb_text_color": "#ffffff",
-        "cb_padding": "normal"
-      }
-    ],
-    "seo": {
-      "seo_title": "Treatment Centers that Accept Health Insurance | {business}",
-      "meta_description": "Find drug & alcohol rehabs and treatment centers that accept your health insurance. {business} matches you with covered options — free & confidential.",
-      "canonical_url": "",
-      "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"{website}/#organization\",\"name\":\"{business}\",\"url\":\"{website}\",\"description\":\"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\",\"areaServed\":\"US\",\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"{tel}\",\"contactType\":\"customer service\",\"availableLanguage\":\"English\"}},{\"@type\":\"WebPage\",\"name\":\"Treatment Centers that Accept Health Insurance | {business}\",\"description\":\"Find drug & alcohol rehabs and treatment centers that accept your health insurance. {business} matches you with covered options — free & confidential.\",\"isPartOf\":{\"@id\":\"{website}/#website\"},\"publisher\":{\"@id\":\"{website}/#organization\"},\"inLanguage\":\"en-US\"}]}"
+        "seo": {
+            "seo_title": "Best Rehabs Accepting {company} — {company} Drug & Alcohol Rehab | {business}",
+            "meta_description": "Find the best drug & alcohol rehabs that accept {company}. {business} matches you with {company} treatment centers — free & confidential.",
+            "canonical_url": "",
+            "schema": "{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"Organization\", \"@id\": \"{website}/#organization\", \"name\": \"{business}\", \"url\": \"{website}\", \"description\": \"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\", \"logo\": \"{website}/uploads/logo-recovery-dawn.svg\", \"areaServed\": \"US\"}, {\"@type\": \"WebSite\", \"@id\": \"{website}/#website\", \"url\": \"{website}\", \"name\": \"{business}\", \"publisher\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}, {\"@type\": \"MedicalWebPage\", \"@id\": \"__CANONICAL__#webpage\", \"url\": \"__CANONICAL__\", \"name\": \"Best Rehabs Accepting {company} — {company} Drug & Alcohol Rehab | {business}\", \"description\": \"Find the best drug & alcohol rehabs that accept {company}. {business} matches you with {company} treatment centers — free & confidential.\", \"isPartOf\": {\"@id\": \"{website}/#website\"}, \"about\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\", \"medicalAudience\": {\"@type\": \"MedicalAudience\", \"audienceType\": \"Patient\"}}]}"
+        }
+    },
+    {
+        "id": "rec_state",
+        "base": false,
+        "title": "Drug & Alcohol Rehabs in {state}",
+        "slug_pattern": "/{state}",
+        "page_type": "recovery_state",
+        "service": "Addiction Treatment",
+        "generation_steps": [],
+        "base_role": "",
+        "content_blocks": [
+            {
+                "type": "custom_html",
+                "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Drug & Alcohol Rehabs in {state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Searching for drug and alcohol rehabs in {state}? {business} helps {state} residents find treatment centers that accept their insurance — detox, inpatient, and outpatient. Free and confidential.</p></div><a href=\"#featured-rehabs\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab</a></div></div></div>"
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "Rehabs in {state} That Accept Insurance",
+                "text": "<p>{business} helps {state} residents find rehabs that accept their insurance — detox, inpatient, and outpatient — across the state.</p>",
+                "ai_fill": "intro",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
+            },
+            {
+                "type": "feature_columns",
+                "fc_heading": "Rehabs Across {state}",
+                "fc_subheading": "How {business} helps {state} residents find covered treatment.",
+                "fc_heading_level": "h2",
+                "fc_num_cols": 3,
+                "fc_bg_color": "#ffffff",
+                "columns": [
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "Drug and alcohol rehabs across {state}",
+                        "heading": "Options Statewide",
+                        "text": "From detox to outpatient care, we help you find rehabs across {state} that accept your insurance."
+                    },
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "Insurance coverage for rehab in {state}",
+                        "heading": "Coverage Is Protected",
+                        "text": "Most plans in {state} must cover addiction treatment comparably to other medical care."
+                    },
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "Free rehab insurance check in {state}",
+                        "heading": "Free Verification",
+                        "text": "We check your plan so you know your {state} options and costs before you go."
+                    }
+                ],
+                "ai_fill": "features"
+            },
+            {
+                "type": "faq_two_col",
+                "fq_heading": "{state} Rehabs — FAQs",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#f1f5f9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_items": [
+                    {
+                        "question": "How do I find a drug or alcohol rehab in {state} that takes my insurance?",
+                        "answer": "Start with a free benefits check. {business} confirms your coverage and connects you with {state} rehabs that accept it."
+                    },
+                    {
+                        "question": "What types of rehab are available in {state}?",
+                        "answer": "Options can include detox, inpatient and residential rehab, PHP, IOP, outpatient care, and medication-assisted treatment."
+                    },
+                    {
+                        "question": "Which insurers do {state} rehabs accept?",
+                        "answer": "Many {state} centers accept major carriers such as Aetna, Cigna, UnitedHealthcare, and Blue Cross Blue Shield. See the links below."
+                    }
+                ],
+                "ai_fill": "faq"
+            },
+            {
+                "type": "cta_banner",
+                "anchor": "closing_cta",
+                "cb_text": "Find a drug or alcohol rehab in {state} that takes your insurance.",
+                "cb_subtext": "",
+                "cb_btn_text": "Find a Covered Rehab",
+                "cb_btn_url": "#featured-rehabs",
+                "cb_bg": "header",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "normal"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "{state} Area Map",
+                "mi_map_embed": "<iframe title=\"Map of {state}\" src=\"https://maps.google.com/maps?q={state}&z=6&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_info_heading": "Rehabs in {state} That Take Insurance",
+                "mi_info_text": "<p>{business} helps {state} residents find drug and alcohol rehabs that accept their insurance — detox, inpatient, and outpatient — across the state. We verify your benefits for free and connect you with covered treatment. Get a free, confidential coverage check — no obligation.</p>",
+                "mi_info_photo": "",
+                "mi_info_alt": "",
+                "mi_info_credit": "",
+                "mi_head_color": "header",
+                "mi_map_side": "left",
+                "ai_fill": "local"
+            }
+        ],
+        "seo": {
+            "seo_title": "Drug & Alcohol Rehabs in {state} That Take Insurance | {business}",
+            "meta_description": "Find drug & alcohol rehabs in {state} that accept your insurance. {business} matches {state} residents with covered treatment — free & confidential.",
+            "canonical_url": "",
+            "schema": "{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"Organization\", \"@id\": \"{website}/#organization\", \"name\": \"{business}\", \"url\": \"{website}\", \"description\": \"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\", \"logo\": \"{website}/uploads/logo-recovery-dawn.svg\", \"areaServed\": \"US\"}, {\"@type\": \"WebSite\", \"@id\": \"{website}/#website\", \"url\": \"{website}\", \"name\": \"{business}\", \"publisher\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}, {\"@type\": \"MedicalWebPage\", \"@id\": \"__CANONICAL__#webpage\", \"url\": \"__CANONICAL__\", \"name\": \"Drug & Alcohol Rehabs in {state} That Take Insurance | {business}\", \"description\": \"Find drug & alcohol rehabs in {state} that accept your insurance. {business} matches {state} residents with covered treatment — free & confidential.\", \"isPartOf\": {\"@id\": \"{website}/#website\"}, \"about\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\", \"medicalAudience\": {\"@type\": \"MedicalAudience\", \"audienceType\": \"Patient\"}}]}"
+        }
+    },
+    {
+        "id": "rec_city",
+        "base": false,
+        "title": "Drug & Alcohol Rehabs in {city_state}",
+        "slug_pattern": "/{state}/{city}",
+        "page_type": "recovery_city",
+        "service": "Addiction Treatment",
+        "generation_steps": [],
+        "base_role": "",
+        "content_blocks": [
+            {
+                "type": "custom_html",
+                "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Drug & Alcohol Rehabs in {city_state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Searching for drug and alcohol rehabs in {city_state}? {business} helps you find treatment centers near {city} that accept your insurance — detox, inpatient, and outpatient. Free, confidential, no obligation.</p></div><a href=\"#featured-rehabs\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab</a></div></div></div>"
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "Rehabs in {city_state} That Accept Insurance",
+                "text": "<p>{business} helps people in {city_state} find rehabs that accept their insurance, from detox to outpatient care.</p>",
+                "ai_fill": "intro",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
+            },
+            {
+                "type": "feature_columns",
+                "fc_heading": "Rehabs in {city}",
+                "fc_subheading": "How {business} helps you find covered treatment near {city_state}.",
+                "fc_heading_level": "h2",
+                "fc_num_cols": 3,
+                "fc_bg_color": "#ffffff",
+                "columns": [
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "Drug and alcohol rehabs in {city}, {SS}",
+                        "heading": "Local Options",
+                        "text": "We help you find rehabs in and around {city_state} that accept your insurance, from detox to outpatient care."
+                    },
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "Verify insurance for rehab in {city}",
+                        "heading": "Know Your Costs",
+                        "text": "We verify your plan so you understand your {city} options and out-of-pocket costs first."
+                    },
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "Confidential rehab help in {city}",
+                        "heading": "Confidential Help",
+                        "text": "Reaching out is free and private, with no obligation to enter treatment."
+                    }
+                ],
+                "ai_fill": "features"
+            },
+            {
+                "type": "steps",
+                "steps_heading": "How We Match You With a {city} Rehab",
+                "steps_items": [
+                    {
+                        "image": "",
+                        "alt": "Free benefits check for {city} rehab",
+                        "heading": "Free Benefits Check",
+                        "text": "Tell us your insurance. No cost, no obligation."
+                    },
+                    {
+                        "image": "",
+                        "alt": "Verify coverage for {city} treatment",
+                        "heading": "We Verify Coverage",
+                        "text": "We confirm what your plan covers near {city}."
+                    },
+                    {
+                        "image": "",
+                        "alt": "Matched with {city} rehabs",
+                        "heading": "Matched Locally",
+                        "text": "We connect you with {city_state} rehabs that accept your insurance."
+                    }
+                ]
+            },
+            {
+                "type": "faq_two_col",
+                "fq_heading": "{city} Rehabs — FAQs",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#f1f5f9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_items": [
+                    {
+                        "question": "How do I find a rehab in {city} that takes my insurance?",
+                        "answer": "Start with a free benefits check. {business} confirms your coverage and connects you with treatment near {city_state} that accepts it."
+                    },
+                    {
+                        "question": "What rehab options are near {city}?",
+                        "answer": "Options can include detox, inpatient and residential rehab, PHP, IOP, outpatient care, and medication-assisted treatment."
+                    },
+                    {
+                        "question": "Is help finding a {city} rehab confidential?",
+                        "answer": "Yes. It is free, private, and there is no obligation to enter treatment."
+                    }
+                ],
+                "ai_fill": "faq"
+            },
+            {
+                "type": "cta_banner",
+                "anchor": "closing_cta",
+                "cb_text": "Find a drug or alcohol rehab in {city_state} that takes your insurance.",
+                "cb_subtext": "",
+                "cb_btn_text": "Find a Covered Rehab",
+                "cb_btn_url": "#featured-rehabs",
+                "cb_bg": "header",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "normal"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "{city_state} Area Map",
+                "mi_map_embed": "<iframe title=\"Map of {city}, {SS}\" src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_info_heading": "Rehabs in {city_state} That Take Insurance",
+                "mi_info_text": "<p>{business} helps people in {city_state} find drug and alcohol rehabs that accept their health insurance — detox, inpatient, and outpatient. We verify your benefits for free and connect you with covered treatment near {city}. Get a free, confidential coverage check — no obligation.</p>",
+                "mi_info_photo": "{city_image}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_head_color": "header",
+                "mi_map_side": "left",
+                "ai_fill": "local"
+            }
+        ],
+        "seo": {
+            "seo_title": "Drug & Alcohol Rehabs in {city_state} That Take Insurance | {business}",
+            "meta_description": "Find drug & alcohol rehabs in {city_state} that accept your insurance. {business} matches you with covered treatment near {city} — free & confidential.",
+            "canonical_url": "",
+            "schema": "{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"Organization\", \"@id\": \"{website}/#organization\", \"name\": \"{business}\", \"url\": \"{website}\", \"description\": \"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\", \"logo\": \"{website}/uploads/logo-recovery-dawn.svg\", \"areaServed\": \"US\"}, {\"@type\": \"WebSite\", \"@id\": \"{website}/#website\", \"url\": \"{website}\", \"name\": \"{business}\", \"publisher\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}, {\"@type\": \"MedicalWebPage\", \"@id\": \"__CANONICAL__#webpage\", \"url\": \"__CANONICAL__\", \"name\": \"Drug & Alcohol Rehabs in {city_state} That Take Insurance | {business}\", \"description\": \"Find drug & alcohol rehabs in {city_state} that accept your insurance. {business} matches you with covered treatment near {city} — free & confidential.\", \"isPartOf\": {\"@id\": \"{website}/#website\"}, \"about\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\", \"medicalAudience\": {\"@type\": \"MedicalAudience\", \"audienceType\": \"Patient\"}}]}"
+        }
+    },
+    {
+        "id": "rec_state_company",
+        "base": false,
+        "title": "Best Rehabs Accepting {company} in {state}",
+        "slug_pattern": "/{state}/{company}",
+        "page_type": "recovery_state_company",
+        "service": "Addiction Treatment",
+        "generation_steps": [],
+        "base_role": "",
+        "content_blocks": [
+            {
+                "type": "custom_html",
+                "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;font-weight:700;letter-spacing:.03em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:18px;font-size:15px;\">{company}™</div><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Best Rehabs Accepting {company} in {state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Looking for a rehab in {state} that takes {company}? {business} helps {state} residents find treatment centers that accept {company} — detox, inpatient, and outpatient. Free and confidential.</p></div><a href=\"#featured-rehabs\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab</a></div></div></div>"
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "Rehabs in {state} That Accept {company}",
+                "text": "<p>{business} helps you find drug and alcohol rehabs that accept {company}. We verify your benefits for free and connect you with covered treatment — confidential, no obligation.</p>",
+                "ai_fill": "intro",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "Using Your {company} Benefits for Rehab in {state}",
+                "text": "<p>{business} helps {state} residents find rehabs that accept their insurance — detox, inpatient, and outpatient — across the state.</p>",
+                "ai_fill": "intro2",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
+            },
+            {
+                "type": "feature_columns",
+                "fc_heading": "What {company} Covers at {state} Rehabs",
+                "fc_subheading": "Coverage depends on your {company} plan. {state} centers that accept {company} commonly offer:",
+                "fc_heading_level": "h2",
+                "fc_num_cols": 4,
+                "fc_bg_color": "#ffffff",
+                "columns": [
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "{company} detox rehab {state}",
+                        "heading": "Medical Detox",
+                        "text": "Supervised detox is commonly covered when medically necessary."
+                    },
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "{company} inpatient rehab {state}",
+                        "heading": "Inpatient & Residential",
+                        "text": "Many {company} plans in {state} include residential rehab."
+                    },
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "{company} outpatient rehab {state}",
+                        "heading": "Outpatient (PHP & IOP)",
+                        "text": "Day programs and intensive outpatient are frequently covered."
+                    },
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "{company} MAT {state}",
+                        "heading": "MAT & Dual Diagnosis",
+                        "text": "Medication-assisted treatment and mental-health care may be included."
+                    }
+                ],
+                "ai_fill": "features"
+            },
+            {
+                "type": "faq_two_col",
+                "fq_heading": "{company} Rehabs in {state} — FAQs",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#f1f5f9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_items": [
+                    {
+                        "question": "What rehabs in {state} accept {company}?",
+                        "answer": "Many {state} drug and alcohol rehabs accept {company}. The centers available depend on your plan — we can check for free."
+                    },
+                    {
+                        "question": "Does {company} cover rehab in {state}?",
+                        "answer": "In most cases {company} plans in {state} include coverage for addiction treatment. Exact benefits depend on your plan."
+                    },
+                    {
+                        "question": "How do I use my {company} benefits in {state}?",
+                        "answer": "Call for a free benefits check. We confirm your {company} coverage and connect you with {state} rehabs that accept it."
+                    }
+                ],
+                "ai_fill": "faq"
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "",
+                "text": "Disclaimer: {business} is a free informational and referral service, not a treatment provider or insurance company. {company} is a trademark of its owner, and {business} is not affiliated with or endorsed by {company}. Coverage and admission depend on your plan and the facility — always verify your own benefits. If you are in crisis, call or text 988.",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
+            },
+            {
+                "type": "cta_banner",
+                "anchor": "closing_cta",
+                "cb_text": "Find the best rehabs accepting {company} in {state}.",
+                "cb_subtext": "",
+                "cb_btn_text": "Find a Covered Rehab",
+                "cb_btn_url": "#featured-rehabs",
+                "cb_bg": "header",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "normal"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "{state} Area Map",
+                "mi_map_embed": "<iframe title=\"Map of {state}\" src=\"https://maps.google.com/maps?q={state}&z=6&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_info_heading": "{company} Rehabs in {state}",
+                "mi_info_text": "<p>{business} helps {state} residents find drug and alcohol rehabs that accept {company} — detox, inpatient, and outpatient. We verify your {company} benefits for free and connect you with covered treatment across {state}. Get a free, confidential coverage check — no obligation.</p>",
+                "mi_info_photo": "",
+                "mi_info_alt": "",
+                "mi_info_credit": "",
+                "mi_head_color": "header",
+                "mi_map_side": "left",
+                "ai_fill": "local"
+            }
+        ],
+        "seo": {
+            "seo_title": "Best Rehabs Accepting {company} in {state} | {business}",
+            "meta_description": "Find the best drug & alcohol rehabs in {state} that accept {company}. {business} matches {state} residents with {company} treatment — free & confidential.",
+            "canonical_url": "",
+            "schema": "{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"Organization\", \"@id\": \"{website}/#organization\", \"name\": \"{business}\", \"url\": \"{website}\", \"description\": \"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\", \"logo\": \"{website}/uploads/logo-recovery-dawn.svg\", \"areaServed\": \"US\"}, {\"@type\": \"WebSite\", \"@id\": \"{website}/#website\", \"url\": \"{website}\", \"name\": \"{business}\", \"publisher\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}, {\"@type\": \"MedicalWebPage\", \"@id\": \"__CANONICAL__#webpage\", \"url\": \"__CANONICAL__\", \"name\": \"Best Rehabs Accepting {company} in {state} | {business}\", \"description\": \"Find the best drug & alcohol rehabs in {state} that accept {company}. {business} matches {state} residents with {company} treatment — free & confidential.\", \"isPartOf\": {\"@id\": \"{website}/#website\"}, \"about\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\", \"medicalAudience\": {\"@type\": \"MedicalAudience\", \"audienceType\": \"Patient\"}}]}"
+        }
+    },
+    {
+        "id": "rec_city_company",
+        "base": false,
+        "title": "Best Rehabs Accepting {company} in {city_state}",
+        "slug_pattern": "/{state}/{city}/{company}",
+        "page_type": "recovery_city_company",
+        "service": "Addiction Treatment",
+        "generation_steps": [],
+        "base_role": "",
+        "content_blocks": [
+            {
+                "type": "custom_html",
+                "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;font-weight:700;letter-spacing:.03em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:18px;font-size:15px;\">{company}™</div><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Best Rehabs Accepting {company} in {city_state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Looking for a rehab in {city_state} that takes {company}? {business} helps you find treatment centers near {city} that accept {company} — detox, inpatient, and outpatient. Free, confidential, no obligation.</p></div><a href=\"#featured-rehabs\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab</a></div></div></div>"
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "Rehabs in {city_state} That Accept {company}",
+                "text": "<p>{business} helps you find drug and alcohol rehabs that accept {company}. We verify your benefits for free and connect you with covered treatment — confidential, no obligation.</p>",
+                "ai_fill": "intro",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "Using Your {company} Benefits for Rehab in {city}",
+                "text": "<p>{business} helps people in {city_state} find rehabs that accept their insurance, from detox to outpatient care.</p>",
+                "ai_fill": "intro2",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
+            },
+            {
+                "type": "feature_columns",
+                "fc_heading": "What {company} Covers at {city} Rehabs",
+                "fc_subheading": "Coverage depends on your {company} plan. Centers near {city_state} that accept {company} commonly offer:",
+                "fc_heading_level": "h2",
+                "fc_num_cols": 4,
+                "fc_bg_color": "#ffffff",
+                "columns": [
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "{company} detox rehab {city}",
+                        "heading": "Medical Detox",
+                        "text": "Supervised detox is commonly covered when medically necessary."
+                    },
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "{company} inpatient rehab {city}",
+                        "heading": "Inpatient & Residential",
+                        "text": "Many {company} plans include residential rehab near {city}."
+                    },
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "{company} outpatient rehab {city}",
+                        "heading": "Outpatient (PHP & IOP)",
+                        "text": "Day programs and intensive outpatient are frequently covered."
+                    },
+                    {
+                        "icon": "",
+                        "image": "",
+                        "alt": "{company} MAT {city}",
+                        "heading": "MAT & Dual Diagnosis",
+                        "text": "Medication-assisted treatment and mental-health care may be included."
+                    }
+                ],
+                "ai_fill": "features"
+            },
+            {
+                "type": "steps",
+                "steps_heading": "How to Find a {city} Rehab That Takes {company}",
+                "steps_items": [
+                    {
+                        "image": "",
+                        "alt": "Free {company} check for {city}",
+                        "heading": "Free {company} Check",
+                        "text": "Tell us your {company} plan. No cost, no obligation."
+                    },
+                    {
+                        "image": "",
+                        "alt": "Verify {company} coverage in {city}",
+                        "heading": "We Verify Coverage",
+                        "text": "We confirm what your {company} plan covers near {city}."
+                    },
+                    {
+                        "image": "",
+                        "alt": "Matched with {company} rehabs in {city}",
+                        "heading": "Matched Locally",
+                        "text": "We connect you with {city_state} rehabs that accept {company}."
+                    }
+                ]
+            },
+            {
+                "type": "faq_two_col",
+                "fq_heading": "{company} Rehabs in {city_state} — FAQs",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#f1f5f9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_items": [
+                    {
+                        "question": "What rehabs in {city} accept {company}?",
+                        "answer": "Many {city_state} drug and alcohol rehabs accept {company}. The centers available depend on your plan — we can check for free."
+                    },
+                    {
+                        "question": "Does {company} cover rehab in {city}?",
+                        "answer": "In most cases {company} plans include some coverage for addiction treatment near {city}. Exact benefits depend on your plan."
+                    },
+                    {
+                        "question": "What treatment does {company} cover in {city}?",
+                        "answer": "Depending on your plan, {company} may cover detox, inpatient and residential rehab, PHP, IOP, outpatient care, and MAT in and around {city_state}."
+                    },
+                    {
+                        "question": "How much will rehab cost with {company} in {city}?",
+                        "answer": "Out-of-pocket costs depend on your deductible, copay, and whether the {city} center is in-network. We can help you understand your {company} benefits first."
+                    },
+                    {
+                        "question": "Is contacting {business} confidential?",
+                        "answer": "Yes. Checking your {company} options is free, confidential, and carries no obligation."
+                    }
+                ],
+                "ai_fill": "faq"
+            },
+            {
+                "type": "text",
+                "heading_level": "h2",
+                "heading_text": "",
+                "text": "Disclaimer: {business} is a free informational and referral service, not a treatment provider or insurance company. {company} is a trademark of its owner, and {business} is not affiliated with or endorsed by {company}. Coverage and admission depend on your plan and the facility — always verify your own benefits. If you are in crisis, call or text 988.",
+                "photo": "",
+                "photo_ratio": "landscape",
+                "photo_position": "center",
+                "photo_alt": ""
+            },
+            {
+                "type": "cta_banner",
+                "anchor": "closing_cta",
+                "cb_text": "Find the best rehabs accepting {company} in {city_state}.",
+                "cb_subtext": "",
+                "cb_btn_text": "Find a Covered Rehab",
+                "cb_btn_url": "#featured-rehabs",
+                "cb_bg": "header",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "normal"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "{city_state} Area Map",
+                "mi_map_embed": "<iframe title=\"Map of {city}, {SS}\" src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_info_heading": "{company} Rehabs in {city_state}",
+                "mi_info_text": "<p>{business} helps people in {city_state} find drug and alcohol rehabs that accept {company} — detox, inpatient, and outpatient. We verify your {company} benefits for free and connect you with covered treatment near {city}. Get a free, confidential coverage check — no obligation.</p>",
+                "mi_info_photo": "{city_image}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_head_color": "header",
+                "mi_map_side": "left",
+                "ai_fill": "local"
+            }
+        ],
+        "seo": {
+            "seo_title": "Best Rehabs Accepting {company} in {city_state} | {business}",
+            "meta_description": "Find the best drug & alcohol rehabs in {city_state} that accept {company}. {business} matches you with {company} treatment near {city} — free & confidential.",
+            "canonical_url": "",
+            "schema": "{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"Organization\", \"@id\": \"{website}/#organization\", \"name\": \"{business}\", \"url\": \"{website}\", \"description\": \"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\", \"logo\": \"{website}/uploads/logo-recovery-dawn.svg\", \"areaServed\": \"US\"}, {\"@type\": \"WebSite\", \"@id\": \"{website}/#website\", \"url\": \"{website}\", \"name\": \"{business}\", \"publisher\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}, {\"@type\": \"MedicalWebPage\", \"@id\": \"__CANONICAL__#webpage\", \"url\": \"__CANONICAL__\", \"name\": \"Best Rehabs Accepting {company} in {city_state} | {business}\", \"description\": \"Find the best drug & alcohol rehabs in {city_state} that accept {company}. {business} matches you with {company} treatment near {city} — free & confidential.\", \"isPartOf\": {\"@id\": \"{website}/#website\"}, \"about\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\", \"medicalAudience\": {\"@type\": \"MedicalAudience\", \"audienceType\": \"Patient\"}}]}"
+        }
     }
-  },
-  {
-    "id": "rec_company_national",
-    "base": false,
-    "title": "Best Rehabs Accepting {company}",
-    "slug_pattern": "/insurance/{company}",
-    "page_type": "recovery_company",
-    "service": "Addiction Treatment",
-    "generation_steps": [],
-    "base_role": "",
-    "content_blocks": [
-      {
-        "type": "custom_html",
-        "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;font-weight:700;letter-spacing:.03em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:18px;font-size:15px;\">{company}™</div><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Best Rehabs Accepting {company}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Looking for a rehab that takes {company}? {business} helps you find drug and alcohol treatment centers that accept {company} — detox, inpatient, and outpatient. Free, confidential, no obligation.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab — {phone}</a></div></div></div>"
-      },
-      {
-        "type": "text",
-        "heading_level": "h2",
-        "heading_text": "Rehabs That Accept {company}",
-        "text": "<p>{business} helps you find drug and alcohol rehabs that accept {company}. We verify your benefits for free and connect you with covered treatment — confidential, no obligation.</p>",
-        "ai_fill": "intro",
-        "photo": "",
-        "photo_ratio": "landscape",
-        "photo_position": "center",
-        "photo_alt": ""
-      },
-      {
-        "type": "feature_columns",
-        "fc_heading": "What Rehabs Accepting {company} Offer",
-        "fc_subheading": "Coverage depends on your {company} plan. Centers that accept {company} commonly provide:",
-        "fc_heading_level": "h2",
-        "fc_num_cols": 4,
-        "fc_bg_color": "#ffffff",
-        "columns": [
-          {
-            "icon": "",
-            "image": "",
-            "alt": "{company} detox rehab",
-            "heading": "Medical Detox",
-            "text": "Supervised detox is commonly covered when medically necessary."
-          },
-          {
-            "icon": "",
-            "image": "",
-            "alt": "{company} inpatient rehab",
-            "heading": "Inpatient & Residential",
-            "text": "Many {company} plans include residential rehab, subject to your plan."
-          },
-          {
-            "icon": "",
-            "image": "",
-            "alt": "{company} outpatient rehab",
-            "heading": "Outpatient (PHP & IOP)",
-            "text": "Day programs and intensive outpatient are frequently covered."
-          },
-          {
-            "icon": "",
-            "image": "",
-            "alt": "{company} MAT and dual diagnosis",
-            "heading": "MAT & Dual Diagnosis",
-            "text": "Medication-assisted treatment and mental-health care may be included."
-          }
-        ],
-        "ai_fill": "features"
-      },
-      {
-        "type": "steps",
-        "steps_heading": "How to Find a Rehab That Takes {company}",
-        "steps_items": [
-          {
-            "image": "",
-            "alt": "Free {company} benefits check",
-            "heading": "Free {company} Benefits Check",
-            "text": "Tell us your {company} plan details. No cost, no obligation."
-          },
-          {
-            "image": "",
-            "alt": "Verify {company} rehab coverage",
-            "heading": "We Verify Your Coverage",
-            "text": "We confirm what your {company} plan covers for rehab."
-          },
-          {
-            "image": "",
-            "alt": "Matched with rehabs accepting {company}",
-            "heading": "Matched With {company} Rehabs",
-            "text": "We connect you with treatment centers that accept {company}."
-          }
-        ]
-      },
-      {
-        "type": "faq_two_col",
-        "fq_heading": "Rehabs That Accept {company} — FAQs",
-        "fq_bg_color": "#ffffff",
-        "fq_item_bg": "#f1f5f9",
-        "fq_head_color": "header",
-        "fq_icon_bg": "accent",
-        "fq_items": [
-          {
-            "question": "What rehabs accept {company}?",
-            "answer": "Many drug and alcohol rehabs accept {company}. The centers available depend on your specific {company} plan — we can check for free."
-          },
-          {
-            "question": "Does {company} cover drug and alcohol rehab?",
-            "answer": "In most cases {company} plans include some coverage for addiction treatment. Exact benefits depend on your plan."
-          },
-          {
-            "question": "What treatment does {company} cover?",
-            "answer": "Depending on your plan, {company} may cover detox, inpatient and residential rehab, PHP, IOP, outpatient care, and medication-assisted treatment."
-          },
-          {
-            "question": "How much will rehab cost with {company}?",
-            "answer": "Out-of-pocket costs depend on your deductible, copay, and whether the center is in-network. We can help you understand your {company} benefits first."
-          }
-        ],
-        "ai_fill": "faq"
-      },
-      {
-        "type": "text",
-        "heading_level": "h2",
-        "heading_text": "",
-        "text": "Disclaimer: {business} is a free informational and referral service, not a treatment provider or insurance company. {company} is a trademark of its owner, and {business} is not affiliated with or endorsed by {company}. Coverage and admission depend on your plan and the facility — always verify your own benefits. If you are in crisis, call or text 988.",
-        "photo": "",
-        "photo_ratio": "landscape",
-        "photo_position": "center",
-        "photo_alt": ""
-      },
-      {
-        "type": "cta_banner",
-        "anchor": "closing_cta",
-        "cb_text": "Find the best rehabs accepting {company}.",
-        "cb_subtext": "",
-        "cb_btn_text": "Call Now — {phone}",
-        "cb_btn_url": "tel:{tel}",
-        "cb_bg": "header",
-        "cb_text_color": "#ffffff",
-        "cb_padding": "normal"
-      }
-    ],
-    "seo": {
-      "seo_title": "Best Rehabs Accepting {company} — {company} Drug & Alcohol Rehab | {business}",
-      "meta_description": "Find the best drug & alcohol rehabs that accept {company}. {business} matches you with {company} treatment centers — free & confidential.",
-      "canonical_url": "",
-      "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"{website}/#organization\",\"name\":\"{business}\",\"url\":\"{website}\",\"description\":\"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\",\"areaServed\":\"US\",\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"{tel}\",\"contactType\":\"customer service\",\"availableLanguage\":\"English\"}},{\"@type\":\"WebPage\",\"name\":\"Best Rehabs Accepting {company} — {company} Drug & Alcohol Rehab | {business}\",\"description\":\"Find the best drug & alcohol rehabs that accept {company}. {business} matches you with {company} treatment centers — free & confidential.\",\"isPartOf\":{\"@id\":\"{website}/#website\"},\"publisher\":{\"@id\":\"{website}/#organization\"},\"inLanguage\":\"en-US\"}]}"
-    }
-  },
-  {
-    "id": "rec_state",
-    "base": false,
-    "title": "Drug & Alcohol Rehabs in {state}",
-    "slug_pattern": "/{state}",
-    "page_type": "recovery_state",
-    "service": "Addiction Treatment",
-    "generation_steps": [],
-    "base_role": "",
-    "content_blocks": [
-      {
-        "type": "custom_html",
-        "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Drug & Alcohol Rehabs in {state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Searching for drug and alcohol rehabs in {state}? {business} helps {state} residents find treatment centers that accept their insurance — detox, inpatient, and outpatient. Free and confidential.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab — {phone}</a></div></div></div>"
-      },
-      {
-        "type": "text",
-        "heading_level": "h2",
-        "heading_text": "Rehabs in {state} That Accept Insurance",
-        "text": "<p>{business} helps {state} residents find rehabs that accept their insurance — detox, inpatient, and outpatient — across the state.</p>",
-        "ai_fill": "intro",
-        "photo": "",
-        "photo_ratio": "landscape",
-        "photo_position": "center",
-        "photo_alt": ""
-      },
-      {
-        "type": "feature_columns",
-        "fc_heading": "Rehabs Across {state}",
-        "fc_subheading": "How {business} helps {state} residents find covered treatment.",
-        "fc_heading_level": "h2",
-        "fc_num_cols": 3,
-        "fc_bg_color": "#ffffff",
-        "columns": [
-          {
-            "icon": "",
-            "image": "",
-            "alt": "Drug and alcohol rehabs across {state}",
-            "heading": "Options Statewide",
-            "text": "From detox to outpatient care, we help you find rehabs across {state} that accept your insurance."
-          },
-          {
-            "icon": "",
-            "image": "",
-            "alt": "Insurance coverage for rehab in {state}",
-            "heading": "Coverage Is Protected",
-            "text": "Most plans in {state} must cover addiction treatment comparably to other medical care."
-          },
-          {
-            "icon": "",
-            "image": "",
-            "alt": "Free rehab insurance check in {state}",
-            "heading": "Free Verification",
-            "text": "We check your plan so you know your {state} options and costs before you go."
-          }
-        ],
-        "ai_fill": "features"
-      },
-      {
-        "type": "faq_two_col",
-        "fq_heading": "{state} Rehabs — FAQs",
-        "fq_bg_color": "#ffffff",
-        "fq_item_bg": "#f1f5f9",
-        "fq_head_color": "header",
-        "fq_icon_bg": "accent",
-        "fq_items": [
-          {
-            "question": "How do I find a drug or alcohol rehab in {state} that takes my insurance?",
-            "answer": "Start with a free benefits check. {business} confirms your coverage and connects you with {state} rehabs that accept it."
-          },
-          {
-            "question": "What types of rehab are available in {state}?",
-            "answer": "Options can include detox, inpatient and residential rehab, PHP, IOP, outpatient care, and medication-assisted treatment."
-          },
-          {
-            "question": "Which insurers do {state} rehabs accept?",
-            "answer": "Many {state} centers accept major carriers such as Aetna, Cigna, UnitedHealthcare, and Blue Cross Blue Shield. See the links below."
-          }
-        ],
-        "ai_fill": "faq"
-      },
-      {
-        "type": "cta_banner",
-        "anchor": "closing_cta",
-        "cb_text": "Find a drug or alcohol rehab in {state} that takes your insurance.",
-        "cb_subtext": "",
-        "cb_btn_text": "Call Now — {phone}",
-        "cb_btn_url": "tel:{tel}",
-        "cb_bg": "header",
-        "cb_text_color": "#ffffff",
-        "cb_padding": "normal"
-      },
-      {
-        "type": "map_info",
-        "mi_map_heading": "{state} Area Map",
-        "mi_map_embed": "<iframe title=\"Map of {state}\" src=\"https://maps.google.com/maps?q={state}&z=6&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-        "mi_info_heading": "Rehabs in {state} That Take Insurance",
-        "mi_info_text": "<p>{business} helps {state} residents find drug and alcohol rehabs that accept their insurance — detox, inpatient, and outpatient — across the state. We verify your benefits for free and connect you with covered treatment. Call {phone} for a confidential check, no obligation.</p>",
-        "mi_info_photo": "",
-        "mi_info_alt": "",
-        "mi_info_credit": "",
-        "mi_head_color": "header",
-        "mi_map_side": "left",
-        "ai_fill": "local"
-      }
-    ],
-    "seo": {
-      "seo_title": "Drug & Alcohol Rehabs in {state} That Take Insurance | {business}",
-      "meta_description": "Find drug & alcohol rehabs in {state} that accept your insurance. {business} matches {state} residents with covered treatment — free & confidential.",
-      "canonical_url": "",
-      "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"{website}/#organization\",\"name\":\"{business}\",\"url\":\"{website}\",\"description\":\"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\",\"areaServed\":\"US\",\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"{tel}\",\"contactType\":\"customer service\",\"availableLanguage\":\"English\"}},{\"@type\":\"WebPage\",\"name\":\"Drug & Alcohol Rehabs in {state} That Take Insurance | {business}\",\"description\":\"Find drug & alcohol rehabs in {state} that accept your insurance. {business} matches {state} residents with covered treatment — free & confidential.\",\"isPartOf\":{\"@id\":\"{website}/#website\"},\"publisher\":{\"@id\":\"{website}/#organization\"},\"inLanguage\":\"en-US\"}]}"
-    }
-  },
-  {
-    "id": "rec_city",
-    "base": false,
-    "title": "Drug & Alcohol Rehabs in {city_state}",
-    "slug_pattern": "/{state}/{city}",
-    "page_type": "recovery_city",
-    "service": "Addiction Treatment",
-    "generation_steps": [],
-    "base_role": "",
-    "content_blocks": [
-      {
-        "type": "custom_html",
-        "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Drug & Alcohol Rehabs in {city_state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Searching for drug and alcohol rehabs in {city_state}? {business} helps you find treatment centers near {city} that accept your insurance — detox, inpatient, and outpatient. Free, confidential, no obligation.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab — {phone}</a></div></div></div>"
-      },
-      {
-        "type": "text",
-        "heading_level": "h2",
-        "heading_text": "Rehabs in {city_state} That Accept Insurance",
-        "text": "<p>{business} helps people in {city_state} find rehabs that accept their insurance, from detox to outpatient care.</p>",
-        "ai_fill": "intro",
-        "photo": "",
-        "photo_ratio": "landscape",
-        "photo_position": "center",
-        "photo_alt": ""
-      },
-      {
-        "type": "feature_columns",
-        "fc_heading": "Rehabs in {city}",
-        "fc_subheading": "How {business} helps you find covered treatment near {city_state}.",
-        "fc_heading_level": "h2",
-        "fc_num_cols": 3,
-        "fc_bg_color": "#ffffff",
-        "columns": [
-          {
-            "icon": "",
-            "image": "",
-            "alt": "Drug and alcohol rehabs in {city}, {SS}",
-            "heading": "Local Options",
-            "text": "We help you find rehabs in and around {city_state} that accept your insurance, from detox to outpatient care."
-          },
-          {
-            "icon": "",
-            "image": "",
-            "alt": "Verify insurance for rehab in {city}",
-            "heading": "Know Your Costs",
-            "text": "We verify your plan so you understand your {city} options and out-of-pocket costs first."
-          },
-          {
-            "icon": "",
-            "image": "",
-            "alt": "Confidential rehab help in {city}",
-            "heading": "Confidential Help",
-            "text": "Reaching out is free and private, with no obligation to enter treatment."
-          }
-        ],
-        "ai_fill": "features"
-      },
-      {
-        "type": "steps",
-        "steps_heading": "How We Match You With a {city} Rehab",
-        "steps_items": [
-          {
-            "image": "",
-            "alt": "Free benefits check for {city} rehab",
-            "heading": "Free Benefits Check",
-            "text": "Tell us your insurance. No cost, no obligation."
-          },
-          {
-            "image": "",
-            "alt": "Verify coverage for {city} treatment",
-            "heading": "We Verify Coverage",
-            "text": "We confirm what your plan covers near {city}."
-          },
-          {
-            "image": "",
-            "alt": "Matched with {city} rehabs",
-            "heading": "Matched Locally",
-            "text": "We connect you with {city_state} rehabs that accept your insurance."
-          }
-        ]
-      },
-      {
-        "type": "faq_two_col",
-        "fq_heading": "{city} Rehabs — FAQs",
-        "fq_bg_color": "#ffffff",
-        "fq_item_bg": "#f1f5f9",
-        "fq_head_color": "header",
-        "fq_icon_bg": "accent",
-        "fq_items": [
-          {
-            "question": "How do I find a rehab in {city} that takes my insurance?",
-            "answer": "Start with a free benefits check. {business} confirms your coverage and connects you with treatment near {city_state} that accepts it."
-          },
-          {
-            "question": "What rehab options are near {city}?",
-            "answer": "Options can include detox, inpatient and residential rehab, PHP, IOP, outpatient care, and medication-assisted treatment."
-          },
-          {
-            "question": "Is help finding a {city} rehab confidential?",
-            "answer": "Yes. It is free, private, and there is no obligation to enter treatment."
-          }
-        ],
-        "ai_fill": "faq"
-      },
-      {
-        "type": "cta_banner",
-        "anchor": "closing_cta",
-        "cb_text": "Find a drug or alcohol rehab in {city_state} that takes your insurance.",
-        "cb_subtext": "",
-        "cb_btn_text": "Call Now — {phone}",
-        "cb_btn_url": "tel:{tel}",
-        "cb_bg": "header",
-        "cb_text_color": "#ffffff",
-        "cb_padding": "normal"
-      },
-      {
-        "type": "map_info",
-        "mi_map_heading": "{city_state} Area Map",
-        "mi_map_embed": "<iframe title=\"Map of {city}, {SS}\" src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-        "mi_info_heading": "Rehabs in {city_state} That Take Insurance",
-        "mi_info_text": "<p>{business} helps people in {city_state} find drug and alcohol rehabs that accept their health insurance — detox, inpatient, and outpatient. We verify your benefits for free and connect you with covered treatment near {city}. Call {phone} for a confidential check, no obligation.</p>",
-        "mi_info_photo": "{city_image}",
-        "mi_info_alt": "{city_image_alt}",
-        "mi_info_credit": "{city_image_credit}",
-        "mi_head_color": "header",
-        "mi_map_side": "left",
-        "ai_fill": "local"
-      }
-    ],
-    "seo": {
-      "seo_title": "Drug & Alcohol Rehabs in {city_state} That Take Insurance | {business}",
-      "meta_description": "Find drug & alcohol rehabs in {city_state} that accept your insurance. {business} matches you with covered treatment near {city} — free & confidential.",
-      "canonical_url": "",
-      "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"{website}/#organization\",\"name\":\"{business}\",\"url\":\"{website}\",\"description\":\"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\",\"areaServed\":\"US\",\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"{tel}\",\"contactType\":\"customer service\",\"availableLanguage\":\"English\"}},{\"@type\":\"WebPage\",\"name\":\"Drug & Alcohol Rehabs in {city_state} That Take Insurance | {business}\",\"description\":\"Find drug & alcohol rehabs in {city_state} that accept your insurance. {business} matches you with covered treatment near {city} — free & confidential.\",\"isPartOf\":{\"@id\":\"{website}/#website\"},\"publisher\":{\"@id\":\"{website}/#organization\"},\"inLanguage\":\"en-US\"}]}"
-    }
-  },
-  {
-    "id": "rec_state_company",
-    "base": false,
-    "title": "Best Rehabs Accepting {company} in {state}",
-    "slug_pattern": "/{state}/{company}",
-    "page_type": "recovery_state_company",
-    "service": "Addiction Treatment",
-    "generation_steps": [],
-    "base_role": "",
-    "content_blocks": [
-      {
-        "type": "custom_html",
-        "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;font-weight:700;letter-spacing:.03em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:18px;font-size:15px;\">{company}™</div><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Best Rehabs Accepting {company} in {state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Looking for a rehab in {state} that takes {company}? {business} helps {state} residents find treatment centers that accept {company} — detox, inpatient, and outpatient. Free and confidential.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab — {phone}</a></div></div></div>"
-      },
-      {
-        "type": "text",
-        "heading_level": "h2",
-        "heading_text": "Rehabs in {state} That Accept {company}",
-        "text": "<p>{business} helps you find drug and alcohol rehabs that accept {company}. We verify your benefits for free and connect you with covered treatment — confidential, no obligation.</p>",
-        "ai_fill": "intro",
-        "photo": "",
-        "photo_ratio": "landscape",
-        "photo_position": "center",
-        "photo_alt": ""
-      },
-      {
-        "type": "text",
-        "heading_level": "h2",
-        "heading_text": "Using Your {company} Benefits for Rehab in {state}",
-        "text": "<p>{business} helps {state} residents find rehabs that accept their insurance — detox, inpatient, and outpatient — across the state.</p>",
-        "ai_fill": "intro2",
-        "photo": "",
-        "photo_ratio": "landscape",
-        "photo_position": "center",
-        "photo_alt": ""
-      },
-      {
-        "type": "feature_columns",
-        "fc_heading": "What {company} Covers at {state} Rehabs",
-        "fc_subheading": "Coverage depends on your {company} plan. {state} centers that accept {company} commonly offer:",
-        "fc_heading_level": "h2",
-        "fc_num_cols": 4,
-        "fc_bg_color": "#ffffff",
-        "columns": [
-          {
-            "icon": "",
-            "image": "",
-            "alt": "{company} detox rehab {state}",
-            "heading": "Medical Detox",
-            "text": "Supervised detox is commonly covered when medically necessary."
-          },
-          {
-            "icon": "",
-            "image": "",
-            "alt": "{company} inpatient rehab {state}",
-            "heading": "Inpatient & Residential",
-            "text": "Many {company} plans in {state} include residential rehab."
-          },
-          {
-            "icon": "",
-            "image": "",
-            "alt": "{company} outpatient rehab {state}",
-            "heading": "Outpatient (PHP & IOP)",
-            "text": "Day programs and intensive outpatient are frequently covered."
-          },
-          {
-            "icon": "",
-            "image": "",
-            "alt": "{company} MAT {state}",
-            "heading": "MAT & Dual Diagnosis",
-            "text": "Medication-assisted treatment and mental-health care may be included."
-          }
-        ],
-        "ai_fill": "features"
-      },
-      {
-        "type": "faq_two_col",
-        "fq_heading": "{company} Rehabs in {state} — FAQs",
-        "fq_bg_color": "#ffffff",
-        "fq_item_bg": "#f1f5f9",
-        "fq_head_color": "header",
-        "fq_icon_bg": "accent",
-        "fq_items": [
-          {
-            "question": "What rehabs in {state} accept {company}?",
-            "answer": "Many {state} drug and alcohol rehabs accept {company}. The centers available depend on your plan — we can check for free."
-          },
-          {
-            "question": "Does {company} cover rehab in {state}?",
-            "answer": "In most cases {company} plans in {state} include coverage for addiction treatment. Exact benefits depend on your plan."
-          },
-          {
-            "question": "How do I use my {company} benefits in {state}?",
-            "answer": "Call for a free benefits check. We confirm your {company} coverage and connect you with {state} rehabs that accept it."
-          }
-        ],
-        "ai_fill": "faq"
-      },
-      {
-        "type": "text",
-        "heading_level": "h2",
-        "heading_text": "",
-        "text": "Disclaimer: {business} is a free informational and referral service, not a treatment provider or insurance company. {company} is a trademark of its owner, and {business} is not affiliated with or endorsed by {company}. Coverage and admission depend on your plan and the facility — always verify your own benefits. If you are in crisis, call or text 988.",
-        "photo": "",
-        "photo_ratio": "landscape",
-        "photo_position": "center",
-        "photo_alt": ""
-      },
-      {
-        "type": "cta_banner",
-        "anchor": "closing_cta",
-        "cb_text": "Find the best rehabs accepting {company} in {state}.",
-        "cb_subtext": "",
-        "cb_btn_text": "Call Now — {phone}",
-        "cb_btn_url": "tel:{tel}",
-        "cb_bg": "header",
-        "cb_text_color": "#ffffff",
-        "cb_padding": "normal"
-      },
-      {
-        "type": "map_info",
-        "mi_map_heading": "{state} Area Map",
-        "mi_map_embed": "<iframe title=\"Map of {state}\" src=\"https://maps.google.com/maps?q={state}&z=6&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-        "mi_info_heading": "{company} Rehabs in {state}",
-        "mi_info_text": "<p>{business} helps {state} residents find drug and alcohol rehabs that accept {company} — detox, inpatient, and outpatient. We verify your {company} benefits for free and connect you with covered treatment across {state}. Call {phone} for a confidential check, no obligation.</p>",
-        "mi_info_photo": "",
-        "mi_info_alt": "",
-        "mi_info_credit": "",
-        "mi_head_color": "header",
-        "mi_map_side": "left",
-        "ai_fill": "local"
-      }
-    ],
-    "seo": {
-      "seo_title": "Best Rehabs Accepting {company} in {state} | {business}",
-      "meta_description": "Find the best drug & alcohol rehabs in {state} that accept {company}. {business} matches {state} residents with {company} treatment — free & confidential.",
-      "canonical_url": "",
-      "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"{website}/#organization\",\"name\":\"{business}\",\"url\":\"{website}\",\"description\":\"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\",\"areaServed\":\"US\",\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"{tel}\",\"contactType\":\"customer service\",\"availableLanguage\":\"English\"}},{\"@type\":\"WebPage\",\"name\":\"Best Rehabs Accepting {company} in {state} | {business}\",\"description\":\"Find the best drug & alcohol rehabs in {state} that accept {company}. {business} matches {state} residents with {company} treatment — free & confidential.\",\"isPartOf\":{\"@id\":\"{website}/#website\"},\"publisher\":{\"@id\":\"{website}/#organization\"},\"inLanguage\":\"en-US\"}]}"
-    }
-  },
-  {
-    "id": "rec_city_company",
-    "base": false,
-    "title": "Best Rehabs Accepting {company} in {city_state}",
-    "slug_pattern": "/{state}/{city}/{company}",
-    "page_type": "recovery_city_company",
-    "service": "Addiction Treatment",
-    "generation_steps": [],
-    "base_role": "",
-    "content_blocks": [
-      {
-        "type": "custom_html",
-        "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;font-weight:700;letter-spacing:.03em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:18px;font-size:15px;\">{company}™</div><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Best Rehabs Accepting {company} in {city_state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Looking for a rehab in {city_state} that takes {company}? {business} helps you find treatment centers near {city} that accept {company} — detox, inpatient, and outpatient. Free, confidential, no obligation.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab — {phone}</a></div></div></div>"
-      },
-      {
-        "type": "text",
-        "heading_level": "h2",
-        "heading_text": "Rehabs in {city_state} That Accept {company}",
-        "text": "<p>{business} helps you find drug and alcohol rehabs that accept {company}. We verify your benefits for free and connect you with covered treatment — confidential, no obligation.</p>",
-        "ai_fill": "intro",
-        "photo": "",
-        "photo_ratio": "landscape",
-        "photo_position": "center",
-        "photo_alt": ""
-      },
-      {
-        "type": "text",
-        "heading_level": "h2",
-        "heading_text": "Using Your {company} Benefits for Rehab in {city}",
-        "text": "<p>{business} helps people in {city_state} find rehabs that accept their insurance, from detox to outpatient care.</p>",
-        "ai_fill": "intro2",
-        "photo": "",
-        "photo_ratio": "landscape",
-        "photo_position": "center",
-        "photo_alt": ""
-      },
-      {
-        "type": "feature_columns",
-        "fc_heading": "What {company} Covers at {city} Rehabs",
-        "fc_subheading": "Coverage depends on your {company} plan. Centers near {city_state} that accept {company} commonly offer:",
-        "fc_heading_level": "h2",
-        "fc_num_cols": 4,
-        "fc_bg_color": "#ffffff",
-        "columns": [
-          {
-            "icon": "",
-            "image": "",
-            "alt": "{company} detox rehab {city}",
-            "heading": "Medical Detox",
-            "text": "Supervised detox is commonly covered when medically necessary."
-          },
-          {
-            "icon": "",
-            "image": "",
-            "alt": "{company} inpatient rehab {city}",
-            "heading": "Inpatient & Residential",
-            "text": "Many {company} plans include residential rehab near {city}."
-          },
-          {
-            "icon": "",
-            "image": "",
-            "alt": "{company} outpatient rehab {city}",
-            "heading": "Outpatient (PHP & IOP)",
-            "text": "Day programs and intensive outpatient are frequently covered."
-          },
-          {
-            "icon": "",
-            "image": "",
-            "alt": "{company} MAT {city}",
-            "heading": "MAT & Dual Diagnosis",
-            "text": "Medication-assisted treatment and mental-health care may be included."
-          }
-        ],
-        "ai_fill": "features"
-      },
-      {
-        "type": "steps",
-        "steps_heading": "How to Find a {city} Rehab That Takes {company}",
-        "steps_items": [
-          {
-            "image": "",
-            "alt": "Free {company} check for {city}",
-            "heading": "Free {company} Check",
-            "text": "Tell us your {company} plan. No cost, no obligation."
-          },
-          {
-            "image": "",
-            "alt": "Verify {company} coverage in {city}",
-            "heading": "We Verify Coverage",
-            "text": "We confirm what your {company} plan covers near {city}."
-          },
-          {
-            "image": "",
-            "alt": "Matched with {company} rehabs in {city}",
-            "heading": "Matched Locally",
-            "text": "We connect you with {city_state} rehabs that accept {company}."
-          }
-        ]
-      },
-      {
-        "type": "faq_two_col",
-        "fq_heading": "{company} Rehabs in {city_state} — FAQs",
-        "fq_bg_color": "#ffffff",
-        "fq_item_bg": "#f1f5f9",
-        "fq_head_color": "header",
-        "fq_icon_bg": "accent",
-        "fq_items": [
-          {
-            "question": "What rehabs in {city} accept {company}?",
-            "answer": "Many {city_state} drug and alcohol rehabs accept {company}. The centers available depend on your plan — we can check for free."
-          },
-          {
-            "question": "Does {company} cover rehab in {city}?",
-            "answer": "In most cases {company} plans include some coverage for addiction treatment near {city}. Exact benefits depend on your plan."
-          },
-          {
-            "question": "What treatment does {company} cover in {city}?",
-            "answer": "Depending on your plan, {company} may cover detox, inpatient and residential rehab, PHP, IOP, outpatient care, and MAT in and around {city_state}."
-          },
-          {
-            "question": "How much will rehab cost with {company} in {city}?",
-            "answer": "Out-of-pocket costs depend on your deductible, copay, and whether the {city} center is in-network. We can help you understand your {company} benefits first."
-          },
-          {
-            "question": "Is contacting {business} confidential?",
-            "answer": "Yes. Checking your {company} options is free, confidential, and carries no obligation."
-          }
-        ],
-        "ai_fill": "faq"
-      },
-      {
-        "type": "text",
-        "heading_level": "h2",
-        "heading_text": "",
-        "text": "Disclaimer: {business} is a free informational and referral service, not a treatment provider or insurance company. {company} is a trademark of its owner, and {business} is not affiliated with or endorsed by {company}. Coverage and admission depend on your plan and the facility — always verify your own benefits. If you are in crisis, call or text 988.",
-        "photo": "",
-        "photo_ratio": "landscape",
-        "photo_position": "center",
-        "photo_alt": ""
-      },
-      {
-        "type": "cta_banner",
-        "anchor": "closing_cta",
-        "cb_text": "Find the best rehabs accepting {company} in {city_state}.",
-        "cb_subtext": "",
-        "cb_btn_text": "Call Now — {phone}",
-        "cb_btn_url": "tel:{tel}",
-        "cb_bg": "header",
-        "cb_text_color": "#ffffff",
-        "cb_padding": "normal"
-      },
-      {
-        "type": "map_info",
-        "mi_map_heading": "{city_state} Area Map",
-        "mi_map_embed": "<iframe title=\"Map of {city}, {SS}\" src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-        "mi_info_heading": "{company} Rehabs in {city_state}",
-        "mi_info_text": "<p>{business} helps people in {city_state} find drug and alcohol rehabs that accept {company} — detox, inpatient, and outpatient. We verify your {company} benefits for free and connect you with covered treatment near {city}. Call {phone} for a confidential check, no obligation.</p>",
-        "mi_info_photo": "{city_image}",
-        "mi_info_alt": "{city_image_alt}",
-        "mi_info_credit": "{city_image_credit}",
-        "mi_head_color": "header",
-        "mi_map_side": "left",
-        "ai_fill": "local"
-      }
-    ],
-    "seo": {
-      "seo_title": "Best Rehabs Accepting {company} in {city_state} | {business}",
-      "meta_description": "Find the best drug & alcohol rehabs in {city_state} that accept {company}. {business} matches you with {company} treatment near {city} — free & confidential.",
-      "canonical_url": "",
-      "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"{website}/#organization\",\"name\":\"{business}\",\"url\":\"{website}\",\"description\":\"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\",\"areaServed\":\"US\",\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"{tel}\",\"contactType\":\"customer service\",\"availableLanguage\":\"English\"}},{\"@type\":\"WebPage\",\"name\":\"Best Rehabs Accepting {company} in {city_state} | {business}\",\"description\":\"Find the best drug & alcohol rehabs in {city_state} that accept {company}. {business} matches you with {company} treatment near {city} — free & confidential.\",\"isPartOf\":{\"@id\":\"{website}/#website\"},\"publisher\":{\"@id\":\"{website}/#organization\"},\"inLanguage\":\"en-US\"}]}"
-    }
-  }
 ]

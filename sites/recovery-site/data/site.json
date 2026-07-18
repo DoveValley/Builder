@@ -49,7 +49,7 @@
     },
     "header": {
         "logo": "uploads/logo-recovery-dawn.svg",
-        "phone": "{phone}",
+        "phone": "",
         "city": "",
         "topbar_text": "",
         "topbar_link": "",
@@ -96,7 +96,22 @@
     "content_blocks": [
         {
             "type": "custom_html",
-            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Rehabs that Accept Health Insurance</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>{business} helps you find drug and alcohol rehabs and treatment centers that accept your health insurance — detox, inpatient, and outpatient. Verify your benefits for free and connect with covered care. Confidential, no obligation.</p></div><a href=\"tel:{tel}\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab — {phone}</a></div></div></div>"
+            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Find Addiction &amp; Mental Health Treatment Centers Near You</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>{business} helps you find drug and alcohol rehabs and treatment centers that accept your health insurance — detox, inpatient, and outpatient. Verify your benefits for free and connect with covered care. Confidential, no obligation.</p></div><a href=\"/insurance/\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab</a></div></div></div>"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "locate-treatment-centers",
+            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#ffffff;padding:64px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 24px;\"><h2 style=\"font-size:2rem;font-weight:800;color:#0e2a45;margin:0 0 4px;line-height:1.15;\">Locate Treatment Centers in the United States</h2><p style=\"font-size:1.02rem;color:#64748b;margin:0 0 34px;\">Search Treatment Locations.</p><div style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px;\"><a href=\"/arizona/\" style=\"position:relative;display:block;height:210px;border-radius:12px;overflow:hidden;text-decoration:none;box-shadow:0 6px 18px rgba(14,42,69,.14);\"><img src=\"/sites/recovery-site/uploads/media/rec-state-arizona.jpg\" alt=\"Arizona Treatment Centers\" loading=\"lazy\" style=\"position:absolute;inset:0;width:100%;height:100%;object-fit:cover;\"><span style=\"position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,42,69,.10) 0%,rgba(14,42,69,.62) 100%);\"></span><span style=\"position:absolute;left:16px;right:16px;top:50%;transform:translateY(-50%);text-align:center;color:#fff;\"><span style=\"display:block;font-size:1.4rem;font-weight:800;line-height:1.1;text-shadow:0 1px 4px rgba(0,0,0,.4);\">Arizona</span><span style=\"display:block;font-size:.92rem;font-weight:600;opacity:.95;margin-top:4px;text-shadow:0 1px 3px rgba(0,0,0,.4);\">Treatment Centers</span></span></a><a href=\"/california/\" style=\"position:relative;display:block;height:210px;border-radius:12px;overflow:hidden;text-decoration:none;box-shadow:0 6px 18px rgba(14,42,69,.14);\"><img src=\"/sites/recovery-site/uploads/media/rec-state-california.jpg\" alt=\"California Treatment Centers\" loading=\"lazy\" style=\"position:absolute;inset:0;width:100%;height:100%;object-fit:cover;\"><span style=\"position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,42,69,.10) 0%,rgba(14,42,69,.62) 100%);\"></span><span style=\"position:absolute;left:16px;right:16px;top:50%;transform:translateY(-50%);text-align:center;color:#fff;\"><span style=\"display:block;font-size:1.4rem;font-weight:800;line-height:1.1;text-shadow:0 1px 4px rgba(0,0,0,.4);\">California</span><span style=\"display:block;font-size:.92rem;font-weight:600;opacity:.95;margin-top:4px;text-shadow:0 1px 3px rgba(0,0,0,.4);\">Treatment Centers</span></span></a><a href=\"/florida/\" style=\"position:relative;display:block;height:210px;border-radius:12px;overflow:hidden;text-decoration:none;box-shadow:0 6px 18px rgba(14,42,69,.14);\"><img src=\"/sites/recovery-site/uploads/media/rec-state-florida.jpg\" alt=\"Florida Treatment Centers\" loading=\"lazy\" style=\"position:absolute;inset:0;width:100%;height:100%;object-fit:cover;\"><span style=\"position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,42,69,.10) 0%,rgba(14,42,69,.62) 100%);\"></span><span style=\"position:absolute;left:16px;right:16px;top:50%;transform:translateY(-50%);text-align:center;color:#fff;\"><span style=\"display:block;font-size:1.4rem;font-weight:800;line-height:1.1;text-shadow:0 1px 4px rgba(0,0,0,.4);\">Florida</span><span style=\"display:block;font-size:.92rem;font-weight:600;opacity:.95;margin-top:4px;text-shadow:0 1px 3px rgba(0,0,0,.4);\">Treatment Centers</span></span></a><a href=\"/texas/\" style=\"position:relative;display:block;height:210px;border-radius:12px;overflow:hidden;text-decoration:none;box-shadow:0 6px 18px rgba(14,42,69,.14);\"><img src=\"/sites/recovery-site/uploads/media/rec-state-texas.jpg\" alt=\"Texas Treatment Centers\" loading=\"lazy\" style=\"position:absolute;inset:0;width:100%;height:100%;object-fit:cover;\"><span style=\"position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,42,69,.10) 0%,rgba(14,42,69,.62) 100%);\"></span><span style=\"position:absolute;left:16px;right:16px;top:50%;transform:translateY(-50%);text-align:center;color:#fff;\"><span style=\"display:block;font-size:1.4rem;font-weight:800;line-height:1.1;text-shadow:0 1px 4px rgba(0,0,0,.4);\">Texas</span><span style=\"display:block;font-size:.92rem;font-weight:600;opacity:.95;margin-top:4px;text-shadow:0 1px 3px rgba(0,0,0,.4);\">Treatment Centers</span></span></a></div></div></div></div>"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "respected-leader",
+            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#f5f7fa;padding:72px 0;\"><div style=\"max-width:1160px;margin:0 auto;padding:0 24px;\"><div style=\"display:flex;flex-wrap:wrap;gap:52px;align-items:center;\"><div style=\"flex:1 1 380px;min-width:300px;\"><h2 style=\"font-size:2.1rem;font-weight:800;color:#0e2a45;margin:0 0 20px;line-height:1.15;\">A Respected Leader in Recovery</h2><p style=\"font-size:1.08rem;line-height:1.7;color:#475569;margin:0 0 28px;\">At the heart of our core values are Integrity and Compassion. Our dedicated team has developed reliable, comprehensive resources to help you or your loved one find the right treatment with confidence.</p><ul style=\"list-style:none;margin:0;padding:0;\"><li style=\"display:flex;align-items:center;gap:12px;margin:0 0 12px;font-size:1.05rem;font-weight:600;color:#0e2a45;\"><span style=\"flex:0 0 auto;color:#0e7490;font-weight:800;font-size:1.15rem;line-height:1;\">&#10003;</span><span>Comprehensive Research</span></li><li style=\"display:flex;align-items:center;gap:12px;margin:0 0 12px;font-size:1.05rem;font-weight:600;color:#0e2a45;\"><span style=\"flex:0 0 auto;color:#0e7490;font-weight:800;font-size:1.15rem;line-height:1;\">&#10003;</span><span>No Referral Fees</span></li><li style=\"display:flex;align-items:center;gap:12px;margin:0 0 12px;font-size:1.05rem;font-weight:600;color:#0e2a45;\"><span style=\"flex:0 0 auto;color:#0e7490;font-weight:800;font-size:1.15rem;line-height:1;\">&#10003;</span><span>Respected User Community</span></li></ul></div><div style=\"flex:1 1 420px;min-width:300px;\"><img src=\"/sites/recovery-site/uploads/media/rec-respected-leader.webp\" alt=\"A group therapy session in a bright, welcoming treatment setting\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px;box-shadow:0 10px 30px rgba(14,42,69,.16);display:block;\"></div></div></div></div></div>"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "search-by-insurance",
+            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#f5f7fa;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 24px;\"><h2 style=\"font-size:2rem;font-weight:800;color:#0e2a45;margin:0 0 4px;line-height:1.15;\">Search by Insurance</h2><p style=\"font-size:1.02rem;color:#64748b;margin:0 0 34px;\">Find rehabs that accept your health plan.</p><div style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;\"><a href=\"/insurance/aetna/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Aetna</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/ambetter/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Ambetter</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/amerihealth/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">AmeriHealth</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/anthem/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Anthem</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/bluecross-blueshield/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">BlueCross BlueShield</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/carefirst/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">CareFirst</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/carelon-behavioral-health/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Carelon Behavioral Health</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/cigna/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Cigna</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/compsych/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">ComPsych</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/first-health/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">First Health</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/geha/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">GEHA</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/guidewell/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Guidewell</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/health-net/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Health Net</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/healthpartners/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">HealthPartners</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/highmark/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Highmark</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/humana/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Humana</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/intermountain-health/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Intermountain Health</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/kaiser-permanente/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Kaiser Permanente</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/magellan-health/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Magellan Health</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/medicaid/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Medicaid</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/medicare/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Medicare</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/mhn/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">MHN</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/molina-healthcare/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Molina Healthcare</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/multiplan/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">MultiPlan</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/optum/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Optum</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/oscar/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Oscar</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/tricare/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Tricare</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/tufts-health/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">Tufts Health</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a><a href=\"/insurance/united-healthcare/\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e3eff3;border:1px solid #cfe2e9;border-radius:12px;padding:26px 16px;text-decoration:none;transition:box-shadow .15s;\"><span style=\"font-size:1.12rem;font-weight:800;color:#0e7490;line-height:1.2;\">United Healthcare</span><span style=\"font-size:.88rem;font-weight:600;color:#0e2a45;opacity:.75;margin-top:6px;\">Treatment Centers</span></a></div></div></div></div>"
         },
         {
             "type": "feature_columns",
@@ -198,8 +213,8 @@
             "anchor": "closing_cta",
             "cb_text": "Find a rehab that accepts your insurance today.",
             "cb_subtext": "",
-            "cb_btn_text": "Call Now — {phone}",
-            "cb_btn_url": "tel:{tel}",
+            "cb_btn_text": "Find a Covered Rehab",
+            "cb_btn_url": "/insurance/",
             "cb_bg": "header",
             "cb_text_color": "#ffffff",
             "cb_padding": "normal"
@@ -220,13 +235,13 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"{website}/#organization\",\"name\":\"{business}\",\"url\":\"{website}\",\"description\":\"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\",\"areaServed\":\"US\",\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"{tel}\",\"contactType\":\"customer service\",\"availableLanguage\":\"English\"}},{\"@type\":\"WebSite\",\"@id\":\"{website}/#website\",\"url\":\"{website}\",\"name\":\"{business}\",\"publisher\":{\"@id\":\"{website}/#organization\"},\"inLanguage\":\"en-US\"}]}",
+        "schema": "{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"Organization\", \"@id\": \"{website}/#organization\", \"name\": \"{business}\", \"url\": \"{website}\", \"description\": \"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\", \"logo\": \"{website}/uploads/logo-recovery-dawn.svg\", \"areaServed\": \"US\"}, {\"@type\": \"WebSite\", \"@id\": \"{website}/#website\", \"url\": \"{website}\", \"name\": \"{business}\", \"publisher\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}, {\"@type\": \"WebPage\", \"@id\": \"{website}/#webpage\", \"url\": \"{website}\", \"name\": \"Rehabs that Accept Health Insurance — Find Covered Treatment | {business}\", \"description\": \"Find drug & alcohol rehabs that accept your health insurance. {business} matches you with covered detox, inpatient, and outpatient treatment — free & confidential.\", \"isPartOf\": {\"@id\": \"{website}/#website\"}, \"about\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}]}",
         "primary_keyword": "rehabs that accept health insurance",
         "secondary_keywords": "rehab insurance coverage, drug rehab insurance, alcohol rehab coverage, does insurance cover rehab, detox insurance coverage"
     },
     "footer": {
         "logo": "",
-        "phone": "{phone}",
+        "phone": "",
         "columns": [
             {
                 "type": "text",
@@ -235,64 +250,67 @@
             },
             {
                 "type": "links",
-                "title": "Quick Links",
-                "text": "",
+                "title": "Rehabs by State",
                 "links": [
                     {
-                        "label": "About Us",
-                        "url": "/about"
+                        "label": "Rehabs in Arizona",
+                        "url": "/arizona/"
                     },
                     {
-                        "label": "Insurance Coverage",
+                        "label": "Rehabs in California",
+                        "url": "/california/"
+                    },
+                    {
+                        "label": "Rehabs in Florida",
+                        "url": "/florida/"
+                    },
+                    {
+                        "label": "Rehabs in Texas",
+                        "url": "/texas/"
+                    },
+                    {
+                        "label": "Rehabs by Insurance Carrier",
                         "url": "/insurance/"
-                    },
-                    {
-                        "label": "Rehab in California",
-                        "url": "/california"
-                    },
-                    {
-                        "label": "Rehab in Texas",
-                        "url": "/texas"
-                    },
-                    {
-                        "label": "Rehab in Arizona",
-                        "url": "/arizona"
-                    },
-                    {
-                        "label": "Rehab in Florida",
-                        "url": "/florida"
-                    },
-                    {
-                        "label": "Guides & Resources",
-                        "url": "/blog"
-                    },
-                    {
-                        "label": "Privacy Policy",
-                        "url": "/privacy-policy"
-                    },
-                    {
-                        "label": "Terms & Conditions",
-                        "url": "/terms-and-conditions"
-                    },
-                    {
-                        "label": "Contact & Advertising",
-                        "url": "/contact-us"
-                    },
-                    {
-                        "label": "Editorial Policy",
-                        "url": "/editorial-policy"
                     }
                 ]
             },
             {
-                "type": "contact",
-                "title": "Contact",
-                "contact_extras": [],
-                "text": ""
+                "type": "links",
+                "title": "Rehabs by Insurance",
+                "links": [
+                    {
+                        "label": "Rehabs That Accept Aetna",
+                        "url": "/insurance/aetna/"
+                    },
+                    {
+                        "label": "Rehabs That Accept Cigna",
+                        "url": "/insurance/cigna/"
+                    },
+                    {
+                        "label": "Rehabs That Accept BlueCross BlueShield",
+                        "url": "/insurance/bluecross-blueshield/"
+                    },
+                    {
+                        "label": "Rehabs That Accept UnitedHealthcare",
+                        "url": "/insurance/united-healthcare/"
+                    },
+                    {
+                        "label": "Rehabs That Accept Humana",
+                        "url": "/insurance/humana/"
+                    },
+                    {
+                        "label": "Rehabs That Accept Medicaid",
+                        "url": "/insurance/medicaid/"
+                    }
+                ]
             }
         ],
         "copyright": "© Copyright {business}. All Rights Reserved.",
         "bottom_links": [
+            {
+                "label": "About Us",
+                "url": "/about"
+            },
             {
                 "label": "Privacy Policy",
                 "url": "/privacy-policy"
@@ -303,8 +321,8 @@
             }
         ],
         "disclaimer": "<p>Disclaimer: {business_domain} ({business}) is a free informational and referral service — not a treatment provider, medical practice, or insurance company. We help connect people with addiction-treatment providers and advertising partners; we do not provide medical advice, diagnosis, or treatment, and nothing on this site guarantees insurance coverage, admission, or any particular outcome. Insurance benefits vary by plan &mdash; always verify your own coverage. Calls may be answered by our advertising partners. Insurance carrier names and logos are trademarks of their respective owners, used for identification only; {business} is not affiliated with or endorsed by any carrier. If you or someone you know is in crisis, call or text 988 (Suicide &amp; Crisis Lifeline), or 911 for emergencies. See our Terms and Conditions for details.</p>",
-        "sticky_bar_text": "Confidential 24/7 Helpline — Call Now",
-        "sticky_bar_info": "Calls are answered by our advertising partners, who can help you verify your insurance and find treatment options.",
+        "sticky_bar_text": "Confidential Help Finding Rehabs That Accept Your Insurance",
+        "sticky_bar_info": "A free, confidential service that helps you verify your insurance and find covered treatment options through our advertising partners.",
         "logo_in_copyright_bar": true,
         "col_count": 3,
         "socials": {
@@ -325,7 +343,7 @@
                     "type": "text",
                     "heading_level": "h1",
                     "heading_text": "Privacy Policy",
-                    "text": "<p><em>Last updated: July 2026.</em></p><p>{business} (\"we,\" \"us,\" or \"our\") operates {business_domain}. This Privacy Policy explains what information we collect, how we use and share it, and the choices you have. By using our site or contacting us, you agree to this policy.</p>",
+                    "text": "<p>At {business}, we are committed to protecting the privacy and confidentiality of the personal information you share with us. This Privacy Policy explains how we collect, use, and safeguard the information you provide when you use our website and free treatment-referral services. By using our services, you consent to the practices described in this policy.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -333,9 +351,9 @@
                 },
                 {
                     "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "Who We Are",
-                    "text": "<p>{business} is a free informational and referral service that helps people find addiction-treatment options that may be covered by their health insurance. We are not a treatment provider, medical practice, or insurance company, and we do not collect medical records or protected health information.</p>",
+                    "heading_level": "h3",
+                    "heading_text": "What information do we collect?",
+                    "text": "<p>We may collect the following information from you:</p>\n\n<ul>\n\t<li>Contact information, such as your name, email address, and phone number</li>\n\t<li>Information you choose to share when you contact us, such as your treatment needs and health-insurance details, so we can help you find covered options</li>\n\t<li>Technical and usage information, such as your IP address, browser type, and the pages you visit, collected automatically through cookies and analytics</li>\n</ul>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -343,9 +361,9 @@
                 },
                 {
                     "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "Information We Collect",
-                    "text": "<p><strong>Information you give us:</strong> your name, phone number, email address, general location, and any details you choose to share when you call us or submit a form.</p><p><strong>Information collected automatically:</strong> IP address, browser type, device information, pages viewed, and similar usage data, gathered through cookies and analytics tools.</p><p>Please do not send us medical records, diagnoses, or other sensitive health information.</p>",
+                    "heading_level": "h3",
+                    "heading_text": "How do we use your information?",
+                    "text": "<p>We use your information to connect you with addiction-treatment providers and advertising partners, to help you verify your insurance benefits, and to respond to your inquiries. We may also use your information to:</p>\n\n<ul>\n\t<li>Communicate with you about your inquiry or request</li>\n\t<li>Share information about treatment and coverage options that may be relevant to you</li>\n\t<li>Improve our website, content, and services</li>\n\t<li>Comply with legal and regulatory requirements</li>\n</ul>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -353,9 +371,9 @@
                 },
                 {
                     "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "How We Use Your Information",
-                    "text": "<p>We use your information to respond to your inquiry, help you understand your insurance benefits, connect you with treatment providers and advertising partners, operate and improve our site, and comply with law.</p>",
+                    "heading_level": "h3",
+                    "heading_text": "Who do we share your information with?",
+                    "text": "<p>We may share your information with the following third parties:</p>\n\n<p>We respect your privacy and do not sell, rent, or disclose your personal information to third parties for marketing purposes. However, we may share your information with trusted service providers or business partners who assist us in delivering our services. These entities are bound by confidentiality agreements and are only permitted to use the information for the specified purposes.</p>\n\n<ul>\n\t<li>Our service providers, who help us provide our services, such as our payment processor and our customer support team</li>\n\t<li>Our marketing partners, who help us market our products and services</li>\n\t<li>Government agencies, if required by law</li>\n</ul>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -363,9 +381,9 @@
                 },
                 {
                     "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "How We Share Your Information",
-                    "text": "<p>We may share the contact details you provide with treatment providers and advertising partners so they can assist you, and with service vendors who support our operations. We may also disclose information when required by law or to protect our rights. We do not sell your information for unrelated third-party marketing.</p>",
+                    "heading_level": "h3",
+                    "heading_text": "How do we protect your information?",
+                    "text": "<p>We take steps to protect your information, such as:</p>\n\n<ul>\n\t<li>Storing your information in secure databases</li>\n\t<li>Using encryption technology to protect your information when it is transmitted over the internet</li>\n\t<li>Limiting access to your information to authorized employees and contractors</li>\n</ul>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -373,9 +391,9 @@
                 },
                 {
                     "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "Phone Calls, Texts, and Consent",
-                    "text": "<p>When you contact us or submit your information, you consent to be contacted by {business} and our advertising partners by phone, text message, and email at the number and address you provide, including through automated technology, for the purpose of discussing treatment and insurance options. Consent is not a condition of any service. Message and data rates may apply. You may opt out at any time (see \"Your Choices\" below).</p>",
+                    "heading_level": "h3",
+                    "heading_text": "Your rights",
+                    "text": "<p>You have the following rights with respect to your information:</p>\n\n<ul>\n\t<li>The right to access your information</li>\n\t<li>The right to correct any inaccurate or incomplete information</li>\n\t<li>The right to delete your information</li>\n\t<li>The right to object to the processing of your information</li>\n\t<li>The right to restrict the processing of your information</li>\n\t<li>The right to portability of your information</li>\n\t<li>The right to withdraw your consent</li>\n</ul>\n\n<p>To exercise any of these rights, please contact us at <a href=\"mailto:info@{business_domain}\">info@{business_domain}</a></p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -383,9 +401,9 @@
                 },
                 {
                     "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "Cookies and Analytics",
-                    "text": "<p>We use cookies and similar technologies to run the site, remember preferences, and measure traffic. You can control cookies through your browser settings; disabling them may affect site functionality.</p>",
+                    "heading_level": "h3",
+                    "heading_text": "Cookies and Analytics:",
+                    "text": "<p>We may use cookies and similar tracking technologies to gather information about your browsing activities on our website. This helps us improve our website's functionality, analyze user behavior, and personalize your experience. You can adjust your browser settings to refuse cookies or receive notifications when they are being used.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -393,9 +411,9 @@
                 },
                 {
                     "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "Insurance Carriers and Third-Party Links",
-                    "text": "<p>Insurance carrier names and logos are the trademarks of their respective owners and are used for identification only. {business} is not affiliated with, endorsed by, or acting on behalf of any insurance carrier. Our site may link to third-party sites we do not control and are not responsible for.</p>",
+                    "heading_level": "h3",
+                    "heading_text": "Links to Third-Party Websites:",
+                    "text": "<p>Our website may contain links to third-party websites for your convenience or reference. However, we are not responsible for the privacy practices or content of these websites. We encourage you to review the privacy policies of any third-party websites you visit.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -403,39 +421,9 @@
                 },
                 {
                     "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "Data Security",
-                    "text": "<p>We use reasonable administrative and technical measures to protect the information we handle. No method of transmission or storage is completely secure, however, and we cannot guarantee absolute security.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "Your Choices",
-                    "text": "<p>You may request access to or deletion of your information, opt out of marketing calls or texts (reply STOP to texts), unsubscribe from emails, or ask to be placed on our internal Do Not Call list by contacting us at {email}.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "Children’s Privacy",
-                    "text": "<p>Our site is intended for adults 18 and older. We do not knowingly collect information from children. If you believe a child has provided us information, please contact us and we will remove it.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "Changes and Contact",
-                    "text": "<p>We may update this policy from time to time; the \"last updated\" date reflects the latest version. Questions? Contact us at {email} or {phone}.</p>",
+                    "heading_level": "h3",
+                    "heading_text": "Changes to this Privacy Policy",
+                    "text": "<p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page.<br>\nContact us If you have any questions about this Privacy Policy, please contact us at <a href=\"mailto:info@{business_domain}\">info@{business_domain}</a>\n</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -452,7 +440,7 @@
                 "og_title": "",
                 "og_description": "",
                 "og_image": "",
-                "schema": "",
+                "schema": "{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"Organization\", \"@id\": \"{website}/#organization\", \"name\": \"{business}\", \"url\": \"{website}\", \"description\": \"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\", \"logo\": \"{website}/uploads/logo-recovery-dawn.svg\", \"areaServed\": \"US\"}, {\"@type\": \"WebSite\", \"@id\": \"{website}/#website\", \"url\": \"{website}\", \"name\": \"{business}\", \"publisher\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}, {\"@type\": \"WebPage\", \"@id\": \"{website}/privacy-policy/#webpage\", \"url\": \"{website}/privacy-policy/\", \"name\": \"Privacy Policy | {business}\", \"description\": \"How {business} collects, uses, and protects your information. Read the {business} privacy policy.\", \"isPartOf\": {\"@id\": \"{website}/#website\"}, \"about\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}]}",
                 "service_name": "",
                 "service_type": "",
                 "service_area": "",
@@ -463,15 +451,15 @@
             }
         },
         "page_5ecf42631f084": {
-            "title": "Terms and Conditions | {business}",
+            "title": "Terms of Use | {business}",
             "slug": "terms-and-conditions",
             "page_type": "other",
             "content_blocks": [
                 {
                     "type": "text",
                     "heading_level": "h1",
-                    "heading_text": "Terms and Conditions",
-                    "text": "<p><em>Last updated: July 2026.</em></p><p>These Terms and Conditions govern your use of {business_domain}, operated by {business}. By using the site or contacting us, you agree to these terms. If you do not agree, please do not use the site.</p>",
+                    "heading_text": "Terms of Use",
+                    "text": "",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -480,8 +468,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "heading_text": "What {business} Is — and Is Not",
-                    "text": "<p>{business} is a free informational and referral service that helps connect people with addiction-treatment providers and advertising partners. We are not a treatment provider, medical or clinical practice, or an insurance company. We do not provide medical advice, diagnosis, or treatment, and we do not determine insurance coverage.</p>",
+                    "heading_text": "1.THE SITE",
+                    "text": "<p>By offering the Site for use, {business} provides you with a worldwide, nonexclusive, nontransferable, revocable, limited license to access and make personal use of the information and Services, strictly subject to and in accordance with these Terms of Use. We reserve the right to terminate this license at any time and for any reason. Your failure to comply with these Terms of Use will result in automatic termination of this license, without prior notice, and you must immediately destroy all copies of downloaded materials in your possession or control. Except for the limited license set forth in these Terms of Use, {business} does not grant you any express or implied rights or licenses under any patents, trademarks, copyrights or other proprietary or intellectual property rights.</p>\n\n<p>The Content contained on the Site is for informational and educational purposes only and should not be relied upon for any medical or diagnostic purpose, or for the treatment of any condition or symptom. The Content on the Site does not constitute the provision or practice of medical, nursing, or professional health care advice or services, and is not intended to be a substitute for professional medical advice, diagnosis, or treatment. “Content” means content, text, data, graphics, images, photographs, video, audio, information, suggestions, guidance, and other materials provided, made available or otherwise found through the Services and/or Site.</p>\n\n<p>You acknowledge that although some Content may be provided by healthcare professionals, the provision of such Content does not create a medical professional/patient relationship, and does not constitute an opinion, medical advice, or diagnosis or treatment, but may assist you in choosing a healthcare specialist, professional, provider, treatment or rehabilitation center, organization, or agents or affiliates thereof (collectively, “Healthcare Provider”).</p>\n\n<p>WE MAKE NO GUARANTEES, REPRESENTATIONS OR WARRANTIES, WHETHER EXPRESSED OR IMPLIED, WITH RESPECT TO PROFESSIONAL QUALIFICATIONS, EXPERTISE, QUALITY OF WORK, PRICE OR COST INFORMATION, INSURANCE COVERAGE OR BENEFIT INFORMATION, OR ANY OTHER CONTENT AVAILABLE THROUGH THE SERVICES. IN NO EVENT SHALL WE BE LIABLE TO YOU OR ANYONE ELSE FOR ANY DECISION MADE OR ACTION TAKEN BY YOU IN RELIANCE ON ANY SUCH CONTENT. FURTHERMORE, WE DO NOT IN ANY WAY ENDORSE OR RECOMMEND ANY INDIVIDUAL OR ENTITY LISTED OR ACCESSIBLE THROUGH THE SERVICES, INCLUDING, WITHOUT LIMITATION, ANY INDIVIDUAL OR ENTITY THAT MAY BE RECOMMENDED BY ANY OF THE 3RD PARTY COUNSELORS.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -490,8 +478,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "heading_text": "Not Medical Advice — Emergencies",
-                    "text": "<p>Nothing on this site is medical advice. Always consult a qualified professional about treatment decisions. If you or someone else is in crisis, call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline) or call <strong>911</strong> for emergencies.</p>",
+                    "heading_text": "2. {business} DOES NOT PROVIDE MEDICAL ADVICE",
+                    "text": "<p>The Content that you obtain or receive from {business}, its employees, contractors, partners, sponsors, advertisers, licensors or otherwise through the Services, is for informational and educational purposes only.</p>\n\n<p>Medical information and understanding change constantly, and the information provided on the Site, or on any websites or sources referenced on the Site, are subject to change without notice and should not be considered current, complete, or exhaustive, nor should you rely on such information to recommend a course of treatment for you or any other individual.</p>\n\n<p>Do not disregard medical or professional advice, or delay seeking it, because of something you read on the Site or on any websites or sources referenced on the Site. You should always consult with a physician or other qualified health care provider regarding any specific medical questions or concerns and to assist you in interpreting any information contained on the Site or from any websites or sources referenced on the Site.</p>\n\n<p>WHILE WE HOPE THE CONTENT IS USEFUL TO YOU, IT IS NOT INTENDED AS A SUBSTITUTE FOR, NOR DOES IT REPLACE, PROFESSIONAL MEDICAL ADVICE, DIAGNOSIS, OR TREATMENT. DO NOT DISREGARD, AVOID OR DELAY OBTAINING MEDICAL ADVICE FROM A QUALIFIED HEALTHCARE PROVIDER, UNDER ANY CIRCUMSTANCE. DO NOT USE THE SERVICES FOR EMERGENCY MEDICAL NEEDS. IF YOU EXPERIENCE A MEDICAL EMERGENCY, IMMEDIATELY CALL A HEALTHCARE PROFESSIONAL AND 911. YOUR USE OF THE CONTENT IS SOLELY AT YOUR OWN RISK. NOTHING STATED OR POSTED ON THE SITE OR AVAILABLE THROUGH ANY SERVICES IS INTENDED TO BE, AND MUST NOT BE TAKEN TO BE, THE PRACTICE OF MEDICINE OR OTHER PROFESSIONAL HEALTHCARE ADVICE, OR THE PROVISION OF MEDICAL CARE.</p>\n\n<p>We do not recommend or endorse any specific tests, Healthcare Providers, procedures, opinions, or other information that may appear through the Services. If you rely on any Content, you do so solely at your own risk. We encourage you to independently confirm any Content relevant to you with other sources, including the Healthcare Provider’s office, medical associations relevant to the applicable specialty, your state medical boards, and the appropriate licensing or certification authorities to verify listed credentials and education.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -500,8 +488,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "heading_text": "No Guarantee of Coverage or Outcomes",
-                    "text": "<p>Insurance benefits vary by plan and are determined solely by your insurer. We do not guarantee that any treatment will be covered, that you will be admitted to any program, or that any particular result or outcome will occur. Always verify your own benefits directly with your insurer.</p>",
+                    "heading_text": "3.NO DOCTOR-PATIENT RELATIONSHIP",
+                    "text": "<p>YOUR USE OF THIS CONTENT IS NOT A SUBSTITUTE FOR HEALTHCARE. NO LICENSED MEDICAL PROFESSIONAL/PATIENT RELATIONSHIP IS CREATED WHEN YOU USE THE SERVICES OR CONTENT. THIS IS TRUE WHETHER SUCH CONTENT IS PROVIDED BY OR THROUGH THE USE OF THE SERVICES OR THROUGH ANY OTHER COMMUNICATIONS FROM {business} INCLUDING, WITHOUT LIMITATION, LINKS TO OTHER SITES, OR ANY ASSISTANCE WE AND/OR ANY OF THE 3RD PARTY COUNSELORS MAY PROVIDE TO HELP YOU FIND A HEALTHCARE PROVIDER IN ANY FIELD.</p>\n\n<p>{business} encourages Healthcare Providers to use the Services responsibly, but we have no control over, and cannot guarantee the availability of, any Healthcare Provider at any particular time. We will not be liable for any injury or loss resulting or arising from, or related to, the use of the Site or Services whatsoever.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -510,8 +498,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "heading_text": "Advertising and Referral Relationships",
-                    "text": "<p>Some listings, calls, and content may be provided by or directed to our advertising partners, and we may be compensated when you contact a partner. Calls placed through the site may be answered by advertising partners. This compensation may affect which providers are shown.</p>",
+                    "heading_text": "4.AUTHORIZATION AND ACKNOWLEDGEMENT; IMPORTANT INFORMATION ABOUT HEALTHCARE PROVIDER RELATIONSHIPS AND HEALTHCARE PROVIDER LISTS",
+                    "text": "<p>In connection with using the Site and the Services to locate and select Healthcare Providers, including, without limitation, with the potential assistance of a 3rd party, you understand that:</p>\n\n<p>YOU ARE RESPONSIBLE FOR CHOOSING YOUR OWN HEALTHCARE PROVIDER, INCLUDING, WITHOUT LIMITATION, DETERMINING WHETHER THE APPLICABLE HEALTHCARE PROVIDER IS SUITABLE FOR YOUR HEALTHCARE NEEDS BASED ON SPECIALTY, EXPERIENCE, QUALIFICATION, LICENSES, AND OTHER IMPORTANT FACTS AND CIRCUMSTANCES THAT COULD IMPACT YOUR CARE.</p>\n\n<p>{business} (a) does not recommend or endorse any Healthcare Providers or Treatment Centers, (b) does not make any representations or warranties with respect to these Healthcare Providers or the quality of the healthcare services they may provide, and (c) does receive fees from Healthcare Treatment Centers for advertising. Healthcare Treatment Centers receive better placement on lists by paying additional fees. While {business} receives fees from Healthcare Treatment Centers for internet exposure to potential patients for drug and alcohol addiction treatment, {business} does not receive fees directly from any particular Healthcare Providers. Healthcare Providers that are displayed or offered in connection with the Services are not, and should not be considered, an endorsement or recommendation by {business} of the Healthcare Provider.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -520,8 +508,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "heading_text": "Your Responsibilities",
-                    "text": "<p>You agree to provide accurate information and to independently verify any provider’s licensing, credentials, and your own insurance coverage before making treatment decisions. You are responsible for your interactions with any provider or partner.</p>",
+                    "heading_text": "5.THE SERVICES AND CONTENT ARE INFORMATIONAL AND EDUCATIONAL RESOURCES",
+                    "text": "<p>The Services are an informational and educational resource for consumers and Healthcare Providers. No party (including {business}) involved in the preparation or publication of Content guarantee that the Content is timely, accurate or complete, and they will not be responsible or liable for any errors or omissions in, or for the results obtained from the use of, such Content.</p>\n\n<p>Healthcare Provider Content:</p>\n\n<p>Healthcare Provider and practice Content is intended for general reference purposes only. Such Content can change frequently and may become out of date, incomplete or inaccurate. Neither the Site nor {business} provides any advice or qualification certification about any particular Healthcare Provider.</p>\n\n<p>Procedures/Products/Services:</p>\n\n<p>Procedures, products, services and devices discussed and/or offered through the Services are not applicable to all individuals, patients or all clinical situations. Any procedures, products, services or devices represented through the Services by advertisers, sponsors, and other participants of the Services, either paid or unpaid, are presented for your awareness and do not necessarily imply, and we make no claims as to, safety or appropriateness for any particular individual or prediction of effectiveness, outcome or success.</p>\n\n<p>Insurance Content:</p>\n\n<p>Insurance and insurance related Content (including, without limitation, insurance coverage and benefit Content) (“Insurance Content”) is intended for general reference purposes and for your convenience only. Insurance Content can change frequently and may become out of date, incomplete or inaccurate, and we are not responsible for any inaccurate, incomplete or outdated Insurance Content.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -530,8 +518,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "heading_text": "Trademarks and Intellectual Property",
-                    "text": "<p>Insurance carrier names and logos are trademarks of their respective owners, used here for identification only; {business} is not affiliated with or endorsed by any carrier. All other site content is owned by {business} or its licensors and may not be copied without permission.</p>",
+                    "heading_text": "6.YOUR PERSONAL INFORMATION",
+                    "text": "<p>Protecting patient privacy and keeping your information secure are among our biggest priorities. Our Privacy Policy details how we may use, share, and maintain the information that you voluntarily share with {business}, which may include, without limitation, your name, address, social security number and contact information, insurance information, medical history and current medical needs, billing information, and other personally identifiable information (collectively, “Personal Information”).</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -540,8 +528,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "heading_text": "Disclaimer of Warranties",
-                    "text": "<p>The site and its content are provided \"as is\" and \"as available,\" without warranties of any kind, express or implied, including accuracy, fitness for a particular purpose, or non-infringement.</p>",
+                    "heading_text": "7.YOUR RESPONSIBILITIES",
+                    "text": "<p>The Services are free. However, you are responsible for any and all healthcare expenses. Usual, customary, and any other charges for any medical or related services rendered by Healthcare Providers will apply and will be entirely your responsibility.</p>\n\n<p>You are responsible for all use of the Services. You may only use the Site and the Services for lawful, non-commercial purposes. You may not use the Site in any manner that could damage, disable, overburden, or impair our servers or networks, or interfere with any other party’s use and enjoyment of the Site or the Services. You may not attempt to gain unauthorized access to any of the Services, computer systems, or networks, through hacking, password mining or any other means. You may not accumulate or index, directly or indirectly, any Content or portion of the Site and/or Services (including, without limitation, Healthcare Provider Content and Insurance Content) for any purpose whatsoever.</p>\n\n<p>In addition to our rights in these Terms of Use, we may take any legal action and implement any technological measures to prevent violations of the restrictions hereunder and to enforce these Terms of Use.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -550,8 +538,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "heading_text": "Limitation of Liability",
-                    "text": "<p>To the fullest extent permitted by law, {business} and its owners, employees, and partners are not liable for any indirect, incidental, or consequential damages arising from your use of the site or any provider or partner you connect with through it.</p>",
+                    "heading_text": "8.CHANGES TO THE SERVICES; NEW SERVICES; ADDITIONAL TERMS",
+                    "text": "<p>We may from time to time add new features to the Services, substitute a new service for one of the existing Services, or discontinue or suspend one of the existing Services. Under no circumstances will {business} be liable for any suspension or discontinuation of any of the Services or portion thereof, and the use of new services will be governed by this Agreement.</p>\n\n<p>Some Services may have additional terms (including, without limitation, policies, guidelines, and rules) that will further govern your use of that particular Service and supplement this Agreement. If you choose to register for, access, or use any such Services, you may be presented with such additional terms. By using those Services, you agree to comply with any such additional terms, which are incorporated by reference into this Agreement.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -560,8 +548,8 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "heading_text": "Indemnification",
-                    "text": "<p>You agree to indemnify and hold harmless {business} from any claims or expenses arising out of your use of the site or your violation of these terms.</p>",
+                    "heading_text": "9.LINKS TO OTHER WEBSITES",
+                    "text": "<p>While using the Services, you may encounter links to other websites. These links are provided for your convenience only and we do not endorse these sites or the products and services they provide. You acknowledge and agree that we are not responsible or liable for the content or accuracy of these other websites. Although we attempt to link to trustworthy websites, it is possible that they will contain materials that are objectionable, unlawful, or inaccurate and we will not be responsible or liable for the legality or decency of material contained in or accessed through such other websites.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -570,8 +558,148 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "heading_text": "Changes, Governing Law, and Contact",
-                    "text": "<p>We may update these terms at any time; continued use means you accept the changes. These terms are governed by the laws of the United States and the state in which {business} operates, without regard to conflict-of-law rules. Questions? Contact us at {email} or {phone}.</p>",
+                    "heading_text": "10.YOUR USE OF CONTENT",
+                    "text": "<p>All of the Content is owned by us or our licensors and is protected by copyright, trademark, patent, and trade secret laws, other proprietary rights, and international treaties. You acknowledge that the Services and any underlying technology or software used in connection with the Services contain {business}’s proprietary information. We give you permission to use the Content for personal, non-commercial purposes only and do not transfer any intellectual property rights to you by virtue of permitting your use of the Services. You may print, download, and store information from the Site for your own convenience, but you may not copy, distribute, republish (except as permitted in this paragraph), sell, or exploit any of the Content, or exploit the Site or Services in whole or in part, for any commercial gain or purpose whatsoever. Except as expressly provided herein, neither {business} nor its suppliers grant you any express or implied rights, and all rights in the Site and the Services not expressly granted by {business} to you are retained by {business}.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "11.DISCLAIMER",
+                    "text": "<p>{business} provides educational information and resources related to drug and alcohol addiction and treatment.</p><p>\n<strong>By submitting your contact information through the Site, or by calling our phone line, you will be in communication with a third-party call center partner, This 3rd party provides resources and potential alternatives for drug and alcohol addiction treatment centers. By submitting your contact information or calling the phone line, you will be speaking with a person to help you find a potential treatment or rehabilitation facility. These counselors are not necessarily certified counselors.</strong></p><p>\nYou acknowledge that we have no control over, and no duty to take any action regarding: (a) which users gain access to the Site and/or the Services, (b) what Content you access, (c) what effects the Content may have on you, (d) how you may interpret or use the Content, or (e) what actions you may take as a result of having been exposed to the Content. You release us from all liability for you having acquired, you having not acquired, or your use of Content, including, but not limited to, any acts or omissions arising from or related to a person you talk to from our toll free number and/or any Healthcare Provider, including treatment centers, that may be recommended by the call center person. We make no representations or warranties regarding suggestions or recommendations of services or products offered or purchased through the Site, the Services, or by the third party call center’s counselors. We have no special relationship with or fiduciary duty to you. WE PROVIDE THE SERVICES “AS IS” AND “AS AVAILABLE.” WE MAKE NO EXPRESS OR IMPLIED WARRANTIES OR GUARANTEES ABOUT THE SERVICES. TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE HEREBY DISCLAIM ALL SUCH WARRANTIES, INCLUDING ALL STATUTORY WARRANTIES, WITH RESPECT TO THE SERVICES AND THE SITE, INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES THAT THE SERVICES ARE MERCHANTABLE, OF SATISFACTORY QUALITY, ACCURATE, FIT FOR A PARTICULAR PURPOSE OR NEED, OR NON-INFRINGING. WE DO NOT GUARANTEE THAT THE RESULTS THAT MAY BE OBTAINED FROM THE USE OF THE SERVICES WILL BE EFFECTIVE, RELIABLE OR ACCURATE OR WILL MEET YOUR REQUIREMENTS. WE DO NOT GUARANTEE THAT YOU WILL BE ABLE TO ACCESS OR USE THE SERVICES (EITHER DIRECTLY OR THROUGH THIRD-PARTY NETWORKS) AT TIMES OR LOCATIONS OF YOUR CHOOSING. WE ARE NOT RESPONSIBLE FOR THE ACCURACY, RELIABILITY, TIMELINESS OR COMPLETENESS OF INFORMATION PROVIDED BY USERS OF THE SERVICES OR ANY OTHER DATA OR INFORMATION PROVIDED OR RECEIVED THROUGH THE SERVICES. EXCEPT AS EXPRESSLY SET FORTH HEREIN, {business} MAKES NO WARRANTIES ABOUT THE INFORMATION SYSTEMS, SOFTWARE AND FUNCTIONS MADE ACCESSIBLE THROUGH THE SERVICES OR ANY OTHER SECURITY ASSOCIATED WITH THE TRANSMISSION OF SENSITIVE INFORMATION. {business} DOES NOT WARRANT THAT THE SITE OR THE SERVICES WILL OPERATE ERROR-FREE, BUG-FREE OR FREE FROM DEFECTS, THAT LOSS OF DATA WILL NOT OCCUR, OR THAT THE SERVICES, SOFTWARE OR SITE ARE FREE OF COMPUTER VIRUSES, CONTAMINANTS OR OTHER HARMFUL ITEMS.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "12.GENERAL LIMITATION OF LIABILITY",
+                    "text": "<p>IN NO EVENT SHALL OUR CUMULATIVE LIABILITY TO YOU FOR ANY AND ALL CLAIMS RELATING TO OR ARISING OUT OF YOUR USE OF THE SERVICES OR THE SITE, AND/OR ANY ACTS OR OMISSIONS RELATING TO THE 3RD PARTY COUNSELORS OR THIRD PARTIES RECOMMENDED BY THE 3RD PARTY COUNSELORS (INCLUDING, WITHOUT LIMITATION, HEALTHCARE PROVIDERS AND TREATMENT CENTERS), REGARDLESS OF THE FORM OF ACTION, EXCEED THE AMOUNT OF $100.00.</p><p>\nIN NO EVENT SHALL WE BE LIABLE TO YOU (OR TO ANY THIRD PARTY CLAIMING UNDER OR THROUGH YOU) FOR ANY INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES ARISING FROM YOUR USE OF, OR INABILITY TO USE, THE SITE AND/OR THE SERVICES, OR FOR ANY ACTS OR OMISSIONS RELATING TO THE 3RD PARTY COUNSELORS OR THIRD PARTIES RECOMMENDED BY THE 3RD PARTY COUNSELORS (INCLUDING, WITHOUT LIMITATION, HEALTHCARE PROVIDERS AND TREATMENT CENTERS).  THESE EXCLUSIONS APPLY TO ANY CLAIMS FOR LOST PROFITS, LOST DATA, LOSS OF GOODWILL, COMPUTER FAILURE OR MALFUNCTION, ANY OTHER COMMERCIAL DAMAGES OR LOSSES, OR MEDICAL MALPRACTICE OR NEGLIGENCE OF HEALTHCARE PROVIDERS UTILIZED THROUGH USE OF THE SERVICES, EVEN IF WE KNEW OR SHOULD HAVE KNOWN OF THE POSSIBILITY OF SUCH DAMAGES. BECAUSE SOME STATES OR JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR THE LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, IN SUCH STATES OR JURISDICTIONS, OUR LIABILITY SHALL BE LIMITED IN ACCORDANCE HEREIN TO THE MAXIMUM EXTENT PERMITTED BY LAW.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "13.TERMINATION",
+                    "text": "<p>{business} shall not be liable to you or any third party for any termination, suspension or deactivation of your access to the Site and/or the Services. Further, you agree not to attempt to use the Site and/or the Services after any such termination, suspension or deactivation. Sections 1, 2, 3, 4, 6, 8, 9, 10, 11, 12, 13, 14, and 15 shall survive any termination or expiration of these Terms of Use.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "14.INDEMNIFICATION",
+                    "text": "<p>Upon a request by us, you agree to defend, indemnify, and hold harmless us, our employees, contractors, officers, directors, agents, parent and other affiliates, from all liabilities, claims, demands and expenses, including attorney’s fees, that arise from or are related to (a) your use of the Site and/or Services, or (b) the violation of this Agreement (including, without limitation, the Terms of Use or the Privacy Policy), or of any intellectual property or other right of any person or entity, by you or any person acting on your behalf. The foregoing indemnification obligation does not apply to liabilities, claims and expenses arising as a result of our own gross negligence or intentional misconduct.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "15.MISCELLANEOUS",
+                    "text": "",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h3",
+                    "heading_text": "a. Electronic Contracting; Copyright Dispute",
+                    "text": "<p>Your affirmative act of using the Services constitutes your electronic signature to this Agreement, which includes our Privacy Policy, and your consent to enter into such agreements with us electronically.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h3",
+                    "heading_text": "b. Changes to These Terms of Use",
+                    "text": "<p>We may change these Terms of Use and the other documents that are part of the Agreement at any time, as we reasonably deem appropriate. Upon any such change, we will post the amended terms on the Site; we may also attempt to notify you in some other way. Your continued use of the Site and/or the Services following such posting shall constitute your affirmative acknowledgement of the Terms of Use or other applicable Agreement document, the modification, and agreement to abide and be bound by the Terms of Use or other applicable Agreement document, as amended. We encourage you to periodically review these Terms of Use and the Agreement. IF AT ANY TIME YOU CHOOSE NOT TO ACCEPT THESE TERMS OF USE OR THE AGREEMENT, INCLUDING FOLLOWING ANY SUCH MODIFICATIONS HERETO, THEN YOU MUST STOP USING THE SITE AND THE SERVICES.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h3",
+                    "heading_text": "c. Limitation of Claims",
+                    "text": "<p>No action arising under or in connection with this Agreement, regardless of the form, may be brought by you more than one (1) year after the cause of action arose; actions brought thereafter are forever barred.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h3",
+                    "heading_text": "d. Choice of Law; Arbitration Clause and Class Action Waiver – Important – Please Review as This Affects Your Legal Rights",
+                    "text": "<p>YOU AGREE THAT ALL DISPUTES BETWEEN YOU AND US (WHETHER OR NOT SUCH DISPUTE INVOLVES A THIRD PARTY) WITH REGARD TO YOUR RELATIONSHIP WITH US, INCLUDING, WITHOUT LIMITATION, DISPUTES RELATED TO THIS AGREEMENT, YOUR USE OF THE SERVICES, AND/OR RIGHTS OF PRIVACY AND/OR PUBLICITY, ARE SUBJECT TO THE EXCLUSIVE JURISDICTION OF THE COURTS OF THE STATE OF TEXAS AND THE FEDERAL COURTS OF THE UNITED STATES OF AMERICA, AND ANY CASE SHALL BE PRESIDING IN TARRANT COUNTY COURT, TEXAS, UNITED STATES OF AMERICA.</p><p>\nNeither you nor we will participate in a class action or class-wide arbitration for any claims covered by this Agreement. YOU ARE WAIVING THE ABILITY TO PARTICIPATE AS A CLASS REPRESENTATIVE OR MEMBER IN ANY CLASS OR COLLECTIVE CLAIM YOU MAY HAVE AGAINST US INCLUDING ANY RIGHT TO CLASS OR ANY CONSOLIDATION OF INDIVIDUAL CASES OR ARBITRATIONS. You also agree not to participate in claims brought in a private attorney general or representative capacity, or consolidated claims involving another person, if we are a party to the proceeding.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h3",
+                    "heading_text": "e. Severability",
+                    "text": "<p>In the event any one or more of the provisions of this Agreement shall for any reason be held to be invalid, illegal or unenforceable, the remaining provisions of this Agreement shall be unimpaired. Further, the invalid, illegal or unenforceable provision shall be replaced by a provision that comes closest to the intention of the parties that underlie the invalid, illegal or unenforceable provision, except to the extent no such provision is valid, legal and enforceable, in which case such invalid, illegal or unenforceable provision shall be limited or eliminated to the minimum extent necessary so that the other provisions of this Agreement remain in full force and effect and enforceable.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h3",
+                    "heading_text": "f. Entire Agreement",
+                    "text": "<p>This Agreement and any supplemental terms, policies, rules and guidelines posted through the Services, each of which are incorporated herein by reference, including the Privacy Policy, constitute the entire agreement between you and us and supersede all previous written or oral agreements. If any part of this Agreement is held invalid or unenforceable, that portion shall be construed in a manner consistent with applicable law to reflect, as nearly as possible, the original intentions of the parties, and the remaining portions shall remain in full force and effect. The failure of {business} to exercise or enforce any right or provision of this Agreement shall not constitute a waiver of such right or provision. The failure of either party to exercise in any respect any right provided for herein shall not be deemed a waiver of any further rights hereunder.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h3",
+                    "heading_text": "g. Headings",
+                    "text": "<p>The headings of the sections of this Agreement are for convenience only, do not form a part hereof, and in no way limit, define, describe, modify, interpret or construe the meaning, scope or intent of this Agreement or any terms or conditions therein.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h3",
+                    "heading_text": "h. Assignment",
+                    "text": "<p>We may assign this Agreement at any time, including, without limitation, to any parent, subsidiary, or any affiliated company, or as part of the sale to, merger with, or other transfer of our company to another entity. You may not assign, transfer or sublicense this Agreement to anyone else and any attempt to do so in violation of this section shall be null and void.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "heading_text": "i. Eligibility",
+                    "text": "<p>You must be 18 years of age or over, or the legal age to form a binding contract in your jurisdiction if that age is greater than 18 years of age, to use the Site and the Services. If you are between the ages of 13 and 18 or the applicable legal age in your jurisdiction, you can use the Site or Services only under the supervision of your parent or guardian who has agreed to these Terms of Use. Those under the age of 13 may not use the Site or Services. Parents or legal guardians of a child under the age of 18 may use the Site or Services on behalf of such minor child. By using the Site or Services on behalf of a minor child, you represent and warrant that you are the parent or legal guardian of such child, and that all references in these Terms of Use to “you” shall refer to such child or such other individual on whose behalf you have authorization to enter into these Terms of Use and you in your capacity as the parent or legal guardian of such child or as the authorized party of such individual.</p><p>\nIf you do not qualify under these Terms of Use, do not use the Site or Services. Use of the Services is void where prohibited by applicable law, and the right to access the Site is revoked in such jurisdictions.  By using the Site and/or the Services, you represent and warrant that you have the right, authority, and capacity to enter into these Terms of Use.  The Site is intended for U.S. users only; any use outside of the U.S. or use related to activities outside of the U.S. is prohibited and at the user’s own risk.  Users are responsible for compliance with any local, state or federal laws applicable to their use of the Services or the Site.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -588,7 +716,7 @@
                 "og_title": "",
                 "og_description": "",
                 "og_image": "",
-                "schema": "",
+                "schema": "{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"Organization\", \"@id\": \"{website}/#organization\", \"name\": \"{business}\", \"url\": \"{website}\", \"description\": \"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\", \"logo\": \"{website}/uploads/logo-recovery-dawn.svg\", \"areaServed\": \"US\"}, {\"@type\": \"WebSite\", \"@id\": \"{website}/#website\", \"url\": \"{website}\", \"name\": \"{business}\", \"publisher\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}, {\"@type\": \"WebPage\", \"@id\": \"{website}/terms-and-conditions/#webpage\", \"url\": \"{website}/terms-and-conditions/\", \"name\": \"Terms of Use | {business}\", \"description\": \"The terms governing use of {business_domain}, a free addiction-treatment referral and advertising service.\", \"isPartOf\": {\"@id\": \"{website}/#website\"}, \"about\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}]}",
                 "service_name": "",
                 "service_type": "",
                 "service_area": "",
@@ -607,7 +735,7 @@
                     "type": "text",
                     "heading_level": "h1",
                     "heading_text": "Contact {business}",
-                    "text": "<p>Have a question, or want to check whether your insurance covers addiction treatment? We are here to help — confidentially, with no cost or obligation.</p><p style=\"margin-top:20px;\"><a href=\"tel:{tel}\" class=\"cta-btn\">Call {phone}</a></p><p style=\"margin-top:12px;\">Email: <a href=\"mailto:{email}\">{email}</a></p>",
+                    "text": "<p>Have a question, or want to check whether your insurance covers addiction treatment? We are here to help — confidentially, with no cost or obligation.</p><p style=\"margin-top:12px;\">Email: <a href=\"mailto:{email}\">{email}</a></p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -616,7 +744,7 @@
                 {
                     "type": "text",
                     "heading_level": "h2",
-                    "heading_text": "Advertising &amp; Partnerships",
+                    "heading_text": "Advertising & Partnerships",
                     "text": "<p>Are you a treatment provider interested in joining our advertising network? Reach out at {email} and we will get back to you. Please note that {business} is a referral and advertising service, not a treatment provider or insurance company.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
@@ -644,7 +772,7 @@
                 "og_title": "",
                 "og_description": "",
                 "og_image": "",
-                "schema": "",
+                "schema": "{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"Organization\", \"@id\": \"{website}/#organization\", \"name\": \"{business}\", \"url\": \"{website}\", \"description\": \"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\", \"logo\": \"{website}/uploads/logo-recovery-dawn.svg\", \"areaServed\": \"US\"}, {\"@type\": \"WebSite\", \"@id\": \"{website}/#website\", \"url\": \"{website}\", \"name\": \"{business}\", \"publisher\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}, {\"@type\": \"ContactPage\", \"@id\": \"{website}/contact-us/#webpage\", \"url\": \"{website}/contact-us/\", \"name\": \"Contact {business}\", \"description\": \"Contact {business} to check your insurance coverage for addiction treatment or to join our advertising network.\", \"isPartOf\": {\"@id\": \"{website}/#website\"}, \"about\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}]}",
                 "service_name": "",
                 "service_type": "",
                 "service_area": "",
@@ -723,7 +851,7 @@
                     "type": "text",
                     "heading_level": "h2",
                     "heading_text": "Contact Us",
-                    "text": "<p>Questions, or interested in advertising with us? Call <a href=\"tel:{tel}\">{phone}</a> or email <a href=\"mailto:{email}\">{email}</a>. See our <a href=\"/contact-us\">contact page</a> for more.</p>",
+                    "text": "<p>Questions, or interested in advertising with us? Email <a href=\"mailto:{email}\">{email}</a>. See our <a href=\"/contact-us\">contact page</a> for more.</p>",
                     "photo": "",
                     "photo_ratio": "landscape",
                     "photo_position": "center",
@@ -740,93 +868,7 @@
                 "og_title": "",
                 "og_description": "",
                 "og_image": "",
-                "schema": "",
-                "service_name": "",
-                "service_type": "",
-                "service_area": "",
-                "service_description": "",
-                "bc_label": "",
-                "bc_mid_label": "",
-                "bc_mid_url": ""
-            }
-        },
-        "page_editorial": {
-            "title": "Editorial Policy | {business}",
-            "slug": "editorial-policy",
-            "page_type": "core",
-            "content_blocks": [
-                {
-                    "type": "text",
-                    "heading_level": "h1",
-                    "heading_text": "Editorial Policy",
-                    "text": "<p><em>Last updated: July 2026.</em></p><p>This page explains how {business} creates its content, the sources we rely on, and how we keep information accurate. Our goal is to give clear, trustworthy guidance about using insurance for addiction treatment.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "How We Create Our Content",
-                    "text": "<p>Our content is written in plain language and reviewed for accuracy and tone before publishing. We focus on being genuinely useful — explaining how insurance coverage generally works, what to ask, and how to verify your own benefits — rather than making promises we cannot keep. We do not fabricate statistics, prices, facility names, or success rates.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "Our Sources",
-                    "text": "<p>Where we describe coverage rules and treatment, we rely on authoritative public sources, including:</p><ul><li><a href=\"https://www.samhsa.gov/find-help/national-helpline\" target=\"_blank\" rel=\"noopener nofollow\">SAMHSA</a> — the Substance Abuse and Mental Health Services Administration</li><li><a href=\"https://findtreatment.gov\" target=\"_blank\" rel=\"noopener nofollow\">FindTreatment.gov</a> — SAMHSA’s national treatment locator</li><li><a href=\"https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/mental-health-parity\" target=\"_blank\" rel=\"noopener nofollow\">Mental Health Parity and Addiction Equity Act</a> (U.S. Department of Labor / HHS)</li><li><a href=\"https://www.medicaid.gov\" target=\"_blank\" rel=\"noopener nofollow\">Medicaid.gov</a> and <a href=\"https://www.medicare.gov\" target=\"_blank\" rel=\"noopener nofollow\">Medicare.gov</a></li><li><a href=\"https://988lifeline.org\" target=\"_blank\" rel=\"noopener nofollow\">988 Suicide &amp; Crisis Lifeline</a></li></ul><p>For plan-specific coverage, the definitive source is always your own insurer and plan documents.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "Accuracy and Updates",
-                    "text": "<p>Insurance rules and treatment options change, so content may be updated over time. Because coverage varies by plan, employer, and state, we describe general patterns and consistently direct readers to verify their own benefits. Nothing here guarantees coverage, admission, or any outcome.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "Not Medical, Legal, or Insurance Advice",
-                    "text": "<p>{business} is a free informational and referral service, not a treatment provider or insurance company. Our content is for general information only and is not a substitute for professional medical, legal, or insurance advice. Always consult a qualified professional and your insurer about your specific situation.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "heading_text": "Corrections",
-                    "text": "<p>If you spot something inaccurate or out of date, please tell us at <a href=\"mailto:{email}\">{email}</a> and we will review it.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                }
-            ],
-            "seo": {
-                "seo_title": "Editorial Policy | {business}",
-                "meta_description": "How {business} creates content, the authoritative sources we rely on (SAMHSA, HHS, CMS), and how we keep information accurate.",
-                "canonical_url": "",
-                "primary_keyword": "",
-                "secondary_keywords": "",
-                "meta_keywords": "",
-                "og_title": "",
-                "og_description": "",
-                "og_image": "",
-                "schema": "",
+                "schema": "{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"Organization\", \"@id\": \"{website}/#organization\", \"name\": \"{business}\", \"url\": \"{website}\", \"description\": \"{business} is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\", \"logo\": \"{website}/uploads/logo-recovery-dawn.svg\", \"areaServed\": \"US\"}, {\"@type\": \"WebSite\", \"@id\": \"{website}/#website\", \"url\": \"{website}\", \"name\": \"{business}\", \"publisher\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}, {\"@type\": \"AboutPage\", \"@id\": \"{website}/about/#webpage\", \"url\": \"{website}/about/\", \"name\": \"About {business}\", \"description\": \"{business} is a free service that helps people find drug and alcohol rehabs that accept their insurance. Learn who we are, what we do, and how we are funded.\", \"isPartOf\": {\"@id\": \"{website}/#website\"}, \"about\": {\"@id\": \"{website}/#organization\"}, \"inLanguage\": \"en-US\"}]}",
                 "service_name": "",
                 "service_type": "",
                 "service_area": "",
@@ -839,17 +881,17 @@
     },
     "popups": {
         "info": {
-            "enabled": true,
+            "enabled": false,
             "heading": "How Your Calls Are Handled",
             "image": "",
-            "body": "<p>{business} offers a free, confidential helpline that connects you with addiction-treatment providers and advertising partners. This call-routing service is sponsored advertising. {business} is not a treatment provider or insurance company. Calls to our helpline are answered by one of our advertising partners, who can help you verify your insurance benefits and find treatment options. By calling or using {website}, you agree to our Terms and Conditions and Privacy Policy, and you consent to be contacted about treatment and coverage options. You will never be charged for these calls. <strong>Call recording &amp; data use:</strong> calls may be recorded and your information handled as described in our Privacy Policy. If you are in crisis, call or text <strong>988</strong>. Questions? Call {phone}.</p>"
+            "body": "<p>{business} offers a free, confidential helpline that connects you with addiction-treatment providers and advertising partners. This call-routing service is sponsored advertising. {business} is not a treatment provider or insurance company. Calls to our helpline are answered by one of our advertising partners, who can help you verify your insurance benefits and find treatment options. By calling or using {website}, you agree to our Terms and Conditions and Privacy Policy, and you consent to be contacted about treatment and coverage options. You will never be charged for these calls. <strong>Call recording &amp; data use:</strong> calls may be recorded and your information handled as described in our Privacy Policy. If you are in crisis, call or text <strong>988</strong>.</p>"
         }
     },
     "local_business": {
         "lb_name": "{business}",
         "lb_type": "Organization",
         "lb_url": "{website}",
-        "lb_phone": "{phone}",
+        "lb_phone": "",
         "lb_street": "",
         "lb_city": "",
         "lb_state": "",
@@ -870,10 +912,10 @@
         "SS": "",
         "city_slug": "",
         "business": "Recovery Dawn",
-        "phone": "888-555-0100",
+        "phone": "",
         "zip": "",
         "website": "https://recoverydawn.com",
-        "tel": "+18885550100",
+        "tel": "",
         "city_image": "",
         "city_image_alt": "",
         "city_image_credit": "",
