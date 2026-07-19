@@ -4145,6 +4145,14 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 .block-section[class*="skin-"] .svc-card .svc-card-heading { color: #111 !important; }
 .block-section[class*="skin-"] .svc-card .svc-card-text    { color: #555 !important; }
 
+/* faq_two_col — items are always light pills, so their question/answer text must
+   stay dark under any skin (the blanket p/li override was leaking light text
+   onto the pill, making open answers unreadable on Dark/Accent). */
+.block-section[class*="skin-"] .fq-item .fq-question { color: #1a2e5a !important; }
+.block-section[class*="skin-"] .fq-item .fq-answer,
+.block-section[class*="skin-"] .fq-item .fq-answer p,
+.block-section[class*="skin-"] .fq-item .fq-answer li { color: #374151 !important; }
+
 /* image_features — phone label/number + intro carry dark colors that vanish on dark */
 .block-section.skin-dark .if-phone-label,
 .block-section.skin-dark .if-phone-number { color: var(--skin-dark-heading) !important; }
