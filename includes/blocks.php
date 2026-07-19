@@ -1697,7 +1697,7 @@ function render_content_block($block, $pathPrefix = '') {
             if ($tbRows === '') break;
             $tbBgVal  = $tbBg === 'subtle' ? 'var(--skin-subtle-bg,#f3f6f7)' : resolve_color($tbBg, $tbBgCustom);
             $tbBorder = $tbLight ? 'border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);' : '';
-            echo '<div class="content-block block-trust-bar"'.$anchorAttr.' style="padding:0;margin:0;"><div style="width:100%;box-sizing:border-box;background:'.$tbBgVal.';'.$tbBorder.'padding:36px 0;"><div style="max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 44px;">'.$tbRows.'</div></div></div>';
+            echo '<div class="content-block block-trust-bar"'.$anchorAttr.' style="padding:0;margin:0;"><div style="width:100%;box-sizing:border-box;background:'.$tbBgVal.';'.$tbBorder.'padding:36px 0;"><div style="max-width:1600px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 30px;">'.$tbRows.'</div></div></div>';
             break;
 
         /* ---- VIDEO EMBED ---- */
