@@ -33,6 +33,7 @@ import json
 import os
 import random
 import re
+import subprocess
 import sys
 import threading
 import time
@@ -169,6 +170,8 @@ def site_paths(base_dir, site_id, site_dir=None):
         site_dir = os.path.join(base_dir, 'sites', site_id)
     site_dir = os.path.abspath(site_dir)
     return {
+        'base_dir':       base_dir,   # project root — used to locate plugins/ (city-image CLI)
+        'site_id':        site_id,    # used to build the "sites/{id}/uploads/media" store prefix
         'site_dir':       site_dir,
         'site_json':      os.path.join(site_dir, 'data', 'site.json'),
         'registry':       os.path.join(site_dir, 'data', 'ai_block_types.json'),
@@ -679,6 +682,128 @@ def generate_site_spotlight(paths, site_data, registry, c_idx, api_key, refresh,
         _ok(f'  Propagated city_spotlight into {synced} city page(s) city_vars')
 
     return generated
+
+
+# ── City images ───────────────────────────────────────────────────────────────
+#
+# Each city's scenic photo is fetched ONCE from Wikimedia and cached as per-city
+# data, exactly like city_spotlight above. The fetch itself lives in the City
+# Image plugin (plugins/city-image/) — a self-contained, reusable unit — and we
+# invoke its CLI (cli.php) rather than reimplementing the Wikimedia/webp logic in
+# Python. This is the wiring the plugin's own header always intended ("Called by
+# the multisite generator once per researched city") but that was never connected.
+#
+# Design (see also admin/docs.php → "City images"):
+#   • Source of truth is the per-city cities.json row: city_image /
+#     city_image_alt / city_image_credit / city_image_source.
+#   • Fetch-once: a city that already has city_image is skipped (no network call),
+#     unless refresh=True. This keeps rebuilds free and Wikimedia-friendly.
+#   • After caching, the resolved primary city's image is mirrored into
+#     site_vars so the existing {city_image} token resolves at render with zero
+#     template changes. In the fleet, differentiate.php copies the same per-city
+#     fields into each deployed site's site_vars.
+#   • No Anthropic key needed — it's a Wikimedia call, so it runs on any generate
+#     (not only "Research cities first").
+
+def _fetch_city_image(paths, city, refresh=False, dry_run=False):
+    """Fetch + self-host one city's scenic photo via plugins/city-image/cli.php.
+
+    Returns a dict of the four city_image* fields on success, or None when the
+    row is already cached (and not refresh), the city has no name, php/CLI is
+    unavailable, or Wikimedia has no suitable image. Never raises — image
+    fetching must never break a generation run.
+    """
+    if city.get('city_image') and not refresh:
+        return None                     # already cached — fetch-once
+    city_name = city.get('city', '')
+    if not city_name:
+        return None
+    cli = os.path.join(paths['base_dir'], 'plugins', 'city-image', 'cli.php')
+    if not os.path.exists(cli):
+        return None
+    if dry_run:
+        _log(f'  [dry-run] city image → {city_name}, {city.get("SS","?")}')
+        return None
+
+    out_dir      = os.path.join(paths['site_dir'], 'uploads', 'media')
+    store_prefix = f"sites/{paths['site_id']}/uploads/media"   # matches how uploaded media is stored in JSON
+    try:
+        proc = subprocess.run(
+            ['php', cli,
+             f'--city={city_name}',
+             f'--state={city.get("state","")}',
+             f'--ss={city.get("SS","")}',
+             f'--city-slug={city.get("city_slug","")}',
+             f'--out-dir={out_dir}',
+             f'--store-prefix={store_prefix}'],
+            capture_output=True, text=True, timeout=90)
+    except FileNotFoundError:
+        _warn('  php not found on PATH — skipping city image fetch')
+        return None
+    except Exception as e:
+        _warn(f'  {city_name} — city image fetch error: {e}')
+        return None
+
+    out = (proc.stdout or '').strip()
+    try:
+        res = json.loads(out.splitlines()[-1]) if out else {}
+    except Exception:
+        res = {}
+    if not isinstance(res, dict) or res.get('error') or not res.get('path'):
+        _warn(f'  {city_name} — no suitable city image found (leave empty; drop one in uploads/media/ to override)')
+        return None
+
+    # cli.php returns path/alt/credit/source — map to the city_image* field names.
+    return {
+        'city_image':        res['path'],
+        'city_image_alt':    res.get('alt', ''),
+        'city_image_credit': res.get('credit', ''),
+        'city_image_source': res.get('source', ''),
+    }
+
+
+def sync_city_images(paths, site_data, refresh=False, dry_run=False, city_filter=None):
+    """Fetch-if-missing city images into cities.json, then mirror the primary
+    city's image into site_vars. Always runs on generate (cheap after the first
+    time thanks to fetch-once caching). Returns the number of images fetched."""
+    cities_raw = load_json(paths['cities'])
+    if not cities_raw:
+        return 0
+    rows = cities_raw if isinstance(cities_raw, list) else list(cities_raw.values())
+
+    _log('\n── City Images ──────────────────────────────────────')
+    fetched = 0
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        if city_filter:
+            hay = f'{row.get("id","")} {row.get("city","")} {row.get("city_slug","")}'.lower()
+            if city_filter.lower() not in hay:
+                continue
+        img = _fetch_city_image(paths, row, refresh=refresh, dry_run=dry_run)
+        if img:
+            row.update(img)
+            fetched += 1
+            _ok(f'  {row.get("city","?")}, {row.get("SS","?")} — cached {os.path.basename(img["city_image"])}')
+
+    if fetched and not dry_run:
+        save_json(paths['cities'], cities_raw)
+
+    # Mirror the primary city's image → site_vars so {city_image} resolves at render.
+    site_vars = site_data.get('site_vars', {})
+    prim = resolve_city(cities_index(paths), site_vars)
+    changed = False
+    for f in ('city_image', 'city_image_alt', 'city_image_credit', 'city_image_source'):
+        if prim.get(f) and site_vars.get(f) != prim[f]:
+            site_vars[f] = prim[f]
+            changed = True
+    if changed and not dry_run:
+        save_json(paths['site_json'], site_data)
+        _ok(f'  Mirrored {prim.get("city","primary")} image → site_vars')
+    elif not fetched and not dry_run:
+        _log('  All cities already have a cached image')
+
+    return fetched
 
 
 def process_homepage(paths, site_data, registry, c_idx, api_key, refresh, dry_run, model_override=None):
@@ -1192,6 +1317,12 @@ def main():
     # ── Step 1b: City Spotlight (once per site; every page reuses {city_spotlight}) ──
     generate_site_spotlight(paths, site_data, registry, c_idx, api_key,
                             args.refresh, args.dry_run, args.model or None)
+
+    # ── Step 1c: City Images (fetch-once from Wikimedia, cache per-city, mirror
+    #    the primary city → site_vars so {city_image} resolves). No API key
+    #    needed; skipped per-city when already cached unless --refresh. ──
+    sync_city_images(paths, site_data, refresh=args.refresh,
+                     dry_run=args.dry_run, city_filter=args.file)
 
     # ── Step 2: Content generation ────────────────────────────────────────────
     model_override = args.model or None

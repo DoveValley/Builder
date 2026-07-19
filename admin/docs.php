@@ -1248,7 +1248,7 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
     <h3>Plugin Directory</h3>
     <p>Grid of all installed plugins, each showing an icon, name, and short description. Click any card to open that plugin's admin panel. Currently installed:</p>
     <ul>
-        <li><strong>City Image</strong> (&#127957;) — auto-fetches a scenic Wikipedia/Wikimedia photo of the site's city, self-hosts it as webp, and exposes <code>{city_image}</code> / <code>{city_image_alt}</code> / <code>{city_image_credit}</code> tokens plus a <code>[city_image]</code> shortcode (SEO alt + CC credit). See <a href="#cities-differentiation">Per-city images</a>.</li>
+        <li><strong>City Image</strong> (&#127957;) — auto-fetches a scenic Wikipedia/Wikimedia photo of the site's city, self-hosts it as webp, and exposes <code>{city_image}</code> / <code>{city_image_alt}</code> / <code>{city_image_credit}</code> tokens (SEO alt + CC credit). Fetched <strong>automatically during generation</strong> (once per city, cached in <code>cities.json</code>) — the panel is now just a manual override. See <a href="#ai-city-images">City images</a> and <a href="#cities-differentiation">Per-city images</a>.</li>
         <li><strong>Course Schedule</strong> (&#128197;) — adds schedule management (the Schedule sub-panel) and enables <code>[course_schedule]</code> and <code>[course_card]</code> shortcodes inside Custom HTML blocks. See the <a href="#tab-schedule">Schedule</a> section for field details.</li>
         <li><strong>Service Links: 1-City</strong> (&#128279;) — manage a service-page list; <code>[services_links]</code> renders a city-resolved grid of service links in a Custom HTML block.</li>
         <li><strong>Service Links: Multi-City</strong> (&#127758;) — <code>[locations]</code> lists all generated city landing pages, grouped by city and state.</li>
@@ -2461,6 +2461,17 @@ Output valid JSON only — no explanation.</code></pre>
         <li><strong>FAQ schema is a projection of content</strong> — derived at render, never stale.</li>
         <li><strong>One model catalog</strong> — <code>includes/models.json</code> is the single source for which models exist, their labels, and pricing; every editor dropdown, validator, and the cost table read it.</li>
     </ul>
+
+    <h3 id="ai-city-images">City images (automatic, fetched once per city)</h3>
+    <p>Every city's scenic hero/section photo is sourced automatically from <strong>Wikimedia</strong> — you do <em>not</em> click a button per city. It works like <code>city_spotlight</code>: fetch once, cache as per-city data, reuse on every build.</p>
+    <ul>
+        <li><strong>Where it runs</strong> — <code>generate.py</code> <strong>Step 1c</strong> (<code>sync_city_images()</code>), on <em>every</em> generate run (any scope). It shells out to the <a href="#tab-plugins">City Image</a> plugin's CLI (<code>plugins/city-image/cli.php</code> → Wikimedia lead image → resized webp). <strong>No Anthropic key needed</strong> — it's a Wikimedia call, so it runs even in a research-only or key-less pass.</li>
+        <li><strong>Source of truth</strong> — the per-city <code>cities.json</code> row: <code>city_image</code>, <code>city_image_alt</code>, <code>city_image_credit</code>, <code>city_image_source</code>. After caching, the <em>resolved primary city's</em> image is mirrored into <code>site_vars</code> so the existing <code>{city_image}</code> token resolves at render with <strong>no template change</strong>.</li>
+        <li><strong>Fetch-once</strong> — a city that already has a <code>city_image</code> is skipped (zero network calls), keeping rebuilds free and Wikimedia-friendly. Use <strong>Refresh locked blocks</strong> / <code>--refresh</code> to force a re-fetch (e.g. a bad or wrong image).</li>
+        <li><strong>Single site vs. fleet</strong> — for one site every page shares <code>site_vars.city_image</code> (correct: they're all one city). In the fleet, because the image is cached <em>per-city</em> in <code>cities.json</code>, <code>differentiate.php</code> copies each city's fields into that deployed site's <code>site_vars</code> — so every domain gets its own image with no per-site work.</li>
+        <li><strong>When Wikimedia has nothing usable</strong> (small towns, redirect-titled articles) — the field is left empty and a warning is logged; generation never blocks. Drop a photo into <code>sites/{id}/uploads/media/</code> and set that city's <code>city_image</code>, or use the plugin panel's manual re-fetch/override.</li>
+    </ul>
+    <p class="callout"><strong>Why not render-time or a per-block field?</strong> Deployed sites are <em>static HTML</em> — there's no PHP at render, so a "live" Wikimedia call would only ever fire at build time anyway (and it must be a self-hosted webp for CWV, not a hotlink). And the image is <em>city</em> data referenced by many blocks + the schema, not the property of any one block. So the correct home is the per-city data layer (<code>cities.json</code> → <code>site_vars</code>), fetched once and cached. The old <code>[city_image]</code> block shortcode was removed (0 uses); use the <code>{city_image}</code> token instead.</p>
 </section>
 
 <section id="ai-niche">

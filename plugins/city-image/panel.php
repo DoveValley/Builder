@@ -15,6 +15,11 @@ $imgUrl = $path !== '' ? (str_starts_with($path, 'http') ? $path : '/' . ltrim($
 <div class="admin-section">
 
     <div class="card" style="margin-bottom:16px;">
+        <p style="margin:0 0 10px;color:#dc2626;font-weight:700;">
+            ** IMPORTANT ** You usually don't need this panel. The generator fetches each city's
+            image automatically during content generation (once per city, then cached). Use the
+            button below only to override — re-fetch or replace the current image.
+        </p>
         <p class="hint">
             Fetches a photo of <strong><?= h($city !== '' ? "$city, $ss" : 'your city') ?></strong> from the
             <strong>Wikipedia API</strong> (the article's lead image — always geo-correct and freely licensed),
@@ -23,7 +28,6 @@ $imgUrl = $path !== '' ? (str_starts_with($path, 'http') ? $path : '/' . ltrim($
         <ul class="hint" style="margin:8px 0 0 18px;line-height:1.7;">
             <li><code>{city_image}</code> — image path (drop into any photo field, e.g. the Map/Info block)</li>
             <li><code>{city_image_alt}</code> — SEO alt text &nbsp;·&nbsp; <code>{city_image_credit}</code> — CC credit</li>
-            <li><code>[city_image]</code> — in a Custom HTML block, renders the image + credit caption</li>
         </ul>
     </div>
 
