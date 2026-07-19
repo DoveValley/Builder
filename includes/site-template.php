@@ -367,7 +367,7 @@ if ($firstBlockHero) {
                     <ul class="footer-contact-list">
                         <?php if (!empty($footer['phone'])): ?>
                             <li class="footer-contact-item">
-                                <span class="contact-icon">📞</span>
+                                <span class="contact-icon contact-icon-phone">📞</span>
                                 <a href="tel:<?= h($telHref) ?>"><?= h($footer['phone']) ?></a>
                             </li>
                         <?php endif; ?>
@@ -379,7 +379,7 @@ if ($firstBlockHero) {
                         ?>
                         <?php if ($footerCity !== '' && strpos($footerCity, '{') === false): ?>
                             <li class="footer-contact-item">
-                                <span class="contact-icon">🌐</span>
+                                <span class="contact-icon contact-icon-city">🌐</span>
                                 <span><?= h($footerCity) ?></span>
                             </li>
                         <?php endif; ?>
