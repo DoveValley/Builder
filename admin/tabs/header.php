@@ -238,16 +238,12 @@
             </div>
 
             <div class="card">
-                <h2>Phone Number &amp; Location</h2>
+                <h2>Phone Number</h2>
                 <div class="form-group">
                     <label for="phone">Phone number</label>
                     <input type="tel" id="phone" name="phone" value="<?= h($header['phone'] ?? '') ?>" placeholder="+1 (555) 123-4567">
                 </div>
-                <div class="form-group">
-                    <label for="city">City / Location</label>
-                    <input type="text" id="city" name="city" value="<?= h($header['city'] ?? '') ?>" placeholder="e.g. Katy, TX">
-                    <span class="hint">Shown with a globe icon in the header info row.</span>
-                </div>
+                <p class="hint">Your city / location is now an editable <strong>Header Info Item</strong> below (add one with a 🌐 icon).</p>
             </div>
 
             <div class="card">
@@ -301,7 +297,7 @@
             <div id="header-info-items-card" style="<?= ($currentLayout === 'single_row') ? 'display:none;' : '' ?>">
             <div class="card">
                 <h2>Header Info Items</h2>
-                <p class="hint" style="margin-bottom:14px;">Small icon + text items shown in the top row beside the logo (e.g. "Proudly American", "Call for Great Service!"). Leave text blank to hide an item.</p>
+                <p class="hint" style="margin-bottom:14px;">Small icon + text items shown in the top row beside the logo (e.g. 🌐 "Your City, ST", 🇺🇸 "Proudly American", "Call for Great Service!"). Leave text blank to hide an item.</p>
                 <?php
                 $infoItems = $header['info_items'] ?? [['icon'=>'','text'=>''],['icon'=>'','text'=>''],['icon'=>'','text'=>'']];
                 foreach ($infoItems as $ii => $infoItem):

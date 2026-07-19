@@ -207,6 +207,17 @@ function load_data() {
             $data['posts'][$pid] = $post;
         }
     }
+    // Migrate the legacy hardcoded header.city (previously rendered with a fixed
+    // globe icon) into an editable Header Info Item so it sits alongside the other
+    // info items. Idempotent: header.city is cleared here, and any admin save then
+    // persists the migrated info_items with city='', so this never double-adds.
+    if (!empty($data['header']['city'])) {
+        if (!isset($data['header']['info_items']) || !is_array($data['header']['info_items'])) {
+            $data['header']['info_items'] = [];
+        }
+        array_unshift($data['header']['info_items'], ['icon' => '🌐', 'text' => $data['header']['city']]);
+        $data['header']['city'] = '';
+    }
     return $data;
 }
 

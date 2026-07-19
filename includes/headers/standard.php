@@ -31,9 +31,6 @@
                 <?php endif; ?>
             </div>
             <div class="header-info-items">
-                <?php if (!empty($header['city'])): ?>
-                    <div class="header-info-item"><span class="info-icon">🌐</span><span><?= h($header['city']) ?></span></div>
-                <?php endif; ?>
                 <?php foreach ($infoItems as $item): ?>
                     <?php if (empty($item['text'])) continue; ?>
                     <div class="header-info-item">

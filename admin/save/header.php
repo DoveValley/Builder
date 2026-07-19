@@ -4,7 +4,9 @@
         $postedLayout = $_POST['header_layout'] ?? 'standard';
         $data['header']['header_layout']   = in_array($postedLayout, $validLayouts) ? $postedLayout : 'standard';
         $data['header']['phone']           = trim($_POST['phone']           ?? '');
-        $data['header']['city']            = trim($_POST['city']            ?? '');
+        // header.city was retired — the city is now an editable Header Info Item
+        // (migrated in load_data). Force it empty so the migration never re-adds it.
+        $data['header']['city']            = '';
         $data['header']['logo_max_height'] = max(32, min(120, (int)($_POST['logo_max_height'] ?? 56)));
         $data['header']['sr_bar_height']   = max(48, min(120, (int)($_POST['sr_bar_height']   ?? 64)));
         // Header bar color/text moved to the Theme/Colors tab (merged control). Only write
