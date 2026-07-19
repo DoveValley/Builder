@@ -37,11 +37,24 @@ function _gen_run_step(string $stepName, array $page, array $city, array $option
 // ── Slug pattern resolver ─────────────────────────────────────────────────────
 
 function _gen_resolve_slug(string $pattern, array $city): string {
+    // Deterministic city+SS derivation — the reliable slug (same basis as the row id).
+    $ss      = strtolower($city['SS'] ?? '');
+    $derived = trim(preg_replace('/[^a-z0-9-]+/', '-',
+                    strtolower(preg_replace('/[^a-z0-9]+/i', '-', ($city['city'] ?? '') . '-' . ($city['SS'] ?? '')))), '-');
+    // Trust a stored city_slug only if it looks like it belongs to this city
+    // (a slug ending in the state suffix). Otherwise fall back to $derived — this
+    // keeps garbage/placeholder text that slugifies to a valid-but-wrong slug
+    // (e.g. "in-add-a-city-section") out of page URLs, for single-site AND fleet
+    // builds (this resolver is the shared chokepoint). Mirrors cities_save.php.
+    $stored  = trim(preg_replace('/[^a-z0-9-]+/', '-', strtolower((string)($city['city_slug'] ?? ''))), '-');
+    $ssSuf   = '-' . $ss;
+    $citySlug = ($stored !== '' && ($ss === '' || substr($stored, -strlen($ssSuf)) === $ssSuf)) ? $stored : $derived;
+
     $vars = [
         '{city}'      => strtolower(preg_replace('/[^a-z0-9]+/i', '-', $city['city'] ?? '')),
-        '{SS}'        => strtolower($city['SS'] ?? ''),
+        '{SS}'        => $ss,
         '{state}'     => strtolower(preg_replace('/[^a-z0-9]+/i', '-', $city['state'] ?? '')),
-        '{city_slug}' => $city['city_slug'] ?? strtolower(preg_replace('/[^a-z0-9]+/i', '-', ($city['city'] ?? '') . '-' . ($city['SS'] ?? ''))),
+        '{city_slug}' => $citySlug,
         '{zip}'       => $city['zip'] ?? '',
     ];
     $slug = str_replace(array_keys($vars), array_values($vars), $pattern);

@@ -95,6 +95,24 @@ function _city_parse_post(string $prefix = ''): array {
     ];
 }
 
+// Normalize a city_slug. A slug that looks like it belongs to this city (a valid
+// slug ending in the state suffix, e.g. "littleton-co" or "downtown-littleton-co")
+// is trusted; anything else — blank, or garbage/placeholder text that merely
+// slugifies to a valid-but-wrong slug like "in-add-a-city-section" — is replaced
+// by the deterministic city+SS derivation (the same source that makes `id`
+// reliable). Shared by the add, edit, and CSV-import paths so no write path can
+// leak a wrong page-URL slug. Mirrors the engine-side guard in generation/engine.php.
+function _city_slug_normalize(string $provided, string $city, string $ss): string {
+    $slugify = fn(string $s): string => trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($s)), '-');
+    $derived = $slugify($city . '-' . $ss);
+    $prov    = $slugify($provided);
+    $ssSuf   = '-' . strtolower($ss);
+    if ($prov !== '' && ($ss === '' || substr($prov, -strlen($ssSuf)) === $ssSuf)) {
+        return $prov;                       // deliberate, city-consistent custom slug
+    }
+    return $derived;                        // blank or doesn't belong to this city → derive
+}
+
 // ── add ───────────────────────────────────────────────────────────────────────
 if ($action === 'add') {
     $fields = _city_parse_post();
@@ -106,11 +124,8 @@ if ($action === 'add') {
 
     $cities = _city_load();
 
-    // Auto-generate city_slug if blank
-    if ($fields['city_slug'] === '') {
-        $fields['city_slug'] = preg_replace('/[^a-z0-9]+/', '-', strtolower($fields['city'] . '-' . $fields['SS']));
-        $fields['city_slug'] = trim($fields['city_slug'], '-');
-    }
+    // Derive/validate city_slug (never trust raw input that isn't this city's slug)
+    $fields['city_slug'] = _city_slug_normalize($fields['city_slug'], $fields['city'], $fields['SS']);
 
     $id = _city_make_id($fields['city'], $fields['SS'], $cities);
     $cities[] = array_merge(['id' => $id], $fields);
@@ -140,10 +155,7 @@ if ($action === 'save') {
         header('Location: index.php?tab=cities&city=' . urlencode($id) . '&msg=error:City+name+and+state+abbreviation+are+required');
         exit;
     }
-    if ($fields['city_slug'] === '') {
-        $fields['city_slug'] = preg_replace('/[^a-z0-9]+/', '-', strtolower($fields['city'] . '-' . $fields['SS']));
-        $fields['city_slug'] = trim($fields['city_slug'], '-');
-    }
+    $fields['city_slug'] = _city_slug_normalize($fields['city_slug'], $fields['city'], $fields['SS']);
 
     $cities[$idx] = array_merge($cities[$idx], $fields);
 
@@ -238,11 +250,7 @@ if ($action === 'import_csv') {
         $SS   = strtoupper($data['SS'] ?? '');
         if ($city === '' || $SS === '') { $skipped++; continue; }
 
-        $citySlug = $data['city_slug'] ?? '';
-        if ($citySlug === '') {
-            $citySlug = preg_replace('/[^a-z0-9]+/', '-', strtolower($city . '-' . $SS));
-            $citySlug = trim($citySlug, '-');
-        }
+        $citySlug = _city_slug_normalize($data['city_slug'] ?? '', $city, $SS);
 
         $tags = array_values(array_filter(array_map('trim', preg_split('/[\s,|]+/', $data['tags'] ?? ''))));
 

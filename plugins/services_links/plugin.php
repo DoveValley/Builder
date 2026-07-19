@@ -129,15 +129,29 @@ function _services_links_render(array $cfg, string $pathPrefix = '', array $attr
         $existSlugs = is_array($pi) ? $pi : [];
     }
     $links = [];
+    $candidates = 0;   // passed the filter + resolved a name, before the page-exists guard
     foreach ($services as $svc) {
         if (!_services_links_passes($filter, $svc)) continue;
         [$name, $url] = _services_links_row($svc, $pattern);
         if ($name === '') continue;
+        $candidates++;
         if ($existSlugs !== null && isset($url[0]) && $url[0] === '/') {
             $slug = trim((string)parse_url($url, PHP_URL_PATH), '/');
             if ($slug !== '' && strpos($slug, '/') === false && !isset($existSlugs[$slug])) continue;
         }
         $links[] = [$name, $url];
+    }
+    // Diagnostic: the page-exists guard drops links silently. If it dropped ALL (or
+    // a majority) of them, that's almost always a city_slug mismatch between the
+    // service URLs ({city_slug} from site_vars) and the slugs in page-index.json —
+    // surface it instead of rendering a link-less grid with no explanation.
+    if ($existSlugs !== null && $candidates > 0 && count($links) < $candidates
+        && (count($links) === 0 || ($candidates - count($links)) >= (int)ceil($candidates / 2))) {
+        $cslug = $data['site_vars']['city_slug'] ?? '';
+        $msg = 'services_links: dropped ' . ($candidates - count($links)) . '/' . $candidates
+             . ' links not found in page-index.json — likely a city_slug mismatch (service URLs use {city_slug}=\'' . $cslug . '\').';
+        if (function_exists('progress_log')) progress_log($msg, 'warn');
+        else error_log('[services_links] ' . $msg);
     }
     // A filtered grid that matched nothing renders nothing (no empty shell).
     if ($filter['_active'] && empty($links)) return '';
