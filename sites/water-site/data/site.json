@@ -1,1203 +1,1203 @@
 {
-    "theme": {
-        "header_bg": "#1e3a5f",
-        "header_text": "#ffffff",
-        "content_bg": "#ffffff",
-        "content_text": "#888c92",
-        "footer_bg": "#1e3a5f",
-        "footer_text": "#ffffff",
-        "accent_color": "#0ea5e9",
-        "primary_font": "sans-serif",
-        "button_radius": 8,
-        "analytics_head": "",
-        "facebook_pixel": "",
-        "font_family": "sans-serif",
-        "header_top_bg": "#ffffff",
-        "heading_color": "#1a2e5a",
-        "font_size_body": 16,
-        "font_size_h1": 3,
-        "font_size_h2": 2.25,
-        "font_size_h3": 1.63,
-        "font_size_h4": 1.5,
-        "heading_font": "",
-        "accent2_color": "#1e40af",
-        "btn_text": "#ffffff",
-        "border_color": "#e5e7eb",
-        "skins": {
-            "light": {
-                "bg": "#ffffff",
-                "heading": "#1a2e5a",
-                "text": "#555e6d"
-            },
-            "dark": {
-                "bg": "#0d1f3c",
-                "heading": "#ffffff",
-                "text": "#e2e8f0"
-            },
-            "accent": {
-                "bg": "#2563eb",
-                "heading": "#ffffff",
-                "text": "#dbeafe"
-            },
-            "subtle": {
-                "bg": "#f8fafc",
-                "heading": "#1a2e5a",
-                "text": "#555e6d"
-            }
-        }
-    },
-    "header": {
-        "site_name": "{business}",
-        "logo": "uploads/logo_elk-restoration-pros.png",
-        "phone": "{phone}",
-        "city": "{city_state}",
-        "topbar_text": "",
-        "topbar_link": "",
-        "menu": [
-            {
-                "label": "Home",
-                "url": "/",
-                "children": []
-            },
-            {
-                "label": "Services",
-                "url": "#water_services",
-                "children": []
-            }
-        ],
-        "socials": {
-            "facebook": "",
-            "instagram": "",
-            "twitter": "",
-            "youtube": "",
-            "linkedin": "",
-            "tiktok": "",
-            "yelp": ""
-        },
-        "nav_bg": "accent",
-        "nav_text": "#ffffff",
-        "phone_btn_style": "outline",
-        "sticky": true,
-        "info_items": [
-            {
-                "icon": "🇺🇸",
-                "text": "Proudly American"
-            },
-            {
-                "icon": "",
-                "text": "24/7 Emergency Response"
-            }
-        ],
-        "logo_max_height": 72,
-        "phone_label": "24/7 Line:",
-        "show_sponsored": true,
-        "cta_text": "",
-        "cta_url": "",
-        "favicon": "uploads/favicon_elk-restoration-pros.png"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "Water Damage Restoration in {city_state}",
-            "hs_subtext": "<p>East Texas experiences heavy spring and summer storms alongside winter freeze-thaw cycles that can compromise roofs, foundations, and interior structures, leaving standing water and moisture that threaten property stability within hours. Elk Restoration Pros specializes in water damage restoration—extracting standing water, drying affected materials, and addressing structural moisture before secondary damage takes hold in homes and businesses across Lufkin and the surrounding area. A fast, professional response protects your property's integrity and helps minimize costly repairs down the road.</p>",
-            "hs_btn_text": "{phone}",
-            "hs_btn_url": "tel:{tel}",
-            "hs_caption1": "24/7 Emergency Response",
-            "hs_caption2": "Water · Flood · Storm · Sewage",
-            "hs_photo_alt": "Water damage restoration in {city}, {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/water-damage-repair.webp",
-            "hs_bg_photo": "sites/water-site/uploads/media/hero-bg-light.webp",
-            "hs_mobile_order": "",
-            "id": "home_hero",
-            "ai_type_id": "hero_subtext",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-12T00:34:41.910303Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_locked": false,
-            "_ai_input_hash": "55da8076bd6bbe52"
-        },
-        {
-            "id": "home_city_intro",
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-sonnet-5",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Water Damage Restoration Lufkin Homeowners Can Trust",
-            "text": "<p>Lufkin's location in the heart of East Texas means property owners contend with a mix of heavy spring thunderstorms, humid summers, and the occasional tropical system that pushes inland from the Gulf. These weather patterns can bring sudden downpours and rising water that overwhelm drainage around homes and businesses. Winter adds another layer of risk, as occasional hard freezes followed by quick thaws can stress older pipes and plumbing fixtures, leading to leaks or bursts that show up without warning. Whether the cause is a storm system or a frozen pipe, water damage in Lufkin tends to spread quickly through flooring, drywall, and insulation if it isn't addressed right away.</p><p>Elk Restoration Pros responds with a thorough, methodical approach built around careful inspection, water extraction, and structured drying, so hidden moisture doesn't linger where it can't be seen. Our team documents each step and follows up to confirm conditions are stabilizing throughout the process. From Downtown Lufkin to Crown Colony and Kurth, we treat every property with the same attention to detail. While our focus stays on water and storm damage restoration, we're also equipped to help with related property concerns as they arise. Lufkin residents facing an active water emergency can count on a responsive team ready to help protect what matters most.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-12T00:34:51.027571Z",
-            "_ai_model": "claude-sonnet-5",
-            "_ai_type": "city_intro",
-            "_ai_locked": false,
-            "_ai_input_hash": "0164767552de5788"
-        },
-        {
-            "type": "feature_split",
-            "fs_heading": "Water & Storm Damage We Handle in {city}",
-            "fs_subtext": "{city}&rsquo;s weather, aging plumbing, and seasonal storms cause water damage in many forms. We connect you with specialists who handle every type, including:",
-            "fs_photo_alt": "Water damage restoration technician in {city}, {SS}",
-            "fs_star_text": "5 Star Service",
-            "fs_bg_color": "#eef4fb",
-            "fs_accent": "#2563eb",
-            "fs_image_side": "left",
-            "fs_mobile_order": "text_first",
-            "fs_photo": "sites/water-site/uploads/media/about-water-restoration.webp",
-            "fs_items": [
-                {
-                    "icon": "",
-                    "alt": "Burst pipe water damage {city} {SS}",
-                    "heading": "Burst & Frozen Pipes",
-                    "text": "Sudden pipe failures that release large volumes of water into walls, floors, and ceilings."
-                },
-                {
-                    "icon": "",
-                    "alt": "Flood and storm water {city} {SS}",
-                    "heading": "Flooding & Storm Water",
-                    "text": "Heavy rain, flash flooding, and storm runoff that inundate basements and lower levels."
-                },
-                {
-                    "icon": "",
-                    "alt": "Sewage backup cleanup {city} {SS}",
-                    "heading": "Sewage Backups",
-                    "text": "Contaminated &ldquo;black water&rdquo; backups that require safe removal and full sanitizing."
-                },
-                {
-                    "icon": "",
-                    "alt": "Appliance and plumbing leaks {city} {SS}",
-                    "heading": "Appliance & Plumbing Leaks",
-                    "text": "Slow or sudden leaks from water heaters, washers, dishwashers, and supply lines."
-                },
-                {
-                    "icon": "",
-                    "alt": "Roof and ceiling leaks {city} {SS}",
-                    "heading": "Roof & Ceiling Leaks",
-                    "text": "Storm-damaged or aging roofs that let water seep into attics, ceilings, and drywall."
-                },
-                {
-                    "icon": "",
-                    "alt": "Basement and crawl space water {city} {SS}",
-                    "heading": "Basement & Crawl Space Water",
-                    "text": "Standing water and chronic moisture below grade that threaten structure and air quality."
-                }
-            ]
-        },
-        {
-            "type": "split_cta",
-            "sc_left_heading": "Serving the Greater {city_state} Area",
-            "sc_left_text": "Whether you&rsquo;re a homeowner, business owner, or property manager, when water strikes you need fast, reliable help. Every job is backed by clear communication, transparent pricing, and quality workmanship &mdash; available 24/7.",
-            "sc_right_label": "Call The {business} Team",
-            "sc_right_phone": "{phone}",
-            "sc_right_phone_url": "tel:{tel}",
-            "sc_left_bg": "accent",
-            "sc_right_bg": "header",
-            "sc_left_bg_custom": "#2563eb",
-            "sc_right_bg_custom": "#0d2340"
-        },
-        {
-            "type": "tab_services",
-            "ts_badge1": "{business}",
-            "ts_badge2": "SERVICES {city}, {SS}",
-            "ts_heading": "Professional Water Damage Restoration Serving {city_state}",
-            "ts_active_bg": "header",
-            "ts_active_bg_custom": "#0d2340",
-            "ts_tabs": [
-                {
-                    "label": "Water Extraction",
-                    "icon": "",
-                    "photo": "sites/water-site/uploads/media/water-removal-extraction.webp",
-                    "alt": "Water extraction {city} {SS}",
-                    "desc": "Powerful pumps and extraction units remove standing water fast to limit further damage."
-                },
-                {
-                    "label": "Structural Drying",
-                    "icon": "",
-                    "photo": "sites/water-site/uploads/media/water-mitigation.webp",
-                    "alt": "Structural drying {city} {SS}",
-                    "desc": "Industrial air movers and dehumidifiers dry framing, drywall, and floors to help prevent mold."
-                },
-                {
-                    "label": "Flood Cleanup",
-                    "icon": "",
-                    "photo": "sites/water-site/uploads/media/flooded-basement-water-damage.webp",
-                    "alt": "Flood cleanup {city} {SS}",
-                    "desc": "Full cleanup and sanitizing after flooding, including debris and contaminated materials."
-                },
-                {
-                    "label": "Sewage Cleanup",
-                    "icon": "",
-                    "photo": "sites/water-site/uploads/media/water-damage-cleanup.webp",
-                    "alt": "Sewage cleanup {city} {SS}",
-                    "desc": "Safe removal and disinfection of sewage backups and contaminated black water."
-                }
-            ]
-        },
-        {
-            "type": "hero_grid",
-            "hg_label": "{business}",
-            "hg_heading": "Trusted Water Damage Restoration in {city_state}",
-            "hg_body": "<p>When water damage happens, our providers assess the source, extent, and category of water to build the right restoration plan for your property. Trained specialists follow proven mitigation and drying standards for fast, thorough results &mdash; minimizing loss and getting your home or business back to normal.</p>",
-            "hg_btn_text": "Call Us",
-            "hg_btn_url": "tel:{tel}",
-            "hg_photo_alt": "Water damage restoration in {city}, {SS}",
-            "hg_photo": "sites/water-site/uploads/media/living-room-water-damage.webp",
-            "hg_color1": "accent",
-            "hg_color2": "header",
-            "hg_color1_custom": "#2563eb",
-            "hg_color2_custom": "#0d2340",
-            "hg_items": [
-                {
-                    "icon": "",
-                    "label": "Water Heater Leaks",
-                    "alt": "Water heater leak {city} {SS}"
-                },
-                {
-                    "icon": "",
-                    "label": "Frozen Pipe Bursts",
-                    "alt": "Frozen pipe burst {city} {SS}"
-                },
-                {
-                    "icon": "",
-                    "label": "Ceiling Water Damage",
-                    "alt": "Ceiling water damage {city} {SS}"
-                },
-                {
-                    "icon": "",
-                    "label": "Hardwood Floor Damage",
-                    "alt": "Hardwood floor water damage {city} {SS}"
-                },
-                {
-                    "icon": "",
-                    "label": "Attic Water Damage",
-                    "alt": "Attic water damage {city} {SS}"
-                },
-                {
-                    "icon": "",
-                    "label": "Crawl Space Water",
-                    "alt": "Crawl space water damage {city} {SS}"
-                }
-            ]
-        },
-        {
-            "type": "service_cards",
-            "sc_badge": "PROFESSIONAL {city}, {SS} RESTORATION",
-            "sc_heading": "Water Damage Restoration Services in {city_state}",
-            "sc_cols": 4,
-            "sc_badge_bg": "accent",
-            "sc_head_color": "header",
-            "sc_badge_bg_custom": "#2563eb",
-            "sc_head_color_custom": "#0d2340",
-            "sc_icon_bg": "#eef4fb",
-            "sc_items": [
-                {
-                    "icon": "",
-                    "alt": "Flood damage restoration {city} {SS}",
-                    "heading": "Flood Damage Restoration in {city_state}",
-                    "text": "Rapid response to flooding &mdash; water removal, cleanup, and full drying to protect your property.",
-                    "url": "/flood-damage-restoration-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Storm damage restoration {city} {SS}",
-                    "heading": "Storm Damage Restoration in {city_state}",
-                    "text": "Cleanup and restoration after storms, from water intrusion to wind and weather damage.",
-                    "url": "/storm-damage-restoration-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Water mitigation {city} {SS}",
-                    "heading": "Water Mitigation & Drying in {city_state}",
-                    "text": "Emergency extraction, structural drying, and dehumidification to stop damage from spreading.",
-                    "url": "/water-mitigation-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Sewage cleanup {city} {SS}",
-                    "heading": "Sewage Cleanup in {city_state}",
-                    "text": "Safe removal and disinfection of sewage backups and contaminated black water.",
-                    "url": "/sewage-cleanup-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Flooded basement cleanup {city} {SS}",
-                    "heading": "Flooded Basement Cleanup in {city_state}",
-                    "text": "Pump-outs, drying, and cleanup for flooded basements and below-grade water.",
-                    "url": "/flooded-basement-cleanup-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Burst pipe water damage {city} {SS}",
-                    "heading": "Burst Pipe Water Damage in {city_state}",
-                    "text": "Fast cleanup after burst and frozen pipes, from extraction to wall and floor drying.",
-                    "url": "/burst-pipe-water-damage-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Emergency water damage {city} {SS}",
-                    "heading": "24/7 Emergency Water Damage in {city_state}",
-                    "text": "Around-the-clock emergency response &mdash; help arrives fast, day or night.",
-                    "url": "/emergency-water-damage-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Commercial water damage {city} {SS}",
-                    "heading": "Commercial Water Damage in {city_state}",
-                    "text": "Restoration for offices, retail, and multi-unit properties with minimal downtime.",
-                    "url": "/commercial-water-damage-restoration-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Ceiling water damage {city} {SS}",
-                    "heading": "Ceiling & Drywall Water Damage in {city_state}",
-                    "text": "Repair of water-stained ceilings and damaged drywall after leaks and storms.",
-                    "url": "/ceiling-water-damage-{city_slug}"
-                }
-            ]
-        },
-        {
-            "type": "wide_banner",
-            "wb_badge": "{city}, {SS} SPECIALISTS",
-            "wb_heading": "Your First Choice for Water Damage Restoration in {city_state}",
-            "wb_subtext": "",
-            "wb_btn_text": "Call Us",
-            "wb_btn_url": "tel:{tel}",
-            "wb_btn_style": "filled",
-            "wb_centered": false,
-            "wb_photo_alt": "Water damage restoration in {city}, {SS}",
-            "wb_overlay": "0.50",
-            "wb_bg_color": "#0d2340",
-            "wb_badge_bg": "accent",
-            "wb_badge_bg_custom": "#2563eb",
-            "wb_photo": "sites/water-site/uploads/media/water-damage-restoration-hero.webp"
-        },
-        {
-            "type": "image_features",
-            "if_heading": "Fast, Thorough Water Damage Recovery",
-            "if_intro": "Water damage gets worse by the hour. Our providers act fast to extract water, dry the structure, and prevent secondary damage like warping, staining, and mold &mdash; restoring your property the right way.",
-            "if_closing": "Every job is handled by trained, experienced restoration technicians, giving you peace of mind from the first call to the final walkthrough.",
-            "if_phone_label": "Call Us 24/7",
-            "if_phone": "{phone}",
-            "if_phone_url": "tel:{tel}",
-            "if_photo_alt": "Water damage restoration in {city}, {SS}",
-            "if_bg_color": "#eef4fb",
-            "if_check_color": "accent",
-            "if_head_color": "header",
-            "if_check_color_custom": "#2563eb",
-            "if_head_color_custom": "#0d2340",
-            "if_photo": "sites/water-site/uploads/media/about-us-water.webp",
-            "if_features": [
-                "24/7 emergency water extraction",
-                "Structural drying & dehumidification",
-                "Flood, storm & sewage cleanup",
-                "Full repairs & reconstruction"
-            ]
-        },
-        {
-            "id": "home_seasonal",
-            "type": "ai_block",
-            "ai_type_id": "seasonal_calendar",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-sonnet-5",
-            "skin": "light",
-            "steps_heading": "Lufkin Seasonal Water Damage Restoration Guide Year-Round",
-            "steps_items": [
-                {
-                    "heading": "Spring Storm Flooding",
-                    "text": "<p>Spring brings heavy East Texas downpours and fast-moving thunderstorms that can overwhelm drainage near Fuller Springs and Copeland Springs. Elk Restoration Pros responds quickly to extract water, assess saturated materials, and begin structural drying before moisture spreads further.</p>"
-                },
-                {
-                    "heading": "Summer Humidity and Tropical Rain",
-                    "text": "<p>Gulf humidity and occasional tropical systems bring intense summer downpours and wind-driven rain to Lufkin homes, including around Crown Colony. Elk Restoration Pros helps property owners address roof leaks, saturated insulation, and interior water intrusion before conditions worsen.</p>"
-                },
-                {
-                    "heading": "Fall Shifting Weather Patterns",
-                    "text": "<p>Fall in the Lufkin area can bring lingering tropical moisture, gusty storms, and clogged gutters from falling leaves, raising the risk of roof and window leaks near Downtown Lufkin. Elk Restoration Pros inspects affected areas and manages water removal and drying.</p>"
-                },
-                {
-                    "heading": "Winter Freeze Thaw Risk",
-                    "text": "<p>Occasional hard freezes followed by rapid thawing can stress pipes and plumbing in Kurth and surrounding neighborhoods, leading to unexpected leaks or bursts. Elk Restoration Pros assists with water extraction, drying, and helping restore affected areas after a freeze-related event.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-12T00:35:00.861417Z",
-            "_ai_model": "claude-sonnet-5",
-            "_ai_type": "seasonal_calendar",
-            "_ai_locked": false,
-            "_ai_input_hash": "ca48caabf640cebd"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "Water Damage Restoration FAQs — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#f0f2f8",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "fq_items": [
-                {
-                    "question": "What exactly does water damage restoration in Lufkin involve?",
-                    "answer": "<p>Water damage restoration includes water extraction, drying structural materials, removing damaged contents, dehumidifying spaces, and cleaning affected areas. Our team assesses moisture penetration, identifies what can be salvaged, and works to restore your property to safe, dry condition. The specific steps depend on damage severity, water source, and how long moisture has been present.</p>"
-                },
-                {
-                    "question": "How quickly can Elk Restoration Pros respond to water damage in Lufkin?",
-                    "answer": "<p>We understand water damage demands urgent action. Our locally based team responds to emergency calls promptly to begin water extraction and drying as soon as possible. The faster restoration starts, the better the chances of limiting secondary damage. Contact us immediately if you discover active water intrusion, flooding, or storm-related moisture.</p>"
-                },
-                {
-                    "question": "What factors affect the cost of water damage restoration?",
-                    "answer": "<p>Water damage restoration costs vary based on affected square footage, water source (clean, gray, or contaminated), materials involved, and how long moisture has been present. Structural damage, HVAC involvement, and personal property loss also factor into scope. We evaluate your specific situation to provide an accurate estimate for the work required.</p>"
-                },
-                {
-                    "question": "What should I do to prepare for water damage restoration work?",
-                    "answer": "<p>Before restoration begins, move unaffected personal items away from work areas if safe to do so. Clear access to affected rooms and turn off utilities if water poses electrical risk. Our team will guide you on securing valuables and preparing your space. Document damage with photos for insurance purposes before restoration starts.</p>"
-                },
-                {
-                    "question": "How can I prevent water damage from happening again in my Lufkin home?",
-                    "answer": "<p>Regular maintenance of gutters, downspouts, and roof condition helps prevent water entry. Inspect plumbing, water heater connections, and foundation seals seasonally. Grade soil away from your home's foundation, maintain sump pumps, and consider backflow prevention on sewer lines. Addressing minor leaks and moisture early stops damage before it spreads.</p>"
-                },
-                {
-                    "question": "Is Lufkin at higher risk for water damage during certain seasons?",
-                    "answer": "<p>East Texas experiences heavy rainfall during spring and early summer, increasing flooding and water intrusion risk. Winter freeze-thaw cycles can crack pipes and damage foundations. Fall brings tropical storm potential. Year-round humidity also promotes moisture issues indoors. Being aware of these seasonal patterns helps you stay vigilant about water damage prevention and respond quickly when problems occur.</p>"
-                }
-            ],
-            "id": "home_faq",
-            "ai_type_id": "faq_local",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-12T01:03:53.788410Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_locked": false,
-            "_ai_input_hash": "932cd600fd442878"
-        },
-        {
-            "id": "home_local_rel",
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-sonnet-5",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Serving Lufkin and Surrounding East Texas Communities",
-            "text": "<p>Water damage in Lufkin rarely looks the same from one property to the next, and that's largely due to the mix of housing ages and building styles found across the area. Older homes near Downtown Lufkin often feature aging plumbing, original foundations, and mature tree canopies that can strain roofing and gutters during heavy East Texas storms, while newer subdivisions closer to Crown Colony tend to have more modern drainage systems but can still face runoff issues when grading or landscaping doesn't keep pace with intense rainfall. Wooded, low-lying areas like those around Fuller Springs may also see slower water dispersal after significant storms.</p><p>Seasonal shifts add another layer of risk. Humid summers bring the threat of sudden downpours and tropical remnants, while winter cold snaps can cause pipes to freeze and later burst as temperatures rebound. Understanding these neighborhood-level differences helps our team respond with an approach suited to each home's construction and surroundings.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-12T00:35:13.412809Z",
-            "_ai_model": "claude-sonnet-5",
-            "_ai_type": "local_relevance",
-            "_ai_locked": false,
-            "_ai_input_hash": "ccda5a5710888edd"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "24/7 Water Damage Restoration in {city_state}",
-            "cb_subtext": "",
-            "cb_btn_text": "Call Now — {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "accent",
-            "cb_bg_custom": "#2563eb",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        },
-        {
-            "type": "custom_html",
-            "html": "[services_links]"
-        },
-        {
-            "type": "cta_card",
-            "cc_heading": "Water Damage in {city}? Call Now for Fast Help",
-            "cc_text": "Don&rsquo;t wait &mdash; water damage spreads fast. Call {business} to connect with trained {city_state} restoration specialists for rapid extraction, drying, and cleanup. Fast response, honest pricing, and 24/7 availability.",
-            "cc_btn_text": "{phone}",
-            "cc_btn_url": "tel:{tel}",
-            "cc_btn_style": "outline",
-            "cc_align": "split",
-            "cc_bg": "accent",
-            "cc_bg_custom": "#2563eb",
-            "cc_radius": 12
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#0d2340",
-            "mi_info_photo": "{city_image}"
-        },
-        {
-            "type": "cta_card",
-            "cc_heading": "The Values That Make Us {city}&rsquo;s Most Trusted Restoration Team",
-            "cc_text": "We&rsquo;re trusted across {city} for more than fast water removal &mdash; it&rsquo;s how we work. Clear communication, honest pricing, and proven mitigation and drying standards deliver results you can count on. Our trained providers hold the highest standards of professionalism, and getting your property back to normal is always the priority. That&rsquo;s why local property owners choose us &mdash; and refer us.",
-            "cc_btn_text": "",
-            "cc_btn_url": "",
-            "cc_btn_style": "outline",
-            "cc_align": "center",
-            "cc_bg": "accent",
-            "cc_bg_custom": "#2563eb",
-            "cc_radius": 0
-        },
-        {
-            "type": "links_grid",
-            "lg_heading": "Professional Water Damage Restoration in {city_state}",
-            "lg_subtext": "",
-            "lg_sublabel": "Trusted {city_state} Water & Storm Restoration",
-            "lg_photo_alt": "",
-            "lg_style": "light",
-            "lg_cols": 4,
-            "lg_overlay": "0.00",
-            "lg_bg_color": "#ffffff",
-            "lg_accent": "accent",
-            "lg_accent_custom": "#2563eb",
-            "lg_photo": "sites/water-site/uploads/media/water-damage-services-bg.webp",
-            "lg_links": [
-                {
-                    "label": "Flood Damage Restoration",
-                    "url": "/flood-damage-restoration-{city_slug}"
-                },
-                {
-                    "label": "Storm Damage Restoration",
-                    "url": "/storm-damage-restoration-{city_slug}"
-                },
-                {
-                    "label": "Water Mitigation",
-                    "url": "/water-mitigation-{city_slug}"
-                },
-                {
-                    "label": "Sewage Cleanup",
-                    "url": "/sewage-cleanup-{city_slug}"
-                },
-                {
-                    "label": "Burst Pipe Water Damage",
-                    "url": "/burst-pipe-water-damage-{city_slug}"
-                },
-                {
-                    "label": "Ceiling Water Damage",
-                    "url": "/ceiling-water-damage-{city_slug}"
-                },
-                {
-                    "label": "Hardwood Floor Water Damage",
-                    "url": "/hardwood-floor-water-damage-{city_slug}"
-                },
-                {
-                    "label": "Roof Leak Water Damage",
-                    "url": "/roof-leak-water-damage-{city_slug}"
-                }
-            ]
-        }
+  "theme": {
+    "header_bg": "#1e3a5f",
+    "header_text": "#ffffff",
+    "content_bg": "#ffffff",
+    "content_text": "#888c92",
+    "footer_bg": "#1e3a5f",
+    "footer_text": "#ffffff",
+    "accent_color": "#0ea5e9",
+    "primary_font": "sans-serif",
+    "button_radius": 8,
+    "analytics_head": "",
+    "facebook_pixel": "",
+    "font_family": "sans-serif",
+    "header_top_bg": "#ffffff",
+    "heading_color": "#1a2e5a",
+    "font_size_body": 16,
+    "font_size_h1": 3,
+    "font_size_h2": 2.25,
+    "font_size_h3": 1.63,
+    "font_size_h4": 1.5,
+    "heading_font": "",
+    "accent2_color": "#1e40af",
+    "btn_text": "#ffffff",
+    "border_color": "#e5e7eb",
+    "skins": {
+      "light": {
+        "bg": "#ffffff",
+        "heading": "#1a2e5a",
+        "text": "#555e6d"
+      },
+      "dark": {
+        "bg": "#0d1f3c",
+        "heading": "#ffffff",
+        "text": "#e2e8f0"
+      },
+      "accent": {
+        "bg": "#2563eb",
+        "heading": "#ffffff",
+        "text": "#dbeafe"
+      },
+      "subtle": {
+        "bg": "#f8fafc",
+        "heading": "#1a2e5a",
+        "text": "#555e6d"
+      }
+    }
+  },
+  "header": {
+    "site_name": "{business}",
+    "logo": "uploads/logo_elk-restoration-pros.png",
+    "phone": "{phone}",
+    "city": "{city_state}",
+    "topbar_text": "",
+    "topbar_link": "",
+    "menu": [
+      {
+        "label": "Home",
+        "url": "/",
+        "children": []
+      },
+      {
+        "label": "Services",
+        "url": "#water_services",
+        "children": []
+      }
     ],
-    "seo": {
-        "seo_title": "Water Damage Restoration in {city_state} | {business}",
-        "canonical_url": "",
-        "meta_description": "24/7 water damage restoration in {city_state}. Emergency water extraction, flood & storm damage cleanup, structural drying, sewage removal & repairs. Call {phone} for fast local help.",
-        "meta_keywords": "water damage restoration {city} {SS}, flood damage restoration {city}, water extraction {city} {SS}, storm damage restoration {city}, sewage cleanup {city}",
-        "og_title": "Water Damage Restoration in {city_state} | {business}",
-        "og_description": "24/7 emergency water damage restoration in {city_state} — water extraction, flood & storm cleanup, structural drying, and full repairs. Fast local response.",
-        "og_image": "sites/water-site/uploads/media/water-damage-restoration-hero.webp",
-        "service_name": "Water Damage Restoration",
-        "service_type": "Water Damage Restoration",
-        "service_area": "{city_state} and surrounding areas",
-        "service_description": "Emergency water damage restoration, water extraction, structural drying, and flood, storm, and sewage cleanup for homes and businesses in {city_state}.",
-        "bc_label": "",
+    "socials": {
+      "facebook": "",
+      "instagram": "",
+      "twitter": "",
+      "youtube": "",
+      "linkedin": "",
+      "tiktok": "",
+      "yelp": ""
+    },
+    "nav_bg": "accent",
+    "nav_text": "#ffffff",
+    "phone_btn_style": "outline",
+    "sticky": true,
+    "info_items": [
+      {
+        "icon": "🇺🇸",
+        "text": "Proudly American"
+      },
+      {
+        "icon": "",
+        "text": "24/7 Emergency Response"
+      }
+    ],
+    "logo_max_height": 72,
+    "phone_label": "24/7 Line:",
+    "show_sponsored": true,
+    "cta_text": "",
+    "cta_url": "",
+    "favicon": "uploads/favicon_elk-restoration-pros.png"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Water Damage Restoration in {city_state}",
+      "hs_subtext": "<p>East Texas experiences heavy spring and summer storms alongside winter freeze-thaw cycles that can compromise roofs, foundations, and interior structures, leaving standing water and moisture that threaten property stability within hours. Elk Restoration Pros specializes in water damage restoration—extracting standing water, drying affected materials, and addressing structural moisture before secondary damage takes hold in homes and businesses across Lufkin and the surrounding area. A fast, professional response protects your property's integrity and helps minimize costly repairs down the road.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "24/7 Emergency Response",
+      "hs_caption2": "Water · Flood · Storm · Sewage",
+      "hs_photo_alt": "Water damage restoration in {city}, {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#eef4fb",
+      "hs_photo": "sites/water-site/uploads/media/water-damage-repair.webp",
+      "hs_bg_photo": "sites/water-site/uploads/media/hero-bg-light.webp",
+      "hs_mobile_order": "",
+      "id": "home_hero",
+      "ai_type_id": "hero_subtext",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-12T00:34:41.910303Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_locked": false,
+      "_ai_input_hash": "55da8076bd6bbe52"
+    },
+    {
+      "id": "home_city_intro",
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-sonnet-5",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Water Damage Restoration Lufkin Homeowners Can Trust",
+      "text": "<p>Lufkin's location in the heart of East Texas means property owners contend with a mix of heavy spring thunderstorms, humid summers, and the occasional tropical system that pushes inland from the Gulf. These weather patterns can bring sudden downpours and rising water that overwhelm drainage around homes and businesses. Winter adds another layer of risk, as occasional hard freezes followed by quick thaws can stress older pipes and plumbing fixtures, leading to leaks or bursts that show up without warning. Whether the cause is a storm system or a frozen pipe, water damage in Lufkin tends to spread quickly through flooring, drywall, and insulation if it isn't addressed right away.</p><p>Elk Restoration Pros responds with a thorough, methodical approach built around careful inspection, water extraction, and structured drying, so hidden moisture doesn't linger where it can't be seen. Our team documents each step and follows up to confirm conditions are stabilizing throughout the process. From Downtown Lufkin to Crown Colony and Kurth, we treat every property with the same attention to detail. While our focus stays on water and storm damage restoration, we're also equipped to help with related property concerns as they arise. Lufkin residents facing an active water emergency can count on a responsive team ready to help protect what matters most.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-12T00:34:51.027571Z",
+      "_ai_model": "claude-sonnet-5",
+      "_ai_type": "city_intro",
+      "_ai_locked": false,
+      "_ai_input_hash": "0164767552de5788"
+    },
+    {
+      "type": "feature_split",
+      "fs_heading": "Water & Storm Damage We Handle in {city}",
+      "fs_subtext": "{city}’s weather, aging plumbing, and seasonal storms cause water damage in many forms. We connect you with specialists who handle every type, including:",
+      "fs_photo_alt": "Water damage restoration technician in {city}, {SS}",
+      "fs_star_text": "5 Star Service",
+      "fs_bg_color": "#eef4fb",
+      "fs_accent": "#2563eb",
+      "fs_image_side": "left",
+      "fs_mobile_order": "text_first",
+      "fs_photo": "sites/water-site/uploads/media/about-water-restoration.webp",
+      "fs_items": [
+        {
+          "icon": "",
+          "alt": "Burst pipe water damage {city} {SS}",
+          "heading": "Burst & Frozen Pipes",
+          "text": "Sudden pipe failures that release large volumes of water into walls, floors, and ceilings."
+        },
+        {
+          "icon": "",
+          "alt": "Flood and storm water {city} {SS}",
+          "heading": "Flooding & Storm Water",
+          "text": "Heavy rain, flash flooding, and storm runoff that inundate basements and lower levels."
+        },
+        {
+          "icon": "",
+          "alt": "Sewage backup cleanup {city} {SS}",
+          "heading": "Sewage Backups",
+          "text": "Contaminated “black water” backups that require safe removal and full sanitizing."
+        },
+        {
+          "icon": "",
+          "alt": "Appliance and plumbing leaks {city} {SS}",
+          "heading": "Appliance & Plumbing Leaks",
+          "text": "Slow or sudden leaks from water heaters, washers, dishwashers, and supply lines."
+        },
+        {
+          "icon": "",
+          "alt": "Roof and ceiling leaks {city} {SS}",
+          "heading": "Roof & Ceiling Leaks",
+          "text": "Storm-damaged or aging roofs that let water seep into attics, ceilings, and drywall."
+        },
+        {
+          "icon": "",
+          "alt": "Basement and crawl space water {city} {SS}",
+          "heading": "Basement & Crawl Space Water",
+          "text": "Standing water and chronic moisture below grade that threaten structure and air quality."
+        }
+      ]
+    },
+    {
+      "type": "split_cta",
+      "sc_left_heading": "Serving the Greater {city_state} Area",
+      "sc_left_text": "Whether you’re a homeowner, business owner, or property manager, when water strikes you need fast, reliable help. Every job is backed by clear communication, transparent pricing, and quality workmanship — available 24/7.",
+      "sc_right_label": "Call The {business} Team",
+      "sc_right_phone": "{phone}",
+      "sc_right_phone_url": "tel:{tel}",
+      "sc_left_bg": "accent",
+      "sc_right_bg": "header",
+      "sc_left_bg_custom": "#2563eb",
+      "sc_right_bg_custom": "#0d2340"
+    },
+    {
+      "type": "tab_services",
+      "ts_badge1": "{business}",
+      "ts_badge2": "SERVICES {city}, {SS}",
+      "ts_heading": "Professional Water Damage Restoration Serving {city_state}",
+      "ts_active_bg": "header",
+      "ts_active_bg_custom": "#0d2340",
+      "ts_tabs": [
+        {
+          "label": "Water Extraction",
+          "icon": "",
+          "photo": "sites/water-site/uploads/media/water-removal-extraction.webp",
+          "alt": "Water extraction {city} {SS}",
+          "desc": "Powerful pumps and extraction units remove standing water fast to limit further damage."
+        },
+        {
+          "label": "Structural Drying",
+          "icon": "",
+          "photo": "sites/water-site/uploads/media/water-mitigation.webp",
+          "alt": "Structural drying {city} {SS}",
+          "desc": "Industrial air movers and dehumidifiers dry framing, drywall, and floors to help prevent mold."
+        },
+        {
+          "label": "Flood Cleanup",
+          "icon": "",
+          "photo": "sites/water-site/uploads/media/flooded-basement-water-damage.webp",
+          "alt": "Flood cleanup {city} {SS}",
+          "desc": "Full cleanup and sanitizing after flooding, including debris and contaminated materials."
+        },
+        {
+          "label": "Sewage Cleanup",
+          "icon": "",
+          "photo": "sites/water-site/uploads/media/water-damage-cleanup.webp",
+          "alt": "Sewage cleanup {city} {SS}",
+          "desc": "Safe removal and disinfection of sewage backups and contaminated black water."
+        }
+      ]
+    },
+    {
+      "type": "hero_grid",
+      "hg_label": "{business}",
+      "hg_heading": "Trusted Water Damage Restoration in {city_state}",
+      "hg_body": "<p>When water damage happens, our providers assess the source, extent, and category of water to build the right restoration plan for your property. Trained specialists follow proven mitigation and drying standards for fast, thorough results &mdash; minimizing loss and getting your home or business back to normal.</p>",
+      "hg_btn_text": "Call Us",
+      "hg_btn_url": "tel:{tel}",
+      "hg_photo_alt": "Water damage restoration in {city}, {SS}",
+      "hg_photo": "sites/water-site/uploads/media/living-room-water-damage.webp",
+      "hg_color1": "accent",
+      "hg_color2": "header",
+      "hg_color1_custom": "#2563eb",
+      "hg_color2_custom": "#0d2340",
+      "hg_items": [
+        {
+          "icon": "",
+          "label": "Water Heater Leaks",
+          "alt": "Water heater leak {city} {SS}"
+        },
+        {
+          "icon": "",
+          "label": "Frozen Pipe Bursts",
+          "alt": "Frozen pipe burst {city} {SS}"
+        },
+        {
+          "icon": "",
+          "label": "Ceiling Water Damage",
+          "alt": "Ceiling water damage {city} {SS}"
+        },
+        {
+          "icon": "",
+          "label": "Hardwood Floor Damage",
+          "alt": "Hardwood floor water damage {city} {SS}"
+        },
+        {
+          "icon": "",
+          "label": "Attic Water Damage",
+          "alt": "Attic water damage {city} {SS}"
+        },
+        {
+          "icon": "",
+          "label": "Crawl Space Water",
+          "alt": "Crawl space water damage {city} {SS}"
+        }
+      ]
+    },
+    {
+      "type": "service_cards",
+      "sc_badge": "PROFESSIONAL {city}, {SS} RESTORATION",
+      "sc_heading": "Water Damage Restoration Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#2563eb",
+      "sc_head_color_custom": "#0d2340",
+      "sc_icon_bg": "#eef4fb",
+      "sc_items": [
+        {
+          "icon": "",
+          "alt": "Flood damage restoration {city} {SS}",
+          "heading": "Flood Damage Restoration in {city_state}",
+          "text": "Rapid response to flooding — water removal, cleanup, and full drying to protect your property.",
+          "url": "/flood-damage-restoration-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Storm damage restoration {city} {SS}",
+          "heading": "Storm Damage Restoration in {city_state}",
+          "text": "Cleanup and restoration after storms, from water intrusion to wind and weather damage.",
+          "url": "/storm-damage-restoration-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Water mitigation {city} {SS}",
+          "heading": "Water Mitigation & Drying in {city_state}",
+          "text": "Emergency extraction, structural drying, and dehumidification to stop damage from spreading.",
+          "url": "/water-mitigation-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Sewage cleanup {city} {SS}",
+          "heading": "Sewage Cleanup in {city_state}",
+          "text": "Safe removal and disinfection of sewage backups and contaminated black water.",
+          "url": "/sewage-cleanup-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Flooded basement cleanup {city} {SS}",
+          "heading": "Flooded Basement Cleanup in {city_state}",
+          "text": "Pump-outs, drying, and cleanup for flooded basements and below-grade water.",
+          "url": "/flooded-basement-cleanup-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Burst pipe water damage {city} {SS}",
+          "heading": "Burst Pipe Water Damage in {city_state}",
+          "text": "Fast cleanup after burst and frozen pipes, from extraction to wall and floor drying.",
+          "url": "/burst-pipe-water-damage-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Emergency water damage {city} {SS}",
+          "heading": "24/7 Emergency Water Damage in {city_state}",
+          "text": "Around-the-clock emergency response — help arrives fast, day or night.",
+          "url": "/emergency-water-damage-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Commercial water damage {city} {SS}",
+          "heading": "Commercial Water Damage in {city_state}",
+          "text": "Restoration for offices, retail, and multi-unit properties with minimal downtime.",
+          "url": "/commercial-water-damage-restoration-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Ceiling water damage {city} {SS}",
+          "heading": "Ceiling & Drywall Water Damage in {city_state}",
+          "text": "Repair of water-stained ceilings and damaged drywall after leaks and storms.",
+          "url": "/ceiling-water-damage-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "wide_banner",
+      "wb_badge": "{city}, {SS} SPECIALISTS",
+      "wb_heading": "Your First Choice for Water Damage Restoration in {city_state}",
+      "wb_subtext": "",
+      "wb_btn_text": "Call Us",
+      "wb_btn_url": "tel:{tel}",
+      "wb_btn_style": "filled",
+      "wb_centered": false,
+      "wb_photo_alt": "Water damage restoration in {city}, {SS}",
+      "wb_overlay": "0.50",
+      "wb_bg_color": "#0d2340",
+      "wb_badge_bg": "accent",
+      "wb_badge_bg_custom": "#2563eb",
+      "wb_photo": "sites/water-site/uploads/media/water-damage-restoration-hero.webp"
+    },
+    {
+      "type": "image_features",
+      "if_heading": "Fast, Thorough Water Damage Recovery",
+      "if_intro": "Water damage gets worse by the hour. Our providers act fast to extract water, dry the structure, and prevent secondary damage like warping, staining, and mold — restoring your property the right way.",
+      "if_closing": "Every job is handled by trained, experienced restoration technicians, giving you peace of mind from the first call to the final walkthrough.",
+      "if_phone_label": "Call Us 24/7",
+      "if_phone": "{phone}",
+      "if_phone_url": "tel:{tel}",
+      "if_photo_alt": "Water damage restoration in {city}, {SS}",
+      "if_bg_color": "#eef4fb",
+      "if_check_color": "accent",
+      "if_head_color": "header",
+      "if_check_color_custom": "#2563eb",
+      "if_head_color_custom": "#0d2340",
+      "if_photo": "sites/water-site/uploads/media/about-us-water.webp",
+      "if_features": [
+        "24/7 emergency water extraction",
+        "Structural drying & dehumidification",
+        "Flood, storm & sewage cleanup",
+        "Full repairs & reconstruction"
+      ]
+    },
+    {
+      "id": "home_seasonal",
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-sonnet-5",
+      "skin": "light",
+      "steps_heading": "Lufkin Seasonal Water Damage Restoration Guide Year-Round",
+      "steps_items": [
+        {
+          "heading": "Spring Storm Flooding",
+          "text": "<p>Spring brings heavy East Texas downpours and fast-moving thunderstorms that can overwhelm drainage near Fuller Springs and Copeland Springs. Elk Restoration Pros responds quickly to extract water, assess saturated materials, and begin structural drying before moisture spreads further.</p>"
+        },
+        {
+          "heading": "Summer Humidity and Tropical Rain",
+          "text": "<p>Gulf humidity and occasional tropical systems bring intense summer downpours and wind-driven rain to Lufkin homes, including around Crown Colony. Elk Restoration Pros helps property owners address roof leaks, saturated insulation, and interior water intrusion before conditions worsen.</p>"
+        },
+        {
+          "heading": "Fall Shifting Weather Patterns",
+          "text": "<p>Fall in the Lufkin area can bring lingering tropical moisture, gusty storms, and clogged gutters from falling leaves, raising the risk of roof and window leaks near Downtown Lufkin. Elk Restoration Pros inspects affected areas and manages water removal and drying.</p>"
+        },
+        {
+          "heading": "Winter Freeze Thaw Risk",
+          "text": "<p>Occasional hard freezes followed by rapid thawing can stress pipes and plumbing in Kurth and surrounding neighborhoods, leading to unexpected leaks or bursts. Elk Restoration Pros assists with water extraction, drying, and helping restore affected areas after a freeze-related event.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-12T00:35:00.861417Z",
+      "_ai_model": "claude-sonnet-5",
+      "_ai_type": "seasonal_calendar",
+      "_ai_locked": false,
+      "_ai_input_hash": "ca48caabf640cebd"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Water Damage Restoration FAQs — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#f0f2f8",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "fq_items": [
+        {
+          "question": "What exactly does water damage restoration in Lufkin involve?",
+          "answer": "<p>Water damage restoration includes water extraction, drying structural materials, removing damaged contents, dehumidifying spaces, and cleaning affected areas. Our team assesses moisture penetration, identifies what can be salvaged, and works to restore your property to safe, dry condition. The specific steps depend on damage severity, water source, and how long moisture has been present.</p>"
+        },
+        {
+          "question": "How quickly can Elk Restoration Pros respond to water damage in Lufkin?",
+          "answer": "<p>We understand water damage demands urgent action. Our locally based team responds to emergency calls promptly to begin water extraction and drying as soon as possible. The faster restoration starts, the better the chances of limiting secondary damage. Contact us immediately if you discover active water intrusion, flooding, or storm-related moisture.</p>"
+        },
+        {
+          "question": "What factors affect the cost of water damage restoration?",
+          "answer": "<p>Water damage restoration costs vary based on affected square footage, water source (clean, gray, or contaminated), materials involved, and how long moisture has been present. Structural damage, HVAC involvement, and personal property loss also factor into scope. We evaluate your specific situation to provide an accurate estimate for the work required.</p>"
+        },
+        {
+          "question": "What should I do to prepare for water damage restoration work?",
+          "answer": "<p>Before restoration begins, move unaffected personal items away from work areas if safe to do so. Clear access to affected rooms and turn off utilities if water poses electrical risk. Our team will guide you on securing valuables and preparing your space. Document damage with photos for insurance purposes before restoration starts.</p>"
+        },
+        {
+          "question": "How can I prevent water damage from happening again in my Lufkin home?",
+          "answer": "<p>Regular maintenance of gutters, downspouts, and roof condition helps prevent water entry. Inspect plumbing, water heater connections, and foundation seals seasonally. Grade soil away from your home's foundation, maintain sump pumps, and consider backflow prevention on sewer lines. Addressing minor leaks and moisture early stops damage before it spreads.</p>"
+        },
+        {
+          "question": "Is Lufkin at higher risk for water damage during certain seasons?",
+          "answer": "<p>East Texas experiences heavy rainfall during spring and early summer, increasing flooding and water intrusion risk. Winter freeze-thaw cycles can crack pipes and damage foundations. Fall brings tropical storm potential. Year-round humidity also promotes moisture issues indoors. Being aware of these seasonal patterns helps you stay vigilant about water damage prevention and respond quickly when problems occur.</p>"
+        }
+      ],
+      "id": "home_faq",
+      "ai_type_id": "faq_local",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-12T01:03:53.788410Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_locked": false,
+      "_ai_input_hash": "932cd600fd442878"
+    },
+    {
+      "id": "home_local_rel",
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-sonnet-5",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Serving Lufkin and Surrounding East Texas Communities",
+      "text": "<p>Water damage in Lufkin rarely looks the same from one property to the next, and that's largely due to the mix of housing ages and building styles found across the area. Older homes near Downtown Lufkin often feature aging plumbing, original foundations, and mature tree canopies that can strain roofing and gutters during heavy East Texas storms, while newer subdivisions closer to Crown Colony tend to have more modern drainage systems but can still face runoff issues when grading or landscaping doesn't keep pace with intense rainfall. Wooded, low-lying areas like those around Fuller Springs may also see slower water dispersal after significant storms.</p><p>Seasonal shifts add another layer of risk. Humid summers bring the threat of sudden downpours and tropical remnants, while winter cold snaps can cause pipes to freeze and later burst as temperatures rebound. Understanding these neighborhood-level differences helps our team respond with an approach suited to each home's construction and surroundings.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-12T00:35:13.412809Z",
+      "_ai_model": "claude-sonnet-5",
+      "_ai_type": "local_relevance",
+      "_ai_locked": false,
+      "_ai_input_hash": "ccda5a5710888edd"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "24/7 Water Damage Restoration in {city_state}",
+      "cb_subtext": "",
+      "cb_btn_text": "Call Now — {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#2563eb",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    },
+    {
+      "type": "custom_html",
+      "html": "[services_links]"
+    },
+    {
+      "type": "cta_card",
+      "cc_heading": "Water Damage in {city}? Call Now for Fast Help",
+      "cc_text": "Don’t wait — water damage spreads fast. Call {business} to connect with trained {city_state} restoration specialists for rapid extraction, drying, and cleanup. Fast response, honest pricing, and 24/7 availability.",
+      "cc_btn_text": "{phone}",
+      "cc_btn_url": "tel:{tel}",
+      "cc_btn_style": "outline",
+      "cc_align": "split",
+      "cc_bg": "accent",
+      "cc_bg_custom": "#2563eb",
+      "cc_radius": 12
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#0d2340",
+      "mi_info_photo": "{city_image}"
+    },
+    {
+      "type": "cta_card",
+      "cc_heading": "The Values That Make Us {city}’s Most Trusted Restoration Team",
+      "cc_text": "We’re trusted across {city} for more than fast water removal — it’s how we work. Clear communication, honest pricing, and proven mitigation and drying standards deliver results you can count on. Our trained providers hold the highest standards of professionalism, and getting your property back to normal is always the priority. That’s why local property owners choose us — and refer us.",
+      "cc_btn_text": "",
+      "cc_btn_url": "",
+      "cc_btn_style": "outline",
+      "cc_align": "center",
+      "cc_bg": "accent",
+      "cc_bg_custom": "#2563eb",
+      "cc_radius": 0
+    },
+    {
+      "type": "links_grid",
+      "lg_heading": "Professional Water Damage Restoration in {city_state}",
+      "lg_subtext": "",
+      "lg_sublabel": "Trusted {city_state} Water & Storm Restoration",
+      "lg_photo_alt": "",
+      "lg_style": "light",
+      "lg_cols": 4,
+      "lg_overlay": "0.00",
+      "lg_bg_color": "#ffffff",
+      "lg_accent": "accent",
+      "lg_accent_custom": "#2563eb",
+      "lg_photo": "sites/water-site/uploads/media/water-damage-services-bg.webp",
+      "lg_links": [
+        {
+          "label": "Flood Damage Restoration",
+          "url": "/flood-damage-restoration-{city_slug}"
+        },
+        {
+          "label": "Storm Damage Restoration",
+          "url": "/storm-damage-restoration-{city_slug}"
+        },
+        {
+          "label": "Water Mitigation",
+          "url": "/water-mitigation-{city_slug}"
+        },
+        {
+          "label": "Sewage Cleanup",
+          "url": "/sewage-cleanup-{city_slug}"
+        },
+        {
+          "label": "Burst Pipe Water Damage",
+          "url": "/burst-pipe-water-damage-{city_slug}"
+        },
+        {
+          "label": "Ceiling Water Damage",
+          "url": "/ceiling-water-damage-{city_slug}"
+        },
+        {
+          "label": "Hardwood Floor Water Damage",
+          "url": "/hardwood-floor-water-damage-{city_slug}"
+        },
+        {
+          "label": "Roof Leak Water Damage",
+          "url": "/roof-leak-water-damage-{city_slug}"
+        }
+      ]
+    }
+  ],
+  "seo": {
+    "seo_title": "Water Damage Restoration in {city_state} | {business}",
+    "canonical_url": "",
+    "meta_description": "24/7 water damage restoration in {city_state}. Emergency water extraction, flood & storm damage cleanup, structural drying, sewage removal & repairs. Call {phone} for fast local help.",
+    "meta_keywords": "water damage restoration {city} {SS}, flood damage restoration {city}, water extraction {city} {SS}, storm damage restoration {city}, sewage cleanup {city}",
+    "og_title": "Water Damage Restoration in {city_state} | {business}",
+    "og_description": "24/7 emergency water damage restoration in {city_state} — water extraction, flood & storm cleanup, structural drying, and full repairs. Fast local response.",
+    "og_image": "sites/water-site/uploads/media/water-damage-restoration-hero.webp",
+    "service_name": "Water Damage Restoration",
+    "service_type": "Water Damage Restoration",
+    "service_area": "{city_state} and surrounding areas",
+    "service_description": "Emergency water damage restoration, water extraction, structural drying, and flood, storm, and sewage cleanup for homes and businesses in {city_state}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"HomeAndConstructionBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"description\": \"{business} connects {state} property owners with trained water and storm damage restoration specialists, providing 24/7 emergency water extraction, structural drying, and flood, storm, and sewage cleanup for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"State\",\n                \"name\": \"{state}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Su 00:00-23:59\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
+    "primary_keyword": "Water Damage Restoration",
+    "secondary_keywords": "flood damage restoration, storm damage restoration, water extraction, sewage cleanup, water mitigation"
+  },
+  "footer": {
+    "logo": "",
+    "phone": "{phone}",
+    "columns": [
+      {
+        "type": "text",
+        "title": "About {business}",
+        "text": "<p>We connect {city} property owners with trained, experienced water and storm damage restoration specialists through our advertising network. Our providers bring years of hands-on experience in water extraction, structural drying, and flood, sewage, and storm damage cleanup for homes and businesses across {city}. Whether it is a burst pipe, a flooded basement, or storm damage, every job is handled with speed, care, and professionalism. We believe in honest service, clear communication, and getting your property back to normal fast &mdash; because your peace of mind is our priority.</p>"
+      },
+      {
+        "type": "links",
+        "title": "Quick Links",
+        "links": [
+          {
+            "label": "Water Damage Restoration",
+            "url": "/water-damage-restoration-{city_slug}"
+          },
+          {
+            "label": "Flood Damage Restoration",
+            "url": "/flood-damage-restoration-{city_slug}"
+          },
+          {
+            "label": "Storm Damage Restoration",
+            "url": "/storm-damage-restoration-{city_slug}"
+          },
+          {
+            "label": "Sewage Cleanup",
+            "url": "/sewage-cleanup-{city_slug}"
+          },
+          {
+            "label": "24/7 Emergency",
+            "url": "/emergency-water-damage-{city_slug}"
+          },
+          {
+            "label": "Privacy Policy",
+            "url": "/privacy-policy"
+          },
+          {
+            "label": "Terms and Conditions",
+            "url": "/terms-and-conditions"
+          },
+          {
+            "label": "Contact Us & Advertising",
+            "url": "/contact-us"
+          },
+          {
+            "label": "Blog",
+            "url": "/blog"
+          }
+        ],
+        "text": ""
+      },
+      {
+        "type": "contact",
+        "title": "Contact Info",
+        "contact_extras": [],
+        "text": ""
+      }
+    ],
+    "copyright": "© Copyright {business}. All Rights Reserved.",
+    "bottom_links": [
+      {
+        "label": "Privacy Policy",
+        "url": "/privacy-policy"
+      },
+      {
+        "label": "Terms and Conditions",
+        "url": "/terms-and-conditions"
+      }
+    ],
+    "disclaimer": "<p>Disclaimer: {business_domain} is a free service that helps property owners connect with local restoration service providers. All contractors and providers are independent, and {business_domain} does not warrant or guarantee any work performed. It is the property owner&rsquo;s responsibility to verify that any hired contractor carries the license and insurance required for the work being performed, and to confirm the scope of water mitigation and restoration work &mdash; including drying, sanitizing, and any structural repairs &mdash; before work begins. All persons depicted in any photo or video are actors or models and not contractors listed on {business_domain}. Any advertiser relationships are clearly marked as &ldquo;Sponsored&rdquo; or &ldquo;Ad&rdquo;. See our Terms and Conditions for further details.</p>",
+    "sticky_bar_text": "24/7 Support Line - Call Now",
+    "sticky_bar_info": "Calls are answered by our advertising partners who can help match you with a suitable provider.",
+    "logo_in_copyright_bar": true,
+    "col_count": 3,
+    "socials": {
+      "facebook": "",
+      "instagram": "",
+      "linkedin": "",
+      "youtube": "",
+      "twitter": ""
+    }
+  },
+  "pages": {
+    "page_8845f40cd5d04": {
+      "title": "Privacy Policy | {business}",
+      "slug": "privacy-policy",
+      "page_type": "other",
+      "content_blocks": [
+        {
+          "type": "text",
+          "heading_level": "h1",
+          "text": "Privacy Policy\n<p>{business} respects your privacy and is committed to protecting it. This Privacy Policy explains what information we collect when you use {website} (the &ldquo;Website&rdquo;), how we use and share that information, and the choices available to you. The Website connects homeowners with independent water damage restoration providers and does not itself perform water damage restoration services.</p><p>By accessing or using the Website, you agree to the practices described in this policy. We may update this policy from time to time; continuing to use the Website after changes are posted means you accept the updated policy.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "A. Information We Collect\n<p>We collect information in a few different ways: information you give us directly, information collected automatically as you browse, and information generated when you call a number listed on the Website.</p><p><strong>Information you provide:</strong> name, phone number, address, email, and any details you submit through a form or request on the Website.</p><p><strong>Automatically collected information:</strong> browser type, device type, IP address, approximate location, pages viewed, search terms, and the date and time of your visit.</p><p><strong>Call information:</strong> if you call a number displayed on the Website, we and our call-tracking partners may record the date, time, duration, and content of that call for quality assurance and to route you to an appropriate provider.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "B. How We Use Information\n<p>We use the information we collect to operate and improve the Website, connect you with relevant water damage restoration providers, respond to your inquiries, personalize the content and offers you see, measure and improve the performance of our advertising, detect and prevent fraud or abuse, and comply with legal obligations.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "C. Cookies and Similar Technologies\n<p>The Website uses cookies and similar tracking technologies (such as web beacons and pixel tags) for purposes including:</p><ul><li><strong>Functionality</strong> &mdash; remembering your preferences and keeping the Website working correctly</li><li><strong>Security</strong> &mdash; detecting and preventing fraudulent or unauthorized activity</li><li><strong>Analytics</strong> &mdash; understanding how visitors use the Website so we can improve it</li><li><strong>Advertising</strong> &mdash; showing you relevant ads on this Website and others, and measuring how well our ads perform</li></ul><p>Most browsers let you block or delete cookies through their settings. Doing so may limit some features of the Website. If your browser sends a \"do not track\" signal, please note we do not currently respond differently to that signal.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "D. How We Share Information\n<p>We may share information about you with:</p><ul><li><strong>Water damage restoration providers</strong> &mdash; so they can respond to your request or call</li><li><strong>Service vendors</strong> &mdash; companies that host the Website, track and route calls, support our advertising, or otherwise help us operate the Website, under obligations to protect your information</li><li><strong>Advertising partners</strong> &mdash; who may use cookies to show you relevant ads based on your visit to the Website</li><li><strong>Successors</strong> &mdash; if {business} is involved in a merger, acquisition, or sale of assets, your information may transfer as part of that transaction</li><li><strong>Legal authorities</strong> &mdash; when required by law, subpoena, or other legal process, or to protect the rights, safety, or property of {business}, our users, or the public</li></ul><p>We do not sell your personal information to third parties for them to market their own unrelated products or services without your consent.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "E. Data Security\n<p>We use reasonable administrative and technical safeguards to protect the information we collect. However, no method of transmitting or storing data over the internet is completely secure, and we cannot guarantee absolute security. You share information with us at your own risk.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "F. Data Retention\n<p>We keep information for as long as needed to provide the Website, fulfill the purposes described in this policy, and meet our legal and accounting obligations. When information is no longer needed for these purposes, we take reasonable steps to delete or anonymize it.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "G. Children's Privacy\n<p>The Website is intended for adults and is not directed to children under 18. We do not knowingly collect personal information from anyone under 18. If you believe a child has provided us with personal information, please contact us at info@{business_domain} so we can remove it.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "H. International Visitors\n<p>The Website is intended for use by residents of the United States. If you access the Website from outside the United States, your information may be transferred to and processed in the United States, which may not provide the same level of data protection as your home country. By using the Website, you consent to this transfer.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "I. Your Privacy Rights\n<p>Depending on where you live, you may have rights to know what personal information we hold about you, request a copy of it, ask us to correct or delete it, and opt out of certain uses such as targeted advertising or the sale of personal information. To exercise any of these rights, contact us at info@{business_domain}. We will respond to verified requests consistent with applicable law.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "J. Contact Us\n<p>Questions or concerns about this Privacy Policy can be sent to info@{business_domain} or by calling {phone}.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "K. Changes to This Policy\n<p>We may revise this Privacy Policy periodically. The version posted on the Website is always the most current, and changes take effect as soon as they are posted. We encourage you to review this page from time to time.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        }
+      ],
+      "seo": {
+        "meta_keywords": "",
+        "meta_description": "Read the {business} Privacy Policy to learn how we collect, use, and protect your information when you visit {website} or call our helpline.",
+        "og_title": "Privacy Policy | {business}",
+        "og_description": "How {business} collects, uses, and protects your information.",
+        "og_image": "",
+        "schema": "",
+        "canonical_url": "{website}/privacy-policy/",
+        "service_name": "",
+        "service_type": "",
+        "service_area": "",
+        "service_description": "",
+        "bc_label": "Privacy Policy",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"HomeAndConstructionBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"description\": \"{business} connects {state} property owners with trained water and storm damage restoration specialists, providing 24/7 emergency water extraction, structural drying, and flood, storm, and sewage cleanup for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"State\",\n                \"name\": \"{state}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Su 00:00-23:59\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
-        "primary_keyword": "Water Damage Restoration",
-        "secondary_keywords": "flood damage restoration, storm damage restoration, water extraction, sewage cleanup, water mitigation"
+        "primary_keyword": "",
+        "secondary_keywords": ""
+      }
     },
-    "footer": {
-        "logo": "",
-        "phone": "{phone}",
-        "columns": [
-            {
-                "type": "text",
-                "title": "About {business}",
-                "text": "<p>We connect {city} property owners with trained, experienced water and storm damage restoration specialists through our advertising network. Our providers bring years of hands-on experience in water extraction, structural drying, and flood, sewage, and storm damage cleanup for homes and businesses across {city}. Whether it is a burst pipe, a flooded basement, or storm damage, every job is handled with speed, care, and professionalism. We believe in honest service, clear communication, and getting your property back to normal fast &mdash; because your peace of mind is our priority.</p>"
-            },
-            {
-                "type": "links",
-                "title": "Quick Links",
-                "links": [
-                    {
-                        "label": "Water Damage Restoration",
-                        "url": "/water-damage-restoration-{city_slug}"
-                    },
-                    {
-                        "label": "Flood Damage Restoration",
-                        "url": "/flood-damage-restoration-{city_slug}"
-                    },
-                    {
-                        "label": "Storm Damage Restoration",
-                        "url": "/storm-damage-restoration-{city_slug}"
-                    },
-                    {
-                        "label": "Sewage Cleanup",
-                        "url": "/sewage-cleanup-{city_slug}"
-                    },
-                    {
-                        "label": "24/7 Emergency",
-                        "url": "/emergency-water-damage-{city_slug}"
-                    },
-                    {
-                        "label": "Privacy Policy",
-                        "url": "/privacy-policy"
-                    },
-                    {
-                        "label": "Terms and Conditions",
-                        "url": "/terms-and-conditions"
-                    },
-                    {
-                        "label": "Contact Us & Advertising",
-                        "url": "/contact-us"
-                    },
-                    {
-                        "label": "Blog",
-                        "url": "/blog"
-                    }
-                ],
-                "text": ""
-            },
-            {
-                "type": "contact",
-                "title": "Contact Info",
-                "contact_extras": [],
-                "text": ""
-            }
-        ],
-        "copyright": "© Copyright {business}. All Rights Reserved.",
-        "bottom_links": [
-            {
-                "label": "Privacy Policy",
-                "url": "/privacy-policy"
-            },
-            {
-                "label": "Terms and Conditions",
-                "url": "/terms-and-conditions"
-            }
-        ],
-        "disclaimer": "<p>Disclaimer: {business_domain} is a free service that helps property owners connect with local restoration service providers. All contractors and providers are independent, and {business_domain} does not warrant or guarantee any work performed. It is the property owner&rsquo;s responsibility to verify that any hired contractor carries the license and insurance required for the work being performed, and to confirm the scope of water mitigation and restoration work &mdash; including drying, sanitizing, and any structural repairs &mdash; before work begins. All persons depicted in any photo or video are actors or models and not contractors listed on {business_domain}. Any advertiser relationships are clearly marked as &ldquo;Sponsored&rdquo; or &ldquo;Ad&rdquo;. See our Terms and Conditions for further details.</p>",
-        "sticky_bar_text": "24/7 Support Line - Call Now",
-        "sticky_bar_info": "Calls are answered by our advertising partners who can help match you with a suitable provider.",
-        "logo_in_copyright_bar": true,
-        "col_count": 3,
-        "socials": {
-            "facebook": "",
-            "instagram": "",
-            "linkedin": "",
-            "youtube": "",
-            "twitter": ""
-        }
-    },
-    "pages": {
-        "page_8845f40cd5d04": {
-            "title": "Privacy Policy | {business}",
-            "slug": "privacy-policy",
-            "page_type": "other",
-            "content_blocks": [
-                {
-                    "type": "text",
-                    "heading_level": "h1",
-                    "text": "Privacy Policy\n<p>{business} respects your privacy and is committed to protecting it. This Privacy Policy explains what information we collect when you use {website} (the &ldquo;Website&rdquo;), how we use and share that information, and the choices available to you. The Website connects homeowners with independent water damage restoration providers and does not itself perform water damage restoration services.</p><p>By accessing or using the Website, you agree to the practices described in this policy. We may update this policy from time to time; continuing to use the Website after changes are posted means you accept the updated policy.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "A. Information We Collect\n<p>We collect information in a few different ways: information you give us directly, information collected automatically as you browse, and information generated when you call a number listed on the Website.</p><p><strong>Information you provide:</strong> name, phone number, address, email, and any details you submit through a form or request on the Website.</p><p><strong>Automatically collected information:</strong> browser type, device type, IP address, approximate location, pages viewed, search terms, and the date and time of your visit.</p><p><strong>Call information:</strong> if you call a number displayed on the Website, we and our call-tracking partners may record the date, time, duration, and content of that call for quality assurance and to route you to an appropriate provider.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "B. How We Use Information\n<p>We use the information we collect to operate and improve the Website, connect you with relevant water damage restoration providers, respond to your inquiries, personalize the content and offers you see, measure and improve the performance of our advertising, detect and prevent fraud or abuse, and comply with legal obligations.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "C. Cookies and Similar Technologies\n<p>The Website uses cookies and similar tracking technologies (such as web beacons and pixel tags) for purposes including:</p><ul><li><strong>Functionality</strong> &mdash; remembering your preferences and keeping the Website working correctly</li><li><strong>Security</strong> &mdash; detecting and preventing fraudulent or unauthorized activity</li><li><strong>Analytics</strong> &mdash; understanding how visitors use the Website so we can improve it</li><li><strong>Advertising</strong> &mdash; showing you relevant ads on this Website and others, and measuring how well our ads perform</li></ul><p>Most browsers let you block or delete cookies through their settings. Doing so may limit some features of the Website. If your browser sends a \"do not track\" signal, please note we do not currently respond differently to that signal.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "D. How We Share Information\n<p>We may share information about you with:</p><ul><li><strong>Water damage restoration providers</strong> &mdash; so they can respond to your request or call</li><li><strong>Service vendors</strong> &mdash; companies that host the Website, track and route calls, support our advertising, or otherwise help us operate the Website, under obligations to protect your information</li><li><strong>Advertising partners</strong> &mdash; who may use cookies to show you relevant ads based on your visit to the Website</li><li><strong>Successors</strong> &mdash; if {business} is involved in a merger, acquisition, or sale of assets, your information may transfer as part of that transaction</li><li><strong>Legal authorities</strong> &mdash; when required by law, subpoena, or other legal process, or to protect the rights, safety, or property of {business}, our users, or the public</li></ul><p>We do not sell your personal information to third parties for them to market their own unrelated products or services without your consent.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "E. Data Security\n<p>We use reasonable administrative and technical safeguards to protect the information we collect. However, no method of transmitting or storing data over the internet is completely secure, and we cannot guarantee absolute security. You share information with us at your own risk.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "F. Data Retention\n<p>We keep information for as long as needed to provide the Website, fulfill the purposes described in this policy, and meet our legal and accounting obligations. When information is no longer needed for these purposes, we take reasonable steps to delete or anonymize it.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "G. Children's Privacy\n<p>The Website is intended for adults and is not directed to children under 18. We do not knowingly collect personal information from anyone under 18. If you believe a child has provided us with personal information, please contact us at info@{business_domain} so we can remove it.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "H. International Visitors\n<p>The Website is intended for use by residents of the United States. If you access the Website from outside the United States, your information may be transferred to and processed in the United States, which may not provide the same level of data protection as your home country. By using the Website, you consent to this transfer.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "I. Your Privacy Rights\n<p>Depending on where you live, you may have rights to know what personal information we hold about you, request a copy of it, ask us to correct or delete it, and opt out of certain uses such as targeted advertising or the sale of personal information. To exercise any of these rights, contact us at info@{business_domain}. We will respond to verified requests consistent with applicable law.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "J. Contact Us\n<p>Questions or concerns about this Privacy Policy can be sent to info@{business_domain} or by calling {phone}.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "K. Changes to This Policy\n<p>We may revise this Privacy Policy periodically. The version posted on the Website is always the most current, and changes take effect as soon as they are posted. We encourage you to review this page from time to time.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                }
-            ],
-            "seo": {
-                "meta_keywords": "",
-                "meta_description": "Read the {business} Privacy Policy to learn how we collect, use, and protect your information when you visit {website} or call our helpline.",
-                "og_title": "Privacy Policy | {business}",
-                "og_description": "How {business} collects, uses, and protects your information.",
-                "og_image": "",
-                "schema": "",
-                "canonical_url": "{website}/privacy-policy/",
-                "service_name": "",
-                "service_type": "",
-                "service_area": "",
-                "service_description": "",
-                "bc_label": "Privacy Policy",
-                "bc_mid_label": "",
-                "bc_mid_url": "",
-                "primary_keyword": "",
-                "secondary_keywords": ""
-            }
+    "page_5ecf42631f084": {
+      "title": "Terms and Conditions | {business}",
+      "slug": "terms-and-conditions",
+      "page_type": "other",
+      "content_blocks": [
+        {
+          "type": "text",
+          "heading_level": "h1",
+          "text": "Terms and Conditions\n<p>These Terms and Conditions (the &ldquo;Terms&rdquo;) govern your use of {website} (the &ldquo;Website&rdquo;). By accessing or using the Website, you agree to be bound by these Terms. If you do not agree, please do not use the Website.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
         },
-        "page_5ecf42631f084": {
-            "title": "Terms and Conditions | {business}",
-            "slug": "terms-and-conditions",
-            "page_type": "other",
-            "content_blocks": [
-                {
-                    "type": "text",
-                    "heading_level": "h1",
-                    "text": "Terms and Conditions\n<p>These Terms and Conditions (the &ldquo;Terms&rdquo;) govern your use of {website} (the &ldquo;Website&rdquo;). By accessing or using the Website, you agree to be bound by these Terms. If you do not agree, please do not use the Website.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "A. Who We Are\n<p>{business} operates the Website as a free service that helps homeowners find independent water damage restoration providers in their area. We do not own, operate, or control any water damage restoration business, and we do not perform water damage restoration services ourselves. Any photos or videos of technicians shown on the Website are for illustration only and may depict models or stock imagery rather than an actual provider.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "B. Eligibility and Acceptance\n<p>The Website is intended for use by individuals 18 years of age or older who reside in the United States. By using the Website, you represent that you meet these requirements and agree to be bound by these Terms.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "C. Content Is Informational Only\n<p>Content on the Website &mdash; including articles, service descriptions, and pricing information &mdash; is provided for general informational purposes only and is not a substitute for advice from a licensed water damage restoration professional. We make reasonable efforts to keep information accurate and current, but it may not always reflect the latest pricing, availability, or local regulations. You should confirm details directly with any provider before hiring them.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "D. Connecting You With Providers\n<p>When you call a number listed on the Website or submit a request, you direct us to share your information with one or more water damage restoration providers so they can contact you about your request. {business} may receive compensation from providers for these introductions. This compensation does not affect the price you pay or the quality of service you receive, and you are never charged anything by {business} for using the Website.</p><p>We make no guarantee about the suitability, licensing, insurance, or quality of any provider. It is your responsibility to verify a provider's credentials, licensing, and insurance before hiring them. {business} is not a party to any agreement between you and a provider and is not responsible for the services a provider performs or fails to perform.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "E. Prohibited Conduct\n<p>When using the Website, you agree not to:</p><ul><li>Use the Website for any unlawful, fraudulent, or misleading purpose</li><li>Post or submit fake reviews, or offer or accept payment in exchange for reviews</li><li>Attempt to interfere with, disable, or gain unauthorized access to the Website or its systems</li><li>Use automated tools to scrape, crawl, or copy content from the Website without our written permission</li><li>Upload or transmit viruses, malicious code, or content that infringes another person's rights</li><li>Impersonate any person or misrepresent your affiliation with any person or entity</li></ul><p>We may suspend or terminate your access to the Website if we believe, in our reasonable judgment, that you have violated these Terms.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "F. Disclaimer of Warranties\n<p>The Website is provided \"as is\" and \"as available,\" without warranties of any kind, whether express or implied. We do not warrant that the Website will be uninterrupted, error-free, or that any information on it is complete or accurate. Your use of the Website is at your own risk.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "G. Limitation of Liability\n<p>To the fullest extent permitted by law, {business} and its officers, employees, and affiliates will not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Website, or from the acts or omissions of any water damage restoration provider you connect with through the Website. Our total liability for any claim relating to the Website is limited to $150. Any claim must be brought within one year of the event giving rise to it.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "H. Indemnification\n<p>You agree to defend and hold {business} harmless from any claims, losses, or damages arising from your misuse of the Website, your violation of these Terms, or content you submit through the Website.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "I. Intellectual Property\n<p>All content on the Website &mdash; including text, graphics, logos, and images &mdash; is owned by {business} or its licensors and protected by copyright and trademark law. You may view and print pages from the Website for your own personal, non-commercial use. You may not copy, republish, modify, or create derivative works from any part of the Website, or use it for any commercial purpose, without our prior written consent.</p><p>If you believe content on the Website infringes your copyright, please contact us at info@{business_domain} with details of the alleged infringement so we can investigate.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "J. Relationship to Our Privacy Policy\n<p>Your use of the Website is also governed by our <a href=\"/privacy-policy\">Privacy Policy</a>, which explains how we collect, use, and share information about you.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "K. Governing Law\n<p>These Terms are governed by the laws of the State of {state}, without regard to conflict-of-law rules that would apply the law of any other jurisdiction.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "L. Dispute Resolution\n<p>If a dispute arises out of your use of the Website, we encourage you to contact us first at info@{business_domain} so we can try to resolve it informally. If a dispute cannot be resolved informally within 45 days, you and {business} agree that it will be resolved by binding individual arbitration rather than in court, except that either party may bring a claim in small claims court if it qualifies. You and {business} each waive the right to a jury trial and to participate in any class, mass, or representative action against the other.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "M. Changes to These Terms\n<p>We may update these Terms from time to time by posting a revised version on the Website. Continuing to use the Website after a revised version is posted means you accept the updated Terms. If any provision of these Terms is found unenforceable, the remaining provisions will remain in effect.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                },
-                {
-                    "type": "text",
-                    "heading_level": "h2",
-                    "text": "N. Contact Us\n<p>Questions about these Terms can be directed to info@{business_domain} or by calling {phone}.</p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                }
-            ],
-            "seo": {
-                "meta_keywords": "",
-                "meta_description": "Read the {business} Terms and Conditions governing your use of {website}, our advertising network, and our helpline.",
-                "og_title": "Terms and Conditions | {business}",
-                "og_description": "The terms governing your use of {website}.",
-                "og_image": "",
-                "schema": "",
-                "canonical_url": "{website}/terms-and-conditions/",
-                "service_name": "",
-                "service_type": "",
-                "service_area": "",
-                "service_description": "",
-                "bc_label": "Terms and Conditions",
-                "bc_mid_label": "",
-                "bc_mid_url": "",
-                "primary_keyword": "",
-                "secondary_keywords": ""
-            }
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "A. Who We Are\n<p>{business} operates the Website as a free service that helps homeowners find independent water damage restoration providers in their area. We do not own, operate, or control any water damage restoration business, and we do not perform water damage restoration services ourselves. Any photos or videos of technicians shown on the Website are for illustration only and may depict models or stock imagery rather than an actual provider.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
         },
-        "page_6a30c3339c03d": {
-            "title": "Contact Us",
-            "slug": "contact-us",
-            "page_type": "other",
-            "content_blocks": [
-                {
-                    "type": "text",
-                    "heading_level": "h1",
-                    "text": "Contact Us\n<p>If you are interested in becoming part of our advertising network or have questions, give us a call or send us an email below.</p><p style=\"margin-top:24px;\"><a href=\"tel:{tel}\" class=\"cta-btn\">Call {phone}</a></p><p>Email: <a href=\"mailto:info@{business_domain}\">info@{business_domain}</a></p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
-                }
-            ],
-            "seo": {
-                "meta_keywords": "",
-                "meta_description": "Contact {business} — call our free 24/7 helpline or email us to connect with a trusted water damage restoration specialist in {city_state}.",
-                "og_title": "Contact Us | {business}",
-                "og_description": "Get in touch with {business} — call our free 24/7 helpline or send us an email.",
-                "og_image": "",
-                "schema": "",
-                "canonical_url": "{website}/contact-us/",
-                "service_name": "",
-                "service_type": "",
-                "service_area": "",
-                "service_description": "",
-                "bc_label": "Contact Us",
-                "bc_mid_label": "",
-                "bc_mid_url": "",
-                "primary_keyword": "",
-                "secondary_keywords": ""
-            }
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "B. Eligibility and Acceptance\n<p>The Website is intended for use by individuals 18 years of age or older who reside in the United States. By using the Website, you represent that you meet these requirements and agree to be bound by these Terms.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "C. Content Is Informational Only\n<p>Content on the Website &mdash; including articles, service descriptions, and pricing information &mdash; is provided for general informational purposes only and is not a substitute for advice from a licensed water damage restoration professional. We make reasonable efforts to keep information accurate and current, but it may not always reflect the latest pricing, availability, or local regulations. You should confirm details directly with any provider before hiring them.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "D. Connecting You With Providers\n<p>When you call a number listed on the Website or submit a request, you direct us to share your information with one or more water damage restoration providers so they can contact you about your request. {business} may receive compensation from providers for these introductions. This compensation does not affect the price you pay or the quality of service you receive, and you are never charged anything by {business} for using the Website.</p><p>We make no guarantee about the suitability, licensing, insurance, or quality of any provider. It is your responsibility to verify a provider's credentials, licensing, and insurance before hiring them. {business} is not a party to any agreement between you and a provider and is not responsible for the services a provider performs or fails to perform.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "E. Prohibited Conduct\n<p>When using the Website, you agree not to:</p><ul><li>Use the Website for any unlawful, fraudulent, or misleading purpose</li><li>Post or submit fake reviews, or offer or accept payment in exchange for reviews</li><li>Attempt to interfere with, disable, or gain unauthorized access to the Website or its systems</li><li>Use automated tools to scrape, crawl, or copy content from the Website without our written permission</li><li>Upload or transmit viruses, malicious code, or content that infringes another person's rights</li><li>Impersonate any person or misrepresent your affiliation with any person or entity</li></ul><p>We may suspend or terminate your access to the Website if we believe, in our reasonable judgment, that you have violated these Terms.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "F. Disclaimer of Warranties\n<p>The Website is provided \"as is\" and \"as available,\" without warranties of any kind, whether express or implied. We do not warrant that the Website will be uninterrupted, error-free, or that any information on it is complete or accurate. Your use of the Website is at your own risk.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "G. Limitation of Liability\n<p>To the fullest extent permitted by law, {business} and its officers, employees, and affiliates will not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Website, or from the acts or omissions of any water damage restoration provider you connect with through the Website. Our total liability for any claim relating to the Website is limited to $150. Any claim must be brought within one year of the event giving rise to it.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "H. Indemnification\n<p>You agree to defend and hold {business} harmless from any claims, losses, or damages arising from your misuse of the Website, your violation of these Terms, or content you submit through the Website.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "I. Intellectual Property\n<p>All content on the Website &mdash; including text, graphics, logos, and images &mdash; is owned by {business} or its licensors and protected by copyright and trademark law. You may view and print pages from the Website for your own personal, non-commercial use. You may not copy, republish, modify, or create derivative works from any part of the Website, or use it for any commercial purpose, without our prior written consent.</p><p>If you believe content on the Website infringes your copyright, please contact us at info@{business_domain} with details of the alleged infringement so we can investigate.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "J. Relationship to Our Privacy Policy\n<p>Your use of the Website is also governed by our <a href=\"/privacy-policy\">Privacy Policy</a>, which explains how we collect, use, and share information about you.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "K. Governing Law\n<p>These Terms are governed by the laws of the State of {state}, without regard to conflict-of-law rules that would apply the law of any other jurisdiction.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "L. Dispute Resolution\n<p>If a dispute arises out of your use of the Website, we encourage you to contact us first at info@{business_domain} so we can try to resolve it informally. If a dispute cannot be resolved informally within 45 days, you and {business} agree that it will be resolved by binding individual arbitration rather than in court, except that either party may bring a claim in small claims court if it qualifies. You and {business} each waive the right to a jury trial and to participate in any class, mass, or representative action against the other.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "M. Changes to These Terms\n<p>We may update these Terms from time to time by posting a revised version on the Website. Continuing to use the Website after a revised version is posted means you accept the updated Terms. If any provision of these Terms is found unenforceable, the remaining provisions will remain in effect.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
+        },
+        {
+          "type": "text",
+          "heading_level": "h2",
+          "text": "N. Contact Us\n<p>Questions about these Terms can be directed to info@{business_domain} or by calling {phone}.</p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
         }
+      ],
+      "seo": {
+        "meta_keywords": "",
+        "meta_description": "Read the {business} Terms and Conditions governing your use of {website}, our advertising network, and our helpline.",
+        "og_title": "Terms and Conditions | {business}",
+        "og_description": "The terms governing your use of {website}.",
+        "og_image": "",
+        "schema": "",
+        "canonical_url": "{website}/terms-and-conditions/",
+        "service_name": "",
+        "service_type": "",
+        "service_area": "",
+        "service_description": "",
+        "bc_label": "Terms and Conditions",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "primary_keyword": "",
+        "secondary_keywords": ""
+      }
     },
-    "popups": {
-        "info": {
-            "enabled": true,
-            "heading": "How Your Calls Are Handled",
-            "image": "sites/water-site/uploads/media/how-your-calls-are-handled.webp",
-            "body": "<p>We offer a free, 24/7 confidential helpline to connect you with trusted water damage restoration professionals tailored to your needs. This call routing service is sponsored advertising. {website} does not provide water damage restoration services. Calls to our main helpline are answered by one of our advertising partners who can help match you with a suitable provider. By using {website} and calling, you agree to our terms and conditions. You'll never be charged for these calls or pressured to choose any particular service. Neither we nor our partners earn commissions from your choices. <strong>Notice of Call Recording and Data Use:</strong> By using {website} and calling, you agree to our Privacy Policy. To explore more water damage restoration options, visit our {website} or call us anytime at {phone}.</p>"
+    "page_6a30c3339c03d": {
+      "title": "Contact Us",
+      "slug": "contact-us",
+      "page_type": "other",
+      "content_blocks": [
+        {
+          "type": "text",
+          "heading_level": "h1",
+          "text": "Contact Us\n<p>If you are interested in becoming part of our advertising network or have questions, give us a call or send us an email below.</p><p style=\"margin-top:24px;\"><a href=\"tel:{tel}\" class=\"cta-btn\">Call {phone}</a></p><p>Email: <a href=\"mailto:info@{business_domain}\">info@{business_domain}</a></p>",
+          "photo": "",
+          "photo_ratio": "landscape",
+          "photo_position": "center",
+          "photo_alt": ""
         }
-    },
-    "local_business": {
-        "lb_name": "{business}",
-        "lb_type": "HomeAndConstructionBusiness",
-        "lb_url": "{website}",
-        "lb_phone": "{phone}",
-        "lb_street": "",
-        "lb_city": "{city}",
-        "lb_state": "{SS}",
-        "lb_zip": "{zip}",
-        "lb_country": "US",
-        "lb_lat": "31.3382",
-        "lb_lng": "-94.7291",
-        "lb_price_range": "$$",
-        "lb_hours": "Mo-Su 00:00-23:59",
-        "lb_description": "{business} connects {city_state} property owners with water and storm damage restoration specialists — including 24/7 water extraction, flood cleanup, structural drying, and sewage cleanup.",
-        "lb_logo": "{website}/uploads/logo_elk-restoration-pros.png",
-        "lb_rating": "",
-        "lb_review_count": ""
-    },
-    "site_vars": {
-        "city": "Lufkin",
-        "state": "Texas",
-        "SS": "TX",
-        "city_slug": "lufkin-tx",
-        "business": "Elk Restoration Pros",
-        "phone": "936-201-5560",
-        "zip": "75901",
-        "website": "https://elkrestorationpros.com",
-        "tel": "+19362015560",
-        "city_image": "sites/water-site/uploads/media/city-scenic-lufkin-tx.webp",
-        "city_image_alt": "Downtown Lufkin, TX",
-        "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
-        "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
-        "email": "contact@elkrestorationpros.com",
-        "city_spotlight": "Tucked deep in the Piney Woods, Lufkin, Texas stands as the commercial anchor of Deep East Texas, its identity shaped by generations of timber harvesting and wood products manufacturing. That forestry heritage still runs through the local economy, joined today by oil field equipment production, healthcare, and education as steady employment pillars. As the Angelina County seat, Lufkin also carries a solid base of retail, distribution, and government work, giving the city a balanced, self-sufficient economic footing rather than reliance on any single industry.\n\nHome to roughly 34,000 residents, Lufkin feels like a true regional hub rather than a small town passing through. Around Downtown Lufkin and out toward Crown Colony, the city blends working neighborhoods with a slower, tree-shaded pace that reflects its forested surroundings and long-standing community roots.",
-        "business_domain": "elkrestorationpros.com"
-    },
-    "posts": [],
-    "blog_settings": {
-        "blog_heading": "Water Damage Tips & News for {city}",
-        "blog_intro": "",
-        "posts_per_page": 9
-    },
-    "services_links": {
-        "services": [
-            {
-                "name": "Flood Damage Restoration",
-                "url": "/flood-damage-restoration-{city_slug}"
-            },
-            {
-                "name": "Storm Damage Restoration",
-                "url": "/storm-damage-restoration-{city_slug}"
-            },
-            {
-                "name": "Water Damage Repair",
-                "url": "/water-damage-repair-{city_slug}"
-            },
-            {
-                "name": "Water Mitigation",
-                "url": "/water-mitigation-{city_slug}"
-            },
-            {
-                "name": "24-Hour Emergency Water Damage",
-                "url": "/emergency-water-damage-{city_slug}"
-            },
-            {
-                "name": "Sewage Cleanup",
-                "url": "/sewage-cleanup-{city_slug}"
-            },
-            {
-                "name": "Flooded Basement Cleanup",
-                "url": "/flooded-basement-cleanup-{city_slug}"
-            },
-            {
-                "name": "Commercial Water Damage Restoration",
-                "url": "/commercial-water-damage-restoration-{city_slug}"
-            },
-            {
-                "name": "Burst Pipe Water Damage",
-                "url": "/burst-pipe-water-damage-{city_slug}"
-            },
-            {
-                "name": "Ceiling Water Damage",
-                "url": "/ceiling-water-damage-{city_slug}"
-            },
-            {
-                "name": "Hardwood Floor Water Damage",
-                "url": "/hardwood-floor-water-damage-{city_slug}"
-            },
-            {
-                "name": "Carpet Water Damage",
-                "url": "/carpet-water-damage-{city_slug}"
-            },
-            {
-                "name": "Roof Leak Water Damage",
-                "url": "/roof-leak-water-damage-{city_slug}"
-            },
-            {
-                "name": "Attic Water Damage",
-                "url": "/attic-water-damage-{city_slug}"
-            },
-            {
-                "name": "Drywall Water Damage Repair",
-                "url": "/drywall-water-damage-repair-{city_slug}"
-            },
-            {
-                "name": "Toilet Overflow Cleanup",
-                "url": "/toilet-overflow-cleanup-{city_slug}"
-            },
-            {
-                "name": "Emergency Board-Up",
-                "url": "/emergency-board-up-{city_slug}"
-            },
-            {
-                "name": "Roof Tarping",
-                "url": "/roof-tarping-{city_slug}"
-            },
-            {
-                "name": "Hurricane Damage Restoration",
-                "url": "/hurricane-damage-restoration-{city_slug}"
-            },
-            {
-                "name": "Water Heater Leak",
-                "url": "/water-heater-leak-{city_slug}"
-            },
-            {
-                "name": "Appliance Leak & Overflow Cleanup",
-                "url": "/appliance-leak-cleanup-{city_slug}"
-            },
-            {
-                "name": "Flooded Bathroom Cleanup",
-                "url": "/flooded-bathroom-cleanup-{city_slug}"
-            },
-            {
-                "name": "Water Damage Inspection & Assessment",
-                "url": "/water-damage-inspection-{city_slug}"
-            },
-            {
-                "name": "Water Damage Reconstruction",
-                "url": "/water-damage-reconstruction-{city_slug}"
-            },
-            {
-                "name": "Contents Restoration & Pack-Out",
-                "url": "/contents-restoration-{city_slug}"
-            },
-            {
-                "name": "Winter Storm Damage",
-                "url": "/winter-storm-damage-{city_slug}"
-            }
-        ],
-        "url_pattern": "/{service_slug}-{city_slug}",
-        "heading": "Our Water Restoration Services in {city_state}",
-        "sublabel": "",
-        "subtext": "We connect {city_state} property owners with specialists for the full range of water and storm damage services — from emergency water extraction and flood cleanup to sewage removal, structural drying, and full restoration. Fast local response, available 24/7.",
-        "style": "dark",
-        "cols": 5,
-        "bg_photo": "",
-        "overlay": "0.20",
-        "bg_color": "#ffffff",
-        "accent": "accent",
-        "accent_custom": "#2563eb",
-        "anchor": "water_services"
-    },
-    "breadcrumbs": {
-        "enabled": true,
-        "hero_bg_mode": "auto",
-        "hero_bg_color": ""
+      ],
+      "seo": {
+        "meta_keywords": "",
+        "meta_description": "Contact {business} — call our free 24/7 helpline or email us to connect with a trusted water damage restoration specialist in {city_state}.",
+        "og_title": "Contact Us | {business}",
+        "og_description": "Get in touch with {business} — call our free 24/7 helpline or send us an email.",
+        "og_image": "",
+        "schema": "",
+        "canonical_url": "{website}/contact-us/",
+        "service_name": "",
+        "service_type": "",
+        "service_area": "",
+        "service_description": "",
+        "bc_label": "Contact Us",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "primary_keyword": "",
+        "secondary_keywords": ""
+      }
     }
+  },
+  "popups": {
+    "info": {
+      "enabled": true,
+      "heading": "How Your Calls Are Handled",
+      "image": "sites/water-site/uploads/media/how-your-calls-are-handled.webp",
+      "body": "<p>We offer a free, 24/7 confidential helpline to connect you with trusted water damage restoration professionals tailored to your needs. This call routing service is sponsored advertising. {website} does not provide water damage restoration services. Calls to our main helpline are answered by one of our advertising partners who can help match you with a suitable provider. By using {website} and calling, you agree to our terms and conditions. You'll never be charged for these calls or pressured to choose any particular service. Neither we nor our partners earn commissions from your choices. <strong>Notice of Call Recording and Data Use:</strong> By using {website} and calling, you agree to our Privacy Policy. To explore more water damage restoration options, visit our {website} or call us anytime at {phone}.</p>"
+    }
+  },
+  "local_business": {
+    "lb_name": "{business}",
+    "lb_type": "HomeAndConstructionBusiness",
+    "lb_url": "{website}",
+    "lb_phone": "{phone}",
+    "lb_street": "",
+    "lb_city": "{city}",
+    "lb_state": "{SS}",
+    "lb_zip": "{zip}",
+    "lb_country": "US",
+    "lb_lat": "31.3382",
+    "lb_lng": "-94.7291",
+    "lb_price_range": "$$",
+    "lb_hours": "Mo-Su 00:00-23:59",
+    "lb_description": "{business} connects {city_state} property owners with water and storm damage restoration specialists — including 24/7 water extraction, flood cleanup, structural drying, and sewage cleanup.",
+    "lb_logo": "{website}/uploads/logo_elk-restoration-pros.png",
+    "lb_rating": "",
+    "lb_review_count": ""
+  },
+  "site_vars": {
+    "city": "Lufkin",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "lufkin-tx",
+    "business": "Elk Restoration Pros",
+    "phone": "936-201-5560",
+    "zip": "75901",
+    "website": "https://elkrestorationpros.com",
+    "tel": "+19362015560",
+    "city_image": "sites/water-site/uploads/media/city-scenic-lufkin-tx.webp",
+    "city_image_alt": "Downtown Lufkin, TX",
+    "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+    "email": "contact@elkrestorationpros.com",
+    "city_spotlight": "Tucked deep in the Piney Woods, Lufkin, Texas stands as the commercial anchor of Deep East Texas, its identity shaped by generations of timber harvesting and wood products manufacturing. That forestry heritage still runs through the local economy, joined today by oil field equipment production, healthcare, and education as steady employment pillars. As the Angelina County seat, Lufkin also carries a solid base of retail, distribution, and government work, giving the city a balanced, self-sufficient economic footing rather than reliance on any single industry.\n\nHome to roughly 34,000 residents, Lufkin feels like a true regional hub rather than a small town passing through. Around Downtown Lufkin and out toward Crown Colony, the city blends working neighborhoods with a slower, tree-shaded pace that reflects its forested surroundings and long-standing community roots.",
+    "business_domain": "elkrestorationpros.com"
+  },
+  "posts": [],
+  "blog_settings": {
+    "blog_heading": "Water Damage Tips & News for {city}",
+    "blog_intro": "",
+    "posts_per_page": 9
+  },
+  "services_links": {
+    "services": [
+      {
+        "name": "Flood Damage Restoration",
+        "url": "/flood-damage-restoration-{city_slug}"
+      },
+      {
+        "name": "Storm Damage Restoration",
+        "url": "/storm-damage-restoration-{city_slug}"
+      },
+      {
+        "name": "Water Damage Repair",
+        "url": "/water-damage-repair-{city_slug}"
+      },
+      {
+        "name": "Water Mitigation",
+        "url": "/water-mitigation-{city_slug}"
+      },
+      {
+        "name": "24-Hour Emergency Water Damage",
+        "url": "/emergency-water-damage-{city_slug}"
+      },
+      {
+        "name": "Sewage Cleanup",
+        "url": "/sewage-cleanup-{city_slug}"
+      },
+      {
+        "name": "Flooded Basement Cleanup",
+        "url": "/flooded-basement-cleanup-{city_slug}"
+      },
+      {
+        "name": "Commercial Water Damage Restoration",
+        "url": "/commercial-water-damage-restoration-{city_slug}"
+      },
+      {
+        "name": "Burst Pipe Water Damage",
+        "url": "/burst-pipe-water-damage-{city_slug}"
+      },
+      {
+        "name": "Ceiling Water Damage",
+        "url": "/ceiling-water-damage-{city_slug}"
+      },
+      {
+        "name": "Hardwood Floor Water Damage",
+        "url": "/hardwood-floor-water-damage-{city_slug}"
+      },
+      {
+        "name": "Carpet Water Damage",
+        "url": "/carpet-water-damage-{city_slug}"
+      },
+      {
+        "name": "Roof Leak Water Damage",
+        "url": "/roof-leak-water-damage-{city_slug}"
+      },
+      {
+        "name": "Attic Water Damage",
+        "url": "/attic-water-damage-{city_slug}"
+      },
+      {
+        "name": "Drywall Water Damage Repair",
+        "url": "/drywall-water-damage-repair-{city_slug}"
+      },
+      {
+        "name": "Toilet Overflow Cleanup",
+        "url": "/toilet-overflow-cleanup-{city_slug}"
+      },
+      {
+        "name": "Emergency Board-Up",
+        "url": "/emergency-board-up-{city_slug}"
+      },
+      {
+        "name": "Roof Tarping",
+        "url": "/roof-tarping-{city_slug}"
+      },
+      {
+        "name": "Hurricane Damage Restoration",
+        "url": "/hurricane-damage-restoration-{city_slug}"
+      },
+      {
+        "name": "Water Heater Leak",
+        "url": "/water-heater-leak-{city_slug}"
+      },
+      {
+        "name": "Appliance Leak & Overflow Cleanup",
+        "url": "/appliance-leak-cleanup-{city_slug}"
+      },
+      {
+        "name": "Flooded Bathroom Cleanup",
+        "url": "/flooded-bathroom-cleanup-{city_slug}"
+      },
+      {
+        "name": "Water Damage Inspection & Assessment",
+        "url": "/water-damage-inspection-{city_slug}"
+      },
+      {
+        "name": "Water Damage Reconstruction",
+        "url": "/water-damage-reconstruction-{city_slug}"
+      },
+      {
+        "name": "Contents Restoration & Pack-Out",
+        "url": "/contents-restoration-{city_slug}"
+      },
+      {
+        "name": "Winter Storm Damage",
+        "url": "/winter-storm-damage-{city_slug}"
+      }
+    ],
+    "url_pattern": "/{service_slug}-{city_slug}",
+    "heading": "Our Water Restoration Services in {city_state}",
+    "sublabel": "",
+    "subtext": "We connect {city_state} property owners with specialists for the full range of water and storm damage services — from emergency water extraction and flood cleanup to sewage removal, structural drying, and full restoration. Fast local response, available 24/7.",
+    "style": "dark",
+    "cols": 5,
+    "bg_photo": "",
+    "overlay": "0.20",
+    "bg_color": "#ffffff",
+    "accent": "accent",
+    "accent_custom": "#2563eb",
+    "anchor": "water_services"
+  },
+  "breadcrumbs": {
+    "enabled": true,
+    "hero_bg_mode": "auto",
+    "hero_bg_color": ""
+  }
 }
