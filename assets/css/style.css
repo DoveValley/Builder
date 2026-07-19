@@ -4161,7 +4161,9 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 .block-section.skin-dark .if-feat-text { color: var(--skin-dark-text) !important; }
 
 /* links_grid — light-variant links on a dark skin */
-.block-section.skin-dark .lg-light-link { color: var(--skin-dark-text) !important; border-color: rgba(255,255,255,.22) !important; }
+/* links_grid light-variant links are always light-gray pills, so keep their text
+   dark under any skin (the earlier rule wrongly forced light text -> unreadable) */
+.block-section[class*="skin-"] .lg-light-link { color: #1a1a1a !important; }
 
 /* Skin picker UI (admin editor) */
 .skin-picker { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }

@@ -248,7 +248,7 @@ include file_exists($_hFile) ? $_hFile : __DIR__ . '/headers/standard.php';
 <?php
 $lastBlockType  = end($contentBlocks)['type'] ?? '';
 $firstBlockType = ($contentBlocks[0]['type'] ?? '');
-$lastBlockNoGap = in_array($lastBlockType,  ['custom_html','cta_banner','wide_banner','stats','hero','hero_split','hero_grid']);
+$lastBlockNoGap = in_array($lastBlockType,  ['custom_html','cta_banner','wide_banner','stats','hero','hero_split','hero_grid','links_grid','cta_card','map_info']);
 $firstBlockHero = in_array($firstBlockType, ['hero','hero_split','hero_grid','hero_video']);
 $bcSettings     = $data['breadcrumbs'] ?? [];
 $bcEnabled      = $bcSettings['enabled'] ?? true;
