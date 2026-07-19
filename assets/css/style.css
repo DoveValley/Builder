@@ -4122,6 +4122,39 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 .block-section.skin-dark   p,.block-section.skin-dark   li { color: var(--skin-dark-text)   !important; }
 .block-section.skin-accent p,.block-section.skin-accent li { color: var(--skin-accent-text) !important; }
 
+/* ── Skin contrast pass (Phase A) ──────────────────────────────────────────
+   Sub-elements that carry a fixed dark color (or a light color that the blanket
+   overrides above wrongly force onto their own light background) so every block
+   stays legible under Dark / Accent / Subtle. Each rule is scoped to a specific
+   block class — deliberately none of these classes are used by blocks that
+   Granite skins (cards/pricing_cards/stats/testimonials/hero_split/cta_banner),
+   so Granite's skinned sections are unaffected. */
+
+/* feature_split — bold bullet lead-ins are hardcoded #1a1a2e (invisible on dark/accent) */
+.block-section.skin-dark   .fs-bullet-list li strong { color: var(--skin-dark-heading)   !important; }
+.block-section.skin-accent .fs-bullet-list li strong { color: var(--skin-accent-heading) !important; }
+
+/* tab_services — outline badge (dark border+text) disappears on dark/accent */
+.block-section.skin-dark   .ts-badge-outline { border-color: var(--skin-dark-heading)   !important; color: var(--skin-dark-heading)   !important; }
+.block-section.skin-accent .ts-badge-outline { border-color: var(--skin-accent-heading) !important; color: var(--skin-accent-heading) !important; }
+
+/* service_cards — the cards keep their own WHITE background, so their text must
+   stay dark regardless of the section skin (the blanket p/hN overrides above
+   were leaking the skin's light text onto the white card). */
+.block-section[class*="skin-"] .svc-card { background: #fff !important; }
+.block-section[class*="skin-"] .svc-card .svc-card-heading { color: #111 !important; }
+.block-section[class*="skin-"] .svc-card .svc-card-text    { color: #555 !important; }
+
+/* image_features — phone label/number + intro carry dark colors that vanish on dark */
+.block-section.skin-dark .if-phone-label,
+.block-section.skin-dark .if-phone-number { color: var(--skin-dark-heading) !important; }
+.block-section.skin-dark .if-intro,
+.block-section.skin-dark .if-closing,
+.block-section.skin-dark .if-feat-text { color: var(--skin-dark-text) !important; }
+
+/* links_grid — light-variant links on a dark skin */
+.block-section.skin-dark .lg-light-link { color: var(--skin-dark-text) !important; border-color: rgba(255,255,255,.22) !important; }
+
 /* Skin picker UI (admin editor) */
 .skin-picker { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
 .skin-opt { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 2px solid #e5e7eb; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 500; color: #374151; transition: border-color .15s, background .15s; user-select: none; }
