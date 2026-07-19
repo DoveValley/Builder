@@ -1674,7 +1674,12 @@ function render_content_block($block, $pathPrefix = '') {
             $tbBgCustom = $block['tb_bg_custom'] ?? '#f3f6f7';
             $tbItems    = $block['tb_items']     ?? [];
             $tbShowIcons = $block['tb_show_icons'] ?? true;   // false = text-only badges
-            $tbCheck    = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M20 6 9 17l-5-5" stroke="var(--color-accent,#fd783b)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+            // Adaptive colors: light bars (subtle/light) -> dark text + accent checks;
+            // colored bars (accent/dark/custom) -> white text + white checks.
+            $tbLight       = in_array($tbBg, ['subtle', 'light'], true);
+            $tbTextColor   = $tbLight ? 'var(--color-heading,#120575)' : '#ffffff';
+            $tbCheckStroke = $tbLight ? 'var(--color-accent,#fd783b)'   : '#ffffff';
+            $tbCheck    = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M20 6 9 17l-5-5" stroke="'.$tbCheckStroke.'" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
             $tbRows = '';
             foreach ($tbItems as $tbItem) {
                 $tbLabel = trim($tbItem['label'] ?? '');
@@ -1685,12 +1690,13 @@ function render_content_block($block, $pathPrefix = '') {
                     $tbIconOut = $tbIcon !== '' ? $tbIcon : $tbCheck;
                 }
                 $tbRows .= '<div style="display:flex;align-items:center;gap:10px;">'.$tbIconOut
-                    .'<span style="font-weight:700;color:var(--color-heading,#120575);font-size:0.97rem;white-space:nowrap;">'
+                    .'<span style="font-weight:700;color:'.$tbTextColor.';font-size:var(--font-size-lead,1.15rem);letter-spacing:.2px;white-space:nowrap;">'
                     .h(resolve_shortcodes($tbLabel)).'</span></div>';
             }
             if ($tbRows === '') break;
-            $tbBgVal = $tbBg === 'subtle' ? 'var(--skin-subtle-bg,#f3f6f7)' : resolve_color($tbBg, $tbBgCustom);
-            echo '<div class="content-block block-trust-bar"'.$anchorAttr.' style="padding:0;margin:0;"><div style="width:100%;box-sizing:border-box;background:'.$tbBgVal.';border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);padding:18px 0;"><div style="max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 44px;">'.$tbRows.'</div></div></div>';
+            $tbBgVal  = $tbBg === 'subtle' ? 'var(--skin-subtle-bg,#f3f6f7)' : resolve_color($tbBg, $tbBgCustom);
+            $tbBorder = $tbLight ? 'border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);' : '';
+            echo '<div class="content-block block-trust-bar"'.$anchorAttr.' style="padding:0;margin:0;"><div style="width:100%;box-sizing:border-box;background:'.$tbBgVal.';'.$tbBorder.'padding:22px 0;"><div style="max-width:1120px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:16px 54px;">'.$tbRows.'</div></div></div>';
             break;
 
         /* ---- VIDEO EMBED ---- */
