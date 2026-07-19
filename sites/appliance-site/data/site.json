@@ -184,13 +184,6 @@
             "id": "custom_html_1"
         },
         {
-            "type": "custom_html",
-            "skin": "",
-            "anchor": "brands",
-            "html": "[services_links role=\"brand_hub\" heading=\"Brands We Service\" cols=\"6\"]",
-            "id": "custom_html_2"
-        },
-        {
             "type": "ai_block",
             "skin": "subtle",
             "ai_type_id": "feature_columns_local",
@@ -258,6 +251,13 @@
                 }
             ],
             "id": "steps_1"
+        },
+        {
+            "type": "custom_html",
+            "skin": "",
+            "anchor": "brands",
+            "html": "[services_links role=\"brand_hub\" heading=\"Brands We Service\" cols=\"6\"]",
+            "id": "custom_html_2"
         },
         {
             "type": "faq_two_col",
