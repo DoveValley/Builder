@@ -1160,7 +1160,7 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
     <ul>
         <li><strong>Action</strong> — Generate content, Research only, or Sync templates</li>
         <li><strong>City</strong> — run for all cities or a single city</li>
-        <li><strong>Scope</strong> — Landing pages only, or all pages</li>
+        <li><strong>Scope</strong> — which pages to generate: <em>Homepage only</em> (<code>site.json</code> home blocks), <em>Landing pages</em> (the per-city page files), <em>Core pages</em> (the <code>site.json</code> <code>pages{}</code> array), or <em>All pages</em> (all three). Targeting a single scope avoids re-running — and re-billing — the others; e.g. fixing just the homepage no longer forces a full landing-page run. The City selector only applies to landing pages, so it hides for Homepage/Core.</li>
         <li><strong>Model</strong> — override the Claude model for this run. <em>Per-block setting</em> uses whatever model is stored on each block (default Haiku). Select Sonnet or Opus here to force a higher-quality model for the entire run regardless of per-block settings.</li>
         <li><strong>Research cities first</strong> — run the research step before generating content</li>
         <li><strong>Refresh locked blocks</strong> — regenerate even blocks marked <code>_ai_locked</code></li>
@@ -1172,6 +1172,18 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
     <div class="callout warn">
         <p><strong>Cost warning:</strong> AI generation makes Anthropic API calls. Each page costs roughly $0.01–$0.05 depending on block count and model chosen. Review the estimate before confirming.</p>
     </div>
+
+    <h3 id="ai-sync-templates">Action: Sync templates</h3>
+    <p><strong>Sync templates</strong> reconciles your <strong>already-generated city pages</strong> with their <strong>source template</strong> — it inserts any AI blocks the template has but the existing page files are missing. It is a structural catch-up, <em>not</em> a content run (<code>sync_templates()</code> in <code>generate.py</code>, invoked as <code>--sync-templates</code>).</p>
+    <p><strong>The problem it solves:</strong> suppose you already generated 30 city landing pages, then edited the <a href="#tab-templates">template</a> to add a new AI block (e.g. a new <code>local_relevance</code> section). Those 30 page files were built from the <em>old</em> template and don't have the new block. Regenerating from scratch would be wasteful and would re-bill you for content you already have. Sync walks each existing page, compares its AI blocks against the current template, and inserts only the missing ones at their natural position.</p>
+    <ul>
+        <li>✅ <strong>Inserts</strong> AI blocks present in the template but absent from the page, in the correct spot (not just appended at the end)</li>
+        <li>✅ <strong>No API calls, no API key needed</strong> — purely structural, so it is instant and free</li>
+        <li>✅ Honors <strong>Dry run</strong> to preview which pages/blocks it would add before committing</li>
+        <li>❌ Does <strong>not</strong> fill the new blocks with content — they arrive as empty scaffolding</li>
+        <li>❌ Does <strong>not</strong> touch existing blocks, remove anything, or change non-AI blocks</li>
+    </ul>
+    <p><strong>Typical workflow:</strong> (1) edit a template → add a new AI block; (2) <em>Sync templates</em> → the new block appears (empty) on all existing city pages; (3) <em>Generate content</em> → fills just those new blocks per city. It is the "I changed the template after the fact — propagate the <em>structure</em> to existing pages" tool, kept deliberately separate from (and cheaper than) content generation.</p>
 
     <h3>Live progress &amp; worker bars</h3>
     <p>Landing pages generate <strong>concurrently</strong> (8 at a time by default). While a run is in flight the panel shows a global <em>Block X of Y</em> bar plus a grid of <strong>per-worker bars</strong> — one per worker slot, each naming the page it is building and its progress through that page's blocks. The bars build themselves from the run's own output; there is nothing to switch on. See <a href="#ai-concurrency">Concurrent generation (workers)</a> for how it works and when to drop to <code>--workers 1</code>.</p>

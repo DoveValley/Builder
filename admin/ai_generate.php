@@ -55,7 +55,7 @@ if (!ACTIVE_SITE_ID) {
 // ── Parse options ─────────────────────────────────────────────────────────────
 $action        = $_POST['action']   ?? 'generate';  // generate | research | sync
 $cityId        = trim($_POST['city_id'] ?? '');
-$scope         = in_array($_POST['scope'] ?? '', ['landing', 'all'], true) ? $_POST['scope'] : 'landing';
+$scope         = in_array($_POST['scope'] ?? '', ['homepage', 'landing', 'core', 'all'], true) ? $_POST['scope'] : 'landing';
 $research      = !empty($_POST['research']);
 $refresh       = !empty($_POST['refresh']);
 $dryRun        = !empty($_POST['dry_run']);
@@ -108,11 +108,13 @@ switch ($action) {
         if ($scope === 'all') {
             $parts[] = '--all';
         } else {
-            $parts[] = '--page'; $parts[] = 'landing';
+            // homepage | core | landing all map to --page <scope>
+            $parts[] = '--page'; $parts[] = $scope;
         }
         if ($research)       $parts[] = '--research';
         if ($refresh)        $parts[] = '--refresh';
-        if ($cityId)         { $parts[] = '--file'; $parts[] = escapeshellarg($cityId); }
+        // --file only filters landing pages by city; irrelevant for homepage/core scopes.
+        if ($cityId && ($scope === 'landing' || $scope === 'all')) { $parts[] = '--file'; $parts[] = escapeshellarg($cityId); }
         if ($dryRun)         $parts[] = '--dry-run';
         if ($modelOverride)  { $parts[] = '--model'; $parts[] = escapeshellarg($modelOverride); }
         break;

@@ -200,7 +200,9 @@ function fmt_dur(int $ms): string {
             <div class="form-group" id="ai-scope-wrap">
                 <label for="ai-scope">Scope</label>
                 <select name="scope" id="ai-scope">
+                    <option value="homepage">Homepage only</option>
                     <option value="landing">Landing pages</option>
+                    <option value="core">Core pages</option>
                     <option value="all">All pages</option>
                 </select>
             </div>
@@ -433,13 +435,18 @@ function fmt_dur(int $ms): string {
     var scopeWrap    = document.getElementById('ai-scope-wrap');
     var researchWrap = document.getElementById('ai-research-wrap');
 
+    var scopeSelEl = document.getElementById('ai-scope');
     function updateVisibility() {
         var action = actionSel.value;
-        cityWrap.style.display     = action === 'sync' ? 'none' : '';
+        // City only filters landing pages, so hide it for homepage/core scopes.
+        var scope  = scopeSelEl ? scopeSelEl.value : 'landing';
+        var cityApplies = action !== 'sync' && !(action === 'generate' && (scope === 'homepage' || scope === 'core'));
+        cityWrap.style.display     = cityApplies ? '' : 'none';
         scopeWrap.style.display    = action === 'generate' ? '' : 'none';
         researchWrap.style.display = action === 'generate' ? '' : 'none';
     }
     actionSel.addEventListener('change', updateVisibility);
+    if (scopeSelEl) scopeSelEl.addEventListener('change', updateVisibility);
     updateVisibility();
 
     if (!form) return;
