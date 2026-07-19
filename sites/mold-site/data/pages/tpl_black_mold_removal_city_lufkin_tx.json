@@ -82,10 +82,6 @@
       "tb_items": [
         {
           "icon": "",
-          "label": "Certified Technicians"
-        },
-        {
-          "icon": "",
           "label": "Free Inspections"
         },
         {
@@ -97,7 +93,8 @@
           "label": "Fast Local Response"
         }
       ],
-      "anchor": "trust_bar"
+      "anchor": "trust_bar",
+      "tb_show_icons": true
     },
     {
       "type": "ai_block",
