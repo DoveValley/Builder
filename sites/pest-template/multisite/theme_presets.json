@@ -1,7 +1,7 @@
 {
     "_about": "Per-niche Theme Presets for this master. A Theme Preset is a named bundle of theme-tab values (colors + fonts + button radius) + the header nav color + a bug icon. Apply = deep-merge preset.theme into data['theme'], preset.header into data['header'], and generate a wordmark logo + favicon in the preset's colors with preset.icon (a bug from multisite/icons/, Apache-2.0 Noto Emoji) as an accent silhouette on a dark tile. Assignment per site: CSV 'theme_preset' column = id or name; blank = hash(domain) % count. See memory feedback_theme_naming + project_multisite_visual_styles.",
     "niche": "pest",
-    "single_preset_id": 8,
+    "single_preset_id": 7,
     "presets": [
         {
             "id": 1,
