@@ -39,6 +39,10 @@
             $val = (float)($_POST['font_size_'.$tag] ?? 0);
             if ($val > 0) $data['theme']['font_size_'.$tag] = max(0.5, min(6.0, round($val, 2)));
         }
+        foreach (['lead','small','eyebrow'] as $tag) {
+            $val = (float)($_POST['font_size_'.$tag] ?? 0);
+            if ($val > 0) $data['theme']['font_size_'.$tag] = max(0.5, min(3.0, round($val, 2)));
+        }
         // Button radius
         $radius = (int)($_POST['button_radius'] ?? 4);
         $data['theme']['button_radius'] = max(0, min(50, $radius));

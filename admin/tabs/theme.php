@@ -332,6 +332,21 @@
                     <span class="hint" style="margin-top:6px;display:block;">rem units relative to body size. H1 default 2.5, H2 2, H3 1.75, H4 1.5.</span>
                 </div>
                 <div class="form-group">
+                    <label>Supporting-text sizes (rem)</label>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;">
+                        <?php foreach (['lead'=>['Lead','1.15'],'small'=>['Small','0.9'],'eyebrow'=>['Eyebrow','0.75']] as $tag=>[$lbl,$def]): ?>
+                        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+                            <label for="font_size_<?= $tag ?>" style="font-weight:600;font-size:0.85rem;margin:0;"><?= $lbl ?></label>
+                            <input type="number" id="font_size_<?= $tag ?>" name="font_size_<?= $tag ?>"
+                                   min="0.5" max="3" step="0.01"
+                                   value="<?= h($theme['font_size_'.$tag] ?? $def) ?>"
+                                   style="width:72px;">
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <span class="hint" style="margin-top:6px;display:block;"><strong>Lead</strong> = subtitles / prominent secondary text (default 1.15). <strong>Small</strong> = captions, descriptions, secondary text (0.9). <strong>Eyebrow</strong> = badges &amp; micro-labels (0.75).</span>
+                </div>
+                <div class="form-group">
                     <label for="button_radius">Button corner radius</label>
                     <input type="number" id="button_radius" name="button_radius" min="0" max="50"
                            value="<?= h($theme['button_radius'] ?? '4') ?>" style="width:90px;">

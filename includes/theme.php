@@ -52,6 +52,16 @@ function theme_css_vars($theme) {
         $vw    = round($num * 1.6, 3);
         $css .= "    --font-size-{$tag}: clamp({$floor}rem, {$vw}vw, {$num}rem);\n";
     }
+    // Supporting-text sizes (rem, non-fluid): lead = subtitles / prominent secondary,
+    // small = captions / descriptions / secondary text, eyebrow = badges / micro-labels.
+    // These let every block size be a Theme-tab setting (no hardcoded rem in block CSS).
+    foreach (['lead'=>'1.15','small'=>'0.9','eyebrow'=>'0.75'] as $tag => $def) {
+        $val = $theme["font_size_{$tag}"] ?? $def;
+        $num = preg_replace('/[^0-9.]/', '', (string)$val);
+        $num = $num !== '' ? (float)$num : (float)$def;
+        $num = max(0.5, min(3.0, $num));
+        $css .= "    --font-size-{$tag}: {$num}rem;\n";
+    }
     // Skin system — 4 named section palettes
     $skinDefaults = [
         'light'  => ['bg' => '#ffffff', 'heading' => '#1a2e5a', 'text' => '#555e6d'],
