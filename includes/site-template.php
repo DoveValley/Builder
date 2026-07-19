@@ -533,6 +533,12 @@ if ($firstBlockHero) {
         if (btn) btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
     };
 
+    // ---- Flip cards: tap to flip on touch (hover handles desktop) ----
+    document.addEventListener('click', function(e) {
+        var card = e.target.closest('.flip-card');
+        if (card && card.tagName !== 'A') card.classList.toggle('is-flipped');
+    });
+
     // ---- Tab Services switcher ----
     window.switchTab = function(btn) {
         var uid = btn.dataset.uid;

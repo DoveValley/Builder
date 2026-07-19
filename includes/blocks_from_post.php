@@ -483,9 +483,11 @@ function parse_blocks_from_post(): array {
                 $block['hg_color1_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $c1c) ? $c1c : '#fd783b';
                 $c2c = trim($_POST['hg_color2_custom'][$i] ?? '#120575');
                 $block['hg_color2_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $c2c) ? $c2c : '#120575';
+                $block['hg_flip'] = !empty($_POST['hg_flip'][$i]);
                 // Grid items
                 $hgLabels   = $_POST['hg_item_label'][$i]         ?? [];
                 $hgAlts     = $_POST['hg_item_alt'][$i]           ?? [];
+                $hgDescs    = $_POST['hg_item_desc'][$i]          ?? [];
                 $hgExisting = $_POST['hg_item_icon_existing'][$i] ?? [];
                 $hgItems = [];
                 foreach ($hgLabels as $gi => $gl) {
@@ -497,7 +499,7 @@ function parse_blocks_from_post(): array {
                     }
                     $gl = trim($gl);
                     if ($gl === '' && !$iconPath) continue;
-                    $hgItems[] = ['icon' => $iconPath, 'label' => $gl, 'alt' => trim($hgAlts[$gi] ?? '')];
+                    $hgItems[] = ['icon' => $iconPath, 'label' => $gl, 'alt' => trim($hgAlts[$gi] ?? ''), 'desc' => trim($hgDescs[$gi] ?? '')];
                 }
                 $block['hg_items'] = $hgItems;
                 if ($block['hg_heading'] === '' && empty($hgItems)) continue 2;

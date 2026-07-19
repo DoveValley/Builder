@@ -1114,16 +1114,49 @@ function render_content_block($block, $pathPrefix = '') {
             if ($btnText) echo '<a href="'.h($btnUrl).'" class="hg-btn">'.h($btnText).'</a>';
             echo '</div></div>';
 
-            // RIGHT: 3×2 icon grid
-            echo '<div class="hg-grid">';
+            // RIGHT: 3×2 icon grid (optionally flip cards: front icon+label -> back description)
+            $hgFlip = !empty($block['hg_flip']);
+            $bugSvg = '<svg class="flip-icon" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M511.988 288.9c-.478 17.43-15.217 31.1-32.653 31.1H424v16c0 21.864-4.882 42.586-13.6 61.145l60.228 60.228c12.496 12.497 12.496 32.758 0 45.255-12.498 12.497-32.759 12.496-45.256 0l-54.736-54.736C345.886 522.4 292.16 512 256 512s-89.886 10.4-114.636-27.463l-54.736 54.736c-12.498 12.497-32.759 12.496-45.256 0-12.496-12.497-12.496-32.758 0-45.255l60.228-60.228C92.882 434.586 88 413.864 88 392v-16H32.666C15.23 320 .491 306.33.013 288.9-.484 270.816 14.028 256 32 256h56v-58.745l-46.628-46.628c-12.496-12.497-12.496-32.758 0-45.255 12.498-12.497 32.758-12.497 45.256 0L141.255 160h229.489l54.627-54.627c12.498-12.497 32.758-12.497 45.256 0 12.496 12.497 12.496 32.758 0 45.255L424 197.255V256h56c17.972 0 32.484 14.816 31.988 32.9zM257 0c-61.856 0-112 50.144-112 112h224C369 50.144 318.856 0 257 0z"/></svg>';
+            echo '<div class="hg-grid'.($hgFlip ? ' hg-grid-flip' : '').'">';
             foreach ($gridItems as $gi => $item) {
                 $iIcon    = $item['icon']    ?? '';
                 $iLabel   = $item['label']   ?? '';
                 $iAlt     = $item['alt']     ?? $iLabel;
+                $iDesc    = $item['desc']    ?? '';
                 $iIconSrc = '';
                 if ($iIcon) {
                     $iIconSrc = (str_starts_with($iIcon,'http') || str_starts_with($iIcon,'//'))
                         ? $iIcon : $pathPrefix.$iIcon;
+                }
+                if ($hgFlip) {
+                    // Icon: inline a white silhouette from the brand icon library when the
+                    // item names one (e.g. "ant", "spider"); else an uploaded img; else bug.
+                    $iconOut = $bugSvg;
+                    if ($iIcon !== '') {
+                        $ib = basename($iIcon);
+                        if (substr($ib, -4) !== '.svg') $ib .= '.svg';
+                        $ipath = ACTIVE_SITE_DIR . '/multisite/icons/' . $ib;
+                        if (is_file($ipath)) {
+                            $svg = (string) file_get_contents($ipath);
+                            $svg = preg_replace('/<\?xml.*?\?>/s', '', $svg);
+                            $svg = preg_replace('/<!--.*?-->/s', '', $svg);
+                            $svg = preg_replace('/fill\s*:\s*#[0-9a-fA-F]{3,6}/i', 'fill:#ffffff', $svg);
+                            $svg = preg_replace('/fill\s*=\s*"#[0-9a-fA-F]{3,6}"/i', 'fill="#ffffff"', $svg);
+                            $iconOut = preg_replace('/<svg /', '<svg class="flip-icon" ', $svg, 1);
+                        } elseif ($iIconSrc) {
+                            $iconOut = '<img src="'.h($iIconSrc).'" alt="'.h($iAlt).'" class="flip-icon-img" loading="lazy">';
+                        }
+                    }
+                    // Checkerboard: even tiles orange->blue, odd tiles blue->orange (flips to the other color)
+                    $fFront = ($gi % 2 === 0) ? 'var(--color-accent)' : 'var(--color-heading)';
+                    $fBack  = ($gi % 2 === 0) ? 'var(--color-heading)' : 'var(--color-accent)';
+                    echo '<div class="hg-tile flip-card">';
+                    echo '<div class="flip-inner">';
+                    echo '<div class="flip-front" style="background:'.$fFront.';">'.$iconOut.'<span class="flip-label">'.h($iLabel).'</span></div>';
+                    echo '<div class="flip-back" style="background:'.$fBack.';">';
+                    echo $iDesc ? '<p class="flip-desc">'.h($iDesc).'</p>' : '<span class="flip-label">'.h($iLabel).'</span>';
+                    echo '</div></div></div>';
+                    continue;
                 }
                 $tileBg = ($gi % 2 === 0) ? $c1 : $c2;
                 echo '<div class="hg-tile" style="background:'.$tileBg.';">';

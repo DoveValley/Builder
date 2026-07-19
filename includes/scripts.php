@@ -1261,6 +1261,8 @@ function content_editor_scripts() {
                 <input type="text" name="hg_item_label[${blockIdx}][]" placeholder="e.g. Carpenter Ants">
                 <label style="font-size:0.8rem;font-weight:600;margin-top:4px;display:block;">Alt text</label>
                 <input type="text" name="hg_item_alt[${blockIdx}][]" placeholder="Icon alt text" style="font-size:0.8rem;">
+                <label style="font-size:0.8rem;font-weight:600;margin-top:4px;display:block;">Description (flip-card back)</label>
+                <textarea name="hg_item_desc[${blockIdx}][]" rows="2" placeholder="Shown on the back when flip-card mode is on" style="font-size:0.8rem;"></textarea>
             </div>
             <button type="button" class="remove-row" onclick="removeHgItem(this)">&times;</button>`;
         editor.appendChild(row);

@@ -1300,6 +1300,14 @@ function render_content_blocks_editor($blocks) {
                         <input type="text" name="hg_photo_alt[]" value="<?= h($block['hg_photo_alt'] ?? '') ?>" placeholder="e.g. Pest control technician Katy TX">
                     </div>
 
+                    <div class="form-group" style="margin-top:12px;padding:10px;background:#f0f7ff;border:1px solid #cfe2ff;border-radius:6px;">
+                        <label style="display:flex;align-items:center;gap:8px;font-weight:600;cursor:pointer;">
+                            <input type="checkbox" name="hg_flip[<?= $i ?>]" value="1" <?= !empty($block['hg_flip']) ? 'checked' : '' ?> style="width:auto;">
+                            Flip-card mode
+                        </label>
+                        <p style="margin:6px 0 0;font-size:0.8rem;color:#555;">Tiles flip on hover/tap: front shows the icon + label, back shows the description below. Front/back colors alternate in a checkerboard using the theme accent &amp; heading colors (the tile-color pickers below are ignored in flip mode).</p>
+                    </div>
+
                     <h4 style="margin:16px 0 10px;font-size:0.95rem;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">Right Grid — Tile Colors (alternating)</h4>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 180px;">
@@ -1331,6 +1339,8 @@ function render_content_blocks_editor($blocks) {
                                 <input type="text" name="hg_item_label[<?= $i ?>][]" value="<?= h($gitem['label'] ?? '') ?>" placeholder="e.g. Carpenter Ants">
                                 <label style="font-size:0.8rem;font-weight:600;margin-top:4px;display:block;">Alt text</label>
                                 <input type="text" name="hg_item_alt[<?= $i ?>][]" value="<?= h($gitem['alt'] ?? '') ?>" placeholder="Icon alt text" style="font-size:0.8rem;">
+                                <label style="font-size:0.8rem;font-weight:600;margin-top:4px;display:block;">Description (flip-card back)</label>
+                                <textarea name="hg_item_desc[<?= $i ?>][]" rows="2" placeholder="Shown on the back when flip-card mode is on" style="font-size:0.8rem;"><?= h($gitem['desc'] ?? '') ?></textarea>
                             </div>
                             <button type="button" class="remove-row" onclick="removeHgItem(this)">&times;</button>
                         </div>

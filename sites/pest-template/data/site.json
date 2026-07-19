@@ -257,36 +257,43 @@
       "hg_color2_custom": "#120575",
       "hg_items": [
         {
-          "icon": "",
-          "label": "Carpenter Ants",
-          "alt": "Carpenter ant control {city} {SS}"
+          "icon": "ant",
+          "label": "Ants",
+          "alt": "Ant control {city} {SS}",
+          "desc": "Trailing colonies that invade kitchens and pantries hunting for food and moisture."
         },
         {
-          "icon": "",
-          "label": "Silverfish",
-          "alt": "Silverfish control {city} {SS}"
+          "icon": "beetle",
+          "label": "Beetles",
+          "alt": "Beetle control {city} {SS}",
+          "desc": "Destructive beetles whose larvae chew through carpets, fabrics, and stored dry goods."
         },
         {
-          "icon": "",
-          "label": "Earwigs",
-          "alt": "Earwig control {city} {SS}"
+          "icon": "cockroach",
+          "label": "Cockroaches",
+          "alt": "Cockroach control {city} {SS}",
+          "desc": "Nocturnal pests that spread bacteria and trigger allergies, hiding in kitchens and baths."
         },
         {
-          "icon": "",
-          "label": "Pantry Pests (e.g., Indian Meal Moths)",
-          "alt": "Pantry pest control {city} {SS}"
+          "icon": "mosquito",
+          "label": "Mosquitoes",
+          "alt": "Mosquito control {city} {SS}",
+          "desc": "Biting insects that breed in standing water and can carry disease through warm months."
         },
         {
-          "icon": "",
-          "label": "Centipedes",
-          "alt": "Centipede control {city} {SS}"
+          "icon": "rat",
+          "label": "Rats",
+          "alt": "Rat control {city} {SS}",
+          "desc": "Disease-carrying rodents that gnaw wires and contaminate food while nesting in walls and attics."
         },
         {
-          "icon": "",
-          "label": "Carpet Beetles",
-          "alt": "Carpet beetle control {city} {SS}"
+          "icon": "spider",
+          "label": "Spiders",
+          "alt": "Spider control {city} {SS}",
+          "desc": "Web-building arachnids that slip indoors hunting insects; some species can bite."
         }
-      ]
+      ],
+      "hg_flip": true
     },
     {
       "type": "service_cards",
