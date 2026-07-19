@@ -30,17 +30,17 @@
         "text": "#555e6d"
       },
       "dark": {
-        "bg": "#0d1f3c",
+        "bg": "#14261a",
         "heading": "#ffffff",
         "text": "#e2e8f0"
       },
       "accent": {
         "bg": "#2563eb",
         "heading": "#ffffff",
-        "text": "#dbeafe"
+        "text": "#f7fee7"
       },
       "subtle": {
-        "bg": "#f8fafc",
+        "bg": "#f5f8f1",
         "heading": "#1a2e5a",
         "text": "#555e6d"
       }
@@ -179,7 +179,7 @@
       "ai_type_id": "feature_columns_local",
       "ai_mode": "standalone",
       "ai_render_as": "feature_columns",
-      "skin": "light",
+      "skin": "subtle",
       "fc_heading": "Why Lufkin Homeowners Trust Wells for Appliance Repair",
       "fc_num_cols": 4,
       "columns": [
@@ -248,7 +248,8 @@
           "heading": "Repair & Warranty",
           "text": "We complete the repair with quality parts and back the work with a warranty."
         }
-      ]
+      ],
+      "skin": "subtle"
     },
     {
       "type": "testimonials",
@@ -257,7 +258,8 @@
       "tm_main_heading": "What {city} Homeowners Say About {business}",
       "tm_subtext": "",
       "tm_cols": 3,
-      "tm_items": []
+      "tm_items": [],
+      "skin": "light"
     },
     {
       "type": "faq_two_col",
@@ -304,7 +306,8 @@
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "faq_local",
       "_ai_input_hash": "6ee395bdca6007e0",
-      "_ai_locked": false
+      "_ai_locked": false,
+      "skin": "dark"
     },
     {
       "type": "map_info",
@@ -317,7 +320,8 @@
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
-      "mi_map_side": "left"
+      "mi_map_side": "left",
+      "skin": "light"
     },
     {
       "type": "cta_banner",
@@ -326,7 +330,8 @@
       "cb_btn_url": "tel:{tel}",
       "cb_bg": "accent",
       "cb_text_color": "#ffffff",
-      "cb_padding": "compact"
+      "cb_padding": "compact",
+      "skin": "accent"
     }
   ],
   "seo": {

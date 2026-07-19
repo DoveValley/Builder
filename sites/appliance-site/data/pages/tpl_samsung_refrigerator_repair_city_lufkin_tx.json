@@ -213,7 +213,8 @@
           "heading": "Repair & Warranty",
           "text": "We complete the repair with quality parts and back the work with a warranty."
         }
-      ]
+      ],
+      "skin": "subtle"
     },
     {
       "type": "cta_banner",
@@ -223,7 +224,8 @@
       "cb_btn_url": "tel:{tel}",
       "cb_bg": "header",
       "cb_text_color": "#ffffff",
-      "cb_padding": "compact"
+      "cb_padding": "compact",
+      "skin": "accent"
     },
     {
       "type": "ai_block",
@@ -289,7 +291,8 @@
       "_ai_generated_at": "2026-07-10T01:37:24.757845Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "faq_local",
-      "_ai_input_hash": "1605729dc99a9c6c"
+      "_ai_input_hash": "1605729dc99a9c6c",
+      "skin": "dark"
     },
     {
       "type": "testimonials",
@@ -298,7 +301,8 @@
       "tm_main_heading": "What {city} Homeowners Say About {business}",
       "tm_subtext": "",
       "tm_cols": 3,
-      "tm_items": []
+      "tm_items": [],
+      "skin": "light"
     },
     {
       "type": "custom_html",
@@ -312,7 +316,8 @@
       "cb_btn_url": "tel:{tel}",
       "cb_bg": "accent",
       "cb_text_color": "#ffffff",
-      "cb_padding": "compact"
+      "cb_padding": "compact",
+      "skin": "accent"
     },
     {
       "type": "custom_html",
@@ -330,7 +335,8 @@
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
-      "mi_map_side": "left"
+      "mi_map_side": "left",
+      "skin": "light"
     }
   ],
   "seo": {

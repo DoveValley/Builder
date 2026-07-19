@@ -30,17 +30,17 @@
         "text": "#555e6d"
       },
       "dark": {
-        "bg": "#0d1f3c",
+        "bg": "#0c2a4a",
         "heading": "#ffffff",
         "text": "#e2e8f0"
       },
       "accent": {
         "bg": "#2563eb",
         "heading": "#ffffff",
-        "text": "#dbeafe"
+        "text": "#eff9ff"
       },
       "subtle": {
-        "bg": "#f8fafc",
+        "bg": "#f2f8fc",
         "heading": "#1a2e5a",
         "text": "#555e6d"
       }
@@ -185,7 +185,8 @@
           "heading": "Basement & Crawl Space Water",
           "text": "Standing water and chronic moisture below grade that threaten structure and air quality."
         }
-      ]
+      ],
+      "skin": "subtle"
     },
     {
       "type": "split_cta",
@@ -235,7 +236,8 @@
           "alt": "Sewage cleanup {city} {SS}",
           "desc": "Safe removal and disinfection of sewage backups and contaminated black water."
         }
-      ]
+      ],
+      "skin": "light"
     },
     {
       "type": "hero_grid",
@@ -357,7 +359,8 @@
           "text": "Repair of water-stained ceilings and damaged drywall after leaks and storms.",
           "url": "/ceiling-water-damage-{city_slug}"
         }
-      ]
+      ],
+      "skin": "subtle"
     },
     {
       "type": "wide_banner",
@@ -373,7 +376,8 @@
       "wb_bg_color": "#0d2340",
       "wb_badge_bg": "accent",
       "wb_badge_bg_custom": "#2563eb",
-      "wb_photo": "sites/water-site/uploads/media/water-damage-restoration-hero.webp"
+      "wb_photo": "sites/water-site/uploads/media/water-damage-restoration-hero.webp",
+      "skin": "dark"
     },
     {
       "type": "image_features",
@@ -395,7 +399,8 @@
         "Structural drying & dehumidification",
         "Flood, storm & sewage cleanup",
         "Full repairs & reconstruction"
-      ]
+      ],
+      "skin": "light"
     },
     {
       "id": "home_seasonal",
@@ -404,7 +409,7 @@
       "ai_mode": "standalone",
       "ai_render_as": "steps",
       "ai_model": "claude-sonnet-5",
-      "skin": "light",
+      "skin": "subtle",
       "steps_heading": "Lufkin Seasonal Water Damage Restoration Guide Year-Round",
       "steps_items": [
         {
@@ -473,7 +478,8 @@
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "faq_local",
       "_ai_locked": false,
-      "_ai_input_hash": "932cd600fd442878"
+      "_ai_input_hash": "932cd600fd442878",
+      "skin": "dark"
     },
     {
       "id": "home_local_rel",
@@ -502,7 +508,8 @@
       "cb_bg": "accent",
       "cb_bg_custom": "#2563eb",
       "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
+      "cb_padding": "normal",
+      "skin": "accent"
     },
     {
       "type": "custom_html",
@@ -518,7 +525,8 @@
       "cc_align": "split",
       "cc_bg": "accent",
       "cc_bg_custom": "#2563eb",
-      "cc_radius": 12
+      "cc_radius": 12,
+      "skin": "dark"
     },
     {
       "type": "map_info",
@@ -530,7 +538,8 @@
       "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#0d2340",
-      "mi_info_photo": "{city_image}"
+      "mi_info_photo": "{city_image}",
+      "skin": "light"
     },
     {
       "type": "cta_card",
@@ -542,7 +551,8 @@
       "cc_align": "center",
       "cc_bg": "accent",
       "cc_bg_custom": "#2563eb",
-      "cc_radius": 0
+      "cc_radius": 0,
+      "skin": "accent"
     },
     {
       "type": "links_grid",
@@ -590,7 +600,8 @@
           "label": "Roof Leak Water Damage",
           "url": "/roof-leak-water-damage-{city_slug}"
         }
-      ]
+      ],
+      "skin": "dark"
     }
   ],
   "seo": {

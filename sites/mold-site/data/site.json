@@ -30,17 +30,17 @@
         "text": "#555e6d"
       },
       "dark": {
-        "bg": "#0d1f3c",
+        "bg": "#0e3320",
         "heading": "#ffffff",
         "text": "#e2e8f0"
       },
       "accent": {
         "bg": "#16a34a",
         "heading": "#ffffff",
-        "text": "#dbeafe"
+        "text": "#f0fdf4"
       },
       "subtle": {
-        "bg": "#f8fafc",
+        "bg": "#f1f8f3",
         "heading": "#14532d",
         "text": "#555e6d"
       }
@@ -185,7 +185,8 @@
           "heading": "Water Damage Mold",
           "text": "Mold that develops after leaks, floods, or burst pipes when moisture isn’t fully dried."
         }
-      ]
+      ],
+      "skin": "subtle"
     },
     {
       "type": "split_cta",
@@ -235,7 +236,8 @@
           "alt": "Mold prevention {city} {SS}",
           "desc": "Correcting the moisture source and drying the space to keep mold from returning."
         }
-      ]
+      ],
+      "skin": "light"
     },
     {
       "type": "hero_grid",
@@ -357,7 +359,8 @@
           "text": "Remediation for offices, retail, and multi-unit properties with minimal downtime.",
           "url": "/commercial-mold-remediation-{city_slug}"
         }
-      ]
+      ],
+      "skin": "subtle"
     },
     {
       "type": "wide_banner",
@@ -373,7 +376,8 @@
       "wb_bg_color": "#14532d",
       "wb_badge_bg": "accent",
       "wb_badge_bg_custom": "#16a34a",
-      "wb_photo": "sites/mold-site/uploads/media/home-banner.webp"
+      "wb_photo": "sites/mold-site/uploads/media/home-banner.webp",
+      "skin": "dark"
     },
     {
       "type": "image_features",
@@ -395,7 +399,8 @@
         "Sealed containment & HEPA filtration",
         "Safe removal of mold-infested materials",
         "Moisture control & prevention"
-      ]
+      ],
+      "skin": "light"
     },
     {
       "id": "home_seasonal",
@@ -404,7 +409,7 @@
       "ai_mode": "standalone",
       "ai_render_as": "steps",
       "ai_model": "claude-sonnet-5",
-      "skin": "light",
+      "skin": "subtle",
       "steps_heading": "Lufkin Seasonal Mold Guide: Year-Round Remediation Insights",
       "steps_items": [
         {
@@ -473,7 +478,8 @@
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "faq_local",
       "_ai_locked": false,
-      "_ai_input_hash": "ef30d4f5cee382c2"
+      "_ai_input_hash": "ef30d4f5cee382c2",
+      "skin": "dark"
     },
     {
       "id": "home_local_rel",
@@ -502,7 +508,8 @@
       "cb_bg": "accent",
       "cb_bg_custom": "#16a34a",
       "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
+      "cb_padding": "normal",
+      "skin": "accent"
     },
     {
       "type": "custom_html",
@@ -518,7 +525,8 @@
       "cc_align": "split",
       "cc_bg": "accent",
       "cc_bg_custom": "#16a34a",
-      "cc_radius": 12
+      "cc_radius": 12,
+      "skin": "dark"
     },
     {
       "type": "map_info",
@@ -530,7 +538,8 @@
       "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#14532d",
-      "mi_info_photo": "{city_image}"
+      "mi_info_photo": "{city_image}",
+      "skin": "light"
     },
     {
       "type": "cta_card",
@@ -542,7 +551,8 @@
       "cc_align": "center",
       "cc_bg": "accent",
       "cc_bg_custom": "#16a34a",
-      "cc_radius": 0
+      "cc_radius": 0,
+      "skin": "accent"
     },
     {
       "type": "links_grid",
@@ -590,7 +600,8 @@
           "label": "Basement Mold Removal",
           "url": "/basement-mold-removal-{city_slug}"
         }
-      ]
+      ],
+      "skin": "dark"
     }
   ],
   "seo": {
