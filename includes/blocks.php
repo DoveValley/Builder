@@ -1680,7 +1680,7 @@ function render_content_block($block, $pathPrefix = '') {
             $tbLight       = in_array($tbBg, ['subtle', 'light'], true);
             $tbTextColor   = $tbLight ? 'var(--color-heading)'  : 'var(--color-btn-text,#fff)';
             $tbCheckStroke = $tbLight ? 'var(--color-accent)'   : 'var(--color-btn-text,#fff)';
-            $tbCheck    = '<svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M20 6 9 17l-5-5" stroke="'.$tbCheckStroke.'" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+            $tbCheck    = '<svg width="1.35em" height="1.35em" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M20 6 9 17l-5-5" stroke="'.$tbCheckStroke.'" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
             $tbRows = '';
             foreach ($tbItems as $tbItem) {
                 $tbLabel = trim($tbItem['label'] ?? '');
@@ -1690,8 +1690,8 @@ function render_content_block($block, $pathPrefix = '') {
                     $tbIcon = trim($tbItem['icon'] ?? '');
                     $tbIconOut = $tbIcon !== '' ? $tbIcon : $tbCheck;
                 }
-                $tbRows .= '<div style="display:flex;align-items:center;gap:10px;">'.$tbIconOut
-                    .'<span style="font-weight:700;color:'.$tbTextColor.';font-size:calc(var(--font-size-body) * 2);white-space:nowrap;">'
+                $tbRows .= '<div style="display:flex;align-items:center;gap:10px;font-size:var(--font-size-h4);">'.$tbIconOut
+                    .'<span style="font-weight:700;color:'.$tbTextColor.';white-space:nowrap;">'
                     .h(resolve_shortcodes($tbLabel)).'</span></div>';
             }
             if ($tbRows === '') break;
