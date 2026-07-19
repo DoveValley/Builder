@@ -593,6 +593,11 @@ function render_content_block($block, $pathPrefix = '') {
             if ($html !== '') {
                 // If a plugin returned a full content-block, echo it raw to avoid wrapper nesting.
                 if (preg_match('/^\s*<div[^>]*class="[^"]*\bcontent-block\b/', $html)) {
+                    // Raw path skips the wrapper (and thus $anchorAttr) — inject the anchor id
+                    // into that first div so in-page links (e.g. nav "#services") still work.
+                    if (!empty($block['anchor'])) {
+                        $html = preg_replace('/<div/', '<div id="' . h($block['anchor']) . '"', $html, 1);
+                    }
                     echo $html;
                 } else {
                     echo '<div class="content-block block-custom-html"' . $anchorAttr . '>';
