@@ -371,10 +371,16 @@ if ($firstBlockHero) {
                                 <a href="tel:<?= h($telHref) ?>"><?= h($footer['phone']) ?></a>
                             </li>
                         <?php endif; ?>
-                        <?php if (!empty($header['city'])): ?>
+                        <?php
+                        // City for the contact column comes from site_vars (the real source).
+                        // Previously read header.city, but that key is now migrated/cleared into
+                        // the header info items, so it's always empty here.
+                        $footerCity = !empty($data['site_vars']['city']) ? trim(resolve_shortcodes('{city_state}')) : '';
+                        ?>
+                        <?php if ($footerCity !== '' && strpos($footerCity, '{') === false): ?>
                             <li class="footer-contact-item">
                                 <span class="contact-icon">🌐</span>
-                                <span><?= h($header['city']) ?></span>
+                                <span><?= h($footerCity) ?></span>
                             </li>
                         <?php endif; ?>
                         <?php foreach (($column['contact_extras'] ?? []) as $extra): ?>
