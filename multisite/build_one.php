@@ -33,6 +33,7 @@ require __DIR__ . '/../includes/multisite/ai_cache.php';
 require __DIR__ . '/../includes/multisite/differentiate.php';
 require __DIR__ . '/../includes/multisite/visual.php';
 require __DIR__ . '/../includes/multisite/landing.php';
+require __DIR__ . '/../includes/multisite/geocode.php';
 require_once __DIR__ . '/../includes/multisite/image_overlay.php';
 
 progress_set_sink(progress_jsonlines_sink());
@@ -56,6 +57,10 @@ if (!is_array($params)) { fwrite(STDERR, "row.json is not valid JSON\n"); exit(2
 $masterId = $params['master_id'] ?? '';
 $domain   = $params['domain'] ?? '';
 if ($masterId === '' || $domain === '') { fwrite(STDERR, "master_id and domain are required\n"); exit(2); }
+
+// Blank lat/lng in the CSV? Pull the geocoded city-center coords from the master's
+// cities.json (filled by the Research cities step) so the schema still gets geo.
+$params = ms_fill_coords_from_cities($params, $masterId);
 
 // Slugify per the documented convention: keep hyphens, other unsafe chars → '_'
 // (pmtraining-dallas.com → pmtraining-dallas_com).

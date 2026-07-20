@@ -119,6 +119,8 @@ table { width: 100%; border-collapse: collapse; margin: 12px 0 16px; font-size: 
 th { background: #f1f5f9; text-align: left; padding: 8px 12px; font-weight: 600; border: 1px solid #e2e8f0; }
 td { padding: 8px 12px; border: 1px solid #e2e8f0; vertical-align: top; }
 tr:nth-child(even) td { background: #f8fafc; }
+tr.ms-req td { background: #f5a3a3 !important; }
+tr.ms-rec td { background: #fff3cd !important; }
 
 .back-top { display: inline-block; margin-top: 12px; font-size: 0.8rem; color: #3b82f6; text-decoration: none; }
 .back-top:hover { text-decoration: underline; }
@@ -351,6 +353,7 @@ tr:nth-child(even) td { background: #f8fafc; }
         <a class="nav-group" href="#ms-seo">Site Differentiation &amp; SEO</a>
         <a href="#ms-differentiation">Per-site differentiation</a>
         <a href="#ms-visual-identity">Visual identity</a>
+        <a href="#ms-contact-forms">Contact forms</a>
         <a href="#ms-axes">Differentiation axes &amp; status</a>
         <a href="#ms-specs">Build specs</a>
         <a href="#ms-roadmap">Build roadmap</a>
@@ -2510,6 +2513,8 @@ Output valid JSON only — no explanation.</code></pre>
         <li><strong>Engine:</strong> <code>generate.py --research-only</code> loads the brief's prompt via <code>_load_research_prompt()</code>, validates softly, and stamps <code>_researched</code> so re-runs skip finished cities. Results persist in <code>cities.json</code> and are reused free.</li>
     </ul>
     <p>Because it just fills <code>cities.json</code>, research grounds copy in <strong>both</strong> build modes — the many-landing-pages site and every multisite clone read the same enriched rows. Guardrail: never let the prompt invent pass rates, salaries, or employer lists — request only verifiable facts and keep figures qualitative unless certain.</p>
+    <h3>City coordinates (lat/lng) — geocoded, not AI</h3>
+    <p>The research step also fills each city's <code>lat</code>/<code>lng</code> by geocoding it against <strong>OpenStreetMap's Nominatim</strong> (free, no API key) — <em>not</em> the LLM, since coordinates are precise facts a model will happily get slightly wrong. It runs for <strong>every</strong> niche (even ones with <em>Uses research fields</em> off), only looks up cities that don't already have coordinates, caches the result in <code>cities.json</code>, and is rate-limited to Nominatim's ~1 req/sec policy. At build time a blank <code>lat</code>/<code>lng</code> in the params CSV is pulled from these cached values (matched by <code>city</code> + <code>SS</code>), so you can leave the CSV coordinate cells empty and still get a proper <code>LocalBusiness</code> <code>geo</code> block. Code: <code>includes/multisite/geocode.php</code> (<code>ms_geocode_city</code>, <code>ms_geocode_cities_file</code>, <code>ms_fill_coords_from_cities</code>).</p>
 
     <h3 id="ai-neighborhoods">Neighborhoods &amp; the auto-publish threshold</h3>
     <p>The default research prompt also collects <code>neighborhoods</code> (6–10 real subdivisions/districts) and <code>population</code> per city. On landing pages the <code>local_relevance</code> block <strong>weaves 2–3 names into a sentence — never a list</strong> (a "we serve X, Y, Z" list is a doorway/spam signal, and repeating names across every block is worse). The token is <code>{neighborhoods}</code>; when it's empty the block stays generic and names nothing.</p>
@@ -3812,6 +3817,31 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><strong>Build</strong> the whole site to static HTML.</li>
         <li><strong>Deploy</strong> over FTP (only changed files), then delete the temp copy.</li>
     </ol>
+
+    <h4>Where each identity field lands</h4>
+    <p><strong>Inject</strong> (<code>inject_params_into_working_dir</code>) writes the row's factual fields into <code>site_vars</code> (plus the header name). <strong>Differentiate</strong> (<code>ms_differentiate_working_dir</code>) then propagates them entity-wide — rewriting every place the <em>master's own</em> identity appeared (including JSON-LD <code>@id</code>/<code>url</code>), filling the <code>local_business</code> block, and emitting a real <code>LocalBusiness</code> JSON-LD node. Every field overwrites only when the row supplies a non-empty value.</p>
+    <table>
+      <tr><th>CSV field</th><th>Injected into (<code>site_vars</code> / header)</th><th>Also propagated to (differentiate + build)</th></tr>
+      <tr><td><code>business</code></td><td><code>site_vars.business</code>, <code>header.site_name</code></td><td><code>local_business.lb_name</code>; <code>LocalBusiness</code> node <code>name</code>; rewritten over the master's business name everywhere (word-boundary, case-insensitive)</td></tr>
+      <tr><td><code>domain</code></td><td>derives <code>site_vars.website</code> = <code>https://{domain}</code></td><td>rewritten over the master's URL &amp; bare domain everywhere <em>including schema <code>@id</code>/<code>url</code></em>; <code>local_business.lb_url</code>; <code>LocalBusiness</code> <code>@id</code>/<code>url</code></td></tr>
+      <tr><td><code>phone</code></td><td><code>site_vars.phone</code></td><td><code>local_business.lb_phone</code>; rewritten over master phone; source for tap-to-call when <code>tel</code> is blank</td></tr>
+      <tr><td><code>tel</code></td><td><code>site_vars.tel</code></td><td><code>LocalBusiness</code> <code>telephone</code>; rewritten over master tel</td></tr>
+      <tr><td><code>email</code></td><td><code>site_vars.email</code></td><td>rewritten over master email everywhere</td></tr>
+      <tr><td><code>city</code></td><td><code>site_vars.city</code> + derived <code>site_vars.city_slug</code></td><td><code>local_business.lb_city</code>; <code>LocalBusiness</code> address <code>addressLocality</code> + <code>areaServed</code> (City)</td></tr>
+      <tr><td><code>state</code></td><td><code>site_vars.state</code></td><td>—</td></tr>
+      <tr><td><code>SS</code></td><td><code>site_vars.SS</code></td><td><code>local_business.lb_state</code>; <code>LocalBusiness</code> address <code>addressRegion</code> + <code>areaServed</code> <code>containedInPlace</code></td></tr>
+      <tr><td><code>zip</code></td><td><code>site_vars.zip</code></td><td><code>local_business.lb_zip</code>; <code>LocalBusiness</code> address <code>postalCode</code></td></tr>
+      <tr><td><code>address</code></td><td><code>site_vars.address</code></td><td><code>local_business.lb_address</code>; <code>LocalBusiness</code> address <code>streetAddress</code></td></tr>
+      <tr><td><code>lat</code>, <code>lng</code></td><td>—</td><td><code>site_vars.lat</code>/<code>lng</code> (so <code>{lat}</code>/<code>{lng}</code> resolve); <code>local_business.lb_lat</code>/<code>lb_lng</code>; <code>LocalBusiness</code> <code>geo</code> (<code>GeoCoordinates</code>). Auto-geocoded from OpenStreetMap by the Research step and pulled from <code>cities.json</code> when the CSV cell is blank.</td></tr>
+      <tr><td><code>rating</code>, <code>review_count</code></td><td>—</td><td><code>local_business.lb_rating</code>/<code>lb_review_count</code>; <code>LocalBusiness</code> <code>aggregateRating</code> — only if <strong>both</strong> present; the master's rating is stripped so nothing is ever fabricated</td></tr>
+      <tr><td><code>analytics_id</code></td><td>—</td><td><code>theme.analytics_head</code> (per-site GA4 <code>gtag.js</code>; never shared across sites)</td></tr>
+      <tr><td><code>gsc_verification</code></td><td>—</td><td><code>theme.head_extra</code> (<code>google-site-verification</code> meta tag)</td></tr>
+      <tr><td><code>web3forms_key</code></td><td>—</td><td>build env <code>MULTISITE_WEB3FORMS</code> → the contact form's access key</td></tr>
+      <tr><td><code>theme_preset</code></td><td>—</td><td>Visual-identity step — theme colors / font / button radius + a generated logo &amp; favicon in those colors</td></tr>
+      <tr><td><code>logo</code></td><td>—</td><td>Visual-identity step — per-site logo (overrides the generated wordmark)</td></tr>
+      <tr><td><code>landing_cities</code></td><td>—</td><td>Landing-page step — one service landing page per listed city, from the master's landing template</td></tr>
+    </table>
+    <p style="font-size:.9rem;">A "—" in the middle column means the field isn't part of the identity inject; it's consumed later by differentiate or a build step. The <code>LocalBusiness</code> JSON-LD node is emitted only when the row supplies real local data (geo, a street address, or a rating).</p>
 </section>
 
 <section id="ms-master-state">
@@ -3897,21 +3927,29 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 <section id="ms-columns">
     <h2>CSV columns</h2>
     <p>One row per target site. Purely factual identity data — no content. Prepared in a spreadsheet and uploaded as CSV. <code>master_id</code> is <em>not</em> a column — it's the campaign context, passed on the command line.</p>
+    <p style="font-size:.9rem;"><span style="background:#f5a3a3;padding:1px 6px;border-radius:3px;">Red rows marked <strong>**</strong></span> are <strong>required</strong> — a row without them is skipped. <span style="background:#fff3cd;padding:1px 6px;border-radius:3px;">Yellow rows</span> are <strong>recommended</strong> — the FTP fields; a row without them still builds but won't deploy.</p>
     <table>
         <tr><th>Column</th><th>Required?</th><th>Used for</th></tr>
-        <tr><td><code>domain</code></td><td>Yes</td><td>Site identity, canonical URLs, cache key</td></tr>
-        <tr><td><code>business</code></td><td>Yes</td><td>Business name everywhere (<code>{business}</code>)</td></tr>
-        <tr><td><code>phone</code>, <code>tel</code>, <code>email</code></td><td>Recommended</td><td>Display phone, <code>tel:</code> link, contact</td></tr>
-        <tr><td><code>address</code>, <code>city</code>, <code>state</code>, <code>SS</code>, <code>zip</code></td><td>Recommended</td><td>NAP + AI context + schema</td></tr>
-        <tr><td><code>lat</code>, <code>lng</code></td><td>Optional</td><td>Geo coordinates → LocalBusiness schema</td></tr>
+        <tr class="ms-req"><td><code>domain</code>**</td><td>Yes</td><td>Site identity, canonical URLs, cache key</td></tr>
+        <tr class="ms-req"><td><code>business</code>**</td><td>Yes</td><td>Business name everywhere (<code>{business}</code>)</td></tr>
+        <tr class="ms-req"><td><code>phone</code>**</td><td>Yes</td><td>Display phone (<code>{phone}</code>); also the tap-to-call fallback</td></tr>
+        <tr class="ms-req"><td><code>email</code>**</td><td>Yes</td><td>Contact email (<code>{email}</code>)</td></tr>
+        <tr><td><code>tel</code></td><td>Optional</td><td>Separate dial target for call tracking; blank = derived from <code>phone</code>. <strong style="color:#c0392b;">This is not needed.</strong></td></tr>
+        <tr><td><code>address</code></td><td>Optional</td><td>Street address (NAP + schema) <strong style="color:#c0392b;">For mass single site leave blank.</strong></td></tr>
+        <tr class="ms-req"><td><code>city</code>**</td><td>Yes</td><td>City (<code>{city}</code>) — AI context + schema</td></tr>
+        <tr class="ms-req"><td><code>state</code>**</td><td>Yes</td><td>Full state name (<code>{state}</code>)</td></tr>
+        <tr class="ms-req"><td><code>SS</code>**</td><td>Yes</td><td>2-letter state abbreviation (<code>{SS}</code>)</td></tr>
+        <tr><td><code>zip</code></td><td>Optional</td><td>ZIP code (NAP + schema) <strong style="color:#c0392b;">This is not needed.</strong></td></tr>
+        <tr><td><code>lat</code>, <code>lng</code></td><td>Optional</td><td>Geo coordinates → LocalBusiness schema. <strong style="color:#c0392b;">Leave blank — auto-filled from OpenStreetMap by the Research cities step.</strong></td></tr>
         <tr><td><code>landing_cities</code></td><td>Optional</td><td>Extra service landing pages for this deploy — a <code>;</code>-separated list of "City, ST"</td></tr>
-        <tr><td><code>rating</code>, <code>review_count</code></td><td>Optional (paired)</td><td>Real AggregateRating in schema — never invented</td></tr>
-        <tr><td><code>logo</code>, <code>analytics_id</code></td><td>Optional</td><td>Per-site logo; per-site analytics (never shared)</td></tr>
+        <tr class="ms-rec"><td><code>rating</code>, <code>review_count</code></td><td>Recommended (paired)</td><td>Real AggregateRating in schema — never invented; supply both or neither</td></tr>
+        <tr class="ms-rec"><td><code>logo</code></td><td>Recommended</td><td>Per-site logo (blank = master's logo / generated wordmark)</td></tr>
+        <tr><td><code>analytics_id</code></td><td>Optional</td><td>Per-site analytics ID (never shared)</td></tr>
         <tr><td><code>gsc_verification</code></td><td>Optional</td><td>Per-site Google Search Console verification meta token (blank = none)</td></tr>
         <tr><td><code>web3forms_key</code></td><td>Optional</td><td>Per-site contact-form (Web3Forms) access key</td></tr>
-        <tr><td><code>theme_preset</code></td><td>Optional</td><td>Which <a href="#ms-visual-identity">Theme Preset</a> (colors + font + logo) to apply — id, name, or 1-based index; blank = deterministic hash rotation off the domain</td></tr>
-        <tr><td><code>ftp_host</code>, <code>ftp_user</code>, <code>ftp_pass</code></td><td>For deploy</td><td>Deploy target + auth</td></tr>
-        <tr><td><code>ftp_port</code>, <code>ftp_path</code>, <code>ftp_passive</code></td><td>Optional</td><td>Deploy target details</td></tr>
+        <tr class="ms-rec"><td><code>theme_preset</code></td><td>Recommended</td><td>Which <a href="#ms-visual-identity">Theme Preset</a> (colors + font + logo) to apply — id, name, or 1-based index; blank = deterministic hash rotation off the domain</td></tr>
+        <tr class="ms-rec"><td><code>ftp_host</code>, <code>ftp_user</code>, <code>ftp_pass</code></td><td>Recommended</td><td>Deploy target + auth (all three or none)</td></tr>
+        <tr class="ms-rec"><td><code>ftp_port</code>, <code>ftp_path</code>, <code>ftp_passive</code></td><td>Recommended</td><td>Deploy target details</td></tr>
     </table>
 </section>
 
@@ -3919,8 +3957,8 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <h2>Validation &amp; pre-flight</h2>
     <p>The intake step parses and validates the CSV before anything is built:</p>
     <ul>
-        <li><strong>Errors</strong> (row skipped): missing <code>domain</code>/<code>business</code>, invalid domain format, duplicate domain, partial FTP credentials, non-numeric geo.</li>
-        <li><strong>Warnings</strong> (row still usable): no FTP creds (builds but won't deploy), missing recommended fields.</li>
+        <li><strong>Errors</strong> (row skipped): missing any required field (<code>domain</code>, <code>business</code>, <code>phone</code>, <code>email</code>, <code>city</code>, <code>state</code>, <code>SS</code>), invalid domain format, duplicate domain, partial FTP credentials, non-numeric geo.</li>
+        <li><strong>Warnings</strong> (row still usable): no FTP creds (builds but won't deploy).</li>
         <li><strong>Unknown columns</strong> are reported so typos surface.</li>
     </ul>
     <p><strong>FTP pre-flight</strong> optionally connects + logs in to each row's host (no upload) so bad credentials are caught before any build begins.</p>
@@ -4007,6 +4045,65 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <div class="callout tip">Landing cities are per-deploy — different sites in one campaign can target different surrounding towns. This is distinct from the master's own in-site <code>data/pages/</code>, which the clone drops.</div>
 </section>
 
+<section id="ms-contact-forms">
+    <h2>Contact forms (at scale)</h2>
+    <div class="callout warn" style="border-left:4px solid #d97706;"><strong>Decision pending.</strong> This section summarizes a design discussion for putting a lead-capture form on every generated site without creating a Google network footprint. Nothing here is built yet — it's captured so we can pick it up later.</div>
+
+    <h3>The concern</h3>
+    <p>Every rank-and-rent site wants a contact form (leads are the whole point, and a form is a normal trust/quality signal — omitting it makes a site look thin). The worry: does a form tie all your sites together into a detectable network?</p>
+
+    <h3>The key insight — the form isn't the footprint, a <em>reused key</em> is</h3>
+    <ul>
+        <li>A contact form's <strong>mere presence is not a footprint</strong>. It's expected on a real local business site.</li>
+        <li>Posting to a <strong>shared public service</strong> like <code>api.web3forms.com</code> is <strong>also not a footprint</strong> — it's used by countless unrelated sites (like Google Fonts or Cloudflare), so it says nothing about who owns the site.</li>
+        <li>The <strong>only</strong> thing that links sites is a <strong>shared identifier that's unique to you</strong> appearing on all of them — a <strong>reused form access key</strong>, one analytics/reCAPTCHA ID, or <strong>your own collector's domain</strong>. Give each site its <em>own</em> key and there's nothing to group.</li>
+        <li>Counter-intuitively, <strong>self-hosting your own form collector is a <em>worse</em> footprint</strong> than a public service: your collector's domain is unique to you and appears identically on every site, whereas a popular shared endpoint is anonymous by its popularity.</li>
+    </ul>
+
+    <h3>Why self-hosting (<code>contact_send.php</code>) doesn't fit at scale</h3>
+    <p>The factory's dynamic form posts to <code>contact_send.php</code> (PHP + <code>mail()</code>). That's fine for one site, but the plan is to deploy across <strong>many hosting platforms</strong> — some static-only (Netlify, Cloudflare Pages, S3, GitHub Pages) with no PHP, and others where <code>mail()</code> is unreliable or spam-filtered. So the form must be a <strong>plain HTML POST to an external endpoint</strong> that works on any host.</p>
+
+    <h3>Recommendation — Web3Forms with a per-site key, managed via the params CSV</h3>
+    <p>It's the only option that hits every requirement at once: host-independent (plain HTML, any platform), scales, footprint-clean (unique key per site), and CSV-driven (the key rides the existing <code>web3forms_key</code> column, so it's part of your normal CSV import/export).</p>
+    <table>
+        <tr><th>Requirement</th><th>How Web3Forms + per-site key meets it</th></tr>
+        <tr><td>Easy to set up</td><td>Plain <code>&lt;form action="https://api.web3forms.com/submit"&gt;</code> with a hidden <code>access_key</code>. Already wired into the <code>contact_form</code> block for static builds.</td></tr>
+        <tr><td>Works on any host</td><td>Client-side POST — no PHP, no <code>mail()</code>, works on static hosts.</td></tr>
+        <tr><td>Scales</td><td>Unlimited access keys; the per-site key lives in the <code>web3forms_key</code> CSV column.</td></tr>
+        <tr><td>CSV import/export</td><td>Config rides the params CSV; leads export from the dashboard or the Pro <strong>Submissions API</strong> (<code>w3f_live_…</code> bearer token) for a central pull.</td></tr>
+        <tr><td>No footprint</td><td>Unique key per site + a shared anonymous endpoint = nothing ties the sites.</td></tr>
+    </table>
+
+    <h3>Cost (as of 2026 — verify current pricing)</h3>
+    <ul>
+        <li><strong>Free:</strong> 250 submissions/month <em>total across the account</em>, unlimited access keys, up to 3 destination emails, 30-day storage.</li>
+        <li><strong>Pro ~$12/mo</strong> (billed yearly): 10,000 submissions/month, up to 20 emails, file uploads, webhooks, domain restriction, and the Submissions API (for central CSV export).</li>
+        <li>Submissions are counted <strong>per account, not per key</strong> — so 100 sites on the free plan share 250/month. Move to Pro once combined leads exceed that.</li>
+    </ul>
+
+    <h3>The one chore, and how to beat it</h3>
+    <p>There is <strong>no API to auto-create access keys</strong> — each is an alias to an email, made manually at web3forms.com. To make 100+ manageable:</p>
+    <ul>
+        <li>Use a <strong>catch-all inbox</strong> (<code>site1@leads.you.com</code>, <code>site2@…</code> all funnel to one inbox) so you can mint distinct keys quickly while every lead still lands in one place.</li>
+        <li>Or <strong>cluster keys</strong> (e.g. 10 keys across 100 sites) — groups sites into small clusters instead of one big set; weaker than fully-unique but far better than one shared key.</li>
+    </ul>
+
+    <h3>Bigger footprint levers than the form</h3>
+    <p>The form is minor next to these — prioritize them if you're worried about a network footprint:</p>
+    <ul>
+        <li><strong>Hosting IP / WHOIS / nameservers</strong> — many sites on one IP with the same registrant is a far stronger tie (see <a href="#ms-cloudflare">Cloudflare proxy</a>).</li>
+        <li><strong>Interlinking</strong> the sites to each other (classic PBN signal).</li>
+        <li><strong>Shared client-side IDs</strong> — one analytics / AdSense / Tag Manager / reCAPTCHA ID across all. (The build already isolates analytics per site.)</li>
+    </ul>
+
+    <h3>If we build it later — TODO</h3>
+    <ul>
+        <li>A <strong>CSV validation warning</strong> when the same <code>web3forms_key</code> repeats across many rows (catches accidental footprint).</li>
+        <li><strong>Docs/UI nudge</strong>: per-site key, never reuse; the catch-all-email trick.</li>
+        <li>Optional <strong>central lead export</strong> — a tool that pulls all sites' submissions via the Pro Submissions API into one master CSV.</li>
+    </ul>
+</section>
+
 <!-- ═══════════ SEO ═══════════ -->
 <div class="doc-group-header" id="ms-seo">Site Differentiation &amp; SEO</div>
 <section id="ms-differentiation">
@@ -4014,11 +4111,23 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <p>Because a clone would otherwise carry the master's identity into every site, the differentiation step rewrites each site to be a distinct entity:</p>
     <ul>
         <li><strong>Identity rewrite</strong> — the master's business name, domain/URL, phone, tel and email are replaced with this site's everywhere, including inside the JSON-LD schema. The replacement is word-boundary anchored so it never corrupts substrings. (The master's body copy also uses <code>{business}</code>/<code>{website}</code> shortcodes so most of this resolves automatically.)</li>
-        <li><strong>LocalBusiness JSON-LD</strong> — a real <code>LocalBusiness</code> node with <code>PostalAddress</code> + <code>GeoCoordinates</code> is injected on the homepage (the strongest "distinct entity" signal) whenever geo/address/rating is present.</li>
+        <li><strong>LocalBusiness JSON-LD</strong> — a real <code>LocalBusiness</code> node with <code>PostalAddress</code> + <code>GeoCoordinates</code> is injected on the homepage (the strongest "distinct entity" signal) whenever geo/address/rating is present. It also declares <code>areaServed</code> (the <code>city</code> as a <code>City</code>, contained in the <code>SS</code> state) — so a service-area business with <em>no</em> storefront still signals its market even when the street address is left blank.</li>
         <li><strong>Fabricated ratings stripped</strong> — the master's carried-over <code>aggregateRating</code> is removed; a real one is emitted only if the row supplies it.</li>
         <li><strong>Analytics isolation</strong> — each site gets its own analytics tag from <code>analytics_id</code>, or none. A shared tag is never used.</li>
         <li><strong>Self-canonical</strong> — canonical URLs point at the site's own domain.</li>
     </ul>
+
+    <h3>In plain English</h3>
+    <p>This is the step that makes each cloned site look like its own separate business to Google, instead of an obvious copy of the master:</p>
+    <ul>
+        <li><strong>Swaps out the master's identity everywhere.</strong> The master's own name, web address, phone, and email can still be sitting in various spots after cloning — including in the hidden data Google reads. This finds every one and replaces it with the new site's info. It only matches whole values, so it won't mangle a number that's part of a longer number or a name inside another word.</li>
+        <li><strong>Adds a real "local business" listing to the Google data.</strong> It builds a proper local-business entry — with the street address and map coordinates — into the site's behind-the-scenes Google data. This is the strongest signal that says "this is a real, distinct local business." It's only added when you actually provided location info (coordinates, an address, or a rating).</li>
+        <li><strong>Removes any fake or carried-over reviews.</strong> The master's star rating is always wiped so it can't be copied onto every site (that would be inventing reviews). A rating only appears if that specific row supplied a real one.</li>
+        <li><strong>Gives each site its own analytics.</strong> Each site gets its own Google Analytics tag (from the <code>analytics_id</code> column), or none. The sites never share one tag — sharing would let Google connect them all as one operation.</li>
+        <li><strong>Points each site at itself as the "original."</strong> The canonical web address (the one telling Google which URL is the real one) points to the site's own domain, not the master's — so each site is treated as the original, not a copy.</li>
+        <li><strong>Slightly varies images and layout.</strong> It also nudges the images and the order of page sections a little per site, in a way that produces the same result every rebuild — so the look stays stable and doesn't churn.</li>
+    </ul>
+    <p><strong>Bottom line:</strong> cloning would leave every site wearing the master's identity. Differentiation strips that off and gives each one its own name, contact info, Google listing, analytics, and canonical — so they stand as separate businesses.</p>
     <div class="callout tip">The non-destructive image and layout differentiation <em>cores</em> here (<code>ms_process_blocks_images</code>, the <code>ms_variant</code> / layout helpers) are now shared with single-site city generation — see <a href="#cities-differentiation">City Pages — Per-city differentiation</a>. The multisite-only destructive parts (the image orchestrator + the unreferenced-uploads prune) are not. The image core is <strong>original-tracking</strong>: every differentiated field records a sibling <code>_&lt;field&gt;_orig</code> and always re-derives from that recorded original, so runs are idempotent (no compounding perturbation, no hero text-over-text). The MultiSite build strips <code>_orig</code> before its prune (<code>ms_unset_orig_keys</code>), keeping build output byte-identical.</div>
 </section>
 

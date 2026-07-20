@@ -12,6 +12,8 @@
  *     - strip fabricated aggregateRating from schema (carrying the master's rating
  *       to every site invents reviews — never do that, §9)
  *     - inject geo (lat/lng) + NAP into local_business for a distinct LocalBusiness
+     - declare areaServed (City in State) so service-area businesses with no
+       storefront still signal their market when the street address is blank
  *   Tier 4 (technical footprint):
  *     - per-site analytics (theme.analytics_head) from analytics_id, or none —
  *       never share one tag across sites
@@ -169,6 +171,13 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
         if (($params['tel'] ?? '') !== '') $lbNode['telephone'] = $params['tel'];
         if ($addr)    $lbNode['address'] = array_merge(['@type' => 'PostalAddress'], $addr);
         if ($hasGeo)  $lbNode['geo'] = ['@type' => 'GeoCoordinates', 'latitude' => $params['lat'], 'longitude' => $params['lng']];
+        // areaServed — the "we serve this area" signal for service-area businesses with
+        // no storefront (leave the street address blank; this still declares the market).
+        if (($params['city'] ?? '') !== '') {
+            $area = ['@type' => 'City', 'name' => $params['city']];
+            if (($params['SS'] ?? '') !== '') $area['containedInPlace'] = ['@type' => 'AdministrativeArea', 'name' => $params['SS']];
+            $lbNode['areaServed'] = $area;
+        }
         if ($hasRating) $lbNode['aggregateRating'] = [
             '@type' => 'AggregateRating',
             'ratingValue' => (string)$params['rating'],

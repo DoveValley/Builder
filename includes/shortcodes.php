@@ -18,7 +18,14 @@ function resolve_shortcodes(string $text): string {
     $city_slug    = $v['city_slug'] ?? '';
     $business     = $v['business']  ?? '';
     $phone        = $v['phone']     ?? '';
-    $tel          = $v['tel']       ?? '';
+    $tel          = trim($v['tel']  ?? '');
+    // {tel} is the dialable target for tel: links. When it's not set, derive a
+    // usable E.164 value from the display phone so click-to-call works from
+    // {phone} alone (10 digits → +1XXXXXXXXXX; otherwise + the digits as given).
+    if ($tel === '' && $phone !== '') {
+        $telDigits = preg_replace('/\D/', '', $phone);
+        if ($telDigits !== '') $tel = '+' . (strlen($telDigits) === 10 ? '1' . $telDigits : $telDigits);
+    }
     $zip          = $v['zip']       ?? '';
     $website      = $v['website']   ?? '';
     $email        = $v['email']     ?? '';

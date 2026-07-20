@@ -89,7 +89,11 @@ function _gen_resolve_schema_shortcodes(string $schema, array $vars): string {
         '{city_slug}'       => $city_slug,
         '{city_state}'      => $city_state,
         '{phone}'           => $vars['phone']     ?? '',
-        '{tel}'             => $vars['tel']        ?? '',
+        '{tel}'             => ($vars['tel'] ?? '') !== ''
+            ? $vars['tel']
+            : (($d = preg_replace('/\D/', '', $vars['phone'] ?? '')) !== ''
+                ? '+' . (strlen($d) === 10 ? '1' . $d : $d)
+                : ''),
         '{zip}'             => $vars['zip']        ?? '',
         '{address}'         => $vars['address']   ?? '',
         '{rating}'          => $vars['rating']     ?? '',

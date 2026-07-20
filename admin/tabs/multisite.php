@@ -74,7 +74,7 @@ $vpRotMs    = array_values(array_filter($vpAllMs, fn($p) => ($p['in_rotation'] ?
 <!-- ===== UPLOAD CARD ===== -->
 <div class="card" id="ms-upload">
     <h3 style="margin-top:0;">1. Upload params table (CSV)</h3>
-    <p class="hint">Prepare the table in Excel or Google Sheets and <strong>Save As / Export → CSV</strong>. One row per site. Required columns: <code>domain</code>, <code>business</code>. Recommended: <code>city, state, SS, phone, email</code> and FTP credentials (<code>ftp_host, ftp_user, ftp_pass</code>). Optional: <code>lat, lng, rating, review_count, analytics_id, logo</code>.</p>
+    <p class="hint">Prepare the table in Excel or Google Sheets and <strong>Save As / Export → CSV</strong>. One row per site. Required columns: <code>domain, business, phone, email, city, state, SS</code>. Optional: <code>tel, address, zip, lat, lng, rating, review_count, analytics_id, logo</code>. Add FTP credentials (<code>ftp_host, ftp_user, ftp_pass</code>) to deploy — omit them and the row still builds.</p>
 
     <p style="margin:0 0 8px;">
         <a class="btn" href="multisite_api.php?action=sample_csv">&#11015; Download sample CSV</a>

@@ -31,13 +31,6 @@ $citiesFile = $masterDir . '/data/cities.json';
 
 if (!is_file($csvPath)) { fwrite(STDERR, "No params.csv for {$masterId} — upload it first.\n"); exit(2); }
 
-// Gate: niches that don't use research localize via their angle + shortcodes.
-$brief = json_decode((string)@file_get_contents($briefPath), true) ?: [];
-if (empty($brief['uses_research_fields'])) {
-    echo "Niche brief has uses_research_fields=false — this niche localizes via its angle + shortcodes; no research needed.\n";
-    exit(0);
-}
-
 // ── Seed cities.json from the params table (city|SS uniqueness) ────────────────
 $parsed = ms_parse_csv($csvPath);
 if ($parsed['error']) { fwrite(STDERR, 'CSV error: ' . $parsed['error'] . "\n"); exit(2); }
@@ -62,6 +55,20 @@ if ($added > 0) {
     file_put_contents($citiesFile, json_encode(array_values($cities), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
 }
 echo "Seeded {$added} new city row(s) into cities.json (" . count($cities) . " total).\n";
+
+// ── Geocode: fill any missing city lat/lng from OpenStreetMap (authoritative, not AI) ──
+// Runs for every niche — coordinates power the LocalBusiness schema regardless of AI research.
+require_once __DIR__ . '/../includes/multisite/geocode.php';
+echo "Geocoding cities (city-center lat/lng from OpenStreetMap)…\n";
+$g = ms_geocode_cities_file($citiesFile, function ($m) { echo $m . "\n"; }, false);
+echo "Coordinates: filled {$g['filled']}, already had {$g['skipped']}, failed {$g['failed']}.\n";
+
+// Gate: niches that don't use AI research localize via their angle + shortcodes.
+$brief = json_decode((string)@file_get_contents($briefPath), true) ?: [];
+if (empty($brief['uses_research_fields'])) {
+    echo "uses_research_fields=false — coordinates done; no AI city research needed.\n";
+    exit(0);
+}
 
 // ── Run the niche-aware research (fills only cities lacking data) ──────────────
 if (defined('ANTHROPIC_API_KEY') && ANTHROPIC_API_KEY !== '') putenv('ANTHROPIC_API_KEY=' . ANTHROPIC_API_KEY);

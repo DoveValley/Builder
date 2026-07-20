@@ -11,13 +11,13 @@
  */
 
 /** Columns that make a row deployable (hard errors when missing/invalid). */
-const MS_REQUIRED_COLS = ['domain', 'business'];
+const MS_REQUIRED_COLS = ['domain', 'business', 'phone', 'email', 'city', 'state', 'SS'];
 
 /** Columns needed to actually deploy (warning if missing → row builds but won't deploy). */
 const MS_FTP_COLS = ['ftp_host', 'ftp_user', 'ftp_pass'];
 
 /** Columns that materially improve AI/identity quality (warning if missing). */
-const MS_RECOMMENDED_COLS = ['city', 'state', 'SS', 'phone', 'email'];
+const MS_RECOMMENDED_COLS = [];
 
 /** All recognized columns (anything else is reported as "unknown column"). */
 const MS_KNOWN_COLS = [
