@@ -25,7 +25,7 @@ const MS_KNOWN_COLS = [
     'city', 'state', 'SS', 'zip', 'lat', 'lng', 'logo', 'analytics_id', 'gsc_verification',
     'rating', 'review_count',
     'landing_cities', 'theme_preset',
-    'web3forms_key', 'ftp_host', 'ftp_port', 'ftp_user', 'ftp_pass',
+    'web3forms_key', 'ftp_protocol', 'ftp_host', 'ftp_port', 'ftp_user', 'ftp_pass',
     'ftp_path', 'ftp_passive',
 ];
 
@@ -147,17 +147,35 @@ function ms_validate_rows(array $rows, array $header = []): array {
 }
 
 /**
- * Cheap FTP reachability check for one row: connect + login, no upload.
+ * Cheap FTP/SFTP reachability check for one row: connect + login, no upload.
  * @return array ['ok'=>bool, 'msg'=>string]
  */
 function ms_ftp_preflight(array $row, int $timeout = 15): array {
-    if (!function_exists('ftp_connect')) return ['ok' => false, 'msg' => 'PHP FTP extension not available'];
-    $host = preg_replace('#^ftps?://#i', '', trim($row['ftp_host'] ?? ''));
-    $port = (int)($row['ftp_port'] ?? 21);
+    $protocol = (($row['ftp_protocol'] ?? 'ftp') === 'sftp') ? 'sftp' : 'ftp';
+    $host = preg_replace('#^s?ftps?://#i', '', trim($row['ftp_host'] ?? ''));
     $user = $row['ftp_user'] ?? '';
     $pass = $row['ftp_pass'] ?? '';
-    if ($host === '' || $user === '' || $pass === '') return ['ok' => false, 'msg' => 'incomplete FTP credentials'];
+    if ($host === '' || $user === '' || $pass === '') return ['ok' => false, 'msg' => "incomplete {$protocol} credentials"];
 
+    if ($protocol === 'sftp') {
+        // Uses the vendored phpseclib (see ms_sftp_upload_all): connect + login,
+        // no upload. Trust-on-first-use host key, same as the deploy path.
+        require_once __DIR__ . '/../vendor/autoload.php';
+        if (!class_exists('phpseclib3\\Net\\SFTP')) {
+            return ['ok' => false, 'msg' => 'SFTP library (phpseclib) not found'];
+        }
+        $port = (int)($row['ftp_port'] ?? 0) ?: 22;
+        try {
+            $sftp = new \phpseclib3\Net\SFTP($host, $port, $timeout);
+            if (!$sftp->login($user, $pass)) return ['ok' => false, 'msg' => 'login failed'];
+        } catch (\Throwable $e) {
+            return ['ok' => false, 'msg' => "cannot connect to {$host}:{$port} ({$e->getMessage()})"];
+        }
+        return ['ok' => true, 'msg' => 'ok'];
+    }
+
+    if (!function_exists('ftp_connect')) return ['ok' => false, 'msg' => 'PHP FTP extension not available'];
+    $port = (int)($row['ftp_port'] ?? 0) ?: 21;
     $conn = @ftp_connect($host, $port, $timeout);
     if (!$conn) return ['ok' => false, 'msg' => "cannot connect to {$host}:{$port}"];
     if (!@ftp_login($conn, $user, $pass)) { @ftp_close($conn); return ['ok' => false, 'msg' => 'login failed']; }

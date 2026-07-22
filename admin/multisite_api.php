@@ -117,7 +117,7 @@ switch ($action) {
         // Example rows — realistic format, obvious placeholders (replace before a real run).
         $sample = [
             ['pmtraining-dallas.com',    'Dallas PM Academy',      '214-555-0100', '+12145550100', 'info@pmtraining-dallas.com',    '100 Main St, Suite 400', 'Dallas',      'Texas',          'TX', '75201', '32.7767',  '-96.7970', '4.8', '126', 'G-XXXXXXXXX1', '', 'ftp.pmtraining-dallas.com',    '21', 'deploy@pmtraining-dallas.com',    'CHANGEME', '/public_html', '1'],
-            ['pmtraining-austin.com',    'Austin PM Academy',      '512-555-0100', '+15125550100', 'info@pmtraining-austin.com',    '200 Congress Ave',       'Austin',      'Texas',          'TX', '78701', '30.2672',  '-97.7431', '4.9', '203', 'G-XXXXXXXXX2', '', 'ftp.pmtraining-austin.com',    '21', 'deploy@pmtraining-austin.com',    'CHANGEME', '/public_html', '1'],
+            ['pmtraining-austin.com',    'Austin PM Academy',      '512-555-0100', '+15125550100', 'info@pmtraining-austin.com',    '200 Congress Ave',       'Austin',      'Texas',          'TX', '78701', '30.2672',  '-97.7431', '4.9', '203', 'G-XXXXXXXXX2', '', 'sftp.pmtraining-austin.com',   '22', 'deploy@pmtraining-austin.com',    'CHANGEME', '/public_html', '1'],
             ['pmtraining-charlotte.com', 'Charlotte PM Academy',   '704-555-0100', '+17045550100', 'info@pmtraining-charlotte.com', '300 Tryon St',           'Charlotte',   'North Carolina', 'NC', '28202', '35.2271',  '-80.8431', '4.7', '88',  'G-XXXXXXXXX3', '', 'ftp.pmtraining-charlotte.com', '21', 'deploy@pmtraining-charlotte.com', 'CHANGEME', '/public_html', '1'],
             ['pmtraining-tampa.com',     'Tampa PM Academy',       '813-555-0100', '+18135550100', 'info@pmtraining-tampa.com',     '400 Ashley Dr',          'Tampa',       'Florida',        'FL', '33602', '27.9506',  '-82.4572', '4.8', '154', 'G-XXXXXXXXX4', '', 'ftp.pmtraining-tampa.com',     '21', 'deploy@pmtraining-tampa.com',     'CHANGEME', '/public_html', '1'],
             ['pmtraining-phoenix.com',   'Phoenix PM Academy',     '602-555-0100', '+16025550100', 'info@pmtraining-phoenix.com',   '500 Central Ave',        'Phoenix',     'Arizona',        'AZ', '85004', '33.4484',  '-112.0740','4.6', '71',  'G-XXXXXXXXX5', '', 'ftp.pmtraining-phoenix.com',   '21', 'deploy@pmtraining-phoenix.com',   'CHANGEME', '/public_html', '1'],
@@ -138,6 +138,12 @@ switch ($action) {
         $cols[] = 'theme_preset';
         $presetExamples = ['1', 'Bold', '', '', 'Classic'];
         foreach ($sample as $i => &$row) { $row[] = $presetExamples[$i] ?? ''; }
+        unset($row);
+        // Optional ftp_protocol — "ftp" (default) or "sftp" (upload over SSH, port 22).
+        // Blank = ftp. When sftp, ftp_path is relative to the login user's home dir.
+        $cols[] = 'ftp_protocol';
+        $protoExamples = ['ftp', 'sftp', '', '', 'ftp'];
+        foreach ($sample as $i => &$row) { $row[] = $protoExamples[$i] ?? ''; }
         unset($row);
         $out = fopen('php://output', 'w');
         fputcsv($out, $cols);

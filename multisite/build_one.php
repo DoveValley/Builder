@@ -251,8 +251,9 @@ if ($buildCode !== 0) {
 // ── Deploy (parent — deploy_site needs only params) ──────────────────────────
 if (!empty($params['ftp_host']) && !empty($params['ftp_user'])) {
     $ftp = [
+        'ftp_protocol' => (($params['ftp_protocol'] ?? 'ftp') === 'sftp') ? 'sftp' : 'ftp',
         'ftp_host'    => $params['ftp_host'] ?? '',
-        'ftp_port'    => $params['ftp_port'] ?? 21,
+        'ftp_port'    => $params['ftp_port'] ?? '',
         'ftp_user'    => $params['ftp_user'] ?? '',
         'ftp_pass'    => $params['ftp_pass'] ?? '',
         // Default to /public_html (not the account root '/', which would clobber

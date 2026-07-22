@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/multisite/deploy.php';
 
 if (empty($_SESSION['admin_logged_in'])) { http_response_code(403); exit; }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); exit; }
@@ -10,24 +11,33 @@ if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
 
 header('Content-Type: application/json');
 
+// Recursive remote listing can be slow on large sites; don't let the default
+// max_execution_time abort it into an opaque 500.
+set_time_limit(0);
+
 function audit_error(string $msg): void {
     echo json_encode(['success' => false, 'error' => $msg]);
     exit;
 }
 
+if (!ACTIVE_SITE_ID) audit_error('No active site selected.');
+
 // ── Load deploy config ────────────────────────────────────────────────────────
 $deployFile = ACTIVE_SITE_DIR . '/deploy.json';
-if (!file_exists($deployFile)) audit_error('No deploy.json found — save FTP settings first.');
+if (!file_exists($deployFile)) audit_error('No deploy.json found — save connection settings first.');
 $deploy = json_decode(file_get_contents($deployFile), true) ?: [];
 
-$host    = ltrim($deploy['ftp_host'] ?? '', 'ftp://');
+$protocol = (($deploy['ftp_protocol'] ?? 'ftp') === 'sftp') ? 'sftp' : 'ftp';
+// Strip any scheme prefix (ftp://, sftp://) — a plain str-mask ltrim would eat
+// the leading f/t/p of a bare host like "ftp.example.com".
+$host    = preg_replace('#^s?ftps?://#i', '', trim($deploy['ftp_host'] ?? ''));
 $user    = $deploy['ftp_user']    ?? '';
 $pass    = $deploy['ftp_pass']    ?? '';
-$port    = (int)($deploy['ftp_port'] ?? 21);
+$port    = (int)($deploy['ftp_port'] ?? 0) ?: ($protocol === 'sftp' ? 22 : 21);
 $path    = rtrim($deploy['ftp_path'] ?? '/public_html', '/');
 $passive = !empty($deploy['ftp_passive']);
 
-if (!$host || !$user || !$pass) audit_error('FTP credentials incomplete — check FTP settings.');
+if (!$host || !$user || !$pass) audit_error(strtoupper($protocol) . ' credentials incomplete — check connection settings.');
 
 // ── Local file list ───────────────────────────────────────────────────────────
 $localDir = BASE_DIR . '/output/' . ACTIVE_SITE_ID;
@@ -41,20 +51,48 @@ foreach ($it as $file) {
     $localFiles[$rel] = $file->getSize();
 }
 
-// ── FTP connect ───────────────────────────────────────────────────────────────
-if (!function_exists('ftp_connect')) audit_error('PHP FTP extension is not available on this server.');
+// ── Remote file list (rel path => size) + dir list, per protocol ───────────────
+$remoteFiles   = [];
+$remoteDirsRel = [];
 
-$conn = @ftp_connect($host, $port, 10);
-if (!$conn) audit_error("Could not connect to FTP host: $host:$port");
+if ($protocol === 'sftp') {
+    $sftpErr = null;
+    $sftp = ms_sftp_open($deploy, 15, $sftpErr);
+    if (!$sftp) audit_error($sftpErr ?: 'SFTP connection failed.');
+    // Base is home-relative, exactly as the SFTP push writes it.
+    try {
+        ms_sftp_walk($sftp, trim($path, '/'), '', $remoteFiles, $remoteDirsRel);
+    } catch (\Throwable $e) {
+        audit_error('SFTP listing failed: ' . $e->getMessage());
+    }
+} else {
+    if (!function_exists('ftp_connect')) audit_error('PHP FTP extension is not available on this server.');
 
-if (!@ftp_login($conn, $user, $pass)) {
+    $conn = @ftp_connect($host, $port, 10);
+    if (!$conn) audit_error("Could not connect to FTP host: $host:$port");
+
+    if (!@ftp_login($conn, $user, $pass)) {
+        ftp_close($conn);
+        audit_error('FTP login failed — check username and password.');
+    }
+
+    if ($passive) ftp_pasv($conn, true);
+
+    $remoteDirs = [];
+    $remoteRaw  = ftp_list_recursive($conn, $path, $remoteDirs);
     ftp_close($conn);
-    audit_error('FTP login failed — check username and password.');
+
+    // Normalize FTP's absolute paths to paths relative to the remote base.
+    $baseLen = strlen($path) + 1;
+    foreach ($remoteRaw as $fullPath => $size) {
+        $remoteFiles[substr($fullPath, $baseLen)] = $size;
+    }
+    foreach ($remoteDirs as $d) {
+        $remoteDirsRel[] = substr($d, $baseLen);
+    }
 }
 
-if ($passive) ftp_pasv($conn, true);
-
-// ── Recursive remote file list ────────────────────────────────────────────────
+// ── FTP rawlist parsing helpers (used by the FTP branch above) ─────────────────
 function ftp_parse_rawlist(array $raw): array {
     $entries = [];
     foreach ($raw as $item) {
@@ -93,18 +131,6 @@ function ftp_list_recursive($conn, string $dir, array &$dirs): array {
     return $files;
 }
 
-$remoteDirs = [];
-$remoteRaw  = ftp_list_recursive($conn, $path, $remoteDirs);
-ftp_close($conn);
-
-// Normalize remote paths to relative (strip the remote base path)
-$remoteFiles = [];
-$baseLen = strlen($path) + 1;
-foreach ($remoteRaw as $fullPath => $size) {
-    $rel = substr($fullPath, $baseLen);
-    $remoteFiles[$rel] = $size;
-}
-
 // Build local directory set from file paths
 $localDirs = [];
 foreach (array_keys($localFiles) as $rel) {
@@ -116,9 +142,8 @@ foreach (array_keys($localFiles) as $rel) {
 
 // Find orphaned remote directories (exist on server, no local counterpart)
 $orphanedDirs = [];
-foreach ($remoteDirs as $d) {
-    $rel = substr($d, $baseLen);
-    if (!isset($localDirs[$rel])) {
+foreach ($remoteDirsRel as $rel) {
+    if ($rel !== '' && !isset($localDirs[$rel])) {
         $orphanedDirs[] = $rel;
     }
 }

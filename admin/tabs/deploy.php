@@ -51,7 +51,8 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
 
 <!-- ===== PUSH CARD ===== -->
 <div class="card">
-    <h3 style="margin-top:0;">2. Push to Server (FTP)</h3>
+<?php $ftpProtocol = (($deploy['ftp_protocol'] ?? 'ftp') === 'sftp') ? 'sftp' : 'ftp'; ?>
+    <h3 style="margin-top:0;">2. Push to Server (<?= strtoupper(h($ftpProtocol)) ?>)</h3>
     <p class="hint">Uploads only new or changed files. Credentials are stored in <code>sites/<?= h(ACTIVE_SITE_ID) ?>/deploy.json</code> — that file is gitignored and never committed.</p>
 
     <form method="post" action="deploy_save.php">
@@ -59,7 +60,22 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
         <input type="hidden" name="section" value="ftp">
 
         <div class="form-group">
-            <label>FTP Host</label>
+            <label>Protocol</label>
+            <div style="display:flex;gap:8px;">
+                <label style="flex:1;display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:normal;padding:9px 12px;border:1px solid var(--border,#d1d5db);border-radius:6px;">
+                    <input type="radio" name="ftp_protocol" value="ftp" data-port="21" <?= $ftpProtocol === 'ftp' ? 'checked' : '' ?>>
+                    FTP <span style="color:#9ca3af;font-size:.82rem;">(plain)</span>
+                </label>
+                <label style="flex:1;display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:normal;padding:9px 12px;border:1px solid var(--border,#d1d5db);border-radius:6px;">
+                    <input type="radio" name="ftp_protocol" value="sftp" data-port="22" <?= $ftpProtocol === 'sftp' ? 'checked' : '' ?>>
+                    SFTP <span style="color:#9ca3af;font-size:.82rem;">(encrypted, over SSH)</span>
+                </label>
+            </div>
+            <div class="hint">Picking a protocol sets the standard port below (21 for FTP, 22 for SFTP) — change it only if your host uses a non-standard port. Remote path is relative to the login user's home directory.</div>
+        </div>
+
+        <div class="form-group">
+            <label>Host</label>
             <input type="text" name="ftp_host" value="<?= h($deploy['ftp_host'] ?? '') ?>" placeholder="ftp.yourhost.com" autocomplete="off">
         </div>
 
@@ -70,7 +86,7 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
             </div>
             <div class="form-group" style="flex:0 0 70px;">
                 <label>Port</label>
-                <input type="number" name="ftp_port" value="<?= (int)($deploy['ftp_port'] ?? 21) ?>" min="1" max="65535">
+                <input type="number" id="ftp_port" name="ftp_port" value="<?= (int)($deploy['ftp_port'] ?? ($ftpProtocol === 'sftp' ? 22 : 21)) ?>" min="1" max="65535">
             </div>
         </div>
 
@@ -86,15 +102,35 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
             <div class="hint">Server directory where the site root (<code>index.html</code>) should live.</div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="ftp_passive_row"<?= $ftpProtocol === 'sftp' ? ' style="display:none;"' : '' ?>>
             <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:normal;">
                 <input type="checkbox" name="ftp_passive" value="1" <?= (!array_key_exists('ftp_passive', $deploy) || !empty($deploy['ftp_passive'])) ? 'checked' : '' ?>>
-                Passive mode <span style="color:#9ca3af;font-size:.82rem;">(recommended — required by most shared hosts)</span>
+                Passive mode <span style="color:#9ca3af;font-size:.82rem;">(FTP only — recommended, required by most shared hosts)</span>
             </label>
         </div>
 
-        <button type="submit" class="btn btn-secondary">Save FTP Settings</button>
+        <button type="submit" class="btn btn-secondary">Save Connection Settings</button>
     </form>
+
+    <script>
+    (function () {
+        var radios      = document.querySelectorAll('input[name="ftp_protocol"]');
+        var portInput   = document.getElementById('ftp_port');
+        var passiveRow  = document.getElementById('ftp_passive_row');
+        function sync() {
+            var sel = document.querySelector('input[name="ftp_protocol"]:checked');
+            if (!sel) return;
+            // Only auto-swap the port when it still holds the *other* protocol's
+            // default — never clobber a custom port the user typed.
+            var otherDefault = sel.value === 'sftp' ? '21' : '22';
+            if (portInput && portInput.value === otherDefault) {
+                portInput.value = sel.getAttribute('data-port');
+            }
+            if (passiveRow) passiveRow.style.display = (sel.value === 'sftp') ? 'none' : '';
+        }
+        radios.forEach(function (r) { r.addEventListener('change', sync); });
+    })();
+    </script>
 
     <hr style="margin:20px 0;border:none;border-top:1px solid #e5e7eb;">
 
@@ -155,16 +191,60 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
 .deploy-log .log-done  { color: #4ade80; font-weight: 600; }
 .deploy-log .log-error { color: #f87171; }
 .deploy-log .log-warn  { color: #fbbf24; }
+
+/* Completion banner (summary of the last SSE run) */
+.deploy-banner        { margin-top: 14px; border-radius: 6px; overflow: hidden; }
+.deploy-banner-head   { padding: 10px 14px; font-weight: 600; font-size: .88rem; }
+.deploy-banner-done   { background: #dcfce7; color: #166534; }
+.deploy-banner-warn   { background: #fef3c7; color: #92400e; }
+.deploy-banner-error  { background: #fee2e2; color: #991b1b; }
+.deploy-banner-fails  { background: #fff; border: 1px solid #fecaca; border-top: none;
+                        padding: 8px 14px; max-height: 180px; overflow-y: auto; }
+.deploy-banner-fails-title { font-weight: 600; color: #991b1b; margin-bottom: 4px; font-size: .8rem; }
+.deploy-banner-fail   { font-family: 'Menlo','Consolas',monospace; font-size: .78rem; color: #374151; padding: 1px 0; }
 </style>
 
 <script>
 (function() {
+    function elapsedStr(startedAt) {
+        const s = (Date.now() - startedAt) / 1000;
+        return (s < 10 ? s.toFixed(1) : Math.round(s)) + 's';
+    }
+
+    // Render the completion banner just above the log.
+    function showBanner(banner, kind, headline, failures) {
+        const icon = kind === 'error' ? '✗' : (kind === 'warn' ? '⚠' : '✓');
+        let html = '<div class="deploy-banner-head deploy-banner-' + kind + '">' + icon + '  ' + escH(headline) + '</div>';
+        if (failures && failures.length) {
+            html += '<div class="deploy-banner-fails"><div class="deploy-banner-fails-title">'
+                 + failures.length + ' problem' + (failures.length !== 1 ? 's' : '') + ':</div>';
+            failures.forEach(function(f) { html += '<div class="deploy-banner-fail">' + escH(f) + '</div>'; });
+            html += '</div>';
+        }
+        banner.innerHTML = html;
+        banner.style.display = 'block';
+    }
+
     function runSSE(url, btn, logEl, progressIds) {
         btn.disabled = true;
         const origText = btn.textContent;
         btn.textContent = 'Working…';
         logEl.style.display = 'block';
         logEl.innerHTML = '';
+
+        // Completion banner — reuse the one before this log, or create it.
+        let banner = logEl.previousElementSibling;
+        if (!banner || !banner.classList || !banner.classList.contains('deploy-banner')) {
+            banner = document.createElement('div');
+            banner.className = 'deploy-banner';
+            logEl.parentNode.insertBefore(banner, logEl);
+        }
+        banner.style.display = 'none';
+        banner.innerHTML = '';
+
+        const startedAt = Date.now();
+        let finished = false;          // set once we see done/fatal — distinguishes a clean end from a dropped stream
+        const failures = [];           // per-item failures, collected for the banner
 
         // Progress bar elements (optional)
         const progWrap  = progressIds ? document.getElementById(progressIds.wrap)  : null;
@@ -190,6 +270,13 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
                 return;
             }
 
+            // Collect real failures for the summary: every 'error', plus any 'warn'
+            // that reports a failed item (force-delete streams per-item failures as
+            // 'warn' — but benign warnings never start with "Failed").
+            if (d.type === 'error' || (d.type === 'warn' && /^Failed/.test(d.msg || ''))) {
+                failures.push(d.msg);
+            }
+
             const line = document.createElement('div');
             if (d.type === 'done')  line.className = 'log-done';
             if (d.type === 'error') line.className = 'log-error';
@@ -199,22 +286,34 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
             logEl.scrollTop = logEl.scrollHeight;
 
             if (d.type === 'done' || d.type === 'fatal') {
+                finished = true;
                 es.close();
                 btn.disabled = false;
                 btn.textContent = origText;
                 if (progWrap) progWrap.style.display = 'none';
+
+                // "failed" only appears in a server summary line when the count is >0,
+                // so it's a reliable partial-success signal without parsing numbers.
+                let kind = 'done';
+                if (d.type === 'fatal') kind = 'error';
+                else if (failures.length || /failed/i.test(d.msg || '')) kind = 'warn';
+                showBanner(banner, kind, (d.msg || 'Done') + '  ·  ' + elapsedStr(startedAt), failures);
             }
         };
 
         es.onerror = function() {
+            if (finished) return;   // normal close after done/fatal — not an error
             es.close();
             btn.disabled = false;
             btn.textContent = origText;
             if (progWrap) progWrap.style.display = 'none';
             const line = document.createElement('div');
             line.className = 'log-error';
-            line.textContent = 'Connection closed.';
+            line.textContent = 'Connection lost.';
             logEl.appendChild(line);
+            showBanner(banner, 'error',
+                'Connection lost — the operation was interrupted before it finished  ·  ' + elapsedStr(startedAt),
+                failures);
         };
     }
 

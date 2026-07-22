@@ -27,6 +27,45 @@ if (!function_exists('progress_set_sink')) {
         $GLOBALS['_progress_sink'] = $sink;
     }
 
+    /**
+     * Emit the SSE response headers and disable every layer of output buffering
+     * so progress events stream to the browser immediately instead of being held
+     * until the script ends. Call once, after auth, before the long-running work.
+     *
+     * Both the buffering ini_set()s matter: with output_buffering or zlib
+     * compression on (common in shared-host php.ini), the per-event flush() in
+     * progress_emit() is silently swallowed and the whole log dumps at the end.
+     */
+    function progress_sse_begin(): void
+    {
+        header('Content-Type: text/event-stream');
+        header('Cache-Control: no-cache');
+        header('X-Accel-Buffering: no');
+        set_time_limit(0);
+        @ini_set('output_buffering', 'off');
+        @ini_set('zlib.output_compression', '0');
+
+        // Surface uncaught exceptions and fatal errors as a real SSE 'fatal' event.
+        // Without this, anything the work throws just cuts the stream and the
+        // browser only sees a generic "connection lost" — hiding the real reason.
+        $emit = function (string $msg): void {
+            echo 'data: ' . json_encode(['type' => 'fatal', 'msg' => $msg]) . "\n\n";
+            @ob_flush();
+            flush();
+        };
+        set_exception_handler(function (\Throwable $e) use ($emit) {
+            $GLOBALS['_sse_fatal_sent'] = true;
+            $emit($e->getMessage());
+        });
+        register_shutdown_function(function () use ($emit) {
+            if (!empty($GLOBALS['_sse_fatal_sent'])) return;
+            $err = error_get_last();
+            if ($err && in_array($err['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR], true)) {
+                $emit('Server error: ' . $err['message']);
+            }
+        });
+    }
+
     /** Emit one log / status message. $type: log | warn | error | fatal | done. */
     function progress_log(string $msg, string $type = 'log'): void
     {

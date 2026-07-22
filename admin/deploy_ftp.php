@@ -29,12 +29,8 @@ if (!hash_equals($_SESSION['csrf_token'] ?? '', $_GET['token'] ?? '')) {
 
 session_write_close();
 
-// ── SSE headers ───────────────────────────────────────────────────────────────
-header('Content-Type: text/event-stream');
-header('Cache-Control: no-cache');
-header('X-Accel-Buffering: no');
-
-set_time_limit(0);
+// ── SSE headers + unbuffered output ─────────────────────────────────────────────
+progress_sse_begin();
 
 // ── Load config ───────────────────────────────────────────────────────────────
 $deployFile = ACTIVE_SITE_DIR . '/deploy.json';

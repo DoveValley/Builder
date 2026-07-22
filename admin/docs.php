@@ -1277,15 +1277,17 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
     </ol>
     <p>Safe to re-run at any time. Always regenerate before deploying after content changes.</p>
 
-    <h3>2. Push to Server (FTP)</h3>
-    <p>Uploads changed files from <code>output/{site_id}/</code> to the live host. Configure FTP credentials:</p>
+    <h3>2. Push to Server (FTP / SFTP)</h3>
+    <p>Uploads changed files from <code>output/{site_id}/</code> to the live host. Configure the connection:</p>
     <ul>
-        <li><strong>FTP host</strong> — hostname only, no <code>ftp://</code> prefix (e.g. <code>ftp.yoursite.com</code>)</li>
-        <li><strong>Port</strong> — default 21</li>
-        <li><strong>Username / Password</strong> — FTP credentials</li>
-        <li><strong>Remote path</strong> — server directory to deploy into (e.g. <code>/public_html</code>)</li>
-        <li><strong>Passive mode</strong> — enable if behind a firewall or NAT</li>
+        <li><strong>Protocol</strong> — <strong>FTP</strong> (plain, port 21) or <strong>SFTP</strong> (encrypted, over SSH, port 22). Switching the radio auto-fills the matching default port (unless you've typed a custom one). Stored per site as <code>ftp_protocol</code> in <code>deploy.json</code>; default is FTP.</li>
+        <li><strong>Host</strong> — hostname only, no scheme prefix (e.g. <code>ftp.yoursite.com</code>)</li>
+        <li><strong>Port</strong> — default 21 (FTP) / 22 (SFTP)</li>
+        <li><strong>Username / Password</strong> — login credentials (SFTP uses password auth over SSH; key-based auth is not supported here)</li>
+        <li><strong>Remote path</strong> — server directory to deploy into (e.g. <code>/public_html</code>). For <strong>SFTP</strong> this is resolved <em>relative to the login user's home directory</em>, so <code>/public_html</code> keeps the same meaning it has under FTP rather than pointing at the filesystem root.</li>
+        <li><strong>Passive mode</strong> — FTP only (enable if behind a firewall or NAT); the field is hidden for SFTP since it doesn't apply.</li>
     </ul>
+    <p><strong>How SFTP works here:</strong> uploads go through <strong>phpseclib</strong> (a pure-PHP SSH/SFTP library vendored under <code>includes/vendor/</code>) — no <code>ssh2</code> extension or system tools required. One SFTP session is opened and reused for the whole push, remote directories are auto-created, and the server host key is accepted trust-on-first-use (same no-verify posture as the FTP path). FTP still uses the native <code>ftp_*</code> functions. Both paths share the same md5 manifest, so incremental pushes work identically. <em>(curl's own <code>sftp://</code> is deliberately not used: this host's curl 8.5 + libssh backend can't accept an unknown host key.)</em></p>
     <p>The system uses a manifest (<code>deploy_manifest.json</code>) to track file hashes — only new or changed files are uploaded, so incremental pushes are fast.</p>
 
     <h3>3. Server Audit</h3>
@@ -3626,10 +3628,10 @@ require __DIR__ . '/index.php';</code></pre>
 
 <section id="dev-ftp">
     <h2>FTP deploy</h2>
-    <p><code>admin/deploy_ftp.php</code> (also SSE) reads <code>output/{site_id}/</code>, compares each file against <code>deploy_manifest.json</code>, and uploads <strong>only new or changed files</strong>, then updates the manifest. FTP credentials live in the per-site <code>deploy.json</code> (saved via <code>admin/deploy_save.php</code>).</p>
+    <p><code>admin/deploy_ftp.php</code> (also SSE) reads <code>output/{site_id}/</code>, compares each file against <code>deploy_manifest.json</code>, and uploads <strong>only new or changed files</strong>, then updates the manifest. Credentials live in the per-site <code>deploy.json</code> (saved via <code>admin/deploy_save.php</code>). The actual upload runs in <code>deploy_site()</code> (<code>includes/multisite/deploy.php</code>), which dispatches on the <code>ftp_protocol</code> key: <strong>FTP</strong> via native <code>ftp_*</code> functions, or <strong>SFTP</strong> via vendored phpseclib (<code>ms_sftp_upload_all()</code>). Both share the manifest and incremental logic.</p>
     <table>
         <tr><th>File</th><th>Role</th></tr>
-        <tr><td><code>sites/{id}/deploy.json</code></td><td>FTP host / user / password / remote path</td></tr>
+        <tr><td><code>sites/{id}/deploy.json</code></td><td>protocol (ftp/sftp) / host / user / password / port / remote path</td></tr>
         <tr><td><code>sites/{id}/deploy_manifest.json</code></td><td>Hashes of last-uploaded files (incremental sync)</td></tr>
     </table>
     <div class="callout warn">
@@ -3949,7 +3951,8 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <tr><td><code>web3forms_key</code></td><td>Optional</td><td>Per-site contact-form (Web3Forms) access key</td></tr>
         <tr class="ms-rec"><td><code>theme_preset</code></td><td>Recommended</td><td>Which <a href="#ms-visual-identity">Theme Preset</a> (colors + font + logo) to apply — id, name, or 1-based index; blank = deterministic hash rotation off the domain</td></tr>
         <tr class="ms-rec"><td><code>ftp_host</code>, <code>ftp_user</code>, <code>ftp_pass</code></td><td>Recommended</td><td>Deploy target + auth (all three or none)</td></tr>
-        <tr class="ms-rec"><td><code>ftp_port</code>, <code>ftp_path</code>, <code>ftp_passive</code></td><td>Recommended</td><td>Deploy target details</td></tr>
+        <tr class="ms-rec"><td><code>ftp_port</code>, <code>ftp_path</code>, <code>ftp_passive</code></td><td>Recommended</td><td>Deploy target details (<code>ftp_passive</code> is FTP-only; ignored for SFTP)</td></tr>
+        <tr><td><code>ftp_protocol</code></td><td>Optional</td><td><code>ftp</code> (default) or <code>sftp</code>. SFTP uploads over SSH via phpseclib; port defaults to 22, remote path is relative to the login user's home</td></tr>
     </table>
 </section>
 

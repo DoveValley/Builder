@@ -30,14 +30,8 @@ if (!hash_equals($_SESSION['csrf_token'] ?? '', $_GET['token'] ?? '')) {
 // Release session lock — generation is read-only after this point.
 session_write_close();
 
-// ── SSE headers ───────────────────────────────────────────────────────────────
-header('Content-Type: text/event-stream');
-header('Cache-Control: no-cache');
-header('X-Accel-Buffering: no');
-
-set_time_limit(0);
-ini_set('output_buffering', 'off');
-@ini_set('zlib.output_compression', '0');
+// ── SSE headers + unbuffered output ─────────────────────────────────────────────
+progress_sse_begin();
 
 // Progress streams via includes/progress.php. With no sink set, it emits the same
 // SSE wire format this endpoint always used, so browser behavior is unchanged.
