@@ -26,7 +26,8 @@ function infra_registrar_set_ns(string $domain, array $ns, string $registrarName
     switch ($type) {
         case 'namesilo':
             return infra_reg_namesilo_set_ns($domain, $ns, $cfg);
-        // case 'porkbun': return infra_reg_porkbun_set_ns($domain, $ns, $cfg);
+        case 'porkbun':
+            return infra_reg_porkbun_set_ns($domain, $ns, $cfg);
         default:
             return [
                 'ok'      => false,
@@ -95,4 +96,40 @@ function infra_reg_namesilo_register(string $domain, int $years, array $cfg, arr
     $r = infra_reg_namesilo_call($cfg, 'registerDomain', $params);
     return ['ok' => $r['ok'], 'code' => $r['code'],
             'message' => $r['ok'] ? "NameSilo: registered {$domain}" : "NameSilo error {$r['code']}: {$r['detail']}"];
+}
+
+/* ============================= Porkbun ============================= */
+/* NOTE: Porkbun requires "API Access" toggled ON per-domain in the dashboard. */
+
+/** Low-level Porkbun call; success = json.status "SUCCESS". @return array{ok:bool,message:string,json:mixed} */
+function infra_reg_porkbun_call(array $cfg, string $path, array $body = []): array
+{
+    $b = array_merge(['apikey' => $cfg['api_key'] ?? '', 'secretapikey' => $cfg['secret_api_key'] ?? ''], $body);
+    $r = infra_http('POST', 'https://api.porkbun.com/api/json/v3' . $path, ['verify' => true, 'timeout' => 30, 'body' => $b]);
+    $status = $r['json']['status'] ?? '';
+    return ['ok' => $status === 'SUCCESS', 'message' => $r['json']['message'] ?? ($r['error'] ?: ('HTTP ' . $r['code'])), 'json' => $r['json']];
+}
+
+/** Verify Porkbun credentials (read-only /ping). @return array{ok:bool,message:string} */
+function infra_reg_porkbun_verify(array $cfg): array
+{
+    $r = infra_reg_porkbun_call($cfg, '/ping');
+    return ['ok' => $r['ok'], 'message' => $r['ok'] ? 'Porkbun API OK' : ('Porkbun: ' . $r['message'])];
+}
+
+/** Set a domain's nameservers (the go-live switch). */
+function infra_reg_porkbun_set_ns(string $domain, array $ns, array $cfg): array
+{
+    $ns = array_values(array_filter(array_map('trim', $ns)));
+    if (count($ns) < 2) {
+        return ['ok' => false, 'manual' => false, 'message' => 'Porkbun requires at least 2 nameservers'];
+    }
+    $r = infra_reg_porkbun_call($cfg, '/domain/updateNs/' . $domain, ['ns' => $ns]);
+    return [
+        'ok'      => $r['ok'],
+        'manual'  => false,
+        'message' => $r['ok']
+            ? 'Porkbun: nameservers set → ' . implode(', ', $ns)
+            : ('Porkbun error: ' . $r['message'] . ' (is "API Access" enabled for this domain?)'),
+    ];
 }
