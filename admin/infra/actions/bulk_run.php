@@ -41,7 +41,9 @@ $regList    = infra_registrar_names();
 
 $fixedServer = null;  foreach ($serverList as $s) if (($s['id'] ?? '') === $srvSel) $fixedServer = $s;
 $fixedAccount = null; foreach ($cfList as $a)     if (($a['id'] ?? '') === $cfSel)  $fixedAccount = $a;
-$rr = fn(array $list, int $i) => $list ? $list[$i % count($list)] : null;
+$rr      = fn(array $list, int $i) => $list ? $list[$i % count($list)] : null;
+$findSrv = function ($id) use ($serverList) { foreach ($serverList as $s) if (($s['id'] ?? '') === $id) return $s; return null; };
+$findCf  = function ($id) use ($cfList)     { foreach ($cfList as $a)     if (($a['id'] ?? '') === $id) return $a; return null; };
 
 // parse + dedupe + validate the domain list
 $raw     = preg_split('/[\s,]+/', trim((string)($_POST['domains'] ?? '')));
@@ -65,9 +67,20 @@ foreach ($domains as $i => $dom) {
         $failCount++;
         continue;
     }
-    $server  = $rrSrv ? $rr($serverList, $i) : $fixedServer;
-    $account = $rrCf  ? $rr($cfList, $i)     : $fixedAccount;
-    $regName = $rrReg ? (string) ($rr($regList, $i) ?? '') : ($regSel === '__auto__' ? '' : $regSel);
+    // Sticky: an already-provisioned domain keeps its recorded assignment (avoids
+    // re-creating it on a different server). New domains advance the persistent counter.
+    $ex = infra_state_get_domain($dom);
+    if ($rrSrv) {
+        $reuse  = ($ex['server_id'] ?? '') !== '' ? $findSrv($ex['server_id']) : null;
+        $server = $reuse ?: $rr($serverList, infra_state_counter_next('rr_server'));
+    } else { $server = $fixedServer; }
+    if ($rrCf) {
+        $reuse   = ($ex['cf_account_id'] ?? '') !== '' ? $findCf($ex['cf_account_id']) : null;
+        $account = $reuse ?: $rr($cfList, infra_state_counter_next('rr_cf'));
+    } else { $account = $fixedAccount; }
+    if ($rrReg) {
+        $regName = ($ex['registrar'] ?? '') !== '' ? $ex['registrar'] : (string) ($rr($regList, infra_state_counter_next('rr_registrar')) ?? '');
+    } else { $regName = $regSel === '__auto__' ? '' : $regSel; }
     $opts = $optsBase + ['registrar' => $regName];
     if ($rrSrv || $rrCf || $rrReg) {
         bulk_emit('  [assigned] server=' . ($server['id'] ?? '—') . '  cf=' . ($account['id'] ?? '—') . '  registrar=' . ($regName ?: '—'));

@@ -37,7 +37,19 @@ function infra_state_db(): PDO
     if (!in_array('go_live_at', $have, true)) {
         $db->exec('ALTER TABLE domains ADD COLUMN go_live_at TEXT DEFAULT ""');
     }
+    // persistent round-robin counters (survive across bulk runs)
+    $db->exec('CREATE TABLE IF NOT EXISTS counters (k TEXT PRIMARY KEY, v INTEGER DEFAULT 0)');
     return $db;
+}
+
+/** Atomically bump a named counter and return the index to use for THIS pick (0-based). */
+function infra_state_counter_next(string $key): int
+{
+    $db = infra_state_db();
+    $db->prepare('INSERT INTO counters (k, v) VALUES (?, 1) ON CONFLICT(k) DO UPDATE SET v = v + 1')->execute([$key]);
+    $stmt = $db->prepare('SELECT v FROM counters WHERE k = ?');
+    $stmt->execute([$key]);
+    return max(0, (int) $stmt->fetchColumn() - 1);
 }
 
 const INFRA_STATE_COLS = ['domain','niche','server_id','cf_account_id','cf_zone_id',
