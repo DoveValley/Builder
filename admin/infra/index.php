@@ -252,16 +252,16 @@ if ($view === 'bulk') {
           <table style="margin-top:10px">
             <tr><th style="width:180px">Plesk server</th><td>
               <select name="server_id" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
-                <?php foreach ($servers as $s): ?><option value="<?= ih($s['id'] ?? '') ?>"><?= ih(($s['label'] ?? $s['id']) . ' — ' . ($s['host'] ?? '')) ?></option><?php endforeach; ?>
+                <option value="__auto__">🔀 Auto — round-robin (footprint)</option><?php foreach ($servers as $s): ?><option value="<?= ih($s['id'] ?? '') ?>"><?= ih(($s['label'] ?? $s['id']) . ' — ' . ($s['host'] ?? '')) ?></option><?php endforeach; ?>
               </select></td></tr>
             <tr><th>Cloudflare account</th><td>
               <?php if ($accts): ?><select name="cf_account_id" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
-                <?php foreach ($accts as $a): ?><option value="<?= ih($a['id'] ?? '') ?>"><?= ih($a['label'] ?? $a['id']) ?></option><?php endforeach; ?>
+                <option value="__auto__">🔀 Auto — round-robin (footprint)</option><?php foreach ($accts as $a): ?><option value="<?= ih($a['id'] ?? '') ?>"><?= ih($a['label'] ?? $a['id']) ?></option><?php endforeach; ?>
               </select><?php else: ?><span class="badge b-mut">no CF account</span><?php endif; ?></td></tr>
             <tr><th>Registrar</th><td>
               <?php if ($regs): ?>
                 <select name="registrar" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
-                  <?php foreach ($regs as $rn): ?><option value="<?= ih($rn) ?>"><?= ih($rn) ?></option><?php endforeach; ?>
+                  <option value="__auto__">🔀 Auto — round-robin (footprint)</option><?php foreach ($regs as $rn): ?><option value="<?= ih($rn) ?>"><?= ih($rn) ?></option><?php endforeach; ?>
                 </select>
                 <label style="margin-left:12px"><input type="checkbox" name="do_register"> Register (buy) &mdash; <strong style="color:#991b1b">costs money ×N</strong></label>
                 for <input type="number" name="years" value="1" min="1" max="10" style="width:56px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px"> yr

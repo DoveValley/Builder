@@ -21,26 +21,38 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !infra_check_csrf()) {
     exit;
 }
 
-$opts = [
-    'register'  => !empty($_POST['do_register']),
-    'registrar' => $_POST['registrar'] ?? '',
-    'years'     => (int) ($_POST['years'] ?? 1),
-    'plesk'     => !empty($_POST['do_plesk']),
-    'cf'        => !empty($_POST['do_cf']),
+$optsBase = [
+    'register' => !empty($_POST['do_register']),
+    'years'    => (int) ($_POST['years'] ?? 1),
+    'plesk'    => !empty($_POST['do_plesk']),
+    'cf'       => !empty($_POST['do_cf']),
 ];
 
-$server = null;  foreach (infra_servers() as $s)    if (($s['id'] ?? '') === ($_POST['server_id'] ?? ''))    $server = $s;
-$account = null; foreach (infra_cf_accounts() as $a) if (($a['id'] ?? '') === ($_POST['cf_account_id'] ?? '')) $account = $a;
+// '__auto__' = round-robin spread across registries (footprint); else fixed for all.
+$srvSel = $_POST['server_id'] ?? '';
+$cfSel  = $_POST['cf_account_id'] ?? '';
+$regSel = $_POST['registrar'] ?? '';
+$rrSrv = $srvSel === '__auto__';
+$rrCf  = $cfSel  === '__auto__';
+$rrReg = $regSel === '__auto__';
+$serverList = array_values(infra_servers());
+$cfList     = array_values(infra_cf_accounts());
+$regList    = infra_registrar_names();
+
+$fixedServer = null;  foreach ($serverList as $s) if (($s['id'] ?? '') === $srvSel) $fixedServer = $s;
+$fixedAccount = null; foreach ($cfList as $a)     if (($a['id'] ?? '') === $cfSel)  $fixedAccount = $a;
+$rr = fn(array $list, int $i) => $list ? $list[$i % count($list)] : null;
 
 // parse + dedupe + validate the domain list
 $raw     = preg_split('/[\s,]+/', trim((string)($_POST['domains'] ?? '')));
 $domains = array_values(array_unique(array_filter(array_map('strtolower', array_map('trim', $raw)))));
 
 if (!$domains) { bulk_emit('Nothing to do — no domains provided.'); exit; }
-if (!$opts['register'] && !$opts['plesk'] && !$opts['cf']) { bulk_emit('Nothing selected (pick register / Plesk / Cloudflare).'); exit; }
+if (!$optsBase['register'] && !$optsBase['plesk'] && !$optsBase['cf']) { bulk_emit('Nothing selected (pick register / Plesk / Cloudflare).'); exit; }
 
 $total = count($domains);
-bulk_emit("Bulk provisioning {$total} domain(s) — staged only, idempotent.");
+$mode = ($rrSrv || $rrCf || $rrReg) ? ' (round-robin: ' . implode('+', array_filter([$rrSrv?'server':'', $rrCf?'cf':'', $rrReg?'registrar':''])) . ')' : '';
+bulk_emit("Bulk provisioning {$total} domain(s) — staged only, idempotent{$mode}.");
 bulk_emit(str_repeat('─', 48));
 
 $okCount = 0; $failCount = 0;
@@ -52,6 +64,13 @@ foreach ($domains as $i => $dom) {
         bulk_emit('  ✗ invalid domain — skipped');
         $failCount++;
         continue;
+    }
+    $server  = $rrSrv ? $rr($serverList, $i) : $fixedServer;
+    $account = $rrCf  ? $rr($cfList, $i)     : $fixedAccount;
+    $regName = $rrReg ? (string) ($rr($regList, $i) ?? '') : ($regSel === '__auto__' ? '' : $regSel);
+    $opts = $optsBase + ['registrar' => $regName];
+    if ($rrSrv || $rrCf || $rrReg) {
+        bulk_emit('  [assigned] server=' . ($server['id'] ?? '—') . '  cf=' . ($account['id'] ?? '—') . '  registrar=' . ($regName ?: '—'));
     }
     $res = infra_provision_one($dom, $server, $account, $opts);
     foreach ($res['lines'] as $line) bulk_emit('  ' . $line);
