@@ -107,3 +107,45 @@ function cf_delete_zone(array $account, string $zoneId): array
     return ['ok' => $ok, 'message' => $ok ? 'deleted'
         : ($r['json']['errors'][0]['message'] ?? ($r['error'] ?: ('HTTP ' . $r['code'])))];
 }
+
+/** Look up a single zone by exact name. @return array|null zone object */
+function cf_get_zone(array $account, string $domain): ?array
+{
+    $r = cf_api($account, 'GET', '/zones', ['name' => strtolower($domain)]);
+    return ($r['code'] === 200 && !empty($r['json']['result'][0])) ? $r['json']['result'][0] : null;
+}
+
+/** Create or update an A record (idempotent). @return array{ok:bool,message:string} */
+function cf_upsert_a_record(array $account, string $zoneId, string $name, string $ip, bool $proxied = true): array
+{
+    $list = cf_api($account, 'GET', "/zones/{$zoneId}/dns_records", ['type' => 'A', 'name' => $name]);
+    $existing = $list['json']['result'][0]['id'] ?? null;
+    $body = ['type' => 'A', 'name' => $name, 'content' => $ip, 'proxied' => $proxied, 'ttl' => 1];
+    $r = $existing
+        ? cf_api($account, 'PUT',  "/zones/{$zoneId}/dns_records/{$existing}", [], $body)
+        : cf_api($account, 'POST', "/zones/{$zoneId}/dns_records", [], $body);
+    $ok = in_array($r['code'], [200, 201], true) && !empty($r['json']['success']);
+    return ['ok' => $ok, 'message' => $ok ? ($existing ? 'updated' : 'created')
+        : ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
+}
+
+/** Set SSL mode: off|flexible|full|strict. @return array{ok:bool,message:string} */
+function cf_set_ssl_mode(array $account, string $zoneId, string $mode = 'full'): array
+{
+    $r  = cf_api($account, 'PATCH', "/zones/{$zoneId}/settings/ssl", [], ['value' => $mode]);
+    $ok = $r['code'] === 200 && !empty($r['json']['success']);
+    return ['ok' => $ok, 'message' => $ok ? "ssl={$mode}"
+        : ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
+}
+
+/** Enable HSTS at the edge (applies when the zone is proxied/live). @return array{ok:bool,message:string} */
+function cf_set_hsts(array $account, string $zoneId, int $maxAge = 15552000): array
+{
+    $body = ['value' => ['strict_transport_security' => [
+        'enabled' => true, 'max_age' => $maxAge, 'include_subdomains' => false, 'preload' => false, 'nosniff' => true,
+    ]]];
+    $r  = cf_api($account, 'PATCH', "/zones/{$zoneId}/settings/security_header", [], $body);
+    $ok = $r['code'] === 200 && !empty($r['json']['success']);
+    return ['ok' => $ok, 'message' => $ok ? 'hsts on'
+        : ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
+}

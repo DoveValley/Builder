@@ -58,16 +58,45 @@ if ($doPlesk) {
     }
 }
 
-/* ---- Cloudflare: create zone ---- */
+/* ---- Cloudflare: zone + DNS(apex/www) + SSL + HSTS (staged) ---- */
 if ($doCf) {
     if (!$account) {
         $results[] = 'Cloudflare: ✗ no CF account selected'; $allOk = false;
+    } elseif (!$server) {
+        $results[] = 'Cloudflare: ✗ need a server selected (its IP is the DNS target)'; $allOk = false;
     } else {
-        $r = cf_create_zone($account, $domain);
-        if ($r['ok']) {
-            $results[] = "Cloudflare: ✓ zone created\n            Nameservers: " . implode(', ', $r['name_servers']) . "\n            (set these at the registrar to go live)";
+        $ip = $server['default_ip'] ?? ($server['host'] ?? '');
+        // 1) ensure zone
+        $zoneId = ''; $ns = [];
+        $existing = cf_get_zone($account, $domain);
+        if ($existing) {
+            $zoneId = $existing['id']; $ns = $existing['name_servers'] ?? [];
+            $results[] = 'Cloudflare zone: — already exists';
         } else {
-            $results[] = "Cloudflare: ✗ {$r['message']}"; $allOk = false;
+            $z = cf_create_zone($account, $domain);
+            if ($z['ok']) { $zoneId = $z['zone_id']; $ns = $z['name_servers']; $results[] = 'Cloudflare zone: ✓ created'; }
+            else { $results[] = "Cloudflare zone: ✗ {$z['message']}"; $allOk = false; }
+        }
+        // 2) DNS + SSL + HSTS
+        if ($zoneId) {
+            $a1 = cf_upsert_a_record($account, $zoneId, $domain, $ip, true);
+            $results[] = "  A  @   -> {$ip} (proxied): " . ($a1['ok'] ? '✓ ' . $a1['message'] : '✗ ' . $a1['message']);
+            if (!$a1['ok']) $allOk = false;
+
+            $a2 = cf_upsert_a_record($account, $zoneId, 'www.' . $domain, $ip, true);
+            $results[] = "  A  www -> {$ip} (proxied): " . ($a2['ok'] ? '✓ ' . $a2['message'] : '✗ ' . $a2['message']);
+            if (!$a2['ok']) $allOk = false;
+
+            // 'full' (not strict) while staged — origin still has self-signed/LE; strict comes at go-live w/ Origin CA
+            $ssl = cf_set_ssl_mode($account, $zoneId, 'full');
+            $results[] = '  SSL mode: ' . ($ssl['ok'] ? '✓ ' . $ssl['message'] . ' (upgrade to strict at go-live w/ Origin CA)' : '✗ ' . $ssl['message']);
+            if (!$ssl['ok']) $allOk = false;
+
+            $h = cf_set_hsts($account, $zoneId);
+            $results[] = '  HSTS: ' . ($h['ok'] ? '✓ ' . $h['message'] : '✗ ' . $h['message']);
+            if (!$h['ok']) $allOk = false;
+
+            $results[] = "  Nameservers (set at registrar to go live):\n    " . implode("\n    ", $ns);
         }
     }
 }
