@@ -154,6 +154,7 @@ tr.ms-rec td { background: #fff3cd !important; }
         <button type="button" class="doc-tab" data-doc="devenv" onclick="switchDoc('devenv')">DevEnv</button>
         <button type="button" class="doc-tab" data-doc="extending" onclick="switchDoc('extending')">Extending</button>
         <button type="button" class="doc-tab" data-doc="infrastructure" onclick="switchDoc('infrastructure')">&#127760; Infrastructure</button>
+        <button type="button" class="doc-tab" data-doc="infraconsole" onclick="switchDoc('infraconsole')">&#128736; Infra Console</button>
         <button type="button" class="doc-tab" data-doc="recovery" onclick="switchDoc('recovery')">&#128657; Recovery Site</button>
         <button type="button" class="doc-tab" onclick="location.href='playground.php'" style="background:#fd783b;color:#fff;">🧪 Test Lab</button>
     </div>
@@ -337,6 +338,22 @@ tr.ms-rec td { background: #fff3cd !important; }
         <a href="#infra-footprint">Footprint / de-clustering</a>
         <a href="#infra-plesk">Plesk deploy specifics</a>
         <a href="#infra-automation">Provisioning automation (planned)</a>
+    </nav>
+
+    <nav id="infraconsole-nav" hidden>
+        <a class="nav-group" href="#console-overview">Overview</a>
+        <a href="#console-phases">The 3-phase model</a>
+        <a href="#console-views">Views &amp; navigation</a>
+        <a href="#console-config">Configuration files</a>
+        <a href="#console-provision">Provisioning (New Site / Bulk)</a>
+        <a href="#console-registrars">Registrars</a>
+        <a href="#console-deploy">Deploy bridge</a>
+        <a href="#console-golive">Go-Live &amp; cron</a>
+        <a href="#console-manage">Edit / remove</a>
+        <a href="#console-state">State, cache &amp; pagination</a>
+        <a href="#console-security">Security model</a>
+        <a href="#console-architecture">Architecture &amp; files</a>
+        <a href="#console-ops">Operations cheat-sheet</a>
     </nav>
 
     <nav id="multisite-nav" hidden>
@@ -3315,6 +3332,198 @@ Visitor  →  https://{domain}</code></pre>
 
 
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════ INFRASTRUCTURE CONSOLE ═════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<div id="doc-infraconsole" hidden>
+<h1>&#128736; Infrastructure Console</h1>
+<p class="page-intro">The <strong>Infrastructure Console</strong> (admin &rarr; &#128736; Infrastructure, top nav next to MultiSite) manages the whole fleet's <em>infrastructure</em> — registering domains, creating Plesk sites, wiring Cloudflare, and taking sites live — across many servers, Cloudflare accounts, and registrars. It's a self-contained module at <code>admin/infra/</code>, independent of the content factory. This page documents the console itself; the sister &#127760; <strong>Infrastructure</strong> tab covers the underlying network strategy (DNS, SSL, footprint).</p>
+
+<section id="console-overview">
+<h2>Overview</h2>
+<p>The console automates the "plumbing" around a generated site: <strong>register &rarr; provision (Plesk + Cloudflare) &rarr; deploy content &rarr; go live</strong>. It tracks every domain in a self-contained SQLite <strong>fleet state</strong>, talks to Plesk / Cloudflare / registrars over their APIs, and caches the expensive discovery so it stays fast at fleet scale.</p>
+<ul>
+    <li><strong>Where:</strong> admin top nav &rarr; <strong>&#128736; Infrastructure</strong> (routes to <code>admin/infra/index.php</code>). It's fleet-wide, so it opens outside the per-site editor.</li>
+    <li><strong>Independent:</strong> shares only the admin login session with the factory; uses no factory data/blocks/multisite code.</li>
+    <li><strong>Scale target:</strong> designed for ~10 VPS &times; ~500 sites each (thousands of domains), many Cloudflare accounts &amp; registrars.</li>
+</ul>
+<div class="callout warn"><p>The console performs <strong>real, sometimes destructive and money-spending</strong> actions (creating sites, buying domains, switching nameservers, deleting infrastructure). Destructive ops require typing the domain to confirm; auto-buy is opt-in with a money warning.</p></div>
+<a class="back-top" href="#console-overview">&uarr; top</a>
+</section>
+
+<section id="console-phases">
+<h2>The 3-phase model</h2>
+<p>The console maps to a deliberate go-to-market flow so nothing goes live before it's ready:</p>
+<table>
+    <tr><th>Phase</th><th>What</th><th>Where in the console</th></tr>
+    <tr><td><strong>1 — Provision</strong></td><td>Register + create Plesk site + stage Cloudflare zone (DNS, SSL, HSTS). Staged, not public.</td><td>New Site, Bulk</td></tr>
+    <tr><td><strong>2 — Content</strong></td><td>Generate + upload the site's files.</td><td>Deploy (hands creds to the MultiSite generator)</td></tr>
+    <tr><td><strong>3 — Go-Live</strong></td><td>Switch the registrar nameservers to Cloudflare; the zone flips active. Paced ~20/day.</td><td>Go-Live (schedule / release / cron)</td></tr>
+</table>
+<p><strong>Domain lifecycle / status:</strong> <code>staged</code> &rarr; <code>queued</code> (scheduled) &rarr; <code>releasing</code>/<code>awaiting-ns</code> &rarr; <code>live</code>. (Also <code>partial</code> = some step failed, <code>register-failed</code> = auto-buy failed.)</p>
+<a class="back-top" href="#console-phases">&uarr; top</a>
+</section>
+
+<section id="console-views">
+<h2>Views &amp; navigation</h2>
+<table>
+    <tr><th>View</th><th>Does</th></tr>
+    <tr><td><strong>Dashboard</strong></td><td>Fleet tiles (servers / sites / CF accounts / issues) + server list with reachability. <em>Discover / Refresh</em> forces a live re-sweep.</td></tr>
+    <tr><td><strong>Domains</strong></td><td>Fleet-wide inventory reconciled across Plesk + Cloudflare + registrar, with <strong>drift</strong> flags. Server-side search + pagination (100/page). Managed domains link to their manage page.</td></tr>
+    <tr><td><strong>Server detail</strong></td><td>One VPS: its config + every site's stack wiring (Plesk / Cloudflare / registrar / state).</td></tr>
+    <tr><td><strong>+ New Site</strong></td><td>Provision one domain end-to-end (register optional).</td></tr>
+    <tr><td><strong>Bulk</strong></td><td>Provision many domains from a pasted list with a live streaming log; optional round-robin across servers / CF accounts / registrars.</td></tr>
+    <tr><td><strong>Deploy</strong></td><td>Export provisioned FTP creds as a params-CSV for the MultiSite content upload.</td></tr>
+    <tr><td><strong>Go-Live</strong></td><td>Schedule the rollout (N/day), release domains (NS switch), refresh live status.</td></tr>
+    <tr><td><strong>Domain manage</strong></td><td>(click a managed domain) edit fields + Danger Zone: delete zone / delete site / untrack / full teardown.</td></tr>
+</table>
+<div class="callout tip"><p><strong>Discover / Refresh</strong> is the only thing that hits the live APIs — normal navigation serves cached data (see <a href="#console-state">State &amp; cache</a>). After any provision/teardown the cache auto-invalidates so views are immediately accurate.</p></div>
+<a class="back-top" href="#console-views">&uarr; top</a>
+</section>
+
+<section id="console-config">
+<h2>Configuration files</h2>
+<p>All config lives in <code>admin/infra/config/</code> as JSON registries (<strong>gitignored</strong> — they hold secrets; <code>*.example.json</code> files show the shape and <em>are</em> committed). Each is a list you extend by adding a row.</p>
+<table>
+    <tr><th>File</th><th>Holds</th><th>Key fields</th></tr>
+    <tr><td><code>servers.json</code></td><td>Plesk servers</td><td><code>id</code>, <code>label</code>, <code>host</code>, <code>port</code> (8443), <code>api_token</code> (X-API-Key), <code>default_ip</code></td></tr>
+    <tr><td><code>cloudflare.json</code></td><td>CF accounts</td><td><code>id</code>, <code>label</code>, <code>account_id</code>, and <code>api_token</code> <em>or</em> <code>email</code>+<code>global_key</code></td></tr>
+    <tr><td><code>registrar.json</code></td><td>Registrar creds</td><td>keyed by name; <code>type</code> + per-registrar keys (see Registrars)</td></tr>
+    <tr><td><code>domains.json</code></td><td>Optional registrar map</td><td>manual <code>domain &rarr; {registrar}</code> overrides (fallback when a domain isn't in fleet state)</td></tr>
+</table>
+<p>Each provisioned domain references these by id, so scaling out = adding a server / CF account / registrar row. Files are read by <code>lib/store.php</code> and are <code>chmod 600</code>, owned <code>www-data</code>.</p>
+<a class="back-top" href="#console-config">&uarr; top</a>
+</section>
+
+<section id="console-provision">
+<h2>Provisioning — New Site &amp; Bulk</h2>
+<p>Both call one shared routine (<code>infra_provision_one()</code>), so single and bulk never drift. Per domain it: (optionally) registers &rarr; creates the Plesk site + FTP user &rarr; creates the Cloudflare zone &rarr; adds A records (apex + <code>www</code>) pointed at the VPS IP, proxied &rarr; sets SSL mode + HSTS &rarr; saves everything (incl. FTP creds) to fleet state. <strong>Idempotent</strong>: existing sites/zones are skipped/updated.</p>
+<ul>
+    <li><strong>Staged only</strong> — no nameservers are switched here, so nothing goes public until Go-Live.</li>
+    <li><strong>Register (buy)</strong> is an opt-in checkbox (costs real money; confirms first). Leave it off if the domain already exists — the chosen registrar is still recorded for the go-live NS switch.</li>
+    <li><strong>Bulk</strong> streams a live per-domain log. Each of server / CF account / registrar can be set to <strong>&#128256; Auto — round-robin</strong> to spread domains across registries for footprint. Round-robin is <em>persistent</em> (continues across runs) and <em>sticky</em> (an already-provisioned domain keeps its original assignment).</li>
+</ul>
+<div class="callout warn"><p>Cloudflare zone creation needs the account's <code>account_id</code> set and a token/global-key with zone-create rights. Auto-buy needs the registrar funded and its API wired (currently NameSilo).</p></div>
+<a class="back-top" href="#console-provision">&uarr; top</a>
+</section>
+
+<section id="console-registrars">
+<h2>Registrars</h2>
+<p>Six registrars are wired for the go-live <strong>nameserver switch</strong> (and, where supported, auto-registration). A domain's stored <code>registrar</code> name selects the adapter; anything without an adapter/creds falls back to <strong>manual</strong> (the console surfaces the NS to set by hand). Add creds to <code>registrar.json</code>.</p>
+<table>
+    <tr><th>Registrar</th><th>Config fields</th><th>Notes / gotchas</th></tr>
+    <tr><td>NameSilo</td><td><code>api_key</code></td><td>Also auto-registers. No IP allowlist.</td></tr>
+    <tr><td>Porkbun</td><td><code>api_key</code>, <code>secret_api_key</code></td><td>Must enable "API Access" per-domain in the dashboard.</td></tr>
+    <tr><td>Spaceship</td><td><code>api_key</code>, <code>api_secret</code></td><td>Namecheap-owned (shares a parent — slightly less footprint-independent).</td></tr>
+    <tr><td>Dynadot</td><td><code>api_key</code></td><td>May require external nameservers be added to the account first.</td></tr>
+    <tr><td>Gandi</td><td><code>pat</code> (Personal Access Token)</td><td>Bearer PAT with domain-technical scope.</td></tr>
+    <tr><td>Namecheap</td><td><code>api_user</code>, <code>api_key</code>, <code>username</code>, <code>client_ip</code></td><td>Needs funded account + API enabled + the factory IP <strong>whitelisted</strong>.</td></tr>
+</table>
+<p>To activate one: create its API credential, add a row to <code>registrar.json</code>, and (Namecheap) whitelist the factory IP. Everything else is automatic.</p>
+<a class="back-top" href="#console-registrars">&uarr; top</a>
+</section>
+
+<section id="console-deploy">
+<h2>Deploy bridge (&rarr; MultiSite content upload)</h2>
+<p>Provisioning generates a unique FTP user per domain and stores it in fleet state. The <strong>Deploy</strong> view exports those as a <strong>params-CSV</strong> whose columns match the MultiSite params format exactly (<code>domain, ftp_protocol, ftp_host, ftp_port, ftp_user, ftp_pass, ftp_path, ftp_passive</code>, with <code>/httpdocs</code> + FTP:21). Merge those rows into a master site's params (MultiSite tab), then <strong>Build + Deploy</strong> uploads the generated content to the provisioned Plesk box.</p>
+<div class="callout tip"><p>This is a one-way handoff (a CSV), which keeps the console independent of the factory. Only domains that actually have FTP creds (provisioned on Plesk) are exported.</p></div>
+<a class="back-top" href="#console-deploy">&uarr; top</a>
+</section>
+
+<section id="console-golive">
+<h2>Go-Live &amp; the daily cron</h2>
+<p>Going live = switching a domain's nameservers at the registrar to its Cloudflare pair; Cloudflare then flips the zone <code>active</code>, which the console detects. The Go-Live view lets you:</p>
+<ul>
+    <li><strong>Schedule rollout</strong> — spread all <code>staged</code>/<code>queued</code> domains into daily batches (N per day from a start date), setting each a <code>go_live_at</code>.</li>
+    <li><strong>Release now</strong> — switch one domain's NS immediately (via its registrar API, or surfaced manually).</li>
+    <li><strong>Refresh live status</strong> — poll Cloudflare and mark newly-active zones <code>live</code>.</li>
+</ul>
+<p>The daily batch runs from real cron on the VPS. Add (as <code>www-data</code>):</p>
+<pre><code>0 9 * * *  www-data  php /var/www/homepage-builder-new/admin/infra/cron/golive_tick.php 20 &gt;&gt; /var/log/infra-golive.log 2&gt;&amp;1</code></pre>
+<p>The arg (<code>20</code>) is the per-run cap. Each tick refreshes live status, releases up to the cap of due domains, and refreshes again.</p>
+<a class="back-top" href="#console-golive">&uarr; top</a>
+</section>
+
+<section id="console-manage">
+<h2>Edit / remove (Danger Zone)</h2>
+<p>Click a <strong>managed</strong> domain in the Domains list to open its manage page: edit <code>registrar</code> / <code>niche</code> / <code>status</code>, or run a destructive action. <strong>Every destructive action requires typing the domain to confirm.</strong></p>
+<table>
+    <tr><th>Action</th><th>Effect</th></tr>
+    <tr><td>Delete Cloudflare zone</td><td>Removes the CF zone (DNS/SSL/HSTS). Plesk site + fleet record kept.</td></tr>
+    <tr><td>Delete Plesk site</td><td>Removes the site + files on the VPS. CF zone + fleet record kept.</td></tr>
+    <tr><td>Remove from fleet (untrack)</td><td>Forgets the domain in the console. Leaves Plesk + Cloudflare intact.</td></tr>
+    <tr><td>Full teardown</td><td>Deletes CF zone + Plesk site <em>and</em> removes from fleet. Irreversible.</td></tr>
+</table>
+<a class="back-top" href="#console-manage">&uarr; top</a>
+</section>
+
+<section id="console-state">
+<h2>State, cache &amp; pagination</h2>
+<ul>
+    <li><strong>Fleet state</strong> — a self-contained SQLite DB (<code>admin/infra/state/fleet.db</code>, gitignored). One row per domain: server, CF account/zone, nameservers, FTP creds, registrar, status, go-live date. Read live (it's local + fast).</li>
+    <li><strong>Discovery cache</strong> — Plesk site lists and Cloudflare zone lists are cached (~180s) in the same DB, so a warm page load makes <strong>zero API calls</strong>. <em>Discover / Refresh</em> (or <code>?refresh=1</code>) forces a live re-sweep; mutations invalidate it.</li>
+    <li><strong>Pagination</strong> — the Domains view is server-paginated (100/page) with server-side search, so it stays light at thousands of domains.</li>
+    <li><strong>Requires</strong> the PHP <code>pdo_sqlite</code> extension on the box.</li>
+</ul>
+<a class="back-top" href="#console-state">&uarr; top</a>
+</section>
+
+<section id="console-security">
+<h2>Security model</h2>
+<ul>
+    <li><strong>Auth</strong> — every page/endpoint requires the admin session (shared with the factory login); unauthenticated requests redirect to login.</li>
+    <li><strong>CSRF</strong> — all mutating POST endpoints check a per-session token (<code>$_SESSION['infra_csrf']</code>).</li>
+    <li><strong>Typed confirms</strong> on destructive actions; money-warning confirms on auto-buy.</li>
+    <li><strong>Secrets</strong> — API tokens/keys and FTP passwords live only in the gitignored <code>config/*.json</code> and <code>state/fleet.db</code> (chmod 600, www-data). Never committed. The <code>.example.json</code> files carry no secrets.</li>
+    <li><strong>TLS</strong> — outbound API calls verify certificates by default; only the Plesk self-signed panel (<code>:8443</code>) opts out explicitly.</li>
+</ul>
+<a class="back-top" href="#console-security">&uarr; top</a>
+</section>
+
+<section id="console-architecture">
+<h2>Architecture &amp; files</h2>
+<p>Self-contained under <code>admin/infra/</code>. Only touchpoints with the factory: the shared login (<code>config.php</code>) and one nav link.</p>
+<pre><code>admin/infra/
+  index.php            router + all views
+  bootstrap.php        auth gate, layout, CSRF, flash
+  lib/
+    http.php           curl JSON client (verify-by-default)
+    plesk.php          Plesk REST client (create/list/delete site, cert)
+    cloudflare.php     Cloudflare API (multi-account: zones/DNS/SSL/HSTS)
+    registrar.php      6 registrar adapters (set NS, register)
+    provision.php      infra_provision_one() — shared per-domain routine
+    golive.php         schedule / release / refresh-live
+    fleet.php          reconciliation + cached discovery wrappers
+    state.php          SQLite fleet state + counters + cache tables
+    cache.php          TTL discovery cache
+    store.php          config-registry loaders
+  actions/             provision · bulk_run · deploy · golive · domain_manage · export_creds  (CSRF POST endpoints)
+  cron/golive_tick.php daily go-live batch runner (run as www-data)
+  config/  (gitignored)  servers · cloudflare · registrar · domains  (+ .example)
+  state/   (gitignored)  fleet.db</code></pre>
+<a class="back-top" href="#console-architecture">&uarr; top</a>
+</section>
+
+<section id="console-ops">
+<h2>Operations cheat-sheet</h2>
+<table>
+    <tr><th>Task</th><th>How</th></tr>
+    <tr><td>Add a VPS</td><td>Add a row to <code>servers.json</code> (Plesk host + API token + IP).</td></tr>
+    <tr><td>Add a Cloudflare account</td><td>Add a row to <code>cloudflare.json</code> (account_id + token/global-key).</td></tr>
+    <tr><td>Activate a registrar</td><td>Add its row to <code>registrar.json</code>; Namecheap: whitelist the factory IP.</td></tr>
+    <tr><td>Provision one / many</td><td>New Site / Bulk (Auto round-robin for footprint).</td></tr>
+    <tr><td>Deploy content</td><td>Deploy &rarr; download params-CSV &rarr; merge into MultiSite &rarr; Build + Deploy.</td></tr>
+    <tr><td>Go live gradually</td><td>Go-Live &rarr; Schedule (N/day); the cron releases daily.</td></tr>
+    <tr><td>See real (uncached) state</td><td>Discover / Refresh on Dashboard or Domains.</td></tr>
+    <tr><td>Remove a site</td><td>Domains &rarr; click domain &rarr; Danger Zone (type domain to confirm).</td></tr>
+</table>
+<div class="callout warn"><p><strong>fail2ban gotcha (Plesk box):</strong> keep a single <code>ignoreip</code> line in <code>/etc/fail2ban/jail.local</code> — a duplicate breaks Plesk's <code>f2bmng</code> and errors domain removal.</p></div>
+<a class="back-top" href="#console-ops">&uarr; top</a>
+</section>
+
+</div><!-- /#doc-infraconsole -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
 <!-- ═══════════════════════ DEVENV DOCUMENTATION ═══════════════════════════ -->
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <div id="doc-devenv" hidden>
@@ -4950,6 +5159,7 @@ const DOCS = {
     devenv:    ['doc-devenv',    'devenv-nav',    'DevEnv Documentation'],
     extending: ['doc-extending', 'extending-nav', 'Extending / Developer'],
     infrastructure: ['doc-infrastructure', 'infrastructure-nav', 'Infrastructure'],
+    infraconsole: ['doc-infraconsole', 'infraconsole-nav', 'Infrastructure Console'],
     recovery:  ['doc-recovery',  'recovery-nav',  'Recovery Site'],
 };
 function switchDoc(which) {
