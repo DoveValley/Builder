@@ -12,7 +12,7 @@
  */
 function infra_http(string $method, string $url, array $opts = []): array
 {
-    $verify  = $opts['verify']  ?? false;   // Plesk :8443 panel cert is often self-signed
+    $verify  = $opts['verify']  ?? true;    // secure by default; callers to self-signed origins (Plesk :8443) pass verify=false
     $timeout = $opts['timeout'] ?? 20;
     $headers = $opts['headers'] ?? [];
 

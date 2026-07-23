@@ -398,7 +398,7 @@ if ($view === 'golive') {
       <div class="ic-tile"><div class="n"><?= $cLive ?></div><div class="l">Live</div></div>
     </div>
 
-    <div class="ic-note">Go-live = switching the domain's <strong>nameservers at the registrar</strong> to the Cloudflare pair. Cloudflare then flips the zone to <em>active</em> and the console detects it. No registrar API is wired yet, so releases surface the NS to set manually; use <strong>Refresh</strong> to poll Cloudflare and mark domains live.</div>
+    <div class="ic-note">Go-live = switching the domain's <strong>nameservers at the registrar</strong> to the Cloudflare pair. Cloudflare then flips the zone to <em>active</em> and the console detects it. Registrars with API credentials (e.g. NameSilo, Namecheap) switch NS <strong>automatically</strong> on Release / the daily cron; any others surface the NS to set manually. Use <strong>Refresh</strong> to poll Cloudflare and mark domains live.</div>
 
     <div class="ic-card"><h2>Schedule rollout</h2><div class="body">
       <form method="post" action="actions/golive.php">

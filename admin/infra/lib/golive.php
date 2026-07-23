@@ -40,7 +40,9 @@ function infra_golive_refresh_live(): int
 function infra_golive_schedule(int $perDay, string $startDate): int
 {
     $perDay = max(1, $perDay);
-    $rows = array_filter(infra_state_all_domains(), fn($r) => ($r['status'] ?? '') !== 'live');
+    // Only schedule domains that are actually ready to go live — not live, and not
+    // stuck in 'partial'/'register-failed'. (Re-scheduling 'queued' is fine.)
+    $rows = array_filter(infra_state_all_domains(), fn($r) => in_array($r['status'] ?? '', ['staged', 'queued'], true));
     ksort($rows);
     $start = strtotime($startDate ?: gmdate('Y-m-d'));
     if ($start === false) $start = time();
