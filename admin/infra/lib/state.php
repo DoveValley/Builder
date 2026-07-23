@@ -28,14 +28,20 @@ function infra_state_db(): PDO
         ftp_pass      TEXT DEFAULT "",
         registrar     TEXT DEFAULT "",
         status        TEXT DEFAULT "",
+        go_live_at    TEXT DEFAULT "",
         created_at    TEXT DEFAULT "",
         updated_at    TEXT DEFAULT ""
     )');
+    // migration: add go_live_at to pre-existing tables
+    $have = $db->query('PRAGMA table_info(domains)')->fetchAll(PDO::FETCH_COLUMN, 1);
+    if (!in_array('go_live_at', $have, true)) {
+        $db->exec('ALTER TABLE domains ADD COLUMN go_live_at TEXT DEFAULT ""');
+    }
     return $db;
 }
 
 const INFRA_STATE_COLS = ['domain','niche','server_id','cf_account_id','cf_zone_id',
-    'nameservers','ftp_user','ftp_pass','registrar','status','created_at','updated_at'];
+    'nameservers','ftp_user','ftp_pass','registrar','status','go_live_at','created_at','updated_at'];
 
 /** Insert/merge a domain record (preserves existing fields not supplied). */
 function infra_state_upsert_domain(array $in): void

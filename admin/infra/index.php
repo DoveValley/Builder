@@ -251,8 +251,93 @@ if ($view === 'bulk') {
     <?php infra_footer(); exit;
 }
 
+/* ============================= GO-LIVE (Phase 3) ============================= */
+if ($view === 'golive') {
+    infra_header('golive');
+    $all = infra_state_all_domains();
+    $queue = []; $live = [];
+    $cStaged = $cQueued = $cLive = 0;
+    foreach ($all as $dom => $r) {
+        $st = $r['status'] ?? '';
+        if ($st === 'live') { $live[$dom] = $r; $cLive++; }
+        else {
+            if ($st === 'queued' || $st === 'releasing' || $st === 'awaiting-ns') $cQueued++;
+            else $cStaged++;
+            $queue[$dom] = $r;
+        }
+    }
+    // order queue by go_live_at then domain
+    uksort($queue, function ($a, $b) use ($queue) {
+        return [$queue[$a]['go_live_at'] ?? '', $a] <=> [$queue[$b]['go_live_at'] ?? '', $b];
+    });
+    $today = gmdate('Y-m-d');
+    ?>
+    <div class="ic-tiles">
+      <div class="ic-tile"><div class="n"><?= $cStaged ?></div><div class="l">Staged</div></div>
+      <div class="ic-tile"><div class="n"><?= $cQueued ?></div><div class="l">Queued</div></div>
+      <div class="ic-tile"><div class="n"><?= $cLive ?></div><div class="l">Live</div></div>
+    </div>
+
+    <div class="ic-note">Go-live = switching the domain's <strong>nameservers at the registrar</strong> to the Cloudflare pair. Cloudflare then flips the zone to <em>active</em> and the console detects it. No registrar API is wired yet, so releases surface the NS to set manually; use <strong>Refresh</strong> to poll Cloudflare and mark domains live.</div>
+
+    <div class="ic-card"><h2>Schedule rollout</h2><div class="body">
+      <form method="post" action="actions/golive.php">
+        <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+        <input type="hidden" name="action" value="schedule">
+        Release <input type="number" name="per_day" value="20" min="1" style="width:70px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px"> per day,
+        starting <input type="date" name="start_date" value="<?= ih($today) ?>" style="padding:6px 8px;border:1px solid #d1d5db;border-radius:8px">
+        <button class="btn" type="submit" onclick="return confirm('Schedule all non-live domains into daily batches?')">Schedule</button>
+      </form>
+      <form method="post" action="actions/golive.php" style="margin-top:10px">
+        <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+        <input type="hidden" name="action" value="refresh">
+        <button class="btn sec" type="submit">&#8635; Refresh live status (poll Cloudflare)</button>
+      </form>
+    </div></div>
+
+    <div class="ic-card"><h2>Queue (<?= count($queue) ?>)</h2><div class="body">
+      <?php if (!$queue): ?><div class="ic-empty">Nothing staged/queued. Provision domains first.</div>
+      <?php else: ?>
+        <input class="ic-search" type="search" placeholder="Filter…" data-target="tbl-q">
+        <table id="tbl-q"><thead><tr><th>Domain</th><th>Registrar</th><th>Target nameservers</th><th>Go-live</th><th>Status</th><th></th></tr></thead><tbody>
+        <?php foreach ($queue as $dom => $r):
+          $due = ($r['go_live_at'] ?? '') !== '' && $r['go_live_at'] <= $today;
+          $stCls = ($r['status'] === 'releasing') ? 'b-warn' : (($r['status'] === 'awaiting-ns') ? 'b-warn' : 'b-mut');
+        ?>
+          <tr>
+            <td><strong><?= ih($dom) ?></strong></td>
+            <td><?= $r['registrar'] !== '' ? ih($r['registrar']) : '<span class="badge b-mut">?</span>' ?></td>
+            <td style="font-size:11px;color:#374151"><?= $r['nameservers'] !== '' ? ih(str_replace(',', ', ', $r['nameservers'])) : '<span class="badge b-warn">not staged</span>' ?></td>
+            <td><?= $r['go_live_at'] !== '' ? ih($r['go_live_at']) . ($due ? ' <span class="badge b-warn">due</span>' : '') : '<span style="color:#9ca3af">—</span>' ?></td>
+            <td><span class="badge <?= $stCls ?>"><?= ih($r['status'] ?: 'staged') ?></span></td>
+            <td style="text-align:right">
+              <form method="post" action="actions/golive.php" style="display:inline">
+                <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+                <input type="hidden" name="action" value="release">
+                <input type="hidden" name="domain" value="<?= ih($dom) ?>">
+                <button class="btn sec" type="submit" onclick="return confirm('Release <?= ih($dom) ?> now? (switch NS to Cloudflare)')">Release now</button>
+              </form>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+        </tbody></table>
+      <?php endif; ?>
+    </div></div>
+
+    <?php if ($live): ?>
+    <div class="ic-card"><h2>Live (<?= count($live) ?>)</h2><div class="body">
+      <table><thead><tr><th>Domain</th><th>Registrar</th><th>Server</th></tr></thead><tbody>
+      <?php foreach ($live as $dom => $r): ?>
+        <tr><td><strong><?= ih($dom) ?></strong> <span class="badge b-ok">live</span></td><td><?= ih($r['registrar'] ?: '—') ?></td><td><?= ih($r['server_id'] ?: '—') ?></td></tr>
+      <?php endforeach; ?>
+      </tbody></table>
+    </div></div>
+    <?php endif; ?>
+    <?php infra_search_js(); infra_footer(); exit;
+}
+
 /* ============================= STUB VIEWS ============================= */
-if (in_array($view, ['plesk', 'cloudflare', 'golive'], true)) {
+if (in_array($view, ['plesk', 'cloudflare'], true)) {
     infra_header($view);
     $titles = ['plesk' => 'Plesk', 'cloudflare' => 'Cloudflare', 'golive' => 'Go-Live'];
     echo '<div class="ic-card"><h2>' . ih($titles[$view]) . '</h2><div class="ic-empty">CRUD for '

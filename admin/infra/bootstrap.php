@@ -21,6 +21,7 @@ require_once __DIR__ . '/lib/plesk.php';
 require_once __DIR__ . '/lib/cloudflare.php';
 require_once __DIR__ . '/lib/state.php';
 require_once __DIR__ . '/lib/fleet.php';
+require_once __DIR__ . '/lib/golive.php';
 
 function ih($s): string { return htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8'); }
 function infra_csrf(): string { return $_SESSION['infra_csrf']; }
