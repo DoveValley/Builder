@@ -1,8 +1,9 @@
 <?php
 /**
- * infra/actions/provision.php — POST endpoint for Phase-1 provisioning steps.
- * CSRF-guarded. Runs the selected steps (create Plesk site / create CF zone),
- * flashes per-step results, and redirects back (PRG). Idempotent where possible.
+ * infra/actions/provision.php — POST endpoint for Phase-1 provisioning.
+ * CSRF-guarded. Creates Plesk site + fully stages the Cloudflare zone
+ * (DNS apex/www → VPS IP proxied, SSL, HSTS), persists the record to fleet
+ * state, flashes per-step results, and redirects (PRG). Idempotent.
  */
 require_once __DIR__ . '/../bootstrap.php';
 
@@ -19,7 +20,6 @@ $acctId  = $_POST['cf_account_id'] ?? '';
 $doPlesk = !empty($_POST['do_plesk']);
 $doCf    = !empty($_POST['do_cf']);
 
-// basic domain validation
 if (!preg_match('/^(?=.{1,253}$)([a-z0-9](-?[a-z0-9])*\.)+[a-z]{2,}$/', $domain)) {
     infra_set_flash('err', "Invalid domain: '$domain'");
     header('Location: ' . $back); exit;
@@ -29,16 +29,14 @@ if (!$doPlesk && !$doCf) {
     header('Location: ' . $back); exit;
 }
 
-// resolve server + account from registries
-$server = null;
-foreach (infra_servers() as $s) if (($s['id'] ?? '') === $srvId) $server = $s;
-$account = null;
-foreach (infra_cf_accounts() as $a) if (($a['id'] ?? '') === $acctId) $account = $a;
+$server = null;  foreach (infra_servers() as $s)     if (($s['id'] ?? '') === $srvId)  $server = $s;
+$account = null; foreach (infra_cf_accounts() as $a)  if (($a['id'] ?? '') === $acctId) $account = $a;
 
 $results = [];
 $allOk   = true;
+$prov    = ['domain' => $domain, 'server_id' => $srvId, 'cf_account_id' => ($account ? $acctId : '')];
 
-/* ---- Plesk: create site + system user ---- */
+/* ---- Plesk: create site + system (FTP) user ---- */
 if ($doPlesk) {
     if (!$server) {
         $results[] = 'Plesk: ✗ no server selected'; $allOk = false;
@@ -51,7 +49,9 @@ if ($doPlesk) {
         $ip      = $server['default_ip'] ?? ($server['host'] ?? '');
         $r = plesk_create_site($server, $domain, $ftpUser, $ftpPass, $ip);
         if ($r['ok']) {
-            $results[] = "Plesk: ✓ {$r['message']}\n         FTP user: {$r['ftp_user']}\n         FTP pass: {$r['ftp_pass']}  (save this — needed for deploy)";
+            $prov['ftp_user'] = $ftpUser;
+            $prov['ftp_pass'] = $ftpPass;
+            $results[] = "Plesk: ✓ {$r['message']}\n         FTP user: {$r['ftp_user']}\n         FTP pass: {$r['ftp_pass']}  (saved to fleet state for deploy)";
         } else {
             $results[] = "Plesk: ✗ {$r['message']}"; $allOk = false;
         }
@@ -66,7 +66,6 @@ if ($doCf) {
         $results[] = 'Cloudflare: ✗ need a server selected (its IP is the DNS target)'; $allOk = false;
     } else {
         $ip = $server['default_ip'] ?? ($server['host'] ?? '');
-        // 1) ensure zone
         $zoneId = ''; $ns = [];
         $existing = cf_get_zone($account, $domain);
         if ($existing) {
@@ -77,8 +76,10 @@ if ($doCf) {
             if ($z['ok']) { $zoneId = $z['zone_id']; $ns = $z['name_servers']; $results[] = 'Cloudflare zone: ✓ created'; }
             else { $results[] = "Cloudflare zone: ✗ {$z['message']}"; $allOk = false; }
         }
-        // 2) DNS + SSL + HSTS
         if ($zoneId) {
+            $prov['cf_zone_id']  = $zoneId;
+            $prov['nameservers'] = implode(',', $ns);
+
             $a1 = cf_upsert_a_record($account, $zoneId, $domain, $ip, true);
             $results[] = "  A  @   -> {$ip} (proxied): " . ($a1['ok'] ? '✓ ' . $a1['message'] : '✗ ' . $a1['message']);
             if (!$a1['ok']) $allOk = false;
@@ -87,7 +88,6 @@ if ($doCf) {
             $results[] = "  A  www -> {$ip} (proxied): " . ($a2['ok'] ? '✓ ' . $a2['message'] : '✗ ' . $a2['message']);
             if (!$a2['ok']) $allOk = false;
 
-            // 'full' (not strict) while staged — origin still has self-signed/LE; strict comes at go-live w/ Origin CA
             $ssl = cf_set_ssl_mode($account, $zoneId, 'full');
             $results[] = '  SSL mode: ' . ($ssl['ok'] ? '✓ ' . $ssl['message'] . ' (upgrade to strict at go-live w/ Origin CA)' : '✗ ' . $ssl['message']);
             if (!$ssl['ok']) $allOk = false;
@@ -100,6 +100,11 @@ if ($doCf) {
         }
     }
 }
+
+/* ---- persist to fleet state ---- */
+$prov['registrar'] = infra_registrar_map()[$domain]['registrar'] ?? '';
+$prov['status']    = $allOk ? 'staged' : 'partial';
+infra_state_upsert_domain($prov);
 
 infra_set_flash($allOk ? 'ok' : 'warn', "Provision '$domain':\n" . implode("\n", $results));
 header('Location: ' . $back);

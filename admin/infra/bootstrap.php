@@ -19,6 +19,7 @@ require_once __DIR__ . '/lib/store.php';
 require_once __DIR__ . '/lib/http.php';
 require_once __DIR__ . '/lib/plesk.php';
 require_once __DIR__ . '/lib/cloudflare.php';
+require_once __DIR__ . '/lib/state.php';
 require_once __DIR__ . '/lib/fleet.php';
 
 function ih($s): string { return htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8'); }

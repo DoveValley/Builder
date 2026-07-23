@@ -77,7 +77,7 @@ if ($view === 'domains') {
                   : '<span class="badge b-warn">not on Plesk</span>';
             ?>
               <tr>
-                <td><strong><?= ih($r['domain']) ?></strong></td>
+                <td><strong><?= ih($r['domain']) ?></strong><?php if (!empty($r['managed'])): ?> <span class="badge b-ok" title="provisioned/tracked by this console">managed</span><?php endif; ?></td>
                 <td><?= $reg ?></td>
                 <td><?= infra_cf_cell($r['cf'], $hasCf) ?></td>
                 <td><?= $vps ?></td>

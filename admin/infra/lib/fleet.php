@@ -7,6 +7,7 @@
 require_once __DIR__ . '/store.php';
 require_once __DIR__ . '/plesk.php';
 require_once __DIR__ . '/cloudflare.php';
+require_once __DIR__ . '/state.php';
 
 /** domain(lower) => {account_id,account_label,zone_id,status,name_servers[]} across ALL CF accounts */
 function infra_cf_zone_index(): array
@@ -68,15 +69,19 @@ function infra_fleet_domains(): array
     $plesk = infra_plesk_domain_index();
     $cf    = infra_cf_zone_index();
     $reg   = infra_registrar_map();
+    $stored = infra_state_all_domains();   // domain(lower) => stored record
 
-    $names = array_values(array_unique(array_merge(array_keys($plesk), array_keys($cf), array_keys($reg))));
+    $names = array_values(array_unique(array_merge(
+        array_keys($plesk), array_keys($cf), array_keys($reg), array_keys($stored)
+    )));
     sort($names);
 
     $rows = [];
     foreach ($names as $n) {
-        $p = $plesk[$n] ?? null;
-        $z = $cf[$n]    ?? null;
-        $r = $reg[$n]   ?? [];
+        $p  = $plesk[$n]  ?? null;
+        $z  = $cf[$n]     ?? null;
+        $r  = $reg[$n]    ?? [];
+        $st = $stored[$n] ?? null;
 
         if     ($p && !$z) $drift = 'no-cf-zone';     // on a VPS but no CF zone
         elseif (!$p && $z) $drift = 'orphan-zone';    // CF zone with no VPS site
@@ -85,15 +90,19 @@ function infra_fleet_domains(): array
         if     ($z && ($z['status'] ?? '') === 'active') $state = 'live';    // NS switched → serving
         elseif ($z && ($z['status'] ?? '') === 'pending') $state = 'staged'; // zone exists, NS not switched
         elseif ($p)                                       $state = 'staged'; // plesk only
+        elseif ($st && !empty($st['status']))             $state = $st['status']; // stored (not yet discovered live)
         else                                              $state = 'unknown';
 
         $rows[] = [
             'domain'    => $n,
             'plesk'     => $p,
             'cf'        => $z,
-            'registrar' => $r['registrar'] ?? '',
+            'registrar' => ($st['registrar'] ?? '') ?: ($r['registrar'] ?? ''),
             'state'     => $state,
             'drift'     => $drift,
+            'managed'   => (bool) $st,          // provisioned/tracked by this console
+            'ftp_user'  => $st['ftp_user'] ?? '',
+            'niche'     => $st['niche'] ?? '',
         ];
     }
     return $rows;
