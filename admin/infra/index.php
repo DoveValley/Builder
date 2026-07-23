@@ -10,6 +10,7 @@
 require_once __DIR__ . '/bootstrap.php';
 
 $view = $_GET['view'] ?? 'dashboard';
+if (!empty($_GET['refresh'])) infra_cache_force();   // ?refresh=1 → bypass cache, re-sweep live
 
 function infra_find_server(string $id): ?array
 {
@@ -127,7 +128,7 @@ if ($view === 'domains') {
     <?php if (!$hasCf): ?>
       <div class="ic-note">No Cloudflare account configured yet — the Cloudflare column shows <em>no CF account</em>. Add one to <code>admin/infra/config/cloudflare.json</code> and refresh to see real zone/NS state.</div>
     <?php endif; ?>
-    <div style="margin-bottom:12px"><a class="btn" href="index.php?view=domains">&#8635; Discover / Refresh</a></div>
+    <div style="margin-bottom:12px"><a class="btn" href="index.php?view=domains&refresh=1">&#8635; Discover / Refresh</a></div>
     <div class="ic-card">
       <h2>Domain inventory</h2>
       <div class="body">
@@ -167,9 +168,10 @@ if ($view === 'server') {
     infra_header('dashboard');
     if (!$srv) { echo '<div class="ic-note">Unknown server. <a href="index.php">&larr; back</a></div>'; infra_footer(); exit; }
 
-    $probe = plesk_probe($srv);
-    $info  = $probe['ok'] ? plesk_server_info($srv) : null;
-    $sites = $probe['ok'] ? plesk_list_sites($srv) : [];
+    $disc  = infra_discover_server($srv);
+    $probe = ['ok' => $disc['ok'], 'error' => $disc['error']];
+    $info  = $disc['info'];
+    $sites = $disc['sites'];
     $cfIdx = infra_cf_zone_index();
     $reg   = infra_registrar_map();
     $hasCf = count(infra_cf_accounts()) > 0;
@@ -470,12 +472,11 @@ $servers = infra_servers();
 $cfAccts = infra_cf_accounts();
 $totalSites = 0; $issues = 0; $rows = [];
 foreach ($servers as $srv) {
-    $probe = plesk_probe($srv);
-    $sites = $probe['ok'] ? plesk_list_sites($srv) : [];
-    if (!$probe['ok']) $issues++;
-    $totalSites += count($sites);
-    $rows[] = ['srv' => $srv, 'probe' => $probe, 'sites' => count($sites),
-               'info' => $probe['ok'] ? plesk_server_info($srv) : null];
+    $disc = infra_discover_server($srv);
+    if (!$disc['ok']) $issues++;
+    $totalSites += count($disc['sites']);
+    $rows[] = ['srv' => $srv, 'probe' => ['ok' => $disc['ok'], 'error' => $disc['error']],
+               'sites' => count($disc['sites']), 'info' => $disc['info']];
 }
 infra_header('dashboard');
 ?>
@@ -487,7 +488,7 @@ infra_header('dashboard');
   <div class="ic-tile"><div class="n"><?= $issues ?></div><div class="l">Issues</div></div>
 </div>
 <div style="margin-bottom:16px">
-  <a class="btn" href="index.php">&#8635; Discover / Refresh</a>
+  <a class="btn" href="index.php?refresh=1">&#8635; Discover / Refresh</a>
   <a class="btn sec" href="index.php?view=domains">View all domains &rarr;</a>
 </div>
 <div class="ic-card">

@@ -9,25 +9,22 @@ require_once __DIR__ . '/state.php';
 require_once __DIR__ . '/store.php';
 require_once __DIR__ . '/cloudflare.php';
 require_once __DIR__ . '/registrar.php';
+require_once __DIR__ . '/fleet.php';   // infra_cf_zone_index() (cached)
 
-/** CF accounts keyed by id. */
-function infra_cf_accounts_by_id(): array
-{
-    $out = [];
-    foreach (infra_cf_accounts() as $a) $out[$a['id'] ?? ''] = $a;
-    return $out;
-}
-
-/** Refresh live status from Cloudflare (zone active ⇒ live). @return int number newly marked live */
+/**
+ * Refresh live status from Cloudflare (zone active ⇒ live). Uses the cached CF
+ * zone index (one sweep across accounts) instead of a call per domain, so it
+ * scales to thousands of domains. Callers that need truly-live data
+ * (cron, the Refresh button) set infra_cache_force() first.
+ * @return int number newly marked live
+ */
 function infra_golive_refresh_live(): int
 {
-    $accts = infra_cf_accounts_by_id();
+    $idx = infra_cf_zone_index();
     $n = 0;
     foreach (infra_state_all_domains() as $dom => $rec) {
         if (($rec['status'] ?? '') === 'live') continue;
-        $acct = $accts[$rec['cf_account_id'] ?? ''] ?? null;
-        if (!$acct) continue;
-        $z = cf_get_zone($acct, $dom);
+        $z = $idx[$dom] ?? null;
         if ($z && ($z['status'] ?? '') === 'active') {
             infra_state_upsert_domain(['domain' => $dom, 'status' => 'live']);
             $n++;

@@ -30,6 +30,7 @@ switch ($_POST['action'] ?? '') {
         break;
 
     case 'refresh':
+        infra_cache_force();                 // re-sweep Cloudflare live, don't use cached zones
         $n = infra_golive_refresh_live();
         infra_set_flash('ok', "Live-status refresh: {$n} domain(s) newly detected live.");
         break;

@@ -43,6 +43,7 @@ switch ($action) {
         if (!$account || ($rec['cf_zone_id'] ?? '') === '') { infra_set_flash('warn', 'No Cloudflare zone on record.'); header('Location: ' . $back); exit; }
         $r = cf_delete_zone($account, $rec['cf_zone_id']);
         if ($r['ok']) infra_state_upsert_domain(['domain' => $domain, 'cf_zone_id' => '', 'nameservers' => '']);
+        infra_cache_flush();
         infra_set_flash($r['ok'] ? 'ok' : 'err', "Delete CF zone: {$r['message']}");
         header('Location: ' . $back); exit;
 
@@ -50,6 +51,7 @@ switch ($action) {
         if (!$server) { infra_set_flash('warn', 'No server on record.'); header('Location: ' . $back); exit; }
         $r = plesk_delete_site($server, $domain);
         if ($r['ok']) infra_state_upsert_domain(['domain' => $domain, 'ftp_user' => '', 'ftp_pass' => '']);
+        infra_cache_flush();
         infra_set_flash($r['ok'] ? 'ok' : 'err', "Delete Plesk site: {$r['message']}");
         header('Location: ' . $back); exit;
 
@@ -64,6 +66,7 @@ switch ($action) {
         if ($server) { $p = plesk_delete_site($server, $domain); $parts[] = 'Plesk site: ' . $p['message']; }
         infra_state_delete_domain($domain);
         $parts[] = 'fleet state: removed';
+        infra_cache_flush();
         infra_set_flash('warn', "Teardown {$domain} —\n" . implode("\n", $parts));
         header('Location: ' . $toList); exit;
 

@@ -11,10 +11,12 @@
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "CLI only\n"); exit(1); }
 
 require_once __DIR__ . '/../lib/golive.php';
+require_once __DIR__ . '/../lib/cache.php';
 
 $cap = max(1, (int) ($argv[1] ?? 20));
 $ts  = gmdate('c');
 
+infra_cache_force();                 // cron always polls Cloudflare live
 $pre = infra_golive_refresh_live();
 $due = infra_golive_due();
 

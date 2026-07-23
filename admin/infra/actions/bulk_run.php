@@ -91,6 +91,7 @@ foreach ($domains as $i => $dom) {
     else            { $failCount++; bulk_emit('  → partial/failed'); }
 }
 
+infra_cache_flush();   // created Plesk sites / CF zones — invalidate discovery cache
 bulk_emit("");
 bulk_emit(str_repeat('─', 48));
 bulk_emit("DONE — {$okCount} staged, {$failCount} failed of {$total}.");

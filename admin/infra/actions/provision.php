@@ -35,5 +35,6 @@ $server = null;  foreach (infra_servers() as $s)    if (($s['id'] ?? '') === ($_
 $account = null; foreach (infra_cf_accounts() as $a) if (($a['id'] ?? '') === ($_POST['cf_account_id'] ?? '')) $account = $a;
 
 $res = infra_provision_one($domain, $server, $account, $opts);
+infra_cache_flush();   // created a Plesk site / CF zone — invalidate discovery cache
 infra_set_flash($res['ok'] ? 'ok' : 'warn', "Provision '$domain':\n" . implode("\n", $res['lines']));
 header('Location: ' . $back);

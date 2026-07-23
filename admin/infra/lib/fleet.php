@@ -8,13 +8,44 @@ require_once __DIR__ . '/store.php';
 require_once __DIR__ . '/plesk.php';
 require_once __DIR__ . '/cloudflare.php';
 require_once __DIR__ . '/state.php';
+require_once __DIR__ . '/cache.php';
+
+const INFRA_DISCOVER_TTL = 180;   // seconds a discovery sweep stays cached
+
+/** Cached per-server discovery bundle: {ok,error,info,sites}. Key server:{id}. */
+function infra_discover_server(array $server, int $ttl = INFRA_DISCOVER_TTL): array
+{
+    $key = 'server:' . ($server['id'] ?? md5((string) json_encode($server)));
+    $c = infra_cache_get($key, $ttl);
+    if ($c !== null) return $c;
+    $probe  = plesk_probe($server);
+    $bundle = [
+        'ok'    => $probe['ok'],
+        'error' => $probe['error'],
+        'info'  => $probe['ok'] ? plesk_server_info($server) : null,
+        'sites' => $probe['ok'] ? plesk_list_sites($server) : [],
+    ];
+    infra_cache_put($key, $bundle);
+    return $bundle;
+}
+
+/** Cached CF zone list for one account. Key cf_zones:{id}. */
+function infra_discover_cf_zones(array $account, int $ttl = INFRA_DISCOVER_TTL): array
+{
+    $key = 'cf_zones:' . ($account['id'] ?? md5((string) json_encode($account)));
+    $c = infra_cache_get($key, $ttl);
+    if ($c !== null) return $c;
+    $zones = cf_list_zones($account);
+    infra_cache_put($key, $zones);
+    return $zones;
+}
 
 /** domain(lower) => {account_id,account_label,zone_id,status,name_servers[]} across ALL CF accounts */
 function infra_cf_zone_index(): array
 {
     $idx = [];
     foreach (infra_cf_accounts() as $a) {
-        foreach (cf_list_zones($a) as $z) {
+        foreach (infra_discover_cf_zones($a) as $z) {
             $name = strtolower($z['name'] ?? '');
             if ($name === '') continue;
             $idx[$name] = [
@@ -34,8 +65,9 @@ function infra_plesk_domain_index(): array
 {
     $idx = [];
     foreach (infra_servers() as $s) {
-        if (!plesk_probe($s)['ok']) continue;
-        foreach (plesk_list_sites($s) as $d) {
+        $disc = infra_discover_server($s);
+        if (!$disc['ok']) continue;
+        foreach ($disc['sites'] as $d) {
             $name = strtolower($d['name'] ?? '');
             if ($name === '') continue;
             $idx[$name] = [

@@ -39,6 +39,8 @@ function infra_state_db(): PDO
     }
     // persistent round-robin counters (survive across bulk runs)
     $db->exec('CREATE TABLE IF NOT EXISTS counters (k TEXT PRIMARY KEY, v INTEGER DEFAULT 0)');
+    // discovery cache (Plesk/CF API sweeps) — see lib/cache.php
+    $db->exec('CREATE TABLE IF NOT EXISTS cache (k TEXT PRIMARY KEY, v TEXT, ts INTEGER)');
     return $db;
 }
 

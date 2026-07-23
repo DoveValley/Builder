@@ -20,6 +20,7 @@ require_once __DIR__ . '/lib/http.php';
 require_once __DIR__ . '/lib/plesk.php';
 require_once __DIR__ . '/lib/cloudflare.php';
 require_once __DIR__ . '/lib/state.php';
+require_once __DIR__ . '/lib/cache.php';
 require_once __DIR__ . '/lib/fleet.php';
 require_once __DIR__ . '/lib/golive.php';
 
