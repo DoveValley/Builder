@@ -14,6 +14,31 @@ function infra_registrar_config(string $name): array
     return $cfg['registrars'][strtolower(trim($name))] ?? [];
 }
 
+/** Configured registrar names (keys of config/registrar.json). @return string[] */
+function infra_registrar_names(): array
+{
+    $cfg = infra_load_json(infra_config_path('registrar.json'), []);
+    return array_keys($cfg['registrars'] ?? []);
+}
+
+/**
+ * Register (buy) a domain at the given registrar. Costs real money.
+ * @return array{ok:bool, message:string}
+ */
+function infra_registrar_register(string $domain, int $years, string $registrarName, array $ns = []): array
+{
+    $cfg  = infra_registrar_config($registrarName);
+    $type = strtolower($cfg['type'] ?? $registrarName);
+    switch ($type) {
+        case 'namesilo':
+            $r = infra_reg_namesilo_register($domain, $years, $cfg, $ns);
+            return ['ok' => $r['ok'], 'message' => $r['message']];
+        // porkbun/spaceship/dynadot/gandi registration can plug in here later
+        default:
+            return ['ok' => false, 'message' => "auto-registration not wired for '{$registrarName}' — register manually"];
+    }
+}
+
 /**
  * Point a domain's nameservers at Cloudflare.
  * @return array{ok:bool, manual:bool, message:string}

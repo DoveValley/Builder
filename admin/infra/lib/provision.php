@@ -13,14 +13,37 @@ function infra_valid_domain(string $d): bool
 
 /**
  * Provision one domain end-to-end (idempotent, staged-only), persist to state.
+ * @param array $opts { register:bool, registrar:string, years:int, plesk:bool, cf:bool }
  * @return array{ok:bool, lines:string[]}
  */
-function infra_provision_one(string $domain, ?array $server, ?array $account, bool $doPlesk, bool $doCf): array
+function infra_provision_one(string $domain, ?array $server, ?array $account, array $opts): array
 {
-    $domain = strtolower(trim($domain));
-    $lines  = [];
-    $ok     = true;
-    $prov   = ['domain' => $domain, 'server_id' => $server['id'] ?? '', 'cf_account_id' => $account['id'] ?? ''];
+    $domain    = strtolower(trim($domain));
+    $doReg     = !empty($opts['register']);
+    $regName   = strtolower(trim($opts['registrar'] ?? ''));
+    $years     = max(1, (int) ($opts['years'] ?? 1));
+    $doPlesk   = !empty($opts['plesk']);
+    $doCf      = !empty($opts['cf']);
+    $lines     = [];
+    $ok        = true;
+    $prov      = ['domain' => $domain, 'server_id' => $server['id'] ?? '', 'cf_account_id' => $account['id'] ?? ''];
+    if ($regName !== '') $prov['registrar'] = $regName;   // record chosen registrar even without auto-buy
+
+    /* 0) Register (buy) the domain — real money. If it fails, do NOT provision further. */
+    if ($doReg) {
+        if ($regName === '') {
+            return ['ok' => false, 'lines' => ['Registrar: ✗ no registrar selected for registration']];
+        }
+        $rr = infra_registrar_register($domain, $years, $regName);   // NS left at registrar default; go-live switches to CF
+        if ($rr['ok']) {
+            $lines[] = "Registrar: ✓ {$rr['message']}";
+        } else {
+            $lines[] = "Registrar: ✗ {$rr['message']}";
+            $prov['status'] = 'register-failed';
+            infra_state_upsert_domain($prov);
+            return ['ok' => false, 'lines' => $lines];   // abort — don't provision a domain we don't own
+        }
+    }
 
     /* Plesk site + FTP user */
     if ($doPlesk) {
@@ -77,7 +100,7 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, bo
         }
     }
 
-    $prov['registrar'] = infra_registrar_map()[$domain]['registrar'] ?? '';
+    if (empty($prov['registrar'])) $prov['registrar'] = infra_registrar_map()[$domain]['registrar'] ?? '';
     $prov['status']    = $ok ? 'staged' : 'partial';
     infra_state_upsert_domain($prov);
 

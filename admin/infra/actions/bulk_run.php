@@ -21,8 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !infra_check_csrf()) {
     exit;
 }
 
-$doPlesk = !empty($_POST['do_plesk']);
-$doCf    = !empty($_POST['do_cf']);
+$opts = [
+    'register'  => !empty($_POST['do_register']),
+    'registrar' => $_POST['registrar'] ?? '',
+    'years'     => (int) ($_POST['years'] ?? 1),
+    'plesk'     => !empty($_POST['do_plesk']),
+    'cf'        => !empty($_POST['do_cf']),
+];
 
 $server = null;  foreach (infra_servers() as $s)    if (($s['id'] ?? '') === ($_POST['server_id'] ?? ''))    $server = $s;
 $account = null; foreach (infra_cf_accounts() as $a) if (($a['id'] ?? '') === ($_POST['cf_account_id'] ?? '')) $account = $a;
@@ -32,7 +37,7 @@ $raw     = preg_split('/[\s,]+/', trim((string)($_POST['domains'] ?? '')));
 $domains = array_values(array_unique(array_filter(array_map('strtolower', array_map('trim', $raw)))));
 
 if (!$domains) { bulk_emit('Nothing to do — no domains provided.'); exit; }
-if (!$doPlesk && !$doCf) { bulk_emit('Nothing selected to provision (pick Plesk and/or Cloudflare).'); exit; }
+if (!$opts['register'] && !$opts['plesk'] && !$opts['cf']) { bulk_emit('Nothing selected (pick register / Plesk / Cloudflare).'); exit; }
 
 $total = count($domains);
 bulk_emit("Bulk provisioning {$total} domain(s) — staged only, idempotent.");
@@ -48,7 +53,7 @@ foreach ($domains as $i => $dom) {
         $failCount++;
         continue;
     }
-    $res = infra_provision_one($dom, $server, $account, $doPlesk, $doCf);
+    $res = infra_provision_one($dom, $server, $account, $opts);
     foreach ($res['lines'] as $line) bulk_emit('  ' . $line);
     if ($res['ok']) { $okCount++; bulk_emit('  → staged ✓'); }
     else            { $failCount++; bulk_emit('  → partial/failed'); }
