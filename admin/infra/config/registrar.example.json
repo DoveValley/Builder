@@ -1,6 +1,10 @@
 {
   "registrars": {
-    "namesilo": { "type": "namesilo", "api_key": "NAMESILO_API_KEY" },
-    "porkbun":  { "type": "porkbun", "api_key": "PORKBUN_API_KEY", "secret_api_key": "PORKBUN_SECRET" }
+    "namesilo":  { "type": "namesilo",  "api_key": "NAMESILO_API_KEY" },
+    "porkbun":   { "type": "porkbun",   "api_key": "PORKBUN_KEY", "secret_api_key": "PORKBUN_SECRET" },
+    "spaceship": { "type": "spaceship", "api_key": "SPACESHIP_KEY", "api_secret": "SPACESHIP_SECRET" },
+    "dynadot":   { "type": "dynadot",   "api_key": "DYNADOT_API_KEY" },
+    "gandi":     { "type": "gandi",     "pat": "GANDI_PERSONAL_ACCESS_TOKEN" },
+    "namecheap": { "type": "namecheap", "api_user": "user", "api_key": "NC_API_KEY", "username": "user", "client_ip": "187.127.254.206" }
   }
 }

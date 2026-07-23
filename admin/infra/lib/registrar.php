@@ -24,10 +24,12 @@ function infra_registrar_set_ns(string $domain, array $ns, string $registrarName
     $type = strtolower($cfg['type'] ?? $registrarName);
 
     switch ($type) {
-        case 'namesilo':
-            return infra_reg_namesilo_set_ns($domain, $ns, $cfg);
-        case 'porkbun':
-            return infra_reg_porkbun_set_ns($domain, $ns, $cfg);
+        case 'namesilo':  return infra_reg_namesilo_set_ns($domain, $ns, $cfg);
+        case 'porkbun':   return infra_reg_porkbun_set_ns($domain, $ns, $cfg);
+        case 'spaceship': return infra_reg_spaceship_set_ns($domain, $ns, $cfg);
+        case 'dynadot':   return infra_reg_dynadot_set_ns($domain, $ns, $cfg);
+        case 'gandi':     return infra_reg_gandi_set_ns($domain, $ns, $cfg);
+        case 'namecheap': return infra_reg_namecheap_set_ns($domain, $ns, $cfg);
         default:
             return [
                 'ok'      => false,
@@ -132,4 +134,92 @@ function infra_reg_porkbun_set_ns(string $domain, array $ns, array $cfg): array
             ? 'Porkbun: nameservers set → ' . implode(', ', $ns)
             : ('Porkbun error: ' . $r['message'] . ' (is "API Access" enabled for this domain?)'),
     ];
+}
+
+/* ============================= Spaceship ============================= */
+
+function infra_reg_spaceship_set_ns(string $domain, array $ns, array $cfg): array
+{
+    $ns = array_values(array_filter(array_map('trim', $ns)));
+    $r  = infra_http('PUT', 'https://spaceship.dev/api/v1/domains/' . $domain . '/nameservers', [
+        'headers' => [
+            'X-Api-Key: ' . ($cfg['api_key'] ?? ''),
+            'X-Api-Secret: ' . ($cfg['api_secret'] ?? ''),
+            'Content-Type: application/json',
+        ],
+        'verify'  => true, 'timeout' => 30,
+        'body'    => ['provider' => 'custom', 'hosts' => $ns],
+    ]);
+    $ok  = $r['code'] >= 200 && $r['code'] < 300;
+    $err = $r['json']['detail'] ?? $r['json']['message'] ?? substr($r['raw'], 0, 120);
+    return ['ok' => $ok, 'manual' => false,
+        'message' => $ok ? 'Spaceship: nameservers set → ' . implode(', ', $ns) : "Spaceship error {$r['code']}: {$err}"];
+}
+
+/* ============================= Dynadot ============================= */
+/* NOTE: Dynadot may require external nameservers be added to the account first. */
+
+function infra_reg_dynadot_set_ns(string $domain, array $ns, array $cfg): array
+{
+    $ns = array_values(array_filter(array_map('trim', $ns)));
+    $q  = ['key' => $cfg['api_key'] ?? '', 'command' => 'set_ns', 'domain' => $domain];
+    foreach (array_slice($ns, 0, 13) as $i => $n) $q['ns' . $i] = $n;   // ns0..ns12
+    $r = infra_http('GET', 'https://api.dynadot.com/api3.json?' . http_build_query($q), ['verify' => true, 'timeout' => 30]);
+
+    $j    = $r['json'] ?? [];
+    $resp = $j['SetNsResponse'] ?? $j['Response'] ?? $j;
+    $sc   = $resp['ResponseCode'] ?? $resp['SetNsHeader']['SuccessCode'] ?? null;
+    $stat = strtolower((string) ($resp['Status'] ?? $resp['SetNsHeader']['Status'] ?? ''));
+    $ok   = ($r['code'] >= 200 && $r['code'] < 300) && ($sc === 0 || $sc === '0' || $stat === 'success');
+    $err  = $resp['Error'] ?? $resp['SetNsHeader']['Error'] ?? substr($r['raw'], 0, 120);
+    return ['ok' => $ok, 'manual' => false,
+        'message' => $ok ? 'Dynadot: nameservers set → ' . implode(', ', $ns) : "Dynadot error: {$err}"];
+}
+
+/* ============================= Gandi ============================= */
+
+function infra_reg_gandi_set_ns(string $domain, array $ns, array $cfg): array
+{
+    $ns  = array_values(array_filter(array_map('trim', $ns)));
+    $pat = $cfg['pat'] ?? ($cfg['api_key'] ?? '');
+    $r   = infra_http('PUT', 'https://api.gandi.net/v5/domain/domains/' . $domain . '/nameservers', [
+        'headers' => ['Authorization: Bearer ' . $pat, 'Content-Type: application/json'],
+        'verify'  => true, 'timeout' => 30,
+        'body'    => ['nameservers' => $ns],
+    ]);
+    $ok  = $r['code'] >= 200 && $r['code'] < 300;
+    $err = $r['json']['cause'] ?? $r['json']['message'] ?? substr($r['raw'], 0, 120);
+    return ['ok' => $ok, 'manual' => false,
+        'message' => $ok ? 'Gandi: nameservers set → ' . implode(', ', $ns) : "Gandi error {$r['code']}: {$err}"];
+}
+
+/* ============================= Namecheap ============================= */
+/* Requires: funded account, API access enabled, and ClientIp whitelisted. */
+
+function infra_reg_namecheap_set_ns(string $domain, array $ns, array $cfg): array
+{
+    $ns    = array_values(array_filter(array_map('trim', $ns)));
+    $parts = explode('.', $domain, 2);
+    $sld   = $parts[0];
+    $tld   = $parts[1] ?? '';
+    $q = [
+        'ApiUser'     => $cfg['api_user'] ?? '',
+        'ApiKey'      => $cfg['api_key'] ?? '',
+        'UserName'    => $cfg['username'] ?? ($cfg['api_user'] ?? ''),
+        'ClientIp'    => $cfg['client_ip'] ?? '',
+        'Command'     => 'namecheap.domains.dns.setCustom',
+        'SLD'         => $sld,
+        'TLD'         => $tld,
+        'NameServers' => implode(',', $ns),
+    ];
+    $r = infra_http('GET', 'https://api.namecheap.com/xml.response?' . http_build_query($q), ['verify' => true, 'timeout' => 30]);
+
+    $ok = false; $msg = 'unparseable response';
+    $xml = @simplexml_load_string($r['raw']);
+    if ($xml !== false) {
+        if ((string) $xml['Status'] === 'OK') { $ok = true; $msg = ''; }
+        else { $msg = (string) ($xml->Errors->Error ?? 'error'); }
+    }
+    return ['ok' => $ok, 'manual' => false,
+        'message' => $ok ? 'Namecheap: nameservers set → ' . implode(', ', $ns) : "Namecheap error: {$msg}"];
 }
