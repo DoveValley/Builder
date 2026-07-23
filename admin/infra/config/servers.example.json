@@ -1,0 +1,15 @@
+{
+  "servers": [
+    {
+      "id": "vps-01",
+      "label": "Human-friendly name",
+      "host": "1.2.3.4",
+      "port": 8443,
+      "api_token": "PLESK-REST-API-TOKEN",
+      "ssh_user": "root",
+      "ssh_key": "/root/.ssh/plesk_provision",
+      "default_ip": "1.2.3.4",
+      "niches": []
+    }
+  ]
+}

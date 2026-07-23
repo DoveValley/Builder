@@ -37,3 +37,10 @@ __pycache__/
 
 # Anthropic API key (secret — never commit)
 .ai_key
+config/plesk.json
+admin/infra/config/servers.json
+admin/infra/config/cloudflare.json
+admin/infra/config/registrar.json
+admin/infra/config/fleet.json
+admin/infra/state/
+admin/infra/config/domains.json
