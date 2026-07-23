@@ -110,17 +110,37 @@ if ($view === 'domain') {
 /* ============================= DOMAINS ============================= */
 if ($view === 'domains') {
     infra_header('domains');
-    $rows  = infra_fleet_domains();
-    $hasCf = count(infra_cf_accounts()) > 0;
+    $allRows = infra_fleet_domains();
+    $hasCf   = count(infra_cf_accounts()) > 0;
+    // tiles reflect the WHOLE fleet (not the filtered/paged slice)
     $live = $staged = $drift = 0;
-    foreach ($rows as $r) {
+    foreach ($allRows as $r) {
         if ($r['state'] === 'live') $live++;
         elseif ($r['state'] === 'staged') $staged++;
         if ($r['drift']) $drift++;
     }
+    // server-side search across the full set, then paginate
+    $q = trim((string) ($_GET['q'] ?? ''));
+    if ($q !== '') {
+        $ql = strtolower($q);
+        $rows = array_values(array_filter($allRows, function ($r) use ($ql) {
+            return strpos($r['domain'], $ql) !== false
+                || strpos(strtolower((string) $r['registrar']), $ql) !== false
+                || strpos((string) $r['state'], $ql) !== false
+                || strpos((string) ($r['drift'] ?? ''), $ql) !== false;
+        }));
+    } else {
+        $rows = $allRows;
+    }
+    $perPage = 100;
+    $total   = count($rows);
+    $pages   = max(1, (int) ceil($total / $perPage));
+    $page    = max(1, min($pages, (int) ($_GET['page'] ?? 1)));
+    $slice   = array_slice($rows, ($page - 1) * $perPage, $perPage);
+    $qs      = $q !== '' ? '&q=' . urlencode($q) : '';
     ?>
     <div class="ic-tiles">
-      <div class="ic-tile"><div class="n"><?= count($rows) ?></div><div class="l">Domains</div></div>
+      <div class="ic-tile"><div class="n"><?= count($allRows) ?></div><div class="l">Domains</div></div>
       <div class="ic-tile"><div class="n"><?= $live ?></div><div class="l">Live</div></div>
       <div class="ic-tile"><div class="n"><?= $staged ?></div><div class="l">Staged</div></div>
       <div class="ic-tile"><div class="n"><?= $drift ?></div><div class="l">Drift</div></div>
@@ -128,18 +148,25 @@ if ($view === 'domains') {
     <?php if (!$hasCf): ?>
       <div class="ic-note">No Cloudflare account configured yet — the Cloudflare column shows <em>no CF account</em>. Add one to <code>admin/infra/config/cloudflare.json</code> and refresh to see real zone/NS state.</div>
     <?php endif; ?>
-    <div style="margin-bottom:12px"><a class="btn" href="index.php?view=domains&refresh=1">&#8635; Discover / Refresh</a></div>
+    <div style="margin-bottom:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <a class="btn" href="index.php?view=domains&refresh=1<?= $qs ?>">&#8635; Discover / Refresh</a>
+      <form method="get" style="display:inline-flex;gap:6px;margin:0">
+        <input type="hidden" name="view" value="domains">
+        <input class="ic-search" type="search" name="q" value="<?= ih($q) ?>" placeholder="Search domain / registrar / state…" style="margin:0">
+        <button class="btn sec" type="submit">Search</button>
+        <?php if ($q !== ''): ?><a class="btn sec" href="index.php?view=domains">Clear</a><?php endif; ?>
+      </form>
+    </div>
     <div class="ic-card">
-      <h2>Domain inventory</h2>
+      <h2>Domain inventory <span style="color:#9ca3af;font-weight:400;font-size:13px">— <?= $total ?><?= $q !== '' ? ' match' . ($total === 1 ? '' : 'es') : '' ?>, page <?= $page ?>/<?= $pages ?></span></h2>
       <div class="body">
-        <?php if (empty($rows)): ?>
-          <div class="ic-empty">No domains found across Plesk / Cloudflare / registrar map.</div>
+        <?php if (empty($slice)): ?>
+          <div class="ic-empty"><?= $q !== '' ? 'No domains match “' . ih($q) . '”.' : 'No domains found across Plesk / Cloudflare / registrar map.' ?></div>
         <?php else: ?>
-          <input class="ic-search" type="search" placeholder="Filter domains…" data-target="tbl-dom">
-          <table id="tbl-dom">
+          <table>
             <thead><tr><th>Domain</th><th>Registrar</th><th>Cloudflare</th><th>VPS / Plesk</th><th>State</th><th>Drift</th></tr></thead>
             <tbody>
-            <?php foreach ($rows as $r):
+            <?php foreach ($slice as $r):
               $reg = $r['registrar'] !== '' ? ih($r['registrar']) : '<span class="badge b-mut">unknown</span>';
               $vps = $r['plesk']
                   ? '<a href="index.php?view=server&id=' . ih($r['plesk']['server_id']) . '">' . ih($r['plesk']['server_label']) . '</a>'
@@ -156,10 +183,17 @@ if ($view === 'domains') {
             <?php endforeach; ?>
             </tbody>
           </table>
+          <?php if ($pages > 1): ?>
+          <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+            <?php if ($page > 1): ?><a class="btn sec" href="index.php?view=domains<?= $qs ?>&page=<?= $page - 1 ?>">&larr; Prev</a><?php endif; ?>
+            <span style="color:#6b7280;font-size:13px">Showing <?= ($page - 1) * $perPage + 1 ?>&ndash;<?= min($total, $page * $perPage) ?> of <?= $total ?></span>
+            <?php if ($page < $pages): ?><a class="btn sec" href="index.php?view=domains<?= $qs ?>&page=<?= $page + 1 ?>">Next &rarr;</a><?php endif; ?>
+          </div>
+          <?php endif; ?>
         <?php endif; ?>
       </div>
     </div>
-    <?php infra_search_js(); infra_footer(); exit;
+    <?php infra_footer(); exit;
 }
 
 /* ============================= SERVER DETAIL ============================= */
