@@ -23,12 +23,25 @@ require_once __DIR__ . '/lib/fleet.php';
 
 function ih($s): string { return htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8'); }
 function infra_csrf(): string { return $_SESSION['infra_csrf']; }
+function infra_check_csrf(): bool { return isset($_POST['csrf']) && hash_equals($_SESSION['infra_csrf'] ?? '', $_POST['csrf']); }
+
+function infra_set_flash(string $type, string $msg): void { $_SESSION['infra_flash'] = ['type' => $type, 'msg' => $msg]; }
+function infra_render_flash(): void
+{
+    if (empty($_SESSION['infra_flash'])) return;
+    $f = $_SESSION['infra_flash']; unset($_SESSION['infra_flash']);
+    $bg = $f['type'] === 'ok' ? '#dcfce7;border-color:#86efac;color:#166534'
+        : ($f['type'] === 'err' ? '#fee2e2;border-color:#fca5a5;color:#991b1b'
+        : '#fef9c3;border-color:#fde047;color:#854d0e');
+    echo '<div style="white-space:pre-wrap;border:1px solid;border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:13px;background:' . $bg . '">' . ih($f['msg']) . '</div>';
+}
 
 function infra_header(string $active = 'dashboard'): void
 {
     $nav = [
         'dashboard'  => ['label' => 'Dashboard',  'href' => 'index.php'],
         'domains'    => ['label' => 'Domains',     'href' => 'index.php?view=domains'],
+        'new'        => ['label' => '+ New Site',  'href' => 'index.php?view=new'],
         'plesk'      => ['label' => 'Plesk',       'href' => 'index.php?view=plesk'],
         'cloudflare' => ['label' => 'Cloudflare',  'href' => 'index.php?view=cloudflare'],
         'golive'     => ['label' => 'Go-Live',     'href' => 'index.php?view=golive'],
@@ -44,6 +57,7 @@ function infra_header(string $active = 'dashboard'): void
     }
     echo '</nav><a class="ic-back" href="../index.php">&larr; Back to Factory</a></header>';
     echo '<main class="ic-main">';
+    infra_render_flash();
 }
 
 function infra_footer(): void { echo '</main></body></html>'; }

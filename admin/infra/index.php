@@ -152,6 +152,48 @@ if ($view === 'server') {
     <?php infra_search_js(); infra_footer(); exit;
 }
 
+/* ============================= NEW SITE (CRUD) ============================= */
+if ($view === 'new') {
+    infra_header('new');
+    $servers = infra_servers();
+    $accts   = infra_cf_accounts();
+    ?>
+    <div class="ic-card">
+      <h2>New Site — Phase 1 provisioning</h2>
+      <div class="body">
+        <div class="ic-note">Creates the infrastructure only (Plesk site + Cloudflare zone). No content is uploaded and no nameservers are switched — the site stays <strong>staged</strong> until go-live. Safe to run; re-running skips anything that already exists.</div>
+        <form method="post" action="actions/provision.php" onsubmit="return confirm('Provision infrastructure for ' + this.domain.value + '?');">
+          <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+          <table>
+            <tr><th style="width:200px">Domain</th>
+              <td><input name="domain" required placeholder="dallaspestpros.com" style="width:320px;padding:7px 10px;border:1px solid #d1d5db;border-radius:8px"></td></tr>
+            <tr><th>Plesk server</th><td>
+              <select name="server_id" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
+                <?php foreach ($servers as $s): ?>
+                  <option value="<?= ih($s['id'] ?? '') ?>"><?= ih(($s['label'] ?? $s['id']) . ' — ' . ($s['host'] ?? '')) ?></option>
+                <?php endforeach; ?>
+              </select></td></tr>
+            <tr><th>Cloudflare account</th><td>
+              <?php if ($accts): ?>
+                <select name="cf_account_id" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
+                  <?php foreach ($accts as $a): ?>
+                    <option value="<?= ih($a['id'] ?? '') ?>"><?= ih($a['label'] ?? $a['id']) ?><?= empty($a['account_id']) ? ' (account_id not set — zone create will fail)' : '' ?></option>
+                  <?php endforeach; ?>
+                </select>
+              <?php else: ?><span class="badge b-mut">no CF account configured</span><?php endif; ?>
+            </td></tr>
+            <tr><th>Steps</th><td>
+              <label style="display:block;margin-bottom:6px"><input type="checkbox" name="do_plesk" checked> Create Plesk site + FTP user</label>
+              <label style="display:block"><input type="checkbox" name="do_cf" <?= $accts ? 'checked' : 'disabled' ?>> Create Cloudflare zone (needs Edit-scoped token + account_id)</label>
+            </td></tr>
+          </table>
+          <div style="margin-top:14px"><button class="btn" type="submit">Provision (staged)</button></div>
+        </form>
+      </div>
+    </div>
+    <?php infra_footer(); exit;
+}
+
 /* ============================= STUB VIEWS ============================= */
 if (in_array($view, ['plesk', 'cloudflare', 'golive'], true)) {
     infra_header($view);
