@@ -49,6 +49,20 @@ function plesk_list_sites(array $server): array
     return ($r['code'] === 200 && is_array($r['json'])) ? $r['json'] : [];
 }
 
+/** Delete a domain/subscription via the CLI wrapper (sites we create are subscriptions). */
+function plesk_delete_site(array $server, string $domain): array
+{
+    $r    = plesk_api($server, 'POST', '/cli/subscription/call', ['params' => ['--remove', $domain]]);
+    $code = $r['json']['code'] ?? 1;
+    // Judge by ACTUAL removal — the CLI can return non-zero on post-hooks (e.g. fail2ban)
+    // even when the site was removed successfully.
+    $gone = !plesk_site_exists($server, $domain);
+    $msg  = $gone
+        ? ($code === 0 ? 'removed' : 'removed (post-hook warning)')
+        : trim((string) ($r['json']['stderr'] ?? $r['json']['stdout'] ?? $r['json']['message'] ?? ('HTTP ' . $r['code'])));
+    return ['ok' => $gone, 'message' => $msg];
+}
+
 /** True if a domain already exists on the server (idempotency guard). */
 function plesk_site_exists(array $server, string $domain): bool
 {

@@ -38,6 +38,74 @@ function infra_drift_cell(?string $drift): string
     return '<span class="badge b-err">' . ih($drift) . '</span>';
 }
 
+/* ============================= DOMAIN MANAGE (edit/remove) ============================= */
+if ($view === 'domain') {
+    $d = strtolower(trim($_GET['d'] ?? ''));
+    infra_header('domains');
+    $rec = infra_state_get_domain($d);
+    if (!$rec) {
+        echo '<div class="ic-note">Not tracked in fleet state: <code>' . ih($d) . '</code> (only provisioned domains are manageable here). <a href="index.php?view=domains">&larr; domains</a></div>';
+        infra_footer(); exit;
+    }
+    $regs = infra_registrar_names();
+    $statuses = ['staged', 'queued', 'releasing', 'awaiting-ns', 'live', 'partial', 'register-failed'];
+    ?>
+    <div style="margin-bottom:14px"><a class="ic-back" style="color:#2563eb" href="index.php?view=domains">&larr; All domains</a></div>
+    <div class="ic-card"><h2><?= ih($d) ?> <span class="badge b-mut"><?= ih($rec['status'] ?: '—') ?></span></h2><div class="body">
+      <table>
+        <tr><th style="width:170px">Server</th><td><?= ih($rec['server_id'] ?: '—') ?></td></tr>
+        <tr><th>Cloudflare</th><td>acct <?= ih($rec['cf_account_id'] ?: '—') ?> · zone <code><?= ih($rec['cf_zone_id'] ? substr($rec['cf_zone_id'], 0, 16) : '—') ?></code></td></tr>
+        <tr><th>Nameservers</th><td style="font-size:12px"><?= $rec['nameservers'] ? ih(str_replace(',', ', ', $rec['nameservers'])) : '—' ?></td></tr>
+        <tr><th>FTP user</th><td><code><?= ih($rec['ftp_user'] ?: '—') ?></code></td></tr>
+        <tr><th>Go-live</th><td><?= ih($rec['go_live_at'] ?: '—') ?></td></tr>
+        <tr><th>Created</th><td><?= ih($rec['created_at'] ?: '—') ?></td></tr>
+      </table>
+    </div></div>
+
+    <div class="ic-card"><h2>Edit</h2><div class="body">
+      <form method="post" action="actions/domain_manage.php">
+        <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+        <input type="hidden" name="action" value="edit">
+        <input type="hidden" name="domain" value="<?= ih($d) ?>">
+        <table>
+          <tr><th style="width:170px">Registrar</th><td>
+            <select name="registrar" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
+              <option value="">—</option>
+              <?php foreach ($regs as $rn): ?><option value="<?= ih($rn) ?>" <?= $rec['registrar'] === $rn ? 'selected' : '' ?>><?= ih($rn) ?></option><?php endforeach; ?>
+            </select></td></tr>
+          <tr><th>Niche</th><td><input name="niche" value="<?= ih($rec['niche']) ?>" style="width:200px;padding:7px 10px;border:1px solid #d1d5db;border-radius:8px"></td></tr>
+          <tr><th>Status</th><td>
+            <select name="status" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
+              <?php foreach ($statuses as $st): ?><option <?= $rec['status'] === $st ? 'selected' : '' ?>><?= ih($st) ?></option><?php endforeach; ?>
+            </select></td></tr>
+        </table>
+        <div style="margin-top:12px"><button class="btn" type="submit">Save changes</button></div>
+      </form>
+    </div></div>
+
+    <div class="ic-card" style="border-color:#fca5a5"><h2 style="color:#991b1b">⚠ Danger zone</h2><div class="body">
+      <p style="font-size:13px;color:#6b7280;margin-top:0">Each action requires typing <code><?= ih($d) ?></code> to confirm.</p>
+      <?php
+      $dz = [
+        ['delete_zone', 'Delete Cloudflare zone', 'Removes the CF zone (DNS/SSL/HSTS). Plesk site + fleet record kept.'],
+        ['delete_site', 'Delete Plesk site', 'Removes the site + files on the VPS. CF zone + fleet record kept.'],
+        ['untrack', 'Remove from fleet (untrack)', 'Forgets this domain here. Leaves Plesk + Cloudflare intact.'],
+        ['teardown', 'Full teardown', 'Deletes CF zone + Plesk site AND removes from fleet. Irreversible.'],
+      ];
+      foreach ($dz as [$act, $label, $desc]): ?>
+        <form method="post" action="actions/domain_manage.php" style="margin:10px 0;padding:10px;border:1px solid #f0f0f0;border-radius:8px" onsubmit="return confirm('<?= ih($label) ?> for <?= ih($d) ?>? This cannot be undone.');">
+          <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+          <input type="hidden" name="action" value="<?= ih($act) ?>">
+          <input type="hidden" name="domain" value="<?= ih($d) ?>">
+          <div><strong><?= ih($label) ?></strong> <span style="color:#6b7280;font-size:12px"><?= ih($desc) ?></span></div>
+          <input name="confirm" placeholder="type <?= ih($d) ?>" style="width:280px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px;margin:6px 8px 0 0">
+          <button class="btn" style="background:#991b1b" type="submit"><?= ih($label) ?></button>
+        </form>
+      <?php endforeach; ?>
+    </div></div>
+    <?php infra_footer(); exit;
+}
+
 /* ============================= DOMAINS ============================= */
 if ($view === 'domains') {
     infra_header('domains');
@@ -77,7 +145,7 @@ if ($view === 'domains') {
                   : '<span class="badge b-warn">not on Plesk</span>';
             ?>
               <tr>
-                <td><strong><?= ih($r['domain']) ?></strong><?php if (!empty($r['managed'])): ?> <span class="badge b-ok" title="provisioned/tracked by this console">managed</span><?php endif; ?></td>
+                <td><?php if (!empty($r['managed'])): ?><a href="index.php?view=domain&d=<?= ih($r['domain']) ?>"><strong><?= ih($r['domain']) ?></strong></a> <span class="badge b-ok" title="provisioned/tracked by this console">managed</span><?php else: ?><strong><?= ih($r['domain']) ?></strong><?php endif; ?></td>
                 <td><?= $reg ?></td>
                 <td><?= infra_cf_cell($r['cf'], $hasCf) ?></td>
                 <td><?= $vps ?></td>
