@@ -43,6 +43,7 @@ function infra_header(string $active = 'dashboard'): void
         'dashboard'  => ['label' => 'Dashboard',  'href' => 'index.php'],
         'domains'    => ['label' => 'Domains',     'href' => 'index.php?view=domains'],
         'new'        => ['label' => '+ New Site',  'href' => 'index.php?view=new'],
+        'bulk'       => ['label' => 'Bulk',        'href' => 'index.php?view=bulk'],
         'plesk'      => ['label' => 'Plesk',       'href' => 'index.php?view=plesk'],
         'cloudflare' => ['label' => 'Cloudflare',  'href' => 'index.php?view=cloudflare'],
         'golive'     => ['label' => 'Go-Live',     'href' => 'index.php?view=golive'],
