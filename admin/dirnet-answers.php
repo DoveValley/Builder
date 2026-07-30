@@ -241,6 +241,7 @@ MD
 <header class="top">
   <div class="logo">Directory Network <small>four answers</small></div>
   <a href="dirnet-data.php">&larr; Data cross-tabs</a>
+  <a href="dirnet-sheets.php">Spreadsheets</a>
   <a href="playground.php">Test Lab</a>
   <div class="meta">asked &amp; measured 2026-07-30 &middot; recovery niche &middot; production Supabase</div>
 </header>

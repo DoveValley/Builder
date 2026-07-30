@@ -112,6 +112,7 @@ function panel(string $id, string $title, string $file, string $note = '', int $
   <div class="logo">Directory Network <small>data cross-tabs</small></div>
   <a href="playground.php">&larr; Test Lab</a>
   <a href="dirnet-answers.php">Four answers</a>
+  <a href="dirnet-sheets.php">Spreadsheets</a>
   <a href="docs.php">Docs</a>
   <div class="meta">recovery niche &middot; production Supabase &middot; generated 2026-07-29</div>
 </header>
