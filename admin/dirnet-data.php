@@ -295,6 +295,20 @@ panel('x7', '7. Facility density for the 287 candidate cities', 'density_counts.
    were derived from the Census ZCTA gazetteer, not typed in &mdash; derivations are in the QA report below.
    <code>otp_25</code> counts opioid treatment
    programs that are <i>not</i> already in <code>strict_25</code>, so the two can be added without double-counting.
+   <br><b>43 columns.</b> The original nine keep their names <i>and</i> their positions, so an existing join still
+   works; the 34 per-axis columns are appended after <code>geocode_status</code>, each as <code>_25</code> and
+   <code>_25_60</code>. Level of care: <code>residential</code> <code>inpatient</code> <code>detox</code>
+   <code>php</code> <code>iop</code>. Clientele: <code>adolescent</code> <code>young_adult</code>
+   <code>women</code> <code>men</code> <code>pregnant</code> <code>veterans</code> <code>seniors</code>
+   <code>criminal_justice</code> <code>eating_disorder</code> <code>tbi</code>
+   <code>first_episode_psychosis</code> <code>alzheimers</code>.
+   <b>Axes overlap by design and do not sum.</b> There is no <code>lgbtq</code> column because no such code
+   exists anywhere in either SAMHSA codebook.
+   <br><b>Read the QA report before choosing axes:</b> all 12 clientele axes clear the &ge;10-within-60 density
+   gate, so that gate does not discriminate. Six of them sit on 39&ndash;45% of every facility in the country and
+   would produce pages nearly identical to their parent; the six selective ones are
+   <code>pregnant</code> 25%, <code>adolescent</code> 16%, <code>eating_disorder</code> 13%, <code>tbi</code> 10%,
+   <code>first_episode_psychosis</code> 8%, <code>alzheimers</code> 6%.
    <br><b>Showing the first 25 rows &mdash; Copy as TSV and Download give all 287.</b>', 25);
 
 doc('x7qa', '7b. QA report for the density counts', 'qa_report.md',

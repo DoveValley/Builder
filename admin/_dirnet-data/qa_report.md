@@ -46,6 +46,533 @@ dropped. They are real licensed facilities with valid ZIPs — Central Peninsula
 Fairbanks Native Association, Akeela Inc — and dropping them would understate density in exactly the
 rural and tribal areas least able to absorb it. They still deduplicate across the two workbooks.
 
+## Code inventory — every code present in the deduped 18,796 facilities
+
+Counted over **deduped facilities, not raw rows**, so every figure here is directly comparable to the
+axis totals and to STRICT/BROAD below. Codes defined in a codebook but carried by no facility are
+omitted. Sorted descending within each category.
+
+The **files** column is load-bearing: a code defined only in the substance-use codebook can only ever
+be set on a facility that appears in that file, so an axis built on an `SU`-only code is blind to
+MH-only sites. Four of the clientele codes below are in exactly that position.
+
+### The axis-relevant categories
+
+These are the pools an axis can be drawn from — what a facility *is* and who it *serves*.
+
+**[TC] Type of Care**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `SA` | 15,765 | MH+SU | Substance use treatment |
+| `SUMH` | 13,206 | MH+SU | Treatment for co-occurring substance use plus either serious mental illness (SMI) in adults and/or serious emotional disturbance (SED) in children |
+| `MH` | 13,190 | MH | Mental health treatment |
+| `DT` | 2,559 | SU | Detoxification |
+| `HH` | 1,110 | SU | Transitional housing, halfway house, or sober home |
+
+**[SET] Service Setting**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `OP` | 15,931 | MH+SU | Outpatient |
+| `ORT` | 10,022 | SU | Regular outpatient treatment |
+| `OMB` | 6,385 | SU | Outpatient methadone/buprenorphine or naltrexone treatment |
+| `IOP` | 5,304 | SU | Intensive outpatient treatment |
+| `RES` | 3,887 | MH+SU | Residential/24-hour residential |
+| `RL` | 2,114 | SU | Long-term residential |
+| `PHP` | 2,037 | MH | Partial hospitalization/day treatment |
+| `RS` | 2,020 | SU | Short-term residential |
+| `ODT` | 2,008 | SU | Outpatient day treatment or partial hospitalization |
+| `HI` | 1,669 | MH+SU | Hospital inpatient/24-hour hospital inpatient |
+| `OD` | 1,237 | SU | Outpatient detoxification |
+| `RD` | 1,163 | SU | Residential detoxification |
+| `HIT` | 747 | SU | Hospital inpatient treatment |
+| `HID` | 671 | SU | Hospital inpatient detoxification |
+
+**[FT] Facility Type**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `OMH` | 5,688 | MH | Outpatient mental health facility |
+| `CMHC` | 1,688 | MH | Community mental health center |
+| `RTCA` | 1,139 | MH | Residential treatment center (RTC) for adults |
+| `MSMH` | 616 | MH | Multi-setting mental health facility (e.g., non-hospital residential plus either outpatient and/or partial hospitalization/day treatment) |
+| `PH` | 591 | MH | Partial hospitalization/day treatment |
+| `IPSY` | 445 | MH | Separate inpatient psychiatric unit of a general hospital |
+| `RTCC` | 390 | MH | Residential treatment center (RTC) for children |
+| `PSY` | 386 | MH | Psychiatric hospital |
+| `VAHC` | 311 | MH | Veterans Affairs Medical Center or other VA healthcare facility |
+| `ORES` | 129 | MH | Other residential treatment facility |
+| `SHP` | 21 | MH | State hospital |
+
+**[HOSP] Hospitals**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `GH` | 624 | SU | General Hospital (including VA hospital) |
+| `PSYH` | 217 | SU | Psychiatric hospital |
+
+**[SG] Special Programs/Groups Offered**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `TRMA` | 11,534 | MH+SU | Clients who have experienced trauma |
+| `MHSU` | 11,357 | MH+SU | Clients with co-occurring mental and substance use disorders |
+| `CJ` | 8,448 | MH+SU | Criminal justice (other than DUI/DWI)/Forensic clients |
+| `YA` | 7,683 | MH+SU | Young adults |
+| `SEN` | 7,405 | MH+SU | Seniors or older adults |
+| `WN` | 7,365 | SU | Adult women |
+| `MN` | 7,312 | SU | Adult men |
+| `PTSD` | 7,272 | MH | Persons with post-traumatic stress disorder (PTSD) |
+| `VET` | 7,053 | MH+SU | Veterans |
+| `SMI` | 6,375 | MH | Persons  18 and older with serious mental illness (SMI) |
+| `DV` | 6,356 | MH+SU | Clients who have experienced intimate partner violence, domestic violence |
+| `HIV` | 5,162 | MH+SU | Clients with HIV or AIDS |
+| `MILF` | 4,945 | MH+SU | Members of military families |
+| `SEXA` | 4,708 | SU | Clients who have experienced sexual abuse |
+| `PW` | 4,686 | SU | Pregnant/postpartum women |
+| `COPSU` | 4,632 | SU | Clients with co-occurring pain and substance use disorders |
+| `SED` | 4,329 | MH | Children/adolescents with serious emotional disturbance (SED) |
+| `ADMIL` | 4,289 | MH+SU | Active duty military |
+| `ADOL` | 2,959 | SU | Adolescents |
+| `PED` | 2,511 | MH | Persons with eating disorders |
+| `TBI` | 1,858 | MH | Persons with traumatic brain injury (TBI) |
+| `FEP` | 1,455 | MH | Persons experiencing first-episode psychosis |
+| `ALZ` | 1,101 | MH | Persons with Alzheimer's or dementia |
+
+**[AGE] Age Groups Accepted**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `YAD` | 16,878 | MH+SU | Young Adults |
+| `ADLT` | 15,758 | MH+SU | Adults |
+| `SNR` | 11,635 | MH+SU | Seniors |
+| `CH/AD` | 8,844 | MH+SU | Children/Adolescents |
+
+**[SN] Sex Accepted**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `MALE` | 12,069 | SU | Male |
+| `FEM` | 11,940 | SU | Female |
+
+**[EXCL] Exclusive Services**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `DUI` | 2,283 | SU | Specially designed program for DUI/DWI clients |
+| `OUDO` | 1,209 | SU | Opioid use disorder clients only |
+| `AUDO` | 73 | SU | Alcohol use disorder clients only |
+| `DUIO` | 64 | SU | Serves only DUI/DWI clients |
+
+### Every remaining category
+
+Included because the brief asked to see everything rather than only the four kinds it named. These
+describe treatments, payment, policies and services rather than facility identity, so they are poor
+axis candidates — but the counts are here if one is wanted.
+
+**[TAP] Treatment Approaches**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `CBT` | 17,526 | MH+SU | Cognitive behavioral therapy |
+| `TELE` | 15,596 | MH+SU | Telemedicine/telehealth therapy |
+| `IPT` | 12,410 | MH | Individual psychotherapy |
+| `SACA` | 12,333 | SU | Substance use disorder counseling |
+| `RELP` | 11,861 | SU | Relapse prevention |
+| `MI` | 11,524 | SU | Motivational interviewing |
+| `GT` | 11,221 | MH | Group therapy |
+| `TRC` | 10,520 | SU | Trauma-related counseling |
+| `CFT` | 9,925 | MH | Couples/family therapy |
+| `IDD` | 9,682 | MH | Integrated Mental and Substance Use Disorder treatment |
+| `BIA` | 9,478 | SU | Brief intervention |
+| `DBT` | 8,904 | MH | Dialectical behavior therapy |
+| `ANG` | 8,879 | SU | Anger management |
+| `AT` | 6,688 | MH | Activity therapy |
+| `CMI` | 6,576 | SU | Contingency management/motivational incentives |
+| `TWFA` | 6,286 | SU | 12-step facilitation |
+| `AIMS` | 6,052 | MH | Abnormal involuntary movement scale |
+| `MXM` | 6,001 | SU | Matrix Model |
+| `EMDR` | 2,940 | MH | Eye Movement Desensitization and Reprocessing therapy |
+| `CRV` | 1,294 | SU | Community reinforcement plus vouchers |
+| `CRT` | 676 | MH | Cognitive remediation therapy |
+| `TMS` | 294 | MH | Transcranial Magnetic Stimulation |
+| `ECT` | 280 | MH | Electroconvulsive therapy |
+| `KIT` | 135 | MH | Ketamine Infusion Therapy |
+
+**[PAY] Payment/Insurance/Funding Accepted**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `CASH` | 15,607 | MH+SU | Cash or self-payment |
+| `PI` | 15,528 | MH+SU | Private health insurance |
+| `MD` | 15,373 | MH+SU | Medicaid |
+| `MC` | 11,263 | MH+SU | Medicare |
+| `SI` | 10,547 | MH+SU | State-financed health insurance plan other than Medicaid |
+| `TRICARE` | 8,732 | MH+SU | Federal military insurance (e.g., TRICARE) |
+| `FSA` | 6,461 | SU | Federal, or any government funding for substance use treatment programs |
+| `SMHA` | 5,265 | MH | State mental health agency (or equivalent) funds |
+| `CLF` | 4,738 | MH | County or local government funds |
+| `SWFS` | 3,976 | MH | State welfare or child and family services funds |
+| `OSF` | 3,923 | MH | Other State funds |
+| `SAMHSA` | 3,728 | SU | SAMHSA funding/block grants |
+| `CMHG` | 3,409 | MH | Community Mental Health Block Grants |
+| `SCJJ` | 2,987 | MH | State corrections or juvenile justice funds |
+| `VAF` | 2,847 | MH | U.S. Department of VA funds |
+| `ITU` | 2,304 | MH+SU | IHS/Tribal/Urban (ITU) funds |
+| `CSBG` | 2,282 | MH | Community Service Block Grants |
+| `SEF` | 1,517 | MH | State education agency funds |
+| `PCF` | 698 | MH | Private or Community foundation |
+| `FG` | 388 | MH | Federal Grants |
+| `NP` | 198 | SU | No payment accepted |
+
+**[AS] Ancillary Services**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `CM` | 15,275 | MH+SU | Case management service |
+| `SPS` | 13,057 | MH+SU | Suicide prevention services |
+| `MHS` | 9,451 | SU | Mental health services |
+| `SSD` | 9,341 | SU | Social skills development |
+| `FPSY` | 9,074 | MH | Family psychoeducation |
+| `COOT` | 8,196 | MH | Court-ordered outpatient treatment |
+| `TA` | 7,053 | SU | Transportation assistance |
+| `IPC` | 6,004 | MH+SU | Integrated primary care services |
+| `PRS` | 4,825 | MH | Psychosocial rehabilitation services |
+| `ES` | 4,517 | MH | Education services |
+| `DEC` | 4,479 | MH | Diet and exercise counseling |
+| `DVFP` | 4,243 | SU | Domestic violence services, including family or partner |
+| `ICM` | 2,992 | MH | Intensive case management |
+| `EIS/HIV` | 2,766 | SU | Early intervention for HIV |
+| `IMR` | 2,697 | MH | Illness management and recovery |
+| `CDM` | 2,388 | MH | Chronic disease/illness management |
+| `VRS` | 2,361 | MH | Vocational rehabilitation services |
+| `SH` | 2,337 | MH | Supported housing |
+| `SUPEM` | 2,255 | MH | Supported employment |
+| `ACT` | 2,239 | MH | Assertive community treatment |
+| `LAD` | 856 | MH | Legal advocacy |
+| `AOT` | 687 | MH | Assisted Outpatient Treatment |
+| `ACU` | 615 | SU | Acupuncture |
+| `CCC` | 553 | SU | Child care for clients' children |
+| `TPC` | 523 | MH | Therapeutic foster care |
+| `BEDS` | 277 | SU | Residential beds for clients' children |
+
+**[ASPT] Assessment/Pre-treatment**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `STU` | 14,919 | MH+SU | Screening for tobacco use |
+| `CSAA` | 12,167 | SU | Comprehensive substance use assessment |
+| `SSU` | 11,385 | SU | Screening for substance use |
+| `SMHD` | 10,737 | SU | Screening for mental disorders |
+| `OPC` | 9,354 | SU | Outreach to persons in the community |
+| `CMHA` | 8,272 | SU | Comprehensive mental health assessment |
+| `ISC` | 6,848 | SU | Interim services for clients |
+| `MHPA` | 6,086 | SU | Complete medical history/physical exam |
+| `PIEC` | 4,223 | SU | Professional interventionist/educational consultant |
+
+**[ECS] Education and Counseling Services**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `TCC` | 12,913 | MH+SU | Smoking/vaping/tobacco cessation counseling |
+| `SAE` | 12,377 | SU | Substance use disorder education |
+| `ICO` | 12,280 | SU | Individual counseling |
+| `GCO` | 11,584 | SU | Group counseling |
+| `FCO` | 9,169 | SU | Family counseling |
+| `HAEC` | 8,256 | SU | HIV or AIDS education, counseling, or support |
+| `HEOH` | 8,201 | SU | Health education services other than HIV/AIDS or hepatitis |
+| `TAEC` | 7,898 | SU | Hepatitis education, counseling, or support |
+| `MCO` | 6,141 | SU | Marital/couples counseling |
+| `VOC` | 3,060 | SU | Vocational training or educational support (for example, high school coursework, GED preparation, etc.) |
+
+**[TRSRV] Transitional Services**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `DP` | 12,105 | SU | Discharge Planning |
+| `ACC` | 11,266 | SU | Aftercare/continuing care |
+| `NOE` | 10,428 | SU | Naloxone and overdose education |
+| `OFD` | 9,497 | SU | Outcome follow-up after discharge |
+
+**[RSS] Recovery Support Services**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `PEER` | 12,046 | MH+SU | Mentoring/peer support |
+| `HS` | 10,659 | MH+SU | Housing services |
+| `AOSS` | 9,912 | SU | Assistance with obtaining social services |
+| `EMP` | 6,311 | SU | Employment counseling or training |
+| `SHG` | 6,072 | SU | Self-help groups |
+| `RC` | 5,078 | SU | Recovery coach |
+
+**[SCR] Testing**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `DAUT` | 11,346 | SU | Drug or alcohol urine screening |
+| `BABA` | 7,998 | SU | Breathalyzer or blood alcohol testing |
+| `TBS` | 6,940 | MH+SU | TB screening |
+| `MST` | 6,013 | MH+SU | Metabolic syndrome monitoring |
+| `DAOF` | 5,988 | SU | Drug and alcohol oral fluid testing |
+| `HIVT` | 5,492 | MH+SU | HIV testing |
+| `HCT` | 5,411 | MH+SU | Testing for Hepatitis C (HCV) |
+| `STDT` | 4,891 | MH+SU | STD testing |
+| `HBT` | 4,762 | MH+SU | Testing for Hepatitis B (HBV) |
+| `LABT` | 4,613 | MH | Laboratory testing |
+
+**[SMP] Facility Smoking Policy**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `SMPD` | 9,929 | MH+SU | Smoking permitted in designated area |
+| `SMON` | 7,952 | MH+SU | Smoking not permitted |
+| `SMOP` | 1,113 | MH+SU | Smoking permitted without restriction |
+
+**[LCA] License/Certification/Accreditation**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `SSA` | 9,612 | SU | State substance use treatment agency |
+| `STDH` | 6,216 | SU | State department of health |
+| `STMH` | 5,105 | SU | State mental health department |
+| `CARF` | 4,581 | SU | Commission on Accreditation of Rehabilitation Facilities (CARF) |
+| `JC` | 3,350 | SU | The Joint Commission |
+| `DEA` | 2,320 | SU | Drug Enforcement Agency (DEA) |
+| `SOTP` | 2,126 | SU | SAMHSA certification for opioid treatment program (OTP) |
+| `FQHC` | 1,799 | MH+SU | Federally Qualified Health Center |
+| `MHC` | 1,742 | MH | Mental health clinic or mental health center |
+| `COA` | 583 | SU | Council on Accreditation (COA) |
+| `HLA` | 470 | SU | Hospital licensing authority |
+| `NCQA` | 261 | SU | National Committee for Quality Assurance (NCQA) |
+| `HFAP` | 96 | SU | Healthcare Facilities Accreditation Program (HFAP) |
+
+**[FOP] Facility Operation (e.g., Private, Public)**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `PVTN` | 9,281 | MH+SU | Private non-profit organization |
+| `PVTP` | 7,620 | MH+SU | Private for-profit organization |
+| `LCCG` | 914 | MH+SU | Local, county, or community government |
+| `STG` | 559 | MH+SU | State government |
+| `FED` | 388 | MH+SU | Federal Government |
+| `VAMC` | 353 | MH+SU | U.S. Department of Veterans Affairs |
+| `TBG` | 127 | MH+SU | Tribal government |
+| `IHS` | 11 | MH+SU | Indian Health Services |
+| `DoD` | 10 | MH+SU | Department of Defense |
+
+**[FVP] Facility Vaping Policy**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `VAPN` | 8,950 | MH+SU | Vaping not permitted |
+| `VPPD` | 8,651 | MH+SU | Vaping permitted in designated area |
+| `VAPP` | 1,397 | MH+SU | Vaping permitted without restriction |
+
+**[OM] Opioid Medications used in Treatment**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `BU` | 8,039 | SU | Buprenorphine used in Treatment |
+| `NU` | 7,528 | SU | Naltrexone used in Treatment |
+| `MU` | 1,500 | SU | Methadone used in Treatment |
+
+**[PHR] Pharmacotherapies**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `NRT` | 8,026 | MH+SU | Nicotine replacement |
+| `ANTPYCH` | 7,937 | MH | Antipsychotics used in treatment of SMI |
+| `NSC` | 7,615 | MH+SU | Non-nicotine smoking/tobacco cessation |
+| `BWN` | 7,561 | SU | Buprenorphine with naloxone |
+| `MMD` | 7,339 | SU | Medication for mental disorders |
+| `NXN` | 6,818 | SU | Naltrexone (oral) |
+| `VTRL` | 5,945 | SU | Naltrexone (extended-release, injectable) |
+| `BWON` | 5,777 | SU | Buprenorphine without naloxone |
+| `RISPE` | 5,505 | MH | Risperidone |
+| `CLND` | 5,268 | SU | Clonidine |
+| `OLANZ` | 5,212 | MH | Olanzapine |
+| `ARIPI` | 5,132 | MH | Aripiprazole |
+| `QUETI` | 5,005 | MH | Quetiapine |
+| `HALOP` | 4,722 | MH | Haloperidol |
+| `CLOZA` | 4,517 | MH | Clozapine |
+| `PALIP` | 4,237 | MH | Paliperidone |
+| `ACM` | 4,065 | SU | Acamprosate (Campral®) |
+| `BERI` | 4,053 | SU | Buprenorphine (extended-release, injectable) |
+| `ZIPRA` | 4,053 | MH | Ziprasidone |
+| `DSF` | 4,044 | SU | Disulfiram |
+| `LURAS` | 3,891 | MH | Lurasidone |
+| `CHLOR` | 3,459 | MH | Chlorpromazine |
+| `FLUPH` | 3,379 | MH | Fluphenazine |
+| `CARIP` | 3,039 | MH | Cariprazine |
+| `BREXP` | 2,954 | MH | Brexpiprazole |
+| `OLANZ/FLUOX` | 2,890 | MH | Olanzapine/Fluoxetine combination |
+| `PERPH` | 2,618 | MH | Perphenazine |
+| `LOXAP` | 2,278 | MH | Loxapine |
+| `MHCV` | 2,224 | SU | Medications for Hepatitis C treatment |
+| `ILOPE` | 2,091 | MH | IIoperidone |
+| `ASENA` | 1,933 | MH | Asenapine |
+| `MHIV` | 1,866 | SU | Medications for HIV treatment |
+| `THIOR` | 1,591 | MH | Thioridazine |
+| `THIOT` | 1,574 | MH | Thiothixene |
+| `PROCH` | 1,518 | MH | Prochlorperazine |
+| `METH` | 1,500 | SU | Methadone |
+| `TRIFL` | 1,466 | MH | Trifluoperazine |
+| `LFXD` | 1,411 | SU | Lofexidine |
+| `mPREP` | 1,268 | SU | Medications for pre-exposure to prophylaxis |
+| `BSDM` | 1,259 | SU | Buprenorphine sub-dermal implant |
+| `PIMOZ` | 1,092 | MH | Pimozide |
+| `DROPE` | 390 | MH | Droperidol |
+
+**[OT] Type of Opioid Treatment**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `MOA` | 7,974 | SU | Accepts clients using MAT but prescribed elsewhere |
+| `UB` | 6,756 | SU | Prescribes buprenorphine |
+| `UN` | 6,364 | SU | Prescribes naltrexone |
+| `BUM` | 5,836 | SU | Buprenorphine maintenance |
+| `DLC` | 5,270 | SU | Lofexidine or Clonidine detoxification |
+| `RPN` | 4,949 | SU | Relapse prevention with naltrexone |
+| `MWS` | 3,731 | SU | Maintenance service with medically supervised withdrawal after stabilization |
+| `DB` | 1,800 | SU | Buprenorphine detoxification |
+| `OTP` | 1,563 | SU | Federally-certified Opioid Treatment Program |
+| `MM` | 1,435 | SU | Methadone maintenance |
+| `NOOP` | 813 | SU | Does not treat opioid use disorders |
+| `NMOA` | 441 | SU | Does not use MAT for opioid use disorders |
+| `DM` | 426 | SU | Methadone detoxification |
+| `PAIN` | 237 | SU | Use methadone/buprenorphine for pain management or emergency dosing |
+
+**[AUT] Type of Alcohol Use Disorder Treatment**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `ACMA` | 7,614 | SU | Accepts clients using medication assisted treatment for alcohol use disorder but prescribed elsewhere |
+| `PMAT` | 6,618 | SU | This facility administers/prescribes medication for alcohol use disorder |
+| `NAUT` | 1,464 | SU | Does not treat alcohol use disorder |
+| `NMAUT` | 933 | SU | Does not use medication assisted treatment for alcohol use disorder |
+
+**[PYAS] Payment Assistance Available**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `SS` | 6,861 | MH+SU | Sliding fee scale (fee is based on income and other factors) |
+| `PA` | 4,118 | MH+SU | Payment assistance (check with facility for details) |
+
+**[SMAT] External Source of Medications Used for Alcohol Use Disorder Treatment**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `AUPC` | 6,317 | SU | No formal relationship with prescribing entity |
+| `AUINPE` | 6,287 | SU | In-network prescribing entity |
+| `AURPE` | 4,682 | SU | Other contracted prescribing entity |
+
+**[SL] Language Services**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `ASL` | 6,026 | MH+SU | Sign language services for the deaf and hard of hearing |
+| `SP` | 4,932 | MH+SU | Spanish |
+| `OTH` | 1,291 | MH+SU | Other languages (excluding Spanish) |
+| `NX` | 100 | MH+SU | American Indian or Alaska Native languages |
+
+**[EMS] Emergency Mental Health Services**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `CIT` | 5,498 | MH | Crisis intervention team |
+| `PEON` | 3,591 | MH | Psychiatric emergency onsite services |
+| `WI` | 3,199 | MH | Psychiatric emergency walk-in services |
+| `PEOFF` | 2,551 | MH | Psychiatric emergency mobile/off-site services |
+
+**[OTHR] Other Services**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `TOD` | 5,318 | SU | Treatment for other addiction disorder |
+| `TGD` | 4,064 | SU | Treatment for gambling disorder |
+
+**[OMSC] External Opioid Medications Source**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `PC` | 5,239 | SU | No formal relationship with prescribing entity |
+| `RPE` | 4,132 | SU | Other contracted prescribing entity |
+| `INPE` | 3,673 | SU | In-network prescribing entity |
+
+**[DETOX] Detoxification (medical withdrawal) Services**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `ODTX` | 2,481 | SU | Opioids detoxification |
+| `MDET` | 2,363 | SU | Medication routinely used during detoxification |
+| `ADTX` | 2,014 | SU | Alcohol Detoxification |
+| `BDTX` | 1,903 | SU | Benzodiazepines Detoxification |
+| `MDTX` | 1,730 | SU | Methamphetamines detoxification |
+| `CDTX` | 1,726 | SU | Cocaine Detoxification |
+
+**[MSRV] Medical Services**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `HBV` | 1,750 | SU | Hepatitis B (HBV) vaccination |
+| `HAV` | 1,663 | SU | Hepatitis A (HAV) vaccination |
+
+**[OL] Other Languages**
+
+| code | facilities | files | label |
+| --- | --- | --- | --- |
+| `F28` | 374 | MH+SU | French |
+| `F70` | 368 | MH+SU | Russian |
+| `F19` | 367 | MH+SU | Creole |
+| `F67` | 319 | MH+SU | Portuguese |
+| `F36` | 295 | MH+SU | Hindi |
+| `F4` | 288 | MH+SU | Arabic |
+| `F17` | 288 | MH+SU | Any Chinese Language |
+| `F25` | 270 | MH+SU | Farsi |
+| `F81` | 241 | MH+SU | Tagalog |
+| `F66` | 205 | MH+SU | Polish |
+| `F92` | 199 | MH+SU | Vietnamese |
+| `F47` | 198 | MH+SU | Korean |
+| `F35` | 181 | MH+SU | Hebrew |
+| `F30` | 168 | MH+SU | German |
+| `F42` | 166 | MH+SU | Italian |
+| `F43` | 139 | MH+SU | Japanese |
+| `F37` | 128 | MH+SU | Hmong |
+| `F31` | 112 | MH+SU | Greek |
+| `N40` | 61 | MH+SU | Yupik |
+| `N24` | 60 | MH+SU | Ojibwa |
+
+Total: **312 distinct codes** carried by at least one of the 18,796 facilities.
+
+### What the inventory settled, against a reasonable guess
+
+**1. There is no LGBTQ+ code anywhere in either codebook.** 397 codebook entries, zero matches for
+lgbt / gay / lesbian / transgender / queer / sexual orientation / gender identity. N-SUMHSS never asked.
+So there is **no `lgbtq_25` column** — not a column of zeros, because a zero would read as "no such
+facilities" when the truth is "this survey cannot answer". If you want that axis it needs a different
+source.
+
+**2. Several clientele codes live in only ONE of the two codebooks, and the split cuts both ways.**
+`ADOL`, `WN`, `MN` and `PW` exist only in the substance-use codebook — the mental-health file has no
+adolescent, adult-women, adult-men or pregnant/postpartum programme code at all. Conversely `PED`,
+`TBI`, `FEP` and `ALZ` exist only in the mental-health codebook. An axis built on a single-file code is
+blind to facilities that appear only in the *other* file, so **all eight of those counts are floors**.
+It is a property of the source, not a bug. The `files` column above says which is which, and the
+per-axis list further down repeats the caveat against each affected axis.
+
+**3. Clientele axes are built from `SG` (Special Programs/Groups Offered), not from `AGE` or `SN`.**
+`SG` means "a specially designed programme for this group", which is the claim a page type makes. `AGE`
+(Age Groups Accepted) and `SN` (Sex Accepted) mean only that the facility will *admit* the group, which
+is far weaker and much more common — `SNR` in `AGE` covers vastly more facilities than `SEN` in `SG`.
+Presenting the former as "senior treatment centres" would assert a specialism that is not in the data.
+Both are in the tables above, so the choice can be revisited without re-reading the workbooks.
+
+**4. Axes worth considering that were not asked for.** The `SG` table shows several groups larger than
+most of the requested ones — co-occurring mental/substance disorders, trauma, PTSD, serious mental
+illness, intimate-partner violence, eating disorders. Co-occurring in particular is one of the largest
+single groups in the data. Adding any of them is one line in `CLIENTELE_AXES` and a re-run.
+
 ## STRICT bucket — exact field values
 
 A facility qualifies on **any one** of these service codes:
@@ -218,6 +745,143 @@ ever counted past 60 miles.
 Because facilities are placed at ZIP centroids, a facility sitting within a mile or two of a band
 boundary can fall on either side of it. That is inherent to ZIP-centroid resolution and is the
 accuracy the brief specified as sufficient.
+
+## Per-axis counts
+
+Each axis emits `<key>_25` and `<key>_25_60`, on the same deduped universe, the same haversine bands
+and the same one-band-per-facility rule as the columns above. Membership is ANY-of the codes listed,
+with no veto. **Axes overlap by design** — a facility can be residential and detox and serve veterans —
+so these columns do not sum to `broad_25` or to each other.
+
+### Level of care
+
+| axis | codes | national | % of ALL 18,796 | % of STRICT | median `_25` | max `_25` | cities with 0 in 25mi |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `residential` | `RES` `RS` `RL` `RTCA` `RTCC` `ORES` | 3,913 | 21% | 36.7% | 7 | 140 | 12 |
+| `inpatient` | `HI` `HIT` `PSY` `IPSY` `SHP` | 1,683 | 9% | 15.8% | 3 | 61 | 30 |
+| `detox` | `DT` `RD` `HID` `OD` | 2,560 | 14% | 24.0% | 5 | 100 | 23 |
+| `php` | `PHP` `PH` `ODT` | 3,240 | 17% | 30.4% | 5 | 113 | 28 |
+| `iop` | `IOP` | 5,304 | 28% | 49.7% | 10 | 163 | 6 |
+
+### Clientele
+
+| axis | codes | national | % of ALL 18,796 | % of STRICT | median `_25` | cities ≥10 within 60mi | gate |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `adolescent` | `ADOL` | 2,959 | **16%** | 27.7% | 5 | **204** / 287 | passes |
+| `young_adult` | `YA` | 7,683 | **41%** | 72.0% | 13 | **258** / 287 | passes |
+| `women` | `WN` | 7,365 | **39%** | 69.0% | 14 | **257** / 287 | passes |
+| `men` | `MN` | 7,312 | **39%** | 68.5% | 14 | **254** / 287 | passes |
+| `pregnant` | `PW` | 4,686 | **25%** | 43.9% | 9 | **229** / 287 | passes |
+| `veterans` | `VET` `ADMIL` `MILF` | 7,376 | **39%** | 69.1% | 13 | **259** / 287 | passes |
+| `seniors` | `SEN` | 7,405 | **39%** | 69.4% | 14 | **259** / 287 | passes |
+| `criminal_justice` | `CJ` | 8,448 | **45%** | 79.2% | 15 | **266** / 287 | passes |
+| `eating_disorder` | `PED` | 2,511 | **13%** | 23.5% | 4 | **181** / 287 | passes |
+| `tbi` | `TBI` | 1,858 | **10%** | 17.4% | 3 | **152** / 287 | passes |
+| `first_episode_psychosis` | `FEP` | 1,455 | **8%** | 13.6% | 2 | **124** / 287 | passes |
+| `alzheimers` | `ALZ` | 1,101 | **6%** | 10.3% | 2 | **97** / 287 | passes |
+
+### ⚠ THE DENSITY GATE PASSES EVERY AXIS — SELECTIVITY IS THE REAL CONSTRAINT
+
+All 12 clientele axes clear ≥10-within-60 in 97–266 of the 287 cities (12 of 12 above the
+~30-city threshold). So the gate does not discriminate, and it is not telling you that all of these are
+viable page types.
+
+The column that does discriminate is **% of ALL 18,796**. `young_adult` 41%, `women` 39%, `men` 39%, `veterans` 39%, `seniors` 39%, `criminal_justice` 45% — 
+these are not specialisms, they are **checkboxes a facility ticks to say it will also serve that group**.
+An axis carried by two facilities in five cannot differentiate a page: "senior rehab in Phoenix" would
+list very nearly the same facilities as "rehab in Phoenix", which is the thin-page problem this project
+has already fought.
+
+Those axes pass the gate *because* they are ubiquitous. A more useful gate is two-sided — enough
+facilities to fill a page AND few enough that the page differs from its parent. On a ≤30%-of-universe
+reading, these are the axes worth building:
+
+- **`pregnant`** — 4,686 facilities, **25%** of the universe, 229 cities clear the density gate. ⚠ SU-file-only code, so this is a floor.
+- **`adolescent`** — 2,959 facilities, **16%** of the universe, 204 cities clear the density gate. ⚠ SU-file-only code, so this is a floor.
+- **`eating_disorder`** — 2,511 facilities, **13%** of the universe, 181 cities clear the density gate. ⚠ MH-file-only code, so this is a floor.
+- **`tbi`** — 1,858 facilities, **10%** of the universe, 152 cities clear the density gate. ⚠ MH-file-only code, so this is a floor.
+- **`first_episode_psychosis`** — 1,455 facilities, **8%** of the universe, 124 cities clear the density gate. ⚠ MH-file-only code, so this is a floor.
+- **`alzheimers`** — 1,101 facilities, **6%** of the universe, 97 cities clear the density gate. ⚠ MH-file-only code, so this is a floor.
+
+Pass the density gate but probably not worth a page type on their own: `young_adult` (41%), `women` (39%), `men` (39%), `veterans` (39%), `seniors` (39%), `criminal_justice` (45%).
+
+This is a recommendation, not a measurement — the 30% line is mine, not the data's, and the numbers to
+argue with are in the table above.
+
+**Note the trade-off in the selective set.** The narrower an axis gets, the fewer cities can support a
+page: `alzheimers` 6% → 97 cities, `first_episode_psychosis` 8% → 124 cities, `tbi` 10% → 152 cities, `eating_disorder` 13% → 181 cities, `adolescent` 16% → 204 cities, `pregnant` 25% → 229 cities.
+So the build queue for a narrow axis is a **short list of dense metros**, not the full 287. That is a
+feature — those pages will be genuinely distinct — but it means the axis and the city list have to be
+chosen together rather than crossed blindly.
+
+Codes used per axis, spelled out so the mapping can be audited against the inventory:
+
+- **residential** — `RES` Residential/24-hour residential (3,887, MH+SU) · `RS` Short-term residential (2,020, SU) · `RL` Long-term residential (2,114, SU) · `RTCA` Residential treatment center (RTC) for adults (1,139, MH) · `RTCC` Residential treatment center (RTC) for children (390, MH) · `ORES` Other residential treatment facility (129, MH)
+- **inpatient** — `HI` Hospital inpatient/24-hour hospital inpatient (1,669, MH+SU) · `HIT` Hospital inpatient treatment (747, SU) · `PSY` Psychiatric hospital (386, MH) · `IPSY` Separate inpatient psychiatric unit of a general hospital (445, MH) · `SHP` State hospital (21, MH)
+- **detox** — `DT` Detoxification (2,559, SU) · `RD` Residential detoxification (1,163, SU) · `HID` Hospital inpatient detoxification (671, SU) · `OD` Outpatient detoxification (1,237, SU)
+- **php** — `PHP` Partial hospitalization/day treatment (2,037, MH) · `PH` Partial hospitalization/day treatment (591, MH) · `ODT` Outpatient day treatment or partial hospitalization (2,008, SU)
+- **iop** — `IOP` Intensive outpatient treatment (5,304, SU)
+- **adolescent** — `ADOL` Adolescents (2,959, SU)  ⚠ SU-file-only code
+- **young_adult** — `YA` Young adults (7,683, MH+SU)
+- **women** — `WN` Adult women (7,365, SU)  ⚠ SU-file-only code
+- **men** — `MN` Adult men (7,312, SU)  ⚠ SU-file-only code
+- **pregnant** — `PW` Pregnant/postpartum women (4,686, SU)  ⚠ SU-file-only code
+- **veterans** — `VET` Veterans (7,053, MH+SU) · `ADMIL` Active duty military (4,289, MH+SU) · `MILF` Members of military families (4,945, MH+SU)
+- **seniors** — `SEN` Seniors or older adults (7,405, MH+SU)
+- **criminal_justice** — `CJ` Criminal justice (other than DUI/DWI)/Forensic clients (8,448, MH+SU)
+- **eating_disorder** — `PED` Persons with eating disorders (2,511, MH)  ⚠ MH-file-only code
+- **tbi** — `TBI` Persons with traumatic brain injury (TBI) (1,858, MH)  ⚠ MH-file-only code
+- **first_episode_psychosis** — `FEP` Persons experiencing first-episode psychosis (1,455, MH)  ⚠ MH-file-only code
+- **alzheimers** — `ALZ` Persons with Alzheimer's or dementia (1,101, MH)  ⚠ MH-file-only code
+
+### Gate: which clientele axes are worth building as a page type
+
+The brief's gate is **≥10 facilities within 60 miles**, and an axis clearing it in under ~30 of the 287
+cities is not worth building. Results:
+
+**Clears the gate (12):** adolescent (204 cities), young_adult (258 cities), women (257 cities), men (254 cities), pregnant (229 cities), veterans (259 cities), seniors (259 cities), criminal_justice (266 cities), eating_disorder (181 cities), tbi (152 cities), first_episode_psychosis (124 cities), alzheimers (97 cities).
+
+**Every clientele axis clears the gate.**
+
+### Axes within 10% of `strict_25` — not actually filtering
+
+None. The closest is `criminal_justice` at 79.2% of the STRICT national total, so every axis is doing real work.
+
+## 10 highest `residential_25`
+
+| # | city | state | residential_25 | residential_25_60 | strict_25 | inpatient_25 | detox_25 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | Los Angeles | CA | 140 | 188 | 299 | 36 | 100 |
+| 2 | Costa Mesa | CA | 135 | 182 | 220 | 25 | 84 |
+| 3 | Newport Beach | CA | 131 | 173 | 206 | 24 | 78 |
+| 4 | Malibu | CA | 108 | 169 | 193 | 22 | 67 |
+| 5 | Baltimore | MD | 102 | 96 | 224 | 25 | 64 |
+| 6 | Newark | NJ | 75 | 56 | 331 | 61 | 77 |
+| 7 | Jersey City | NJ | 75 | 53 | 330 | 61 | 78 |
+| 8 | New York | NY | 72 | 51 | 314 | 58 | 79 |
+| 9 | Rockville | MD | 65 | 122 | 146 | 17 | 30 |
+| 10 | Salt Lake City | UT | 62 | 46 | 133 | 14 | 29 |
+
+## 10 lowest `residential_25`
+
+| # | city | state | residential_25 | residential_25_60 | strict_25 | inpatient_25 | detox_25 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | Gillette | WY | 0 | 0 | 2 | 1 | 0 |
+| 2 | Jackson | WY | 0 | 2 | 1 | 0 | 0 |
+| 3 | Green Bay | WI | 0 | 7 | 7 | 3 | 2 |
+| 4 | Kennewick | WA | 0 | 3 | 4 | 0 | 0 |
+| 5 | Harrisonburg | VA | 0 | 1 | 3 | 1 | 0 |
+| 6 | McAllen | TX | 0 | 1 | 1 | 0 | 1 |
+| 7 | Lubbock | TX | 0 | 2 | 5 | 2 | 0 |
+| 8 | Myrtle Beach | SC | 0 | 2 | 3 | 0 | 2 |
+| 9 | Lawton | OK | 0 | 0 | 2 | 2 | 0 |
+| 10 | Bozeman | MT | 0 | 0 | 2 | 0 | 1 |
+
+**12 cities tie at `residential_25` = 0**, so the ten above are an arbitrary slice of that tie,
+not a ranking. The full list: Macon GA, Lafayette IN, Bozeman MT, Lawton OK, Myrtle Beach SC, Lubbock TX, McAllen TX, Harrisonburg VA, Kennewick WA, Green Bay WI, Jackson WY, Gillette WY.
+
+Each is a real zero — the city resolved and no residential facility sits within 25 miles. Several do have
+supply in the outer band, which is the argument for a 60-mile page rather than no page.
 
 ## 10 highest `strict_25`
 
