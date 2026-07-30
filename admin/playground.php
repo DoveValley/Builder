@@ -80,6 +80,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
 <body>
 <div id="side">
     <div class="logo">Site Factory <small>Test Lab</small></div>
+    <a href="dirnet-data.php" style="color:#fdba74;font-weight:700;">📊 Directory Network data</a>
     <a href="#share-claude" style="color:#93c5fd;font-weight:700;">📎 Share with Claude</a>
     <a href="#keyword-lists" style="color:#86efac;font-weight:700;">🔑 Keyword lists</a>
     <a href="#water-icons" style="color:#7dd3fc;font-weight:700;">💧 Water icons</a>
