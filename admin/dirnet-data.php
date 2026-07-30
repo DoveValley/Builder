@@ -37,7 +37,10 @@ function panel(string $id, string $title, string $file, string $note = '', int $
     echo '<div class="bar">';
     echo '<button type="button" class="btn" onclick="copyTsv(\'' . htmlspecialchars($id) . '\')">Copy as TSV</button> ';
     echo '<a class="btn alt" href="_dirnet-data/' . rawurlencode($file) . '" download>Download CSV</a> ';
-    echo '<span class="rows">' . $total . ' rows' . ($total > count($shown) ? ' (showing first ' . count($shown) . ' — copy/download gives all)' : '') . '</span>';
+    // Show the filename on screen, not only inside the download href — otherwise a file you were told to
+    // look for is unfindable on the page.
+    echo '<span class="rows"><code>' . htmlspecialchars($file) . '</code> &middot; ' . $total . ' rows'
+       . ($total > count($shown) ? ' (showing first ' . count($shown) . ' — copy/download gives all)' : '') . '</span>';
     echo '</div>';
     echo '<div class="scroll"><table><thead><tr>';
     foreach ($head as $h) echo '<th>' . htmlspecialchars($h) . '</th>';
@@ -55,6 +58,33 @@ function panel(string $id, string $title, string $file, string $note = '', int $
     $tsv = implode("\t", $head) . "\n";
     foreach ($rows as $r) $tsv .= implode("\t", $r) . "\n";
     echo '<textarea id="tsv-' . htmlspecialchars($id) . '" class="hidden-tsv">' . htmlspecialchars($tsv) . '</textarea>';
+    echo '</section>';
+}
+
+/**
+ * Render a markdown file as preformatted text, with the same copy/download controls as a CSV panel.
+ *
+ * Deliberately NOT converted to HTML: this is a QA report meant to be copied verbatim into a doc or a
+ * ticket, so the markdown source is the useful artifact. Reuses the copyTsv() clipboard helper, which
+ * only needs a textarea with a matching id.
+ */
+function doc(string $id, string $title, string $file, string $note = ''): void {
+    global $DIR;
+    $path = "$DIR/$file";
+    echo '<section class="panel" id="' . htmlspecialchars($id) . '">';
+    echo '<h2>' . htmlspecialchars($title) . '</h2>';
+    if ($note) echo '<div class="note">' . $note . '</div>';
+    if (!is_readable($path)) { echo '<p class="err">Missing or unreadable: ' . htmlspecialchars($file) . '</p></section>'; return; }
+    $md = file_get_contents($path);
+    echo '<div class="bar">';
+    echo '<button type="button" class="btn" onclick="copyTsv(\'' . htmlspecialchars($id) . '\')">Copy as Markdown</button> ';
+    echo '<a class="btn alt" href="_dirnet-data/' . rawurlencode($file) . '" download>Download .md</a> ';
+    echo '<span class="rows"><code>' . htmlspecialchars($file) . '</code> &middot; '
+       . number_format(substr_count($md, "\n")) . ' lines</span>';
+    echo '</div>';
+    echo '<div class="scroll" style="max-height:520px"><pre style="margin:0;font-size:12px;line-height:1.5;white-space:pre-wrap">'
+       . htmlspecialchars($md) . '</pre></div>';
+    echo '<textarea id="tsv-' . htmlspecialchars($id) . '" class="hidden-tsv">' . htmlspecialchars($md) . '</textarea>';
     echo '</section>';
 }
 ?><!DOCTYPE html>
@@ -128,6 +158,8 @@ function panel(string $id, string $title, string $file, string $note = '', int $
   <a href="#x4">4. Facilities by city</a>
   <a href="#x5">5. Fill rate &amp; provenance</a>
   <a href="#x6">6. Deduplication</a>
+  <a href="#x7">7. Density &mdash; 287 cities</a>
+  <a href="#x7qa">7b. Density QA report</a>
 </nav>
 
 <section class="panel" id="summary">
@@ -252,6 +284,23 @@ panel('x6', '6. Records per physical building', '06a-records-per-building.csv',
    would collapse together. They do not: 17,770 buildings hold exactly one record.
    Cross-checked against coordinates (17,562 distinct points for 17,823 geocoded; the small overlap is
    interpolated/ZIP-precision geocoding, 2,045 + 200 listings, collapsing nearby distinct addresses).');
+
+panel('x7', '7. Facility density for the 287 candidate cities', 'density_counts.csv',
+  'Straight from the SAMHSA 2025 N-SUMHSS directories (both files, 27,563 raw rows &rarr; 18,796 unique facilities).
+   287 data rows, ascending by <code>workbook_row</code>, aligned row-for-row with your seed sheet &mdash; paste
+   straight in. <b>All 287 rows now carry counts &mdash; <code>geocode_status</code> is <code>OK</code> throughout, and every
+   0 in the table is a real 0.</b> Two cities needed a coordinate the Census Places file could not give:
+   <b>San Francisco</b>, whose own internal point sits 32.6 miles out in the Pacific because the Farallon Islands are
+   inside the city limits, and <b>Hyannis</b>, which has no Places record at all (it is a village of Barnstable). Both
+   were derived from the Census ZCTA gazetteer, not typed in &mdash; derivations are in the QA report below.
+   <code>otp_25</code> counts opioid treatment
+   programs that are <i>not</i> already in <code>strict_25</code>, so the two can be added without double-counting.
+   <br><b>Showing the first 25 rows &mdash; Copy as TSV and Download give all 287.</b>', 25);
+
+doc('x7qa', '7b. QA report for the density counts', 'qa_report.md',
+  'Row counts at every stage, the exact service codes behind STRICT / BROAD / OTP, the city-matching tiers, and
+   all four sanity checks with their results. <b>Sanity check 4 does not pass as literally worded</b> &mdash; read
+   that section, the reasoning matters more than the number.');
 ?>
 
 <section class="panel">
