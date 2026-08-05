@@ -7,7 +7,12 @@
 require_once __DIR__ . '/../../config.php';   // session_start() + ADMIN_* constants
 
 if (empty($_SESSION['admin_logged_in'])) {
-    header('Location: ../login.php');
+    // Absolute path, not '../login.php' — this file is included from both
+    // admin/infra/ and admin/infra/actions/, and the relative form resolved to a
+    // non-existent admin/infra/login.php (404) for every action handler.
+    $adminBase = rtrim(dirname(dirname($_SERVER['SCRIPT_NAME'] ?? '')), '/');
+    if (basename($adminBase) === 'infra') $adminBase = dirname($adminBase);
+    header('Location: ' . ($adminBase ?: '/admin') . '/login.php');
     exit;
 }
 
@@ -22,6 +27,7 @@ require_once __DIR__ . '/lib/cloudflare.php';
 require_once __DIR__ . '/lib/state.php';
 require_once __DIR__ . '/lib/cache.php';
 require_once __DIR__ . '/lib/fleet.php';
+require_once __DIR__ . '/lib/registrar.php';
 require_once __DIR__ . '/lib/golive.php';
 
 function ih($s): string { return htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8'); }
@@ -44,6 +50,7 @@ function infra_header(string $active = 'dashboard'): void
     $nav = [
         'dashboard'  => ['label' => 'Dashboard',  'href' => 'index.php'],
         'domains'    => ['label' => 'Domains',     'href' => 'index.php?view=domains'],
+        'registrars' => ['label' => 'Registrars',  'href' => 'index.php?view=registrars'],
         'new'        => ['label' => '+ New Site',  'href' => 'index.php?view=new'],
         'bulk'       => ['label' => 'Bulk',        'href' => 'index.php?view=bulk'],
         'deploy'     => ['label' => 'Deploy',      'href' => 'index.php?view=deploy'],

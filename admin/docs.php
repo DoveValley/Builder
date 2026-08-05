@@ -345,6 +345,7 @@ tr.ms-rec td { background: #fff3cd !important; }
         <a href="#console-phases">The 3-phase model</a>
         <a href="#console-views">Views &amp; navigation</a>
         <a href="#console-config">Configuration files</a>
+        <a href="#console-acquire">Acquiring domains (begin &rarr; own)</a>
         <a href="#console-provision">Provisioning (New Site / Bulk)</a>
         <a href="#console-registrars">Registrars</a>
         <a href="#console-deploy">Deploy bridge</a>
@@ -3368,7 +3369,8 @@ Visitor  →  https://{domain}</code></pre>
 <table>
     <tr><th>View</th><th>Does</th></tr>
     <tr><td><strong>Dashboard</strong></td><td>Fleet tiles (servers / sites / CF accounts / issues) + server list with reachability. <em>Discover / Refresh</em> forces a live re-sweep.</td></tr>
-    <tr><td><strong>Domains</strong></td><td>Fleet-wide inventory reconciled across Plesk + Cloudflare + registrar, with <strong>drift</strong> flags. Server-side search + pagination (100/page). Managed domains link to their manage page.</td></tr>
+    <tr><td><strong>Domains</strong></td><td>The 9-column fleet table: <em>Domain · Ready to buy · Register · Buy date · Own · Cloudflare · VPS/Plesk · State · Drift</em>. Covers the whole life of a domain from a name you typed to a live site. Load new names, check availability, schedule buys, and see everything reconciled against Plesk + Cloudflare with <strong>drift</strong> flags. Sortable on every column, server-side search + pagination (100/page). See <a href="#console-acquire">Acquiring domains</a>.</td></tr>
+    <tr><td><strong>Registrars</strong></td><td>Add / edit / remove registrar API credentials, with a read-only <strong>Test</strong> that reports reachability <em>and account balance</em>. Also shows what each registrar's API can actually do.</td></tr>
     <tr><td><strong>Server detail</strong></td><td>One VPS: its config + every site's stack wiring (Plesk / Cloudflare / registrar / state).</td></tr>
     <tr><td><strong>+ New Site</strong></td><td>Provision one domain end-to-end (register optional).</td></tr>
     <tr><td><strong>Bulk</strong></td><td>Provision many domains from a pasted list with a live streaming log; optional round-robin across servers / CF accounts / registrars.</td></tr>
@@ -3394,6 +3396,55 @@ Visitor  →  https://{domain}</code></pre>
 <a class="back-top" href="#console-config">&uarr; top</a>
 </section>
 
+<section id="console-acquire">
+<h2>Acquiring domains — begin &rarr; ready &rarr; own</h2>
+<p>This is the stage <em>before</em> provisioning: getting from a list of names you'd like, to domains you actually own. It all happens on the <strong>Domains</strong> tab.</p>
+
+<h3>The lifecycle</h3>
+<p>The acquisition states sit in front of the existing pipeline, so one table carries a domain from idea to live site:</p>
+<pre><code>begin → ready → owned → staged → queued → releasing → live
+└──── acquisition ────┘   └──── provisioning + go-live ────┘</code></pre>
+<table>
+    <tr><th>State</th><th>Means</th></tr>
+    <tr><td><code>begin</code></td><td>Loaded into the table. Nothing checked, nothing spent.</td></tr>
+    <tr><td><code>ready</code></td><td>An availability check said the name is registrable.</td></tr>
+    <tr><td><code>owned</code></td><td>Purchased. <strong>Own</strong> is a receipt written by the system, not a field you tick.</td></tr>
+    <tr><td><code>buy-failed</code></td><td>A scheduled purchase failed; the reason is kept on the row. Needs a human before it will retry.</td></tr>
+</table>
+
+<h3>1. Load new domains</h3>
+<p>The <strong>+ Load new domains</strong> panel at the top of the Domains tab takes a <strong>pasted list</strong> (one per line, or space/comma separated) and/or a <strong>CSV upload</strong> — both in the same submit. For a CSV, the first column is the domain; a <code>niche</code> column is used if present, and a header row is detected and skipped. An optional <em>Niche</em> field is applied to everything in the batch.</p>
+<div class="callout tip"><p>Loading is <strong>additive and safe to repeat</strong>. A domain already in the table is left exactly as it is — re-pasting a list you loaded last week cannot reset progress on domains that have since been bought or gone live.</p></div>
+
+<h3>2. Check availability (free)</h3>
+<p>Tick rows and press <strong>Check availability</strong>, or tick <em>also check availability now</em> when loading. Read-only at every registrar — it never spends anything. It fills in column 2 and, where the registrar returns one, the <strong>price</strong>.</p>
+<p>Three outcomes are kept distinct, which matters more than it sounds:</p>
+<table>
+    <tr><th>Result</th><th>Shown as</th></tr>
+    <tr><td>Registrable</td><td><strong>Yes</strong> (+ price, + a <em>premium</em> flag where it applies)</td></tr>
+    <tr><td>Registered to someone else</td><td><strong>No</strong> · taken</td></tr>
+    <tr><td>Registered to <em>you</em>, in one of your own registrar accounts</td><td><strong>No</strong> · <em>you own it</em></td></tr>
+    <tr><td>The check itself failed</td><td><strong>?</strong> + the reason</td></tr>
+</table>
+<div class="callout"><p><strong>Why the fourth row exists.</strong> A failed check never writes "no". A network blip or a rate-limit must not be able to mark a good name dead — so an inconclusive check leaves the verdict untouched and says why.</p>
+<p><strong>Why "you own it" is separate.</strong> Domains held for other projects would otherwise come back simply as "taken" and read like dead names. The console cross-references your own registrar holdings (cached for 30 minutes) to tell the two apart.</p></div>
+
+<h3>3. Assign a registrar (column 3)</h3>
+<p>Editable per row, or set on many at once from the bulk bar. Only registrars whose API can <em>complete a purchase</em> are offered for auto-buy; the rest are marked <em>no auto-buy</em> and are for nameserver switching only.</p>
+<p><strong>🔀 spread round-robin</strong> distributes the ticked domains evenly across the buy-capable registrars, using a persistent counter so the spread stays even across separate batches. This is a footprint decision, not a convenience — several hundred domains for one network at a single registrar is exactly the clustering the <a href="#doc-infrastructure">network strategy</a> is trying to avoid.</p>
+
+<h3>4. Set the buy date (column 4)</h3>
+<p>Either a single date onto the ticked rows, or <strong>Spread N/day from a date</strong> — same shape as the go-live scheduler, and for the same reason: buying several hundred domains inside one minute is its own footprint signal.</p>
+<div class="callout warn"><p>Scheduling a domain that isn't marked <strong>ready</strong> is allowed but always reported back. A date on a taken name reads as "scheduled" right up until the purchase fails, so the console names the offenders instead of letting it look fine.</p></div>
+
+<h3>Other bulk actions</h3>
+<p><strong>Save registrar &amp; date edits</strong> commits every inline Register/Buy-date field on the visible page (ticks aren't needed for this one). <strong>Remove</strong> untracks the ticked rows — and <em>refuses</em> to drop a domain that has been purchased or has live infrastructure behind it, because that belongs in the per-domain <a href="#console-manage">Danger Zone</a> with a typed confirmation.</p>
+
+<h3>What this stage deliberately does not do</h3>
+<p>It does not buy anything. Availability checking, registrar assignment and scheduling are all free and reversible; the purchase step is separate so the money-spending code has one obvious home rather than being folded into a checker.</p>
+<a class="back-top" href="#console-acquire">&uarr; top</a>
+</section>
+
 <section id="console-provision">
 <h2>Provisioning — New Site &amp; Bulk</h2>
 <p>Both call one shared routine (<code>infra_provision_one()</code>), so single and bulk never drift. Per domain it: (optionally) registers &rarr; creates the Plesk site + FTP user &rarr; creates the Cloudflare zone &rarr; adds A records (apex + <code>www</code>) pointed at the VPS IP, proxied &rarr; sets SSL mode + HSTS &rarr; saves everything (incl. FTP creds) to fleet state. <strong>Idempotent</strong>: existing sites/zones are skipped/updated.</p>
@@ -3408,17 +3459,19 @@ Visitor  →  https://{domain}</code></pre>
 
 <section id="console-registrars">
 <h2>Registrars</h2>
-<p>Six registrars are wired for the go-live <strong>nameserver switch</strong> (and, where supported, auto-registration). A domain's stored <code>registrar</code> name selects the adapter; anything without an adapter/creds falls back to <strong>manual</strong> (the console surfaces the NS to set by hand). Add creds to <code>registrar.json</code>.</p>
+<p>Managed from the <strong>Registrars</strong> tab — no hand-editing of JSON required. Each card takes that registrar's API fields and has a read-only <strong>Test connection &amp; balance</strong> button. Credentials are written to <code>admin/infra/config/registrar.json</code> (gitignored, <code>0600</code>) and are <strong>never printed back into the page</strong>: a blank secret field means "keep the stored one", so you can re-save a card without re-typing a key.</p>
+<p>Five registrars are supported. Which capabilities each card advertises is a statement about that registrar's <em>API</em>, not about your account — <strong>Test</strong> is what tells you whether the key works and whether there are funds behind it.</p>
 <table>
-    <tr><th>Registrar</th><th>Config fields</th><th>Notes / gotchas</th></tr>
-    <tr><td>NameSilo</td><td><code>api_key</code></td><td>Also auto-registers. No IP allowlist.</td></tr>
-    <tr><td>Porkbun</td><td><code>api_key</code>, <code>secret_api_key</code></td><td>Must enable "API Access" per-domain in the dashboard.</td></tr>
-    <tr><td>Spaceship</td><td><code>api_key</code>, <code>api_secret</code></td><td>Namecheap-owned (shares a parent — slightly less footprint-independent).</td></tr>
-    <tr><td>Dynadot</td><td><code>api_key</code></td><td>May require external nameservers be added to the account first.</td></tr>
-    <tr><td>Gandi</td><td><code>pat</code> (Personal Access Token)</td><td>Bearer PAT with domain-technical scope.</td></tr>
-    <tr><td>Namecheap</td><td><code>api_user</code>, <code>api_key</code>, <code>username</code>, <code>client_ip</code></td><td>Needs funded account + API enabled + the factory IP <strong>whitelisted</strong>.</td></tr>
+    <tr><th>Registrar</th><th>Config fields</th><th>Availability</th><th>Auto-buy</th><th>Nameservers</th><th>Balance</th><th>Notes / gotchas</th></tr>
+    <tr><td>NameSilo</td><td><code>api_key</code></td><td>✓ batched, <strong>returns price</strong></td><td>✓</td><td>✓</td><td>✓</td><td>No IP allowlist. Free WHOIS privacy on registration.</td></tr>
+    <tr><td>Namecheap</td><td><code>api_user</code>, <code>api_key</code>, <code>username</code>, <code>client_ip</code></td><td>✓ batched</td><td>✓</td><td>✓</td><td>✓</td><td>Funded account + API enabled + this server's IP <strong>whitelisted</strong>. Buying needs a contact set.</td></tr>
+    <tr><td>Porkbun</td><td><code>api_key</code>, <code>secret_api_key</code></td><td>✓ one at a time (throttled)</td><td><strong>✗</strong></td><td>✓</td><td>✗</td><td>"API Access" must be ON <em>per-domain</em>. No registration endpoint — buy in the dashboard, then mark owned here. No balance endpoint.</td></tr>
+    <tr><td>Dynadot</td><td><code>api_key</code></td><td>✓ batched</td><td>✓</td><td>✓</td><td>✓</td><td>May require external nameservers be added to the account before they can be set.</td></tr>
+    <tr><td>Gandi</td><td><code>pat</code> (Personal Access Token)</td><td>✓ one at a time</td><td>✓</td><td>✓</td><td>✓ (prepaid)</td><td>v5 REST API; PATs replaced the old API keys. Balance needs billing scope on the token. Buying needs a contact set.</td></tr>
 </table>
-<p>To activate one: create its API credential, add a row to <code>registrar.json</code>, and (Namecheap) whitelist the factory IP. Everything else is automatic.</p>
+<div class="callout"><p><strong>Spaceship was deliberately dropped.</strong> It is Namecheap-owned, so it costs a second account without buying any real nameserver independence — the whole point of using several registrars.</p></div>
+<div class="callout warn"><p><strong>Test reports the balance for a reason.</strong> A perfectly valid API key with no funds behind it cannot buy a thing, and that failure otherwise only surfaces on the day a scheduled purchase runs. The card flags a balance too low to cover a <code>.com</code>.</p>
+<p>Namecheap's most common failure by far is the IP allowlist — the console names it explicitly in the error rather than passing through a generic message.</p></div>
 <a class="back-top" href="#console-registrars">&uarr; top</a>
 </section>
 

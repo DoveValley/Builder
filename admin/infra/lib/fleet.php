@@ -115,14 +115,21 @@ function infra_fleet_domains(): array
         $r  = $reg[$n]    ?? [];
         $st = $stored[$n] ?? null;
 
-        if     ($p && !$z) $drift = 'no-cf-zone';     // on a VPS but no CF zone
-        elseif (!$p && $z) $drift = 'orphan-zone';    // CF zone with no VPS site
-        else               $drift = null;
+        // A domain still in the acquisition stage has no infrastructure BY DESIGN,
+        // so it must never be reported as drift — otherwise loading 400 names to
+        // buy would light up 400 false alarms.
+        $acquiring = $st && in_array($st['status'] ?? '', ['begin', 'ready', 'buy-failed'], true);
+
+        if     ($acquiring)  $drift = null;
+        elseif ($p && !$z)   $drift = 'no-cf-zone';     // on a VPS but no CF zone
+        elseif (!$p && $z)   $drift = 'orphan-zone';    // CF zone with no VPS site
+        else                 $drift = null;
 
         if     ($z && ($z['status'] ?? '') === 'active') $state = 'live';    // NS switched → serving
         elseif ($z && ($z['status'] ?? '') === 'pending') $state = 'staged'; // zone exists, NS not switched
         elseif ($p)                                       $state = 'staged'; // plesk only
-        elseif ($st && !empty($st['status']))             $state = $st['status']; // stored (not yet discovered live)
+        elseif ($st && !empty($st['status']))             $state = $st['status']; // stored (incl. begin/ready/owned)
+        elseif ($st)                                      $state = 'begin';  // tracked but statusless
         else                                              $state = 'unknown';
 
         $rows[] = [
@@ -135,6 +142,15 @@ function infra_fleet_domains(): array
             'managed'   => (bool) $st,          // provisioned/tracked by this console
             'ftp_user'  => $st['ftp_user'] ?? '',
             'niche'     => $st['niche'] ?? '',
+            // ── acquisition stage (cols 2–5 of the Domains table) ──
+            'ready_to_buy'     => $st['ready_to_buy'] ?? '',
+            'buy_registrar'    => $st['buy_registrar'] ?? '',
+            'buy_at'           => $st['buy_at'] ?? '',
+            'owned'            => $st['owned'] ?? '',
+            'avail_note'       => $st['avail_note'] ?? '',
+            'avail_price'      => $st['avail_price'] ?? '',
+            'avail_checked_at' => $st['avail_checked_at'] ?? '',
+            'buy_error'        => $st['buy_error'] ?? '',
         ];
     }
     return $rows;

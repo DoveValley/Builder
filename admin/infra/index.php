@@ -30,8 +30,49 @@ function infra_cf_cell(?array $z, bool $hasCf): string
 }
 function infra_state_cell(string $state): string
 {
-    $map = ['live' => 'b-ok', 'staged' => 'b-warn', 'unknown' => 'b-mut'];
+    $map = [
+        'live' => 'b-ok', 'owned' => 'b-ok',
+        'staged' => 'b-warn', 'queued' => 'b-warn', 'releasing' => 'b-warn', 'awaiting-ns' => 'b-warn',
+        'ready' => 'b-warn',
+        'buy-failed' => 'b-err', 'register-failed' => 'b-err', 'partial' => 'b-err',
+        'begin' => 'b-mut', 'unknown' => 'b-mut',
+    ];
     return '<span class="badge ' . ($map[$state] ?? 'b-mut') . '">' . ih($state) . '</span>';
+}
+
+/** Col 2 — "Ready to buy", with the reason when the answer is no. */
+function infra_ready_cell(array $r): string
+{
+    $note = (string) ($r['avail_note'] ?? '');
+    $price = (string) ($r['avail_price'] ?? '');
+    if ($r['ready_to_buy'] === 'yes') {
+        return '<span class="badge b-ok">Yes</span>'
+             . ($price !== '' ? ' <span style="color:#6b7280;font-size:11px">$' . ih($price) . '</span>' : '')
+             . ($note === 'premium' ? ' <span class="badge b-warn">premium</span>' : '');
+    }
+    if ($r['ready_to_buy'] === 'no') {
+        $label = $note === 'self-owned' ? 'you own it' : ($note !== '' ? $note : 'no');
+        return '<span class="badge b-err">No</span> <span style="color:#6b7280;font-size:11px">' . ih($label) . '</span>';
+    }
+    // Never checked, or the check itself failed — say so rather than implying "no".
+    if ($note !== '') return '<span class="badge b-mut">?</span> <span style="color:#b45309;font-size:11px">' . ih($note) . '</span>';
+    return '<span class="badge b-mut">not checked</span>';
+}
+
+/** Col 5 — "Own": the receipt of a purchase, not an editable opinion. */
+function infra_own_cell(array $r): string
+{
+    if (($r['owned'] ?? '') === 'yes') {
+        return '<span class="badge b-ok">Yes</span>';
+    }
+    if (($r['state'] ?? '') === 'buy-failed') {
+        return '<span class="badge b-err">failed</span>'
+             . (($r['buy_error'] ?? '') !== '' ? '<br><span style="color:#991b1b;font-size:11px">' . ih(substr($r['buy_error'], 0, 60)) . '</span>' : '');
+    }
+    if (($r['buy_at'] ?? '') !== '' && $r['buy_at'] <= gmdate('Y-m-d')) {
+        return '<span class="badge b-warn">due</span>';
+    }
+    return '<span style="color:#9ca3af">No</span>';
 }
 function infra_drift_cell(?string $drift): string
 {
@@ -112,69 +153,215 @@ if ($view === 'domains') {
     infra_header('domains');
     $allRows = infra_fleet_domains();
     $hasCf   = count(infra_cf_accounts()) > 0;
-    // tiles reflect the WHOLE fleet (not the filtered/paged slice)
-    $live = $staged = $drift = 0;
+    $regs    = infra_registrar_names();
+    $buyable = infra_registrar_buyable();
+
+    // Tiles reflect the WHOLE fleet, not the filtered/paged slice. The acquisition
+    // buckets come first because with 400 loaded-but-unbought rows the old
+    // Live/Staged/Drift trio said nothing useful.
+    $tally = ['begin' => 0, 'ready' => 0, 'owned' => 0, 'staged' => 0, 'live' => 0, 'drift' => 0, 'failed' => 0];
     foreach ($allRows as $r) {
-        if ($r['state'] === 'live') $live++;
-        elseif ($r['state'] === 'staged') $staged++;
-        if ($r['drift']) $drift++;
+        switch ($r['state']) {
+            case 'begin':                                     $tally['begin']++;  break;
+            case 'ready':                                     $tally['ready']++;  break;
+            case 'owned':                                     $tally['owned']++;  break;
+            case 'live':                                      $tally['live']++;   break;
+            case 'buy-failed': case 'register-failed':
+            case 'partial':                                   $tally['failed']++; break;
+            default:                                          $tally['staged']++; break;
+        }
+        if ($r['drift']) $tally['drift']++;
     }
-    // server-side search across the full set, then paginate
+
+    /* search across the full set ------------------------------------------ */
     $q = trim((string) ($_GET['q'] ?? ''));
     if ($q !== '') {
         $ql = strtolower($q);
         $rows = array_values(array_filter($allRows, function ($r) use ($ql) {
-            return strpos($r['domain'], $ql) !== false
-                || strpos(strtolower((string) $r['registrar']), $ql) !== false
-                || strpos((string) $r['state'], $ql) !== false
-                || strpos((string) ($r['drift'] ?? ''), $ql) !== false;
+            foreach (['domain', 'registrar', 'state', 'drift', 'buy_registrar', 'buy_at', 'niche', 'avail_note'] as $f) {
+                if (strpos(strtolower((string) ($r[$f] ?? '')), $ql) !== false) return true;
+            }
+            return false;
         }));
     } else {
         $rows = $allRows;
     }
+
+    /* sort across the full set (not just the visible page) ----------------- */
+    $sort = (string) ($_GET['sort'] ?? 'domain');
+    $dir  = (($_GET['dir'] ?? 'asc') === 'desc') ? 'desc' : 'asc';
+    $sortable = [
+        'domain' => fn($r) => $r['domain'],
+        'ready'  => fn($r) => ['yes' => '0', 'no' => '2'][$r['ready_to_buy']] ?? '1',
+        'buyreg' => fn($r) => strtolower((string) $r['buy_registrar']),
+        'buy_at' => fn($r) => $r['buy_at'] !== '' ? $r['buy_at'] : '9999-99-99',   // unscheduled last
+        'owned'  => fn($r) => $r['owned'] === 'yes' ? '0' : '1',
+        'cf'     => fn($r) => $r['cf'] ? ($r['cf']['status'] ?? '') : 'zzz',
+        'vps'    => fn($r) => $r['plesk'] ? ($r['plesk']['server_label'] ?? '') : 'zzz',
+        'state'  => fn($r) => array_search($r['state'], INFRA_STATUSES, true) === false
+                                ? '99' : sprintf('%02d', array_search($r['state'], INFRA_STATUSES, true)),
+        'drift'  => fn($r) => $r['drift'] ?: 'zzz',
+    ];
+    if (!isset($sortable[$sort])) $sort = 'domain';
+    $key = $sortable[$sort];
+    usort($rows, function ($a, $b) use ($key, $dir) {
+        $c = [$key($a), $a['domain']] <=> [$key($b), $b['domain']];
+        return $dir === 'desc' ? -$c : $c;
+    });
+
+    /* paginate ------------------------------------------------------------- */
     $perPage = 100;
     $total   = count($rows);
     $pages   = max(1, (int) ceil($total / $perPage));
     $page    = max(1, min($pages, (int) ($_GET['page'] ?? 1)));
     $slice   = array_slice($rows, ($page - 1) * $perPage, $perPage);
-    $qs      = $q !== '' ? '&q=' . urlencode($q) : '';
+
+    $baseQs = 'view=domains'
+        . ($q !== '' ? '&q=' . urlencode($q) : '')
+        . '&sort=' . urlencode($sort) . '&dir=' . $dir;
+    // column header link that toggles direction on the active column
+    $sortLink = function (string $k, string $label) use ($sort, $dir, $q, $page) {
+        $nd  = ($sort === $k && $dir === 'asc') ? 'desc' : 'asc';
+        $ar  = $sort === $k ? ($dir === 'asc' ? ' &uarr;' : ' &darr;') : '';
+        $url = 'index.php?view=domains' . ($q !== '' ? '&q=' . urlencode($q) : '')
+             . '&sort=' . urlencode($k) . '&dir=' . $nd . '&page=' . $page;
+        return '<a href="' . ih($url) . '" style="color:inherit;text-decoration:none">' . $label . $ar . '</a>';
+    };
     ?>
     <div class="ic-tiles">
       <div class="ic-tile"><div class="n"><?= count($allRows) ?></div><div class="l">Domains</div></div>
-      <div class="ic-tile"><div class="n"><?= $live ?></div><div class="l">Live</div></div>
-      <div class="ic-tile"><div class="n"><?= $staged ?></div><div class="l">Staged</div></div>
-      <div class="ic-tile"><div class="n"><?= $drift ?></div><div class="l">Drift</div></div>
+      <div class="ic-tile"><div class="n"><?= $tally['begin'] ?></div><div class="l">Begin</div></div>
+      <div class="ic-tile"><div class="n"><?= $tally['ready'] ?></div><div class="l">Ready to buy</div></div>
+      <div class="ic-tile"><div class="n"><?= $tally['owned'] ?></div><div class="l">Owned</div></div>
+      <div class="ic-tile"><div class="n"><?= $tally['staged'] ?></div><div class="l">Staged</div></div>
+      <div class="ic-tile"><div class="n"><?= $tally['live'] ?></div><div class="l">Live</div></div>
+      <div class="ic-tile"><div class="n"><?= $tally['drift'] + $tally['failed'] ?></div><div class="l">Needs attention</div></div>
     </div>
-    <?php if (!$hasCf): ?>
-      <div class="ic-note">No Cloudflare account configured yet — the Cloudflare column shows <em>no CF account</em>. Add one to <code>admin/infra/config/cloudflare.json</code> and refresh to see real zone/NS state.</div>
+
+    <?php if (!$regs): ?>
+      <div class="ic-note">No registrar configured yet — add one on the <a href="index.php?view=registrars"><strong>Registrars</strong></a> tab before you can check availability or schedule buys.</div>
     <?php endif; ?>
+
+    <!-- ============ LOAD NEW DOMAINS (→ begin state) ============ -->
+    <details class="ic-card" <?= empty($allRows) ? 'open' : '' ?>>
+      <summary style="padding:14px 16px;font-size:15px;font-weight:600;cursor:pointer;border-bottom:1px solid #f0f0f0">
+        &#43; Load new domains <span style="color:#9ca3af;font-weight:400;font-size:13px">— paste a list or upload a CSV; they land in <em>begin</em> state</span>
+      </summary>
+      <div class="body">
+        <form method="post" action="actions/domains_load.php" enctype="multipart/form-data">
+          <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+          <div style="display:grid;grid-template-columns:1fr 300px;gap:18px">
+            <div>
+              <label style="font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Paste — one domain per line</label>
+              <textarea name="domains" rows="7" placeholder="littletonpestpros.com&#10;auroramoldpros.com&#10;castlerockwaterpros.com" style="width:100%;margin-top:6px;padding:10px;border:1px solid #d1d5db;border-radius:8px;font-family:monospace;font-size:13px"></textarea>
+            </div>
+            <div>
+              <label style="font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">…or upload a CSV</label>
+              <input type="file" name="csv" accept=".csv,.txt" style="width:100%;margin-top:6px;padding:8px;border:1px solid #d1d5db;border-radius:8px;background:#fff">
+              <div style="color:#6b7280;font-size:12px;margin-top:6px">First column = domain. A <code>niche</code> column is used if present; a header row is detected and skipped.</div>
+              <label style="display:block;margin-top:12px;font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Niche (optional, applied to all)</label>
+              <input name="niche" placeholder="pest" style="width:100%;margin-top:6px;padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
+            </div>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <button class="btn" type="submit">Load domains</button>
+            <label style="font-size:13px;color:#374151"><input type="checkbox" name="check_now" value="1" <?= $regs ? 'checked' : 'disabled' ?>> also check availability now</label>
+            <?php if ($regs): ?>
+              <span style="font-size:13px;color:#6b7280">using</span>
+              <select name="check_registrar" style="padding:6px 8px;border:1px solid #d1d5db;border-radius:8px">
+                <?php foreach ($regs as $rn): ?><option value="<?= ih($rn) ?>"><?= ih($rn) ?></option><?php endforeach; ?>
+              </select>
+            <?php endif; ?>
+          </div>
+          <div style="color:#6b7280;font-size:12px;margin-top:8px">Loading is additive and safe to repeat — a domain already in the table is left exactly as it is, never reset.</div>
+        </form>
+      </div>
+    </details>
+
     <div style="margin-bottom:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-      <a class="btn" href="index.php?view=domains&refresh=1<?= $qs ?>">&#8635; Discover / Refresh</a>
+      <a class="btn" href="index.php?<?= ih($baseQs) ?>&refresh=1">&#8635; Discover / Refresh</a>
       <form method="get" style="display:inline-flex;gap:6px;margin:0">
         <input type="hidden" name="view" value="domains">
-        <input class="ic-search" type="search" name="q" value="<?= ih($q) ?>" placeholder="Search domain / registrar / state…" style="margin:0">
+        <input type="hidden" name="sort" value="<?= ih($sort) ?>"><input type="hidden" name="dir" value="<?= ih($dir) ?>">
+        <input class="ic-search" type="search" name="q" value="<?= ih($q) ?>" placeholder="Search domain / registrar / state / note…" style="margin:0">
         <button class="btn sec" type="submit">Search</button>
         <?php if ($q !== ''): ?><a class="btn sec" href="index.php?view=domains">Clear</a><?php endif; ?>
       </form>
     </div>
+
     <div class="ic-card">
-      <h2>Domain inventory <span style="color:#9ca3af;font-weight:400;font-size:13px">— <?= $total ?><?= $q !== '' ? ' match' . ($total === 1 ? '' : 'es') : '' ?>, page <?= $page ?>/<?= $pages ?></span></h2>
+      <h2>Domain inventory <span style="color:#9ca3af;font-weight:400;font-size:13px">— <?= $total ?><?= $q !== '' ? ' match' . ($total === 1 ? '' : 'es') : '' ?>, page <?= $page ?>/<?= $pages ?>, sorted by <?= ih($sort) ?> <?= $dir ?></span></h2>
       <div class="body">
         <?php if (empty($slice)): ?>
-          <div class="ic-empty"><?= $q !== '' ? 'No domains match “' . ih($q) . '”.' : 'No domains found across Plesk / Cloudflare / registrar map.' ?></div>
+          <div class="ic-empty"><?= $q !== '' ? 'No domains match “' . ih($q) . '”.' : 'No domains yet — load some above.' ?></div>
         <?php else: ?>
+        <form method="post" action="actions/domains_bulk.php" id="domForm">
+          <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+          <input type="hidden" name="back" value="<?= ih($baseQs . '&page=' . $page) ?>">
+
+          <!-- bulk bar: acts on ticked rows -->
+          <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:10px 12px;margin-bottom:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px">
+            <strong id="selCount">0 selected</strong>
+            <button class="btn sec" type="submit" name="action" value="check_avail" <?= $regs ? '' : 'disabled' ?>>Check availability</button>
+            <span style="color:#d1d5db">|</span>
+            <span>Registrar</span>
+            <select name="bulk_registrar" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:8px">
+              <option value="">—</option>
+              <?php foreach ($regs as $rn): ?><option value="<?= ih($rn) ?>"><?= ih($rn) ?><?= in_array($rn, $buyable, true) ? '' : ' (no auto-buy)' ?></option><?php endforeach; ?>
+              <?php if (count($buyable) > 1): ?><option value="__rr__">🔀 spread round-robin</option><?php endif; ?>
+            </select>
+            <button class="btn sec" type="submit" name="action" value="set_registrar">Set</button>
+            <span style="color:#d1d5db">|</span>
+            <span>Buy date</span>
+            <input type="date" name="bulk_buy_at" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:8px">
+            <button class="btn sec" type="submit" name="action" value="set_buy_at">Set</button>
+            <span style="color:#d1d5db">|</span>
+            <span>Spread</span>
+            <input type="number" name="per_day" value="20" min="1" style="width:60px;padding:5px 8px;border:1px solid #d1d5db;border-radius:8px">
+            <span>/day from</span>
+            <input type="date" name="spread_from" value="<?= ih(gmdate('Y-m-d')) ?>" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:8px">
+            <button class="btn sec" type="submit" name="action" value="schedule_buys">Schedule</button>
+            <span style="color:#d1d5db">|</span>
+            <button class="btn sec" type="submit" name="action" value="remove" style="color:#991b1b" onclick="return confirm('Remove the ticked domains from the table? Only untracks them here — no infrastructure is touched.')">Remove</button>
+          </div>
+
           <table>
-            <thead><tr><th>Domain</th><th>Registrar</th><th>Cloudflare</th><th>VPS / Plesk</th><th>State</th><th>Drift</th></tr></thead>
+            <thead><tr>
+              <th style="width:26px"><input type="checkbox" id="selAll" title="Select all on this page"></th>
+              <th><?= $sortLink('domain', '1. Domain') ?></th>
+              <th><?= $sortLink('ready',  '2. Ready to buy') ?></th>
+              <th><?= $sortLink('buyreg', '3. Register') ?></th>
+              <th><?= $sortLink('buy_at', '4. Buy date') ?></th>
+              <th><?= $sortLink('owned',  '5. Own') ?></th>
+              <th><?= $sortLink('cf',     '6. Cloudflare') ?></th>
+              <th><?= $sortLink('vps',    '7. VPS / Plesk') ?></th>
+              <th><?= $sortLink('state',  '8. State') ?></th>
+              <th><?= $sortLink('drift',  '9. Drift') ?></th>
+            </tr></thead>
             <tbody>
             <?php foreach ($slice as $r):
-              $reg = $r['registrar'] !== '' ? ih($r['registrar']) : '<span class="badge b-mut">unknown</span>';
+              $d   = $r['domain'];
               $vps = $r['plesk']
                   ? '<a href="index.php?view=server&id=' . ih($r['plesk']['server_id']) . '">' . ih($r['plesk']['server_label']) . '</a>'
-                  : '<span class="badge b-warn">not on Plesk</span>';
+                  : '<span style="color:#9ca3af">—</span>';
             ?>
               <tr>
-                <td><?php if (!empty($r['managed'])): ?><a href="index.php?view=domain&d=<?= ih($r['domain']) ?>"><strong><?= ih($r['domain']) ?></strong></a> <span class="badge b-ok" title="provisioned/tracked by this console">managed</span><?php else: ?><strong><?= ih($r['domain']) ?></strong><?php endif; ?></td>
-                <td><?= $reg ?></td>
+                <td><input type="checkbox" class="selBox" name="sel[]" value="<?= ih($d) ?>"></td>
+                <td>
+                  <?php if (!empty($r['managed'])): ?><a href="index.php?view=domain&d=<?= ih($d) ?>"><strong><?= ih($d) ?></strong></a><?php else: ?><strong><?= ih($d) ?></strong><?php endif; ?>
+                  <?php if ($r['niche'] !== ''): ?><br><span style="color:#9ca3af;font-size:11px"><?= ih($r['niche']) ?></span><?php endif; ?>
+                </td>
+                <td><?= infra_ready_cell($r) ?></td>
+                <td>
+                  <select name="reg[<?= ih($d) ?>]" style="padding:4px 6px;border:1px solid #d1d5db;border-radius:6px;font-size:12px;max-width:130px">
+                    <option value="">—</option>
+                    <?php foreach ($regs as $rn): ?>
+                      <option value="<?= ih($rn) ?>" <?= $r['buy_registrar'] === $rn ? 'selected' : '' ?>><?= ih($rn) ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </td>
+                <td><input type="date" name="buy[<?= ih($d) ?>]" value="<?= ih($r['buy_at']) ?>" style="padding:4px 6px;border:1px solid #d1d5db;border-radius:6px;font-size:12px"></td>
+                <td><?= infra_own_cell($r) ?></td>
                 <td><?= infra_cf_cell($r['cf'], $hasCf) ?></td>
                 <td><?= $vps ?></td>
                 <td><?= infra_state_cell($r['state']) ?></td>
@@ -183,13 +370,36 @@ if ($view === 'domains') {
             <?php endforeach; ?>
             </tbody>
           </table>
+
+          <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <button class="btn" type="submit" name="action" value="save_edits">Save registrar &amp; date edits</button>
+            <span style="color:#6b7280;font-size:12px">Saves every Register / Buy date field on this page. Ticks are only needed for the bulk actions above.</span>
+          </div>
+
           <?php if ($pages > 1): ?>
           <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
-            <?php if ($page > 1): ?><a class="btn sec" href="index.php?view=domains<?= $qs ?>&page=<?= $page - 1 ?>">&larr; Prev</a><?php endif; ?>
+            <?php if ($page > 1): ?><a class="btn sec" href="index.php?<?= ih($baseQs) ?>&page=<?= $page - 1 ?>">&larr; Prev</a><?php endif; ?>
             <span style="color:#6b7280;font-size:13px">Showing <?= ($page - 1) * $perPage + 1 ?>&ndash;<?= min($total, $page * $perPage) ?> of <?= $total ?></span>
-            <?php if ($page < $pages): ?><a class="btn sec" href="index.php?view=domains<?= $qs ?>&page=<?= $page + 1 ?>">Next &rarr;</a><?php endif; ?>
+            <?php if ($page < $pages): ?><a class="btn sec" href="index.php?<?= ih($baseQs) ?>&page=<?= $page + 1 ?>">Next &rarr;</a><?php endif; ?>
           </div>
           <?php endif; ?>
+        </form>
+        <script>
+        (function () {
+          var all = document.getElementById('selAll'),
+              boxes = Array.prototype.slice.call(document.querySelectorAll('.selBox')),
+              out = document.getElementById('selCount');
+          function tally() {
+            var n = boxes.filter(function (b) { return b.checked; }).length;
+            out.textContent = n + ' selected';
+          }
+          all.addEventListener('change', function () {
+            boxes.forEach(function (b) { b.checked = all.checked; }); tally();
+          });
+          boxes.forEach(function (b) { b.addEventListener('change', tally); });
+          tally();
+        })();
+        </script>
         <?php endif; ?>
       </div>
     </div>
@@ -490,6 +700,103 @@ if ($view === 'golive') {
     </div></div>
     <?php endif; ?>
     <?php infra_search_js(); infra_footer(); exit;
+}
+
+/* ============================= REGISTRARS ============================= */
+if ($view === 'registrars') {
+    infra_header('registrars');
+    $types = infra_registrar_types();
+    $saved = infra_load_json(infra_config_path('registrar.json'), [])['registrars'] ?? [];
+    // Test results arrive via the session so a redirect can carry them (creds never in a URL).
+    $tests = $_SESSION['infra_reg_tests'] ?? [];
+    unset($_SESSION['infra_reg_tests']);
+    ?>
+    <div class="ic-note">These are the registrars the console can buy from and switch nameservers at. Credentials are stored in <code>admin/infra/config/registrar.json</code> — gitignored, <code>0600</code>, and never printed back into this page. <strong>Test</strong> is read-only: it verifies the key and reports the account balance, which is what decides whether a scheduled buy can actually complete.</div>
+
+    <?php foreach ($types as $type => $def):
+      $cfg   = null; $savedName = null;
+      foreach ($saved as $name => $c) if (strtolower($c['type'] ?? $name) === $type) { $cfg = $c; $savedName = $name; }
+      $has   = $cfg !== null;
+      $t     = $tests[$type] ?? null;
+      $caps  = [];
+      foreach (['check' => 'availability', 'buy' => 'auto-buy', 'ns' => 'nameservers', 'balance' => 'balance'] as $k => $lbl) {
+          $caps[] = '<span class="badge ' . (!empty($def[$k]) ? 'b-ok' : 'b-mut') . '">'
+                  . (!empty($def[$k]) ? '✓ ' : '✗ ') . $lbl . '</span>';
+      }
+    ?>
+      <div class="ic-card">
+        <h2>
+          <?= ih($def['label']) ?>
+          <?= $has ? '<span class="badge b-ok">configured</span>' : '<span class="badge b-mut">not configured</span>' ?>
+          <span style="margin-left:auto;font-weight:400;display:flex;gap:5px"><?= implode(' ', $caps) ?></span>
+        </h2>
+        <div class="body">
+          <div style="color:#6b7280;font-size:12.5px;margin-bottom:12px"><?= ih($def['note']) ?></div>
+
+          <?php if ($t): ?>
+            <div class="ic-note" style="<?= $t['ok']
+                ? 'background:#ecfdf5;border-color:#86efac;color:#166534'
+                : 'background:#fef2f2;border-color:#fca5a5;color:#991b1b' ?>">
+              <strong><?= $t['ok'] ? '✓ ' : '✗ ' ?><?= ih($t['message']) ?></strong>
+              <?php if ($t['ok']): ?>
+                <?php if ($t['balance'] !== null && $t['balance'] !== ''): ?>
+                  &nbsp;·&nbsp; balance <strong><?= ih($t['balance']) ?> <?= ih($t['currency']) ?></strong>
+                  <?php if (is_numeric($t['balance']) && (float) $t['balance'] < 15): ?>
+                    <span class="badge b-warn">too low to buy a .com</span>
+                  <?php endif; ?>
+                <?php else: ?>
+                  &nbsp;·&nbsp; <span style="opacity:.75">no balance endpoint — check funds in the dashboard</span>
+                <?php endif; ?>
+              <?php endif; ?>
+            </div>
+          <?php endif; ?>
+
+          <form method="post" action="actions/registrar_save.php">
+            <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+            <input type="hidden" name="type" value="<?= ih($type) ?>">
+            <table>
+              <?php foreach ($def['fields'] as $fname => $f):
+                $cur = (string) ($cfg[$fname] ?? ($f['default'] ?? ''));
+                $isSecret = !empty($f['secret']);
+                $hasVal   = $cur !== '';
+              ?>
+                <tr>
+                  <th style="width:200px"><?= ih($f['label']) ?></th>
+                  <td>
+                    <?php if ($isSecret): ?>
+                      <input name="f[<?= ih($fname) ?>]" type="password" autocomplete="new-password"
+                             placeholder="<?= $hasVal ? 'saved — leave blank to keep' : 'not set' ?>"
+                             style="width:380px;padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
+                      <?php if ($hasVal): ?><span class="badge b-ok">saved (<?= strlen($cur) ?> chars)</span><?php endif; ?>
+                    <?php else: ?>
+                      <input name="f[<?= ih($fname) ?>]" value="<?= ih($cur) ?>"
+                             style="width:380px;padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
+                    <?php endif; ?>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            </table>
+            <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+              <button class="btn" type="submit" name="action" value="save">Save credentials</button>
+              <button class="btn sec" type="submit" name="action" value="test" <?= $has ? '' : 'disabled' ?>>Test connection &amp; balance</button>
+              <?php if ($has): ?>
+                <button class="btn sec" type="submit" name="action" value="delete" style="color:#991b1b;margin-left:auto"
+                        onclick="return confirm('Remove <?= ih($def['label']) ?> credentials? Domains assigned to it keep the assignment but cannot be bought until it is reconfigured.');">Remove</button>
+              <?php endif; ?>
+            </div>
+          </form>
+        </div>
+      </div>
+    <?php endforeach; ?>
+
+    <div class="ic-card"><h2>Test all configured</h2><div class="body">
+      <form method="post" action="actions/registrar_save.php">
+        <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+        <button class="btn" type="submit" name="action" value="test_all">&#8635; Test every configured registrar</button>
+        <span style="color:#6b7280;font-size:12px;margin-left:8px">Read-only. Also refreshes the owned-domain list used to tell &ldquo;taken&rdquo; from &ldquo;you already own it&rdquo;.</span>
+      </form>
+    </div></div>
+    <?php infra_footer(); exit;
 }
 
 /* ============================= STUB VIEWS ============================= */

@@ -5,11 +5,7 @@
  * + fully stages the Cloudflare zone, then persists the record to fleet state.
  */
 require_once __DIR__ . '/fleet.php';   // pulls store/plesk/cloudflare/state + infra_registrar_map()
-
-function infra_valid_domain(string $d): bool
-{
-    return (bool) preg_match('/^(?=.{1,253}$)([a-z0-9](-?[a-z0-9])*\.)+[a-z]{2,}$/', strtolower(trim($d)));
-}
+// infra_valid_domain() now lives in store.php (shared with the domain loader).
 
 /**
  * Provision one domain end-to-end (idempotent, staged-only), persist to state.

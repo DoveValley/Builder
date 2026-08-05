@@ -32,10 +32,14 @@ function infra_state_db(): PDO
         created_at    TEXT DEFAULT "",
         updated_at    TEXT DEFAULT ""
     )');
-    // migration: add go_live_at to pre-existing tables
+    // Additive migration: any column in INFRA_STATE_COLS missing from an existing
+    // table is added. Generalised from the one-off go_live_at migration so the
+    // acquisition columns (and anything later) need no bespoke migration step.
     $have = $db->query('PRAGMA table_info(domains)')->fetchAll(PDO::FETCH_COLUMN, 1);
-    if (!in_array('go_live_at', $have, true)) {
-        $db->exec('ALTER TABLE domains ADD COLUMN go_live_at TEXT DEFAULT ""');
+    foreach (INFRA_STATE_COLS as $col) {
+        if (!in_array($col, $have, true)) {
+            $db->exec('ALTER TABLE domains ADD COLUMN ' . $col . ' TEXT DEFAULT ""');
+        }
     }
     // persistent round-robin counters (survive across bulk runs)
     $db->exec('CREATE TABLE IF NOT EXISTS counters (k TEXT PRIMARY KEY, v INTEGER DEFAULT 0)');
@@ -55,7 +59,23 @@ function infra_state_counter_next(string $key): int
 }
 
 const INFRA_STATE_COLS = ['domain','niche','server_id','cf_account_id','cf_zone_id',
-    'nameservers','ftp_user','ftp_pass','registrar','status','go_live_at','created_at','updated_at'];
+    'nameservers','ftp_user','ftp_pass','registrar','status','go_live_at','created_at','updated_at',
+    // ── acquisition stage (begin → ready → owned), all TEXT ──
+    'ready_to_buy',      // 'yes' | 'no' | ''      col 2 — set by the availability check, manually overridable
+    'buy_registrar',     // registrar.json key     col 3 — which registrar will buy it
+    'buy_at',            // 'YYYY-MM-DD'           col 4 — the date the system buys it
+    'owned',             // 'yes' | ''             col 5 — sticky receipt; never cleared once purchased
+    'owned_at',          // 'YYYY-MM-DD HH:MM:SS'  when the purchase completed
+    'avail_note',        // why not ready: taken / premium / self-owned / check-failed
+    'avail_price',       // registrar-quoted price at check time (NameSilo returns one)
+    'avail_checked_at',  // last availability check
+    'buy_error',         // last purchase failure (pass two)
+    'contact_set',       // which registrant contact set to register with (pass two)
+];
+
+/** Lifecycle values, in order. The first four are the acquisition stage. */
+const INFRA_STATUSES = ['begin','ready','owned','buy-failed',
+    'staged','queued','releasing','awaiting-ns','live','partial','register-failed'];
 
 /** Insert/merge a domain record (preserves existing fields not supplied). */
 function infra_state_upsert_domain(array $in): void
@@ -95,4 +115,82 @@ function infra_state_all_domains(): array
 function infra_state_delete_domain(string $domain): void
 {
     infra_state_db()->prepare('DELETE FROM domains WHERE domain = ?')->execute([strtolower(trim($domain))]);
+}
+
+/**
+ * Insert a domain at 'begin' if it isn't tracked yet. Never touches an existing
+ * row — loading a list twice must not reset progress on domains already moving.
+ * @return bool true if a new row was created
+ */
+function infra_state_add_new_domain(string $domain, string $niche = ''): bool
+{
+    $domain = strtolower(trim($domain));
+    if ($domain === '' || infra_state_get_domain($domain)) return false;
+    infra_state_upsert_domain(['domain' => $domain, 'status' => 'begin', 'niche' => $niche]);
+    return true;
+}
+
+/**
+ * Apply the same field set to many domains (bulk edit: registrar, buy date…).
+ * Only domains already tracked are touched. @return int rows changed
+ */
+function infra_state_bulk_set(array $domains, array $fields): int
+{
+    unset($fields['domain']);
+    if (!$fields) return 0;
+    $n = 0;
+    foreach ($domains as $d) {
+        $d = strtolower(trim((string) $d));
+        if ($d === '' || !infra_state_get_domain($d)) continue;
+        infra_state_upsert_domain(['domain' => $d] + $fields);
+        $n++;
+    }
+    return $n;
+}
+
+/** @return array status => count, over every tracked domain */
+function infra_state_status_counts(): array
+{
+    $out = [];
+    foreach (infra_state_db()->query('SELECT status, COUNT(*) c FROM domains GROUP BY status') as $r) {
+        $out[$r['status'] ?: 'begin'] = (int) $r['c'];
+    }
+    return $out;
+}
+
+/**
+ * Domains in the acquisition stage, optionally filtered by status.
+ * @return array domain => record
+ */
+function infra_state_acquisition(array $statuses = ['begin', 'ready', 'buy-failed']): array
+{
+    $out = [];
+    foreach (infra_state_all_domains() as $dom => $r) {
+        if (in_array($r['status'] ?: 'begin', $statuses, true)) $out[$dom] = $r;
+    }
+    return $out;
+}
+
+/**
+ * Spread a set of domains across daily buy batches — same shape as the go-live
+ * scheduler, because buying 400 domains inside one minute is its own footprint.
+ * @return int number scheduled
+ */
+function infra_state_schedule_buys(array $domains, int $perDay, string $startDate): int
+{
+    $perDay = max(1, $perDay);
+    $start  = strtotime($startDate ?: gmdate('Y-m-d'));
+    if ($start === false) $start = time();
+    sort($domains);
+    $i = 0;
+    foreach ($domains as $d) {
+        $d = strtolower(trim((string) $d));
+        if ($d === '' || !infra_state_get_domain($d)) continue;
+        infra_state_upsert_domain([
+            'domain' => $d,
+            'buy_at' => gmdate('Y-m-d', $start + intdiv($i, $perDay) * 86400),
+        ]);
+        $i++;
+    }
+    return $i;
 }
