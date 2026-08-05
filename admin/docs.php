@@ -342,7 +342,7 @@ tr.ms-rec td { background: #fff3cd !important; }
 
     <nav id="infraconsole-nav" hidden>
         <a class="nav-group" href="#console-overview">Overview</a>
-        <a href="#console-phases">The 3-phase model</a>
+        <a href="#console-phases">The 4-phase model</a>
         <a href="#console-views">Views &amp; navigation</a>
         <a href="#console-config">Configuration files</a>
         <a href="#console-acquire">Acquiring domains (begin &rarr; own)</a>
@@ -3313,7 +3313,7 @@ Visitor  →  https://{domain}</code></pre>
 <table>
     <tr><th>System</th><th>API</th><th>Notes</th></tr>
     <tr><td><strong>Cloudflare</strong></td><td>REST v4 (multi-account)</td><td>Add zone (returns NS), DNS apex+www proxied, SSL mode, HSTS, Origin CA, delete. Global key or scoped token.</td></tr>
-    <tr><td><strong>Registrar</strong></td><td>6 wired</td><td>NameSilo, Porkbun, Spaceship, Dynadot, Gandi, Namecheap — auto-register + go-live NS switch; others fall back to manual.</td></tr>
+    <tr><td><strong>Registrar</strong></td><td>5 wired</td><td>NameSilo, Namecheap, Porkbun, Dynadot, Gandi — availability checking + go-live NS switch on all five; <strong>auto-buy on all but Porkbun</strong>, which has no registration endpoint. Managed from the console's Registrars tab. Anything else falls back to a manual NS switch.</td></tr>
     <tr><td><strong>Plesk</strong></td><td>REST v2 (<code>:8443</code>)</td><td>X-API-Key token; create site (<code>POST /domains</code>), CLI utilities via <code>/cli/{util}/call</code>. Replaced CloudPanel's no-REST/<code>clpctl</code> weak link.</td></tr>
 </table>
 <p><strong>Pipeline (per domain — all in the console):</strong></p>
@@ -3341,7 +3341,7 @@ Visitor  →  https://{domain}</code></pre>
 
 <section id="console-overview">
 <h2>Overview</h2>
-<p>The console automates the "plumbing" around a generated site: <strong>register &rarr; provision (Plesk + Cloudflare) &rarr; deploy content &rarr; go live</strong>. It tracks every domain in a self-contained SQLite <strong>fleet state</strong>, talks to Plesk / Cloudflare / registrars over their APIs, and caches the expensive discovery so it stays fast at fleet scale.</p>
+<p>The console automates the "plumbing" around a generated site: <strong>acquire the domain &rarr; provision (Plesk + Cloudflare) &rarr; deploy content &rarr; go live</strong>. It tracks every domain in a self-contained SQLite <strong>fleet state</strong>, talks to Plesk / Cloudflare / registrars over their APIs, and caches the expensive discovery so it stays fast at fleet scale.</p>
 <ul>
     <li><strong>Where:</strong> admin top nav &rarr; <strong>&#128736; Infrastructure</strong> (routes to <code>admin/infra/index.php</code>). It's fleet-wide, so it opens outside the per-site editor.</li>
     <li><strong>Independent:</strong> shares only the admin login session with the factory; uses no factory data/blocks/multisite code.</li>
@@ -3352,15 +3352,30 @@ Visitor  →  https://{domain}</code></pre>
 </section>
 
 <section id="console-phases">
-<h2>The 3-phase model</h2>
-<p>The console maps to a deliberate go-to-market flow so nothing goes live before it's ready:</p>
+<h2>The 4-phase model</h2>
+<p>The console maps to a deliberate go-to-market flow so nothing goes live before it's ready. <strong>Each phase leaves the site invisible to the public</strong> until the last one:</p>
 <table>
     <tr><th>Phase</th><th>What</th><th>Where in the console</th></tr>
-    <tr><td><strong>1 — Provision</strong></td><td>Register + create Plesk site + stage Cloudflare zone (DNS, SSL, HSTS). Staged, not public.</td><td>New Site, Bulk</td></tr>
-    <tr><td><strong>2 — Content</strong></td><td>Generate + upload the site's files.</td><td>Deploy (hands creds to the MultiSite generator)</td></tr>
+    <tr><td><strong>0 — Acquire</strong></td><td>Load candidate names, check availability, decide which registrar buys each and when, then buy. Nothing exists yet but the domain.</td><td>Domains (+ Registrars)</td></tr>
+    <tr><td><strong>1 — Provision</strong></td><td>Create the Plesk site + stage the Cloudflare zone (DNS, SSL, HSTS). Staged, not public.</td><td>New Site, Bulk</td></tr>
+    <tr><td><strong>2 — Content</strong></td><td>Generate + upload the site's files. On the server, still not reachable.</td><td>Deploy (hands creds to the MultiSite generator)</td></tr>
     <tr><td><strong>3 — Go-Live</strong></td><td>Switch the registrar nameservers to Cloudflare; the zone flips active. Paced ~20/day.</td><td>Go-Live (schedule / release / cron)</td></tr>
 </table>
-<p><strong>Domain lifecycle / status:</strong> <code>staged</code> &rarr; <code>queued</code> (scheduled) &rarr; <code>releasing</code>/<code>awaiting-ns</code> &rarr; <code>live</code>. (Also <code>partial</code> = some step failed, <code>register-failed</code> = auto-buy failed.)</p>
+<p><strong>Domain lifecycle.</strong> One <code>status</code> field carries a domain the whole way, so a single table shows everything from a name you typed to a live site:</p>
+<pre><code>begin → ready → owned → staged → queued → releasing/awaiting-ns → live
+└─── phase 0: acquire ───┘   └────── phases 1–3: build and publish ──────┘</code></pre>
+<table>
+    <tr><th>Status</th><th>Means</th></tr>
+    <tr><td><code>begin</code></td><td>Loaded into the table. Nothing checked, nothing spent.</td></tr>
+    <tr><td><code>ready</code></td><td>An availability check said the name is registrable.</td></tr>
+    <tr><td><code>owned</code></td><td>Bought. Written by the system on a successful purchase.</td></tr>
+    <tr><td><code>staged</code></td><td>Plesk site and/or Cloudflare zone exist. Not public.</td></tr>
+    <tr><td><code>queued</code></td><td>Scheduled for a go-live date.</td></tr>
+    <tr><td><code>releasing</code> / <code>awaiting-ns</code></td><td>Nameservers switched at the registrar / waiting for a manual switch.</td></tr>
+    <tr><td><code>live</code></td><td>Cloudflare reports the zone active — it is serving.</td></tr>
+    <tr><td colspan="2" style="padding-top:10px"><em>Failure states:</em> <code>buy-failed</code> (a scheduled purchase failed), <code>register-failed</code> (auto-buy during provisioning failed), <code>partial</code> (some provisioning step failed). All three need a human before anything retries.</td></tr>
+</table>
+<div class="callout tip"><p>Why the phases are separated at all: a mistake caught in phase 1 or 2 costs nothing, because no traffic can reach the site. Phase 3 is paced for the same reason — a bad rollout exposes 20 sites, not 400.</p></div>
 <a class="back-top" href="#console-phases">&uarr; top</a>
 </section>
 
@@ -3389,8 +3404,8 @@ Visitor  →  https://{domain}</code></pre>
     <tr><th>File</th><th>Holds</th><th>Key fields</th></tr>
     <tr><td><code>servers.json</code></td><td>Plesk servers</td><td><code>id</code>, <code>label</code>, <code>host</code>, <code>port</code> (8443), <code>api_token</code> (X-API-Key), <code>default_ip</code></td></tr>
     <tr><td><code>cloudflare.json</code></td><td>CF accounts</td><td><code>id</code>, <code>label</code>, <code>account_id</code>, and <code>api_token</code> <em>or</em> <code>email</code>+<code>global_key</code></td></tr>
-    <tr><td><code>registrar.json</code></td><td>Registrar creds</td><td>keyed by name; <code>type</code> + per-registrar keys (see Registrars)</td></tr>
-    <tr><td><code>domains.json</code></td><td>Optional registrar map</td><td>manual <code>domain &rarr; {registrar}</code> overrides (fallback when a domain isn't in fleet state)</td></tr>
+    <tr><td><code>registrar.json</code></td><td>Registrar creds</td><td>keyed by name; <code>type</code> + per-registrar keys. <strong>Written by the Registrars tab</strong> — you should not need to hand-edit this one.</td></tr>
+    <tr><td><code>domains.json</code></td><td>Optional registrar map</td><td>manual <code>domain &rarr; {registrar}</code> overrides. A <em>fallback only</em>, for domains not in fleet state — it is not, and was never meant to be, an inventory of everything you own.</td></tr>
 </table>
 <p>Each provisioned domain references these by id, so scaling out = adding a server / CF account / registrar row. Files are read by <code>lib/store.php</code> and are <code>chmod 600</code>, owned <code>www-data</code>.</p>
 <a class="back-top" href="#console-config">&uarr; top</a>
@@ -3400,17 +3415,27 @@ Visitor  →  https://{domain}</code></pre>
 <h2>Acquiring domains — begin &rarr; ready &rarr; own</h2>
 <p>This is the stage <em>before</em> provisioning: getting from a list of names you'd like, to domains you actually own. It all happens on the <strong>Domains</strong> tab.</p>
 
-<h3>The lifecycle</h3>
-<p>The acquisition states sit in front of the existing pipeline, so one table carries a domain from idea to live site:</p>
-<pre><code>begin → ready → owned → staged → queued → releasing → live
-└──── acquisition ────┘   └──── provisioning + go-live ────┘</code></pre>
+<p>The states themselves are listed under <a href="#console-phases">the 4-phase model</a>; this section is about the table and what you do with it.</p>
+
+<h3>The nine columns</h3>
+<p>Columns 1 and 6&ndash;9 describe reality as discovered from Plesk and Cloudflare. Columns 2&ndash;5 are the acquisition stage. <strong>Every column sorts</strong>, and sorting applies to the whole set rather than the visible page.</p>
 <table>
-    <tr><th>State</th><th>Means</th></tr>
-    <tr><td><code>begin</code></td><td>Loaded into the table. Nothing checked, nothing spent.</td></tr>
-    <tr><td><code>ready</code></td><td>An availability check said the name is registrable.</td></tr>
-    <tr><td><code>owned</code></td><td>Purchased. <strong>Own</strong> is a receipt written by the system, not a field you tick.</td></tr>
-    <tr><td><code>buy-failed</code></td><td>A scheduled purchase failed; the reason is kept on the row. Needs a human before it will retry.</td></tr>
+    <tr><th>#</th><th>Column</th><th>Editable?</th><th>What it holds</th></tr>
+    <tr><td>1</td><td><strong>Domain</strong></td><td>—</td><td>The name. Shows its niche underneath, and links to the per-domain page once the console tracks it.</td></tr>
+    <tr><td>2</td><td><strong>Ready to buy</strong></td><td><em>system</em></td><td>Yes / No / not checked, written by the availability check — with the price where the registrar returns one, and the reason when the answer is No.</td></tr>
+    <tr><td>3</td><td><strong>Register</strong></td><td><strong>yes</strong></td><td>Which registrar will buy it. Per-row dropdown, or set on many at once from the bulk bar.</td></tr>
+    <tr><td>4</td><td><strong>Buy date</strong></td><td><strong>yes</strong></td><td>The date the system buys it. Per-row date, or spread N/day across the ticked rows.</td></tr>
+    <tr><td>5</td><td><strong>Own</strong></td><td><em>system</em></td><td>Yes once purchased. Also shows <em>due</em> when a buy date has arrived, and <em>failed</em> with the reason if a purchase failed.</td></tr>
+    <tr><td>6</td><td><strong>Cloudflare</strong></td><td>—</td><td>Zone + status (active / pending) discovered live from the Cloudflare account holding it.</td></tr>
+    <tr><td>7</td><td><strong>VPS / Plesk</strong></td><td>—</td><td>Which server the site sits on, linking to that server's page.</td></tr>
+    <tr><td>8</td><td><strong>State</strong></td><td>—</td><td>Where the domain is in the lifecycle. Sorts in lifecycle order, not alphabetically.</td></tr>
+    <tr><td>9</td><td><strong>Drift</strong></td><td>—</td><td>Reality disagreeing with itself: <code>no-cf-zone</code> (on a VPS, no zone) or <code>orphan-zone</code> (zone, no VPS site).</td></tr>
 </table>
+<div class="callout"><p><strong>Two columns are deliberately not free text.</strong> <em>Ready to buy</em> is <strong>earned</strong> — the availability check fills it in, because typing "Yes" across 400 rows would mostly mean typing it on names that went months ago. <em>Own</em> is a <strong>receipt</strong> — the system writes it when a purchase completes, and it stays set as the domain moves on to staged and live.</p>
+<p>Domains still in the acquisition stage have no infrastructure <em>by design</em>, so they are never flagged as drift. Loading 400 names to buy would otherwise light up 400 false alarms.</p></div>
+
+<h3>Tiles</h3>
+<p>The counters above the table cover the whole fleet, not the filtered page: <strong>Domains · Begin · Ready to buy · Owned · Staged · Live · Needs attention</strong> (drift plus the three failure states).</p>
 
 <h3>1. Load new domains</h3>
 <p>The <strong>+ Load new domains</strong> panel at the top of the Domains tab takes a <strong>pasted list</strong> (one per line, or space/comma separated) and/or a <strong>CSV upload</strong> — both in the same submit. For a CSV, the first column is the domain; a <code>niche</code> column is used if present, and a header row is detected and skipped. An optional <em>Niche</em> field is applied to everything in the batch.</p>
@@ -3512,7 +3537,9 @@ Visitor  →  https://{domain}</code></pre>
 <section id="console-state">
 <h2>State, cache &amp; pagination</h2>
 <ul>
-    <li><strong>Fleet state</strong> — a self-contained SQLite DB (<code>admin/infra/state/fleet.db</code>, gitignored). One row per domain: server, CF account/zone, nameservers, FTP creds, registrar, status, go-live date. Read live (it's local + fast).</li>
+    <li><strong>Fleet state</strong> — a self-contained SQLite DB (<code>admin/infra/state/fleet.db</code>, gitignored). One row per domain covering the whole lifecycle: <em>acquisition</em> (<code>ready_to_buy</code>, <code>buy_registrar</code>, <code>buy_at</code>, <code>owned</code>/<code>owned_at</code>, <code>avail_note</code>, <code>avail_price</code>, <code>avail_checked_at</code>, <code>buy_error</code>, <code>contact_set</code>) and <em>infrastructure</em> (server, CF account/zone, nameservers, FTP creds, registrar, status, go-live date). Read live (it's local + fast).</li>
+    <li><strong>Schema migration is automatic</strong> — any column declared in <code>INFRA_STATE_COLS</code> but missing from an existing table is added on the next open, so adding a field needs no bespoke migration step.</li>
+    <li><strong>Owned-domain cache</strong> — the list of domains held in your own registrar accounts is cached 30 minutes (it costs several paged API calls). It backs the &ldquo;you already own this&rdquo; verdict; <em>Test every configured registrar</em> refreshes it.</li>
     <li><strong>Discovery cache</strong> — Plesk site lists and Cloudflare zone lists are cached (~180s) in the same DB, so a warm page load makes <strong>zero API calls</strong>. <em>Discover / Refresh</em> (or <code>?refresh=1</code>) forces a live re-sweep; mutations invalidate it.</li>
     <li><strong>Pagination</strong> — the Domains view is server-paginated (100/page) with server-side search, so it stays light at thousands of domains.</li>
     <li><strong>Requires</strong> the PHP <code>pdo_sqlite</code> extension on the box.</li>
@@ -3527,6 +3554,9 @@ Visitor  →  https://{domain}</code></pre>
     <li><strong>CSRF</strong> — all mutating POST endpoints check a per-session token (<code>$_SESSION['infra_csrf']</code>).</li>
     <li><strong>Typed confirms</strong> on destructive actions; money-warning confirms on auto-buy.</li>
     <li><strong>Secrets</strong> — API tokens/keys and FTP passwords live only in the gitignored <code>config/*.json</code> and <code>state/fleet.db</code> (chmod 600, www-data). Never committed. The <code>.example.json</code> files carry no secrets.</li>
+    <li><strong>Secrets are never rendered back.</strong> The Registrars form shows a saved key only as &ldquo;saved (<em>n</em> chars)&rdquo;; a blank secret field means <em>keep the stored value</em>, so a card can be re-saved without the key ever appearing in the HTML.</li>
+    <li><strong>Only declared fields are accepted</strong> — a registrar POST is filtered against that type's own field list, so a crafted request cannot inject arbitrary keys into <code>registrar.json</code>. Unknown registrar types are rejected outright.</li>
+    <li><strong>Redirects are not attacker-controlled</strong> — the Domains bulk endpoint validates its <code>back</code> parameter against its own query-string shape rather than trusting it, so it cannot be turned into an open redirect.</li>
     <li><strong>TLS</strong> — outbound API calls verify certificates by default; only the Plesk self-signed panel (<code>:8443</code>) opts out explicitly.</li>
 </ul>
 <a class="back-top" href="#console-security">&uarr; top</a>
@@ -3542,14 +3572,17 @@ Visitor  →  https://{domain}</code></pre>
     http.php           curl JSON client (verify-by-default)
     plesk.php          Plesk REST client (create/list/delete site, cert)
     cloudflare.php     Cloudflare API (multi-account: zones/DNS/SSL/HSTS)
-    registrar.php      6 registrar adapters (set NS, register)
+    registrar.php      5 registrar adapters + capability registry
+                       (availability · buy · NS · balance · owned-list)
+    acquire.php        begin→ready→owned: availability + registrar spread
     provision.php      infra_provision_one() — shared per-domain routine
     golive.php         schedule / release / refresh-live
     fleet.php          reconciliation + cached discovery wrappers
     state.php          SQLite fleet state + counters + cache tables
     cache.php          TTL discovery cache
     store.php          config-registry loaders
-  actions/             provision · bulk_run · deploy · golive · domain_manage · export_creds  (CSRF POST endpoints)
+  actions/             provision · bulk_run · golive · domain_manage · export_creds
+                       domains_load · domains_bulk · registrar_save   (CSRF POST endpoints)
   cron/golive_tick.php daily go-live batch runner (run as www-data)
   config/  (gitignored)  servers · cloudflare · registrar · domains  (+ .example)
   state/   (gitignored)  fleet.db</code></pre>
@@ -3562,7 +3595,11 @@ Visitor  →  https://{domain}</code></pre>
     <tr><th>Task</th><th>How</th></tr>
     <tr><td>Add a VPS</td><td>Add a row to <code>servers.json</code> (Plesk host + API token + IP).</td></tr>
     <tr><td>Add a Cloudflare account</td><td>Add a row to <code>cloudflare.json</code> (account_id + token/global-key).</td></tr>
-    <tr><td>Activate a registrar</td><td>Add its row to <code>registrar.json</code>; Namecheap: whitelist the factory IP.</td></tr>
+    <tr><td>Activate a registrar</td><td><strong>Registrars</strong> tab &rarr; fill the fields &rarr; Save (it verifies immediately). Namecheap also needs this server's IP whitelisted in your Namecheap API settings.</td></tr>
+    <tr><td>Check a registrar's funds</td><td><strong>Registrars</strong> &rarr; Test. A valid key with no balance cannot buy &mdash; the card flags anything too low for a <code>.com</code>.</td></tr>
+    <tr><td>Load domains to buy</td><td><strong>Domains</strong> &rarr; <em>+ Load new domains</em> &rarr; paste and/or upload a CSV. Safe to repeat; existing rows are never reset.</td></tr>
+    <tr><td>Find out what's available</td><td>Tick rows &rarr; <strong>Check availability</strong> (free, read-only). Fills column 2 with Yes / taken / <em>you own it</em>.</td></tr>
+    <tr><td>Plan a buying run</td><td>Tick rows &rarr; set <strong>Registrar</strong> (or 🔀 spread) &rarr; <strong>Spread N/day from</strong> a date.</td></tr>
     <tr><td>Provision one / many</td><td>New Site / Bulk (Auto round-robin for footprint).</td></tr>
     <tr><td>Deploy content</td><td>Deploy &rarr; download params-CSV &rarr; merge into MultiSite &rarr; Build + Deploy.</td></tr>
     <tr><td>Go live gradually</td><td>Go-Live &rarr; Schedule (N/day); the cron releases daily.</td></tr>
