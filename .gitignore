@@ -53,3 +53,9 @@ admin/infra/config/domains.json
 admin/_dirnet-data/sheet1-facilities.csv*
 admin/_dirnet-data/sheet2-facts.csv*
 admin/_dirnet-data/sheet3-legend.csv
+
+# Claude Code's per-machine permission allowlist. Local state, not project config:
+# it records which commands were approved on THIS box, so committing it would push
+# one machine's approvals onto every checkout. The shared settings file (without
+# .local) is the one that belongs in git, if we ever need one.
+.claude/settings.local.json
