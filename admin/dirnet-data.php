@@ -160,6 +160,7 @@ function doc(string $id, string $title, string $file, string $note = ''): void {
   <a href="#x6">6. Deduplication</a>
   <a href="#x7">7. Density &mdash; 287 cities</a>
   <a href="#x7qa">7b. Density QA report</a>
+  <a href="#x8">8. Field coverage</a>
 </nav>
 
 <section class="panel" id="summary">
@@ -315,6 +316,14 @@ doc('x7qa', '7b. QA report for the density counts', 'qa_report.md',
   'Row counts at every stage, the exact service codes behind STRICT / BROAD / OTP, the city-matching tiers, and
    all four sanity checks with their results. <b>Sanity check 4 does not pass as literally worded</b> &mdash; read
    that section, the reasoning matters more than the number.');
+
+doc('x8', '8. Field coverage &mdash; every filterable field behind /browse', 'field-coverage.md',
+  'Measured against production, 17,827 active facilities. Which fields are actually populated, where each value
+   comes from, and what a facet count denominator really is. <b>Two premises it corrects:</b> there is no luxury
+   <i>flag</i> &mdash; &ldquo;Luxury 470&rdquo; is the value <code>amenities.luxury</code>, and <code>price_band</code> holds nothing
+   called luxury; and a blank is stored as an <b>absent row</b>, never NULL or false, so 470 means 470 of 17,827
+   rather than 470 of some enriched subset. Also reconciles <code>detox</code> 6,735 and <code>MAT</code> 11,432
+   against the SAMHSA density figures, and cross-tabs the five crawl-fed categories against luxury.');
 ?>
 
 <section class="panel">
