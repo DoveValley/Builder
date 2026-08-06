@@ -34,7 +34,7 @@ $findName = function (string $type) use ($cfg): ?string {
 /* ---- test every configured registrar --------------------------------- */
 if ($action === 'test_all') {
     $results = []; $lines = [];
-    foreach (array_keys($cfg['registrars']) as $name) {
+    foreach (infra_registrar_names() as $name) {
         $type = strtolower($cfg['registrars'][$name]['type'] ?? $name);
         $r = infra_registrar_verify($name);
         $results[$type] = $r;
@@ -57,6 +57,14 @@ if (!isset($types[$type])) {
 $def  = $types[$type];
 $name = $findName($type) ?? $type;
 
+// Credentials for some registrars are owned by another page (Cloudflare reuses the
+// CF account registry). Saving or deleting here would fork them into two places.
+if (!empty($def['creds_from']) && in_array($action, ['save', 'delete'], true)) {
+    infra_set_flash('warn', $def['label'] . " credentials are managed in {$def['creds_from']['label']} ("
+        . $def['creds_from']['file'] . '), not here. Use Test to verify them.');
+    header('Location: ' . $back); exit;
+}
+
 switch ($action) {
 
     case 'save':
@@ -65,14 +73,25 @@ switch ($action) {
         $rec['type'] = $type;
         $missing = [];
         foreach ($def['fields'] as $fname => $f) {
-            $val = trim((string) ($in[$fname] ?? ''));
-            if (!empty($f['secret']) && $val === '') {
-                // blank secret = keep the stored one
-                if (($rec[$fname] ?? '') === '') $missing[] = $f['label'];
+            $val      = trim((string) ($in[$fname] ?? ''));
+            $optional = !empty($f['optional']);
+            if ($val === '') {
+                // An optional field left blank is not an error — it just clears/keeps.
+                // (This was rejecting the whole form when INWX's 2FA box was empty,
+                //  which read as "it won't take my password".)
+                if ($optional) { if (!isset($rec[$fname])) $rec[$fname] = ''; continue; }
+                // A blank SECRET means "keep the stored one" — only missing if nothing is stored.
+                if (!empty($f['secret'])) { if (($rec[$fname] ?? '') === '') $missing[] = $f['label']; continue; }
+                $missing[] = $f['label'];
                 continue;
             }
-            if ($val === '') { $missing[] = $f['label']; continue; }
             $rec[$fname] = $val;
+        }
+        // Cloudflare accepts EITHER an API token OR email + global key, so the
+        // requirement is "one of", not "all of".
+        if ($type === 'cloudflare' && ($rec['api_token'] ?? '') === ''
+            && (($rec['email'] ?? '') === '' || ($rec['global_key'] ?? '') === '')) {
+            $missing[] = 'either an API token, or Email + Global API key';
         }
         if ($missing) {
             infra_set_flash('err', $def['label'] . ' not saved — missing: ' . implode(', ', $missing));
@@ -92,8 +111,9 @@ switch ($action) {
         break;
 
     case 'test':
-        if (!isset($cfg['registrars'][$name])) {
-            infra_set_flash('warn', 'Nothing saved for ' . $def['label'] . ' yet.');
+        if (!infra_registrar_config($name)) {
+            infra_set_flash('warn', 'Nothing saved for ' . $def['label'] . ' yet.'
+                . (!empty($def['creds_from']) ? ' Configure ' . $def['creds_from']['label'] . ' first.' : ''));
             break;
         }
         $v = infra_registrar_verify($name);

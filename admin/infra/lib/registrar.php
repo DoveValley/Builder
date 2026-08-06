@@ -10,23 +10,47 @@ require_once __DIR__ . '/http.php';
 
 function infra_registrar_config(string $name): array
 {
-    $cfg = infra_load_json(infra_config_path('registrar.json'), []);
-    return $cfg['registrars'][strtolower(trim($name))] ?? [];
+    $name = strtolower(trim($name));
+    $cfg  = infra_load_json(infra_config_path('registrar.json'), []);
+    $row  = $cfg['registrars'][$name] ?? [];
+
+    // Cloudflare falls back to the account registry ONLY when nothing has been
+    // saved on the Registrars page — so it works before you fill the form in, and
+    // once you do, what you typed is exactly what is used.
+    if ($name === 'cloudflare' && !array_filter(array_diff_key($row, ['type' => 1]))) {
+        $acct = infra_cf_accounts()[0] ?? [];
+        if ($acct) return $acct + ['type' => 'cloudflare'];
+    }
+    return $row;
 }
 
-/** Configured registrar names (keys of config/registrar.json). @return string[] */
+/**
+ * Registrars available to assign. Keys of config/registrar.json, plus Cloudflare
+ * whenever a Cloudflare account exists — it is a real registrar you can hold
+ * domains at, even though its credentials live on the Cloudflare side.
+ * @return string[]
+ */
 function infra_registrar_names(): array
 {
-    $cfg = infra_load_json(infra_config_path('registrar.json'), []);
-    return array_keys($cfg['registrars'] ?? []);
+    $cfg   = infra_load_json(infra_config_path('registrar.json'), []);
+    $names = array_keys($cfg['registrars'] ?? []);
+    if (!in_array('cloudflare', $names, true) && infra_cf_accounts()) $names[] = 'cloudflare';
+    return $names;
 }
 
 /**
  * Supported registrar types and what each can actually do over its API.
  *
  * `fields` drives the admin form (and which keys are treated as secrets).
- * `check`/`buy`/`ns`/`balance` say whether an adapter exists here — NOT a promise
- * the account is funded or the key is valid; that is what Test is for.
+ *
+ * Two SEPARATE buy flags, because conflating them would let the UI promise
+ * something the code cannot deliver:
+ *   `buy`       — the registrar's API is capable of registering a domain.
+ *                 Drives planning: which registrars may be assigned / spread.
+ *   `buy_wired` — a purchase adapter is implemented HERE. Only NameSilo today;
+ *                 the rest land in pass two. The UI says so rather than implying
+ *                 a scheduled buy will complete.
+ * Neither is a promise the account is funded or the key valid — that is Test.
  *
  * Only types listed here can be added. Spaceship was dropped deliberately: it is
  * Namecheap-owned, so it adds cost without adding nameserver independence.
@@ -42,14 +66,14 @@ function infra_registrar_types(): array
                 'username'  => ['label' => 'Username',  'secret' => false],
                 'client_ip' => ['label' => 'Whitelisted IP', 'secret' => false, 'default' => '187.127.254.206'],
             ],
-            'check' => true, 'buy' => true, 'ns' => true, 'balance' => true,
+            'check' => true, 'buy' => true, 'buy_wired' => false, 'ns' => true, 'balance' => true,
             'note'  => 'Needs API access enabled, a funded balance, and this server\'s IP whitelisted in your Namecheap profile. Buying requires a contact set.',
         ],
         'namesilo' => [
             'label'  => 'NameSilo',
             'fields' => ['api_key' => ['label' => 'API key', 'secret' => true]],
-            'check' => true, 'buy' => true, 'ns' => true, 'balance' => true,
-            'note'  => 'No IP allowlist. Availability check returns a price. Free WHOIS privacy on registration.',
+            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => true,
+            'note'  => 'No IP allowlist. Availability check returns a price. Free WHOIS privacy on registration. The only registrar whose purchase adapter is written today.',
         ],
         'porkbun' => [
             'label'  => 'Porkbun',
@@ -57,20 +81,44 @@ function infra_registrar_types(): array
                 'api_key'        => ['label' => 'API key',        'secret' => true],
                 'secret_api_key' => ['label' => 'Secret API key', 'secret' => true],
             ],
-            'check' => true, 'buy' => false, 'ns' => true, 'balance' => false,
-            'note'  => 'API Access must be toggled ON per-domain in the Porkbun dashboard. No registration endpoint — buy in the dashboard, then mark owned here.',
+            'check' => true, 'buy' => false, 'buy_wired' => false, 'ns' => true, 'balance' => false,
+            'note'  => 'API Access must be toggled ON per-domain in the Porkbun dashboard. No registration endpoint at all — buy in the dashboard, then mark owned here. No balance endpoint.',
         ],
         'dynadot' => [
             'label'  => 'Dynadot',
             'fields' => ['api_key' => ['label' => 'API key', 'secret' => true]],
-            'check' => true, 'buy' => true, 'ns' => true, 'balance' => true,
+            'check' => true, 'buy' => true, 'buy_wired' => false, 'ns' => true, 'balance' => true,
             'note'  => 'May require external nameservers be added to the account before they can be set on a domain.',
         ],
-        'gandi' => [
-            'label'  => 'Gandi',
-            'fields' => ['pat' => ['label' => 'Personal Access Token', 'secret' => true]],
-            'check' => true, 'buy' => true, 'ns' => true, 'balance' => true,
-            'note'  => 'v5 REST API with a Personal Access Token (PATs replaced the old API keys). Buying requires a contact set.',
+        'inwx' => [
+            'label'  => 'INWX',
+            'fields' => [
+                'username' => ['label' => 'Username', 'secret' => false],
+                'password' => ['label' => 'Password', 'secret' => true],
+                'totp_secret' => ['label' => '2FA shared secret', 'secret' => true, 'optional' => true,
+                                  'hint' => 'only needed if your INWX account has 2FA enabled'],
+            ],
+            'check' => true, 'buy' => true, 'buy_wired' => false, 'ns' => true, 'balance' => true,
+            'note'  => 'Session-based API (DomRobot JSON-RPC): logs in with username + password rather than a static key, so the credentials are a real account login — use an API-only sub-account if you can. If 2FA is on, the shared secret is required. Transport VERIFIED against the live API (a dummy login returned DomRobot error 2200, so the JSON-RPC shape, session handling and error parsing all work) — but no real account is configured, so the domain operations themselves are still unproven.',
+        ],
+        'cloudflare' => [
+            'label'  => 'Cloudflare Registrar',
+            // Credentials are entered here like every other registrar. They are the
+            // same values as the Cloudflare account registry, so the form PREFILLS
+            // the non-secret ones from it — but what is saved here is what is used,
+            // with no hidden fallback to reason about.
+            'fields' => [
+                'account_id' => ['label' => 'Account ID', 'secret' => false,
+                                 'hint' => 'Cloudflare dashboard → any domain → Overview, right-hand column'],
+                'api_token'  => ['label' => 'API token', 'secret' => true, 'optional' => true,
+                                 'hint' => 'needs Account → Domain Registration: Read'],
+                'email'      => ['label' => 'Email (global-key auth)', 'secret' => false, 'optional' => true],
+                'global_key' => ['label' => 'Global API key', 'secret' => true, 'optional' => true,
+                                 'hint' => 'alternative to the token — used when email + global key are both set'],
+            ],
+            'prefill_from_cf' => ['account_id', 'email'],
+            'check' => false, 'buy' => false, 'buy_wired' => false, 'ns' => false, 'balance' => false,
+            'note'  => 'Sells at cost, which makes it the cheapest place to hold a domain — but its API only LISTS and updates domains, so registering has to happen in the Cloudflare dashboard. It also has no availability endpoint, and a Cloudflare-registered domain is always on Cloudflare nameservers, so there is nothing to switch at go-live. Verified live: the list endpoint works.',
         ],
     ];
 }
@@ -108,11 +156,12 @@ function infra_registrar_verify(string $name): array
     if (!$cfg) return ['ok' => false, 'message' => 'no credentials saved', 'balance' => null, 'currency' => ''];
 
     switch ($type) {
-        case 'namesilo':  return infra_reg_namesilo_verify2($cfg);
-        case 'namecheap': return infra_reg_namecheap_verify($cfg);
-        case 'porkbun':   return infra_reg_porkbun_verify2($cfg);
-        case 'dynadot':   return infra_reg_dynadot_verify($cfg);
-        case 'gandi':     return infra_reg_gandi_verify($cfg);
+        case 'namesilo':   return infra_reg_namesilo_verify2($cfg);
+        case 'namecheap':  return infra_reg_namecheap_verify($cfg);
+        case 'porkbun':    return infra_reg_porkbun_verify2($cfg);
+        case 'dynadot':    return infra_reg_dynadot_verify($cfg);
+        case 'inwx':       return infra_reg_inwx_verify($cfg);
+        case 'cloudflare': return infra_reg_cloudflare_verify($cfg);
         default:          return ['ok' => false, 'message' => "no test adapter for type '{$type}'", 'balance' => null, 'currency' => ''];
     }
 }
@@ -135,10 +184,16 @@ function infra_reg_namecheap_verify(array $cfg): array
 
 function infra_reg_porkbun_verify2(array $cfg): array
 {
-    $r = infra_reg_porkbun_call($cfg, '/ping');
+    // NOT /ping — that endpoint answers SUCCESS without checking credentials at
+    // all (verified: empty keys still return SUCCESS), so it would report a
+    // working connection for a typo'd key. listAll actually requires auth.
+    $r = infra_reg_porkbun_call($cfg, '/domain/listAll', ['start' => 0]);
+    if (!$r['ok']) {
+        return ['ok' => false, 'message' => 'Porkbun: ' . $r['message'], 'balance' => null, 'currency' => ''];
+    }
+    $n = count($r['json']['domains'] ?? []);
     // Porkbun exposes no balance endpoint — absence is reported, not faked as 0.
-    return ['ok' => $r['ok'], 'message' => $r['ok'] ? 'Porkbun API OK' : ('Porkbun: ' . $r['message']),
-            'balance' => null, 'currency' => ''];
+    return ['ok' => true, 'message' => "Porkbun API OK — {$n} domain(s) held", 'balance' => null, 'currency' => ''];
 }
 
 function infra_reg_dynadot_verify(array $cfg): array
@@ -155,24 +210,6 @@ function infra_reg_dynadot_verify(array $cfg): array
             'balance' => $bal !== null ? (string) $bal : null, 'currency' => 'USD'];
 }
 
-function infra_reg_gandi_verify(array $cfg): array
-{
-    $pat = $cfg['pat'] ?? ($cfg['api_key'] ?? '');
-    $r = infra_http('GET', 'https://api.gandi.net/v5/organization/user-info', [
-        'headers' => ['Authorization: Bearer ' . $pat], 'verify' => true, 'timeout' => 30]);
-    $ok = $r['code'] >= 200 && $r['code'] < 300;
-    if (!$ok) {
-        $msg = $r['json']['message'] ?? $r['json']['cause'] ?? ('HTTP ' . $r['code']);
-        return ['ok' => false, 'message' => 'Gandi: ' . $msg, 'balance' => null, 'currency' => ''];
-    }
-    // Prepaid balance lives on the billing endpoint; a PAT may lack billing scope.
-    $b = infra_http('GET', 'https://api.gandi.net/v5/billing/info', [
-        'headers' => ['Authorization: Bearer ' . $pat], 'verify' => true, 'timeout' => 30]);
-    $bal = $b['json']['prepaid']['amount'] ?? null;
-    return ['ok' => true, 'message' => 'Gandi API OK',
-            'balance' => $bal !== null ? (string) $bal : null,
-            'currency' => (string) ($b['json']['prepaid']['currency'] ?? 'EUR')];
-}
 
 /** Shared Namecheap XML call. @return array{ok:bool,message:string,xml:?SimpleXMLElement} */
 function infra_reg_namecheap_call(array $cfg, string $command, array $params = []): array
@@ -226,7 +263,10 @@ function infra_registrar_check_availability(array $domains, string $registrarNam
         case 'namecheap': return infra_reg_namecheap_check($domains, $cfg, $out);
         case 'porkbun':   return infra_reg_porkbun_check($domains, $cfg, $out);
         case 'dynadot':   return infra_reg_dynadot_check($domains, $cfg, $out);
-        case 'gandi':     return infra_reg_gandi_check($domains, $cfg, $out);
+        case 'inwx':      return infra_reg_inwx_check($domains, $cfg, $out);
+        case 'cloudflare':
+            foreach ($out as $d => $_) $out[$d]['note'] = 'Cloudflare has no availability API — check with another registrar';
+            return $out;
         default:
             foreach ($out as $d => $_) $out[$d]['note'] = "no availability adapter for '{$registrarName}'";
             return $out;
@@ -327,24 +367,178 @@ function infra_reg_dynadot_check(array $domains, array $cfg, array $out): array
 }
 
 /** Gandi: one request per domain. */
-function infra_reg_gandi_check(array $domains, array $cfg, array $out): array
+
+/* ============================= INWX ============================= */
+/* DomRobot JSON-RPC. Session auth: account.login returns a cookie that every
+   later call must carry, so each operation logs in, acts, and logs out. That is
+   one extra round-trip per call, which is why availability is batched hard.
+   NOT EXERCISED against the live API — no INWX account is configured here. */
+
+const INWX_ENDPOINT = 'https://api.domrobot.com/jsonrpc/';
+
+/**
+ * One logged-in DomRobot call. Opens a session, runs $method, closes it.
+ * @return array{ok:bool, code:int, message:string, data:array}
+ */
+function infra_reg_inwx_call(array $cfg, string $method, array $params = []): array
 {
-    $pat = $cfg['pat'] ?? ($cfg['api_key'] ?? '');
-    foreach ($domains as $d) {
-        $r = infra_http('GET', 'https://api.gandi.net/v5/domain/check?' . http_build_query(['name' => $d]),
-            ['headers' => ['Authorization: Bearer ' . $pat], 'verify' => true, 'timeout' => 30]);
-        if ($r['code'] < 200 || $r['code'] >= 300) {
-            $out[$d]['note'] = 'check failed (HTTP ' . $r['code'] . ')';
+    $fail = fn(string $m, int $c = 0) => ['ok' => false, 'code' => $c, 'message' => $m, 'data' => []];
+
+    $login = infra_http('POST', INWX_ENDPOINT, [
+        'headers' => ['Content-Type: application/json'], 'verify' => true, 'timeout' => 30,
+        'body'    => ['method' => 'account.login',
+                      'params' => ['user' => $cfg['username'] ?? '', 'pass' => $cfg['password'] ?? '']],
+    ]);
+    $lcode = (int) ($login['json']['code'] ?? 0);
+    if ($lcode !== 1000) {
+        return $fail('login failed: ' . ($login['json']['msg'] ?? ('HTTP ' . $login['code'])), $lcode);
+    }
+    // Session cookie — without it every later call comes back "login required".
+    $jar = [];
+    foreach ($login['cookies'] as $k => $v) $jar[] = $k . '=' . $v;
+    $cookie = implode('; ', $jar);
+    if ($cookie === '') return $fail('login succeeded but returned no session cookie', $lcode);
+
+    // 2FA: the session is only half-open until unlocked.
+    if (!empty($login['json']['resData']['tfa']) && $login['json']['resData']['tfa'] !== '0') {
+        $totp = infra_reg_inwx_totp($cfg['totp_secret'] ?? '');
+        if ($totp === '') {
+            return $fail('account has 2FA enabled — add the 2FA shared secret to use the API', $lcode);
+        }
+        $u = infra_http('POST', INWX_ENDPOINT, [
+            'headers' => ['Content-Type: application/json'], 'cookie' => $cookie, 'verify' => true, 'timeout' => 30,
+            'body'    => ['method' => 'account.unlock', 'params' => ['tan' => $totp]],
+        ]);
+        if ((int) ($u['json']['code'] ?? 0) !== 1000) {
+            return $fail('2FA unlock failed: ' . ($u['json']['msg'] ?? '?'), (int) ($u['json']['code'] ?? 0));
+        }
+    }
+
+    $r = infra_http('POST', INWX_ENDPOINT, [
+        'headers' => ['Content-Type: application/json'], 'cookie' => $cookie, 'verify' => true, 'timeout' => 40,
+        'body'    => ['method' => $method, 'params' => $params],
+    ]);
+    // Best-effort logout; a leaked session is worse than a wasted request.
+    infra_http('POST', INWX_ENDPOINT, [
+        'headers' => ['Content-Type: application/json'], 'cookie' => $cookie, 'verify' => true, 'timeout' => 15,
+        'body'    => ['method' => 'account.logout'],
+    ]);
+
+    $code = (int) ($r['json']['code'] ?? 0);
+    return [
+        'ok'      => $code === 1000,
+        'code'    => $code,
+        'message' => (string) ($r['json']['msg'] ?? ($r['error'] ?: ('HTTP ' . $r['code']))),
+        'data'    => $r['json']['resData'] ?? [],
+    ];
+}
+
+/** RFC-6238 TOTP from a base32 shared secret. Only used when the account has 2FA. */
+function infra_reg_inwx_totp(string $base32): string
+{
+    $base32 = strtoupper(preg_replace('/[^A-Z2-7]/i', '', $base32));
+    if ($base32 === '') return '';
+    $alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
+    $bits = '';
+    foreach (str_split($base32) as $c) {
+        $i = strpos($alphabet, $c);
+        if ($i === false) continue;
+        $bits .= str_pad(decbin($i), 5, '0', STR_PAD_LEFT);
+    }
+    $key = '';
+    foreach (str_split($bits, 8) as $byte) {
+        if (strlen($byte) === 8) $key .= chr(bindec($byte));
+    }
+    if ($key === '') return '';
+    $counter = pack('N*', 0, (int) floor(time() / 30));
+    $hash    = hash_hmac('sha1', $counter, $key, true);
+    $offset  = ord($hash[19]) & 0xf;
+    $part    = ((ord($hash[$offset]) & 0x7f) << 24) | ((ord($hash[$offset + 1]) & 0xff) << 16)
+             | ((ord($hash[$offset + 2]) & 0xff) << 8) | (ord($hash[$offset + 3]) & 0xff);
+    return str_pad((string) ($part % 1000000), 6, '0', STR_PAD_LEFT);
+}
+
+function infra_reg_inwx_verify(array $cfg): array
+{
+    $r = infra_reg_inwx_call($cfg, 'account.info');
+    if (!$r['ok']) return ['ok' => false, 'message' => "INWX error {$r['code']}: {$r['message']}", 'balance' => null, 'currency' => ''];
+    // Balance key naming varies by account type; report it only if we actually find one.
+    $d   = $r['data'];
+    $bal = $d['balance'] ?? $d['credit'] ?? $d['accountBalance'] ?? null;
+    return ['ok' => true, 'message' => 'INWX API OK',
+            'balance'  => $bal !== null ? (string) $bal : null,
+            'currency' => (string) ($d['currency'] ?? 'EUR')];
+}
+
+/** Set a domain's nameservers (the go-live switch). */
+function infra_reg_inwx_set_ns(string $domain, array $ns, array $cfg): array
+{
+    $ns = array_values(array_filter(array_map('trim', $ns)));
+    if (count($ns) < 2) {
+        return ['ok' => false, 'manual' => false, 'message' => 'INWX requires at least 2 nameservers'];
+    }
+    $r = infra_reg_inwx_call($cfg, 'domain.update', ['domain' => $domain, 'ns' => $ns]);
+    return ['ok' => $r['ok'], 'manual' => false,
+        'message' => $r['ok'] ? 'INWX: nameservers set → ' . implode(', ', $ns)
+                              : "INWX error {$r['code']}: {$r['message']}"];
+}
+
+/** Availability. domain.check takes a list, so one session covers a whole chunk. */
+function infra_reg_inwx_check(array $domains, array $cfg, array $out): array
+{
+    foreach (array_chunk($domains, 40) as $chunk) {
+        $r = infra_reg_inwx_call($cfg, 'domain.check', ['domain' => array_values($chunk)]);
+        if (!$r['ok']) {
+            foreach ($chunk as $d) $out[$d]['note'] = "check failed: {$r['message']}";
             continue;
         }
-        $prod = $r['json']['products'][0] ?? null;
-        if (!$prod) { $out[$d]['note'] = 'check inconclusive'; continue; }
-        $status = strtolower((string) ($prod['status'] ?? ''));
-        $out[$d]['available'] = ($status === 'available');
-        if ($status !== 'available') $out[$d]['note'] = ($status === 'unavailable') ? 'taken' : $status;
-        if (isset($prod['prices'][0]['price_after_taxes'])) $out[$d]['price'] = (string) $prod['prices'][0]['price_after_taxes'];
+        foreach (infra_reg_xml_list($r['data']['domain'] ?? []) as $row) {
+            if (!is_array($row)) continue;
+            $name = strtolower((string) ($row['domain'] ?? ''));
+            if (!isset($out[$name])) continue;
+            // avail is 1/0; status carries "free"/"registered" on some responses.
+            $avail = isset($row['avail']) ? ((string) $row['avail'] === '1')
+                   : (strtolower((string) ($row['status'] ?? '')) === 'free');
+            $out[$name]['available'] = $avail;
+            if (!$avail) $out[$name]['note'] = 'taken';
+            if (!empty($row['price'])) $out[$name]['price'] = (string) $row['price'];
+        }
     }
     return $out;
+}
+
+/* ============================= Cloudflare Registrar ============================= */
+/* Sells at cost, but the API only lists/updates — there is no register endpoint,
+   and no availability endpoint. A Cloudflare-registered domain is always on
+   Cloudflare nameservers, so go-live has nothing to switch. Verified live:
+   GET /accounts/{id}/registrar/domains returns 200. */
+
+/** Registrar-scoped Cloudflare call. Accepts a token OR the global-key pair. */
+function infra_reg_cloudflare_call(array $cfg, string $method, string $path, array $query = []): array
+{
+    $headers = (!empty($cfg['email']) && !empty($cfg['global_key']))
+        ? ['X-Auth-Email: ' . $cfg['email'], 'X-Auth-Key: ' . $cfg['global_key'], 'Content-Type: application/json']
+        : ['Authorization: Bearer ' . ($cfg['api_token'] ?? ''), 'Content-Type: application/json'];
+    $url = 'https://api.cloudflare.com/client/v4/accounts/' . rawurlencode($cfg['account_id'] ?? '') . $path;
+    if ($query) $url .= '?' . http_build_query($query);
+    return infra_http($method, $url, ['headers' => $headers, 'verify' => true, 'timeout' => 30]);
+}
+
+function infra_reg_cloudflare_verify(array $cfg): array
+{
+    if (($cfg['account_id'] ?? '') === '') {
+        return ['ok' => false, 'message' => 'Account ID is required', 'balance' => null, 'currency' => ''];
+    }
+    $r  = infra_reg_cloudflare_call($cfg, 'GET', '/registrar/domains', ['per_page' => 5]);
+    $ok = $r['code'] === 200 && !empty($r['json']['success']);
+    if (!$ok) {
+        return ['ok' => false, 'balance' => null, 'currency' => '',
+                'message' => 'Cloudflare: ' . ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
+    }
+    $n = (int) ($r['json']['result_info']['total_count'] ?? count($r['json']['result'] ?? []));
+    // Cloudflare bills a card rather than a prepaid balance, so there is none to report.
+    return ['ok' => true, 'message' => "Cloudflare Registrar API OK — {$n} domain(s) held",
+            'balance' => null, 'currency' => ''];
 }
 
 /** Normalise "one result = object, many = array" API shapes into a list. */
@@ -397,11 +591,15 @@ function infra_registrar_list_owned(string $name): array
                 if ($n === 0 || count($out) >= $total) break;
             }
             break;
-        case 'gandi':
-            $pat = $cfg['pat'] ?? ($cfg['api_key'] ?? '');
-            $r = infra_http('GET', 'https://api.gandi.net/v5/domain/domains?per_page=1000',
-                ['headers' => ['Authorization: Bearer ' . $pat], 'verify' => true, 'timeout' => 40]);
-            foreach (($r['json'] ?? []) as $d) if (!empty($d['fqdn'])) $out[] = $d['fqdn'];
+        case 'inwx':
+            $r = infra_reg_inwx_call($cfg, 'domain.list', ['pagelimit' => 1000]);
+            foreach (infra_reg_xml_list($r['data']['domain'] ?? []) as $d) {
+                if (!empty($d['domain'])) $out[] = $d['domain'];
+            }
+            break;
+        case 'cloudflare':
+            $r = infra_reg_cloudflare_call($cfg, 'GET', '/registrar/domains', ['per_page' => 200]);
+            foreach (($r['json']['result'] ?? []) as $d) if (!empty($d['name'])) $out[] = $d['name'];
             break;
         case 'porkbun':
             $r = infra_reg_porkbun_call($cfg, '/domain/listAll');
@@ -449,8 +647,13 @@ function infra_registrar_set_ns(string $domain, array $ns, string $registrarName
         case 'porkbun':   return infra_reg_porkbun_set_ns($domain, $ns, $cfg);
         case 'spaceship': return infra_reg_spaceship_set_ns($domain, $ns, $cfg);
         case 'dynadot':   return infra_reg_dynadot_set_ns($domain, $ns, $cfg);
-        case 'gandi':     return infra_reg_gandi_set_ns($domain, $ns, $cfg);
+        case 'inwx':      return infra_reg_inwx_set_ns($domain, $ns, $cfg);
         case 'namecheap': return infra_reg_namecheap_set_ns($domain, $ns, $cfg);
+        case 'cloudflare':
+            // A Cloudflare-registered domain is always on Cloudflare nameservers.
+            // There is nothing to switch, so go-live is a no-op rather than a failure.
+            return ['ok' => true, 'manual' => false,
+                    'message' => 'Cloudflare Registrar: already on Cloudflare nameservers — no switch needed'];
         default:
             return [
                 'ok'      => false,
@@ -597,22 +800,7 @@ function infra_reg_dynadot_set_ns(string $domain, array $ns, array $cfg): array
         'message' => $ok ? 'Dynadot: nameservers set → ' . implode(', ', $ns) : "Dynadot error: {$err}"];
 }
 
-/* ============================= Gandi ============================= */
 
-function infra_reg_gandi_set_ns(string $domain, array $ns, array $cfg): array
-{
-    $ns  = array_values(array_filter(array_map('trim', $ns)));
-    $pat = $cfg['pat'] ?? ($cfg['api_key'] ?? '');
-    $r   = infra_http('PUT', 'https://api.gandi.net/v5/domain/domains/' . $domain . '/nameservers', [
-        'headers' => ['Authorization: Bearer ' . $pat, 'Content-Type: application/json'],
-        'verify'  => true, 'timeout' => 30,
-        'body'    => ['nameservers' => $ns],
-    ]);
-    $ok  = $r['code'] >= 200 && $r['code'] < 300;
-    $err = $r['json']['cause'] ?? $r['json']['message'] ?? substr($r['raw'], 0, 120);
-    return ['ok' => $ok, 'manual' => false,
-        'message' => $ok ? 'Gandi: nameservers set → ' . implode(', ', $ns) : "Gandi error {$r['code']}: {$err}"];
-}
 
 /* ============================= Namecheap ============================= */
 /* Requires: funded account, API access enabled, and ClientIp whitelisted. */

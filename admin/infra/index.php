@@ -711,17 +711,25 @@ if ($view === 'registrars') {
     $tests = $_SESSION['infra_reg_tests'] ?? [];
     unset($_SESSION['infra_reg_tests']);
     ?>
-    <div class="ic-note">These are the registrars the console can buy from and switch nameservers at. Credentials are stored in <code>admin/infra/config/registrar.json</code> — gitignored, <code>0600</code>, and never printed back into this page. <strong>Test</strong> is read-only: it verifies the key and reports the account balance, which is what decides whether a scheduled buy can actually complete.</div>
+    <div class="ic-note">These are the registrars the console can buy from and switch nameservers at. Credentials are stored in <code>admin/infra/config/registrar.json</code> — gitignored, <code>0600</code>, and never printed back into this page. <strong>Test</strong> is read-only: it verifies the credentials and reports the account balance, which is what decides whether a scheduled buy can actually complete.</div>
 
     <?php foreach ($types as $type => $def):
+      $external = !empty($def['creds_from']);          // credentials live elsewhere (Cloudflare)
       $cfg   = null; $savedName = null;
       foreach ($saved as $name => $c) if (strtolower($c['type'] ?? $name) === $type) { $cfg = $c; $savedName = $name; }
-      $has   = $cfg !== null;
+      // An externally-credentialed registrar counts as configured when the other
+      // page has what it needs — asking for the same token twice would be worse.
+      if ($external && $cfg === null && infra_registrar_config($type)) $cfg = infra_registrar_config($type);
+      $has   = $cfg !== null && $cfg !== [];
       $t     = $tests[$type] ?? null;
       $caps  = [];
       foreach (['check' => 'availability', 'buy' => 'auto-buy', 'ns' => 'nameservers', 'balance' => 'balance'] as $k => $lbl) {
-          $caps[] = '<span class="badge ' . (!empty($def[$k]) ? 'b-ok' : 'b-mut') . '">'
-                  . (!empty($def[$k]) ? '✓ ' : '✗ ') . $lbl . '</span>';
+          $on = !empty($def[$k]);
+          // auto-buy is only genuinely usable when the adapter is written here too.
+          $partial = ($k === 'buy' && $on && empty($def['buy_wired']));
+          $caps[] = '<span class="badge ' . ($partial ? 'b-warn' : ($on ? 'b-ok' : 'b-mut')) . '"'
+                  . ($partial ? ' title="the registrar API supports it; the purchase adapter is not written here yet"' : '')
+                  . '>' . ($partial ? '~ ' : ($on ? '✓ ' : '✗ ')) . $lbl . '</span>';
       }
     ?>
       <div class="ic-card">
@@ -732,6 +740,21 @@ if ($view === 'registrars') {
         </h2>
         <div class="body">
           <div style="color:#6b7280;font-size:12.5px;margin-bottom:12px"><?= ih($def['note']) ?></div>
+
+          <?php if (!empty($def['buy']) && empty($def['buy_wired'])): ?>
+            <div class="ic-note" style="background:#fffbeb;border-color:#fde047;color:#854d0e">
+              <strong>Auto-buy: API-capable, adapter not written yet.</strong> You can assign and schedule domains to <?= ih($def['label']) ?> now — the plan is valid — but the purchase itself lands with the buying step. Only NameSilo can complete a purchase today.
+            </div>
+          <?php endif; ?>
+
+          <?php if ($external): ?>
+            <div class="ic-note">
+              <strong>Credentials come from <?= ih($def['creds_from']['label']) ?>, not this page.</strong>
+              It reuses <?= ih($def['creds_from']['why']) ?> — stored in <code><?= ih($def['creds_from']['file']) ?></code>.
+              Storing the same token twice would only create two things to rotate and one to forget.
+              <?= $has ? '' : ' <strong>No Cloudflare account is configured yet</strong>, so there is nothing to test.' ?>
+            </div>
+          <?php endif; ?>
 
           <?php if ($t): ?>
             <div class="ic-note" style="<?= $t['ok']
@@ -777,11 +800,16 @@ if ($view === 'registrars') {
               <?php endforeach; ?>
             </table>
             <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-              <button class="btn" type="submit" name="action" value="save">Save credentials</button>
-              <button class="btn sec" type="submit" name="action" value="test" <?= $has ? '' : 'disabled' ?>>Test connection &amp; balance</button>
-              <?php if ($has): ?>
+              <?php if (!$external): ?>
+                <button class="btn" type="submit" name="action" value="save">Save credentials</button>
+              <?php endif; ?>
+              <button class="btn <?= $external ? '' : 'sec' ?>" type="submit" name="action" value="test" <?= $has ? '' : 'disabled' ?>>Test connection<?= !empty($def['balance']) ? ' &amp; balance' : '' ?></button>
+              <?php if ($has && !$external): ?>
                 <button class="btn sec" type="submit" name="action" value="delete" style="color:#991b1b;margin-left:auto"
                         onclick="return confirm('Remove <?= ih($def['label']) ?> credentials? Domains assigned to it keep the assignment but cannot be bought until it is reconfigured.');">Remove</button>
+              <?php endif; ?>
+              <?php if ($external): ?>
+                <a class="btn sec" href="index.php?view=cloudflare" style="margin-left:auto">Cloudflare accounts &rarr;</a>
               <?php endif; ?>
             </div>
           </form>
