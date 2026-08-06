@@ -465,15 +465,23 @@ if ($view === 'domains') {
                   <?php if ($r['niche'] !== ''): ?><br><span style="color:#9ca3af;font-size:11px"><?= ih($r['niche']) ?></span><?php endif; ?>
                 </td>
                 <td><?= infra_ready_cell($r) ?></td>
-                <td>
-                  <select name="reg[<?= ih($d) ?>]" style="padding:4px 6px;border:1px solid #d1d5db;border-radius:6px;font-size:12px;max-width:130px">
-                    <option value="">—</option>
-                    <?php foreach ($regs as $rn): ?>
-                      <option value="<?= ih($rn) ?>" <?= $r['buy_registrar'] === $rn ? 'selected' : '' ?>><?= ih($rn) ?></option>
-                    <?php endforeach; ?>
-                  </select>
-                </td>
-                <td><input type="date" name="buy[<?= ih($d) ?>]" value="<?= ih($r['buy_at']) ?>" style="padding:4px 6px;border:1px solid #d1d5db;border-radius:6px;font-size:12px"></td>
+                <?php // Once a domain is owned, columns 3 and 4 are history: where it was
+                      // bought and when. Leaving them editable would invite a change that
+                      // contradicts the purchase and cannot be acted on. ?>
+                <?php if (($r['owned'] ?? '') === 'yes'): ?>
+                  <td><strong><?= ih($r['registrar'] ?: $r['buy_registrar'] ?: '—') ?></strong></td>
+                  <td><?= ih($r['buy_at'] ?: '—') ?><br><span style="color:#9ca3af;font-size:11px">bought</span></td>
+                <?php else: ?>
+                  <td>
+                    <select name="reg[<?= ih($d) ?>]" style="padding:4px 6px;border:1px solid #d1d5db;border-radius:6px;font-size:12px;max-width:130px">
+                      <option value="">—</option>
+                      <?php foreach ($regs as $rn): ?>
+                        <option value="<?= ih($rn) ?>" <?= $r['buy_registrar'] === $rn ? 'selected' : '' ?>><?= ih($rn) ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </td>
+                  <td><input type="date" name="buy[<?= ih($d) ?>]" value="<?= ih($r['buy_at']) ?>" style="padding:4px 6px;border:1px solid #d1d5db;border-radius:6px;font-size:12px"></td>
+                <?php endif; ?>
                 <td><?= infra_own_cell($r) ?></td>
                 <td><?= infra_cf_cell($r['cf'], $hasCf) ?></td>
                 <td><?= $vps ?></td>

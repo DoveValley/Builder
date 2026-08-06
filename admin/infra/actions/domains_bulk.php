@@ -59,11 +59,14 @@ switch ($action) {
         $regs    = (array) ($_POST['reg'] ?? []);
         $buys    = (array) ($_POST['buy'] ?? []);
         $valid   = infra_registrar_names();
-        $changed = 0; $badDate = 0;
+        $changed = 0; $badDate = 0; $locked = 0;
         foreach (array_keys($regs + $buys) as $dom) {
             $dom = strtolower(trim((string) $dom));
             $rec = infra_state_get_domain($dom);
             if (!$rec) continue;
+            // An owned domain's registrar and buy date are history. The view stops
+            // rendering the inputs, but a POST must be refused too.
+            if (($rec['owned'] ?? '') === 'yes') { $locked++; continue; }
 
             $newReg = strtolower(trim((string) ($regs[$dom] ?? '')));
             if ($newReg !== '' && !in_array($newReg, $valid, true)) $newReg = '';
@@ -75,8 +78,10 @@ switch ($action) {
             infra_state_upsert_domain(['domain' => $dom, 'buy_registrar' => $newReg, 'buy_at' => $newBuy]);
             $changed++;
         }
-        infra_set_flash($badDate ? 'warn' : 'ok',
-            "Saved {$changed} row(s)." . ($badDate ? "  {$badDate} date(s) ignored — bad format." : ''));
+        infra_set_flash(($badDate || $locked) ? 'warn' : 'ok',
+            "Saved {$changed} row(s)."
+            . ($badDate ? "  {$badDate} date(s) ignored — bad format." : '')
+            . ($locked ? "  {$locked} already owned — registrar and buy date are fixed once bought." : ''));
         break;
 
     /* ---- bulk: registrar ------------------------------------------------ */

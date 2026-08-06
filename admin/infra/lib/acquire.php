@@ -187,6 +187,10 @@ function infra_domain_buy(string $domain, array $opts = []): array
         'status'     => 'owned',
         'registrar'  => $registrar,   // where it actually lives, for the go-live NS switch
         'auto_renew' => $renew,
+        // Column 4 becomes the date it was ACTUALLY bought, not the date it was
+        // scheduled for. Once owned this is history, and the view stops offering
+        // to edit it.
+        'buy_at'     => gmdate('Y-m-d'),
         'buy_error'  => '',
     ]);
     return ['ok' => true, 'message' => $buy['message'] ?? "bought {$domain}"];
