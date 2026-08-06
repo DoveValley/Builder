@@ -401,6 +401,7 @@ if ($view === 'domains') {
         <form method="post" action="actions/domains_bulk.php" id="domForm">
           <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
           <input type="hidden" name="back" value="<?= ih($baseQs . '&page=' . $page) ?>">
+          <input type="hidden" name="from" value="<?= ih($baseQs . '&page=' . $page) ?>">
 
           <!-- bulk bar: acts on ticked rows -->
           <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:10px 12px;margin-bottom:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px">
@@ -455,12 +456,13 @@ if ($view === 'domains') {
               <th><?= $sortLink('niche',  '2. Niche') ?></th>
               <th><?= $sortLink('ready',  '3. Ready to buy') ?></th>
               <th><?= $sortLink('buyreg', '4. Register') ?></th>
-              <th><?= $sortLink('buy_at', '5. Buy date') ?></th>
-              <th><?= $sortLink('owned',  '6. Own') ?></th>
-              <th><?= $sortLink('cf',     '7. Cloudflare') ?></th>
-              <th><?= $sortLink('vps',    '8. VPS / Plesk') ?></th>
-              <th><?= $sortLink('state',  '9. State') ?></th>
-              <th><?= $sortLink('drift',  '10. Drift') ?></th>
+              <th>5. Buy</th>
+              <th><?= $sortLink('buy_at', '6. Buy date') ?></th>
+              <th><?= $sortLink('owned',  '7. Own') ?></th>
+              <th><?= $sortLink('cf',     '8. Cloudflare') ?></th>
+              <th><?= $sortLink('vps',    '9. VPS / Plesk') ?></th>
+              <th><?= $sortLink('state',  '10. State') ?></th>
+              <th><?= $sortLink('drift',  '11. Drift') ?></th>
             </tr></thead>
             <tbody>
             <?php foreach ($slice as $r):
@@ -483,11 +485,12 @@ if ($view === 'domains') {
                   </select>
                 </td>
                 <td><?= infra_ready_cell($r) ?></td>
-                <?php // Once a domain is owned, columns 3 and 4 are history: where it was
-                      // bought and when. Leaving them editable would invite a change that
-                      // contradicts the purchase and cannot be acted on. ?>
+                <?php // Once a domain is owned, the registrar and buy date are history: where
+                      // it was bought and when. Leaving them editable would invite a change
+                      // that contradicts the purchase and cannot be acted on. ?>
                 <?php if (($r['owned'] ?? '') === 'yes'): ?>
                   <td><strong><?= ih($r['registrar'] ?: $r['buy_registrar'] ?: '—') ?></strong></td>
+                  <td><span class="badge b-ok">bought</span></td>
                   <td><?= ih($r['buy_at'] ?: '—') ?><br><span style="color:#9ca3af;font-size:11px">bought</span></td>
                 <?php else: ?>
                   <td>
@@ -497,6 +500,30 @@ if ($view === 'domains') {
                         <option value="<?= ih($rn) ?>" <?= $r['buy_registrar'] === $rn ? 'selected' : '' ?>><?= ih($rn) ?></option>
                       <?php endforeach; ?>
                     </select>
+                  </td>
+                  <td style="white-space:nowrap">
+                    <?php
+                    // Buyable = checked available, a registrar chosen, and that registrar
+                    // able to complete a purchase from here. Anything else shows why not,
+                    // rather than a button that fails when pressed.
+                    $bReg  = (string) $r['buy_registrar'];
+                    $bDef  = $bReg !== '' ? infra_registrar_type_def($bReg) : [];
+                    $bOk   = $r['ready_to_buy'] === 'yes' && $bReg !== '' && !empty($bDef['buy_wired']);
+                    $bCost = $r['avail_price'] !== '' ? '$' . $r['avail_price'] : 'the quoted price';
+                    $bYrs  = strtolower($bReg) === 'namecheap' ? 3 : 1;
+                    ?>
+                    <?php if ($bOk): ?>
+                      <button class="btn" style="background:#991b1b;padding:3px 11px;font-size:11px"
+                              type="submit" formaction="actions/domain_buy.php"
+                              name="domain" value="<?= ih($d) ?>"
+                              onclick="return confirm('Buy <?= ih($d) ?>\n\nat <?= ih($bReg) ?> for <?= ih($bCost) ?><?= $bYrs > 1 ? ', ' . $bYrs . ' years' : '' ?>.\n\nThis spends real money and cannot be undone.');">Buy</button>
+                    <?php elseif ($r['ready_to_buy'] !== 'yes'): ?>
+                      <span style="color:#9ca3af;font-size:11px">not ready</span>
+                    <?php elseif ($bReg === ''): ?>
+                      <span style="color:#9ca3af;font-size:11px">pick registrar</span>
+                    <?php else: ?>
+                      <span style="color:#9ca3af;font-size:11px" title="<?= ih($bDef['label'] ?? $bReg) ?> cannot buy from here">no adapter</span>
+                    <?php endif; ?>
                   </td>
                   <td><input type="date" name="buy[<?= ih($d) ?>]" value="<?= ih($r['buy_at']) ?>" style="padding:4px 6px;border:1px solid #d1d5db;border-radius:6px;font-size:12px"></td>
                 <?php endif; ?>
