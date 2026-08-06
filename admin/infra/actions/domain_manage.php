@@ -12,6 +12,13 @@ $action = $_POST['action'] ?? '';
 $back    = '../index.php?view=domain&d=' . urlencode($domain);
 $toList  = '../index.php?view=domains';
 
+// A row button should return you to the list you pressed it from, not to the
+// domain's own page. Only our own view query strings are honoured.
+$from = (string) ($_POST['from'] ?? '');
+if ($from !== '' && preg_match('/^view=[a-z]+[A-Za-z0-9=&_.\-%]*$/', $from)) {
+    $back = '../index.php?' . $from;
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !infra_check_csrf()) {
     infra_set_flash('err', 'Invalid request (bad CSRF token).');
     header('Location: ' . $toList); exit;
@@ -21,7 +28,11 @@ if (!$rec) { infra_set_flash('err', "Not in fleet state: {$domain}"); header('Lo
 
 // destructive actions require re-typing the domain
 $destructive = ['delete_zone', 'delete_site', 'untrack', 'teardown', 'buy'];
-if (in_array($action, $destructive, true) && strtolower(trim($_POST['confirm'] ?? '')) !== $domain) {
+// `quick` = pressed from a per-row Buy button, which carries its own domain and
+// cannot be mis-targeted the way a typed name in a shared form can. It still needs
+// CSRF, an authenticated session, and a browser confirm naming the domain and price.
+$quick = ($action === 'buy' && !empty($_POST['quick']));
+if (!$quick && in_array($action, $destructive, true) && strtolower(trim($_POST['confirm'] ?? '')) !== $domain) {
     infra_set_flash('err', 'Confirmation did not match the domain — nothing changed.');
     header('Location: ' . $back); exit;
 }

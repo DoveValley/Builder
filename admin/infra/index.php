@@ -43,6 +43,9 @@ function infra_state_cell(string $state): string
 /** Col 2 — "Ready to buy", with the reason when the answer is no. */
 function infra_ready_cell(array $r): string
 {
+    // Once it is owned the question no longer applies — showing a stale yes/no
+    // there just invites you to read it as something still to be done.
+    if (($r['owned'] ?? '') === 'yes') return '<span style="color:#9ca3af">&mdash;</span>';
     $note = (string) ($r['avail_note'] ?? '');
     $price = (string) ($r['avail_price'] ?? '');
     if ($r['ready_to_buy'] === 'yes') {
@@ -74,9 +77,14 @@ function infra_own_cell(array $r): string
         return '<span class="badge b-err">failed</span>'
              . (($r['buy_error'] ?? '') !== '' ? '<br><span style="color:#991b1b;font-size:11px">' . ih(substr($r['buy_error'], 0, 60)) . '</span>' : '');
     }
-    if (($r['buy_at'] ?? '') !== '' && $r['buy_at'] <= gmdate('Y-m-d')) {
-        return '<span class="badge b-warn">due</span>';
+    $ready = ($r['ready_to_buy'] ?? '') === 'yes' && ($r['buy_registrar'] ?? '') !== '';
+    $due   = ($r['buy_at'] ?? '') !== '' && $r['buy_at'] <= gmdate('Y-m-d');
+    if ($ready) {
+        return ($due ? '<span class="badge b-warn">due</span> ' : '')
+             . '<a class="btn sec" style="padding:2px 8px;font-size:11px" href="index.php?view=domain&d='
+             . ih($r['domain']) . '">Buy &rarr;</a>';
     }
+    if ($due) return '<span class="badge b-warn">due</span>';
     return '<span style="color:#9ca3af">No</span>';
 }
 function infra_drift_cell(?string $drift): string
@@ -856,12 +864,36 @@ if ($view === 'buyqueue') {
               <td><?= $r['ready_to_buy'] === 'yes' ? '<span class="badge b-ok">yes</span>' : '<span class="badge b-warn">' . ih($r['ready_to_buy'] ?: 'not checked') . '</span>' ?></td>
               <td><?= $r['avail_price'] !== '' ? '$' . ih($r['avail_price']) : '<span style="color:#9ca3af">—</span>' ?></td>
               <td><?= ih($r['buy_at']) ?><?= $overdue ? ' <span class="badge b-warn">overdue</span>' : '' ?></td>
-              <td style="text-align:right"><a class="btn sec" href="index.php?view=domain&d=<?= ih($dom) ?>">Open &rarr;</a></td>
+              <td style="text-align:right;white-space:nowrap">
+                <?php
+                $canBuy = ($r['ready_to_buy'] ?? '') === 'yes'
+                       && ($r['buy_registrar'] ?? '') !== ''
+                       && !empty(infra_registrar_type_def($r['buy_registrar'])['buy_wired']);
+                $price  = $r['avail_price'] !== '' ? '$' . $r['avail_price'] : 'the quoted price';
+                ?>
+                <?php if ($canBuy): ?>
+                  <form method="post" action="actions/domain_manage.php" style="display:inline">
+                    <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+                    <input type="hidden" name="action" value="buy">
+                    <input type="hidden" name="quick" value="1">
+                    <input type="hidden" name="from" value="view=buyqueue">
+                    <input type="hidden" name="domain" value="<?= ih($dom) ?>">
+                    <input type="hidden" name="years" value="<?= strtolower($r['buy_registrar']) === 'namecheap' ? 3 : 1 ?>">
+                    <input type="hidden" name="auto_renew" value="1">
+                    <button class="btn" style="background:#991b1b;padding:4px 12px;font-size:12px" type="submit"
+                      onclick="return confirm('Buy <?= ih($dom) ?> at <?= ih($r['buy_registrar']) ?> for <?= ih($price) ?>?\n\nThis spends real money and cannot be undone.');">Buy</button>
+                  </form>
+                <?php endif; ?>
+                <a class="btn sec" style="padding:4px 10px;font-size:12px" href="index.php?view=domain&d=<?= ih($dom) ?>">Open &rarr;</a>
+              </td>
             </tr>
           <?php endforeach; ?>
           </tbody></table>
           <div class="ic-note" style="margin-top:14px;margin-bottom:0">
-            Nothing buys these automatically yet &mdash; that is the next piece. For now, open a domain and use its Buy button.
+            <strong>Buy</strong> purchases that one domain immediately &mdash; real money, no undo. Availability is
+            re-checked in the moment before paying, so a name taken since the last check is never paid for.
+            Namecheap buys are placed for <strong>3 years</strong>, since its auto-renew cannot be set over the API.
+            Nothing here buys on its own.
           </div>
         <?php endif; ?>
       </div>
