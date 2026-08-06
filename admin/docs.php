@@ -87,6 +87,16 @@ pre code { background: none; border: none; padding: 0; color: inherit; font-size
 .callout { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0 16px; }
 .callout.warn { background: #fffbeb; border-left-color: #f59e0b; }
 .callout.tip { background: #f0fdf4; border-left-color: #22c55e; }
+.callout.bad { background: #fef2f2; border-left-color: #dc2626; }
+.callout.bad p { color: #7f1d1d; }
+.ar-no { color: #b91c1c; font-weight: 700; }
+.ar-yes { color: #15803d; font-weight: 700; }
+.ar-block { border: 2px solid #dc2626; background: #fef2f2; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.ar-block h4 { margin: 0 0 8px; color: #b91c1c; font-size: 15px; }
+.ar-block p, .ar-block li { color: #7f1d1d; }
+.ar-ok { border: 1px solid #d1d5db; background: #fff; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+.ar-ok h4 { margin: 0 0 8px; font-size: 15px; }
+tr.bad td { background: #fef2f2; color: #7f1d1d; }
 .callout p { margin: 0; color: #1e3a5f; }
 
 .pri { display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 1px 6px; border-radius: 4px; vertical-align: middle; margin-left: 4px; }
@@ -348,6 +358,7 @@ tr.ms-rec td { background: #fff3cd !important; }
         <a href="#console-acquire">Acquiring domains (begin &rarr; own)</a>
         <a href="#console-provision">Provisioning (New Site / Bulk)</a>
         <a href="#console-registrars">Registrars</a>
+        <a href="#console-autorenew">&nbsp;&nbsp;&#8627; Auto-renew per registrar</a>
         <a href="#console-deploy">Deploy bridge</a>
         <a href="#console-golive">Go-Live &amp; cron</a>
         <a href="#console-manage">Edit / remove</a>
@@ -3504,20 +3515,62 @@ Visitor  →  https://{domain}</code></pre>
 <div class="callout"><p><strong>Spaceship, Gandi and INWX were all dropped.</strong> Spaceship is Namecheap-owned, so it costs a second account without buying any real nameserver independence — the whole point of using several registrars. Gandi was replaced by INWX, which was in turn dropped: its .com renews at $17.52 <em>plus</em> $5.03/yr for WHOIS privacy that every other registrar here includes free, making it roughly double the cheapest option.</p></div>
 <div class="callout warn"><p><strong>Do not verify a registrar with an endpoint that does not check credentials.</strong> Porkbun's <code>/ping</code> answers SUCCESS for an empty key — using it as the test meant a typo'd credential still reported "API OK". The test calls an authenticated endpoint instead.</p></div>
 
-<h3>Auto-renew: verified, never assumed</h3>
-<p>Every purchase <strong>reads the auto-renew setting back</strong> from the registrar and records the answer, rather than reporting what was requested. Column&nbsp;5 flags any owned domain that will not renew. This is not defensive coding for its own sake — each of these was caught in practice:</p>
+<h3 id="console-autorenew">Auto-renew &mdash; registrar by registrar</h3>
+<p>Every purchase <strong>reads the auto-renew setting back from the registrar</strong> and records the answer, rather than reporting what was asked for. Column&nbsp;5 of the Domains table flags any owned domain that will not renew. Each behaviour below was found in practice, not read off a datasheet.</p>
+
 <table>
-    <tr><th>Registrar</th><th>Auto-renew</th><th>Behaviour worth knowing</th></tr>
-    <tr><td>NameSilo</td><td>✓ settable</td><td><code>addAutoRenewal</code> / <code>removeAutoRenewal</code>. Works.</td></tr>
-    <tr><td>Dynadot</td><td>✓ settable</td><td>A separate call after registration — and a freshly registered domain is not immediately queryable, so the first attempt fails with "could not find domain". Retried, then verified.</td></tr>
-    <tr><td>Porkbun</td><td>✓ settable</td><td><code>/domain/updateAutoRenew</code> takes <code>status: on|off</code>.</td></tr>
-    <tr><td>Cloudflare</td><td>✓ settable</td><td>Defaults to <strong>false</strong>, so it is set explicitly at registration and verified afterwards.</td></tr>
-    <tr><td><strong>Namecheap</strong></td><td><strong>✗ IMPOSSIBLE</strong></td><td>No documented method exists. The undocumented <code>setAutoRenew</code> returns <code>IsSuccess="true"</code> <em>even with no parameter at all</em> and changes nothing. Domains register with auto-renew OFF.</td></tr>
+    <tr><th>Registrar</th><th>Auto-renew via API</th><th>Default on a new registration</th></tr>
+    <tr><td>NameSilo</td><td class="ar-yes">✓ yes</td><td>set explicitly at purchase</td></tr>
+    <tr><td>Dynadot</td><td class="ar-yes">✓ yes</td><td>set explicitly after purchase</td></tr>
+    <tr><td>Porkbun</td><td class="ar-yes">✓ yes</td><td>set explicitly at purchase</td></tr>
+    <tr><td>Cloudflare</td><td class="ar-yes">✓ yes</td><td><strong>false</strong> &mdash; overridden explicitly</td></tr>
+    <tr class="bad"><td><strong>Namecheap</strong></td><td class="ar-no">✗ IMPOSSIBLE</td><td class="ar-no"><strong>OFF, and cannot be changed</strong></td></tr>
 </table>
-<div class="callout warn"><p><strong>Namecheap domains will lapse unless you act.</strong> Auto-renew is a dashboard-only setting there. Two ways to cover it: register for <strong>more years up front</strong> — multi-year costs about 10&cent;/yr more, so a 3- or 10-year term is near-free insurance and cannot fail — or switch it on by hand in their dashboard. The console will not pretend it did this for you.</p></div>
-<div class="callout"><p><strong>Three times an API was assumed incapable and twice that was wrong.</strong> Porkbun was documented here as having no registration endpoint; it has one. Cloudflare likewise; its endpoint is just on a different path. Only Namecheap's limitation survived checking — and that one was verified three independent ways. <strong>Probe before you write "not supported".</strong> A 403 means the endpoint exists and is gated; a 404 means it does not.</p></div>
-<div class="callout warn"><p><strong>Test reports the balance for a reason.</strong> A perfectly valid API key with no funds behind it cannot buy a thing, and that failure otherwise only surfaces on the day a scheduled purchase runs. The card flags a balance too low to cover a <code>.com</code>.</p>
-<p>Namecheap's most common failure by far is the IP allowlist — the console names it explicitly in the error rather than passing through a generic message.</p></div>
+
+<div class="ar-ok">
+<h4>NameSilo &mdash; <span class="ar-yes">works</span></h4>
+<p><code>addAutoRenewal</code> / <code>removeAutoRenewal</code>, one call, takes effect immediately. Also settable at registration time via <code>auto_renew</code> on <code>registerDomain</code>. Nothing surprising here.</p>
+</div>
+
+<div class="ar-ok">
+<h4>Dynadot &mdash; <span class="ar-yes">works, but not immediately</span></h4>
+<p><code>set_renew_option</code> with <code>renew_option=auto|no</code>. It is a <strong>separate call after registration</strong> &mdash; the register command has no auto-renew parameter.</p>
+<p><strong>The catch:</strong> a freshly registered domain is not immediately queryable, so the first attempt fails with <em>"could not find domain in your account"</em>. The console pauses and retries, then reads the state back. On the first real purchase it reported <em>"auto-renew NOT SET"</em> while the domain was sitting there on auto-renew &mdash; the call had failed but the account default had already applied it. Reporting the attempt instead of the fact is its own bug.</p>
+</div>
+
+<div class="ar-ok">
+<h4>Porkbun &mdash; <span class="ar-yes">works</span></h4>
+<p><code>/domain/updateAutoRenew/{domain}</code> with <code>status: on|off</code> &mdash; note <em>status</em>, and <em>on/off</em>, not the <code>autoRenew: yes/no</code> the create call uses. Guessing the obvious parameter name fails silently-ish with <em>"You need to pass a status of on or off."</em></p>
+</div>
+
+<div class="ar-ok">
+<h4>Cloudflare &mdash; <span class="ar-yes">works, but defaults to off</span></h4>
+<p><code>PUT /registrar/domains/{domain}</code> with <code>auto_renew: true</code>. It can also be passed in the registration body.</p>
+<p><strong>The catch:</strong> Cloudflare <strong>defaults auto-renew to <code>false</code></strong> on a new registration. The console sets it explicitly at purchase and verifies afterwards; without that, a Cloudflare domain silently expires in a year.</p>
+</div>
+
+<div class="ar-block">
+<h4>⛔ Namecheap &mdash; auto-renew CANNOT be set through the API</h4>
+<p><strong>This is a real, permanent limitation, not a bug we can work around.</strong> Domains bought through the API register with auto-renew <strong>OFF</strong> and there is no way to turn it on programmatically.</p>
+<p>The trap is that Namecheap <em>appears</em> to offer one. An undocumented <code>namecheap.domains.setAutoRenew</code> endpoint exists and always answers:</p>
+<pre><code>&lt;SetAutoRenewResult Domain="yourdomain.com" IsSuccess="true" /&gt;</code></pre>
+<p>It changes nothing. Proven three independent ways:</p>
+<ul>
+<li>It returns <code>IsSuccess="true"</code> <strong>even when sent no <code>AutoRenew</code> parameter at all</strong> &mdash; the parameter is not read. Nine different parameter names were tried; none has any effect.</li>
+<li>The flag was still <code>false</code> twenty seconds and fifteen minutes after a "successful" call.</li>
+<li>It is <strong>absent from Namecheap's documented API</strong>. The most complete third-party wrapper maps commands one-to-one and implements eleven <code>domains.*</code> methods &mdash; <code>getList, getInfo, getTldList, create, getContacts, setContacts, check, reactivate, renew, getRegistrarLock, setRegistrarLock</code> &mdash; with no auto-renew setter among them. Namecheap's own knowledgebase says auto-renew is enabled "in the Domain section of the dashboard".</li>
+</ul>
+<p><strong>An API that reports success without acting is worse than one that fails</strong>, because nothing looks wrong. If the console trusted it, you would have a fleet of Namecheap domains all quietly set to lapse and would find out a year later. So the console <strong>does not call it at all</strong> &mdash; it reads the state and reports the truth.</p>
+<p><strong>What to do instead, in order of preference:</strong></p>
+<ol>
+<li><strong>Register for more years up front.</strong> Multi-year at Namecheap costs about <strong>10&cent; per year</strong> more (1yr $11.28, 2&ndash;10yr $11.38/yr), so a 3- or 10-year term is near-free insurance &mdash; and a paid-up decade cannot fail, expire a card, or be switched off by accident. Set the <em>years</em> field on the Buy form.</li>
+<li><strong>Prefer another registrar for fleet buying.</strong> NameSilo, Dynadot and Porkbun all set auto-renew correctly and verifiably, and all three are cheaper.</li>
+<li><strong>Switch it on by hand</strong> in the Namecheap dashboard, per domain. Does not scale past a handful.</li>
+</ol>
+</div>
+
+<div class="callout"><p><strong>Three times an API was assumed incapable here and twice that was wrong.</strong> Porkbun was documented as having no registration endpoint; it has one. Cloudflare likewise &mdash; its endpoint is simply on a different path. Only Namecheap's limitation survived checking, and that is the one that was verified three ways. <strong>Probe before writing "not supported": a 403 means the endpoint exists and is gated, a 404 means it does not, and a few 400s with an invalid domain will make an API describe its own schema.</strong></p></div>
+
 <a class="back-top" href="#console-registrars">&uarr; top</a>
 </section>
 
