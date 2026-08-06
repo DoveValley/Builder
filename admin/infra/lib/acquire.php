@@ -96,8 +96,18 @@ function infra_domains_apply_availability(array $domains, string $registrarName)
     if ($counts['self'])    $parts[] = "{$counts['self']} already yours";
     if ($counts['failed'])  $parts[] = "{$counts['failed']} could not be checked";
 
+    // Getting a verdict for NOTHING in a multi-domain batch is the signature of an
+    // adapter misreading the response, not of a bad batch of names — both registrar
+    // batch bugs found so far looked exactly like this. Name it rather than letting
+    // it read as a normal result.
+    $note = '';
+    if (count($domains) > 1 && $counts['failed'] === count($domains)) {
+        $note = "\n⚠ Not one domain got a verdict — that usually means the {$registrarName} adapter"
+              . ' is misreading the response, rather than anything being wrong with the names.';
+    }
+
     return [
-        'summary' => 'Availability via ' . $registrarName . ' — ' . implode(', ', $parts) . '.',
+        'summary' => 'Availability via ' . $registrarName . ' — ' . implode(', ', $parts) . '.' . $note,
         'counts'  => $counts,
     ];
 }
@@ -155,7 +165,9 @@ function infra_domain_buy(string $domain, array $opts = []): array
 
     // ---- the purchase ----
     $years = max(1, (int) ($opts['years'] ?? 1));
-    $buy   = infra_registrar_register($domain, $years, $registrar);
+    // Auto-renew defaults ON — a lapsed fleet domain is a dead site.
+    $buy   = infra_registrar_register($domain, $years, $registrar, [],
+                 ['auto_renew' => array_key_exists('auto_renew', $opts) ? $opts['auto_renew'] : true]);
     if (empty($buy['ok'])) {
         return $fail($buy['message'] ?? 'purchase failed', true);
     }

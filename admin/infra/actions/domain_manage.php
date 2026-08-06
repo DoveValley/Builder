@@ -59,7 +59,10 @@ switch ($action) {
     case 'buy':
         // The ONLY action in this console that spends money. Guarded by the typed
         // confirm above; every other rail lives in infra_domain_buy().
-        $r = infra_domain_buy($domain, ['years' => (int) ($_POST['years'] ?? 1)]);
+        $r = infra_domain_buy($domain, [
+            'years'      => (int) ($_POST['years'] ?? 1),
+            'auto_renew' => !empty($_POST['auto_renew']),
+        ]);
         infra_set_flash($r['ok'] ? 'ok' : 'err',
             ($r['ok'] ? "✓ BOUGHT {$domain} — " : "✗ Purchase refused for {$domain}: ") . $r['message']);
         infra_cache_forget('reg_owned');   // it is ours now; the owned index is stale

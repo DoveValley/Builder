@@ -82,13 +82,13 @@ function infra_registrar_types(): array
                 'secret_api_key' => ['label' => 'Secret API key', 'secret' => true],
             ],
             'check' => true, 'buy' => false, 'buy_wired' => false, 'ns' => true, 'balance' => false,
-            'note'  => 'API Access must be toggled ON per-domain in the Porkbun dashboard. No registration endpoint at all — buy in the dashboard, then mark owned here. No balance endpoint.',
+            'note'  => 'API Access must be toggled ON per-domain in the Porkbun dashboard. No registration endpoint at all — buy in the dashboard, then mark owned here. No balance endpoint. Availability is limited to ONE CHECK PER 10 SECONDS, so use NameSilo or Dynadot for bulk lists and keep Porkbun for spot checks.',
         ],
         'dynadot' => [
             'label'  => 'Dynadot',
             'fields' => ['api_key' => ['label' => 'API key', 'secret' => true]],
-            'check' => true, 'buy' => true, 'buy_wired' => false, 'ns' => true, 'balance' => true,
-            'note'  => 'May require external nameservers be added to the account before they can be set on a domain.',
+            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => true,
+            'note'  => 'Cheapest .com of the five. Registration uses the account\'s default contact, so no contact set is needed. May require external nameservers be added to the account before they can be set on a domain.',
         ],
         'cloudflare' => [
             'label'  => 'Cloudflare Registrar',
@@ -269,15 +269,20 @@ function infra_reg_namesilo_check(array $domains, array $cfg, array $out): array
             foreach ($chunk as $d) $out[$d]['note'] = "check failed: {$r['detail']}";
             continue;
         }
-        // Both branches collapse to a single object when there is exactly one result.
-        foreach (infra_reg_xml_list($r['reply']['available']['domain'] ?? []) as $a) {
+        // NameSilo returns TWO DIFFERENT SHAPES and the difference is easy to miss:
+        //   one result   → reply.available.domain = {…}      (wrapped in "domain")
+        //   many results → reply.available        = [{…},{…}] (no wrapper at all)
+        // Reading only the wrapped form made every batch of 2+ return nothing —
+        // which failed safe (verdict left unchanged) but meant bulk checking, the
+        // entire reason this is batched, never actually worked.
+        foreach (infra_reg_ns_results($r['reply']['available'] ?? []) as $a) {
             $name = strtolower(is_array($a) ? ($a['domain'] ?? '') : (string) $a);
             if (!isset($out[$name])) continue;
             $out[$name]['available'] = true;
             if (is_array($a) && isset($a['price'])) $out[$name]['price'] = (string) $a['price'];
             if (is_array($a) && !empty($a['premium'])) $out[$name]['note'] = 'premium';
         }
-        foreach (infra_reg_xml_list($r['reply']['unavailable']['domain'] ?? []) as $u) {
+        foreach (infra_reg_ns_results($r['reply']['unavailable'] ?? []) as $u) {
             $name = strtolower(is_array($u) ? ($u['domain'] ?? '') : (string) $u);
             if (isset($out[$name])) { $out[$name]['available'] = false; $out[$name]['note'] = 'taken'; }
         }
@@ -310,50 +315,167 @@ function infra_reg_namecheap_check(array $domains, array $cfg, array $out): arra
     return $out;
 }
 
-/** Porkbun: one request per domain (no batch endpoint) — rate-limited deliberately. */
+/**
+ * Porkbun: one request per domain, and it allows only ONE CHECK PER 10 SECONDS.
+ * The response says so itself ("1 out of 1 checks within 10 seconds used", with
+ * ttlRemaining) — an earlier 0.6s spacing sailed straight through the limit and
+ * every domain after the first came back unchecked.
+ *
+ * That makes Porkbun unsuitable for bulk availability: 400 domains would take
+ * over an hour. Use NameSilo (batched) or Dynadot for lists; this is for spot
+ * checks. It honours the limit and retries once on the server's own timing.
+ */
 function infra_reg_porkbun_check(array $domains, array $cfg, array $out): array
 {
+    $domains = array_values($domains);
     foreach ($domains as $i => $d) {
-        if ($i > 0) usleep(600000);   // Porkbun throttles hard on this endpoint
+        if ($i > 0) sleep(10);
         $r = infra_reg_porkbun_call($cfg, '/domain/checkDomain/' . $d);
+
+        // Rate-limited anyway? Wait exactly as long as it asks, then try once more.
+        if (!$r['ok'] && strtoupper((string) ($r['json']['code'] ?? '')) === 'RATE_LIMIT_EXCEEDED') {
+            sleep(max(1, min(30, (int) ($r['json']['ttlRemaining'] ?? 10) + 1)));
+            $r = infra_reg_porkbun_call($cfg, '/domain/checkDomain/' . $d);
+        }
         if (!$r['ok']) { $out[$d]['note'] = 'check failed: ' . $r['message']; continue; }
+
         $resp = $r['json']['response'] ?? [];
-        $out[$d]['available'] = strtolower((string) ($resp['avail'] ?? '')) === 'yes';
+        $av   = strtolower((string) ($resp['avail'] ?? ''));
+        if ($av !== 'yes' && $av !== 'no') { $out[$d]['note'] = 'check inconclusive'; continue; }
+        $out[$d]['available'] = ($av === 'yes');
         $out[$d]['price']     = (string) ($resp['price'] ?? '');
-        if ($out[$d]['available'] === false) $out[$d]['note'] = 'taken';
+        if ($av === 'no')                              $out[$d]['note'] = 'taken';
+        elseif (strtolower((string) ($resp['premium'] ?? '')) === 'yes') $out[$d]['note'] = 'premium';
     }
     return $out;
 }
 
-/** Dynadot: batched via repeated domain0..domainN params. */
+/**
+ * Dynadot: ONE DOMAIN PER REQUEST. Its search command rejects multiple domains
+ * outright ("too many domains entered, please search one domain per command"),
+ * so the batched version silently returned a verdict for nothing. Throttled,
+ * because 400 domains here means 400 requests.
+ */
 function infra_reg_dynadot_check(array $domains, array $cfg, array $out): array
 {
-    foreach (array_chunk($domains, 25) as $chunk) {
-        $q = ['key' => $cfg['api_key'] ?? '', 'command' => 'search'];
-        foreach ($chunk as $i => $d) $q['domain' . $i] = $d;
-        $r = infra_http('GET', 'https://api.dynadot.com/api3.json?' . http_build_query($q), ['verify' => true, 'timeout' => 40]);
-        $results = $r['json']['SearchResponse']['SearchResults'] ?? $r['json']['SearchResults'] ?? [];
-        if (!$results) {
-            foreach ($chunk as $d) $out[$d]['note'] = 'check failed (HTTP ' . $r['code'] . ')';
-            continue;
+    foreach (array_values($domains) as $i => $d) {
+        if ($i > 0) usleep(400000);
+        $r = infra_reg_dynadot_call($cfg, 'search',
+                 ['domain0' => $d, 'show_price' => 1, 'currency' => 'usd']);
+        if (!$r['ok']) { $out[$d]['note'] = 'check failed: ' . $r['message']; continue; }
+
+        $res = $r['data']['SearchResults'][0] ?? null;
+        if (!$res) { $out[$d]['note'] = 'check inconclusive'; continue; }
+
+        $av = strtolower((string) ($res['Available'] ?? ''));
+        if ($av === 'yes' || $av === 'no') {
+            $out[$d]['available'] = ($av === 'yes');
+            if ($av === 'no') $out[$d]['note'] = 'taken';
+        } else {
+            $out[$d]['note'] = 'check inconclusive';
         }
-        foreach ($results as $res) {
-            $name = strtolower((string) ($res['DomainName'] ?? ''));
-            if (!isset($out[$name])) continue;
-            $av = strtolower((string) ($res['Available'] ?? ''));
-            if ($av === 'yes' || $av === 'no') {
-                $out[$name]['available'] = ($av === 'yes');
-                if ($av === 'no') $out[$name]['note'] = 'taken';
-            } else {
-                $out[$name]['note'] = 'check inconclusive';
-            }
-            if (!empty($res['Price'])) $out[$name]['price'] = (string) $res['Price'];
+        // Dynadot returns prose, not a number:
+        // "Registration Price: 10.88 in USD and Renewal price: 10.88 in USD…"
+        if (!empty($res['Price']) && preg_match('/Registration Price:\s*([\d.]+)/i', (string) $res['Price'], $pm)) {
+            $out[$d]['price'] = $pm[1];
         }
     }
     return $out;
 }
 
-/** Gandi: one request per domain. */
+/**
+ * One Dynadot api3 call. Their JSON nests the payload under a per-command key
+ * ("RegisterResponse", "SetRenewOptionResponse", …) and sometimes just
+ * "Response", so the envelope is unwrapped defensively rather than assumed.
+ * @return array{ok:bool, code:string, message:string, data:array}
+ */
+function infra_reg_dynadot_call(array $cfg, string $command, array $params = []): array
+{
+    $q = array_merge(['key' => $cfg['api_key'] ?? '', 'command' => $command], $params);
+    $r = infra_http('GET', 'https://api.dynadot.com/api3.json?' . http_build_query($q),
+                    ['verify' => true, 'timeout' => 60]);   // registration is slow
+
+    $j = $r['json'] ?? [];
+    $resp = null;
+    foreach ($j as $k => $v) {                       // first object-valued key is the envelope
+        if (is_array($v) && (isset($v['ResponseCode']) || isset($v['Status']))) { $resp = $v; break; }
+    }
+    if ($resp === null) $resp = $j['Response'] ?? $j;
+
+    $code = (string) ($resp['ResponseCode'] ?? '');
+    $stat = strtolower((string) ($resp['Status'] ?? ''));
+    $ok   = ($r['code'] >= 200 && $r['code'] < 300) && ($code === '0' || $stat === 'success');
+    // Dynadot reports some failures ONLY in Status (e.g. "insufficient_funds")
+    // with no Error field at all — without this the message was raw JSON.
+    $err = $resp['Error'] ?? $resp['error'] ?? '';
+    if ($err === '' && !$ok && $stat !== '') $err = str_replace('_', ' ', $stat);
+    return [
+        'ok'      => $ok,
+        'code'    => $code,
+        'message' => $ok ? 'ok' : ($err !== '' ? (string) $err : ('HTTP ' . $r['code'] . ' ' . substr($r['raw'], 0, 120))),
+        'data'    => is_array($resp) ? $resp : [],
+    ];
+}
+
+/** A domain's current renew setting at Dynadot, or null if it cannot be read. */
+function infra_reg_dynadot_renew_option(array $cfg, string $domain): ?string
+{
+    $l = infra_reg_dynadot_call($cfg, 'list_domain');
+    foreach (($l['data']['MainDomains'] ?? []) as $d) {
+        if (strcasecmp((string) ($d['Name'] ?? ''), $domain) === 0) {
+            return (string) ($d['RenewOption'] ?? '');
+        }
+    }
+    return null;
+}
+
+/**
+ * Register a domain at Dynadot. Uses the account's DEFAULT CONTACT — verified on
+ * the account, so no contact set is required here (same as NameSilo).
+ *
+ * Auto-renew is applied as a SEPARATE call after purchase: Dynadot's register
+ * command has no auto-renew parameter, and a domain that registered but silently
+ * kept the default renew setting is exactly the kind of thing that only surfaces
+ * a year later. A failure to set it is reported rather than swallowed.
+ */
+function infra_reg_dynadot_register(string $domain, int $years, array $cfg, array $opts = []): array
+{
+    $years = max(1, min(10, $years));
+    $r = infra_reg_dynadot_call($cfg, 'register',
+             ['domain' => $domain, 'duration' => $years, 'currency' => 'usd']);
+    if (!$r['ok']) {
+        return ['ok' => false, 'code' => $r['code'], 'message' => 'Dynadot: ' . $r['message']];
+    }
+
+    $msg = "Dynadot: registered {$domain} for {$years}yr";
+    $autoRenew = array_key_exists('auto_renew', $opts) ? (bool) $opts['auto_renew'] : true;
+
+    // A freshly-registered domain is not immediately queryable — the first
+    // set_renew_option comes back "could not find domain in your account", so it
+    // gets a moment and a second try.
+    $ar = infra_reg_dynadot_call($cfg, 'set_renew_option',
+              ['domain' => $domain, 'renew_option' => $autoRenew ? 'auto' : 'no']);
+    if (!$ar['ok']) {
+        sleep(3);
+        $ar = infra_reg_dynadot_call($cfg, 'set_renew_option',
+                  ['domain' => $domain, 'renew_option' => $autoRenew ? 'auto' : 'no']);
+    }
+
+    // REPORT WHAT IS TRUE, NOT WHAT WAS ATTEMPTED. The first purchase said
+    // "auto-renew NOT SET" while the domain was sitting there on auto-renew —
+    // the call had failed but the account default had already done it. Same
+    // principle as plesk_delete_site(), which judges by whether the site is
+    // actually gone rather than by the CLI's exit code.
+    $actual = infra_reg_dynadot_renew_option($cfg, $domain);
+    if ($actual !== null) {
+        $isAuto = (stripos($actual, 'auto') !== false);
+        $msg .= ', auto-renew ' . ($isAuto ? 'ON' : 'OFF') . ' (verified)';
+        if ($isAuto !== $autoRenew) $msg .= ' — NOT what was asked for; change it in the dashboard';
+    } else {
+        $msg .= ', auto-renew ' . ($ar['ok'] ? 'set but UNVERIFIED' : 'COULD NOT BE SET (' . $ar['message'] . ') — check the dashboard');
+    }
+    return ['ok' => true, 'code' => $r['code'], 'message' => $msg];
+}
 
 /* ============================= Cloudflare Registrar ============================= */
 /* Sells at cost, but the API only lists/updates — there is no register endpoint,
@@ -387,6 +509,17 @@ function infra_reg_cloudflare_verify(array $cfg): array
     // Cloudflare bills a card rather than a prepaid balance, so there is none to report.
     return ['ok' => true, 'message' => "Cloudflare Registrar API OK — {$n} domain(s) held",
             'balance' => null, 'currency' => ''];
+}
+
+/**
+ * Normalise a NameSilo availability branch to a flat list, whichever shape it
+ * arrived in — the bare list (many results) or the {"domain": …} wrapper (one).
+ */
+function infra_reg_ns_results($branch): array
+{
+    if ($branch === null || $branch === '') return [];
+    if (is_array($branch) && isset($branch['domain'])) $branch = $branch['domain'];
+    return infra_reg_xml_list($branch);
 }
 
 /** Normalise "one result = object, many = array" API shapes into a list. */
@@ -461,13 +594,16 @@ function infra_registrar_list_owned(string $name): array
  * Register (buy) a domain at the given registrar. Costs real money.
  * @return array{ok:bool, message:string}
  */
-function infra_registrar_register(string $domain, int $years, string $registrarName, array $ns = []): array
+function infra_registrar_register(string $domain, int $years, string $registrarName, array $ns = [], array $opts = []): array
 {
     $cfg  = infra_registrar_config($registrarName);
     $type = strtolower($cfg['type'] ?? $registrarName);
     switch ($type) {
         case 'namesilo':
-            $r = infra_reg_namesilo_register($domain, $years, $cfg, $ns);
+            $r = infra_reg_namesilo_register($domain, $years, $cfg, $ns, $opts);
+            return ['ok' => $r['ok'], 'message' => $r['message']];
+        case 'dynadot':
+            $r = infra_reg_dynadot_register($domain, $years, $cfg, $opts);
             return ['ok' => $r['ok'], 'message' => $r['message']];
         // porkbun/spaceship/dynadot/gandi registration can plug in here later
         default:
@@ -554,15 +690,51 @@ function infra_reg_namesilo_set_ns(string $domain, array $ns, array $cfg): array
     ];
 }
 
-/** Register a domain (Phase-1 auto-buy; free WHOIS privacy on). Optional NS at purchase. */
-function infra_reg_namesilo_register(string $domain, int $years, array $cfg, array $ns = []): array
+/**
+ * Register a domain (free WHOIS privacy on). Optional NS at purchase.
+ *
+ * AUTO-RENEW DEFAULTS ON. A lapsed domain in a rank-and-rent fleet is not a small
+ * problem — the site dies and the ranking goes with it, and the name may not come
+ * back. Off is available per-purchase, but it must be chosen deliberately.
+ */
+function infra_reg_namesilo_register(string $domain, int $years, array $cfg, array $ns = [], array $opts = []): array
 {
-    $params = ['domain' => $domain, 'years' => max(1, $years), 'private' => 1, 'auto_renew' => 0];
+    $autoRenew = array_key_exists('auto_renew', $opts) ? (int) (bool) $opts['auto_renew'] : 1;
+    $params = ['domain' => $domain, 'years' => max(1, $years), 'private' => 1, 'auto_renew' => $autoRenew];
     foreach (array_slice(array_values(array_filter($ns)), 0, 13) as $i => $n) $params['ns' . ($i + 1)] = $n;
 
     $r = infra_reg_namesilo_call($cfg, 'registerDomain', $params);
     return ['ok' => $r['ok'], 'code' => $r['code'],
-            'message' => $r['ok'] ? "NameSilo: registered {$domain}" : "NameSilo error {$r['code']}: {$r['detail']}"];
+            'message' => $r['ok']
+                ? "NameSilo: registered {$domain} for {$params['years']}yr, auto-renew "
+                  . ($autoRenew ? 'ON' : 'OFF') . ', WHOIS privacy on'
+                : "NameSilo error {$r['code']}: {$r['detail']}"];
+}
+
+/**
+ * Turn auto-renew on/off for a domain already registered. Needed both to correct
+ * anything bought before auto-renew defaulted on, and to change one's mind later.
+ * @return array{ok:bool, message:string}
+ */
+function infra_registrar_set_autorenew(string $domain, bool $on, string $registrarName): array
+{
+    $cfg  = infra_registrar_config($registrarName);
+    $type = strtolower($cfg['type'] ?? $registrarName);
+    switch ($type) {
+        case 'namesilo':
+            $r = infra_reg_namesilo_call($cfg, $on ? 'addAutoRenewal' : 'removeAutoRenewal', ['domain' => $domain]);
+            return ['ok' => $r['ok'],
+                    'message' => $r['ok'] ? "NameSilo: auto-renew " . ($on ? 'ON' : 'OFF') . " for {$domain}"
+                                          : "NameSilo error {$r['code']}: {$r['detail']}"];
+        case 'dynadot':
+            $r = infra_reg_dynadot_call($cfg, 'set_renew_option',
+                     ['domain' => $domain, 'renew_option' => $on ? 'auto' : 'no']);
+            return ['ok' => $r['ok'],
+                    'message' => $r['ok'] ? 'Dynadot: auto-renew ' . ($on ? 'ON' : 'OFF') . " for {$domain}"
+                                          : 'Dynadot: ' . $r['message']];
+        default:
+            return ['ok' => false, 'message' => "auto-renew toggling not wired for '{$registrarName}' — set it in their dashboard"];
+    }
 }
 
 /* ============================= Porkbun ============================= */
