@@ -77,8 +77,9 @@ switch ($action) {
             $optional = !empty($f['optional']);
             if ($val === '') {
                 // An optional field left blank is not an error — it just clears/keeps.
-                // (This was rejecting the whole form when INWX's 2FA box was empty,
-                //  which read as "it won't take my password".)
+                // Treating every secret as required once rejected a whole form over an
+                // empty optional 2FA box, which reads to the user as "it won't take my
+                // password" — the failure names the wrong field entirely.
                 if ($optional) { if (!isset($rec[$fname])) $rec[$fname] = ''; continue; }
                 // A blank SECRET means "keep the stored one" — only missing if nothing is stored.
                 if (!empty($f['secret'])) { if (($rec[$fname] ?? '') === '') $missing[] = $f['label']; continue; }

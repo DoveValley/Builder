@@ -1,31 +1,25 @@
 {
-  "registrars": {
-    "namesilo": {
-      "type": "namesilo",
-      "api_key": "NAMESILO_API_KEY"
+    "registrars": {
+        "namesilo": {
+            "type": "namesilo",
+            "api_key": "NAMESILO_API_KEY"
+        },
+        "porkbun": {
+            "type": "porkbun",
+            "api_key": "PORKBUN_KEY",
+            "secret_api_key": "PORKBUN_SECRET"
+        },
+        "dynadot": {
+            "type": "dynadot",
+            "api_key": "DYNADOT_API_KEY"
+        },
+        "namecheap": {
+            "type": "namecheap",
+            "api_user": "user",
+            "api_key": "NC_API_KEY",
+            "username": "user",
+            "client_ip": "187.127.254.206"
+        }
     },
-    "porkbun": {
-      "type": "porkbun",
-      "api_key": "PORKBUN_KEY",
-      "secret_api_key": "PORKBUN_SECRET"
-    },
-    "dynadot": {
-      "type": "dynadot",
-      "api_key": "DYNADOT_API_KEY"
-    },
-    "namecheap": {
-      "type": "namecheap",
-      "api_user": "user",
-      "api_key": "NC_API_KEY",
-      "username": "user",
-      "client_ip": "187.127.254.206"
-    },
-    "inwx": {
-      "type": "inwx",
-      "username": "INWX_USERNAME",
-      "password": "INWX_PASSWORD",
-      "totp_secret": "OPTIONAL_2FA_SHARED_SECRET"
-    }
-  },
-  "_note": "Cloudflare Registrar is not listed here \u2014 it reuses the credentials in cloudflare.json."
+    "_note": "Cloudflare Registrar is not listed here \u2014 it reuses the credentials in cloudflare.json."
 }
