@@ -826,8 +826,12 @@ function infra_registrar_list_owned(string $name): array
     $out  = [];
     switch ($type) {
         case 'namesilo':
+            // Same two-shape trap as the availability check: one domain nests under
+            // "domain", several come back as a bare list. Reading only the wrapped
+            // form made an account holding two domains report none — which is how a
+            // purchase looked like it had not happened.
             $r = infra_reg_namesilo_call($cfg, 'listDomains');
-            foreach (infra_reg_xml_list($r['reply']['domains']['domain'] ?? []) as $d) {
+            foreach (infra_reg_ns_results($r['reply']['domains'] ?? []) as $d) {
                 $out[] = is_array($d) ? ($d['domain'] ?? '') : (string) $d;
             }
             break;
