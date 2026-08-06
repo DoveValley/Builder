@@ -152,15 +152,27 @@ function infra_domain_buy(string $domain, array $opts = []): array
 
     // 4. Availability is re-checked NOW. The stored flag may be stale, and buying
     //    a name someone else took in the meantime is the expensive kind of wrong.
-    $check = infra_registrar_check_availability([$domain], $registrar);
+    //
+    //    WHO CHECKS IS NOT WHO BUYS — the same split the bulk checker makes.
+    //    Availability is a public fact; every registrar reads the same registry.
+    //    Cloudflare has no availability endpoint at all, so asking the BUYING
+    //    registrar meant every Cloudflare purchase was refused as "could not
+    //    confirm" — a rail designed to prevent a bad buy was preventing all of them.
+    $checker = !empty($def['check']) ? $registrar : infra_default_checker();
+    if ($checker === '') {
+        return $fail('no registrar configured that can check availability — cannot confirm before buying');
+    }
+    $check = infra_registrar_check_availability([$domain], $checker);
     $res   = $check[$domain] ?? ['available' => null, 'note' => 'no result'];
+    $via   = $checker !== $registrar ? " (checked via {$checker})" : '';
     if ($res['available'] === false) {
         infra_state_upsert_domain(['domain' => $domain, 'ready_to_buy' => 'no',
             'avail_note' => $res['note'] ?: 'taken', 'avail_checked_at' => infra_now()]);
-        return $fail('no longer available (' . ($res['note'] ?: 'taken') . ') — not buying');
+        return $fail('no longer available (' . ($res['note'] ?: 'taken') . ')' . $via . ' — not buying');
     }
     if ($res['available'] !== true) {
-        return $fail('could not confirm availability (' . ($res['note'] ?: 'inconclusive') . ') — not buying on a maybe');
+        return $fail('could not confirm availability (' . ($res['note'] ?: 'inconclusive') . ')' . $via
+                   . ' — not buying on a maybe');
     }
 
     // ---- the purchase ----
