@@ -58,15 +58,25 @@ switch ($action) {
     case 'save_edits':
         $regs    = (array) ($_POST['reg'] ?? []);
         $buys    = (array) ($_POST['buy'] ?? []);
+        $niches  = (array) ($_POST['niche'] ?? []);
         $valid   = infra_registrar_names();
         $changed = 0; $badDate = 0; $locked = 0;
-        foreach (array_keys($regs + $buys) as $dom) {
+        foreach (array_keys($regs + $buys + $niches) as $dom) {
             $dom = strtolower(trim((string) $dom));
             $rec = infra_state_get_domain($dom);
             if (!$rec) continue;
+
+            // Niche stays editable after purchase — it describes what the domain is
+            // FOR, which is a plan you can change, unlike where and when it was bought.
+            $newNiche = infra_niche((string) ($niches[$dom] ?? $rec['niche']));
+            if (array_key_exists($dom, $niches) && $newNiche !== $rec['niche']) {
+                infra_state_upsert_domain(['domain' => $dom, 'niche' => $newNiche]);
+                $changed++;
+            }
+
             // An owned domain's registrar and buy date are history. The view stops
             // rendering the inputs, but a POST must be refused too.
-            if (($rec['owned'] ?? '') === 'yes') { $locked++; continue; }
+            if (($rec['owned'] ?? '') === 'yes') { continue; }
 
             $newReg = strtolower(trim((string) ($regs[$dom] ?? '')));
             if ($newReg !== '' && !in_array($newReg, $valid, true)) $newReg = '';
@@ -162,6 +172,14 @@ switch ($action) {
                   . ' — for long lists pick a faster one.)';
         }
         infra_set_flash('ok', $res['summary'] . $note);
+        break;
+
+    /* ---- bulk: set niche ------------------------------------------------- */
+    case 'set_niche':
+        $n = infra_niche((string) ($_POST['bulk_niche'] ?? ''));
+        if ($n === '') { infra_set_flash('err', 'Pick a niche.'); break; }
+        $c = infra_state_bulk_set($sel, ['niche' => $n]);
+        infra_set_flash('ok', "Niche set to {$n} on {$c} domain(s).");
         break;
 
     /* ---- bulk: set ready-to-buy by hand ----------------------------------

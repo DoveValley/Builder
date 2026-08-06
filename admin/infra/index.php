@@ -289,6 +289,7 @@ if ($view === 'domains') {
     $dir  = (($_GET['dir'] ?? 'asc') === 'desc') ? 'desc' : 'asc';
     $sortable = [
         'domain' => fn($r) => $r['domain'],
+        'niche'  => fn($r) => $r['niche'] !== '' ? $r['niche'] : 'zzz',   // unset last
         'ready'  => fn($r) => ['yes' => '0', 'no' => '2'][$r['ready_to_buy']] ?? '1',
         'buyreg' => fn($r) => strtolower((string) $r['buy_registrar']),
         'buy_at' => fn($r) => $r['buy_at'] !== '' ? $r['buy_at'] : '9999-99-99',   // unscheduled last
@@ -356,8 +357,11 @@ if ($view === 'domains') {
               <label style="font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">…or upload a CSV</label>
               <input type="file" name="csv" accept=".csv,.txt" style="width:100%;margin-top:6px;padding:8px;border:1px solid #d1d5db;border-radius:8px;background:#fff">
               <div style="color:#6b7280;font-size:12px;margin-top:6px">First column = domain. A <code>niche</code> column is used if present; a header row is detected and skipped.</div>
-              <label style="display:block;margin-top:12px;font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Niche (optional, applied to all)</label>
-              <input name="niche" placeholder="pest" style="width:100%;margin-top:6px;padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
+              <label style="display:block;margin-top:12px;font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Niche (applied to all)</label>
+              <select name="niche" style="width:100%;margin-top:6px;padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
+                <option value="">—</option>
+                <?php foreach (INFRA_NICHES as $nz): ?><option value="<?= ih($nz) ?>"><?= ih($nz) ?></option><?php endforeach; ?>
+              </select>
             </div>
           </div>
           <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
@@ -417,6 +421,12 @@ if ($view === 'domains') {
             </select>
             <button class="btn sec" type="submit" name="action" value="set_ready" title="Override the availability check by hand">Set</button>
             <span style="color:#d1d5db">|</span>
+            <span>Niche</span>
+            <select name="bulk_niche" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:8px">
+              <?php foreach (INFRA_NICHES as $nz): ?><option value="<?= ih($nz) ?>"><?= ih($nz) ?></option><?php endforeach; ?>
+            </select>
+            <button class="btn sec" type="submit" name="action" value="set_niche">Set</button>
+            <span style="color:#d1d5db">|</span>
             <span>Registrar</span>
             <select name="bulk_registrar" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:8px">
               <option value="">—</option>
@@ -442,14 +452,15 @@ if ($view === 'domains') {
             <thead><tr>
               <th style="width:26px"><input type="checkbox" id="selAll" title="Select all on this page"></th>
               <th><?= $sortLink('domain', '1. Domain') ?></th>
-              <th><?= $sortLink('ready',  '2. Ready to buy') ?></th>
-              <th><?= $sortLink('buyreg', '3. Register') ?></th>
-              <th><?= $sortLink('buy_at', '4. Buy date') ?></th>
-              <th><?= $sortLink('owned',  '5. Own') ?></th>
-              <th><?= $sortLink('cf',     '6. Cloudflare') ?></th>
-              <th><?= $sortLink('vps',    '7. VPS / Plesk') ?></th>
-              <th><?= $sortLink('state',  '8. State') ?></th>
-              <th><?= $sortLink('drift',  '9. Drift') ?></th>
+              <th><?= $sortLink('niche',  '2. Niche') ?></th>
+              <th><?= $sortLink('ready',  '3. Ready to buy') ?></th>
+              <th><?= $sortLink('buyreg', '4. Register') ?></th>
+              <th><?= $sortLink('buy_at', '5. Buy date') ?></th>
+              <th><?= $sortLink('owned',  '6. Own') ?></th>
+              <th><?= $sortLink('cf',     '7. Cloudflare') ?></th>
+              <th><?= $sortLink('vps',    '8. VPS / Plesk') ?></th>
+              <th><?= $sortLink('state',  '9. State') ?></th>
+              <th><?= $sortLink('drift',  '10. Drift') ?></th>
             </tr></thead>
             <tbody>
             <?php foreach ($slice as $r):
@@ -462,7 +473,14 @@ if ($view === 'domains') {
                 <td><input type="checkbox" class="selBox" name="sel[]" value="<?= ih($d) ?>"></td>
                 <td>
                   <?php if (!empty($r['managed'])): ?><a href="index.php?view=domain&d=<?= ih($d) ?>"><strong><?= ih($d) ?></strong></a><?php else: ?><strong><?= ih($d) ?></strong><?php endif; ?>
-                  <?php if ($r['niche'] !== ''): ?><br><span style="color:#9ca3af;font-size:11px"><?= ih($r['niche']) ?></span><?php endif; ?>
+                </td>
+                <td>
+                  <select name="niche[<?= ih($d) ?>]" style="padding:4px 6px;border:1px solid #d1d5db;border-radius:6px;font-size:12px">
+                    <option value="">—</option>
+                    <?php foreach (INFRA_NICHES as $nz): ?>
+                      <option value="<?= ih($nz) ?>" <?= $r['niche'] === $nz ? 'selected' : '' ?>><?= ih($nz) ?></option>
+                    <?php endforeach; ?>
+                  </select>
                 </td>
                 <td><?= infra_ready_cell($r) ?></td>
                 <?php // Once a domain is owned, columns 3 and 4 are history: where it was

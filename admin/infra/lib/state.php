@@ -108,6 +108,20 @@ const INFRA_STATE_COLS = ['domain','niche','server_id','cf_account_id','cf_zone_
     'contact_set',       // which registrant contact set to register with (pass two)
 ];
 
+/**
+ * The niches a domain can belong to. A fixed list rather than free text: it is
+ * what the fleet is organised by, and "appliance" / "Appliance" / "appliances"
+ * as three separate groups would quietly break every count.
+ */
+const INFRA_NICHES = ['pest', 'mold', 'appliance', 'restoration', 'other'];
+
+/** Coerce anything to a known niche. Unrecognised input becomes 'other'. */
+function infra_niche(string $v): string
+{
+    $v = strtolower(trim($v));
+    return in_array($v, INFRA_NICHES, true) ? $v : ($v === '' ? '' : 'other');
+}
+
 /** Lifecycle values, in order. The first four are the acquisition stage. */
 const INFRA_STATUSES = ['begin','ready','owned','buy-failed',
     'staged','queued','releasing','awaiting-ns','live','partial','register-failed'];

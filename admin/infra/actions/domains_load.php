@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !infra_check_csrf()) {
     header('Location: ' . $back); exit;
 }
 
-$defaultNiche = trim((string) ($_POST['niche'] ?? ''));
+$defaultNiche = infra_niche((string) ($_POST['niche'] ?? ''));   // pest|mold|appliance|restoration|other
 $candidates   = [];   // domain => niche
 
 /* ---- pasted list ------------------------------------------------------- */
@@ -54,7 +54,7 @@ if (!empty($_FILES['csv']['tmp_name']) && is_uploaded_file($_FILES['csv']['tmp_n
                 }
                 $dom = strtolower($cells[$domCol] ?? '');
                 if ($dom === '') continue;
-                $niche = $nicheCol !== null ? ($cells[$nicheCol] ?? '') : $defaultNiche;
+                $niche = $nicheCol !== null ? infra_niche((string) ($cells[$nicheCol] ?? '')) : $defaultNiche;
                 $candidates[$dom] = $niche !== '' ? $niche : $defaultNiche;
                 $n++;
             }
