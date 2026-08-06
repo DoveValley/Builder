@@ -135,25 +135,58 @@ switch ($action) {
             . ($from ?: gmdate('Y-m-d')) . " — {$days} day(s) of buying." . $warn);
         break;
 
-    /* ---- bulk: availability (read-only) --------------------------------- */
+    /* ---- bulk: availability (read-only) ---------------------------------
+       Checked with ONE chosen registrar, not each domain's assigned one.
+       Availability is a public fact — every registrar reads the same registry —
+       so the only thing that differs is speed. Asking each domain's buyer meant a
+       400-name list crawling through Porkbun at one per ten seconds and skipping
+       Cloudflare, which has no availability endpoint at all. */
     case 'check_avail':
-        // Use each domain's assigned registrar where it has one, so the price and
-        // verdict come from the registrar that will actually be buying it.
-        $byReg = [];
-        foreach ($sel as $d) {
-            $rec = infra_state_get_domain($d);
-            $r   = ($rec['buy_registrar'] ?? '') !== '' ? $rec['buy_registrar'] : '';
-            if ($r === '') $r = infra_registrar_names()[0] ?? '';
-            if ($r === '') continue;
-            $byReg[$r][] = $d;
-        }
-        if (!$byReg) {
-            infra_set_flash('err', 'No registrar credentials saved — add one on the Registrars tab first.');
+        $checkers = infra_registrar_checkers();
+        if (!$checkers) {
+            infra_set_flash('err', 'No registrar that can check availability is configured — add one on the Registrars tab.');
             break;
         }
-        $lines = [];
-        foreach ($byReg as $reg => $doms) $lines[] = infra_domains_apply_availability($doms, $reg)['summary'];
-        infra_set_flash('ok', implode("\n", $lines));
+        $reg = (string) ($_POST['check_with'] ?? '');
+        if ($reg === '' || !isset($checkers[$reg])) $reg = infra_default_checker();
+
+        $res  = infra_domains_apply_availability($sel, $reg);
+        $note = '';
+        if (($checkers[$reg]['bulk'] ?? 1) < 10 && count($sel) > 20) {
+            $note = "\n(" . $checkers[$reg]['label'] . ' is ' . $checkers[$reg]['speed']
+                  . ' — for long lists pick a faster one.)';
+        }
+        infra_set_flash('ok', $res['summary'] . $note);
+        break;
+
+    /* ---- bulk: set ready-to-buy by hand ----------------------------------
+       The availability check normally decides this. This is the override for when
+       you know better than it does — a check that could not run, or a name you
+       have already confirmed elsewhere. Recorded as a manual decision so it is
+       never mistaken for a verified one. */
+    case 'set_ready':
+        $val = (string) ($_POST['ready_val'] ?? '');
+        if (!in_array($val, ['yes', 'no', ''], true)) {
+            infra_set_flash('err', 'Ready-to-buy must be yes, no, or cleared.');
+            break;
+        }
+        $n = 0;
+        foreach ($sel as $d) {
+            $rec = infra_state_get_domain($d);
+            if (!$rec) continue;
+            $w = ['domain' => $d, 'ready_to_buy' => $val,
+                  'avail_note' => $val === '' ? '' : 'set by hand'];
+            // Only move the lifecycle inside the acquisition stage — never drag an
+            // owned or staged domain backwards.
+            if (in_array($rec['status'] ?: 'begin', ['', 'begin', 'ready'], true)) {
+                $w['status'] = ($val === 'yes') ? 'ready' : 'begin';
+            }
+            infra_state_upsert_domain($w);
+            $n++;
+        }
+        infra_set_flash('ok', $val === ''
+            ? "Cleared ready-to-buy on {$n} domain(s)."
+            : "Ready to buy set to {$val} by hand on {$n} domain(s).");
         break;
 
     /* ---- bulk: untrack -------------------------------------------------- */

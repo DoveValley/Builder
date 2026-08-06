@@ -61,6 +61,7 @@ function infra_registrar_types(): array
     return [
         'namecheap' => [
             'label'  => 'Namecheap',
+            'check_bulk' => 40,     // domains per request
             'autorenew' => ['ok' => false, 'note' =>
                 '<strong>Domains bought here register with auto-renew OFF and there is no way to turn it on programmatically.</strong> '
               . 'An undocumented <code>namecheap.domains.setAutoRenew</code> endpoint exists and always answers '
@@ -81,6 +82,7 @@ function infra_registrar_types(): array
         ],
         'namesilo' => [
             'label'  => 'NameSilo',
+            'check_bulk' => 50,
             'autorenew' => ['ok' => true, 'note' =>
                 'Set at registration via <code>auto_renew</code>, and changeable later with '
               . '<code>addAutoRenewal</code> / <code>removeAutoRenewal</code>. Immediate, and nothing surprising about it.'],
@@ -90,6 +92,7 @@ function infra_registrar_types(): array
         ],
         'porkbun' => [
             'label'  => 'Porkbun',
+            'check_bulk' => 0,      // 1 per request AND 1 per 10 seconds
             'autorenew' => ['ok' => true, 'note' =>
                 '<code>/domain/updateAutoRenew/{domain}</code> takes <code>status: on|off</code> &mdash; note <em>status</em>, and '
               . '<em>on/off</em>, not the <code>autoRenew: yes/no</code> its own create call uses. The obvious parameter name is rejected.'],
@@ -102,6 +105,7 @@ function infra_registrar_types(): array
         ],
         'dynadot' => [
             'label'  => 'Dynadot',
+            'check_bulk' => 1,      // 1 per request, no rate limit
             'autorenew' => ['ok' => true, 'note' =>
                 '<code>set_renew_option</code> with <code>renew_option=auto|no</code>, as a <strong>separate call after registration</strong> '
               . '&mdash; the register command has no auto-renew parameter. The first attempt normally fails with '
@@ -113,6 +117,7 @@ function infra_registrar_types(): array
         ],
         'cloudflare' => [
             'label'  => 'Cloudflare Registrar',
+            'check_bulk' => 0,      // no availability endpoint at all
             'autorenew' => ['ok' => true, 'note' =>
                 'Works via <code>PUT /registrar/domains/{domain}</code>, and can be passed in the registration body &mdash; '
               . 'but Cloudflare <strong>defaults new registrations to auto-renew FALSE</strong>. The console sets it explicitly '
@@ -153,6 +158,41 @@ function infra_registrar_buyable(): array
         if (!empty(infra_registrar_type_def($n)['buy'])) $out[] = $n;
     }
     return $out;
+}
+
+/**
+ * Configured registrars that can answer "is this available?", best first.
+ *
+ * Who CHECKS and who BUYS are separate decisions. Availability is a public fact —
+ * every registrar reads the same registry — so there is no reason to ask the slow
+ * one. Asking each domain's assigned registrar meant a 400-domain list crawled
+ * through Porkbun at one per ten seconds and skipped Cloudflare entirely.
+ *
+ * @return array name => ['label'=>string, 'bulk'=>int, 'speed'=>string]
+ */
+function infra_registrar_checkers(): array
+{
+    $out = [];
+    foreach (infra_registrar_names() as $n) {
+        $def = infra_registrar_type_def($n);
+        if (empty($def['check'])) continue;          // Cloudflare has no endpoint
+        $bulk = (int) ($def['check_bulk'] ?? 1);
+        $out[$n] = [
+            'label' => $def['label'] ?? $n,
+            'bulk'  => $bulk,
+            'speed' => $bulk >= 10 ? 'fast — ' . $bulk . ' per request'
+                     : ($bulk === 1 ? 'slow — one at a time' : 'very slow — one per 10 seconds'),
+        ];
+    }
+    uasort($out, fn($a, $b) => $b['bulk'] <=> $a['bulk']);   // batched first
+    return $out;
+}
+
+/** The best available checker, or '' if none is configured. */
+function infra_default_checker(): string
+{
+    $c = infra_registrar_checkers();
+    return $c ? (string) array_key_first($c) : '';
 }
 
 /* ============================= VERIFY + BALANCE ============================= */

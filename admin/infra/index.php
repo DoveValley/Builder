@@ -240,8 +240,10 @@ if ($view === 'domains') {
     infra_header('domains');
     $allRows = infra_fleet_domains();
     $hasCf   = count(infra_cf_accounts()) > 0;
-    $regs    = infra_registrar_names();
-    $buyable = infra_registrar_buyable();
+    $regs           = infra_registrar_names();
+    $buyable        = infra_registrar_buyable();
+    $checkers       = infra_registrar_checkers();      // who can answer "is it available?"
+    $defaultChecker = infra_default_checker();         // the fastest of them
 
     // Tiles reflect the WHOLE fleet, not the filtered/paged slice. The acquisition
     // buckets come first because with 400 loaded-but-unbought rows the old
@@ -352,11 +354,13 @@ if ($view === 'domains') {
           </div>
           <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
             <button class="btn" type="submit">Load domains</button>
-            <label style="font-size:13px;color:#374151"><input type="checkbox" name="check_now" value="1" <?= $regs ? 'checked' : 'disabled' ?>> also check availability now</label>
-            <?php if ($regs): ?>
+            <label style="font-size:13px;color:#374151"><input type="checkbox" name="check_now" value="1" <?= $checkers ? 'checked' : 'disabled' ?>> also check availability now</label>
+            <?php if ($checkers): ?>
               <span style="font-size:13px;color:#6b7280">using</span>
               <select name="check_registrar" style="padding:6px 8px;border:1px solid #d1d5db;border-radius:8px">
-                <?php foreach ($regs as $rn): ?><option value="<?= ih($rn) ?>"><?= ih($rn) ?></option><?php endforeach; ?>
+                <?php foreach ($checkers as $cn => $c): ?>
+                  <option value="<?= ih($cn) ?>" <?= $cn === $defaultChecker ? 'selected' : '' ?>><?= ih($cn) ?> — <?= ih($c['speed']) ?></option>
+                <?php endforeach; ?>
               </select>
             <?php endif; ?>
           </div>
@@ -389,7 +393,21 @@ if ($view === 'domains') {
           <!-- bulk bar: acts on ticked rows -->
           <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:10px 12px;margin-bottom:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px">
             <strong id="selCount">0 selected</strong>
-            <button class="btn sec" type="submit" name="action" value="check_avail" <?= $regs ? '' : 'disabled' ?>>Check availability</button>
+            <button class="btn sec" type="submit" name="action" value="check_avail" <?= $checkers ? '' : 'disabled' ?>>Check availability</button>
+            <?php if ($checkers): ?>
+              <span style="color:#6b7280">using</span>
+              <select name="check_with" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:8px" title="Availability is a public fact — any registrar gives the same answer, so pick the fastest. This does not affect who buys.">
+                <?php foreach ($checkers as $cn => $c): ?>
+                  <option value="<?= ih($cn) ?>" <?= $cn === $defaultChecker ? 'selected' : '' ?>><?= ih($cn) ?> — <?= ih($c['speed']) ?></option>
+                <?php endforeach; ?>
+              </select>
+            <?php endif; ?>
+            <span style="color:#d1d5db">|</span>
+            <span>Ready to buy</span>
+            <select name="ready_val" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:8px">
+              <option value="yes">yes</option><option value="no">no</option><option value="">clear</option>
+            </select>
+            <button class="btn sec" type="submit" name="action" value="set_ready" title="Override the availability check by hand">Set</button>
             <span style="color:#d1d5db">|</span>
             <span>Registrar</span>
             <select name="bulk_registrar" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:8px">
@@ -787,6 +805,135 @@ if ($view === 'golive') {
     </div></div>
     <?php endif; ?>
     <?php infra_search_js(); infra_footer(); exit;
+}
+
+/* ============================= BUY QUEUE ============================= */
+if ($view === 'buyqueue') {
+    infra_header('buyqueue');
+    $today = gmdate('Y-m-d');
+    $due = $ahead = $bought = $failed = $undated = [];
+    foreach (infra_state_all_domains() as $dom => $r) {
+        if (($r['owned'] ?? '') === 'yes')            { $bought[$dom] = $r; continue; }
+        if (($r['status'] ?? '') === 'buy-failed')    { $failed[$dom] = $r; continue; }
+        if (($r['buy_at'] ?? '') === '')              { $undated[$dom] = $r; continue; }
+        if ($r['buy_at'] <= $today)                    $due[$dom] = $r;
+        else                                           $ahead[$dom] = $r;
+    }
+    $bydate = [];
+    foreach ($ahead as $dom => $r) $bydate[$r['buy_at']][] = $dom;
+    ksort($bydate);
+    uasort($due, fn($a, $b) => [$a['buy_at'], $a['domain']] <=> [$b['buy_at'], $b['domain']]);
+
+    $spend = 0.0;
+    foreach ($due as $r) $spend += (float) ($r['avail_price'] ?: 11);
+    ?>
+    <div class="ic-tiles">
+      <div class="ic-tile"><div class="n"><?= count($due) ?></div><div class="l">Due today</div></div>
+      <div class="ic-tile"><div class="n"><?= count($ahead) ?></div><div class="l">Scheduled ahead</div></div>
+      <div class="ic-tile"><div class="n"><?= count($bought) ?></div><div class="l">Bought</div></div>
+      <div class="ic-tile"><div class="n"><?= count($failed) ?></div><div class="l">Failed</div></div>
+      <div class="ic-tile"><div class="n"><?= count($undated) ?></div><div class="l">No date yet</div></div>
+    </div>
+
+    <div class="ic-note">
+      This is the buying schedule at a glance — <strong>nothing on this page buys anything</strong>.
+      Dates are UTC. Set them on the <a href="index.php?view=domains">Domains</a> tab
+      (tick rows &rarr; <em>Spread N/day from</em>).
+    </div>
+
+    <div class="ic-card">
+      <h2>Due today <span style="color:#9ca3af;font-weight:400;font-size:13px">&mdash; <?= gmdate('D j M Y') ?> &middot; about $<?= number_format($spend, 2) ?> if all of it went through</span></h2>
+      <div class="body">
+        <?php if (!$due): ?>
+          <div class="ic-empty">Nothing due today.</div>
+        <?php else: ?>
+          <table><thead><tr><th>Domain</th><th>Registrar</th><th>Ready</th><th>Price</th><th>Scheduled</th><th></th></tr></thead><tbody>
+          <?php foreach ($due as $dom => $r):
+            $overdue = $r['buy_at'] < $today; ?>
+            <tr>
+              <td><a href="index.php?view=domain&d=<?= ih($dom) ?>"><strong><?= ih($dom) ?></strong></a></td>
+              <td><?= $r['buy_registrar'] !== '' ? ih($r['buy_registrar']) : '<span class="badge b-err">none set</span>' ?></td>
+              <td><?= $r['ready_to_buy'] === 'yes' ? '<span class="badge b-ok">yes</span>' : '<span class="badge b-warn">' . ih($r['ready_to_buy'] ?: 'not checked') . '</span>' ?></td>
+              <td><?= $r['avail_price'] !== '' ? '$' . ih($r['avail_price']) : '<span style="color:#9ca3af">—</span>' ?></td>
+              <td><?= ih($r['buy_at']) ?><?= $overdue ? ' <span class="badge b-warn">overdue</span>' : '' ?></td>
+              <td style="text-align:right"><a class="btn sec" href="index.php?view=domain&d=<?= ih($dom) ?>">Open &rarr;</a></td>
+            </tr>
+          <?php endforeach; ?>
+          </tbody></table>
+          <div class="ic-note" style="margin-top:14px;margin-bottom:0">
+            Nothing buys these automatically yet &mdash; that is the next piece. For now, open a domain and use its Buy button.
+          </div>
+        <?php endif; ?>
+      </div>
+    </div>
+
+    <?php if ($failed): ?>
+    <div class="ic-card" style="border-color:#fca5a5">
+      <h2 style="color:#991b1b">Failed (<?= count($failed) ?>) <span style="color:#9ca3af;font-weight:400;font-size:13px">&mdash; these do not retry on their own</span></h2>
+      <div class="body"><table><thead><tr><th>Domain</th><th>Registrar</th><th>Why</th><th></th></tr></thead><tbody>
+        <?php foreach ($failed as $dom => $r): ?>
+          <tr>
+            <td><a href="index.php?view=domain&d=<?= ih($dom) ?>"><strong><?= ih($dom) ?></strong></a></td>
+            <td><?= ih($r['buy_registrar'] ?: '—') ?></td>
+            <td style="color:#991b1b;font-size:12px"><?= ih($r['buy_error'] ?: 'unknown') ?></td>
+            <td style="text-align:right"><a class="btn sec" href="index.php?view=domain&d=<?= ih($dom) ?>">Open &rarr;</a></td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody></table></div>
+    </div>
+    <?php endif; ?>
+
+    <div class="ic-card">
+      <h2>Scheduled ahead (<?= count($ahead) ?>)</h2>
+      <div class="body">
+        <?php if (!$bydate): ?>
+          <div class="ic-empty">Nothing scheduled beyond today.</div>
+        <?php else: ?>
+          <table><thead><tr><th style="width:150px">Date</th><th style="width:70px">Count</th><th>Domains</th></tr></thead><tbody>
+          <?php foreach ($bydate as $date => $doms):
+            sort($doms);
+            $show = array_slice($doms, 0, 8); ?>
+            <tr>
+              <td><strong><?= ih($date) ?></strong><br><span style="color:#9ca3af;font-size:11px"><?= ih(gmdate('D', strtotime($date))) ?></span></td>
+              <td><span class="badge b-mut"><?= count($doms) ?></span></td>
+              <td style="font-size:12px;color:#374151"><?= ih(implode(', ', $show)) ?><?= count($doms) > 8 ? ' <span style="color:#9ca3af">+ ' . (count($doms) - 8) . ' more</span>' : '' ?></td>
+            </tr>
+          <?php endforeach; ?>
+          </tbody></table>
+        <?php endif; ?>
+      </div>
+    </div>
+
+    <?php if ($undated): ?>
+    <div class="ic-card">
+      <h2>No buy date yet (<?= count($undated) ?>)</h2>
+      <div class="body">
+        <p style="margin-top:0;color:#6b7280;font-size:13px">Loaded but never scheduled. Tick them on the Domains tab and use <em>Spread N/day from</em>.</p>
+        <div style="font-size:12px;color:#374151"><?= ih(implode(', ', array_slice(array_keys($undated), 0, 30))) ?><?= count($undated) > 30 ? ' …' : '' ?></div>
+      </div>
+    </div>
+    <?php endif; ?>
+
+    <?php if ($bought): ?>
+    <div class="ic-card">
+      <h2>Bought (<?= count($bought) ?>)</h2>
+      <div class="body"><table><thead><tr><th>Domain</th><th>Registrar</th><th>When</th><th>Auto-renew</th></tr></thead><tbody>
+        <?php
+        uasort($bought, fn($a, $b) => strcmp((string) $b['owned_at'], (string) $a['owned_at']));
+        foreach ($bought as $dom => $r): ?>
+          <tr>
+            <td><a href="index.php?view=domain&d=<?= ih($dom) ?>"><strong><?= ih($dom) ?></strong></a></td>
+            <td><?= ih($r['registrar'] ?: $r['buy_registrar'] ?: '—') ?></td>
+            <td style="font-size:12px"><?= ih($r['owned_at'] ?: '—') ?></td>
+            <td><?php $ar = $r['auto_renew'] ?? '';
+              echo $ar === 'yes' ? '<span class="badge b-ok">yes</span>'
+                 : ($ar === 'no' ? '<span class="badge b-warn">no</span>' : '<span class="badge b-mut">?</span>'); ?></td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody></table></div>
+    </div>
+    <?php endif; ?>
+    <?php infra_footer(); exit;
 }
 
 /* ============================= REGISTRARS ============================= */
