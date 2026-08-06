@@ -103,6 +103,102 @@ function infra_domains_apply_availability(array $domains, string $registrarName)
 }
 
 /**
+ * Buy one domain. THE ONLY CODE HERE THAT SPENDS MONEY.
+ *
+ * Deliberately manual and one-at-a-time: a registrar adapter should complete a
+ * real purchase under supervision before anything schedules it unattended.
+ *
+ * Rails, in order — each one exists because of a specific way this can go wrong:
+ *   1. must be tracked and not already owned      (no double-buying)
+ *   2. must have a registrar assigned             (no guessing where to spend)
+ *   3. that registrar must have a purchase adapter (no silent "not wired" after a confirm)
+ *   4. availability RE-CHECKED right now          (a "ready" flag from last week is not evidence)
+ *   5. on failure: status=buy-failed + the reason, and NOTHING retries on its own
+ *
+ * @return array{ok:bool, message:string}
+ */
+function infra_domain_buy(string $domain, array $opts = []): array
+{
+    $domain = strtolower(trim($domain));
+    $rec    = infra_state_get_domain($domain);
+    $fail   = function (string $m, bool $record = false) use ($domain) {
+        if ($record) infra_state_upsert_domain(['domain' => $domain, 'status' => 'buy-failed', 'buy_error' => $m]);
+        return ['ok' => false, 'message' => $m];
+    };
+
+    if (!$rec)                        return $fail('not tracked in fleet state');
+    if (($rec['owned'] ?? '') === 'yes') return $fail('already owned — refusing to buy it twice');
+
+    $registrar = (string) ($rec['buy_registrar'] ?? '');
+    if ($registrar === '')            return $fail('no registrar assigned — set column 3 first');
+    $def = infra_registrar_type_def($registrar);
+    if (!$def)                        return $fail("unknown registrar '{$registrar}'");
+    if (empty($def['buy_wired'])) {
+        return $fail(empty($def['buy'])
+            ? $def['label'] . ' cannot register domains over its API at all — buy it in their dashboard, then use "Mark as owned"'
+            : $def['label'] . "'s purchase adapter is not written yet — only NameSilo can buy today");
+    }
+    if (!infra_registrar_config($registrar)) return $fail("no saved credentials for '{$registrar}'");
+
+    // 4. Availability is re-checked NOW. The stored flag may be stale, and buying
+    //    a name someone else took in the meantime is the expensive kind of wrong.
+    $check = infra_registrar_check_availability([$domain], $registrar);
+    $res   = $check[$domain] ?? ['available' => null, 'note' => 'no result'];
+    if ($res['available'] === false) {
+        infra_state_upsert_domain(['domain' => $domain, 'ready_to_buy' => 'no',
+            'avail_note' => $res['note'] ?: 'taken', 'avail_checked_at' => gmdate('Y-m-d H:i:s')]);
+        return $fail('no longer available (' . ($res['note'] ?: 'taken') . ') — not buying');
+    }
+    if ($res['available'] !== true) {
+        return $fail('could not confirm availability (' . ($res['note'] ?: 'inconclusive') . ') — not buying on a maybe');
+    }
+
+    // ---- the purchase ----
+    $years = max(1, (int) ($opts['years'] ?? 1));
+    $buy   = infra_registrar_register($domain, $years, $registrar);
+    if (empty($buy['ok'])) {
+        return $fail($buy['message'] ?? 'purchase failed', true);
+    }
+
+    $now = gmdate('Y-m-d H:i:s');
+    infra_state_upsert_domain([
+        'domain'    => $domain,
+        'owned'     => 'yes',
+        'owned_at'  => $now,
+        'status'    => 'owned',
+        'registrar' => $registrar,   // where it actually lives, for the go-live NS switch
+        'buy_error' => '',
+    ]);
+    return ['ok' => true, 'message' => $buy['message'] ?? "bought {$domain}"];
+}
+
+/**
+ * Record a domain bought by hand. Porkbun and Cloudflare Registrar have no
+ * registration API, so their purchases happen in a dashboard — without this the
+ * domain would sit at 'ready' forever and never reach provisioning.
+ */
+function infra_domain_mark_owned(string $domain, string $registrar = ''): array
+{
+    $domain = strtolower(trim($domain));
+    $rec    = infra_state_get_domain($domain);
+    if (!$rec) return ['ok' => false, 'message' => 'not tracked in fleet state'];
+
+    $registrar = $registrar !== '' ? strtolower(trim($registrar)) : (string) ($rec['buy_registrar'] ?? '');
+    infra_state_upsert_domain([
+        'domain'       => $domain,
+        'owned'        => 'yes',
+        'owned_at'     => gmdate('Y-m-d H:i:s'),
+        'status'       => 'owned',
+        'registrar'    => $registrar,
+        'ready_to_buy' => '',
+        'avail_note'   => 'marked owned by hand',
+        'buy_error'    => '',
+    ]);
+    return ['ok' => true, 'message' => "{$domain} marked owned"
+        . ($registrar !== '' ? " at {$registrar}" : '') . ' — no purchase was made by the console'];
+}
+
+/**
  * Assign a registrar to each domain, spreading round-robin across the registrars
  * that can actually complete a purchase.
  *

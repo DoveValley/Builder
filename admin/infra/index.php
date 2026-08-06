@@ -104,6 +104,88 @@ if ($view === 'domain') {
       </table>
     </div></div>
 
+    <?php
+    /* ---------- Acquisition: buy it, or record a purchase made by hand ---------- */
+    $owned    = ($rec['owned'] ?? '') === 'yes';
+    $buyReg   = (string) ($rec['buy_registrar'] ?? '');
+    $buyDef   = $buyReg !== '' ? infra_registrar_type_def($buyReg) : [];
+    $canBuy   = !empty($buyDef['buy_wired']);
+    $isReady  = ($rec['ready_to_buy'] ?? '') === 'yes';
+    ?>
+    <div class="ic-card" style="<?= $owned ? 'border-color:#86efac' : '' ?>">
+      <h2>Acquisition
+        <?= $owned ? '<span class="badge b-ok">owned</span>' : '<span class="badge b-mut">not owned</span>' ?>
+      </h2>
+      <div class="body">
+        <?php if ($owned): ?>
+          <p style="margin-top:0">Bought <?= $rec['owned_at'] ? 'on <strong>' . ih($rec['owned_at']) . '</strong> UTC' : '' ?><?= $rec['registrar'] ? ' at <strong>' . ih($rec['registrar']) . '</strong>' : '' ?>. Nothing further to do here — it is ready to provision.</p>
+        <?php else: ?>
+          <table style="margin-bottom:12px">
+            <tr><th style="width:170px">Ready to buy</th><td><?= infra_ready_cell($rec + ['state' => $rec['status']]) ?></td></tr>
+            <tr><th>Assigned registrar</th><td><?= $buyReg !== '' ? '<strong>' . ih($buyReg) . '</strong>' : '<span class="badge b-warn">none — set it below</span>' ?></td></tr>
+            <tr><th>Scheduled buy date</th><td><?= $rec['buy_at'] ? ih($rec['buy_at']) : '<span style="color:#9ca3af">—</span>' ?></td></tr>
+            <?php if (($rec['buy_error'] ?? '') !== ''): ?>
+              <tr><th style="color:#991b1b">Last failure</th><td style="color:#991b1b"><?= ih($rec['buy_error']) ?></td></tr>
+            <?php endif; ?>
+          </table>
+
+          <?php if ($buyReg === ''): ?>
+            <div class="ic-note">Assign a registrar below before this domain can be bought.</div>
+          <?php elseif (!$canBuy): ?>
+            <div class="ic-note">
+              <strong><?= ih($buyDef['label'] ?? $buyReg) ?> cannot complete a purchase from here.</strong>
+              <?= empty($buyDef['buy'])
+                  ? 'It has no registration endpoint at all — buy it in their dashboard, then record it below.'
+                  : 'Its purchase adapter is not written yet (only NameSilo can buy today) — buy it by hand for now and record it below.' ?>
+            </div>
+          <?php endif; ?>
+
+          <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start">
+            <?php if ($canBuy): ?>
+              <form method="post" action="actions/domain_manage.php" style="border:1px solid #fca5a5;border-radius:8px;padding:12px 14px;background:#fff7f7">
+                <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+                <input type="hidden" name="action" value="buy">
+                <input type="hidden" name="domain" value="<?= ih($d) ?>">
+                <div style="font-weight:600;margin-bottom:4px;color:#991b1b">Buy this domain now</div>
+                <div style="color:#6b7280;font-size:12px;margin-bottom:8px;max-width:420px">
+                  Spends real money at <strong><?= ih($buyReg) ?></strong>. Availability is re-checked immediately
+                  before the purchase, so a name taken since the last check is never paid for.
+                </div>
+                for <input type="number" name="years" value="1" min="1" max="10" style="width:56px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px"> year(s)
+                <label style="margin-left:10px;font-size:13px"><input type="checkbox" name="auto_renew" value="1" checked> auto-renew</label>
+                <div style="margin-top:10px">
+                  <input name="confirm" placeholder="type <?= ih($d) ?>" style="width:250px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px">
+                  <button class="btn" style="background:#991b1b" type="submit"
+                          onclick="return confirm('⚠ BUY <?= ih($d) ?> at <?= ih($buyReg) ?>?\n\nThis spends real money and cannot be undone.');">Buy</button>
+                </div>
+                <?php if (!$isReady): ?>
+                  <div style="color:#b45309;font-size:12px;margin-top:8px">⚠ Not marked ready to buy. The purchase will re-check first and refuse if it is taken.</div>
+                <?php endif; ?>
+              </form>
+            <?php endif; ?>
+
+            <form method="post" action="actions/domain_manage.php" style="border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px">
+              <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+              <input type="hidden" name="action" value="mark_owned">
+              <input type="hidden" name="domain" value="<?= ih($d) ?>">
+              <div style="font-weight:600;margin-bottom:4px">Already bought it by hand?</div>
+              <div style="color:#6b7280;font-size:12px;margin-bottom:8px;max-width:380px">
+                Records the purchase without spending anything. Use this for Porkbun and
+                Cloudflare, which have no registration API.
+              </div>
+              at
+              <select name="registrar" style="padding:6px 8px;border:1px solid #d1d5db;border-radius:8px">
+                <?php foreach (infra_registrar_names() as $rn): ?>
+                  <option value="<?= ih($rn) ?>" <?= $buyReg === $rn ? 'selected' : '' ?>><?= ih($rn) ?></option>
+                <?php endforeach; ?>
+              </select>
+              <button class="btn sec" type="submit" onclick="return confirm('Mark <?= ih($d) ?> as owned? No purchase is made.');">Mark as owned</button>
+            </form>
+          </div>
+        <?php endif; ?>
+      </div>
+    </div>
+
     <div class="ic-card"><h2>Edit</h2><div class="body">
       <form method="post" action="actions/domain_manage.php">
         <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">

@@ -5,6 +5,7 @@
  * Destructive actions require a typed-domain confirm field.
  */
 require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../lib/acquire.php';   // infra_domain_buy(), infra_domain_mark_owned()
 
 $domain = strtolower(trim($_POST['domain'] ?? ''));
 $action = $_POST['action'] ?? '';
@@ -19,7 +20,7 @@ $rec = infra_state_get_domain($domain);
 if (!$rec) { infra_set_flash('err', "Not in fleet state: {$domain}"); header('Location: ' . $toList); exit; }
 
 // destructive actions require re-typing the domain
-$destructive = ['delete_zone', 'delete_site', 'untrack', 'teardown'];
+$destructive = ['delete_zone', 'delete_site', 'untrack', 'teardown', 'buy'];
 if (in_array($action, $destructive, true) && strtolower(trim($_POST['confirm'] ?? '')) !== $domain) {
     infra_set_flash('err', 'Confirmation did not match the domain — nothing changed.');
     header('Location: ' . $back); exit;
@@ -53,6 +54,21 @@ switch ($action) {
         if ($r['ok']) infra_state_upsert_domain(['domain' => $domain, 'ftp_user' => '', 'ftp_pass' => '']);
         infra_cache_flush();
         infra_set_flash($r['ok'] ? 'ok' : 'err', "Delete Plesk site: {$r['message']}");
+        header('Location: ' . $back); exit;
+
+    case 'buy':
+        // The ONLY action in this console that spends money. Guarded by the typed
+        // confirm above; every other rail lives in infra_domain_buy().
+        $r = infra_domain_buy($domain, ['years' => (int) ($_POST['years'] ?? 1)]);
+        infra_set_flash($r['ok'] ? 'ok' : 'err',
+            ($r['ok'] ? "✓ BOUGHT {$domain} — " : "✗ Purchase refused for {$domain}: ") . $r['message']);
+        infra_cache_forget('reg_owned');   // it is ours now; the owned index is stale
+        header('Location: ' . $back); exit;
+
+    case 'mark_owned':
+        $r = infra_domain_mark_owned($domain, (string) ($_POST['registrar'] ?? ''));
+        infra_cache_forget('reg_owned');
+        infra_set_flash($r['ok'] ? 'ok' : 'err', $r['message']);
         header('Location: ' . $back); exit;
 
     case 'untrack':
