@@ -70,6 +70,9 @@ const INFRA_STATE_COLS = ['domain','niche','server_id','cf_account_id','cf_zone_
     'avail_price',       // registrar-quoted price at check time (NameSilo returns one)
     'avail_checked_at',  // last availability check
     'buy_error',         // last purchase failure (pass two)
+    'auto_renew',        // 'yes'|'no'|'unknown' — VERIFIED after purchase, not assumed.
+                         // Namecheap cannot set this over its API, so a domain can be
+                         // owned and quietly set to lapse; that has to be visible.
     'contact_set',       // which registrant contact set to register with (pass two)
 ];
 

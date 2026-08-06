@@ -173,13 +173,21 @@ function infra_domain_buy(string $domain, array $opts = []): array
     }
 
     $now = gmdate('Y-m-d H:i:s');
+    // Record the VERIFIED auto-renew state. Namecheap cannot set it over its API
+    // (its setAutoRenew returns success and does nothing), so a domain can be
+    // bought and silently left to lapse — that must be visible in the table, not
+    // only in a flash message the operator saw once.
+    $renew = 'unknown';
+    if (stripos($buy['message'] ?? '', 'auto-renew ON') !== false)  $renew = 'yes';
+    elseif (stripos($buy['message'] ?? '', 'auto-renew OFF') !== false) $renew = 'no';
     infra_state_upsert_domain([
-        'domain'    => $domain,
-        'owned'     => 'yes',
-        'owned_at'  => $now,
-        'status'    => 'owned',
-        'registrar' => $registrar,   // where it actually lives, for the go-live NS switch
-        'buy_error' => '',
+        'domain'     => $domain,
+        'owned'      => 'yes',
+        'owned_at'   => $now,
+        'status'     => 'owned',
+        'registrar'  => $registrar,   // where it actually lives, for the go-live NS switch
+        'auto_renew' => $renew,
+        'buy_error'  => '',
     ]);
     return ['ok' => true, 'message' => $buy['message'] ?? "bought {$domain}"];
 }

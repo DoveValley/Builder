@@ -7,6 +7,7 @@
  */
 require_once __DIR__ . '/store.php';
 require_once __DIR__ . '/http.php';
+require_once __DIR__ . '/cache.php';   // contact-set cache for Namecheap
 
 function infra_registrar_config(string $name): array
 {
@@ -66,8 +67,8 @@ function infra_registrar_types(): array
                 'username'  => ['label' => 'Username',  'secret' => false],
                 'client_ip' => ['label' => 'Whitelisted IP', 'secret' => false, 'default' => '187.127.254.206'],
             ],
-            'check' => true, 'buy' => true, 'buy_wired' => false, 'ns' => true, 'balance' => true,
-            'note'  => 'Needs API access enabled, a funded balance, and this server\'s IP whitelisted in your Namecheap profile. Buying requires a contact set.',
+            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => true,
+            'note'  => 'Needs API access enabled, a funded balance, and this server\'s IP whitelisted in your Namecheap profile. Unlike NameSilo and Dynadot it will not fall back to an account default contact — registration must supply a full registrant/tech/admin/billing set, which is read from a domain you already hold rather than retyped. ⚠ AUTO-RENEW CANNOT BE SET BY API: domains register with it OFF and setAutoRenew reports success without applying anything, so every Namecheap purchase needs a manual dashboard visit or it lapses. Prefer NameSilo, Dynadot or Porkbun for fleet buying.',
         ],
         'namesilo' => [
             'label'  => 'NameSilo',
@@ -81,8 +82,8 @@ function infra_registrar_types(): array
                 'api_key'        => ['label' => 'API key',        'secret' => true],
                 'secret_api_key' => ['label' => 'Secret API key', 'secret' => true],
             ],
-            'check' => true, 'buy' => false, 'buy_wired' => false, 'ns' => true, 'balance' => false,
-            'note'  => 'API Access must be toggled ON per-domain in the Porkbun dashboard. No registration endpoint at all — buy in the dashboard, then mark owned here. No balance endpoint. Availability is limited to ONE CHECK PER 10 SECONDS, so use NameSilo or Dynadot for bulk lists and keep Porkbun for spot checks.',
+            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => false,
+            'note'  => 'API Access must be toggled ON per-domain in the Porkbun dashboard. Registration DOES work over the API (/domain/create) but it requires programmatically accepting Porkbun\'s registration agreement, terms and automatic-renewal terms, and an integer "cost" confirming the expected price. No balance endpoint, so funds cannot be checked before buying. Availability is limited to ONE CHECK PER 10 SECONDS — use NameSilo or Dynadot for bulk lists and keep Porkbun for spot checks.',
         ],
         'dynadot' => [
             'label'  => 'Dynadot',
@@ -106,8 +107,8 @@ function infra_registrar_types(): array
                                  'hint' => 'alternative to the token — used when email + global key are both set'],
             ],
             'prefill_from_cf' => ['account_id', 'email'],
-            'check' => false, 'buy' => false, 'buy_wired' => false, 'ns' => false, 'balance' => false,
-            'note'  => 'Sells at cost, which makes it the cheapest place to hold a domain — but its API only LISTS and updates domains, so registering has to happen in the Cloudflare dashboard. It also has no availability endpoint, and a Cloudflare-registered domain is always on Cloudflare nameservers, so there is nothing to switch at go-live. Verified live: the list endpoint works.',
+            'check' => false, 'buy' => true, 'buy_wired' => true, 'ns' => false, 'balance' => false,
+            'note'  => 'Sells AT COST, so it is the cheapest place to hold a domain. Registration works over the API — POST /registrar/registrations, not the /registrar/domains path that returns 403 — and needs the GLOBAL KEY, since a scoped token gets "Authentication error" on Registrar. Billed to the card on the account, so there is no balance to check. No availability endpoint (check a name at another registrar first). Nameservers are n/a: a Cloudflare-registered domain is always on Cloudflare nameservers, so go-live has nothing to switch.',
         ],
     ];
 }
@@ -223,6 +224,118 @@ function infra_reg_namecheap_call(array $cfg, string $command, array $params = [
     return ['ok' => true, 'message' => '', 'xml' => $xml];
 }
 
+/** A domain's real auto-renew state at Namecheap, or null if unreadable. */
+function infra_reg_namecheap_autorenew(array $cfg, string $domain): ?bool
+{
+    $l = infra_reg_namecheap_call($cfg, 'namecheap.domains.getList',
+             ['SearchTerm' => explode('.', $domain)[0], 'PageSize' => 100]);
+    if (!$l['ok']) return null;
+    foreach (($l['xml']->CommandResponse->DomainGetListResult->Domain ?? []) as $d) {
+        if (strcasecmp((string) $d['Name'], $domain) === 0) {
+            return strtolower((string) $d['AutoRenew']) === 'true';
+        }
+    }
+    return null;
+}
+
+/**
+ * The registrant contact set Namecheap needs to register anything.
+ *
+ * Namecheap is the odd one out: NameSilo and Dynadot fall back to the account's
+ * default contact, but Namecheap demands a full set of registrant, tech, admin
+ * and billing details on every create call. Rather than storing (and drifting
+ * from) a second copy, this READS THE CONTACT OFF A DOMAIN ALREADY IN THE
+ * ACCOUNT — one shared set, always matching what the other domains use.
+ *
+ * @return array|null the flat contact fields, or null if none could be read
+ */
+function infra_reg_namecheap_contacts(array $cfg, string $sourceDomain = ''): ?array
+{
+    $key = 'nc_contacts';
+    $c = infra_cache_get($key, 86400);
+    if ($c !== null && $sourceDomain === '') return $c;
+
+    // Any domain in the account will do — take the first unless told otherwise.
+    if ($sourceDomain === '') {
+        $l = infra_reg_namecheap_call($cfg, 'namecheap.domains.getList', ['PageSize' => 100, 'Page' => 1]);
+        if (!$l['ok']) return null;
+        $first = $l['xml']->CommandResponse->DomainGetListResult->Domain[0] ?? null;
+        if (!$first) return null;
+        $sourceDomain = (string) $first['Name'];
+    }
+
+    $r = infra_reg_namecheap_call($cfg, 'namecheap.domains.getContacts', ['DomainName' => $sourceDomain]);
+    if (!$r['ok']) return null;
+    $reg = $r['xml']->CommandResponse->DomainContactsResult->Registrant ?? null;
+    if (!$reg) return null;
+
+    $out = ['_source' => $sourceDomain];
+    foreach (['FirstName','LastName','Address1','Address2','City','StateProvince',
+              'PostalCode','Country','Phone','EmailAddress','Organization','JobTitle'] as $f) {
+        $v = trim((string) ($reg->$f ?? ''));
+        if ($v !== '') $out[$f] = $v;
+    }
+    foreach (['FirstName','LastName','Address1','City','StateProvince','PostalCode','Country','Phone','EmailAddress'] as $req) {
+        if (empty($out[$req])) return null;   // an incomplete set would fail mid-purchase
+    }
+    infra_cache_put($key, $out);
+    return $out;
+}
+
+/**
+ * Register a domain at Namecheap. Applies the same contact set to all four
+ * required roles, and turns on the free WhoisGuard.
+ *
+ * Namecheap exposes no auto-renew setter over its API, so the setting is READ
+ * BACK and reported rather than claimed — the account default decides it, and
+ * saying "auto-renew on" without checking would be a guess.
+ */
+function infra_reg_namecheap_register(string $domain, int $years, array $cfg, array $opts = []): array
+{
+    $years    = max(1, min(10, $years));
+    $contacts = infra_reg_namecheap_contacts($cfg);
+    if (!$contacts) {
+        return ['ok' => false, 'message' => 'Namecheap: could not read a complete registrant contact from an existing domain — registration needs one and none was available'];
+    }
+
+    $params = ['DomainName' => $domain, 'Years' => $years,
+               'AddFreeWhoisguard' => 'yes', 'WGEnabled' => 'yes'];
+    // The same person in all four roles; Namecheap requires every one of them.
+    foreach (['Registrant', 'Tech', 'Admin', 'AuxBilling'] as $role) {
+        foreach ($contacts as $f => $v) {
+            if ($f === '_source') continue;
+            $params[$role . $f] = $v;
+        }
+    }
+
+    $r = infra_reg_namecheap_call($cfg, 'namecheap.domains.create', $params);
+    if (!$r['ok']) return ['ok' => false, 'message' => 'Namecheap: ' . $r['message']];
+
+    $res     = $r['xml']->CommandResponse->DomainCreateResult ?? null;
+    $charged = $res ? (string) $res['ChargedAmount'] : '';
+    $msg = "Namecheap: registered {$domain} for {$years}yr"
+         . ($charged !== '' ? " (charged \${$charged})" : '')
+         . ', WhoisGuard on, contact from ' . $contacts['_source'];
+
+    // Report the auto-renew state that is actually true.
+    $want = array_key_exists('auto_renew', $opts) ? (bool) $opts['auto_renew'] : true;
+    // No setAutoRenew call: Namecheap has no such documented method, and the
+    // undocumented endpoint answers IsSuccess="true" while changing nothing.
+    // Making a call known to do nothing only invites someone to trust it later.
+    // The state is read back and reported as fact instead.
+    $actual = infra_reg_namecheap_autorenew($cfg, $domain);
+    if ($actual === null) {
+        $msg .= ', auto-renew UNVERIFIED — check the dashboard';
+    } elseif ($actual) {
+        $msg .= ', auto-renew ON (verified)';
+    } else {
+        $msg .= ', auto-renew OFF — Namecheap cannot set this over its API, so cover the'
+              . " expiry instead: register for more years (only 10c/yr more) or let the"
+              . ' renewal monitor handle it. Expires in ' . $years . 'yr.';
+    }
+    return ['ok' => true, 'message' => $msg];
+}
+
 /* ============================= AVAILABILITY ============================= */
 
 /**
@@ -330,16 +443,10 @@ function infra_reg_porkbun_check(array $domains, array $cfg, array $out): array
     $domains = array_values($domains);
     foreach ($domains as $i => $d) {
         if ($i > 0) sleep(10);
-        $r = infra_reg_porkbun_call($cfg, '/domain/checkDomain/' . $d);
-
-        // Rate-limited anyway? Wait exactly as long as it asks, then try once more.
-        if (!$r['ok'] && strtoupper((string) ($r['json']['code'] ?? '')) === 'RATE_LIMIT_EXCEEDED') {
-            sleep(max(1, min(30, (int) ($r['json']['ttlRemaining'] ?? 10) + 1)));
-            $r = infra_reg_porkbun_call($cfg, '/domain/checkDomain/' . $d);
-        }
+        $r = infra_reg_porkbun_check_one($cfg, $d, 1);
         if (!$r['ok']) { $out[$d]['note'] = 'check failed: ' . $r['message']; continue; }
 
-        $resp = $r['json']['response'] ?? [];
+        $resp = $r['response'];
         $av   = strtolower((string) ($resp['avail'] ?? ''));
         if ($av !== 'yes' && $av !== 'no') { $out[$d]['note'] = 'check inconclusive'; continue; }
         $out[$d]['available'] = ($av === 'yes');
@@ -484,14 +591,112 @@ function infra_reg_dynadot_register(string $domain, int $years, array $cfg, arra
    GET /accounts/{id}/registrar/domains returns 200. */
 
 /** Registrar-scoped Cloudflare call. Accepts a token OR the global-key pair. */
-function infra_reg_cloudflare_call(array $cfg, string $method, string $path, array $query = []): array
+function infra_reg_cloudflare_call(array $cfg, string $method, string $path, array $query = [], ?array $body = null): array
 {
+    // Registrar endpoints reject a scoped token ("Authentication error") and need
+    // the global key, so that is preferred whenever it is configured.
     $headers = (!empty($cfg['email']) && !empty($cfg['global_key']))
         ? ['X-Auth-Email: ' . $cfg['email'], 'X-Auth-Key: ' . $cfg['global_key'], 'Content-Type: application/json']
         : ['Authorization: Bearer ' . ($cfg['api_token'] ?? ''), 'Content-Type: application/json'];
     $url = 'https://api.cloudflare.com/client/v4/accounts/' . rawurlencode($cfg['account_id'] ?? '') . $path;
     if ($query) $url .= '?' . http_build_query($query);
-    return infra_http($method, $url, ['headers' => $headers, 'verify' => true, 'timeout' => 30]);
+    $opts = ['headers' => $headers, 'verify' => true, 'timeout' => 90];
+    if ($body !== null) $opts['body'] = $body;
+    return infra_http($method, $url, $opts);
+}
+
+/**
+ * ONE fleet-wide registrant contact, in a registrar-neutral shape.
+ *
+ * Read off a domain already held at Namecheap rather than stored separately —
+ * there is then a single source of truth for who owns these domains, and no
+ * second copy of personal details to drift or leak. Cached for a day.
+ * @return array|null
+ */
+function infra_fleet_contact(): ?array
+{
+    $c = infra_reg_namecheap_contacts(infra_registrar_config('namecheap'));
+    if (!$c) return null;
+    return [
+        'first'   => $c['FirstName'], 'last' => $c['LastName'],
+        'name'    => trim($c['FirstName'] . ' ' . $c['LastName']),
+        'org'     => $c['Organization'] ?? '',
+        'street'  => $c['Address1'], 'city' => $c['City'], 'state' => $c['StateProvince'],
+        'postal'  => $c['PostalCode'], 'country' => $c['Country'],
+        'phone'   => $c['Phone'], 'email' => $c['EmailAddress'],
+        '_source' => $c['_source'],
+    ];
+}
+
+/**
+ * Register a domain at Cloudflare Registrar — sold AT COST, so the cheapest of
+ * the five to hold long term.
+ *
+ * Three things had to be discovered by probing, because the obvious guesses are
+ * all wrong:
+ *   · the endpoint is POST /registrar/REGISTRATIONS. /registrar/domains answers
+ *     403 and reads exactly like "registration is not supported".
+ *   · it needs the GLOBAL KEY. A scoped API token gets "Authentication error".
+ *   · it refuses without a registrant contact and the account had no default
+ *     address-book entry, so one is passed inline. postal_info.name and
+ *     address.street are plain STRINGS, and the field is country_code.
+ *
+ * Cloudflare defaults auto-renew to FALSE, so it is set explicitly at purchase.
+ */
+function infra_reg_cloudflare_register(string $domain, int $years, array $cfg, array $opts = []): array
+{
+    // $years is accepted for signature parity but Cloudflare registers 1yr terms
+    // only; multi-year is not offered by its registration API.
+    if (($cfg['account_id'] ?? '') === '') {
+        return ['ok' => false, 'message' => 'Cloudflare: no account_id configured'];
+    }
+    $c = infra_fleet_contact();
+    if (!$c) {
+        return ['ok' => false, 'message' => 'Cloudflare: no registrant contact available — it will not register without one'];
+    }
+    $autoRenew = array_key_exists('auto_renew', $opts) ? (bool) $opts['auto_renew'] : true;
+
+    $body = [
+        'domain_name' => $domain,
+        'auto_renew'  => $autoRenew,
+        'contacts'    => ['registrant' => [
+            'email' => $c['email'],
+            'phone' => $c['phone'],
+            'postal_info' => [
+                'name'         => $c['name'],
+                'organization' => $c['org'],
+                'address'      => [
+                    'street'       => $c['street'],
+                    'city'         => $c['city'],
+                    'state'        => $c['state'],
+                    'postal_code'  => $c['postal'],
+                    'country_code' => $c['country'],
+                ],
+            ],
+        ]],
+    ];
+    $r = infra_reg_cloudflare_call($cfg, 'POST', '/registrar/registrations', [], $body);
+    $j = $r['json'] ?? [];
+    if (empty($j['success'])) {
+        return ['ok' => false, 'message' => 'Cloudflare: ' . ($j['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
+    }
+    // 201 = done; 202 = accepted and still running, which must not be read as owned.
+    $state = (string) ($j['result']['state'] ?? '');
+    if ($state !== 'succeeded' && empty($j['result']['completed'])) {
+        return ['ok' => false, 'message' => "Cloudflare: registration accepted but not confirmed (state '{$state}') — check the dashboard before treating it as owned"];
+    }
+    $msg = "Cloudflare: registered {$domain} at cost, contact from " . $c['_source'];
+
+    // Read the setting back rather than trusting the request.
+    $l = infra_reg_cloudflare_call($cfg, 'GET', '/registrar/domains');
+    foreach (($l['json']['result'] ?? []) as $d) {
+        if (strcasecmp((string) ($d['name'] ?? ''), $domain) === 0) {
+            $msg .= ', auto-renew ' . (!empty($d['auto_renew']) ? 'ON' : 'OFF') . ' (verified)'
+                  . ', expires ' . substr((string) ($d['expires_at'] ?? '?'), 0, 10);
+            return ['ok' => true, 'message' => $msg];
+        }
+    }
+    return ['ok' => true, 'message' => $msg . ', auto-renew UNVERIFIED'];
 }
 
 function infra_reg_cloudflare_verify(array $cfg): array
@@ -604,6 +809,15 @@ function infra_registrar_register(string $domain, int $years, string $registrarN
             return ['ok' => $r['ok'], 'message' => $r['message']];
         case 'dynadot':
             $r = infra_reg_dynadot_register($domain, $years, $cfg, $opts);
+            return ['ok' => $r['ok'], 'message' => $r['message']];
+        case 'porkbun':
+            $r = infra_reg_porkbun_register($domain, $years, $cfg, $opts);
+            return ['ok' => $r['ok'], 'message' => $r['message']];
+        case 'namecheap':
+            $r = infra_reg_namecheap_register($domain, $years, $cfg, $opts);
+            return ['ok' => $r['ok'], 'message' => $r['message']];
+        case 'cloudflare':
+            $r = infra_reg_cloudflare_register($domain, $years, $cfg, $opts);
             return ['ok' => $r['ok'], 'message' => $r['message']];
         // porkbun/spaceship/dynadot/gandi registration can plug in here later
         default:
@@ -732,6 +946,36 @@ function infra_registrar_set_autorenew(string $domain, bool $on, string $registr
             return ['ok' => $r['ok'],
                     'message' => $r['ok'] ? 'Dynadot: auto-renew ' . ($on ? 'ON' : 'OFF') . " for {$domain}"
                                           : 'Dynadot: ' . $r['message']];
+
+        case 'porkbun':
+            $r = infra_reg_porkbun_call($cfg, '/domain/updateAutoRenew/' . $domain, ['status' => $on ? 'on' : 'off']);
+            return ['ok' => $r['ok'],
+                    'message' => $r['ok'] ? 'Porkbun: auto-renew ' . ($on ? 'ON' : 'OFF') . " for {$domain}"
+                                          : 'Porkbun: ' . $r['message']];
+
+        case 'cloudflare':
+            $r = infra_reg_cloudflare_call($cfg, 'PUT', '/registrar/domains/' . $domain, [], ['auto_renew' => $on]);
+            $ok = $r['code'] >= 200 && $r['code'] < 300 && !empty($r['json']['success']);
+            return ['ok' => $ok,
+                    'message' => $ok ? 'Cloudflare: auto-renew ' . ($on ? 'ON' : 'OFF') . " for {$domain}"
+                                     : 'Cloudflare: ' . ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
+
+        case 'namecheap':
+            // NOT ATTEMPTED. namecheap.domains.setAutoRenew is undocumented, always
+            // answers IsSuccess="true" — even with no AutoRenew parameter at all —
+            // and changes nothing: verified with the flag still false 20s later, on
+            // an account where getList correctly reports true for other domains.
+            // Calling something proven inert only invites someone to trust it, so
+            // the state is read and reported instead.
+            $actual = infra_reg_namecheap_autorenew($cfg, $domain);
+            if ($actual === null) {
+                return ['ok' => false, 'message' => "Namecheap: could not read auto-renew back for {$domain}"];
+            }
+            if ($actual === $on) {
+                return ['ok' => true, 'message' => 'Namecheap: auto-renew already ' . ($on ? 'ON' : 'OFF') . " for {$domain} (verified)"];
+            }
+            return ['ok' => false, 'message' => "Namecheap: auto-renew is " . ($actual ? 'ON' : 'OFF')
+                . " for {$domain} and cannot be changed over their API — it is a dashboard-only setting."];
         default:
             return ['ok' => false, 'message' => "auto-renew toggling not wired for '{$registrarName}' — set it in their dashboard"];
     }
@@ -771,6 +1015,84 @@ function infra_reg_porkbun_set_ns(string $domain, array $ns, array $cfg): array
             ? 'Porkbun: nameservers set → ' . implode(', ', $ns)
             : ('Porkbun error: ' . $r['message'] . ' (is "API Access" enabled for this domain?)'),
     ];
+}
+
+/**
+ * One Porkbun availability check that survives the 1-per-10s limit by waiting the
+ * server's own ttlRemaining and retrying. Shared, because the buy path quotes a
+ * price immediately after the pre-purchase availability check — two requests in
+ * the same window, which refused a real purchase until this existed.
+ * @return array{ok:bool, message:string, response:array}
+ */
+function infra_reg_porkbun_check_one(array $cfg, string $domain, int $retries = 2): array
+{
+    for ($i = 0; $i <= $retries; $i++) {
+        $r = infra_reg_porkbun_call($cfg, '/domain/checkDomain/' . $domain);
+        if ($r['ok']) return ['ok' => true, 'message' => '', 'response' => $r['json']['response'] ?? []];
+        if (strtoupper((string) ($r['json']['code'] ?? '')) !== 'RATE_LIMIT_EXCEEDED') {
+            return ['ok' => false, 'message' => $r['message'], 'response' => []];
+        }
+        sleep(max(1, min(30, (int) ($r['json']['ttlRemaining'] ?? 10) + 1)));
+    }
+    return ['ok' => false, 'message' => 'rate limited after ' . $retries . ' retries', 'response' => []];
+}
+
+/**
+ * Register a domain at Porkbun.
+ *
+ * Two things make this different from the other adapters:
+ *
+ * 1. AGREEMENT. Porkbun refuses the order without agreeToTerms=yes, which accepts
+ *    their Registration Agreement, Terms of Service, Privacy Policy AND automatic
+ *    renewal terms on the account holder's behalf. That is a legal acceptance, not
+ *    a formality — it is passed only because the operator asked for this purchase.
+ *
+ * 2. COST IS THE EXACT PRICE IN CENTS. Two error messages pin this down between
+ *    them: 11.08 is rejected as "must be a valid integer", while 11 and 12 are
+ *    rejected as "must equal the cost of the domain for its minimum allowed
+ *    duration". Both are only satisfiable by whole cents — 1108.
+ *    The price is quoted live and converted, never assumed, so an unexpected
+ *    price cannot be silently paid: a changed price simply fails the equality.
+ */
+function infra_reg_porkbun_register(string $domain, int $years, array $cfg, array $opts = []): array
+{
+    $years = max(1, min(10, $years));
+
+    // Quote it live — the cost confirmation has to be based on the real number.
+    // Rate-limit aware: the buy path has just spent this window's one check.
+    $chk   = infra_reg_porkbun_check_one($cfg, $domain);
+    $price = (float) ($chk['response']['price'] ?? 0);
+    if (!$chk['ok'] || $price <= 0) {
+        return ['ok' => false, 'message' => 'Porkbun: could not quote a price before buying (' . $chk['message'] . ') — not guessing at cost'];
+    }
+    if (strtolower((string) ($chk['response']['avail'] ?? '')) !== 'yes') {
+        return ['ok' => false, 'message' => 'Porkbun: no longer available'];
+    }
+
+    $autoRenew = array_key_exists('auto_renew', $opts) ? (bool) $opts['auto_renew'] : true;
+    // Cents first (the reading both error messages support); the bare figure as a
+    // fallback in case a TLD is priced in whole units.
+    $attempts  = array_values(array_unique([(int) round($price * 100), (int) round($price)]));
+
+    $last = '';
+    foreach ($attempts as $cost) {
+        $r = infra_reg_porkbun_call($cfg, '/domain/create/' . $domain, [
+            'cost'         => $cost,
+            'years'        => $years,
+            'agreeToTerms' => 'yes',
+            'autoRenew'    => $autoRenew ? 'yes' : 'no',
+        ]);
+        if ($r['ok']) {
+            return ['ok' => true, 'message' => "Porkbun: registered {$domain} for {$years}yr"
+                . ' at the quoted $' . number_format($price, 2) . " (cost confirmation {$cost})"];
+        }
+        $last = $r['message'];
+        // Only retry when the COST itself was the objection. Anything else — taken,
+        // funds, TLD — must not be retried with a different number.
+        if (stripos($last, 'cost') === false && stripos($last, 'price') === false) break;
+        sleep(2);
+    }
+    return ['ok' => false, 'message' => 'Porkbun: ' . $last];
 }
 
 /* ============================= Spaceship ============================= */

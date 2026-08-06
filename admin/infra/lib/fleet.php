@@ -151,6 +151,7 @@ function infra_fleet_domains(): array
             'avail_price'      => $st['avail_price'] ?? '',
             'avail_checked_at' => $st['avail_checked_at'] ?? '',
             'buy_error'        => $st['buy_error'] ?? '',
+            'auto_renew'       => $st['auto_renew'] ?? '',
         ];
     }
     return $rows;

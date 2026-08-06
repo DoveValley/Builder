@@ -63,6 +63,15 @@ function infra_ready_cell(array $r): string
 function infra_own_cell(array $r): string
 {
     if (($r['owned'] ?? '') === 'yes') {
+        $ar = (string) ($r['auto_renew'] ?? '');
+        // An owned domain that will not renew is a site that dies on a date nobody
+        // is watching. Flag it in the table, not just in the message at purchase.
+        if ($ar === 'no') {
+            return '<span class="badge b-ok">Yes</span><br><span class="badge b-err" title="This domain will LAPSE on expiry. Namecheap cannot set auto-renew over its API — switch it on in their dashboard.">⚠ no auto-renew</span>';
+        }
+        if ($ar === '' || $ar === 'unknown') {
+            return '<span class="badge b-ok">Yes</span><br><span class="badge b-warn" title="Auto-renew state was not verified">renew unverified</span>';
+        }
         return '<span class="badge b-ok">Yes</span>';
     }
     if (($r['state'] ?? '') === 'buy-failed') {
