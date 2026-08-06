@@ -63,16 +63,12 @@ function infra_ready_cell(array $r): string
 function infra_own_cell(array $r): string
 {
     if (($r['owned'] ?? '') === 'yes') {
-        $ar = (string) ($r['auto_renew'] ?? '');
-        // An owned domain that will not renew is a site that dies on a date nobody
-        // is watching. Flag it in the table, not just in the message at purchase.
-        if ($ar === 'no') {
-            return '<span class="badge b-ok">Yes</span><br><span class="badge b-err" title="This domain will LAPSE on expiry. Namecheap cannot set auto-renew over its API — switch it on in their dashboard.">⚠ no auto-renew</span>';
-        }
-        if ($ar === '' || $ar === 'unknown') {
-            return '<span class="badge b-ok">Yes</span><br><span class="badge b-warn" title="Auto-renew state was not verified">renew unverified</span>';
-        }
-        return '<span class="badge b-ok">Yes</span>';
+        // Verified auto-renew is still recorded on the row (and shown on the
+        // domain's own page); the per-registrar explanation lives on the
+        // Registrars tab rather than shouting from every line of the table.
+        $ar    = (string) ($r['auto_renew'] ?? '');
+        $title = $ar !== '' ? ' title="auto-renew: ' . ih($ar) . '"' : '';
+        return '<span class="badge b-ok"' . $title . '>Yes</span>';
     }
     if (($r['state'] ?? '') === 'buy-failed') {
         return '<span class="badge b-err">failed</span>'
@@ -831,6 +827,17 @@ if ($view === 'registrars') {
         </h2>
         <div class="body">
           <div style="color:#6b7280;font-size:12.5px;margin-bottom:12px"><?= ih($def['note']) ?></div>
+
+          <?php if (!empty($def['autorenew'])):
+            $ar = $def['autorenew'];
+            $bad = empty($ar['ok']); ?>
+            <div style="border:<?= $bad ? '2px solid #dc2626' : '1px solid #e5e7eb' ?>;background:<?= $bad ? '#fef2f2' : '#f9fafb' ?>;border-radius:8px;padding:11px 13px;margin-bottom:12px">
+              <div style="font-weight:700;font-size:13px;color:<?= $bad ? '#b91c1c' : '#15803d' ?>">
+                <?= $bad ? '⛔ Auto-renew CANNOT be set through this API' : '✓ Auto-renew works' ?>
+              </div>
+              <div style="font-size:12.5px;color:<?= $bad ? '#7f1d1d' : '#374151' ?>;margin-top:5px"><?= $ar['note'] ?></div>
+            </div>
+          <?php endif; ?>
 
           <?php if (!empty($def['buy']) && empty($def['buy_wired'])): ?>
             <div class="ic-note" style="background:#fffbeb;border-color:#fde047;color:#854d0e">

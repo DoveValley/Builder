@@ -61,6 +61,15 @@ function infra_registrar_types(): array
     return [
         'namecheap' => [
             'label'  => 'Namecheap',
+            'autorenew' => ['ok' => false, 'note' =>
+                '<strong>Domains bought here register with auto-renew OFF and there is no way to turn it on programmatically.</strong> '
+              . 'An undocumented <code>namecheap.domains.setAutoRenew</code> endpoint exists and always answers '
+              . '<code>IsSuccess="true"</code> &mdash; even when sent no parameter at all &mdash; while changing nothing. '
+              . 'It is absent from Namecheap\'s documented API, and their knowledgebase says auto-renew is a dashboard-only setting. '
+              . 'The console does not call it: it reads the real state and reports that.<br><br>'
+              . '<strong>What to do:</strong> register for <strong>more years up front</strong> (multi-year costs about 10&cent;/yr more &mdash; '
+              . '1yr $11.28 vs 2&ndash;10yr $11.38 &mdash; so a 3 or 10 year term is near-free insurance that cannot fail), '
+              . 'or switch it on by hand per domain in the Namecheap dashboard, or simply buy fleet domains at one of the other four.'],
             'fields' => [
                 'api_user'  => ['label' => 'API user',  'secret' => false],
                 'api_key'   => ['label' => 'API key',   'secret' => true],
@@ -72,12 +81,18 @@ function infra_registrar_types(): array
         ],
         'namesilo' => [
             'label'  => 'NameSilo',
+            'autorenew' => ['ok' => true, 'note' =>
+                'Set at registration via <code>auto_renew</code>, and changeable later with '
+              . '<code>addAutoRenewal</code> / <code>removeAutoRenewal</code>. Immediate, and nothing surprising about it.'],
             'fields' => ['api_key' => ['label' => 'API key', 'secret' => true]],
             'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => true,
             'note'  => 'No IP allowlist. Availability check returns a price. Free WHOIS privacy on registration. The only registrar whose purchase adapter is written today.',
         ],
         'porkbun' => [
             'label'  => 'Porkbun',
+            'autorenew' => ['ok' => true, 'note' =>
+                '<code>/domain/updateAutoRenew/{domain}</code> takes <code>status: on|off</code> &mdash; note <em>status</em>, and '
+              . '<em>on/off</em>, not the <code>autoRenew: yes/no</code> its own create call uses. The obvious parameter name is rejected.'],
             'fields' => [
                 'api_key'        => ['label' => 'API key',        'secret' => true],
                 'secret_api_key' => ['label' => 'Secret API key', 'secret' => true],
@@ -87,12 +102,21 @@ function infra_registrar_types(): array
         ],
         'dynadot' => [
             'label'  => 'Dynadot',
+            'autorenew' => ['ok' => true, 'note' =>
+                '<code>set_renew_option</code> with <code>renew_option=auto|no</code>, as a <strong>separate call after registration</strong> '
+              . '&mdash; the register command has no auto-renew parameter. The first attempt normally fails with '
+              . '"could not find domain in your account" because a freshly registered domain is not immediately queryable; '
+              . 'the console pauses, retries, then reads the state back.'],
             'fields' => ['api_key' => ['label' => 'API key', 'secret' => true]],
             'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => true,
             'note'  => 'Cheapest .com of the five. Registration uses the account\'s default contact, so no contact set is needed. May require external nameservers be added to the account before they can be set on a domain.',
         ],
         'cloudflare' => [
             'label'  => 'Cloudflare Registrar',
+            'autorenew' => ['ok' => true, 'note' =>
+                'Works via <code>PUT /registrar/domains/{domain}</code>, and can be passed in the registration body &mdash; '
+              . 'but Cloudflare <strong>defaults new registrations to auto-renew FALSE</strong>. The console sets it explicitly '
+              . 'at purchase and verifies afterwards; without that a Cloudflare domain quietly expires in a year.'],
             // Credentials are entered here like every other registrar. They are the
             // same values as the Cloudflare account registry, so the form PREFILLS
             // the non-secret ones from it — but what is saved here is what is used,
