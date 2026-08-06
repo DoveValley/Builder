@@ -137,7 +137,7 @@ switch ($action) {
         $days = $perDay > 0 ? (int) ceil($n / max(1, $perDay)) : 0;
         $warn = $notReadyNote($sel);
         infra_set_flash($warn ? 'warn' : 'ok', "Scheduled {$n} domain(s) at {$perDay}/day from "
-            . ($from ?: gmdate('Y-m-d')) . " — {$days} day(s) of buying." . $warn);
+            . ($from ?: infra_today()) . " — {$days} day(s) of buying." . $warn);
         break;
 
     /* ---- bulk: availability (read-only) ---------------------------------

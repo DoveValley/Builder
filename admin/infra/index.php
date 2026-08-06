@@ -78,7 +78,7 @@ function infra_own_cell(array $r): string
              . (($r['buy_error'] ?? '') !== '' ? '<br><span style="color:#991b1b;font-size:11px">' . ih(substr($r['buy_error'], 0, 60)) . '</span>' : '');
     }
     $ready = ($r['ready_to_buy'] ?? '') === 'yes' && ($r['buy_registrar'] ?? '') !== '';
-    $due   = ($r['buy_at'] ?? '') !== '' && $r['buy_at'] <= gmdate('Y-m-d');
+    $due   = ($r['buy_at'] ?? '') !== '' && $r['buy_at'] <= infra_today();
     if ($ready) {
         return ($due ? '<span class="badge b-warn">due</span> ' : '')
              . '<a class="btn sec" style="padding:2px 8px;font-size:11px" href="index.php?view=domain&d='
@@ -432,7 +432,7 @@ if ($view === 'domains') {
             <span>Spread</span>
             <input type="number" name="per_day" value="20" min="1" style="width:60px;padding:5px 8px;border:1px solid #d1d5db;border-radius:8px">
             <span>/day from</span>
-            <input type="date" name="spread_from" value="<?= ih(gmdate('Y-m-d')) ?>" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:8px">
+            <input type="date" name="spread_from" value="<?= ih(infra_today()) ?>" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:8px">
             <button class="btn sec" type="submit" name="action" value="schedule_buys">Schedule</button>
             <span style="color:#d1d5db">|</span>
             <button class="btn sec" type="submit" name="action" value="remove" style="color:#991b1b" onclick="return confirm('Remove the ticked domains from the table? Only untracks them here — no infrastructure is touched.')">Remove</button>
@@ -757,7 +757,7 @@ if ($view === 'golive') {
     uksort($queue, function ($a, $b) use ($queue) {
         return [$queue[$a]['go_live_at'] ?? '', $a] <=> [$queue[$b]['go_live_at'] ?? '', $b];
     });
-    $today = gmdate('Y-m-d');
+    $today = infra_today();
     ?>
     <div class="ic-tiles">
       <div class="ic-tile"><div class="n"><?= $cStaged ?></div><div class="l">Staged</div></div>
@@ -826,7 +826,7 @@ if ($view === 'golive') {
 /* ============================= BUY QUEUE ============================= */
 if ($view === 'buyqueue') {
     infra_header('buyqueue');
-    $today = gmdate('Y-m-d');
+    $today = infra_today();
     $due = $ahead = $bought = $failed = $undated = [];
     foreach (infra_state_all_domains() as $dom => $r) {
         if (($r['owned'] ?? '') === 'yes')            { $bought[$dom] = $r; continue; }
@@ -853,12 +853,12 @@ if ($view === 'buyqueue') {
 
     <div class="ic-note">
       This is the buying schedule at a glance — <strong>nothing on this page buys anything</strong>.
-      Dates are UTC. Set them on the <a href="index.php?view=domains">Domains</a> tab
+      Dates are <strong>US Central</strong>. Set them on the <a href="index.php?view=domains">Domains</a> tab
       (tick rows &rarr; <em>Spread N/day from</em>).
     </div>
 
     <div class="ic-card">
-      <h2>Due today <span style="color:#9ca3af;font-weight:400;font-size:13px">&mdash; <?= gmdate('D j M Y') ?> &middot; about $<?= number_format($spend, 2) ?> if all of it went through</span></h2>
+      <h2>Due today <span style="color:#9ca3af;font-weight:400;font-size:13px">&mdash; <?= (new DateTime('now', new DateTimeZone(INFRA_TZ)))->format('D j M Y') ?> (Central) &middot; about $<?= number_format($spend, 2) ?> if all of it went through</span></h2>
       <div class="body">
         <?php if (!$due): ?>
           <div class="ic-empty">Nothing due today.</div>
@@ -934,7 +934,7 @@ if ($view === 'buyqueue') {
             sort($doms);
             $show = array_slice($doms, 0, 8); ?>
             <tr>
-              <td><strong><?= ih($date) ?></strong><br><span style="color:#9ca3af;font-size:11px"><?= ih(gmdate('D', strtotime($date))) ?></span></td>
+              <td><strong><?= ih($date) ?></strong><br><span style="color:#9ca3af;font-size:11px"><?= ih(date('D', strtotime($date))) ?></span></td>
               <td><span class="badge b-mut"><?= count($doms) ?></span></td>
               <td style="font-size:12px;color:#374151"><?= ih(implode(', ', $show)) ?><?= count($doms) > 8 ? ' <span style="color:#9ca3af">+ ' . (count($doms) - 8) . ' more</span>' : '' ?></td>
             </tr>

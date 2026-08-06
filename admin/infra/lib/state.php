@@ -6,6 +6,38 @@
  * No external dependency — PHP's built-in pdo_sqlite.
  */
 
+
+/**
+ * The console's operating timezone. Buy dates, schedules and "is it due today"
+ * are all decided in US Central, because that is the operator's day — a purchase
+ * run at 20:30 in Texas belongs to that evening, not to tomorrow, which is what
+ * UTC would have called it.
+ *
+ * Registrars report their own dates in their own zones; those are recorded as
+ * given and not translated.
+ */
+const INFRA_TZ = 'America/Chicago';
+
+/** Today's date in the operating timezone: 'YYYY-MM-DD'. */
+function infra_today(): string
+{
+    return (new DateTime('now', new DateTimeZone(INFRA_TZ)))->format('Y-m-d');
+}
+
+/** Now in the operating timezone: 'YYYY-MM-DD HH:MM:SS'. */
+function infra_now(): string
+{
+    return (new DateTime('now', new DateTimeZone(INFRA_TZ)))->format('Y-m-d H:i:s');
+}
+
+/** A date N days from today, in the operating timezone. */
+function infra_date_plus(int $days, ?string $from = null): string
+{
+    $d = new DateTime($from ?: 'now', new DateTimeZone(INFRA_TZ));
+    if ($days) $d->modify(($days > 0 ? '+' : '') . $days . ' days');
+    return $d->format('Y-m-d');
+}
+
 function infra_state_db(): PDO
 {
     static $db = null;
@@ -86,7 +118,7 @@ function infra_state_upsert_domain(array $in): void
     $in['domain'] = strtolower(trim($in['domain'] ?? ''));
     if ($in['domain'] === '') return;
 
-    $now = gmdate('Y-m-d H:i:s');
+    $now = infra_now();
     $cur = infra_state_get_domain($in['domain']) ?: [];
     $defaults = array_fill_keys(INFRA_STATE_COLS, '');
     $rec = array_merge($defaults, ['created_at' => $now], $cur, $in);
@@ -182,16 +214,17 @@ function infra_state_acquisition(array $statuses = ['begin', 'ready', 'buy-faile
 function infra_state_schedule_buys(array $domains, int $perDay, string $startDate): int
 {
     $perDay = max(1, $perDay);
-    $start  = strtotime($startDate ?: gmdate('Y-m-d'));
-    if ($start === false) $start = time();
+    $start  = $startDate ?: infra_today();
     sort($domains);
     $i = 0;
     foreach ($domains as $d) {
         $d = strtolower(trim((string) $d));
         if ($d === '' || !infra_state_get_domain($d)) continue;
+        // Calendar days in the operating timezone, not 86400-second hops — so a
+        // DST change cannot slide a batch onto the wrong date.
         infra_state_upsert_domain([
             'domain' => $d,
-            'buy_at' => gmdate('Y-m-d', $start + intdiv($i, $perDay) * 86400),
+            'buy_at' => infra_date_plus(intdiv($i, $perDay), $start),
         ]);
         $i++;
     }

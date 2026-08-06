@@ -57,7 +57,7 @@ function infra_domains_apply_availability(array $domains, string $registrarName)
 
     $results = infra_registrar_check_availability($domains, $registrarName);
     $mine    = infra_owned_index_cached();
-    $now     = gmdate('Y-m-d H:i:s');
+    $now     = infra_now();
 
     foreach ($domains as $d) {
         $res   = $results[$d] ?? ['available' => null, 'price' => '', 'note' => 'no result returned'];
@@ -156,7 +156,7 @@ function infra_domain_buy(string $domain, array $opts = []): array
     $res   = $check[$domain] ?? ['available' => null, 'note' => 'no result'];
     if ($res['available'] === false) {
         infra_state_upsert_domain(['domain' => $domain, 'ready_to_buy' => 'no',
-            'avail_note' => $res['note'] ?: 'taken', 'avail_checked_at' => gmdate('Y-m-d H:i:s')]);
+            'avail_note' => $res['note'] ?: 'taken', 'avail_checked_at' => infra_now()]);
         return $fail('no longer available (' . ($res['note'] ?: 'taken') . ') — not buying');
     }
     if ($res['available'] !== true) {
@@ -172,7 +172,7 @@ function infra_domain_buy(string $domain, array $opts = []): array
         return $fail($buy['message'] ?? 'purchase failed', true);
     }
 
-    $now = gmdate('Y-m-d H:i:s');
+    $now = infra_now();
     // Record the VERIFIED auto-renew state. Namecheap cannot set it over its API
     // (its setAutoRenew returns success and does nothing), so a domain can be
     // bought and silently left to lapse — that must be visible in the table, not
@@ -190,7 +190,7 @@ function infra_domain_buy(string $domain, array $opts = []): array
         // Column 4 becomes the date it was ACTUALLY bought, not the date it was
         // scheduled for. Once owned this is history, and the view stops offering
         // to edit it.
-        'buy_at'     => gmdate('Y-m-d'),
+        'buy_at'     => infra_today(),
         'buy_error'  => '',
     ]);
     return ['ok' => true, 'message' => $buy['message'] ?? "bought {$domain}"];
@@ -211,7 +211,7 @@ function infra_domain_mark_owned(string $domain, string $registrar = ''): array
     infra_state_upsert_domain([
         'domain'       => $domain,
         'owned'        => 'yes',
-        'owned_at'     => gmdate('Y-m-d H:i:s'),
+        'owned_at'     => infra_now(),
         'status'       => 'owned',
         'registrar'    => $registrar,
         'ready_to_buy' => '',
