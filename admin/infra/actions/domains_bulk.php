@@ -16,7 +16,8 @@ require_once __DIR__ . '/../lib/acquire.php';
 
 $backQs = (string) ($_POST['back'] ?? 'view=domains');
 // Only our own query string may come back through — never an absolute URL.
-if (!preg_match('/^view=domains[A-Za-z0-9=&_.\-%]*$/', $backQs)) $backQs = 'view=domains';
+// \z rather than $ — PCRE's $ also matches before a trailing newline.
+if (!preg_match('/^view=domains[A-Za-z0-9=&_.\-%]*\z/', $backQs)) $backQs = 'view=domains';
 $back = '../index.php?' . $backQs;
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !infra_check_csrf()) {
@@ -75,8 +76,12 @@ switch ($action) {
             }
 
             // An owned domain's registrar and buy date are history. The view stops
-            // rendering the inputs, but a POST must be refused too.
-            if (($rec['owned'] ?? '') === 'yes') { continue; }
+            // rendering the inputs, but a POST must be refused too — and counted,
+            // or the "N already owned" line below can never appear.
+            if (($rec['owned'] ?? '') === 'yes') {
+                if (array_key_exists($dom, $regs) || array_key_exists($dom, $buys)) $locked++;
+                continue;
+            }
 
             $newReg = strtolower(trim((string) ($regs[$dom] ?? '')));
             if ($newReg !== '' && !in_array($newReg, $valid, true)) $newReg = '';

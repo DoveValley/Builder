@@ -19,7 +19,8 @@ require_once __DIR__ . '/../bootstrap.php';
 require_once __DIR__ . '/../lib/acquire.php';
 
 $from = (string) ($_POST['from'] ?? 'view=domains');
-if (!preg_match('/^view=[a-z]+[A-Za-z0-9=&_.\-%]*$/', $from)) $from = 'view=domains';
+// \z rather than $ — PCRE's $ also matches before a trailing newline.
+if (!preg_match('/^view=[a-z]+[A-Za-z0-9=&_.\-%]*\z/', $from)) $from = 'view=domains';
 $back = '../index.php?' . $from;
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !infra_check_csrf()) {

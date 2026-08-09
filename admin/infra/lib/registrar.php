@@ -1,7 +1,10 @@
 <?php
 /**
  * infra/lib/registrar.php — nameserver switching at the registrar (Phase-3 go-live).
- * Pluggable per registrar type. NameSilo is wired; others fall back to MANUAL.
+ * Pluggable per registrar type. All five (namecheap, namesilo, porkbun, dynadot,
+ * cloudflare) are wired for availability/purchase/NS as their APIs allow — see
+ * infra_registrar_types() for what each one can actually do; anything else falls
+ * back to MANUAL.
  * Config: config/registrar.json = { "registrars": { "namesilo": {"type":"namesilo","api_key":"…"} } }
  * A domain's stored `registrar` name is matched (lowercased) to a config key.
  */
@@ -48,9 +51,11 @@ function infra_registrar_names(): array
  * something the code cannot deliver:
  *   `buy`       — the registrar's API is capable of registering a domain.
  *                 Drives planning: which registrars may be assigned / spread.
- *   `buy_wired` — a purchase adapter is implemented HERE. Only NameSilo today;
- *                 the rest land in pass two. The UI says so rather than implying
- *                 a scheduled buy will complete.
+ *   `buy_wired` — a purchase adapter is implemented HERE. All five are, as of
+ *                 2026-08-06, each verified by a real purchase. The flag stays
+ *                 because it is what the UI reads to avoid promising a buy it
+ *                 cannot complete — a sixth registrar would arrive with `buy`
+ *                 true and `buy_wired` false.
  * Neither is a promise the account is funded or the key valid — that is Test.
  *
  * Only types listed here can be added. Spaceship was dropped deliberately: it is
@@ -846,12 +851,33 @@ function infra_registrar_list_owned(string $name): array
             }
             break;
         case 'cloudflare':
-            $r = infra_reg_cloudflare_call($cfg, 'GET', '/registrar/domains', ['per_page' => 200]);
-            foreach (($r['json']['result'] ?? []) as $d) if (!empty($d['name'])) $out[] = $d['name'];
+            // PAGINATED, like Namecheap above. A truncated holdings list does not
+            // fail loudly — it makes the collision guard answer "someone else owns
+            // this" about a domain you hold, which is the exact mistake the guard
+            // exists to prevent, and it only starts happening once the fleet is big
+            // enough that nobody is checking by hand any more.
+            // PAGES ARE 0-INDEXED HERE — unlike Cloudflare's own zone API, which
+            // starts at 1. Asking for page 1 on a 15-domain account returns an empty
+            // result with total_pages:1, i.e. it looks exactly like "you own nothing"
+            // rather than like an error. Verified against the live account.
+            for ($page = 0; $page <= 50; $page++) {
+                $r = infra_reg_cloudflare_call($cfg, 'GET', '/registrar/domains', ['per_page' => 200, 'page' => $page]);
+                $batch = $r['json']['result'] ?? [];
+                if (!is_array($batch) || !$batch) break;
+                foreach ($batch as $d) if (!empty($d['name'])) $out[] = $d['name'];
+                $totalPages = (int) ($r['json']['result_info']['total_pages'] ?? 0);
+                if ($totalPages ? ($page + 1) >= $totalPages : count($batch) < 200) break;
+            }
             break;
         case 'porkbun':
-            $r = infra_reg_porkbun_call($cfg, '/domain/listAll');
-            foreach (($r['json']['domains'] ?? []) as $d) if (!empty($d['domain'])) $out[] = $d['domain'];
+            // listAll returns at most 1000 rows and takes a `start` offset.
+            for ($start = 0; $start <= 20000; $start += 1000) {
+                $r = infra_reg_porkbun_call($cfg, '/domain/listAll', ['start' => $start]);
+                $batch = $r['json']['domains'] ?? [];
+                if (!is_array($batch) || !$batch) break;
+                foreach ($batch as $d) if (!empty($d['domain'])) $out[] = $d['domain'];
+                if (count($batch) < 1000) break;
+            }
             break;
         case 'dynadot':
             $r = infra_http('GET', 'https://api.dynadot.com/api3.json?' . http_build_query(

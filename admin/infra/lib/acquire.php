@@ -14,6 +14,22 @@ require_once __DIR__ . '/cache.php';
 const INFRA_OWNED_INDEX_TTL = 1800;   // our own registrar holdings change rarely
 
 /**
+ * How long one availability sweep may run before it stops and reports back.
+ *
+ * The registrars are not remotely comparable in speed: NameSilo answers 50 names
+ * per request, Dynadot one per request, and Porkbun ONE PER TEN SECONDS. Checking
+ * 264 names through Porkbun is 44 minutes of a page that never returns — and
+ * PHP's max_execution_time does not stop it, because sleeping and waiting on curl
+ * do not count against it. The browser gives up first, and before this the whole
+ * sweep was thrown away when that happened.
+ *
+ * So: results are written as each batch arrives, and the sweep stops at the
+ * budget and says what is left. A partial check that persists and reports is
+ * useful; an hour-long one that saves nothing is not.
+ */
+const INFRA_AVAIL_TIME_BUDGET = 100;   // seconds
+
+/**
  * Domains held across all configured registrar accounts, cached.
  * Listing 300+ domains is several paged API calls, so it must not run per-check.
  * @return array lowercase domain => registrar name
@@ -38,6 +54,9 @@ function infra_owned_index_cached(): array
  *
  * That last case matters: a network blip must never mark a good name dead.
  *
+ * Bounded by INFRA_AVAIL_TIME_BUDGET: on a slow registrar it checks what it can,
+ * saves it, and reports what is left rather than hanging. Re-running continues.
+ *
  * @param  string[] $domains
  * @return array{summary:string, counts:array}
  */
@@ -55,10 +74,73 @@ function infra_domains_apply_availability(array $domains, string $registrarName)
                 'counts' => $counts];
     }
 
-    $results = infra_registrar_check_availability($domains, $registrarName);
-    $mine    = infra_owned_index_cached();
-    $now     = infra_now();
+    $mine = infra_owned_index_cached();
 
+    // Swept in batches the size of one request at this registrar, and WRITTEN AFTER
+    // EACH ONE. Previously every result was collected before a single row was
+    // saved, so a sweep that died at 90% — the normal outcome on a slow registrar —
+    // persisted nothing at all.
+    //
+    // One-per-request registrars end up with a chunk per domain, which means their
+    // adapters' own inter-domain pacing no longer applies. That is fine, and better:
+    // Porkbun's checker honours the ttlRemaining the server itself reports rather
+    // than a hard-coded ten seconds.
+    $def       = infra_registrar_type_def($registrarName);
+    $perCall   = max(1, (int) ($def['check_bulk'] ?? 1));
+    $started   = microtime(true);
+    $unchecked = [];
+
+    foreach (array_chunk($domains, $perCall) as $ci => $chunk) {
+        if ($ci > 0 && (microtime(true) - $started) > INFRA_AVAIL_TIME_BUDGET) {
+            $unchecked = array_merge($unchecked, $chunk);
+            continue;   // out of budget: collect the rest to report, check nothing more
+        }
+        $results = infra_registrar_check_availability($chunk, $registrarName);
+        infra_avail_write_results($chunk, $results, $mine, $counts);
+    }
+
+    $parts = ["{$counts['available']} available"];
+    if ($counts['premium']) $parts[] = "{$counts['premium']} of them premium";
+    if ($counts['taken'])   $parts[] = "{$counts['taken']} taken";
+    if ($counts['self'])    $parts[] = "{$counts['self']} already yours";
+    if ($counts['failed'])  $parts[] = "{$counts['failed']} could not be checked";
+
+    // Never a silent cap. Say how many were skipped, that they are unchanged, and
+    // which registrar would have got through them.
+    $note = '';
+    if ($unchecked) {
+        $fast = infra_default_checker();
+        $note .= "\n⏱ Stopped after " . round(microtime(true) - $started) . 's with '
+              . count($unchecked) . ' domain(s) still unchecked — they keep whatever verdict they had. '
+              . $registrarName . ' is ' . (infra_registrar_checkers()[$registrarName]['speed'] ?? 'slow')
+              . '. Run it again to continue'
+              . ($fast !== '' && $fast !== $registrarName ? ", or pick {$fast} for a list this long." : '.');
+    }
+
+    $checked = count($domains) - count($unchecked);
+    // Getting a verdict for NOTHING in a multi-domain batch is the signature of an
+    // adapter misreading the response, not of a bad batch of names — both registrar
+    // batch bugs found so far looked exactly like this. Name it rather than letting
+    // it read as a normal result.
+    if ($checked > 1 && $counts['failed'] === $checked) {
+        $note .= "\n⚠ Not one domain got a verdict — that usually means the {$registrarName} adapter"
+              . ' is misreading the response, rather than anything being wrong with the names.';
+    }
+
+    return [
+        'summary' => 'Availability via ' . $registrarName . ' — ' . implode(', ', $parts) . '.' . $note,
+        'counts'  => $counts,
+    ];
+}
+
+/**
+ * Write one batch of availability results to fleet state, tallying as it goes.
+ * Split out of the sweep so results are persisted per batch rather than only
+ * after every batch has returned.
+ */
+function infra_avail_write_results(array $domains, array $results, array $mine, array &$counts): void
+{
+    $now = infra_now();
     foreach ($domains as $d) {
         $res   = $results[$d] ?? ['available' => null, 'price' => '', 'note' => 'no result returned'];
         $rec   = infra_state_get_domain($d);
@@ -89,27 +171,6 @@ function infra_domains_apply_availability(array $domains, string $registrarName)
         }
         infra_state_upsert_domain($write);
     }
-
-    $parts = ["{$counts['available']} available"];
-    if ($counts['premium']) $parts[] = "{$counts['premium']} of them premium";
-    if ($counts['taken'])   $parts[] = "{$counts['taken']} taken";
-    if ($counts['self'])    $parts[] = "{$counts['self']} already yours";
-    if ($counts['failed'])  $parts[] = "{$counts['failed']} could not be checked";
-
-    // Getting a verdict for NOTHING in a multi-domain batch is the signature of an
-    // adapter misreading the response, not of a bad batch of names — both registrar
-    // batch bugs found so far looked exactly like this. Name it rather than letting
-    // it read as a normal result.
-    $note = '';
-    if (count($domains) > 1 && $counts['failed'] === count($domains)) {
-        $note = "\n⚠ Not one domain got a verdict — that usually means the {$registrarName} adapter"
-              . ' is misreading the response, rather than anything being wrong with the names.';
-    }
-
-    return [
-        'summary' => 'Availability via ' . $registrarName . ' — ' . implode(', ', $parts) . '.' . $note,
-        'counts'  => $counts,
-    ];
 }
 
 /**
@@ -146,7 +207,7 @@ function infra_domain_buy(string $domain, array $opts = []): array
     if (empty($def['buy_wired'])) {
         return $fail(empty($def['buy'])
             ? $def['label'] . ' cannot register domains over its API at all — buy it in their dashboard, then use "Mark as owned"'
-            : $def['label'] . "'s purchase adapter is not written yet — only NameSilo can buy today");
+            : $def['label'] . "'s purchase adapter is not written here yet");
     }
     if (!infra_registrar_config($registrar)) return $fail("no saved credentials for '{$registrar}'");
 
