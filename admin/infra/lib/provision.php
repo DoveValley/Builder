@@ -5,6 +5,7 @@
  * + fully stages the Cloudflare zone, then persists the record to fleet state.
  */
 require_once __DIR__ . '/fleet.php';   // pulls store/plesk/cloudflare/state + infra_registrar_map()
+require_once __DIR__ . '/acquire.php'; // infra_domain_buy() — the ONE guarded purchase path
 // infra_valid_domain() now lives in store.php (shared with the domain loader).
 
 /**
@@ -25,19 +26,44 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
     $prov      = ['domain' => $domain, 'server_id' => $server['id'] ?? '', 'cf_account_id' => $account['id'] ?? ''];
     if ($regName !== '') $prov['registrar'] = $regName;   // record chosen registrar even without auto-buy
 
-    /* 0) Register (buy) the domain — real money. If it fails, do NOT provision further. */
+    /* 0) Register (buy) the domain — real money. If it fails, do NOT provision further.
+     *
+     * Goes through infra_domain_buy(), the same call the Buy button uses, rather
+     * than straight to infra_registrar_register(). Calling the adapter directly
+     * meant this path had NONE of the rails the Buy button has — no already-owned
+     * check, no availability re-check in the moment before paying — and, worse, it
+     * never wrote the ownership receipt: a domain bought here got status 'staged'
+     * and an empty `owned` column, so the table said "Own: No" for a domain it had
+     * just paid for, and the "refusing to buy it twice" guard could not fire on it.
+     *
+     * One purchase path. A rail that only some of the buttons use is not a rail. */
     if ($doReg) {
         if ($regName === '') {
             return ['ok' => false, 'lines' => ['Registrar: ✗ no registrar selected for registration']];
         }
-        $rr = infra_registrar_register($domain, $years, $regName);   // NS left at registrar default; go-live switches to CF
-        if ($rr['ok']) {
-            $lines[] = "Registrar: ✓ {$rr['message']}";
+        $ex = infra_state_get_domain($domain);
+        if (($ex['owned'] ?? '') === 'yes') {
+            $lines[] = 'Registrar: — already owned (skipped, nothing charged)';
         } else {
-            $lines[] = "Registrar: ✗ {$rr['message']}";
-            $prov['status'] = 'register-failed';
-            infra_state_upsert_domain($prov);
-            return ['ok' => false, 'lines' => $lines];   // abort — don't provision a domain we don't own
+            // infra_domain_buy() reads the registrar off the record, so the choice
+            // made on the form is recorded before it runs.
+            infra_state_add_new_domain($domain);
+            infra_state_upsert_domain(['domain' => $domain, 'buy_registrar' => $regName]);
+
+            if ($regName === 'namecheap' && $years < 3) {
+                $lines[] = 'Registrar: ⚠ Namecheap cannot set auto-renew over its API — a '
+                         . $years . 'yr term will lapse unless you renew it by hand (3yr costs ~10c/yr more)';
+            }
+            $rr = infra_domain_buy($domain, ['years' => $years, 'auto_renew' => true]);
+            if ($rr['ok']) {
+                $lines[] = "Registrar: ✓ {$rr['message']}";
+            } else {
+                $lines[] = "Registrar: ✗ {$rr['message']}";
+                // infra_domain_buy() has already recorded 'buy-failed' + the reason;
+                // persist only the assignment here so that record survives intact.
+                infra_state_upsert_domain($prov);
+                return ['ok' => false, 'lines' => $lines];   // abort — don't provision a domain we don't own
+            }
         }
     }
 
@@ -97,7 +123,9 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
     }
 
     if (empty($prov['registrar'])) $prov['registrar'] = infra_registrar_map()[$domain]['registrar'] ?? '';
-    $prov['status']    = $ok ? 'staged' : 'partial';
+    // 'staged' means infrastructure exists. Buying alone does not make it so — a
+    // register-only run leaves the domain at 'owned', which is what it is.
+    if ($doPlesk || $doCf) $prov['status'] = $ok ? 'staged' : 'partial';
     infra_state_upsert_domain($prov);
 
     return ['ok' => $ok, 'lines' => $lines];
