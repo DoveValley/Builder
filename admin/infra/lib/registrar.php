@@ -73,9 +73,13 @@ function infra_registrar_types(): array
               . '<code>IsSuccess="true"</code> &mdash; even when sent no parameter at all &mdash; while changing nothing. '
               . 'It is absent from Namecheap\'s documented API, and their knowledgebase says auto-renew is a dashboard-only setting. '
               . 'The console does not call it: it reads the real state and reports that.<br><br>'
-              . '<strong>What to do:</strong> register for <strong>more years up front</strong> (multi-year costs about 10&cent;/yr more &mdash; '
-              . '1yr $11.28 vs 2&ndash;10yr $11.38 &mdash; so a 3 or 10 year term is near-free insurance that cannot fail), '
-              . 'or switch it on by hand per domain in the Namecheap dashboard, or simply buy fleet domains at one of the other four.'],
+              . '<strong>The console buys a 1-year term here, like everywhere else</strong>, so a Namecheap domain '
+              . 'expires in a year unless something is done about it. It used to buy 3 years automatically; across a '
+              . 'few hundred domains that ties up two extra years of cost up front to defer a risk rather than remove it.<br><br>'
+              . '<strong>What to do, per domain:</strong> switch auto-renew on by hand in the Namecheap dashboard; '
+              . 'or choose <strong>more years up front</strong> on the New Site / Bulk form (multi-year costs about '
+              . '10&cent;/yr more &mdash; 1yr $11.28 vs 2&ndash;10yr $11.38 &mdash; so a long term is near-free insurance '
+              . 'that cannot fail); or simply buy fleet domains at one of the other four.'],
             'fields' => [
                 'api_user'  => ['label' => 'API user',  'secret' => false],
                 'api_key'   => ['label' => 'API key',   'secret' => true],
@@ -398,9 +402,9 @@ function infra_reg_namecheap_register(string $domain, int $years, array $cfg, ar
     } elseif ($actual) {
         $msg .= ', auto-renew ON (verified)';
     } else {
-        $msg .= ', auto-renew OFF — Namecheap cannot set this over its API, so cover the'
-              . " expiry instead: register for more years (only 10c/yr more) or let the"
-              . ' renewal monitor handle it. Expires in ' . $years . 'yr.';
+        $msg .= ', auto-renew OFF — Namecheap cannot set this over its API. It expires in '
+              . $years . 'yr and WILL NOT RENEW ITSELF: switch auto-renew on for it in the'
+              . ' Namecheap dashboard, or extend the term there.';
     }
     return ['ok' => true, 'message' => $msg];
 }

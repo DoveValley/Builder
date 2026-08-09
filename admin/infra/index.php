@@ -529,13 +529,18 @@ if ($view === 'domains') {
                     $bDef  = $bReg !== '' ? infra_registrar_type_def($bReg) : [];
                     $bOk   = $r['ready_to_buy'] === 'yes' && $bReg !== '' && !empty($bDef['buy_wired']);
                     $bCost = $r['avail_price'] !== '' ? '$' . $r['avail_price'] : 'the quoted price';
-                    $bYrs  = strtolower($bReg) === 'namecheap' ? 3 : 1;
+                    // Every registrar buys a 1-year term. Namecheap gets a warning in the
+                    // confirm rather than a longer term: its auto-renew cannot be set over
+                    // the API, so this one really does need a dashboard visit.
+                    $bWarn = strtolower($bReg) === 'namecheap'
+                        ? '\n\nNote: Namecheap cannot set auto-renew over its API, so this expires in 1 year and will not renew itself.'
+                        : '';
                     ?>
                     <?php if ($bOk): ?>
                       <button class="btn" style="background:#991b1b;padding:3px 11px;font-size:11px"
                               type="submit" formaction="actions/domain_buy.php"
                               name="domain" value="<?= ih($d) ?>"
-                              onclick="return confirm('Buy <?= ih($d) ?>\n\nat <?= ih($bReg) ?> for <?= ih($bCost) ?><?= $bYrs > 1 ? ', ' . $bYrs . ' years' : '' ?>.\n\nThis spends real money and cannot be undone.');">Buy</button>
+                              onclick="return confirm('Buy <?= ih($d) ?>\n\nat <?= ih($bReg) ?> for <?= ih($bCost) ?>, 1 year.<?= $bWarn ?>\n\nThis spends real money and cannot be undone.');">Buy</button>
                     <?php elseif ($r['ready_to_buy'] !== 'yes'): ?>
                       <span style="color:#9ca3af;font-size:11px">not ready</span>
                     <?php elseif ($bReg === ''): ?>
@@ -961,10 +966,10 @@ if ($view === 'buyqueue') {
                     <input type="hidden" name="quick" value="1">
                     <input type="hidden" name="from" value="view=buyqueue">
                     <input type="hidden" name="domain" value="<?= ih($dom) ?>">
-                    <input type="hidden" name="years" value="<?= strtolower($r['buy_registrar']) === 'namecheap' ? 3 : 1 ?>">
+                    <input type="hidden" name="years" value="1">
                     <input type="hidden" name="auto_renew" value="1">
                     <button class="btn" style="background:#991b1b;padding:4px 12px;font-size:12px" type="submit"
-                      onclick="return confirm('Buy <?= ih($dom) ?> at <?= ih($r['buy_registrar']) ?> for <?= ih($price) ?>?\n\nThis spends real money and cannot be undone.');">Buy</button>
+                      onclick="return confirm('Buy <?= ih($dom) ?> at <?= ih($r['buy_registrar']) ?> for <?= ih($price) ?>, 1 year.<?= strtolower($r['buy_registrar']) === 'namecheap' ? '\n\nNote: Namecheap cannot set auto-renew over its API, so this will not renew itself.' : '' ?>\n\nThis spends real money and cannot be undone.');">Buy</button>
                   </form>
                 <?php endif; ?>
                 <a class="btn sec" style="padding:4px 10px;font-size:12px" href="index.php?view=domain&d=<?= ih($dom) ?>">Open &rarr;</a>
@@ -975,7 +980,9 @@ if ($view === 'buyqueue') {
           <div class="ic-note" style="margin-top:14px;margin-bottom:0">
             <strong>Buy</strong> purchases that one domain immediately &mdash; real money, no undo. Availability is
             re-checked in the moment before paying, so a name taken since the last check is never paid for.
-            Namecheap buys are placed for <strong>3 years</strong>, since its auto-renew cannot be set over the API.
+            Every registrar is bought on a <strong>1-year</strong> term; use the years field on New Site or Bulk
+            for anything longer. <strong>Namecheap domains will not renew themselves</strong> &mdash; its auto-renew
+            cannot be set over the API, so each one needs a dashboard visit or a longer term chosen deliberately.
             Nothing here buys on its own.
           </div>
         <?php endif; ?>

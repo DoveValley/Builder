@@ -50,9 +50,10 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
             infra_state_add_new_domain($domain);
             infra_state_upsert_domain(['domain' => $domain, 'buy_registrar' => $regName]);
 
-            if ($regName === 'namecheap' && $years < 3) {
-                $lines[] = 'Registrar: ⚠ Namecheap cannot set auto-renew over its API — a '
-                         . $years . 'yr term will lapse unless you renew it by hand (3yr costs ~10c/yr more)';
+            if ($regName === 'namecheap') {
+                $lines[] = 'Registrar: ⚠ Namecheap cannot set auto-renew over its API — this '
+                         . $years . 'yr term will lapse unless you switch auto-renew on in their'
+                         . ' dashboard, or buy a longer term here';
             }
             $rr = infra_domain_buy($domain, ['years' => $years, 'auto_renew' => true]);
             if ($rr['ok']) {

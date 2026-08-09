@@ -34,11 +34,17 @@ if ($domain === '') {
     header('Location: ' . $back); exit;
 }
 
-// Namecheap cannot set auto-renew over its API, so its domains are bought on a
-// longer term instead — the only protection that does not rely on someone
-// remembering to visit a dashboard. Multi-year there costs ~10c/yr more.
-$rec   = infra_state_get_domain($domain);
-$years = (strtolower((string) ($rec['buy_registrar'] ?? '')) === 'namecheap') ? 3 : 1;
+// ONE YEAR EVERYWHERE, Namecheap included. It used to buy a 3-year term there
+// because Namecheap's auto-renew cannot be set over its API, and a longer term is
+// the only protection that does not depend on someone visiting a dashboard — but
+// across a fleet this size that ties up two extra years of cost per domain up
+// front. The longer term never removed the lapse risk anyway, it deferred it, so
+// the risk is REPORTED on the purchase instead (see infra_reg_namecheap_register,
+// which reads the real auto-renew state back and says so).
+//
+// The years field on the New Site / Bulk forms still lets a longer term be chosen
+// deliberately for a domain worth protecting that way.
+$years = 1;
 
 $r = infra_domain_buy($domain, ['years' => $years, 'auto_renew' => true]);
 infra_set_flash($r['ok'] ? 'ok' : 'err',
