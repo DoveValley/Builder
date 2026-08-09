@@ -117,18 +117,32 @@ function infra_fleet_domains(): array
 
         // A domain still in the acquisition stage has no infrastructure BY DESIGN,
         // so it must never be reported as drift — otherwise loading 400 names to
-        // buy would light up 400 false alarms.
-        $acquiring = $st && in_array($st['status'] ?? '', ['begin', 'ready', 'buy-failed'], true);
+        // buy would light up 400 false alarms. Shared definition (state.php), so
+        // this view and the Go-Live queue cannot drift apart on what "acquiring" means.
+        $acquiring = infra_is_acquiring($st);
 
         if     ($acquiring)  $drift = null;
         elseif ($p && !$z)   $drift = 'no-cf-zone';     // on a VPS but no CF zone
         elseif (!$p && $z)   $drift = 'orphan-zone';    // CF zone with no VPS site
         else                 $drift = null;
 
-        if     ($z && ($z['status'] ?? '') === 'active') $state = 'live';    // NS switched → serving
+        // An acquisition-stage domain reports the status we recorded, whatever
+        // Cloudflare says about it. A CLOUDFLARE-REGISTERED domain gets an active
+        // zone the moment it is bought — that is the registrar parking it on
+        // Cloudflare nameservers, not a site serving traffic — so reading zone
+        // status first counted 15 empty, unprovisioned domains as live sites in the
+        // inventory tiles. What we know about our own purchase beats what a zone
+        // status implies about it.
+        //
+        // Deliberately NOT also requiring a Plesk site for 'live': when a Plesk box
+        // is unreachable the whole server is skipped from the index, so that test
+        // would flip every genuinely live domain on it to 'staged' at once — a worse
+        // lie than the one being fixed, and one that appears exactly during an outage.
+        if     ($acquiring)                               $state = $st['status'] ?: 'begin';
+        elseif ($z && ($z['status'] ?? '') === 'active')  $state = 'live';    // NS switched → serving
         elseif ($z && ($z['status'] ?? '') === 'pending') $state = 'staged'; // zone exists, NS not switched
         elseif ($p)                                       $state = 'staged'; // plesk only
-        elseif ($st && !empty($st['status']))             $state = $st['status']; // stored (incl. begin/ready/owned)
+        elseif ($st && !empty($st['status']))             $state = $st['status']; // stored
         elseif ($st)                                      $state = 'begin';  // tracked but statusless
         else                                              $state = 'unknown';
 

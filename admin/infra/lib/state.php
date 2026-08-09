@@ -126,6 +126,39 @@ function infra_niche(string $v): string
 const INFRA_STATUSES = ['begin','ready','owned','buy-failed',
     'staged','queued','releasing','awaiting-ns','live','partial','register-failed'];
 
+/**
+ * The statuses that mean "no infrastructure exists yet, BY DESIGN".
+ *
+ * One definition, because every screen that forgets it says something false about
+ * the same rows: the Domains view would report 400 loaded names as drift, and the
+ * Go-Live queue would offer to release domains nobody has bought. Both had their
+ * own copy of this list — one of them incomplete — which is exactly how they came
+ * to disagree about the same fleet.
+ *
+ * 'owned' belongs here too: a bought domain has a receipt and nothing else until
+ * it is provisioned, at which point provisioning moves it on to 'staged'.
+ */
+const INFRA_ACQUISITION_STATUSES = ['begin', 'ready', 'buy-failed', 'owned'];
+
+/**
+ * The statuses a human may set by hand on the domain page.
+ *
+ * The acquisition ones are deliberately absent: 'ready' is earned by an
+ * availability check and 'owned' is a receipt written by a purchase. Offering
+ * them in a dropdown would let someone type a fact that never happened — and,
+ * because the dropdown listed exactly these seven while every real domain sat in
+ * one of the other four, no option matched, the browser silently selected the
+ * first, and saving an unrelated field reset the domain to 'staged'.
+ */
+const INFRA_STATUSES_MANUAL = ['staged', 'queued', 'releasing', 'awaiting-ns', 'live', 'partial', 'register-failed'];
+
+/** Is this record still in the acquisition stage (bought or not, never provisioned)? */
+function infra_is_acquiring(?array $rec): bool
+{
+    if (!$rec) return false;
+    return in_array($rec['status'] ?: 'begin', INFRA_ACQUISITION_STATUSES, true);
+}
+
 /** Insert/merge a domain record (preserves existing fields not supplied). */
 function infra_state_upsert_domain(array $in): void
 {

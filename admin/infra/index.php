@@ -103,7 +103,10 @@ if ($view === 'domain') {
         infra_footer(); exit;
     }
     $regs = infra_registrar_names();
-    $statuses = ['staged', 'queued', 'releasing', 'awaiting-ns', 'live', 'partial', 'register-failed'];
+    // Only the infrastructure statuses are hand-settable, and only once the domain
+    // has left the acquisition stage — see INFRA_STATUSES_MANUAL.
+    $statuses  = INFRA_STATUSES_MANUAL;
+    $acquiring = infra_is_acquiring($rec);
     ?>
     <div style="margin-bottom:14px"><a class="ic-back" style="color:#2563eb" href="index.php?view=domains">&larr; All domains</a></div>
     <div class="ic-card"><h2><?= ih($d) ?> <span class="badge b-mut"><?= ih($rec['status'] ?: '—') ?></span></h2><div class="body">
@@ -131,7 +134,8 @@ if ($view === 'domain') {
       </h2>
       <div class="body">
         <?php if ($owned): ?>
-          <p style="margin-top:0">Bought <?= $rec['owned_at'] ? 'on <strong>' . ih($rec['owned_at']) . '</strong> UTC' : '' ?><?= $rec['registrar'] ? ' at <strong>' . ih($rec['registrar']) . '</strong>' : '' ?>. Nothing further to do here — it is ready to provision.</p>
+          <?php // Central, not UTC — infra_now() stamps every timestamp in INFRA_TZ. ?>
+          <p style="margin-top:0">Bought <?= $rec['owned_at'] ? 'on <strong>' . ih($rec['owned_at']) . '</strong> Central' : '' ?><?= $rec['registrar'] ? ' at <strong>' . ih($rec['registrar']) . '</strong>' : '' ?>. Nothing further to do here — it is ready to provision.</p>
         <?php else: ?>
           <table style="margin-bottom:12px">
             <tr><th style="width:170px">Ready to buy</th><td><?= infra_ready_cell($rec + ['state' => $rec['status']]) ?></td></tr>
@@ -149,7 +153,7 @@ if ($view === 'domain') {
               <strong><?= ih($buyDef['label'] ?? $buyReg) ?> cannot complete a purchase from here.</strong>
               <?= empty($buyDef['buy'])
                   ? 'It has no registration endpoint at all — buy it in their dashboard, then record it below.'
-                  : 'Its purchase adapter is not written yet (only NameSilo can buy today) — buy it by hand for now and record it below.' ?>
+                  : 'Its purchase adapter is not written here yet — buy it by hand for now and record it below.' ?>
             </div>
           <?php endif; ?>
 
@@ -210,11 +214,26 @@ if ($view === 'domain') {
               <option value="">—</option>
               <?php foreach ($regs as $rn): ?><option value="<?= ih($rn) ?>" <?= $rec['registrar'] === $rn ? 'selected' : '' ?>><?= ih($rn) ?></option><?php endforeach; ?>
             </select></td></tr>
-          <tr><th>Niche</th><td><input name="niche" value="<?= ih($rec['niche']) ?>" style="width:200px;padding:7px 10px;border:1px solid #d1d5db;border-radius:8px"></td></tr>
-          <tr><th>Status</th><td>
-            <select name="status" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
-              <?php foreach ($statuses as $st): ?><option <?= $rec['status'] === $st ? 'selected' : '' ?>><?= ih($st) ?></option><?php endforeach; ?>
+          <tr><th>Niche</th><td>
+            <select name="niche" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
+              <option value="">—</option>
+              <?php foreach (INFRA_NICHES as $nz): ?><option value="<?= ih($nz) ?>" <?= $rec['niche'] === $nz ? 'selected' : '' ?>><?= ih($nz) ?></option><?php endforeach; ?>
             </select></td></tr>
+          <tr><th>Status</th><td>
+            <?php if ($acquiring): ?>
+              <?= infra_state_cell($rec['status'] ?: 'begin') ?>
+              <input type="hidden" name="status" value="<?= ih($rec['status']) ?>">
+              <div style="color:#6b7280;font-size:12px;margin-top:4px">
+                Set by the acquisition stage, not by hand — a domain becomes <code>ready</code> when an
+                availability check says so, and <code>owned</code> when a purchase completes. It becomes
+                settable here once it has been provisioned.
+              </div>
+            <?php else: ?>
+              <select name="status" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
+                <?php foreach ($statuses as $st): ?><option value="<?= ih($st) ?>" <?= $rec['status'] === $st ? 'selected' : '' ?>><?= ih($st) ?></option><?php endforeach; ?>
+              </select>
+            <?php endif; ?>
+            </td></tr>
         </table>
         <div style="margin-top:12px"><button class="btn" type="submit">Save changes</button></div>
       </form>
@@ -685,7 +704,7 @@ if ($view === 'new') {
                 </select>
                 <label style="margin-left:12px"><input type="checkbox" name="do_register"> Register (buy) &mdash; <strong style="color:#991b1b">costs money</strong></label>
                 for <input type="number" name="years" value="1" min="1" max="10" style="width:56px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px"> yr
-                <div style="color:#6b7280;font-size:12px;margin-top:4px">Auto-buy wired for NameSilo. Leave unchecked if the domain is already registered — the selected registrar is still recorded for the go-live NS switch.</div>
+                <div style="color:#6b7280;font-size:12px;margin-top:4px">Auto-buy is wired for all five registrars, and goes through the same guards as the Buy button — availability is re-checked immediately before paying. Leave unchecked if the domain is already registered; the selected registrar is still recorded for the go-live NS switch.</div>
               <?php else: ?><span class="badge b-mut">no registrar configured</span><?php endif; ?>
             </td></tr>
             <tr><th>Plesk server</th><td>
@@ -788,8 +807,14 @@ if ($view === 'golive') {
     infra_header('golive');
     $all = infra_state_all_domains();
     $queue = []; $live = [];
-    $cStaged = $cQueued = $cLive = 0;
+    $cStaged = $cQueued = $cLive = $cAcquiring = 0;
     foreach ($all as $dom => $r) {
+        // Go-live switches nameservers at the registrar to the Cloudflare pair, so
+        // it only ever applies to a domain that HAS a Cloudflare zone. A domain
+        // still being bought has none — counting those as "staged" made this tab
+        // claim 402 domains were ready to release when none of them were, and put
+        // a Release button on rows nobody owns.
+        if (infra_is_acquiring($r)) { $cAcquiring++; continue; }
         $st = $r['status'] ?? '';
         if ($st === 'live') { $live[$dom] = $r; $cLive++; }
         else {
@@ -808,6 +833,7 @@ if ($view === 'golive') {
       <div class="ic-tile"><div class="n"><?= $cStaged ?></div><div class="l">Staged</div></div>
       <div class="ic-tile"><div class="n"><?= $cQueued ?></div><div class="l">Queued</div></div>
       <div class="ic-tile"><div class="n"><?= $cLive ?></div><div class="l">Live</div></div>
+      <div class="ic-tile" style="background:#f9fafb"><div class="n" style="color:#6b7280"><?= $cAcquiring ?></div><div class="l">Still acquiring</div></div>
     </div>
 
     <div class="ic-note">Go-live = switching the domain's <strong>nameservers at the registrar</strong> to the Cloudflare pair. Cloudflare then flips the zone to <em>active</em> and the console detects it. Registrars with API credentials (e.g. NameSilo, Namecheap) switch NS <strong>automatically</strong> on Release / the daily cron; any others surface the NS to set manually. Use <strong>Refresh</strong> to poll Cloudflare and mark domains live.</div>
@@ -828,7 +854,11 @@ if ($view === 'golive') {
     </div></div>
 
     <div class="ic-card"><h2>Queue (<?= count($queue) ?>)</h2><div class="body">
-      <?php if (!$queue): ?><div class="ic-empty">Nothing staged/queued. Provision domains first.</div>
+      <?php if (!$queue): ?><div class="ic-empty">Nothing staged or queued.<?= $cAcquiring
+          ? ' <strong>' . $cAcquiring . '</strong> domain(s) are still in the acquisition stage —'
+            . ' buy them and provision them (New Site / Bulk) before they can go live.'
+              . ' <a href="index.php?view=domains">Domains &rarr;</a>'
+          : ' Provision domains first.' ?></div>
       <?php else: ?>
         <input class="ic-search" type="search" placeholder="Filter…" data-target="tbl-q">
         <table id="tbl-q"><thead><tr><th>Domain</th><th>Registrar</th><th>Target nameservers</th><th>Go-live</th><th>Status</th><th></th></tr></thead><tbody>

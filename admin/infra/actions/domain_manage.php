@@ -15,7 +15,10 @@ $toList  = '../index.php?view=domains';
 // A row button should return you to the list you pressed it from, not to the
 // domain's own page. Only our own view query strings are honoured.
 $from = (string) ($_POST['from'] ?? '');
-if ($from !== '' && preg_match('/^view=[a-z]+[A-Za-z0-9=&_.\-%]*$/', $from)) {
+// \z, not $: PCRE's $ also matches before a trailing newline, which would let a
+// newline through into header(). PHP rejects that outright, so this was a broken
+// redirect rather than an injection — but the allowlist should mean what it says.
+if ($from !== '' && preg_match('/^view=[a-z]+[A-Za-z0-9=&_.\-%]*\z/', $from)) {
     $back = '../index.php?' . $from;
 }
 
@@ -42,13 +45,40 @@ $account = null; foreach (infra_cf_accounts() as $a) if (($a['id'] ?? '') === ($
 
 switch ($action) {
     case 'edit':
-        infra_state_upsert_domain([
-            'domain'    => $domain,
-            'registrar' => strtolower(trim($_POST['registrar'] ?? $rec['registrar'])),
-            'niche'     => trim($_POST['niche'] ?? $rec['niche']),
-            'status'    => trim($_POST['status'] ?? $rec['status']),
-        ]);
-        infra_set_flash('ok', "Updated {$domain}.");
+        // Every field is validated against its own known set, and anything that does
+        // not match leaves the stored value alone rather than overwriting it. The
+        // status field is why: its dropdown offered only the seven infrastructure
+        // states, so for a domain in begin/ready/owned nothing matched, the browser
+        // selected the first option, and saving a niche silently reset the domain to
+        // 'staged' — dropping it out of the acquisition views and into the go-live
+        // pipeline. Rejecting the unknown value is the guard; the form no longer
+        // sends one either.
+        $write   = ['domain' => $domain];
+        $ignored = [];
+
+        $reg = strtolower(trim((string) ($_POST['registrar'] ?? '')));
+        if ($reg === '' || in_array($reg, infra_registrar_names(), true)) $write['registrar'] = $reg;
+        else $ignored[] = "registrar '{$reg}' is not configured";
+
+        // The niche is a fixed list, not free text: 'appliance' / 'Appliance' /
+        // 'appliances' as three groups would quietly break every count.
+        if (array_key_exists('niche', $_POST)) $write['niche'] = infra_niche((string) $_POST['niche']);
+
+        $st = trim((string) ($_POST['status'] ?? ''));
+        if ($st !== '' && $st !== $rec['status']) {
+            if (infra_is_acquiring($rec)) {
+                $ignored[] = "status stays '{$rec['status']}' — an acquisition-stage domain is moved by"
+                           . ' checking availability, buying, or provisioning, not by hand';
+            } elseif (!in_array($st, INFRA_STATUSES_MANUAL, true)) {
+                $ignored[] = "'{$st}' is not a status that can be set by hand";
+            } else {
+                $write['status'] = $st;
+            }
+        }
+
+        infra_state_upsert_domain($write);
+        infra_set_flash($ignored ? 'warn' : 'ok',
+            "Updated {$domain}." . ($ignored ? "\nLeft unchanged: " . implode('; ', $ignored) . '.' : ''));
         header('Location: ' . $back); exit;
 
     case 'delete_zone':
