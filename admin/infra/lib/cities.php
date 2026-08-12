@@ -20,8 +20,30 @@
  */
 
 const INFRA_CITY_COLS  = ['id', 'rank', 'city', 'state', 'ss', 'population', 'lat', 'lng', 'area_codes', 'ac_source'];
-const INFRA_CN_COLS    = ['niche', 'city_id', 'selected', 'volume', 'kd', 'cpc', 'metrics_at', 'metrics_src',
-                          'ahrefs', 'score', 'score_src', 'area_code', 'phone', 'domain', 'note', 'created_at', 'updated_at'];
+
+/** Metrics are stored PER PROVIDER, never merged into one set of columns.
+ *  Ahrefs and DataForSEO do not share a scale — Ahrefs KD 50 comes back as 23
+ *  from DataForSEO, and its volumes run several times higher. Averaging or
+ *  overwriting one with the other would rank cities by which provider happened
+ *  to be used that day. So: one column group each, and a per-niche choice of
+ *  which group the score is computed from. */
+function infra_cn_metric_cols(string $type): array
+{
+    return [$type . '_volume', $type . '_kd', $type . '_cpc', $type . '_at'];
+}
+
+function infra_cn_cols(): array
+{
+    $cols = ['niche', 'city_id', 'selected'];
+    foreach (array_keys(infra_kw_types()) as $type) {
+        foreach (infra_cn_metric_cols($type) as $c) $cols[] = $c;
+    }
+    // volume/kd/cpc/metrics_* are the pre-split columns, kept so old rows survive
+    // the migration below; nothing writes them any more.
+    return array_merge($cols, ['volume', 'kd', 'cpc', 'metrics_at', 'metrics_src', 'ahrefs',
+                               'score', 'score_src', 'area_code', 'phone', 'domain', 'note',
+                               'created_at', 'updated_at']);
+}
 
 /** slug => [label, keyword template]. The template is what gets looked up per city. */
 const INFRA_NICHE_SEED = [
@@ -62,6 +84,12 @@ function infra_cities_init(): PDO
     if (!in_array('template', $nhave, true)) {
         $db->exec('ALTER TABLE niches ADD COLUMN template TEXT DEFAULT ""');
     }
+    // Which provider's numbers the score is computed from. Not a display setting:
+    // scores from different providers are not comparable, so a niche commits to one.
+    if (!in_array('source', $nhave, true)) {
+        $db->exec('ALTER TABLE niches ADD COLUMN source TEXT DEFAULT ""');
+        $db->exec('UPDATE niches SET source = "ahrefs"');
+    }
     // Adding the column is not enough — niches seeded before templates existed
     // would each have an empty one, and an empty template means nothing can be
     // looked up. Backfill from the seed where the slug is known, otherwise from
@@ -89,11 +117,23 @@ function infra_cities_init(): PDO
     // Additive migration, same idea as the domains table: a column added later
     // lands on an existing install without a bespoke migration step.
     $have = $db->query('PRAGMA table_info(city_niche)')->fetchAll(PDO::FETCH_COLUMN, 1);
-    foreach (INFRA_CN_COLS as $col) {
+    $added = [];
+    foreach (infra_cn_cols() as $col) {
         if (!in_array($col, $have, true)) {
             $db->exec('ALTER TABLE city_niche ADD COLUMN ' . $col . ' TEXT DEFAULT ""');
+            $added[] = $col;
             // Rows that predate `selected` were only ever created by selecting.
             if ($col === 'selected') $db->exec('UPDATE city_niche SET selected = "yes"');
+        }
+    }
+    // Carry pre-split metrics into their provider's own columns. metrics_src says
+    // who they came from, so nothing has to be guessed; rows without one are left
+    // alone rather than assigned to a provider that may not have produced them.
+    if (in_array('ahrefs_volume', $added, true)) {
+        foreach (array_keys(infra_kw_types()) as $type) {
+            $db->prepare('UPDATE city_niche SET ' . $type . '_volume = volume, ' . $type . '_kd = kd, '
+                       . $type . '_cpc = cpc, ' . $type . '_at = metrics_at
+                          WHERE metrics_src = ? AND metrics_at <> ""')->execute([$type]);
         }
     }
     // One domain serves one city. Enforced by the database, not just by the form —
@@ -153,6 +193,55 @@ function infra_niche_set_template(string $slug, string $template): void
 {
     infra_cities_init()->prepare('UPDATE niches SET template = ? WHERE slug = ?')
         ->execute([trim($template), infra_niche_slug($slug)]);
+}
+
+/** The provider a niche scores from. Falls back to the first declared provider. */
+function infra_niche_source(string $slug): string
+{
+    $s = infra_niches()[$slug]['source'] ?? '';
+    return isset(infra_kw_types()[$s]) ? $s : (string) array_key_first(infra_kw_types());
+}
+
+/** Switch a niche's scoring source and re-score every row it already holds. */
+function infra_niche_set_source(string $slug, string $source): int
+{
+    $slug = infra_niche_slug($slug);
+    if (!isset(infra_kw_types()[$source])) return 0;
+    infra_cities_init()->prepare('UPDATE niches SET source = ? WHERE slug = ?')->execute([$source, $slug]);
+    return infra_cn_rescore($slug);
+}
+
+/**
+ * Recompute every auto score in a niche against its current source.
+ * Hand-set scores are left alone, as everywhere else.
+ */
+function infra_cn_rescore(string $niche): int
+{
+    require_once __DIR__ . '/keywords.php';
+    $db  = infra_cities_init();
+    $src = infra_niche_source($niche);
+    $st  = $db->prepare('SELECT * FROM city_niche WHERE niche = ?');
+    $st->execute([$niche]);
+    $n = 0;
+    foreach ($st->fetchAll(PDO::FETCH_ASSOC) as $r) {
+        if (($r['score_src'] ?? '') === 'hand') continue;
+        $score = infra_kw_score(infra_cn_metrics($r, $src), $src);
+        $db->prepare('UPDATE city_niche SET score = ?, score_src = ? WHERE niche = ? AND city_id = ?')
+           ->execute([$score === null ? '' : (string) $score, $score === null ? '' : 'auto', $niche, $r['city_id']]);
+        $n++;
+    }
+    return $n;
+}
+
+/** Pull one provider's metric set out of a city_niche row. */
+function infra_cn_metrics(array $row, string $type): array
+{
+    return [
+        'volume' => (string) ($row[$type . '_volume'] ?? ''),
+        'kd'     => (string) ($row[$type . '_kd'] ?? ''),
+        'cpc'    => (string) ($row[$type . '_cpc'] ?? ''),
+        'at'     => (string) ($row[$type . '_at'] ?? ''),
+    ];
 }
 
 /** Deleting a niche drops its selections; the cities themselves are untouched. */
@@ -291,9 +380,7 @@ function infra_cn_all(string $niche): array
 function infra_cn_selected(string $niche): array
 {
     $st = infra_cities_init()->prepare(
-        'SELECT c.*, n.volume, n.kd, n.cpc, n.metrics_at, n.metrics_src, n.ahrefs,
-                n.score, n.score_src, n.area_code, n.phone, n.domain, n.note, n.updated_at
-           FROM city_niche n JOIN cities c ON c.id = n.city_id
+        'SELECT n.*, c.* FROM city_niche n JOIN cities c ON c.id = n.city_id
           WHERE n.niche = ? AND n.selected = "yes" ORDER BY c.rank');
     $st->execute([$niche]);
     return $st->fetchAll(PDO::FETCH_ASSOC);
@@ -373,7 +460,10 @@ function infra_cn_update(string $niche, string $cityId, array $in): string
 
     $set = [];
     $p   = [];
-    foreach (['volume', 'kd', 'cpc', 'ahrefs', 'score', 'area_code', 'phone', 'domain', 'note'] as $col) {
+    // Metrics are not hand-editable any more: they belong to a provider and a
+    // fetch date, and a typed number in a provider's column would be a fact
+    // attributed to a source that never said it.
+    foreach (['score', 'area_code', 'phone', 'domain', 'note'] as $col) {
         if (!array_key_exists($col, $in)) continue;
         $v = trim((string) $in[$col]);
 
@@ -419,30 +509,32 @@ function infra_cn_update(string $niche, string $cityId, array $in): string
  * typed judgement outranks the formula, and a fetch must not silently overwrite
  * it. Same rule as a hand-set availability verdict surviving a re-check.
  */
-function infra_cn_store_metrics(string $niche, string $cityId, array $m, string $src = 'api'): void
+function infra_cn_store_metrics(string $niche, string $cityId, array $m, string $src = 'ahrefs'): void
 {
     require_once __DIR__ . '/keywords.php';
     $db = infra_cities_init();
+    if (!isset(infra_kw_types()[$src])) return;
 
-    $st = $db->prepare('SELECT score_src FROM city_niche WHERE niche = ? AND city_id = ?');
+    $st = $db->prepare('SELECT * FROM city_niche WHERE niche = ? AND city_id = ?');
     $st->execute([$niche, $cityId]);
     $cur = $st->fetch(PDO::FETCH_ASSOC);
     if (!$cur) {
         $db->prepare('INSERT INTO city_niche (niche,city_id,selected,created_at,updated_at) VALUES (?,?,"",?,?)')
            ->execute([$niche, $cityId, infra_now(), infra_now()]);
-        $cur = ['score_src' => ''];
+        $cur = [];
     }
 
-    $set = ['volume = ?', 'kd = ?', 'cpc = ?', 'metrics_at = ?', 'metrics_src = ?', 'updated_at = ?'];
+    // Only this provider's own columns are touched. Fetching from one provider
+    // must never disturb what the other one said about the same city.
+    $set = [$src . '_volume = ?', $src . '_kd = ?', $src . '_cpc = ?', $src . '_at = ?', 'updated_at = ?'];
     $p   = [(string) ($m['volume'] ?? ''), (string) ($m['kd'] ?? ''), (string) ($m['cpc'] ?? ''),
-            infra_now(), $src, infra_now()];
+            infra_now(), infra_now()];
 
-    if (($cur['score_src'] ?? '') !== 'hand') {
-        $score = infra_kw_score([
-            'volume' => (string) ($m['volume'] ?? ''),
-            'kd'     => (string) ($m['kd'] ?? ''),
-            'cpc'    => (string) ($m['cpc'] ?? ''),
-        ]);
+    // The score follows the niche's chosen source, so fetching from the other
+    // provider records its numbers without moving the score.
+    $primary = infra_niche_source($niche);
+    if (($cur['score_src'] ?? '') !== 'hand' && $src === $primary) {
+        $score = infra_kw_score($m, $src);
         $set[] = 'score = ?';     $p[] = $score === null ? '' : (string) $score;
         $set[] = 'score_src = ?'; $p[] = $score === null ? '' : 'auto';
     }
@@ -456,7 +548,7 @@ function infra_cn_store_metrics(string $niche, string $cityId, array $m, string 
  * @param string $scope 'selected' | 'all-known' | 'missing'
  * @param int    $staleDays  re-fetch anything older than this; 0 = only blanks
  */
-function infra_cn_needs_metrics(string $niche, array $cityIds = [], int $staleDays = 30): array
+function infra_cn_needs_metrics(string $niche, array $cityIds = [], int $staleDays = 30, string $type = 'ahrefs'): array
 {
     $db = infra_cities_init();
     if ($cityIds) {
@@ -465,11 +557,14 @@ function infra_cn_needs_metrics(string $niche, array $cityIds = [], int $staleDa
         $st->execute($cityIds);
         return $st->fetchAll(PDO::FETCH_ASSOC);
     }
+    if (!isset(infra_kw_types()[$type])) return [];
+    // Staleness is per provider: numbers fetched from Ahrefs say nothing about
+    // whether DataForSEO has ever been asked about the same city.
     $cut = $staleDays > 0 ? infra_date_plus(-$staleDays) : '9999-12-31';
     $st  = $db->prepare(
         'SELECT c.* FROM city_niche n JOIN cities c ON c.id = n.city_id
           WHERE n.niche = ? AND n.selected = "yes"
-            AND (n.metrics_at = "" OR substr(n.metrics_at,1,10) < ?)
+            AND (n.' . $type . '_at = "" OR n.' . $type . '_at IS NULL OR substr(n.' . $type . '_at,1,10) < ?)
           ORDER BY c.rank');
     $st->execute([$niche, $cut]);
     return $st->fetchAll(PDO::FETCH_ASSOC);

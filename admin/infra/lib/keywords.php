@@ -358,29 +358,49 @@ function infra_kw_batch_size(string $type): int
  * Returns null when there is not enough to judge; the caller leaves the score
  * alone rather than inventing one.
  */
-function infra_kw_score(array $m): ?int
+/**
+ * Where each provider's scale tops out. Measured, not assumed — on the same eight
+ * cities, DataForSEO reported roughly 3x the volume, about 2x the CPC, and a
+ * difficulty of 23 where Ahrefs said 50. Feeding its numbers through the Ahrefs
+ * curve scored every city 8-10, which ranks nothing.
+ *
+ * These are calibrated from a small sample and are meant to be tuned.
+ */
+function infra_kw_calibration(string $type): array
 {
-    $vol = $m['volume'] === '' ? null : (int) $m['volume'];
-    $kd  = $m['kd']     === '' ? null : (int) $m['kd'];
-    $cpc = $m['cpc']    === '' ? null : (float) $m['cpc'];
-    if ($vol === null && $kd === null && $cpc === null) return null;
+    $cal = [
+        'ahrefs'     => ['vol' => 500,  'kd' => 50, 'cpc' => 12.0],
+        'dataforseo' => ['vol' => 1500, 'kd' => 25, 'cpc' => 24.0],
+    ];
+    return $cal[$type] ?? $cal['ahrefs'];
+}
 
-    // Demand: 0 at no searches, 1 at ~500/mo. Log scale — 50 to 100 searches is a
-    // far bigger step than 900 to 1000.
-    $demand = $vol === null ? 0.5 : min(1.0, log10(max(1, $vol)) / log10(500));
-    // Winnability: KD 0 = 1.0, KD 50+ = near 0. These are local service terms;
-    // anything above 40 is not a cheap win.
-    $win    = $kd  === null ? 0.5 : max(0.0, 1 - ($kd / 50));
-    // Lead value: 0 at $0, 1 at $12 a click.
-    $value  = $cpc === null ? 0.5 : min(1.0, $cpc / 12);
+function infra_kw_score(array $m, string $type = 'ahrefs'): ?int
+{
+    $vol = ($m['volume'] ?? '') === '' ? null : (int) $m['volume'];
+    $kd  = ($m['kd']     ?? '') === '' ? null : (int) $m['kd'];
+    $cpc = ($m['cpc']    ?? '') === '' ? null : (float) $m['cpc'];
+    if ($vol === null && $kd === null && $cpc === null) return null;
+    $c = infra_kw_calibration($type);
+
+    // Demand: 0 at no searches, 1 at the provider's ceiling. Log scale — 50 to 100
+    // searches is a far bigger step than 900 to 1000.
+    $demand = $vol === null ? 0.5 : min(1.0, log10(max(1, $vol)) / log10($c['vol']));
+    // Winnability: KD 0 = 1.0, the provider's hopeless mark = 0.
+    $win    = $kd  === null ? 0.5 : max(0.0, 1 - ($kd / $c['kd']));
+    // Lead value: 0 at $0, 1 at the provider's ceiling.
+    $value  = $cpc === null ? 0.5 : min(1.0, $cpc / $c['cpc']);
 
     $score = ($demand * $win * $value) ** (1 / 3);   // geometric mean, keeps 1-10 usable
     return max(1, min(10, (int) round($score * 10)));
 }
 
-function infra_kw_score_formula(): string
+function infra_kw_score_formula(string $type = 'ahrefs'): string
 {
-    return 'Demand (volume, log-scaled to 500/mo) × Winnability (KD, 0 best and 50+ hopeless) '
-         . '× Lead value (CPC, capped at $12) — geometric mean, scaled 1–10. '
-         . 'A zero on any one of the three sinks the city, which is deliberate.';
+    $c = infra_kw_calibration($type);
+    return 'Demand (volume, log-scaled to ' . $c['vol'] . '/mo) × Winnability (KD, 0 best and '
+         . $c['kd'] . '+ hopeless) × Lead value (CPC, capped at $' . number_format($c['cpc'], 0) . ') '
+         . '— geometric mean, scaled 1–10. A zero on any one of the three sinks the city, which is deliberate. '
+         . 'The ceilings differ per provider because their scales do: on the same cities DataForSEO reported '
+         . 'about 3× the volume, 2× the CPC, and difficulty 23 where Ahrefs said 50.';
 }

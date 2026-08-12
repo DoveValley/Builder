@@ -997,7 +997,12 @@ if ($view === 'cities') {
       <?php infra_footer(); exit;
     endif; ?>
 
-    <?php $kwOn = infra_kw_configured(); $tpl = $niches[$niche]['template'] ?? ''; ?>
+    <?php
+    $kwOn    = infra_kw_configured();
+    $tpl     = $niches[$niche]['template'] ?? '';
+    $primary = infra_niche_source($niche);
+    $provs   = infra_kw_types();
+    ?>
     <div class="ic-note">
       Pick the cities <strong><?= ih($niches[$niche]['label']) ?></strong> will target, score them, choose an
       area code, then point a domain at each. This is a <strong>plan</strong> — re-point a domain any time;
@@ -1016,10 +1021,25 @@ if ($view === 'cities') {
           <input name="template" value="<?= ih($tpl) ?>" style="padding:5px 8px;width:280px" placeholder="appliance repair {city}"></label>
         <button class="btn sec" type="submit">Save keyword</button>
       </form>
-      <div style="font-size:12px;color:#6b7280;max-width:340px">
+      <div style="font-size:12px;color:#6b7280;max-width:300px">
         <code>{city}</code>, <code>{state}</code> and <code>{ss}</code> are replaced per row.
         <?php if ($tpl !== ''): ?>Rank 1 becomes “<strong><?= ih(infra_kw_phrase($tpl, ['city' => 'New York', 'state' => 'New York', 'ss' => 'NY'])) ?></strong>”.<?php endif; ?>
       </div>
+      <?php if (count(infra_kw_types()) > 1): ?>
+      <form method="post" action="actions/cities_save.php" style="display:flex;gap:6px;align-items:flex-end">
+        <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+        <input type="hidden" name="action" value="source">
+        <input type="hidden" name="niche" value="<?= ih($niche) ?>">
+        <input type="hidden" name="qs" value="<?= ih($qs) ?>">
+        <label style="font-size:12px" title="Which provider the Score is computed from. The two do not share a scale, so a niche commits to one.">Score from<br>
+          <select name="source" style="padding:5px 8px">
+            <?php foreach (infra_kw_types() as $t => $m): ?>
+              <option value="<?= ih($t) ?>" <?= $t === $primary ? 'selected' : '' ?>><?= ih($m['label']) ?></option>
+            <?php endforeach; ?>
+          </select></label>
+        <button class="btn sec" type="submit">Apply &amp; re-score</button>
+      </form>
+      <?php endif; ?>
       <?php if ($kwOn): ?>
         <form method="post" action="actions/cities_save.php" style="margin-left:auto;display:flex;gap:6px;align-items:flex-end">
           <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
@@ -1089,14 +1109,26 @@ if ($view === 'cities') {
           <div class="ic-empty">No cities picked for this niche yet — switch <em>Show</em> to
             <a href="<?= ih($selfUrl(['show' => 'pool'])) ?>">all cities</a> and tick the ones you want.</div>
         <?php else: ?>
-          <table><thead><tr>
-            <th style="width:24px"></th><th style="width:52px">#</th><th>City</th><th style="width:40px">St</th>
-            <th style="width:76px">Pop</th>
-            <th style="width:70px" title="Monthly searches">Volume</th>
-            <th style="width:56px" title="Ahrefs Keyword Difficulty, 0-100">KD</th>
-            <th style="width:64px" title="Cost per click, US dollars">CPC</th>
-            <th style="width:64px">Score</th>
-            <th style="width:104px">Area code</th><th style="width:130px">Phone</th><th>Domain</th>
+          <table><thead>
+          <tr>
+            <th colspan="5"></th>
+            <?php foreach ($provs as $t => $m): ?>
+              <th colspan="3" style="text-align:center;border-bottom:2px solid <?= $t === $primary ? '#2563eb' : '#e5e7eb' ?>">
+                <?= ih($m['label']) ?><?= $t === $primary ? ' <span style="font-weight:400;font-size:10px;color:#2563eb">scoring</span>' : '' ?>
+              </th>
+            <?php endforeach; ?>
+            <th colspan="4"></th>
+          </tr>
+          <tr>
+            <th style="width:24px"></th><th style="width:46px">#</th><th>City</th><th style="width:34px">St</th>
+            <th style="width:70px">Pop</th>
+            <?php foreach ($provs as $t => $m): ?>
+              <th style="width:58px" title="Monthly searches">Vol</th>
+              <th style="width:42px" title="Keyword difficulty on <?= ih($m['label']) ?>'s own 0-100 scale">KD</th>
+              <th style="width:58px" title="Cost per click, US dollars">CPC</th>
+            <?php endforeach; ?>
+            <th style="width:58px">Score</th>
+            <th style="width:96px">Area code</th><th style="width:118px">Phone</th><th>Domain</th>
           </tr></thead><tbody>
           <?php foreach ($rows as $r): $id = $r['id']; ?>
             <tr>
@@ -1105,10 +1137,14 @@ if ($view === 'cities') {
               <td><strong><?= ih($r['city']) ?></strong></td>
               <td><?= ih($r['ss']) ?></td>
               <td style="text-align:right;color:#6b7280"><?= number_format((int) $r['population']) ?></td>
-              <td><input name="row[<?= ih($id) ?>][volume]" value="<?= ih($r['volume']) ?>" style="width:62px;padding:3px 6px"
-                         title="<?= $r['metrics_at'] ? 'Fetched from ' . ih($r['metrics_src']) . ' ' . ih(substr($r['metrics_at'], 0, 10)) : 'Not fetched yet' ?>"></td>
-              <td><input name="row[<?= ih($id) ?>][kd]" value="<?= ih($r['kd']) ?>" style="width:48px;padding:3px 6px"></td>
-              <td><input name="row[<?= ih($id) ?>][cpc]" value="<?= ih($r['cpc']) ?>" style="width:56px;padding:3px 6px" placeholder="$"></td>
+              <?php foreach ($provs as $t => $pm):
+                  $mm  = infra_cn_metrics($r, $t);
+                  $dim = $t === $primary ? '' : 'color:#9ca3af;';
+                  $tip = $mm['at'] !== '' ? ih($pm['label']) . ', fetched ' . ih(substr($mm['at'], 0, 10)) : 'not fetched from ' . ih($pm['label']); ?>
+                <td style="text-align:right;<?= $dim ?>" title="<?= $tip ?>"><?= $mm['volume'] !== '' ? number_format((int) $mm['volume']) : '<span style="color:#d1d5db">—</span>' ?></td>
+                <td style="text-align:right;<?= $dim ?>"><?= $mm['kd'] !== '' ? ih($mm['kd']) : '<span style="color:#d1d5db">—</span>' ?></td>
+                <td style="text-align:right;<?= $dim ?>"><?= $mm['cpc'] !== '' ? '$' . ih($mm['cpc']) : '<span style="color:#d1d5db">—</span>' ?></td>
+              <?php endforeach; ?>
               <td><input name="row[<?= ih($id) ?>][score]" value="<?= ih($r['score']) ?>" type="number" min="1" max="10" step="1"
                          style="width:52px;padding:3px 6px<?= ($r['score_src'] ?? '') === 'auto' ? ';background:#f8fafc' : '' ?>"
                          title="<?= ($r['score_src'] ?? '') === 'hand' ? 'Set by hand — a fetch will not overwrite it' : (($r['score_src'] ?? '') === 'auto' ? 'Computed from the metrics' : 'Not scored yet') ?>"></td>
@@ -1164,14 +1200,24 @@ if ($view === 'cities') {
       <div class="ic-card">
         <h2><?= number_format($browse['total']) ?> cities <span style="color:#9ca3af;font-weight:400;font-size:13px">&mdash; page <?= $page ?> of <?= $pages ?>, ranked by population</span></h2>
         <div class="body">
-          <table><thead><tr>
-            <th style="width:24px"></th><th style="width:52px">#</th><th>City</th><th style="width:40px">St</th>
-            <th style="width:86px">Population</th>
-            <th style="width:70px" title="Monthly searches">Volume</th>
-            <th style="width:50px" title="Keyword Difficulty, 0-100">KD</th>
-            <th style="width:60px" title="Cost per click">CPC</th>
-            <th style="width:56px">Score</th>
-            <th>Area codes</th><th style="width:96px">In niche</th>
+          <table><thead>
+          <tr>
+            <th colspan="5"></th>
+            <?php foreach ($provs as $t => $m): ?>
+              <th colspan="3" style="text-align:center;border-bottom:2px solid <?= $t === $primary ? '#2563eb' : '#e5e7eb' ?>">
+                <?= ih($m['label']) ?><?= $t === $primary ? ' <span style="font-weight:400;font-size:10px;color:#2563eb">scoring</span>' : '' ?>
+              </th>
+            <?php endforeach; ?>
+            <th colspan="3"></th>
+          </tr>
+          <tr>
+            <th style="width:24px"></th><th style="width:46px">#</th><th>City</th><th style="width:34px">St</th>
+            <th style="width:78px">Population</th>
+            <?php foreach ($provs as $t => $m): ?>
+              <th style="width:58px">Vol</th><th style="width:42px">KD</th><th style="width:58px">CPC</th>
+            <?php endforeach; ?>
+            <th style="width:52px">Score</th>
+            <th>Area codes</th><th style="width:84px">In niche</th>
           </tr></thead><tbody>
           <?php foreach ($browse['rows'] as $r):
               // A row in city_niche means "we know something about this city", NOT
@@ -1186,10 +1232,14 @@ if ($view === 'cities') {
               <td><strong><?= ih($r['city']) ?></strong> <span style="color:#9ca3af;font-size:12px"><?= ih($r['state']) ?></span></td>
               <td><?= ih($r['ss']) ?></td>
               <td style="text-align:right;color:#6b7280"><?= number_format((int) $r['population']) ?></td>
-              <?php $m = $mine[$r['id']] ?? []; ?>
-              <td style="text-align:right"><?= ($m['volume'] ?? '') !== '' ? number_format((int) $m['volume']) : '<span style="color:#d1d5db">—</span>' ?></td>
-              <td style="text-align:right"><?= ($m['kd'] ?? '') !== '' ? ih($m['kd']) : '<span style="color:#d1d5db">—</span>' ?></td>
-              <td style="text-align:right"><?= ($m['cpc'] ?? '') !== '' ? '$' . ih($m['cpc']) : '<span style="color:#d1d5db">—</span>' ?></td>
+              <?php $m = $mine[$r['id']] ?? [];
+              foreach ($provs as $t => $pm):
+                  $mm  = infra_cn_metrics($m, $t);
+                  $dim = $t === $primary ? '' : 'color:#9ca3af;'; ?>
+                <td style="text-align:right;<?= $dim ?>"><?= $mm['volume'] !== '' ? number_format((int) $mm['volume']) : '<span style="color:#d1d5db">—</span>' ?></td>
+                <td style="text-align:right;<?= $dim ?>"><?= $mm['kd'] !== '' ? ih($mm['kd']) : '<span style="color:#d1d5db">—</span>' ?></td>
+                <td style="text-align:right;<?= $dim ?>"><?= $mm['cpc'] !== '' ? '$' . ih($mm['cpc']) : '<span style="color:#d1d5db">—</span>' ?></td>
+              <?php endforeach; ?>
               <td style="text-align:right"><?= ($m['score'] ?? '') !== '' ? '<strong>' . ih($m['score']) . '</strong>' : '<span style="color:#d1d5db">—</span>' ?></td>
               <td style="font-size:12px">
                 <?= ih(implode(' · ', infra_city_area_codes($r))) ?: '<span style="color:#9ca3af">none known</span>' ?>
@@ -1263,7 +1313,7 @@ if ($view === 'cities') {
           key with no quota fails on the day you need it, not the day you test it.
           <br><br><strong>CPC is stored in dollars whichever provider it came from.</strong> Ahrefs returns cents
           and DataForSEO returns dollars; each adapter converts, so the column never mixes units.
-          <br><br><strong>Score formula:</strong> <?= ih(infra_kw_score_formula()) ?>
+          <br><br><strong>Score formula (<?= ih($provs[$primary]['label']) ?>):</strong> <?= ih(infra_kw_score_formula($primary)) ?>
           A score you type overrides it and is never overwritten by a fetch.
         </div>
       </div></div>

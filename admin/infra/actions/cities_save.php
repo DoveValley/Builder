@@ -132,6 +132,21 @@ if ($action === 'template') {
     header('Location: ' . $back); exit;
 }
 
+/* ---- which provider this niche scores from --------------------------- */
+if ($action === 'source') {
+    $src = (string) ($_POST['source'] ?? '');
+    if (!isset(infra_kw_types()[$src])) {
+        infra_set_flash('err', 'Unknown provider.');
+    } else {
+        $n = infra_niche_set_source($niche, $src);
+        infra_set_flash('ok', $niche . ' now scores from ' . infra_kw_types()[$src]['label']
+            . ' — ' . $n . ' row' . ($n === 1 ? '' : 's') . ' re-scored. '
+            . 'Both providers\' numbers are kept; only which one the score comes from changed. '
+            . 'Hand-set scores were left alone.');
+    }
+    header('Location: ' . $back); exit;
+}
+
 /* ---- store provider credentials -------------------------------------- */
 if ($action === 'kw_save') {
     $type = (string) ($_POST['type'] ?? '');
@@ -179,9 +194,10 @@ if ($action === 'fetch') {
 
     // Ticked rows if any, otherwise everything selected that is missing or stale.
     $ids   = array_filter(array_map('strval', (array) ($_POST['city_id'] ?? [])));
-    $todo  = infra_cn_needs_metrics($niche, $ids, (int) ($_POST['stale_days'] ?? 30));
+    $todo  = infra_cn_needs_metrics($niche, $ids, (int) ($_POST['stale_days'] ?? 30), $type);
     if (!$todo) {
-        infra_set_flash('warn', 'Nothing to fetch — every selected city already has metrics newer than the staleness cutoff.');
+        infra_set_flash('warn', 'Nothing to fetch — every selected city already has '
+            . infra_kw_types()[$type]['label'] . ' metrics newer than the staleness cutoff.');
         header('Location: ' . $back); exit;
     }
 
