@@ -66,22 +66,22 @@ if ($action === 'select') {
     foreach (array_filter(array_map('strval', $ids)) as $id) {
         infra_cn_select($niche, $id) ? $added++ : $dupe++;
     }
-    // The browse table can carry an Ahrefs figure per row. It is only stored for
-    // cities that are actually selected — typing a number next to a city you did
-    // not tick must not quietly add it to the niche.
+    // The browse table carries an Ahrefs figure per row. It is research, recorded
+    // against any city whether or not it is picked — that is the point of having
+    // it while browsing. Saving a figure never selects the city.
     $scored = 0;
-    $selected = infra_cn_all($niche);
+    $known  = infra_cn_all($niche);
     foreach ((array) ($_POST['ahrefs'] ?? []) as $id => $v) {
         $id = (string) $id;
-        if (!isset($selected[$id])) continue;
-        if (trim((string) $v) === ($selected[$id]['ahrefs'] ?? '')) continue;
-        if (infra_cn_update($niche, $id, ['ahrefs' => (string) $v]) === '') $scored++;
+        $v  = trim((string) $v);
+        if ($v === ($known[$id]['ahrefs'] ?? '')) continue;
+        if (infra_cn_note_metric($niche, $id, ['ahrefs' => $v]) === '') $scored++;
     }
 
     infra_set_flash($added || $scored ? 'ok' : 'warn',
         $added . ' city selection' . ($added === 1 ? '' : 's') . ' added to ' . $niche
         . ($dupe ? ' — ' . $dupe . ' already selected, left alone' : '')
-        . ($scored ? ' · ' . $scored . ' Ahrefs figure' . ($scored === 1 ? '' : 's') . ' saved' : '') . '.');
+        . ($scored ? ' · ' . $scored . ' Ahrefs figure' . ($scored === 1 ? '' : 's') . ' recorded' : '') . '.');
     header('Location: ' . $back); exit;
 }
 
@@ -89,7 +89,7 @@ if ($action === 'unselect') {
     $ids = array_filter(array_map('strval', (array) ($_POST['city_id'] ?? [])));
     foreach ($ids as $id) infra_cn_unselect($niche, $id);
     infra_set_flash('ok', count($ids) . ' city selection' . (count($ids) === 1 ? '' : 's')
-        . ' removed from ' . $niche . '. The cities stay in the list.');
+        . ' removed from ' . $niche . '. Any domain is released; the Ahrefs figure is kept as research.');
     header('Location: ' . $back); exit;
 }
 

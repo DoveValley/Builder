@@ -1090,7 +1090,7 @@ if ($view === 'cities') {
           <div style="display:flex;gap:8px;margin-top:12px;align-items:center">
             <button class="btn" type="submit" name="action" value="save">Save changes</button>
             <button class="btn sec" type="submit" name="action" value="unselect"
-                    onclick="return confirm('Remove the ticked cities from this niche? Their score, phone and domain link are dropped.')">Remove ticked</button>
+                    onclick="return confirm('Remove the ticked cities from this niche? The domain link is released; the Ahrefs figure and score are kept.')">Remove ticked</button>
             <span style="font-size:12px;color:#6b7280">A score you type is recorded as set by hand.</span>
           </div>
         <?php endif; ?>
@@ -1125,8 +1125,8 @@ if ($view === 'cities') {
               <td><strong><?= ih($r['city']) ?></strong> <span style="color:#9ca3af;font-size:12px"><?= ih($r['state']) ?></span></td>
               <td><?= ih($r['ss']) ?></td>
               <td style="text-align:right;color:#6b7280"><?= number_format((int) $r['population']) ?></td>
-              <td><input name="ahrefs[<?= ih($r['id']) ?>]" value="<?= ih($picked ? ($mine[$r['id']]['ahrefs'] ?? '') : '') ?>"
-                         style="width:78px;padding:3px 6px" title="Saved for cities that are selected, or that you tick to add"></td>
+              <td><input name="ahrefs[<?= ih($r['id']) ?>]" value="<?= ih($mine[$r['id']]['ahrefs'] ?? '') ?>"
+                         style="width:78px;padding:3px 6px" title="Research — recorded against the city whether or not you select it"></td>
               <td style="font-size:12px">
                 <?= ih(implode(' · ', infra_city_area_codes($r))) ?: '<span style="color:#9ca3af">none known</span>' ?>
                 <?php if (($r['ac_source'] ?? '') === 'near'): ?><span class="badge b-mut" title="Borrowed from nearby cities in the same state — check before using">nearby</span><?php endif; ?>
@@ -1136,11 +1136,11 @@ if ($view === 'cities') {
           <?php endforeach; ?>
           </tbody></table>
           <div style="display:flex;gap:8px;margin-top:12px;align-items:center;flex-wrap:wrap">
-            <button class="btn" type="submit" name="action" value="select">Add ticked to <?= ih($niches[$niche]['label']) ?></button>
+            <button class="btn" type="submit" name="action" value="select">Save · add ticked to <?= ih($niches[$niche]['label']) ?></button>
             <?php if ($page > 1): ?><a class="btn sec" href="<?= ih($selfUrl(['page' => $page - 1])) ?>">&larr; Prev</a><?php endif; ?>
             <?php if ($page < $pages): ?><a class="btn sec" href="<?= ih($selfUrl(['page' => $page + 1])) ?>">Next &rarr;</a><?php endif; ?>
-            <span style="font-size:12px;color:#6b7280">Ahrefs is saved for any city that is selected, or that you tick to add.
-              Ticks and typing are lost when you change page — add before moving on.</span>
+            <span style="font-size:12px;color:#6b7280">Ahrefs is recorded for every city you type one against, selected or not —
+              it is research, and saving it does not pick the city. Ticks and typing are lost when you change page.</span>
           </div>
         </div>
       </div>
