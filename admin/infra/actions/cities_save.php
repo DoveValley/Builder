@@ -240,12 +240,18 @@ if ($action === 'fetch') {
         }
         $lastAt = time();
 
+        // Several cities can share one keyword — five Columbuses ask the same
+        // question. Keying a city per phrase let the last one win and silently
+        // dropped the rest, so Columbus IN got numbers while Columbus OH got
+        // none. They share the answer; the shared-name badge is what warns whose
+        // numbers they really are.
         $phrases = $byPhrase = [];
         foreach ($chunk as $c) {
             $p = infra_kw_phrase($tpl, $c);
             if ($p === '') continue;
-            $phrases[] = $p;
-            $byPhrase[strtolower($p)] = $c['id'];
+            $k = strtolower($p);
+            if (!isset($byPhrase[$k])) { $phrases[] = $p; $byPhrase[$k] = []; }
+            $byPhrase[$k][] = $c['id'];
         }
         $r = infra_kw_fetch($type, $phrases);
         if (!$r['ok']) $err = $r['msg'];
@@ -254,9 +260,11 @@ if ($action === 'fetch') {
         // Written per batch, and any rows that DID come back are kept even when the
         // call is reported as failed — a truncated response still cost units, and
         // throwing away what it paid for would be the expensive kind of tidy.
-        foreach ($byPhrase as $phrase => $cityId) {
-            if (isset($r['rows'][$phrase])) { infra_cn_store_metrics($niche, $cityId, $r['rows'][$phrase], $type); $done++; }
-            elseif ($err === '') { $miss++; }
+        foreach ($byPhrase as $phrase => $cityIds) {
+            foreach ($cityIds as $cityId) {
+                if (isset($r['rows'][$phrase])) { infra_cn_store_metrics($niche, $cityId, $r['rows'][$phrase], $type); $done++; }
+                elseif ($err === '') { $miss++; }
+            }
         }
         if ($err !== '') break;
         $left -= count($chunk);

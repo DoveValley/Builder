@@ -326,9 +326,42 @@ function infra_city_area_codes(array $city): array
 }
 
 /**
+ * Sortable columns, mapped to SQL. A whitelist, so a sort key from the query
+ * string can never reach the statement as anything but one of these.
+ *
+ * Blanks always sort last whichever direction you pick — a city nobody has
+ * fetched yet is not the best or the worst, it is unknown, and floating unknowns
+ * to the top of a descending sort would bury the answer.
+ */
+function infra_cities_sorts(): array
+{
+    $s = [
+        'rank'  => 'c.rank',
+        'city'  => 'LOWER(c.city)',
+        'ss'    => 'c.ss',
+        'pop'   => 'c.population',
+        'score' => 'CAST(NULLIF(n.score,"") AS INTEGER)',
+    ];
+    foreach (array_keys(infra_kw_types()) as $t) {
+        $s[$t . '_volume'] = 'CAST(NULLIF(n.' . $t . '_volume,"") AS INTEGER)';
+        $s[$t . '_kd']     = 'CAST(NULLIF(n.' . $t . '_kd,"") AS INTEGER)';
+        $s[$t . '_cpc']    = 'CAST(NULLIF(n.' . $t . '_cpc,"") AS REAL)';
+    }
+    return $s;
+}
+
+function infra_cities_order_sql(string $sort, string $dir): string
+{
+    $cols = infra_cities_sorts();
+    $expr = $cols[$sort] ?? $cols['rank'];
+    $dir  = strtolower($dir) === 'desc' ? 'DESC' : 'ASC';
+    return ' ORDER BY (' . $expr . ') IS NULL, ' . $expr . ' ' . $dir . ', c.rank';
+}
+
+/**
  * Browse the city pool.
  *
- * @param array $f  q, state, min_pop, max_rank, limit, offset
+ * @param array $f  q, state, min_pop, max_rank, limit, offset, niche, sort, dir
  * @return array{rows:array,total:int}
  */
 function infra_cities_browse(array $f = []): array
@@ -346,14 +379,20 @@ function infra_cities_browse(array $f = []): array
     if ((int) ($f['max_rank'] ?? 0))    { $w[] = 'rank <= ?';       $p[] = (int) $f['max_rank']; }
     $where = $w ? ' WHERE ' . implode(' AND ', $w) : '';
 
-    $st = $db->prepare('SELECT COUNT(*) FROM cities' . $where);
+    $st = $db->prepare('SELECT COUNT(*) FROM cities c' . $where);
     $st->execute($p);
     $total = (int) $st->fetchColumn();
 
+    // Sorting by a metric means sorting by a column on city_niche, so the browse
+    // query joins it. LEFT, because most cities have no row there at all and an
+    // inner join would quietly shrink the pool to whatever has been fetched.
     $limit  = max(1, min(500, (int) ($f['limit'] ?? 100)));
     $offset = max(0, (int) ($f['offset'] ?? 0));
-    $st = $db->prepare('SELECT * FROM cities' . $where . ' ORDER BY rank LIMIT ' . $limit . ' OFFSET ' . $offset);
-    $st->execute($p);
+    $order  = infra_cities_order_sql((string) ($f['sort'] ?? 'rank'), (string) ($f['dir'] ?? 'asc'));
+    $st = $db->prepare('SELECT c.* FROM cities c
+                        LEFT JOIN city_niche n ON n.city_id = c.id AND n.niche = ?'
+                        . $where . $order . ' LIMIT ' . $limit . ' OFFSET ' . $offset);
+    $st->execute(array_merge([(string) ($f['niche'] ?? '')], $p));
     return ['rows' => $st->fetchAll(PDO::FETCH_ASSOC), 'total' => $total];
 }
 
@@ -379,6 +418,57 @@ function infra_cities_filtered_ids(array $f): array
     return $st->fetchAll(PDO::FETCH_COLUMN, 0);
 }
 
+/**
+ * Cities whose searchable name is shared with another city.
+ *
+ * 385 of the 1,923 cities over 20,000 people share a name with at least one
+ * other: five Columbuses, three Jacksonvilles, two Palm Springs. A keyword built
+ * from the name alone asks about all of them at once and gets back the numbers
+ * of whichever one the search engine considers "the" Columbus — so the small
+ * namesake inherits the big one's volume and looks far better than it is.
+ *
+ * The biggest by population is taken as the one the figures really describe.
+ * That is a heuristic, which is why this flags rather than corrects: the numbers
+ * are shown with a warning instead of being quietly adjusted or hidden.
+ *
+ * A template carrying {ss} or {state} disambiguates by itself, so there are no
+ * collisions to report.
+ *
+ * @return array normalised name => ['cities' => [...], 'primary' => city_id]
+ */
+function infra_city_name_groups(string $template = '{city}'): array
+{
+    require_once __DIR__ . '/keywords.php';
+    static $cache = [];
+    if (strpos($template, '{ss}') !== false || strpos($template, '{state}') !== false) return [];
+    if (isset($cache['x'])) return $cache['x'];
+
+    $rows = infra_cities_init()
+        ->query('SELECT id, city, ss, population FROM cities')->fetchAll(PDO::FETCH_ASSOC);
+    $byName = [];
+    foreach ($rows as $r) {
+        $byName[strtolower(infra_kw_city_name($r))][] = $r;
+    }
+    $out = [];
+    foreach ($byName as $name => $list) {
+        if (count($list) < 2) continue;
+        usort($list, fn($a, $b) => (int) $b['population'] <=> (int) $a['population']);
+        $out[$name] = ['cities' => $list, 'primary' => $list[0]['id']];
+    }
+    return $cache['x'] = $out;
+}
+
+/** The collision a city is caught in, or null. */
+function infra_city_shared(array $city, array $groups): ?array
+{
+    require_once __DIR__ . '/keywords.php';
+    $g = $groups[strtolower(infra_kw_city_name($city))] ?? null;
+    if (!$g) return null;
+    $others = array_values(array_filter($g['cities'], fn($c) => $c['id'] !== ($city['id'] ?? '')));
+    return ['others' => $others, 'is_primary' => ($g['primary'] === ($city['id'] ?? '')),
+            'primary' => $g['cities'][0]];
+}
+
 function infra_states_list(): array
 {
     return infra_cities_init()
@@ -398,12 +488,12 @@ function infra_cn_all(string $niche): array
     return $out;
 }
 
-/** Selected cities for a niche, joined to their city facts, ranked. */
-function infra_cn_selected(string $niche): array
+/** Selected cities for a niche, joined to their city facts. */
+function infra_cn_selected(string $niche, string $sort = 'rank', string $dir = 'asc'): array
 {
     $st = infra_cities_init()->prepare(
         'SELECT n.*, c.* FROM city_niche n JOIN cities c ON c.id = n.city_id
-          WHERE n.niche = ? AND n.selected = "yes" ORDER BY c.rank');
+          WHERE n.niche = ? AND n.selected = "yes"' . infra_cities_order_sql($sort, $dir));
     $st->execute([$niche]);
     return $st->fetchAll(PDO::FETCH_ASSOC);
 }

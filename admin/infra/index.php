@@ -928,13 +928,17 @@ if ($view === 'cities') {
     $per    = 100;
 
     // Round-trip the filters through every form so a save comes back where you were.
+    $sortQ = (string) ($_GET['sort'] ?? '');
+    $dirQ  = (string) ($_GET['dir'] ?? '');
     $qs = http_build_query(array_filter([
         'show' => $show !== 'selected' ? $show : null, 'q' => $q ?: null,
         'state' => $stateF ?: null, 'min_pop' => $minPop ?: null, 'page' => $page > 1 ? $page : null,
+        'sort' => $sortQ ?: null, 'dir' => $dirQ ?: null,
     ]));
     $selfUrl = fn(array $over = []) => 'index.php?view=cities&' . http_build_query(array_filter(array_merge([
         'niche' => $niche, 'show' => $show, 'q' => $q, 'state' => $stateF,
         'min_pop' => $minPop ?: null, 'page' => $page > 1 ? $page : null,
+        'sort' => $sortQ ?: null, 'dir' => $dirQ ?: null,
     ], $over), fn($v) => $v !== null && $v !== ''));
 
     // Domains this niche could use: owned, right niche, not already on another city.
@@ -1002,6 +1006,41 @@ if ($view === 'cities') {
     $tpl     = $niches[$niche]['template'] ?? '';
     $primary = infra_niche_source($niche);
     $provs   = infra_kw_types();
+    $groups  = infra_city_name_groups($tpl);
+
+    $sort = (string) ($_GET['sort'] ?? 'rank');
+    $dir  = strtolower((string) ($_GET['dir'] ?? 'asc')) === 'desc' ? 'desc' : 'asc';
+    if (!isset(infra_cities_sorts()[$sort])) $sort = 'rank';
+
+    /** A sortable column heading. Clicking the active one flips direction. */
+    $th = function (string $key, string $label, string $style = '', string $tip = '') use (&$selfUrl, $sort, $dir): string {
+        $next = ($sort === $key && $dir === 'asc') ? 'desc' : 'asc';
+        // Population, volume, CPC and score are most useful biggest-first, so
+        // that is what the first click on them gives you.
+        if ($sort !== $key && in_array($key, ['pop', 'score'], true) === false
+            && preg_match('/_(volume|cpc)$/', $key)) $next = 'desc';
+        if ($sort !== $key && in_array($key, ['pop', 'score'], true)) $next = 'desc';
+        $arrow = $sort === $key ? ($dir === 'asc' ? ' &uarr;' : ' &darr;') : '';
+        return '<th style="' . $style . '"' . ($tip ? ' title="' . ih($tip) . '"' : '') . '>'
+             . '<a href="' . ih($selfUrl(['sort' => $key, 'dir' => $next, 'page' => null])) . '"'
+             . ' style="color:inherit;text-decoration:none' . ($sort === $key ? ';color:#2563eb' : '') . '">'
+             . $label . $arrow . '</a></th>';
+    };
+
+    /** Badge for a city whose keyword is shared with a same-named city elsewhere. */
+    $sharedBadge = function (array $city) use ($groups): string {
+        $s = infra_city_shared($city, $groups);
+        if (!$s) return '';
+        $names = implode(', ', array_map(fn($c) => $c['city'] . ' ' . $c['ss'], array_slice($s['others'], 0, 4)));
+        if (count($s['others']) > 4) $names .= ' and ' . (count($s['others']) - 4) . ' more';
+        $tip = $s['is_primary']
+            ? 'Shares this keyword with ' . $names . '. As the largest, these numbers are most likely about this one.'
+            : 'Shares this keyword with ' . $names . '. The figures probably describe '
+              . $s['primary']['city'] . ' ' . $s['primary']['ss'] . ' (population '
+              . number_format((int) $s['primary']['population']) . '), not this city.';
+        return ' <span class="badge ' . ($s['is_primary'] ? 'b-mut' : 'b-warn') . '" title="' . ih($tip) . '">'
+             . ($s['is_primary'] ? 'shared name' : 'shared &mdash; not this one') . '</span>';
+    };
     ?>
     <div class="ic-note">
       Pick the cities <strong><?= ih($niches[$niche]['label']) ?></strong> will target, score them, choose an
@@ -1090,7 +1129,7 @@ if ($view === 'cities') {
     <?php
     /* ---------- SELECTED: the editable plan ---------- */
     if ($show === 'selected'):
-        $rows = infra_cn_selected($niche);
+        $rows = infra_cn_selected($niche, $sort, $dir);
         if ($q !== '' || $stateF !== '' || $minPop > 0) {
             $rows = array_values(array_filter($rows, function ($r) use ($q, $stateF, $minPop) {
                 if ($stateF !== '' && $r['ss'] !== $stateF) return false;
@@ -1122,21 +1161,22 @@ if ($view === 'cities') {
             <th colspan="4"></th>
           </tr>
           <tr>
-            <th style="width:24px"></th><th style="width:46px">#</th><th>City</th><th style="width:34px">St</th>
-            <th style="width:70px">Pop</th>
+            <th style="width:24px"></th>
+            <?= $th('rank','#','width:46px') ?><?= $th('city','City') ?><?= $th('ss','St','width:34px') ?>
+            <?= $th('pop','Pop','width:70px') ?>
             <?php foreach ($provs as $t => $m): ?>
-              <th style="width:58px" title="Monthly searches">Vol</th>
-              <th style="width:42px" title="Keyword difficulty on <?= ih($m['label']) ?>'s own 0-100 scale">KD</th>
-              <th style="width:58px" title="Cost per click, US dollars">CPC</th>
+              <?= $th($t.'_volume','Vol','width:58px','Monthly searches') ?>
+              <?= $th($t.'_kd','KD','width:42px',"Keyword difficulty on ".$m['label']."'s own 0-100 scale") ?>
+              <?= $th($t.'_cpc','CPC','width:58px','Cost per click, US dollars') ?>
             <?php endforeach; ?>
-            <th style="width:58px">Score</th>
+            <?= $th('score','Score','width:58px') ?>
             <th style="width:96px">Area code</th><th style="width:118px">Phone</th><th>Domain</th>
           </tr></thead><tbody>
           <?php foreach ($rows as $r): $id = $r['id']; ?>
             <tr>
               <td><input type="checkbox" name="city_id[]" value="<?= ih($id) ?>"></td>
               <td style="color:#9ca3af"><?= (int) $r['rank'] ?></td>
-              <td><strong><?= ih($r['city']) ?></strong></td>
+              <td><strong><?= ih($r['city']) ?></strong><?= $sharedBadge($r) ?></td>
               <td><?= ih($r['ss']) ?></td>
               <td style="text-align:right;color:#6b7280"><?= number_format((int) $r['population']) ?></td>
               <?php foreach ($provs as $t => $pm):
@@ -1191,6 +1231,7 @@ if ($view === 'cities') {
         $browse = infra_cities_browse([
             'q' => $q, 'state' => $stateF, 'min_pop' => $minPop,
             'limit' => $per, 'offset' => ($page - 1) * $per,
+            'niche' => $niche, 'sort' => $sort, 'dir' => $dir,
         ]);
         $mine  = infra_cn_all($niche);
         $pages = max(1, (int) ceil($browse['total'] / $per));
@@ -1200,7 +1241,15 @@ if ($view === 'cities') {
       <input type="hidden" name="niche" value="<?= ih($niche) ?>">
       <input type="hidden" name="qs" value="<?= ih($qs) ?>">
       <div class="ic-card">
-        <h2><?= number_format($browse['total']) ?> cities <span style="color:#9ca3af;font-weight:400;font-size:13px">&mdash; page <?= $page ?> of <?= $pages ?>, ranked by population</span></h2>
+        <?php
+        $sortNames = ['rank' => 'population', 'city' => 'name', 'ss' => 'state', 'pop' => 'population', 'score' => 'score'];
+        foreach ($provs as $t => $m) {
+            $sortNames[$t . '_volume'] = $m['label'] . ' volume';
+            $sortNames[$t . '_kd']     = $m['label'] . ' difficulty';
+            $sortNames[$t . '_cpc']    = $m['label'] . ' CPC';
+        }
+        ?>
+        <h2><?= number_format($browse['total']) ?> cities <span style="color:#9ca3af;font-weight:400;font-size:13px">&mdash; page <?= $page ?> of <?= $pages ?>, sorted by <?= ih($sortNames[$sort] ?? $sort) ?><?= $dir === 'desc' ? ', highest first' : '' ?></span></h2>
         <div class="body">
           <table><thead>
           <tr>
@@ -1213,12 +1262,13 @@ if ($view === 'cities') {
             <th colspan="3"></th>
           </tr>
           <tr>
-            <th style="width:24px"></th><th style="width:46px">#</th><th>City</th><th style="width:34px">St</th>
-            <th style="width:78px">Population</th>
+            <th style="width:24px"></th>
+            <?= $th('rank','#','width:46px') ?><?= $th('city','City') ?><?= $th('ss','St','width:34px') ?>
+            <?= $th('pop','Population','width:78px') ?>
             <?php foreach ($provs as $t => $m): ?>
-              <th style="width:58px">Vol</th><th style="width:42px">KD</th><th style="width:58px">CPC</th>
+              <?= $th($t.'_volume','Vol','width:58px') ?><?= $th($t.'_kd','KD','width:42px') ?><?= $th($t.'_cpc','CPC','width:58px') ?>
             <?php endforeach; ?>
-            <th style="width:52px">Score</th>
+            <?= $th('score','Score','width:52px') ?>
             <th>Area codes</th><th style="width:84px">In niche</th>
           </tr></thead><tbody>
           <?php foreach ($browse['rows'] as $r):
@@ -1231,7 +1281,7 @@ if ($view === 'cities') {
             <tr<?= $picked ? ' style="background:#f8fafc"' : '' ?>>
               <td><?php if (!$picked): ?><input type="checkbox" name="city_id[]" value="<?= ih($r['id']) ?>"><?php endif; ?></td>
               <td style="color:#9ca3af"><?= (int) $r['rank'] ?></td>
-              <td><strong><?= ih($r['city']) ?></strong> <span style="color:#9ca3af;font-size:12px"><?= ih($r['state']) ?></span></td>
+              <td><strong><?= ih($r['city']) ?></strong> <span style="color:#9ca3af;font-size:12px"><?= ih($r['state']) ?></span><?= $sharedBadge($r) ?></td>
               <td><?= ih($r['ss']) ?></td>
               <td style="text-align:right;color:#6b7280"><?= number_format((int) $r['population']) ?></td>
               <?php $m = $mine[$r['id']] ?? [];
