@@ -1116,7 +1116,7 @@ if ($view === 'cities') {
         <div class="body">
           <table><thead><tr>
             <th style="width:24px"></th><th style="width:52px">#</th><th>City</th><th style="width:44px">St</th>
-            <th style="width:90px">Population</th><th>Area codes</th><th style="width:120px">In this niche</th>
+            <th style="width:90px">Population</th><th style="width:88px">Ahrefs</th><th>Area codes</th><th style="width:120px">In this niche</th>
           </tr></thead><tbody>
           <?php foreach ($browse['rows'] as $r): $picked = isset($mine[$r['id']]); ?>
             <tr<?= $picked ? ' style="background:#f8fafc"' : '' ?>>
@@ -1125,6 +1125,8 @@ if ($view === 'cities') {
               <td><strong><?= ih($r['city']) ?></strong> <span style="color:#9ca3af;font-size:12px"><?= ih($r['state']) ?></span></td>
               <td><?= ih($r['ss']) ?></td>
               <td style="text-align:right;color:#6b7280"><?= number_format((int) $r['population']) ?></td>
+              <td><input name="ahrefs[<?= ih($r['id']) ?>]" value="<?= ih($picked ? ($mine[$r['id']]['ahrefs'] ?? '') : '') ?>"
+                         style="width:78px;padding:3px 6px" title="Saved for cities that are selected, or that you tick to add"></td>
               <td style="font-size:12px">
                 <?= ih(implode(' · ', infra_city_area_codes($r))) ?: '<span style="color:#9ca3af">none known</span>' ?>
                 <?php if (($r['ac_source'] ?? '') === 'near'): ?><span class="badge b-mut" title="Borrowed from nearby cities in the same state — check before using">nearby</span><?php endif; ?>
@@ -1137,7 +1139,8 @@ if ($view === 'cities') {
             <button class="btn" type="submit" name="action" value="select">Add ticked to <?= ih($niches[$niche]['label']) ?></button>
             <?php if ($page > 1): ?><a class="btn sec" href="<?= ih($selfUrl(['page' => $page - 1])) ?>">&larr; Prev</a><?php endif; ?>
             <?php if ($page < $pages): ?><a class="btn sec" href="<?= ih($selfUrl(['page' => $page + 1])) ?>">Next &rarr;</a><?php endif; ?>
-            <span style="font-size:12px;color:#6b7280">Ticks are lost when you change page — add before moving on.</span>
+            <span style="font-size:12px;color:#6b7280">Ahrefs is saved for any city that is selected, or that you tick to add.
+              Ticks and typing are lost when you change page — add before moving on.</span>
           </div>
         </div>
       </div>

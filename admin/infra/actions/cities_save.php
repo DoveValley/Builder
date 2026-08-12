@@ -66,9 +66,22 @@ if ($action === 'select') {
     foreach (array_filter(array_map('strval', $ids)) as $id) {
         infra_cn_select($niche, $id) ? $added++ : $dupe++;
     }
-    infra_set_flash($added ? 'ok' : 'warn',
+    // The browse table can carry an Ahrefs figure per row. It is only stored for
+    // cities that are actually selected — typing a number next to a city you did
+    // not tick must not quietly add it to the niche.
+    $scored = 0;
+    $selected = infra_cn_all($niche);
+    foreach ((array) ($_POST['ahrefs'] ?? []) as $id => $v) {
+        $id = (string) $id;
+        if (!isset($selected[$id])) continue;
+        if (trim((string) $v) === ($selected[$id]['ahrefs'] ?? '')) continue;
+        if (infra_cn_update($niche, $id, ['ahrefs' => (string) $v]) === '') $scored++;
+    }
+
+    infra_set_flash($added || $scored ? 'ok' : 'warn',
         $added . ' city selection' . ($added === 1 ? '' : 's') . ' added to ' . $niche
-        . ($dupe ? ' — ' . $dupe . ' already selected, left alone.' : '.'));
+        . ($dupe ? ' — ' . $dupe . ' already selected, left alone' : '')
+        . ($scored ? ' · ' . $scored . ' Ahrefs figure' . ($scored === 1 ? '' : 's') . ' saved' : '') . '.');
     header('Location: ' . $back); exit;
 }
 
