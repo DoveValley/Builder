@@ -192,8 +192,19 @@ function infra_kw_ahrefs_fetch(array $c, array $phrases): array
 
 function infra_kw_dfs_headers(array $c): array
 {
-    $auth = base64_encode(trim((string) ($c['login'] ?? '')) . ':' . trim((string) ($c['password'] ?? '')));
-    return ['Authorization: Basic ' . $auth, 'Content-Type: application/json'];
+    $login = trim((string) ($c['login'] ?? ''));
+    $pass  = trim((string) ($c['password'] ?? ''));
+
+    // DataForSEO's API-access page shows a ready-made base64 "login:password"
+    // string next to the password itself, so pasting that into the password box
+    // is an easy and reasonable mistake — and it fails as a flat 401 that reads
+    // like wrong credentials. If the value decodes to exactly "<this login>:...",
+    // it IS the credential pair; use it rather than base64-ing it a second time.
+    $decoded = base64_decode($pass, true);
+    if ($decoded !== false && $login !== '' && strncmp($decoded, $login . ':', strlen($login) + 1) === 0) {
+        return ['Authorization: Basic ' . $pass, 'Content-Type: application/json'];
+    }
+    return ['Authorization: Basic ' . base64_encode($login . ':' . $pass), 'Content-Type: application/json'];
 }
 
 /** One POST to a DataForSEO live endpoint, with its two layers of status code unwrapped. */
@@ -204,8 +215,18 @@ function infra_kw_dfs_post(array $c, string $path, array $task): array
 
     if ($r['error'] !== '')  return ['ok' => false, 'msg' => 'Network error: ' . $r['error'], 'result' => []];
     if ($r['code'] === 401)  return ['ok' => false, 'msg' => 'DataForSEO rejected the login/password.', 'result' => []];
+
+    // 40104 is worth naming: the credentials are RIGHT and the balance reads fine,
+    // but the data endpoints stay shut until the account is verified. Reported as a
+    // bare HTTP error it looks like a broken key, which sends you fixing the wrong thing.
+    if ((int) ($r['json']['status_code'] ?? 0) === 40104) {
+        return ['ok' => false, 'result' => [], 'msg' =>
+            'DataForSEO needs the account verified before it will serve data — the login and balance are fine. '
+          . 'Complete verification at https://app.dataforseo.com/ and try again.'];
+    }
     if ($r['code'] !== 200 || !is_array($r['json'])) {
-        return ['ok' => false, 'msg' => 'HTTP ' . $r['code'] . ': ' . substr($r['raw'], 0, 200), 'result' => []];
+        return ['ok' => false, 'msg' => 'HTTP ' . $r['code'] . ': '
+            . trim(preg_replace('/\s+/', ' ', substr($r['raw'], 0, 400))), 'result' => []];
     }
     // DataForSEO answers HTTP 200 for its own errors and puts the truth in
     // status_code — twice, once for the request and once per task. 20000 is OK.

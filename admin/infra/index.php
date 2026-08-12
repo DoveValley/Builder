@@ -1215,8 +1215,16 @@ if ($view === 'cities') {
     </form>
     <?php endif; ?>
 
+    <?php
+    // Name every provider and its state in the summary. Collapsing the panel the
+    // moment one provider connects hid the one still waiting to be set up.
+    $kwBits = [];
+    foreach (infra_kw_types() as $t => $m) {
+        $kwBits[] = ih($m['label']) . (isset($kwOn[$t]) ? ' connected' : ' <strong>not connected</strong>');
+    }
+    ?>
     <details style="margin-top:14px" <?= $kwOn ? '' : 'open' ?>>
-      <summary style="cursor:pointer;font-size:12px;color:#6b7280">Keyword provider<?= $kwOn ? ' — ' . ih($kwOn[array_key_first($kwOn)]['label']) . ' connected' : ' — none connected yet' ?></summary>
+      <summary style="cursor:pointer;font-size:12px;color:#6b7280">Keyword providers — <?= implode(' · ', $kwBits) ?> <span style="color:#2563eb">(add or change credentials)</span></summary>
       <div class="ic-card" style="margin-top:8px"><div class="body">
         <?php foreach (infra_kw_types() as $type => $meta): $stored = infra_kw_provider($type); $on = isset($kwOn[$type]); ?>
           <h3 style="margin:18px 0 8px;font-size:14px">
