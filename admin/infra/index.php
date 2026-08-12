@@ -911,6 +911,7 @@ if ($view === 'golive') {
 if ($view === 'cities') {
     require_once __DIR__ . '/lib/cities.php';
     require_once __DIR__ . '/lib/keywords.php';
+    require_once __DIR__ . '/lib/serp.php';
     infra_header('cities');
 
     $niches = infra_niches();
@@ -1007,6 +1008,22 @@ if ($view === 'cities') {
     $primary = infra_niche_source($niche);
     $provs   = infra_kw_types();
     $groups  = infra_city_name_groups($tpl);
+
+    /** What the first page looks like: open / tight / crowded, detail on hover. */
+    $serpCell = function (array $r): string {
+        if (($r['serp_at'] ?? '') === '') return '<span style="color:#d1d5db">&mdash;</span>';
+        $d = ['map' => $r['serp_map'] ?? '', 'ads' => $r['serp_ads'] ?? '', 'dirs' => $r['serp_dirs'] ?? '',
+              'first' => $r['serp_first'] ?? ''];
+        $v = infra_serp_verdict($d);
+        $cls = $v === 'open' ? 'b-ok' : ($v === 'tight' ? 'b-warn' : 'b-err');
+        $tip = ($d['map'] === 'yes' ? 'Map pack present' : 'No map pack')
+             . ' \u{b7} ' . (int) $d['ads'] . ' ads above organic'
+             . ' \u{b7} ' . (int) $d['dirs'] . ' directories in the results'
+             . ($d['first'] !== '' ? ' \u{b7} first organic at position ' . (int) $d['first'] : '')
+             . (($r['serp_top'] ?? '') !== '' ? ' \u{b7} top: ' . $r['serp_top'] : '')
+             . ' \u{b7} checked ' . substr((string) $r['serp_at'], 0, 10);
+        return '<span class="badge ' . $cls . '" title="' . ih($tip) . '">' . ih($v) . ' ' . (int) $r['serp_score'] . '</span>';
+    };
 
     $sort = (string) ($_GET['sort'] ?? 'rank');
     $dir  = strtolower((string) ($_GET['dir'] ?? 'asc')) === 'desc' ? 'desc' : 'asc';
@@ -1169,7 +1186,7 @@ if ($view === 'cities') {
               <?= $th($t.'_kd','KD','width:42px',"Keyword difficulty on ".$m['label']."'s own 0-100 scale") ?>
               <?= $th($t.'_cpc','CPC','width:58px','Cost per click, US dollars') ?>
             <?php endforeach; ?>
-            <?= $th('score','Score','width:58px') ?>
+            <?= $th('score','Score','width:58px') ?><?= $th('serp','SERP','width:96px','How open the first page is: map pack, ads, directories') ?>
             <th style="width:96px">Area code</th><th style="width:118px">Phone</th><th>Domain</th>
           </tr></thead><tbody>
           <?php foreach ($rows as $r): $id = $r['id']; ?>
@@ -1190,6 +1207,7 @@ if ($view === 'cities') {
               <td><input name="row[<?= ih($id) ?>][score]" value="<?= ih($r['score']) ?>" type="number" min="1" max="10" step="1"
                          style="width:52px;padding:3px 6px<?= ($r['score_src'] ?? '') === 'auto' ? ';background:#f8fafc' : '' ?>"
                          title="<?= ($r['score_src'] ?? '') === 'hand' ? 'Set by hand — a fetch will not overwrite it' : (($r['score_src'] ?? '') === 'auto' ? 'Computed from the metrics' : 'Not scored yet') ?>"></td>
+              <td><?= $serpCell($r) ?></td>
               <td>
                 <input name="row[<?= ih($id) ?>][area_code]" value="<?= ih($r['area_code']) ?>" list="ac-<?= ih($id) ?>"
                        placeholder="<?= ih(implode('/', array_slice(infra_city_area_codes($r), 0, 2))) ?>" style="width:96px;padding:3px 6px">
@@ -1268,7 +1286,7 @@ if ($view === 'cities') {
             <?php foreach ($provs as $t => $m): ?>
               <?= $th($t.'_volume','Vol','width:58px') ?><?= $th($t.'_kd','KD','width:42px') ?><?= $th($t.'_cpc','CPC','width:58px') ?>
             <?php endforeach; ?>
-            <?= $th('score','Score','width:52px') ?>
+            <?= $th('score','Score','width:52px') ?><?= $th('serp','SERP','width:96px','How open the first page is: map pack, ads, directories') ?>
             <th>Area codes</th><th style="width:84px">In niche</th>
           </tr></thead><tbody>
           <?php foreach ($browse['rows'] as $r):
@@ -1293,6 +1311,7 @@ if ($view === 'cities') {
                 <td style="text-align:right;<?= $dim ?>"><?= $mm['cpc'] !== '' ? '$' . ih($mm['cpc']) : '<span style="color:#d1d5db">—</span>' ?></td>
               <?php endforeach; ?>
               <td style="text-align:right"><?= ($m['score'] ?? '') !== '' ? '<strong>' . ih($m['score']) . '</strong>' : '<span style="color:#d1d5db">—</span>' ?></td>
+              <td><?= $serpCell($m ?: []) ?></td>
               <td style="font-size:12px">
                 <?= ih(implode(' · ', infra_city_area_codes($r))) ?: '<span style="color:#9ca3af">none known</span>' ?>
                 <?php if (($r['ac_source'] ?? '') === 'near'): ?><span class="badge b-mut" title="Borrowed from nearby cities in the same state — check before using">nearby</span><?php endif; ?>
@@ -1328,6 +1347,11 @@ if ($view === 'cities') {
                 <option value="30" selected>fetched over 30 days ago</option>
                 <option value="-1">everything, again</option>
               </select>
+            <?php endif; ?>
+            <?php if (isset($kwOn['dataforseo'])): ?>
+              <button class="btn sec" type="submit" name="action" value="serp"
+                      title="Reads the live first page for each city: map pack, ads above organic, directories holding the slots. About $0.002 a city.">SERP check top 50</button>
+              <input type="hidden" name="serp_limit" value="50">
             <?php endif; ?>
             <button class="btn <?= $kwOn ? 'sec' : '' ?>" type="submit" name="action" value="select">Add ticked to <?= ih($niches[$niche]['label']) ?></button>
             <?php if ($page > 1): ?><a class="btn sec" href="<?= ih($selfUrl(['page' => $page - 1])) ?>">&larr; Prev</a><?php endif; ?>

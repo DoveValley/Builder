@@ -40,9 +40,13 @@ function infra_cn_cols(): array
     }
     // volume/kd/cpc/metrics_* are the pre-split columns, kept so old rows survive
     // the migration below; nothing writes them any more.
-    return array_merge($cols, ['volume', 'kd', 'cpc', 'metrics_at', 'metrics_src', 'ahrefs',
-                               'score', 'score_src', 'area_code', 'phone', 'domain', 'note',
-                               'created_at', 'updated_at']);
+    return array_merge($cols, [
+        // What the first page looks like — kept apart from the keyword metrics
+        // because it answers a different question and comes from a different call.
+        'serp_map', 'serp_ads', 'serp_dirs', 'serp_first', 'serp_top', 'serp_score', 'serp_at',
+        'volume', 'kd', 'cpc', 'metrics_at', 'metrics_src', 'ahrefs',
+        'score', 'score_src', 'area_code', 'phone', 'domain', 'note',
+        'created_at', 'updated_at']);
 }
 
 /** slug => [label, keyword template]. The template is what gets looked up per city. */
@@ -233,6 +237,50 @@ function infra_cn_rescore(string $niche): int
     return $n;
 }
 
+/** Store one city's SERP reading. Never touches the keyword metrics or the score. */
+function infra_cn_store_serp(string $niche, string $cityId, array $d): void
+{
+    require_once __DIR__ . '/serp.php';
+    $db = infra_cities_init();
+    $st = $db->prepare('SELECT 1 FROM city_niche WHERE niche = ? AND city_id = ?');
+    $st->execute([$niche, $cityId]);
+    if (!$st->fetchColumn()) {
+        $db->prepare('INSERT INTO city_niche (niche,city_id,selected,created_at,updated_at) VALUES (?,?,"",?,?)')
+           ->execute([$niche, $cityId, infra_now(), infra_now()]);
+    }
+    $score = infra_serp_score($d);
+    $db->prepare('UPDATE city_niche SET serp_map = ?, serp_ads = ?, serp_dirs = ?, serp_first = ?,
+                  serp_top = ?, serp_score = ?, serp_at = ?, updated_at = ? WHERE niche = ? AND city_id = ?')
+       ->execute([$d['map'] ?? '', $d['ads'] ?? '', $d['dirs'] ?? '', $d['first'] ?? '',
+                  $d['top'] ?? '', $score === null ? '' : (string) $score,
+                  infra_now(), infra_now(), $niche, $cityId]);
+}
+
+/** Cities still needing a SERP reading, best keyword-score first. */
+function infra_cn_needs_serp(string $niche, array $cityIds = [], int $staleDays = 30, int $limit = 0): array
+{
+    $db = infra_cities_init();
+    $fresh = ''; $p = [$niche]; $freshP = [];
+    if ($staleDays === 0) {
+        $fresh = ' AND (n.serp_at IS NULL OR n.serp_at = "")';
+    } else {
+        $fresh = ' AND (n.serp_at IS NULL OR n.serp_at = "" OR substr(n.serp_at,1,10) < ?)';
+        $freshP[] = $staleDays > 0 ? infra_date_plus(-$staleDays) : infra_today();
+    }
+    $idIn = '';
+    if ($cityIds) $idIn = ' AND c.id IN (' . implode(',', array_fill(0, count($cityIds), '?')) . ')';
+
+    // Ordered by keyword score: a SERP costs a call each, so the cities worth
+    // winning get looked at first and a truncated run still answers the question.
+    $sql = 'SELECT c.* FROM city_niche n JOIN cities c ON c.id = n.city_id
+             WHERE n.niche = ?' . $idIn . $fresh . '
+             ORDER BY CAST(NULLIF(n.score,"") AS INTEGER) DESC, c.rank'
+          . ($limit > 0 ? ' LIMIT ' . (int) $limit : '');
+    $st = $db->prepare($sql);
+    $st->execute(array_merge($p, $cityIds, $freshP));
+    return $st->fetchAll(PDO::FETCH_ASSOC);
+}
+
 /** Pull one provider's metric set out of a city_niche row. */
 function infra_cn_metrics(array $row, string $type): array
 {
@@ -341,6 +389,7 @@ function infra_cities_sorts(): array
         'ss'    => 'c.ss',
         'pop'   => 'c.population',
         'score' => 'CAST(NULLIF(n.score,"") AS INTEGER)',
+        'serp'  => 'CAST(NULLIF(n.serp_score,"") AS INTEGER)',
     ];
     foreach (array_keys(infra_kw_types()) as $t) {
         $s[$t . '_volume'] = 'CAST(NULLIF(n.' . $t . '_volume,"") AS INTEGER)';

@@ -286,5 +286,50 @@ if ($action === 'fetch') {
     header('Location: ' . $back); exit;
 }
 
+/* ---- SERP check ------------------------------------------------------- */
+if ($action === 'serp') {
+    require_once __DIR__ . '/../lib/serp.php';
+    if (!infra_kw_has_creds('dataforseo')) {
+        infra_set_flash('err', 'The SERP check reads live search results through DataForSEO — add its credentials below first.');
+        header('Location: ' . $back); exit;
+    }
+    $tpl = infra_niches()[$niche]['template'] ?? '';
+    if (trim($tpl) === '') {
+        infra_set_flash('err', 'This niche has no keyword template, so there is no search to look at.');
+        header('Location: ' . $back); exit;
+    }
+
+    $ids   = array_filter(array_map('strval', (array) ($_POST['city_id'] ?? [])));
+    $limit = max(0, min(2000, (int) ($_POST['serp_limit'] ?? 50)));
+    $todo  = infra_cn_needs_serp($niche, $ids, (int) ($_POST['stale_days'] ?? 30), $ids ? 0 : $limit);
+    if (!$todo) {
+        infra_set_flash('warn', 'Nothing to check — those cities already have a SERP reading newer than the cutoff.');
+        header('Location: ' . $back); exit;
+    }
+
+    // One call per keyword; SERPs cannot be batched. DataForSEO allows 2,000 a
+    // minute here, so the only real limit is the time budget — and every reading
+    // is written as it arrives, so a run that runs out of time keeps all of it.
+    $cfg = infra_kw_provider('dataforseo');
+    $started = time();
+    $done = 0; $err = ''; $left = count($todo);
+    foreach ($todo as $city) {
+        if (time() - $started > INFRA_KW_TIME_BUDGET) break;
+        $phrase = infra_kw_phrase($tpl, $city);
+        if ($phrase === '') { $left--; continue; }
+        $r = infra_serp_fetch($cfg, $phrase);
+        if (!$r['ok']) { $err = $r['msg']; break; }
+        infra_cn_store_serp($niche, $city['id'], $r['data']);
+        $done++; $left--;
+    }
+    $msg = $done . ' SERP' . ($done === 1 ? '' : 's') . ' read for ' . $niche
+         . ($left > 0 ? ' · ' . number_format($left) . ' STILL TO GO — press again to continue' : ' · done') . '.';
+    if ($err !== '') $msg .= ' Stopped early: ' . $err;
+    $q = infra_kw_quota('dataforseo');
+    if ($q['ok'] && $q['remaining'] !== null) $msg .= ' $' . number_format($q['remaining']) . ' left.';
+    infra_set_flash($err !== '' ? 'err' : 'ok', $msg);
+    header('Location: ' . $back); exit;
+}
+
 infra_set_flash('err', 'Unknown action.');
 header('Location: ' . $back);
