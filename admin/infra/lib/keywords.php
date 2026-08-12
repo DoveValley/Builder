@@ -91,11 +91,39 @@ function infra_kw_configured(): array
  * Build the keyword for a city from a niche's template.
  * `{city}` is the city name; `{state}`/`{ss}` are available too.
  */
+/**
+ * The searchable form of a Census place name.
+ *
+ * Census names are legal, not colloquial, and ten of the ten thousand carry
+ * punctuation that is both unsearchable and — in DataForSEO's case — rejected
+ * outright, taking the whole batch of 1,000 with it.
+ *
+ *   San Buenaventura (Ventura)      → Ventura
+ *   El Paso de Robles (Paso Robles) → Paso Robles
+ *   Louisville/Jefferson County     → Louisville
+ *   Islamorada, Village of Islands  → Islamorada
+ *
+ * A parenthetical is the name people actually use, so it WINS rather than being
+ * stripped; nobody searches "appliance repair San Buenaventura". Text after a
+ * comma or slash is the administrative tail and is dropped. The stored city name
+ * is left untouched — this is only how it is asked about.
+ */
+function infra_kw_city_name(array $city): string
+{
+    $n = trim((string) ($city['city'] ?? ''));
+    if (preg_match('/\(([^)]+)\)/u', $n, $m) && trim($m[1]) !== '') {
+        $n = trim($m[1]);                       // the common name in brackets
+    }
+    $n = preg_split('#[,/]#u', $n)[0];          // drop ", Moore County" / "/Jefferson County"
+    $n = preg_replace('/[^\p{L}\p{N} \'.\-]+/u', ' ', $n);   // control chars and stray symbols
+    return trim(preg_replace('/\s+/u', ' ', $n));
+}
+
 function infra_kw_phrase(string $template, array $city): string
 {
     $t = trim($template) !== '' ? $template : '{city}';
     return trim(strtr($t, [
-        '{city}'  => $city['city'] ?? '',
+        '{city}'  => infra_kw_city_name($city),
         '{state}' => $city['state'] ?? '',
         '{ss}'    => $city['ss'] ?? '',
     ]));
@@ -283,8 +311,22 @@ function infra_kw_dfs_fetch(array $c, array $phrases): array
     $lang = trim((string) ($c['language'] ?? 'en')) ?: 'en';
     $task = ['keywords' => array_values($phrases), 'location_code' => $loc, 'language_code' => $lang];
 
-    $vol = infra_kw_dfs_post($c, 'keywords_data/google_ads/search_volume/live', $task);
+    // DataForSEO rejects the WHOLE batch over one unacceptable keyword, naming it
+    // in the error. A thousand cities must not be lost to one odd place name, so
+    // the named keyword is dropped and the batch retried. Bounded, because a loop
+    // that keeps retrying on a error it cannot parse would spend money forever.
+    $dropped = [];
+    for ($attempt = 0; $attempt < 6; $attempt++) {
+        $vol = infra_kw_dfs_post($c, 'keywords_data/google_ads/search_volume/live', $task);
+        if ($vol['ok']) break;
+        if (!preg_match("/invalid characters or symbols: '(.+?)'/i", $vol['msg'], $m)) break;
+        $bad = $m[1];
+        $task['keywords'] = array_values(array_filter($task['keywords'], fn($k) => $k !== $bad));
+        $dropped[] = $bad;
+        if (!$task['keywords']) break;
+    }
     if (!$vol['ok']) return ['ok' => false, 'msg' => $vol['msg'], 'rows' => []];
+    $phrases = $task['keywords'];
 
     $out = [];
     foreach ($vol['result'] as $item) {
@@ -310,7 +352,10 @@ function infra_kw_dfs_fetch(array $c, array $phrases): array
         $out[$kw]['kd'] = isset($item['keyword_difficulty']) && $item['keyword_difficulty'] !== null
             ? (string) (int) $item['keyword_difficulty'] : '';
     }
-    return ['ok' => true, 'msg' => '', 'rows' => $out];
+    return ['ok' => true, 'rows' => $out, 'msg' => $dropped
+        ? 'DataForSEO refused ' . count($dropped) . ' keyword(s) as unsearchable and they were skipped: '
+          . implode('; ', array_slice($dropped, 0, 3)) . (count($dropped) > 3 ? ' …' : '')
+        : ''];
 }
 
 /* ------------------------------------------------------------ dispatchers */

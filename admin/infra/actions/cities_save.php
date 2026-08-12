@@ -249,6 +249,7 @@ if ($action === 'fetch') {
         }
         $r = infra_kw_fetch($type, $phrases);
         if (!$r['ok']) $err = $r['msg'];
+        elseif (($r['msg'] ?? '') !== '' && !isset($warn)) $warn = $r['msg'];   // e.g. keywords the provider refused
 
         // Written per batch, and any rows that DID come back are kept even when the
         // call is reported as failed — a truncated response still cost units, and
@@ -266,6 +267,7 @@ if ($action === 'fetch') {
          . ($left > 0 ? ' · ' . number_format($left) . ' STILL TO GO — press Fetch again to continue' : ' · sweep complete')
          . '.';
     if ($err !== '') $msg .= ' Stopped early: ' . $err;
+    if (isset($warn)) $msg .= ' ' . $warn;
     // What it cost, read back rather than estimated.
     $q = infra_kw_quota($type);
     if ($q['ok'] && $q['remaining'] !== null) {
