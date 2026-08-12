@@ -1,0 +1,15 @@
+{
+  "_comment": "Copy to keywords.json (gitignored, chmod 600) or fill it in from the Cities/Niche tab, which writes this file for you. Read-only API access: it spends API units from your subscription, never money.",
+  "providers": {
+    "ahrefs": {
+      "api_key": "your-ahrefs-api-key",
+      "country": "us",
+      "batch": "100"
+    }
+  },
+  "_notes": {
+    "batch": "Keywords per request, capped by your Ahrefs plan: Lite 100, Standard 250, Advanced 500, Enterprise unlimited. Too high and the whole batch is refused.",
+    "units": "Keywords Explorer costs 50 units minimum per request plus one unit per row per field; volume, difficulty and cpc are all cheap fields. The Test button reads your unit balance through an endpoint that consumes none.",
+    "cpc": "Ahrefs returns CPC in US cents. The client divides by 100 before storing, so a $12.00 click is stored as 12.00, not 1200."
+  }
+}

@@ -910,6 +910,7 @@ if ($view === 'golive') {
  */
 if ($view === 'cities') {
     require_once __DIR__ . '/lib/cities.php';
+    require_once __DIR__ . '/lib/keywords.php';
     infra_header('cities');
 
     $niches = infra_niches();
@@ -996,12 +997,45 @@ if ($view === 'cities') {
       <?php infra_footer(); exit;
     endif; ?>
 
+    <?php $kwOn = infra_kw_configured(); $tpl = $niches[$niche]['template'] ?? ''; ?>
     <div class="ic-note">
       Pick the cities <strong><?= ih($niches[$niche]['label']) ?></strong> will target, score them, choose an
       area code, then point a domain at each. This is a <strong>plan</strong> — re-point a domain any time;
       nothing here buys anything. <strong><?= $freeCount ?></strong> owned <?= ih($niche) ?> domain<?= $freeCount === 1 ? '' : 's' ?>
-      not yet assigned to a city. Ahrefs numbers and phone numbers are typed in for now.
+      not yet assigned to a city. Phone numbers are typed in for now.
     </div>
+
+    <!-- keyword + fetch -->
+    <div class="ic-card" style="margin-bottom:14px"><div class="body" style="padding:10px 14px;display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end">
+      <form method="post" action="actions/cities_save.php" style="display:flex;gap:6px;align-items:flex-end">
+        <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+        <input type="hidden" name="action" value="template">
+        <input type="hidden" name="niche" value="<?= ih($niche) ?>">
+        <input type="hidden" name="qs" value="<?= ih($qs) ?>">
+        <label style="font-size:12px">Keyword looked up for each city<br>
+          <input name="template" value="<?= ih($tpl) ?>" style="padding:5px 8px;width:280px" placeholder="appliance repair {city}"></label>
+        <button class="btn sec" type="submit">Save keyword</button>
+      </form>
+      <div style="font-size:12px;color:#6b7280;max-width:340px">
+        <code>{city}</code>, <code>{state}</code> and <code>{ss}</code> are replaced per row.
+        <?php if ($tpl !== ''): ?>Rank 1 becomes “<strong><?= ih(infra_kw_phrase($tpl, ['city' => 'New York', 'state' => 'New York', 'ss' => 'NY'])) ?></strong>”.<?php endif; ?>
+      </div>
+      <?php if ($kwOn): ?>
+        <form method="post" action="actions/cities_save.php" style="margin-left:auto;display:flex;gap:6px;align-items:flex-end">
+          <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+          <input type="hidden" name="action" value="fetch">
+          <input type="hidden" name="niche" value="<?= ih($niche) ?>">
+          <input type="hidden" name="qs" value="<?= ih($qs) ?>">
+          <input type="hidden" name="provider" value="<?= ih((string) array_key_first($kwOn)) ?>">
+          <label style="font-size:12px">Re-fetch older than<br>
+            <select name="stale_days" style="padding:5px 8px">
+              <option value="30">30 days</option><option value="90">90 days</option>
+              <option value="0">only blanks</option><option value="1">everything</option>
+            </select></label>
+          <button class="btn" type="submit">Fetch from <?= ih($kwOn[array_key_first($kwOn)]['label']) ?></button>
+        </form>
+      <?php endif; ?>
+    </div></div>
 
     <!-- filters + mode -->
     <form method="get" class="ic-card" style="margin-bottom:14px"><div class="body" style="padding:10px 14px;display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
@@ -1049,9 +1083,13 @@ if ($view === 'cities') {
             <a href="<?= ih($selfUrl(['show' => 'pool'])) ?>">all cities</a> and tick the ones you want.</div>
         <?php else: ?>
           <table><thead><tr>
-            <th style="width:24px"></th><th style="width:52px">#</th><th>City</th><th style="width:44px">St</th>
-            <th style="width:82px">Pop</th><th style="width:88px">Ahrefs</th><th style="width:70px">Score</th>
-            <th style="width:110px">Area code</th><th style="width:140px">Phone</th><th>Domain</th>
+            <th style="width:24px"></th><th style="width:52px">#</th><th>City</th><th style="width:40px">St</th>
+            <th style="width:76px">Pop</th>
+            <th style="width:70px" title="Monthly searches">Volume</th>
+            <th style="width:56px" title="Ahrefs Keyword Difficulty, 0-100">KD</th>
+            <th style="width:64px" title="Cost per click, US dollars">CPC</th>
+            <th style="width:64px">Score</th>
+            <th style="width:104px">Area code</th><th style="width:130px">Phone</th><th>Domain</th>
           </tr></thead><tbody>
           <?php foreach ($rows as $r): $id = $r['id']; ?>
             <tr>
@@ -1060,8 +1098,13 @@ if ($view === 'cities') {
               <td><strong><?= ih($r['city']) ?></strong></td>
               <td><?= ih($r['ss']) ?></td>
               <td style="text-align:right;color:#6b7280"><?= number_format((int) $r['population']) ?></td>
-              <td><input name="row[<?= ih($id) ?>][ahrefs]" value="<?= ih($r['ahrefs']) ?>" style="width:78px;padding:3px 6px"></td>
-              <td><input name="row[<?= ih($id) ?>][score]" value="<?= ih($r['score']) ?>" type="number" min="1" max="10" step="1" style="width:56px;padding:3px 6px"></td>
+              <td><input name="row[<?= ih($id) ?>][volume]" value="<?= ih($r['volume']) ?>" style="width:62px;padding:3px 6px"
+                         title="<?= $r['metrics_at'] ? 'Fetched from ' . ih($r['metrics_src']) . ' ' . ih(substr($r['metrics_at'], 0, 10)) : 'Not fetched yet' ?>"></td>
+              <td><input name="row[<?= ih($id) ?>][kd]" value="<?= ih($r['kd']) ?>" style="width:48px;padding:3px 6px"></td>
+              <td><input name="row[<?= ih($id) ?>][cpc]" value="<?= ih($r['cpc']) ?>" style="width:56px;padding:3px 6px" placeholder="$"></td>
+              <td><input name="row[<?= ih($id) ?>][score]" value="<?= ih($r['score']) ?>" type="number" min="1" max="10" step="1"
+                         style="width:52px;padding:3px 6px<?= ($r['score_src'] ?? '') === 'auto' ? ';background:#f8fafc' : '' ?>"
+                         title="<?= ($r['score_src'] ?? '') === 'hand' ? 'Set by hand — a fetch will not overwrite it' : (($r['score_src'] ?? '') === 'auto' ? 'Computed from the metrics' : 'Not scored yet') ?>"></td>
               <td>
                 <input name="row[<?= ih($id) ?>][area_code]" value="<?= ih($r['area_code']) ?>" list="ac-<?= ih($id) ?>"
                        placeholder="<?= ih(implode('/', array_slice(infra_city_area_codes($r), 0, 2))) ?>" style="width:96px;padding:3px 6px">
@@ -1115,8 +1158,13 @@ if ($view === 'cities') {
         <h2><?= number_format($browse['total']) ?> cities <span style="color:#9ca3af;font-weight:400;font-size:13px">&mdash; page <?= $page ?> of <?= $pages ?>, ranked by population</span></h2>
         <div class="body">
           <table><thead><tr>
-            <th style="width:24px"></th><th style="width:52px">#</th><th>City</th><th style="width:44px">St</th>
-            <th style="width:90px">Population</th><th style="width:88px">Ahrefs</th><th>Area codes</th><th style="width:120px">In this niche</th>
+            <th style="width:24px"></th><th style="width:52px">#</th><th>City</th><th style="width:40px">St</th>
+            <th style="width:86px">Population</th>
+            <th style="width:70px" title="Monthly searches">Volume</th>
+            <th style="width:50px" title="Keyword Difficulty, 0-100">KD</th>
+            <th style="width:60px" title="Cost per click">CPC</th>
+            <th style="width:56px">Score</th>
+            <th>Area codes</th><th style="width:96px">In niche</th>
           </tr></thead><tbody>
           <?php foreach ($browse['rows'] as $r): $picked = isset($mine[$r['id']]); ?>
             <tr<?= $picked ? ' style="background:#f8fafc"' : '' ?>>
@@ -1125,8 +1173,11 @@ if ($view === 'cities') {
               <td><strong><?= ih($r['city']) ?></strong> <span style="color:#9ca3af;font-size:12px"><?= ih($r['state']) ?></span></td>
               <td><?= ih($r['ss']) ?></td>
               <td style="text-align:right;color:#6b7280"><?= number_format((int) $r['population']) ?></td>
-              <td><input name="ahrefs[<?= ih($r['id']) ?>]" value="<?= ih($mine[$r['id']]['ahrefs'] ?? '') ?>"
-                         style="width:78px;padding:3px 6px" title="Research — recorded against the city whether or not you select it"></td>
+              <?php $m = $mine[$r['id']] ?? []; ?>
+              <td style="text-align:right"><?= ($m['volume'] ?? '') !== '' ? number_format((int) $m['volume']) : '<span style="color:#d1d5db">—</span>' ?></td>
+              <td style="text-align:right"><?= ($m['kd'] ?? '') !== '' ? ih($m['kd']) : '<span style="color:#d1d5db">—</span>' ?></td>
+              <td style="text-align:right"><?= ($m['cpc'] ?? '') !== '' ? '$' . ih($m['cpc']) : '<span style="color:#d1d5db">—</span>' ?></td>
+              <td style="text-align:right"><?= ($m['score'] ?? '') !== '' ? '<strong>' . ih($m['score']) . '</strong>' : '<span style="color:#d1d5db">—</span>' ?></td>
               <td style="font-size:12px">
                 <?= ih(implode(' · ', infra_city_area_codes($r))) ?: '<span style="color:#9ca3af">none known</span>' ?>
                 <?php if (($r['ac_source'] ?? '') === 'near'): ?><span class="badge b-mut" title="Borrowed from nearby cities in the same state — check before using">nearby</span><?php endif; ?>
@@ -1136,16 +1187,54 @@ if ($view === 'cities') {
           <?php endforeach; ?>
           </tbody></table>
           <div style="display:flex;gap:8px;margin-top:12px;align-items:center;flex-wrap:wrap">
-            <button class="btn" type="submit" name="action" value="select">Save · add ticked to <?= ih($niches[$niche]['label']) ?></button>
+            <?php if ($kwOn): ?>
+              <button class="btn" type="submit" name="action" value="fetch">Fetch metrics for ticked</button>
+              <input type="hidden" name="provider" value="<?= ih((string) array_key_first($kwOn)) ?>">
+            <?php endif; ?>
+            <button class="btn <?= $kwOn ? 'sec' : '' ?>" type="submit" name="action" value="select">Add ticked to <?= ih($niches[$niche]['label']) ?></button>
             <?php if ($page > 1): ?><a class="btn sec" href="<?= ih($selfUrl(['page' => $page - 1])) ?>">&larr; Prev</a><?php endif; ?>
             <?php if ($page < $pages): ?><a class="btn sec" href="<?= ih($selfUrl(['page' => $page + 1])) ?>">Next &rarr;</a><?php endif; ?>
-            <span style="font-size:12px;color:#6b7280">Ahrefs is recorded for every city you type one against, selected or not —
-              it is research, and saving it does not pick the city. Ticks and typing are lost when you change page.</span>
+            <span style="font-size:12px;color:#6b7280">Fetching does not select a city — look the numbers up first, pick after.
+              Ticks are lost when you change page.</span>
           </div>
         </div>
       </div>
     </form>
     <?php endif; ?>
+
+    <details style="margin-top:14px" <?= $kwOn ? '' : 'open' ?>>
+      <summary style="cursor:pointer;font-size:12px;color:#6b7280">Keyword provider<?= $kwOn ? ' — ' . ih($kwOn[array_key_first($kwOn)]['label']) . ' connected' : ' — none connected yet' ?></summary>
+      <div class="ic-card" style="margin-top:8px"><div class="body">
+        <?php foreach (infra_kw_types() as $type => $meta): $stored = infra_kw_provider($type); ?>
+          <form method="post" action="actions/cities_save.php" style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
+            <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+            <input type="hidden" name="niche" value="<?= ih($niche) ?>">
+            <input type="hidden" name="qs" value="<?= ih($qs) ?>">
+            <input type="hidden" name="type" value="<?= ih($type) ?>">
+            <?php foreach ($meta['fields'] as $f => $spec):
+                $has = trim((string) ($stored[$f] ?? '')) !== ''; ?>
+              <label style="font-size:12px"><?= ih($spec['label']) ?><br>
+                <input name="f[<?= ih($f) ?>]"
+                       type="<?= !empty($spec['secret']) ? 'password' : 'text' ?>"
+                       value="<?= !empty($spec['secret']) ? '' : ih($stored[$f] ?? ($spec['default'] ?? '')) ?>"
+                       placeholder="<?= !empty($spec['secret']) ? ($has ? 'stored — leave blank to keep' : 'paste key') : ih($spec['default'] ?? '') ?>"
+                       style="padding:5px 8px;width:<?= !empty($spec['secret']) ? '260' : '110' ?>px"></label>
+            <?php endforeach; ?>
+            <button class="btn" type="submit" name="action" value="kw_save">Save</button>
+            <button class="btn sec" type="submit" name="action" value="kw_test">Test</button>
+          </form>
+          <div class="ic-note" style="margin-top:10px"><?= $meta['note'] ?></div>
+        <?php endforeach; ?>
+        <div class="ic-note" style="margin-top:10px">
+          The key is stored in <code>admin/infra/config/keywords.json</code> — gitignored, <code>0600</code>,
+          never printed back into this page. <strong>Test costs nothing</strong>: it reads your unit balance
+          through an endpoint that consumes no units, and reports what is left rather than just "the key works" —
+          a key with no quota fails on the day you need it, not the day you test it.
+          <br><br><strong>Score formula:</strong> <?= ih(infra_kw_score_formula()) ?>
+          A score you type overrides it and is never overwritten by a fetch.
+        </div>
+      </div></div>
+    </details>
 
     <details style="margin-top:14px"><summary style="cursor:pointer;font-size:12px;color:#6b7280">Where this data comes from</summary>
       <div class="ic-note" style="margin-top:8px">

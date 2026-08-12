@@ -20,8 +20,16 @@
  */
 
 const INFRA_CITY_COLS  = ['id', 'rank', 'city', 'state', 'ss', 'population', 'lat', 'lng', 'area_codes', 'ac_source'];
-const INFRA_CN_COLS    = ['niche', 'city_id', 'selected', 'ahrefs', 'score', 'score_src', 'area_code', 'phone', 'domain', 'note', 'created_at', 'updated_at'];
-const INFRA_NICHE_SEED = ['appliance', 'mold', 'pest', 'restoration'];
+const INFRA_CN_COLS    = ['niche', 'city_id', 'selected', 'volume', 'kd', 'cpc', 'metrics_at', 'metrics_src',
+                          'ahrefs', 'score', 'score_src', 'area_code', 'phone', 'domain', 'note', 'created_at', 'updated_at'];
+
+/** slug => [label, keyword template]. The template is what gets looked up per city. */
+const INFRA_NICHE_SEED = [
+    'appliance'   => ['Appliance',   'appliance repair {city}'],
+    'mold'        => ['Mold',        'mold remediation {city}'],
+    'pest'        => ['Pest',        'pest control {city}'],
+    'restoration' => ['Restoration', 'water damage restoration {city}'],
+];
 
 /** Create the three tables (idempotent) and seed niches on first run. */
 function infra_cities_init(): PDO
@@ -45,10 +53,23 @@ function infra_cities_init(): PDO
     $db->exec('CREATE INDEX IF NOT EXISTS cities_rank ON cities (rank)');
 
     $db->exec('CREATE TABLE IF NOT EXISTS niches (
-        slug  TEXT PRIMARY KEY,
-        label TEXT DEFAULT "",
-        sort  INTEGER DEFAULT 0
+        slug     TEXT PRIMARY KEY,
+        label    TEXT DEFAULT "",
+        sort     INTEGER DEFAULT 0,
+        template TEXT DEFAULT ""
     )');
+    $nhave = $db->query('PRAGMA table_info(niches)')->fetchAll(PDO::FETCH_COLUMN, 1);
+    if (!in_array('template', $nhave, true)) {
+        $db->exec('ALTER TABLE niches ADD COLUMN template TEXT DEFAULT ""');
+    }
+    // Adding the column is not enough — niches seeded before templates existed
+    // would each have an empty one, and an empty template means nothing can be
+    // looked up. Backfill from the seed where the slug is known, otherwise from
+    // the slug itself.
+    foreach ($db->query('SELECT slug FROM niches WHERE template = "" OR template IS NULL')->fetchAll(PDO::FETCH_COLUMN, 0) as $slug) {
+        $t = INFRA_NICHE_SEED[$slug][1] ?? (str_replace('-', ' ', $slug) . ' {city}');
+        $db->prepare('UPDATE niches SET template = ? WHERE slug = ?')->execute([$t, $slug]);
+    }
 
     $db->exec('CREATE TABLE IF NOT EXISTS city_niche (
         niche      TEXT NOT NULL,
@@ -83,8 +104,8 @@ function infra_cities_init(): PDO
 
     if (!$db->query('SELECT COUNT(*) FROM niches')->fetchColumn()) {
         $i = 0;
-        foreach (INFRA_NICHE_SEED as $slug) {
-            infra_niche_save($slug, ucfirst($slug), $i += 10);
+        foreach (INFRA_NICHE_SEED as $slug => [$label, $template]) {
+            infra_niche_save($slug, $label, $i += 10, $template);
         }
     }
     $done = true;
@@ -109,7 +130,7 @@ function infra_niches(): array
     return $out;
 }
 
-function infra_niche_save(string $slug, string $label = '', ?int $sort = null): string
+function infra_niche_save(string $slug, string $label = '', ?int $sort = null, ?string $template = null): string
 {
     $slug = infra_niche_slug($slug);
     if ($slug === '') return '';
@@ -117,10 +138,21 @@ function infra_niche_save(string $slug, string $label = '', ?int $sort = null): 
     if ($sort === null) {
         $sort = (int) $db->query('SELECT COALESCE(MAX(sort),0) + 10 FROM niches')->fetchColumn();
     }
-    $st = $db->prepare('INSERT INTO niches (slug,label,sort) VALUES (?,?,?)
-                        ON CONFLICT(slug) DO UPDATE SET label=excluded.label, sort=excluded.sort');
-    $st->execute([$slug, trim($label) !== '' ? trim($label) : ucfirst($slug), $sort]);
+    // A niche with no template still looks up something sensible: the service
+    // words from its own name plus the city.
+    if ($template === null) $template = str_replace('-', ' ', $slug) . ' {city}';
+
+    $st = $db->prepare('INSERT INTO niches (slug,label,sort,template) VALUES (?,?,?,?)
+                        ON CONFLICT(slug) DO UPDATE SET label=excluded.label, sort=excluded.sort, template=excluded.template');
+    $st->execute([$slug, trim($label) !== '' ? trim($label) : ucfirst($slug), $sort, trim($template)]);
     return $slug;
+}
+
+/** Change only the keyword template, leaving label and order alone. */
+function infra_niche_set_template(string $slug, string $template): void
+{
+    infra_cities_init()->prepare('UPDATE niches SET template = ? WHERE slug = ?')
+        ->execute([trim($template), infra_niche_slug($slug)]);
 }
 
 /** Deleting a niche drops its selections; the cities themselves are untouched. */
@@ -259,7 +291,8 @@ function infra_cn_all(string $niche): array
 function infra_cn_selected(string $niche): array
 {
     $st = infra_cities_init()->prepare(
-        'SELECT c.*, n.ahrefs, n.score, n.score_src, n.area_code, n.phone, n.domain, n.note, n.updated_at
+        'SELECT c.*, n.volume, n.kd, n.cpc, n.metrics_at, n.metrics_src, n.ahrefs,
+                n.score, n.score_src, n.area_code, n.phone, n.domain, n.note, n.updated_at
            FROM city_niche n JOIN cities c ON c.id = n.city_id
           WHERE n.niche = ? AND n.selected = "yes" ORDER BY c.rank');
     $st->execute([$niche]);
@@ -340,7 +373,7 @@ function infra_cn_update(string $niche, string $cityId, array $in): string
 
     $set = [];
     $p   = [];
-    foreach (['ahrefs', 'score', 'area_code', 'phone', 'domain', 'note'] as $col) {
+    foreach (['volume', 'kd', 'cpc', 'ahrefs', 'score', 'area_code', 'phone', 'domain', 'note'] as $col) {
         if (!array_key_exists($col, $in)) continue;
         $v = trim((string) $in[$col]);
 
@@ -377,6 +410,69 @@ function infra_cn_update(string $niche, string $cityId, array $in): string
     $p[]   = $cityId;
     $db->prepare('UPDATE city_niche SET ' . implode(', ', $set) . ' WHERE niche = ? AND city_id = ?')->execute($p);
     return '';
+}
+
+/**
+ * Write fetched metrics for one city and re-score it.
+ *
+ * The score is recomputed from the new numbers UNLESS it was set by hand — a
+ * typed judgement outranks the formula, and a fetch must not silently overwrite
+ * it. Same rule as a hand-set availability verdict surviving a re-check.
+ */
+function infra_cn_store_metrics(string $niche, string $cityId, array $m, string $src = 'api'): void
+{
+    require_once __DIR__ . '/keywords.php';
+    $db = infra_cities_init();
+
+    $st = $db->prepare('SELECT score_src FROM city_niche WHERE niche = ? AND city_id = ?');
+    $st->execute([$niche, $cityId]);
+    $cur = $st->fetch(PDO::FETCH_ASSOC);
+    if (!$cur) {
+        $db->prepare('INSERT INTO city_niche (niche,city_id,selected,created_at,updated_at) VALUES (?,?,"",?,?)')
+           ->execute([$niche, $cityId, infra_now(), infra_now()]);
+        $cur = ['score_src' => ''];
+    }
+
+    $set = ['volume = ?', 'kd = ?', 'cpc = ?', 'metrics_at = ?', 'metrics_src = ?', 'updated_at = ?'];
+    $p   = [(string) ($m['volume'] ?? ''), (string) ($m['kd'] ?? ''), (string) ($m['cpc'] ?? ''),
+            infra_now(), $src, infra_now()];
+
+    if (($cur['score_src'] ?? '') !== 'hand') {
+        $score = infra_kw_score([
+            'volume' => (string) ($m['volume'] ?? ''),
+            'kd'     => (string) ($m['kd'] ?? ''),
+            'cpc'    => (string) ($m['cpc'] ?? ''),
+        ]);
+        $set[] = 'score = ?';     $p[] = $score === null ? '' : (string) $score;
+        $set[] = 'score_src = ?'; $p[] = $score === null ? '' : 'auto';
+    }
+    $p[] = $niche; $p[] = $cityId;
+    $db->prepare('UPDATE city_niche SET ' . implode(', ', $set) . ' WHERE niche = ? AND city_id = ?')->execute($p);
+}
+
+/**
+ * Cities needing a metrics fetch for this niche, oldest first.
+ *
+ * @param string $scope 'selected' | 'all-known' | 'missing'
+ * @param int    $staleDays  re-fetch anything older than this; 0 = only blanks
+ */
+function infra_cn_needs_metrics(string $niche, array $cityIds = [], int $staleDays = 30): array
+{
+    $db = infra_cities_init();
+    if ($cityIds) {
+        $in = implode(',', array_fill(0, count($cityIds), '?'));
+        $st = $db->prepare('SELECT c.* FROM cities c WHERE c.id IN (' . $in . ') ORDER BY c.rank');
+        $st->execute($cityIds);
+        return $st->fetchAll(PDO::FETCH_ASSOC);
+    }
+    $cut = $staleDays > 0 ? infra_date_plus(-$staleDays) : '9999-12-31';
+    $st  = $db->prepare(
+        'SELECT c.* FROM city_niche n JOIN cities c ON c.id = n.city_id
+          WHERE n.niche = ? AND n.selected = "yes"
+            AND (n.metrics_at = "" OR substr(n.metrics_at,1,10) < ?)
+          ORDER BY c.rank');
+    $st->execute([$niche, $cut]);
+    return $st->fetchAll(PDO::FETCH_ASSOC);
 }
 
 /** Counts per niche for the tab strip: selected, and how many have a domain. */

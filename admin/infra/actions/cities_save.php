@@ -8,6 +8,15 @@
  */
 require_once __DIR__ . '/../bootstrap.php';
 require_once __DIR__ . '/../lib/cities.php';
+require_once __DIR__ . '/../lib/keywords.php';
+
+/**
+ * A fetch keeps going while there is time, then stops and says what is left.
+ * curl waits do not count against max_execution_time, so a big sweep can run for
+ * ages; the availability sweep learned this the expensive way by writing nothing
+ * until the whole batch returned.
+ */
+const INFRA_KW_TIME_BUDGET = 100;
 
 $niche = infra_niche_slug((string) ($_POST['niche'] ?? ''));
 $back  = '../index.php?view=cities' . ($niche !== '' ? '&niche=' . urlencode($niche) : '');
@@ -111,6 +120,103 @@ if ($action === 'save') {
     } else {
         infra_set_flash('ok', $msg);
     }
+    header('Location: ' . $back); exit;
+}
+
+/* ---- keyword template for this niche --------------------------------- */
+if ($action === 'template') {
+    infra_niche_set_template($niche, (string) ($_POST['template'] ?? ''));
+    $t = infra_niches()[$niche]['template'] ?? '';
+    infra_set_flash('ok', 'Keyword for ' . $niche . ' is now "' . $t . '".'
+        . (strpos($t, '{city}') === false ? ' Warning: it has no {city} in it, so every city would be looked up as the same phrase.' : ''));
+    header('Location: ' . $back); exit;
+}
+
+/* ---- store provider credentials -------------------------------------- */
+if ($action === 'kw_save') {
+    $type = (string) ($_POST['type'] ?? '');
+    $meta = infra_kw_types()[$type] ?? null;
+    if (!$meta) { infra_set_flash('err', 'Unknown provider.'); header('Location: ' . $back); exit; }
+
+    $cfg = infra_load_json(infra_kw_config_path(), []);
+    if (!is_array($cfg['providers'] ?? null)) $cfg['providers'] = [];
+    $cur = $cfg['providers'][$type] ?? [];
+
+    // Only declared fields are accepted, and a blank secret means "keep what is
+    // stored" so the form can be saved without ever rendering the key back.
+    foreach ($meta['fields'] as $f => $spec) {
+        $v = trim((string) ($_POST['f'][$f] ?? ''));
+        if (!empty($spec['secret']) && $v === '') continue;
+        $cur[$f] = $v;
+    }
+    $cfg['providers'][$type] = $cur;
+    infra_save_json(infra_kw_config_path(), $cfg);
+
+    $q = infra_kw_quota($type);
+    infra_set_flash($q['ok'] ? 'ok' : 'err', 'Saved. ' . $q['msg']);
+    header('Location: ' . $back); exit;
+}
+
+if ($action === 'kw_test') {
+    $type = (string) ($_POST['type'] ?? '');
+    $q = infra_kw_quota($type);
+    infra_set_flash($q['ok'] ? 'ok' : 'err', ucfirst($type) . ': ' . $q['msg']);
+    header('Location: ' . $back); exit;
+}
+
+/* ---- fetch metrics ---------------------------------------------------- */
+if ($action === 'fetch') {
+    $type = (string) ($_POST['provider'] ?? 'ahrefs');
+    if (!isset(infra_kw_configured()[$type])) {
+        infra_set_flash('err', 'No API key stored for ' . $type . ' — add one below before fetching.');
+        header('Location: ' . $back); exit;
+    }
+    $tpl = infra_niches()[$niche]['template'] ?? '';
+    if (trim($tpl) === '') {
+        infra_set_flash('err', 'This niche has no keyword template, so there is nothing to look up.');
+        header('Location: ' . $back); exit;
+    }
+
+    // Ticked rows if any, otherwise everything selected that is missing or stale.
+    $ids   = array_filter(array_map('strval', (array) ($_POST['city_id'] ?? [])));
+    $todo  = infra_cn_needs_metrics($niche, $ids, (int) ($_POST['stale_days'] ?? 30));
+    if (!$todo) {
+        infra_set_flash('warn', 'Nothing to fetch — every selected city already has metrics newer than the staleness cutoff.');
+        header('Location: ' . $back); exit;
+    }
+
+    $size    = infra_kw_batch_size($type);
+    $started = time();
+    $done = $miss = 0;
+    $err  = '';
+    $left = count($todo);
+
+    foreach (array_chunk($todo, $size) as $chunk) {
+        if (time() - $started > INFRA_KW_TIME_BUDGET) break;
+
+        $phrases = $byPhrase = [];
+        foreach ($chunk as $c) {
+            $p = infra_kw_phrase($tpl, $c);
+            if ($p === '') continue;
+            $phrases[] = $p;
+            $byPhrase[strtolower($p)] = $c['id'];
+        }
+        $r = infra_kw_fetch($type, $phrases);
+        if (!$r['ok']) { $err = $r['msg']; break; }
+
+        // Written per batch, so an interrupted run keeps everything it paid for.
+        foreach ($byPhrase as $phrase => $cityId) {
+            if (isset($r['rows'][$phrase])) { infra_cn_store_metrics($niche, $cityId, $r['rows'][$phrase], $type); $done++; }
+            else { $miss++; }
+        }
+        $left -= count($chunk);
+    }
+
+    $msg = $done . ' cit' . ($done === 1 ? 'y' : 'ies') . ' updated from ' . $type
+         . ($miss ? ' · ' . $miss . ' returned no data (the phrase may have no measurable volume)' : '')
+         . ($left > 0 ? ' · ' . $left . ' still to do — run it again' : '') . '.';
+    if ($err !== '') $msg .= ' Stopped early: ' . $err;
+    infra_set_flash($err !== '' ? 'err' : 'ok', $msg);
     header('Location: ' . $back); exit;
 }
 
