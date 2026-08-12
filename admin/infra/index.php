@@ -1056,8 +1056,10 @@ if ($view === 'cities') {
           <?php endif; ?>
           <label style="font-size:12px">Re-fetch older than<br>
             <select name="stale_days" style="padding:5px 8px">
-              <option value="30">30 days</option><option value="90">90 days</option>
-              <option value="0">only blanks</option><option value="1">everything</option>
+              <option value="0">never fetched</option>
+              <option value="30" selected>30 days</option>
+              <option value="90">90 days</option>
+              <option value="-1">everything</option>
             </select></label>
           <button class="btn" type="submit">Fetch<?= count($kwOn) > 1 ? '' : ' from ' . ih($kwOn[array_key_first($kwOn)]['label']) ?></button>
         </form>
@@ -1251,7 +1253,19 @@ if ($view === 'cities') {
           </tbody></table>
           <div style="display:flex;gap:8px;margin-top:12px;align-items:center;flex-wrap:wrap">
             <?php if ($kwOn): ?>
-              <button class="btn" type="submit" name="action" value="fetch">Fetch metrics for ticked</button>
+              <!-- The filter, carried so the sweep covers every match rather than
+                   the 100 rows that happen to be on screen. -->
+              <input type="hidden" name="f_q" value="<?= ih($q) ?>">
+              <input type="hidden" name="f_state" value="<?= ih($stateF) ?>">
+              <input type="hidden" name="f_min_pop" value="<?= $minPop ?: '' ?>">
+              <button class="btn" type="submit" name="action" value="fetch"
+                      onclick="this.form.scope.value='filter'"
+                      title="Every city matching the filter above, not just this page">
+                Fetch all <?= number_format($browse['total']) ?> matching
+              </button>
+              <input type="hidden" name="scope" value="">
+              <button class="btn sec" type="submit" name="action" value="fetch"
+                      onclick="this.form.scope.value=''">Fetch ticked only</button>
               <?php if (count($kwOn) > 1): ?>
                 <select name="provider" style="padding:5px 8px;font-size:13px">
                   <?php foreach ($kwOn as $t => $m): ?><option value="<?= ih($t) ?>"><?= ih($m['label']) ?></option><?php endforeach; ?>
@@ -1259,6 +1273,11 @@ if ($view === 'cities') {
               <?php else: ?>
                 <input type="hidden" name="provider" value="<?= ih((string) array_key_first($kwOn)) ?>">
               <?php endif; ?>
+              <select name="stale_days" style="padding:5px 8px;font-size:13px" title="Which cities count as needing a fetch">
+                <option value="0">never fetched</option>
+                <option value="30" selected>fetched over 30 days ago</option>
+                <option value="-1">everything, again</option>
+              </select>
             <?php endif; ?>
             <button class="btn <?= $kwOn ? 'sec' : '' ?>" type="submit" name="action" value="select">Add ticked to <?= ih($niches[$niche]['label']) ?></button>
             <?php if ($page > 1): ?><a class="btn sec" href="<?= ih($selfUrl(['page' => $page - 1])) ?>">&larr; Prev</a><?php endif; ?>

@@ -357,6 +357,28 @@ function infra_cities_browse(array $f = []): array
     return ['rows' => $st->fetchAll(PDO::FETCH_ASSOC), 'total' => $total];
 }
 
+/**
+ * Every city id matching a filter, ranked — no page limit.
+ *
+ * infra_cities_browse() caps its limit at 500 for the table's sake; a sweep needs
+ * the whole set, so it asks separately rather than paging.
+ */
+function infra_cities_filtered_ids(array $f): array
+{
+    $db = infra_cities_init();
+    $w = []; $p = [];
+    if (trim($f['q'] ?? '') !== '') {
+        $w[] = '(LOWER(city) LIKE ? OR LOWER(state) LIKE ? OR ss = ?)';
+        $q = '%' . strtolower(trim($f['q'])) . '%';
+        $p[] = $q; $p[] = $q; $p[] = strtoupper(trim($f['q']));
+    }
+    if (trim($f['state'] ?? '') !== '') { $w[] = 'ss = ?';          $p[] = strtoupper(trim($f['state'])); }
+    if ((int) ($f['min_pop'] ?? 0))     { $w[] = 'population >= ?'; $p[] = (int) $f['min_pop']; }
+    $st = $db->prepare('SELECT id FROM cities' . ($w ? ' WHERE ' . implode(' AND ', $w) : '') . ' ORDER BY rank');
+    $st->execute($p);
+    return $st->fetchAll(PDO::FETCH_COLUMN, 0);
+}
+
 function infra_states_list(): array
 {
     return infra_cities_init()
@@ -548,25 +570,55 @@ function infra_cn_store_metrics(string $niche, string $cityId, array $m, string 
  * @param string $scope 'selected' | 'all-known' | 'missing'
  * @param int    $staleDays  re-fetch anything older than this; 0 = only blanks
  */
+/**
+ * Cities still needing a fetch from one provider, ranked.
+ *
+ * $staleDays: -1 everything not already fetched TODAY · 0 only cities never
+ *             fetched · N > 0 anything older than N days.
+ *
+ * -1 deliberately means "not today" rather than "literally everything". A sweep
+ * bigger than the time budget stops partway and asks to be run again; if the
+ * second run re-included what the first had just fetched, it would loop over the
+ * same opening rows for ever and never reach the end. It also stops a double
+ * click paying twice.
+ *
+ * Staleness is PER PROVIDER — numbers from Ahrefs say nothing about whether
+ * DataForSEO has ever been asked about the same city.
+ *
+ * @param array $cityIds  limit to these cities (a filter sweep or ticked rows);
+ *                        empty means every selected city in the niche
+ */
 function infra_cn_needs_metrics(string $niche, array $cityIds = [], int $staleDays = 30, string $type = 'ahrefs'): array
 {
     $db = infra_cities_init();
+    if (!isset(infra_kw_types()[$type])) return [];
+
+    // The freshness test lives on city_niche, which may have no row for a city
+    // yet — so the join is LEFT and a missing row counts as never fetched.
+    $fresh = '';
+    $freshP = [];
+    if ($staleDays === 0) {
+        $fresh = ' AND (n.' . $type . '_at IS NULL OR n.' . $type . '_at = "")';
+    } else {
+        // -1 ("everything again") uses today as the cutoff so a resumed sweep
+        // moves forward instead of restarting on the rows it just paid for.
+        $fresh = ' AND (n.' . $type . '_at IS NULL OR n.' . $type . '_at = "" OR substr(n.' . $type . '_at,1,10) < ?)';
+        $freshP[] = $staleDays > 0 ? infra_date_plus(-$staleDays) : infra_today();
+    }
+
     if ($cityIds) {
         $in = implode(',', array_fill(0, count($cityIds), '?'));
-        $st = $db->prepare('SELECT c.* FROM cities c WHERE c.id IN (' . $in . ') ORDER BY c.rank');
-        $st->execute($cityIds);
+        $st = $db->prepare('SELECT c.* FROM cities c
+                            LEFT JOIN city_niche n ON n.city_id = c.id AND n.niche = ?
+                             WHERE c.id IN (' . $in . ')' . $fresh . ' ORDER BY c.rank');
+        // Bound in the order the placeholders appear: niche, then the ids, then
+        // the staleness date.
+        $st->execute(array_merge([$niche], $cityIds, $freshP));
         return $st->fetchAll(PDO::FETCH_ASSOC);
     }
-    if (!isset(infra_kw_types()[$type])) return [];
-    // Staleness is per provider: numbers fetched from Ahrefs say nothing about
-    // whether DataForSEO has ever been asked about the same city.
-    $cut = $staleDays > 0 ? infra_date_plus(-$staleDays) : '9999-12-31';
-    $st  = $db->prepare(
-        'SELECT c.* FROM city_niche n JOIN cities c ON c.id = n.city_id
-          WHERE n.niche = ? AND n.selected = "yes"
-            AND (n.' . $type . '_at = "" OR n.' . $type . '_at IS NULL OR substr(n.' . $type . '_at,1,10) < ?)
-          ORDER BY c.rank');
-    $st->execute([$niche, $cut]);
+    $st = $db->prepare('SELECT c.* FROM city_niche n JOIN cities c ON c.id = n.city_id
+                         WHERE n.niche = ? AND n.selected = "yes"' . $fresh . ' ORDER BY c.rank');
+    $st->execute(array_merge([$niche], $freshP));
     return $st->fetchAll(PDO::FETCH_ASSOC);
 }
 

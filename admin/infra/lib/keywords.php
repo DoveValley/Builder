@@ -30,6 +30,8 @@ function infra_kw_types(): array
             'metrics' => true,
             'quota'   => true,
             'batch_max' => 500,
+            'rate_per_min'    => 60,   // Ahrefs: 60 requests/minute
+            'calls_per_batch' => 1,
             'note'    => 'Uses your existing Ahrefs subscription. Keywords Explorer costs API units, not money: '
                        . 'a request costs 50 units minimum plus one unit per row per field, and volume/difficulty/cpc '
                        . 'are all cheap fields. <strong>Keywords per request is capped by your plan</strong> — Lite 100, '
@@ -48,6 +50,8 @@ function infra_kw_types(): array
             'metrics' => true,
             'quota'   => true,
             'batch_max' => 1000,
+            'rate_per_min'    => 12,   // DataForSEO: 12 requests/minute on Live endpoints
+            'calls_per_batch' => 2,    // volume, then difficulty
             'note'    => 'Pay-as-you-go, priced in cents rather than subscription units — the whole 10,000-city × 8-niche '
                        . 'sweep lands around $8, which is what makes a wide sweep possible at all. '
                        . '<strong>Each fetch is two calls</strong>: Google Ads search volume (the Keyword Planner source) '

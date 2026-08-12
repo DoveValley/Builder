@@ -192,12 +192,28 @@ if ($action === 'fetch') {
         header('Location: ' . $back); exit;
     }
 
-    // Ticked rows if any, otherwise everything selected that is missing or stale.
-    $ids   = array_filter(array_map('strval', (array) ($_POST['city_id'] ?? [])));
-    $todo  = infra_cn_needs_metrics($niche, $ids, (int) ($_POST['stale_days'] ?? 30), $type);
+    $stale = (int) ($_POST['stale_days'] ?? 30);
+    $scope = (string) ($_POST['scope'] ?? '');
+
+    // Three scopes: everything matching the current filter, the rows ticked on
+    // this page, or every selected city in the niche.
+    if ($scope === 'filter') {
+        $ids = infra_cities_filtered_ids([
+            'q'       => (string) ($_POST['f_q'] ?? ''),
+            'state'   => (string) ($_POST['f_state'] ?? ''),
+            'min_pop' => (int) ($_POST['f_min_pop'] ?? 0),
+        ]);
+        $matched = count($ids);
+    } else {
+        $ids = array_filter(array_map('strval', (array) ($_POST['city_id'] ?? [])));
+        $matched = count($ids);
+    }
+    $todo = infra_cn_needs_metrics($niche, $ids, $stale, $type);
+
     if (!$todo) {
-        infra_set_flash('warn', 'Nothing to fetch — every selected city already has '
-            . infra_kw_types()[$type]['label'] . ' metrics newer than the staleness cutoff.');
+        infra_set_flash('warn', ($matched ? $matched . ' cities matched, but none need fetching — ' : 'Nothing to fetch — ')
+            . 'they all already have ' . infra_kw_types()[$type]['label'] . ' numbers newer than the cutoff. '
+            . 'Choose "everything" under Re-fetch to pull them again.');
         header('Location: ' . $back); exit;
     }
 
@@ -207,8 +223,22 @@ if ($action === 'fetch') {
     $err  = '';
     $left = count($todo);
 
+    // Pace against the provider's published rate limit rather than discovering it
+    // as a 429 halfway through a sweep. DataForSEO allows 12 requests a minute and
+    // each batch costs two of them, so batches start no closer than 10s apart;
+    // Ahrefs allows 60, so one second.
+    $meta     = infra_kw_types()[$type];
+    $perBatch = max(1, (int) ($meta['calls_per_batch'] ?? 1));
+    $interval = (int) ceil(60 * $perBatch / max(1, (int) ($meta['rate_per_min'] ?? 60)));
+    $lastAt   = 0;
+
     foreach (array_chunk($todo, $size) as $chunk) {
         if (time() - $started > INFRA_KW_TIME_BUDGET) break;
+        if ($lastAt && ($wait = $interval - (time() - $lastAt)) > 0) {
+            if (time() - $started + $wait > INFRA_KW_TIME_BUDGET) break;
+            sleep($wait);
+        }
+        $lastAt = time();
 
         $phrases = $byPhrase = [];
         foreach ($chunk as $c) {
@@ -231,10 +261,17 @@ if ($action === 'fetch') {
         $left -= count($chunk);
     }
 
-    $msg = $done . ' cit' . ($done === 1 ? 'y' : 'ies') . ' updated from ' . $type
-         . ($miss ? ' · ' . $miss . ' returned no data (the phrase may have no measurable volume)' : '')
-         . ($left > 0 ? ' · ' . $left . ' still to do — run it again' : '') . '.';
+    $msg = $done . ' cit' . ($done === 1 ? 'y' : 'ies') . ' updated from ' . $meta['label']
+         . ($miss ? ' · ' . $miss . ' returned no data (too small to register a search volume)' : '')
+         . ($left > 0 ? ' · ' . number_format($left) . ' STILL TO GO — press Fetch again to continue' : ' · sweep complete')
+         . '.';
     if ($err !== '') $msg .= ' Stopped early: ' . $err;
+    // What it cost, read back rather than estimated.
+    $q = infra_kw_quota($type);
+    if ($q['ok'] && $q['remaining'] !== null) {
+        $msg .= ' ' . ($type === 'dataforseo' ? '$' . number_format($q['remaining']) : number_format($q['remaining']) . ' units')
+              . ' left.';
+    }
     infra_set_flash($err !== '' ? 'err' : 'ok', $msg);
     header('Location: ' . $back); exit;
 }
