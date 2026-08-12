@@ -196,8 +196,13 @@ function infra_kw_ahrefs_fetch(array $c, array $phrases): array
     // the response SILENTLY TRUNCATED — 200 keywords in, 100 rows back. Measured on
     // a Lite key. Without this check the missing half reads as "these cities have no
     // search volume", which is a far worse lie than an error would have been.
-    $rowCount = count((array) ($r['json']['keywords'] ?? []));
-    $truncated = $rowCount > 0 && $rowCount < count($safe);
+    //
+    // But fewer rows than keywords is NORMAL: Ahrefs omits keywords it has no data
+    // for, so 84 in and 83 back means one city has no measurable volume. Treating
+    // that as truncation aborted a 500-city run over a single quiet town. Real
+    // truncation lands exactly on a plan cap, so that is what is tested for.
+    $rowCount  = count((array) ($r['json']['keywords'] ?? []));
+    $truncated = $rowCount < count($safe) && in_array($rowCount, [100, 250, 500], true);
 
     $out = [];
     foreach ((array) ($r['json']['keywords'] ?? []) as $k) {
