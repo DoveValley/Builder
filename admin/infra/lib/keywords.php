@@ -140,6 +140,13 @@ function infra_kw_ahrefs_fetch(array $c, array $phrases): array
     if ($r['code'] === 429)  return ['ok' => false, 'msg' => 'Rate limited by Ahrefs (60 requests/minute). Nothing lost — run it again.', 'rows' => []];
     if ($r['code'] !== 200)  return ['ok' => false, 'msg' => 'Ahrefs returned HTTP ' . $r['code'] . ': ' . substr($r['raw'], 0, 250), 'rows' => []];
 
+    // Ask for more keywords than the plan's row cap and Ahrefs answers 200 OK with
+    // the response SILENTLY TRUNCATED — 200 keywords in, 100 rows back. Measured on
+    // a Lite key. Without this check the missing half reads as "these cities have no
+    // search volume", which is a far worse lie than an error would have been.
+    $rowCount = count((array) ($r['json']['keywords'] ?? []));
+    $truncated = $rowCount > 0 && $rowCount < count($safe);
+
     $out = [];
     foreach ((array) ($r['json']['keywords'] ?? []) as $k) {
         $kw = strtolower(trim((string) ($k['keyword'] ?? '')));
@@ -151,6 +158,12 @@ function infra_kw_ahrefs_fetch(array $c, array $phrases): array
             'kd'     => isset($k['difficulty']) ? (string) (int) $k['difficulty'] : '',
             'cpc'    => isset($k['cpc']) && $k['cpc'] !== null ? number_format(((int) $k['cpc']) / 100, 2, '.', '') : '',
         ];
+    }
+    if ($truncated) {
+        return ['ok' => false, 'rows' => $out, 'msg' =>
+            'Ahrefs returned only ' . $rowCount . ' rows for ' . count($safe) . ' keywords — your plan caps rows per '
+          . 'request and it truncates silently rather than erroring. Lower "Keywords per request" to ' . $rowCount
+          . ' or less (Lite 100, Standard 250, Advanced 500). The ' . $rowCount . ' rows it did return were kept.'];
     }
     return ['ok' => true, 'msg' => '', 'rows' => $out];
 }

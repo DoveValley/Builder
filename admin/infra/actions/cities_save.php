@@ -202,13 +202,16 @@ if ($action === 'fetch') {
             $byPhrase[strtolower($p)] = $c['id'];
         }
         $r = infra_kw_fetch($type, $phrases);
-        if (!$r['ok']) { $err = $r['msg']; break; }
+        if (!$r['ok']) $err = $r['msg'];
 
-        // Written per batch, so an interrupted run keeps everything it paid for.
+        // Written per batch, and any rows that DID come back are kept even when the
+        // call is reported as failed — a truncated response still cost units, and
+        // throwing away what it paid for would be the expensive kind of tidy.
         foreach ($byPhrase as $phrase => $cityId) {
             if (isset($r['rows'][$phrase])) { infra_cn_store_metrics($niche, $cityId, $r['rows'][$phrase], $type); $done++; }
-            else { $miss++; }
+            elseif ($err === '') { $miss++; }
         }
+        if ($err !== '') break;
         $left -= count($chunk);
     }
 
