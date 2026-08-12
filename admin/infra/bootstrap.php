@@ -51,6 +51,7 @@ function infra_header(string $active = 'dashboard'): void
         'dashboard'  => ['label' => 'Dashboard',  'href' => 'index.php'],
         'domains'    => ['label' => 'Domains',     'href' => 'index.php?view=domains'],
         'registrars' => ['label' => 'Registrars',  'href' => 'index.php?view=registrars'],
+        'cities'     => ['label' => 'Cities/Niche','href' => 'index.php?view=cities'],
         'buyqueue'   => ['label' => 'Buy queue',   'href' => 'index.php?view=buyqueue'],
         'new'        => ['label' => '+ New Site',  'href' => 'index.php?view=new'],
         'bulk'       => ['label' => 'Bulk',        'href' => 'index.php?view=bulk'],

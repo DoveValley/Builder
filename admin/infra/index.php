@@ -903,6 +903,267 @@ if ($view === 'golive') {
     <?php infra_search_js(); infra_footer(); exit;
 }
 
+/* ============================= CITIES / NICHE =============================
+ * Pick the cities a niche will target, score them, choose an area code, and
+ * point a domain at each one. Everything on this page is a PLAN — re-pointable,
+ * re-scorable, deletable. Nothing here spends money.
+ */
+if ($view === 'cities') {
+    require_once __DIR__ . '/lib/cities.php';
+    infra_header('cities');
+
+    $niches = infra_niches();
+    $niche  = infra_niche_slug($_GET['niche'] ?? '');
+    if ($niche === '' || !isset($niches[$niche])) $niche = (string) array_key_first($niches);
+    $counts = infra_cn_counts();
+    $total  = infra_cities_count();
+
+    // "selected" = the cities already picked for this niche; "pool" = browse all.
+    $show   = ($_GET['show'] ?? 'selected') === 'pool' ? 'pool' : 'selected';
+    $q      = trim((string) ($_GET['q'] ?? ''));
+    $stateF = strtoupper(trim((string) ($_GET['state'] ?? '')));
+    $minPop = (int) ($_GET['min_pop'] ?? 0);
+    $page   = max(1, (int) ($_GET['page'] ?? 1));
+    $per    = 100;
+
+    // Round-trip the filters through every form so a save comes back where you were.
+    $qs = http_build_query(array_filter([
+        'show' => $show !== 'selected' ? $show : null, 'q' => $q ?: null,
+        'state' => $stateF ?: null, 'min_pop' => $minPop ?: null, 'page' => $page > 1 ? $page : null,
+    ]));
+    $selfUrl = fn(array $over = []) => 'index.php?view=cities&' . http_build_query(array_filter(array_merge([
+        'niche' => $niche, 'show' => $show, 'q' => $q, 'state' => $stateF,
+        'min_pop' => $minPop ?: null, 'page' => $page > 1 ? $page : null,
+    ], $over), fn($v) => $v !== null && $v !== ''));
+
+    // Domains this niche could use: owned, right niche, not already on another city.
+    $taken = infra_cn_domains_taken();
+    $avail = [];
+    foreach (infra_state_all_domains() as $d => $r) {
+        if (($r['niche'] ?? '') !== $niche) continue;
+        $avail[$d] = ['owned' => ($r['owned'] ?? '') === 'yes', 'taken' => $taken[$d] ?? ''];
+    }
+    ksort($avail);
+    $freeCount = count(array_filter($avail, fn($a) => $a['owned'] && $a['taken'] === ''));
+    ?>
+
+    <!-- niche tabs -->
+    <div class="ic-card" style="margin-bottom:14px"><div class="body" style="padding:10px 14px">
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+        <?php foreach ($niches as $s => $n): $c = $counts[$s] ?? ['selected' => 0, 'linked' => 0]; ?>
+          <a href="index.php?view=cities&niche=<?= urlencode($s) ?>"
+             class="btn <?= $s === $niche ? '' : 'sec' ?>" style="padding:4px 12px;font-size:13px">
+            <?= ih($n['label']) ?>
+            <span style="opacity:.7;font-size:11px"><?= (int) $c['selected'] ?>&nbsp;cities · <?= (int) $c['linked'] ?>&nbsp;linked</span>
+          </a>
+        <?php endforeach; ?>
+        <details style="margin-left:auto"><summary style="cursor:pointer;font-size:12px;color:#6b7280">Manage niches</summary>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;margin-top:10px">
+            <form method="post" action="actions/cities_save.php" style="display:flex;gap:6px;align-items:flex-end">
+              <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+              <input type="hidden" name="action" value="niche_add">
+              <label style="font-size:12px">Add a niche<br><input name="new_niche" placeholder="roofing" required style="padding:5px 8px"></label>
+              <label style="font-size:12px">Label<br><input name="new_label" placeholder="Roofing" style="padding:5px 8px"></label>
+              <button class="btn" type="submit">Add</button>
+            </form>
+            <form method="post" action="actions/cities_save.php" style="display:flex;gap:6px;align-items:flex-end"
+                  onsubmit="return confirm('Remove this niche and every city selection under it? Cities and domains are not touched.')">
+              <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+              <input type="hidden" name="action" value="niche_delete">
+              <label style="font-size:12px">Remove<br>
+                <select name="slug" style="padding:5px 8px">
+                  <?php foreach ($niches as $s => $n): ?><option value="<?= ih($s) ?>"><?= ih($n['label']) ?></option><?php endforeach; ?>
+                </select></label>
+              <button class="btn sec" type="submit">Remove</button>
+            </form>
+          </div>
+        </details>
+      </div>
+    </div></div>
+
+    <?php if (!$total): ?>
+      <div class="ic-card"><div class="body">
+        <p style="margin-top:0">The city list has not been loaded yet. It comes from
+          <code>admin/infra/data/us_cities.csv</code> — the 10,000 largest US cities by
+          2024 Census population, ranked 1 (largest) down, with suggested area codes.</p>
+        <form method="post" action="actions/cities_save.php">
+          <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+          <input type="hidden" name="action" value="seed">
+          <input type="hidden" name="niche" value="<?= ih($niche) ?>">
+          <button class="btn" type="submit">Load the city list</button>
+        </form>
+      </div></div>
+      <?php infra_footer(); exit;
+    endif; ?>
+
+    <div class="ic-note">
+      Pick the cities <strong><?= ih($niches[$niche]['label']) ?></strong> will target, score them, choose an
+      area code, then point a domain at each. This is a <strong>plan</strong> — re-point a domain any time;
+      nothing here buys anything. <strong><?= $freeCount ?></strong> owned <?= ih($niche) ?> domain<?= $freeCount === 1 ? '' : 's' ?>
+      not yet assigned to a city. Ahrefs numbers and phone numbers are typed in for now.
+    </div>
+
+    <!-- filters + mode -->
+    <form method="get" class="ic-card" style="margin-bottom:14px"><div class="body" style="padding:10px 14px;display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
+      <input type="hidden" name="view" value="cities">
+      <input type="hidden" name="niche" value="<?= ih($niche) ?>">
+      <label style="font-size:12px">Show<br>
+        <select name="show" style="padding:5px 8px">
+          <option value="selected" <?= $show === 'selected' ? 'selected' : '' ?>>Selected cities</option>
+          <option value="pool"     <?= $show === 'pool' ? 'selected' : '' ?>>All <?= number_format($total) ?> cities</option>
+        </select></label>
+      <label style="font-size:12px">Search<br><input name="q" value="<?= ih($q) ?>" placeholder="city or state" style="padding:5px 8px"></label>
+      <label style="font-size:12px">State<br>
+        <select name="state" style="padding:5px 8px"><option value="">any</option>
+          <?php foreach (infra_states_list() as $s): ?>
+            <option value="<?= ih($s) ?>" <?= $s === $stateF ? 'selected' : '' ?>><?= ih($s) ?></option>
+          <?php endforeach; ?>
+        </select></label>
+      <label style="font-size:12px">Min population<br><input name="min_pop" type="number" min="0" step="1000" value="<?= $minPop ?: '' ?>" placeholder="any" style="padding:5px 8px;width:110px"></label>
+      <button class="btn sec" type="submit">Apply</button>
+      <?php if ($q || $stateF || $minPop): ?><a class="btn sec" href="<?= ih($selfUrl(['q' => null, 'state' => null, 'min_pop' => null, 'page' => null])) ?>">Clear</a><?php endif; ?>
+    </div></form>
+
+    <?php
+    /* ---------- SELECTED: the editable plan ---------- */
+    if ($show === 'selected'):
+        $rows = infra_cn_selected($niche);
+        if ($q !== '' || $stateF !== '' || $minPop > 0) {
+            $rows = array_values(array_filter($rows, function ($r) use ($q, $stateF, $minPop) {
+                if ($stateF !== '' && $r['ss'] !== $stateF) return false;
+                if ($minPop > 0 && (int) $r['population'] < $minPop) return false;
+                if ($q !== '' && stripos($r['city'] . ' ' . $r['state'] . ' ' . $r['ss'], $q) === false) return false;
+                return true;
+            }));
+        }
+    ?>
+    <form method="post" action="actions/cities_save.php">
+      <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+      <input type="hidden" name="niche" value="<?= ih($niche) ?>">
+      <input type="hidden" name="qs" value="<?= ih($qs) ?>">
+      <div class="ic-card">
+        <h2><?= count($rows) ?> selected <?= ih($niches[$niche]['label']) ?> cit<?= count($rows) === 1 ? 'y' : 'ies' ?></h2>
+        <div class="body">
+        <?php if (!$rows): ?>
+          <div class="ic-empty">No cities picked for this niche yet — switch <em>Show</em> to
+            <a href="<?= ih($selfUrl(['show' => 'pool'])) ?>">all cities</a> and tick the ones you want.</div>
+        <?php else: ?>
+          <table><thead><tr>
+            <th style="width:24px"></th><th style="width:52px">#</th><th>City</th><th style="width:44px">St</th>
+            <th style="width:82px">Pop</th><th style="width:88px">Ahrefs</th><th style="width:70px">Score</th>
+            <th style="width:110px">Area code</th><th style="width:140px">Phone</th><th>Domain</th>
+          </tr></thead><tbody>
+          <?php foreach ($rows as $r): $id = $r['id']; ?>
+            <tr>
+              <td><input type="checkbox" name="city_id[]" value="<?= ih($id) ?>"></td>
+              <td style="color:#9ca3af"><?= (int) $r['rank'] ?></td>
+              <td><strong><?= ih($r['city']) ?></strong></td>
+              <td><?= ih($r['ss']) ?></td>
+              <td style="text-align:right;color:#6b7280"><?= number_format((int) $r['population']) ?></td>
+              <td><input name="row[<?= ih($id) ?>][ahrefs]" value="<?= ih($r['ahrefs']) ?>" style="width:78px;padding:3px 6px"></td>
+              <td><input name="row[<?= ih($id) ?>][score]" value="<?= ih($r['score']) ?>" type="number" min="1" max="10" step="1" style="width:56px;padding:3px 6px"></td>
+              <td>
+                <input name="row[<?= ih($id) ?>][area_code]" value="<?= ih($r['area_code']) ?>" list="ac-<?= ih($id) ?>"
+                       placeholder="<?= ih(implode('/', array_slice(infra_city_area_codes($r), 0, 2))) ?>" style="width:96px;padding:3px 6px">
+                <datalist id="ac-<?= ih($id) ?>">
+                  <?php foreach (infra_city_area_codes($r) as $c): ?><option value="<?= ih($c) ?>"><?php endforeach; ?>
+                </datalist>
+              </td>
+              <td><input name="row[<?= ih($id) ?>][phone]" value="<?= ih($r['phone']) ?>" placeholder="—" style="width:128px;padding:3px 6px"></td>
+              <td>
+                <select name="row[<?= ih($id) ?>][domain]" style="padding:3px 6px;max-width:250px">
+                  <option value="">— none —</option>
+                  <?php foreach ($avail as $d => $a):
+                      $mine = ($d === strtolower($r['domain'] ?? ''));
+                      if ($a['taken'] !== '' && !$mine) continue; ?>
+                    <option value="<?= ih($d) ?>" <?= $mine ? 'selected' : '' ?>>
+                      <?= ih($d) ?><?= $a['owned'] ? '' : ' (not owned yet)' ?></option>
+                  <?php endforeach; ?>
+                  <?php if (($r['domain'] ?? '') !== '' && !isset($avail[strtolower($r['domain'])])): ?>
+                    <option value="<?= ih($r['domain']) ?>" selected><?= ih($r['domain']) ?> (other niche)</option>
+                  <?php endif; ?>
+                </select>
+              </td>
+            </tr>
+          <?php endforeach; ?>
+          </tbody></table>
+          <div style="display:flex;gap:8px;margin-top:12px;align-items:center">
+            <button class="btn" type="submit" name="action" value="save">Save changes</button>
+            <button class="btn sec" type="submit" name="action" value="unselect"
+                    onclick="return confirm('Remove the ticked cities from this niche? Their score, phone and domain link are dropped.')">Remove ticked</button>
+            <span style="font-size:12px;color:#6b7280">A score you type is recorded as set by hand.</span>
+          </div>
+        <?php endif; ?>
+        </div>
+      </div>
+    </form>
+
+    <?php else:
+    /* ---------- POOL: browse and pick ---------- */
+        $browse = infra_cities_browse([
+            'q' => $q, 'state' => $stateF, 'min_pop' => $minPop,
+            'limit' => $per, 'offset' => ($page - 1) * $per,
+        ]);
+        $mine  = infra_cn_all($niche);
+        $pages = max(1, (int) ceil($browse['total'] / $per));
+    ?>
+    <form method="post" action="actions/cities_save.php">
+      <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+      <input type="hidden" name="niche" value="<?= ih($niche) ?>">
+      <input type="hidden" name="qs" value="<?= ih($qs) ?>">
+      <div class="ic-card">
+        <h2><?= number_format($browse['total']) ?> cities <span style="color:#9ca3af;font-weight:400;font-size:13px">&mdash; page <?= $page ?> of <?= $pages ?>, ranked by population</span></h2>
+        <div class="body">
+          <table><thead><tr>
+            <th style="width:24px"></th><th style="width:52px">#</th><th>City</th><th style="width:44px">St</th>
+            <th style="width:90px">Population</th><th>Area codes</th><th style="width:120px">In this niche</th>
+          </tr></thead><tbody>
+          <?php foreach ($browse['rows'] as $r): $picked = isset($mine[$r['id']]); ?>
+            <tr<?= $picked ? ' style="background:#f8fafc"' : '' ?>>
+              <td><?php if (!$picked): ?><input type="checkbox" name="city_id[]" value="<?= ih($r['id']) ?>"><?php endif; ?></td>
+              <td style="color:#9ca3af"><?= (int) $r['rank'] ?></td>
+              <td><strong><?= ih($r['city']) ?></strong> <span style="color:#9ca3af;font-size:12px"><?= ih($r['state']) ?></span></td>
+              <td><?= ih($r['ss']) ?></td>
+              <td style="text-align:right;color:#6b7280"><?= number_format((int) $r['population']) ?></td>
+              <td style="font-size:12px">
+                <?= ih(implode(' · ', infra_city_area_codes($r))) ?: '<span style="color:#9ca3af">none known</span>' ?>
+                <?php if (($r['ac_source'] ?? '') === 'near'): ?><span class="badge b-mut" title="Borrowed from nearby cities in the same state — check before using">nearby</span><?php endif; ?>
+              </td>
+              <td><?= $picked ? '<span class="badge b-ok">selected</span>' : '' ?></td>
+            </tr>
+          <?php endforeach; ?>
+          </tbody></table>
+          <div style="display:flex;gap:8px;margin-top:12px;align-items:center;flex-wrap:wrap">
+            <button class="btn" type="submit" name="action" value="select">Add ticked to <?= ih($niches[$niche]['label']) ?></button>
+            <?php if ($page > 1): ?><a class="btn sec" href="<?= ih($selfUrl(['page' => $page - 1])) ?>">&larr; Prev</a><?php endif; ?>
+            <?php if ($page < $pages): ?><a class="btn sec" href="<?= ih($selfUrl(['page' => $page + 1])) ?>">Next &rarr;</a><?php endif; ?>
+            <span style="font-size:12px;color:#6b7280">Ticks are lost when you change page — add before moving on.</span>
+          </div>
+        </div>
+      </div>
+    </form>
+    <?php endif; ?>
+
+    <details style="margin-top:14px"><summary style="cursor:pointer;font-size:12px;color:#6b7280">Where this data comes from</summary>
+      <div class="ic-note" style="margin-top:8px">
+        Population and rank: <strong>US Census sub-est2024</strong> (rank 1 = largest of the 10,000 loaded).
+        Area codes: exact city matches from a public area-code database, otherwise borrowed from
+        cities nearby <em>in the same state</em> and flagged <span class="badge b-mut">nearby</span> —
+        a suggestion to check, not a fact. Rebuild the file with
+        <code>python3 admin/infra/data/build_cities.py</code>, then re-load it here.
+        <form method="post" action="actions/cities_save.php" style="margin-top:8px">
+          <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+          <input type="hidden" name="action" value="seed">
+          <input type="hidden" name="niche" value="<?= ih($niche) ?>">
+          <button class="btn sec" type="submit">Re-load the city list</button>
+          <span style="font-size:12px;color:#6b7280">Refreshes populations and area codes. Your selections are keyed by city, not by rank, so they survive.</span>
+        </form>
+      </div>
+    </details>
+
+    <?php infra_footer(); exit;
+}
+
 /* ============================= BUY QUEUE ============================= */
 if ($view === 'buyqueue') {
     infra_header('buyqueue');
