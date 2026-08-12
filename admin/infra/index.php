@@ -1026,13 +1026,20 @@ if ($view === 'cities') {
           <input type="hidden" name="action" value="fetch">
           <input type="hidden" name="niche" value="<?= ih($niche) ?>">
           <input type="hidden" name="qs" value="<?= ih($qs) ?>">
-          <input type="hidden" name="provider" value="<?= ih((string) array_key_first($kwOn)) ?>">
+          <?php if (count($kwOn) > 1): ?>
+            <label style="font-size:12px">Source<br>
+              <select name="provider" style="padding:5px 8px">
+                <?php foreach ($kwOn as $t => $m): ?><option value="<?= ih($t) ?>"><?= ih($m['label']) ?></option><?php endforeach; ?>
+              </select></label>
+          <?php else: ?>
+            <input type="hidden" name="provider" value="<?= ih((string) array_key_first($kwOn)) ?>">
+          <?php endif; ?>
           <label style="font-size:12px">Re-fetch older than<br>
             <select name="stale_days" style="padding:5px 8px">
               <option value="30">30 days</option><option value="90">90 days</option>
               <option value="0">only blanks</option><option value="1">everything</option>
             </select></label>
-          <button class="btn" type="submit">Fetch from <?= ih($kwOn[array_key_first($kwOn)]['label']) ?></button>
+          <button class="btn" type="submit">Fetch<?= count($kwOn) > 1 ? '' : ' from ' . ih($kwOn[array_key_first($kwOn)]['label']) ?></button>
         </form>
       <?php endif; ?>
     </div></div>
@@ -1189,7 +1196,13 @@ if ($view === 'cities') {
           <div style="display:flex;gap:8px;margin-top:12px;align-items:center;flex-wrap:wrap">
             <?php if ($kwOn): ?>
               <button class="btn" type="submit" name="action" value="fetch">Fetch metrics for ticked</button>
-              <input type="hidden" name="provider" value="<?= ih((string) array_key_first($kwOn)) ?>">
+              <?php if (count($kwOn) > 1): ?>
+                <select name="provider" style="padding:5px 8px;font-size:13px">
+                  <?php foreach ($kwOn as $t => $m): ?><option value="<?= ih($t) ?>"><?= ih($m['label']) ?></option><?php endforeach; ?>
+                </select>
+              <?php else: ?>
+                <input type="hidden" name="provider" value="<?= ih((string) array_key_first($kwOn)) ?>">
+              <?php endif; ?>
             <?php endif; ?>
             <button class="btn <?= $kwOn ? 'sec' : '' ?>" type="submit" name="action" value="select">Add ticked to <?= ih($niches[$niche]['label']) ?></button>
             <?php if ($page > 1): ?><a class="btn sec" href="<?= ih($selfUrl(['page' => $page - 1])) ?>">&larr; Prev</a><?php endif; ?>
@@ -1205,7 +1218,11 @@ if ($view === 'cities') {
     <details style="margin-top:14px" <?= $kwOn ? '' : 'open' ?>>
       <summary style="cursor:pointer;font-size:12px;color:#6b7280">Keyword provider<?= $kwOn ? ' — ' . ih($kwOn[array_key_first($kwOn)]['label']) . ' connected' : ' — none connected yet' ?></summary>
       <div class="ic-card" style="margin-top:8px"><div class="body">
-        <?php foreach (infra_kw_types() as $type => $meta): $stored = infra_kw_provider($type); ?>
+        <?php foreach (infra_kw_types() as $type => $meta): $stored = infra_kw_provider($type); $on = isset($kwOn[$type]); ?>
+          <h3 style="margin:18px 0 8px;font-size:14px">
+            <?= ih($meta['label']) ?>
+            <span class="badge <?= $on ? 'b-ok' : 'b-mut' ?>"><?= $on ? 'connected' : 'not connected' ?></span>
+          </h3>
           <form method="post" action="actions/cities_save.php" style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
             <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
             <input type="hidden" name="niche" value="<?= ih($niche) ?>">
@@ -1226,10 +1243,12 @@ if ($view === 'cities') {
           <div class="ic-note" style="margin-top:10px"><?= $meta['note'] ?></div>
         <?php endforeach; ?>
         <div class="ic-note" style="margin-top:10px">
-          The key is stored in <code>admin/infra/config/keywords.json</code> — gitignored, <code>0600</code>,
-          never printed back into this page. <strong>Test costs nothing</strong>: it reads your unit balance
-          through an endpoint that consumes no units, and reports what is left rather than just "the key works" —
-          a key with no quota fails on the day you need it, not the day you test it.
+          Credentials are stored in <code>admin/infra/config/keywords.json</code> — gitignored, <code>0600</code>,
+          never printed back into this page. <strong>Test costs nothing at either provider</strong> and reports
+          what is <em>left</em> — Ahrefs units, DataForSEO dollars — rather than just "the key works", because a
+          key with no quota fails on the day you need it, not the day you test it.
+          <br><br><strong>CPC is stored in dollars whichever provider it came from.</strong> Ahrefs returns cents
+          and DataForSEO returns dollars; each adapter converts, so the column never mixes units.
           <br><br><strong>Score formula:</strong> <?= ih(infra_kw_score_formula()) ?>
           A score you type overrides it and is never overwritten by a fetch.
         </div>

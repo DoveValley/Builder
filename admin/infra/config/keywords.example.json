@@ -5,11 +5,19 @@
       "api_key": "your-ahrefs-api-key",
       "country": "us",
       "batch": "100"
+    },
+    "dataforseo": {
+      "login": "you@example.com",
+      "password": "your-dataforseo-api-password",
+      "location": "2840",
+      "language": "en",
+      "batch": "1000"
     }
   },
   "_notes": {
     "batch": "Keywords per request, capped by your Ahrefs plan: Lite 100, Standard 250, Advanced 500, Enterprise unlimited. Too high and the whole batch is refused.",
     "units": "Keywords Explorer costs 50 units minimum per request plus one unit per row per field; volume, difficulty and cpc are all cheap fields. The Test button reads your unit balance through an endpoint that consumes none.",
-    "cpc": "Ahrefs returns CPC in US cents. The client divides by 100 before storing, so a $12.00 click is stored as 12.00, not 1200."
+    "cpc": "Ahrefs returns CPC in US CENTS and the client divides by 100 before storing; DataForSEO returns DOLLARS and is stored as-is. The two providers disagree about the unit, so each adapter converts and the stored column is always dollars.",
+    "dataforseo": "Pay-as-you-go real money, not subscription units. One fetch is TWO calls — Google Ads search volume for volume/CPC, then Labs bulk keyword difficulty for KD — so a partial failure can leave volume without KD. Location 2840 = United States. 1,000 keywords per request, 12 requests/minute."
   }
 }

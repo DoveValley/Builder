@@ -29,11 +29,32 @@ function infra_kw_types(): array
             ],
             'metrics' => true,
             'quota'   => true,
+            'batch_max' => 500,
             'note'    => 'Uses your existing Ahrefs subscription. Keywords Explorer costs API units, not money: '
                        . 'a request costs 50 units minimum plus one unit per row per field, and volume/difficulty/cpc '
                        . 'are all cheap fields. <strong>Keywords per request is capped by your plan</strong> — Lite 100, '
                        . 'Standard 250, Advanced 500, Enterprise unlimited. Set it too high and the API refuses the '
                        . 'whole batch, so it defaults to the safe 100. Rate limit is 60 requests a minute.',
+        ],
+        'dataforseo' => [
+            'label'  => 'DataForSEO',
+            'fields' => [
+                'login'    => ['label' => 'API login (email)', 'secret' => false],
+                'password' => ['label' => 'API password',      'secret' => true],
+                'location' => ['label' => 'Location code',     'secret' => false, 'default' => '2840'],
+                'language' => ['label' => 'Language',          'secret' => false, 'default' => 'en'],
+                'batch'    => ['label' => 'Keywords per request', 'secret' => false, 'default' => '1000'],
+            ],
+            'metrics' => true,
+            'quota'   => true,
+            'batch_max' => 1000,
+            'note'    => 'Pay-as-you-go, priced in cents rather than subscription units — the whole 10,000-city × 8-niche '
+                       . 'sweep lands around $8, which is what makes a wide sweep possible at all. '
+                       . '<strong>Each fetch is two calls</strong>: Google Ads search volume (the Keyword Planner source) '
+                       . 'for volume and CPC, then Labs bulk keyword difficulty for KD — so a batch that half-fails can '
+                       . 'return volume without KD, and does. 1,000 keywords per request, 12 requests a minute. '
+                       . 'Location code 2840 is the United States. <strong>Test reports your account balance in dollars</strong>; '
+                       . 'unlike Ahrefs, running out here means real money ran out.',
         ],
     ];
 }
@@ -55,8 +76,7 @@ function infra_kw_configured(): array
 {
     $out = [];
     foreach (infra_kw_types() as $type => $meta) {
-        $c = infra_kw_provider($type);
-        if (trim((string) ($c['api_key'] ?? '')) !== '') $out[$type] = $meta;
+        if (infra_kw_has_creds($type)) $out[$type] = $meta;
     }
     return $out;
 }
@@ -168,28 +188,141 @@ function infra_kw_ahrefs_fetch(array $c, array $phrases): array
     return ['ok' => true, 'msg' => '', 'rows' => $out];
 }
 
+/* ------------------------------------------------------------ dataforseo */
+
+function infra_kw_dfs_headers(array $c): array
+{
+    $auth = base64_encode(trim((string) ($c['login'] ?? '')) . ':' . trim((string) ($c['password'] ?? '')));
+    return ['Authorization: Basic ' . $auth, 'Content-Type: application/json'];
+}
+
+/** One POST to a DataForSEO live endpoint, with its two layers of status code unwrapped. */
+function infra_kw_dfs_post(array $c, string $path, array $task): array
+{
+    $r = infra_http('POST', 'https://api.dataforseo.com/v3/' . ltrim($path, '/'),
+        ['headers' => infra_kw_dfs_headers($c), 'body' => json_encode([$task]), 'timeout' => 120]);
+
+    if ($r['error'] !== '')  return ['ok' => false, 'msg' => 'Network error: ' . $r['error'], 'result' => []];
+    if ($r['code'] === 401)  return ['ok' => false, 'msg' => 'DataForSEO rejected the login/password.', 'result' => []];
+    if ($r['code'] !== 200 || !is_array($r['json'])) {
+        return ['ok' => false, 'msg' => 'HTTP ' . $r['code'] . ': ' . substr($r['raw'], 0, 200), 'result' => []];
+    }
+    // DataForSEO answers HTTP 200 for its own errors and puts the truth in
+    // status_code — twice, once for the request and once per task. 20000 is OK.
+    if ((int) ($r['json']['status_code'] ?? 0) !== 20000) {
+        return ['ok' => false, 'msg' => 'DataForSEO: ' . ($r['json']['status_message'] ?? 'unknown error'), 'result' => []];
+    }
+    $t = $r['json']['tasks'][0] ?? [];
+    if ((int) ($t['status_code'] ?? 0) !== 20000) {
+        return ['ok' => false, 'msg' => 'DataForSEO task: ' . ($t['status_message'] ?? 'unknown error'), 'result' => []];
+    }
+    return ['ok' => true, 'msg' => '', 'result' => (array) ($t['result'] ?? [])];
+}
+
+/** @return array{ok:bool,msg:string,remaining:?int} — remaining is dollars, rounded down. */
+function infra_kw_dfs_quota(array $c): array
+{
+    $r = infra_http('GET', 'https://api.dataforseo.com/v3/appendix/user_data',
+        ['headers' => infra_kw_dfs_headers($c), 'timeout' => 30]);
+
+    if ($r['error'] !== '') return ['ok' => false, 'msg' => 'Network error: ' . $r['error'], 'remaining' => null];
+    if ($r['code'] === 401) return ['ok' => false, 'msg' => 'DataForSEO rejected the login/password.', 'remaining' => null];
+    if ($r['code'] !== 200 || !is_array($r['json'])) {
+        return ['ok' => false, 'msg' => 'HTTP ' . $r['code'] . ': ' . substr($r['raw'], 0, 200), 'remaining' => null];
+    }
+    $res = $r['json']['tasks'][0]['result'][0] ?? [];
+    $bal = $res['money']['balance'] ?? null;
+    if ($bal === null) return ['ok' => true, 'msg' => 'Login works, but no balance was reported.', 'remaining' => null];
+
+    $bal = (float) $bal;
+    // Volume+KD runs about $0.10 per 1,000 keywords across the two calls.
+    $kw  = (int) floor($bal / 0.10 * 1000);
+    return ['ok' => true, 'remaining' => (int) floor($bal),
+            'msg' => 'Login works. Balance $' . number_format($bal, 2)
+                   . ' — roughly ' . number_format($kw) . ' keywords at about $0.10 per thousand.'
+                   . ($bal < 1 ? ' That is low: a wide sweep will stop partway.' : '')];
+}
+
+/**
+ * Volume + CPC from Google Ads, KD from Labs — two calls, merged.
+ *
+ * If the KD call fails the volume figures are still returned, because they were
+ * already paid for and half the picture beats none. The caller sees the warning.
+ */
+function infra_kw_dfs_fetch(array $c, array $phrases): array
+{
+    $phrases = array_values(array_filter(array_map('trim', $phrases)));
+    if (!$phrases) return ['ok' => true, 'msg' => '', 'rows' => []];
+
+    $loc  = (int) ($c['location'] ?? 2840) ?: 2840;
+    $lang = trim((string) ($c['language'] ?? 'en')) ?: 'en';
+    $task = ['keywords' => array_values($phrases), 'location_code' => $loc, 'language_code' => $lang];
+
+    $vol = infra_kw_dfs_post($c, 'keywords_data/google_ads/search_volume/live', $task);
+    if (!$vol['ok']) return ['ok' => false, 'msg' => $vol['msg'], 'rows' => []];
+
+    $out = [];
+    foreach ($vol['result'] as $item) {
+        $kw = strtolower(trim((string) ($item['keyword'] ?? '')));
+        if ($kw === '') continue;
+        $out[$kw] = [
+            'volume' => isset($item['search_volume']) && $item['search_volume'] !== null ? (string) (int) $item['search_volume'] : '',
+            'kd'     => '',
+            // CPC here is already dollars, NOT cents like Ahrefs. Do not divide.
+            'cpc'    => isset($item['cpc']) && $item['cpc'] !== null ? number_format((float) $item['cpc'], 2, '.', '') : '',
+        ];
+    }
+
+    $kdr = infra_kw_dfs_post($c, 'dataforseo_labs/google/bulk_keyword_difficulty/live', $task);
+    if (!$kdr['ok']) {
+        return ['ok' => false, 'rows' => $out,
+                'msg' => 'Volume and CPC came back, but keyword difficulty did not: ' . $kdr['msg']
+                       . ' The volume figures were kept; re-run to fill KD in.'];
+    }
+    foreach ((array) ($kdr['result'][0]['items'] ?? []) as $item) {
+        $kw = strtolower(trim((string) ($item['keyword'] ?? '')));
+        if ($kw === '' || !isset($out[$kw])) continue;
+        $out[$kw]['kd'] = isset($item['keyword_difficulty']) && $item['keyword_difficulty'] !== null
+            ? (string) (int) $item['keyword_difficulty'] : '';
+    }
+    return ['ok' => true, 'msg' => '', 'rows' => $out];
+}
+
 /* ------------------------------------------------------------ dispatchers */
+
+/** Is this provider usable — i.e. are its non-optional credentials filled in? */
+function infra_kw_has_creds(string $type): bool
+{
+    $c = infra_kw_provider($type);
+    if ($type === 'ahrefs')     return trim((string) ($c['api_key'] ?? '')) !== '';
+    if ($type === 'dataforseo') return trim((string) ($c['login'] ?? '')) !== '' && trim((string) ($c['password'] ?? '')) !== '';
+    return false;
+}
 
 function infra_kw_quota(string $type): array
 {
+    if (!infra_kw_has_creds($type)) return ['ok' => false, 'msg' => 'No credentials stored.', 'remaining' => null];
     $c = infra_kw_provider($type);
-    if (trim((string) ($c['api_key'] ?? '')) === '') return ['ok' => false, 'msg' => 'No API key stored.', 'remaining' => null];
-    if ($type === 'ahrefs') return infra_kw_ahrefs_quota($c);
+    if ($type === 'ahrefs')     return infra_kw_ahrefs_quota($c);
+    if ($type === 'dataforseo') return infra_kw_dfs_quota($c);
     return ['ok' => false, 'msg' => 'No adapter for ' . $type . '.', 'remaining' => null];
 }
 
 function infra_kw_fetch(string $type, array $phrases): array
 {
+    if (!infra_kw_has_creds($type)) return ['ok' => false, 'msg' => 'No credentials stored for ' . $type . '.', 'rows' => []];
     $c = infra_kw_provider($type);
-    if (trim((string) ($c['api_key'] ?? '')) === '') return ['ok' => false, 'msg' => 'No API key stored for ' . $type . '.', 'rows' => []];
-    if ($type === 'ahrefs') return infra_kw_ahrefs_fetch($c, $phrases);
+    if ($type === 'ahrefs')     return infra_kw_ahrefs_fetch($c, $phrases);
+    if ($type === 'dataforseo') return infra_kw_dfs_fetch($c, $phrases);
     return ['ok' => false, 'msg' => 'No adapter for ' . $type . '.', 'rows' => []];
 }
 
 function infra_kw_batch_size(string $type): int
 {
-    $c = infra_kw_provider($type);
-    return max(1, min(1000, (int) ($c['batch'] ?? 100)));
+    $c   = infra_kw_provider($type);
+    $max = (int) (infra_kw_types()[$type]['batch_max'] ?? 1000);
+    $def = (int) (infra_kw_types()[$type]['fields']['batch']['default'] ?? 100);
+    return max(1, min($max, (int) ($c['batch'] ?? $def) ?: $def));
 }
 
 /* ------------------------------------------------------------------ score */
