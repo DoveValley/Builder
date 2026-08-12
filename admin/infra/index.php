@@ -1173,7 +1173,13 @@ if ($view === 'cities') {
             <th style="width:56px">Score</th>
             <th>Area codes</th><th style="width:96px">In niche</th>
           </tr></thead><tbody>
-          <?php foreach ($browse['rows'] as $r): $picked = isset($mine[$r['id']]); ?>
+          <?php foreach ($browse['rows'] as $r):
+              // A row in city_niche means "we know something about this city", NOT
+              // that it is picked — fetching metrics creates one. Reading it as
+              // picked put a "selected" badge on every researched city and took
+              // away its checkbox, so the ones you had just looked up were the ones
+              // you could no longer choose.
+              $picked = (($mine[$r['id']]['selected'] ?? '') === 'yes'); ?>
             <tr<?= $picked ? ' style="background:#f8fafc"' : '' ?>>
               <td><?php if (!$picked): ?><input type="checkbox" name="city_id[]" value="<?= ih($r['id']) ?>"><?php endif; ?></td>
               <td style="color:#9ca3af"><?= (int) $r['rank'] ?></td>
