@@ -1821,8 +1821,9 @@ if ($view === 'cloudflare') {
                     <tr><td style="color:#6b7280">Domains in this account</td>
                         <td><strong><?= count($zones) ?></strong>
                             <?php if ($zones): ?>
-                            <span style="color:#6b7280">— <?= count($zones) - count($pending) ?> live, <?= count($pending) ?> waiting on nameservers</span>
-                            <?php endif; ?></td></tr>
+                            <span style="color:#6b7280">— <?= count($zones) - count($pending) ?> with nameservers set, <?= count($pending) ?> waiting</span>
+                            <?php endif; ?>
+                            <div style="color:#9ca3af;font-size:12px">Nameservers set means Cloudflare is answering for the domain. It does not mean a website is behind it.</div></td></tr>
                 </tbody>
             </table>
 
@@ -1834,7 +1835,7 @@ if ($view === 'cloudflare') {
                     <li><strong><?= count($pending) ?></strong> domain(s) set up here but still pointing at their old nameservers — they are not live yet. Go-Live switches them.</li>
                     <?php endif; ?>
                     <?php if ($unlinked): ?>
-                    <li><strong><?= count($unlinked) ?></strong> domain(s) are set up and running in Cloudflare, but the console never wrote that down. Your provisioning is further along than its own records say.</li>
+                    <li><strong><?= count($unlinked) ?></strong> domain(s) have a zone here that the console has not recorded. Worth knowing that a domain bought <em>at</em> Cloudflare gets a zone automatically, pointing at Cloudflare's own nameservers — so an unrecorded zone usually means "bought here", not "already provisioned". The zone is likely empty until a build fills it in.</li>
                     <?php endif; ?>
                     <?php if ($strays): ?>
                     <li><strong><?= count($strays) ?></strong> domain(s) in this account that the console has never heard of at all.</li>
@@ -1849,7 +1850,7 @@ if ($view === 'cloudflare') {
             <?php else: ?>
                 <div style="max-height:520px;overflow:auto">
                 <table>
-                    <thead><tr><th>Domain</th><th>Live?</th><th>Nameservers</th><th>Since</th><th>In your records?</th></tr></thead>
+                    <thead><tr><th>Domain</th><th>Cloudflare status</th><th>Nameservers</th><th>Since</th><th>In your records?</th></tr></thead>
                     <tbody>
                     <?php foreach ($zones as $z):
                         $nm   = strtolower($z['name'] ?? '');
@@ -1858,7 +1859,7 @@ if ($view === 'cloudflare') {
                         <tr>
                             <td><strong><?= ih($z['name'] ?? '?') ?></strong></td>
                             <td style="color:<?= $live ? '#166534' : '#92400e' ?>">
-                                <strong><?= $live ? 'live' : 'waiting on nameservers' ?></strong></td>
+                                <strong><?= $live ? 'nameservers set' : 'waiting on nameservers' ?></strong></td>
                             <td style="font-size:12px;color:#6b7280">
                                 <?= ih(implode(' · ', array_map(fn($n) => explode('.', $n)[0], (array) ($z['name_servers'] ?? [])))) ?></td>
                             <td style="font-size:12px;color:#6b7280">
