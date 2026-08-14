@@ -1724,11 +1724,102 @@ if ($view === 'registrars') {
 }
 
 /* ============================= STUB VIEWS ============================= */
-if (in_array($view, ['plesk', 'cloudflare'], true)) {
-    infra_header($view);
-    $titles = ['plesk' => 'Plesk', 'cloudflare' => 'Cloudflare', 'golive' => 'Go-Live'];
-    echo '<div class="ic-card"><h2>' . ih($titles[$view]) . '</h2><div class="ic-empty">CRUD for '
-       . ih($titles[$view]) . ' comes in the next build step.</div></div>';
+if ($view === 'cloudflare') {
+    infra_header('cloudflare');
+    echo '<div class="ic-card"><h2>Cloudflare</h2><div class="ic-empty">Not built yet — accounts and zones are managed in <code>admin/infra/config/cloudflare.json</code> for now.</div></div>';
+    infra_footer(); exit;
+}
+
+/* ============================== SERVERS ==============================
+   A read-only window onto the Plesk boxes, so a quick look does not mean
+   opening the server console. Adding and editing servers comes later; for
+   now they are configured in admin/infra/config/servers.json. */
+if ($view === 'servers') {
+    $servers = infra_servers();
+    $rows = [];
+    foreach ($servers as $srv) {
+        $disc = infra_discover_server($srv);   // cached; ?refresh=1 forces a live sweep
+        $rows[] = ['srv' => $srv, 'ok' => $disc['ok'], 'error' => $disc['error'],
+                   'sites' => count($disc['sites']), 'list' => $disc['sites'], 'info' => $disc['info']];
+    }
+    infra_header('servers');
+    ?>
+    <div style="margin-bottom:16px">
+        <a class="btn" href="index.php?view=servers&amp;refresh=1">&#8635; Refresh</a>
+    </div>
+
+    <?php if (empty($servers)): ?>
+        <div class="ic-note">No servers registered yet. Add one to <code>admin/infra/config/servers.json</code> — an add/edit form is the next step.</div>
+    <?php else: ?>
+
+    <?php foreach ($rows as $r): $srv = $r['srv']; $inf = $r['info'] ?? []; ?>
+    <div class="ic-card">
+        <h2>
+            <?= ih($srv['label'] ?? $srv['id']) ?>
+            <?= $r['ok'] ? '<span class="badge b-ok">up</span>' : '<span class="badge b-err">cannot reach it</span>' ?>
+        </h2>
+        <div class="body">
+
+            <?php if (!$r['ok']): ?>
+            <div class="ic-note" style="background:#fef2f2;border-color:#fca5a5;color:#991b1b">
+                <strong>The console could not talk to this server.</strong><br><?= ih($r['error']) ?>
+            </div>
+            <?php endif; ?>
+
+            <!-- Everything about the box, in plain words, no clicking -->
+            <table style="margin-bottom:18px">
+                <tbody>
+                    <tr><td style="width:230px;color:#6b7280">Address you'd log in at</td>
+                        <td><code>https://<?= ih($srv['host'] ?? '') ?>:<?= ih((string)($srv['port'] ?? '')) ?></code></td></tr>
+                    <tr><td style="color:#6b7280">IP address the sites point at</td>
+                        <td><code><?= ih($srv['default_ip'] ?? '—') ?></code></td></tr>
+                    <tr><td style="color:#6b7280">Plesk version</td>
+                        <td><?= ih($inf['panel_version'] ?? '—') ?>
+                            <?php if (!empty($inf['panel_build_date'])): ?>
+                            <span style="color:#9ca3af">— updated <?= ih($inf['panel_build_date']) ?></span>
+                            <?php endif; ?></td></tr>
+                    <tr><td style="color:#6b7280">Server's own hostname</td>
+                        <td><code><?= ih($inf['hostname'] ?? '—') ?></code></td></tr>
+                    <tr><td style="color:#6b7280">Operating system</td>
+                        <td><?= ih($inf['platform'] ?? '—') ?></td></tr>
+                    <tr><td style="color:#6b7280">Websites on it</td>
+                        <td><strong><?= $r['sites'] ?></strong></td></tr>
+                </tbody>
+            </table>
+
+            <!-- The sites themselves, listed here rather than one click away -->
+            <h2 style="font-size:15px;margin:0 0 8px">Websites on this server (<?= $r['sites'] ?>)</h2>
+            <?php if (!$r['sites']): ?>
+                <div class="ic-empty">Nothing on this server yet.</div>
+            <?php else: ?>
+                <table>
+                    <thead><tr><th>Website</th><th>Added</th><th>Type</th><th>Folder its files live in</th></tr></thead>
+                    <tbody>
+                    <?php foreach ($r['list'] as $s): ?>
+                        <tr>
+                            <td><strong><?= ih($s['name'] ?? '?') ?></strong></td>
+                            <td><?= ih($s['created'] ?? '—') ?></td>
+                            <td><?= ih($s['hosting_type'] ?? '—') ?></td>
+                            <td><code style="font-size:12px"><?= ih($s['www_root'] ?? '—') ?></code></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php endif; ?>
+
+            <div style="margin-top:14px">
+                <a class="btn sec" href="index.php?view=server&amp;id=<?= ih($srv['id'] ?? '') ?>">See how each domain is wired up &rarr;</a>
+            </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
+
+    <div class="ic-note">
+        Read-only for now. Servers are set up by hand in <code>admin/infra/config/servers.json</code> —
+        adding and editing them from this page is the next step.
+    </div>
+    <?php endif; ?>
+    <?php
     infra_footer(); exit;
 }
 
