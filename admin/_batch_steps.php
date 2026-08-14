@@ -44,11 +44,11 @@ $bsStyle = [
 .bs-soon        { color:#cbd5e1; font-size:.8rem; font-style:italic; }
 .bs-items       { margin:9px 0 0; border-collapse:collapse; width:100%; }
 .bs-items td    { padding:2px 0; border:0; font-size:.79rem; vertical-align:top; }
-.bs-i-col       { width:92px; white-space:nowrap; }
+.bs-i-col       { width:118px; white-space:nowrap; }
 .bs-i-col code  { font-size:.76rem; background:#f1f5f9; padding:1px 5px; border-radius:3px; color:#334155; }
 .bs-i-opt       { color:#cbd5e1; font-size:.68rem; }
 .bs-i-drives    { color:#64748b; padding-right:10px !important; }
-.bs-i-n         { width:56px; text-align:right; white-space:nowrap; font-weight:600; }
+.bs-i-n         { width:112px; text-align:right; white-space:nowrap; font-weight:600; }
 </style>
 
 <details class="card" open style="background:#f8fafc;border-left:3px solid #2563eb;">
@@ -75,9 +75,9 @@ $bsStyle = [
     <table class="bs-table">
         <thead>
             <tr>
-                <th style="width:30%;">Step</th>
-                <th style="width:40%;">Is it set up?</th>
-                <th>
+                <th style="width:24%;">Step</th>
+                <th style="width:56%;">Is it set up?</th>
+                <th style="width:20%;">
                     Did it run?
                     <?php if ($bsHasRun): ?>
                     <span style="font-weight:400;text-transform:none;letter-spacing:0;">&mdash; last run <?= h($bsRun['state'] ?? '') ?></span>
@@ -105,15 +105,12 @@ $bsStyle = [
                     <?php if (!empty($c['items'])): ?>
                     <table class="bs-items">
                         <?php foreach ($c['items'] as $it):
-                            $short  = $it['filled'] < $it['total'];
-                            $isBad  = $short && $it['required'];
+                            $iCol = [MS_STEP_OK => '#166534', MS_STEP_WARN => '#92400e', MS_STEP_OFF => '#94a3b8'][$it['state']] ?? '#475569';
                         ?>
                         <tr>
-                            <td class="bs-i-col"><code><?= h($it['label']) ?></code><?= $it['required'] ? '' : ' <span class="bs-i-opt">optional</span>' ?></td>
+                            <td class="bs-i-col"><code><?= h($it['label']) ?></code></td>
                             <td class="bs-i-drives"><?= h($it['drives']) ?></td>
-                            <td class="bs-i-n" style="color:<?= $isBad ? '#991b1b' : ($short ? '#92400e' : '#166534') ?>;">
-                                <?= (int) $it['filled'] ?> of <?= (int) $it['total'] ?>
-                            </td>
+                            <td class="bs-i-n" style="color:<?= $iCol ?>;"><?= h($it['value']) ?></td>
                         </tr>
                         <?php endforeach; ?>
                     </table>
