@@ -70,6 +70,62 @@ function ms_run_steps(): array {
     ];
 }
 
+/** Step keys, in order. */
+function ms_step_keys(): array {
+    return array_column(ms_run_steps(), 'key');
+}
+
+/** The label for a step key ('' when unknown). */
+function ms_step_label(string $key): string {
+    foreach (ms_run_steps() as $s) if ($s['key'] === $key) return $s['label'];
+    return '';
+}
+
+/**
+ * Announce that a step is starting. Called by build_one.php as it works, so a running
+ * row can say which step it is on and a failed row can say which step it died in.
+ *
+ * Emitted as a distinct event type rather than by matching the English of the ordinary
+ * log lines — a progress bar that depends on message wording silently stops working the
+ * day someone rephrases a message.
+ */
+function ms_step_begin(string $key): void {
+    if (!in_array($key, ms_step_keys(), true)) return;   // never invent a step
+    if (function_exists('progress_emit')) {
+        progress_emit(['type' => 'step', 'step' => $key, 'msg' => ms_step_label($key)]);
+    }
+}
+
+/**
+ * What actually executed, per step, in a given run.
+ *
+ * Reads the per-row `steps` / `step` fields written by run_campaign.php. A row that
+ * never reached a step simply is not counted for it — so a step legitimately skipped
+ * (no landing cities, no FTP) reads as 0, the same as the readiness column predicted.
+ *
+ * @return array<string,array{ran:int,failed:int,total:int}> keyed by step key
+ */
+function ms_step_execution(?array $run): array {
+    $out = [];
+    foreach (ms_step_keys() as $k) $out[$k] = ['ran' => 0, 'failed' => 0, 'total' => 0];
+    if (!$run || !is_array($run['results'] ?? null)) return $out;
+
+    $total = count($run['results']);
+    foreach ($out as $k => $_) $out[$k]['total'] = $total;
+
+    foreach ($run['results'] as $r) {
+        foreach ((array) ($r['steps'] ?? []) as $k) {
+            if (isset($out[$k])) $out[$k]['ran']++;
+        }
+        // Where a failed row stopped — this is the column that tells you what to fix.
+        if (($r['status'] ?? '') === 'failed') {
+            $k = (string) ($r['step'] ?? '');
+            if ($k !== '' && isset($out[$k])) $out[$k]['failed']++;
+        }
+    }
+    return $out;
+}
+
 /** Small helper — one readiness cell. */
 function ms_step_cell(string $state, string $fact, string $note = ''): array {
     return ['state' => $state, 'fact' => $fact, 'note' => $note];

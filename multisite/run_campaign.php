@@ -120,6 +120,13 @@ function ms_parse_line(string $line, array &$m, bool $verbose): void {
     $ev = json_decode(trim($line), true);
     if (!is_array($ev)) return;
     $msg = $ev['msg'] ?? '';
+    // A step marker: remember where the row is, and that it got this far. Kept rather
+    // than discarded so a running row can say what it is doing and a failed row can say
+    // where it died — see includes/multisite/steps.php.
+    if (($ev['type'] ?? '') === 'step' && ($ev['step'] ?? '') !== '') {
+        $m['step'] = $ev['step'];
+        if (!in_array($ev['step'], $m['steps'], true)) $m['steps'][] = $ev['step'];
+    }
     if (($ev['type'] ?? '') === 'fatal') { $m['status'] = 'failed'; $m['last'] = $msg; }
     if (($ev['type'] ?? '') === 'done')  { $m['last'] = $msg; }
     if (preg_match('/Deploy complete — (\d+) uploaded/u', $msg, $x)) $m['uploaded'] = (int)$x[1];
@@ -136,7 +143,9 @@ function ms_parse_line(string $line, array &$m, bool $verbose): void {
  * $retries times. Returns per-row result rows.
  */
 function ms_run_pool(array $queue, int $concurrency, int $retries, bool $verbose, ?callable $onProgress = null): array {
-    $fresh   = fn() => ['status' => 'unknown', 'uploaded' => null, 'tokens_in' => 0, 'tokens_out' => 0, 'cost' => 0.0, 'last' => ''];
+    // 'step' = the stage this row is in right now (or died in); 'steps' = the stages it
+    // got through. Both come from build_one's step events — see ms_step_begin().
+    $fresh   = fn() => ['status' => 'unknown', 'uploaded' => null, 'tokens_in' => 0, 'tokens_out' => 0, 'cost' => 0.0, 'last' => '', 'step' => '', 'steps' => []];
     $total   = count($queue);
     $running = []; $results = []; $done = 0;
 
@@ -144,7 +153,7 @@ function ms_run_pool(array $queue, int $concurrency, int $retries, bool $verbose
         $proc = proc_open($job['cmd'], [1 => ['pipe', 'w'], 2 => ['pipe', 'w']], $pipes);
         if (!is_resource($proc)) {
             $running[] = ['job' => $job, 'proc' => null, 'pipes' => null, 'buf' => '', 't0' => microtime(true),
-                          'm' => ['status' => 'failed', 'uploaded' => null, 'tokens_in' => 0, 'tokens_out' => 0, 'cost' => 0.0, 'last' => 'could not spawn build_one'], 'dead' => true];
+                          'm' => ['status' => 'failed', 'uploaded' => null, 'tokens_in' => 0, 'tokens_out' => 0, 'cost' => 0.0, 'last' => 'could not spawn build_one', 'step' => '', 'steps' => []], 'dead' => true];
             return;
         }
         stream_set_blocking($pipes[1], false);
@@ -203,6 +212,7 @@ function ms_run_pool(array $queue, int $concurrency, int $retries, bool $verbose
                     'domain' => $job['domain'], 'status' => $m['status'], 'attempts' => $job['attempts'],
                     'uploaded' => $m['uploaded'], 'tokens_in' => $m['tokens_in'], 'tokens_out' => $m['tokens_out'],
                     'cost' => $m['cost'], 'duration_ms' => $dur, 'last' => $m['last'],
+                    'step' => $m['step'], 'steps' => $m['steps'],
                 ];
                 if ($onProgress) $onProgress($results, $total);   // live status after each completed row
             }

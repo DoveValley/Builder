@@ -35,6 +35,7 @@ require __DIR__ . '/../includes/multisite/visual.php';
 require __DIR__ . '/../includes/multisite/landing.php';
 require __DIR__ . '/../includes/multisite/geocode.php';
 require_once __DIR__ . '/../includes/multisite/image_overlay.php';
+require_once __DIR__ . '/../includes/multisite/steps.php';
 
 progress_set_sink(progress_jsonlines_sink());
 
@@ -94,6 +95,7 @@ $cleanup = function () use ($workingDir, $outputDir, $snapshotDir, $ownSnapshot,
 };
 
 // ── Clone + inject ────────────────────────────────────────────────────────────
+ms_step_begin('clone');
 progress_log('Cloning working dir…');
 clone_to_working_dir($snapshotDir, $workingDir, $masterId);
 
@@ -117,6 +119,7 @@ if (is_array($mSite)) {
     foreach (['business', 'website', 'tel', 'phone', 'email'] as $k) $masterIdentity[$k] = $sv[$k] ?? '';
 }
 
+ms_step_begin('identity');
 progress_log('Injecting identity…');
 inject_params_into_working_dir($workingDir, $params);
 
@@ -127,6 +130,7 @@ inject_params_into_working_dir($workingDir, $params);
 $landingCities = ms_parse_landing_cities((string)($params['landing_cities'] ?? ''));
 if ($landingCities) {
     $label = implode(', ', array_map(fn($c) => $c['city'] . ', ' . $c['SS'], $landingCities));
+    ms_step_begin('landing');
     progress_log('Generating landing pages for ' . count($landingCities) . ' city(ies): ' . $label . '…');
     // Scope the working-dir city list to just this deploy's landing cities — but keep
     // the research the master already gathered for them (neighborhoods, population,
@@ -161,11 +165,13 @@ if ($landingCities) {
     }
 }
 
+ms_step_begin('differentiate');
 progress_log('Differentiating (schema / geo / analytics)…');
 ms_differentiate_working_dir($workingDir, $params, $masterIdentity);
 
 // Coordinated visual identity — Theme Preset (+ logo/favicon next). Runs before the
 // image prune so any generated assets exist and are referenced.
+ms_step_begin('visual');
 $visRes = ms_apply_visual_identity($workingDir, $params, $masterId);
 if ($visRes['applied']) progress_log("Visual identity: Theme Preset '{$visRes['preset']}'" . (!empty($visRes['logo']) ? ", logo generated" : "") . ".");
 
@@ -181,6 +187,7 @@ if ($noAi) {
     $c = ms_ai_inject_from_cache($workingDir, $cacheFile, $registry);
     if ($c['candidates'] > 0) progress_log("AI cache: offered {$c['candidates']} cached block(s) for reuse (generate.py validates each by resolved-prompt hash).");
 
+    ms_step_begin('ai');
     progress_log('Generating AI content for city…');
     $genEnv = getenv();
     $genEnv['ANTHROPIC_API_KEY'] = ANTHROPIC_API_KEY;
@@ -221,6 +228,7 @@ $masterVars = (json_decode((string)@file_get_contents(BASE_DIR . '/sites/' . $ma
 $masterCitySlug = $masterVars['city_slug'] ?? '';
 if ($masterCitySlug === '' && !empty($masterVars['city'])) $masterCitySlug = slugify(($masterVars['city'] ?? '') . ' ' . ($masterVars['SS'] ?? ''));
 
+ms_step_begin('images');
 $imgRes = ms_differentiate_site_images($workingDir, $params, $masterCitySlug, $heroStyle);
 if ($imgRes['stamped'] > 0 || $imgRes['varied'] > 0 || ($imgRes['pruned'] ?? 0) > 0)
     progress_log("Images: stamped {$imgRes['stamped']} hero(s), differentiated {$imgRes['varied']} photo(s), pruned " . ($imgRes['pruned'] ?? 0) . " unreferenced.");
@@ -234,6 +242,7 @@ $env['MULTISITE_CANONICAL']   = $canonical;
 $env['MULTISITE_WEB3FORMS']   = $params['web3forms_key'] ?? '';
 
 $cmd  = escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg(__DIR__ . '/render_site.php');
+ms_step_begin('build');
 $proc = proc_open($cmd, [1 => ['pipe', 'w'], 2 => ['pipe', 'w']], $pipes, null, $env);
 if (!is_resource($proc)) { progress_log('Failed to spawn render worker.', 'fatal'); $cleanup(); exit(1); }
 
@@ -263,6 +272,7 @@ if (!empty($params['ftp_host']) && !empty($params['ftp_user'])) {
     ];
     // Manifest persists per-domain OUTSIDE the ephemeral build (which is deleted).
     $manifestFile = BASE_DIR . '/sites/' . $masterId . '/multisite/manifests/' . $domainSlug . '.json';
+    ms_step_begin('deploy');
     $dep = deploy_site($ftp, rtrim($outputDir, '/') . '/', $manifestFile, $force);
     // A connect/login failure is fatal; so is a partial upload — some files failing
     // means the deployed site is incomplete, so the row must not be reported ok.

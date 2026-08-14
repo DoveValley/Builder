@@ -18,6 +18,9 @@ require_once __DIR__ . '/../includes/multisite/steps.php';
 
 $bsSteps = ms_run_steps();
 $bsReady = ms_step_readiness($masterId, $batchId);
+$bsRun   = ms_batch_latest_run($masterId, $batchId);
+$bsRan   = ms_step_execution($bsRun);
+$bsHasRun = $bsRun !== null && !empty($bsRun['results']);
 
 $bsWarnCount = count(array_filter($bsReady, fn($c) => $c['state'] === MS_STEP_WARN));
 $bsSkipCount = count(array_filter($bsReady, fn($c) => $c['state'] === MS_STEP_OFF));
@@ -65,8 +68,14 @@ $bsStyle = [
     <table class="bs-table">
         <thead>
             <tr>
-                <th style="width:34%;">Step</th>
-                <th>Is it set up?</th>
+                <th style="width:30%;">Step</th>
+                <th style="width:40%;">Is it set up?</th>
+                <th>
+                    Did it run?
+                    <?php if ($bsHasRun): ?>
+                    <span style="font-weight:400;text-transform:none;letter-spacing:0;">&mdash; last run <?= h($bsRun['state'] ?? '') ?></span>
+                    <?php endif; ?>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -87,13 +96,45 @@ $bsStyle = [
                     <div class="bs-note"><?= h($c['note']) ?></div>
                     <?php endif; ?>
                 </td>
+                <td>
+                    <?php if (!$bsHasRun): ?>
+                    <span class="bs-soon">not run yet</span>
+                    <?php else:
+                        $e = $bsRan[$s['key']];
+                        if ($e['ran'] === 0): ?>
+                        <span style="color:#64748b;">skipped &mdash; no row reached this step</span>
+                    <?php else: ?>
+                        <span class="bs-fact"><strong><?= $e['ran'] ?></strong> of <?= $e['total'] ?> rows</span>
+                        <?php if ($e['failed'] > 0): ?>
+                        <div class="bs-note" style="color:#991b1b;font-weight:600;">
+                            <?= $e['failed'] ?> row<?= $e['failed'] === 1 ? '' : 's' ?> failed here
+                        </div>
+                        <?php endif; ?>
+                    <?php endif; endif; ?>
+                </td>
             </tr>
         <?php endforeach; ?>
         </tbody>
     </table>
 
-    <p class="bs-soon" style="margin:14px 0 0;">
-        A third column &mdash; what actually executed &mdash; comes next; it needs each build step to tag its
-        progress lines so a row can report which step it is on, and which step it failed at.
+    <?php
+    // Where the failures cluster. This one sentence is the difference between
+    // "something broke" and "fix the FTP credentials, the AI is fine."
+    $bsFails = [];
+    foreach ($bsSteps as $s) {
+        $f = $bsRan[$s['key']]['failed'] ?? 0;
+        if ($f > 0) $bsFails[] = $f . ' at ' . $s['label'];
+    }
+    $bsFailTotal = array_sum(array_column($bsRan, 'failed'));
+    ?>
+    <?php if ($bsHasRun && $bsFailTotal > 0): ?>
+    <p style="margin:14px 0 0;padding:10px 13px;background:#fef2f2;border:1px solid #fecaca;border-radius:7px;font-size:.86rem;color:#991b1b;">
+        <strong><?= $bsFailTotal ?> row<?= $bsFailTotal === 1 ? '' : 's' ?> failed</strong> &mdash; <?= h(implode(' · ', $bsFails)) ?>.
+        Fix the step with the most failures first.
     </p>
+    <?php elseif ($bsHasRun): ?>
+    <p style="margin:14px 0 0;font-size:.86rem;color:#166534;">
+        &#10003; No row failed in the last run.
+    </p>
+    <?php endif; ?>
 </details>

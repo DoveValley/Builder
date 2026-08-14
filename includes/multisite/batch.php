@@ -232,6 +232,12 @@ function ms_batch_target_count(string $masterId, string $batchId): int {
     return max(0, $n - 1);   // minus the header line
 }
 
+/** The newest run record for a batch, in full (results included), or null. */
+function ms_batch_latest_run(string $masterId, string $batchId): ?array {
+    $file = ms_latest_run_file(ms_batch_dir($masterId, $batchId) . '/runs');
+    return $file ? ms_read_run($file) : null;
+}
+
 /** One-line summary for a batch row on the home panel. */
 function ms_batch_status(string $masterId, string $batchId): array {
     $s = [
