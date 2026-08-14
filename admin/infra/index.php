@@ -1772,6 +1772,21 @@ if ($view === 'cloudflare') {
     $editId   = (string) ($_GET['edit'] ?? '');
     $accounts = infra_cf_accounts();
 
+    // Looking inside the zones is on demand: one API call each, so 400 zones is 400
+    // calls. Same rule as checking whether websites answer.
+    $scanId = (string) ($_GET['scan'] ?? '');
+    if ($scanId !== '') {
+        $n = 0;
+        foreach ($accounts as $a) {
+            if (($a['id'] ?? '') !== $scanId) continue;
+            foreach (infra_discover_cf_zones($a) as $z) {
+                if (!empty($z['id'])) { infra_zone_contents_run($a, $z['id']); $n++; }
+            }
+        }
+        infra_set_flash('ok', 'Looked inside ' . $n . ' zone' . ($n === 1 ? '' : 's') . '.');
+        header('Location: index.php?view=cloudflare'); exit;
+    }
+
     // What fleet state believes, so the page can show where the two disagree.
     $recorded = [];   // domain(lower) => true when a zone id is already on the record
     $known    = [];   // domain(lower) => status, for domains we track at all
@@ -1844,24 +1859,76 @@ if ($view === 'cloudflare') {
             </div>
             <?php endif; ?>
 
-            <h2 style="font-size:15px;margin:0 0 8px">Domains in this account (<?= count($zones) ?>)</h2>
+            <?php
+            // Nameserver spread. One pair carrying everything is a public link between
+            // every domain in the account, which undoes spreading them across registrars.
+            $nsPairs = infra_ns_pairs($zones);
+            if ($nsPairs):
+                $biggest = max($nsPairs);
+                $leaky   = count($nsPairs) === 1 && $biggest > 1;
+            ?>
+            <div style="border:1px solid <?= $leaky ? '#fde047' : '#e5e7eb' ?>;background:<?= $leaky ? '#fffbeb' : '#f9fafb' ?>;border-radius:8px;padding:12px 14px;margin-bottom:18px">
+                <strong style="color:<?= $leaky ? '#854d0e' : '#374151' ?>">Nameservers these domains hand out</strong>
+                <table style="margin-top:8px">
+                    <tbody>
+                    <?php foreach ($nsPairs as $pair => $cnt): ?>
+                        <tr>
+                            <td style="width:420px"><code style="font-size:12px"><?= ih($pair) ?></code></td>
+                            <td><strong><?= $cnt ?></strong> domain<?= $cnt === 1 ? '' : 's' ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <?php if ($leaky): ?>
+                <div style="color:#854d0e;margin-top:8px;font-size:13px">
+                    &#9888; Every domain in this account hands out the same two nameservers. Anyone can look up
+                    one domain's nameservers and find all the others. Spreading domains across registrars hides
+                    who owns them; this puts it back. Cloudflare gives a pair per account, so more accounts
+                    means more pairs &mdash; provisioning already shares new domains out between whatever
+                    accounts are listed here.
+                </div>
+                <?php endif; ?>
+            </div>
+            <?php endif; ?>
+
+            <div style="display:flex;align-items:center;gap:12px;margin:0 0 8px">
+                <h2 style="font-size:15px;margin:0">Domains in this account (<?= count($zones) ?>)</h2>
+                <?php if ($zones): ?>
+                <a class="btn sec" style="padding:3px 10px;font-size:12px"
+                   href="index.php?view=cloudflare&amp;scan=<?= ih($a['id'] ?? '') ?>">Look inside these zones</a>
+                <?php endif; ?>
+            </div>
             <?php if (!$zones): ?>
                 <div class="ic-empty"><?= $ok ? 'No domains in this Cloudflare account yet.' : 'Cannot list domains until the credentials work.' ?></div>
             <?php else: ?>
                 <div style="max-height:520px;overflow:auto">
                 <table>
-                    <thead><tr><th>Domain</th><th>Cloudflare status</th><th>Nameservers</th><th>Since</th><th>In your records?</th></tr></thead>
+                    <thead><tr><th>Domain</th><th>Cloudflare status</th><th>What's in the zone</th><th>Points at</th><th>Since</th><th>In your records?</th></tr></thead>
                     <tbody>
                     <?php foreach ($zones as $z):
                         $nm   = strtolower($z['name'] ?? '');
                         $live = ($z['status'] ?? '') === 'active';
+                        $dns  = !empty($z['id']) ? infra_zone_contents_cached($z['id']) : null;
                     ?>
                         <tr>
                             <td><strong><?= ih($z['name'] ?? '?') ?></strong></td>
                             <td style="color:<?= $live ? '#166534' : '#92400e' ?>">
                                 <strong><?= $live ? 'nameservers set' : 'waiting on nameservers' ?></strong></td>
+                            <td style="font-size:13px">
+                                <?php if ($dns === null): ?>
+                                    <span style="color:#9ca3af">not looked at yet</span>
+                                <?php elseif ($dns['n'] === 0): ?>
+                                    <span style="color:#92400e"><strong>empty</strong> &mdash; nothing to serve</span>
+                                <?php else: ?>
+                                    <span style="color:#166534"><?= (int) $dns['n'] ?> record<?= $dns['n'] === 1 ? '' : 's' ?></span>
+                                <?php endif; ?>
+                            </td>
                             <td style="font-size:12px;color:#6b7280">
-                                <?= ih(implode(' · ', array_map(fn($n) => explode('.', $n)[0], (array) ($z['name_servers'] ?? [])))) ?></td>
+                                <?php if ($dns === null || empty($dns['a'])): ?>&mdash;
+                                <?php else: foreach (array_slice($dns['a'], 0, 2) as $rec): ?>
+                                    <div><code><?= ih($rec['ip']) ?></code><?= $rec['proxied'] ? ' <span style="color:#f59e0b">proxied</span>' : '' ?></div>
+                                <?php endforeach; endif; ?>
+                            </td>
                             <td style="font-size:12px;color:#6b7280">
                                 <?= ih(substr((string) ($z['activated_on'] ?? $z['created_on'] ?? ''), 0, 10) ?: '—') ?></td>
                             <td style="font-size:12px">

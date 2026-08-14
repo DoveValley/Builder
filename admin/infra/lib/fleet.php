@@ -40,6 +40,68 @@ function infra_discover_cf_zones(array $account, int $ttl = INFRA_DISCOVER_TTL):
     return $zones;
 }
 
+/**
+ * What is actually inside one zone, boiled down to the bit that matters.
+ *
+ * A zone can exist, have its nameservers set, and hold nothing at all — which is
+ * what a domain bought at Cloudflare Registrar looks like before anything is built.
+ * "Nameservers set" and "serving a website" are different states and this is what
+ * tells them apart.
+ *
+ * Read-only, cached, and never fetched automatically: it is one API call per zone.
+ *
+ * @return array{n:int,a:array<int,array{name:string,ip:string,proxied:bool}>,at:string}
+ */
+function infra_zone_contents(array $account, string $zoneId): array
+{
+    $records = cf_zone_dns($account, $zoneId);
+    $a = [];
+    foreach ((array) $records as $r) {
+        if (($r['type'] ?? '') !== 'A') continue;
+        $a[] = ['name' => (string) ($r['name'] ?? ''), 'ip' => (string) ($r['content'] ?? ''),
+                'proxied' => !empty($r['proxied'])];
+    }
+    return ['n' => count((array) $records), 'a' => $a, 'at' => gmdate('c')];
+}
+
+/** A previous look inside a zone, or null when it has never been checked. */
+function infra_zone_contents_cached(string $zoneId, int $ttl = 3600): ?array
+{
+    return infra_cache_get('cf_dns:' . $zoneId, $ttl);
+}
+
+/** Look inside a zone now and remember what was there. */
+function infra_zone_contents_run(array $account, string $zoneId): array
+{
+    $res = infra_zone_contents($account, $zoneId);
+    infra_cache_put('cf_dns:' . $zoneId, $res);
+    return $res;
+}
+
+/**
+ * Group an account's zones by the nameserver pair Cloudflare gave them.
+ *
+ * Cloudflare hands out a pair per account, so everything in one account carries the
+ * same pair in public DNS. Spreading domains across registrars hides who owns them;
+ * a shared nameserver pair puts it straight back — anyone can look up one domain's
+ * nameservers and find every other domain using the same two.
+ *
+ * @return array<string,int> "ns1 + ns2" => how many zones use it
+ */
+function infra_ns_pairs(array $zones): array
+{
+    $pairs = [];
+    foreach ($zones as $z) {
+        $ns = array_map(fn($n) => (string) $n, (array) ($z['name_servers'] ?? []));
+        if (!$ns) continue;
+        sort($ns);
+        $key = implode(' + ', $ns);
+        $pairs[$key] = ($pairs[$key] ?? 0) + 1;
+    }
+    arsort($pairs);
+    return $pairs;
+}
+
 /** domain(lower) => {account_id,account_label,zone_id,status,name_servers[]} across ALL CF accounts */
 function infra_cf_zone_index(): array
 {
