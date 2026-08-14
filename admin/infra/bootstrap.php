@@ -111,6 +111,7 @@ function infra_css(): string
 .b-ok{background:#dcfce7;color:#166534}.b-warn{background:#fef9c3;color:#854d0e}.b-err{background:#fee2e2;color:#991b1b}.b-mut{background:#e5e7eb;color:#374151}
 table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #f0f0f0}
 th{color:#6b7280;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+.ic-sticky thead th{position:sticky;top:0;z-index:1;background:#fff;box-shadow:inset 0 -1px 0 #e5e7eb}
 tr:hover td{background:#f9fafb}code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:12px}
 .ic-search{width:100%;max-width:320px;padding:8px 10px;border:1px solid #d1d5db;border-radius:8px;margin-bottom:10px}
 .ic-empty{color:#6b7280;padding:16px;text-align:center}

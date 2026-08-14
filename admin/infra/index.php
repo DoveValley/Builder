@@ -1870,10 +1870,14 @@ if ($view === 'cloudflare') {
             <div style="border:1px solid <?= $leaky ? '#fde047' : '#e5e7eb' ?>;background:<?= $leaky ? '#fffbeb' : '#f9fafb' ?>;border-radius:8px;padding:12px 14px;margin-bottom:18px">
                 <strong style="color:<?= $leaky ? '#854d0e' : '#374151' ?>">Nameservers these domains hand out</strong>
                 <table style="margin-top:8px">
+                    <thead><tr>
+                        <th style="width:420px">Nameserver pair</th>
+                        <th>Domains handing it out</th>
+                    </tr></thead>
                     <tbody>
                     <?php foreach ($nsPairs as $pair => $cnt): ?>
                         <tr>
-                            <td style="width:420px"><code style="font-size:12px"><?= ih($pair) ?></code></td>
+                            <td><code style="font-size:12px"><?= ih($pair) ?></code></td>
                             <td><strong><?= $cnt ?></strong> domain<?= $cnt === 1 ? '' : 's' ?></td>
                         </tr>
                     <?php endforeach; ?>
@@ -1901,8 +1905,10 @@ if ($view === 'cloudflare') {
             <?php if (!$zones): ?>
                 <div class="ic-empty"><?= $ok ? 'No domains in this Cloudflare account yet.' : 'Cannot list domains until the credentials work.' ?></div>
             <?php else: ?>
+                <!-- The list scrolls inside the card, so the headings stick to the top of it —
+                     otherwise you scroll past row 12 and no longer know which column is which. -->
                 <div style="max-height:520px;overflow:auto">
-                <table>
+                <table class="ic-sticky">
                     <thead><tr><th>Domain</th><th>Cloudflare status</th><th>What's in the zone</th><th>Points at</th><th>Since</th><th>In your records?</th></tr></thead>
                     <tbody>
                     <?php foreach ($zones as $z):
