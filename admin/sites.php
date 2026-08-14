@@ -37,12 +37,16 @@ function get_sites(): array {
         }
         $updated = $meta['updated_at'] ?? '';
         if (!$updated && file_exists($dataFile)) $updated = date('c', filemtime($dataFile));
+        // Pages live in two disjoint stores: site.json['pages'] is the hand-built core
+        // set, and generated landing pages are one file each under data/pages/, indexed
+        // by page-index.json. Counting only the first reports 3 for a site with 156.
+        $pageIndex = json_decode((string) @file_get_contents($dir . $entry . '/data/page-index.json'), true);
         $sites[] = [
             'id'         => $entry,
             'name'       => $meta['name'] ?? $entry,
             'created_at' => $meta['created_at'] ?? '',
             'updated_at' => $updated,
-            'page_count' => count($siteData['pages'] ?? []),
+            'page_count' => count($siteData['pages'] ?? []) + (is_array($pageIndex) ? count($pageIndex) : 0),
             'post_count' => count($siteData['posts'] ?? []),
             'business'   => $siteData['local_business']['lb_name'] ?? '',
         ];

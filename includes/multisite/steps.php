@@ -165,11 +165,26 @@ function ms_step_readiness(string $masterId, string $batchId): array {
     $out = [];
 
     // ── Clone ─────────────────────────────────────────────────────────────────
-    $site  = $readJson($siteDir . '/data/site.json');
-    $pages = count($site['pages'] ?? []);
-    $out['clone'] = $pages > 0
-        ? ms_step_cell(MS_STEP_OK, 'Master has a home page + ' . $pages . ' page' . ($pages === 1 ? '' : 's'))
-        : ms_step_cell(MS_STEP_WARN, 'Master has only a home page', 'Every clone will be a single-page site.');
+    // Pages live in two disjoint stores and both are real: site.json['pages'] holds the
+    // hand-built core pages, while generated landing pages are one file each in
+    // data/pages/ indexed by page-index.json. page.php checks the index first and falls
+    // back to the core pages, so counting only one of them badly understates the master.
+    $site      = $readJson($siteDir . '/data/site.json');
+    $corePages = count($site['pages'] ?? []);
+    $genPages  = count($readJson($siteDir . '/data/page-index.json'));
+    $pages     = $corePages + $genPages;
+    if ($pages === 0) {
+        $out['clone'] = ms_step_cell(MS_STEP_WARN, 'Master has only a home page', 'Every clone will be a single-page site.');
+    } else {
+        $breakdown = $genPages > 0
+            ? $corePages . ' core, ' . $genPages . ' generated'
+            : $corePages . ' core';
+        $out['clone'] = ms_step_cell(
+            MS_STEP_OK,
+            'Master has a home page + ' . $pages . ' page' . ($pages === 1 ? '' : 's'),
+            $breakdown
+        );
+    }
 
     // ── Identity ──────────────────────────────────────────────────────────────
     if (!is_file($csv)) {
