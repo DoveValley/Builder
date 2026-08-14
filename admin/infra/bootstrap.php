@@ -26,6 +26,7 @@ require_once __DIR__ . '/lib/plesk.php';
 require_once __DIR__ . '/lib/cloudflare.php';
 require_once __DIR__ . '/lib/state.php';
 require_once __DIR__ . '/lib/cache.php';
+require_once __DIR__ . '/lib/uptime.php';
 require_once __DIR__ . '/lib/fleet.php';
 require_once __DIR__ . '/lib/registrar.php';
 require_once __DIR__ . '/lib/golive.php';

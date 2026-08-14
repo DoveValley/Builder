@@ -1803,6 +1803,22 @@ if ($view === 'servers') {
 
     $editId  = (string) ($_GET['edit'] ?? '');
     $servers = infra_servers();
+
+    // "Check the websites" is deliberately on demand: one outbound request per site,
+    // so a server with 40 on it should ask when you press the button, not on every
+    // page load. Answers are cached and shown until they go stale.
+    $checkId = (string) ($_GET['check'] ?? '');
+    if ($checkId !== '') {
+        $n = 0;
+        foreach ($servers as $srv) {
+            if (($srv['id'] ?? '') !== $checkId) continue;
+            foreach (infra_discover_server($srv)['sites'] as $site) {
+                if (($site['name'] ?? '') !== '') { infra_site_check_run($site['name']); $n++; }
+            }
+        }
+        infra_set_flash('ok', 'Checked ' . $n . ' website' . ($n === 1 ? '' : 's') . '.');
+        header('Location: index.php?view=servers'); exit;
+    }
     $rows = [];
     foreach ($servers as $srv) {
         $disc = infra_discover_server($srv);   // cached; ?refresh=1 forces a live sweep
@@ -1855,16 +1871,44 @@ if ($view === 'servers') {
             </table>
 
             <!-- The sites themselves, listed here rather than one click away -->
-            <h2 style="font-size:15px;margin:0 0 8px">Websites on this server (<?= $r['sites'] ?>)</h2>
+            <div style="display:flex;align-items:center;gap:12px;margin:0 0 8px">
+                <h2 style="font-size:15px;margin:0">Websites on this server (<?= $r['sites'] ?>)</h2>
+                <?php if ($r['sites']): ?>
+                <a class="btn sec" style="padding:3px 10px;font-size:12px"
+                   href="index.php?view=servers&amp;check=<?= ih($srv['id'] ?? '') ?>">Check if they're up</a>
+                <?php endif; ?>
+            </div>
             <?php if (!$r['sites']): ?>
                 <div class="ic-empty">Nothing on this server yet.</div>
             <?php else: ?>
                 <table>
-                    <thead><tr><th>Website</th><th>Added</th><th>Type</th><th>Folder its files live in</th></tr></thead>
+                    <thead><tr><th>Website</th><th>Is it up?</th><th>Added</th><th>Type</th><th>Folder its files live in</th></tr></thead>
                     <tbody>
-                    <?php foreach ($r['list'] as $s): ?>
+                    <?php foreach ($r['list'] as $s):
+                        $name  = (string) ($s['name'] ?? '');
+                        $chk   = $name !== '' ? infra_site_check_cached($name) : null;
+                        // Green only when it answers AND the certificate is right. A site
+                        // serving fine behind a bad certificate is a browser warning to
+                        // every visitor, so it must not read the same as healthy.
+                        $col   = $chk === null ? '#9ca3af' : ((!empty($chk['up']) && !empty($chk['cert_ok'])) ? '#166534' : (!empty($chk['up']) ? '#92400e' : '#991b1b'));
+                    ?>
                         <tr>
-                            <td><strong><?= ih($s['name'] ?? '?') ?></strong></td>
+                            <td><strong><?= ih($name ?: '?') ?></strong></td>
+                            <td style="color:<?= $col ?>">
+                                <?php if ($chk === null): ?>
+                                    <span style="color:#9ca3af">not checked yet</span>
+                                <?php else: ?>
+                                    <strong><?= ih(infra_site_verdict($chk)) ?></strong>
+                                    <div style="font-size:12px;color:#6b7280">
+                                        <?= $chk['code'] ? ih((string) $chk['code']) . ' · ' : '' ?>
+                                        <?= $chk['ms'] ? ih((string) $chk['ms']) . 'ms · ' : '' ?>
+                                        checked <?= ih(date('j M H:i', strtotime($chk['at'] ?? 'now'))) ?>
+                                    </div>
+                                    <?php if (!empty($chk['error'])): ?>
+                                    <div style="font-size:12px;color:#991b1b"><?= ih(substr($chk['error'], 0, 120)) ?></div>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </td>
                             <td><?= ih($s['created'] ?? '—') ?></td>
                             <td><?= ih($s['hosting_type'] ?? '—') ?></td>
                             <td><code style="font-size:12px"><?= ih($s['www_root'] ?? '—') ?></code></td>
