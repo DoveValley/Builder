@@ -103,6 +103,8 @@ foreach (glob(BASE_DIR . '/sites/*', GLOB_ONLYDIR) ?: [] as $d) {
         <?php endif; ?>
     </div>
 
+    <?php include __DIR__ . '/_batch_steps.php'; ?>
+
     <?php include __DIR__ . '/_batch_panels.php'; ?>
 
 </div>
