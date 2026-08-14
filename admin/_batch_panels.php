@@ -17,7 +17,7 @@ if (!isset($csrfToken)) return;
 
     <p style="margin:0 0 8px;">
         <a class="btn" href="multisite_api.php?action=sample_csv">&#11015; Download sample CSV</a>
-        <span class="hint" style="margin-left:8px;">5 example cities with every column filled in &mdash; edit it as a starting point.</span>
+        <span class="hint" style="margin-left:8px;">5 example cities with every column filled in &mdash; edit it as a starting point. Columns marked <code>*</code> must be filled on every row; the <code>*</code> is just a hint and is ignored on upload.</span>
     </p>
     <p id="ms-download-row" style="margin:0 0 14px;display:none;">
         <a class="btn" id="ms-download-btn" href="multisite_api.php?action=download_csv">&#11015; Download current table (FTP masked)</a>

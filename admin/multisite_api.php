@@ -134,8 +134,13 @@ switch ($action) {
         $protoExamples = ['ftp', 'sftp', '', '', 'ftp'];
         foreach ($sample as $i => &$row) { $row[] = $protoExamples[$i] ?? ''; }
         unset($row);
+        // Star the columns that must be filled on every row. Purely a hint for whoever
+        // fills the sheet in — ms_parse_csv() strips the star on the way back, so the
+        // sample can be edited and re-uploaded untouched.
+        $starred = array_map(fn($c) => in_array($c, MS_REQUIRED_COLS, true) ? $c . '*' : $c, $cols);
+
         $out = fopen('php://output', 'w');
-        fputcsv($out, $cols);
+        fputcsv($out, $starred);
         foreach ($sample as $row) fputcsv($out, $row);
         fclose($out);
         exit;

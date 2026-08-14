@@ -42,7 +42,10 @@ function ms_parse_csv(string $path): array {
     if ($header === false) { fclose($fh); return ['header' => [], 'rows' => [], 'error' => 'Empty CSV']; }
     // Strip UTF-8 BOM from the first header cell, trim all headers.
     if (isset($header[0])) $header[0] = preg_replace('/^\xEF\xBB\xBF/', '', $header[0]);
-    $header = array_map(fn($h) => trim((string)$h), $header);
+    // A trailing * marks a required column in the sample CSV. It is decoration for the
+    // person filling the sheet in, so it is stripped here — otherwise "domain*" would
+    // parse as an unknown column and the required "domain" would read as missing.
+    $header = array_map(fn($h) => rtrim(trim((string)$h), " \t*"), $header);
 
     $rows = [];
     $lineNo = 1;
