@@ -1735,6 +1735,73 @@ if ($view === 'cloudflare') {
    opening the server console. Adding and editing servers comes later; for
    now they are configured in admin/infra/config/servers.json. */
 if ($view === 'servers') {
+
+    /**
+     * The add form and the edit form are the same fields, so they are the same
+     * function. $srv = null renders "add"; an existing server renders "edit" with
+     * its values filled in — except the API key, which is never printed back into
+     * the page. Leaving that blank on an edit keeps the stored one.
+     */
+    function infra_server_form(?array $srv): void {
+        $isEdit = $srv !== null;
+        $v = fn(string $k, string $d = '') => ih((string) ($srv[$k] ?? $d));
+        ?>
+        <form method="post" action="actions/server_save.php">
+            <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+            <input type="hidden" name="action" value="save">
+            <?php if ($isEdit): ?><input type="hidden" name="id" value="<?= $v('id') ?>"><?php endif; ?>
+
+            <table>
+                <tbody>
+                <tr>
+                    <td style="width:250px"><label for="f-label-<?= $v('id', 'new') ?>"><strong>Name</strong><br>
+                        <span style="color:#6b7280;font-size:12px">Anything that helps you tell it apart</span></label></td>
+                    <td><input id="f-label-<?= $v('id', 'new') ?>" name="label" value="<?= $v('label') ?>"
+                               placeholder="e.g. Hostinger box 2" style="width:100%;max-width:420px" required></td>
+                </tr>
+                <tr>
+                    <td><label><strong>Address you log in to Plesk at</strong><br>
+                        <span style="color:#6b7280;font-size:12px">IP or hostname &mdash; no https://</span></label></td>
+                    <td><input name="host" value="<?= $v('host') ?>" placeholder="e.g. 31.97.133.251"
+                               style="width:100%;max-width:420px" required></td>
+                </tr>
+                <tr>
+                    <td><label><strong>Port</strong><br>
+                        <span style="color:#6b7280;font-size:12px">Plesk uses 8443 unless you changed it</span></label></td>
+                    <td><input name="port" type="number" value="<?= $v('port', '8443') ?>" style="width:120px"></td>
+                </tr>
+                <tr>
+                    <td><label><strong>Plesk API key</strong><br>
+                        <span style="color:#6b7280;font-size:12px">Plesk &rarr; Tools &amp; Settings &rarr; API Keys</span></label></td>
+                    <td><input name="api_token" type="password" autocomplete="new-password"
+                               placeholder="<?= $isEdit ? 'leave blank to keep the current key' : 'paste the key' ?>"
+                               style="width:100%;max-width:420px" <?= $isEdit ? '' : 'required' ?>>
+                        <?php if ($isEdit): ?><br><span style="color:#9ca3af;font-size:12px">A key is stored. It is never shown here.</span><?php endif; ?></td>
+                </tr>
+                <tr>
+                    <td><label><strong>IP address the websites answer on</strong><br>
+                        <span style="color:#6b7280;font-size:12px">Cloudflare points at this. Blank = same as above</span></label></td>
+                    <td><input name="default_ip" value="<?= $v('default_ip') ?>" placeholder="usually the same address"
+                               style="width:100%;max-width:420px"></td>
+                </tr>
+                <tr>
+                    <td><label style="color:#6b7280">SSH user and key <span style="font-size:12px">(optional, not used yet)</span></label></td>
+                    <td><input name="ssh_user" value="<?= $v('ssh_user') ?>" placeholder="root" style="width:120px">
+                        <input name="ssh_key" value="<?= $v('ssh_key') ?>" placeholder="/root/.ssh/id_rsa" style="width:280px"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+                <button class="btn" type="submit"><?= $isEdit ? 'Save changes' : 'Add this server' ?></button>
+                <button class="btn sec" type="submit" name="action" value="test">Test without saving</button>
+                <?php if ($isEdit): ?><a class="btn sec" href="index.php?view=servers">Cancel</a><?php endif; ?>
+            </div>
+        </form>
+        <?php
+    }
+
+    $editId  = (string) ($_GET['edit'] ?? '');
     $servers = infra_servers();
     $rows = [];
     foreach ($servers as $srv) {
@@ -1807,18 +1874,44 @@ if ($view === 'servers') {
                 </table>
             <?php endif; ?>
 
-            <div style="margin-top:14px">
+            <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
                 <a class="btn sec" href="index.php?view=server&amp;id=<?= ih($srv['id'] ?? '') ?>">See how each domain is wired up &rarr;</a>
+                <a class="btn sec" href="index.php?view=servers&amp;edit=<?= ih($srv['id'] ?? '') ?>#form-<?= ih($srv['id'] ?? '') ?>">Edit these settings</a>
+                <form method="post" action="actions/server_save.php" style="display:inline">
+                    <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+                    <input type="hidden" name="action" value="delete">
+                    <input type="hidden" name="id" value="<?= ih($srv['id'] ?? '') ?>">
+                    <button class="btn" style="background:#991b1b" type="submit"
+                            onclick="return confirm('Remove &quot;<?= ih($srv['label'] ?? $srv['id']) ?>&quot; from this console?\n\nThe server itself is NOT touched — it keeps running and its websites stay up. It just stops appearing here.')">
+                        Remove from console
+                    </button>
+                </form>
             </div>
+
+            <?php if ($editId === ($srv['id'] ?? '')): ?>
+            <div id="form-<?= ih($srv['id'] ?? '') ?>" style="margin-top:18px;border-top:1px solid #e5e7eb;padding-top:16px">
+                <h2 style="font-size:15px;margin:0 0 10px">Edit this server</h2>
+                <?php infra_server_form($srv); ?>
+            </div>
+            <?php endif; ?>
         </div>
     </div>
     <?php endforeach; ?>
-
-    <div class="ic-note">
-        Read-only for now. Servers are set up by hand in <code>admin/infra/config/servers.json</code> —
-        adding and editing them from this page is the next step.
-    </div>
     <?php endif; ?>
+
+    <!-- Add a server. Always visible, at the bottom, so the page reads:
+         here is what you have, and here is how to add another. -->
+    <div class="ic-card" id="add-server">
+        <h2>Add a server</h2>
+        <div class="body">
+            <div class="ic-note">
+                You buy the server and install Plesk yourself. This just tells the console
+                how to talk to it. Get the API key from Plesk under
+                <strong>Tools &amp; Settings &rarr; API Keys</strong>.
+            </div>
+            <?php infra_server_form(null); ?>
+        </div>
+    </div>
     <?php
     infra_footer(); exit;
 }
