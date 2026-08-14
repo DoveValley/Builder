@@ -7,7 +7,7 @@
  * CLI-testable; the admin upload page (and the Phase 3 orchestrator) wrap these.
  *
  * The columns map 1:1 to the row.json build_one.php consumes (master_id is supplied
- * as campaign context, not a column). See docs/multisite-generator-architecture.md §4.
+ * as batch context, not a column). See docs/multisite-generator-architecture.md §4.
  */
 
 /** Columns that make a row deployable (hard errors when missing/invalid). */
@@ -185,12 +185,15 @@ function ms_ftp_preflight(array $row, int $timeout = 15): array {
 }
 
 /**
- * Persist an uploaded/validated CSV to the campaign's params location, and keep a
- * rolling snapshot of the last few uploads in params_versions/.
+ * Persist an uploaded/validated CSV into a batch folder, and keep a rolling snapshot
+ * of the last few uploads in params_versions/.
+ *
+ * Takes the target directory rather than an id — the batch layout is owned by
+ * includes/multisite/batch.php, so this file stays layout-agnostic.
+ *
  * @return string the stored path.
  */
-function ms_store_params_csv(string $masterId, string $srcCsvPath): string {
-    $dir = BASE_DIR . '/sites/' . $masterId . '/multisite';
+function ms_store_params_csv(string $dir, string $srcCsvPath): string {
     if (!is_dir($dir)) mkdir($dir, 0775, true);
     $dest = $dir . '/params.csv';
     copy($srcCsvPath, $dest);
@@ -272,17 +275,17 @@ function ms_snapshot_params_version(string $msDir, string $srcCsvPath, int $keep
     return $stamp;
 }
 
-/** The version id of the currently-stored params.csv (last upload/restore), or ''. */
-function ms_current_params_version(string $masterId): string {
-    $f = BASE_DIR . '/sites/' . $masterId . '/multisite/params.version';
+/** The version id of the batch's currently-stored params.csv (last upload/restore), or ''. */
+function ms_current_params_version(string $dir): string {
+    $f = $dir . '/params.version';
     if (!is_file($f)) return '';
     $id = trim((string)file_get_contents($f));
     return ms_valid_version_id($id) ? $id : '';
 }
 
-/** List stored param versions, newest first: [['id'=>stamp,'rows'=>int,'mtime'=>int], ...]. */
-function ms_list_params_versions(string $masterId): array {
-    $vdir = BASE_DIR . '/sites/' . $masterId . '/multisite/params_versions';
+/** List a batch's stored param versions, newest first: [['id'=>stamp,'rows'=>int,'mtime'=>int], ...]. */
+function ms_list_params_versions(string $dir): array {
+    $vdir = $dir . '/params_versions';
     $files = glob($vdir . '/*.csv') ?: [];
     rsort($files);
     $out = [];

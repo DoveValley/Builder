@@ -1,7 +1,7 @@
 <?php
 // Save the per-niche brief (sites/{master}/multisite/niche_brief.json) and/or
 // compile it into the master's ai_block_types.json.
-// POST only. CSRF protected. Active site = the campaign master (one niche).
+// POST only. CSRF protected. Active site = the master site (one niche).
 
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';

@@ -1,0 +1,386 @@
+<?php
+/**
+ * Multisite batches.
+ *
+ * A batch is one master + one target list + its run history:
+ *
+ *   sites/{master}/batches/{batch}/
+ *       batch.json         id, name, master_id, created_at, updated_at
+ *       params.csv         the target rows (one per site to build)
+ *       params.version     pointer to the current upload
+ *       params_versions/   rolling upload history
+ *       runs/              run logs
+ *       run.lock           one run at a time, per batch
+ *       research/          city research output
+ *
+ * What deliberately does NOT live here: everything that belongs to the MASTER and is
+ * shared by every batch off it — niche_brief.json, ai/archetypes.json,
+ * theme_presets.json, icons/, hero_style.json, cache/. Those stay in
+ * sites/{master}/multisite/ and are untouched by this file.
+ *
+ * This file owns the batch layout. Nothing else should build a batch path by hand —
+ * ask ms_batch_dir() (or ms_active_batch_dir()) for it.
+ */
+
+/** Batch ids are generated, never user-supplied: b1, b2, b3… */
+function ms_valid_batch_id(string $id): bool {
+    return (bool) preg_match('/^b[0-9]{1,6}$/', $id);
+}
+
+/** Same rule the site manager uses for a site folder name. */
+function ms_valid_master_id(string $id): bool {
+    return (bool) preg_match('/^[a-z0-9][a-z0-9-]{0,59}$/', $id)
+        && is_dir(BASE_DIR . '/sites/' . $id);
+}
+
+/** Where a master keeps its batches. */
+function ms_batches_root(string $masterId): string {
+    return BASE_DIR . '/sites/' . $masterId . '/batches';
+}
+
+/** One batch's folder. Does not create it. */
+function ms_batch_dir(string $masterId, string $batchId): string {
+    return ms_batches_root($masterId) . '/' . $batchId;
+}
+
+/** Master-level multisite config shared by every batch (niche brief, presets, icons…). */
+function ms_master_dir(string $masterId): string {
+    return BASE_DIR . '/sites/' . $masterId . '/multisite';
+}
+
+function ms_batch_exists(string $masterId, string $batchId): bool {
+    return ms_valid_master_id($masterId) && ms_valid_batch_id($batchId)
+        && is_file(ms_batch_dir($masterId, $batchId) . '/batch.json');
+}
+
+// ── The batch record ──────────────────────────────────────────────────────────
+
+function ms_batch_meta(string $masterId, string $batchId): ?array {
+    if (!ms_valid_master_id($masterId) || !ms_valid_batch_id($batchId)) return null;
+    $f = ms_batch_dir($masterId, $batchId) . '/batch.json';
+    if (!is_file($f)) return null;
+    $d = json_decode((string) file_get_contents($f), true);
+    return is_array($d) ? $d : null;
+}
+
+function ms_save_batch_meta(string $masterId, string $batchId, array $meta): bool {
+    $dir = ms_batch_dir($masterId, $batchId);
+    if (!is_dir($dir) && !@mkdir($dir, 0775, true) && !is_dir($dir)) return false;
+    $meta['updated_at'] = gmdate('c');
+    $tmp = $dir . '/batch.json.tmp';
+    $json = json_encode($meta, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    if (@file_put_contents($tmp, $json) === false) return false;
+    return @rename($tmp, $dir . '/batch.json');
+}
+
+// ── Listing ───────────────────────────────────────────────────────────────────
+
+/** Every batch belonging to one master, newest-touched first. */
+function ms_master_batches(string $masterId): array {
+    if (!ms_valid_master_id($masterId)) return [];
+    $out = [];
+    foreach (glob(ms_batches_root($masterId) . '/*/batch.json') ?: [] as $f) {
+        $d = json_decode((string) file_get_contents($f), true);
+        if (!is_array($d)) continue;
+        $d['master_id'] = $masterId;          // the folder is the truth, not the field
+        $out[] = $d;
+    }
+    usort($out, fn($a, $b) => strcmp($b['updated_at'] ?? '', $a['updated_at'] ?? ''));
+    return $out;
+}
+
+/** Every batch across every master — what the home panel lists. */
+function ms_all_batches(): array {
+    $out = [];
+    foreach (glob(BASE_DIR . '/sites/*/batches/*/batch.json') ?: [] as $f) {
+        $d = json_decode((string) file_get_contents($f), true);
+        if (!is_array($d)) continue;
+        $d['master_id'] = basename(dirname(dirname(dirname($f))));
+        $out[] = $d;
+    }
+    usort($out, fn($a, $b) => strcmp($b['updated_at'] ?? '', $a['updated_at'] ?? ''));
+    return $out;
+}
+
+// ── Create / rename / delete / re-point ───────────────────────────────────────
+
+/** Next free batch id for this master. */
+function ms_next_batch_id(string $masterId): string {
+    $max = 0;
+    foreach (glob(ms_batches_root($masterId) . '/b*', GLOB_ONLYDIR) ?: [] as $d) {
+        if (preg_match('/^b([0-9]{1,6})$/', basename($d), $m)) $max = max($max, (int) $m[1]);
+    }
+    return 'b' . ($max + 1);
+}
+
+/** @return array ['id'=>string] on success, ['error'=>string] on failure. */
+function ms_create_batch(string $masterId, string $name): array {
+    if (!ms_valid_master_id($masterId)) return ['error' => 'Pick a master site.'];
+    $name = trim($name);
+    if ($name === '')            return ['error' => 'Give the batch a name.'];
+    if (mb_strlen($name) > 80)   return ['error' => 'That name is too long (80 characters max).'];
+
+    $id  = ms_next_batch_id($masterId);
+    $dir = ms_batch_dir($masterId, $id);
+    if (!@mkdir($dir, 0775, true) && !is_dir($dir)) return ['error' => 'Could not create the batch folder.'];
+
+    $ok = ms_save_batch_meta($masterId, $id, [
+        'id'         => $id,
+        'name'       => $name,
+        'master_id'  => $masterId,
+        'created_at' => gmdate('c'),
+    ]);
+    if (!$ok) return ['error' => 'Could not write the batch record.'];
+    return ['id' => $id];
+}
+
+function ms_rename_batch(string $masterId, string $batchId, string $name): array {
+    $meta = ms_batch_meta($masterId, $batchId);
+    if (!$meta) return ['error' => 'Batch not found.'];
+    $name = trim($name);
+    if ($name === '')          return ['error' => 'Give the batch a name.'];
+    if (mb_strlen($name) > 80) return ['error' => 'That name is too long (80 characters max).'];
+    $meta['name'] = $name;
+    return ms_save_batch_meta($masterId, $batchId, $meta) ? ['ok' => true] : ['error' => 'Could not save.'];
+}
+
+/** Recursively remove a directory tree. Refuses anything outside sites/. */
+function ms_rmtree(string $dir): bool {
+    $root = BASE_DIR . '/sites/';
+    $real = realpath($dir);
+    if ($real === false || strncmp($real, realpath($root) . '/', strlen(realpath($root)) + 1) !== 0) return false;
+    foreach (scandir($real) ?: [] as $e) {
+        if ($e === '.' || $e === '..') continue;
+        $p = $real . '/' . $e;
+        is_dir($p) && !is_link($p) ? ms_rmtree($p) : @unlink($p);
+    }
+    return @rmdir($real);
+}
+
+function ms_delete_batch(string $masterId, string $batchId): array {
+    if (!ms_batch_exists($masterId, $batchId)) return ['error' => 'Batch not found.'];
+    return ms_rmtree(ms_batch_dir($masterId, $batchId)) ? ['ok' => true] : ['error' => 'Could not delete the batch folder.'];
+}
+
+/**
+ * Point a batch at a different master. The batch folder physically moves, because a
+ * batch lives inside its master. Callers are expected to have shown the warnings first
+ * (see ms_swap_master_warnings()).
+ */
+function ms_set_batch_master(string $masterId, string $batchId, string $newMasterId): array {
+    $meta = ms_batch_meta($masterId, $batchId);
+    if (!$meta)                          return ['error' => 'Batch not found.'];
+    if (!ms_valid_master_id($newMasterId)) return ['error' => 'Pick a master site.'];
+    if ($newMasterId === $masterId)      return ['ok' => true, 'id' => $batchId];
+
+    $newId  = ms_next_batch_id($newMasterId);
+    $newDir = ms_batch_dir($newMasterId, $newId);
+    if (!is_dir(dirname($newDir)) && !@mkdir(dirname($newDir), 0775, true) && !is_dir(dirname($newDir))) {
+        return ['error' => 'Could not create the batch folder on the new master.'];
+    }
+    if (!@rename(ms_batch_dir($masterId, $batchId), $newDir)) return ['error' => 'Could not move the batch.'];
+
+    $meta['id']        = $newId;
+    $meta['master_id'] = $newMasterId;
+    ms_save_batch_meta($newMasterId, $newId, $meta);
+    return ['ok' => true, 'id' => $newId, 'master_id' => $newMasterId];
+}
+
+// ── Run reading (shared by the batch page and the home panel) ─────────────────
+
+/** True if a process id is alive (Linux /proc, or posix). */
+function ms_pid_alive(int $pid): bool {
+    if ($pid <= 0) return false;
+    if (function_exists('posix_kill')) return @posix_kill($pid, 0);
+    return file_exists('/proc/' . $pid);
+}
+
+/** The newest run status file in a runs dir, or ''. */
+function ms_latest_run_file(string $runsDir): string {
+    $files = glob($runsDir . '/*.json') ?: [];
+    if (!$files) return '';
+    usort($files, fn($a, $b) => filemtime($b) <=> filemtime($a));
+    return $files[0];
+}
+
+/** Read a run status file and mark a dead 'running' run as 'stale'. */
+function ms_read_run(string $file): ?array {
+    if (!is_file($file)) return null;
+    $d = json_decode((string) file_get_contents($file), true);
+    if (!is_array($d)) return null;
+    if (($d['state'] ?? '') === 'running' && !ms_pid_alive((int) ($d['pid'] ?? 0))) $d['state'] = 'stale';
+    return $d;
+}
+
+/** The genuinely-running run in a runs dir, or null. */
+function ms_active_run(string $runsDir): ?array {
+    $latest = ms_latest_run_file($runsDir);
+    if (!$latest) return null;
+    $cur = ms_read_run($latest);
+    return ($cur && ($cur['state'] ?? '') === 'running') ? $cur : null;
+}
+
+/** How many target rows a batch holds (cheap line count — no CSV parse). */
+function ms_batch_target_count(string $masterId, string $batchId): int {
+    $csv = ms_batch_dir($masterId, $batchId) . '/params.csv';
+    if (!is_file($csv)) return 0;
+    $n = 0;
+    $fh = fopen($csv, 'r');
+    if (!$fh) return 0;
+    while (fgetcsv($fh) !== false) $n++;
+    fclose($fh);
+    return max(0, $n - 1);   // minus the header line
+}
+
+/** One-line summary for a batch row on the home panel. */
+function ms_batch_status(string $masterId, string $batchId): array {
+    $s = [
+        'targets' => ms_batch_target_count($masterId, $batchId),
+        'has_run' => false, 'state' => '', 'run_id' => '',
+        'total' => 0, 'ok' => 0, 'failed' => 0, 'cost' => 0.0, 'finished_at' => null,
+    ];
+    $file = ms_latest_run_file(ms_batch_dir($masterId, $batchId) . '/runs');
+    if (!$file) return $s;
+    $d = ms_read_run($file);
+    if (!$d) return $s;
+    return array_merge($s, [
+        'has_run'     => true,
+        'state'       => $d['state'] ?? '?',
+        'run_id'      => $d['run_id'] ?? basename($file, '.json'),
+        'total'       => (int) ($d['total'] ?? 0),
+        'ok'          => (int) ($d['ok'] ?? 0),
+        'failed'      => (int) ($d['failed'] ?? 0),
+        'cost'        => (float) ($d['totals']['cost_usd'] ?? 0),
+        'finished_at' => $d['finished_at'] ?? $d['started_at'] ?? null,
+    ]);
+}
+
+// ── The batch you currently have open ─────────────────────────────────────────
+
+/** ['master_id'=>..,'batch_id'=>..] for the open batch, or null. */
+function ms_active_batch(): ?array {
+    $m = $_SESSION['active_site']  ?? '';
+    $b = $_SESSION['active_batch'] ?? '';
+    if ($m === '' || $b === '' || !ms_batch_exists($m, $b)) return null;
+    return ['master_id' => $m, 'batch_id' => $b];
+}
+
+/** Folder of the open batch, or '' when none is open. */
+function ms_active_batch_dir(): string {
+    $a = ms_active_batch();
+    return $a ? ms_batch_dir($a['master_id'], $a['batch_id']) : '';
+}
+
+// ── Swapping a batch onto a different master ──────────────────────────────────
+
+/** A master's niche, from its niche brief ('' when unknown). */
+function ms_master_niche(string $masterId): string {
+    $b = @json_decode((string) @file_get_contents(ms_master_dir($masterId) . '/niche_brief.json'), true);
+    return is_array($b) ? trim((string) ($b['niche'] ?? '')) : '';
+}
+
+/** The theme-preset ids and names a master offers (lowercased, for matching). */
+function ms_master_preset_keys(string $masterId): array {
+    $doc = @json_decode((string) @file_get_contents(ms_master_dir($masterId) . '/theme_presets.json'), true);
+    $keys = [];
+    foreach (($doc['presets'] ?? []) as $i => $p) {
+        if (isset($p['id']))   $keys[] = strtolower(trim((string) $p['id']));
+        if (isset($p['name'])) $keys[] = strtolower(trim((string) $p['name']));
+        $keys[] = (string) ($i + 1);              // presets are also addressable by position
+    }
+    return array_values(array_unique(array_filter($keys, fn($k) => $k !== '')));
+}
+
+/** Display name for a site (meta.json name, else the id). */
+function ms_site_name(string $siteId): string {
+    $m = @json_decode((string) @file_get_contents(BASE_DIR . '/sites/' . $siteId . '/meta.json'), true);
+    return trim((string) ($m['name'] ?? '')) ?: $siteId;
+}
+
+/**
+ * Everything the operator should see before re-pointing a batch at a new master.
+ * Returns plain sentences, worst first. An empty array means the swap is harmless.
+ *
+ * The three real dangers: overwriting sites that are already live, silently building
+ * the wrong niche onto the right domains, and theme_preset names that only existed on
+ * the old master (which fail quietly rather than erroring).
+ */
+function ms_swap_master_warnings(string $masterId, string $batchId, string $newMasterId): array {
+    $w = [];
+
+    // 1. Already-live sites get their content replaced on the next run.
+    $st = ms_batch_status($masterId, $batchId);
+    if ($st['has_run'] && $st['ok'] > 0) {
+        $w[] = $st['ok'] . ' site(s) were built from "' . ms_site_name($masterId) . '". Changing the master means your '
+             . 'next run REPLACES their content at the same web addresses.';
+    }
+
+    // 2. Different niche: the build succeeds and quietly makes the wrong kind of site.
+    $oldNiche = ms_master_niche($masterId);
+    $newNiche = ms_master_niche($newMasterId);
+    if ($oldNiche !== '' && $newNiche !== '' && strcasecmp($oldNiche, $newNiche) !== 0) {
+        $w[] = 'DIFFERENT NICHE: this batch\'s domains and business names are for "' . $oldNiche . '", but "'
+             . ms_site_name($newMasterId) . '" builds "' . $newNiche . '" sites. The run will NOT error — it will '
+             . 'just build the wrong kind of site on every domain.';
+    }
+
+    // 3. theme_preset values that do not exist on the new master fail silently.
+    $csv = ms_batch_dir($masterId, $batchId) . '/params.csv';
+    if (is_file($csv) && function_exists('ms_parse_csv')) {
+        $p = ms_parse_csv($csv);
+        if (empty($p['error'])) {
+            $have = ms_master_preset_keys($newMasterId);
+            $missing = [];
+            foreach ($p['rows'] as $r) {
+                $v = strtolower(trim((string) ($r['theme_preset'] ?? '')));
+                if ($v !== '' && !in_array($v, $have, true)) $missing[$v] = true;
+            }
+            if ($missing) {
+                $w[] = 'These theme_preset values in your target list do not exist on the new master and will be '
+                     . 'ignored: ' . implode(', ', array_keys($missing)) . '.';
+            }
+        }
+    }
+    return $w;
+}
+
+// ── Migration from the pre-batch layout ───────────────────────────────────────
+
+/** The per-batch pieces that used to sit directly in sites/{master}/multisite/. */
+const MS_BATCH_MOVES = ['params.csv', 'params.version', 'params_versions', 'runs', 'run.lock', 'research'];
+
+/**
+ * Fold a master's legacy target list + history into an auto-created "Batch 1".
+ * Safe to run repeatedly: does nothing when there is no legacy params.csv, and never
+ * touches a master that already has batches.
+ *
+ * @return string|null the new batch id, or null when there was nothing to migrate.
+ */
+function ms_migrate_legacy_batch(string $masterId): ?string {
+    if (!ms_valid_master_id($masterId)) return null;
+    if (ms_master_batches($masterId)) return null;               // already has batches
+    $old = ms_master_dir($masterId);
+    if (!is_file($old . '/params.csv')) return null;             // nothing to migrate
+
+    $res = ms_create_batch($masterId, 'Batch 1');
+    if (isset($res['error'])) return null;
+    $dir = ms_batch_dir($masterId, $res['id']);
+
+    foreach (MS_BATCH_MOVES as $item) {
+        $src = $old . '/' . $item;
+        if (file_exists($src)) @rename($src, $dir . '/' . $item);
+    }
+    return $res['id'];
+}
+
+/** Run the migration for every master. @return array masterId => new batch id */
+function ms_migrate_all_legacy_batches(): array {
+    $done = [];
+    foreach (glob(BASE_DIR . '/sites/*', GLOB_ONLYDIR) ?: [] as $d) {
+        $id = basename($d);
+        if (!ms_valid_master_id($id)) continue;
+        $new = ms_migrate_legacy_batch($id);
+        if ($new !== null) $done[$id] = $new;
+    }
+    return $done;
+}

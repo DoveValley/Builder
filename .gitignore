@@ -8,9 +8,13 @@
 sites/*/deploy.json
 sites/*/data/deploy.json
 
-# Multisite campaign data (holds FTP credentials) — never commit.
+# Multisite master-level data (holds FTP credentials) — never commit.
 # Ignore the whole dir: fail-safe, so no future file inside can ever leak.
 sites/*/multisite/
+
+# Multisite batch data — params.csv carries ftp_pass in plaintext, plus run logs.
+# Same fail-safe rule: the whole dir, so nothing added later can leak either.
+sites/*/batches/
 
 # Generated static output and the multisite regression baseline — local artifacts, not source.
 output/

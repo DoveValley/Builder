@@ -5266,7 +5266,9 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <tr><td><code>includes/multisite/params.php</code></td><td>CSV parse + validation + pre-flight helpers</td></tr>
         <tr><td><code>includes/multisite/landing.php</code> · <code>multisite/generate_landing.php</code></td><td>Parse <code>landing_cities</code> → build per-city service landing pages</td></tr>
         <tr><td><code>multisite/ai/archetypes.json</code> · <code>multisite/ai/compile.php</code></td><td>Shared archetype library + niche-brief → registry compiler</td></tr>
-        <tr><td><code>admin/tabs/multisite.php</code> · <code>admin/multisite_api.php</code> · <code>admin/multisite_preflight.php</code></td><td>Admin MultiSite tab: upload, pre-flight, run, history, retry</td></tr>
+        <tr><td><code>admin/sites.php</code> · <code>admin/batch.php</code> · <code>admin/batch_api.php</code> · <code>admin/_batch_panels.php</code></td><td>Batch rows on the Site Factory panel + the batch page (upload, pre-flight, run, history, retry)</td></tr>
+        <tr><td><code>includes/multisite/batch.php</code></td><td>Owns the batch layout: <code>sites/{master}/batches/{id}/</code>, create/rename/delete, run status, master swap</td></tr>
+        <tr><td><code>admin/multisite_api.php</code> · <code>admin/multisite_preflight.php</code></td><td>Batch API: upload, validate, pre-flight, run, history, retry (acts on the open batch)</td></tr>
         <tr><td><code>admin/tabs/niche_brief.php</code> · <code>admin/niche_brief_save.php</code></td><td>Admin Niche Brief tab: author + compile the AI vocabulary</td></tr>
     </table>
     <p>Full architecture and rationale live in <code>docs/multisite-generator-architecture.md</code> in the repository.</p>

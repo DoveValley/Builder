@@ -69,7 +69,10 @@ function infra_header(string $active = 'dashboard'): void
         $cls = $k === $active ? 'active' : '';
         echo '<a class="' . $cls . '" href="' . ih($n['href']) . '">' . ih($n['label']) . '</a>';
     }
-    echo '</nav><a class="ic-back" href="../index.php">&larr; Back to Factory</a></header>';
+    // sites.php, not index.php — index.php is the editor for whichever site happens to
+    // be open, so "Back to Factory" used to drop you inside a site. The factory is the
+    // Site Factory panel: sites, batches, infrastructure.
+    echo '</nav><a class="ic-back" href="../sites.php">&larr; Back to Factory</a></header>';
     echo '<main class="ic-main">';
     infra_render_flash();
 }

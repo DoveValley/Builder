@@ -285,8 +285,6 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'ai_blocks' ? 'active' : '' ?>" href="?tab=ai_blocks">&#129520; Block Registry</a>
         <a class="tab-link <?= $tab === 'niche_brief' ? 'active' : '' ?>" href="?tab=niche_brief">&#129534; Niche Brief</a>
         <a class="tab-link <?= $tab === 'deploy' ? 'active' : '' ?>" href="?tab=deploy">&#128640; Deploy</a>
-        <a class="tab-link <?= $tab === 'multisite' ? 'active' : '' ?>" href="?tab=multisite">&#127760; MultiSite</a>
-        <a class="tab-link" href="infra/index.php">&#128736; Infrastructure</a>
     </div>
 
     <!-- ================= HEADER TAB ================= -->
@@ -337,8 +335,10 @@ foreach ($footer['columns'] as $ci => $column) {
     <!-- ================= AI CONTENT REVIEW TAB ================= -->
     <?php require __DIR__ . '/tabs/ai_review.php'; ?>
 
-    <!-- ================= MULTISITE TAB ================= -->
-    <?php require __DIR__ . '/tabs/multisite.php'; ?>
+    <!-- MultiSite is no longer a tab: batches are their own rows on the Site Factory
+         panel (admin/sites.php) and open at admin/batch.php. What stayed with the site
+         is the master-level setup — Niche Brief, Visual Identity (Theme tab), and the
+         master health check (bottom of the Niche Brief tab). -->
 
     <!-- ================= AI BLOCK REGISTRY TAB ================= -->
     <?php require __DIR__ . '/tabs/ai_blocks.php'; ?>

@@ -1,11 +1,12 @@
 <?php
-// Multisite admin API (Phase A — intake). JSON responses.
-// Wraps the params intake cores (includes/multisite/params.php). The active site
-// is the campaign master. All POSTs require the admin CSRF token.
+// Multisite admin API (batch intake + runs). JSON responses.
+// Wraps the params intake cores (includes/multisite/params.php). Works on the batch
+// currently open (session), whose master is the active site. All POSTs require CSRF.
 
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/multisite/params.php';
+require_once __DIR__ . '/../includes/multisite/batch.php';
 require_once __DIR__ . '/../includes/multisite/master_lint.php';
 
 header('Content-Type: application/json');
@@ -18,9 +19,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'
     http_response_code(403); echo json_encode(['error' => 'Invalid security token.']); exit;
 }
 
-$action     = $_REQUEST['action'] ?? '';
-$masterId   = ACTIVE_SITE_ID;
-$paramsPath = ACTIVE_SITE_DIR . '/multisite/params.csv';
+$action   = $_REQUEST['action'] ?? '';
+$masterId = ACTIVE_SITE_ID;
+
+// ── Which batch ───────────────────────────────────────────────────────────────
+// Everything except the master-level actions below operates on the open batch.
+const MS_MASTER_ONLY_ACTIONS = ['sample_csv', 'lint_master'];
+
+$batchId = ''; $batchDir = ''; $paramsPath = ''; $runsDir = '';
+$active  = ms_active_batch();
+if ($active) {
+    $batchId    = $active['batch_id'];
+    $batchDir   = ms_batch_dir($masterId, $batchId);
+    $paramsPath = $batchDir . '/params.csv';
+    $runsDir    = $batchDir . '/runs';
+} elseif (!in_array($action, MS_MASTER_ONLY_ACTIONS, true)) {
+    http_response_code(400);
+    echo json_encode(['error' => 'No batch open. Open a batch from the Site Factory panel first.']);
+    exit;
+}
 
 /** Build browser-safe display rows — never sends ftp_pass to the client. */
 function ms_rows_for_ui(array $v): array {
@@ -49,45 +66,17 @@ function ms_validation_payload(array $v): array {
     ];
 }
 
-/** True if a process id is alive (Linux /proc, or posix). */
-function ms_pid_alive(int $pid): bool {
-    if ($pid <= 0) return false;
-    if (function_exists('posix_kill')) return @posix_kill($pid, 0);
-    return file_exists('/proc/' . $pid);
-}
+// ms_pid_alive() / ms_latest_run_file() / ms_read_run() / ms_active_run() live in
+// includes/multisite/batch.php — the home panel reads runs too, so they are shared.
 
-/** The newest run status file for this master, or ''. */
-function ms_latest_run_file(string $runsDir): string {
-    $files = glob($runsDir . '/*.json') ?: [];
-    if (!$files) return '';
-    usort($files, fn($a, $b) => filemtime($b) <=> filemtime($a));
-    return $files[0];
-}
-
-/** Read a run status file and mark a dead 'running' run as 'stale'. */
-function ms_read_run(string $file): ?array {
-    if (!is_file($file)) return null;
-    $d = json_decode(file_get_contents($file), true);
-    if (!is_array($d)) return null;
-    if (($d['state'] ?? '') === 'running' && !ms_pid_alive((int)($d['pid'] ?? 0))) $d['state'] = 'stale';
-    return $d;
-}
-
-/** The currently-active (genuinely running) run for this master, or null. */
-function ms_active_run(string $runsDir): ?array {
-    $latest = ms_latest_run_file($runsDir);
-    if (!$latest) return null;
-    $cur = ms_read_run($latest);
-    return ($cur && ($cur['state'] ?? '') === 'running') ? $cur : null;
-}
-
-/** Launch run_campaign as a detached background process. Returns the run_id. */
-function ms_launch_campaign(string $masterId, string $runsDir, string $flags): string {
+/** Launch run_campaign for one batch as a detached background process. Returns the run_id. */
+function ms_launch_campaign(string $masterId, string $batchId, string $runsDir, string $flags): string {
     if (!is_dir($runsDir)) mkdir($runsDir, 0775, true);
     $runId = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
     $out   = $runsDir . '/' . $runId . '.out';
     $cmd = 'setsid ' . escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg(BASE_DIR . '/multisite/run_campaign.php')
-         . ' ' . escapeshellarg($masterId) . ' --run-id=' . escapeshellarg($runId) . ' --no-preflight' . $flags
+         . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId)
+         . ' --run-id=' . escapeshellarg($runId) . ' --no-preflight' . $flags
          . ' > ' . escapeshellarg($out) . ' 2>&1 &';
     exec($cmd);
     return $runId;
@@ -180,7 +169,7 @@ switch ($action) {
         if ($v['error'] === 0 && count($v['rows']) > 0) {
             $rehydrated = tempnam(sys_get_temp_dir(), 'mscsv');
             ms_write_csv($rehydrated, $parsed['header'], $rows);
-            ms_store_params_csv($masterId, $rehydrated);
+            ms_store_params_csv($batchDir, $rehydrated);
             @unlink($rehydrated);
             $stored = true;
         }
@@ -247,14 +236,14 @@ switch ($action) {
 
     // List saved upload versions (last 15), newest first.
     case 'list_versions':
-        echo json_encode(['versions' => ms_list_params_versions($masterId)]);
+        echo json_encode(['versions' => ms_list_params_versions($batchDir)]);
         break;
 
     // Download one saved version, FTP masked.
     case 'download_version':
         $id = (string)($_GET['id'] ?? '');
         if (!ms_valid_version_id($id)) { http_response_code(400); echo json_encode(['error' => 'Invalid version id.']); break; }
-        $vf = ACTIVE_SITE_DIR . '/multisite/params_versions/' . $id . '.csv';
+        $vf = $batchDir . '/params_versions/' . $id . '.csv';
         if (!is_file($vf)) { http_response_code(404); echo json_encode(['error' => 'Version not found.']); break; }
         $parsed = ms_parse_csv($vf);
         header_remove('Content-Type');
@@ -268,32 +257,30 @@ switch ($action) {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         $id = (string)($_POST['id'] ?? '');
         if (!ms_valid_version_id($id)) { echo json_encode(['error' => 'Invalid version id.']); break; }
-        $vf = ACTIVE_SITE_DIR . '/multisite/params_versions/' . $id . '.csv';
+        $vf = $batchDir . '/params_versions/' . $id . '.csv';
         if (!is_file($vf)) { echo json_encode(['error' => 'Version not found.']); break; }
         $parsed = ms_parse_csv($vf);
         if ($parsed['error']) { echo json_encode(['error' => $parsed['error']]); break; }
         $v = ms_validate_rows($parsed['rows'], $parsed['header']);
         if ($v['error'] > 0) { echo json_encode(['error' => 'That version has validation errors and was not restored.'] + ms_validation_payload($v)); break; }
-        ms_store_params_csv($masterId, $vf);
+        ms_store_params_csv($batchDir, $vf);
         echo json_encode(['restored' => true, 'stored' => true] + ms_validation_payload($v));
         break;
 
-    // Launch a campaign as a detached background process.
+    // Launch a batch run as a detached background process.
     case 'run':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
-        if (!is_file($paramsPath)) { echo json_encode(['error' => 'No params.csv stored — upload it first.']); break; }
-        $runsDir = ACTIVE_SITE_DIR . '/multisite/runs';
-        if ($active = ms_active_run($runsDir)) { echo json_encode(['error' => 'A campaign is already running.', 'run_id' => $active['run_id'] ?? null]); break; }
+        if (!is_file($paramsPath)) { echo json_encode(['error' => 'No target list stored — upload it first.']); break; }
+        if ($running = ms_active_run($runsDir)) { echo json_encode(['error' => 'This batch is already running.', 'run_id' => $running['run_id'] ?? null]); break; }
         $flags = ms_run_flags([
             'jobs' => $_POST['jobs'] ?? 1, 'retries' => $_POST['retries'] ?? 0, 'limit' => $_POST['limit'] ?? 0,
             'no_ai' => !empty($_POST['no_ai']), 'force' => !empty($_POST['force']),
         ]);
-        echo json_encode(['started' => true, 'run_id' => ms_launch_campaign($masterId, $runsDir, $flags)]);
+        echo json_encode(['started' => true, 'run_id' => ms_launch_campaign($masterId, $batchId, $runsDir, $flags)]);
         break;
 
     // Poll the latest run (or a specific run_id) for live progress.
     case 'run_status':
-        $runsDir = ACTIVE_SITE_DIR . '/multisite/runs';
         $rid = $_GET['run_id'] ?? '';
         $file = ($rid !== '' && preg_match('/^[A-Za-z0-9._-]{1,64}$/', $rid))
             ? $runsDir . '/' . $rid . '.json'
@@ -304,7 +291,6 @@ switch ($action) {
 
     // List recent runs (history).
     case 'list_runs':
-        $runsDir = ACTIVE_SITE_DIR . '/multisite/runs';
         $files = glob($runsDir . '/*.json') ?: [];
         usort($files, fn($a, $b) => filemtime($b) <=> filemtime($a));
         $runs = [];
@@ -327,25 +313,24 @@ switch ($action) {
     // Re-run only the failed rows of a past run (carrying its options forward).
     case 'retry_failed':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
-        $runsDir = ACTIVE_SITE_DIR . '/multisite/runs';
         $rid = $_POST['run_id'] ?? '';
         if ($rid === '' || !preg_match('/^[A-Za-z0-9._-]{1,64}$/', $rid)) { echo json_encode(['error' => 'Invalid run id.']); break; }
         $d = ms_read_run($runsDir . '/' . $rid . '.json');
         if (!$d) { echo json_encode(['error' => 'Run not found.']); break; }
         $failed = array_values(array_unique(array_map(fn($r) => $r['domain'], array_filter($d['results'] ?? [], fn($r) => ($r['status'] ?? '') === 'failed'))));
         if (!$failed) { echo json_encode(['error' => 'No failed rows to retry.']); break; }
-        if ($active = ms_active_run($runsDir)) { echo json_encode(['error' => 'A campaign is already running.', 'run_id' => $active['run_id'] ?? null]); break; }
+        if ($running = ms_active_run($runsDir)) { echo json_encode(['error' => 'This batch is already running.', 'run_id' => $running['run_id'] ?? null]); break; }
         $o = $d['options'] ?? [];
         $o['only'] = $failed;   // scope the new run to just the failed domains
-        echo json_encode(['started' => true, 'run_id' => ms_launch_campaign($masterId, $runsDir, ms_run_flags($o)), 'retrying' => count($failed)]);
+        echo json_encode(['started' => true, 'run_id' => ms_launch_campaign($masterId, $batchId, $runsDir, ms_run_flags($o)), 'retrying' => count($failed)]);
         break;
 
     // ── Research step (item 1e): seed cities.json from params + niche-aware lookup.
     // Detached (research can be slow / many API calls); poll with research_status.
     case 'research':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
-        if (!is_file($paramsPath)) { echo json_encode(['error' => 'No params.csv stored — upload it first.']); break; }
-        $rdir = ACTIVE_SITE_DIR . '/multisite/research';
+        if (!is_file($paramsPath)) { echo json_encode(['error' => 'No target list stored — upload it first.']); break; }
+        $rdir = $batchDir . '/research';
         if (!is_dir($rdir)) mkdir($rdir, 0775, true);
         // One at a time: a running research process leaves an out file with no DONE marker.
         foreach (glob($rdir . '/*.out') ?: [] as $f) {
@@ -359,14 +344,14 @@ switch ($action) {
         $out  = $rdir . '/' . $rid . '.out';
         $dry  = !empty($_POST['dry_run']) ? ' --dry-run' : '';
         $inner = escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg(BASE_DIR . '/multisite/research_cities.php')
-               . ' ' . escapeshellarg($masterId) . $dry
+               . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId) . $dry
                . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_RESEARCH_DONE__ $?" >> ' . escapeshellarg($out);
         exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
         echo json_encode(['started' => true, 'run_id' => $rid]);
         break;
 
     case 'research_status':
-        $rdir = ACTIVE_SITE_DIR . '/multisite/research';
+        $rdir = $batchDir . '/research';
         $rid  = $_GET['run_id'] ?? '';
         if ($rid === '' || !preg_match('/^[0-9]{8}-[0-9]{6}-[a-f0-9]{6}$/', $rid)) { echo json_encode(['error' => 'Invalid run id.']); break; }
         $out = $rdir . '/' . $rid . '.out';

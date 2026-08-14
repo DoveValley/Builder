@@ -1,6 +1,6 @@
 <?php
 /**
- * Multisite campaign orchestrator (Phase 3).
+ * Multisite batch orchestrator (Phase 3).
  *
  * Runs the whole params table for a master, sequentially. Each row is processed by
  * build_one.php (a self-contained process_row) in its own subprocess — the master
@@ -25,6 +25,7 @@ if (PHP_SAPI !== 'cli') { fwrite(STDERR, "run_campaign.php is CLI only\n"); exit
 require __DIR__ . '/../config.php';
 require __DIR__ . '/../includes/functions.php';
 require __DIR__ . '/../includes/multisite/params.php';
+require __DIR__ . '/../includes/multisite/batch.php';
 require __DIR__ . '/../includes/multisite/clone.php';
 
 // ── Args ──────────────────────────────────────────────────────────────────────
@@ -33,32 +34,44 @@ $noAi      = in_array('--no-ai', $args, true);
 $force     = in_array('--force', $args, true);
 $noPre     = in_array('--no-preflight', $args, true);
 $verbose   = in_array('--verbose', $args, true);
-$only = ''; $limit = 0; $retries = 0; $jobs = 1; $runIdArg = '';
+$only = ''; $limit = 0; $retries = 0; $jobs = 1; $runIdArg = ''; $batchArg = '';
 foreach ($args as $a) {
     if (str_starts_with($a, '--only='))    $only    = substr($a, 7);
     if (str_starts_with($a, '--limit='))   $limit   = (int)substr($a, 8);
     if (str_starts_with($a, '--retries=')) $retries = max(0, (int)substr($a, 10));
     if (str_starts_with($a, '--jobs='))    $jobs    = max(1, (int)substr($a, 7));
     if (str_starts_with($a, '--run-id='))  $runIdArg = substr($a, 9);
+    if (str_starts_with($a, '--batch='))   $batchArg = substr($a, 8);
 }
 $pos = array_values(array_filter($args, fn($a) => !str_starts_with($a, '--')));
 $masterId = $pos[0] ?? '';
 if ($masterId === '' || !is_dir(BASE_DIR . '/sites/' . $masterId)) {
-    fwrite(STDERR, "usage: run_campaign.php <master_id> [--no-ai --force --jobs=N --retries=N --only=DOMAIN --limit=N --no-preflight --verbose]\n");
+    fwrite(STDERR, "usage: run_campaign.php <master_id> [--batch=bN] [--no-ai --force --jobs=N --retries=N --only=DOMAIN --limit=N --no-preflight --verbose]\n");
     exit(2);
 }
 
-$msDir     = BASE_DIR . '/sites/' . $masterId . '/multisite';
-$csvPath   = $msDir . '/params.csv';
-if (!is_file($csvPath)) { fwrite(STDERR, "No params.csv at {$csvPath} — run params_check.php first.\n"); exit(2); }
+// ── Which batch ───────────────────────────────────────────────────────────────
+// --batch=bN names it explicitly (what the admin always sends). Omitted, we fall
+// back to this master's most recently touched batch so manual CLI runs stay easy.
+$batchId = $batchArg;
+if ($batchId === '') {
+    $all = ms_master_batches($masterId);
+    if (!$all) { fwrite(STDERR, "No batches for {$masterId} — create one in the Site Factory panel first.\n"); exit(2); }
+    $batchId = $all[0]['id'];
+}
+if (!ms_batch_exists($masterId, $batchId)) { fwrite(STDERR, "Batch not found: {$masterId}/{$batchId}\n"); exit(2); }
 
-// ── Single-run lock (per master) ──────────────────────────────────────────────
-// Authoritative guard against overlapping campaigns for this master, across every
-// launch path (admin, retry, manual CLI). flock is atomic and the OS releases it
-// on process exit or crash — no stale-lock / PID-reuse problems.
-$lockFp = fopen($msDir . '/run.lock', 'c');
+$batchDir  = ms_batch_dir($masterId, $batchId);
+$csvPath   = $batchDir . '/params.csv';
+if (!is_file($csvPath)) { fwrite(STDERR, "No params.csv at {$csvPath} — upload the target list for this batch first.\n"); exit(2); }
+
+// ── Single-run lock (per batch) ───────────────────────────────────────────────
+// Authoritative guard against overlapping runs of this batch, across every launch
+// path (admin, retry, manual CLI). flock is atomic and the OS releases it on process
+// exit or crash — no stale-lock / PID-reuse problems.
+$lockFp = fopen($batchDir . '/run.lock', 'c');
 if (!$lockFp || !flock($lockFp, LOCK_EX | LOCK_NB)) {
-    fwrite(STDERR, "Another campaign is already running for {$masterId} — aborting.\n");
+    fwrite(STDERR, "Batch {$masterId}/{$batchId} is already running — aborting.\n");
     exit(1);
 }
 // $lockFp stays open for the whole run (do not close); flock releases automatically.
@@ -77,7 +90,7 @@ foreach ($v['rows'] as $r) {
 if ($limit > 0) $rows = array_slice($rows, 0, $limit);
 
 $n = count($rows);
-echo "Campaign: {$masterId}  |  rows to process: {$n}"
+echo "Batch: {$masterId}  |  rows to process: {$n}"
    . ($noAi ? '  [--no-ai]' : '') . ($force ? '  [--force]' : '') . "\n";
 if ($n === 0) { echo "Nothing to do.\n"; exit(0); }
 
@@ -215,20 +228,23 @@ foreach ($rows as $r) {
     $jobList[] = ['domain' => $domain, 'cmd' => $cmd, 'attempts' => 0];
 }
 
-$runsDir = $msDir . '/runs';
+$runsDir = $batchDir . '/runs';
 if (!is_dir($runsDir)) mkdir($runsDir, 0775, true);
 $statusFile  = $runsDir . '/' . $runId . '.json';
 $startedAt   = gmdate('c');
-$paramsVersion = ms_current_params_version($masterId);   // which params table this run used
+$paramsVersion = ms_current_params_version($batchDir);   // which params table this run used
 
 // Write the run status file (state = running | done | failed). Written incrementally
 // so the admin UI can poll it while a detached run is in progress.
-$writeStatus = function (string $state, array $results) use ($statusFile, $runId, $masterId, $paramsVersion, $noAi, $force, $only, $limit, $retries, $jobs, $n, $startedAt) {
+$writeStatus = function (string $state, array $results) use ($statusFile, $runId, $masterId, $batchId, $paramsVersion, $noAi, $force, $only, $limit, $retries, $jobs, $n, $startedAt) {
     $ok  = count(array_filter($results, fn($r) => $r['status'] === 'ok'));
     $done = count($results);
     $payload = [
         'run_id'      => $runId,
+        // master_id is recorded per run on purpose: a batch can be re-pointed at a
+        // different master later, and past runs must stay truthful about what built them.
         'master_id'   => $masterId,
+        'batch_id'    => $batchId,
         'params_version' => $paramsVersion,
         'state'       => $state,
         'pid'         => getmypid(),
@@ -274,7 +290,7 @@ $uploaded  = array_sum(array_map(fn($r) => (int)($r['uploaded'] ?? 0), $results)
 $writeStatus($fail > 0 ? 'failed' : 'done', $results);
 
 echo "\n" . str_repeat('═', 54) . "\n";
-echo "Campaign done — {$ok}/{$n} ok" . ($fail ? ", {$fail} failed" : '') . ".\n";
+echo "Batch done — {$ok}/{$n} ok" . ($fail ? ", {$fail} failed" : '') . ".\n";
 echo sprintf("  Uploaded: %d files  |  Tokens: %s in / %s out  |  Est. cost: \$%.4f\n",
     $uploaded, number_format($totalIn), number_format($totalOut), $totalCost);
 echo "  Run log: runs/{$runId}.json\n";

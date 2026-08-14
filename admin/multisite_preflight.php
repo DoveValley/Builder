@@ -7,6 +7,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/multisite/params.php';
+require_once __DIR__ . '/../includes/multisite/batch.php';
 
 function ms_pf_sse(array $obj): void { echo 'data: ' . json_encode($obj) . "\n\n"; @ob_flush(); flush(); }
 
@@ -14,14 +15,18 @@ if (empty($_SESSION['admin_logged_in'])) { http_response_code(403); ms_pf_sse(['
 if (!ACTIVE_SITE_ID)                      { http_response_code(400); ms_pf_sse(['type' => 'fatal', 'msg' => 'No active site.']); exit; }
 if (!hash_equals($_SESSION['csrf_token'] ?? '', $_GET['token'] ?? '')) { http_response_code(403); ms_pf_sse(['type' => 'fatal', 'msg' => 'Invalid security token.']); exit; }
 
+// Resolve the open batch while the session is still open.
+$batchDir = ms_active_batch_dir();
+if ($batchDir === '') { http_response_code(400); ms_pf_sse(['type' => 'fatal', 'msg' => 'No batch open.']); exit; }
+
 session_write_close();
 header('Content-Type: text/event-stream');
 header('Cache-Control: no-cache');
 header('X-Accel-Buffering: no');
 set_time_limit(0);
 
-$paramsPath = ACTIVE_SITE_DIR . '/multisite/params.csv';
-if (!is_file($paramsPath)) { ms_pf_sse(['type' => 'fatal', 'msg' => 'No params.csv stored — upload it first.']); exit; }
+$paramsPath = $batchDir . '/params.csv';
+if (!is_file($paramsPath)) { ms_pf_sse(['type' => 'fatal', 'msg' => 'No target list stored — upload it first.']); exit; }
 
 $parsed = ms_parse_csv($paramsPath);
 if ($parsed['error']) { ms_pf_sse(['type' => 'fatal', 'msg' => 'CSV error: ' . $parsed['error']]); exit; }

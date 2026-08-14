@@ -1,8 +1,8 @@
 <?php
 /**
- * Campaign research step (item 1e). Seed the master's cities.json with every city in
+ * Batch research step (item 1e). Seed the master's cities.json with every city in
  * the params table, then run the niche-aware research (generate.py --research-only) so
- * each city gets real local facts before a campaign generates copy. Research is stored
+ * each city gets real local facts before a batch generates copy. Research is stored
  * ONCE in the persistent cities.json (not per ephemeral build), so it's reused + free.
  *
  *   php multisite/research_cities.php <master_id> [--dry-run]
@@ -16,20 +16,34 @@ require __DIR__ . '/../config.php';
 require __DIR__ . '/../includes/functions.php';
 require __DIR__ . '/../includes/multisite/params.php';
 
+require __DIR__ . '/../includes/multisite/batch.php';
+
 $args     = array_slice($argv, 1);
 $dry      = in_array('--dry-run', $args, true);
-$masterId = $args[0] ?? '';
+$batchArg = '';
+foreach ($args as $a) { if (str_starts_with($a, '--batch=')) $batchArg = substr($a, 8); }
+$pos      = array_values(array_filter($args, fn($a) => !str_starts_with($a, '--')));
+$masterId = $pos[0] ?? '';
 if ($masterId === '' || !is_dir(BASE_DIR . '/sites/' . $masterId)) {
-    fwrite(STDERR, "usage: research_cities.php <master_id> [--dry-run]\n");
+    fwrite(STDERR, "usage: research_cities.php <master_id> [--batch=bN] [--dry-run]\n");
     exit(2);
 }
 
+// The target list is per batch; the niche brief and cities.json belong to the master.
+$batchId = $batchArg;
+if ($batchId === '') {
+    $all = ms_master_batches($masterId);
+    if (!$all) { fwrite(STDERR, "No batches for {$masterId} — create one in the Site Factory panel first.\n"); exit(2); }
+    $batchId = $all[0]['id'];
+}
+if (!ms_batch_exists($masterId, $batchId)) { fwrite(STDERR, "Batch not found: {$masterId}/{$batchId}\n"); exit(2); }
+
 $masterDir  = BASE_DIR . '/sites/' . $masterId;
-$csvPath    = $masterDir . '/multisite/params.csv';
+$csvPath    = ms_batch_dir($masterId, $batchId) . '/params.csv';
 $briefPath  = $masterDir . '/multisite/niche_brief.json';
 $citiesFile = $masterDir . '/data/cities.json';
 
-if (!is_file($csvPath)) { fwrite(STDERR, "No params.csv for {$masterId} — upload it first.\n"); exit(2); }
+if (!is_file($csvPath)) { fwrite(STDERR, "No params.csv for batch {$masterId}/{$batchId} — upload it first.\n"); exit(2); }
 
 // ── Seed cities.json from the params table (city|SS uniqueness) ────────────────
 $parsed = ms_parse_csv($csvPath);

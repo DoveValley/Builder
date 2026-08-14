@@ -39,7 +39,7 @@ $cityIds = array_values(array_filter(array_map(fn($c) => $c['id'] ?? '', $cities
 
 $res = generate_city_pages([
     'city_ids'       => $cityIds,
-    'confirmed_cost' => true,   // structure-only steps are free; templates with paid steps still proceed under the campaign
+    'confirmed_cost' => true,   // structure-only steps are free; templates with paid steps still proceed under the batch
     'force_locked'   => false,
 ]);
 
