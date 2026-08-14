@@ -126,9 +126,33 @@ function ms_step_execution(?array $run): array {
     return $out;
 }
 
-/** Small helper — one readiness cell. */
-function ms_step_cell(string $state, string $fact, string $note = ''): array {
-    return ['state' => $state, 'fact' => $fact, 'note' => $note];
+/**
+ * Small helper — one readiness cell.
+ * $items is an optional per-field breakdown: [['label','drives','filled','total','required'], ...]
+ */
+function ms_step_cell(string $state, string $fact, string $note = '', array $items = []): array {
+    return ['state' => $state, 'fact' => $fact, 'note' => $note, 'items' => $items];
+}
+
+/**
+ * The fields Identity actually swaps into each clone, in the order inject.php uses them.
+ * See inject_params_into_working_dir(): nine go straight into site_vars, and two more
+ * are derived (website from domain, city_slug from city). Anything not listed here is
+ * not part of a site's identity, however useful it is elsewhere.
+ */
+function ms_identity_fields(): array {
+    return [
+        ['col' => 'business', 'drives' => 'Business name + the header',   'required' => true],
+        ['col' => 'domain',   'drives' => 'The website address',          'required' => true],
+        ['col' => 'phone',    'drives' => 'Phone number',                 'required' => true],
+        ['col' => 'email',    'drives' => 'Email address',                'required' => true],
+        ['col' => 'city',     'drives' => 'City + its url slug',          'required' => true],
+        ['col' => 'state',    'drives' => 'State name',                   'required' => true],
+        ['col' => 'SS',       'drives' => 'State abbreviation',           'required' => true],
+        ['col' => 'tel',      'drives' => 'tel: links — derived from phone when blank', 'required' => false],
+        ['col' => 'address',  'drives' => 'Street address',               'required' => false],
+        ['col' => 'zip',      'drives' => 'Postcode',                     'required' => false],
+    ];
 }
 
 /**
@@ -187,12 +211,31 @@ function ms_step_readiness(string $masterId, string $batchId): array {
     }
 
     // ── Identity ──────────────────────────────────────────────────────────────
+    // Reported field by field: "5 rows, all columns filled" hides which of the ten
+    // pieces of a site's identity is actually missing on which rows.
+    $idItems = [];
+    foreach (ms_identity_fields() as $f) {
+        $filled = $countWhere(fn($r) => trim((string) ($r[$f['col']] ?? '')) !== '');
+        $idItems[] = [
+            'label'    => $f['col'],
+            'drives'   => $f['drives'],
+            'filled'   => $filled,
+            'total'    => $n,
+            'required' => $f['required'],
+        ];
+    }
     if (!is_file($csv)) {
         $out['identity'] = ms_step_cell(MS_STEP_WARN, 'No target list uploaded yet', 'Upload a CSV below to fill this in.');
     } elseif ($rowErrors > 0) {
-        $out['identity'] = ms_step_cell(MS_STEP_WARN, $n . ' rows · ' . $rowErrors . ' with errors');
+        $out['identity'] = ms_step_cell(MS_STEP_WARN, $n . ' rows · ' . $rowErrors . ' with errors', '', $idItems);
     } else {
-        $out['identity'] = ms_step_cell(MS_STEP_OK, $n . ' row' . ($n === 1 ? '' : 's') . ', every required column filled');
+        $missingOptional = count(array_filter($idItems, fn($i) => !$i['required'] && $i['filled'] < $n));
+        $out['identity'] = ms_step_cell(
+            MS_STEP_OK,
+            $n . ' row' . ($n === 1 ? '' : 's') . ', every required field filled',
+            $missingOptional > 0 ? $missingOptional . ' optional field(s) are blank on some rows — those keep the master\'s value.' : '',
+            $idItems
+        );
     }
 
     // ── Landing pages ─────────────────────────────────────────────────────────

@@ -42,6 +42,13 @@ $bsStyle = [
 .bs-fact        { color:#0f172a; }
 .bs-note        { color:#64748b; font-size:.8rem; margin-top:3px; }
 .bs-soon        { color:#cbd5e1; font-size:.8rem; font-style:italic; }
+.bs-items       { margin:9px 0 0; border-collapse:collapse; width:100%; }
+.bs-items td    { padding:2px 0; border:0; font-size:.79rem; vertical-align:top; }
+.bs-i-col       { width:92px; white-space:nowrap; }
+.bs-i-col code  { font-size:.76rem; background:#f1f5f9; padding:1px 5px; border-radius:3px; color:#334155; }
+.bs-i-opt       { color:#cbd5e1; font-size:.68rem; }
+.bs-i-drives    { color:#64748b; padding-right:10px !important; }
+.bs-i-n         { width:56px; text-align:right; white-space:nowrap; font-weight:600; }
 </style>
 
 <details class="card" open style="background:#f8fafc;border-left:3px solid #2563eb;">
@@ -94,6 +101,22 @@ $bsStyle = [
                     <span class="bs-fact"><?= h($c['fact']) ?></span>
                     <?php if ($c['note']): ?>
                     <div class="bs-note"><?= h($c['note']) ?></div>
+                    <?php endif; ?>
+                    <?php if (!empty($c['items'])): ?>
+                    <table class="bs-items">
+                        <?php foreach ($c['items'] as $it):
+                            $short  = $it['filled'] < $it['total'];
+                            $isBad  = $short && $it['required'];
+                        ?>
+                        <tr>
+                            <td class="bs-i-col"><code><?= h($it['label']) ?></code><?= $it['required'] ? '' : ' <span class="bs-i-opt">optional</span>' ?></td>
+                            <td class="bs-i-drives"><?= h($it['drives']) ?></td>
+                            <td class="bs-i-n" style="color:<?= $isBad ? '#991b1b' : ($short ? '#92400e' : '#166534') ?>;">
+                                <?= (int) $it['filled'] ?> of <?= (int) $it['total'] ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
                     <?php endif; ?>
                 </td>
                 <td>
