@@ -1824,50 +1824,32 @@ if ($view === 'servers') {
 }
 
 /* ============================= DASHBOARD ============================= */
+// Headline numbers only. The servers themselves live on the Servers tab — one list
+// of them, in one place, rather than a second shorter one here that drifts.
 $servers = infra_servers();
 $cfAccts = infra_cf_accounts();
-$totalSites = 0; $issues = 0; $rows = [];
+$totalSites = 0; $issues = 0;
 foreach ($servers as $srv) {
     $disc = infra_discover_server($srv);
     if (!$disc['ok']) $issues++;
     $totalSites += count($disc['sites']);
-    $rows[] = ['srv' => $srv, 'probe' => ['ok' => $disc['ok'], 'error' => $disc['error']],
-               'sites' => count($disc['sites']), 'info' => $disc['info']];
 }
 infra_header('dashboard');
 ?>
 <?php if (empty($servers)): ?><div class="ic-note">No servers registered. Add one to <code>admin/infra/config/servers.json</code>.</div><?php endif; ?>
 <div class="ic-tiles">
-  <div class="ic-tile"><div class="n"><?= count($servers) ?></div><div class="l">Servers</div></div>
-  <div class="ic-tile"><div class="n"><?= $totalSites ?></div><div class="l">Sites (live)</div></div>
-  <div class="ic-tile"><div class="n"><?= count($cfAccts) ?></div><div class="l">CF Accounts</div></div>
-  <div class="ic-tile"><div class="n"><?= $issues ?></div><div class="l">Issues</div></div>
+  <a class="ic-tile" href="index.php?view=servers" style="text-decoration:none;color:inherit">
+    <div class="n"><?= count($servers) ?></div><div class="l">Servers</div></a>
+  <a class="ic-tile" href="index.php?view=servers" style="text-decoration:none;color:inherit">
+    <div class="n"><?= $totalSites ?></div><div class="l">Sites (live)</div></a>
+  <a class="ic-tile" href="index.php?view=cloudflare" style="text-decoration:none;color:inherit">
+    <div class="n"><?= count($cfAccts) ?></div><div class="l">CF Accounts</div></a>
+  <a class="ic-tile" href="index.php?view=servers" style="text-decoration:none;color:inherit<?= $issues ? ';border-color:#fca5a5' : '' ?>">
+    <div class="n"<?= $issues ? ' style="color:#991b1b"' : '' ?>><?= $issues ?></div><div class="l">Issues</div></a>
 </div>
 <div style="margin-bottom:16px">
   <a class="btn" href="index.php?refresh=1">&#8635; Discover / Refresh</a>
-  <a class="btn sec" href="index.php?view=domains">View all domains &rarr;</a>
-</div>
-<div class="ic-card">
-  <h2>Servers</h2>
-  <div class="body">
-    <?php if (empty($rows)): ?><div class="ic-empty">No servers to show.</div><?php else: ?>
-      <table>
-        <thead><tr><th>Server</th><th>Host</th><th>Plesk</th><th>Sites</th><th>Status</th><th></th></tr></thead>
-        <tbody>
-        <?php foreach ($rows as $r): $srv = $r['srv'];
-          $st = $r['probe']['ok'] ? '<span class="badge b-ok">reachable</span>' : '<span class="badge b-err">unreachable</span>'; ?>
-          <tr>
-            <td><strong><?= ih($srv['label'] ?? $srv['id']) ?></strong></td>
-            <td><code><?= ih($srv['host'] ?? '') ?></code></td>
-            <td><?= ih($r['info']['panel_version'] ?? '—') ?></td>
-            <td><?= $r['sites'] ?></td>
-            <td><?= $st ?></td>
-            <td style="text-align:right"><a class="btn sec" href="index.php?view=server&id=<?= ih($srv['id'] ?? '') ?>">Open &rarr;</a></td>
-          </tr>
-        <?php endforeach; ?>
-        </tbody>
-      </table>
-    <?php endif; ?>
-  </div>
+  <a class="btn sec" href="index.php?view=servers">Servers &rarr;</a>
+  <a class="btn sec" href="index.php?view=domains">All domains &rarr;</a>
 </div>
 <?php infra_footer();
