@@ -144,10 +144,14 @@ function ms_item(string $label, string $drives, string $value, string $state = M
  * and empty is not — it just means every site keeps whatever the master already had.
  */
 function ms_item_rows(string $label, string $drives, int $filled, int $total, bool $required = true): array {
-    if ($total === 0)          $state = MS_STEP_OFF;
-    elseif ($filled === $total) $state = MS_STEP_OK;
-    elseif ($filled === 0)      $state = $required ? MS_STEP_WARN : MS_STEP_OFF;
-    else                        $state = MS_STEP_WARN;
+    // With no target list yet the fields still list themselves — that is when knowing
+    // which columns your sheet needs is most useful, so the table doubles as the spec.
+    if ($total === 0) {
+        return ms_item($label, $drives, $required ? 'needed' : 'optional', MS_STEP_OFF);
+    }
+    if ($filled === $total)  $state = MS_STEP_OK;
+    elseif ($filled === 0)   $state = $required ? MS_STEP_WARN : MS_STEP_OFF;
+    else                     $state = MS_STEP_WARN;
     return ms_item($label, $drives, $filled . ' of ' . $total, $state);
 }
 
@@ -238,7 +242,7 @@ function ms_step_readiness(string $masterId, string $batchId): array {
         $idItems[] = ms_item_rows($f['col'], $f['drives'], $filled, $n, $f['required']);
     }
     if (!is_file($csv)) {
-        $out['identity'] = ms_step_cell(MS_STEP_WARN, 'No target list uploaded yet', 'Upload a CSV below to fill this in.');
+        $out['identity'] = ms_step_cell(MS_STEP_WARN, 'No target list uploaded yet', 'These are the columns your CSV needs.', $idItems);
     } elseif ($rowErrors > 0) {
         $out['identity'] = ms_step_cell(MS_STEP_WARN, $n . ' rows · ' . $rowErrors . ' with errors', '', $idItems);
     } else {
@@ -272,14 +276,20 @@ function ms_step_readiness(string $masterId, string $batchId): array {
                 $cityCount && $templates ? (string) ($cityCount * $templates) : '0',
                 $cityCount && $templates ? MS_STEP_OK : MS_STEP_OFF),
     ];
+    // Landing pages are OPT-IN and default to off: a row gets them only if it names
+    // cities. So a batch where some or no rows ask is normal, not a shortfall — it
+    // reads grey, and only turns green when every row has actually opted in. The one
+    // genuine fault is a row asking for pages the master has no template to build.
     if ($n === 0) {
-        $out['landing'] = ms_step_cell(MS_STEP_OFF, 'No target list yet');
+        $out['landing'] = ms_step_cell(MS_STEP_OFF, 'Off — no target list yet', 'Landing pages are opt-in: a site gets them only if its row names cities.', $landItems);
     } elseif ($withCities === 0) {
-        $out['landing'] = ms_step_cell(MS_STEP_OFF, 'No row asks for landing pages', 'This step is skipped — home + core pages only.', $landItems);
+        $out['landing'] = ms_step_cell(MS_STEP_OFF, 'Off — no row asks for landing pages', 'Every site gets its home + core pages only.', $landItems);
     } elseif ($templates === 0) {
         $out['landing'] = ms_step_cell(MS_STEP_WARN, $withCities . ' of ' . $n . ' rows ask for landing pages, but the master has no templates', '', $landItems);
+    } elseif ($withCities < $n) {
+        $out['landing'] = ms_step_cell(MS_STEP_OFF, 'On for ' . $withCities . ' of ' . $n . ' rows', 'The other ' . ($n - $withCities) . ' get home + core pages only — normal unless you meant them all to have city pages.', $landItems);
     } else {
-        $out['landing'] = ms_step_cell(MS_STEP_OK, $withCities . ' of ' . $n . ' rows ask for landing pages · ' . $templates . ' templates on the master', '', $landItems);
+        $out['landing'] = ms_step_cell(MS_STEP_OK, 'On for all ' . $n . ' rows · ' . $templates . ' templates on the master', '', $landItems);
     }
 
     // ── Differentiate ─────────────────────────────────────────────────────────
@@ -402,7 +412,7 @@ function ms_step_readiness(string $masterId, string $batchId): array {
         ms_item('manifest',      'Only changed files upload on a re-run', 'per domain'),
     ];
     if ($n === 0) {
-        $out['deploy'] = ms_step_cell(MS_STEP_OFF, 'No target list yet');
+        $out['deploy'] = ms_step_cell(MS_STEP_OFF, 'No target list yet', '', $depItems);
     } elseif ($withFtp === 0) {
         $out['deploy'] = ms_step_cell(MS_STEP_OFF, 'No row has FTP credentials', 'Sites will be built for review but not uploaded.', $depItems);
     } elseif ($withFtp < $n) {

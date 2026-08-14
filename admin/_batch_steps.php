@@ -105,7 +105,10 @@ $bsStyle = [
                     <?php if (!empty($c['items'])): ?>
                     <table class="bs-items">
                         <?php foreach ($c['items'] as $it):
-                            $iCol = [MS_STEP_OK => '#166534', MS_STEP_WARN => '#92400e', MS_STEP_OFF => '#94a3b8'][$it['state']] ?? '#475569';
+                            // A step that is off has nothing green inside it — the parts
+                            // may be present, but none of them are going to happen.
+                            $iState = $c['state'] === MS_STEP_OFF ? MS_STEP_OFF : $it['state'];
+                            $iCol = [MS_STEP_OK => '#166534', MS_STEP_WARN => '#92400e', MS_STEP_OFF => '#94a3b8'][$iState] ?? '#475569';
                         ?>
                         <tr>
                             <td class="bs-i-col"><code><?= h($it['label']) ?></code></td>
