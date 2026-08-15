@@ -23,6 +23,10 @@ _multisite_baseline/
 # Test Lab scratch uploads (transient, auto-pruned)
 uploads/lab/
 uploads/convo/
+# ...and the same channel in reverse: files left for Scott to read or download.
+# Working notes and one-off instructions, not source — the section that lists
+# them (admin/playground.php #downloads-scott) IS tracked, the contents are not.
+uploads/downloads/
 
 # Test Lab -> build locked hero-overlay style (set per-environment via the UI)
 multisite/hero_style.json
