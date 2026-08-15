@@ -2075,7 +2075,10 @@ if ($view === 'servers') {
     foreach ($servers as $srv) {
         $disc = infra_discover_server($srv);   // cached; ?refresh=1 forces a live sweep
         $rows[] = ['srv' => $srv, 'ok' => $disc['ok'], 'error' => $disc['error'],
-                   'sites' => count($disc['sites']), 'list' => $disc['sites'], 'info' => $disc['info']];
+                   'sites' => count($disc['sites']), 'list' => $disc['sites'], 'info' => $disc['info'],
+                   // null (not 0) when read from a cache entry written before these
+                   // were recorded, so the card says "not measured" rather than "0 calls".
+                   'calls' => $disc['calls'] ?? null, 'ms' => $disc['ms'] ?? null, 'at' => $disc['at'] ?? null];
     }
     infra_header('servers');
     ?>
@@ -2119,6 +2122,24 @@ if ($view === 'servers') {
                         <td><?= ih($inf['platform'] ?? '—') ?></td></tr>
                     <tr><td style="color:#6b7280">Websites on it</td>
                         <td><strong><?= $r['sites'] ?></strong></td></tr>
+
+                    <!-- Stated on both panels, in the same words, so the HestiaCP
+                         trial below has something to be compared against. -->
+                    <tr><td style="color:#6b7280"><strong>Cost to read this server</strong></td>
+                        <td>
+                            <?php if (!isset($r['calls'])): ?>
+                                <span style="color:#9ca3af">not measured yet —
+                                <a href="index.php?view=servers&amp;refresh=1">refresh</a> to measure</span>
+                            <?php else: ?>
+                                <strong><?= (int) $r['calls'] ?></strong> API call<?= (int) $r['calls'] === 1 ? '' : 's' ?>,
+                                <strong><?= (int) $r['ms'] ?>ms</strong>
+                                <div style="font-size:12px;color:#6b7280">
+                                    measured <?= ih(date('j M H:i', strtotime($r['at'] ?? 'now'))) ?>, then cached for
+                                    <?= (int) INFRA_DISCOVER_TTL ?>s. Plesk lists every domain on the box in a single
+                                    <code>GET /domains</code>, however many there are.
+                                </div>
+                            <?php endif; ?>
+                        </td></tr>
                 </tbody>
             </table>
 
@@ -2206,6 +2227,293 @@ if ($view === 'servers') {
                 <strong>Tools &amp; Settings &rarr; API Keys</strong>.
             </div>
             <?php infra_server_form(null); ?>
+        </div>
+    </div>
+
+    <?php
+    /* ═════════════════════════════════════════════════════════════════════════
+     * EVERYTHING BELOW THIS LINE IS THE HESTIACP TRIAL.
+     *
+     * The same page again, against a different panel, so the two can be compared
+     * on live data rather than on documentation. Deliberately a copy and not an
+     * abstraction: unifying the two halves behind one renderer would hide the
+     * differences this exists to show.
+     *
+     * It is fully separated from the Plesk half above — its own config file
+     * (hestia.json), its own cache prefix (hestia:), its own save handler. It
+     * cannot disturb anything that currently provisions.
+     *
+     * WHEN THE DECISION IS MADE: delete one half whole. If Plesk wins, delete
+     * from this banner to the end of the view plus lib/hestia*.php,
+     * actions/hestia_save.php and tools/hestia_probe.php. If Hestia wins, this
+     * half moves up and replaces the one above.
+     *
+     * ⚠ READ THE NUMBERS, NOT THE LAYOUT. Both cards render almost identically,
+     * which makes the panels look equivalent. They are not compared by how they
+     * look; they are compared by the "cost to read this server" line. At one site
+     * each that line will look the same too — seed the trial box with 50+ domains
+     * before drawing any conclusion from it.
+     * ═════════════════════════════════════════════════════════════════════════ */
+    require_once __DIR__ . '/lib/hestia_fleet.php';
+
+    /** Twin of infra_server_form(), with Hestia's credentials instead of Plesk's. */
+    function infra_hestia_form(?array $srv): void {
+        $isEdit = $srv !== null;
+        $v = fn(string $k, string $d = '') => ih((string) ($srv[$k] ?? $d));
+        ?>
+        <form method="post" action="actions/hestia_save.php">
+            <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+            <input type="hidden" name="action" value="save">
+            <?php if ($isEdit): ?><input type="hidden" name="id" value="<?= $v('id') ?>"><?php endif; ?>
+
+            <table>
+                <tbody>
+                <tr>
+                    <td style="width:250px"><label><strong>Name</strong><br>
+                        <span style="color:#6b7280;font-size:12px">Anything that helps you tell it apart</span></label></td>
+                    <td><input name="label" value="<?= $v('label') ?>"
+                               placeholder="e.g. Hestia trial box" style="width:100%;max-width:420px" required></td>
+                </tr>
+                <tr>
+                    <td><label><strong>Address you log in to Hestia at</strong><br>
+                        <span style="color:#6b7280;font-size:12px">IP or hostname &mdash; no https://</span></label></td>
+                    <td><input name="host" value="<?= $v('host') ?>" placeholder="e.g. 5.9.12.34"
+                               style="width:100%;max-width:420px" required></td>
+                </tr>
+                <tr>
+                    <td><label><strong>Port</strong><br>
+                        <span style="color:#6b7280;font-size:12px">Hestia uses 8083 unless you changed it</span></label></td>
+                    <td><input name="port" type="number" value="<?= $v('port', '8083') ?>" style="width:120px"></td>
+                </tr>
+                <tr>
+                    <td><label><strong>Access key</strong><br>
+                        <span style="color:#6b7280;font-size:12px">Hestia &rarr; Server Settings &rarr; Configure &rarr; Security &rarr; Access Keys</span></label></td>
+                    <td><input name="access_key" type="password" autocomplete="new-password"
+                               placeholder="<?= $isEdit ? 'leave blank to keep the stored pair' : 'paste the access key' ?>"
+                               style="width:100%;max-width:420px"></td>
+                </tr>
+                <tr>
+                    <td><label><strong>Secret key</strong><br>
+                        <span style="color:#6b7280;font-size:12px">Shown once, when the access key is created</span></label></td>
+                    <td><input name="secret_key" type="password" autocomplete="new-password"
+                               placeholder="<?= $isEdit ? 'leave blank to keep the stored pair' : 'paste the secret key' ?>"
+                               style="width:100%;max-width:420px">
+                        <?php if ($isEdit): ?><br><span style="color:#9ca3af;font-size:12px">A key pair is stored. It is never shown here.</span><?php endif; ?></td>
+                </tr>
+                <tr>
+                    <td><label><strong>Account the websites are filed under</strong><br>
+                        <span style="color:#6b7280;font-size:12px">One account holds every site on this box. Created on first use.</span></label></td>
+                    <td><input name="site_user" value="<?= $v('site_user', 'fleet') ?>" style="width:200px"></td>
+                </tr>
+                <tr>
+                    <td><label><strong>IP address the websites answer on</strong><br>
+                        <span style="color:#6b7280;font-size:12px">Cloudflare points at this. Blank = same as above</span></label></td>
+                    <td><input name="default_ip" value="<?= $v('default_ip') ?>" placeholder="usually the same address"
+                               style="width:100%;max-width:420px"></td>
+                </tr>
+                <tr>
+                    <td><label style="color:#6b7280">Contact email and package
+                        <span style="font-size:12px">(used when the account is created)</span></label></td>
+                    <td><input name="contact_email" value="<?= $v('contact_email') ?>" placeholder="you@example.com" style="width:260px">
+                        <input name="package" value="<?= $v('package', 'default') ?>" placeholder="default" style="width:140px"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+                <button class="btn" type="submit"><?= $isEdit ? 'Save changes' : 'Add this server' ?></button>
+                <button class="btn sec" type="submit" name="action" value="test">Test without saving</button>
+                <?php if ($isEdit): ?><a class="btn sec" href="index.php?view=servers#hestia">Cancel</a><?php endif; ?>
+            </div>
+        </form>
+        <?php
+    }
+
+    $hEditId  = (string) ($_GET['hedit'] ?? '');
+    $hServers = infra_hestia_servers();
+
+    // Same on-demand rule as the Plesk half: one outbound request per site, so it
+    // happens when you press the button, not on every page load.
+    $hCheckId = (string) ($_GET['hcheck'] ?? '');
+    if ($hCheckId !== '') {
+        $n = 0;
+        foreach ($hServers as $srv) {
+            if (($srv['id'] ?? '') !== $hCheckId) continue;
+            foreach (infra_discover_hestia($srv)['sites'] as $s) {
+                if (($s['name'] ?? '') !== '') { infra_site_check_run($s['name']); $n++; }
+            }
+        }
+        infra_set_flash('ok', 'Checked ' . $n . ' website' . ($n === 1 ? '' : 's') . ' on the Hestia box.');
+        header('Location: index.php?view=servers#hestia'); exit;
+    }
+
+    $hRows = [];
+    foreach ($hServers as $srv) $hRows[] = ['srv' => $srv, 'd' => infra_discover_hestia($srv)];
+    ?>
+
+    <hr id="hestia" style="margin:44px 0 28px;border:0;border-top:3px solid #111827">
+
+    <div class="ic-note" style="background:#eff6ff;border-color:#93c5fd;color:#1e3a8a">
+        <strong>HestiaCP trial — everything below this line is the same page against a different panel.</strong><br>
+        Free, no per-server licence. The half above costs $35.99/month per server; at ten servers
+        that is $4,320/year, roughly what the whole 400-domain fleet costs to renew.
+        <br><br>
+        Compare the <strong>cost to read this server</strong> line on each card, not the layout —
+        the two are built to look the same. That number only becomes meaningful once the trial box
+        has real sites on it; at one site each, both will look instant.
+    </div>
+
+    <?php if (empty($hServers)): ?>
+        <div class="ic-empty">No HestiaCP server registered yet. Add one below.</div>
+    <?php else: ?>
+
+    <?php foreach ($hRows as $r): $srv = $r['srv']; $d = $r['d']; $f = infra_hestia_facts($d['info'] ?? null); ?>
+    <div class="ic-card">
+        <h2>
+            <?= ih($srv['label'] ?? $srv['id']) ?>
+            <span class="badge" style="background:#dbeafe;color:#1e40af">HestiaCP</span>
+            <?= $d['ok'] ? '<span class="badge b-ok">up</span>' : '<span class="badge b-err">cannot reach it</span>' ?>
+        </h2>
+        <div class="body">
+
+            <?php if (!$d['ok']): ?>
+            <div class="ic-note" style="background:#fef2f2;border-color:#fca5a5;color:#991b1b">
+                <strong>The console could not talk to this server.</strong><br><?= ih($d['error']) ?>
+                <?php if (($d['error'] ?? '') !== '' && stripos($d['error'], 'allowed') !== false): ?>
+                <br><br>Hestia answers HTTP 200 with the body <code>Error</code> when the API is switched
+                off or the caller's IP is not allowed — it looks like nothing is wrong. On the box:
+                <code>v-add-sys-api</code>, then add this server's IP to <code>API_ALLOWED_IP</code>.
+                <?php endif; ?>
+            </div>
+            <?php endif; ?>
+
+            <table style="margin-bottom:18px">
+                <tbody>
+                    <tr><td style="width:230px;color:#6b7280">Address you'd log in at</td>
+                        <td><code>https://<?= ih($srv['host'] ?? '') ?>:<?= ih((string)($srv['port'] ?? '')) ?></code></td></tr>
+                    <tr><td style="color:#6b7280">IP address the sites point at</td>
+                        <td><code><?= ih($srv['default_ip'] ?? '—') ?></code></td></tr>
+                    <tr><td style="color:#6b7280">Hestia version</td>
+                        <td><?= ih($f['panel_version'] ?: '—') ?></td></tr>
+                    <tr><td style="color:#6b7280">Server's own hostname</td>
+                        <td><code><?= ih($f['hostname'] ?: '—') ?></code></td></tr>
+                    <tr><td style="color:#6b7280">Operating system</td>
+                        <td><?= ih($f['platform'] ?: '—') ?></td></tr>
+                    <tr><td style="color:#6b7280">Websites on it</td>
+                        <td><strong><?= count($d['sites']) ?></strong></td></tr>
+                    <tr><td style="color:#6b7280">Account they're filed under</td>
+                        <td><code><?= ih($srv['site_user'] ?? 'fleet') ?></code>
+                            <span style="color:#9ca3af">— <?= count($d['users']) ?> account<?= count($d['users']) === 1 ? '' : 's' ?> on the box</span></td></tr>
+
+                    <!-- THE COMPARISON. Plesk answers this with one GET /domains;
+                         Hestia has no global list, so it is 1 + one call per account. -->
+                    <tr><td style="color:#6b7280"><strong>Cost to read this server</strong></td>
+                        <td>
+                            <strong><?= (int) $d['calls'] ?></strong> API call<?= (int) $d['calls'] === 1 ? '' : 's' ?>,
+                            <strong><?= (int) $d['ms'] ?>ms</strong>
+                            <div style="font-size:12px;color:#6b7280">
+                                measured <?= ih(date('j M H:i', strtotime($d['at'] ?? 'now'))) ?>, then cached for
+                                <?= (int) INFRA_HESTIA_TTL ?>s. Hestia has no "list every domain" call — domains hang
+                                off accounts, so this is 1 + one call per account. Filing every site under a single
+                                account is what keeps that at two instead of one-per-site.
+                            </div>
+                        </td></tr>
+                </tbody>
+            </table>
+
+            <div style="display:flex;align-items:center;gap:12px;margin:0 0 8px">
+                <h2 style="font-size:15px;margin:0">Websites on this server (<?= count($d['sites']) ?>)</h2>
+                <?php if ($d['sites']): ?>
+                <a class="btn sec" style="padding:3px 10px;font-size:12px"
+                   href="index.php?view=servers&amp;hcheck=<?= ih($srv['id'] ?? '') ?>">Check if they're up</a>
+                <?php endif; ?>
+            </div>
+            <?php if (!$d['sites']): ?>
+                <div class="ic-empty">Nothing on this server yet.</div>
+            <?php else: ?>
+                <table>
+                    <thead><tr><th>Website</th><th>Is it up?</th><th>Account</th><th>SSL</th><th>Folder its files live in</th></tr></thead>
+                    <tbody>
+                    <?php foreach ($d['sites'] as $s):
+                        $name = (string) ($s['name'] ?? '');
+                        $chk  = $name !== '' ? infra_site_check_cached($name) : null;
+                        // Same rule as the Plesk table: green only when it answers AND the
+                        // certificate matches. Serving fine behind a bad cert is a browser
+                        // warning for every visitor and must not read as healthy.
+                        $col  = $chk === null ? '#9ca3af' : ((!empty($chk['up']) && !empty($chk['cert_ok'])) ? '#166534' : (!empty($chk['up']) ? '#92400e' : '#991b1b'));
+                    ?>
+                        <tr>
+                            <td><strong><?= ih($name ?: '?') ?></strong></td>
+                            <td style="color:<?= $col ?>">
+                                <?php if ($chk === null): ?>
+                                    <span style="color:#9ca3af">not checked yet</span>
+                                <?php else: ?>
+                                    <strong><?= ih(infra_site_verdict($chk)) ?></strong>
+                                    <div style="font-size:12px;color:#6b7280">
+                                        <?= $chk['code'] ? ih((string) $chk['code']) . ' · ' : '' ?>
+                                        <?= $chk['ms'] ? ih((string) $chk['ms']) . 'ms · ' : '' ?>
+                                        checked <?= ih(date('j M H:i', strtotime($chk['at'] ?? 'now'))) ?>
+                                    </div>
+                                    <?php if (!empty($chk['error'])): ?>
+                                    <div style="font-size:12px;color:#991b1b"><?= ih(substr($chk['error'], 0, 120)) ?></div>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </td>
+                            <td><code style="font-size:12px"><?= ih($s['user'] ?? '—') ?></code></td>
+                            <td><?= strtolower((string) ($s['ssl'] ?? '')) === 'yes'
+                                    ? '<span style="color:#166534">yes</span>'
+                                    : '<span style="color:#9ca3af">no</span>' ?></td>
+                            <td><code style="font-size:12px"><?= ih($s['docroot'] ?? '—') ?></code></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php endif; ?>
+
+            <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                <a class="btn sec" href="index.php?view=servers&amp;refresh=1#hestia">&#8635; Re-read this server</a>
+                <a class="btn sec" href="index.php?view=servers&amp;hedit=<?= ih($srv['id'] ?? '') ?>#hform-<?= ih($srv['id'] ?? '') ?>">Edit these settings</a>
+                <form method="post" action="actions/hestia_save.php" style="display:inline">
+                    <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+                    <input type="hidden" name="action" value="delete">
+                    <input type="hidden" name="id" value="<?= ih($srv['id'] ?? '') ?>">
+                    <button class="btn" style="background:#991b1b" type="submit"
+                            onclick="return confirm('Remove &quot;<?= ih($srv['label'] ?? $srv['id']) ?>&quot; from this console?\n\nThe server itself is NOT touched — it keeps running and its websites stay up. It just stops appearing here.')">
+                        Remove from console
+                    </button>
+                </form>
+            </div>
+
+            <?php if ($hEditId === ($srv['id'] ?? '')): ?>
+            <div id="hform-<?= ih($srv['id'] ?? '') ?>" style="margin-top:18px;border-top:1px solid #e5e7eb;padding-top:16px">
+                <h2 style="font-size:15px;margin:0 0 10px">Edit this server</h2>
+                <?php infra_hestia_form($srv); ?>
+            </div>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php endforeach; ?>
+    <?php endif; ?>
+
+    <div class="ic-card" id="add-hestia">
+        <h2>Add a HestiaCP server</h2>
+        <div class="body">
+            <div class="ic-note">
+                You buy the VPS and install Hestia yourself. Install it without mail, DNS or a
+                database — these sites are static HTML and every service you skip is one less
+                thing exposed:
+                <br><br>
+                <code style="display:block;white-space:pre-wrap;font-size:12px;line-height:1.7">bash hst-install.sh --interactive no --hostname panel.example.com --email you@example.com \
+  --password 'STRONG_PW' --nginx yes --apache no --phpfpm no --mysql no --postgresql no \
+  --exim no --dovecot no --clamav no --spamassassin no --named no --vsftpd yes \
+  --iptables yes --fail2ban yes --quota no</code>
+                <br>
+                Then switch the API on with <code>v-add-sys-api</code> and add this server's IP
+                (<code>187.127.254.206</code>) to <code>API_ALLOWED_IP</code>. Until you do, every
+                call comes back as HTTP 200 with the body <code>Error</code> — which looks like
+                nothing is wrong. Firewall port 8083 to that IP only.
+            </div>
+            <?php infra_hestia_form(null); ?>
         </div>
     </div>
     <?php

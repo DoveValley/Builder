@@ -1,0 +1,359 @@
+<?php
+/**
+ * infra/lib/hestia.php — HestiaCP client, drop-in shaped against lib/plesk.php.
+ *
+ * Every public function here mirrors a plesk_* counterpart 1:1 (same arguments,
+ * same return shape) so the console can switch a server between panels by type
+ * without any call site changing. Compare:
+ *
+ *     plesk_probe()        hestia_probe()
+ *     plesk_server_info()  hestia_server_info()
+ *     plesk_list_sites()   hestia_list_sites()
+ *     plesk_site_exists()  hestia_site_exists()
+ *     plesk_create_site()  hestia_create_site()
+ *     plesk_delete_site()  hestia_delete_site()
+ *
+ * TRANSPORT NOTE — this is not REST. Hestia's API is a form-encoded POST to a
+ * single endpoint that runs one shell utility: cmd=v-add-web-domain plus
+ * positional arg1..arg9. There is no resource model, no status codes that mean
+ * anything (everything is HTTP 200), and no JSON except where a v-list-*
+ * command is explicitly asked for `json` as its format argument. Success or
+ * failure comes back as a BARE NUMBER in the response body. So every call here
+ * has to interpret an exit code, which is why hestia_err() exists.
+ *
+ * Self-contained: no dependency on any factory code.
+ */
+require_once __DIR__ . '/http.php';
+
+/** Hestia's shell exit codes, in words. Source: $HESTIA/func/main.sh. */
+function hestia_err(int $code): string
+{
+    static $map = [
+        0  => 'OK',
+        1  => 'not enough arguments',
+        2  => 'invalid value',
+        3  => 'does not exist',
+        4  => 'already exists',
+        5  => 'password mismatch',
+        6  => 'forbidden',
+        7  => 'account disabled',
+        8  => 'config parse error',
+        9  => 'out of disk space',
+        10 => 'account limit reached',
+        11 => 'permission denied',
+        12 => 'connection failed',
+        13 => 'ftp error',
+        14 => 'database error',
+        15 => 'rrd error',
+        16 => 'update failed',
+        17 => 'service restart failed',
+        19 => 'API is disabled or the caller IP is not allowed',
+    ];
+    return $map[$code] ?? ('exit code ' . $code);
+}
+
+/**
+ * Auth payload. Supports BOTH of Hestia's schemes, deliberately — the same
+ * hedge cf_auth_headers() makes for Cloudflare's global-key vs scoped-token.
+ * Access keys are preferred (they are scopeable and revocable); the admin
+ * user/password fallback exists because older boxes only have that.
+ */
+function hestia_auth(array $server): array
+{
+    $ak = trim((string) ($server['access_key'] ?? ''));
+    $sk = trim((string) ($server['secret_key'] ?? ''));
+    if ($ak !== '' && $sk !== '') return ['hash' => $ak . ':' . $sk];
+
+    $hash = trim((string) ($server['api_hash'] ?? ''));
+    if ($hash !== '') return ['hash' => $hash];
+
+    return [
+        'user'     => (string) ($server['api_user'] ?? 'admin'),
+        'password' => (string) ($server['api_password'] ?? ''),
+    ];
+}
+
+/**
+ * One API call = one shell utility.
+ *
+ * @param array  $args       positional args, mapped to arg1..arg9 in order
+ * @param bool   $returncode true  -> body is a numeric exit code (mutations)
+ *                           false -> body is the command's stdout (listings)
+ * @return array{ok:bool,code:int,raw:string,json:mixed,message:string}
+ */
+function hestia_api(array $server, string $cmd, array $args = [], bool $returncode = true): array
+{
+    $host = $server['host'] ?? '';
+    $port = $server['port'] ?? 8083;
+    $url  = 'https://' . $host . ':' . $port . '/api/';
+
+    $post = hestia_auth($server) + ['cmd' => $cmd, 'returncode' => $returncode ? 'yes' : 'no'];
+    foreach (array_values($args) as $i => $v) {
+        if ($i > 8) break;                       // arg1..arg9 is the hard ceiling
+        $post['arg' . ($i + 1)] = (string) $v;
+    }
+
+    $r = infra_http('POST', $url, [
+        'headers' => ['Content-Type: application/x-www-form-urlencoded'],
+        'body'    => http_build_query($post),
+        'verify'  => false,                      // :8083 is self-signed out of the box
+        'timeout' => 60,                         // v-add-user rebuilds configs; it is slow
+    ]);
+
+    $raw = trim($r['raw']);
+
+    if ($r['error'] !== '' || $r['code'] !== 200) {
+        $msg = $r['error'] !== '' ? $r['error'] : ('HTTP ' . $r['code']);
+        return ['ok' => false, 'code' => -1, 'raw' => $raw, 'json' => null, 'message' => $msg];
+    }
+
+    // The single most dangerous response Hestia gives you: an HTTP 200 whose body
+    // is the word "Error" (API off, or caller IP not in API_ALLOWED_IP). Nothing
+    // about the status code says anything went wrong.
+    if (stripos($raw, 'error') === 0) {
+        return ['ok' => false, 'code' => 19, 'raw' => $raw, 'json' => null, 'message' => hestia_err(19)];
+    }
+
+    if ($returncode) {
+        // A well-formed reply here is JUST digits.
+        if (!preg_match('/^\d+$/', $raw)) {
+            return ['ok' => false, 'code' => -1, 'raw' => $raw, 'json' => null,
+                    'message' => 'unexpected reply: ' . substr($raw, 0, 200)];
+        }
+        $code = (int) $raw;
+        return ['ok' => $code === 0, 'code' => $code, 'raw' => $raw, 'json' => null,
+                'message' => hestia_err($code)];
+    }
+
+    $json = json_decode($raw, true);
+    if (json_last_error() !== JSON_ERROR_NONE) $json = null;
+    return ['ok' => true, 'code' => 0, 'raw' => $raw, 'json' => $json, 'message' => 'OK'];
+}
+
+/** Reachability + auth probe. @return array{ok:bool,code:int,error:string} */
+function hestia_probe(array $server): array
+{
+    $r = hestia_api($server, 'v-list-sys-info', ['json'], false);
+    return [
+        'ok'    => $r['ok'] && is_array($r['json']),
+        'code'  => $r['code'],
+        'error' => $r['ok'] ? ($r['json'] === null ? 'authenticated, but reply was not JSON' : '') : $r['message'],
+    ];
+}
+
+/** Server info (also serves as a reachability/auth check). @return array|null */
+function hestia_server_info(array $server): ?array
+{
+    $r = hestia_api($server, 'v-list-sys-info', ['json'], false);
+    return ($r['ok'] && is_array($r['json'])) ? $r['json'] : null;
+}
+
+/** All Hestia system users. @return string[] */
+function hestia_list_users(array $server): array
+{
+    $r = hestia_api($server, 'v-list-users', ['json'], false);
+    return ($r['ok'] && is_array($r['json'])) ? array_keys($r['json']) : [];
+}
+
+/**
+ * List every web domain on the server.
+ *
+ * Hestia has no global domain list — web domains hang off users, so this is
+ * 1 + N calls where N is the number of USERS (not sites). That is the whole
+ * reason this driver files every site under one fleet user: N is 1, so listing
+ * a 500-site box costs 2 calls rather than 501. The code below did not change
+ * when the model did; it just got cheap. Still worth caching (lib/cache.php),
+ * and still never call it in a loop.
+ *
+ * @return array<int,array{name:string,user:string,docroot:string,ssl:string}>
+ */
+function hestia_list_sites(array $server): array
+{
+    $out = [];
+    foreach (hestia_list_users($server) as $user) {
+        $r = hestia_api($server, 'v-list-web-domains', [$user, 'json'], false);
+        if (!$r['ok'] || !is_array($r['json'])) continue;
+        foreach ($r['json'] as $name => $d) {
+            $out[] = [
+                'name'    => (string) $name,
+                'user'    => $user,
+                'docroot' => '/home/' . $user . '/web/' . $name . '/public_html',
+                'ssl'     => (string) ($d['SSL'] ?? 'no'),
+            ];
+        }
+    }
+    return $out;
+}
+
+/**
+ * True if a domain already exists on the server (idempotency guard).
+ * Cheaper than hestia_list_sites() when the owning user is known.
+ */
+function hestia_site_exists(array $server, string $domain, string $user = ''): bool
+{
+    if ($user !== '') {
+        $r = hestia_api($server, 'v-list-web-domain', [$user, $domain, 'json'], false);
+        return $r['ok'] && is_array($r['json']) && $r['json'] !== [];
+    }
+    foreach (hestia_list_sites($server) as $d) {
+        if (strcasecmp($d['name'], $domain) === 0) return true;
+    }
+    return false;
+}
+
+/**
+ * The single account every site on this server is filed under.
+ *
+ * ONE USER PER SERVER, not one per site. A Hestia user is a Linux account, and
+ * the per-site alternative means 500 of them per box: 500 home directories,
+ * 500 slow v-add-user calls, and a 501-call listing (see hestia_list_sites).
+ * Filing all domains under one user costs nothing a visitor can see — same
+ * vhosts, same docroots — and it does NOT merge the FTP logins, because
+ * v-add-web-domain-ftp issues an account per DOMAIN regardless of owner.
+ *
+ * What it gives up is the OS-level wall between sites. That wall matters when
+ * the sites belong to different customers who can execute code; these are
+ * static HTML, nothing runs, and they are all ours. There is no tenant
+ * boundary here to enforce.
+ */
+function hestia_fleet_user(array $server): string
+{
+    $u = strtolower(trim((string) ($server['site_user'] ?? '')));
+    return preg_match('/^[a-z][a-z0-9_]{0,29}$/', $u) ? $u : 'fleet';
+}
+
+/**
+ * Derive a per-site username. Only used when a caller explicitly asks for the
+ * one-user-per-site model (the probe does, to measure both); nothing in normal
+ * provisioning calls this.
+ */
+function hestia_user_for(string $domain): string
+{
+    $base = preg_replace('/[^a-z0-9]/', '', strtolower(explode('.', $domain)[0]));
+    if ($base === '') $base = 'site';
+    return substr($base, 0, 12) . '_' . bin2hex(random_bytes(3));
+}
+
+/** Does this Hestia user exist? */
+function hestia_user_exists(array $server, string $user): bool
+{
+    $r = hestia_api($server, 'v-list-user', [$user, 'json'], false);
+    return $r['ok'] && is_array($r['json']) && $r['json'] !== [];
+}
+
+/**
+ * Create the owning account if it is not already there. Idempotent: exit code 4
+ * ("already exists") counts as success, so two concurrent provisions racing to
+ * create the fleet user cannot make one of them fail.
+ *
+ * @return array{ok:bool,created:bool,message:string}
+ */
+function hestia_ensure_user(array $server, string $user): array
+{
+    if (hestia_user_exists($server, $user)) {
+        return ['ok' => true, 'created' => false, 'message' => 'user exists'];
+    }
+    $email = $server['contact_email'] ?? ('admin@' . ($server['host'] ?? 'localhost'));
+    $pkg   = $server['package'] ?? 'default';
+    $r = hestia_api($server, 'v-add-user', [$user, bin2hex(random_bytes(12)) . 'Aa1!', $email, $pkg, 'Fleet sites']);
+    if ($r['ok'])        return ['ok' => true, 'created' => true,  'message' => 'user created'];
+    if ($r['code'] === 4) return ['ok' => true, 'created' => false, 'message' => 'user exists (race)'];
+    return ['ok' => false, 'created' => false, 'message' => 'v-add-user: ' . $r['message']];
+}
+
+/**
+ * Create a site: web domain + its own FTP account, filed under the server's
+ * fleet user (created on first use).
+ *
+ * @param string $owner Leave empty for the normal one-user-per-server model.
+ *                      Passing a name forces one-user-per-site — the probe uses
+ *                      this to measure both; provisioning never does.
+ * @return array{ok:bool,id:null,ftp_user:string,ftp_pass:string,user:string,docroot:string,message:string}
+ */
+function hestia_create_site(array $server, string $domain, string $ftpUser, string $ftpPass, string $ip = '', string $owner = ''): array
+{
+    $user = $owner !== '' ? $owner : hestia_fleet_user($server);
+    $fail = function (string $m) use ($ftpUser, $ftpPass) {
+        return ['ok' => false, 'id' => null, 'ftp_user' => $ftpUser, 'ftp_pass' => $ftpPass,
+                'user' => '', 'docroot' => '', 'message' => $m];
+    };
+
+    // 1) owning account — created once per server, reused by every site after
+    $u = hestia_ensure_user($server, $user);
+    if (!$u['ok']) return $fail($u['message']);
+
+    // 2) web domain, with the www alias
+    $r = hestia_api($server, 'v-add-web-domain', [$user, $domain, $ip, 'no', 'www.' . $domain]);
+    if (!$r['ok']) {
+        // Roll back the user ONLY if this call is what created it. Under the
+        // fleet model it is almost always pre-existing and shared with every
+        // other site on the box — deleting it here would take them all down.
+        if ($u['created']) hestia_api($server, 'v-delete-user', [$user]);
+        return $fail('v-add-web-domain: ' . $r['message']);
+    }
+
+    // 3) FTP account. Per DOMAIN, not per user — this is why sharing one owning
+    //    account costs no credential isolation. Hestia PREFIXES the login with
+    //    the owner: the real username is "<user>_<ftpUser>". Getting that wrong
+    //    is a login failure that reads like a bad password.
+    $r = hestia_api($server, 'v-add-web-domain-ftp', [$user, $domain, $ftpUser, $ftpPass, 'public_html']);
+    if (!$r['ok']) {
+        hestia_api($server, 'v-delete-web-domain', [$user, $domain]);
+        if ($u['created']) hestia_api($server, 'v-delete-user', [$user]);
+        return $fail('v-add-web-domain-ftp: ' . $r['message']);
+    }
+
+    return [
+        'ok'       => true,
+        'id'       => null,                              // Hestia has no numeric site id
+        'ftp_user' => $user . '_' . $ftpUser,            // the LOGIN, not the argument
+        'ftp_pass' => $ftpPass,
+        'user'     => $user,
+        'docroot'  => '/home/' . $user . '/web/' . $domain . '/public_html',
+        'message'  => 'created under ' . $user . ($u['created'] ? ' (account created)' : ''),
+    ];
+}
+
+/**
+ * Install a custom certificate — the Cloudflare Origin CA path.
+ *
+ * ⚠ THE AWKWARD ONE. v-add-web-domain-ssl does NOT accept certificate contents.
+ * It reads three files from a directory ON THE SERVER: <domain>.crt, <domain>.key
+ * and optionally <domain>.ca. The API has no file-upload verb, so the cert has
+ * to arrive by some other transport first. Since every site already has an FTP
+ * account pointed at public_html, the workable route is: upload the three files
+ * over FTP, install from there, then delete them. The probe tests exactly that,
+ * because if it fails, Full (strict) has no unattended path on Hestia.
+ */
+function hestia_install_cert(array $server, string $domain, string $user, string $sslDir): array
+{
+    $r = hestia_api($server, 'v-add-web-domain-ssl', [$user, $domain, $sslDir, 'same']);
+    return ['ok' => $r['ok'], 'message' => $r['ok'] ? 'certificate installed' : $r['message']];
+}
+
+/**
+ * Delete a domain. Removes the WEB DOMAIN ONLY and never the owning account.
+ *
+ * ⚠ This is the load-bearing consequence of one-user-per-server: v-delete-user
+ * takes every domain that user owns with it. Under the old per-site model that
+ * meant one site; here it would mean the entire server. Teardown removes
+ * domains individually, and the fleet account is left in place even when it
+ * drops to zero sites — an empty account costs nothing, and the guard is worth
+ * more than the tidiness.
+ */
+function hestia_delete_site(array $server, string $domain, string $user = ''): array
+{
+    if ($user === '') {
+        foreach (hestia_list_sites($server) as $d) {
+            if (strcasecmp($d['name'], $domain) === 0) { $user = $d['user']; break; }
+        }
+    }
+    if ($user === '') return ['ok' => true, 'message' => 'not present'];
+
+    hestia_api($server, 'v-delete-web-domain', [$user, $domain]);
+
+    // Judge by ACTUAL removal, not by the exit code — same lesson as Plesk, where
+    // a fail2ban post-hook returned non-zero on a site that was really gone.
+    $gone = !hestia_site_exists($server, $domain, $user);
+    return ['ok' => $gone, 'message' => $gone ? 'removed' : 'still present after delete'];
+}

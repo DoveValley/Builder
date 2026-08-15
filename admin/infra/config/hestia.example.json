@@ -1,0 +1,31 @@
+{
+    "_what": "HestiaCP servers. Mirrors servers.json (the Plesk registry) so the Servers tab can read both the same way. TRIAL CONFIG - delete this file and lib/hestia*.php if Hestia loses the comparison.",
+
+    "servers": [
+        {
+            "id": "hst-01",
+            "label": "Hestia trial box",
+
+            "host": "1.2.3.4",
+            "port": 8083,
+
+            "_auth": "Prefer an access key pair: Hestia -> Server Settings -> Configure -> Security -> Access Keys. The admin user/password fields are a fallback for older boxes and are only read if the pair is blank.",
+            "access_key": "",
+            "secret_key": "",
+            "api_user": "admin",
+            "api_password": "",
+
+            "_site_user": "ONE Hestia account owns every site on this server. A Hestia user is a Linux account; one per site would mean 500 of them per box, 500 slow v-add-user calls, and a 501-call listing (domains hang off accounts, so the account count IS the call count). FTP logins are still issued per domain, so nothing is shared that a site can see. Consequence: never call v-delete-user on this account - it would take every site on the server with it.",
+            "site_user": "fleet",
+
+            "_ip": "IP the vhosts bind to and Cloudflare points at. Usually the same as host.",
+            "default_ip": "1.2.3.4",
+
+            "_package": "Hestia package applied to the account. 'default' carries mail and database quotas you do not need; make a static-only package with mail and DNS disabled.",
+            "package": "default",
+            "contact_email": "you@example.com"
+        }
+    ],
+
+    "_enable": "The API is OFF by default. On the box: v-add-sys-api, then allow the factory IP (187.127.254.206) in API_ALLOWED_IP. A disallowed caller gets HTTP 200 with the body 'Error' - not an auth failure you can see from the status code. Firewall 8083 to that IP only."
+}

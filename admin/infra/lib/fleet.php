@@ -18,6 +18,15 @@ function infra_discover_server(array $server, int $ttl = INFRA_DISCOVER_TTL): ar
     $key = 'server:' . ($server['id'] ?? md5((string) json_encode($server)));
     $c = infra_cache_get($key, $ttl);
     if ($c !== null) return $c;
+
+    // calls/ms are recorded so the Servers tab can state what a sweep COSTS, on the
+    // same terms as the HestiaCP trial below it. Comparing two panels on how their
+    // cards look decides nothing; comparing them on the work it takes to answer
+    // "what is on this box" is the whole question. Additive — older cached bundles
+    // simply lack these keys.
+    $before = infra_http_calls();
+    $t0     = microtime(true);
+
     $probe  = plesk_probe($server);
     $bundle = [
         'ok'    => $probe['ok'],
@@ -25,6 +34,10 @@ function infra_discover_server(array $server, int $ttl = INFRA_DISCOVER_TTL): ar
         'info'  => $probe['ok'] ? plesk_server_info($server) : null,
         'sites' => $probe['ok'] ? plesk_list_sites($server) : [],
     ];
+    $bundle['calls'] = infra_http_calls() - $before;
+    $bundle['ms']    = (int) round((microtime(true) - $t0) * 1000);
+    $bundle['at']    = date('c');
+
     infra_cache_put($key, $bundle);
     return $bundle;
 }

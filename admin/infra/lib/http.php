@@ -5,6 +5,14 @@
  */
 
 /**
+ * Outbound-call counter. Every panel/registrar/CF client goes through infra_http(),
+ * so counting here counts all of them on equal terms — which is the only honest way
+ * to compare what one panel costs against another to answer the same question.
+ */
+function infra_http_calls(): int   { return (int) ($GLOBALS['__infra_http_calls'] ?? 0); }
+function infra_http_calls_reset(): void { $GLOBALS['__infra_http_calls'] = 0; }
+
+/**
  * @param string $method GET|POST|PUT|DELETE
  * @param string $url
  * @param array  $opts   headers[], body(string|array), verify(bool), timeout(int)
@@ -12,6 +20,7 @@
  */
 function infra_http(string $method, string $url, array $opts = []): array
 {
+    $GLOBALS['__infra_http_calls'] = infra_http_calls() + 1;
     $verify  = $opts['verify']  ?? true;    // secure by default; callers to self-signed origins (Plesk :8443) pass verify=false
     $timeout = $opts['timeout'] ?? 20;
     $headers = $opts['headers'] ?? [];
