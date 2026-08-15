@@ -84,6 +84,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
     <a href="dirnet-answers.php" style="color:#fdba74;font-weight:700;">❓ Directory Network answers</a>
     <a href="dirnet-sheets.php" style="color:#fdba74;font-weight:700;">📄 Directory Network sheets</a>
     <a href="#share-claude" style="color:#93c5fd;font-weight:700;">📎 Share with Claude</a>
+    <a href="#downloads-scott" style="color:#fcd34d;font-weight:700;">⬇ Downloads for Scott</a>
     <a href="#keyword-lists" style="color:#86efac;font-weight:700;">🔑 Keyword lists</a>
     <a href="#water-icons" style="color:#7dd3fc;font-weight:700;">💧 Water icons</a>
     <button type="button" class="active">Hero text overlay</button>
@@ -154,6 +155,59 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
             <?php endforeach; ?>
         </div>
         <?php endif; ?>
+    </section>
+
+    <section id="downloads-scott" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
+        <h1>Downloads for Scott <span class="pill">read · copy · download</span></h1>
+        <p class="sub">The other direction from the panel above: files Claude has left <em>for you</em>. Anything dropped into <code>uploads/downloads/</code> shows up here automatically, newest first. Text files are shown in full so you can read them without downloading — use <strong>Copy</strong> to take the text, or <strong>Download</strong> to save the file.</p>
+        <?php
+        $dlFiles = [];
+        foreach (glob(BASE_DIR . '/uploads/downloads/*') ?: [] as $p) { if (is_file($p)) $dlFiles[$p] = filemtime($p); }
+        arsort($dlFiles);                                  // newest first
+        $dlFiles = array_keys($dlFiles);
+        // Shown inline rather than only offered as a download — most of what lands
+        // here is a short set of instructions, and making it readable in the page
+        // saves a round trip through the Downloads folder.
+        $dlText = ['txt','md','markdown','csv','tsv','json','xml','yaml','yml','log','sh','conf'];
+        if (!$dlFiles): ?>
+        <p class="note">Nothing here yet. Files Claude leaves in <code>uploads/downloads/</code> will appear in this spot.</p>
+        <?php else: foreach ($dlFiles as $df):
+            $dn   = basename($df);
+            $dext = strtolower(pathinfo($dn, PATHINFO_EXTENSION));
+            $dIsText = in_array($dext, $dlText, true);
+            $dSize = filesize($df);
+            $dHuman = $dSize < 1024 ? $dSize . ' B' : ($dSize < 1048576
+                ? round($dSize / 1024, 1) . ' KB' : round($dSize / 1048576, 1) . ' MB');
+        ?>
+        <div style="max-width:820px;margin-bottom:22px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
+                <span style="font-size:1.2rem;"><?= $dIsText ? '📄' : '📦' ?></span>
+                <strong style="color:#1e3a5f;font-family:monospace;font-size:.88rem;"><?= $h($dn) ?></strong>
+                <span class="note" style="margin-left:auto;"><?= $h($dHuman) ?> · <?= $h(date('j M Y, H:i', filemtime($df))) ?></span>
+                <?php if ($dIsText): ?>
+                <button type="button" class="dl-copy" style="background:#1e3a5f;color:#fff;border:0;border-radius:6px;padding:6px 14px;font-weight:600;cursor:pointer;">Copy</button>
+                <?php endif; ?>
+                <a href="/uploads/downloads/<?= rawurlencode($dn) ?>" target="_blank" style="background:#0ea5e9;color:#fff;border-radius:6px;padding:6px 14px;font-weight:600;text-decoration:none;">Open</a>
+                <a href="/uploads/downloads/<?= rawurlencode($dn) ?>" download style="background:#16a34a;color:#fff;border-radius:6px;padding:6px 14px;font-weight:600;text-decoration:none;">Download</a>
+            </div>
+            <?php if ($dIsText): ?>
+            <pre class="dl-body" style="white-space:pre-wrap;font-family:monospace;font-size:.78rem;line-height:1.55;color:#334155;background:#f8fafc;border:1px solid #eef2f7;border-radius:8px;padding:14px;max-height:520px;overflow:auto;margin:0;"><?= $h((string) file_get_contents($df)) ?></pre>
+            <?php endif; ?>
+        </div>
+        <?php endforeach; endif; ?>
+        <script>
+        document.querySelectorAll('.dl-copy').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                // The <pre> is a sibling of the header row, not of the button itself.
+                var pre = btn.closest('div').parentElement.querySelector('.dl-body');
+                if (!pre) return;
+                navigator.clipboard.writeText(pre.textContent).then(function () {
+                    var t = btn.textContent; btn.textContent = '✓ Copied';
+                    setTimeout(function () { btn.textContent = t; }, 1400);
+                });
+            });
+        });
+        </script>
     </section>
 
     <section id="keyword-lists" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
