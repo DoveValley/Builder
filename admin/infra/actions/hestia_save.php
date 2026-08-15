@@ -63,6 +63,7 @@ $siteUser = strtolower(trim((string) ($_POST['site_user'] ?? '')));
 $ip       = trim((string) ($_POST['default_ip'] ?? ''));
 $email    = trim((string) ($_POST['contact_email'] ?? ''));
 $package  = trim((string) ($_POST['package'] ?? 'default'));
+$notes    = trim((string) ($_POST['notes'] ?? ''));
 
 // Same paste-the-browser-bar guard as the Plesk form.
 $host = preg_replace('#^https?://#i', '', $host);
@@ -79,12 +80,15 @@ if ($siteUser === '') {
     $errors[] = 'The account name must start with a letter and use only lowercase letters, numbers and underscores.';
 }
 
-// Blank secrets on an edit mean keep the stored pair; a new server must supply both.
+// Blank secrets on an edit mean keep the stored pair. Blank on a NEW server means
+// the machine exists but Hestia is not on it yet — a real state, and one worth
+// being able to write down: a VPS is bought minutes before it is set up, and until
+// it is in the console it is only in someone's memory. It saves with no keys and
+// shows as "not set up yet" until they are pasted in.
 $storedA = $idx !== null ? ($cfg['servers'][$idx]['access_key'] ?? '') : '';
 $storedS = $idx !== null ? ($cfg['servers'][$idx]['secret_key'] ?? '') : '';
 if ($aKey === '' && $sKey === '') {
-    if ($idx === null) $errors[] = 'Paste the Hestia access key and secret key.';
-    else { $aKey = $storedA; $sKey = $storedS; }
+    if ($idx !== null) { $aKey = $storedA; $sKey = $storedS; }
 } elseif ($aKey === '' || $sKey === '') {
     // Half a credential is never what someone meant, and storing it would produce
     // an auth failure that reads like a wrong password rather than a missing field.
@@ -109,10 +113,20 @@ $candidate = [
     'default_ip'    => $ip,
     'contact_email' => $email,
     'package'       => $package !== '' ? $package : 'default',
+    'notes'         => $notes,
 ];
 
 /* ---- test without saving ---------------------------------------------- */
 if ($action === 'test') {
+    // Testing with no key pair would send a request that can only come back as
+    // "authentication failed" — a credentials error for a box that simply has no
+    // credentials yet. Say the true thing instead of the misleading one.
+    if (!hestia_server_configured($candidate)) {
+        infra_set_flash('warn', 'There is nothing to test yet — this server has no access key or secret key, '
+            . 'so there is no Hestia to talk to. Save it as it is, install Hestia on it, then come back and '
+            . 'paste the key pair in with "Edit these settings".');
+        header('Location: ' . $back); exit;
+    }
     infra_http_calls_reset();
     $t0    = microtime(true);
     $probe = hestia_probe($candidate);
@@ -168,6 +182,13 @@ if ($action === 'save') {
     }
 
     infra_cache_forget('hestia:' . $candidate['id']);
+
+    if (!hestia_server_configured($candidate)) {
+        infra_set_flash('ok', 'Saved "' . $label . '" — recorded as a machine that is not set up yet. '
+            . 'Nothing was contacted, because there is no Hestia on it to contact. '
+            . 'Once it is installed and an access key exists, use "Edit these settings" to paste the pair in.');
+        header('Location: ' . $back); exit;
+    }
 
     $probe = hestia_probe($candidate);
     infra_set_flash($probe['ok'] ? 'ok' : 'warn',

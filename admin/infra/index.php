@@ -2287,7 +2287,8 @@ if ($view === 'servers') {
                 </tr>
                 <tr>
                     <td><label><strong>Access key</strong><br>
-                        <span style="color:#6b7280;font-size:12px">Hestia &rarr; Server Settings &rarr; Configure &rarr; Security &rarr; Access Keys</span></label></td>
+                        <span style="color:#6b7280;font-size:12px">Hestia &rarr; Server Settings &rarr; Configure &rarr; Security &rarr; Access Keys.
+                        Leave both key boxes empty if Hestia is not on this machine yet.</span></label></td>
                     <td><input name="access_key" type="password" autocomplete="new-password"
                                placeholder="<?= $isEdit ? 'leave blank to keep the stored pair' : 'paste the access key' ?>"
                                style="width:100%;max-width:420px"></td>
@@ -2316,6 +2317,13 @@ if ($view === 'servers') {
                         <span style="font-size:12px">(used when the account is created)</span></label></td>
                     <td><input name="contact_email" value="<?= $v('contact_email') ?>" placeholder="you@example.com" style="width:260px">
                         <input name="package" value="<?= $v('package', 'default') ?>" placeholder="default" style="width:140px"></td>
+                </tr>
+                <tr>
+                    <td><label style="color:#6b7280">What this machine is
+                        <span style="font-size:12px">(optional &mdash; host, plan, size, price, where it is)</span></label></td>
+                    <td><input name="notes" value="<?= $v('notes') ?>"
+                               placeholder="e.g. Hetzner CX23 · 2 vCPU · 4 GB · 40 GB · Helsinki · €6.49/mo"
+                               style="width:100%;max-width:420px"></td>
                 </tr>
                 </tbody>
             </table>
@@ -2372,11 +2380,26 @@ if ($view === 'servers') {
         <h2>
             <?= ih($srv['label'] ?? $srv['id']) ?>
             <span class="badge" style="background:#dbeafe;color:#1e40af">HestiaCP</span>
-            <?= $d['ok'] ? '<span class="badge b-ok">up</span>' : '<span class="badge b-err">cannot reach it</span>' ?>
+            <?php $unset = !empty($d['unconfigured']); ?>
+            <?= $d['ok'] ? '<span class="badge b-ok">up</span>'
+                 : ($unset ? '<span class="badge" style="background:#fef3c7;color:#92400e">not set up yet</span>'
+                           : '<span class="badge b-err">cannot reach it</span>') ?>
         </h2>
         <div class="body">
 
-            <?php if (!$d['ok']): ?>
+            <?php if ($unset): ?>
+            <div class="ic-note" style="background:#fffbeb;border-color:#fcd34d;color:#92400e">
+                <strong>The machine is recorded here, but there is no Hestia on it yet.</strong>
+                Nothing has been contacted — it has no key pair, so there is nothing to authenticate with.
+                Three things left, in order:
+                <ol style="margin:8px 0 0 18px;padding:0">
+                    <li>Install Hestia on it (the command is in "Add a HestiaCP server" at the bottom of this page).</li>
+                    <li>On the box: <code>v-add-sys-api</code>, then put <code>187.127.254.206</code> in <code>API_ALLOWED_IP</code>.</li>
+                    <li><code>v-add-access-key user</code> with no permissions argument, then paste the pair into
+                        "Edit these settings" below.</li>
+                </ol>
+            </div>
+            <?php elseif (!$d['ok']): ?>
             <div class="ic-note" style="background:#fef2f2;border-color:#fca5a5;color:#991b1b">
                 <strong>The console could not talk to this server.</strong><br><?= ih($d['error']) ?>
                 <?php if (($d['error'] ?? '') !== '' && stripos($d['error'], 'allowed') !== false): ?>
@@ -2393,8 +2416,12 @@ if ($view === 'servers') {
                         <td><code>https://<?= ih($srv['host'] ?? '') ?>:<?= ih((string)($srv['port'] ?? '')) ?></code></td></tr>
                     <tr><td style="color:#6b7280">IP address the sites point at</td>
                         <td><code><?= ih($srv['default_ip'] ?? '—') ?></code></td></tr>
+                    <?php if (trim((string) ($srv['notes'] ?? '')) !== ''): ?>
+                    <tr><td style="color:#6b7280">What this machine is</td>
+                        <td><?= ih($srv['notes']) ?></td></tr>
+                    <?php endif; ?>
                     <tr><td style="color:#6b7280">Hestia version</td>
-                        <td><?= ih($f['panel_version'] ?: '—') ?></td></tr>
+                        <td><?= $unset ? '<span style="color:#92400e">not installed yet</span>' : ih($f['panel_version'] ?: '—') ?></td></tr>
                     <tr><td style="color:#6b7280">Server's own hostname</td>
                         <td><code><?= ih($f['hostname'] ?: '—') ?></code></td></tr>
                     <tr><td style="color:#6b7280">Operating system</td>
@@ -2409,6 +2436,12 @@ if ($view === 'servers') {
                          Hestia has no global list, so it is 1 + one call per account. -->
                     <tr><td style="color:#6b7280"><strong>Cost to read this server</strong></td>
                         <td>
+                        <?php if ($unset): ?>
+                            <span style="color:#9ca3af">not measured — nothing has been read from it</span>
+                            <div style="font-size:12px;color:#6b7280">A box with no key pair costs nothing to
+                                "read" because no request is sent. Zero here would otherwise look like a
+                                very fast server rather than an absent one.</div>
+                        <?php else: ?>
                             <strong><?= (int) $d['calls'] ?></strong> API call<?= (int) $d['calls'] === 1 ? '' : 's' ?>,
                             <strong><?= (int) $d['ms'] ?>ms</strong>
                             <div style="font-size:12px;color:#6b7280">
@@ -2417,6 +2450,7 @@ if ($view === 'servers') {
                                 off accounts, so this is 1 + one call per account. Filing every site under a single
                                 account is what keeps that at two instead of one-per-site.
                             </div>
+                        <?php endif; ?>
                         </td></tr>
                 </tbody>
             </table>
@@ -2504,14 +2538,33 @@ if ($view === 'servers') {
                 thing exposed:
                 <br><br>
                 <code style="display:block;white-space:pre-wrap;font-size:12px;line-height:1.7">bash hst-install.sh --interactive no --hostname panel.example.com --email you@example.com \
-  --password 'STRONG_PW' --nginx yes --apache no --phpfpm no --mysql no --postgresql no \
-  --exim no --dovecot no --clamav no --spamassassin no --named no --vsftpd yes \
-  --iptables yes --fail2ban yes --quota no</code>
+  --username user --password 'STRONG_PW' --apache no --phpfpm no --multiphp no --mysql no \
+  --postgresql no --exim no --dovecot no --clamav no --spamassassin no --named no \
+  --vsftpd yes --iptables yes --fail2ban yes --quota no --api yes</code>
                 <br>
-                Then switch the API on with <code>v-add-sys-api</code> and add this server's IP
-                (<code>187.127.254.206</code>) to <code>API_ALLOWED_IP</code>. Until you do, every
-                call comes back as HTTP 200 with the body <code>Error</code> — which looks like
-                nothing is wrong. Firewall port 8083 to that IP only.
+                Three things about that command, each of which cost a failed run:
+                <ul style="margin:6px 0 0 18px;padding:0">
+                    <li><strong>There is no <code>--nginx</code> option.</strong> Nginx is always
+                        installed; <code>--apache no</code> is what makes it nginx-only. Passing
+                        <code>--nginx yes</code> aborts the whole run with
+                        <code>illegal option -- -</code>.</li>
+                    <li><strong><code>--username user</code> is required.</strong> Hestia refuses
+                        <code>admin</code> as the admin account name, and with
+                        <code>--interactive no</code> it does not say so — it loops
+                        "Please use a valid username" forever. This is why the account on these
+                        boxes is called <code>user</code>.</li>
+                    <li><strong>Do not write <code>--force yes</code>.</strong> <code>--force</code>
+                        takes no value, so the stray <code>yes</code> becomes a positional argument,
+                        <code>getopts</code> stops there, and <em>every flag after it is silently
+                        ignored</em> — you get a default install with mail, DNS and a database on it.</li>
+                </ul>
+                <br>
+                <code>--api yes</code> switches the API on during the install, so
+                <code>v-add-sys-api</code> is only needed if you left it out. Either way you must add
+                this server's IP (<code>187.127.254.206</code>) to <code>API_ALLOWED_IP</code> in
+                <code>/usr/local/hestia/conf/hestia.conf</code>. Until you do, every call comes back
+                as HTTP 200 with the body <code>Error</code> — which looks like nothing is wrong.
+                Firewall port 8083 to that IP only.
             </div>
             <?php infra_hestia_form(null); ?>
         </div>

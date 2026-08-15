@@ -168,7 +168,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
         // Shown inline rather than only offered as a download — most of what lands
         // here is a short set of instructions, and making it readable in the page
         // saves a round trip through the Downloads folder.
-        $dlText = ['txt','md','markdown','csv','tsv','json','xml','yaml','yml','log','sh','conf'];
+        $dlText = ['txt','md','markdown','csv','tsv','json','xml','yaml','yml','log','sh','conf','pub'];
         if (!$dlFiles): ?>
         <p class="note">Nothing here yet. Files Claude leaves in <code>uploads/downloads/</code> will appear in this spot.</p>
         <?php else: foreach ($dlFiles as $df):

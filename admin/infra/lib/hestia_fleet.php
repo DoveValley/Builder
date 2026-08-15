@@ -29,6 +29,19 @@ function infra_hestia_servers(): array
 }
 
 /**
+ * Has this box been set up yet? A machine can be bought, running and pingable
+ * long before Hestia is on it, and the console has to be able to hold it in that
+ * state — otherwise a new VPS cannot be written down until it is finished.
+ * No key pair means there is nothing to authenticate with, so there is no point
+ * asking the network anything.
+ */
+function hestia_server_configured(array $server): bool
+{
+    return trim((string) ($server['access_key'] ?? '')) !== ''
+        && trim((string) ($server['secret_key'] ?? '')) !== '';
+}
+
+/**
  * Everything the Servers tab shows about one Hestia box, cached.
  * Key hestia:{id} — a separate namespace from the Plesk `server:{id}` keys, so
  * ?refresh=1 and cache invalidation on one side never touch the other.
@@ -37,6 +50,14 @@ function infra_hestia_servers(): array
  */
 function infra_discover_hestia(array $server, int $ttl = INFRA_HESTIA_TTL): array
 {
+    // A box with no key pair is not "down" — it is not finished. Say so without
+    // spending a request, and without caching it: the moment the keys are pasted
+    // in, the next page load should try for real rather than serve this back.
+    if (!hestia_server_configured($server)) {
+        return ['ok' => false, 'error' => '', 'unconfigured' => true, 'info' => null,
+                'sites' => [], 'users' => [], 'calls' => 0, 'ms' => 0, 'at' => date('c')];
+    }
+
     $key = 'hestia:' . ($server['id'] ?? md5((string) json_encode($server)));
     $c   = infra_cache_get($key, $ttl);
     if ($c !== null) return $c;
@@ -80,10 +101,14 @@ function infra_hestia_facts(?array $info): array
     $host = (string) array_key_first($info);
     $row  = is_array($info[$host] ?? null) ? $info[$host] : $info;
 
-    $os = trim((string) ($row['OS'] ?? '') . ' ' . (string) ($row['OS_VERSION'] ?? ''));
+    // VERSION is the OPERATING SYSTEM's version; the panel's own is under HESTIA.
+    // Reading VERSION here put "12.15" in a row labelled "Hestia version" — a real
+    // number, in the right shape, in the wrong field, which is the kind of wrong
+    // that never looks wrong. (There is no OS_VERSION key; that read empty.)
+    $os = trim((string) ($row['OS'] ?? '') . ' ' . (string) ($row['VERSION'] ?? ''));
 
     return [
-        'panel_version' => (string) ($row['VERSION'] ?? ''),
+        'panel_version' => (string) ($row['HESTIA'] ?? ''),
         'hostname'      => (string) ($row['HOSTNAME'] ?? (is_array($info[$host] ?? null) ? $host : '')),
         'platform'      => $os,
     ];
