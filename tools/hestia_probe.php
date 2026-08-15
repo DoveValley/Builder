@@ -379,7 +379,11 @@ $acctPass = bin2hex(random_bytes(10)) . 'Aa1!';
 $acctMade = false;
 
 $acctMade = check('Create a throwaway account', function () use ($server, $acct, $acctPass) {
-    $email = $server['contact_email'] ?: ('probe@' . $server['host']);
+    // NOT probe@<host>: the host is an IP, and Hestia rejects an address whose
+    // domain is a bare IP with exit code 2 ("invalid value") — which reads as a
+    // bad username or password rather than a bad email. example.com is reserved
+    // for exactly this (RFC 2606) and always parses.
+    $email = $server['contact_email'] ?: 'probe@example.com';
     $r = hestia_api($server, 'v-add-user', [$acct, $acctPass, $email, $server['package'] ?: 'default', 'Probe']);
     return ['ok' => $r['ok'], 'note' => $r['ok'] ? 'v-add-user ' . $acct : $r['message']];
 });
@@ -736,7 +740,11 @@ if ($keep) {
     // outage triggered by removing a single domain.
     check('Deleting A left site B and the account alone', function () use ($server, $site, $site2, $domain2) {
         if ($site['user'] === '') return ['ok' => null, 'note' => 'nothing to verify'];
-        $userAlive = in_array($site['user'], hestia_list_users($server), true);
+        // hestia_user_exists(), NOT a search of hestia_list_users(): that call only
+        // returns the access key's own account, so a perfectly healthy fleet account
+        // is absent from it and this check screamed that the whole server had been
+        // wiped. Ask about the account by name instead.
+        $userAlive = hestia_user_exists($server, $site['user']);
         $bAlive    = $domain2 === '' ? null : hestia_site_exists($server, $domain2, $site['user']);
         if (!$userAlive) return ['ok' => false, 'note' => 'account ' . $site['user'] . ' was deleted — '
                                                         . 'this would take every site on the server with it'];

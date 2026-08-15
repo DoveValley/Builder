@@ -195,7 +195,22 @@ function hestia_list_users(array $server): array
 function hestia_list_sites(array $server): array
 {
     $out = [];
-    foreach (hestia_list_users($server) as $user) {
+    // v-list-users does NOT enumerate the box — it returns only the account the
+    // ACCESS KEY belongs to. Verified 2026-08-15: with a key owned by "user",
+    // v-list-users returned just "user" while v-list-user fleet happily returned
+    // a populated fleet account. Trusting it alone made every site filed under
+    // fleet invisible, which read as "the site was created but is absent from the
+    // listing" and, worse, as "the fleet account was deleted" during teardown.
+    //
+    // So the fleet account is always consulted by name rather than discovered.
+    // We know what it is called — it is in the config — and not needing discovery
+    // is the point of filing everything under one known account.
+    $users = hestia_list_users($server);
+    $fleet = hestia_fleet_user($server);
+    if (!in_array($fleet, $users, true) && hestia_user_exists($server, $fleet)) {
+        $users[] = $fleet;
+    }
+    foreach ($users as $user) {
         $r = hestia_api($server, 'v-list-web-domains', [$user, 'json'], false);
         if (!$r['ok'] || !is_array($r['json'])) continue;
         foreach ($r['json'] as $name => $d) {
@@ -295,7 +310,7 @@ function hestia_ensure_user(array $server, string $user): array
  *                      this to measure both; provisioning never does.
  * @return array{ok:bool,id:null,ftp_user:string,ftp_pass:string,user:string,docroot:string,message:string}
  */
-function hestia_create_site(array $server, string $domain, string $ftpUser, string $ftpPass, string $ip = '', string $owner = ''): array
+function hestia_create_site(array $server, string $domain, string $ftpUser, string $ftpPass, string $ip = '', string $owner = '', bool $restart = true): array
 {
     $user = $owner !== '' ? $owner : hestia_fleet_user($server);
     $fail = function (string $m) use ($ftpUser, $ftpPass) {
@@ -328,6 +343,18 @@ function hestia_create_site(array $server, string $domain, string $ftpUser, stri
         return $fail('v-add-web-domain-ftp: ' . $r['message']);
     }
 
+    // 4) make nginx aware of it. Without this the domain is configured but not
+    //    served — see hestia_restart_web(). Bulk callers provisioning many sites
+    //    at once should pass $restart=false and call hestia_restart_web() once at
+    //    the end; restarting the web server 500 times is both slow and a series of
+    //    small blips for every site already live on the box.
+    $restarted = '';
+    if ($restart) {
+        $w = hestia_restart_web($server);
+        $restarted = $w['ok'] ? ', web restarted' : ', BUT the web restart failed (' . $w['message']
+                              . ') — the site will serve the default page until it is restarted';
+    }
+
     return [
         'ok'       => true,
         'id'       => null,                              // Hestia has no numeric site id
@@ -335,8 +362,27 @@ function hestia_create_site(array $server, string $domain, string $ftpUser, stri
         'ftp_pass' => $ftpPass,
         'user'     => $user,
         'docroot'  => '/home/' . $user . '/web/' . $domain . '/public_html',
-        'message'  => 'created under ' . $user . ($u['created'] ? ' (account created)' : ''),
+        'message'  => 'created under ' . $user . ($u['created'] ? ' (account created)' : '') . $restarted,
     ];
+}
+
+/**
+ * Restart the web server so newly-created vhosts actually answer.
+ *
+ * ⚠ NOT OPTIONAL. Verified 2026-08-15: after v-add-web-domain the domain is fully
+ * configured — v-list-web-domain returns it with the right DOCUMENT_ROOT, and an
+ * FTP upload lands in that directory — yet HTTP still serves Hestia's default
+ * "Success!" page, because nginx has not picked the vhost up. v-rebuild-web-domains
+ * does NOT fix it. Only a restart does.
+ *
+ * The failure is nasty precisely because every individual step reports success:
+ * the site exists, the files are in place, and the server returns HTTP 200. It is
+ * simply the wrong 200. (Every *.q111.xyz on this box shows the same page.)
+ */
+function hestia_restart_web(array $server): array
+{
+    $r = hestia_api($server, 'v-restart-web');
+    return ['ok' => $r['ok'], 'message' => $r['ok'] ? 'web server restarted' : $r['message']];
 }
 
 /**
@@ -353,7 +399,28 @@ function hestia_create_site(array $server, string $domain, string $ftpUser, stri
 function hestia_install_cert(array $server, string $domain, string $user, string $sslDir): array
 {
     $r = hestia_api($server, 'v-add-web-domain-ssl', [$user, $domain, $sslDir, 'same']);
-    return ['ok' => $r['ok'], 'message' => $r['ok'] ? 'certificate installed' : $r['message']];
+    if ($r['ok']) return ['ok' => true, 'message' => 'certificate installed'];
+
+    // Exit code 4 is "already exists" — v-add refuses to install over a cert that
+    // is already there. That makes the first install succeed and every RENEWAL
+    // fail, which is the case that actually recurs: Origin CA certs expire and
+    // have to be swapped on a live site. Replace rather than add.
+    if ($r['code'] === 4) {
+        // Preferred, because it never leaves the site without a certificate.
+        $c = hestia_api($server, 'v-change-web-domain-sslcert', [$user, $domain, $sslDir, 'same']);
+        if ($c['ok']) return ['ok' => true, 'message' => 'certificate replaced in place'];
+
+        // Fallback for versions lacking that verb. There is a window of a second
+        // or two with no cert on the domain, so it is the second choice, not the
+        // first — a renewal should not take the site down to succeed.
+        hestia_api($server, 'v-delete-web-domain-ssl', [$user, $domain]);
+        $r2 = hestia_api($server, 'v-add-web-domain-ssl', [$user, $domain, $sslDir, 'same']);
+        return ['ok' => $r2['ok'], 'message' => $r2['ok']
+            ? 'certificate replaced (removed first — brief gap with no SSL)'
+            : 'replace failed: ' . $r2['message']];
+    }
+
+    return ['ok' => false, 'message' => $r['message']];
 }
 
 /**
