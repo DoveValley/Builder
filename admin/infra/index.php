@@ -2375,16 +2375,57 @@ if ($view === 'servers') {
         <div class="ic-empty">No HestiaCP server registered yet. Add one below.</div>
     <?php else: ?>
 
-    <?php foreach ($hRows as $r): $srv = $r['srv']; $d = $r['d']; $f = infra_hestia_facts($d['info'] ?? null); ?>
-    <div class="ic-card">
-        <h2>
+    <?php foreach ($hRows as $r): $srv = $r['srv']; $d = $r['d']; $f = infra_hestia_facts($d['info'] ?? null);
+          $unset = !empty($d['unconfigured']);
+          $acct  = infra_hestia_accounts($d);
+          // Collapsed once it is healthy — a working box is a one-line fact and
+          // eight of them should fit on a screen. Anything wrong opens itself,
+          // because a problem nobody clicks on is a problem nobody sees.
+          $openIt = !$d['ok'] || $hEditId === ($srv['id'] ?? ''); ?>
+    <details class="ic-card srv-card" <?= $openIt ? 'open' : '' ?>>
+        <summary style="cursor:pointer">
+        <h2 style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <span style="color:#9ca3af;font-weight:400">▸</span>
             <?= ih($srv['label'] ?? $srv['id']) ?>
             <span class="badge" style="background:#dbeafe;color:#1e40af">HestiaCP</span>
-            <?php $unset = !empty($d['unconfigured']); ?>
             <?= $d['ok'] ? '<span class="badge b-ok">up</span>'
                  : ($unset ? '<span class="badge" style="background:#fef3c7;color:#92400e">not set up yet</span>'
                            : '<span class="badge b-err">cannot reach it</span>') ?>
+            <span style="font-weight:400;font-size:13px;color:#6b7280">
+                <code><?= ih($srv['host'] ?? '') ?></code>
+                <?php if ($d['ok']): ?>
+                    &middot; Hestia <?= ih($f['panel_version'] ?: '?') ?>
+                    &middot; <?= ih($f['platform'] ?: '?') ?>
+                <?php endif; ?>
+            </span>
         </h2>
+
+        <?php if ($d['ok']): ?>
+        <!-- The four numbers worth seeing without opening anything. Sites first:
+             it is the one that answers "is this box doing any work". -->
+        <div style="display:flex;gap:26px;flex-wrap:wrap;padding:2px 16px 14px 30px">
+            <?php
+            $tiles = [
+                ['Websites',            count($d['sites']),      '#111827'],
+                ['Accounts',            $acct['total'],          '#111827'],
+                ['&hellip; with a site', $acct['with_site'],     '#166534'],
+                ['&hellip; with none',   $acct['without_site'],  $acct['without_site'] > 0 ? '#92400e' : '#9ca3af'],
+            ];
+            foreach ($tiles as [$label, $val, $col]): ?>
+                <div>
+                    <div style="font-size:20px;font-weight:700;color:<?= $col ?>;line-height:1.1"><?= (int) $val ?></div>
+                    <div style="font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:.03em"><?= $label ?></div>
+                </div>
+            <?php endforeach; ?>
+            <?php if (!$acct['exact']): ?>
+            <div style="font-size:11px;color:#9ca3af;max-width:260px;align-self:center">
+                Accounts counts what the console can see. <code>v-list-users</code> returns only the
+                key's own account, so an unrelated empty account would not appear.
+            </div>
+            <?php endif; ?>
+        </div>
+        <?php endif; ?>
+        </summary>
         <div class="body">
 
             <?php if ($unset): ?>
@@ -2525,7 +2566,7 @@ if ($view === 'servers') {
             </div>
             <?php endif; ?>
         </div>
-    </div>
+    </details>
     <?php endforeach; ?>
     <?php endif; ?>
 

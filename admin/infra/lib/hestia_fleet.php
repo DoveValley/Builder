@@ -86,6 +86,39 @@ function infra_discover_hestia(array $server, int $ttl = INFRA_HESTIA_TTL): arra
 }
 
 /**
+ * Accounts on a box, split by whether they actually hold a site.
+ *
+ * ⚠ "total" is accounts the console can SEE, which is not always every account
+ * on the machine: v-list-users returns only the account the access key belongs
+ * to (verified 2026-08-15), so an unrelated account holding nothing is
+ * invisible. Accounts holding sites always appear, because every site carries
+ * its owner — so "with a site" is exact and "without" is a floor, not a count.
+ * Said plainly on the card rather than presented as a full census.
+ *
+ * Costs no extra API calls: both inputs are already in the discovery bundle.
+ *
+ * @return array{total:int,with_site:int,without_site:int,exact:bool}
+ */
+function infra_hestia_accounts(array $d): array
+{
+    $owners = [];
+    foreach ($d['sites'] ?? [] as $s) {
+        $u = (string) ($s['user'] ?? '');
+        if ($u !== '') $owners[$u] = true;
+    }
+    $known = $owners;
+    foreach ($d['users'] ?? [] as $u) {
+        if ((string) $u !== '') $known[(string) $u] = true;
+    }
+    $total = count($known);
+    $with  = count($owners);
+    return ['total' => $total, 'with_site' => $with, 'without_site' => max(0, $total - $with),
+            // Exact only when every known account holds a site — then there is
+            // nothing the blind spot could be hiding a count of.
+            'exact' => $total === $with];
+}
+
+/**
  * Flatten Hestia's v-list-sys-info into the same four facts the Plesk card shows,
  * so the two cards are read the same way. Hestia keys its reply by hostname and
  * uses SHOUTING_SNAKE_CASE; Plesk returns a flat lowercase object.
