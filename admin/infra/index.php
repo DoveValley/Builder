@@ -2004,69 +2004,82 @@ if ($view === 'servers') {
          step 5 early is a domain Google crawls while it is empty. -->
     <details class="ic-card" open>
         <summary style="padding:14px 16px;font-size:15px;font-weight:600;cursor:pointer">
-            How a site gets onto one of these boxes
-            <span style="color:#9ca3af;font-weight:400;font-size:13px">— five steps, in this order</span>
+            How a batch goes live
+            <span style="color:#9ca3af;font-weight:400;font-size:13px">— five phases, in this order</span>
         </summary>
         <div class="body" style="font-size:13.5px;line-height:1.65">
 
             <p style="margin:0 0 16px;color:#6b7280">
-                Steps 1&ndash;3 are the plumbing and cost seconds. Step 4 is the slow part.
-                For a batch, do <strong>1&ndash;3 for every site, verify, then generate and upload</strong> —
-                so a misconfigured box is found in the phase that costs nothing rather than forty
-                minutes into uploads with half the batch done.
+                Each phase finishes for the <em>whole batch</em> before the next begins, and every phase is
+                safe to run twice. The order exists so failures land where they are cheap: phase 2 costs
+                seconds, phase 4 costs an hour, and phase 5 is the only one the outside world can see.
             </p>
 
-            <h3 style="font-size:14px;margin:0 0 4px">1. Tell the web server the site exists</h3>
+            <h3 style="font-size:14px;margin:0 0 4px">1. Define batch scope</h3>
             <ul style="margin:0 0 16px 18px;padding:0">
-                <li>Hestia writes a rule into nginx meaning <em>&ldquo;requests for this domain &rarr; this
-                    folder&rdquo;</em>, and creates the folder.</li>
-                <li>The site now exists as an arrangement, not as anything a visitor could read.
-                    The folder is empty.</li>
-                <li>Every site on a box is filed under <strong>one account</strong>, not one account each.
-                    A Hestia account is a Linux user &mdash; 500 of them means 500 home directories and a
-                    listing that costs 501 API calls instead of 2.</li>
+                <li>Decide which domains, which niche, and which box they land on.</li>
+                <li><strong>Only owned domains.</strong> A domain that is planned, queued or merely
+                    available is not a batch member &mdash; ownership is a receipt, not an intention.</li>
+                <li>Pick the box on headroom and spread the work. Stacking one box concentrates the
+                    blast radius that running several providers was meant to avoid.</li>
+                <li>Nothing here touches a server. This phase produces a list, and a list is free to
+                    throw away.</li>
             </ul>
 
-            <h3 style="font-size:14px;margin:0 0 4px">2. Restart the web server</h3>
+            <h3 style="font-size:14px;margin:0 0 4px">2. Create all host folders &amp; verify</h3>
             <ul style="margin:0 0 16px 18px;padding:0">
-                <li>nginx read its configuration when it started and does not notice new rules on its own.</li>
-                <li><strong>Until it restarts, visitors get Hestia&rsquo;s own default page</strong> &mdash; and they
-                    get it with a <code>200 OK</code>, which is why it fools you. Nothing anywhere says
-                    <em>error</em>. Hestia will confirm the folder, and an upload will land correctly,
-                    while the site still serves the wrong thing.</li>
-                <li><code>v-rebuild-web-domains</code> does <strong>not</strong> fix it. Only a restart does.</li>
-                <li>Creating 50 sites? Restart <strong>once at the end</strong>, not fifty times.</li>
+                <li>For every domain: the nginx rule (<em>&ldquo;this domain &rarr; this folder&rdquo;</em>), the
+                    folder itself, and an FTP login locked to that folder alone.</li>
+                <li>All sites are filed under <strong>one account per box</strong>. A Hestia account is a
+                    Linux user &mdash; one each would mean 500 home directories and a listing costing 501
+                    API calls instead of 2.</li>
+                <li><strong>Restart the web server once, at the end</strong> &mdash; not once per site.
+                    nginx does not notice new rules on its own, and until it restarts it serves
+                    Hestia&rsquo;s default page with a <code>200 OK</code>. Nothing says <em>error</em>:
+                    Hestia confirms the folder and uploads land correctly while the wrong page is served.
+                    <code>v-rebuild-web-domains</code> does not fix it; only a restart does.</li>
+                <li><strong>Then verify, because this is the cheap phase.</strong> Three checks:
+                    every vhost is listed (one call for the batch); each FTP login actually connects and
+                    writes (<em>exit code 0 is not evidence</em>); and one domain fetched by
+                    <code>Host</code> header returns its own folder rather than the default page.</li>
+                <li>Seconds of work. Finding a broken box here costs nothing; finding it in phase 4 costs
+                    an hour and leaves half a batch uploaded.</li>
             </ul>
 
-            <h3 style="font-size:14px;margin:0 0 4px">3. Create a login that can write to that one folder</h3>
+            <h3 style="font-size:14px;margin:0 0 4px">3. Generate all sites</h3>
             <ul style="margin:0 0 16px 18px;padding:0">
-                <li>An FTP account locked to that site&rsquo;s folder and nothing else.</li>
-                <li>Every site gets its own, even though they share one underlying account &mdash; so a
-                    leaked credential stops at one site.</li>
-                <li><strong>Exit code 0 is not evidence the login works.</strong> Connect with it and write
-                    something; that is the only proof.</li>
+                <li>Build every site&rsquo;s static HTML locally on the factory. Nothing goes over the wire
+                    in this phase.</li>
+                <li><strong>A build failure here costs nothing.</strong> That is the entire reason it is
+                    separate from uploading &mdash; a batch that dies on site 37 should not leave 36 sites
+                    live and 14 missing.</li>
+                <li>Read the output before it leaves the building: no unresolved <code>{tokens}</code>,
+                    no placeholder phone numbers, no invented statistics.</li>
             </ul>
 
-            <h3 style="font-size:14px;margin:0 0 4px">4. Upload the site</h3>
+            <h3 style="font-size:14px;margin:0 0 4px">4. Upload all sites</h3>
             <ul style="margin:0 0 16px 18px;padding:0">
-                <li>The built HTML, CSS and images go up through that login into the folder.</li>
-                <li>This is the point where the site becomes real: nginx knows about it, and now there
-                    is something to serve.</li>
-                <li><strong>Generate everything locally first, then upload.</strong> A build that fails on
-                    site 37 should not leave 36 sites up and 14 missing.</li>
-                <li>Make the loop re-runnable &mdash; a second run should skip what already exists rather
-                    than rebuild it.</li>
+                <li>Each site goes up through its own FTP login into its own folder, so a leaked
+                    credential stops at one site.</li>
+                <li>The slow phase, and the one worth making re-runnable: a second run should skip what
+                    is already there rather than send it again.</li>
+                <li><strong>Confirm the folders are no longer empty.</strong> A vhost whose folder still
+                    holds only the two placeholder files is a site that was created and never filled &mdash;
+                    the failure that is invisible until someone visits.</li>
             </ul>
 
-            <h3 style="font-size:14px;margin:0 0 4px">5. Point the domain at the box &mdash; last</h3>
+            <h3 style="font-size:14px;margin:0 0 4px">5. Go live (point DNS)</h3>
             <ul style="margin:0 0 6px 18px;padding:0">
-                <li>Only now change DNS so the domain actually resolves here.</li>
-                <li><strong>Never let a rank-and-rent domain resolve while it is empty.</strong> If DNS goes
-                    first there is a window where Google crawls the domain and finds a blank page, and a
-                    first impression of &ldquo;empty site&rdquo; is expensive to undo.</li>
-                <li>Between steps 2 and 4 the sites are live but empty on the box. That is harmless
-                    <em>only</em> because DNS has not been pointed yet &mdash; which is the whole reason this
-                    step is last.</li>
+                <li>Only now point DNS at the box &mdash; proxied through Cloudflare, cache everything,
+                    SSL Full (strict) against an Origin CA certificate.</li>
+                <li><strong>Never let a rank-and-rent domain resolve while it is empty.</strong> DNS first
+                    means a window where Google crawls the domain and finds a blank page, and a first
+                    impression of &ldquo;empty site&rdquo; is expensive to undo.</li>
+                <li>Everything before this point is invisible from outside. The batch can sit finished
+                    but unpointed for as long as you like &mdash; which is what makes the earlier phases
+                    safe to get wrong.</li>
+                <li>Then check each site answers on its real hostname <em>and</em> that the certificate
+                    matches. Serving fine behind a bad certificate is a browser warning for every visitor.</li>
             </ul>
         </div>
     </details>
