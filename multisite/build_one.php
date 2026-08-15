@@ -265,9 +265,12 @@ if (!empty($params['ftp_host']) && !empty($params['ftp_user'])) {
         'ftp_port'    => $params['ftp_port'] ?? '',
         'ftp_user'    => $params['ftp_user'] ?? '',
         'ftp_pass'    => $params['ftp_pass'] ?? '',
-        // Default to /public_html (not the account root '/', which would clobber
-        // files above the docroot). Override per row via the ftp_path column.
-        'ftp_path'    => ($params['ftp_path'] ?? '') !== '' ? $params['ftp_path'] : '/public_html',
+        // Left unset deliberately: deploy_site() detects it after login. The
+        // right answer differs per panel — shared hosting puts you above the
+        // docroot, HestiaCP puts you in it — and a wrong guess uploads every
+        // file successfully to a directory nothing serves. Override per row
+        // with the ftp_path column when a host needs something specific.
+        'ftp_path'    => $params['ftp_path'] ?? '',
         'ftp_passive' => $params['ftp_passive'] ?? true,
     ];
     // Manifest persists per-domain OUTSIDE the ephemeral build (which is deleted).

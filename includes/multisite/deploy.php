@@ -213,6 +213,46 @@ function ms_sftp_delete_tree($sftp, string $dir, callable $log, int &$deleted, i
 }
 
 /**
+ * The absolute remote directory this login should upload into.
+ *
+ * Asked, not assumed, because the two hosts in this estate disagree and both
+ * failure modes are silent:
+ *
+ *   shared hosting — the login STARTS in the docroot (pwd = /public_html), so
+ *     the answer is simply where you landed
+ *   HestiaCP       — the login starts at / with the docroot one level down at
+ *     /home/<ftp_user>, because the per-domain FTP account is jailed to a root
+ *     that merely contains it
+ *
+ * Uploading to '/' on the first scatters the site above the docroot; uploading
+ * to '/public_html' on the second creates a directory nginx never reads. Both
+ * transfer every file and report a clean deploy.
+ *
+ * Returns an absolute path with no trailing slash.
+ */
+function ms_detect_remote_path($conn, string $user = ''): string
+{
+    $pwd = (string) @ftp_pwd($conn);
+    if ($pwd !== '' && $pwd !== '/') return rtrim($pwd, '/');   // already in the docroot
+
+    // Landed at the jail root. Prefer the login's own directory under /home,
+    // which is what Hestia's per-domain FTP accounts give you.
+    foreach ([$user, ''] as $candidate) {
+        if ($candidate === '') break;
+        if (@ftp_chdir($conn, '/home/' . $candidate)) {
+            $p = rtrim((string) @ftp_pwd($conn), '/');
+            @ftp_chdir($conn, '/');
+            if ($p !== '' && $p !== '/') return $p;
+        }
+    }
+    // Otherwise fall back to the classic docroot names one level down.
+    foreach (['public_html', 'httpdocs'] as $d) {
+        if (@ftp_chdir($conn, '/' . $d)) { @ftp_chdir($conn, '/'); return '/' . $d; }
+    }
+    return '';   // nothing better to say: upload where you landed
+}
+
+/**
  * Deploy a built static site over FTP or SFTP.
  *
  * @param array  $ftp          host, port, user, pass, path, passive, protocol ('ftp'|'sftp').
@@ -228,7 +268,16 @@ function deploy_site(array $ftp, string $outputBase, string $manifestFile, bool 
     if ($port < 1) $port = ($protocol === 'sftp' ? 22 : 21);
     $user     = $ftp['ftp_user'] ?? '';
     $pass     = $ftp['ftp_pass'] ?? '';
-    $path     = rtrim($ftp['ftp_path'] ?? '/public_html', '/');
+    // An explicit path is obeyed exactly. Left unset, it is DETECTED after login
+    // rather than guessed, because the right answer differs per panel and being
+    // wrong is silent in both directions:
+    //   shared hosting / Plesk — the login lands ABOVE the docroot, so uploading
+    //     to '/' scatters the site next to it and serves nothing
+    //   HestiaCP — the login lands IN the docroot, so uploading to '/public_html'
+    //     creates a folder nginx never reads. Every file transfers, nothing serves.
+    // Both report a clean, successful deploy. See ms_detect_remote_path().
+    $pathGiven = trim((string) ($ftp['ftp_path'] ?? ''));
+    $path      = $pathGiven !== '' ? rtrim($pathGiven, '/') : null;
     $passive  = !empty($ftp['ftp_passive']);
 
     $protoLabel = strtoupper($protocol);
@@ -282,6 +331,13 @@ function deploy_site(array $ftp, string $outputBase, string $manifestFile, bool 
 
     if ($protocol === 'sftp') {
         // ── Upload over SFTP (phpseclib) ────────────────────────────────────────
+        // SFTP has no cheap pre-login probe here, so fall back to the historic
+        // default rather than inventing a second detection path. Set ftp_path
+        // explicitly for SFTP endpoints.
+        if ($path === null) {
+            $path = '/public_html';
+            progress_log("Upload path not set — using '/public_html' (SFTP does not auto-detect; set ftp_path if this host differs).", 'warn');
+        }
         $ok = ms_sftp_upload_all($host, $port, $user, $pass, $path, $toUpload, $ftpTotal, $newManifest, $uploaded, $failed);
         if (!$ok) {
             return ['status' => 'fatal', 'uploaded' => $uploaded, 'failed' => $failed, 'msg' => 'SFTP connection failed.'];
@@ -311,6 +367,11 @@ function deploy_site(array $ftp, string $outputBase, string $manifestFile, bool 
         }
 
         progress_log('Connected.');
+
+        if ($path === null) {
+            $path = ms_detect_remote_path($conn, $user);
+            progress_log("Upload path not set — detected '" . ($path === '' ? '/' : $path) . "'.");
+        }
 
         // ── Upload files ────────────────────────────────────────────────────────
         $createdDirs = [];
