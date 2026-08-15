@@ -1,7 +1,7 @@
 <?php
 /* ============================================================
    SHORTCODE SYSTEM
-   Tokens: {city} {state} {SS} {city_state} {city_slug} {business} {phone} {email} {zip} {website} {business_domain} {rating} {review_count} {primary_keyword} {service} {city_image} {city_image_alt} {city_image_credit}
+   Tokens: {city} {state} {SS} {city_state} {city_slug} {business} {phone} {email} {zip} {website} {business_domain} {rating} {review_count} {primary_keyword} {service} {city_image} {city_image_alt} {city_image_credit} {built_at}
    Values stored in $data['site_vars']. Applied at render time.
    {city_image}* tokens are populated by the City Image plugin (plugins/city-image).
    {primary_keyword}/{service} are PER-PAGE — read from $GLOBALS['_page_primary_keyword'],
@@ -41,13 +41,19 @@ function resolve_shortcodes(string $text): string {
     // site_vars.city_spotlight (see generate.py generate_site_spotlight). Every page's
     // Map+Info block reuses it via this token, so it never runs per page.
     $city_spotlight = $v['city_spotlight'] ?? '';
+    // {built_at} — when this HTML was produced. For a static build, render time IS
+    // build time, so a page carrying this token proves which build you are looking
+    // at. Worth having because the recurring failure here is not a broken page but
+    // a stale one: an old build still being served while the JSON says otherwise,
+    // which looks identical to a deploy that never ran.
+    $built_at = gmdate('Y-m-d H:i') . ' UTC';
     $map = [
         '{city}' => $city, '{state}' => $state, '{SS}' => $SS, '{city_state}' => $city_state,
         '{city_slug}' => $city_slug, '{business}' => $business, '{phone}' => $phone, '{tel}' => $tel,
         '{zip}' => $zip, '{website}' => $website, '{business_domain}' => $business_domain, '{email}' => $email,
         '{rating}' => $rating, '{review_count}' => $review_count, '{address}' => $address,
         '{lat}' => $lat, '{lng}' => $lng, '{primary_keyword}' => $primary_keyword, '{service}' => $primary_keyword,
-        '{city_spotlight}' => $city_spotlight,
+        '{city_spotlight}' => $city_spotlight, '{built_at}' => $built_at,
     ];
     // Plugins may contribute their own tokens (e.g. City Image plugin adds {city_image}*).
     // Guard on hook presence so the hot path pays nothing when no plugin registers tokens.

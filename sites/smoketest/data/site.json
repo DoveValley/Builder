@@ -1,0 +1,132 @@
+{
+    "theme": {
+        "header_bg": "#ffffff",
+        "header_top_bg": "#ffffff",
+        "header_text": "#000000",
+        "content_bg": "#ffffff",
+        "content_text": "#000000",
+        "heading_color": "#000000",
+        "footer_bg": "#ffffff",
+        "footer_text": "#000000",
+        "accent_color": "#2563eb",
+        "accent2_color": "#f5a623",
+        "btn_text": "#ffffff",
+        "border_color": "#e5e7eb",
+        "primary_font": "sans-serif",
+        "heading_font": "",
+        "font_size_body": "16",
+        "font_size_h1": "2.5",
+        "font_size_h2": "2",
+        "font_size_h3": "1.75",
+        "font_size_h4": "1.5",
+        "button_radius": "4",
+        "analytics_head": "",
+        "facebook_pixel": "",
+        "skins": {
+            "light": {
+                "bg": "#ffffff",
+                "heading": "#1a2e5a",
+                "text": "#555e6d"
+            },
+            "dark": {
+                "bg": "#0d1f3c",
+                "heading": "#ffffff",
+                "text": "#e2e8f0"
+            },
+            "accent": {
+                "bg": "#2563eb",
+                "heading": "#ffffff",
+                "text": "#dbeafe"
+            },
+            "subtle": {
+                "bg": "#f8fafc",
+                "heading": "#1a2e5a",
+                "text": "#555e6d"
+            }
+        }
+    },
+    "header": {
+        "logo": "",
+        "logo_max_height": "56",
+        "favicon": "",
+        "phone": "{phone}",
+        "city": "",
+        "nav_bg": "#fd783b",
+        "nav_text": "#ffffff",
+        "phone_btn_style": "outline",
+        "phone_label": "",
+        "show_sponsored": false,
+        "cta_text": "",
+        "cta_url": "",
+        "sticky": true,
+        "info_items": [],
+        "topbar_text": "",
+        "topbar_link": "",
+        "menu": [],
+        "socials": [],
+        "site_name": "{business}"
+    },
+    "content_blocks": [
+        {
+            "type": "custom_html",
+            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\">\n  <div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#f8fafc;padding:96px 0;min-height:70vh;display:flex;align-items:center;justify-content:center;\">\n    <div style=\"max-width:720px;margin:0 auto;padding:0 24px;text-align:center;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;\">\n\n      <svg width=\"132\" height=\"132\" viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"Smiling face\" style=\"display:block;margin:0 auto 28px;\">\n        <circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#fde047\" stroke=\"#111827\" stroke-width=\"4\"/>\n        <circle cx=\"35\" cy=\"40\" r=\"6\" fill=\"#111827\"/>\n        <circle cx=\"65\" cy=\"40\" r=\"6\" fill=\"#111827\"/>\n        <path d=\"M28 60 Q50 82 72 60\" fill=\"none\" stroke=\"#111827\" stroke-width=\"5\" stroke-linecap=\"round\"/>\n      </svg>\n\n      <p style=\"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1.9rem;font-weight:700;color:#111827;margin:0 0 6px;word-break:break-all;\">{business_domain}</p>\n      <p style=\"font-size:1.05rem;color:#374151;margin:0 0 2px;\">{business}</p>\n      <p style=\"font-size:.95rem;color:#6b7280;margin:0 0 28px;\">{city_state}</p>\n\n      <div style=\"display:inline-block;text-align:left;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px 18px;font-size:.8rem;color:#6b7280;line-height:1.9;\">\n        <div>built <strong style=\"color:#111827;\">{built_at}</strong></div>\n        <div>phone <strong style=\"color:#111827;\">{phone}</strong> &middot; email <strong style=\"color:#111827;\">{email}</strong></div>\n      </div>\n\n      <p style=\"font-size:.75rem;color:#9ca3af;margin:26px 0 0;\">\n        Pipeline smoke test. If you can read this, the vhost, the upload and the token\n        substitution all worked &mdash; and the domain above proves this content reached\n        the folder it was meant for.\n      </p>\n    </div>\n  </div>\n</div>"
+        }
+    ],
+    "seo": {
+        "primary_keyword": "",
+        "secondary_keywords": "",
+        "meta_keywords": "",
+        "meta_description": "Pipeline smoke test page.",
+        "og_title": "",
+        "og_description": "",
+        "og_image": "",
+        "schema": "",
+        "title": "Smoke test — {business_domain}",
+        "robots": "noindex,nofollow"
+    },
+    "breadcrumbs": {
+        "enabled": true,
+        "hero_bg_mode": "auto",
+        "hero_bg_color": ""
+    },
+    "local_business": {
+        "lb_name": "",
+        "lb_url": "",
+        "lb_rating": "",
+        "lb_review_count": ""
+    },
+    "site_vars": {
+        "business": "Smoke Test",
+        "phone": "555-000-0000",
+        "tel": "tel:+15551234567",
+        "email": "test@example.com",
+        "website": "https://smoketest.example",
+        "city": "Nowhere",
+        "state": "Testing",
+        "SS": "TS",
+        "city_slug": "your-city-st",
+        "zip": "00000"
+    },
+    "footer": {
+        "logo": "",
+        "logo_in_copyright_bar": false,
+        "phone": "{phone}",
+        "col_count": 3,
+        "disclaimer": "",
+        "sticky_bar_text": "",
+        "sticky_bar_info": "",
+        "socials": [],
+        "columns": [],
+        "copyright": "&copy; {year} {business}",
+        "bottom_links": [],
+        "email": "{email}"
+    },
+    "pages": [],
+    "posts": [],
+    "blog_settings": {
+        "blog_heading": "Pest Control Tips & News for {city}",
+        "blog_intro": "",
+        "posts_per_page": 9
+    },
+    "popups": []
+}
