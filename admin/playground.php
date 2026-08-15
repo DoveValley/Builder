@@ -169,19 +169,23 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
         // here is a short set of instructions, and making it readable in the page
         // saves a round trip through the Downloads folder.
         $dlText = ['txt','md','markdown','csv','tsv','json','xml','yaml','yml','log','sh','conf','pub'];
+        // Images shown inline too. A screenshot offered only as a download is a
+        // file you have to save before you can find out whether you wanted it.
+        $dlImg  = ['png','jpg','jpeg','gif','webp','svg'];
         if (!$dlFiles): ?>
         <p class="note">Nothing here yet. Files Claude leaves in <code>uploads/downloads/</code> will appear in this spot.</p>
         <?php else: foreach ($dlFiles as $df):
             $dn   = basename($df);
             $dext = strtolower(pathinfo($dn, PATHINFO_EXTENSION));
             $dIsText = in_array($dext, $dlText, true);
+            $dIsImg  = in_array($dext, $dlImg,  true);
             $dSize = filesize($df);
             $dHuman = $dSize < 1024 ? $dSize . ' B' : ($dSize < 1048576
                 ? round($dSize / 1024, 1) . ' KB' : round($dSize / 1048576, 1) . ' MB');
         ?>
         <div style="max-width:820px;margin-bottom:22px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
-                <span style="font-size:1.2rem;"><?= $dIsText ? '📄' : '📦' ?></span>
+                <span style="font-size:1.2rem;"><?= $dIsText ? '📄' : ($dIsImg ? '🖼' : '📦') ?></span>
                 <strong style="color:#1e3a5f;font-family:monospace;font-size:.88rem;"><?= $h($dn) ?></strong>
                 <span class="note" style="margin-left:auto;"><?= $h($dHuman) ?> · <?= $h(date('j M Y, H:i', filemtime($df))) ?></span>
                 <?php if ($dIsText): ?>
@@ -190,7 +194,12 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
                 <a href="/uploads/downloads/<?= rawurlencode($dn) ?>" target="_blank" style="background:#0ea5e9;color:#fff;border-radius:6px;padding:6px 14px;font-weight:600;text-decoration:none;">Open</a>
                 <a href="/uploads/downloads/<?= rawurlencode($dn) ?>" download style="background:#16a34a;color:#fff;border-radius:6px;padding:6px 14px;font-weight:600;text-decoration:none;">Download</a>
             </div>
-            <?php if ($dIsText): ?>
+            <?php if ($dIsImg): ?>
+            <a href="/uploads/downloads/<?= rawurlencode($dn) ?>" target="_blank">
+                <img src="/uploads/downloads/<?= rawurlencode($dn) ?>" alt="<?= $h($dn) ?>"
+                     style="display:block;max-width:100%;border:1px solid #eef2f7;border-radius:8px;background:#f8fafc;">
+            </a>
+            <?php elseif ($dIsText): ?>
             <pre class="dl-body" style="white-space:pre-wrap;font-family:monospace;font-size:.78rem;line-height:1.55;color:#334155;background:#f8fafc;border:1px solid #eef2f7;border-radius:8px;padding:14px;max-height:520px;overflow:auto;margin:0;"><?= $h((string) file_get_contents($df)) ?></pre>
             <?php endif; ?>
         </div>
