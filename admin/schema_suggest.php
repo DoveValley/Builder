@@ -30,9 +30,9 @@ if (!in_array($scope, $validScopes, true)) { echo json_encode(['error' => 'Unkno
 if ($prompt === '') { $prompt = schema_prompt_get(schema_scope_key($scope, $coreType)); }
 if ($prompt === '' || mb_strlen($prompt) > 8000) { echo json_encode(['error' => 'Prompt is empty or too long.']); exit; }
 
-$apiKey = defined('ANTHROPIC_API_KEY') ? ANTHROPIC_API_KEY : '';
-if ($apiKey === '') { echo json_encode(['error' => 'ANTHROPIC_API_KEY is not configured (Admin → AI, or config.php).']); exit; }
-if (!function_exists('curl_init')) { echo json_encode(['error' => 'PHP cURL extension is not available.']); exit; }
+require_once __DIR__ . '/../includes/anthropic.php';
+$ready = anthropic_ready();
+if (!$ready['ok']) { echo json_encode(['error' => $ready['error']]); exit; }
 
 // ── Server-side context: business identity is passed as GUIDANCE only, so the
 // model keeps using {shortcodes} in its output rather than hard-coding values. ──
@@ -73,37 +73,12 @@ if ($scope === 'template') {
 
 $fullPrompt = $prompt . "\n\n" . implode("\n", $lines) . schema_prompt_shared_rules();
 
-$payload = json_encode([
-    'model'      => 'claude-sonnet-5',
-    'max_tokens' => 2000,
-    'messages'   => [['role' => 'user', 'content' => $fullPrompt]],
-], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-
-$ch = curl_init('https://api.anthropic.com/v1/messages');
-curl_setopt_array($ch, [
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_POST           => true,
-    CURLOPT_HTTPHEADER     => [
-        'x-api-key: ' . $apiKey,
-        'anthropic-version: 2023-06-01',
-        'content-type: application/json',
-    ],
-    CURLOPT_POSTFIELDS => $payload,
-    CURLOPT_TIMEOUT    => 60,
-]);
-$resp     = curl_exec($ch);
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-$curlErr  = curl_error($ch);
-curl_close($ch);
-
-if ($resp === false) { echo json_encode(['error' => 'Request failed: ' . $curlErr]); exit; }
-$j = json_decode($resp, true);
-if ($httpCode !== 200 || !is_array($j)) {
-    echo json_encode(['error' => $j['error']['message'] ?? ('API error (' . $httpCode . ').')]); exit;
-}
-
-$text = '';
-foreach (($j['content'] ?? []) as $block) { if (($block['type'] ?? '') === 'text') $text .= $block['text']; }
+// SMART tier: schema output is long and has to be structurally right, unlike the
+// short list work elsewhere. The tier is named rather than pinned to a version
+// string, so a model change happens in includes/anthropic.php.
+$r = anthropic_message($fullPrompt, ['model' => ANTHROPIC_SMART, 'max_tokens' => 2000, 'timeout' => 60]);
+if (!$r['ok']) { echo json_encode(['error' => $r['error']]); exit; }
+$text = $r['text'];
 $text = trim($text);
 
 // Strip accidental ``` / ```json fences.

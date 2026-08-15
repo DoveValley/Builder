@@ -15,9 +15,9 @@ if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) { h
 $primary = trim($_POST['primary_keyword'] ?? '');
 if ($primary === '' || mb_strlen($primary) > 120) { echo json_encode(['error' => 'Enter a primary keyword first.']); exit; }
 
-$apiKey = defined('ANTHROPIC_API_KEY') ? ANTHROPIC_API_KEY : '';
-if ($apiKey === '') { echo json_encode(['error' => 'ANTHROPIC_API_KEY is not configured (Admin → AI, or config.php).']); exit; }
-if (!function_exists('curl_init')) { echo json_encode(['error' => 'PHP cURL extension is not available.']); exit; }
+require_once __DIR__ . '/../includes/anthropic.php';
+$ready = anthropic_ready();
+if (!$ready['ok']) { echo json_encode(['error' => $ready['error']]); exit; }
 
 // Business context from the active site (keywords stay location-free).
 $business = '';
@@ -29,37 +29,9 @@ $prompt = "List 6-10 secondary SEO keywords closely related to the primary keywo
         . "Keep them LOCATION-FREE — do not include any city, state, or region name. "
         . "Return ONLY a single comma-separated line, lowercase, no numbering, no quotes, no other text.";
 
-$payload = json_encode([
-    'model'      => 'claude-haiku-4-5-20251001',
-    'max_tokens' => 200,
-    'messages'   => [['role' => 'user', 'content' => $prompt]],
-], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-
-$ch = curl_init('https://api.anthropic.com/v1/messages');
-curl_setopt_array($ch, [
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_POST           => true,
-    CURLOPT_HTTPHEADER     => [
-        'x-api-key: ' . $apiKey,
-        'anthropic-version: 2023-06-01',
-        'content-type: application/json',
-    ],
-    CURLOPT_POSTFIELDS => $payload,
-    CURLOPT_TIMEOUT    => 30,
-]);
-$resp     = curl_exec($ch);
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-$curlErr  = curl_error($ch);
-curl_close($ch);
-
-if ($resp === false) { echo json_encode(['error' => 'Request failed: ' . $curlErr]); exit; }
-$j = json_decode($resp, true);
-if ($httpCode !== 200 || !is_array($j)) {
-    echo json_encode(['error' => $j['error']['message'] ?? ('API error (' . $httpCode . ').')]); exit;
-}
-
-$text = '';
-foreach (($j['content'] ?? []) as $block) { if (($block['type'] ?? '') === 'text') $text .= $block['text']; }
+$r = anthropic_message($prompt, ['model' => ANTHROPIC_FAST, 'max_tokens' => 200, 'timeout' => 30]);
+if (!$r['ok']) { echo json_encode(['error' => $r['error']]); exit; }
+$text = $r['text'];
 
 // Normalize model output → clean, deduped comma list.
 $out = []; $seen = [];

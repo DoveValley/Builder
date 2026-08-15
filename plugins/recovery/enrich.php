@@ -9,79 +9,31 @@
  */
 
 require_once __DIR__ . '/data.php';
+require_once __DIR__ . '/../../includes/anthropic.php';
 
-/** Raw Anthropic messages call. Returns text, '__RATE__' on 429, or null on failure. */
+/**
+ * One Anthropic call. Thin wrapper over includes/anthropic.php — the contract here is
+ * unchanged (text, '__RATE__' on rate limit, null on failure) so every caller below is
+ * untouched; only the transport moved.
+ */
 function recovery_ai_call(string $prompt, int $maxTokens = 1500): ?string {
-    $key = defined('ANTHROPIC_API_KEY') ? ANTHROPIC_API_KEY : '';
-    if ($key === '') return null;
-    $body = json_encode([
-        'model'      => 'claude-haiku-4-5-20251001',
-        'max_tokens' => $maxTokens,
-        'messages'   => [['role' => 'user', 'content' => $prompt]],
-    ]);
-    $ch = curl_init('https://api.anthropic.com/v1/messages');
-    curl_setopt_array($ch, [
-        CURLOPT_POST           => true,
-        CURLOPT_POSTFIELDS     => $body,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_TIMEOUT        => 90,
-        CURLOPT_HTTPHEADER     => [
-            'content-type: application/json',
-            'x-api-key: ' . $key,
-            'anthropic-version: 2023-06-01',
-        ],
-    ]);
-    $resp = curl_exec($ch);
-    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
-    if ($resp === false) return null;
-    if ($code === 429 || $code === 529) return '__RATE__';
-    if ($code !== 200) return null;
-    $j = json_decode($resp, true);
-    return $j['content'][0]['text'] ?? null;
+    $r = anthropic_message($prompt, ['model' => ANTHROPIC_FAST, 'max_tokens' => $maxTokens, 'timeout' => 90]);
+    if (!empty($r['rate_limited'])) return ANTHROPIC_RATE;
+    return $r['ok'] ? ($r['text'] !== '' ? $r['text'] : null) : null;
 }
 
 /**
- * Concurrent Anthropic calls via curl_multi. $prompts = [key => promptString].
- * Returns [key => text | '__RATE__' | null], running at most $conc requests at once.
- * Single process → single writer for callers (no file race). Used by the parallel
- * enrichment runner; the sequential recovery_ai_call() is still used for smoke tests.
+ * Concurrent calls. $prompts = [key => promptString], at most $conc at a time.
+ * Returns [key => text | '__RATE__' | null] — same shape as before.
+ *
+ * Single process → single writer for callers (no file race). The sequential
+ * recovery_ai_call() above is still used for smoke tests.
  */
 function recovery_ai_call_many(array $prompts, int $conc = 6, int $maxTokens = 1900): array {
-    $key = defined('ANTHROPIC_API_KEY') ? ANTHROPIC_API_KEY : '';
-    if ($key === '') return array_fill_keys(array_keys($prompts), null);
-    $items = [];
-    foreach ($prompts as $k => $p) $items[] = [$k, $p];
-    $n = count($items); $i = 0; $out = [];
-    $hdr = ['content-type: application/json', 'x-api-key: ' . $key, 'anthropic-version: 2023-06-01'];
-    while ($i < $n) {
-        $mh = curl_multi_init();
-        $batch = [];
-        for ($c = 0; $c < $conc && $i < $n; $c++, $i++) {
-            [$k, $p] = $items[$i];
-            $ch = curl_init('https://api.anthropic.com/v1/messages');
-            curl_setopt_array($ch, [
-                CURLOPT_POST           => true,
-                CURLOPT_POSTFIELDS     => json_encode(['model' => 'claude-haiku-4-5-20251001', 'max_tokens' => $maxTokens, 'messages' => [['role' => 'user', 'content' => $p]]]),
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_TIMEOUT        => 120,
-                CURLOPT_HTTPHEADER     => $hdr,
-            ]);
-            curl_multi_add_handle($mh, $ch);
-            $batch[$k] = $ch;
-        }
-        do { $st = curl_multi_exec($mh, $running); if ($running) curl_multi_select($mh, 1.0); } while ($running && $st === CURLM_OK);
-        foreach ($batch as $k => $ch) {
-            $resp = curl_multi_getcontent($ch);
-            $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            curl_multi_remove_handle($mh, $ch); curl_close($ch);
-            if ($code === 429 || $code === 529)      $out[$k] = '__RATE__';
-            elseif ($code !== 200 || $resp === false) $out[$k] = null;
-            else { $j = json_decode($resp, true); $out[$k] = $j['content'][0]['text'] ?? null; }
-        }
-        curl_multi_close($mh);
-    }
-    return $out;
+    return anthropic_message_many($prompts, [
+        'model' => ANTHROPIC_FAST, 'max_tokens' => $maxTokens,
+        'timeout' => 120, 'concurrency' => $conc,
+    ]);
 }
 
 /** Parse+normalize a batch of intersection replies. $texts = [key => text|__RATE__|null]. */
