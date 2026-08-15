@@ -275,6 +275,29 @@ Then screenshot it directly: `http://localhost:PORT/granitepmacademy preview.php
 
 `site-template.php` builds two separate breadcrumb arrays whenever `$slug` is set: `$bcItems` (relative URLs, used by the visible `<nav class="breadcrumb-bar">`) and `$bcSchemaItems` (absolute URLs, used only for the `BreadcrumbList` JSON-LD, since schema.org requires absolute URLs there). Keep these separate — reusing one absolute-URL array for both was a past bug that sent visible breadcrumb clicks off-site.
 
+## API calls: one module per service, reused everywhere
+
+**Every call to an outside service goes through a single module for that service. No page, action handler or plugin talks to an API directly.** When something needs a service that has no module yet, write the module — do not inline "just this once".
+
+Existing clients, one per service:
+
+| Service | Module |
+|---|---|
+| HestiaCP | `admin/infra/lib/hestia.php` (client) + `hestia_fleet.php` (registry, discovery, fleet-wide reads) |
+| Cloudflare | `admin/infra/lib/cloudflare.php` |
+| Registrars | `admin/infra/lib/registrar.php` |
+| Keyword/SERP providers | `admin/infra/lib/keywords.php`, `lib/serp.php` |
+| Uptime checks | `admin/infra/lib/uptime.php` |
+| Shared HTTP + call counting | `admin/infra/lib/http.php` |
+| FTP/SFTP upload | `includes/multisite/deploy.php` |
+| Geocoding | `includes/multisite/geocode.php` |
+
+**Why, from this codebase.** Five places each ran their own "list the boxes, discover each, dig out the facts" loop and dug slightly differently — one counted the panel's own hostname vhost as a deployed site, so eight empty boxes reported eight sites. One `infra_hestia_fleet()` fixed every consumer at once. The same is still true of Anthropic: `admin/keyword_suggest.php`, `admin/schema_suggest.php` and `plugins/recovery/enrich.php` each hand-roll the API and have already drifted to different models. **Duplicated clients do not stay duplicates; they become different.**
+
+What a service module owns, so callers never repeat it: base URL and auth, retry/timeout, error shape, response parsing, and any rule about the data (e.g. "the box's own hostname vhost is not a site" lives in `hestia_is_infra_vhost()`, not in three pages).
+
+Cross-boundary note: `admin/infra/lib/*` is deliberately self-contained, so other parts of the panel may `require_once` a lib directly. Do **not** require `admin/infra/bootstrap.php` from outside the console — it redirects when it cannot see a session, which turns a JSON endpoint into a 302.
+
 ## Security notes
 
 - **All admin POST endpoints require CSRF tokens.** `admin/save.php`, `admin/media_api.php`, and `admin/schedule_save.php` all check `$_SESSION['csrf_token']` against a `csrf_token` field on every POST via `hash_equals()`. If you add a new POST endpoint, give it the same check.
