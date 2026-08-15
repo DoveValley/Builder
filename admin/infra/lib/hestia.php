@@ -15,11 +15,17 @@
  *
  * TRANSPORT NOTE — this is not REST. Hestia's API is a form-encoded POST to a
  * single endpoint that runs one shell utility: cmd=v-add-web-domain plus
- * positional arg1..arg9. There is no resource model, no status codes that mean
- * anything (everything is HTTP 200), and no JSON except where a v-list-*
- * command is explicitly asked for `json` as its format argument. Success or
- * failure comes back as a BARE NUMBER in the response body. So every call here
- * has to interpret an exit code, which is why hestia_err() exists.
+ * positional arg1..arg9. There is no resource model, and no JSON except where a
+ * v-list-* command is explicitly asked for `json` as its format argument.
+ * Success or failure comes back as a BARE NUMBER in the response body. So every
+ * call here has to interpret an exit code, which is why hestia_err() exists.
+ *
+ * On status codes, corrected 2026-08-15 against a live 1.9 box: this version DOES
+ * map exit codes onto real HTTP codes (401 for a rejected key), so a non-200 is
+ * not automatically a transport failure and the body is still worth reading. But
+ * it is not reliable either — an API that is switched off, or a caller whose IP
+ * is not allowed, still answers 200 with the body "Error". Both shapes have to
+ * be handled, and the BODY is the more trustworthy of the two.
  *
  * Self-contained: no dependency on any factory code.
  */
@@ -62,7 +68,13 @@ function hestia_auth(array $server): array
 {
     $ak = trim((string) ($server['access_key'] ?? ''));
     $sk = trim((string) ($server['secret_key'] ?? ''));
-    if ($ak !== '' && $sk !== '') return ['hash' => $ak . ':' . $sk];
+    // SEPARATE FIELDS, not hash="<key>:<secret>". Sending the pair joined into
+    // hash falls through to the legacy user/password branch, which can never
+    // match an access key, and every call fails as "authentication failed" —
+    // a wrong-credentials message for what is really a wrong-format request.
+    // Verified live: access_key/secret_key gets "invalid access_key_id format",
+    // i.e. the field names are recognised and the value is being validated.
+    if ($ak !== '' && $sk !== '') return ['access_key' => $ak, 'secret_key' => $sk];
 
     $hash = trim((string) ($server['api_hash'] ?? ''));
     if ($hash !== '') return ['hash' => $hash];
@@ -103,7 +115,20 @@ function hestia_api(array $server, string $cmd, array $args = [], bool $returnco
     $raw = trim($r['raw']);
 
     if ($r['error'] !== '' || $r['code'] !== 200) {
+        // Prefer whatever Hestia SAID over the status code it said it with. This
+        // version does set real codes (401 on a rejected key), and reporting a
+        // bare "HTTP 401" throws away the one line that explains it — the panel
+        // showed "HTTP 401" for a request whose body read "invalid access_key_id
+        // format", which is a formatting bug wearing a credentials error's face.
         $msg = $r['error'] !== '' ? $r['error'] : ('HTTP ' . $r['code']);
+        if (stripos($raw, 'error') === 0) {
+            $msg = rtrim(preg_replace('/\s+/', ' ', $raw)) . ' (HTTP ' . $r['code'] . ')';
+            // Hestia is strict about key SHAPE before it ever checks validity.
+            if (stripos($raw, 'access_key_id format') !== false) {
+                $msg .= ' — an access key is exactly 20 characters and its secret exactly 40;'
+                      . ' check for a truncated paste or a swapped pair.';
+            }
+        }
         return ['ok' => false, 'code' => -1, 'raw' => $raw, 'json' => null, 'message' => $msg];
     }
 

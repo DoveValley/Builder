@@ -271,10 +271,37 @@ echo "  teardown " . ($keep ? 'DISABLED (--keep)' : 'enabled') . "\n\n";
 
 echo "API\n";
 
-check('API reachable and authenticated', function () use ($server) {
+$apiOk = check('API reachable and authenticated', function () use ($server) {
     $p = hestia_probe($server);
     return ['ok' => $p['ok'], 'note' => $p['ok'] ? '' : $p['error']];
 });
+
+/*
+ * STOP HERE if the credentials were refused. Every later check would make its
+ * own request with the same bad key, and Hestia runs fail2ban on port 8083 —
+ * a full run against a wrong key is ~30 failed logins in a few seconds, which
+ * bans this factory from the panel and turns a fixable credentials problem into
+ * an unreachable box. Learned the hard way on 2026-08-15, and previously on the
+ * Plesk box's plesk-panel jail.
+ *
+ * A connection failure is NOT treated this way: that is where an existing ban
+ * already shows up, and saying so is more useful than silence.
+ */
+if (!$apiOk) {
+    $why = hestia_probe($server)['error'] ?? '';
+    echo "\n" . str_repeat('─', 78) . "\n";
+    if (stripos($why, 'connect') !== false || stripos($why, 'timed out') !== false) {
+        echo "  Port {$server['port']} did not answer at all.\n\n"
+           . "  If it answered earlier, this factory is probably fail2ban-banned. On the box:\n"
+           . "      fail2ban-client unban 187.127.254.206\n"
+           . "  and add 187.127.254.206 to ignoreip in /etc/fail2ban/jail.local to stop it recurring.\n\n";
+    } else {
+        echo "  Stopped after the first check: {$why}\n\n"
+           . "  The remaining 37 checks would each retry the same rejected credentials, and\n"
+           . "  Hestia bans repeated failures on port {$server['port']}. Fix the key first.\n\n";
+    }
+    exit(1);
+}
 
 check('Server identifies itself (version)', function () use ($server) {
     $i = hestia_server_info($server);
