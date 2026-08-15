@@ -176,6 +176,53 @@ function probe_ftp_list(array $s): array
 }
 
 /**
+ * Raw FTP verbs (RNFR/RNTO, DELE, MKD, RMD, SITE CHMOD) that have no dedicated
+ * curl option. They run as QUOTE commands before the transfer, so the URL is
+ * just something to connect to — the commands are the payload.
+ *
+ * curl reports a failed QUOTE as a failed transfer, which is what we want: a
+ * server that silently ignores an unsupported verb must not read as a pass.
+ */
+function probe_ftp_quote(array $s, array $cmds, string $path = '/'): array
+{
+    $ch = curl_init();
+    curl_setopt_array($ch, [
+        CURLOPT_URL            => 'ftp://' . $s['host'] . '/' . ltrim($path, '/'),
+        CURLOPT_USERPWD        => $s['ftp_user'] . ':' . $s['ftp_pass'],
+        CURLOPT_QUOTE          => array_values($cmds),
+        CURLOPT_NOBODY         => true,
+        CURLOPT_CONNECTTIMEOUT => 15,
+        CURLOPT_TIMEOUT        => 30,
+        CURLOPT_RETURNTRANSFER => true,
+    ]);
+    $ok  = curl_exec($ch) !== false;
+    $err = curl_error($ch);
+    curl_close($ch);
+    return ['ok' => $ok, 'error' => $err];
+}
+
+/** True if $name appears in the site's FTP listing. */
+function probe_ftp_has(array $s, string $name, string $path = '/'): bool
+{
+    $ch = curl_init();
+    curl_setopt_array($ch, [
+        CURLOPT_URL            => 'ftp://' . $s['host'] . '/' . ltrim($path, '/'),
+        CURLOPT_USERPWD        => $s['ftp_user'] . ':' . $s['ftp_pass'],
+        CURLOPT_FTPLISTONLY    => true,
+        CURLOPT_CONNECTTIMEOUT => 15,
+        CURLOPT_TIMEOUT        => 30,
+        CURLOPT_RETURNTRANSFER => true,
+    ]);
+    $out = curl_exec($ch);
+    curl_close($ch);
+    if (!is_string($out)) return false;
+    foreach (preg_split('/\r?\n/', trim($out)) as $line) {
+        if (trim($line) === $name) return true;
+    }
+    return false;
+}
+
+/**
  * Fetch a URL forcing the domain to resolve to the probe box, so the test does
  * not depend on public DNS having propagated. Returns cert subject too.
  */
@@ -204,6 +251,10 @@ function fetch(string $scheme, string $domain, string $ip, string $path = '/'): 
         'code'    => $code,
         'body'    => is_string($body) ? $body : '',
         'subject' => $info['certinfo'][0]['Subject'] ?? '',
+        // Serial distinguishes one cert from its replacement when both have the
+        // same CN — which is exactly the case when testing a renewal.
+        'serial'  => $info['certinfo'][0]['Serial Number'] ?? ($info['certinfo'][0]['Serial'] ?? ''),
+        'issuer'  => $info['certinfo'][0]['Issuer'] ?? '',
         'error'   => $err,
     ];
 }
@@ -287,6 +338,96 @@ check('Cost of listing the whole server', function () use ($server) {
     )];
 });
 
+echo "\nAccount lifecycle\n";
+
+/*
+ * Everything in this section runs against a THROWAWAY account, never the fleet
+ * account. v-delete-user is the one destructive verb Hestia has — under the
+ * one-user-per-server model it would take every site on the box — so the only
+ * safe way to test it is on an account that owns nothing. The name is randomised
+ * and the account is removed at the end of the section, pass or fail.
+ */
+$acct     = 'pr' . bin2hex(random_bytes(3));   // <=30 chars, starts alpha
+$acctPass = bin2hex(random_bytes(10)) . 'Aa1!';
+$acctMade = false;
+
+$acctMade = check('Create a throwaway account', function () use ($server, $acct, $acctPass) {
+    $email = $server['contact_email'] ?: ('probe@' . $server['host']);
+    $r = hestia_api($server, 'v-add-user', [$acct, $acctPass, $email, $server['package'] ?: 'default', 'Probe']);
+    return ['ok' => $r['ok'], 'note' => $r['ok'] ? 'v-add-user ' . $acct : $r['message']];
+});
+
+check('Account is listed back with its package', function () use ($server, $acct, $acctMade) {
+    if (!$acctMade) return ['ok' => null, 'note' => 'no account created'];
+    $r = hestia_api($server, 'v-list-user', [$acct, 'json'], false);
+    $pkg = $r['json'][$acct]['PACKAGE'] ?? '';
+    return ['ok' => $pkg !== '', 'note' => $pkg !== '' ? 'package ' . $pkg : 'user absent from v-list-user'];
+});
+
+check('Modify: change the contact email', function () use ($server, $acct, $acctMade) {
+    if (!$acctMade) return ['ok' => null, 'note' => 'no account'];
+    $want = 'changed-' . bin2hex(random_bytes(3)) . '@example.com';
+    $r = hestia_api($server, 'v-change-user-contact', [$acct, $want]);
+    if (!$r['ok']) return ['ok' => false, 'note' => 'v-change-user-contact: ' . $r['message']];
+    // Judge by re-reading, not by the exit code — a 0 that did not persist is
+    // the failure mode that matters when provisioning unattended.
+    $c = hestia_api($server, 'v-list-user', [$acct, 'json'], false);
+    $got = $c['json'][$acct]['CONTACT'] ?? '';
+    return ['ok' => strcasecmp($got, $want) === 0, 'note' => $got === $want ? 'persisted' : "read back '{$got}'"];
+});
+
+check('Modify: change the password', function () use ($server, $acct, $acctMade) {
+    if (!$acctMade) return ['ok' => null, 'note' => 'no account'];
+    $r = hestia_api($server, 'v-change-user-password', [$acct, bin2hex(random_bytes(12)) . 'Bb2!']);
+    return ['ok' => $r['ok'], 'note' => $r['ok'] ? 'accepted' : $r['message']];
+});
+
+check('Modify: change the package', function () use ($server, $acct, $acctMade) {
+    if (!$acctMade) return ['ok' => null, 'note' => 'no account'];
+    $pk = hestia_api($server, 'v-list-user-packages', ['json'], false);
+    $names = is_array($pk['json']) ? array_keys($pk['json']) : [];
+    $cur = hestia_api($server, 'v-list-user', [$acct, 'json'], false)['json'][$acct]['PACKAGE'] ?? '';
+    $alt = '';
+    foreach ($names as $n) if ($n !== $cur) { $alt = $n; break; }
+    if ($alt === '') return ['ok' => null, 'note' => 'only one package on the box; nothing to switch to'];
+    $r = hestia_api($server, 'v-change-user-package', [$acct, $alt]);
+    if (!$r['ok']) return ['ok' => false, 'note' => 'v-change-user-package: ' . $r['message']];
+    $got = hestia_api($server, 'v-list-user', [$acct, 'json'], false)['json'][$acct]['PACKAGE'] ?? '';
+    return ['ok' => $got === $alt, 'note' => $got === $alt ? $cur . ' -> ' . $alt : "read back '{$got}'"];
+});
+
+check('Suspend and unsuspend', function () use ($server, $acct, $acctMade) {
+    if (!$acctMade) return ['ok' => null, 'note' => 'no account'];
+    $s = hestia_api($server, 'v-suspend-user', [$acct]);
+    if (!$s['ok']) return ['ok' => false, 'note' => 'v-suspend-user: ' . $s['message']];
+    $mid = hestia_api($server, 'v-list-user', [$acct, 'json'], false)['json'][$acct]['SUSPENDED'] ?? '';
+    $u = hestia_api($server, 'v-unsuspend-user', [$acct]);
+    if (!$u['ok']) return ['ok' => false, 'note' => 'suspended but v-unsuspend-user failed: ' . $u['message']];
+    $end = hestia_api($server, 'v-list-user', [$acct, 'json'], false)['json'][$acct]['SUSPENDED'] ?? '';
+    $ok = strcasecmp($mid, 'yes') === 0 && strcasecmp($end, 'no') === 0;
+    return ['ok' => $ok, 'note' => $ok ? 'yes -> no' : "SUSPENDED read '{$mid}' then '{$end}'"];
+});
+
+check('Delete the throwaway account', function () use ($server, $acct, $acctMade) {
+    if (!$acctMade) return ['ok' => null, 'note' => 'no account'];
+    $r = hestia_api($server, 'v-delete-user', [$acct]);
+    if (!$r['ok']) return ['ok' => false, 'note' => 'v-delete-user: ' . $r['message'] . ' — REMOVE ' . $acct . ' BY HAND'];
+    $gone = !hestia_user_exists($server, $acct);
+    return ['ok' => $gone, 'note' => $gone ? 'removed' : 'still present after delete — REMOVE ' . $acct . ' BY HAND'];
+});
+
+check('The fleet account was not touched by any of that', function () use ($server) {
+    $fleet = hestia_fleet_user($server);
+    // "Absent" and "unreadable" are the same false from hestia_user_exists(), and
+    // conflating them turns an unreachable API into a fleet-wide-outage alarm.
+    // Prove the box is answering BEFORE believing anything is missing.
+    if (!hestia_probe($server)['ok']) {
+        return ['ok' => null, 'note' => 'API unreachable; cannot tell absent from unreadable'];
+    }
+    $alive = hestia_user_exists($server, $fleet);
+    return ['ok' => $alive, 'note' => $alive ? $fleet . ' intact' : $fleet . ' IS GONE — every site on this box went with it'];
+});
+
 echo "\nFTP\n";
 
 check('FTP login', function () use ($server, $site) {
@@ -310,6 +451,76 @@ check('Uploaded bytes are served over HTTP', function () use ($server, $domain, 
     if (strpos($r['body'], $marker) !== false) return ['ok' => true, 'note' => 'HTTP 200, marker matched'];
     return ['ok' => false, 'note' => 'HTTP ' . $r['code'] . ' but the marker is absent — '
                                    . 'FTP path and docroot disagree'];
+});
+
+/*
+ * The rest of the FTP verbs the deploy path actually uses. The Deploy tab does
+ * not merely upload — it re-uploads over existing files, makes directories for
+ * nested pages, and removes files that left the build. A panel that allows PUT
+ * but refuses DELE or MKD would pass the upload test above and still be unable
+ * to carry a second deploy of a site whose pages changed.
+ */
+check('FTP download (read back what was written)', function () use ($server, $site, $marker) {
+    if ($site['ftp_user'] === '') return ['ok' => null, 'note' => 'no site'];
+    $s = $site + ['host' => $server['host']];
+    $r = probe_ftp_get($s, 'index.html');
+    if (!$r['ok']) return ['ok' => false, 'note' => $r['error']];
+    return ['ok' => strpos($r['body'], $marker) !== false,
+            'note' => strpos($r['body'], $marker) !== false ? 'bytes match' : 'downloaded, but content differs'];
+});
+
+check('FTP overwrite an existing file', function () use ($server, $site, $marker) {
+    if ($site['ftp_user'] === '') return ['ok' => null, 'note' => 'no site'];
+    $s = $site + ['host' => $server['host']];
+    $r = probe_ftp_put($s, 'index.html', "<!doctype html><title>probe</title>{$marker}-v2\n");
+    if (!$r['ok']) return ['ok' => false, 'note' => $r['error'] ?: 'FTP ' . $r['code']];
+    $back = probe_ftp_get($s, 'index.html');
+    return ['ok' => strpos($back['body'], $marker . '-v2') !== false,
+            'note' => strpos($back['body'], $marker . '-v2') !== false ? 'second write wins' : 'overwrite did not take'];
+});
+
+check('FTP mkdir (nested page directory)', function () use ($server, $site) {
+    if ($site['ftp_user'] === '') return ['ok' => null, 'note' => 'no site'];
+    $s = $site + ['host' => $server['host']];
+    $r = probe_ftp_quote($s, ['MKD probedir']);
+    if (!$r['ok']) return ['ok' => false, 'note' => $r['error']];
+    return ['ok' => probe_ftp_has($s, 'probedir'), 'note' => probe_ftp_has($s, 'probedir') ? 'probedir created' : 'MKD returned OK but the directory is absent'];
+});
+
+check('FTP rename', function () use ($server, $site) {
+    if ($site['ftp_user'] === '') return ['ok' => null, 'note' => 'no site'];
+    $s = $site + ['host' => $server['host']];
+    $put = probe_ftp_put($s, 'probe-rename-src.txt', "rename me\n");
+    if (!$put['ok']) return ['ok' => null, 'note' => 'could not stage a file to rename'];
+    $r = probe_ftp_quote($s, ['RNFR probe-rename-src.txt', 'RNTO probe-rename-dst.txt']);
+    if (!$r['ok']) return ['ok' => false, 'note' => $r['error']];
+    $moved = probe_ftp_has($s, 'probe-rename-dst.txt') && !probe_ftp_has($s, 'probe-rename-src.txt');
+    return ['ok' => $moved, 'note' => $moved ? 'src -> dst' : 'RNFR/RNTO returned OK but the listing disagrees'];
+});
+
+check('FTP chmod', function () use ($server, $site) {
+    if ($site['ftp_user'] === '') return ['ok' => null, 'note' => 'no site'];
+    $s = $site + ['host' => $server['host']];
+    $r = probe_ftp_quote($s, ['SITE CHMOD 644 probe-rename-dst.txt']);
+    return ['ok' => $r['ok'], 'note' => $r['ok'] ? 'SITE CHMOD 644 accepted' : ($r['error'] ?: 'refused')];
+});
+
+check('FTP delete file', function () use ($server, $site) {
+    if ($site['ftp_user'] === '') return ['ok' => null, 'note' => 'no site'];
+    $s = $site + ['host' => $server['host']];
+    $r = probe_ftp_quote($s, ['DELE probe-rename-dst.txt']);
+    if (!$r['ok']) return ['ok' => false, 'note' => $r['error']];
+    $gone = !probe_ftp_has($s, 'probe-rename-dst.txt');
+    return ['ok' => $gone, 'note' => $gone ? 'removed' : 'DELE returned OK but the file is still listed'];
+});
+
+check('FTP rmdir', function () use ($server, $site) {
+    if ($site['ftp_user'] === '') return ['ok' => null, 'note' => 'no site'];
+    $s = $site + ['host' => $server['host']];
+    $r = probe_ftp_quote($s, ['RMD probedir']);
+    if (!$r['ok']) return ['ok' => false, 'note' => $r['error']];
+    $gone = !probe_ftp_has($s, 'probedir');
+    return ['ok' => $gone, 'note' => $gone ? 'removed' : 'RMD returned OK but the directory is still listed'];
 });
 
 echo "\nShared fleet account\n";
@@ -401,6 +612,78 @@ check('HTTPS serves the installed certificate', function () use ($server, $domai
     return ['ok' => $matches, 'note' => $matches
         ? 'peer cert CN matches the domain'
         : 'served cert subject is "' . ($r['subject'] ?: 'unknown') . '" — the a.q111.xyz failure mode'];
+});
+
+/*
+ * A certificate that installs once is not enough. Origin CA certs expire and
+ * have to be replaced in place, on a live site, without taking it down — so the
+ * replacement path is tested as its own case rather than assumed from the first
+ * install succeeding.
+ */
+check('Certificate can be REPLACED in place (renewal)', function () use ($server, $domain, $site) {
+    if ($site['ftp_user'] === '') return ['ok' => null, 'note' => 'no site'];
+    $before = fetch('https', $domain, $server['default_ip'])['serial'] ?? '';
+    if (trim((string) shell_exec('command -v openssl')) === '') {
+        return ['ok' => null, 'note' => 'openssl absent locally'];
+    }
+    $dir = '/tmp/hestia_probe_' . bin2hex(random_bytes(4));
+    @mkdir($dir, 0700);
+    shell_exec(sprintf(
+        'openssl req -x509 -newkey rsa:2048 -nodes -days 60 -subj %s -keyout %s -out %s 2>&1',
+        escapeshellarg('/CN=' . $domain), escapeshellarg($dir . '/k.pem'), escapeshellarg($dir . '/c.pem')
+    ));
+    if (!is_file($dir . '/c.pem')) return ['ok' => false, 'note' => 'openssl produced no replacement cert'];
+
+    $s = $site + ['host' => $server['host']];
+    probe_ftp_put($s, 'ssl/' . $domain . '.crt', (string) file_get_contents($dir . '/c.pem'));
+    probe_ftp_put($s, 'ssl/' . $domain . '.key', (string) file_get_contents($dir . '/k.pem'));
+    @unlink($dir . '/c.pem'); @unlink($dir . '/k.pem'); @rmdir($dir);
+
+    $r = hestia_install_cert($server, $domain, $site['user'], rtrim($site['docroot'], '/') . '/ssl');
+    if (!$r['ok']) return ['ok' => false, 'note' => 'reinstall refused: ' . $r['message']];
+    $after = fetch('https', $domain, $server['default_ip'])['serial'] ?? '';
+    if ($before === '' || $after === '') return ['ok' => null, 'note' => 'could not read cert serials to compare'];
+    return ['ok' => $before !== $after, 'note' => $before !== $after
+        ? 'serial changed — the new cert is being served'
+        : 'serial unchanged — the old cert is still live despite a successful install'];
+});
+
+check('Force-HTTPS redirect can be switched on', function () use ($server, $domain, $site) {
+    if ($site['ftp_user'] === '') return ['ok' => null, 'note' => 'no site'];
+    $r = hestia_api($server, 'v-add-web-domain-ssl-force', [$site['user'], $domain]);
+    if (!$r['ok']) return ['ok' => false, 'note' => 'v-add-web-domain-ssl-force: ' . $r['message']];
+    $plain = fetch('http', $domain, $server['default_ip']);
+    $isRedirect = $plain['code'] >= 300 && $plain['code'] < 400;
+    return ['ok' => $isRedirect, 'note' => $isRedirect
+        ? 'HTTP ' . $plain['code'] . ' -> HTTPS'
+        : 'flag accepted but plain HTTP still answers ' . $plain['code']];
+});
+
+check('Certificate can be removed', function () use ($server, $domain, $site) {
+    if ($site['ftp_user'] === '') return ['ok' => null, 'note' => 'no site'];
+    $r = hestia_api($server, 'v-delete-web-domain-ssl', [$site['user'], $domain]);
+    return ['ok' => $r['ok'], 'note' => $r['ok'] ? 'SSL removed from the domain' : $r['message']];
+});
+
+/*
+ * Let's Encrypt is the fallback if the Origin CA path above fails. It can only
+ * work when the domain's PUBLIC DNS already points at this box, because the ACME
+ * challenge is fetched by Let's Encrypt, not by us — so a failure here is only
+ * meaningful if DNS is actually pointed. The check resolves first and SKIPs
+ * rather than reporting a misleading FAIL.
+ */
+check('Let\'s Encrypt issues for a real, pointed domain', function () use ($server, $domain, $site) {
+    if ($site['ftp_user'] === '') return ['ok' => null, 'note' => 'no site'];
+    $public = trim((string) shell_exec('dig +short ' . escapeshellarg($domain) . ' A 2>/dev/null | tail -1'));
+    if ($public === '') return ['ok' => null, 'note' => 'no public A record for ' . $domain . '; ACME cannot run'];
+    if ($public !== $server['default_ip']) {
+        return ['ok' => null, 'note' => 'public DNS points at ' . $public . ', not ' . $server['default_ip']];
+    }
+    $r = hestia_api($server, 'v-add-letsencrypt-domain', [$site['user'], $domain]);
+    if (!$r['ok']) return ['ok' => false, 'note' => 'v-add-letsencrypt-domain: ' . $r['message']];
+    $c = fetch('https', $domain, $server['default_ip']);
+    $real = stripos($c['issuer'], 'let') !== false || stripos($c['issuer'], 'encrypt') !== false;
+    return ['ok' => $real, 'note' => $real ? 'issued and served' : 'command succeeded but issuer is "' . $c['issuer'] . '"'];
 });
 
 echo "\nTeardown\n";
