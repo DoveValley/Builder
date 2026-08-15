@@ -48,7 +48,26 @@ function ms_parse_csv(string $path): array {
     $fh = fopen($path, 'r');
     if (!$fh) return ['header' => [], 'rows' => [], 'error' => "Could not open: {$path}"];
 
-    $header = fgetcsv($fh);
+    // Sniff the delimiter before reading. Excel writes SEMICOLONS in many locales, and
+    // fgetcsv() assumes commas — so such a file parses as one giant column, every
+    // required name reads as missing, and the report is "7 missing columns" per row
+    // for a file whose columns are all present and correctly named. Pick whichever
+    // delimiter yields the most RECOGNISED column names, not merely the most splits,
+    // so a comma file with semicolons inside a quoted field is not misread.
+    $firstLine = fgets($fh);
+    $delim = ',';
+    if ($firstLine !== false) {
+        $best = -1;
+        foreach ([',', ';', "\t", '|'] as $d) {
+            $cols = str_getcsv(rtrim($firstLine, "\r\n"), $d);
+            $cols = array_map(fn($h) => strtolower(rtrim(trim((string) $h), " \t*")), $cols);
+            $hits = count(array_intersect($cols, MS_KNOWN_COLS));
+            if ($hits > $best) { $best = $hits; $delim = $d; }
+        }
+    }
+    rewind($fh);
+
+    $header = fgetcsv($fh, 0, $delim);
     if ($header === false) { fclose($fh); return ['header' => [], 'rows' => [], 'error' => 'Empty CSV']; }
     // Strip UTF-8 BOM from the first header cell, trim all headers.
     if (isset($header[0])) $header[0] = preg_replace('/^\xEF\xBB\xBF/', '', $header[0]);
@@ -59,7 +78,7 @@ function ms_parse_csv(string $path): array {
 
     $rows = [];
     $lineNo = 1;
-    while (($cells = fgetcsv($fh)) !== false) {
+    while (($cells = fgetcsv($fh, 0, $delim)) !== false) {
         $lineNo++;
         // Skip fully blank lines.
         if (count($cells) === 1 && trim((string)$cells[0]) === '') continue;
