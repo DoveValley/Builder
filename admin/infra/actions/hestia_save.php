@@ -142,7 +142,19 @@ if ($action === 'save') {
     foreach ($cfg['servers'] as $i => $s) {
         if ($i === $idx) continue;
         if (strcasecmp($s['host'] ?? '', $host) === 0 && (int) ($s['port'] ?? 0) === $port) {
-            infra_set_flash('err', 'Another Hestia server is already using ' . $host . ':' . $port . ' ("' . ($s['label'] ?? $s['id']) . '").');
+            // Almost always this is not a genuine clash but the "Add a server"
+            // form being used to UPDATE one that already exists — most often to
+            // replace its keys. That form carries no id, so it can only ever add,
+            // and the save is refused. Saying only "already in use" leaves someone
+            // pasting a correct key into a form that cannot accept it, so name the
+            // form they actually want.
+            infra_set_flash('err',
+                $idx === null
+                    ? '"' . ($s['label'] ?? $s['id']) . '" is already registered at ' . $host . ':' . $port . ', '
+                      . 'and the "Add a HestiaCP server" form can only add new ones — nothing was saved. '
+                      . 'To change its keys or settings, use "Edit these settings" on the '
+                      . '"' . ($s['label'] ?? $s['id']) . '" card above instead.'
+                    : 'Another Hestia server is already using ' . $host . ':' . $port . ' ("' . ($s['label'] ?? $s['id']) . '").');
             header('Location: ' . $back); exit;
         }
     }
