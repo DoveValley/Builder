@@ -38,7 +38,7 @@ $telHref = resolve_shortcodes('{tel}') ?: preg_replace('/[^0-9+]/', '', $header[
 
 // Per-page keyword for {primary_keyword}/{service} — set before any resolve_shortcodes() below.
 $GLOBALS['_page_primary_keyword'] = $seo['primary_keyword'] ?? '';
-$pageTitle = resolve_shortcodes(!empty($pageTitle) ? $pageTitle : SITE_TITLE);
+$pageTitle = resolve_shortcodes(!empty($pageTitle) ? $pageTitle : site_default_title($data));
 if (isset($seo['meta_description'])) $seo['meta_description'] = resolve_shortcodes($seo['meta_description']);
 if (isset($seo['meta_keywords']))    $seo['meta_keywords']    = resolve_shortcodes($seo['meta_keywords']);
 if (isset($seo['og_title']))         $seo['og_title']         = resolve_shortcodes($seo['og_title']);

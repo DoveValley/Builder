@@ -135,7 +135,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
     $data = $siteData;
     $contentBlocks  = $data['content_blocks'];
     $seo            = $data['seo'];
-    $pageTitle      = !empty($data['seo']['seo_title']) ? $data['seo']['seo_title'] : SITE_TITLE;
+    $pageTitle      = !empty($data['seo']['seo_title']) ? $data['seo']['seo_title'] : site_default_title($data);
     $assetPathPrefix = '/';
     $homeUrl         = '/';
     $slug            = '';
@@ -162,7 +162,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
         $contentBlocks   = $page['content_blocks'] ?? [];
         $seo             = $page['seo'] ?? [];
         // Prefer the SEO title for the <title> tag (matches homepage + blog); fall back to page title.
-        $pageTitle       = !empty($seo['seo_title']) ? $seo['seo_title'] : (($page['title'] ?? '') !== '' ? $page['title'] : SITE_TITLE);
+        $pageTitle       = !empty($seo['seo_title']) ? $seo['seo_title'] : (($page['title'] ?? '') !== '' ? $page['title'] : site_default_title($data));
         $assetPathPrefix = '/';
         $homeUrl         = '/';
         $slug            = $pageSlug;
@@ -202,7 +202,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
             $contentBlocks   = $gen['content_blocks'] ?? [];
             $seo             = $gen['seo'] ?? [];
             // Prefer the SEO title for the <title> tag (matches homepage + blog); fall back to page title.
-            $pageTitle       = !empty($seo['seo_title']) ? $seo['seo_title'] : (($gen['title'] ?? '') !== '' ? $gen['title'] : SITE_TITLE);
+            $pageTitle       = !empty($seo['seo_title']) ? $seo['seo_title'] : (($gen['title'] ?? '') !== '' ? $gen['title'] : site_default_title($data));
             $assetPathPrefix = '/';
             $homeUrl         = '/';
             $slug            = $citySlug;
@@ -335,7 +335,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
                 $seo['bc_mid_label'] = 'Blog';
                 $seo['bc_mid_url']   = '/blog';
             }
-            $pageTitle       = !empty($seo['seo_title']) ? $seo['seo_title'] : (($post['title'] ?? '') !== '' ? $post['title'] : SITE_TITLE);
+            $pageTitle       = !empty($seo['seo_title']) ? $seo['seo_title'] : (($post['title'] ?? '') !== '' ? $post['title'] : site_default_title($data));
             if (empty($seo['canonical_url'])) {
                 $seo['canonical_url'] = '{website}/blog/' . $postSlug . '/';
             }

@@ -7,6 +7,24 @@
    {primary_keyword}/{service} are PER-PAGE — read from $GLOBALS['_page_primary_keyword'],
    set by site-template.php before each page renders.
    ============================================================ */
+/**
+ * The <title> to use when a page sets none.
+ *
+ * SITE_TITLE is a single global constant in config.php, so every site built by
+ * this factory that omits seo.seo_title inherits whatever that constant happens
+ * to say — which was a previous client's business name, shipped into six sites
+ * before a smoke test caught it. A site's own business name is always the better
+ * answer; the constant is the last resort, not the first.
+ */
+function site_default_title(array $data): string
+{
+    $biz = trim((string) ($data['site_vars']['business'] ?? ''));
+    if ($biz !== '') return $biz;
+    $name = trim((string) ($data['header']['site_name'] ?? ''));
+    if ($name !== '' && strpos($name, '{') === false) return $name;
+    return defined('SITE_TITLE') ? SITE_TITLE : '';
+}
+
 function resolve_shortcodes(string $text): string {
     if (strpos($text, '{') === false) return $text;   // fast path — nothing to resolve
     global $data;
