@@ -1983,280 +1983,98 @@ if ($view === 'cloudflare') {
 }
 
 /* ============================== SERVERS ==============================
-   A read-only window onto the Plesk boxes, so a quick look does not mean
-   opening the server console. Adding and editing servers comes later; for
-   now they are configured in admin/infra/config/servers.json. */
+   Every origin box in the fleet, on HestiaCP. Plesk was removed on
+   2026-08-15 once the panel decision settled: it ran on nothing, its one
+   registry entry pointed at a machine that had been rebuilt under Hestia,
+   and probing that dead endpoint cost a 12-second timeout on every load of
+   this page. The Plesk client (lib/plesk.php) is deliberately left in place
+   — lib/provision.php still calls it — so this removes the window, not the
+   machinery behind it. */
 if ($view === 'servers') {
 
-    /**
-     * The add form and the edit form are the same fields, so they are the same
-     * function. $srv = null renders "add"; an existing server renders "edit" with
-     * its values filled in — except the API key, which is never printed back into
-     * the page. Leaving that blank on an edit keeps the stored one.
-     */
-    function infra_server_form(?array $srv): void {
-        $isEdit = $srv !== null;
-        $v = fn(string $k, string $d = '') => ih((string) ($srv[$k] ?? $d));
-        ?>
-        <form method="post" action="actions/server_save.php">
-            <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
-            <input type="hidden" name="action" value="save">
-            <?php if ($isEdit): ?><input type="hidden" name="id" value="<?= $v('id') ?>"><?php endif; ?>
-
-            <table>
-                <tbody>
-                <tr>
-                    <td style="width:250px"><label for="f-label-<?= $v('id', 'new') ?>"><strong>Name</strong><br>
-                        <span style="color:#6b7280;font-size:12px">Anything that helps you tell it apart</span></label></td>
-                    <td><input id="f-label-<?= $v('id', 'new') ?>" name="label" value="<?= $v('label') ?>"
-                               placeholder="e.g. Hostinger box 2" style="width:100%;max-width:420px" required></td>
-                </tr>
-                <tr>
-                    <td><label><strong>Address you log in to Plesk at</strong><br>
-                        <span style="color:#6b7280;font-size:12px">IP or hostname &mdash; no https://</span></label></td>
-                    <td><input name="host" value="<?= $v('host') ?>" placeholder="e.g. 31.97.133.251"
-                               style="width:100%;max-width:420px" required></td>
-                </tr>
-                <tr>
-                    <td><label><strong>Port</strong><br>
-                        <span style="color:#6b7280;font-size:12px">Plesk uses 8443 unless you changed it</span></label></td>
-                    <td><input name="port" type="number" value="<?= $v('port', '8443') ?>" style="width:120px"></td>
-                </tr>
-                <tr>
-                    <td><label><strong>Plesk API key</strong><br>
-                        <span style="color:#6b7280;font-size:12px">Plesk &rarr; Tools &amp; Settings &rarr; API Keys</span></label></td>
-                    <td><input name="api_token" type="password" autocomplete="new-password"
-                               placeholder="<?= $isEdit ? 'leave blank to keep the current key' : 'paste the key' ?>"
-                               style="width:100%;max-width:420px" <?= $isEdit ? '' : 'required' ?>>
-                        <?php if ($isEdit): ?><br><span style="color:#9ca3af;font-size:12px">A key is stored. It is never shown here.</span><?php endif; ?></td>
-                </tr>
-                <tr>
-                    <td><label><strong>IP address the websites answer on</strong><br>
-                        <span style="color:#6b7280;font-size:12px">Cloudflare points at this. Blank = same as above</span></label></td>
-                    <td><input name="default_ip" value="<?= $v('default_ip') ?>" placeholder="usually the same address"
-                               style="width:100%;max-width:420px"></td>
-                </tr>
-                <tr>
-                    <td><label style="color:#6b7280">SSH user and key <span style="font-size:12px">(optional, not used yet)</span></label></td>
-                    <td><input name="ssh_user" value="<?= $v('ssh_user') ?>" placeholder="root" style="width:120px">
-                        <input name="ssh_key" value="<?= $v('ssh_key') ?>" placeholder="/root/.ssh/id_rsa" style="width:280px"></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-                <button class="btn" type="submit"><?= $isEdit ? 'Save changes' : 'Add this server' ?></button>
-                <button class="btn sec" type="submit" name="action" value="test">Test without saving</button>
-                <?php if ($isEdit): ?><a class="btn sec" href="index.php?view=servers">Cancel</a><?php endif; ?>
-            </div>
-        </form>
-        <?php
-    }
-
-    $editId  = (string) ($_GET['edit'] ?? '');
-    $servers = infra_servers();
-
-    // "Check the websites" is deliberately on demand: one outbound request per site,
-    // so a server with 40 on it should ask when you press the button, not on every
-    // page load. Answers are cached and shown until they go stale.
-    $checkId = (string) ($_GET['check'] ?? '');
-    if ($checkId !== '') {
-        $n = 0;
-        foreach ($servers as $srv) {
-            if (($srv['id'] ?? '') !== $checkId) continue;
-            foreach (infra_discover_server($srv)['sites'] as $site) {
-                if (($site['name'] ?? '') !== '') { infra_site_check_run($site['name']); $n++; }
-            }
-        }
-        infra_set_flash('ok', 'Checked ' . $n . ' website' . ($n === 1 ? '' : 's') . '.');
-        header('Location: index.php?view=servers'); exit;
-    }
-    $rows = [];
-    foreach ($servers as $srv) {
-        $disc = infra_discover_server($srv);   // cached; ?refresh=1 forces a live sweep
-        $rows[] = ['srv' => $srv, 'ok' => $disc['ok'], 'error' => $disc['error'],
-                   'sites' => count($disc['sites']), 'list' => $disc['sites'], 'info' => $disc['info'],
-                   // null (not 0) when read from a cache entry written before these
-                   // were recorded, so the card says "not measured" rather than "0 calls".
-                   'calls' => $disc['calls'] ?? null, 'ms' => $disc['ms'] ?? null, 'at' => $disc['at'] ?? null];
-    }
+    require_once __DIR__ . '/lib/hestia_fleet.php';
     infra_header('servers');
     ?>
     <div style="margin-bottom:16px">
         <a class="btn" href="index.php?view=servers&amp;refresh=1">&#8635; Refresh</a>
     </div>
 
-    <?php if (empty($servers)): ?>
-        <div class="ic-note">No servers registered yet. Add one to <code>admin/infra/config/servers.json</code> — an add/edit form is the next step.</div>
-    <?php else: ?>
+    <!-- How a site gets onto a box. Written out because the order is not
+         obvious, two of the steps fail silently, and the consequence of getting
+         step 5 early is a domain Google crawls while it is empty. -->
+    <details class="ic-card" open>
+        <summary style="padding:14px 16px;font-size:15px;font-weight:600;cursor:pointer">
+            How a site gets onto one of these boxes
+            <span style="color:#9ca3af;font-weight:400;font-size:13px">— five steps, in this order</span>
+        </summary>
+        <div class="body" style="font-size:13.5px;line-height:1.65">
 
-    <?php foreach ($rows as $r): $srv = $r['srv']; $inf = $r['info'] ?? []; ?>
-    <div class="ic-card">
-        <h2>
-            <?= ih($srv['label'] ?? $srv['id']) ?>
-            <?= $r['ok'] ? '<span class="badge b-ok">up</span>' : '<span class="badge b-err">cannot reach it</span>' ?>
-        </h2>
-        <div class="body">
+            <p style="margin:0 0 16px;color:#6b7280">
+                Steps 1&ndash;3 are the plumbing and cost seconds. Step 4 is the slow part.
+                For a batch, do <strong>1&ndash;3 for every site, verify, then generate and upload</strong> —
+                so a misconfigured box is found in the phase that costs nothing rather than forty
+                minutes into uploads with half the batch done.
+            </p>
 
-            <?php if (!$r['ok']): ?>
-            <div class="ic-note" style="background:#fef2f2;border-color:#fca5a5;color:#991b1b">
-                <strong>The console could not talk to this server.</strong><br><?= ih($r['error']) ?>
-            </div>
-            <?php endif; ?>
+            <h3 style="font-size:14px;margin:0 0 4px">1. Tell the web server the site exists</h3>
+            <ul style="margin:0 0 16px 18px;padding:0">
+                <li>Hestia writes a rule into nginx meaning <em>&ldquo;requests for this domain &rarr; this
+                    folder&rdquo;</em>, and creates the folder.</li>
+                <li>The site now exists as an arrangement, not as anything a visitor could read.
+                    The folder is empty.</li>
+                <li>Every site on a box is filed under <strong>one account</strong>, not one account each.
+                    A Hestia account is a Linux user &mdash; 500 of them means 500 home directories and a
+                    listing that costs 501 API calls instead of 2.</li>
+            </ul>
 
-            <!-- Everything about the box, in plain words, no clicking -->
-            <table style="margin-bottom:18px">
-                <tbody>
-                    <tr><td style="width:230px;color:#6b7280">Address you'd log in at</td>
-                        <td><code>https://<?= ih($srv['host'] ?? '') ?>:<?= ih((string)($srv['port'] ?? '')) ?></code></td></tr>
-                    <tr><td style="color:#6b7280">IP address the sites point at</td>
-                        <td><code><?= ih($srv['default_ip'] ?? '—') ?></code></td></tr>
-                    <tr><td style="color:#6b7280">Plesk version</td>
-                        <td><?= ih($inf['panel_version'] ?? '—') ?>
-                            <?php if (!empty($inf['panel_build_date'])): ?>
-                            <span style="color:#9ca3af">— updated <?= ih($inf['panel_build_date']) ?></span>
-                            <?php endif; ?></td></tr>
-                    <tr><td style="color:#6b7280">Server's own hostname</td>
-                        <td><code><?= ih($inf['hostname'] ?? '—') ?></code></td></tr>
-                    <tr><td style="color:#6b7280">Operating system</td>
-                        <td><?= ih($inf['platform'] ?? '—') ?></td></tr>
-                    <tr><td style="color:#6b7280">Websites on it</td>
-                        <td><strong><?= $r['sites'] ?></strong></td></tr>
+            <h3 style="font-size:14px;margin:0 0 4px">2. Restart the web server</h3>
+            <ul style="margin:0 0 16px 18px;padding:0">
+                <li>nginx read its configuration when it started and does not notice new rules on its own.</li>
+                <li><strong>Until it restarts, visitors get Hestia&rsquo;s own default page</strong> &mdash; and they
+                    get it with a <code>200 OK</code>, which is why it fools you. Nothing anywhere says
+                    <em>error</em>. Hestia will confirm the folder, and an upload will land correctly,
+                    while the site still serves the wrong thing.</li>
+                <li><code>v-rebuild-web-domains</code> does <strong>not</strong> fix it. Only a restart does.</li>
+                <li>Creating 50 sites? Restart <strong>once at the end</strong>, not fifty times.</li>
+            </ul>
 
-                    <!-- Stated on both panels, in the same words, so the HestiaCP
-                         trial below has something to be compared against. -->
-                    <tr><td style="color:#6b7280"><strong>Cost to read this server</strong></td>
-                        <td>
-                            <?php if (!isset($r['calls'])): ?>
-                                <span style="color:#9ca3af">not measured yet —
-                                <a href="index.php?view=servers&amp;refresh=1">refresh</a> to measure</span>
-                            <?php else: ?>
-                                <strong><?= (int) $r['calls'] ?></strong> API call<?= (int) $r['calls'] === 1 ? '' : 's' ?>,
-                                <strong><?= (int) $r['ms'] ?>ms</strong>
-                                <div style="font-size:12px;color:#6b7280">
-                                    measured <?= ih(date('j M H:i', strtotime($r['at'] ?? 'now'))) ?>, then cached for
-                                    <?= (int) INFRA_DISCOVER_TTL ?>s. Plesk lists every domain on the box in a single
-                                    <code>GET /domains</code>, however many there are.
-                                </div>
-                            <?php endif; ?>
-                        </td></tr>
-                </tbody>
-            </table>
+            <h3 style="font-size:14px;margin:0 0 4px">3. Create a login that can write to that one folder</h3>
+            <ul style="margin:0 0 16px 18px;padding:0">
+                <li>An FTP account locked to that site&rsquo;s folder and nothing else.</li>
+                <li>Every site gets its own, even though they share one underlying account &mdash; so a
+                    leaked credential stops at one site.</li>
+                <li><strong>Exit code 0 is not evidence the login works.</strong> Connect with it and write
+                    something; that is the only proof.</li>
+            </ul>
 
-            <!-- The sites themselves, listed here rather than one click away -->
-            <div style="display:flex;align-items:center;gap:12px;margin:0 0 8px">
-                <h2 style="font-size:15px;margin:0">Websites on this server (<?= $r['sites'] ?>)</h2>
-                <?php if ($r['sites']): ?>
-                <a class="btn sec" style="padding:3px 10px;font-size:12px"
-                   href="index.php?view=servers&amp;check=<?= ih($srv['id'] ?? '') ?>">Check if they're up</a>
-                <?php endif; ?>
-            </div>
-            <?php if (!$r['sites']): ?>
-                <div class="ic-empty">Nothing on this server yet.</div>
-            <?php else: ?>
-                <table>
-                    <thead><tr><th>Website</th><th>Is it up?</th><th>Added</th><th>Type</th><th>Folder its files live in</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($r['list'] as $s):
-                        $name  = (string) ($s['name'] ?? '');
-                        $chk   = $name !== '' ? infra_site_check_cached($name) : null;
-                        // Green only when it answers AND the certificate is right. A site
-                        // serving fine behind a bad certificate is a browser warning to
-                        // every visitor, so it must not read the same as healthy.
-                        $col   = $chk === null ? '#9ca3af' : ((!empty($chk['up']) && !empty($chk['cert_ok'])) ? '#166534' : (!empty($chk['up']) ? '#92400e' : '#991b1b'));
-                    ?>
-                        <tr>
-                            <td><strong><?= ih($name ?: '?') ?></strong></td>
-                            <td style="color:<?= $col ?>">
-                                <?php if ($chk === null): ?>
-                                    <span style="color:#9ca3af">not checked yet</span>
-                                <?php else: ?>
-                                    <strong><?= ih(infra_site_verdict($chk)) ?></strong>
-                                    <div style="font-size:12px;color:#6b7280">
-                                        <?= $chk['code'] ? ih((string) $chk['code']) . ' · ' : '' ?>
-                                        <?= $chk['ms'] ? ih((string) $chk['ms']) . 'ms · ' : '' ?>
-                                        checked <?= ih(date('j M H:i', strtotime($chk['at'] ?? 'now'))) ?>
-                                    </div>
-                                    <?php if (!empty($chk['error'])): ?>
-                                    <div style="font-size:12px;color:#991b1b"><?= ih(substr($chk['error'], 0, 120)) ?></div>
-                                    <?php endif; ?>
-                                <?php endif; ?>
-                            </td>
-                            <td><?= ih($s['created'] ?? '—') ?></td>
-                            <td><?= ih($s['hosting_type'] ?? '—') ?></td>
-                            <td><code style="font-size:12px"><?= ih($s['www_root'] ?? '—') ?></code></td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            <?php endif; ?>
+            <h3 style="font-size:14px;margin:0 0 4px">4. Upload the site</h3>
+            <ul style="margin:0 0 16px 18px;padding:0">
+                <li>The built HTML, CSS and images go up through that login into the folder.</li>
+                <li>This is the point where the site becomes real: nginx knows about it, and now there
+                    is something to serve.</li>
+                <li><strong>Generate everything locally first, then upload.</strong> A build that fails on
+                    site 37 should not leave 36 sites up and 14 missing.</li>
+                <li>Make the loop re-runnable &mdash; a second run should skip what already exists rather
+                    than rebuild it.</li>
+            </ul>
 
-            <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-                <a class="btn sec" href="index.php?view=server&amp;id=<?= ih($srv['id'] ?? '') ?>">See how each domain is wired up &rarr;</a>
-                <a class="btn sec" href="index.php?view=servers&amp;edit=<?= ih($srv['id'] ?? '') ?>#form-<?= ih($srv['id'] ?? '') ?>">Edit these settings</a>
-                <form method="post" action="actions/server_save.php" style="display:inline">
-                    <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
-                    <input type="hidden" name="action" value="delete">
-                    <input type="hidden" name="id" value="<?= ih($srv['id'] ?? '') ?>">
-                    <button class="btn" style="background:#991b1b" type="submit"
-                            onclick="return confirm('Remove &quot;<?= ih($srv['label'] ?? $srv['id']) ?>&quot; from this console?\n\nThe server itself is NOT touched — it keeps running and its websites stay up. It just stops appearing here.')">
-                        Remove from console
-                    </button>
-                </form>
-            </div>
-
-            <?php if ($editId === ($srv['id'] ?? '')): ?>
-            <div id="form-<?= ih($srv['id'] ?? '') ?>" style="margin-top:18px;border-top:1px solid #e5e7eb;padding-top:16px">
-                <h2 style="font-size:15px;margin:0 0 10px">Edit this server</h2>
-                <?php infra_server_form($srv); ?>
-            </div>
-            <?php endif; ?>
+            <h3 style="font-size:14px;margin:0 0 4px">5. Point the domain at the box &mdash; last</h3>
+            <ul style="margin:0 0 6px 18px;padding:0">
+                <li>Only now change DNS so the domain actually resolves here.</li>
+                <li><strong>Never let a rank-and-rent domain resolve while it is empty.</strong> If DNS goes
+                    first there is a window where Google crawls the domain and finds a blank page, and a
+                    first impression of &ldquo;empty site&rdquo; is expensive to undo.</li>
+                <li>Between steps 2 and 4 the sites are live but empty on the box. That is harmless
+                    <em>only</em> because DNS has not been pointed yet &mdash; which is the whole reason this
+                    step is last.</li>
+            </ul>
         </div>
-    </div>
-    <?php endforeach; ?>
-    <?php endif; ?>
-
-    <!-- Add a server. Always visible, at the bottom, so the page reads:
-         here is what you have, and here is how to add another. -->
-    <div class="ic-card" id="add-server">
-        <h2>Add a server</h2>
-        <div class="body">
-            <div class="ic-note">
-                You buy the server and install Plesk yourself. This just tells the console
-                how to talk to it. Get the API key from Plesk under
-                <strong>Tools &amp; Settings &rarr; API Keys</strong>.
-            </div>
-            <?php infra_server_form(null); ?>
-        </div>
-    </div>
-
+    </details>
     <?php
-    /* ═════════════════════════════════════════════════════════════════════════
-     * EVERYTHING BELOW THIS LINE IS THE HESTIACP TRIAL.
-     *
-     * The same page again, against a different panel, so the two can be compared
-     * on live data rather than on documentation. Deliberately a copy and not an
-     * abstraction: unifying the two halves behind one renderer would hide the
-     * differences this exists to show.
-     *
-     * It is fully separated from the Plesk half above — its own config file
-     * (hestia.json), its own cache prefix (hestia:), its own save handler. It
-     * cannot disturb anything that currently provisions.
-     *
-     * WHEN THE DECISION IS MADE: delete one half whole. If Plesk wins, delete
-     * from this banner to the end of the view plus lib/hestia*.php,
-     * actions/hestia_save.php and tools/hestia_probe.php. If Hestia wins, this
-     * half moves up and replaces the one above.
-     *
-     * ⚠ READ THE NUMBERS, NOT THE LAYOUT. Both cards render almost identically,
-     * which makes the panels look equivalent. They are not compared by how they
-     * look; they are compared by the "cost to read this server" line. At one site
-     * each that line will look the same too — seed the trial box with 50+ domains
-     * before drawing any conclusion from it.
-     * ═════════════════════════════════════════════════════════════════════════ */
-    require_once __DIR__ . '/lib/hestia_fleet.php';
-
-    /** Twin of infra_server_form(), with Hestia's credentials instead of Plesk's. */
+    /** The add form and the edit form are the same fields, so they are the same
+     *  function. $srv = null renders "add"; an existing server renders "edit"
+     *  with its values filled in — except the key pair, which is never printed
+     *  back into the page. Blank on an edit keeps the stored one. */
     function infra_hestia_form(?array $srv): void {
         $isEdit = $srv !== null;
         $v = fn(string $k, string $d = '') => ih((string) ($srv[$k] ?? $d));
@@ -2340,8 +2158,8 @@ if ($view === 'servers') {
     $hEditId  = (string) ($_GET['hedit'] ?? '');
     $hServers = infra_hestia_servers();
 
-    // Same on-demand rule as the Plesk half: one outbound request per site, so it
-    // happens when you press the button, not on every page load.
+    // Deliberately on demand: one outbound request per site, so a box with 40 on it
+    // should ask when you press the button, not on every page load.
     $hCheckId = (string) ($_GET['hcheck'] ?? '');
     if ($hCheckId !== '') {
         $n = 0;
@@ -2359,17 +2177,8 @@ if ($view === 'servers') {
     foreach ($hServers as $srv) $hRows[] = ['srv' => $srv, 'd' => infra_discover_hestia($srv)];
     ?>
 
-    <hr id="hestia" style="margin:44px 0 28px;border:0;border-top:3px solid #111827">
-
-    <div class="ic-note" style="background:#eff6ff;border-color:#93c5fd;color:#1e3a8a">
-        <strong>HestiaCP trial — everything below this line is the same page against a different panel.</strong><br>
-        Free, no per-server licence. The half above costs $35.99/month per server; at ten servers
-        that is $4,320/year, roughly what the whole 400-domain fleet costs to renew.
-        <br><br>
-        Compare the <strong>cost to read this server</strong> line on each card, not the layout —
-        the two are built to look the same. That number only becomes meaningful once the trial box
-        has real sites on it; at one site each, both will look instant.
-    </div>
+    <!-- id="hestia" is kept: links elsewhere on this page still target it. -->
+    <div id="hestia"></div>
 
     <?php if (empty($hServers)): ?>
         <div class="ic-empty">No HestiaCP server registered yet. Add one below.</div>
@@ -2473,8 +2282,9 @@ if ($view === 'servers') {
                         <td><code><?= ih($srv['site_user'] ?? 'fleet') ?></code>
                             <span style="color:#9ca3af">— <?= count($d['users']) ?> account<?= count($d['users']) === 1 ? '' : 's' ?> on the box</span></td></tr>
 
-                    <!-- THE COMPARISON. Plesk answers this with one GET /domains;
-                         Hestia has no global list, so it is 1 + one call per account. -->
+                    <!-- Hestia has no "list every domain" call — domains hang off
+                         accounts, so this is 1 + one call per account. Filing every site
+                         under a single account is what keeps it at two. -->
                     <tr><td style="color:#6b7280"><strong>Cost to read this server</strong></td>
                         <td>
                         <?php if ($unset): ?>
@@ -2512,9 +2322,9 @@ if ($view === 'servers') {
                     <?php foreach ($d['sites'] as $s):
                         $name = (string) ($s['name'] ?? '');
                         $chk  = $name !== '' ? infra_site_check_cached($name) : null;
-                        // Same rule as the Plesk table: green only when it answers AND the
-                        // certificate matches. Serving fine behind a bad cert is a browser
-                        // warning for every visitor and must not read as healthy.
+                        // Green only when it answers AND the certificate matches. Serving
+                        // fine behind a bad cert is a browser warning for every visitor and
+                        // must not read as healthy.
                         $col  = $chk === null ? '#9ca3af' : ((!empty($chk['up']) && !empty($chk['cert_ok'])) ? '#166534' : (!empty($chk['up']) ? '#92400e' : '#991b1b'));
                     ?>
                         <tr>
@@ -2617,17 +2427,26 @@ if ($view === 'servers') {
 /* ============================= DASHBOARD ============================= */
 // Headline numbers only. The servers themselves live on the Servers tab — one list
 // of them, in one place, rather than a second shorter one here that drifts.
-$servers = infra_servers();
+// Counts the HESTIA registry, which is the fleet. It used to count the Plesk
+// one, and when Plesk came off the Servers tab that left this reading
+// "1 server, 0 sites, 1 issue" while eight boxes were up — the wrongest kind of
+// number, because it is confident and on the front page.
+require_once __DIR__ . '/lib/hestia_fleet.php';
+$servers = infra_hestia_servers();
 $cfAccts = infra_cf_accounts();
-$totalSites = 0; $issues = 0;
+$totalSites = 0; $issues = 0; $pending = 0;
 foreach ($servers as $srv) {
-    $disc = infra_discover_server($srv);
-    if (!$disc['ok']) $issues++;
+    $disc = infra_discover_hestia($srv);
+    // A box awaiting its key pair is unfinished, not broken. Counting it as an
+    // issue would make every newly-bought server look like a fault.
+    if (!empty($disc['unconfigured'])) $pending++;
+    elseif (!$disc['ok'])              $issues++;
     $totalSites += count($disc['sites']);
 }
 infra_header('dashboard');
 ?>
-<?php if (empty($servers)): ?><div class="ic-note">No servers registered. Add one to <code>admin/infra/config/servers.json</code>.</div><?php endif; ?>
+<?php if (empty($servers)): ?><div class="ic-note">No servers registered yet. Add one on the <a href="index.php?view=servers">Servers</a> tab.</div><?php endif; ?>
+<?php if ($pending): ?><div class="ic-note"><?= (int) $pending ?> server<?= $pending === 1 ? ' is' : 's are' ?> registered but not set up yet — no Hestia on <?= $pending === 1 ? 'it' : 'them' ?> so far. <a href="index.php?view=servers">Finish <?= $pending === 1 ? 'it' : 'them' ?></a>.</div><?php endif; ?>
 <div class="ic-tiles">
   <a class="ic-tile" href="index.php?view=servers" style="text-decoration:none;color:inherit">
     <div class="n"><?= count($servers) ?></div><div class="l">Servers</div></a>
