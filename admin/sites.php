@@ -315,6 +315,7 @@ function fmt_date(string $iso): string {
             <div class="batch-acts">
                 <button class="btn-open" onclick="openBatch('<?= h($b['master_id']) ?>','<?= h($b['id']) ?>')">Open &rarr;</button>
                 <button class="btn-sm-outline" onclick="renameBatch('<?= h($b['master_id']) ?>','<?= h($b['id']) ?>','<?= h(addslashes($b['name'] ?? '')) ?>')">Rename</button>
+                <button class="btn-sm-outline" onclick="copyBatch('<?= h($b['master_id']) ?>','<?= h($b['id']) ?>','<?= h(addslashes($b['name'] ?? '')) ?>')">Copy</button>
                 <button class="btn-sm-danger" onclick="deleteBatch('<?= h($b['master_id']) ?>','<?= h($b['id']) ?>','<?= h(addslashes($b['name'] ?? '')) ?>')">Delete</button>
             </div>
         </div>
@@ -506,6 +507,16 @@ async function renameBatch(master, id, current) {
     const res = await batchPost({ action: 'rename', master_id: master, batch_id: id, name });
     if (res.error) { alert('Error: ' + res.error); return; }
     document.getElementById('bname-' + master + '-' + id).textContent = name;
+}
+
+// Copies the target list and any research; the run history stays with the
+// original, so the copy honestly reads "never run".
+async function copyBatch(master, id, current) {
+    const name = prompt('Name for the copy:', current + ' (copy)');
+    if (!name) return;
+    const res = await batchPost({ action: 'copy', master_id: master, batch_id: id, name });
+    if (res.error) { alert('Error: ' + res.error); return; }
+    window.location.reload();
 }
 
 async function deleteBatch(master, id, name) {

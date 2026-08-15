@@ -157,6 +157,72 @@ function ms_rmtree(string $dir): bool {
     return @rmdir($real);
 }
 
+/**
+ * Copy a batch: same master, same targets, a fresh history.
+ *
+ * WHAT IT TAKES — the inputs, which are the expensive part: the target list
+ * (params.csv and its version history) and any city research already paid for.
+ *
+ * WHAT IT DELIBERATELY LEAVES — runs/ and run.lock. Run history is a record of
+ * what a batch DID, and a copy has done nothing. Carrying the logs over would
+ * make a brand-new batch report sites it never built, costs it never spent, and
+ * a "done" state for work that has not started — and the home panel reads
+ * exactly those files to decide what to show.
+ *
+ * The point of copying is the case where the target list took work to assemble
+ * and you want to run it again off a different angle — not to clone a result.
+ *
+ * @return array ['id'=>string] on success, ['error'=>string] on failure.
+ */
+function ms_copy_batch(string $masterId, string $batchId, string $name = ''): array {
+    $meta = ms_batch_meta($masterId, $batchId);
+    if (!$meta) return ['error' => 'Batch not found.'];
+
+    $name = trim($name);
+    if ($name === '')          $name = trim((string) ($meta['name'] ?? $batchId)) . ' (copy)';
+    if (mb_strlen($name) > 80) return ['error' => 'That name is too long (80 characters max).'];
+
+    $newId  = ms_next_batch_id($masterId);
+    $srcDir = ms_batch_dir($masterId, $batchId);
+    $dstDir = ms_batch_dir($masterId, $newId);
+    if (!@mkdir($dstDir, 0775, true) && !is_dir($dstDir)) return ['error' => 'Could not create the batch folder.'];
+
+    // Named explicitly rather than "everything except runs/": a copy should gain
+    // new inputs only when someone decides it should, not because a later feature
+    // happened to drop a folder in here.
+    foreach (['params.csv', 'params.version'] as $f) {
+        if (is_file($srcDir . '/' . $f)) @copy($srcDir . '/' . $f, $dstDir . '/' . $f);
+    }
+    foreach (['params_versions', 'research'] as $sub) {
+        if (is_dir($srcDir . '/' . $sub)) ms_copytree($srcDir . '/' . $sub, $dstDir . '/' . $sub);
+    }
+
+    $ok = ms_save_batch_meta($masterId, $newId, [
+        'id'          => $newId,
+        'name'        => $name,
+        'master_id'   => $masterId,
+        'created_at'  => gmdate('c'),
+        'copied_from' => $batchId,
+    ]);
+    if (!$ok) { ms_rmtree($dstDir); return ['error' => 'Could not write the batch record.']; }
+    return ['id' => $newId, 'name' => $name];
+}
+
+/** Recursive copy, same containment rule as ms_rmtree(): nothing outside sites/. */
+function ms_copytree(string $src, string $dst): bool {
+    $root = realpath(BASE_DIR . '/sites');
+    $real = realpath($src);
+    if ($root === false || $real === false || strncmp($real, $root . '/', strlen($root) + 1) !== 0) return false;
+    if (!is_dir($dst) && !@mkdir($dst, 0775, true) && !is_dir($dst)) return false;
+    foreach (scandir($real) ?: [] as $e) {
+        if ($e === '.' || $e === '..') continue;
+        $s = $real . '/' . $e; $d = $dst . '/' . $e;
+        if (is_link($s)) continue;                       // never follow links out of the tree
+        is_dir($s) ? ms_copytree($s, $d) : @copy($s, $d);
+    }
+    return true;
+}
+
 function ms_delete_batch(string $masterId, string $batchId): array {
     if (!ms_batch_exists($masterId, $batchId)) return ['error' => 'Batch not found.'];
     return ms_rmtree(ms_batch_dir($masterId, $batchId)) ? ['ok' => true] : ['error' => 'Could not delete the batch folder.'];

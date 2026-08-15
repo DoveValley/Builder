@@ -56,6 +56,15 @@ switch ($action) {
         echo json_encode(ms_rename_batch($masterId, $batchId, (string) ($_POST['name'] ?? '')));
         break;
 
+    // Copy the target list and research into a new batch; the run history stays
+    // with the original (see ms_copy_batch).
+    case 'copy':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        $res = ms_copy_batch($masterId, $batchId, (string) ($_POST['name'] ?? ''));
+        if (isset($res['error'])) { echo json_encode($res); break; }
+        echo json_encode(['ok' => true, 'id' => $res['id'], 'name' => $res['name'], 'master_id' => $masterId]);
+        break;
+
     case 'delete':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         $res = ms_delete_batch($masterId, $batchId);
