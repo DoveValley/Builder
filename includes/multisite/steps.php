@@ -166,7 +166,7 @@ function ms_identity_fields(): array {
         ['col' => 'business', 'drives' => 'Business name + the header',   'required' => true],
         ['col' => 'domain',   'drives' => 'The website address',          'required' => true],
         ['col' => 'phone',    'drives' => 'Phone number',                 'required' => true],
-        ['col' => 'email',    'drives' => 'Email address',                'required' => true],
+        ['col' => 'email',    'drives' => 'Email address &mdash; blank is fine unless the master shows one', 'required' => false],
         ['col' => 'city',     'drives' => 'City + its url slug',          'required' => true],
         ['col' => 'state',    'drives' => 'State name',                   'required' => true],
         ['col' => 'SS',       'drives' => 'State abbreviation',           'required' => true],

@@ -10,8 +10,18 @@
  * as batch context, not a column). See docs/multisite-generator-architecture.md §4.
  */
 
-/** Columns that make a row deployable (hard errors when missing/invalid). */
-const MS_REQUIRED_COLS = ['domain', 'business', 'phone', 'email', 'city', 'state', 'SS'];
+/** Columns that make a row deployable (hard errors when missing/invalid).
+ *
+ * 'email' was here and should not have been. Three of the five masters in this
+ * factory use {email} zero times — for a rank-and-rent site the contact route is a
+ * phone number — so requiring it rejected perfectly good rows over a field the
+ * template never renders. It is a warning now: a blank one leaves {email} resolving
+ * to nothing wherever a master does use it, which is worth saying and not worth
+ * blocking a batch for. */
+const MS_REQUIRED_COLS = ['domain', 'business', 'phone', 'city', 'state', 'SS'];
+
+/** Not required, but a blank one is visible in the output if the master uses it. */
+const MS_SOFT_COLS = ['email'];
 
 /** Columns needed to actually deploy (warning if missing → row builds but won't deploy). */
 const MS_FTP_COLS = ['ftp_host', 'ftp_user', 'ftp_pass'];
@@ -101,6 +111,10 @@ function ms_validate_rows(array $rows, array $header = []): array {
         // Required.
         foreach (MS_REQUIRED_COLS as $c) {
             if (($r[$c] ?? '') === '') $errors[] = "missing required '{$c}'";
+        }
+        // Soft: the row builds and deploys, the token just resolves to nothing.
+        foreach (MS_SOFT_COLS as $c) {
+            if (($r[$c] ?? '') === '') $warnings[] = "no '{$c}' — {{$c}} renders blank if the master uses it";
         }
         // Domain format + uniqueness.
         $d = strtolower(trim($r['domain'] ?? ''));
