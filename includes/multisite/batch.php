@@ -252,6 +252,65 @@ function ms_set_batch_master(string $masterId, string $batchId, string $newMaste
     return ['ok' => true, 'id' => $newId, 'master_id' => $newMasterId];
 }
 
+// ── Deployment plan: which boxes this batch lands on ─────────────────────────
+
+/**
+ * Which servers this batch deploys to, how many sites each takes, and in what order.
+ *
+ * Stored per BATCH (servers.json beside params.csv) rather than per master, because
+ * two batches off the same master routinely go to different boxes — that is the whole
+ * point of running eight of them.
+ *
+ * It is a PLAN, not a record: it says where sites are meant to go. What is actually on
+ * a box is read from the box. Keeping those apart matters, because the interesting
+ * failure is precisely when they disagree.
+ *
+ * @return array<int,array{server_id:string,host:string,label:string,count:int,order:int}>
+ */
+function ms_batch_servers(string $masterId, string $batchId): array
+{
+    $f = ms_batch_dir($masterId, $batchId) . '/servers.json';
+    if (!is_file($f)) return [];
+    $d = json_decode((string) file_get_contents($f), true);
+    $plan = is_array($d['plan'] ?? null) ? $d['plan'] : [];
+    usort($plan, fn($a, $b) => ((int) ($a['order'] ?? 0)) <=> ((int) ($b['order'] ?? 0)));
+    return $plan;
+}
+
+/** @return array ['ok'=>true] | ['error'=>string] */
+function ms_save_batch_servers(string $masterId, string $batchId, array $plan): array
+{
+    if (!ms_batch_exists($masterId, $batchId)) return ['error' => 'Batch not found.'];
+
+    $clean = [];
+    $seen  = [];
+    foreach ($plan as $p) {
+        $id = trim((string) ($p['server_id'] ?? ''));
+        if ($id === '' || isset($seen[$id])) continue;   // a box cannot be picked twice
+        $seen[$id] = true;
+        $clean[] = [
+            'server_id' => $id,
+            'host'      => trim((string) ($p['host'] ?? '')),
+            'label'     => trim((string) ($p['label'] ?? $id)),
+            // 0 means "no cap" — take whatever is left when this box's turn comes.
+            'count'     => max(0, (int) ($p['count'] ?? 0)),
+            'order'     => max(1, (int) ($p['order'] ?? (count($clean) + 1))),
+        ];
+    }
+    usort($clean, fn($a, $b) => $a['order'] <=> $b['order']);
+    // Renumber so the stored order is always 1..n with no gaps, whatever the form sent.
+    foreach ($clean as $i => &$c) $c['order'] = $i + 1;
+    unset($c);
+
+    $dir = ms_batch_dir($masterId, $batchId);
+    $tmp = $dir . '/servers.json.tmp';
+    $json = json_encode(['updated_at' => gmdate('c'), 'plan' => $clean],
+        JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    if (@file_put_contents($tmp, $json) === false) return ['error' => 'Could not write the server plan.'];
+    return @rename($tmp, $dir . '/servers.json') ? ['ok' => true, 'plan' => $clean]
+                                                 : ['error' => 'Could not save the server plan.'];
+}
+
 // ── Run reading (shared by the batch page and the home panel) ─────────────────
 
 /** True if a process id is alive (Linux /proc, or posix). */

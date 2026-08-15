@@ -2186,8 +2186,11 @@ if ($view === 'servers') {
         header('Location: index.php?view=servers#hestia'); exit;
     }
 
+    // One shared reader (infra_hestia_fleet) rather than this page's own loop —
+    // it is the same discovery, and the derived numbers stay consistent with the
+    // dashboard and the batch page by construction.
     $hRows = [];
-    foreach ($hServers as $srv) $hRows[] = ['srv' => $srv, 'd' => infra_discover_hestia($srv)];
+    foreach (infra_hestia_fleet() as $b) $hRows[] = ['srv' => $b['server'], 'd' => infra_discover_hestia($b['server']), 'b' => $b];
     ?>
 
     <!-- id="hestia" is kept: links elsewhere on this page still target it. -->
@@ -2197,9 +2200,10 @@ if ($view === 'servers') {
         <div class="ic-empty">No HestiaCP server registered yet. Add one below.</div>
     <?php else: ?>
 
-    <?php foreach ($hRows as $r): $srv = $r['srv']; $d = $r['d']; $f = infra_hestia_facts($d['info'] ?? null);
-          $unset = !empty($d['unconfigured']);
-          $acct  = infra_hestia_accounts($d);
+    <?php foreach ($hRows as $r): $srv = $r['srv']; $d = $r['d']; $b = $r['b'];
+          $f = ['panel_version' => $b['version'], 'platform' => $b['platform'], 'hostname' => $b['hostname']];
+          $unset = $b['pending'];
+          $acct  = $b['accounts'];
           // Collapsed once it is healthy — a working box is a one-line fact and
           // eight of them should fit on a screen. Anything wrong opens itself,
           // because a problem nobody clicks on is a problem nobody sees.
@@ -2228,7 +2232,10 @@ if ($view === 'servers') {
         <div style="display:flex;gap:26px;flex-wrap:wrap;padding:2px 16px 14px 30px">
             <?php
             $tiles = [
-                ['Websites',            count($d['sites']),      '#111827'],
+                // DEPLOYED sites, not vhosts: the panel's own hostname vhost is an
+                // artefact of installing Hestia, and counting it made every empty
+                // box report one website. The full vhost list is still below.
+                ['Websites',            $b['deployed'],          '#111827'],
                 ['Accounts',            $acct['total'],          '#111827'],
                 ['&hellip; with a site', $acct['with_site'],     '#166534'],
                 ['&hellip; with none',   $acct['without_site'],  $acct['without_site'] > 0 ? '#92400e' : '#9ca3af'],
@@ -2448,13 +2455,14 @@ require_once __DIR__ . '/lib/hestia_fleet.php';
 $servers = infra_hestia_servers();
 $cfAccts = infra_cf_accounts();
 $totalSites = 0; $issues = 0; $pending = 0;
-foreach ($servers as $srv) {
-    $disc = infra_discover_hestia($srv);
+foreach (infra_hestia_fleet() as $b) {
     // A box awaiting its key pair is unfinished, not broken. Counting it as an
     // issue would make every newly-bought server look like a fault.
-    if (!empty($disc['unconfigured'])) $pending++;
-    elseif (!$disc['ok'])              $issues++;
-    $totalSites += count($disc['sites']);
+    if ($b['pending'])   $pending++;
+    elseif (!$b['ok'])   $issues++;
+    // Deployed sites, so the tile does not count each box's own hostname vhost
+    // and report eight sites for an empty fleet.
+    $totalSites += $b['deployed'];
 }
 infra_header('dashboard');
 ?>

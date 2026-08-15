@@ -86,6 +86,70 @@ function infra_discover_hestia(array $server, int $ttl = INFRA_HESTIA_TTL): arra
 }
 
 /**
+ * Is this vhost infrastructure rather than a site we deployed?
+ *
+ * Hestia's installer creates a vhost for the box's own hostname (box2.q111.xyz),
+ * whose docroot holds nothing but its placeholder index.html and robots.txt.
+ * Counting it as a deployed site made every empty box report "1 website" — the
+ * number looked like work and was an artefact of installing the panel.
+ *
+ * One rule, in one place, because it is asked from the Servers tab, the dashboard
+ * and the batch page, and three copies of it would drift.
+ */
+function hestia_is_infra_vhost(string $domain, array $server): bool
+{
+    $d = strtolower(trim($domain));
+    if ($d === '') return true;
+    if ($d === strtolower(trim((string) ($server['host'] ?? '')))) return true;
+    return (bool) preg_match('/^box\d+\./i', $d);
+}
+
+/**
+ * The whole fleet in one canonical shape — the answer to "what have I got".
+ *
+ * Every caller used to run the same loop (list the registry, discover each box,
+ * dig the facts out) and each dug slightly differently: one counted the panel's
+ * own hostname as a site, another did not. This is that loop, once.
+ *
+ * Cached exactly as infra_discover_hestia() is, so calling it costs nothing extra
+ * over the discovery the page was doing anyway.
+ *
+ * @return array<int,array{server:array,id:string,label:string,host:string,ok:bool,
+ *   pending:bool,error:string,version:string,platform:string,hostname:string,
+ *   sites:array,deployed:int,accounts:array,calls:int,ms:int}>
+ */
+function infra_hestia_fleet(int $ttl = INFRA_HESTIA_TTL): array
+{
+    $out = [];
+    foreach (infra_hestia_servers() as $srv) {
+        $d = infra_discover_hestia($srv, $ttl);
+        $f = infra_hestia_facts($d['info'] ?? null);
+        $deployed = 0;
+        foreach ($d['sites'] as $s) {
+            if (!hestia_is_infra_vhost((string) ($s['name'] ?? ''), $srv)) $deployed++;
+        }
+        $out[] = [
+            'server'   => $srv,
+            'id'       => (string) ($srv['id'] ?? ''),
+            'label'    => (string) ($srv['label'] ?? ($srv['id'] ?? '')),
+            'host'     => (string) ($srv['host'] ?? ''),
+            'ok'       => (bool) $d['ok'],
+            'pending'  => !empty($d['unconfigured']),
+            'error'    => (string) ($d['error'] ?? ''),
+            'version'  => $f['panel_version'],
+            'platform' => $f['platform'],
+            'hostname' => $f['hostname'],
+            'sites'    => $d['sites'],
+            'deployed' => $deployed,
+            'accounts' => infra_hestia_accounts($d),
+            'calls'    => (int) ($d['calls'] ?? 0),
+            'ms'       => (int) ($d['ms'] ?? 0),
+        ];
+    }
+    return $out;
+}
+
+/**
  * Accounts on a box, split by whether they actually hold a site.
  *
  * ⚠ "total" is accounts the console can SEE, which is not always every account

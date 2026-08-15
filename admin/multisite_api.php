@@ -146,6 +146,49 @@ switch ($action) {
         exit;
 
     // Current stored params.csv state (tab load).
+    /* The live fleet, plus this batch's plan for it.
+     *
+     * Reads the Infrastructure console's registry and per-box discovery directly —
+     * NOT through admin/infra/bootstrap.php, which redirects when it cannot see a
+     * session and would turn this JSON endpoint into a 302. The libraries under
+     * admin/infra/lib are self-contained by design; this is what that buys.
+     *
+     * "sites" is what is ON the box right now, read from the box. The plan says
+     * where sites are MEANT to go. They are reported separately because the case
+     * worth seeing is when they disagree. */
+    case 'servers':
+        // Reads the Infrastructure console's fleet reader directly — NOT through
+        // admin/infra/bootstrap.php, which redirects when it cannot see a session and
+        // would turn this JSON endpoint into a 302. The libraries under
+        // admin/infra/lib are self-contained by design; this is what that buys.
+        require_once __DIR__ . '/infra/lib/hestia_fleet.php';
+        $fleet = [];
+        foreach (infra_hestia_fleet() as $b) {
+            $fleet[] = [
+                'server_id' => $b['id'],   'label'   => $b['label'],
+                'host'      => $b['host'], 'notes'   => $b['server']['notes'] ?? '',
+                'up'        => $b['ok'],   'pending' => $b['pending'],
+                'error'     => $b['error'],
+                // What is ON the box, read from the box. The plan below says where
+                // sites are MEANT to go; they are reported apart because the case
+                // worth seeing is when they disagree.
+                'sites'     => $b['deployed'],
+            ];
+        }
+        echo json_encode([
+            'fleet'   => $fleet,
+            'plan'    => ms_batch_servers($masterId, $batchId),
+            'targets' => ms_batch_target_count($masterId, $batchId),
+        ]);
+        break;
+
+    case 'save_servers':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        $plan = json_decode((string) ($_POST['plan'] ?? '[]'), true);
+        if (!is_array($plan)) { echo json_encode(['error' => 'Bad plan.']); break; }
+        echo json_encode(ms_save_batch_servers($masterId, $batchId, $plan));
+        break;
+
     case 'status':
         if (!is_file($paramsPath)) { echo json_encode(['stored' => false]); break; }
         $parsed = ms_parse_csv($paramsPath);
