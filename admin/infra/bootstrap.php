@@ -22,7 +22,10 @@ if (empty($_SESSION['infra_csrf'])) {
 
 require_once __DIR__ . '/lib/store.php';
 require_once __DIR__ . '/lib/http.php';
-require_once __DIR__ . '/lib/plesk.php';
+require_once __DIR__ . '/lib/plesk.php';        // legacy; nothing provisions through it now
+require_once __DIR__ . '/lib/hestia_fleet.php'; // the fleet: registry + client. Loaded here
+                                               // because provisioning, Deploy, New Site and
+                                               // Bulk all need it, not just the Servers tab.
 require_once __DIR__ . '/lib/cloudflare.php';
 require_once __DIR__ . '/lib/state.php';
 require_once __DIR__ . '/lib/cache.php';

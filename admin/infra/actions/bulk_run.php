@@ -24,7 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !infra_check_csrf()) {
 $optsBase = [
     'register' => !empty($_POST['do_register']),
     'years'    => (int) ($_POST['years'] ?? 1),
-    'plesk'    => !empty($_POST['do_plesk']),
+    'site'     => !empty($_POST['do_site']) || !empty($_POST['do_plesk']),
+    // Never per-domain in a batch. nginx is restarted once, after the run — see
+    // the end of this file. Fifty restarts is fifty interruptions for no gain.
+    'restart'  => false,
     'cf'       => !empty($_POST['do_cf']),
 ];
 
@@ -35,7 +38,7 @@ $regSel = $_POST['registrar'] ?? '';
 $rrSrv = $srvSel === '__auto__';
 $rrCf  = $cfSel  === '__auto__';
 $rrReg = $regSel === '__auto__';
-$serverList = array_values(infra_servers());
+$serverList = array_values(infra_hestia_servers());
 $cfList     = array_values(infra_cf_accounts());
 $regList    = infra_registrar_names();
 
@@ -50,7 +53,7 @@ $raw     = preg_split('/[\s,]+/', trim((string)($_POST['domains'] ?? '')));
 $domains = array_values(array_unique(array_filter(array_map('strtolower', array_map('trim', $raw)))));
 
 if (!$domains) { bulk_emit('Nothing to do — no domains provided.'); exit; }
-if (!$optsBase['register'] && !$optsBase['plesk'] && !$optsBase['cf']) { bulk_emit('Nothing selected (pick register / Plesk / Cloudflare).'); exit; }
+if (!$optsBase['register'] && !$optsBase['site'] && !$optsBase['cf']) { bulk_emit('Nothing selected (pick register / host / Cloudflare).'); exit; }
 
 $total = count($domains);
 $mode = ($rrSrv || $rrCf || $rrReg) ? ' (round-robin: ' . implode('+', array_filter([$rrSrv?'server':'', $rrCf?'cf':'', $rrReg?'registrar':''])) . ')' : '';
@@ -58,6 +61,7 @@ bulk_emit("Bulk provisioning {$total} domain(s) — staged only, idempotent{$mod
 bulk_emit(str_repeat('─', 48));
 
 $okCount = 0; $failCount = 0;
+$touched = [];   // server id => server, for the single restart at the end
 foreach ($domains as $i => $dom) {
     $n = $i + 1;
     bulk_emit("");
@@ -86,12 +90,35 @@ foreach ($domains as $i => $dom) {
         bulk_emit('  [assigned] server=' . ($server['id'] ?? '—') . '  cf=' . ($account['id'] ?? '—') . '  registrar=' . ($regName ?: '—'));
     }
     $res = infra_provision_one($dom, $server, $account, $opts);
+    if ($optsBase['site'] && $server) $touched[$server['id'] ?? ''] = $server;
     foreach ($res['lines'] as $line) bulk_emit('  ' . $line);
     if ($res['ok']) { $okCount++; bulk_emit('  → staged ✓'); }
     else            { $failCount++; bulk_emit('  → partial/failed'); }
 }
 
-infra_cache_flush();   // created Plesk sites / CF zones — invalidate discovery cache
+/* The restart, once per server that was written to.
+ *
+ * Until nginx restarts it has not read the new vhosts, and serves its own
+ * default page for every one of them — with a 200, so nothing looks wrong.
+ * Every step above reports success and the batch is still not live.
+ *
+ * It happens HERE rather than inside the per-domain routine because restarting
+ * once per domain means fifty interruptions to serve the same purpose as one,
+ * and a round-robin batch may have spread across several boxes — so it is once
+ * per box that was touched, not once per run. */
+if ($touched) {
+    bulk_emit("");
+    bulk_emit('Restarting the web server so the new sites are actually served…');
+    foreach ($touched as $srv) {
+        $w = hestia_restart_web($srv);
+        bulk_emit('  ' . ($srv['label'] ?? $srv['id'] ?? '?') . ': '
+            . ($w['ok'] ? '✓ restarted' : '✗ ' . $w['message']
+               . ' — the sites exist but will serve the default page until this succeeds'));
+        if (!$w['ok']) $failCount++;
+    }
+}
+
+infra_cache_flush();   // created sites / CF zones — invalidate discovery cache
 bulk_emit("");
 bulk_emit(str_repeat('─', 48));
 bulk_emit("DONE — {$okCount} staged, {$failCount} failed of {$total}.");

@@ -18,7 +18,7 @@ $opts = [
     'register'  => !empty($_POST['do_register']),
     'registrar' => $_POST['registrar'] ?? '',
     'years'     => (int) ($_POST['years'] ?? 1),
-    'plesk'     => !empty($_POST['do_plesk']),
+    'site'      => !empty($_POST['do_site']) || !empty($_POST['do_plesk']),
     'cf'        => !empty($_POST['do_cf']),
 ];
 
@@ -26,15 +26,15 @@ if (!infra_valid_domain($domain)) {
     infra_set_flash('err', "Invalid domain: '$domain'");
     header('Location: ' . $back); exit;
 }
-if (!$opts['register'] && !$opts['plesk'] && !$opts['cf']) {
+if (!$opts['register'] && !$opts['site'] && !$opts['cf']) {
     infra_set_flash('err', 'Nothing selected to do.');
     header('Location: ' . $back); exit;
 }
 
-$server = null;  foreach (infra_servers() as $s)    if (($s['id'] ?? '') === ($_POST['server_id'] ?? ''))    $server = $s;
+$server = null;  foreach (infra_hestia_servers() as $s) if (($s['id'] ?? '') === ($_POST['server_id'] ?? '')) $server = $s;
 $account = null; foreach (infra_cf_accounts() as $a) if (($a['id'] ?? '') === ($_POST['cf_account_id'] ?? '')) $account = $a;
 
 $res = infra_provision_one($domain, $server, $account, $opts);
-infra_cache_flush();   // created a Plesk site / CF zone — invalidate discovery cache
+infra_cache_flush();   // created a site / CF zone — invalidate discovery cache
 infra_set_flash($res['ok'] ? 'ok' : 'warn', "Provision '$domain':\n" . implode("\n", $res['lines']));
 header('Location: ' . $back);

@@ -602,7 +602,7 @@ if ($view === 'server') {
     infra_header('dashboard');
     if (!$srv) { echo '<div class="ic-note">Unknown server. <a href="index.php">&larr; back</a></div>'; infra_footer(); exit; }
 
-    $disc  = infra_discover_server($srv);
+    $disc  = infra_discover_hestia($srv);
     $probe = ['ok' => $disc['ok'], 'error' => $disc['error']];
     $info  = $disc['info'];
     $sites = $disc['sites'];
@@ -660,7 +660,7 @@ if ($view === 'server') {
 if ($view === 'deploy') {
     infra_header('deploy');
     $servers = [];
-    foreach (infra_servers() as $s) $servers[$s['id'] ?? ''] = $s;
+    foreach (infra_hestia_servers() as $s) $servers[$s['id'] ?? ''] = $s;
     $rows = [];
     foreach (infra_state_all_domains() as $dom => $r) {
         if (($r['ftp_user'] ?? '') === '') continue;
@@ -689,7 +689,7 @@ if ($view === 'deploy') {
 /* ============================= NEW SITE (CRUD) ============================= */
 if ($view === 'new') {
     infra_header('new');
-    $servers = infra_servers();
+    $servers = infra_hestia_servers();
     $accts   = infra_cf_accounts();
     $regs    = infra_registrar_names();
     ?>
@@ -728,7 +728,7 @@ if ($view === 'new') {
               <?php else: ?><span class="badge b-mut">no CF account configured</span><?php endif; ?>
             </td></tr>
             <tr><th>Steps</th><td>
-              <label style="display:block;margin-bottom:6px"><input type="checkbox" name="do_plesk" checked> Create Plesk site + FTP user</label>
+              <label style="display:block;margin-bottom:6px"><input type="checkbox" name="do_site" checked> Create the site on the box (vhost + folder + FTP login)</label>
               <label style="display:block"><input type="checkbox" name="do_cf" <?= $accts ? 'checked' : 'disabled' ?>> Create Cloudflare zone (needs Edit-scoped token + account_id)</label>
             </td></tr>
           </table>
@@ -742,7 +742,7 @@ if ($view === 'new') {
 /* ============================= BULK PROVISION ============================= */
 if ($view === 'bulk') {
     infra_header('bulk');
-    $servers = infra_servers();
+    $servers = infra_hestia_servers();
     $accts   = infra_cf_accounts();
     $regs    = infra_registrar_names();
     ?>
@@ -772,7 +772,7 @@ if ($view === 'bulk') {
               <?php else: ?><span class="badge b-mut">no registrar configured</span><?php endif; ?>
             </td></tr>
             <tr><th>Steps</th><td>
-              <label style="margin-right:16px"><input type="checkbox" name="do_plesk" checked> Plesk site</label>
+              <label style="margin-right:16px"><input type="checkbox" name="do_site" checked> Site on the box</label>
               <label><input type="checkbox" name="do_cf" <?= $accts ? 'checked' : 'disabled' ?>> Cloudflare zone (staged)</label>
             </td></tr>
           </table>

@@ -91,10 +91,10 @@ switch ($action) {
 
     case 'delete_site':
         if (!$server) { infra_set_flash('warn', 'No server on record.'); header('Location: ' . $back); exit; }
-        $r = plesk_delete_site($server, $domain);
+        $r = hestia_delete_site($server, $domain);
         if ($r['ok']) infra_state_upsert_domain(['domain' => $domain, 'ftp_user' => '', 'ftp_pass' => '']);
         infra_cache_flush();
-        infra_set_flash($r['ok'] ? 'ok' : 'err', "Delete Plesk site: {$r['message']}");
+        infra_set_flash($r['ok'] ? 'ok' : 'err', "Delete site: {$r['message']}");
         header('Location: ' . $back); exit;
 
     case 'buy':
@@ -123,7 +123,7 @@ switch ($action) {
     case 'teardown':
         $parts = [];
         if ($account && ($rec['cf_zone_id'] ?? '') !== '') { $z = cf_delete_zone($account, $rec['cf_zone_id']); $parts[] = 'CF zone: ' . $z['message']; }
-        if ($server) { $p = plesk_delete_site($server, $domain); $parts[] = 'Plesk site: ' . $p['message']; }
+        if ($server) { $p = hestia_delete_site($server, $domain); $parts[] = 'site: ' . $p['message']; }
         infra_state_delete_domain($domain);
         $parts[] = 'fleet state: removed';
         infra_cache_flush();

@@ -1,16 +1,24 @@
 <?php
 /**
  * infra/lib/provision.php — the shared per-domain provisioning routine used by
- * both the single "New Site" action and the bulk runner. Creates the Plesk site
- * + fully stages the Cloudflare zone, then persists the record to fleet state.
+ * both the single "New Site" action and the bulk runner. Creates the web host
+ * (vhost + folder + scoped FTP login) on HestiaCP and fully stages the
+ * Cloudflare zone, then persists the record to fleet state.
+ *
+ * This is the ONLY panel-specific step in the whole pipeline. Deploying — the
+ * multisite batch upload and the factory's single-site deploy — speaks plain
+ * FTP/SFTP to a host with a username and password, and neither knows nor cares
+ * which panel issued them. Swapping panels here changes nothing downstream.
  */
-require_once __DIR__ . '/fleet.php';   // pulls store/plesk/cloudflare/state + infra_registrar_map()
+require_once __DIR__ . '/fleet.php';        // store/cloudflare/state + infra_registrar_map()
+require_once __DIR__ . '/hestia_fleet.php'; // hestia_* client + the Hestia registry
 require_once __DIR__ . '/acquire.php'; // infra_domain_buy() — the ONE guarded purchase path
 // infra_valid_domain() now lives in store.php (shared with the domain loader).
 
 /**
  * Provision one domain end-to-end (idempotent, staged-only), persist to state.
- * @param array $opts { register:bool, registrar:string, years:int, plesk:bool, cf:bool }
+ * @param array $opts { register:bool, registrar:string, years:int, site:bool, cf:bool,
+ *                        restart:bool — false in a batch; caller restarts once at the end }
  * @return array{ok:bool, lines:string[]}
  */
 function infra_provision_one(string $domain, ?array $server, ?array $account, array $opts): array
@@ -19,7 +27,10 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
     $doReg     = !empty($opts['register']);
     $regName   = strtolower(trim($opts['registrar'] ?? ''));
     $years     = max(1, (int) ($opts['years'] ?? 1));
-    $doPlesk   = !empty($opts['plesk']);
+    // 'plesk' accepted as an alias so an in-flight form post cannot silently
+    // provision nothing after the rename.
+    $doSite    = !empty($opts['site']) || !empty($opts['plesk']);
+    $doRestart = !array_key_exists('restart', $opts) || !empty($opts['restart']);
     $doCf      = !empty($opts['cf']);
     $lines     = [];
     $ok        = true;
@@ -68,23 +79,36 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
         }
     }
 
-    /* Plesk site + FTP user */
-    if ($doPlesk) {
+    /* Web host: the vhost, its folder, and an FTP login scoped to it */
+    if ($doSite) {
         if (!$server) {
-            $lines[] = 'Plesk: ✗ no server'; $ok = false;
-        } elseif (plesk_site_exists($server, $domain)) {
-            $lines[] = 'Plesk: — already exists (skipped)';
+            $lines[] = 'Host: ✗ no server'; $ok = false;
+        } elseif (hestia_site_exists($server, $domain)) {
+            $lines[] = 'Host: — already exists (skipped)';
         } else {
             $base    = preg_replace('/[^a-z0-9]/', '', explode('.', $domain)[0]);
             $ftpUser = substr($base, 0, 12) . '_' . bin2hex(random_bytes(3));
             $ftpPass = bin2hex(random_bytes(10)) . 'Aa1!';
             $ip      = $server['default_ip'] ?? ($server['host'] ?? '');
-            $r = plesk_create_site($server, $domain, $ftpUser, $ftpPass, $ip);
+            // $restart=false for a batch: nginx is restarted ONCE after the whole
+            // run, not once per domain. See the caller (bulk_run.php).
+            $r = hestia_create_site($server, $domain, $ftpUser, $ftpPass, $ip, '', $doRestart);
             if ($r['ok']) {
-                $prov['ftp_user'] = $ftpUser; $prov['ftp_pass'] = $ftpPass;
-                $lines[] = "Plesk: ✓ {$r['message']} (ftp {$ftpUser})";
+                // Store the LOGIN Hestia actually created, not the name we asked
+                // for. Hestia prefixes it with the owning account, so storing the
+                // argument yields a credential that looks entirely reasonable and
+                // fails every deploy with "login incorrect".
+                $prov['ftp_user'] = $r['ftp_user'] ?: $ftpUser;
+                $prov['ftp_pass'] = $ftpPass;
+                $lines[] = "Host: ✓ {$r['message']} (ftp {$prov['ftp_user']})";
+                // ⚠ The upload path, stated because it differs from Plesk and the
+                // difference is silent. On Hestia the FTP login lands IN the
+                // docroot — there is no public_html beneath it. Deploy config
+                // carrying Plesk's '/public_html' default will upload into a
+                // folder nginx never reads: every file transfers, nothing serves.
+                $lines[] = "      upload to the login's own home (docroot {$r['docroot']}) — NOT /public_html";
             } else {
-                $lines[] = "Plesk: ✗ {$r['message']}"; $ok = false;
+                $lines[] = "Host: ✗ {$r['message']}"; $ok = false;
             }
         }
     }
@@ -126,7 +150,7 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
     if (empty($prov['registrar'])) $prov['registrar'] = infra_registrar_map()[$domain]['registrar'] ?? '';
     // 'staged' means infrastructure exists. Buying alone does not make it so — a
     // register-only run leaves the domain at 'owned', which is what it is.
-    if ($doPlesk || $doCf) $prov['status'] = $ok ? 'staged' : 'partial';
+    if ($doSite || $doCf) $prov['status'] = $ok ? 'staged' : 'partial';
     infra_state_upsert_domain($prov);
 
     return ['ok' => $ok, 'lines' => $lines];

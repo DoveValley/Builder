@@ -135,12 +135,24 @@ function infra_cf_zone_index(): array
     return $idx;
 }
 
-/** domain(lower) => {server_id,server_label,www_root,hosting_type} across ALL servers */
+/**
+ * domain(lower) => {server_id,server_label,www_root,hosting_type} across ALL boxes.
+ *
+ * This is what tells the Domains tab which machine a domain actually lives on —
+ * read from the boxes themselves, not from stored state, so it reports what IS
+ * rather than what was intended. Reads the Hestia fleet; it used to read the
+ * Plesk registry, which after the migration would have found nothing and quietly
+ * reported every provisioned domain as living nowhere.
+ *
+ * Old name kept (infra_plesk_domain_index) — renaming it is a separate change
+ * from making it true, and callers can move in their own time.
+ */
 function infra_plesk_domain_index(): array
 {
+    require_once __DIR__ . '/hestia_fleet.php';
     $idx = [];
-    foreach (infra_servers() as $s) {
-        $disc = infra_discover_server($s);
+    foreach (infra_hestia_servers() as $s) {
+        $disc = infra_discover_hestia($s);
         if (!$disc['ok']) continue;
         foreach ($disc['sites'] as $d) {
             $name = strtolower($d['name'] ?? '');
@@ -148,8 +160,9 @@ function infra_plesk_domain_index(): array
             $idx[$name] = [
                 'server_id'    => $s['id'] ?? '',
                 'server_label' => $s['label'] ?? ($s['id'] ?? ''),
-                'www_root'     => $d['www_root'] ?? '',
-                'hosting_type' => $d['hosting_type'] ?? '',
+                // Hestia names it docroot; the table column is www_root.
+                'www_root'     => $d['docroot'] ?? '',
+                'hosting_type' => $d['ssl'] ?? '',
             ];
         }
     }
