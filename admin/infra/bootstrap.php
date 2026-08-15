@@ -68,7 +68,11 @@ function infra_header(string $active = 'dashboard'): void
     echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
     echo '<title>Infrastructure — Console</title>';
     echo '<style>' . infra_css() . '</style></head><body>';
-    echo '<header class="ic-top"><div class="ic-brand">🛠 Infrastructure</div><nav class="ic-nav">';
+    // Back-to-Factory sits FIRST, left of the brand: it is the way out, and the way
+    // out belongs where the eye starts, not at the end of a row of eleven tabs.
+    echo '<header class="ic-top">';
+    echo '<a class="ic-back" href="../sites.php">&larr; Back to Factory</a>';
+    echo '<div class="ic-brand">🛠 Infrastructure</div><nav class="ic-nav">';
     foreach ($nav as $k => $n) {
         $cls = $k === $active ? 'active' : '';
         echo '<a class="' . $cls . '" href="' . ih($n['href']) . '">' . ih($n['label']) . '</a>';
@@ -76,7 +80,7 @@ function infra_header(string $active = 'dashboard'): void
     // sites.php, not index.php — index.php is the editor for whichever site happens to
     // be open, so "Back to Factory" used to drop you inside a site. The factory is the
     // Site Factory panel: sites, batches, infrastructure.
-    echo '</nav><a class="ic-back" href="../sites.php">&larr; Back to Factory</a></header>';
+    echo '</nav></header>';
     echo '<main class="ic-main">';
     infra_render_flash();
 }
@@ -99,10 +103,10 @@ function infra_css(): string
 *{box-sizing:border-box}body{margin:0;font:14px/1.5 -apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1f2937;background:#f3f4f6}
 .ic-top{display:flex;align-items:center;gap:24px;background:#111827;color:#fff;padding:0 20px;height:52px}
 .ic-brand{font-weight:700;font-size:15px}
-.ic-nav{display:flex;gap:4px;flex:1}
+.ic-nav{display:flex;gap:4px;flex:1;flex-wrap:wrap}
 .ic-nav a{color:#cbd5e1;text-decoration:none;padding:6px 12px;border-radius:6px;font-weight:600}
 .ic-nav a:hover{background:#1f2937;color:#fff}.ic-nav a.active{background:#2563eb;color:#fff}
-.ic-back{color:#9ca3af;text-decoration:none;font-size:13px}.ic-back:hover{color:#fff}
+.ic-back{color:#9ca3af;text-decoration:none;font-size:13px;white-space:nowrap}.ic-back:hover{color:#fff}
 .ic-main{max-width:1200px;margin:0 auto;padding:24px 20px}
 .ic-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:24px}
 .ic-tile{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:16px}
