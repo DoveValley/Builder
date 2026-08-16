@@ -12,83 +12,15 @@
  * from the plugin, an admin action, or the CLI.
  */
 
+require_once __DIR__ . '/wikimedia.php';        // the Wikipedia/Commons client
+require_once __DIR__ . '/../../includes/http_get.php';
+
 if (!function_exists('ms_convert_bin') && defined('BASE_DIR')) {
     @require_once BASE_DIR . '/includes/multisite/image_overlay.php';   // ImageMagick locator
 }
 
-// Wikimedia asks every client to send a descriptive User-Agent.
-if (!defined('CITY_IMAGE_UA')) define('CITY_IMAGE_UA', 'HomepageBuilder-CityImage/1.0 (site generator; contact admin)');
-
-/**
- * GET a URL with the Wikimedia-required UA. Returns body string, or '' on failure.
- * Retries with backoff on transient failures / 429 throttling.
- */
-function city_image_http(string $url, int $tries = 3): string {
-    for ($i = 0; $i < $tries; $i++) {
-        $ch = curl_init($url);
-        curl_setopt_array($ch, [
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_TIMEOUT        => 30,
-            CURLOPT_CONNECTTIMEOUT => 12,
-            CURLOPT_USERAGENT      => CITY_IMAGE_UA,
-        ]);
-        $body = curl_exec($ch);
-        $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
-        if ($body !== false && $code >= 200 && $code < 300) return (string)$body;
-        if ($i < $tries - 1) usleep((int)(300000 * ($i + 1)));   // 0.3s, 0.6s backoff
-    }
-    return '';
-}
-
-/** JSON GET helper — returns decoded array or []. */
-function city_image_api(string $url): array {
-    $raw = city_image_http($url);
-    if ($raw === '') return [];
-    $d = json_decode($raw, true);
-    return is_array($d) ? $d : [];
-}
-
-/**
- * The Wikipedia lead image for "{City}, {State}". Returns ['file'=>'File:..','url'=>original]
- * or null when the article has no page image.
- */
-function city_image_wikipedia_lead(string $city, string $state): ?array {
-    // redirects=1 so "San Antonio, Texas" (a redirect) resolves to the real "San Antonio"
-    // article and its lead image; without it, redirect-titled cities return no pageimage.
-    $wp = city_image_api('https://en.wikipedia.org/w/api.php?action=query&format=json&redirects=1'
-        . '&prop=pageimages&piprop=original|name&titles=' . rawurlencode("$city, $state"));
-    foreach (($wp['query']['pages'] ?? []) as $pg) {
-        $src = $pg['original']['source'] ?? '';
-        if (!empty($pg['pageimage']) && $src !== '') {
-            return ['file' => 'File:' . $pg['pageimage'], 'url' => $src];
-        }
-    }
-    return null;
-}
-
-/** License + author + dimensions for one Commons File: title (for attribution). */
-function city_image_commons_meta(string $fileTitle): array {
-    $res = city_image_api('https://commons.wikimedia.org/w/api.php?action=query&format=json'
-        . '&prop=imageinfo&iiprop=' . rawurlencode('url|size|extmetadata')
-        . '&titles=' . rawurlencode($fileTitle));
-    foreach (($res['query']['pages'] ?? []) as $pg) {
-        $ii = $pg['imageinfo'][0] ?? null;
-        if (!$ii) continue;
-        $md = $ii['extmetadata'] ?? [];
-        $strip = fn($h) => trim(preg_replace('/\s+/', ' ', strip_tags($h ?? '')));
-        return [
-            'title'      => $pg['title'] ?? $fileTitle,
-            'width'      => (int)($ii['width'] ?? 0),
-            'height'     => (int)($ii['height'] ?? 0),
-            'descurl'    => $ii['descriptionurl'] ?? '',
-            'artist'     => $strip($md['Artist']['value'] ?? ''),
-            'license'    => $strip($md['LicenseShortName']['value'] ?? ''),
-        ];
-    }
-    return ['title' => $fileTitle, 'width' => 0, 'height' => 0, 'descurl' => '', 'artist' => '', 'license' => ''];
-}
+/* Wikimedia transport and API calls now live in wikimedia.php — this file is
+   about turning a found image into a site asset. */
 
 /**
  * Derive SEO alt text from a Commons file title + city context.
@@ -133,7 +65,10 @@ function city_image_credit(array $c): string {
 function city_image_download(string $srcUrl, string $outDirAbs, string $citySlug, int $maxW = 1000): string {
     $bin = function_exists('ms_convert_bin') ? ms_convert_bin() : '/usr/bin/convert';
     if (!$bin) return '';
-    $bytes = city_image_http($srcUrl);
+    // Fetching the image file itself, not the API — but the same UA rule applies, and
+    // Wikimedia serves media from upload.wikimedia.org with the same expectations.
+    $dl    = http_get($srcUrl, ['ua' => WIKIMEDIA_UA, 'timeout' => 30, 'tries' => 3]);
+    $bytes = $dl['ok'] ? $dl['body'] : '';
     if ($bytes === '' || strlen($bytes) < 2048) return '';
 
     if (!is_dir($outDirAbs)) @mkdir($outDirAbs, 0775, true);
@@ -170,10 +105,10 @@ function city_image_fetch_for(array $opts): ?array {
     $ss    = trim($opts['ss'] ?? '');
     $slug  = trim($opts['city_slug'] ?? '') ?: strtolower(preg_replace('/[^a-z0-9]+/i', '-', "$city-$ss"));
 
-    $lead = city_image_wikipedia_lead($city, $state);
+    $lead = wikimedia_lead_image($city, $state);
     if (!$lead) return null;
 
-    $meta = city_image_commons_meta($lead['file']);
+    $meta = wikimedia_commons_meta($lead['file']);
 
     $base = city_image_download($lead['url'], $opts['out_dir'] ?? '', $slug);
     if ($base === '') return null;
