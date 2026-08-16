@@ -182,6 +182,47 @@ switch ($action) {
         ]);
         break;
 
+    /* Phase 2 — create the host area + FTP account for every row that lacks one.
+     *
+     * Detached like 'run' and 'research': provisioning fifty domains is minutes of
+     * work, and a synchronous request would time out somewhere in the middle with
+     * half the boxes done and nothing written back. */
+    case 'create_hosts':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        if (!is_file($paramsPath)) { echo json_encode(['error' => 'No target list stored — upload it first.']); break; }
+        if (!ms_batch_servers($masterId, $batchId)) { echo json_encode(['error' => 'No deployment servers picked — choose them above first.']); break; }
+        $hdir = $batchDir . '/hosts';
+        if (!is_dir($hdir)) mkdir($hdir, 0775, true);
+        // One at a time: a live run leaves an .out file with no DONE marker.
+        foreach (glob($hdir . '/*.out') ?: [] as $f) {
+            if (strpos((string) @file_get_contents($f), '__MS_HOSTS_DONE__') === false
+                && (time() - filemtime($f)) < 3600) {
+                echo json_encode(['error' => 'Host creation is already running.', 'run_id' => basename($f, '.out')]);
+                break 2;
+            }
+        }
+        $hid   = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+        $out   = $hdir . '/' . $hid . '.out';
+        $forceArg = !empty($_POST['force']) ? ' --force' : '';
+        $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/create_hosts.php')
+               . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId) . $forceArg
+               . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_HOSTS_DONE__ $?" >> ' . escapeshellarg($out);
+        exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
+        echo json_encode(['started' => true, 'run_id' => $hid]);
+        break;
+
+    case 'create_hosts_status':
+        $rid = preg_replace('/[^A-Za-z0-9\-]/', '', (string) ($_REQUEST['run_id'] ?? ''));
+        $f   = $batchDir . '/hosts/' . $rid . '.out';
+        if ($rid === '' || !is_file($f)) { echo json_encode(['error' => 'Unknown run.']); break; }
+        $txt  = (string) @file_get_contents($f);
+        $done = strpos($txt, '__MS_HOSTS_DONE__') !== false;
+        echo json_encode([
+            'done' => $done,
+            'log'  => trim(str_replace('__MS_HOSTS_DONE__', '', $txt)),
+        ]);
+        break;
+
     case 'save_servers':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         $plan = json_decode((string) ($_POST['plan'] ?? '[]'), true);

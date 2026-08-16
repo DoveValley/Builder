@@ -252,6 +252,36 @@ function ms_set_batch_master(string $masterId, string $batchId, string $newMaste
     return ['ok' => true, 'id' => $newId, 'master_id' => $newMasterId];
 }
 
+/**
+ * The PHP CLI binary to launch detached work with.
+ *
+ * PHP_BINARY is EMPTY under mod_php (apache2handler) — documented behaviour — so
+ * escapeshellarg(PHP_BINARY) yields '' and the shell runs `setsid '' script.php`,
+ * answers "Permission denied" and exits 127. The job reports as started and nothing
+ * happens. Only the CLI, where PHP_BINARY is populated, was ever unaffected.
+ *
+ * NOTE: the 'run' and 'research' launchers in multisite_api.php still use PHP_BINARY
+ * directly and have the same problem when pressed from a browser. Deliberately not
+ * changed here — that is Run Batch's business, and it is not being touched today.
+ */
+function ms_php_cli(): string
+{
+    static $bin = null;
+    if ($bin !== null) return $bin;
+
+    $candidates = [];
+    if (PHP_BINARY !== '' && @is_executable(PHP_BINARY) && !is_dir(PHP_BINARY)) $candidates[] = PHP_BINARY;
+    if (defined('PHP_BINDIR')) $candidates[] = rtrim(PHP_BINDIR, '/') . '/php';
+    $which = trim((string) @shell_exec('command -v php 2>/dev/null'));
+    if ($which !== '') $candidates[] = $which;
+    $candidates[] = '/usr/bin/php';
+
+    foreach ($candidates as $c) {
+        if ($c !== '' && @is_executable($c) && !is_dir($c)) return $bin = $c;
+    }
+    return $bin = 'php';   // let the shell resolve it; better than a certain-empty string
+}
+
 // ── Deployment plan: which boxes this batch lands on ─────────────────────────
 
 /**

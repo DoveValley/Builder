@@ -78,9 +78,11 @@ if (!isset($csrfToken)) return;
 
 <?php include __DIR__ . '/_batch_servers.php'; ?>
 
+<?php include __DIR__ . '/_batch_hosts.php'; ?>
+
 <!-- ===== RUN CARD ===== -->
 <div class="card" id="ms-run-card">
-    <h3 style="margin-top:0;">3. Run batch</h3>
+    <h3 style="margin-top:0;">4. Run batch</h3>
     <p class="hint">Builds and deploys every valid row (up to <em>concurrency</em> at a time). Start with a small <em>limit</em> and review before a full run. AI generation costs roughly $0.02&ndash;0.05 per site (free on rebuilds); tick <strong>No AI</strong> for identity + build + deploy only.</p>
     <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end;">
         <label class="hint">Concurrency<br><input type="number" id="ms-jobs" value="2" min="1" max="16" style="width:70px;"></label>
