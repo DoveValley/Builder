@@ -53,6 +53,95 @@ if ($action === 'delete') {
     header('Location: ' . $back); exit;
 }
 
+/**
+ * Run the connection test and describe what came back.
+ *
+ * Shared by "Test without saving" (which tests whatever is typed into the form)
+ * and the per-card "Test connection" (which tests the stored record). Two copies
+ * of this would drift into describing the same failure two different ways, which
+ * is exactly how a box ends up looking broken on one screen and fine on another.
+ *
+ * @return array{0:string,1:string} flash level, message
+ */
+function hestia_test_flash(array $srv): array
+{
+    // Testing with no key pair would send a request that can only come back as
+    // "authentication failed" — a credentials error for a box that simply has no
+    // credentials yet. Say the true thing instead of the misleading one.
+    if (!hestia_server_configured($srv)) {
+        return ['warn', 'There is nothing to test yet — this server has no access key or secret key, '
+            . 'so there is no Hestia to talk to. Install Hestia on it, create an access key with '
+            . 'v-add-access-key user, then paste the pair in with "Edit these settings".'];
+    }
+
+    infra_http_calls_reset();
+    $t0    = microtime(true);
+    $probe = hestia_probe($srv);
+    $ms    = (int) round((microtime(true) - $t0) * 1000);
+    $where = ($srv['host'] ?? '?') . ':' . (int) ($srv['port'] ?? 8083);
+
+    if ($probe['ok']) {
+        $facts = infra_hestia_facts(hestia_server_info($srv));
+        $users = hestia_list_users($srv);
+        $sites = hestia_list_sites($srv);
+        return ['ok', '✓ Reached ' . $where . ' — Hestia ' . ($facts['panel_version'] ?: '?')
+            . ' on ' . ($facts['platform'] ?: '?') . ', ' . count($sites) . ' vhost(s) under '
+            . count($users) . ' account(s). ' . infra_http_calls() . ' API call(s), ' . $ms . 'ms.'];
+    }
+
+    // Name the failure precisely, because the three ways this goes wrong need three
+    // different fixes and they are easy to confuse:
+    //   code 19  Hestia answered 200 with the body "Error" — API off, or our IP is
+    //            not allowed. Invisible from the HTTP status, which is always 200.
+    //   HTTP 401 Hestia answered and rejected the key pair. A credentials problem.
+    //   timeout  Nothing answered at all. The box or the port, not the key.
+    // Hestia's own exit codes only mean anything when Hestia actually replied, so
+    // code -1 (the catch-all for "no Hestia reply") must not be dressed up as one.
+    $code = (int) $probe['code'];
+    $err  = $probe['error'] ?: 'no reply';
+    $port = (int) ($srv['port'] ?? 8083);
+    $hint = '';
+
+    if ($code >= 0) {
+        $tag = 'code ' . $code . ': ' . hestia_err($code);
+        if ($code === 19) {
+            $hint = ' — the API is off, or this console\'s IP is not in API_ALLOWED_IP. On the box, run:'
+                  . ' v-change-sys-config-value API \'yes\' then'
+                  . ' v-change-sys-config-value API_ALLOWED_IP \'187.127.254.206\'';
+        }
+    } elseif (preg_match('/HTTP (\d{3})/', $err, $m)) {
+        $status = (int) $m[1];
+        $tag    = 'HTTP ' . $status;
+        if ($status === 401) {
+            $tag  = 'HTTP 401 — Hestia rejected this key pair';
+            $hint = ' — the key does not exist on the box, or the secret does not match it. Mint a new'
+                  . ' pair with v-add-access-key user "" "factory console" and paste both halves in.';
+        }
+    } elseif (stripos($err, 'timeout') !== false || stripos($err, 'connect') !== false) {
+        $tag  = 'no connection';
+        $hint = ' — nothing answered there. Check the box is up and that port ' . $port
+              . ' is reachable from this console (Hestia\'s firewall and any provider firewall).';
+    } else {
+        $tag = 'no reply from Hestia';
+    }
+
+    return ['err', rtrim('✗ Could not reach ' . $where . ' — ' . $err . ' [' . $tag . ']' . $hint, '.') . '.'];
+}
+
+/* ---- test a server already in the list (the per-card button) ----------- */
+// Separate from "test", which validates and rebuilds a candidate from POSTed
+// form fields. This one needs no fields at all: the record is already stored, so
+// testing it should not require opening the edit form first.
+if ($action === 'test_saved') {
+    if ($idx === null) {
+        infra_set_flash('err', 'That server is not in the list.');
+    } else {
+        [$lvl, $msg] = hestia_test_flash($cfg['servers'][$idx]);
+        infra_set_flash($lvl, $msg);
+    }
+    header('Location: ' . $back); exit;
+}
+
 /* ---- collect + check the fields (shared by save and test) -------------- */
 $label    = trim((string) ($_POST['label'] ?? ''));
 $host     = trim((string) ($_POST['host'] ?? ''));
@@ -118,36 +207,8 @@ $candidate = [
 
 /* ---- test without saving ---------------------------------------------- */
 if ($action === 'test') {
-    // Testing with no key pair would send a request that can only come back as
-    // "authentication failed" — a credentials error for a box that simply has no
-    // credentials yet. Say the true thing instead of the misleading one.
-    if (!hestia_server_configured($candidate)) {
-        infra_set_flash('warn', 'There is nothing to test yet — this server has no access key or secret key, '
-            . 'so there is no Hestia to talk to. Save it as it is, install Hestia on it, then come back and '
-            . 'paste the key pair in with "Edit these settings".');
-        header('Location: ' . $back); exit;
-    }
-    infra_http_calls_reset();
-    $t0    = microtime(true);
-    $probe = hestia_probe($candidate);
-    if ($probe['ok']) {
-        $facts = infra_hestia_facts(hestia_server_info($candidate));
-        $users = hestia_list_users($candidate);
-        $sites = hestia_list_sites($candidate);
-        $ms    = (int) round((microtime(true) - $t0) * 1000);
-        infra_set_flash('ok', '✓ Reached ' . $host . ' — Hestia ' . ($facts['panel_version'] ?: '?')
-            . ', ' . count($sites) . ' website(s) under ' . count($users) . ' account(s). '
-            . 'Took ' . infra_http_calls() . ' API calls, ' . $ms . 'ms. Nothing was saved.');
-    } else {
-        // The one failure worth naming, because it is invisible from the status
-        // code: Hestia answers HTTP 200 with the body "Error" when the API is off
-        // or the caller IP is not allowed. It is not a wrong-password problem.
-        $hint = $probe['code'] === 19
-            ? ' — run v-add-sys-api on the box and add this server\'s IP to API_ALLOWED_IP'
-            : '';
-        infra_set_flash('err', '✗ Could not reach ' . $host . ':' . $port . ' — ' . ($probe['error'] ?: 'no reply')
-            . $hint . '. Nothing was saved.');
-    }
+    [$lvl, $msg] = hestia_test_flash($candidate);
+    infra_set_flash($lvl, $msg . ' Nothing was saved.');
     header('Location: ' . $back); exit;
 }
 

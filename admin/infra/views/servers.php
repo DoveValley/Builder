@@ -224,6 +224,20 @@
     <!-- id="hestia" is kept: links elsewhere on this page still target it. -->
     <div id="hestia"></div>
 
+    <?php
+    // Said once, here, instead of on every card. It qualifies the Accounts column
+    // on any box whose count is approximate, and those cards mark themselves
+    // "approx." rather than each restating the whole caveat.
+    $anyApprox = false;
+    foreach ($hRows as $r) if (!($r['b']['accounts']['exact'] ?? true)) { $anyApprox = true; break; }
+    if ($anyApprox): ?>
+    <div style="font-size:12px;color:#6b7280;margin:0 0 10px">
+        <strong>Accounts</strong> counts what the console can see. <code>v-list-users</code> returns
+        only the key's own account, so an unrelated empty account would not appear — cards where that
+        applies are marked <span style="color:#9ca3af">approx.</span>
+    </div>
+    <?php endif; ?>
+
     <?php if (empty($hServers)): ?>
         <div class="ic-empty">No HestiaCP server registered yet. Add one below.</div>
     <?php else: ?>
@@ -285,10 +299,10 @@
                 </div>
             <?php endforeach; ?>
             <?php if (!$acct['exact']): ?>
-            <div style="font-size:11px;color:#9ca3af;max-width:260px;align-self:center">
-                Accounts counts what the console can see. <code>v-list-users</code> returns only the
-                key's own account, so an unrelated empty account would not appear.
-            </div>
+            <!-- The caveat itself is stated once above the list. Repeating it on every
+                 card put the same three lines of grey text on screen twenty times and
+                 crowded out the numbers it was annotating. -->
+            <div style="font-size:11px;color:#9ca3af;align-self:center" title="Accounts counts what the console can see. v-list-users returns only the key's own account, so an unrelated empty account would not appear.">approx.</div>
             <?php endif; ?>
         </div>
         <?php endif; ?>
@@ -299,12 +313,20 @@
             <div class="ic-note" style="background:#fffbeb;border-color:#fcd34d;color:#92400e">
                 <strong>The machine is recorded here, but there is no Hestia on it yet.</strong>
                 Nothing has been contacted — it has no key pair, so there is nothing to authenticate with.
-                Three things left, in order:
+                Four things left, in order:
                 <ol style="margin:8px 0 0 18px;padding:0">
-                    <li>Install Hestia on it (the command is in "Add a HestiaCP server" at the bottom of this page).</li>
-                    <li>On the box: <code>v-add-sys-api</code>, then put <code>187.127.254.206</code> in <code>API_ALLOWED_IP</code>.</li>
-                    <li><code>v-add-access-key user</code> with no permissions argument, then paste the pair into
-                        "Edit these settings" below.</li>
+                    <li><strong>Pre-flight.</strong> <code>dpkg -l | grep -E "^ii +(ufw|unattended-upgrades|exim4|apache2|mariadb-server|postfix)"</code>
+                        — purge anything it lists, and <code>systemctl stop ufw</code> <em>before</em> purging ufw
+                        (its unit reports "active" as a ghost otherwise). Open ports do not tell you a box is
+                        clean; only <code>dpkg</code> does.</li>
+                    <li>Install Hestia (the command is in "Add a HestiaCP server" at the bottom of this page),
+                        then reboot — the installer does not reboot itself.</li>
+                    <li>On the box:
+                        <code>v-change-sys-config-value API 'yes'</code> then
+                        <code>v-change-sys-config-value API_ALLOWED_IP '187.127.254.206'</code>.</li>
+                    <li><code>v-add-access-key user "" "factory console"</code> — the empty argument is required,
+                        because a key limited to named commands is not possible on Hestia 1.10.2. Paste the pair
+                        into "Edit these settings" below, then press <strong>Test connection</strong>.</li>
                 </ol>
             </div>
             <?php elseif (!$d['ok']): ?>
@@ -313,7 +335,9 @@
                 <?php if (($d['error'] ?? '') !== '' && stripos($d['error'], 'allowed') !== false): ?>
                 <br><br>Hestia answers HTTP 200 with the body <code>Error</code> when the API is switched
                 off or the caller's IP is not allowed — it looks like nothing is wrong. On the box:
-                <code>v-add-sys-api</code>, then add this server's IP to <code>API_ALLOWED_IP</code>.
+                <code>v-change-sys-config-value API 'yes'</code> then
+                <code>v-change-sys-config-value API_ALLOWED_IP '187.127.254.206'</code>.
+                Press <strong>Test connection</strong> below to see the exact error code.
                 <?php endif; ?>
             </div>
             <?php endif; ?>
@@ -417,6 +441,16 @@
 
             <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
                 <a class="btn sec" href="index.php?view=servers&amp;refresh=1#hestia">&#8635; Re-read this server</a>
+                <!-- Testing a server that is already stored should not require opening the
+                     edit form first: it needs no fields, only the record's id. Reports the
+                     Hestia error CODE as well as the sentence — code 19 (API off / IP not
+                     allowed) is invisible from the HTTP status, which is always 200. -->
+                <form method="post" action="actions/hestia_save.php" style="display:inline">
+                    <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+                    <input type="hidden" name="action" value="test_saved">
+                    <input type="hidden" name="id" value="<?= ih($srv['id'] ?? '') ?>">
+                    <button class="btn sec" type="submit">Test connection</button>
+                </form>
                 <a class="btn sec" href="index.php?view=servers&amp;hedit=<?= ih($srv['id'] ?? '') ?>#hform-<?= ih($srv['id'] ?? '') ?>">Edit these settings</a>
                 <form method="post" action="actions/hestia_save.php" style="display:inline">
                     <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
@@ -470,12 +504,28 @@
                         ignored</em> — you get a default install with mail, DNS and a database on it.</li>
                 </ul>
                 <br>
-                <code>--api yes</code> switches the API on during the install, so
-                <code>v-add-sys-api</code> is only needed if you left it out. Either way you must add
-                this server's IP (<code>187.127.254.206</code>) to <code>API_ALLOWED_IP</code> in
-                <code>/usr/local/hestia/conf/hestia.conf</code>. Until you do, every call comes back
-                as HTTP 200 with the body <code>Error</code> — which looks like nothing is wrong.
+                <strong>Before you run it</strong>, clear the two packages that will kill the install and
+                that <em>no port scan can see</em> — check with
+                <code>dpkg -l | grep -E "^ii +(ufw|unattended-upgrades|exim4|apache2|mariadb-server|postfix)"</code>.
+                <code>ufw</code> makes Hestia refuse to install without ever naming the package, and its
+                systemd unit keeps reporting "active" as a ghost after the package is gone — so
+                <code>systemctl stop ufw</code> first, then purge. <code>unattended-upgrades</code> holds
+                the dpkg lock on a fresh boot and has killed a run outright. A preinstalled mail server
+                (<code>exim4</code>, <code>postfix</code>) is on the installer's conflict list and makes
+                it abort rather than purge.
+                <br><br>
+                <code>--api yes</code> switches the API on during the install. Either way you must add
+                this console's IP (<code>187.127.254.206</code>) to <code>API_ALLOWED_IP</code>:
+                <code>v-change-sys-config-value API_ALLOWED_IP '187.127.254.206'</code>. Until you do,
+                every call comes back as HTTP 200 with the body <code>Error</code> — which looks like
+                nothing is wrong. The console reports that as <strong>code 19</strong>.
                 Firewall port 8083 to that IP only.
+                <br><br>
+                Then the access key: <code>v-add-access-key user "" "factory console"</code>. The empty
+                second argument is not optional — on Hestia 1.10.2 a key restricted to named commands
+                <strong>cannot be created</strong>, because permissions are validated against the six
+                app definitions in <code>$HESTIA/data/api/</code> and every <code>v-*</code> name is
+                rejected. Full-rights keys are the only kind that work.
             </div>
             <?php infra_hestia_form(null); ?>
         </div>

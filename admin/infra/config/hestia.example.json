@@ -27,5 +27,5 @@
         }
     ],
 
-    "_enable": "The API is OFF by default. On the box: v-add-sys-api, then allow the factory IP (187.127.254.206) in API_ALLOWED_IP. A disallowed caller gets HTTP 200 with the body 'Error' - not an auth failure you can see from the status code. Firewall 8083 to that IP only."
+    "_enable": "The API is OFF by default. On the box: v-change-sys-config-value API 'yes' then v-change-sys-config-value API_ALLOWED_IP '187.127.254.206'. A disallowed caller gets HTTP 200 with the body 'Error' - not an auth failure you can see from the status code. Firewall 8083 to that IP only."
 }
