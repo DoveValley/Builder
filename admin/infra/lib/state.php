@@ -83,6 +83,11 @@ function infra_state_db(): PDO
     $db->exec('CREATE TABLE IF NOT EXISTS counters (k TEXT PRIMARY KEY, v INTEGER DEFAULT 0)');
     // discovery cache (Plesk/CF API sweeps) — see lib/cache.php
     $db->exec('CREATE TABLE IF NOT EXISTS cache (k TEXT PRIMARY KEY, v TEXT, ts INTEGER)');
+    // D.Finder's whole state, one JSON blob per key — see actions/dfinder_state.php.
+    // Deliberately opaque: the workbench owns its own shape and repairs older ones
+    // in its normalize(). Modelling its niches and candidates as columns here would
+    // put the same schema in two places and make every UI change a migration.
+    $db->exec('CREATE TABLE IF NOT EXISTS dfinder (k TEXT PRIMARY KEY, v TEXT, ts INTEGER)');
     return $db;
 }
 

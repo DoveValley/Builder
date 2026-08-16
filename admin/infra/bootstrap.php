@@ -52,6 +52,9 @@ function infra_header(string $active = 'dashboard'): void
 {
     $nav = [
         'dashboard'  => ['label' => 'Dashboard',  'href' => 'index.php'],
+        // Left of Domains on purpose: this is where a domain is decided on, and
+        // Domains is the list of ones already chosen. The order reads as the work.
+        'dfinder'    => ['label' => 'D.Finder',    'href' => 'index.php?view=dfinder'],
         'domains'    => ['label' => 'Domains',     'href' => 'index.php?view=domains'],
         'registrars' => ['label' => 'Registrars',  'href' => 'index.php?view=registrars'],
         'cities'     => ['label' => 'Cities/Niche','href' => 'index.php?view=cities'],
