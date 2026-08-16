@@ -67,7 +67,7 @@ function infra_discover_hestia(array $server, int $ttl = INFRA_HESTIA_TTL): arra
 
     $probe = hestia_probe($server);
     $info  = $probe['ok'] ? hestia_server_info($server)  : null;
-    $users = $probe['ok'] ? hestia_list_users($server)   : [];
+    $users = $probe['ok'] ? hestia_account_list($server) : [];
     $sites = $probe['ok'] ? hestia_list_sites($server)   : [];
 
     $bundle = [

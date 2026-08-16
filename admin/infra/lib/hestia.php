@@ -181,6 +181,25 @@ function hestia_list_users(array $server): array
 }
 
 /**
+ * Every account this box has, as well as we can know it.
+ *
+ * v-list-users cannot be trusted to enumerate: on two boxes in the same state, with
+ * identically-owned full-permission keys, it returned [user] on one and [user, fleet]
+ * on the other. So the fleet account — whose name we know, because it is in the config
+ * — is confirmed BY NAME rather than discovered, the same way hestia_list_sites() has
+ * to do it. Costs one extra call only when the listing already omitted it.
+ *
+ * @return string[] account names
+ */
+function hestia_account_list(array $server): array
+{
+    $users = hestia_list_users($server);
+    $fleet = hestia_fleet_user($server);
+    if (!in_array($fleet, $users, true) && hestia_user_exists($server, $fleet)) $users[] = $fleet;
+    return $users;
+}
+
+/**
  * List every web domain on the server.
  *
  * Hestia has no global domain list — web domains hang off users, so this is
