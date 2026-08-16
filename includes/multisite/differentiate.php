@@ -115,7 +115,16 @@ function ms_gsc_meta(string $token): string {
     return $token === '' ? '' : '<meta name="google-site-verification" content="' . htmlspecialchars($token, ENT_QUOTES) . '">';
 }
 
-function ms_differentiate_working_dir(string $workingDir, array $params, array $masterIdentity): void {
+/**
+ * @param bool $skipTags Skip the analytics + Search Console tags only.
+ *
+ * Nothing else here is optional, and deliberately so. The identity rules above rewrite
+ * the MASTER's own website, domain, email, phone and business name out of every clone
+ * — skip that and each generated site ships carrying the master's brand and contact
+ * details in its copy. Clearing a fabricated rating is the same kind of guard. Those
+ * are safety nets, not features, so they have no switch.
+ */
+function ms_differentiate_working_dir(string $workingDir, array $params, array $masterIdentity, bool $skipTags = false): void {
     $sf = $workingDir . '/data/site.json';
     if (!file_exists($sf)) return;
     $data = json_decode(file_get_contents($sf), true);
@@ -197,11 +206,19 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
     }
 
     // ── 4. Analytics isolation — per-site tag or none (never shared) ──────────
-    $aid = trim($params['analytics_id'] ?? '');
-    $data['theme']['analytics_head'] = $aid !== '' ? ms_ga4_snippet($aid) : '';
+    // Both tags are still CLEARED when skipped, not left alone: the clone inherits the
+    // master's tags, so "leave it as it was" would send this site's traffic to the
+    // master's property — the one thing per-site isolation exists to prevent.
+    if ($skipTags) {
+        $data['theme']['analytics_head'] = '';
+        $data['theme']['head_extra']     = '';
+    } else {
+        $aid = trim($params['analytics_id'] ?? '');
+        $data['theme']['analytics_head'] = $aid !== '' ? ms_ga4_snippet($aid) : '';
 
-    // ── 4b. Search Console verification — per-site meta tag or none ────────────
-    $data['theme']['head_extra'] = ms_gsc_meta($params['gsc_verification'] ?? '');
+        // ── 4b. Search Console verification — per-site meta tag or none ────────
+        $data['theme']['head_extra'] = ms_gsc_meta($params['gsc_verification'] ?? '');
+    }
 
     // ── 5. Layout variation (2a) — one ordering per domain, homepage + each page ─
     if (function_exists('layout_apply_for_domain')) {

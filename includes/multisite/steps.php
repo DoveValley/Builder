@@ -64,10 +64,7 @@ function ms_run_steps(): array {
          'does' => 'Render the actual pages, sitemap and robots.txt.',
          'where' => 'Rarely — this is the renderer'],
 
-        ['key' => 'deploy',        'label' => 'Deploy',
-         'does' => 'Upload the finished site to its host.',
-         'where' => 'The ftp_host / ftp_user / ftp_pass columns'],
-    ];
+];
 }
 
 /** Step keys, in order. */
@@ -397,29 +394,9 @@ function ms_step_readiness(string $masterId, string $batchId): array {
         ms_item('robots',   'robots.txt pointing at the sitemap', 'every row'),
     ]);
 
-    // ── Deploy ────────────────────────────────────────────────────────────────
-    $withFtp = $countWhere(fn($r) => trim((string) ($r['ftp_host'] ?? '')) !== ''
-                                  && trim((string) ($r['ftp_user'] ?? '')) !== ''
-                                  && trim((string) ($r['ftp_pass'] ?? '')) !== '');
-    $sftp = $countWhere(fn($r) => strtolower(trim((string) ($r['ftp_protocol'] ?? ''))) === 'sftp');
-    $depItems = [
-        ms_item_rows('ftp_host', 'The server to upload to', $countWhere(fn($r) => trim((string) ($r['ftp_host'] ?? '')) !== ''), $n),
-        ms_item_rows('ftp_user', 'Login name', $countWhere(fn($r) => trim((string) ($r['ftp_user'] ?? '')) !== ''), $n),
-        ms_item_rows('ftp_pass', 'Password — stored on disk, never committed', $countWhere(fn($r) => trim((string) ($r['ftp_pass'] ?? '')) !== ''), $n),
-        ms_item_rows('ftp_path', 'Folder on the host — defaults to the web root', $countWhere(fn($r) => trim((string) ($r['ftp_path'] ?? '')) !== ''), $n, false),
-        ms_item('ftp_protocol',  'Plain FTP unless the row says sftp',
-                $sftp > 0 ? ($sftp . ' of ' . $n . ' use sftp') : 'all plain FTP', MS_STEP_OK),
-        ms_item('manifest',      'Only changed files upload on a re-run', 'per domain'),
-    ];
-    if ($n === 0) {
-        $out['deploy'] = ms_step_cell(MS_STEP_OFF, 'No target list yet', '', $depItems);
-    } elseif ($withFtp === 0) {
-        $out['deploy'] = ms_step_cell(MS_STEP_OFF, 'No row has FTP credentials', 'Sites will be built for review but not uploaded.', $depItems);
-    } elseif ($withFtp < $n) {
-        $out['deploy'] = ms_step_cell(MS_STEP_WARN, $withFtp . ' of ' . $n . ' rows have FTP credentials', 'The other ' . ($n - $withFtp) . ' build but do not upload.', $depItems);
-    } else {
-        $out['deploy'] = ms_step_cell(MS_STEP_OK, 'All ' . $n . ' rows have FTP credentials', '', $depItems);
-    }
+    // Deploy's readiness is computed by the deploy section, not here — this table
+    // stopped listing it, and leaving the calculation behind would be work done for a
+    // row nobody renders.
 
     return $out;
 }

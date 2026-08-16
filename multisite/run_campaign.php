@@ -10,6 +10,9 @@
  * Usage:
  *   php multisite/run_campaign.php <master_id> [options]
  *     --no-ai         skip AI generation (identity + build + deploy only)
+ *     --skip=a,b      skip optional steps: landing, visual, ai, images, tags
+ *                     (clone, identity and build are structural and cannot be skipped;
+ *                      nor can the identity scrub inside differentiate)
  *     --force         force AI refresh + full FTP re-upload
  *     --only=DOMAIN   process just one row
  *     --limit=N       process at most N rows
@@ -31,6 +34,10 @@ require __DIR__ . '/../includes/multisite/clone.php';
 // ── Args ──────────────────────────────────────────────────────────────────────
 $args      = array_slice($argv, 1);
 $noAi      = in_array('--no-ai', $args, true);
+// Optional steps the caller turned off. Passed through to build_one.php, which is
+// where the list of what may be skipped is enforced — one place decides, not two.
+$skip = '';
+foreach ($args as $a) if (str_starts_with($a, '--skip=')) $skip = substr($a, 7);
 $force     = in_array('--force', $args, true);
 $noPre     = in_array('--no-preflight', $args, true);
 $verbose   = in_array('--verbose', $args, true);
@@ -91,7 +98,8 @@ if ($limit > 0) $rows = array_slice($rows, 0, $limit);
 
 $n = count($rows);
 echo "Batch: {$masterId}  |  rows to process: {$n}"
-   . ($noAi ? '  [--no-ai]' : '') . ($force ? '  [--force]' : '') . "\n";
+   . ($noAi ? '  [--no-ai]' : '') . ($force ? '  [--force]' : '')
+   . ($skip !== '' ? '  [skipping: ' . $skip . ']' : '') . "\n";
 if ($n === 0) { echo "Nothing to do.\n"; exit(0); }
 
 // ── FTP pre-flight (§5 R0) ────────────────────────────────────────────────────
@@ -226,7 +234,8 @@ function ms_run_pool(array $queue, int $concurrency, int $retries, bool $verbose
 }
 
 // Build the job list (one temp row file + build_one command per row).
-$flagsCommon = ' --snapshot=' . escapeshellarg($snapshotDir) . ($noAi ? ' --no-ai' : '') . ($force ? ' --force' : '');
+$flagsCommon = ' --snapshot=' . escapeshellarg($snapshotDir) . ($noAi ? ' --no-ai' : '') . ($force ? ' --force' : '')
+             . ($skip !== '' ? ' --skip=' . escapeshellarg($skip) : '');
 $jobList = []; $rowFiles = [];
 foreach ($rows as $r) {
     $domain  = $r['domain'];
@@ -246,7 +255,7 @@ $paramsVersion = ms_current_params_version($batchDir);   // which params table t
 
 // Write the run status file (state = running | done | failed). Written incrementally
 // so the admin UI can poll it while a detached run is in progress.
-$writeStatus = function (string $state, array $results) use ($statusFile, $runId, $masterId, $batchId, $paramsVersion, $noAi, $force, $only, $limit, $retries, $jobs, $n, $startedAt) {
+$writeStatus = function (string $state, array $results) use ($statusFile, $runId, $masterId, $batchId, $paramsVersion, $noAi, $force, $skip, $only, $limit, $retries, $jobs, $n, $startedAt) {
     $ok  = count(array_filter($results, fn($r) => $r['status'] === 'ok'));
     $done = count($results);
     $payload = [
@@ -260,7 +269,7 @@ $writeStatus = function (string $state, array $results) use ($statusFile, $runId
         'pid'         => getmypid(),
         'started_at'  => $startedAt,
         'finished_at' => $state === 'running' ? null : gmdate('c'),
-        'options'     => ['no_ai' => $noAi, 'force' => $force, 'only' => $only, 'limit' => $limit, 'retries' => $retries, 'jobs' => $jobs],
+        'options'     => ['no_ai' => $noAi, 'force' => $force, 'skip' => $skip, 'only' => $only, 'limit' => $limit, 'retries' => $retries, 'jobs' => $jobs],
         'total'       => $n,
         'done'        => $done,
         'ok'          => $ok,

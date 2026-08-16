@@ -40,14 +40,28 @@ require_once __DIR__ . '/../includes/multisite/steps.php';
 progress_set_sink(progress_jsonlines_sink());
 
 // ── Parse args ──────────────────────────────────────────────────────────────
-$rowFile = null; $snapshotArg = null; $keep = false; $force = false; $noAi = false;
+$rowFile = null; $snapshotArg = null; $keep = false; $force = false; $noAi = false; $skip = [];
 foreach (array_slice($argv, 1) as $a) {
     if ($a === '--keep')                       $keep = true;
     elseif ($a === '--force')                  $force = true;
     elseif ($a === '--no-ai')                  $noAi = true;
+    elseif (str_starts_with($a, '--skip='))    $skip = array_filter(array_map('trim', explode(',', substr($a, 7))));
     elseif (str_starts_with($a, '--snapshot=')) $snapshotArg = substr($a, 11);
     elseif ($rowFile === null)                 $rowFile = $a;
 }
+/**
+ * Steps the caller turned off for this run.
+ *
+ * ONLY the optional ones are honoured. Clone, identity and build are structural — a
+ * run without them does not make a lesser site, it makes no site (or fifty copies of
+ * the master). And the identity SCRUB inside differentiate is a safety net, not a
+ * feature: it rewrites the master's own domain, email, phone and business name out of
+ * every clone, so it has no switch. What can be turned off there is the tagging.
+ */
+$skippable = ['landing', 'visual', 'ai', 'images', 'tags'];
+$skip      = array_values(array_intersect($skip, $skippable));
+$skipped   = fn(string $k) => in_array($k, $skip, true);
+if ($skipped('ai')) $noAi = true;   // one mechanism, not two
 if (!$rowFile || !is_file($rowFile)) {
     fwrite(STDERR, "usage: build_one.php <row.json> [--snapshot=DIR] [--keep] [--force]\n");
     exit(2);
@@ -128,7 +142,9 @@ inject_params_into_working_dir($workingDir, $params);
 // generate_city_pages() reads config path-constants, so it runs in a worker process
 // rooted at the working dir (same reason render_site.php is a separate worker).
 $landingCities = ms_parse_landing_cities((string)($params['landing_cities'] ?? ''));
-if ($landingCities) {
+if ($landingCities && $skipped('landing')) {
+    progress_log('Landing pages: skipped — turned off for this run.', 'warn');
+} elseif ($landingCities) {
     $label = implode(', ', array_map(fn($c) => $c['city'] . ', ' . $c['SS'], $landingCities));
     ms_step_begin('landing');
     progress_log('Generating landing pages for ' . count($landingCities) . ' city(ies): ' . $label . '…');
@@ -166,14 +182,21 @@ if ($landingCities) {
 }
 
 ms_step_begin('differentiate');
-progress_log('Differentiating (schema / geo / analytics)…');
-ms_differentiate_working_dir($workingDir, $params, $masterIdentity);
+progress_log($skipped('tags')
+    ? 'Differentiating (schema / geo) — site tags skipped, turned off for this run…'
+    : 'Differentiating (schema / geo / analytics)…');
+// The scrub always runs; only the analytics + Search Console tags are optional.
+ms_differentiate_working_dir($workingDir, $params, $masterIdentity, $skipped('tags'));
 
 // Coordinated visual identity — Theme Preset (+ logo/favicon next). Runs before the
 // image prune so any generated assets exist and are referenced.
-ms_step_begin('visual');
-$visRes = ms_apply_visual_identity($workingDir, $params, $masterId);
-if ($visRes['applied']) progress_log("Visual identity: Theme Preset '{$visRes['preset']}'" . (!empty($visRes['logo']) ? ", logo generated" : "") . ".");
+if ($skipped('visual')) {
+    progress_log('Visual identity: skipped — turned off for this run.', 'warn');
+} else {
+    ms_step_begin('visual');
+    $visRes = ms_apply_visual_identity($workingDir, $params, $masterId);
+    if ($visRes['applied']) progress_log("Visual identity: Theme Preset '{$visRes['preset']}'" . (!empty($visRes['logo']) ? ", logo generated" : "") . ".");
+}
 
 // ── AI content: fill this city's ai_blocks (home + core + landing) via generate.py ──
 if ($noAi) {
@@ -228,10 +251,16 @@ $masterVars = (json_decode((string)@file_get_contents(BASE_DIR . '/sites/' . $ma
 $masterCitySlug = $masterVars['city_slug'] ?? '';
 if ($masterCitySlug === '' && !empty($masterVars['city'])) $masterCitySlug = slugify(($masterVars['city'] ?? '') . ' ' . ($masterVars['SS'] ?? ''));
 
-ms_step_begin('images');
-$imgRes = ms_differentiate_site_images($workingDir, $params, $masterCitySlug, $heroStyle);
-if ($imgRes['stamped'] > 0 || $imgRes['varied'] > 0 || ($imgRes['pruned'] ?? 0) > 0)
-    progress_log("Images: stamped {$imgRes['stamped']} hero(s), differentiated {$imgRes['varied']} photo(s), pruned " . ($imgRes['pruned'] ?? 0) . " unreferenced.");
+if ($skipped('images')) {
+    progress_log('Images: skipped — turned off for this run.', 'warn');
+    $imgRes = ['stamped' => 0, 'varied' => 0, 'pruned' => 0];
+} else {
+    ms_step_begin('images');
+    $imgRes = ms_differentiate_site_images($workingDir, $params, $masterCitySlug, $heroStyle);
+    if ($imgRes['stamped'] > 0 || $imgRes['varied'] > 0 || ($imgRes['pruned'] ?? 0) > 0) {
+        progress_log("Images: stamped {$imgRes['stamped']} hero(s), differentiated {$imgRes['varied']} photo(s), pruned " . ($imgRes['pruned'] ?? 0) . " unreferenced.");
+    }
+}
 
 // ── Build in a worker-mode child process ──────────────────────────────────────
 $canonical = 'https://' . preg_replace('#^https?://#i', '', rtrim($domain, '/'));

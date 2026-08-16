@@ -83,12 +83,33 @@ if (!isset($csrfToken)) return;
 <!-- ===== RUN CARD ===== -->
 <div class="card" id="ms-run-card">
     <h3 style="margin-top:0;">4. Run batch</h3>
-    <p class="hint">Builds and deploys every valid row (up to <em>concurrency</em> at a time). Start with a small <em>limit</em> and review before a full run. AI generation costs roughly $0.02&ndash;0.05 per site (free on rebuilds); tick <strong>No AI</strong> for identity + build + deploy only.</p>
+
+    <!-- The steps come FIRST: what a run does is decided before how fast it goes. -->
+    <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;margin-bottom:16px;">
+        <strong style="font-size:.9rem;color:#1e3a5f;">What this run does</strong>
+        <p class="hint" style="margin:4px 0 10px;">
+            Untick a step to skip it for this run. Clone, identity and build are not listed
+            because they cannot be skipped &mdash; without them a run makes no site, or fifty
+            copies of the master.
+        </p>
+        <div style="display:flex;gap:18px;flex-wrap:wrap;">
+            <label class="hint"><input type="checkbox" class="ms-step-opt" value="landing" checked> Landing pages</label>
+            <label class="hint"><input type="checkbox" class="ms-step-opt" value="visual"  checked> Visual identity</label>
+            <label class="hint"><input type="checkbox" class="ms-step-opt" value="ai"      checked> AI content</label>
+            <label class="hint"><input type="checkbox" class="ms-step-opt" value="images"  checked> Images</label>
+            <label class="hint"><input type="checkbox" class="ms-step-opt" value="tags"    checked> Site tags <span style="color:#94a3b8;">(analytics, Search Console)</span></label>
+        </div>
+        <p class="hint" style="margin:10px 0 0;color:#94a3b8;">
+            The identity scrub always runs &mdash; it removes the master's own domain, email,
+            phone and business name from every clone, so it is not an option.
+        </p>
+    </div>
+
+    <p class="hint">Builds and deploys every valid row (up to <em>concurrency</em> at a time). Start with a small <em>limit</em> and review before a full run. AI generation costs roughly $0.02&ndash;0.05 per site (free on rebuilds).</p>
     <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end;">
         <label class="hint">Concurrency<br><input type="number" id="ms-jobs" value="2" min="1" max="16" style="width:70px;"></label>
         <label class="hint">Limit (0 = all)<br><input type="number" id="ms-limit" value="0" min="0" style="width:90px;"></label>
         <label class="hint">Retries<br><input type="number" id="ms-retries" value="1" min="0" max="5" style="width:60px;"></label>
-        <label class="hint"><input type="checkbox" id="ms-noai"> No AI (faster)</label>
         <label class="hint"><input type="checkbox" id="ms-force"> Force (refresh AI + full re-upload)</label>
         <button type="button" class="btn btn-primary" id="ms-run-btn" onclick="msRun()">Run Batch</button>
     </div>
@@ -329,7 +350,12 @@ if (!isset($csrfToken)) return;
         fd.append('jobs', document.getElementById('ms-jobs').value);
         fd.append('limit', document.getElementById('ms-limit').value);
         fd.append('retries', document.getElementById('ms-retries').value);
-        if (document.getElementById('ms-noai').checked) fd.append('no_ai', '1');
+        // Unticked steps become the skip list. 'ai' also sets no_ai so the runner has
+        // one mechanism for it rather than two that could disagree.
+        const skip = Array.from(document.querySelectorAll('.ms-step-opt'))
+            .filter(cb => !cb.checked).map(cb => cb.value);
+        if (skip.length) fd.append('skip', skip.join(','));
+        if (skip.includes('ai')) fd.append('no_ai', '1');
         if (document.getElementById('ms-force').checked) fd.append('force', '1');
         btn.disabled = true;
         document.getElementById('ms-run-progress').innerHTML = '<span class="hint">Starting…</span>';

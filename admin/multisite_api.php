@@ -89,6 +89,12 @@ function ms_run_flags(array $o): string {
     $lim = max(0, (int)($o['limit'] ?? 0));            if ($lim > 0) $flags .= ' --limit=' . $lim;
     if (!empty($o['no_ai'])) $flags .= ' --no-ai';
     if (!empty($o['force'])) $flags .= ' --force';
+    // Optional steps turned off for this run. Whitelisted here as well as in
+    // build_one.php so a hand-crafted POST cannot ask to skip the structural ones.
+    if (!empty($o['skip'])) {
+        $skip = array_values(array_intersect((array) $o['skip'], ['landing', 'visual', 'ai', 'images', 'tags']));
+        if ($skip) $flags .= ' --skip=' . escapeshellarg(implode(',', $skip));
+    }
     if (!empty($o['only']))  $flags .= ' --only=' . escapeshellarg(implode(',', (array)$o['only']));
     return $flags;
 }
@@ -364,6 +370,7 @@ switch ($action) {
         $flags = ms_run_flags([
             'jobs' => $_POST['jobs'] ?? 1, 'retries' => $_POST['retries'] ?? 0, 'limit' => $_POST['limit'] ?? 0,
             'no_ai' => !empty($_POST['no_ai']), 'force' => !empty($_POST['force']),
+    'skip'  => array_filter(array_map('trim', explode(',', (string) ($_POST['skip'] ?? '')))),
         ]);
         echo json_encode(['started' => true, 'run_id' => ms_launch_campaign($masterId, $batchId, $runsDir, $flags)]);
         break;
