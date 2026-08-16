@@ -536,6 +536,9 @@ function DomainWorkbench() {
   const [showList, setShowList] = useState(false);
   const [showImport, setShowImport] = useState(false);   // added in the port — see importBackup()
   const [importText, setImportText] = useState("");
+  const [checking, setChecking] = useState(false);       // added in the port — see checkAvailability()
+  const [checker, setChecker] = useState("");
+  const [checkers, setCheckers] = useState(null);        // null = not asked yet, {} = none configured
   const first = useRef(true);
   const suggRef = useRef(null);
   const csvRef = useRef(null);
@@ -552,6 +555,19 @@ function DomainWorkbench() {
 
   useEffect(() => {
     loadState().then((s) => setState(normalize(s) || freshState()));
+  }, []);
+
+  /* Added in the port: which registrars can answer an availability question. Asked
+     once, and failure is silent on purpose — the paste box below still works, so a
+     panel with no registrar configured loses a shortcut, not the feature. */
+  useEffect(() => {
+    fetch(DW.checkUrl, { credentials: "same-origin" })
+      .then((r) => r.json())
+      .then((d) => {
+        setCheckers(d.checkers || {});
+        setChecker(d.default || "");
+      })
+      .catch(() => setCheckers({}));
   }, []);
 
   useEffect(() => {
@@ -899,6 +915,90 @@ Each "why" must be under 12 words and say something about the caller, not about 
       }`
     );
   };
+
+  /* ADDED IN THE PORT. Ask the registrar directly instead of the copy-paste round
+     trip below, which only ever existed because an artifact cannot hold an API key.
+
+     Deliberately maps verdicts through the SAME rules as applyPaste(): the price
+     ceiling turns an available name into "pricey", an unreadable verdict follows
+     the fallback setting, and the previous status is kept on each row so one Undo
+     works for both paths. Two ways of reaching the same statuses must not disagree
+     about what a status means.
+
+     Checks whatever the tab is currently showing, so "Unchecked" checks the new
+     ones and "All" re-checks everything — the visible list is the promise. */
+  async function checkAvailability() {
+    if (!shown.length) return setToast("Nothing in this view to check");
+    setChecking(true);
+    setErr("");
+    try {
+      const body = new FormData();
+      body.append("csrf", DW.csrf);
+      body.append("registrar", checker);
+      body.append("domains", JSON.stringify(shown.map((c) => c.domain)));
+      const res = await fetch(DW.checkUrl, { method: "POST", body, credentials: "same-origin" });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `Check failed (${res.status})`);
+
+      const verdicts = {};
+      const notes = {};
+      let unclear = 0;
+      let overPriced = 0;
+      const cap = Number(state.maxPrice) || 0;
+      Object.entries(data.results || {}).forEach(([domain, r]) => {
+        let v;
+        if (r.available === true) v = "available";
+        else if (r.available === false) v = "taken";
+        else {
+          // null means the registrar would not say — not the same as "taken", and
+          // guessing here is what the fallback setting exists to decide.
+          unclear++;
+          v = fallback === "skip" ? null : fallback;
+        }
+        if (!v) return;
+        const price = r.price !== "" && r.price != null ? parseFloat(String(r.price).replace(/,/g, "")) : null;
+        if (v === "available" && price !== null && !isNaN(price)) {
+          if (cap && price > cap) {
+            v = "pricey";
+            notes[domain] = `Over $${cap} — priced $${price.toLocaleString()}`;
+            overPriced++;
+          } else {
+            notes[domain] = `$${price.toFixed(2)}`;
+          }
+        } else if (r.note) {
+          notes[domain] = r.note;
+        }
+        verdicts[domain] = v;
+      });
+
+      const known = new Set(niche.candidates.map((c) => c.domain));
+      const changed = Object.keys(verdicts).filter((d) => known.has(d));
+      if (!changed.length) return setToast("Nothing came back that is in this niche");
+
+      setUndo(niche.candidates);
+      setCandidates((cs) =>
+        cs.map((c) =>
+          verdicts[c.domain]
+            ? { ...c, prev: c.status, status: verdicts[c.domain], note: notes[c.domain] || c.note }
+            : c
+        )
+      );
+      const nTaken = changed.filter((d) => verdicts[d] === "taken").length;
+      const nFree = changed.filter((d) => verdicts[d] === "available").length;
+      setToast(
+        `${data.label}: ${nFree} available · ${nTaken} not available` +
+          (overPriced ? ` · ${overPriced} over $${cap}` : "") +
+          (unclear ? ` · ${unclear} no answer` : "") +
+          (data.skipped ? ` · ${data.skipped} skipped (over the ${data.checked} cap)` : "")
+      );
+    } catch (e) {
+      const msg = e.message || "Check failed. Try again.";
+      setErr(msg);
+      setToast(msg);
+    } finally {
+      setChecking(false);
+    }
+  }
 
   const clearRegistry = () => {
     const inUse = new Set();
@@ -2045,9 +2145,54 @@ Each "why" must be under 12 words and say something about the caller, not about 
           <p className="dw-eyebrow" style={{ marginTop: 26 }}>
             Availability check
           </p>
+
+          {/* Added in the port. The paste box below is kept, not replaced: it is the
+              way through when no registrar is configured, when one is down, and when
+              you already have results from somewhere else. */}
+          {checkers && Object.keys(checkers).length > 0 && (
+            <div style={{ marginBottom: 14 }}>
+              <button
+                className="dw-btn wide"
+                onClick={checkAvailability}
+                disabled={checking || !shown.length}
+              >
+                {checking
+                  ? "Asking the registrar…"
+                  : `Check ${shown.length} ${shown.length === 1 ? "domain" : "domains"} now`}
+              </button>
+              <div className="dw-row" style={{ marginTop: 8 }}>
+                <span className="dw-hint" style={{ margin: 0 }}>
+                  Ask
+                </span>
+                <select
+                  className="dw-sel"
+                  value={checker}
+                  onChange={(e) => setChecker(e.target.value)}
+                  style={{ flex: 1 }}
+                >
+                  {Object.entries(checkers).map(([k, c]) => (
+                    <option key={k} value={k}>
+                      {c.label} — {c.speed}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <p className="dw-hint" style={{ margin: "6px 0 0" }}>
+                Checks whatever this tab is showing — {filter === "all" ? "all of them" : `the ${STATUSES[filter].label.toLowerCase()} ones`}.
+                {checker === "namecheap" && (
+                  <>
+                    {" "}
+                    <strong>Namecheap returns no price</strong> for ordinary names, so your ${state.maxPrice}{" "}
+                    ceiling can't apply — NameSilo prices them.
+                  </>
+                )}
+              </p>
+            </div>
+          )}
+
           <p className="dw-hint" style={{ margin: "0 0 10px" }}>
-            Copy the list above the results, run it through Namecheap's bulk search, then paste what
-            comes back here.
+            Or copy the list above the results, run it through a registrar's bulk search, and paste
+            what comes back here.
           </p>
           <textarea
             className="dw-ta"

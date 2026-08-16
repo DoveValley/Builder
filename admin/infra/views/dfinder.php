@@ -28,6 +28,7 @@ infra_header('dfinder');
   window.DW_CONFIG = {
     stateUrl: 'actions/dfinder_state.php',
     aiUrl:    'actions/dfinder_ai.php',
+    checkUrl: 'actions/dfinder_check.php',
     csrf:     <?= json_encode(infra_csrf()) ?>
   };
 </script>

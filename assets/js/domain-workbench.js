@@ -436,6 +436,9 @@ function DomainWorkbench() {
   const [showList, setShowList] = useState(false);
   const [showImport, setShowImport] = useState(false);
   const [importText, setImportText] = useState("");
+  const [checking, setChecking] = useState(false);
+  const [checker, setChecker] = useState("");
+  const [checkers, setCheckers] = useState(null);
   const first = useRef(true);
   const suggRef = useRef(null);
   const csvRef = useRef(null);
@@ -449,6 +452,12 @@ function DomainWorkbench() {
   }, [suggs]);
   useEffect(() => {
     loadState().then((s) => setState(normalize(s) || freshState()));
+  }, []);
+  useEffect(() => {
+    fetch(DW.checkUrl, { credentials: "same-origin" }).then((r) => r.json()).then((d) => {
+      setCheckers(d.checkers || {});
+      setChecker(d.default || "");
+    }).catch(() => setCheckers({}));
   }, []);
   useEffect(() => {
     if (!state) return;
@@ -744,6 +753,68 @@ Each "why" must be under 12 words and say something about the caller, not about 
       `${nFree} available \xB7 ${nTaken} not available${overPriced ? ` \xB7 ${overPriced} over $${cap}` : ""}${unclear ? ` \xB7 ${unclear} unreadable` : ""}`
     );
   };
+  async function checkAvailability() {
+    if (!shown.length) return setToast("Nothing in this view to check");
+    setChecking(true);
+    setErr("");
+    try {
+      const body = new FormData();
+      body.append("csrf", DW.csrf);
+      body.append("registrar", checker);
+      body.append("domains", JSON.stringify(shown.map((c) => c.domain)));
+      const res = await fetch(DW.checkUrl, { method: "POST", body, credentials: "same-origin" });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `Check failed (${res.status})`);
+      const verdicts = {};
+      const notes = {};
+      let unclear = 0;
+      let overPriced = 0;
+      const cap = Number(state.maxPrice) || 0;
+      Object.entries(data.results || {}).forEach(([domain, r]) => {
+        let v;
+        if (r.available === true) v = "available";
+        else if (r.available === false) v = "taken";
+        else {
+          unclear++;
+          v = fallback === "skip" ? null : fallback;
+        }
+        if (!v) return;
+        const price = r.price !== "" && r.price != null ? parseFloat(String(r.price).replace(/,/g, "")) : null;
+        if (v === "available" && price !== null && !isNaN(price)) {
+          if (cap && price > cap) {
+            v = "pricey";
+            notes[domain] = `Over $${cap} \u2014 priced $${price.toLocaleString()}`;
+            overPriced++;
+          } else {
+            notes[domain] = `$${price.toFixed(2)}`;
+          }
+        } else if (r.note) {
+          notes[domain] = r.note;
+        }
+        verdicts[domain] = v;
+      });
+      const known = new Set(niche.candidates.map((c) => c.domain));
+      const changed = Object.keys(verdicts).filter((d) => known.has(d));
+      if (!changed.length) return setToast("Nothing came back that is in this niche");
+      setUndo(niche.candidates);
+      setCandidates(
+        (cs) => cs.map(
+          (c) => verdicts[c.domain] ? { ...c, prev: c.status, status: verdicts[c.domain], note: notes[c.domain] || c.note } : c
+        )
+      );
+      const nTaken = changed.filter((d) => verdicts[d] === "taken").length;
+      const nFree = changed.filter((d) => verdicts[d] === "available").length;
+      setToast(
+        `${data.label}: ${nFree} available \xB7 ${nTaken} not available` + (overPriced ? ` \xB7 ${overPriced} over $${cap}` : "") + (unclear ? ` \xB7 ${unclear} no answer` : "") + (data.skipped ? ` \xB7 ${data.skipped} skipped (over the ${data.checked} cap)` : "")
+      );
+    } catch (e) {
+      const msg = e.message || "Check failed. Try again.";
+      setErr(msg);
+      setToast(msg);
+    } finally {
+      setChecking(false);
+    }
+  }
   const clearRegistry = () => {
     const inUse = /* @__PURE__ */ new Set();
     state.niches.forEach((n) => n.candidates.forEach((c) => c.person && inUse.add(c.person)));
@@ -1195,7 +1266,24 @@ Each "why" must be under 12 words and say something about the caller, not about 
       onChange: (e) => patchNiche({ notes: e.target.value }),
       placeholder: "Anything true of this niche but not the others."
     }
-  )), /* @__PURE__ */ React.createElement("p", { className: "dw-eyebrow", style: { marginTop: 26 } }, "Availability check"), /* @__PURE__ */ React.createElement("p", { className: "dw-hint", style: { margin: "0 0 10px" } }, "Copy the list above the results, run it through Namecheap's bulk search, then paste what comes back here."), /* @__PURE__ */ React.createElement(
+  )), /* @__PURE__ */ React.createElement("p", { className: "dw-eyebrow", style: { marginTop: 26 } }, "Availability check"), checkers && Object.keys(checkers).length > 0 && /* @__PURE__ */ React.createElement("div", { style: { marginBottom: 14 } }, /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      className: "dw-btn wide",
+      onClick: checkAvailability,
+      disabled: checking || !shown.length
+    },
+    checking ? "Asking the registrar\u2026" : `Check ${shown.length} ${shown.length === 1 ? "domain" : "domains"} now`
+  ), /* @__PURE__ */ React.createElement("div", { className: "dw-row", style: { marginTop: 8 } }, /* @__PURE__ */ React.createElement("span", { className: "dw-hint", style: { margin: 0 } }, "Ask"), /* @__PURE__ */ React.createElement(
+    "select",
+    {
+      className: "dw-sel",
+      value: checker,
+      onChange: (e) => setChecker(e.target.value),
+      style: { flex: 1 }
+    },
+    Object.entries(checkers).map(([k, c]) => /* @__PURE__ */ React.createElement("option", { key: k, value: k }, c.label, " \u2014 ", c.speed))
+  )), /* @__PURE__ */ React.createElement("p", { className: "dw-hint", style: { margin: "6px 0 0" } }, "Checks whatever this tab is showing \u2014 ", filter === "all" ? "all of them" : `the ${STATUSES[filter].label.toLowerCase()} ones`, ".", checker === "namecheap" && /* @__PURE__ */ React.createElement(React.Fragment, null, " ", /* @__PURE__ */ React.createElement("strong", null, "Namecheap returns no price"), " for ordinary names, so your $", state.maxPrice, " ", "ceiling can't apply \u2014 NameSilo prices them."))), /* @__PURE__ */ React.createElement("p", { className: "dw-hint", style: { margin: "0 0 10px" } }, "Or copy the list above the results, run it through a registrar's bulk search, and paste what comes back here."), /* @__PURE__ */ React.createElement(
     "textarea",
     {
       className: "dw-ta",
