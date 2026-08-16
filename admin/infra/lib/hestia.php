@@ -181,6 +181,43 @@ function hestia_list_users(array $server): array
 }
 
 /**
+ * How many real files sit in one site's docroot.
+ *
+ * A host area can exist — vhost, folder, FTP login, all correct — and hold nothing
+ * but the index.html and robots.txt Hestia drops in when it creates the site. That
+ * site answers with a placeholder and looks provisioned from every angle except this
+ * one, so the count deliberately EXCLUDES those two placeholders: what is wanted is
+ * "has anything of ours landed here", not "is the directory non-empty".
+ *
+ * Uses v-list-fs-directory, which returns type|perm|date|time|owner|group|size|name
+ * per line and is live — unlike the disk figures, which a cron updates at 02:15.
+ *
+ * @return array{files:int,dirs:int,bytes:int,placeholder_only:bool}
+ */
+function hestia_docroot_files(array $server, string $user, string $domain): array
+{
+    $path = '/home/' . $user . '/web/' . $domain . '/public_html';
+    $r = hestia_api($server, 'v-list-fs-directory', [$user, $path, 'json'], false);
+    // The reply is pipe-delimited text, not JSON, so json_decode leaves it in raw.
+    $raw = is_string($r['json'] ?? null) ? $r['json'] : (string) ($r['raw'] ?? '');
+
+    $files = 0; $dirs = 0; $bytes = 0; $names = [];
+    foreach (explode("\n", $raw) as $line) {
+        $p = explode('|', trim($line));
+        if (count($p) < 8) continue;
+        $name = trim($p[7]);
+        if ($name === '') continue;          // the '.' entry has an empty name
+        if (($p[0] ?? '') === 'd') { $dirs++; $names[] = $name; continue; }
+        $files++; $bytes += (int) ($p[6] ?? 0); $names[] = $name;
+    }
+    sort($names);
+    // A built site brings folders (assets/, blog/, pages) as well as files, so a
+    // docroot holding ONLY Hestia's two placeholders is the empty case.
+    $placeholderOnly = ($files + $dirs) === 0 || $names === ['index.html', 'robots.txt'];
+    return ['files' => $files, 'dirs' => $dirs, 'bytes' => $bytes, 'placeholder_only' => $placeholderOnly];
+}
+
+/**
  * Every account this box has, as well as we can know it.
  *
  * v-list-users cannot be trusted to enumerate: on two boxes in the same state, with

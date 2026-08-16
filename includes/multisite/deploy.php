@@ -278,7 +278,19 @@ function deploy_site(array $ftp, string $outputBase, string $manifestFile, bool 
     // Both report a clean, successful deploy. See ms_detect_remote_path().
     $pathGiven = trim((string) ($ftp['ftp_path'] ?? ''));
     $path      = $pathGiven !== '' ? rtrim($pathGiven, '/') : null;
-    $passive  = !empty($ftp['ftp_passive']);
+    /* Passive unless explicitly told otherwise.
+     *
+     * It used to be !empty(), which made a BLANK ftp_passive column mean ACTIVE — and
+     * a blank column is what every target list has unless someone types in it. Active
+     * FTP asks the SERVER to dial back to us, which a factory behind NAT never
+     * receives: the transfer times out per file after the login and the listing have
+     * both succeeded, so it reads as a mysterious hang rather than a mode problem.
+     * ("PORT command successful. Consider using PASV." is the only clue, and it is a
+     * PHP warning rather than an error.)
+     *
+     * Only an explicit no turns it off. */
+    $pasvRaw  = strtolower(trim((string) ($ftp['ftp_passive'] ?? '')));
+    $passive  = !in_array($pasvRaw, ['0', 'no', 'false', 'off', 'active'], true);
 
     $protoLabel = strtoupper($protocol);
     if ($host === '' || $user === '' || $pass === '') {

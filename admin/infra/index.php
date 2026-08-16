@@ -2173,6 +2173,21 @@ if ($view === 'servers') {
 
     // Deliberately on demand: one outbound request per site, so a box with 40 on it
     // should ask when you press the button, not on every page load.
+    // Read what is actually in each host area's folder. On demand: one API call per
+    // host area, so it is asked for, not paid for on every page load.
+    $contentId = (string) ($_GET['content'] ?? '');
+    if ($contentId !== '') {
+        foreach (infra_hestia_servers() as $srv) {
+            if (($srv['id'] ?? '') !== $contentId) continue;
+            $r = infra_hestia_content_run($srv);
+            infra_set_flash($r['empty'] > 0 ? 'warn' : 'ok',
+                $r['checked'] === 0 ? 'No host areas on that server to check.'
+                : ($r['with_files'] . ' of ' . $r['checked'] . ' host area(s) contain a site'
+                   . ($r['empty'] > 0 ? ' — ' . $r['empty'] . ' still hold only the placeholder, so nothing has been uploaded into them.' : '.')));
+        }
+        header('Location: index.php?view=servers#hestia'); exit;
+    }
+
     $hCheckId = (string) ($_GET['hcheck'] ?? '');
     if ($hCheckId !== '') {
         $n = 0;
@@ -2231,18 +2246,28 @@ if ($view === 'servers') {
              it is the one that answers "is this box doing any work". -->
         <div style="display:flex;gap:26px;flex-wrap:wrap;padding:2px 16px 14px 30px">
             <?php
+            // Files first: a host area whose folder is empty is the failure that stays
+            // invisible until someone visits, so it reads before the count of hosts.
+            // '?' until asked — the check costs one API call per host area.
+            $content = infra_hestia_content_cached($srv);
             $tiles = [
+                ['Files', $content === null ? '?' : (int) $content['with_files'],
+                 $content === null ? '#9ca3af' : ((int) $content['empty'] > 0 ? '#92400e' : '#166534')],
                 // DEPLOYED sites, not vhosts: the panel's own hostname vhost is an
                 // artefact of installing Hestia, and counting it made every empty
                 // box report one website. The full vhost list is still below.
-                ['Websites',            $b['deployed'],          '#111827'],
+                // "Hosts", not "Websites": this counts the host areas created on the
+                // box — the vhost + folder + FTP login that step 3 makes. Whether a
+                // site has been uploaded into one is a different question, and calling
+                // it Websites implied this number answered it.
+                ['Hosts',               $b['deployed'],          '#111827'],
                 ['Accounts',            $acct['total'],          '#111827'],
                 ['&hellip; with a site', $acct['with_site'],     '#166534'],
                 ['&hellip; with none',   $acct['without_site'],  $acct['without_site'] > 0 ? '#92400e' : '#9ca3af'],
             ];
             foreach ($tiles as [$label, $val, $col]): ?>
                 <div>
-                    <div style="font-size:20px;font-weight:700;color:<?= $col ?>;line-height:1.1"><?= (int) $val ?></div>
+                    <div style="font-size:20px;font-weight:700;color:<?= $col ?>;line-height:1.1"><?= is_int($val) ? $val : ih((string) $val) ?></div>
                     <div style="font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:.03em"><?= $label ?></div>
                 </div>
             <?php endforeach; ?>
@@ -2296,7 +2321,7 @@ if ($view === 'servers') {
                         <td><code><?= ih($f['hostname'] ?: '—') ?></code></td></tr>
                     <tr><td style="color:#6b7280">Operating system</td>
                         <td><?= ih($f['platform'] ?: '—') ?></td></tr>
-                    <tr><td style="color:#6b7280">Websites on it</td>
+                    <tr><td style="color:#6b7280">Host areas on it</td>
                         <td><strong><?= count($d['sites']) ?></strong></td></tr>
                     <tr><td style="color:#6b7280">Account they're filed under</td>
                         <td><code><?= ih($srv['site_user'] ?? 'fleet') ?></code>
@@ -2331,6 +2356,8 @@ if ($view === 'servers') {
                 <?php if ($d['sites']): ?>
                 <a class="btn sec" style="padding:3px 10px;font-size:12px"
                    href="index.php?view=servers&amp;hcheck=<?= ih($srv['id'] ?? '') ?>">Check if they're up</a>
+                <a class="btn sec" style="padding:3px 10px;font-size:12px"
+                   href="index.php?view=servers&amp;content=<?= ih($srv['id'] ?? '') ?>">Check for files</a>
                 <?php endif; ?>
             </div>
             <?php if (!$d['sites']): ?>

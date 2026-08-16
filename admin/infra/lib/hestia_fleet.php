@@ -150,6 +150,36 @@ function infra_hestia_fleet(int $ttl = INFRA_HESTIA_TTL): array
 }
 
 /**
+ * How many of a box's host areas actually contain a site, checked now and cached.
+ *
+ * ON DEMAND, not on page load: it costs one API call per host area, so a box with 50
+ * sites would add 50 calls to every visit. Same rule as "check if they're up" — the
+ * page shows the last answer and asks when you press.
+ *
+ * @return array{checked:int,with_files:int,empty:int,at:string}
+ */
+function infra_hestia_content_run(array $server): array
+{
+    $d = infra_discover_hestia($server, 0);
+    $withFiles = 0; $empty = 0;
+    foreach ($d['sites'] as $s) {
+        $name = (string) ($s['name'] ?? '');
+        if ($name === '' || hestia_is_infra_vhost($name, $server)) continue;
+        $r = hestia_docroot_files($server, (string) ($s['user'] ?? ''), $name);
+        $r['placeholder_only'] ? $empty++ : $withFiles++;
+    }
+    $res = ['checked' => $withFiles + $empty, 'with_files' => $withFiles, 'empty' => $empty, 'at' => date('c')];
+    infra_cache_put('content:' . ($server['id'] ?? ''), $res);
+    return $res;
+}
+
+/** The last content check for a box, or null if it has never been asked. */
+function infra_hestia_content_cached(array $server, int $ttl = 3600): ?array
+{
+    return infra_cache_get('content:' . ($server['id'] ?? ''), $ttl);
+}
+
+/**
  * Accounts on a box, split by whether they actually hold a site.
  *
  * ⚠ "total" is accounts the console can SEE, which is not always every account
