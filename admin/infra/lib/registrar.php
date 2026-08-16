@@ -90,6 +90,30 @@ function infra_registrar_types(): array
             'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => true,
             'note'  => 'Needs API access enabled, a funded balance, and this server\'s IP whitelisted in your Namecheap profile. Unlike NameSilo and Dynadot it will not fall back to an account default contact — registration must supply a full registrant/tech/admin/billing set, which is read from a domain you already hold rather than retyped. ⚠ AUTO-RENEW CANNOT BE SET BY API: domains register with it OFF and setAutoRenew reports success without applying anything, so every Namecheap purchase needs a manual dashboard visit or it lapses. Prefer NameSilo, Dynadot or Porkbun for fleet buying.',
         ],
+        'gandi' => [
+            'label'  => 'Gandi',
+            'check_bulk' => 1,      // one name per request
+            'autorenew' => ['ok' => true, 'note' =>
+                '<code>PATCH /v5/domain/domains/{domain}/autorenew</code> with <code>enabled</code>. It is a '
+              . 'SEPARATE call after registration — the create body has no auto-renew field — so a purchase that '
+              . 'stops halfway leaves a domain that will not renew itself. A GET on that same path answers 404 by '
+              . 'design; only PATCH exists.'],
+            'fields' => [
+                'token' => ['label' => 'Personal access token', 'secret' => true],
+                // Optional: left blank, the contact is copied from a domain the
+                // account already holds, so nothing needs retyping.
+                'contact_first'   => ['label' => 'Registrant first name (optional)', 'secret' => false],
+                'contact_last'    => ['label' => 'Registrant last name (optional)',  'secret' => false],
+                'contact_email'   => ['label' => 'Registrant email (optional)',      'secret' => false],
+                'contact_phone'   => ['label' => 'Phone +X.XXXXXXXXXX (optional)',   'secret' => false],
+                'contact_address' => ['label' => 'Street address (optional)',        'secret' => false],
+                'contact_city'    => ['label' => 'City (optional)',                  'secret' => false],
+                'contact_zip'     => ['label' => 'Postcode (optional)',              'secret' => false],
+                'contact_country' => ['label' => 'Country (2-letter, optional)',     'secret' => false, 'default' => 'US'],
+            ],
+            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => false,
+            'note'  => 'One bearer token, no IP allowlist. Availability quotes a REAL PRICE, which most of the others here do not. The registrant contact is copied from a domain the account already holds, so no contact setup is needed before the first buy. ⚠ A Gandi token carries an explicit scope list and there is no way to test "can I create" without attempting a purchase — Test reports the scopes so the gap is visible rather than assumed. No balance endpoint. Registration answers 202 and completes asynchronously, and auto-renew is a separate call afterwards.',
+        ],
         'spaceship' => [
             'label'  => 'Spaceship',
             'check_bulk' => 50,     // one request for the whole list
@@ -246,6 +270,7 @@ function infra_registrar_verify(string $name): array
     if (!$cfg) return ['ok' => false, 'message' => 'no credentials saved', 'balance' => null, 'currency' => ''];
 
     switch ($type) {
+        case 'gandi':      return infra_reg_gandi_verify($cfg);
         case 'spaceship':  return infra_reg_spaceship_verify($cfg);
         case 'namesilo':   return infra_reg_namesilo_verify2($cfg);
         case 'namecheap':  return infra_reg_namecheap_verify($cfg);
@@ -461,6 +486,7 @@ function infra_registrar_check_availability(array $domains, string $registrarNam
     foreach ($domains as $d) $out[$d] = ['available' => null, 'price' => '', 'note' => ''];
 
     switch ($type) {
+        case 'gandi':     return infra_reg_gandi_check($domains, $cfg, $out);
         case 'spaceship': return infra_reg_spaceship_check($domains, $cfg, $out);
         case 'namesilo':  return infra_reg_namesilo_check($domains, $cfg, $out);
         case 'namecheap': return infra_reg_namecheap_check($domains, $cfg, $out);
@@ -932,6 +958,9 @@ function infra_registrar_register(string $domain, int $years, string $registrarN
     $type = strtolower($cfg['type'] ?? $registrarName);
     $cfg['__name'] = $registrarName;   // the contact cache writes back under this key
     switch ($type) {
+        case 'gandi':
+            $r = infra_reg_gandi_register($domain, $years, $cfg, $opts);
+            return ['ok' => $r['ok'], 'message' => $r['message']];
         case 'spaceship':
             $r = infra_reg_spaceship_register($domain, $years, $cfg, $opts);
             return ['ok' => $r['ok'], 'message' => $r['message']];
@@ -967,6 +996,7 @@ function infra_registrar_set_ns(string $domain, array $ns, string $registrarName
     switch ($type) {
         case 'namesilo':  return infra_reg_namesilo_set_ns($domain, $ns, $cfg);
         case 'porkbun':   return infra_reg_porkbun_set_ns($domain, $ns, $cfg);
+        case 'gandi':     return infra_reg_gandi_set_ns($domain, $ns, $cfg);
         case 'spaceship': return infra_reg_spaceship_set_ns($domain, $ns, $cfg);
         case 'dynadot':   return infra_reg_dynadot_set_ns($domain, $ns, $cfg);
         case 'namecheap': return infra_reg_namecheap_set_ns($domain, $ns, $cfg);
@@ -1383,3 +1413,180 @@ function infra_reg_namecheap_set_ns(string $domain, array $ns, array $cfg): arra
     return ['ok' => $ok, 'manual' => false,
         'message' => $ok ? 'Namecheap: nameservers set → ' . implode(', ', $ns) : "Namecheap error: {$msg}"];
 }
+
+/* ============================= Gandi =============================
+ *
+ * One bearer token, no IP allowlist, no signing. Base https://api.gandi.net/v5.
+ *
+ * Two things it does better than most here: availability returns a real PRICE, and
+ * the owner contact can be read off a domain the account already holds rather than
+ * retyped — the same trick the Namecheap adapter uses, and the reason a purchase
+ * needs no contact configuration.
+ *
+ * ⚠ SCOPES. A Gandi personal access token carries an explicit scope list, and the
+ * one in use grants organization:view, payment:prepaid, payment:deferred,
+ * domain:view, domain:tech and domain:contactadmin. Whether that is enough to BUY
+ * cannot be settled by reading — Gandi has no "can I create" probe — so verify()
+ * reports the scopes and says so rather than implying a purchase will clear.
+ */
+
+function infra_reg_gandi_call(array $cfg, string $method, string $path, ?array $body = null, string $base = 'https://api.gandi.net'): array
+{
+    $opts = [
+        'verify' => true, 'timeout' => 30,
+        'headers' => ['Authorization: Bearer ' . ($cfg['token'] ?? ''), 'Content-Type: application/json'],
+    ];
+    if ($body !== null) $opts['body'] = $body;
+    $r  = infra_http($method, $base . $path, $opts);
+    $ok = $r['code'] >= 200 && $r['code'] < 300;
+    // Errors come back as {message} or {cause,message} — and on a bad body, an
+    // "errors" array naming the field, which is the part worth reading.
+    $msg = $r['json']['message'] ?? ($r['error'] ?: ('HTTP ' . $r['code']));
+    foreach ((array) ($r['json']['errors'] ?? []) as $e) {
+        if (is_array($e)) $msg .= ' — ' . trim(($e['name'] ?? '') . ' ' . ($e['description'] ?? ''));
+    }
+    return ['ok' => $ok, 'code' => $r['code'], 'message' => $msg, 'json' => $r['json'] ?? []];
+}
+
+/** Read-only credential test: who the token belongs to, and what it may do. */
+function infra_reg_gandi_verify(array $cfg): array
+{
+    $t = infra_reg_gandi_call($cfg, 'GET', '/tokeninfo', null, 'https://id.gandi.net');
+    if (!$t['ok']) return ['ok' => false, 'message' => 'Gandi: ' . $t['message'], 'balance' => null, 'currency' => ''];
+
+    $scopes = (array) ($t['json']['scope'] ?? []);
+    $org    = infra_reg_gandi_call($cfg, 'GET', '/v5/organization/organizations');
+    $name   = $org['ok'] ? (string) ($org['json'][0]['name'] ?? '') : '';
+    $days   = (int) floor(((int) ($t['json']['expires_in'] ?? 0)) / 86400);
+
+    // No balance endpoint for a personal account, so balance stays null rather than
+    // being reported as zero — a zero would read as "no funds" and stop a good buy.
+    $msg = 'Gandi API OK' . ($name !== '' ? ' — ' . $name : '')
+         . ($days > 0 ? ', token expires in ' . $days . ' day(s)' : '')
+         . '. Scopes: ' . (implode(', ', $scopes) ?: 'none');
+    if (!in_array('payment:prepaid', $scopes, true) && !in_array('payment:deferred', $scopes, true)) {
+        $msg .= ' ⚠ no payment scope — this token can read but probably cannot buy.';
+    }
+    return ['ok' => true, 'message' => $msg, 'balance' => null, 'currency' => ''];
+}
+
+/** Availability, one name per request — and it quotes a price, which most here do not. */
+function infra_reg_gandi_check(array $domains, array $cfg, array $out): array
+{
+    foreach ($domains as $d) {
+        $r = infra_reg_gandi_call($cfg, 'GET', '/v5/domain/check?' . http_build_query(['name' => $d, 'processes' => 'create']));
+        if (!$r['ok']) { $out[$d]['note'] = 'check failed: ' . $r['message']; continue; }
+
+        $products = (array) ($r['json']['products'] ?? []);
+        if (!$products) { $out[$d]['note'] = 'no answer for this name'; continue; }
+        $p      = $products[0];
+        $status = strtolower((string) ($p['status'] ?? ''));
+        $out[$d]['available'] = $status === 'available';
+        if ($status !== 'available') $out[$d]['note'] = $status ?: 'taken';
+
+        // Cheapest 1-year price, after taxes, in the currency the grid quotes.
+        foreach ((array) ($p['prices'] ?? []) as $pr) {
+            if ((int) ($pr['min_duration'] ?? 0) <= 1) {
+                $out[$d]['price'] = (string) ($pr['price_after_taxes'] ?? $pr['price_before_taxes'] ?? '');
+                break;
+            }
+        }
+    }
+    return $out;
+}
+
+/**
+ * The owner contact for a purchase.
+ *
+ * Prefers config, then falls back to copying it off a domain the account already
+ * holds — Gandi returns full contact blocks per domain, so an account that has ever
+ * bought anything already has a valid registrant on file. That means no contact
+ * setup before the first buy, and no second copy of the same details to keep in step.
+ *
+ * @return array{ok:bool,owner:array,message:string}
+ */
+function infra_reg_gandi_owner(array $cfg): array
+{
+    $keys = ['given' => 'contact_first', 'family' => 'contact_last', 'email' => 'contact_email',
+             'streetaddr' => 'contact_address', 'city' => 'contact_city', 'country' => 'contact_country',
+             'phone' => 'contact_phone', 'zip' => 'contact_zip'];
+    $owner = [];
+    foreach ($keys as $api => $cfgKey) {
+        $v = trim((string) ($cfg[$cfgKey] ?? ''));
+        if ($v !== '') $owner[$api] = $v;
+    }
+    if (isset($owner['given'], $owner['family'], $owner['email'], $owner['streetaddr'], $owner['country'])) {
+        $owner['type'] = (int) ($cfg['contact_type'] ?? 0);   // 0 = individual
+        return ['ok' => true, 'owner' => $owner, 'message' => 'contact from config'];
+    }
+
+    $list = infra_reg_gandi_call($cfg, 'GET', '/v5/domain/domains?per_page=1');
+    $fqdn = (string) ($list['json'][0]['fqdn'] ?? '');
+    if ($fqdn === '') {
+        return ['ok' => false, 'owner' => [], 'message' =>
+            'Gandi needs a registrant contact: either fill the contact fields here, or buy one domain '
+          . 'in the Gandi dashboard first — after that the console copies the contact from it.'];
+    }
+    $c = infra_reg_gandi_call($cfg, 'GET', '/v5/domain/domains/' . rawurlencode($fqdn) . '/contacts');
+    $o = (array) ($c['json']['owner'] ?? []);
+    if (!$o) return ['ok' => false, 'owner' => [], 'message' => 'Gandi: could not read a contact from ' . $fqdn];
+
+    // Only the fields a create accepts — the read includes extras that make it 400.
+    $keep = ['given','family','email','streetaddr','city','country','phone','zip','state','type','orgname'];
+    $owner = array_intersect_key($o, array_flip($keep));
+    return ['ok' => true, 'owner' => $owner, 'message' => 'contact copied from ' . $fqdn];
+}
+
+/**
+ * Buy one domain.
+ *
+ * Gandi answers 202 with an operation record — like Spaceship and Cloudflare, the
+ * domain is not registered the moment this returns, so a 202 is success-and-pending,
+ * never an error. Treating it as failure is how a domain gets bought twice.
+ */
+function infra_reg_gandi_register(string $domain, int $years, array $cfg, array $opts = []): array
+{
+    $o = infra_reg_gandi_owner($cfg);
+    if (!$o['ok']) return ['ok' => false, 'message' => $o['message']];
+
+    $body = [
+        'fqdn'     => $domain,
+        'duration' => max(1, min(10, $years)),
+        'owner'    => $o['owner'],
+    ];
+    // Gandi's create takes no auto-renew flag; it is a separate PATCH afterwards.
+    $r = infra_reg_gandi_call($cfg, 'POST', '/v5/domain/domains', $body);
+    if (!$r['ok'] && $r['code'] !== 202) return ['ok' => false, 'message' => 'Gandi error: ' . $r['message']];
+
+    $msg = 'Gandi: registration accepted (' . $o['message'] . ') — it completes asynchronously';
+    if (!empty($opts['auto_renew'])) {
+        $a = infra_reg_gandi_set_autorenew($domain, true, $cfg);
+        $msg .= $a['ok'] ? ', auto-renew ON'
+                         : ' ⚠ auto-renew NOT set (' . $a['message'] . ') — set it before the term lapses';
+    }
+    return ['ok' => true, 'message' => $msg];
+}
+
+/** Nameservers. */
+function infra_reg_gandi_set_ns(string $domain, array $ns, array $cfg): array
+{
+    $ns = array_values(array_filter(array_map('trim', $ns)));
+    if (count($ns) < 2) return ['ok' => false, 'manual' => false, 'message' => 'Gandi requires at least 2 nameservers'];
+
+    $r = infra_reg_gandi_call($cfg, 'PUT', '/v5/domain/domains/' . rawurlencode($domain) . '/nameservers',
+        ['nameservers' => $ns]);
+    return ['ok' => $r['ok'], 'manual' => false,
+        'message' => $r['ok'] ? 'Gandi: nameservers set → ' . implode(', ', $ns)
+                              : 'Gandi error: ' . $r['message']];
+}
+
+/** Auto-renew on/off. PATCH only — a GET on this sub-resource 404s by design. */
+function infra_reg_gandi_set_autorenew(string $domain, bool $on, array $cfg): array
+{
+    $r = infra_reg_gandi_call($cfg, 'PATCH', '/v5/domain/domains/' . rawurlencode($domain) . '/autorenew',
+        ['enabled' => $on, 'duration' => 1]);
+    return ['ok' => $r['ok'], 'message' => $r['ok']
+        ? 'Gandi: auto-renew ' . ($on ? 'ON' : 'OFF')
+        : 'Gandi error: ' . $r['message']];
+}
+
