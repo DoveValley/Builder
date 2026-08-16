@@ -11,11 +11,18 @@
  * accepted, since this folder is web-served.
  */
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/convo_uploads.php';   // the accepted-types list, shared with the picker
 header('Content-Type: application/json');
 
 if (empty($_SESSION['admin_logged_in']))   { http_response_code(403); echo json_encode(['error' => 'Not authenticated.']); exit; }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST')  { http_response_code(405); echo json_encode(['error' => 'POST required.']); exit; }
-if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
+// The empty check is not redundant. hash_equals('', '') is TRUE, so a session with
+// no token stored would accept a POST that carries none — the check passes by having
+// nothing to compare. In normal use login.php always sets one, so this is depth
+// rather than a live hole, but a guard that fails open is the wrong shape to leave
+// lying around in an upload endpoint.
+if (($_SESSION['csrf_token'] ?? '') === ''
+    || !hash_equals($_SESSION['csrf_token'], (string) ($_POST['csrf_token'] ?? ''))) {
     http_response_code(403); echo json_encode(['error' => 'Invalid security token.']); exit;
 }
 if (empty($_FILES['image'])) {
@@ -50,27 +57,17 @@ $isImage   = $info && isset($imgTypes[$info['mime']]);
 if ($isImage) {
     $ext = $imgTypes[$info['mime']];
 } else {
-    // Not an image → allow common document/data/text formats by extension.
-    // Executable/script types are intentionally excluded (folder is web-served).
+    // Not an image → allow document/data/source formats by extension. The list is
+    // in includes/convo_uploads.php, shared with the file input's accept="" on the
+    // Test Lab page, because two copies of it had already disagreed: .jsx was added
+    // here and the picker still would not let one be selected.
     //
-    // Source files are here too: handing Claude a component to port is exactly what
-    // this folder is for, and .jsx being absent from the list bounced one with
-    // "Unsupported file type" — a perfectly inert text file, refused for its suffix.
-    // What stays excluded is what the SERVER would run (php, phtml, phar, cgi, pl,
-    // py, sh) or what a BROWSER renders as a document with script in it (html, htm,
-    // svg, xhtml). A .js or .jsx sitting in this folder does neither on its own: it
-    // runs only if some page chooses to load it, and reaching this endpoint at all
-    // needs an admin session and a CSRF token. The .htaccess written alongside
-    // serves everything here as a plain download, which closes that last gap.
-    $docExts = [
-        'pdf', 'txt', 'md', 'markdown', 'csv', 'tsv', 'json', 'xml', 'yaml', 'yml', 'log',
-        'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'rtf', 'odt', 'ods', 'odp', 'zip',
-        // source, for porting work
-        'js', 'jsx', 'mjs', 'cjs', 'ts', 'tsx', 'css', 'scss', 'sql', 'ini', 'conf', 'toml', 'diff', 'patch',
-    ];
-    $rawExt = strtolower(pathinfo($f['name'] ?? '', PATHINFO_EXTENSION));
+    // This check is the one that matters. accept="" is a hint the file dialog
+    // applies; drag-and-drop and paste go straight past it.
+    $docExts = convo_doc_exts();
+    $rawExt  = strtolower(pathinfo($f['name'] ?? '', PATHINFO_EXTENSION));
     if (!in_array($rawExt, $docExts, true)) {
-        echo json_encode(['error' => 'Unsupported file type. Allowed: images, PDF, text/markdown/CSV/JSON/XML, Office docs (doc/xls/ppt), rtf, zip.']); exit;
+        echo json_encode(['error' => 'Unsupported file type (.' . $rawExt . '). Allowed: ' . convo_accept_note() . '.']); exit;
     }
     $ext = $rawExt;
 }
