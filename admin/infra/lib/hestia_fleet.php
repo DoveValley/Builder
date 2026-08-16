@@ -173,10 +173,21 @@ function infra_hestia_content_run(array $server): array
     return $res;
 }
 
-/** The last content check for a box, or null if it has never been asked. */
-function infra_hestia_content_cached(array $server, int $ttl = 3600): ?array
+/**
+ * The last content check for a box, or null if it has never been asked.
+ *
+ * Deliberately ignores the ?refresh=1 "fresh" flag. That flag means "re-read the
+ * boxes' live state", and it was blanking this column too — so pressing Refresh made
+ * an answer you had explicitly asked for look like one you had never requested. This
+ * is a measurement someone chose to take; a refresh does not un-choose it.
+ */
+function infra_hestia_content_cached(array $server, int $ttl = 86400): ?array
 {
-    return infra_cache_get('content:' . ($server['id'] ?? ''), $ttl);
+    $wasFresh = infra_cache_fresh();
+    if ($wasFresh) infra_cache_force(false);
+    $c = infra_cache_get('content:' . ($server['id'] ?? ''), $ttl);
+    if ($wasFresh) infra_cache_force(true);
+    return $c;
 }
 
 /**

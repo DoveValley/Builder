@@ -1995,8 +1995,11 @@ if ($view === 'servers') {
     require_once __DIR__ . '/lib/hestia_fleet.php';
     infra_header('servers');
     ?>
-    <div style="margin-bottom:16px">
+    <div style="margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap">
         <a class="btn" href="index.php?view=servers&amp;refresh=1">&#8635; Refresh</a>
+        <!-- One call per host area, so it is a button and not something every page
+             load pays for. Fleet-wide because eight boxes is eight clicks otherwise. -->
+        <a class="btn sec" href="index.php?view=servers&amp;content=all">Check every server for files</a>
     </div>
 
     <!-- How a site gets onto a box. Written out because the order is not
@@ -2177,14 +2180,16 @@ if ($view === 'servers') {
     // host area, so it is asked for, not paid for on every page load.
     $contentId = (string) ($_GET['content'] ?? '');
     if ($contentId !== '') {
+        $tot = ['checked' => 0, 'with_files' => 0, 'empty' => 0];
         foreach (infra_hestia_servers() as $srv) {
-            if (($srv['id'] ?? '') !== $contentId) continue;
+            if ($contentId !== 'all' && ($srv['id'] ?? '') !== $contentId) continue;
             $r = infra_hestia_content_run($srv);
-            infra_set_flash($r['empty'] > 0 ? 'warn' : 'ok',
-                $r['checked'] === 0 ? 'No host areas on that server to check.'
-                : ($r['with_files'] . ' of ' . $r['checked'] . ' host area(s) contain a site'
-                   . ($r['empty'] > 0 ? ' — ' . $r['empty'] . ' still hold only the placeholder, so nothing has been uploaded into them.' : '.')));
+            foreach (['checked', 'with_files', 'empty'] as $k) $tot[$k] += $r[$k];
         }
+        infra_set_flash($tot['empty'] > 0 ? 'warn' : 'ok',
+            $tot['checked'] === 0 ? 'No host areas to check.'
+            : ($tot['with_files'] . ' of ' . $tot['checked'] . ' host area(s) contain a site'
+               . ($tot['empty'] > 0 ? ' — ' . $tot['empty'] . ' still hold only the placeholder, so nothing has been uploaded into them.' : '.')));
         header('Location: index.php?view=servers#hestia'); exit;
     }
 
