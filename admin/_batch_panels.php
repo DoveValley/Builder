@@ -82,7 +82,7 @@ if (!isset($csrfToken)) return;
 
 <!-- ===== RUN CARD ===== -->
 <div class="card" id="ms-run-card">
-    <h3 style="margin-top:0;">4. Run batch</h3>
+    <h3 style="margin-top:0;">4. Generate sites</h3>
 
     <!-- The steps come FIRST: what a run does is decided before how fast it goes. -->
     <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;margin-bottom:16px;">
@@ -105,13 +105,16 @@ if (!isset($csrfToken)) return;
         </p>
     </div>
 
-    <p class="hint">Builds and deploys every valid row (up to <em>concurrency</em> at a time). Start with a small <em>limit</em> and review before a full run. AI generation costs roughly $0.02&ndash;0.05 per site (free on rebuilds).</p>
+    <p class="hint">Builds every valid row (up to <em>concurrency</em> at a time). Start with a small
+        <em>limit</em> and review before a full run. AI generation costs roughly $0.02&ndash;0.05 per site
+        (free on rebuilds). <strong>Note:</strong> a row that already carries FTP credentials is also
+        <em>uploaded</em> by this step &mdash; uploading has not moved into its own section yet.</p>
     <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end;">
         <label class="hint">Concurrency<br><input type="number" id="ms-jobs" value="2" min="1" max="16" style="width:70px;"></label>
         <label class="hint">Limit (0 = all)<br><input type="number" id="ms-limit" value="0" min="0" style="width:90px;"></label>
         <label class="hint">Retries<br><input type="number" id="ms-retries" value="1" min="0" max="5" style="width:60px;"></label>
         <label class="hint"><input type="checkbox" id="ms-force"> Force (refresh AI + full re-upload)</label>
-        <button type="button" class="btn btn-primary" id="ms-run-btn" onclick="msRun()">Run Batch</button>
+        <button type="button" class="btn btn-primary" id="ms-run-btn" onclick="msRun()">Generate sites</button>
     </div>
     <div id="ms-run-progress" style="margin-top:16px;"></div>
 </div>
