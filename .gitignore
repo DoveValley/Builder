@@ -22,7 +22,14 @@ _multisite_baseline/
 
 # Test Lab scratch uploads (transient, auto-pruned)
 uploads/lab/
-uploads/convo/
+# The uploads are scratch; the folder's .htaccess is SOURCE and must be tracked.
+# It was ignored along with everything else, which split the change that allows
+# source files into this web-served folder from the rule that makes them inert:
+# the permissive half would ship and the protection would stay on one box.
+# Written as /* rather than / so git descends and the negation below applies —
+# a rule naming the directory itself cannot be un-ignored file by file.
+uploads/convo/*
+!uploads/convo/.htaccess
 # ...and the same channel in reverse: files left for Scott to read or download.
 # Working notes and one-off instructions, not source — the section that lists
 # them (admin/playground.php #downloads-scott) IS tracked, the contents are not.

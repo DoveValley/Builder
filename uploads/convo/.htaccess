@@ -1,0 +1,44 @@
+# uploads/convo/ — the Test Lab "Share with Claude" scratch folder.
+#
+# Everything in here arrived from a file picker. It exists to be read off disk by
+# Claude Code, and secondarily to be previewed or downloaded. Nothing in here should
+# ever be EXECUTED or RENDERED by anything.
+#
+# Two separate risks, closed separately:
+#
+#   1. The server running it. convo_upload.php refuses php/phtml/phar/cgi/pl/py/sh
+#      by extension, but a whitelist is one edit away from a mistake, so the handler
+#      is stripped here as well. Belt and braces on purpose.
+#
+#   2. The browser rendering it. An .html or .svg served from this origin executes
+#      its script in the panel's origin — that is stored XSS, and it is why those
+#      extensions are not accepted. Forcing every response to a download closes the
+#      same hole for anything that slips through, including the source files
+#      (.js/.jsx/.css) the whitelist now allows for porting work.
+
+# 1 — never hand anything here to a script interpreter.
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+RemoveHandler .php .phtml .phar .php3 .php4 .php5 .php7 .php8 .cgi .pl .py .sh
+RemoveType .php .phtml .phar .php3 .php4 .php5 .php7 .php8 .cgi .pl .py .sh
+<FilesMatch "\.(php[0-9]?|phtml|phar|cgi|pl|py|sh)$">
+    Require all denied
+</FilesMatch>
+
+# 2 — serve as an inert download, never as an active document.
+#     Images are exempt: previewing them inline in the Test Lab is the point, and a
+#     file that passed getimagesize() is real image data, not a document.
+#
+#     mod_headers is NOT loaded on this box (checked: apache2ctl -M lists php and
+#     rewrite only). An unguarded `Header` directive is a fatal config error, so it
+#     would 500 the entire folder — the .htaccess meant to protect these files would
+#     be what stops them being served at all. ForceType alone still does the main
+#     job; the Content-Disposition is an upgrade for whenever mod_headers is enabled.
+<FilesMatch "\.(?!(jpe?g|png|webp|gif)$)[A-Za-z0-9]+$">
+    ForceType application/octet-stream
+    <IfModule mod_headers.c>
+        Header set Content-Disposition "attachment"
+        Header set X-Content-Type-Options "nosniff"
+    </IfModule>
+</FilesMatch>

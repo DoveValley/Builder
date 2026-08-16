@@ -52,9 +52,21 @@ if ($isImage) {
 } else {
     // Not an image → allow common document/data/text formats by extension.
     // Executable/script types are intentionally excluded (folder is web-served).
+    //
+    // Source files are here too: handing Claude a component to port is exactly what
+    // this folder is for, and .jsx being absent from the list bounced one with
+    // "Unsupported file type" — a perfectly inert text file, refused for its suffix.
+    // What stays excluded is what the SERVER would run (php, phtml, phar, cgi, pl,
+    // py, sh) or what a BROWSER renders as a document with script in it (html, htm,
+    // svg, xhtml). A .js or .jsx sitting in this folder does neither on its own: it
+    // runs only if some page chooses to load it, and reaching this endpoint at all
+    // needs an admin session and a CSRF token. The .htaccess written alongside
+    // serves everything here as a plain download, which closes that last gap.
     $docExts = [
         'pdf', 'txt', 'md', 'markdown', 'csv', 'tsv', 'json', 'xml', 'yaml', 'yml', 'log',
         'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'rtf', 'odt', 'ods', 'odp', 'zip',
+        // source, for porting work
+        'js', 'jsx', 'mjs', 'cjs', 'ts', 'tsx', 'css', 'scss', 'sql', 'ini', 'conf', 'toml', 'diff', 'patch',
     ];
     $rawExt = strtolower(pathinfo($f['name'] ?? '', PATHINFO_EXTENSION));
     if (!in_array($rawExt, $docExts, true)) {
