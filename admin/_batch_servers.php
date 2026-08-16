@@ -1,7 +1,9 @@
 <?php
 /**
- * "Pick deployment servers" — which boxes this batch lands on, how many each takes,
- * and in what order.
+ * "Pick deployment servers" — which boxes this batch lands on and how many each takes.
+ *
+ * No ordering control: the sequence boxes are filled in is decided elsewhere, so a
+ * number here would be a second answer to a question this panel does not own.
  *
  * Two columns that look similar and must not be confused: ON IT NOW is read from the
  * box, TAKE is what this batch intends to put there. A plan is not a receipt, and the
@@ -14,11 +16,10 @@
 <div class="card" id="ms-servers-card">
     <h3 style="margin-top:0;">2. Pick deployment servers</h3>
     <p class="hint">
-        Which boxes this batch goes to, how many sites each takes, and the order they are
-        filled in. <strong>On it now</strong> is read from the server; <strong>take</strong> is
-        this batch's plan. Leave <em>take</em> at 0 to mean &ldquo;whatever is left when this
-        box's turn comes&rdquo;. Spreading across boxes is the point of having several &mdash;
-        stacking one concentrates the blast radius.
+        Which boxes this batch goes to and how many sites each takes.
+        <strong>On it now</strong> is read from the server; <strong>take</strong> is this batch's
+        plan. Leave <em>take</em> at 0 to mean &ldquo;whatever is left&rdquo;. Spreading across
+        boxes is the point of having several &mdash; stacking one concentrates the blast radius.
     </p>
 
     <div id="ms-srv-body"><p class="hint">Reading the fleet&hellip;</p></div>
@@ -60,7 +61,6 @@
               + '<th style="width:42px;"></th><th style="text-align:left;">Server</th>'
               + '<th style="text-align:right;">On it now</th>'
               + '<th style="text-align:right;">Take</th>'
-              + '<th style="text-align:right;">Order</th>'
               + '</tr></thead><tbody>';
 
         msFleet.forEach(function (s) {
@@ -81,8 +81,6 @@
               +  '<td style="padding:9px 6px;text-align:right;font-weight:700;">' + (s.sites | 0) + '</td>'
               +  '<td style="padding:9px 6px;text-align:right;"><input type="number" min="0" class="ms-srv-count" data-id="' + esc(s.server_id) + '"'
               +      ' value="' + (p ? (p.count | 0) : 0) + '" style="width:80px;text-align:right;"' + (usable ? '' : ' disabled') + '></td>'
-              +  '<td style="padding:9px 6px;text-align:right;"><input type="number" min="1" class="ms-srv-order" data-id="' + esc(s.server_id) + '"'
-              +      ' value="' + (p ? (p.order | 0) : '') + '" style="width:66px;text-align:right;"' + (usable ? '' : ' disabled') + '></td>'
               +  '</tr>';
         });
         // A plan can outlive the server it names — a box removed from the console, or
@@ -100,7 +98,6 @@
               +      ' &mdash; <a href="#" onclick="msDropServer(\'' + esc(p.server_id) + '\');return false;">remove from plan</a></div></td>'
               +  '<td style="padding:9px 6px;text-align:right;color:#94a3b8;">&mdash;</td>'
               +  '<td style="padding:9px 6px;text-align:right;color:#b91c1c;">' + (p.count | 0) + '</td>'
-              +  '<td style="padding:9px 6px;text-align:right;color:#b91c1c;">' + (p.order | 0) + '</td>'
               +  '</tr>';
         });
         h += '</tbody></table><div id="ms-srv-tally" class="hint" style="margin-top:10px;"></div>';
@@ -139,14 +136,11 @@
             const id = cb.dataset.id;
             const s  = msFleet.find(f => f.server_id === id) || {};
             const cEl = document.querySelector('.ms-srv-count[data-id="' + id + '"]');
-            const oEl = document.querySelector('.ms-srv-order[data-id="' + id + '"]');
             out.push({
                 server_id: id, host: s.host || '', label: s.label || id,
                 count: Math.max(0, parseInt(cEl && cEl.value, 10) || 0),
-                order: Math.max(1, parseInt(oEl && oEl.value, 10) || (out.length + 1)),
             });
         });
-        out.sort((a, b) => a.order - b.order);
         return out;
     }
 

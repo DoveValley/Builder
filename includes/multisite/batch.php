@@ -255,7 +255,11 @@ function ms_set_batch_master(string $masterId, string $batchId, string $newMaste
 // ── Deployment plan: which boxes this batch lands on ─────────────────────────
 
 /**
- * Which servers this batch deploys to, how many sites each takes, and in what order.
+ * Which servers this batch deploys to and how many sites each takes.
+ *
+ * Deliberately NO ordering field: the sequence boxes are filled in is decided
+ * elsewhere, so storing a number here would be a second answer to a question this
+ * file does not own — and the stale one, since nothing would keep it current.
  *
  * Stored per BATCH (servers.json beside params.csv) rather than per master, because
  * two batches off the same master routinely go to different boxes — that is the whole
@@ -265,16 +269,14 @@ function ms_set_batch_master(string $masterId, string $batchId, string $newMaste
  * a box is read from the box. Keeping those apart matters, because the interesting
  * failure is precisely when they disagree.
  *
- * @return array<int,array{server_id:string,host:string,label:string,count:int,order:int}>
+ * @return array<int,array{server_id:string,host:string,label:string,count:int}>
  */
 function ms_batch_servers(string $masterId, string $batchId): array
 {
     $f = ms_batch_dir($masterId, $batchId) . '/servers.json';
     if (!is_file($f)) return [];
     $d = json_decode((string) file_get_contents($f), true);
-    $plan = is_array($d['plan'] ?? null) ? $d['plan'] : [];
-    usort($plan, fn($a, $b) => ((int) ($a['order'] ?? 0)) <=> ((int) ($b['order'] ?? 0)));
-    return $plan;
+    return is_array($d['plan'] ?? null) ? $d['plan'] : [];
 }
 
 /** @return array ['ok'=>true] | ['error'=>string] */
@@ -292,15 +294,10 @@ function ms_save_batch_servers(string $masterId, string $batchId, array $plan): 
             'server_id' => $id,
             'host'      => trim((string) ($p['host'] ?? '')),
             'label'     => trim((string) ($p['label'] ?? $id)),
-            // 0 means "no cap" — take whatever is left when this box's turn comes.
+            // 0 means "no cap" — take whatever is left.
             'count'     => max(0, (int) ($p['count'] ?? 0)),
-            'order'     => max(1, (int) ($p['order'] ?? (count($clean) + 1))),
         ];
     }
-    usort($clean, fn($a, $b) => $a['order'] <=> $b['order']);
-    // Renumber so the stored order is always 1..n with no gaps, whatever the form sent.
-    foreach ($clean as $i => &$c) $c['order'] = $i + 1;
-    unset($c);
 
     $dir = ms_batch_dir($masterId, $batchId);
     $tmp = $dir . '/servers.json.tmp';
