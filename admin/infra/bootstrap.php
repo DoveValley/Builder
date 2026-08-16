@@ -86,6 +86,131 @@ function infra_header(string $active = 'dashboard'): void
 
 function infra_footer(): void { echo '</main></body></html>'; }
 
+/** Rough, human age. "2 min ago" is the right resolution for a fleet sweep. */
+function infra_ago(int $secs): string
+{
+    if ($secs < 60)    return 'just now';
+    if ($secs < 3600)  { $n = intdiv($secs, 60);    return $n . ' min ago'; }
+    if ($secs < 86400) { $n = intdiv($secs, 3600);  return $n . ' hour' . ($n === 1 ? '' : 's') . ' ago'; }
+    $n = intdiv($secs, 86400);
+    return $n . ' day' . ($n === 1 ? '' : 's') . ' ago';
+}
+
+/**
+ * The Refresh control every fleet screen shares: what is on screen, how old it is,
+ * and one button that goes and looks.
+ *
+ * Why it exists — the dashboard and the Servers tab used to sweep all twenty boxes
+ * on page load: four API calls each, in series, 124 calls and 64 measured seconds
+ * before either page printed anything. Now they render the last stored answer
+ * instantly and the sweep happens here, on purpose, one request per box fired
+ * together so the wait is the slowest box rather than the sum of all of them.
+ *
+ * Says the age out loud. A page showing four-hour-old state as though it were the
+ * present is worse than one that is slow, because you cannot tell by looking.
+ *
+ * @param array $fleet rows from infra_hestia_fleet_cached()
+ */
+function infra_refresh_bar(array $fleet): void
+{
+    $ids = [];
+    $never = 0;
+    foreach ($fleet as $b) {
+        // Boxes with no key pair are skipped: there is nothing to authenticate
+        // with, so "checking" one is a no-op that would pad the progress count.
+        if ($b['pending']) continue;
+        $ids[] = $b['id'];
+        if ($b['never']) $never++;
+    }
+    $n   = count($ids);
+    $age = infra_hestia_fleet_age($fleet);
+
+    if ($age === null) {
+        $asof = $n ? 'Nothing has been checked yet — press the button to read the servers.'
+                   : 'No servers to check yet.';
+    } else {
+        $asof = 'Showing what the servers said ' . infra_ago($age)
+              . ($never ? ' · ' . $never . ' never checked' : '');
+    }
+
+    echo '<div class="ic-refresh" id="icRefresh"'
+       . ' data-ids="' . ih(json_encode(array_values($ids))) . '"'
+       . ' data-csrf="' . ih(infra_csrf()) . '"'
+       . ' data-url="' . ih(strpos($_SERVER['SCRIPT_NAME'] ?? '', '/actions/') !== false
+                            ? 'fleet_refresh.php' : 'actions/fleet_refresh.php') . '">';
+    if ($n) {
+        echo '<button type="button" class="btn" id="icRefreshBtn">&#8635; Check all ' . $n . ' servers</button>';
+    }
+    echo '<span class="ic-asof">' . ih($asof) . '</span>';
+    echo '<div class="ic-prog" hidden><div class="ic-prog-track"><div class="ic-prog-fill"></div></div>'
+       . '<div class="ic-prog-txt"></div></div>';
+    echo '</div>';
+    echo '<script>' . infra_refresh_js() . '</script>';
+}
+
+/** The sweep itself: a fixed-size pool of in-flight requests, one box each. */
+function infra_refresh_js(): string
+{
+    return <<<'JS'
+(function(){
+  var box = document.getElementById('icRefresh');
+  if (!box) return;
+  var btn = document.getElementById('icRefreshBtn');
+  if (!btn) return;
+  var ids = JSON.parse(box.getAttribute('data-ids'));
+  var csrf = box.getAttribute('data-csrf');
+  var url = box.getAttribute('data-url');
+  var prog = box.querySelector('.ic-prog');
+  var fill = box.querySelector('.ic-prog-fill');
+  var txt = box.querySelector('.ic-prog-txt');
+  /* Six at a time. Enough to turn a 64s serial sweep into about ten seconds,
+     low enough not to open twenty sockets from one browser tab at once. */
+  var LIMIT = 6;
+  btn.addEventListener('click', function(){
+    if (!ids.length) return;
+    btn.disabled = true;
+    btn.textContent = 'Checking…';
+    prog.hidden = false;
+    var done = 0, bad = 0, next = 0;
+    function paint(host){
+      fill.style.width = Math.round(done / ids.length * 100) + '%';
+      txt.textContent = done + ' of ' + ids.length + ' checked'
+        + (bad ? ' · ' + bad + ' could not be reached' : '')
+        + (host ? ' · ' + host : '');
+    }
+    paint('');
+    function run(){
+      if (next >= ids.length) return Promise.resolve();
+      var body = new FormData();
+      body.append('csrf', csrf);
+      body.append('id', ids[next++]);
+      return fetch(url, {method: 'POST', body: body, credentials: 'same-origin'})
+        .then(function(r){ return r.json(); })
+        .catch(function(){ return {ok: false, pending: false}; })
+        .then(function(j){
+          done++;
+          /* Unfinished is not broken: a box awaiting its key pair must not be
+             counted here or every newly bought server reads as a fault. */
+          if (!j.ok && !j.pending) bad++;
+          paint(j.host || '');
+          return run();
+        });
+    }
+    var pool = [];
+    for (var i = 0; i < Math.min(LIMIT, ids.length); i++) pool.push(run());
+    Promise.all(pool).then(function(){
+      fill.style.width = '100%';
+      txt.textContent = 'Done — loading the new numbers…';
+      /* Reload rather than patch the page: every number on it is derived from the
+         sweep, and the server already knows how to render them from the cache we
+         just filled. Two renderers for the same figures is how they drift. */
+      location.reload();
+    });
+  });
+})();
+JS;
+}
+
 /** Shared client-side table filter for any <input class="ic-search" data-target="tableId">. */
 function infra_search_js(): void
 {
@@ -133,5 +258,13 @@ tr:hover td{background:#f9fafb}code{background:#f3f4f6;padding:1px 5px;border-ra
 .ic-note{background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af;padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:16px}
 .btn{display:inline-block;background:#2563eb;color:#fff;text-decoration:none;padding:7px 14px;border-radius:8px;font-weight:600;font-size:13px;border:0;cursor:pointer}
 .btn.sec{background:#e5e7eb;color:#111827}
+.btn:disabled{background:#9ca3af;cursor:default}
+/* The fleet Refresh control: button, how old the page is, and the sweep's progress. */
+.ic-refresh{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.ic-asof{color:#6b7280;font-size:12px}
+.ic-prog{flex-basis:100%;max-width:420px}
+.ic-prog-track{height:6px;background:#e5e7eb;border-radius:999px;overflow:hidden}
+.ic-prog-fill{height:100%;width:0;background:#2563eb;border-radius:999px;transition:width .2s}
+.ic-prog-txt{color:#6b7280;font-size:12px;margin-top:5px}
 CSS;
 }

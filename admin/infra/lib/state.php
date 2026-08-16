@@ -49,6 +49,12 @@ function infra_state_db(): PDO
     $db = new PDO('sqlite:' . $dir . '/fleet.db');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db->exec('PRAGMA journal_mode=WAL');
+    // The fleet Refresh runs six requests at once, each writing its box's result into
+    // the cache table. WAL lets them read concurrently but writes still take the one
+    // write lock, so without a wait an unlucky overlap throws "database is locked" and
+    // that box silently loses its answer. Five seconds is far longer than any of these
+    // writes needs and costs nothing when there is no contention.
+    $db->exec('PRAGMA busy_timeout=5000');
     $db->exec('CREATE TABLE IF NOT EXISTS domains (
         domain        TEXT PRIMARY KEY,
         niche         TEXT DEFAULT "",

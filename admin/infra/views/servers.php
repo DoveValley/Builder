@@ -214,15 +214,28 @@
         header('Location: index.php?view=servers#hestia'); exit;
     }
 
-    // One shared reader (infra_hestia_fleet) rather than this page's own loop —
-    // it is the same discovery, and the derived numbers stay consistent with the
-    // dashboard and the batch page by construction.
-    $hRows = [];
-    foreach (infra_hestia_fleet() as $b) $hRows[] = ['srv' => $b['server'], 'd' => infra_discover_hestia($b['server']), 'b' => $b];
+    // One shared reader rather than this page's own loop — it is the same discovery,
+    // and the derived numbers stay consistent with the dashboard by construction.
+    //
+    // The CACHED reader: this page used to call infra_hestia_fleet(), which asks
+    // every box four questions in series — 124 API calls and 64 measured seconds on
+    // twenty boxes, paid on every single visit, because the 180s cache is tuned for a
+    // loop and no human returns inside three minutes. The cards now render the last
+    // stored answer instantly and the ↻ button above them goes and looks, firing the
+    // boxes together. A box nobody has swept yet says so; it does not say "down".
+    $hFleet = infra_hestia_fleet_cached();
+    $hBlank = ['ok' => false, 'error' => '', 'info' => null, 'sites' => [],
+               'users' => [], 'calls' => 0, 'ms' => 0, 'at' => ''];
+    $hRows  = [];
+    foreach ($hFleet as $b) {
+        $hRows[] = ['srv' => $b['server'], 'd' => infra_hestia_cached($b['server']) ?? $hBlank, 'b' => $b];
+    }
     ?>
 
     <!-- id="hestia" is kept: links elsewhere on this page still target it. -->
     <div id="hestia"></div>
+
+    <?php infra_refresh_bar($hFleet); ?>
 
     <?php
     // Said once, here, instead of on every card. It qualifies the Accounts column
@@ -245,11 +258,14 @@
     <?php foreach ($hRows as $r): $srv = $r['srv']; $d = $r['d']; $b = $r['b'];
           $f = ['panel_version' => $b['version'], 'platform' => $b['platform'], 'hostname' => $b['hostname']];
           $unset = $b['pending'];
+          $fresh = $b['never'];   // no sweep has ever stored an answer for this box
           $acct  = $b['accounts'];
           // Collapsed once it is healthy — a working box is a one-line fact and
           // eight of them should fit on a screen. Anything wrong opens itself,
           // because a problem nobody clicks on is a problem nobody sees.
-          $openIt = !$d['ok'] || $hEditId === ($srv['id'] ?? ''); ?>
+          // Never-checked is not "wrong": before the first sweep that rule would
+          // throw all twenty cards open at once and bury the ones that matter.
+          $openIt = (!$d['ok'] && !$fresh) || $hEditId === ($srv['id'] ?? ''); ?>
     <details class="ic-card srv-card" <?= $openIt ? 'open' : '' ?>>
         <summary style="cursor:pointer">
         <h2 style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
@@ -258,7 +274,11 @@
             <span class="badge" style="background:#dbeafe;color:#1e40af">HestiaCP</span>
             <?= $d['ok'] ? '<span class="badge b-ok">up</span>'
                  : ($unset ? '<span class="badge" style="background:#fef3c7;color:#92400e">not set up yet</span>'
-                           : '<span class="badge b-err">cannot reach it</span>') ?>
+                 // Not asked yet and asked-and-failed are different facts, and only
+                 // the second is a fault. Showing "cannot reach it" for a box nobody
+                 // has checked invents a problem out of an absence of information.
+                 : ($fresh ? '<span class="badge b-mut">not checked yet</span>'
+                           : '<span class="badge b-err">cannot reach it</span>')) ?>
             <span style="font-weight:400;font-size:13px;color:#6b7280">
                 <code><?= ih($srv['host'] ?? '') ?></code>
                 <?php if ($d['ok']): ?>
@@ -329,6 +349,12 @@
                         into "Edit these settings" below, then press <strong>Test connection</strong>.</li>
                 </ol>
             </div>
+            <?php elseif ($fresh): ?>
+            <div class="ic-note">
+                <strong>This server has not been checked yet.</strong>
+                Press <strong>&#8635; Check all servers</strong> at the top of the page, or
+                <strong>Test connection</strong> below to read just this one.
+            </div>
             <?php elseif (!$d['ok']): ?>
             <div class="ic-note" style="background:#fef2f2;border-color:#fca5a5;color:#991b1b">
                 <strong>The console could not talk to this server.</strong><br><?= ih($d['error']) ?>
@@ -374,14 +400,20 @@
                             <div style="font-size:12px;color:#6b7280">A box with no key pair costs nothing to
                                 "read" because no request is sent. Zero here would otherwise look like a
                                 very fast server rather than an absent one.</div>
+                        <?php elseif ($fresh): ?>
+                            <span style="color:#9ca3af">not measured — this server has not been checked yet</span>
                         <?php else: ?>
                             <strong><?= (int) $d['calls'] ?></strong> API call<?= (int) $d['calls'] === 1 ? '' : 's' ?>,
                             <strong><?= (int) $d['ms'] ?>ms</strong>
                             <div style="font-size:12px;color:#6b7280">
-                                measured <?= ih(date('j M H:i', strtotime($d['at'] ?? 'now'))) ?>, then cached for
-                                <?= (int) INFRA_HESTIA_TTL ?>s. Hestia has no "list every domain" call — domains hang
-                                off accounts, so this is 1 + one call per account. Filing every site under a single
-                                account is what keeps that at two instead of one-per-site.
+                                <!-- The old wording here said "then cached for 180s", which stopped being
+                                     true when the page stopped sweeping on load: what is on screen is the
+                                     last sweep at whatever age it is, and the age is stated at the top. -->
+                                measured <?= ih(date('j M H:i', strtotime($d['at'] ?? 'now'))) ?>. Hestia has no
+                                "list every domain" call — domains hang off accounts, so this is 1 + one call per
+                                account. Filing every site under a single account is what keeps that at two
+                                instead of one-per-site. Twenty boxes of this in series is the 64 seconds that
+                                used to be spent before this page appeared.
                             </div>
                         <?php endif; ?>
                         </td></tr>

@@ -127,19 +127,35 @@ if ($view !== 'dashboard' && is_file($__viewFile)) require $__viewFile;
 // one, and when Plesk came off the Servers tab that left this reading
 // "1 server, 0 sites, 1 issue" while eight boxes were up — the wrongest kind of
 // number, because it is confident and on the front page.
+//
+// Reads the LAST SWEEP, not the network. This loop used to call infra_hestia_fleet(),
+// which asks every box four questions in series: on twenty boxes that measured 124
+// API calls and 64 seconds before this page printed a single byte — to show four
+// numbers, two of which (Servers, CF Accounts) are local file reads. The sweep now
+// belongs to the Refresh button, which fires the boxes in parallel behind a progress
+// bar. Same numbers, on purpose, when they are asked for.
 require_once __DIR__ . '/lib/hestia_fleet.php';
 $servers = infra_hestia_servers();
 $cfAccts = infra_cf_accounts();
-$totalSites = 0; $issues = 0; $pending = 0;
-foreach (infra_hestia_fleet() as $b) {
+$fleet   = infra_hestia_fleet_cached();
+$totalSites = 0; $issues = 0; $pending = 0; $never = 0;
+foreach ($fleet as $b) {
     // A box awaiting its key pair is unfinished, not broken. Counting it as an
     // issue would make every newly-bought server look like a fault.
-    if ($b['pending'])   $pending++;
-    elseif (!$b['ok'])   $issues++;
+    if ($b['pending'])    $pending++;
+    // Never asked is a third state, and it is not a fault either. Folding it into
+    // "issues" would report faults on a fleet nobody has checked yet.
+    elseif ($b['never'])  $never++;
+    elseif (!$b['ok'])    $issues++;
     // Deployed sites, so the tile does not count each box's own hostname vhost
     // and report eight sites for an empty fleet.
     $totalSites += $b['deployed'];
 }
+// A tile can only honestly show a total when something has been counted. With no
+// sweep behind it, "0 sites" is a claim about the fleet; "—" is the truth.
+$swept   = count($fleet) - $pending - $never;
+$siteVal = $swept > 0 ? (string) $totalSites : '&mdash;';
+$issVal  = $swept > 0 ? (string) $issues     : '&mdash;';
 infra_header('dashboard');
 ?>
 <?php if (empty($servers)): ?><div class="ic-note">No servers registered yet. Add one on the <a href="index.php?view=servers">Servers</a> tab.</div><?php endif; ?>
@@ -148,14 +164,14 @@ infra_header('dashboard');
   <a class="ic-tile" href="index.php?view=servers" style="text-decoration:none;color:inherit">
     <div class="n"><?= count($servers) ?></div><div class="l">Servers</div></a>
   <a class="ic-tile" href="index.php?view=servers" style="text-decoration:none;color:inherit">
-    <div class="n"><?= $totalSites ?></div><div class="l">Sites (live)</div></a>
+    <div class="n"><?= $siteVal ?></div><div class="l">Sites (live)</div></a>
   <a class="ic-tile" href="index.php?view=cloudflare" style="text-decoration:none;color:inherit">
     <div class="n"><?= count($cfAccts) ?></div><div class="l">CF Accounts</div></a>
   <a class="ic-tile" href="index.php?view=servers" style="text-decoration:none;color:inherit<?= $issues ? ';border-color:#fca5a5' : '' ?>">
-    <div class="n"<?= $issues ? ' style="color:#991b1b"' : '' ?>><?= $issues ?></div><div class="l">Issues</div></a>
+    <div class="n"<?= $issues ? ' style="color:#991b1b"' : '' ?>><?= $issVal ?></div><div class="l">Issues</div></a>
 </div>
+<?php infra_refresh_bar($fleet); ?>
 <div style="margin-bottom:16px">
-  <a class="btn" href="index.php?refresh=1">&#8635; Discover / Refresh</a>
   <a class="btn sec" href="index.php?view=servers">Servers &rarr;</a>
   <a class="btn sec" href="index.php?view=domains">All domains &rarr;</a>
 </div>

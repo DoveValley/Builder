@@ -101,48 +101,132 @@ function hestia_is_infra_vhost(string $domain, array $server): bool
 }
 
 /**
+ * One discovery bundle, shaped into the row every consumer reads.
+ *
+ * Split out so the live sweep and the cached read below cannot produce two
+ * slightly different shapes — the exact drift this file was written to end.
+ *
+ * @return array{server:array,id:string,label:string,host:string,ok:bool,
+ *   pending:bool,never:bool,at:string,error:string,version:string,platform:string,
+ *   hostname:string,sites:array,deployed:int,accounts:array,calls:int,ms:int}
+ */
+function infra_hestia_shape(array $srv, array $d): array
+{
+    $f = infra_hestia_facts($d['info'] ?? null);
+    $deployed = 0;
+    foreach ($d['sites'] ?? [] as $s) {
+        if (!hestia_is_infra_vhost((string) ($s['name'] ?? ''), $srv)) $deployed++;
+    }
+    return [
+        'server'   => $srv,
+        'id'       => (string) ($srv['id'] ?? ''),
+        'label'    => (string) ($srv['label'] ?? ($srv['id'] ?? '')),
+        'host'     => (string) ($srv['host'] ?? ''),
+        'ok'       => (bool) ($d['ok'] ?? false),
+        'pending'  => !empty($d['unconfigured']),
+        // Never asked is not the same fact as asked and got nothing, and only one
+        // of them is a fault. A box with no stored answer has an empty 'at'.
+        'never'    => ((string) ($d['at'] ?? '')) === '' && empty($d['unconfigured']),
+        'at'       => (string) ($d['at'] ?? ''),
+        'error'    => (string) ($d['error'] ?? ''),
+        'version'  => $f['panel_version'],
+        'platform' => $f['platform'],
+        'hostname' => $f['hostname'],
+        'sites'    => $d['sites'] ?? [],
+        'deployed' => $deployed,
+        'accounts' => infra_hestia_accounts($d, $srv),
+        'calls'    => (int) ($d['calls'] ?? 0),
+        'ms'       => (int) ($d['ms'] ?? 0),
+    ];
+}
+
+/**
  * The whole fleet in one canonical shape — the answer to "what have I got".
  *
  * Every caller used to run the same loop (list the registry, discover each box,
  * dig the facts out) and each dug slightly differently: one counted the panel's
  * own hostname as a site, another did not. This is that loop, once.
  *
- * Cached exactly as infra_discover_hestia() is, so calling it costs nothing extra
- * over the discovery the page was doing anyway.
+ * ⚠ This one GOES TO THE NETWORK: four calls per box, in series. On a twenty-box
+ * fleet that is ~124 calls and a measured 64 seconds from cold. Do not put it on
+ * a page load — use infra_hestia_fleet_cached() there and let the Refresh button
+ * spend the time. This stays for callers that genuinely want live state now.
  *
- * @return array<int,array{server:array,id:string,label:string,host:string,ok:bool,
- *   pending:bool,error:string,version:string,platform:string,hostname:string,
- *   sites:array,deployed:int,accounts:array,calls:int,ms:int}>
+ * @return array<int,array>
  */
 function infra_hestia_fleet(int $ttl = INFRA_HESTIA_TTL): array
 {
     $out = [];
     foreach (infra_hestia_servers() as $srv) {
-        $d = infra_discover_hestia($srv, $ttl);
-        $f = infra_hestia_facts($d['info'] ?? null);
-        $deployed = 0;
-        foreach ($d['sites'] as $s) {
-            if (!hestia_is_infra_vhost((string) ($s['name'] ?? ''), $srv)) $deployed++;
-        }
-        $out[] = [
-            'server'   => $srv,
-            'id'       => (string) ($srv['id'] ?? ''),
-            'label'    => (string) ($srv['label'] ?? ($srv['id'] ?? '')),
-            'host'     => (string) ($srv['host'] ?? ''),
-            'ok'       => (bool) $d['ok'],
-            'pending'  => !empty($d['unconfigured']),
-            'error'    => (string) ($d['error'] ?? ''),
-            'version'  => $f['panel_version'],
-            'platform' => $f['platform'],
-            'hostname' => $f['hostname'],
-            'sites'    => $d['sites'],
-            'deployed' => $deployed,
-            'accounts' => infra_hestia_accounts($d, $srv),
-            'calls'    => (int) ($d['calls'] ?? 0),
-            'ms'       => (int) ($d['ms'] ?? 0),
-        ];
+        $out[] = infra_hestia_shape($srv, infra_discover_hestia($srv, $ttl));
     }
     return $out;
+}
+
+/**
+ * The last answer about one box, at any age, without opening a connection.
+ *
+ * Returns null when the box has never been swept — which the caller must show as
+ * "not checked yet", never as "down". Reaching a box and failing, and never having
+ * asked, look identical if you flatten them, and only the first is a fault.
+ *
+ * Ignores the ?refresh=1 "fresh" flag for the same reason infra_hestia_content_cached()
+ * does: that flag means "go and look", and this function's whole contract is that it
+ * does not. The Refresh button now does the looking, one request per box.
+ */
+function infra_hestia_cached(array $server): ?array
+{
+    // No key pair — nothing was ever going to be asked, so there is a definite
+    // answer without a cache entry.
+    if (!hestia_server_configured($server)) {
+        return ['ok' => false, 'error' => '', 'unconfigured' => true, 'info' => null,
+                'sites' => [], 'users' => [], 'calls' => 0, 'ms' => 0, 'at' => date('c')];
+    }
+    $wasFresh = infra_cache_fresh();
+    if ($wasFresh) infra_cache_force(false);
+    $c = infra_cache_get('hestia:' . ($server['id'] ?? md5((string) json_encode($server))), PHP_INT_MAX);
+    if ($wasFresh) infra_cache_force(true);
+    return $c;
+}
+
+/**
+ * The whole fleet from the last sweep — instant, and never touches the network.
+ *
+ * This is what page loads read. Rows carry 'never' (no sweep has ever stored an
+ * answer for this box) and 'at' (when the stored answer was taken), so a screen can
+ * say how old what it is showing is instead of presenting it as the present.
+ *
+ * @return array<int,array>
+ */
+function infra_hestia_fleet_cached(): array
+{
+    $blank = ['ok' => false, 'error' => '', 'info' => null, 'sites' => [],
+              'users' => [], 'calls' => 0, 'ms' => 0, 'at' => ''];
+    $out = [];
+    foreach (infra_hestia_servers() as $srv) {
+        $out[] = infra_hestia_shape($srv, infra_hestia_cached($srv) ?? $blank);
+    }
+    return $out;
+}
+
+/**
+ * How stale is the fleet on screen? Age in seconds of the OLDEST stored answer,
+ * or null if nothing has ever been swept.
+ *
+ * Oldest, not newest: "as of 4 minutes ago" has to be true of everything shown,
+ * and a headline that quotes the freshest box would understate the rest.
+ */
+function infra_hestia_fleet_age(array $fleet): ?int
+{
+    $oldest = null;
+    foreach ($fleet as $b) {
+        if ($b['pending'] || $b['at'] === '') continue;   // nothing to be stale
+        $t = strtotime($b['at']);
+        if ($t === false) continue;
+        $age = max(0, time() - $t);
+        if ($oldest === null || $age > $oldest) $oldest = $age;
+    }
+    return $oldest;
 }
 
 /**
