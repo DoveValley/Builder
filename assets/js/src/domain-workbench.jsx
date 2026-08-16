@@ -1282,6 +1282,11 @@ Each "why" must be under 12 words and say something about the caller, not about 
               Cancel
             </button>
           </div>
+          {/* Without this the confirmation has nowhere to appear: askStrip only renders
+              where its key is placed, so setAsk({key:"import"}) put the strip in state
+              and Restore silently did nothing. Found by clicking the button, not by
+              reading the code — every other confirm in this file has its own strip. */}
+          {askStrip("import")}
         </section>
       )}
 
