@@ -58,8 +58,9 @@ function infra_registrar_names(): array
  *                 true and `buy_wired` false.
  * Neither is a promise the account is funded or the key valid — that is Test.
  *
- * Only types listed here can be added. Spaceship was dropped deliberately: it is
- * Namecheap-owned, so it adds cost without adding nameserver independence.
+ * Only types listed here can be added. Spaceship is Namecheap-owned, so it adds no
+ * independence from that parent — it was left out for exactly that reason, and added
+ * back on one merit: its API can set auto-renew, which Namecheap's cannot.
  */
 function infra_registrar_types(): array
 {
@@ -88,6 +89,32 @@ function infra_registrar_types(): array
             ],
             'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => true,
             'note'  => 'Needs API access enabled, a funded balance, and this server\'s IP whitelisted in your Namecheap profile. Unlike NameSilo and Dynadot it will not fall back to an account default contact — registration must supply a full registrant/tech/admin/billing set, which is read from a domain you already hold rather than retyped. ⚠ AUTO-RENEW CANNOT BE SET BY API: domains register with it OFF and setAutoRenew reports success without applying anything, so every Namecheap purchase needs a manual dashboard visit or it lapses. Prefer NameSilo, Dynadot or Porkbun for fleet buying.',
+        ],
+        'spaceship' => [
+            'label'  => 'Spaceship',
+            'check_bulk' => 50,     // one request for the whole list
+            'autorenew' => ['ok' => true, 'note' =>
+                '<code>PUT /domains/{domain}/autorenew</code> with <code>isEnabled</code>, and it can also be set at '
+              . 'registration with <code>autoRenew</code>. This is the reason to hold domains here rather than at '
+              . 'Namecheap, its own parent, whose API cannot set auto-renew at all.'],
+            'fields' => [
+                'api_key'         => ['label' => 'API key',    'secret' => true],
+                'api_secret'      => ['label' => 'API secret', 'secret' => true],
+                // Registration takes contact IDs, so a contact is created from these
+                // once and its id cached back into this config.
+                'contact_first'   => ['label' => 'Registrant first name', 'secret' => false],
+                'contact_last'    => ['label' => 'Registrant last name',  'secret' => false],
+                'contact_email'   => ['label' => 'Registrant email',      'secret' => false],
+                'contact_phone'   => ['label' => 'Phone (+X.XXXXXXXXXX)', 'secret' => false],
+                'contact_address' => ['label' => 'Street address',        'secret' => false],
+                'contact_city'    => ['label' => 'City',                  'secret' => false],
+                'contact_state'   => ['label' => 'State / province',      'secret' => false],
+                'contact_zip'     => ['label' => 'Postcode',              'secret' => false],
+                'contact_country' => ['label' => 'Country (2-letter)',    'secret' => false, 'default' => 'US'],
+                'contact_id'      => ['label' => 'Contact ID (filled in automatically)', 'secret' => false],
+            ],
+            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => false,
+            'note'  => 'Two headers, no IP allowlist. Availability takes the whole list in one request but returns NO price for standard names (only premiums quote one). There is no balance endpoint, so funds cannot be checked before a purchase — same blind spot as Porkbun. Registration answers 202 Accepted and completes ASYNCHRONOUSLY, so a domain is not registered the moment the call returns. Its auto-renew API works, which its parent Namecheap\'s does not.',
         ],
         'namesilo' => [
             'label'  => 'NameSilo',
@@ -219,6 +246,7 @@ function infra_registrar_verify(string $name): array
     if (!$cfg) return ['ok' => false, 'message' => 'no credentials saved', 'balance' => null, 'currency' => ''];
 
     switch ($type) {
+        case 'spaceship':  return infra_reg_spaceship_verify($cfg);
         case 'namesilo':   return infra_reg_namesilo_verify2($cfg);
         case 'namecheap':  return infra_reg_namecheap_verify($cfg);
         case 'porkbun':    return infra_reg_porkbun_verify2($cfg);
@@ -433,6 +461,7 @@ function infra_registrar_check_availability(array $domains, string $registrarNam
     foreach ($domains as $d) $out[$d] = ['available' => null, 'price' => '', 'note' => ''];
 
     switch ($type) {
+        case 'spaceship': return infra_reg_spaceship_check($domains, $cfg, $out);
         case 'namesilo':  return infra_reg_namesilo_check($domains, $cfg, $out);
         case 'namecheap': return infra_reg_namecheap_check($domains, $cfg, $out);
         case 'porkbun':   return infra_reg_porkbun_check($domains, $cfg, $out);
@@ -901,7 +930,11 @@ function infra_registrar_register(string $domain, int $years, string $registrarN
 {
     $cfg  = infra_registrar_config($registrarName);
     $type = strtolower($cfg['type'] ?? $registrarName);
+    $cfg['__name'] = $registrarName;   // the contact cache writes back under this key
     switch ($type) {
+        case 'spaceship':
+            $r = infra_reg_spaceship_register($domain, $years, $cfg, $opts);
+            return ['ok' => $r['ok'], 'message' => $r['message']];
         case 'namesilo':
             $r = infra_reg_namesilo_register($domain, $years, $cfg, $ns, $opts);
             return ['ok' => $r['ok'], 'message' => $r['message']];
@@ -917,7 +950,6 @@ function infra_registrar_register(string $domain, int $years, string $registrarN
         case 'cloudflare':
             $r = infra_reg_cloudflare_register($domain, $years, $cfg, $opts);
             return ['ok' => $r['ok'], 'message' => $r['message']];
-        // porkbun/spaceship/dynadot/gandi registration can plug in here later
         default:
             return ['ok' => false, 'message' => "auto-registration not wired for '{$registrarName}' — register manually"];
     }
@@ -1126,24 +1158,177 @@ function infra_reg_porkbun_register(string $domain, int $years, array $cfg, arra
     return ['ok' => false, 'message' => 'Porkbun: ' . $last];
 }
 
-/* ============================= Spaceship ============================= */
+/* ============================= Spaceship =============================
+ *
+ * Two headers, no IP allowlist, no signing. Base https://spaceship.dev/api/v1.
+ *
+ * It is Namecheap-owned, which is why it was left out originally: another brand
+ * under one parent adds cost without adding independence. It earns a place on one
+ * point — its API CAN set auto-renew, which is exactly what Namecheap's cannot, and
+ * what leaves every Namecheap domain needing a manual dashboard visit or it lapses.
+ *
+ * No balance endpoint (/billing/balance, /account/balance and /balance all 404), so
+ * like Porkbun the funds cannot be confirmed before a purchase.
+ */
 
-function infra_reg_spaceship_set_ns(string $domain, array $ns, array $cfg): array
+function infra_reg_spaceship_call(array $cfg, string $method, string $path, ?array $body = null): array
 {
-    $ns = array_values(array_filter(array_map('trim', $ns)));
-    $r  = infra_http('PUT', 'https://spaceship.dev/api/v1/domains/' . $domain . '/nameservers', [
+    $opts = [
+        'verify' => true, 'timeout' => 30,
         'headers' => [
-            'X-Api-Key: ' . ($cfg['api_key'] ?? ''),
+            'X-Api-Key: '    . ($cfg['api_key'] ?? ''),
             'X-Api-Secret: ' . ($cfg['api_secret'] ?? ''),
             'Content-Type: application/json',
         ],
-        'verify'  => true, 'timeout' => 30,
-        'body'    => ['provider' => 'custom', 'hosts' => $ns],
+    ];
+    if ($body !== null) $opts['body'] = $body;
+    $r  = infra_http($method, 'https://spaceship.dev/api/v1' . $path, $opts);
+    $ok = $r['code'] >= 200 && $r['code'] < 300;
+    // Errors are {detail: "..."}, sometimes with data[] naming the offending field —
+    // which is the half that says what to fix, so it is appended rather than dropped.
+    $msg = $r['json']['detail'] ?? $r['json']['message'] ?? ($r['error'] ?: ('HTTP ' . $r['code']));
+    foreach ((array) ($r['json']['data'] ?? []) as $d) {
+        if (is_array($d) && ($d['details'] ?? '') !== '') $msg .= ' — ' . $d['details'];
+    }
+    return ['ok' => $ok, 'code' => $r['code'], 'message' => $msg, 'json' => $r['json'] ?? []];
+}
+
+/** Read-only credential test; also reports how many domains the account holds. */
+function infra_reg_spaceship_verify(array $cfg): array
+{
+    $r = infra_reg_spaceship_call($cfg, 'GET', '/domains?take=1&skip=0');
+    if (!$r['ok']) return ['ok' => false, 'message' => 'Spaceship: ' . $r['message'], 'balance' => null, 'currency' => ''];
+    $n = (int) ($r['json']['total'] ?? 0);
+    // balance stays NULL, not 0: there is no endpoint for it, and a zero would read
+    // as "no funds" and hold back a buy that would have gone through.
+    return ['ok' => true, 'message' => 'Spaceship API OK — ' . $n . ' domain(s) on the account',
+            'balance' => null, 'currency' => ''];
+}
+
+/** Availability — one request for the whole list; the endpoint takes an array. */
+function infra_reg_spaceship_check(array $domains, array $cfg, array $out): array
+{
+    foreach (array_chunk($domains, 50) as $chunk) {
+        $r = infra_reg_spaceship_call($cfg, 'POST', '/domains/available', ['domains' => array_values($chunk)]);
+        if (!$r['ok']) {
+            foreach ($chunk as $d) $out[$d]['note'] = 'check failed: ' . $r['message'];
+            continue;
+        }
+        foreach ((array) ($r['json']['domains'] ?? []) as $row) {
+            $name = strtolower((string) ($row['domain'] ?? ''));
+            if (!isset($out[$name])) continue;
+            $res = strtolower((string) ($row['result'] ?? ''));
+            $out[$name]['available'] = $res === 'available';
+            if ($res !== 'available') $out[$name]['note'] = $res ?: 'taken';
+            // Standard names carry no price here — only premiums do — so price is left
+            // blank rather than implying a quote that was never given.
+            if (!empty($row['premiumPricing'])) {
+                $out[$name]['note']  = 'premium';
+                $p = $row['premiumPricing'][0]['registration'] ?? null;
+                if ($p !== null) $out[$name]['price'] = (string) $p;
+            }
+        }
+    }
+    return $out;
+}
+
+/**
+ * The registrant contact id, created from config the first time it is needed.
+ *
+ * Registration takes contact IDs, not inline details, so a fresh account cannot buy
+ * anything until a contact exists. Rather than make that a manual step outside the
+ * panel, it is created from this registrar's own config fields once and the id
+ * written back — so every later purchase costs no extra call and the account does
+ * not accumulate identical contact records.
+ *
+ * @return array{ok:bool,id:string,message:string}
+ */
+function infra_reg_spaceship_contact_id(array $cfg, string $name): array
+{
+    $stored = trim((string) ($cfg['contact_id'] ?? ''));
+    if ($stored !== '') return ['ok' => true, 'id' => $stored, 'message' => ''];
+
+    $need    = ['contact_first', 'contact_last', 'contact_email', 'contact_address', 'contact_city', 'contact_country', 'contact_phone'];
+    $missing = array_values(array_filter($need, fn($k) => trim((string) ($cfg[$k] ?? '')) === ''));
+    if ($missing) {
+        return ['ok' => false, 'id' => '', 'message' => 'Spaceship needs registrant contact details before it can buy — fill in: '
+            . implode(', ', array_map(fn($k) => str_replace('contact_', '', $k), $missing))];
+    }
+
+    $r = infra_reg_spaceship_call($cfg, 'PUT', '/contacts', [
+        'firstName'     => $cfg['contact_first'],   'lastName'   => $cfg['contact_last'],
+        'email'         => $cfg['contact_email'],   'address1'   => $cfg['contact_address'],
+        'city'          => $cfg['contact_city'],    'country'    => strtoupper((string) $cfg['contact_country']),
+        'phone'         => $cfg['contact_phone'],
+        'stateProvince' => (string) ($cfg['contact_state'] ?? ''),
+        'postalCode'    => (string) ($cfg['contact_zip'] ?? ''),
     ]);
-    $ok  = $r['code'] >= 200 && $r['code'] < 300;
-    $err = $r['json']['detail'] ?? $r['json']['message'] ?? substr($r['raw'], 0, 120);
-    return ['ok' => $ok, 'manual' => false,
-        'message' => $ok ? 'Spaceship: nameservers set → ' . implode(', ', $ns) : "Spaceship error {$r['code']}: {$err}"];
+    if (!$r['ok']) return ['ok' => false, 'id' => '', 'message' => 'Spaceship contact: ' . $r['message']];
+
+    $id = (string) ($r['json']['contactId'] ?? '');
+    if ($id === '') return ['ok' => false, 'id' => '', 'message' => 'Spaceship created a contact but returned no id'];
+
+    $path = infra_config_path('registrar.json');
+    $all  = infra_load_json($path, []);
+    if (isset($all['registrars'][$name])) {
+        $all['registrars'][$name]['contact_id'] = $id;
+        infra_save_json($path, $all);
+    }
+    return ['ok' => true, 'id' => $id, 'message' => 'created contact ' . $id];
+}
+
+/**
+ * Buy one domain.
+ *
+ * ⚠ Registration answers 202 ACCEPTED with an async operation id — the domain is not
+ * registered when this returns. Reading a 202 as failure is a mistake already made
+ * once here with Cloudflare's registrar API, and the cost of it is buying twice, so
+ * a 202 is reported as accepted-and-pending rather than as an error.
+ */
+function infra_reg_spaceship_register(string $domain, int $years, array $cfg, array $opts = []): array
+{
+    $c = infra_reg_spaceship_contact_id($cfg, strtolower((string) ($cfg['__name'] ?? 'spaceship')));
+    if (!$c['ok']) return ['ok' => false, 'message' => $c['message']];
+
+    $r = infra_reg_spaceship_call($cfg, 'POST', '/domains/' . rawurlencode($domain), [
+        'autoRenew' => !empty($opts['auto_renew']),
+        'years'     => max(1, min(10, $years)),
+        // level "high" is WHOIS privacy on; userConsent is required and asserts the
+        // account holder accepted the registration terms.
+        'privacyProtection' => ['level' => 'high', 'userConsent' => true],
+        'contacts'  => ['registrant' => $c['id'], 'admin' => $c['id'], 'tech' => $c['id'], 'billing' => $c['id']],
+    ]);
+
+    if ($r['ok'] || $r['code'] === 202) {
+        $op = (string) ($r['json']['operationId'] ?? $r['json']['id'] ?? '');
+        return ['ok' => true, 'message' => 'Spaceship: registration accepted'
+            . ($op !== '' ? ' (operation ' . $op . ')' : '')
+            . ' — it completes asynchronously'
+            . (!empty($opts['auto_renew']) ? ', auto-renew ON' : '')];
+    }
+    return ['ok' => false, 'message' => 'Spaceship error: ' . $r['message']];
+}
+
+/** Nameservers. provider must be "custom" or the hosts list is ignored. */
+function infra_reg_spaceship_set_ns(string $domain, array $ns, array $cfg): array
+{
+    $ns = array_values(array_filter(array_map('trim', $ns)));
+    if (count($ns) < 2) return ['ok' => false, 'manual' => false, 'message' => 'Spaceship requires at least 2 nameservers'];
+
+    $r = infra_reg_spaceship_call($cfg, 'PUT', '/domains/' . rawurlencode($domain) . '/nameservers',
+        ['provider' => 'custom', 'hosts' => $ns]);
+    return ['ok' => $r['ok'], 'manual' => false,
+        'message' => $r['ok'] ? 'Spaceship: nameservers set → ' . implode(', ', $ns)
+                              : 'Spaceship error: ' . $r['message']];
+}
+
+/** Auto-renew on/off — the capability this registrar is here for. */
+function infra_reg_spaceship_set_autorenew(string $domain, bool $on, array $cfg): array
+{
+    $r = infra_reg_spaceship_call($cfg, 'PUT', '/domains/' . rawurlencode($domain) . '/autorenew', ['isEnabled' => $on]);
+    return ['ok' => $r['ok'], 'message' => $r['ok']
+        ? 'Spaceship: auto-renew ' . ($on ? 'ON' : 'OFF')
+        : 'Spaceship error: ' . $r['message']];
 }
 
 /* ============================= Dynadot ============================= */
