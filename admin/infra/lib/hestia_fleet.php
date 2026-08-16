@@ -141,7 +141,7 @@ function infra_hestia_fleet(int $ttl = INFRA_HESTIA_TTL): array
             'hostname' => $f['hostname'],
             'sites'    => $d['sites'],
             'deployed' => $deployed,
-            'accounts' => infra_hestia_accounts($d),
+            'accounts' => infra_hestia_accounts($d, $srv),
             'calls'    => (int) ($d['calls'] ?? 0),
             'ms'       => (int) ($d['ms'] ?? 0),
         ];
@@ -163,12 +163,18 @@ function infra_hestia_fleet(int $ttl = INFRA_HESTIA_TTL): array
  *
  * @return array{total:int,with_site:int,without_site:int,exact:bool}
  */
-function infra_hestia_accounts(array $d): array
+function infra_hestia_accounts(array $d, array $server = []): array
 {
+    // "Holds a site" must mean the same thing as the Websites count beside it, or the
+    // card contradicts itself: a box with 0 websites was reporting an account WITH a
+    // site, because that account's only vhost was the panel's own hostname. One rule
+    // for what counts as a site, applied in both places.
     $owners = [];
     foreach ($d['sites'] ?? [] as $s) {
         $u = (string) ($s['user'] ?? '');
-        if ($u !== '') $owners[$u] = true;
+        if ($u === '') continue;
+        if ($server && hestia_is_infra_vhost((string) ($s['name'] ?? ''), $server)) continue;
+        $owners[$u] = true;
     }
     $known = $owners;
     foreach ($d['users'] ?? [] as $u) {
