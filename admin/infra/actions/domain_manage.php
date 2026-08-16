@@ -40,10 +40,9 @@ if (!$quick && in_array($action, $destructive, true) && strtolower(trim($_POST['
     header('Location: ' . $back); exit;
 }
 
-// The HESTIA registry: provisioning writes hst-* ids into fleet state, so looking
-// them up in servers.json (the Plesk one) matched nothing — "Delete site" answered
-// "No server on record", and Teardown removed the state record while silently
-// leaving the vhost on the box.
+// The fleet registry. This used to read the Plesk one, which after the migration
+// matched no id anything writes — "Delete site" answered "No server on record" and
+// Teardown removed the state record while silently leaving the vhost on the box.
 $server = null;  foreach (infra_hestia_servers() as $s) if (($s['id'] ?? '') === ($rec['server_id'] ?? '')) $server = $s;
 $account = null; foreach (infra_cf_accounts() as $a) if (($a['id'] ?? '') === ($rec['cf_account_id'] ?? '')) $account = $a;
 
