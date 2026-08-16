@@ -41,10 +41,13 @@ progress_set_sink(progress_jsonlines_sink());
 
 // ── Parse args ──────────────────────────────────────────────────────────────
 $rowFile = null; $snapshotArg = null; $keep = false; $force = false; $noAi = false; $skip = [];
+$noDeploy = false; $outDirArg = null;
 foreach (array_slice($argv, 1) as $a) {
     if ($a === '--keep')                       $keep = true;
     elseif ($a === '--force')                  $force = true;
     elseif ($a === '--no-ai')                  $noAi = true;
+    elseif ($a === '--no-deploy')              $noDeploy = true;
+    elseif (str_starts_with($a, '--out-dir='))  $outDirArg = substr($a, 10);
     elseif (str_starts_with($a, '--skip='))    $skip = array_filter(array_map('trim', explode(',', substr($a, 7))));
     elseif (str_starts_with($a, '--snapshot=')) $snapshotArg = substr($a, 11);
     elseif ($rowFile === null)                 $rowFile = $a;
@@ -97,13 +100,27 @@ if ($snapshotArg) {
 }
 
 $workingDir = $tmp . '/ms_work_' . $domainSlug;
-$outputDir  = $tmp . '/ms_out_'  . $domainSlug;
+
+/* Where the built site lands.
+ *
+ * Given --out-dir, the build is KEPT there — that is what lets generating and
+ * uploading be two separate acts rather than one. Without it the old behaviour
+ * stands: build to a temp dir, upload, delete. The working dir is temporary either
+ * way; only the rendered output is worth keeping. */
+$persistOut = $outDirArg !== null && $outDirArg !== '';
+$outputDir  = $persistOut ? rtrim($outDirArg, '/') : $tmp . '/ms_out_' . $domainSlug;
+if ($persistOut && !is_dir($outputDir) && !@mkdir($outputDir, 0775, true) && !is_dir($outputDir)) {
+    progress_log('Could not create the output directory: ' . $outputDir, 'fatal');
+    exit(1);
+}
 
 // Best-effort cleanup helper.
-$cleanup = function () use ($workingDir, $outputDir, $snapshotDir, $ownSnapshot, $keep) {
+$cleanup = function () use ($workingDir, $outputDir, $snapshotDir, $ownSnapshot, $keep, $persistOut) {
     if ($keep) { progress_log("--keep: working={$workingDir} output={$outputDir}"); return; }
     ms_delete_dir($workingDir);
-    ms_delete_dir($outputDir);
+    // A persisted build is the product of this step; deleting it would leave the
+    // upload step with nothing to send.
+    if (!$persistOut) ms_delete_dir($outputDir);
     if ($ownSnapshot) ms_delete_dir($snapshotDir);
     progress_log('Cleaned up temp dirs.');
 };
@@ -287,7 +304,9 @@ if ($buildCode !== 0) {
 }
 
 // ── Deploy (parent — deploy_site needs only params) ──────────────────────────
-if (!empty($params['ftp_host']) && !empty($params['ftp_user'])) {
+if ($noDeploy) {
+    progress_log('Upload skipped — generating only. Built to: ' . $outputDir);
+} elseif (!empty($params['ftp_host']) && !empty($params['ftp_user'])) {
     $ftp = [
         'ftp_protocol' => (($params['ftp_protocol'] ?? 'ftp') === 'sftp') ? 'sftp' : 'ftp',
         'ftp_host'    => $params['ftp_host'] ?? '',

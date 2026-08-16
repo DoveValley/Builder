@@ -260,9 +260,10 @@ function ms_set_batch_master(string $masterId, string $batchId, string $newMaste
  * answers "Permission denied" and exits 127. The job reports as started and nothing
  * happens. Only the CLI, where PHP_BINARY is populated, was ever unaffected.
  *
- * NOTE: the 'run' and 'research' launchers in multisite_api.php still use PHP_BINARY
- * directly and have the same problem when pressed from a browser. Deliberately not
- * changed here — that is Run Batch's business, and it is not being touched today.
+ * Every detached launcher in multisite_api.php now uses this — run, research, create
+ * hosts and upload. Before it, pressing any of those from the browser produced
+ * "setsid: failed to execute : No such file or directory" in the run log and a job
+ * that reported as started. It only ever worked from the CLI.
  */
 function ms_php_cli(): string
 {
@@ -280,6 +281,36 @@ function ms_php_cli(): string
         if ($c !== '' && @is_executable($c) && !is_dir($c)) return $bin = $c;
     }
     return $bin = 'php';   // let the shell resolve it; better than a certain-empty string
+}
+
+/**
+ * Where a generated site waits between being built and being uploaded.
+ *
+ *   sites/{master}/batches/{batch}/output/{domain-slug}/
+ *
+ * Inside the batch because that is what it belongs to, and under a gitignored path
+ * because it is build output, not source. It persists deliberately: generating and
+ * uploading are two acts now, and the second needs the first to have left something
+ * behind. A re-generate overwrites in place, so the disk cost is one copy per domain.
+ */
+function ms_batch_output_dir(string $masterId, string $batchId, string $domain): string
+{
+    $slug = preg_replace('/[^a-z0-9]+/', '_', strtolower(trim($domain)));
+    return ms_batch_dir($masterId, $batchId) . '/output/' . trim($slug, '_');
+}
+
+/** Every domain that currently has generated output waiting, newest first. */
+function ms_batch_built(string $masterId, string $batchId): array
+{
+    $base = ms_batch_dir($masterId, $batchId) . '/output';
+    $out  = [];
+    foreach (glob($base . '/*', GLOB_ONLYDIR) ?: [] as $d) {
+        $files = 0;
+        $it = @new RecursiveIteratorIterator(new RecursiveDirectoryIterator($d, FilesystemIterator::SKIP_DOTS));
+        if ($it) foreach ($it as $f) if ($f->isFile()) $files++;
+        $out[basename($d)] = ['dir' => $d, 'files' => $files, 'built_at' => filemtime($d)];
+    }
+    return $out;
 }
 
 // ── Deployment plan: which boxes this batch lands on ─────────────────────────

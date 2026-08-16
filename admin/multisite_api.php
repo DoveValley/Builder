@@ -74,7 +74,7 @@ function ms_launch_campaign(string $masterId, string $batchId, string $runsDir, 
     if (!is_dir($runsDir)) mkdir($runsDir, 0775, true);
     $runId = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
     $out   = $runsDir . '/' . $runId . '.out';
-    $cmd = 'setsid ' . escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg(BASE_DIR . '/multisite/run_campaign.php')
+    $cmd = 'setsid ' . escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/run_campaign.php')
          . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId)
          . ' --run-id=' . escapeshellarg($runId) . ' --no-preflight' . $flags
          . ' > ' . escapeshellarg($out) . ' 2>&1 &';
@@ -87,8 +87,10 @@ function ms_run_flags(array $o): string {
     $flags = ' --jobs=' . max(1, min(16, (int)($o['jobs'] ?? 1)));
     $rtr = max(0, min(5, (int)($o['retries'] ?? 0))); if ($rtr > 0) $flags .= ' --retries=' . $rtr;
     $lim = max(0, (int)($o['limit'] ?? 0));            if ($lim > 0) $flags .= ' --limit=' . $lim;
-    if (!empty($o['no_ai'])) $flags .= ' --no-ai';
-    if (!empty($o['force'])) $flags .= ' --force';
+    if (!empty($o['no_ai']))     $flags .= ' --no-ai';
+    if (!empty($o['force']))     $flags .= ' --force';
+    // Generate keeps its builds instead of uploading them; step 5 sends them.
+    if (!empty($o['no_deploy'])) $flags .= ' --no-deploy';
     // Optional steps turned off for this run. Whitelisted here as well as in
     // build_one.php so a hand-crafted POST cannot ask to skip the structural ones.
     if (!empty($o['skip'])) {
@@ -215,6 +217,57 @@ switch ($action) {
                . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_HOSTS_DONE__ $?" >> ' . escapeshellarg($out);
         exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
         echo json_encode(['started' => true, 'run_id' => $hid]);
+        break;
+
+    /* Phase 5 — upload what has already been generated. Detached like the others. */
+    case 'upload':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        if (!ms_batch_built($masterId, $batchId)) { echo json_encode(['error' => 'Nothing generated yet — run Generate sites first.']); break; }
+        $udir = $batchDir . '/uploads';
+        if (!is_dir($udir)) mkdir($udir, 0775, true);
+        foreach (glob($udir . '/*.out') ?: [] as $f) {
+            if (strpos((string) @file_get_contents($f), '__MS_UPLOAD_DONE__') === false
+                && (time() - filemtime($f)) < 3600) {
+                echo json_encode(['error' => 'An upload is already running.', 'run_id' => basename($f, '.out')]);
+                break 2;
+            }
+        }
+        $uid   = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+        $out   = $udir . '/' . $uid . '.out';
+        $uf    = '';
+        if (!empty($_POST['force'])) $uf .= ' --force';
+        $ulim = max(0, (int) ($_POST['limit'] ?? 0));  if ($ulim > 0) $uf .= ' --limit=' . $ulim;
+        if (!empty($_POST['only'])) $uf .= ' --only=' . escapeshellarg((string) $_POST['only']);
+        $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/upload_sites.php')
+               . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId) . $uf
+               . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_UPLOAD_DONE__ $?" >> ' . escapeshellarg($out);
+        exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
+        echo json_encode(['started' => true, 'run_id' => $uid]);
+        break;
+
+    case 'upload_status':
+        $rid = preg_replace('/[^A-Za-z0-9\-]/', '', (string) ($_REQUEST['run_id'] ?? ''));
+        $f   = $batchDir . '/uploads/' . $rid . '.out';
+        if ($rid === '' || !is_file($f)) { echo json_encode(['error' => 'Unknown run.']); break; }
+        $txt = (string) @file_get_contents($f);
+        echo json_encode(['done' => strpos($txt, '__MS_UPLOAD_DONE__') !== false,
+                          'log'  => trim(str_replace('__MS_UPLOAD_DONE__', '', $txt))]);
+        break;
+
+    /* What is generated and waiting, so the upload panel can say so before you press. */
+    case 'built':
+        $rows = ms_parse_csv($paramsPath)['rows'] ?? [];
+        $built = ms_batch_built($masterId, $batchId);
+        $n = ['ready' => 0, 'no_build' => 0, 'no_creds' => 0];
+        foreach ($rows as $r) {
+            $d = strtolower(trim((string) ($r['domain'] ?? ''))); if ($d === '') continue;
+            $slug = trim(preg_replace('/[^a-z0-9]+/', '_', $d), '_');
+            if (!isset($built[$slug]))                          { $n['no_build']++; continue; }
+            if (trim((string) ($r['ftp_host'] ?? '')) === ''
+                || trim((string) ($r['ftp_user'] ?? '')) === '') { $n['no_creds']++; continue; }
+            $n['ready']++;
+        }
+        echo json_encode($n + ['total' => count($rows)]);
         break;
 
     case 'create_hosts_status':
@@ -371,6 +424,7 @@ switch ($action) {
             'jobs' => $_POST['jobs'] ?? 1, 'retries' => $_POST['retries'] ?? 0, 'limit' => $_POST['limit'] ?? 0,
             'no_ai' => !empty($_POST['no_ai']), 'force' => !empty($_POST['force']),
     'skip'  => array_filter(array_map('trim', explode(',', (string) ($_POST['skip'] ?? '')))),
+    'no_deploy' => !empty($_POST['no_deploy']),
         ]);
         echo json_encode(['started' => true, 'run_id' => ms_launch_campaign($masterId, $batchId, $runsDir, $flags)]);
         break;
@@ -439,7 +493,7 @@ switch ($action) {
         $rid  = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
         $out  = $rdir . '/' . $rid . '.out';
         $dry  = !empty($_POST['dry_run']) ? ' --dry-run' : '';
-        $inner = escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg(BASE_DIR . '/multisite/research_cities.php')
+        $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/research_cities.php')
                . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId) . $dry
                . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_RESEARCH_DONE__ $?" >> ' . escapeshellarg($out);
         exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');

@@ -10,6 +10,8 @@
  * Usage:
  *   php multisite/run_campaign.php <master_id> [options]
  *     --no-ai         skip AI generation (identity + build + deploy only)
+ *     --no-deploy     generate only — keep each build under the batch's output/ so
+ *                     the upload step can send it later
  *     --skip=a,b      skip optional steps: landing, visual, ai, images, tags
  *                     (clone, identity and build are structural and cannot be skipped;
  *                      nor can the identity scrub inside differentiate)
@@ -38,6 +40,10 @@ $noAi      = in_array('--no-ai', $args, true);
 // where the list of what may be skipped is enforced — one place decides, not two.
 $skip = '';
 foreach ($args as $a) if (str_starts_with($a, '--skip=')) $skip = substr($a, 7);
+/* --no-deploy: generate only, and KEEP each build so the upload step has something to
+   send. The two go together — a run that keeps nothing cannot be uploaded later, and a
+   run that keeps everything while also uploading just wastes disk. */
+$noDeploy = in_array('--no-deploy', $args, true);
 $force     = in_array('--force', $args, true);
 $noPre     = in_array('--no-preflight', $args, true);
 $verbose   = in_array('--verbose', $args, true);
@@ -243,7 +249,8 @@ foreach ($rows as $r) {
     file_put_contents($rowFile, json_encode(array_merge($r, ['master_id' => $masterId])));
     $rowFiles[] = $rowFile;
     $cmd = escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg(__DIR__ . '/build_one.php')
-         . ' ' . escapeshellarg($rowFile) . $flagsCommon;
+         . ' ' . escapeshellarg($rowFile) . $flagsCommon
+         . ($noDeploy ? ' --no-deploy --out-dir=' . escapeshellarg(ms_batch_output_dir($masterId, $batchId, $domain)) : '');
     $jobList[] = ['domain' => $domain, 'cmd' => $cmd, 'attempts' => 0];
 }
 

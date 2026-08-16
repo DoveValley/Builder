@@ -105,19 +105,18 @@ if (!isset($csrfToken)) return;
         </p>
     </div>
 
-    <p class="hint">Builds every valid row (up to <em>concurrency</em> at a time). Start with a small
-        <em>limit</em> and review before a full run. AI generation costs roughly $0.02&ndash;0.05 per site
-        (free on rebuilds). <strong>Note:</strong> a row that already carries FTP credentials is also
-        <em>uploaded</em> by this step &mdash; uploading has not moved into its own section yet.</p>
+    <p class="hint">Builds every valid row and keeps the result, ready to upload. Nothing goes to a
+        server in this step &mdash; that is step 5. AI generation costs roughly $0.02&ndash;0.05 per site
+        (free on rebuilds).</p>
     <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end;">
-        <label class="hint">Concurrency<br><input type="number" id="ms-jobs" value="2" min="1" max="16" style="width:70px;"></label>
-        <label class="hint">Limit (0 = all)<br><input type="number" id="ms-limit" value="0" min="0" style="width:90px;"></label>
-        <label class="hint">Retries<br><input type="number" id="ms-retries" value="1" min="0" max="5" style="width:60px;"></label>
-        <label class="hint"><input type="checkbox" id="ms-force"> Force (refresh AI + full re-upload)</label>
+        <label class="hint">Build this many (0 = all)<br><input type="number" id="ms-limit" value="0" min="0" style="width:110px;"></label>
+        <label class="hint"><input type="checkbox" id="ms-force"> Force (rebuild everything, refresh AI)</label>
         <button type="button" class="btn btn-primary" id="ms-run-btn" onclick="msRun()">Generate sites</button>
     </div>
     <div id="ms-run-progress" style="margin-top:16px;"></div>
 </div>
+
+<?php include __DIR__ . '/_batch_upload.php'; ?>
 
 <!-- ===== PARAMS VERSIONS CARD ===== -->
 <div class="card" id="ms-versions-card">
@@ -350,9 +349,10 @@ if (!isset($csrfToken)) return;
         const btn = document.getElementById('ms-run-btn');
         const fd = new FormData();
         fd.append('csrf_token', csrfToken);
-        fd.append('jobs', document.getElementById('ms-jobs').value);
         fd.append('limit', document.getElementById('ms-limit').value);
-        fd.append('retries', document.getElementById('ms-retries').value);
+        // Generating never uploads now — sending is step 5, and the built sites are
+        // kept under the batch so that step has something to send.
+        fd.append('no_deploy', '1');
         // Unticked steps become the skip list. 'ai' also sets no_ai so the runner has
         // one mechanism for it rather than two that could disagree.
         const skip = Array.from(document.querySelectorAll('.ms-step-opt'))
