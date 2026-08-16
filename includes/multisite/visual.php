@@ -62,16 +62,6 @@ function ms_is_light_color(string $hex): bool {
     return (0.299*$r + 0.587*$g + 0.114*$b) > 150;
 }
 
-/**
- * Compact wordmark lockup: first word on line 1, the remaining words on line 2
- * (like the master's "KATY / PEST PROS"), left-justified. One-word names stay a
- * single line. Returns the text with an embedded newline.
- */
-function ms_wordmark_lines(string $business): string {
-    $words = preg_split('/\s+/', trim($business));
-    if (count($words) < 2) return trim($business);
-    return $words[0] . "\n" . implode(' ', array_slice($words, 1));
-}
 
 /** Run a convert pipeline (array of args). Returns true on success + output file. */
 function ms_convert_run(array $cmd, string $out): bool {

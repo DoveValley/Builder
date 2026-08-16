@@ -975,12 +975,6 @@ function infra_reg_namesilo_call(array $cfg, string $op, array $params = []): ar
     ];
 }
 
-/** Verify the API key works (read-only listDomains). @return array{ok:bool,message:string} */
-function infra_reg_namesilo_verify(array $cfg): array
-{
-    $r = infra_reg_namesilo_call($cfg, 'listDomains');
-    return ['ok' => $r['ok'], 'message' => $r['ok'] ? 'NameSilo API OK' : "NameSilo error {$r['code']}: {$r['detail']}"];
-}
 
 /** Set a domain's nameservers (the go-live switch). NameSilo needs ≥2 NS. */
 function infra_reg_namesilo_set_ns(string $domain, array $ns, array $cfg): array
@@ -1023,61 +1017,6 @@ function infra_reg_namesilo_register(string $domain, int $years, array $cfg, arr
                 : "NameSilo error {$r['code']}: {$r['detail']}"];
 }
 
-/**
- * Turn auto-renew on/off for a domain already registered. Needed both to correct
- * anything bought before auto-renew defaulted on, and to change one's mind later.
- * @return array{ok:bool, message:string}
- */
-function infra_registrar_set_autorenew(string $domain, bool $on, string $registrarName): array
-{
-    $cfg  = infra_registrar_config($registrarName);
-    $type = strtolower($cfg['type'] ?? $registrarName);
-    switch ($type) {
-        case 'namesilo':
-            $r = infra_reg_namesilo_call($cfg, $on ? 'addAutoRenewal' : 'removeAutoRenewal', ['domain' => $domain]);
-            return ['ok' => $r['ok'],
-                    'message' => $r['ok'] ? "NameSilo: auto-renew " . ($on ? 'ON' : 'OFF') . " for {$domain}"
-                                          : "NameSilo error {$r['code']}: {$r['detail']}"];
-        case 'dynadot':
-            $r = infra_reg_dynadot_call($cfg, 'set_renew_option',
-                     ['domain' => $domain, 'renew_option' => $on ? 'auto' : 'no']);
-            return ['ok' => $r['ok'],
-                    'message' => $r['ok'] ? 'Dynadot: auto-renew ' . ($on ? 'ON' : 'OFF') . " for {$domain}"
-                                          : 'Dynadot: ' . $r['message']];
-
-        case 'porkbun':
-            $r = infra_reg_porkbun_call($cfg, '/domain/updateAutoRenew/' . $domain, ['status' => $on ? 'on' : 'off']);
-            return ['ok' => $r['ok'],
-                    'message' => $r['ok'] ? 'Porkbun: auto-renew ' . ($on ? 'ON' : 'OFF') . " for {$domain}"
-                                          : 'Porkbun: ' . $r['message']];
-
-        case 'cloudflare':
-            $r = infra_reg_cloudflare_call($cfg, 'PUT', '/registrar/domains/' . $domain, [], ['auto_renew' => $on]);
-            $ok = $r['code'] >= 200 && $r['code'] < 300 && !empty($r['json']['success']);
-            return ['ok' => $ok,
-                    'message' => $ok ? 'Cloudflare: auto-renew ' . ($on ? 'ON' : 'OFF') . " for {$domain}"
-                                     : 'Cloudflare: ' . ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
-
-        case 'namecheap':
-            // NOT ATTEMPTED. namecheap.domains.setAutoRenew is undocumented, always
-            // answers IsSuccess="true" — even with no AutoRenew parameter at all —
-            // and changes nothing: verified with the flag still false 20s later, on
-            // an account where getList correctly reports true for other domains.
-            // Calling something proven inert only invites someone to trust it, so
-            // the state is read and reported instead.
-            $actual = infra_reg_namecheap_autorenew($cfg, $domain);
-            if ($actual === null) {
-                return ['ok' => false, 'message' => "Namecheap: could not read auto-renew back for {$domain}"];
-            }
-            if ($actual === $on) {
-                return ['ok' => true, 'message' => 'Namecheap: auto-renew already ' . ($on ? 'ON' : 'OFF') . " for {$domain} (verified)"];
-            }
-            return ['ok' => false, 'message' => "Namecheap: auto-renew is " . ($actual ? 'ON' : 'OFF')
-                . " for {$domain} and cannot be changed over their API — it is a dashboard-only setting."];
-        default:
-            return ['ok' => false, 'message' => "auto-renew toggling not wired for '{$registrarName}' — set it in their dashboard"];
-    }
-}
 
 /* ============================= Porkbun ============================= */
 /* NOTE: Porkbun requires "API Access" toggled ON per-domain in the dashboard. */
@@ -1091,12 +1030,6 @@ function infra_reg_porkbun_call(array $cfg, string $path, array $body = []): arr
     return ['ok' => $status === 'SUCCESS', 'message' => $r['json']['message'] ?? ($r['error'] ?: ('HTTP ' . $r['code'])), 'json' => $r['json']];
 }
 
-/** Verify Porkbun credentials (read-only /ping). @return array{ok:bool,message:string} */
-function infra_reg_porkbun_verify(array $cfg): array
-{
-    $r = infra_reg_porkbun_call($cfg, '/ping');
-    return ['ok' => $r['ok'], 'message' => $r['ok'] ? 'Porkbun API OK' : ('Porkbun: ' . $r['message'])];
-}
 
 /** Set a domain's nameservers (the go-live switch). */
 function infra_reg_porkbun_set_ns(string $domain, array $ns, array $cfg): array

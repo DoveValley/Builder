@@ -1,8 +1,9 @@
 <?php
 /**
- * infra/lib/hestia.php — HestiaCP client, drop-in shaped against lib/plesk.php.
+ * infra/lib/hestia.php — the HestiaCP client. THE panel client: lib/plesk.php was
+ * deleted once nothing referenced it.
  *
- * Every public function here mirrors a plesk_* counterpart 1:1 (same arguments,
+ * Its shape is inherited from the Plesk client it replaced — same arguments,
  * same return shape) so the console can switch a server between panels by type
  * without any call site changing. Compare:
  *
@@ -318,17 +319,6 @@ function hestia_fleet_user(array $server): string
     return preg_match('/^[a-z][a-z0-9_]{0,29}$/', $u) ? $u : 'fleet';
 }
 
-/**
- * Derive a per-site username. Only used when a caller explicitly asks for the
- * one-user-per-site model (the probe does, to measure both); nothing in normal
- * provisioning calls this.
- */
-function hestia_user_for(string $domain): string
-{
-    $base = preg_replace('/[^a-z0-9]/', '', strtolower(explode('.', $domain)[0]));
-    if ($base === '') $base = 'site';
-    return substr($base, 0, 12) . '_' . bin2hex(random_bytes(3));
-}
 
 /** Does this Hestia user exist? */
 function hestia_user_exists(array $server, string $user): bool

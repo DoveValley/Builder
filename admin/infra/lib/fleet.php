@@ -5,42 +5,12 @@
  * Self-contained; read-only.
  */
 require_once __DIR__ . '/store.php';
-require_once __DIR__ . '/plesk.php';
 require_once __DIR__ . '/cloudflare.php';
 require_once __DIR__ . '/state.php';
 require_once __DIR__ . '/cache.php';
 
 const INFRA_DISCOVER_TTL = 180;   // seconds a discovery sweep stays cached
 
-/** Cached per-server discovery bundle: {ok,error,info,sites}. Key server:{id}. */
-function infra_discover_server(array $server, int $ttl = INFRA_DISCOVER_TTL): array
-{
-    $key = 'server:' . ($server['id'] ?? md5((string) json_encode($server)));
-    $c = infra_cache_get($key, $ttl);
-    if ($c !== null) return $c;
-
-    // calls/ms are recorded so the Servers tab can state what a sweep COSTS, on the
-    // same terms as the HestiaCP trial below it. Comparing two panels on how their
-    // cards look decides nothing; comparing them on the work it takes to answer
-    // "what is on this box" is the whole question. Additive — older cached bundles
-    // simply lack these keys.
-    $before = infra_http_calls();
-    $t0     = microtime(true);
-
-    $probe  = plesk_probe($server);
-    $bundle = [
-        'ok'    => $probe['ok'],
-        'error' => $probe['error'],
-        'info'  => $probe['ok'] ? plesk_server_info($server) : null,
-        'sites' => $probe['ok'] ? plesk_list_sites($server) : [],
-    ];
-    $bundle['calls'] = infra_http_calls() - $before;
-    $bundle['ms']    = (int) round((microtime(true) - $t0) * 1000);
-    $bundle['at']    = date('c');
-
-    infra_cache_put($key, $bundle);
-    return $bundle;
-}
 
 /** Cached CF zone list for one account. Key cf_zones:{id}. */
 function infra_discover_cf_zones(array $account, int $ttl = INFRA_DISCOVER_TTL): array
@@ -144,10 +114,8 @@ function infra_cf_zone_index(): array
  * Plesk registry, which after the migration would have found nothing and quietly
  * reported every provisioned domain as living nowhere.
  *
- * Old name kept (infra_plesk_domain_index) — renaming it is a separate change
- * from making it true, and callers can move in their own time.
  */
-function infra_plesk_domain_index(): array
+function infra_host_domain_index(): array
 {
     require_once __DIR__ . '/hestia_fleet.php';
     $idx = [];
@@ -182,23 +150,23 @@ function infra_registrar_map(): array
 
 /**
  * Reconciled domain rows joining all three systems.
- * @return array of {domain, plesk|null, cf|null, registrar, state, drift|null}
+ * @return array of {domain, host|null, cf|null, registrar, state, drift|null}
  */
 function infra_fleet_domains(): array
 {
-    $plesk = infra_plesk_domain_index();
+    $hosts = infra_host_domain_index();
     $cf    = infra_cf_zone_index();
     $reg   = infra_registrar_map();
     $stored = infra_state_all_domains();   // domain(lower) => stored record
 
     $names = array_values(array_unique(array_merge(
-        array_keys($plesk), array_keys($cf), array_keys($reg), array_keys($stored)
+        array_keys($hosts), array_keys($cf), array_keys($reg), array_keys($stored)
     )));
     sort($names);
 
     $rows = [];
     foreach ($names as $n) {
-        $p  = $plesk[$n]  ?? null;
+        $p  = $hosts[$n]  ?? null;
         $z  = $cf[$n]     ?? null;
         $r  = $reg[$n]    ?? [];
         $st = $stored[$n] ?? null;
@@ -229,14 +197,14 @@ function infra_fleet_domains(): array
         if     ($acquiring)                               $state = $st['status'] ?: 'begin';
         elseif ($z && ($z['status'] ?? '') === 'active')  $state = 'live';    // NS switched → serving
         elseif ($z && ($z['status'] ?? '') === 'pending') $state = 'staged'; // zone exists, NS not switched
-        elseif ($p)                                       $state = 'staged'; // plesk only
+        elseif ($p)                                       $state = 'staged'; // host only
         elseif ($st && !empty($st['status']))             $state = $st['status']; // stored
         elseif ($st)                                      $state = 'begin';  // tracked but statusless
         else                                              $state = 'unknown';
 
         $rows[] = [
             'domain'    => $n,
-            'plesk'     => $p,
+            'host'      => $p,
             'cf'        => $z,
             'registrar' => ($st['registrar'] ?? '') ?: ($r['registrar'] ?? ''),
             'state'     => $state,

@@ -4,7 +4,7 @@
  *   dashboard → fleet overview + server list
  *   domains   → fleet-wide domain inventory: registrar + Cloudflare + VPS, reconciled
  *   server    → one VPS: its Plesk sites + each domain's stack wiring
- *   plesk|cloudflare|golive → stubs (next build steps)
+ *   servers|cloudflare|golive → the fleet, its DNS, and the switch-over
  * "Configure" = VPS→Plesk→Cloudflare→registrar wiring. No mutations.
  */
 require_once __DIR__ . '/bootstrap.php';
@@ -12,9 +12,10 @@ require_once __DIR__ . '/bootstrap.php';
 $view = $_GET['view'] ?? 'dashboard';
 if (!empty($_GET['refresh'])) infra_cache_force();   // ?refresh=1 → bypass cache, re-sweep live
 
+/** A box by id, from the fleet registry the rest of the console uses. */
 function infra_find_server(string $id): ?array
 {
-    foreach (infra_servers() as $s) if (($s['id'] ?? '') === $id) return $s;
+    foreach (infra_hestia_servers() as $s) if (($s['id'] ?? '') === $id) return $s;
     return null;
 }
 
@@ -314,7 +315,7 @@ if ($view === 'domains') {
         'buy_at' => fn($r) => $r['buy_at'] !== '' ? $r['buy_at'] : '9999-99-99',   // unscheduled last
         'owned'  => fn($r) => $r['owned'] === 'yes' ? '0' : '1',
         'cf'     => fn($r) => $r['cf'] ? ($r['cf']['status'] ?? '') : 'zzz',
-        'vps'    => fn($r) => $r['plesk'] ? ($r['plesk']['server_label'] ?? '') : 'zzz',
+        'vps'    => fn($r) => $r['host'] ? ($r['host']['server_label'] ?? '') : 'zzz',
         'state'  => fn($r) => array_search($r['state'], INFRA_STATUSES, true) === false
                                 ? '99' : sprintf('%02d', array_search($r['state'], INFRA_STATUSES, true)),
         'drift'  => fn($r) => $r['drift'] ?: 'zzz',
@@ -486,8 +487,8 @@ if ($view === 'domains') {
             <tbody>
             <?php foreach ($slice as $r):
               $d   = $r['domain'];
-              $vps = $r['plesk']
-                  ? '<a href="index.php?view=server&id=' . ih($r['plesk']['server_id']) . '">' . ih($r['plesk']['server_label']) . '</a>'
+              $vps = $r['host']
+                  ? '<a href="index.php?view=server&id=' . ih($r['host']['server_id']) . '">' . ih($r['host']['server_label']) . '</a>'
                   : '<span style="color:#9ca3af">—</span>';
             ?>
               <tr>
@@ -1987,9 +1988,8 @@ if ($view === 'cloudflare') {
    2026-08-15 once the panel decision settled: it ran on nothing, its one
    registry entry pointed at a machine that had been rebuilt under Hestia,
    and probing that dead endpoint cost a 12-second timeout on every load of
-   this page. The Plesk client (lib/plesk.php) is deliberately left in place
-   — lib/provision.php still calls it — so this removes the window, not the
-   machinery behind it. */
+   this page. The Plesk client and its registry have since been deleted outright:
+   nothing referenced them once provisioning moved to Hestia. */
 if ($view === 'servers') {
 
     require_once __DIR__ . '/lib/hestia_fleet.php';

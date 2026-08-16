@@ -230,28 +230,7 @@ function infra_state_bulk_set(array $domains, array $fields): int
     return $n;
 }
 
-/** @return array status => count, over every tracked domain */
-function infra_state_status_counts(): array
-{
-    $out = [];
-    foreach (infra_state_db()->query('SELECT status, COUNT(*) c FROM domains GROUP BY status') as $r) {
-        $out[$r['status'] ?: 'begin'] = (int) $r['c'];
-    }
-    return $out;
-}
 
-/**
- * Domains in the acquisition stage, optionally filtered by status.
- * @return array domain => record
- */
-function infra_state_acquisition(array $statuses = ['begin', 'ready', 'buy-failed']): array
-{
-    $out = [];
-    foreach (infra_state_all_domains() as $dom => $r) {
-        if (in_array($r['status'] ?: 'begin', $statuses, true)) $out[$dom] = $r;
-    }
-    return $out;
-}
 
 /**
  * Spread a set of domains across daily buy batches — same shape as the go-live

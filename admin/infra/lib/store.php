@@ -15,13 +15,6 @@ function infra_load_json(string $path, array $default = []): array
     return is_array($data) ? $data : $default;
 }
 
-/** @return array list of server registry entries */
-function infra_servers(): array
-{
-    $cfg = infra_load_json(infra_config_path('servers.json'), []);
-    return $cfg['servers'] ?? [];
-}
-
 /** @return array list of Cloudflare account registry entries */
 function infra_cf_accounts(): array
 {

@@ -2,18 +2,14 @@
 /**
  * infra/lib/hestia_fleet.php — registry + cached discovery for HestiaCP boxes.
  *
- * ⚠ TRIAL CODE. This exists so the Servers tab can show a Hestia box beside the
- * Plesk one and let you compare them on live data. It is deliberately kept apart
- * from the Plesk path: its own config file (hestia.json), its own cache prefix
- * (hestia:), its own loader. Nothing here can disturb servers.json,
- * infra_discover_server(), or anything currently provisioning.
+ * This began as a trial half, running beside a Plesk one so the two could be
+ * compared on live data. Hestia won and the other half was deleted; this is now the
+ * only fleet reader. Its own config file (hestia.json) and cache prefix (hestia:)
+ * are left as they are — renaming them would break every stored key for nothing.
  *
- * When the panel decision is made, one of the two halves gets deleted whole.
- *
- * Mirrors lib/fleet.php's infra_discover_server(), with one addition: it reports
- * what the sweep COST. Both panels render near-identical cards, which makes them
- * look equivalent; the real difference is how many API calls it takes to answer
- * "what is on this box", and that only shows up if you measure it.
+ * It reports what a sweep COST (calls + ms), which is what settled the comparison:
+ * two panels' cards look identical, and the real difference is how much work it
+ * takes to answer "what is on this box".
  */
 require_once __DIR__ . '/hestia.php';
 require_once __DIR__ . '/store.php';
