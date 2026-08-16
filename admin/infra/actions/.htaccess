@@ -1,0 +1,13 @@
+# admin/infra/actions/ — the console's POST handlers, re-allowed.
+#
+# The parent directory denies everything (see ../.htaccess, written after the
+# config and state files were found being served on the public IP). These handlers
+# ARE requested by URL, so they have to come back — but only the .php files, and
+# only from here.
+#
+# Every one of them requires ../bootstrap.php first, which enforces the admin
+# session and the CSRF token. This file controls whether Apache will route to
+# them at all; it is not what makes them safe to call.
+<FilesMatch "\.php$">
+    Require all granted
+</FilesMatch>

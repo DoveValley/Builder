@@ -1,0 +1,33 @@
+# admin/infra/ — deny the web everything that is not an entry point.
+#
+# FOUND EXPOSED 2026-08-16, on the public IP, answering 200 with real bytes:
+#
+#   /admin/infra/config/hestia.json     access_key + secret_key for all 20 servers,
+#                                       plaintext. Full control of the fleet to
+#                                       anyone who typed the path.
+#   /admin/infra/config/registrar.json  registrar API keys
+#   /admin/infra/config/{cloudflare,hetzner,keywords}.json
+#   /admin/infra/state/fleet.db         2.8 MB SQLite — 431 domains, 10,000 cities,
+#                                       the D.Finder workbench. Downloaded and
+#                                       opened cleanly, to be sure it was real.
+#
+# Two things that looked like protection and were not. The files are mode 0600
+# owned by www-data — but Apache RUNS as www-data, so the permissions that read as
+# restrictive are exactly the permissions that let it serve them. And they are
+# gitignored — but .gitignore keeps a file out of the repo, not off the web. What
+# was actually protecting these was that nobody had guessed the path.
+#
+# Deny by default, allow the two entry points by name. A secrets file dropped into
+# config/ tomorrow is covered without anyone remembering to come back here — which
+# is the whole point of denying rather than listing what to block.
+#
+#   index.php    the console router; every view is require'd through it
+#   actions/     the POST handlers, allowed by actions/.htaccess
+#
+# Everything else — lib/, views/, cron/, config/, state/ — is reached by require,
+# not by URL, and has no business answering a request.
+Require all denied
+
+<Files "index.php">
+    Require all granted
+</Files>
