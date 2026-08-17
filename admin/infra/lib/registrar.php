@@ -12,6 +12,38 @@ require_once __DIR__ . '/store.php';
 require_once __DIR__ . '/http.php';
 require_once __DIR__ . '/cache.php';   // contact-set cache for Namecheap
 
+/**
+ * Registrant phone in the form registrars ask for: +CC.NUMBER (`+1.2146633693`).
+ *
+ * Gandi and Spaceship both pass `contact_phone` through to their APIs untouched,
+ * and both document this shape. A number typed the way a person says it —
+ * 12146633693, (214) 663-3693 — looks obviously right in the form and is rejected
+ * at contact creation, which happens on the FIRST PURCHASE: past availability,
+ * past the money question, at the step nobody is watching.
+ *
+ * Deliberately conservative. Splitting a country code off a bare international
+ * string is guesswork (codes are 1–3 digits), so anything that is not clearly
+ * North American is returned UNCHANGED — it then fails loudly at the API instead
+ * of being silently turned into a different, valid-looking number.
+ */
+function infra_registrar_normalize_phone(string $phone, string $country = ''): string
+{
+    $phone = trim($phone);
+    if ($phone === '') return '';
+    if (preg_match('/^\+\d{1,3}\.\d{4,}$/', $phone)) return $phone;   // already correct
+
+    $plus   = str_starts_with($phone, '+');
+    $digits = preg_replace('/\D+/', '', $phone);
+    $cc     = strtoupper(trim($country));
+
+    // +1 is safe to infer only for NANP: 11 digits starting with 1, or 10 digits
+    // when the registrant is in a +1 country.
+    if (strlen($digits) === 11 && $digits[0] === '1') return '+1.' . substr($digits, 1);
+    if (strlen($digits) === 10 && !$plus && ($cc === '' || $cc === 'US' || $cc === 'CA')) return '+1.' . $digits;
+
+    return $phone;
+}
+
 function infra_registrar_config(string $name): array
 {
     $name = strtolower(trim($name));
@@ -32,6 +64,14 @@ function infra_registrar_config(string $name): array
  * Registrars available to assign. Keys of config/registrar.json, plus Cloudflare
  * whenever a Cloudflare account exists — it is a real registrar you can hold
  * domains at, even though its credentials live on the Cloudflare side.
+ *
+ * SORTED INTO THE SAME ORDER AS THE REGISTERS PAGE, because this list is what
+ * fills every registrar dropdown in the console. Unsorted it came out in the
+ * order the credentials happened to be saved in — so the Register column on
+ * D.Buy listed them differently from the page that explains them, and picking
+ * one meant re-reading the list every time. One order, decided in one place:
+ * infra_registrar_types(). Anything configured but not a known type sorts last
+ * rather than being dropped.
  * @return string[]
  */
 function infra_registrar_names(): array
@@ -39,6 +79,13 @@ function infra_registrar_names(): array
     $cfg   = infra_load_json(infra_config_path('registrar.json'), []);
     $names = array_keys($cfg['registrars'] ?? []);
     if (!in_array('cloudflare', $names, true) && infra_cf_accounts()) $names[] = 'cloudflare';
+
+    $order = array_flip(array_keys(infra_registrar_types()));
+    $rank  = function (string $n) use ($cfg, $order): int {
+        $type = strtolower($cfg['registrars'][$n]['type'] ?? $n);
+        return $order[$type] ?? PHP_INT_MAX;
+    };
+    usort($names, fn($a, $b) => [$rank($a), $a] <=> [$rank($b), $b]);
     return $names;
 }
 
@@ -120,7 +167,8 @@ function infra_registrar_types(): array
                 'contact_first'   => ['label' => 'Registrant first name', 'secret' => false],
                 'contact_last'    => ['label' => 'Registrant last name',  'secret' => false],
                 'contact_email'   => ['label' => 'Registrant email',      'secret' => false],
-                'contact_phone'   => ['label' => 'Phone (+X.XXXXXXXXXX)', 'secret' => false],
+                'contact_phone'   => ['label' => 'Registrant phone', 'secret' => false,
+                                      'hint' => 'saved as +1.2146633693 — a US/Canada number is converted for you; other countries must be typed as +CC.NUMBER'],
                 'contact_address' => ['label' => 'Street address',        'secret' => false],
                 'contact_city'    => ['label' => 'City',                  'secret' => false],
                 // State/postcode are passed when present and omitted when not, so they
@@ -156,7 +204,8 @@ function infra_registrar_types(): array
                 'contact_first'   => ['label' => 'Registrant first name', 'secret' => false, 'optional' => true],
                 'contact_last'    => ['label' => 'Registrant last name',  'secret' => false, 'optional' => true],
                 'contact_email'   => ['label' => 'Registrant email',      'secret' => false, 'optional' => true],
-                'contact_phone'   => ['label' => 'Phone +X.XXXXXXXXXX',   'secret' => false, 'optional' => true],
+                'contact_phone'   => ['label' => 'Registrant phone', 'secret' => false, 'optional' => true,
+                                      'hint' => 'saved as +1.2146633693 — a US/Canada number is converted for you; other countries must be typed as +CC.NUMBER'],
                 'contact_address' => ['label' => 'Street address',        'secret' => false, 'optional' => true],
                 'contact_city'    => ['label' => 'City',                  'secret' => false, 'optional' => true],
                 'contact_zip'     => ['label' => 'Postcode',              'secret' => false, 'optional' => true],

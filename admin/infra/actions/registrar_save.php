@@ -87,6 +87,15 @@ switch ($action) {
             }
             $rec[$fname] = $val;
         }
+        // Store the phone in the shape the registrars ask for, at the moment it is
+        // typed. Normalising here rather than at call time means what is on the
+        // screen is what will be sent — a value fixed up invisibly inside the buy
+        // path would leave the form showing something the API never saw.
+        if (isset($rec['contact_phone'])) {
+            $rec['contact_phone'] = infra_registrar_normalize_phone(
+                (string) $rec['contact_phone'], (string) ($rec['contact_country'] ?? '')
+            );
+        }
         // Cloudflare accepts EITHER an API token OR email + global key, so the
         // requirement is "one of", not "all of".
         if ($type === 'cloudflare' && ($rec['api_token'] ?? '') === ''
