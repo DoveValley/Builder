@@ -197,7 +197,7 @@
               <strong>Not used for new purchases.</strong> <?= ih($unused) ?>
               <?php if ($owned): ?>
                 <br><br><strong><?= $owned ?> domain<?= $owned === 1 ? ' is' : 's are' ?> already registered here</strong>
-                — see them on the <a href="index.php?view=domains">Domains</a> tab.
+                — see them on the <a href="index.php?view=domains">D.Buy</a> tab.
               <?php endif; ?>
             </div>
           <?php endif; ?>

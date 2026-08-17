@@ -92,7 +92,7 @@
     </div>
 
     <?php if (!$regs): ?>
-      <div class="ic-note">No registrar configured yet — add one on the <a href="index.php?view=registrars"><strong>Registrars</strong></a> tab before you can check availability or schedule buys.</div>
+      <div class="ic-note">No registrar configured yet — add one on the <a href="index.php?view=registrars"><strong>Registers</strong></a> tab before you can check availability or schedule buys.</div>
     <?php endif; ?>
 
     <!-- ============ LOAD NEW DOMAINS (→ begin state) ============ -->

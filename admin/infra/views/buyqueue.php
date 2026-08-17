@@ -28,7 +28,7 @@
 
     <div class="ic-note">
       This is the buying schedule at a glance — <strong>nothing on this page buys anything</strong>.
-      Dates are <strong>US Central</strong>. Set them on the <a href="index.php?view=domains">Domains</a> tab
+      Dates are <strong>US Central</strong>. Set them on the <a href="index.php?view=domains">D.Buy</a> tab
       (tick rows &rarr; <em>Spread N/day from</em>).
     </div>
 

@@ -50,15 +50,22 @@ function infra_render_flash(): void
 
 function infra_header(string $active = 'dashboard'): void
 {
+    /*
+     * THE ORDER READS AS THE WORK, left to right: where you can buy (Registers),
+     * decide on a name (D.Finder), the domain list itself (D.Buy), what has been
+     * bought (B.Own), then where it all goes — cities, sites, servers, live.
+     *
+     * The KEYS are view names and must not be renamed: every view calls
+     * infra_header('<key>') to mark itself active, and the labels are only what
+     * they are called on screen. Renaming a label is free; renaming a key is not.
+     */
     $nav = [
-        'dashboard'  => ['label' => 'Dashboard',  'href' => 'index.php'],
-        // Left of Domains on purpose: this is where a domain is decided on, and
-        // Domains is the list of ones already chosen. The order reads as the work.
+        'dashboard'  => ['label' => 'Dashboard',   'href' => 'index.php'],
+        'registrars' => ['label' => 'Registers',   'href' => 'index.php?view=registrars'],
         'dfinder'    => ['label' => 'D.Finder',    'href' => 'index.php?view=dfinder'],
-        'domains'    => ['label' => 'Domains',     'href' => 'index.php?view=domains'],
-        'registrars' => ['label' => 'Registrars',  'href' => 'index.php?view=registrars'],
+        'domains'    => ['label' => 'D.Buy',       'href' => 'index.php?view=domains'],
+        'buyqueue'   => ['label' => 'B.Own',       'href' => 'index.php?view=buyqueue'],
         'cities'     => ['label' => 'Cities/Niche','href' => 'index.php?view=cities'],
-        'buyqueue'   => ['label' => 'Buy queue',   'href' => 'index.php?view=buyqueue'],
         'new'        => ['label' => '+ New Site',  'href' => 'index.php?view=new'],
         'bulk'       => ['label' => 'Bulk',        'href' => 'index.php?view=bulk'],
         'deploy'     => ['label' => 'Deploy',      'href' => 'index.php?view=deploy'],
@@ -71,7 +78,7 @@ function infra_header(string $active = 'dashboard'): void
     echo '<title>Infrastructure — Console</title>';
     echo '<style>' . infra_css() . '</style></head><body>';
     // Back-to-Factory sits FIRST, left of the brand: it is the way out, and the way
-    // out belongs where the eye starts, not at the end of a row of eleven tabs.
+    // out belongs where the eye starts, not at the end of a row of twelve tabs.
     echo '<header class="ic-top">';
     echo '<a class="ic-back" href="../sites.php">&larr; Back to Factory</a>';
     echo '<div class="ic-brand">🛠 Infrastructure</div><nav class="ic-nav">';
@@ -228,10 +235,14 @@ function infra_css(): string
 {
     return <<<CSS
 *{box-sizing:border-box}body{margin:0;font:14px/1.5 -apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1f2937;background:#f3f4f6}
-.ic-top{display:flex;align-items:center;gap:24px;background:#111827;color:#fff;padding:0 20px;height:52px}
-.ic-brand{font-weight:700;font-size:15px}
-.ic-nav{display:flex;gap:4px;flex:1;flex-wrap:wrap}
-.ic-nav a{color:#cbd5e1;text-decoration:none;padding:6px 12px;border-radius:6px;font-weight:600}
+/* Spacing tuned so all TWELVE tabs sit on one row at 1300px. They used to wrap,
+   which dropped a single orphan tab onto a second line and made the bar look
+   like it had been cut off rather than laid out. flex-wrap stays: narrower than
+   that it should wrap rather than overflow. */
+.ic-top{display:flex;align-items:center;gap:16px;background:#111827;color:#fff;padding:0 14px;height:52px}
+.ic-brand{font-weight:700;font-size:15px;white-space:nowrap}
+.ic-nav{display:flex;gap:2px;flex:1;flex-wrap:wrap}
+.ic-nav a{color:#cbd5e1;text-decoration:none;padding:6px 9px;border-radius:6px;font-weight:600;white-space:nowrap}
 .ic-nav a:hover{background:#1f2937;color:#fff}.ic-nav a.active{background:#2563eb;color:#fff}
 .ic-back{color:#9ca3af;text-decoration:none;font-size:13px;white-space:nowrap}.ic-back:hover{color:#fff}
 .ic-main{max-width:1200px;margin:0 auto;padding:24px 20px}

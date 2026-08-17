@@ -53,7 +53,7 @@
       <?php if (!$queue): ?><div class="ic-empty">Nothing staged or queued.<?= $cAcquiring
           ? ' <strong>' . $cAcquiring . '</strong> domain(s) are still in the acquisition stage —'
             . ' buy them and provision them (New Site / Bulk) before they can go live.'
-              . ' <a href="index.php?view=domains">Domains &rarr;</a>'
+              . ' <a href="index.php?view=domains">D.Buy &rarr;</a>'
           : ' Provision domains first.' ?></div>
       <?php else: ?>
         <input class="ic-search" type="search" placeholder="Filter…" data-target="tbl-q">
