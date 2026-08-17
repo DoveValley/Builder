@@ -283,10 +283,13 @@ const CSS = `
 .dw-sub { font-family:var(--mono); font-size:11px; color:var(--soft); letter-spacing:0.02em; }
 .dw-bar-end { margin-left:auto; display:flex; gap:8px; align-items:center; }
 
-.dw-grid { display:grid; grid-template-columns:200px minmax(0,1fr) 320px; gap:0; align-items:start; }
+/* Two columns, not three: the niche switcher moved into the top of the right
+   column, so the 200px rail that used to hold four buttons is gone and the work
+   itself gets the width back. */
+.dw-grid { display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:0; align-items:start; }
 .dw-col { padding:20px; }
-.dw-rail { border-right:1px solid var(--rule); }
 .dw-side { border-left:1px solid var(--rule); }
+.dw-sep { border:none; border-top:1px solid var(--rule); margin:20px 0 18px; }
 
 .dw-eyebrow {
   font-family:var(--display); font-weight:600; font-size:10px; text-transform:uppercase;
@@ -505,8 +508,7 @@ const CSS = `
 
 @media (max-width:900px) {
   .dw-grid { grid-template-columns:1fr; }
-  .dw-rail, .dw-side { border:none; border-bottom:1px solid var(--rule); }
-  .dw-side { border-bottom:none; border-top:1px solid var(--rule); }
+  .dw-side { border-left:none; border-top:1px solid var(--rule); }
 }
 @media (prefers-reduced-motion:reduce) { .dw * { animation:none !important; transition:none !important; } }
 `;
@@ -1776,29 +1778,6 @@ Each "why" must be under 12 words and say something about the caller, not about 
       )}
 
       <div className="dw-grid">
-        <nav className="dw-col dw-rail">
-          <p className="dw-eyebrow">Niches</p>
-          {state.niches.map((n) => (
-            <button
-              key={n.id}
-              className="dw-niche"
-              data-on={n.id === niche.id ? "1" : "0"}
-              onClick={() => {
-                setUndo(null);
-                setSuggs(null);
-                setState((s) => ({ ...s, activeId: n.id }));
-              }}
-            >
-              {n.name}
-              <span className="dw-count">{n.candidates.length}</span>
-            </button>
-          ))}
-          <button className="dw-btn ghost wide" style={{ marginTop: 12 }} onClick={addNiche}>
-            + Add niche
-          </button>
-          {askStrip("add-niche")}
-        </nav>
-
         <main className="dw-col">
           <div className="dw-row" style={{ justifyContent: "space-between", marginBottom: 4 }}>
             <h1 className="dw-h">{niche.name}</h1>
@@ -2057,6 +2036,33 @@ Each "why" must be under 12 words and say something about the caller, not about 
         </main>
 
         <aside className="dw-col dw-side">
+          {/* Niches sit at the top of this column rather than in a rail of their
+              own on the left: the switcher and the settings for whatever it
+              switches to are the same job, and splitting them put a 200px column
+              on screen holding four buttons. */}
+          <p className="dw-eyebrow">Niches</p>
+          {state.niches.map((n) => (
+            <button
+              key={n.id}
+              className="dw-niche"
+              data-on={n.id === niche.id ? "1" : "0"}
+              onClick={() => {
+                setUndo(null);
+                setSuggs(null);
+                setState((s) => ({ ...s, activeId: n.id }));
+              }}
+            >
+              {n.name}
+              <span className="dw-count">{n.candidates.length}</span>
+            </button>
+          ))}
+          <button className="dw-btn ghost wide" style={{ marginTop: 12 }} onClick={addNiche}>
+            + Add niche
+          </button>
+          {askStrip("add-niche")}
+
+          <hr className="dw-sep" />
+
           <p className="dw-eyebrow">Domain patterns — priority order</p>
           <p className="dw-hint" style={{ margin: "-4px 0 10px" }}>
             Searches fill P1 first, then work down.

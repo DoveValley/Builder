@@ -186,10 +186,13 @@ const CSS = `
 .dw-sub { font-family:var(--mono); font-size:11px; color:var(--soft); letter-spacing:0.02em; }
 .dw-bar-end { margin-left:auto; display:flex; gap:8px; align-items:center; }
 
-.dw-grid { display:grid; grid-template-columns:200px minmax(0,1fr) 320px; gap:0; align-items:start; }
+/* Two columns, not three: the niche switcher moved into the top of the right
+   column, so the 200px rail that used to hold four buttons is gone and the work
+   itself gets the width back. */
+.dw-grid { display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:0; align-items:start; }
 .dw-col { padding:20px; }
-.dw-rail { border-right:1px solid var(--rule); }
 .dw-side { border-left:1px solid var(--rule); }
+.dw-sep { border:none; border-top:1px solid var(--rule); margin:20px 0 18px; }
 
 .dw-eyebrow {
   font-family:var(--display); font-weight:600; font-size:10px; text-transform:uppercase;
@@ -408,8 +411,7 @@ const CSS = `
 
 @media (max-width:900px) {
   .dw-grid { grid-template-columns:1fr; }
-  .dw-rail, .dw-side { border:none; border-bottom:1px solid var(--rule); }
-  .dw-side { border-bottom:none; border-top:1px solid var(--rule); }
+  .dw-side { border-left:none; border-top:1px solid var(--rule); }
 }
 @media (prefers-reduced-motion:reduce) { .dw * { animation:none !important; transition:none !important; } }
 `;
@@ -1079,21 +1081,7 @@ Each "why" must be under 12 words and say something about the caller, not about 
     const tone = use ? STATUSES[use.status].tone : "dead";
     const count = (nameUses[sn] || []).length;
     return /* @__PURE__ */ React.createElement("div", { className: "dw-reg-row", key: sn, "data-free": free ? "1" : "0" }, /* @__PURE__ */ React.createElement("span", { className: "dw-reg-name", "data-free": free ? "1" : "0" }, sn), /* @__PURE__ */ React.createElement("span", { className: "dw-tag", "data-tone": free ? "good" : tone }, free ? "Free to reuse" : reason), /* @__PURE__ */ React.createElement("code", { className: "dw-reg-dom" }, use ? use.domain : meta.domain, count > 1 ? ` +${count - 1}` : ""), /* @__PURE__ */ React.createElement("span", { className: "dw-reg-niche" }, use ? use.niche : meta.niche), /* @__PURE__ */ React.createElement("span", { className: "dw-reg-note" }, use?.note || ""), /* @__PURE__ */ React.createElement("button", { className: "dw-mini", onClick: () => releaseName(sn), title: "Remove from this list" }, "\xD7"));
-  })) : /* @__PURE__ */ React.createElement("p", { className: "dw-hint" }, "Empty. Every name is still in circulation.")), /* @__PURE__ */ React.createElement("div", { className: "dw-grid" }, /* @__PURE__ */ React.createElement("nav", { className: "dw-col dw-rail" }, /* @__PURE__ */ React.createElement("p", { className: "dw-eyebrow" }, "Niches"), state.niches.map((n) => /* @__PURE__ */ React.createElement(
-    "button",
-    {
-      key: n.id,
-      className: "dw-niche",
-      "data-on": n.id === niche.id ? "1" : "0",
-      onClick: () => {
-        setUndo(null);
-        setSuggs(null);
-        setState((s) => ({ ...s, activeId: n.id }));
-      }
-    },
-    n.name,
-    /* @__PURE__ */ React.createElement("span", { className: "dw-count" }, n.candidates.length)
-  )), /* @__PURE__ */ React.createElement("button", { className: "dw-btn ghost wide", style: { marginTop: 12 }, onClick: addNiche }, "+ Add niche"), askStrip("add-niche")), /* @__PURE__ */ React.createElement("main", { className: "dw-col" }, /* @__PURE__ */ React.createElement("div", { className: "dw-row", style: { justifyContent: "space-between", marginBottom: 4 } }, /* @__PURE__ */ React.createElement("h1", { className: "dw-h" }, niche.name), /* @__PURE__ */ React.createElement("button", { className: "dw-btn ghost tiny", onClick: deleteNiche }, "Delete niche")), askStrip("del-niche"), err && /* @__PURE__ */ React.createElement("div", { className: "dw-err", style: { marginTop: 12 } }, err), /* @__PURE__ */ React.createElement("div", { className: "dw-row", style: { margin: "12px 0 16px" } }, /* @__PURE__ */ React.createElement("button", { className: "dw-btn", onClick: generate, disabled: busy }, busy ? "Searching\u2026" : "Find domains"), /* @__PURE__ */ React.createElement("select", { className: "dw-sel", value: batch, onChange: (e) => setBatch(Number(e.target.value)) }, /* @__PURE__ */ React.createElement("option", { value: 8 }, "8 at a time"), /* @__PURE__ */ React.createElement("option", { value: 12 }, "12 at a time"), /* @__PURE__ */ React.createElement("option", { value: 20 }, "20 at a time"))), /* @__PURE__ */ React.createElement("div", { className: "dw-tabs" }, [["all", "All"], ...STATUS_ORDER.map((k) => [k, STATUSES[k].label])].map(([k, label]) => {
+  })) : /* @__PURE__ */ React.createElement("p", { className: "dw-hint" }, "Empty. Every name is still in circulation.")), /* @__PURE__ */ React.createElement("div", { className: "dw-grid" }, /* @__PURE__ */ React.createElement("main", { className: "dw-col" }, /* @__PURE__ */ React.createElement("div", { className: "dw-row", style: { justifyContent: "space-between", marginBottom: 4 } }, /* @__PURE__ */ React.createElement("h1", { className: "dw-h" }, niche.name), /* @__PURE__ */ React.createElement("button", { className: "dw-btn ghost tiny", onClick: deleteNiche }, "Delete niche")), askStrip("del-niche"), err && /* @__PURE__ */ React.createElement("div", { className: "dw-err", style: { marginTop: 12 } }, err), /* @__PURE__ */ React.createElement("div", { className: "dw-row", style: { margin: "12px 0 16px" } }, /* @__PURE__ */ React.createElement("button", { className: "dw-btn", onClick: generate, disabled: busy }, busy ? "Searching\u2026" : "Find domains"), /* @__PURE__ */ React.createElement("select", { className: "dw-sel", value: batch, onChange: (e) => setBatch(Number(e.target.value)) }, /* @__PURE__ */ React.createElement("option", { value: 8 }, "8 at a time"), /* @__PURE__ */ React.createElement("option", { value: 12 }, "12 at a time"), /* @__PURE__ */ React.createElement("option", { value: 20 }, "20 at a time"))), /* @__PURE__ */ React.createElement("div", { className: "dw-tabs" }, [["all", "All"], ...STATUS_ORDER.map((k) => [k, STATUSES[k].label])].map(([k, label]) => {
     const n = k === "all" ? niche.candidates.length : tallyMap[k];
     return /* @__PURE__ */ React.createElement(
       "button",
@@ -1207,7 +1195,21 @@ Each "why" must be under 12 words and say something about the caller, not about 
       },
       "\xD7"
     ))
-  ), ask && ask.key === `row:${c.id}` && /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("td", { colSpan: 6, style: { padding: "0 0 8px" } }, askStrip(`row:${c.id}`))))))) : /* @__PURE__ */ React.createElement("div", { className: "dw-empty" }, niche.candidates.length ? "Nothing matches that filter." : "No domains yet. Set your criteria, then hit Find domains.")), /* @__PURE__ */ React.createElement("aside", { className: "dw-col dw-side" }, /* @__PURE__ */ React.createElement("p", { className: "dw-eyebrow" }, "Domain patterns \u2014 priority order"), /* @__PURE__ */ React.createElement("p", { className: "dw-hint", style: { margin: "-4px 0 10px" } }, "Searches fill P1 first, then work down."), (niche.patterns || []).map((p, i) => /* @__PURE__ */ React.createElement("div", { className: "dw-pat", key: p.id, "data-off": p.on ? "0" : "1" }, /* @__PURE__ */ React.createElement("div", { className: "dw-pat-top" }, /* @__PURE__ */ React.createElement(
+  ), ask && ask.key === `row:${c.id}` && /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("td", { colSpan: 6, style: { padding: "0 0 8px" } }, askStrip(`row:${c.id}`))))))) : /* @__PURE__ */ React.createElement("div", { className: "dw-empty" }, niche.candidates.length ? "Nothing matches that filter." : "No domains yet. Set your criteria, then hit Find domains.")), /* @__PURE__ */ React.createElement("aside", { className: "dw-col dw-side" }, /* @__PURE__ */ React.createElement("p", { className: "dw-eyebrow" }, "Niches"), state.niches.map((n) => /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      key: n.id,
+      className: "dw-niche",
+      "data-on": n.id === niche.id ? "1" : "0",
+      onClick: () => {
+        setUndo(null);
+        setSuggs(null);
+        setState((s) => ({ ...s, activeId: n.id }));
+      }
+    },
+    n.name,
+    /* @__PURE__ */ React.createElement("span", { className: "dw-count" }, n.candidates.length)
+  )), /* @__PURE__ */ React.createElement("button", { className: "dw-btn ghost wide", style: { marginTop: 12 }, onClick: addNiche }, "+ Add niche"), askStrip("add-niche"), /* @__PURE__ */ React.createElement("hr", { className: "dw-sep" }), /* @__PURE__ */ React.createElement("p", { className: "dw-eyebrow" }, "Domain patterns \u2014 priority order"), /* @__PURE__ */ React.createElement("p", { className: "dw-hint", style: { margin: "-4px 0 10px" } }, "Searches fill P1 first, then work down."), (niche.patterns || []).map((p, i) => /* @__PURE__ */ React.createElement("div", { className: "dw-pat", key: p.id, "data-off": p.on ? "0" : "1" }, /* @__PURE__ */ React.createElement("div", { className: "dw-pat-top" }, /* @__PURE__ */ React.createElement(
     "input",
     {
       type: "checkbox",
