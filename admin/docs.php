@@ -4718,7 +4718,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <h3>Bigger footprint levers than the form</h3>
     <p>The form is minor next to these — prioritize them if you're worried about a network footprint:</p>
     <ul>
-        <li><strong>Hosting IP / WHOIS / nameservers</strong> — many sites on one IP with the same registrant is a far stronger tie (see <a href="#ms-cloudflare">Cloudflare proxy</a>).</li>
+        <li><strong>Hosting IP / WHOIS / nameservers</strong> — many sites on one IP with the same registrant is a far stronger tie (see <a href="#ms-hosting">Cloudflare proxy</a>).</li>
         <li><strong>Interlinking</strong> the sites to each other (classic PBN signal).</li>
         <li><strong>Shared client-side IDs</strong> — one analytics / AdSense / Tag Manager / reCAPTCHA ID across all. (The build already isolates analytics per site.)</li>
     </ul>
