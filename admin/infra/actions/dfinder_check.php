@@ -50,6 +50,11 @@ if (!infra_check_csrf()) {
     exit;
 }
 
+// The session has been read (auth + CSRF). Let go of its lock so a slow job
+// here does not queue up every other click in the console — see
+// infra_session_release() in bootstrap.php.
+infra_session_release();
+
 $domains = json_decode((string) ($_POST['domains'] ?? '[]'), true);
 if (!is_array($domains) || !$domains) {
     http_response_code(400);

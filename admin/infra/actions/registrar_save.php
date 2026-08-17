@@ -17,6 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !infra_check_csrf()) {
     header('Location: ' . $back); exit;
 }
 
+// The session has been read (auth + CSRF). Let go of its lock so a slow job
+// here does not queue up every other click in the console — see
+// infra_session_release() in bootstrap.php.
+infra_session_release();
+
 $action = (string) ($_POST['action'] ?? '');
 $types  = infra_registrar_types();
 $path   = infra_config_path('registrar.json');
@@ -41,10 +46,15 @@ if ($action === 'test_all') {
         $bal = ($r['balance'] !== null && $r['balance'] !== '') ? "  balance {$r['balance']} {$r['currency']}" : '';
         $lines[] = ($r['ok'] ? '✓ ' : '✗ ') . $name . ': ' . $r['message'] . $bal;
     }
-    $_SESSION['infra_reg_tests'] = $results;
     // The owned-domain index feeds "you already own this" — refresh it while we are here.
+    // Done BEFORE re-opening the session: it is several paged API calls, and holding
+    // the lock across them is exactly what made the console feel hung.
     infra_cache_forget('reg_owned');
     infra_owned_index_cached();
+    // Re-open only now, to hand the results to the page. Writing to $_SESSION while
+    // released would be silently discarded — the test would run and report nothing.
+    infra_session_resume();
+    $_SESSION['infra_reg_tests'] = $results;
     infra_set_flash($lines ? 'ok' : 'warn', $lines ? implode("\n", $lines) : 'No registrars configured yet.');
     header('Location: ' . $back); exit;
 }
@@ -113,8 +123,9 @@ switch ($action) {
         }
         // Verify straight away: saving a key that does not work is the failure to catch here.
         $v = infra_registrar_verify($name);
-        $_SESSION['infra_reg_tests'] = [$type => $v];
         infra_cache_forget('reg_owned');
+        infra_session_resume();
+        $_SESSION['infra_reg_tests'] = [$type => $v];
         infra_set_flash($v['ok'] ? 'ok' : 'warn',
             $def['label'] . ' saved. ' . ($v['ok'] ? 'Credentials verified.' : 'But the test failed: ' . $v['message']));
         break;
@@ -125,6 +136,7 @@ switch ($action) {
             break;
         }
         $v = infra_registrar_verify($name);
+        infra_session_resume();
         $_SESSION['infra_reg_tests'] = [$type => $v];
         $bal = ($v['balance'] !== null && $v['balance'] !== '') ? "  Balance {$v['balance']} {$v['currency']}." : '';
         infra_set_flash($v['ok'] ? 'ok' : 'err', $def['label'] . ': ' . $v['message'] . $bal);

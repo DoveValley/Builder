@@ -29,6 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !infra_check_csrf()) {
     header('Location: ' . $back); exit;
 }
 
+// The session has been read (auth + CSRF). Let go of its lock so a slow job
+// here does not queue up every other click in the console — see
+// infra_session_release() in bootstrap.php.
+infra_session_release();
+
 $action = (string) ($_POST['action'] ?? '');
 
 /* ---- load the city list from data/us_cities.csv ----------------------- */

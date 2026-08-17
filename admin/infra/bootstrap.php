@@ -37,7 +37,41 @@ function ih($s): string { return htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-
 function infra_csrf(): string { return $_SESSION['infra_csrf']; }
 function infra_check_csrf(): bool { return isset($_POST['csrf']) && hash_equals($_SESSION['infra_csrf'] ?? '', $_POST['csrf']); }
 
-function infra_set_flash(string $type, string $msg): void { $_SESSION['infra_flash'] = ['type' => $type, 'msg' => $msg]; }
+/**
+ * Let go of the session file so the rest of the console stays usable.
+ *
+ * PHP takes an EXCLUSIVE lock on the session file in session_start() and holds it
+ * until the request ends. One slow request therefore blocks every other request
+ * from the same browser — so starting an availability check (Porkbun is one name
+ * per ten seconds) or a Cities sweep (a hundred-second budget) and then clicking
+ * a tab made the console look hung. It was not hung: the tab was queued behind
+ * the job. Measured: 5.02s for a nav click during a slow request, 0.006s without.
+ *
+ * Call this once the session has been READ — after the auth gate and the CSRF
+ * check, which is everything most handlers need it for. The work that follows
+ * runs unlocked.
+ *
+ * ⚠ After this, writing to $_SESSION is SILENTLY DISCARDED. Call
+ * infra_session_resume() before writing (infra_set_flash() does it for you).
+ */
+function infra_session_release(): void
+{
+    if (session_status() === PHP_SESSION_ACTIVE) session_write_close();
+}
+
+/** Re-open the session, briefly, to write a result back. */
+function infra_session_resume(): void
+{
+    if (session_status() === PHP_SESSION_ACTIVE) return;
+    // Re-opening once output has started would try to send the session cookie
+    // again and print a warning into the middle of the response. Handlers that
+    // stream (bulk_run) do not touch the session after they start writing, so
+    // declining is correct here rather than lossy.
+    if (headers_sent()) return;
+    session_start();
+}
+
+function infra_set_flash(string $type, string $msg): void { infra_session_resume(); $_SESSION['infra_flash'] = ['type' => $type, 'msg' => $msg]; }
 function infra_render_flash(): void
 {
     if (empty($_SESSION['infra_flash'])) return;

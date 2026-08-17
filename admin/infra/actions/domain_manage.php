@@ -26,6 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !infra_check_csrf()) {
     infra_set_flash('err', 'Invalid request (bad CSRF token).');
     header('Location: ' . $toList); exit;
 }
+
+// The session has been read (auth + CSRF). Let go of its lock so a slow job
+// here does not queue up every other click in the console — see
+// infra_session_release() in bootstrap.php.
+infra_session_release();
 $rec = infra_state_get_domain($domain);
 if (!$rec) { infra_set_flash('err', "Not in fleet state: {$domain}"); header('Location: ' . $toList); exit; }
 
