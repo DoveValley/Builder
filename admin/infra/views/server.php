@@ -4,8 +4,18 @@
     infra_header('dashboard');
     if (!$srv) { echo '<div class="ic-note">Unknown server. <a href="index.php">&larr; back</a></div>'; infra_footer(); exit; }
 
-    $disc  = infra_discover_hestia($srv);
-    $probe = ['ok' => $disc['ok'], 'error' => $disc['error']];
+    // The LAST STORED answer, never the network. This page used to call
+    // infra_discover_hestia(), whose 180-second TTL meant every visit after three
+    // minutes went and asked the box four questions before printing anything —
+    // measured at 2.31s for one box, and it held the session lock while it ran, so
+    // the next tab you clicked waited too. Refresh is now a button.
+    // ?refresh=1 (the button) is the ONLY thing that goes and looks; ttl 0 forces it.
+    $disc  = infra_cache_fresh()
+           ? infra_discover_hestia($srv, 0)
+           : (infra_hestia_cached($srv) ?? ['ok' => false, 'error' => '', 'info' => null,
+                                            'sites' => [], 'users' => [], 'at' => '']);
+    $age   = infra_cache_age('hestia:' . ($srv['id'] ?? ''));
+    $probe = ['ok' => $disc['ok'], 'error' => $disc['error'] ?? ''];
     $info  = $disc['info'];
     $sites = $disc['sites'];
     $cfIdx = infra_cf_zone_index();
@@ -14,6 +24,13 @@
     $badge = $probe['ok'] ? '<span class="badge b-ok">reachable</span>' : '<span class="badge b-err">unreachable</span>';
     ?>
     <div style="margin-bottom:14px"><a class="ic-back" style="color:#2563eb" href="index.php">&larr; All servers</a></div>
+    <?php infra_freshness_bar([
+        'age'         => $age,
+        'stale_after' => 900,
+        'noun'        => 'this box',
+        'href'        => 'index.php?view=server&id=' . urlencode((string) ($srv['id'] ?? '')) . '&refresh=1',
+        'button'      => 'Refresh this box',
+    ]); ?>
     <div class="ic-card">
       <h2><?= ih($srv['label'] ?? $srv['id']) ?> <?= $badge ?></h2>
       <div class="body"><table>

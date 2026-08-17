@@ -13,14 +13,76 @@ const INFRA_DISCOVER_TTL = 180;   // seconds a discovery sweep stays cached
 
 
 /** Cached CF zone list for one account. Key cf_zones:{id}. */
+function infra_cf_zones_key(array $account): string
+{
+    return 'cf_zones:' . ($account['id'] ?? md5((string) json_encode($account)));
+}
+
 function infra_discover_cf_zones(array $account, int $ttl = INFRA_DISCOVER_TTL): array
 {
-    $key = 'cf_zones:' . ($account['id'] ?? md5((string) json_encode($account)));
+    $key = infra_cf_zones_key($account);
     $c = infra_cache_get($key, $ttl);
     if ($c !== null) return $c;
     $zones = cf_list_zones($account);
     infra_cache_put($key, $zones);
     return $zones;
+}
+
+/**
+ * "Do these credentials work?" — from the last answer, not a fresh call.
+ *
+ * cf_probe() is a live request, and the Cloudflare tab ran one PER ACCOUNT on every
+ * page load, so simply opening the tab cost a round trip before anything rendered.
+ *
+ * Never-checked is reported as its own state rather than as failure. A page that
+ * says "credentials rejected" because nobody has asked yet invents a problem out of
+ * an absence of information — the same rule the server cards already follow.
+ *
+ * @return array{ok:bool,never:bool,error:string}
+ */
+function infra_cf_probe_cached(array $account): array
+{
+    $key = 'cf_probe:' . ($account['id'] ?? md5((string) json_encode($account)));
+
+    if (infra_cache_fresh()) {                 // the Refresh button, and only that
+        $p = cf_probe($account);
+        infra_cache_put($key, ['ok' => !empty($p['ok']), 'error' => (string) ($p['error'] ?? $p['message'] ?? '')]);
+        return ['ok' => !empty($p['ok']), 'never' => false, 'error' => (string) ($p['error'] ?? $p['message'] ?? '')];
+    }
+
+    $wasFresh = infra_cache_fresh();
+    if ($wasFresh) infra_cache_force(false);
+    $c = infra_cache_get($key, PHP_INT_MAX);
+    if ($wasFresh) infra_cache_force(true);
+
+    return $c === null
+        ? ['ok' => false, 'never' => true,  'error' => '']
+        : ['ok' => !empty($c['ok']), 'never' => false, 'error' => (string) ($c['error'] ?? '')];
+}
+
+/**
+ * The last zone list that was fetched — instant, and never touches the network.
+ *
+ * What PAGE LOADS must use. The TTL version above goes live the moment its answer
+ * is three minutes old, and nobody comes back inside three minutes, so in practice
+ * every visit to the Cloudflare tab paid for a live sweep and sat there while it
+ * ran. Same lesson as the Servers tab, which was 63 seconds a visit for exactly
+ * this reason: a cache tuned for a loop is not a cache for a person.
+ *
+ * Going live is now something you ask for (the Refresh button), not something a
+ * click costs you by accident.
+ *
+ * @return array zones, or [] if this account has never been swept
+ */
+function infra_cf_zones_cached(array $account): array
+{
+    // Ignore any ?refresh=1 force for THIS read: the caller that wants live data
+    // says so by calling infra_discover_cf_zones() itself.
+    $wasFresh = infra_cache_fresh();
+    if ($wasFresh) infra_cache_force(false);
+    $c = infra_cache_get(infra_cf_zones_key($account), PHP_INT_MAX);
+    if ($wasFresh) infra_cache_force(true);
+    return $c ?? [];
 }
 
 /**
@@ -90,7 +152,11 @@ function infra_cf_zone_index(): array
 {
     $idx = [];
     foreach (infra_cf_accounts() as $a) {
-        foreach (infra_discover_cf_zones($a) as $z) {
+        // Stored answer by default; live only when a caller has asked for it with
+        // infra_cache_force() — the Refresh button, and the go-live cron, which
+        // must see a zone flip to active.
+        $zones = infra_cache_fresh() ? infra_discover_cf_zones($a, 0) : infra_cf_zones_cached($a);
+        foreach ($zones as $z) {
             $name = strtolower($z['name'] ?? '');
             if ($name === '') continue;
             $idx[$name] = [
@@ -120,8 +186,15 @@ function infra_host_domain_index(): array
     require_once __DIR__ . '/hestia_fleet.php';
     $idx = [];
     foreach (infra_hestia_servers() as $s) {
-        $disc = infra_discover_hestia($s);
-        if (!$disc['ok']) continue;
+        // ⚠ THIS IS THE ONE THAT COST 64 SECONDS. It runs once per box, and with the
+        // TTL version it went to the network for every box whose stored answer was
+        // over three minutes old — which is every visit, because nobody comes back
+        // inside three minutes. D.Buy calls this on page load through
+        // infra_fleet_domains(), so the most-clicked tab in the console swept the
+        // whole fleet before printing anything, and got slower with every box added.
+        // Stored answer by default; live only when a caller sets infra_cache_force().
+        $disc = infra_cache_fresh() ? infra_discover_hestia($s, 0) : infra_hestia_cached($s);
+        if (!$disc || empty($disc['ok'])) continue;
         foreach ($disc['sites'] as $d) {
             $name = strtolower($d['name'] ?? '');
             if ($name === '') continue;
@@ -146,6 +219,31 @@ function infra_registrar_map(): array
         $out[strtolower($name)] = $meta;
     }
     return $out;
+}
+
+/**
+ * How old the discovered half of the fleet picture is, in seconds.
+ *
+ * The OLDEST of the two sources, and null when either has never been read: a page
+ * is only as current as its stalest input, and averaging that away would let a
+ * screen call itself fresh while half of it was a week old.
+ */
+function infra_fleet_data_age(): ?int
+{
+    require_once __DIR__ . '/hestia_fleet.php';
+    $oldest = null;
+    foreach (infra_hestia_servers() as $s) {
+        if (!hestia_server_configured($s)) continue;   // no keys: never going to be asked
+        $t = infra_cache_age('hestia:' . ($s['id'] ?? ''));
+        if ($t === null) return null;
+        $oldest = $oldest === null ? $t : max($oldest, $t);
+    }
+    foreach (infra_cf_accounts() as $a) {
+        $t = infra_cache_age(infra_cf_zones_key($a));
+        if ($t === null) return null;
+        $oldest = $oldest === null ? $t : max($oldest, $t);
+    }
+    return $oldest;
 }
 
 /**

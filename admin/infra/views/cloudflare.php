@@ -70,14 +70,31 @@
 
     infra_header('cloudflare');
     ?>
-    <div style="margin-bottom:16px">
-        <a class="btn" href="index.php?view=cloudflare&amp;refresh=1">&#8635; Refresh</a>
-    </div>
+    <?php
+    // Oldest stored zone list across the accounts: the bar should reflect the
+    // staleset thing on the page, not the freshest.
+    $cfAge = null;
+    foreach ($accounts as $a) {
+        $t = infra_cache_age(infra_cf_zones_key($a));
+        if ($t === null) { $cfAge = null; break; }
+        $cfAge = $cfAge === null ? $t : max($cfAge, $t);
+    }
+    infra_freshness_bar([
+        'age'         => $cfAge,
+        'stale_after' => 900,
+        'noun'        => 'Cloudflare',
+        'href'        => 'index.php?view=cloudflare&refresh=1',
+        'button'      => 'Refresh zones',
+    ]);
+    ?>
 
     <?php foreach ($accounts as $a):
-        $probe    = cf_probe($a);
+        // Both read the last stored answer. Only the Refresh button above goes live —
+        // see infra_cf_probe_cached() / infra_cf_zones_cached() for why.
+        $probe    = infra_cf_probe_cached($a);
         $ok       = !empty($probe['ok']);
-        $zones    = $ok ? infra_discover_cf_zones($a) : [];
+        $never    = !empty($probe['never']);
+        $zones    = infra_cache_fresh() ? infra_discover_cf_zones($a, 0) : infra_cf_zones_cached($a);
         $pending  = array_values(array_filter($zones, fn($z) => ($z['status'] ?? '') !== 'active'));
         $unlinked = array_values(array_filter($zones, fn($z) => !isset($recorded[strtolower($z['name'] ?? '')])));
         $strays   = array_values(array_filter($zones, fn($z) => !isset($known[strtolower($z['name'] ?? '')])));
@@ -85,14 +102,24 @@
     ?>
     <div class="ic-card">
         <h2><?= ih($a['label'] ?? $a['id'] ?? 'Cloudflare account') ?>
-            <?= $ok ? '<span class="badge b-ok">connected</span>' : '<span class="badge b-err">credentials rejected</span>' ?>
+            <?= $ok ? '<span class="badge b-ok">connected</span>'
+                 : ($never ? '<span class="badge b-mut">not checked yet</span>'
+                           : '<span class="badge b-err">credentials rejected</span>') ?>
         </h2>
         <div class="body">
 
-            <?php if (!$ok): ?>
+            <?php if ($never): ?>
+            <!-- Not asked yet and asked-and-refused are different facts, and only the
+                 second is a fault. -->
+            <div class="ic-note">
+                <strong>These credentials have not been tested yet.</strong>
+                Press <strong>Refresh zones</strong> above to check them and read the zone list.
+                Anything shown below is from fleet state, not from Cloudflare.
+            </div>
+            <?php elseif (!$ok): ?>
             <div class="ic-note" style="background:#fef2f2;border-color:#fca5a5;color:#991b1b">
                 <strong>Cloudflare would not accept these credentials.</strong><br>
-                <?= ih($probe['error'] ?? $probe['message'] ?? 'no reply') ?>
+                <?= ih($probe['error'] ?: 'no reply') ?>
             </div>
             <?php endif; ?>
 

@@ -72,10 +72,60 @@ function infra_session_resume(): void
 }
 
 function infra_set_flash(string $type, string $msg): void { infra_session_resume(); $_SESSION['infra_flash'] = ['type' => $type, 'msg' => $msg]; }
+
+/**
+ * Read a one-shot session value and clear it, re-opening the session just long
+ * enough to make the clear stick.
+ *
+ * Exists because "read it, then unset it" is silently broken once the session has
+ * been released: the read works (the array is still in memory) and the unset does
+ * nothing, so the message or result would reappear on every page load afterwards.
+ * A failure mode with no error attached to it, so it gets a function of its own.
+ */
+function infra_session_take(string $key)
+{
+    if (!isset($_SESSION[$key])) return null;
+    $val = $_SESSION[$key];
+    infra_session_resume();
+    unset($_SESSION[$key]);
+    infra_session_release();
+    return $val;
+}
+
+/**
+ * The freshness bar: what is on screen, how old it is, and one button that goes
+ * and looks. RED when the answer is stale or was never taken, GREEN when it is
+ * current — so the state of the page is legible before reading a single number.
+ *
+ * Every screen that shows discovered data renders from the LAST STORED ANSWER and
+ * never goes to the network on its own. This bar is the whole of the deal: pages
+ * are instant, and the slow part happens when you ask for it.
+ *
+ * @param array $o age (seconds, null = never), stale_after, noun, href, button
+ */
+function infra_freshness_bar(array $o): void
+{
+    $age   = $o['age'] ?? null;
+    $stale = $age === null || $age > (int) ($o['stale_after'] ?? 900);
+    $noun  = (string) ($o['noun'] ?? 'this page');
+
+    $msg = $age === null
+        ? 'Never checked — nothing has been read from ' . $noun . ' yet.'
+        : 'Showing what ' . $noun . ' said ' . infra_ago($age) . '.';
+
+    $btnBg = $stale ? '#dc2626' : '#16a34a';
+    echo '<div class="ic-refresh">';
+    echo '<a class="btn" style="background:' . $btnBg . '" href="' . ih((string) $o['href']) . '">&#8635; '
+       . ih((string) ($o['button'] ?? 'Refresh')) . '</a>';
+    echo '<span class="ic-asof" style="color:' . ($stale ? '#b91c1c' : '#166534') . ';font-weight:600">'
+       . ($stale ? '&#9679; stale' : '&#9679; up to date') . '</span>';
+    echo '<span class="ic-asof">' . ih($msg) . ($stale ? ' Press Refresh to go and look — it takes a few seconds.' : '') . '</span>';
+    echo '</div>';
+}
 function infra_render_flash(): void
 {
-    if (empty($_SESSION['infra_flash'])) return;
-    $f = $_SESSION['infra_flash']; unset($_SESSION['infra_flash']);
+    $f = infra_session_take('infra_flash');
+    if (!$f) return;
     $bg = $f['type'] === 'ok' ? '#dcfce7;border-color:#86efac;color:#166534'
         : ($f['type'] === 'err' ? '#fee2e2;border-color:#fca5a5;color:#991b1b'
         : '#fef9c3;border-color:#fde047;color:#854d0e');
@@ -155,7 +205,7 @@ function infra_ago(int $secs): string
  *
  * @param array $fleet rows from infra_hestia_fleet_cached()
  */
-function infra_refresh_bar(array $fleet): void
+function infra_refresh_bar(array $fleet, bool $withZones = false): void
 {
     $ids = [];
     $never = 0;
@@ -166,24 +216,37 @@ function infra_refresh_bar(array $fleet): void
         $ids[] = $b['id'];
         if ($b['never']) $never++;
     }
+    // Screens that show Cloudflare columns sweep the zones in the same pool, so one
+    // button leaves the whole picture current instead of half of it.
+    if ($withZones) {
+        require_once __DIR__ . '/lib/fleet.php';
+        foreach (infra_cf_accounts() as $a) $ids[] = 'cf:' . ($a['id'] ?? '');
+    }
     $n   = count($ids);
-    $age = infra_hestia_fleet_age($fleet);
+    $age = $withZones ? infra_fleet_data_age() : infra_hestia_fleet_age($fleet);
 
     if ($age === null) {
-        $asof = $n ? 'Nothing has been checked yet — press the button to read the servers.'
-                   : 'No servers to check yet.';
+        $asof = $n ? 'Nothing has been checked yet — press the button to go and look.'
+                   : 'Nothing to check yet.';
     } else {
-        $asof = 'Showing what the servers said ' . infra_ago($age)
+        $asof = 'Showing what they said ' . infra_ago($age)
               . ($never ? ' · ' . $never . ' never checked' : '');
     }
+    // Red until it has been refreshed recently, green when current — the state of
+    // the page readable before a single number on it.
+    $stale = $age === null || $age > 900;
+    echo '<div class="ic-refresh" style="width:100%">'
+       . '<span class="ic-asof" style="font-weight:600;color:' . ($stale ? '#b91c1c' : '#166534') . '">'
+       . ($stale ? '&#9679; stale' : '&#9679; up to date') . '</span></div>';
 
-    echo '<div class="ic-refresh" id="icRefresh"'
+    echo '<div class="ic-refresh" id="icRefresh" data-stale="' . ($stale ? '1' : '0') . '"'
        . ' data-ids="' . ih(json_encode(array_values($ids))) . '"'
        . ' data-csrf="' . ih(infra_csrf()) . '"'
        . ' data-url="' . ih(strpos($_SERVER['SCRIPT_NAME'] ?? '', '/actions/') !== false
                             ? 'fleet_refresh.php' : 'actions/fleet_refresh.php') . '">';
     if ($n) {
-        echo '<button type="button" class="btn" id="icRefreshBtn">&#8635; Check all ' . $n . ' servers</button>';
+        echo '<button type="button" class="btn" id="icRefreshBtn" style="background:' . ($stale ? '#dc2626' : '#16a34a') . '">'
+           . '&#8635; Check all ' . $n . ($withZones ? ' servers + zones' : ' servers') . '</button>';
     }
     echo '<span class="ic-asof">' . ih($asof) . '</span>';
     echo '<div class="ic-prog" hidden><div class="ic-prog-track"><div class="ic-prog-fill"></div></div>'

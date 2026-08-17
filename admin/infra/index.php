@@ -26,6 +26,14 @@
  */
 require_once __DIR__ . '/bootstrap.php';
 
+// Views READ the session — who you are, the CSRF token, one-shot flash values —
+// and the reads are all done by the time anything slow starts. Let go of the lock
+// here, or a tab that goes and looks (Refresh, a zone scan, a file check) freezes
+// every other click in the console until it finishes: PHP serialises requests per
+// session. infra_session_take() re-opens briefly for the one-shot clears, and
+// infra_set_flash() for writes, so nothing is lost by releasing early.
+infra_session_release();
+
 $view = $_GET['view'] ?? 'dashboard';
 if (!empty($_GET['refresh'])) infra_cache_force();   // ?refresh=1 → bypass cache, re-sweep live
 

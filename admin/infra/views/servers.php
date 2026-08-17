@@ -4,7 +4,10 @@
     infra_header('servers');
     ?>
     <div style="margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap">
-        <a class="btn" href="index.php?view=servers&amp;refresh=1">&#8635; Refresh</a>
+        <!-- The "↻ Refresh" link that used to sit here did NOTHING: both readers on
+             this page deliberately ignore ?refresh=1 so a page load can never sweep
+             the fleet, which left a button that reloaded and changed nothing. The
+             real one is the progressive bar below. -->
         <!-- One call per host area, so it is a button and not something every page
              load pays for. Fleet-wide because eight boxes is eight clicks otherwise. -->
         <a class="btn sec" href="index.php?view=servers&amp;content=all">Check every server for files</a>
@@ -432,10 +435,21 @@
             <?php if (!$d['sites']): ?>
                 <div class="ic-empty">Nothing on this server yet.</div>
             <?php else: ?>
+                <?php
+                // CAPPED, because this list is per box and the fleet is heading for
+                // hundreds of sites on each. Uncapped, twenty full boxes would put
+                // ten thousand rows in one page — and one cached-uptime lookup per
+                // row, so the query count grows with the estate too. The whole list
+                // for a box lives on that box's own page, which is one click away.
+                $siteCap  = 25;
+                $siteAll  = $d['sites'];
+                $siteMore = max(0, count($siteAll) - $siteCap);
+                $siteRows = $siteMore ? array_slice($siteAll, 0, $siteCap) : $siteAll;
+                ?>
                 <table>
                     <thead><tr><th>Website</th><th>Is it up?</th><th>Account</th><th>SSL</th><th>Folder its files live in</th></tr></thead>
                     <tbody>
-                    <?php foreach ($d['sites'] as $s):
+                    <?php foreach ($siteRows as $s):
                         $name = (string) ($s['name'] ?? '');
                         $chk  = $name !== '' ? infra_site_check_cached($name) : null;
                         // Green only when it answers AND the certificate matches. Serving
@@ -467,12 +481,24 @@
                             <td><code style="font-size:12px"><?= ih($s['docroot'] ?? '—') ?></code></td>
                         </tr>
                     <?php endforeach; ?>
+                    <?php if ($siteMore): ?>
+                        <!-- Say what was left out. A silent cap reads as "this box has
+                             25 sites on it", which is a different and wrong fact. -->
+                        <tr><td colspan="5" style="color:#6b7280">
+                            &hellip; and <strong><?= $siteMore ?></strong> more on this box —
+                            <a href="index.php?view=server&amp;id=<?= ih((string) ($srv['id'] ?? '')) ?>">see all <?= count($siteAll) ?></a>.
+                        </td></tr>
+                    <?php endif; ?>
                     </tbody>
                 </table>
             <?php endif; ?>
 
             <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-                <a class="btn sec" href="index.php?view=servers&amp;refresh=1#hestia">&#8635; Re-read this server</a>
+                <!-- Points at the box's OWN page, which honours ?refresh=1 and reads
+                     just this one box (~2s). It used to point back here with the same
+                     flag, which this page ignores — a button that claimed to re-read a
+                     server and only reloaded the page. -->
+                <a class="btn sec" href="index.php?view=server&amp;id=<?= ih((string) ($srv['id'] ?? '')) ?>&amp;refresh=1">&#8635; Re-read this box now</a>
                 <!-- Testing a server that is already stored should not require opening the
                      edit form first: it needs no fields, only the record's id. Reports the
                      Hestia error CODE as well as the sentence — code 19 (API off / IP not

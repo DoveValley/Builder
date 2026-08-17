@@ -91,6 +91,18 @@
       <div class="ic-tile"><div class="n"><?= $tally['drift'] + $tally['failed'] ?></div><div class="l">Needs attention</div></div>
     </div>
 
+    <?php
+    // Columns 8 and 9 (Cloudflare, VPS/host) and the drift flag come from the last
+    // fleet sweep, not from a live look. Say how old that is rather than presenting
+    // it as the present — and let the button be the only thing that goes and asks.
+    // The PROGRESSIVE sweep, not a plain ?refresh=1 link: refreshing this page's
+    // discovered columns inline takes 61 measured seconds on twenty boxes, with
+    // nothing on screen while it runs. The same work fired six-at-a-time behind a
+    // progress bar is about ten, and you can watch it. Zones ride along, so one
+    // press leaves the whole picture current.
+    infra_refresh_bar(infra_hestia_fleet_cached(), true);
+    ?>
+
     <?php if (!$regs): ?>
       <div class="ic-note">No registrar configured yet — add one on the <a href="index.php?view=registrars"><strong>Registers</strong></a> tab before you can check availability or schedule buys.</div>
     <?php endif; ?>
@@ -136,8 +148,11 @@
       </div>
     </details>
 
+    <!-- The old "Discover / Refresh" link lived here. It did the same job as the bar
+         at the top of the page, but inline: a plain ?refresh=1 that swept twenty
+         boxes and printed nothing for a measured 61 seconds. Two buttons for one
+         job, and the worse one was the prominent one. -->
     <div style="margin-bottom:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-      <a class="btn" href="index.php?<?= ih($baseQs) ?>&refresh=1">&#8635; Discover / Refresh</a>
       <form method="get" style="display:inline-flex;gap:6px;margin:0">
         <input type="hidden" name="view" value="domains">
         <input type="hidden" name="sort" value="<?= ih($sort) ?>"><input type="hidden" name="dir" value="<?= ih($dir) ?>">

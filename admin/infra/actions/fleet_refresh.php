@@ -34,7 +34,36 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !infra_check_csrf()) {
     exit;
 }
 
-$id  = trim((string) ($_POST['id'] ?? ''));
+$id = trim((string) ($_POST['id'] ?? ''));
+
+/* A "cf:{account}" id refreshes one Cloudflare account's zone list instead of a
+   box. It rides in the same pool because it is the same job from the page's point
+   of view: the fleet picture is servers AND zones, and refreshing half of it would
+   leave two columns of D.Buy current and two stale, with one bar claiming both. */
+if (str_starts_with($id, 'cf:')) {
+    require_once __DIR__ . '/../lib/fleet.php';
+    $acctId = substr($id, 3);
+    foreach (infra_cf_accounts() as $a) {
+        if ((string) ($a['id'] ?? '') !== $acctId) continue;
+        infra_cache_force(true);                       // probe + zones, live
+        $p = infra_cf_probe_cached($a);
+        $z = infra_discover_cf_zones($a, 0);
+        infra_cache_force(false);
+        echo json_encode([
+            'id'    => $id,
+            'label' => (string) ($a['label'] ?? $acctId),
+            'host'  => 'Cloudflare · ' . count($z) . ' zone' . (count($z) === 1 ? '' : 's'),
+            'ok'    => !empty($p['ok']),
+            'pending' => false,
+            'error' => (string) ($p['error'] ?? ''),
+        ]);
+        exit;
+    }
+    http_response_code(404);
+    echo json_encode(['error' => 'That Cloudflare account is not in the list.']);
+    exit;
+}
+
 $srv = null;
 foreach (infra_hestia_servers() as $s) {
     if ((string) ($s['id'] ?? '') === $id) { $srv = $s; break; }

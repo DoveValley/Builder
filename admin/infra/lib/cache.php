@@ -25,6 +25,22 @@ function infra_cache_get(string $key, int $ttl): ?array
     return is_array($val) ? $val : null;
 }
 
+/**
+ * How many seconds ago this key was written, or null if it never was.
+ *
+ * Separate from infra_cache_get() because a screen wants the age even when it is
+ * showing the value regardless of age: "here is the last answer, taken 2 hours
+ * ago" is honest, where showing the same figures with no date presents stale
+ * numbers as the present.
+ */
+function infra_cache_age(string $key): ?int
+{
+    $stmt = infra_state_db()->prepare('SELECT ts FROM cache WHERE k = ?');
+    $stmt->execute([$key]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row ? max(0, time() - (int) $row['ts']) : null;
+}
+
 function infra_cache_put(string $key, array $val): void
 {
     infra_state_db()
