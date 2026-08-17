@@ -48,10 +48,15 @@ if ($prompt === '') {
     exit;
 }
 
-// The workbench asks for 1000; clamp rather than trust, since the field crosses
-// the wire. Both prompts return a short JSON array.
-$maxTokens = (int) ($_POST['max_tokens'] ?? 1000);
-$maxTokens = max(256, min(4000, $maxTokens));
+// Clamp rather than trust, since the field crosses the wire. The ceiling is
+// generous on purpose: the SMART tier is claude-sonnet-5, which runs ADAPTIVE
+// THINKING when no `thinking` field is sent, and thinking shares this budget with
+// the visible answer. The old 1000-token request was sized for the JSON array
+// alone, so thinking ate most of it and the array came back cut off mid-object —
+// which the workbench could only report as "Unexpected end of JSON input".
+// Nothing is billed for headroom that goes unused.
+$maxTokens = (int) ($_POST['max_tokens'] ?? 4000);
+$maxTokens = max(256, min(16000, $maxTokens));
 
 $r = anthropic_message($prompt, [
     // Naming a candidate list against six ranked rules is judgement, not lookup.
@@ -71,4 +76,10 @@ if (!$r['ok']) {
     exit;
 }
 
-echo json_encode(['content' => [['type' => 'text', 'text' => $r['text']]]]);
+// stop_reason rides along so the workbench can tell "the model was cut off" from
+// "the model answered with prose instead of JSON". Both look identical to a
+// parser; only one is fixed by asking for fewer names.
+echo json_encode([
+    'content'     => [['type' => 'text', 'text' => $r['text']]],
+    'stop_reason' => (string) ($r['stop_reason'] ?? ''),
+]);

@@ -143,6 +143,27 @@ async function saveState(state) {
   } catch {
   }
 }
+function parseModelArray(data, what) {
+  const raw = (data.content || []).filter((b) => b.type === "text").map((b) => b.text).join("\n").replace(/```json|```/g, "").trim();
+  const open = raw.indexOf("[");
+  const close = raw.lastIndexOf("]");
+  if (data.stop_reason === "max_tokens" || open !== -1 && close < open) {
+    throw new Error(
+      `The model ran out of room before it finished the list of ${what}. Ask for a smaller batch, or shorten the rules and blocked-name list.`
+    );
+  }
+  if (open === -1) {
+    const gist = raw.slice(0, 140).replace(/\s+/g, " ");
+    throw new Error(
+      gist ? `The model replied with prose instead of a list: \u201C${gist}${raw.length > 140 ? "\u2026" : ""}\u201D` : "The model returned an empty reply."
+    );
+  }
+  try {
+    return JSON.parse(raw.slice(open, close + 1));
+  } catch (e) {
+    throw new Error(`The model's list was not valid JSON (${e.message}).`);
+  }
+}
 async function askModel(system, prompt, maxTokens) {
   const body = new FormData();
   body.append("csrf", DW.csrf);
@@ -592,10 +613,13 @@ function DomainWorkbench() {
         `${buildBrief(niche, batch, state.rules)}
 
 Blocked names (already claimed, never reuse): ${block}`,
-        1e3
+        // Scale with the batch instead of a fixed 1000. Each candidate is ~30
+        // tokens of JSON, and the budget is shared with the model's own thinking,
+        // so a batch of 20 could not fit and came back cut off mid-object.
+        // Unused headroom costs nothing.
+        2e3 + batch * 200
       );
-      const raw = data.content.filter((b) => b.type === "text").map((b) => b.text).join("\n").replace(/```json|```/g, "").trim();
-      const arr = JSON.parse(raw.slice(raw.indexOf("["), raw.lastIndexOf("]") + 1));
+      const arr = parseModelArray(data, "domains");
       const fresh = [];
       const claimed = { ...state.registry };
       const blockedSet = new Set(blockedNames);
@@ -664,10 +688,9 @@ ${ruleLines(state.rules)}
 Already in this niche's list, do not repeat: ${existing}
 
 Each "why" must be under 12 words and say something about the caller, not about the word.`,
-        1e3
+        4e3
       );
-      const raw = data.content.filter((b) => b.type === "text").map((b) => b.text).join("\n").replace(/```json|```/g, "").trim();
-      const arr = JSON.parse(raw.slice(raw.indexOf("["), raw.lastIndexOf("]") + 1));
+      const arr = parseModelArray(data, "keywords");
       const have = new Set((niche.patterns || []).map((p) => p.kw));
       const clean = [];
       for (const s of arr) {

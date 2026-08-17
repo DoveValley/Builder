@@ -121,7 +121,18 @@ function anthropic_message(string $prompt, array $opts = []): array
         $msg = $j['error']['message'] ?? ('HTTP ' . $code);
         return ['ok' => false, 'text' => '', 'error' => $msg, 'code' => $code, 'rate_limited' => false];
     }
-    return ['ok' => true, 'text' => anthropic_text_of(is_array($j) ? $j : null), 'error' => '', 'code' => $code, 'rate_limited' => false];
+    // stop_reason is returned because "the model finished" and "the model was cut
+    // off at max_tokens" are different facts and only one of them is a bug. Without
+    // it a caller parsing JSON out of the reply sees a syntax error and has no way
+    // to tell a truncated answer from a malformed one.
+    //
+    // ⚠ Watch max_tokens on the SMART tier. It is claude-sonnet-5, and when no
+    // `thinking` field is sent that model runs ADAPTIVE THINKING by default —
+    // thinking and the visible answer share the max_tokens budget. A limit sized
+    // for the answer alone silently truncates it.
+    return ['ok' => true, 'text' => anthropic_text_of(is_array($j) ? $j : null), 'error' => '',
+            'code' => $code, 'rate_limited' => false,
+            'stop_reason' => (string) ($j['stop_reason'] ?? '')];
 }
 
 /**
