@@ -70,6 +70,22 @@ function anthropic_payload(string $prompt, array $opts): string
         'messages'   => [['role' => 'user', 'content' => $prompt]],
     ];
     if (trim((string) ($opts['system'] ?? '')) !== '') $body['system'] = (string) $opts['system'];
+
+    /**
+     * 'no_thinking' => true turns the model's reasoning off for this call.
+     *
+     * It exists because the SMART tier (claude-sonnet-5) THINKS BY DEFAULT when no
+     * thinking field is sent, and thinking is both slow and charged against the same
+     * max_tokens as the answer. That is right for judgement work and wrong for
+     * "fill in this JSON shape", where it turned a 2-second call into 17.
+     *
+     * ⚠ Only send this on a model documented to accept it. Sonnet 5 does. It is NOT
+     * universally safe: Fable 5 rejects an explicit disable outright, and Opus 5
+     * rejects it above 'high' effort — so this stays opt-in per call rather than
+     * becoming a default here.
+     */
+    if (!empty($opts['no_thinking'])) $body['thinking'] = ['type' => 'disabled'];
+
     return (string) json_encode($body, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 }
 

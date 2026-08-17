@@ -63,6 +63,14 @@ $r = anthropic_message($prompt, [
     'model'      => ANTHROPIC_SMART,
     'system'     => $system,
     'max_tokens' => $maxTokens,
+    // Thinking OFF for this call. Sonnet 5 thinks by default, which took a batch of
+    // twenty from about two seconds to seventeen — and, before the budget was
+    // raised, ate enough of max_tokens to truncate the JSON mid-object. Both
+    // prompts here ask for a list in a fixed shape, and the ranking they apply is
+    // already spelled out in the rules; the deliberation was not buying names worth
+    // the wait. The client-side rules still filter what comes back, so a weaker
+    // candidate is rejected rather than used.
+    'no_thinking' => true,
     // Generating twelve names takes longer than the module's default.
     'timeout'    => 90,
 ]);
