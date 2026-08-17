@@ -55,7 +55,12 @@ if (!infra_check_csrf()) {
 // infra_session_release() in bootstrap.php.
 infra_session_release();
 
-$domains = json_decode((string) ($_POST['domains'] ?? '[]'), true);
+// is_string first: the app posts a JSON string, but a hand-made request can post
+// domains[]=… as an array, and casting that to string emits a PHP warning. A
+// warning printed before the json_encode below lands INSIDE the response body and
+// breaks the client's parse — turning a bad request into an unreadable reply.
+$raw     = $_POST['domains'] ?? '[]';
+$domains = is_string($raw) ? json_decode($raw, true) : (is_array($raw) ? $raw : null);
 if (!is_array($domains) || !$domains) {
     http_response_code(400);
     echo json_encode(['error' => 'No domains to check.']);

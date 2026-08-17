@@ -17,6 +17,32 @@
 
     $spend = 0.0;
     foreach ($due as $r) $spend += (float) ($r['avail_price'] ?: 11);
+
+    /*
+     * Niche is the second question every row on this page raises — "how much of
+     * what I am about to buy is pest?" — and answering it meant reading five
+     * tables and counting. One pass over the same buckets the tables render from,
+     * so the summary and the rows can never disagree.
+     */
+    $nicheOf = fn(array $r): string => trim((string) ($r['niche'] ?? '')) ?: '—';
+    $buckets = ['Due today' => $due, 'Ahead' => $ahead, 'No date' => $undated,
+                'Failed'    => $failed, 'Bought' => $bought];
+    $byNiche = [];
+    foreach ($buckets as $label => $rows) {
+        foreach ($rows as $r) {
+            $n = $nicheOf($r);
+            $byNiche[$n][$label] = ($byNiche[$n][$label] ?? 0) + 1;
+            $byNiche[$n]['Total'] = ($byNiche[$n]['Total'] ?? 0) + 1;
+        }
+    }
+    uasort($byNiche, fn($a, $b) => $b['Total'] <=> $a['Total']);
+
+    /** The niche as a small badge, so a row reads at a glance. */
+    $nicheCell = function (array $r): string {
+        $n = trim((string) ($r['niche'] ?? ''));
+        return $n === '' ? '<span style="color:#d1d5db">—</span>'
+                         : '<span class="badge b-mut">' . ih($n) . '</span>';
+    };
     ?>
     <div class="ic-tiles">
       <div class="ic-tile"><div class="n"><?= count($due) ?></div><div class="l">Due today</div></div>
@@ -24,6 +50,42 @@
       <div class="ic-tile"><div class="n"><?= count($bought) ?></div><div class="l">Bought</div></div>
       <div class="ic-tile"><div class="n"><?= count($failed) ?></div><div class="l">Failed</div></div>
       <div class="ic-tile"><div class="n"><?= count($undated) ?></div><div class="l">No date yet</div></div>
+    </div>
+
+    <div class="ic-card">
+      <h2>By niche</h2>
+      <div class="body">
+        <?php if (!$byNiche): ?>
+          <div class="ic-empty">Nothing in the queue yet.</div>
+        <?php else: ?>
+          <table>
+            <thead><tr><th>Niche</th>
+              <?php foreach (array_keys($buckets) as $label): ?><th style="text-align:right"><?= ih($label) ?></th><?php endforeach; ?>
+              <th style="text-align:right">Total</th></tr></thead>
+            <tbody>
+            <?php foreach ($byNiche as $niche => $counts): ?>
+              <tr>
+                <td><?= $niche === '—' ? '<span style="color:#9ca3af">no niche set</span>'
+                                       : '<strong>' . ih($niche) . '</strong>' ?></td>
+                <?php foreach (array_keys($buckets) as $label): $v = $counts[$label] ?? 0; ?>
+                  <td style="text-align:right;<?= $v ? '' : 'color:#d1d5db' ?>"><?= $v ?></td>
+                <?php endforeach; ?>
+                <td style="text-align:right"><strong><?= $counts['Total'] ?></strong></td>
+              </tr>
+            <?php endforeach; ?>
+            </tbody>
+            <?php if (count($byNiche) > 1): ?>
+            <tfoot><tr>
+              <th>All</th>
+              <?php foreach (array_keys($buckets) as $label): ?>
+                <th style="text-align:right"><?= array_sum(array_column($byNiche, $label)) ?></th>
+              <?php endforeach; ?>
+              <th style="text-align:right"><?= array_sum(array_column($byNiche, 'Total')) ?></th>
+            </tr></tfoot>
+            <?php endif; ?>
+          </table>
+        <?php endif; ?>
+      </div>
     </div>
 
     <div class="ic-note">
@@ -38,11 +100,12 @@
         <?php if (!$due): ?>
           <div class="ic-empty">Nothing due today.</div>
         <?php else: ?>
-          <table><thead><tr><th>Domain</th><th>Registrar</th><th>Ready</th><th>Price</th><th>Scheduled</th><th></th></tr></thead><tbody>
+          <table><thead><tr><th>Domain</th><th>Niche</th><th>Registrar</th><th>Ready</th><th>Price</th><th>Scheduled</th><th></th></tr></thead><tbody>
           <?php foreach ($due as $dom => $r):
             $overdue = $r['buy_at'] < $today; ?>
             <tr>
               <td><a href="index.php?view=domain&d=<?= ih($dom) ?>"><strong><?= ih($dom) ?></strong></a></td>
+              <td><?= $nicheCell($r) ?></td>
               <td><?= $r['buy_registrar'] !== '' ? ih($r['buy_registrar']) : '<span class="badge b-err">none set</span>' ?></td>
               <td><?= $r['ready_to_buy'] === 'yes' ? '<span class="badge b-ok">yes</span>' : '<span class="badge b-warn">' . ih($r['ready_to_buy'] ?: 'not checked') . '</span>' ?></td>
               <td><?= $r['avail_price'] !== '' ? '$' . ih($r['avail_price']) : '<span style="color:#9ca3af">—</span>' ?></td>
@@ -87,10 +150,11 @@
     <?php if ($failed): ?>
     <div class="ic-card" style="border-color:#fca5a5">
       <h2 style="color:#991b1b">Failed (<?= count($failed) ?>) <span style="color:#9ca3af;font-weight:400;font-size:13px">&mdash; these do not retry on their own</span></h2>
-      <div class="body"><table><thead><tr><th>Domain</th><th>Registrar</th><th>Why</th><th></th></tr></thead><tbody>
+      <div class="body"><table><thead><tr><th>Domain</th><th>Niche</th><th>Registrar</th><th>Why</th><th></th></tr></thead><tbody>
         <?php foreach ($failed as $dom => $r): ?>
           <tr>
             <td><a href="index.php?view=domain&d=<?= ih($dom) ?>"><strong><?= ih($dom) ?></strong></a></td>
+            <td><?= $nicheCell($r) ?></td>
             <td><?= ih($r['buy_registrar'] ?: '—') ?></td>
             <td style="color:#991b1b;font-size:12px"><?= ih($r['buy_error'] ?: 'unknown') ?></td>
             <td style="text-align:right"><a class="btn sec" href="index.php?view=domain&d=<?= ih($dom) ?>">Open &rarr;</a></td>
@@ -106,13 +170,25 @@
         <?php if (!$bydate): ?>
           <div class="ic-empty">Nothing scheduled beyond today.</div>
         <?php else: ?>
-          <table><thead><tr><th style="width:150px">Date</th><th style="width:70px">Count</th><th>Domains</th></tr></thead><tbody>
+          <table><thead><tr><th style="width:150px">Date</th><th style="width:70px">Count</th><th style="width:200px">Niche</th><th>Domains</th></tr></thead><tbody>
           <?php foreach ($bydate as $date => $doms):
             sort($doms);
             $show = array_slice($doms, 0, 8); ?>
             <tr>
               <td><strong><?= ih($date) ?></strong><br><span style="color:#9ca3af;font-size:11px"><?= ih(date('D', strtotime($date))) ?></span></td>
               <td><span class="badge b-mut"><?= count($doms) ?></span></td>
+              <?php
+              // Per-date niche tally: a day's batch is usually one niche, and when
+              // it is not, that is the thing worth seeing.
+              $dn = [];
+              foreach ($doms as $d0) { $k = $nicheOf($ahead[$d0]); $dn[$k] = ($dn[$k] ?? 0) + 1; }
+              arsort($dn);
+              ?>
+              <td style="font-size:12px">
+                <?php foreach ($dn as $k => $v): ?>
+                  <span class="badge b-mut" style="margin-right:4px"><?= $k === '—' ? 'no niche' : ih($k) ?> <?= $v ?></span>
+                <?php endforeach; ?>
+              </td>
               <td style="font-size:12px;color:#374151"><?= ih(implode(', ', $show)) ?><?= count($doms) > 8 ? ' <span style="color:#9ca3af">+ ' . (count($doms) - 8) . ' more</span>' : '' ?></td>
             </tr>
           <?php endforeach; ?>
@@ -134,12 +210,13 @@
     <?php if ($bought): ?>
     <div class="ic-card">
       <h2>Bought (<?= count($bought) ?>)</h2>
-      <div class="body"><table><thead><tr><th>Domain</th><th>Registrar</th><th>When</th><th>Auto-renew</th></tr></thead><tbody>
+      <div class="body"><table><thead><tr><th>Domain</th><th>Niche</th><th>Registrar</th><th>When</th><th>Auto-renew</th></tr></thead><tbody>
         <?php
         uasort($bought, fn($a, $b) => strcmp((string) $b['owned_at'], (string) $a['owned_at']));
         foreach ($bought as $dom => $r): ?>
           <tr>
             <td><a href="index.php?view=domain&d=<?= ih($dom) ?>"><strong><?= ih($dom) ?></strong></a></td>
+            <td><?= $nicheCell($r) ?></td>
             <td><?= ih($r['registrar'] ?: $r['buy_registrar'] ?: '—') ?></td>
             <td style="font-size:12px"><?= ih($r['owned_at'] ?: '—') ?></td>
             <td><?php $ar = $r['auto_renew'] ?? '';
