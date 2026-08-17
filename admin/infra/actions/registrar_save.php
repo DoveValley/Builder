@@ -57,13 +57,12 @@ if (!isset($types[$type])) {
 $def  = $types[$type];
 $name = $findName($type) ?? $type;
 
-// Credentials for some registrars are owned by another page (Cloudflare reuses the
-// CF account registry). Saving or deleting here would fork them into two places.
-if (!empty($def['creds_from']) && in_array($action, ['save', 'delete'], true)) {
-    infra_set_flash('warn', $def['label'] . " credentials are managed in {$def['creds_from']['label']} ("
-        . $def['creds_from']['file'] . '), not here. Use Test to verify them.');
-    header('Location: ' . $back); exit;
-}
+// No `creds_from` guard here any more: no type declares that key. Cloudflare —
+// the case it existed for — is saveable on this page like every other registrar,
+// and merely FALLS BACK to the CF account registry while nothing has been saved
+// (see infra_registrar_config()). The guard read as "some registrars cannot be
+// saved here", which stopped being true and left the Cloudflare card looking
+// read-only when it is not.
 
 switch ($action) {
 
@@ -113,8 +112,7 @@ switch ($action) {
 
     case 'test':
         if (!infra_registrar_config($name)) {
-            infra_set_flash('warn', 'Nothing saved for ' . $def['label'] . ' yet.'
-                . (!empty($def['creds_from']) ? ' Configure ' . $def['creds_from']['label'] . ' first.' : ''));
+            infra_set_flash('warn', 'Nothing saved for ' . $def['label'] . ' yet.');
             break;
         }
         $v = infra_registrar_verify($name);

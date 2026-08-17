@@ -21,7 +21,7 @@
                 </select>
                 <label style="margin-left:12px"><input type="checkbox" name="do_register"> Register (buy) &mdash; <strong style="color:#991b1b">costs money</strong></label>
                 for <input type="number" name="years" value="1" min="1" max="10" style="width:56px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px"> yr
-                <div style="color:#6b7280;font-size:12px;margin-top:4px">Auto-buy is wired for all five registrars, and goes through the same guards as the Buy button — availability is re-checked immediately before paying. Leave unchecked if the domain is already registered; the selected registrar is still recorded for the go-live NS switch.</div>
+                <div style="color:#6b7280;font-size:12px;margin-top:4px">Auto-buy is wired for every registrar the console supports, and goes through the same guards as the Buy button — availability is re-checked immediately before paying. Leave unchecked if the domain is already registered; the selected registrar is still recorded for the go-live NS switch.</div>
               <?php else: ?><span class="badge b-mut">no registrar configured</span><?php endif; ?>
             </td></tr>
             <tr><th>Plesk server</th><td>

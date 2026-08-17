@@ -266,7 +266,7 @@
           // Never-checked is not "wrong": before the first sweep that rule would
           // throw all twenty cards open at once and bury the ones that matter.
           $openIt = (!$d['ok'] && !$fresh) || $hEditId === ($srv['id'] ?? ''); ?>
-    <details class="ic-card srv-card" <?= $openIt ? 'open' : '' ?>>
+    <details class="ic-card ic-fold" <?= $openIt ? 'open' : '' ?>>
         <summary style="cursor:pointer">
         <h2 style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
             <span style="color:#9ca3af;font-weight:400">▸</span>

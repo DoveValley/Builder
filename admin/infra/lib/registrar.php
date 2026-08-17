@@ -1,10 +1,10 @@
 <?php
 /**
  * infra/lib/registrar.php — nameserver switching at the registrar (Phase-3 go-live).
- * Pluggable per registrar type. All five (namecheap, namesilo, porkbun, dynadot,
- * cloudflare) are wired for availability/purchase/NS as their APIs allow — see
- * infra_registrar_types() for what each one can actually do; anything else falls
- * back to MANUAL.
+ * Pluggable per registrar type. All SEVEN (namesilo, dynadot, porkbun, spaceship,
+ * gandi, namecheap, cloudflare) are wired for availability/purchase/NS as their APIs
+ * allow — see infra_registrar_types() for what each one can actually do; anything
+ * else falls back to MANUAL.
  * Config: config/registrar.json = { "registrars": { "namesilo": {"type":"namesilo","api_key":"…"} } }
  * A domain's stored `registrar` name is matched (lowercased) to a config key.
  */
@@ -51,20 +51,120 @@ function infra_registrar_names(): array
  * something the code cannot deliver:
  *   `buy`       — the registrar's API is capable of registering a domain.
  *                 Drives planning: which registrars may be assigned / spread.
- *   `buy_wired` — a purchase adapter is implemented HERE. All five are, as of
- *                 2026-08-06, each verified by a real purchase. The flag stays
- *                 because it is what the UI reads to avoid promising a buy it
- *                 cannot complete — a sixth registrar would arrive with `buy`
+ *   `buy_wired` — a purchase adapter is implemented HERE. All seven are: the first
+ *                 five as of 2026-08-06, Spaceship and Gandi on 2026-08-16. The flag
+ *                 stays because it is what the UI reads to avoid promising a buy it
+ *                 cannot complete — an eighth registrar would arrive with `buy`
  *                 true and `buy_wired` false.
  * Neither is a promise the account is funded or the key valid — that is Test.
  *
  * Only types listed here can be added. Spaceship is Namecheap-owned, so it adds no
  * independence from that parent — it was left out for exactly that reason, and added
  * back on one merit: its API can set auto-renew, which Namecheap's cannot.
+ *
+ * THE ORDER OF THIS ARRAY IS THE ORDER OF THE CARDS on the Registrars page, and it
+ * is deliberate: the ones worth buying fleet domains at first, Namecheap late
+ * because its auto-renew cannot be set by API, and Cloudflare LAST because it
+ * cannot check availability and is a place to *hold* domains rather than shop at.
  */
 function infra_registrar_types(): array
 {
     return [
+        'namesilo' => [
+            'label'  => 'NameSilo',
+            'check_bulk' => 50,
+            'autorenew' => ['ok' => true, 'note' =>
+                'Set at registration via <code>auto_renew</code>, and changeable later with '
+              . '<code>addAutoRenewal</code> / <code>removeAutoRenewal</code>. Immediate, and nothing surprising about it.'],
+            'fields' => ['api_key' => ['label' => 'API key', 'secret' => true]],
+            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => true,
+            'note'  => 'No IP allowlist. Availability check returns a price. Free WHOIS privacy on registration. The only registrar whose purchase adapter is written today.',
+        ],
+        'dynadot' => [
+            'label'  => 'Dynadot',
+            'check_bulk' => 1,      // 1 per request, no rate limit
+            'autorenew' => ['ok' => true, 'note' =>
+                '<code>set_renew_option</code> with <code>renew_option=auto|no</code>, as a <strong>separate call after registration</strong> '
+              . '&mdash; the register command has no auto-renew parameter. The first attempt normally fails with '
+              . '"could not find domain in your account" because a freshly registered domain is not immediately queryable; '
+              . 'the console pauses, retries, then reads the state back.'],
+            'fields' => ['api_key' => ['label' => 'API key', 'secret' => true]],
+            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => true,
+            'note'  => 'Cheapest .com of the seven. Registration uses the account\'s default contact, so no contact set is needed. May require external nameservers be added to the account before they can be set on a domain.',
+        ],
+        'porkbun' => [
+            'label'  => 'Porkbun',
+            'check_bulk' => 0,      // 1 per request AND 1 per 10 seconds
+            'autorenew' => ['ok' => true, 'note' =>
+                '<code>/domain/updateAutoRenew/{domain}</code> takes <code>status: on|off</code> &mdash; note <em>status</em>, and '
+              . '<em>on/off</em>, not the <code>autoRenew: yes/no</code> its own create call uses. The obvious parameter name is rejected.'],
+            'fields' => [
+                'api_key'        => ['label' => 'API key',        'secret' => true],
+                'secret_api_key' => ['label' => 'Secret API key', 'secret' => true],
+            ],
+            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => false,
+            'note'  => 'API Access must be toggled ON per-domain in the Porkbun dashboard. Registration DOES work over the API (/domain/create) but it requires programmatically accepting Porkbun\'s registration agreement, terms and automatic-renewal terms, and an integer "cost" confirming the expected price. No balance endpoint, so funds cannot be checked before buying. Availability is limited to ONE CHECK PER 10 SECONDS — use NameSilo or Dynadot for bulk lists and keep Porkbun for spot checks.',
+        ],
+        'spaceship' => [
+            'label'  => 'Spaceship',
+            'check_bulk' => 50,     // one request for the whole list
+            'autorenew' => ['ok' => true, 'note' =>
+                '<code>PUT /domains/{domain}/autorenew</code> with <code>isEnabled</code>, and it can also be set at '
+              . 'registration with <code>autoRenew</code>. This is the reason to hold domains here rather than at '
+              . 'Namecheap, its own parent, whose API cannot set auto-renew at all.'],
+            'fields' => [
+                'api_key'         => ['label' => 'API key',    'secret' => true],
+                'api_secret'      => ['label' => 'API secret', 'secret' => true],
+                // Registration takes contact IDs, so a contact is created from these
+                // once and its id cached back into this config.
+                'contact_first'   => ['label' => 'Registrant first name', 'secret' => false],
+                'contact_last'    => ['label' => 'Registrant last name',  'secret' => false],
+                'contact_email'   => ['label' => 'Registrant email',      'secret' => false],
+                'contact_phone'   => ['label' => 'Phone (+X.XXXXXXXXXX)', 'secret' => false],
+                'contact_address' => ['label' => 'Street address',        'secret' => false],
+                'contact_city'    => ['label' => 'City',                  'secret' => false],
+                // State/postcode are passed when present and omitted when not, so they
+                // are not required here either.
+                'contact_state'   => ['label' => 'State / province',      'secret' => false, 'optional' => true],
+                'contact_zip'     => ['label' => 'Postcode',              'secret' => false, 'optional' => true],
+                'contact_country' => ['label' => 'Country (2-letter)',    'secret' => false, 'default' => 'US'],
+                // MUST be optional: it is written back by infra_reg_spaceship_contact_id()
+                // after the first purchase. Required, it made this card impossible to
+                // save at all — the only way to fill it was to already have it.
+                'contact_id'      => ['label' => 'Contact ID', 'secret' => false, 'optional' => true,
+                                      'hint' => 'left blank — filled in automatically the first time a contact is created'],
+            ],
+            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => false,
+            'note'  => 'Two headers, no IP allowlist. Availability takes the whole list in one request but returns NO price for standard names (only premiums quote one). There is no balance endpoint, so funds cannot be checked before a purchase — same blind spot as Porkbun. Registration answers 202 Accepted and completes ASYNCHRONOUSLY, so a domain is not registered the moment the call returns. Its auto-renew API works, which its parent Namecheap\'s does not.',
+        ],
+        'gandi' => [
+            'label'  => 'Gandi',
+            'check_bulk' => 1,      // one name per request
+            'autorenew' => ['ok' => true, 'note' =>
+                '<code>PATCH /v5/domain/domains/{domain}/autorenew</code> with <code>enabled</code>. It is a '
+              . 'SEPARATE call after registration — the create body has no auto-renew field — so a purchase that '
+              . 'stops halfway leaves a domain that will not renew itself. A GET on that same path answers 404 by '
+              . 'design; only PATCH exists.'],
+            'fields' => [
+                'token' => ['label' => 'Personal access token', 'secret' => true],
+                // Optional in fact AND in the flag. Left blank, the contact is copied
+                // from a domain the account already holds, so nothing needs retyping.
+                // The labels said "(optional)" while the flag was absent, so the save
+                // handler — which reads the flag, not the label — rejected the whole
+                // form over eight fields the adapter never needed. A label is not a
+                // rule; the flag is the rule.
+                'contact_first'   => ['label' => 'Registrant first name', 'secret' => false, 'optional' => true],
+                'contact_last'    => ['label' => 'Registrant last name',  'secret' => false, 'optional' => true],
+                'contact_email'   => ['label' => 'Registrant email',      'secret' => false, 'optional' => true],
+                'contact_phone'   => ['label' => 'Phone +X.XXXXXXXXXX',   'secret' => false, 'optional' => true],
+                'contact_address' => ['label' => 'Street address',        'secret' => false, 'optional' => true],
+                'contact_city'    => ['label' => 'City',                  'secret' => false, 'optional' => true],
+                'contact_zip'     => ['label' => 'Postcode',              'secret' => false, 'optional' => true],
+                'contact_country' => ['label' => 'Country (2-letter)',    'secret' => false, 'optional' => true, 'default' => 'US'],
+            ],
+            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => false,
+            'note'  => 'One bearer token, no IP allowlist. Availability quotes a REAL PRICE, which most of the others here do not. The registrant contact is copied from a domain the account already holds, so no contact setup is needed before the first buy. ⚠ A Gandi token carries an explicit scope list and there is no way to test "can I create" without attempting a purchase — Test reports the scopes so the gap is visible rather than assumed. No balance endpoint. Registration answers 202 and completes asynchronously, and auto-renew is a separate call afterwards.',
+        ],
         'namecheap' => [
             'label'  => 'Namecheap',
             'check_bulk' => 40,     // domains per request
@@ -88,92 +188,7 @@ function infra_registrar_types(): array
                 'client_ip' => ['label' => 'Whitelisted IP', 'secret' => false, 'default' => '187.127.254.206'],
             ],
             'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => true,
-            'note'  => 'Needs API access enabled, a funded balance, and this server\'s IP whitelisted in your Namecheap profile. Unlike NameSilo and Dynadot it will not fall back to an account default contact — registration must supply a full registrant/tech/admin/billing set, which is read from a domain you already hold rather than retyped. ⚠ AUTO-RENEW CANNOT BE SET BY API: domains register with it OFF and setAutoRenew reports success without applying anything, so every Namecheap purchase needs a manual dashboard visit or it lapses. Prefer NameSilo, Dynadot or Porkbun for fleet buying.',
-        ],
-        'gandi' => [
-            'label'  => 'Gandi',
-            'check_bulk' => 1,      // one name per request
-            'autorenew' => ['ok' => true, 'note' =>
-                '<code>PATCH /v5/domain/domains/{domain}/autorenew</code> with <code>enabled</code>. It is a '
-              . 'SEPARATE call after registration — the create body has no auto-renew field — so a purchase that '
-              . 'stops halfway leaves a domain that will not renew itself. A GET on that same path answers 404 by '
-              . 'design; only PATCH exists.'],
-            'fields' => [
-                'token' => ['label' => 'Personal access token', 'secret' => true],
-                // Optional: left blank, the contact is copied from a domain the
-                // account already holds, so nothing needs retyping.
-                'contact_first'   => ['label' => 'Registrant first name (optional)', 'secret' => false],
-                'contact_last'    => ['label' => 'Registrant last name (optional)',  'secret' => false],
-                'contact_email'   => ['label' => 'Registrant email (optional)',      'secret' => false],
-                'contact_phone'   => ['label' => 'Phone +X.XXXXXXXXXX (optional)',   'secret' => false],
-                'contact_address' => ['label' => 'Street address (optional)',        'secret' => false],
-                'contact_city'    => ['label' => 'City (optional)',                  'secret' => false],
-                'contact_zip'     => ['label' => 'Postcode (optional)',              'secret' => false],
-                'contact_country' => ['label' => 'Country (2-letter, optional)',     'secret' => false, 'default' => 'US'],
-            ],
-            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => false,
-            'note'  => 'One bearer token, no IP allowlist. Availability quotes a REAL PRICE, which most of the others here do not. The registrant contact is copied from a domain the account already holds, so no contact setup is needed before the first buy. ⚠ A Gandi token carries an explicit scope list and there is no way to test "can I create" without attempting a purchase — Test reports the scopes so the gap is visible rather than assumed. No balance endpoint. Registration answers 202 and completes asynchronously, and auto-renew is a separate call afterwards.',
-        ],
-        'spaceship' => [
-            'label'  => 'Spaceship',
-            'check_bulk' => 50,     // one request for the whole list
-            'autorenew' => ['ok' => true, 'note' =>
-                '<code>PUT /domains/{domain}/autorenew</code> with <code>isEnabled</code>, and it can also be set at '
-              . 'registration with <code>autoRenew</code>. This is the reason to hold domains here rather than at '
-              . 'Namecheap, its own parent, whose API cannot set auto-renew at all.'],
-            'fields' => [
-                'api_key'         => ['label' => 'API key',    'secret' => true],
-                'api_secret'      => ['label' => 'API secret', 'secret' => true],
-                // Registration takes contact IDs, so a contact is created from these
-                // once and its id cached back into this config.
-                'contact_first'   => ['label' => 'Registrant first name', 'secret' => false],
-                'contact_last'    => ['label' => 'Registrant last name',  'secret' => false],
-                'contact_email'   => ['label' => 'Registrant email',      'secret' => false],
-                'contact_phone'   => ['label' => 'Phone (+X.XXXXXXXXXX)', 'secret' => false],
-                'contact_address' => ['label' => 'Street address',        'secret' => false],
-                'contact_city'    => ['label' => 'City',                  'secret' => false],
-                'contact_state'   => ['label' => 'State / province',      'secret' => false],
-                'contact_zip'     => ['label' => 'Postcode',              'secret' => false],
-                'contact_country' => ['label' => 'Country (2-letter)',    'secret' => false, 'default' => 'US'],
-                'contact_id'      => ['label' => 'Contact ID (filled in automatically)', 'secret' => false],
-            ],
-            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => false,
-            'note'  => 'Two headers, no IP allowlist. Availability takes the whole list in one request but returns NO price for standard names (only premiums quote one). There is no balance endpoint, so funds cannot be checked before a purchase — same blind spot as Porkbun. Registration answers 202 Accepted and completes ASYNCHRONOUSLY, so a domain is not registered the moment the call returns. Its auto-renew API works, which its parent Namecheap\'s does not.',
-        ],
-        'namesilo' => [
-            'label'  => 'NameSilo',
-            'check_bulk' => 50,
-            'autorenew' => ['ok' => true, 'note' =>
-                'Set at registration via <code>auto_renew</code>, and changeable later with '
-              . '<code>addAutoRenewal</code> / <code>removeAutoRenewal</code>. Immediate, and nothing surprising about it.'],
-            'fields' => ['api_key' => ['label' => 'API key', 'secret' => true]],
-            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => true,
-            'note'  => 'No IP allowlist. Availability check returns a price. Free WHOIS privacy on registration. The only registrar whose purchase adapter is written today.',
-        ],
-        'porkbun' => [
-            'label'  => 'Porkbun',
-            'check_bulk' => 0,      // 1 per request AND 1 per 10 seconds
-            'autorenew' => ['ok' => true, 'note' =>
-                '<code>/domain/updateAutoRenew/{domain}</code> takes <code>status: on|off</code> &mdash; note <em>status</em>, and '
-              . '<em>on/off</em>, not the <code>autoRenew: yes/no</code> its own create call uses. The obvious parameter name is rejected.'],
-            'fields' => [
-                'api_key'        => ['label' => 'API key',        'secret' => true],
-                'secret_api_key' => ['label' => 'Secret API key', 'secret' => true],
-            ],
-            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => false,
-            'note'  => 'API Access must be toggled ON per-domain in the Porkbun dashboard. Registration DOES work over the API (/domain/create) but it requires programmatically accepting Porkbun\'s registration agreement, terms and automatic-renewal terms, and an integer "cost" confirming the expected price. No balance endpoint, so funds cannot be checked before buying. Availability is limited to ONE CHECK PER 10 SECONDS — use NameSilo or Dynadot for bulk lists and keep Porkbun for spot checks.',
-        ],
-        'dynadot' => [
-            'label'  => 'Dynadot',
-            'check_bulk' => 1,      // 1 per request, no rate limit
-            'autorenew' => ['ok' => true, 'note' =>
-                '<code>set_renew_option</code> with <code>renew_option=auto|no</code>, as a <strong>separate call after registration</strong> '
-              . '&mdash; the register command has no auto-renew parameter. The first attempt normally fails with '
-              . '"could not find domain in your account" because a freshly registered domain is not immediately queryable; '
-              . 'the console pauses, retries, then reads the state back.'],
-            'fields' => ['api_key' => ['label' => 'API key', 'secret' => true]],
-            'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => true,
-            'note'  => 'Cheapest .com of the five. Registration uses the account\'s default contact, so no contact set is needed. May require external nameservers be added to the account before they can be set on a domain.',
+            'note'  => 'Needs API access enabled, a funded balance, and this server\'s IP whitelisted in your Namecheap profile. Unlike NameSilo and Dynadot it will not fall back to an account default contact — registration must supply a full registrant/tech/admin/billing set, which is read from a domain you already hold rather than retyped. ⚠ AUTO-RENEW CANNOT BE SET BY API: domains register with it OFF and setAutoRenew reports success without applying anything, so every Namecheap purchase needs a manual dashboard visit or it lapses. Prefer NameSilo, Dynadot, Porkbun or Spaceship for fleet buying — Spaceship is Namecheap\'s own subsidiary and its API sets auto-renew fine, which is the whole reason it is here.',
         ],
         'cloudflare' => [
             'label'  => 'Cloudflare Registrar',
@@ -758,7 +773,7 @@ function infra_fleet_contact(): ?array
 
 /**
  * Register a domain at Cloudflare Registrar — sold AT COST, so the cheapest of
- * the five to hold long term.
+ * the seven to hold long term.
  *
  * Three things had to be discovered by probing, because the obvious guesses are
  * all wrong:

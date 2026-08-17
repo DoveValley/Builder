@@ -241,15 +241,21 @@ function infra_css(): string
 .ic-card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;margin-bottom:16px;overflow:hidden}
 .ic-card>h2{margin:0;padding:14px 16px;font-size:15px;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:10px}
 .ic-card .body{padding:14px 16px}
-/* Collapsible server card. Scoped to .srv-card so the existing plain
-   <details class="ic-card"> elsewhere keeps its own disclosure triangle. */
-.srv-card>summary{list-style:none}
-.srv-card>summary::-webkit-details-marker{display:none}
-.srv-card>summary:hover{background:#fafafa}
-.srv-card>summary>h2{margin:0;padding:14px 16px 10px;font-size:15px}
-.srv-card[open]>summary{border-bottom:1px solid #f0f0f0}
-.srv-card>summary h2>span:first-child{display:inline-block;transition:transform .12s}
-.srv-card[open]>summary h2>span:first-child{transform:rotate(90deg)}
+/* Collapsible card: a <details class="ic-card ic-fold"> whose <summary> holds an
+   <h2> starting with the caret span. Used by Servers and Registrars. Scoped to
+   .ic-fold so the plain <details class="ic-card"> elsewhere keeps the browser's
+   own disclosure triangle. */
+.ic-fold>summary{list-style:none}
+.ic-fold>summary::-webkit-details-marker{display:none}
+.ic-fold>summary:hover{background:#fafafa}
+.ic-fold>summary>h2{margin:0;padding:14px 16px 10px;font-size:15px}
+.ic-fold[open]>summary{border-bottom:1px solid #f0f0f0}
+.ic-fold>summary h2>span:first-child{display:inline-block;transition:transform .12s}
+.ic-fold[open]>summary h2>span:first-child{transform:rotate(90deg)}
+/* The one-line digest under a collapsed card's title: what it can do, and what is
+   wrong with it, without opening anything. */
+.ic-fold .ic-digest{padding:0 16px 13px 30px;color:#6b7280;font-size:12.5px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.ic-fold .ic-digest b{color:#374151;font-weight:600}
 .badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600}
 .b-ok{background:#dcfce7;color:#166534}.b-warn{background:#fef9c3;color:#854d0e}.b-err{background:#fee2e2;color:#991b1b}.b-mut{background:#e5e7eb;color:#374151}
 table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #f0f0f0}
