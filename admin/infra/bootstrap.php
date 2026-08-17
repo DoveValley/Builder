@@ -137,7 +137,7 @@ function infra_header(string $active = 'dashboard'): void
     /*
      * THE ORDER READS AS THE WORK, left to right: where you can buy (Registers),
      * decide on a name (D.Finder), the domain list itself (D.Buy), what has been
-     * bought (B.Own), then where it all goes — cities, sites, servers, live.
+     * bought (D.Own), then where it all goes — cities, sites, servers, live.
      *
      * The KEYS are view names and must not be renamed: every view calls
      * infra_header('<key>') to mark itself active, and the labels are only what
@@ -148,7 +148,7 @@ function infra_header(string $active = 'dashboard'): void
         'registrars' => ['label' => 'Registers',   'href' => 'index.php?view=registrars'],
         'dfinder'    => ['label' => 'D.Finder',    'href' => 'index.php?view=dfinder'],
         'domains'    => ['label' => 'D.Buy',       'href' => 'index.php?view=domains'],
-        'buyqueue'   => ['label' => 'B.Own',       'href' => 'index.php?view=buyqueue'],
+        'buyqueue'   => ['label' => 'D.Own',       'href' => 'index.php?view=buyqueue'],
         'cities'     => ['label' => 'Cities/Niche','href' => 'index.php?view=cities'],
         'new'        => ['label' => '+ New Site',  'href' => 'index.php?view=new'],
         'bulk'       => ['label' => 'Bulk',        'href' => 'index.php?view=bulk'],
