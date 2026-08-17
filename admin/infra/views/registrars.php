@@ -12,6 +12,19 @@
      * array the cards are rendered from. Two loops each working out "is this one
      * configured?" is how a summary comes to disagree with what it summarises.
      */
+    // How many domains are actually HELD at each registrar. It is the fact that makes
+    // the rest of the card mean something — "not used for new buys" reads very
+    // differently next to 31 domains than next to none — and it comes from the same
+    // fleet state the Domains tab reports, so the two cannot disagree.
+    $held = [];
+    foreach (infra_state_all_domains() as $d) {
+        $rn = strtolower(trim((string) ($d['registrar'] ?? '')));
+        if ($rn === '') continue;
+        $owned = trim((string) ($d['owned'] ?? '')) !== '' && ($d['owned'] ?? '') !== '0';
+        $held[$rn]['total'] = ($held[$rn]['total'] ?? 0) + 1;
+        if ($owned) $held[$rn]['owned'] = ($held[$rn]['owned'] ?? 0) + 1;
+    }
+
     $rows = [];
     foreach ($types as $type => $def) {
 
@@ -50,22 +63,34 @@
         // "ready to buy" on a card with nothing in it.
         $has = $secretsSet > 0;
 
+        // Waiting on API access is a different state from "not set up": there is no
+        // credential to enter and nothing for anyone to do about it here.
+        $pending = (string) ($def['pending_api'] ?? '');
+
         $rows[$type] = [
             'def'       => $def,
             'name'      => $savedName ?? $type,
             'cfg'       => $cfg,
             'has'       => $has,
+            'row'       => $savedName !== null,   // a row exists in registrar.json
             'borrowed'  => $has && !$typedHere,   // credentials owned by another page
             'missing'   => $missing,
+            'pending'   => $pending,
             'test'      => $tests[$type] ?? null,
             // Anything wrong opens itself, exactly as the server cards do — a problem
             // nobody clicks on is a problem nobody sees. A healthy registrar is a
-            // one-line fact and seven of them should fit on a screen.
-            'open'      => !$has || $missing || isset($tests[$type]),
+            // one-line fact and eight of them should fit on a screen. A card blocked
+            // on someone else's reply stays SHUT: its badge and digest say everything,
+            // and holding it open every day until support answers just costs a screen.
+            'open'      => $pending === '' ? (!$has || $missing || isset($tests[$type]))
+                                           : isset($tests[$type]),
         ];
     }
 
     $nConfigured = count(array_filter($rows, fn($r) => $r['has']));
+    // Attention = something a person can act on here. Waiting on a third party is not
+    // that, so a pending registrar is not counted — a number that never moves stops
+    // being read.
     $nAttention  = count(array_filter($rows, fn($r) => $r['open'] && !isset($r['test'])));
     $nCheck      = count(array_filter($rows, fn($r) => !empty($r['def']['check'])));
     $nRenew      = count(array_filter($rows, fn($r) => !empty($r['def']['autorenew']['ok'])));
@@ -88,15 +113,25 @@
       <span class="ic-asof">Read-only. Also refreshes the owned-domain list that tells &ldquo;taken&rdquo; from &ldquo;you already own it&rdquo;.</span>
     </div>
 
-    <?php foreach ($rows as $type => $r):
+    <?php $n = 0; foreach ($rows as $type => $r):
+      $n++;                       // 1..8, in the deliberate order set by infra_registrar_types()
       $def = $r['def'];
       $cfg = $r['cfg'];
       $t   = $r['test'];
+      $pending = (string) ($def['pending_api'] ?? '');   // no API access yet — not "cannot"
+      $unused  = (string) ($def['not_in_use'] ?? '');    // deliberately not bought at
+      $owned   = (int) ($held[$type]['owned'] ?? 0);
       $caps = [];
       foreach (['check' => 'availability', 'buy' => 'auto-buy', 'ns' => 'nameservers', 'balance' => 'balance'] as $k => $lbl) {
           $on = !empty($def[$k]);
           // auto-buy is only genuinely usable when the adapter is written here too.
           $partial = ($k === 'buy' && $on && empty($def['buy_wired']));
+          if ($pending !== '') {
+              // "?" not "✗". Four crosses would say the registrar cannot do these
+              // things; what is actually true is that nobody has told us yet.
+              $caps[] = '<span class="badge b-mut" title="not known yet — waiting on API access">? ' . $lbl . '</span>';
+              continue;
+          }
           $caps[] = '<span class="badge ' . ($partial ? 'b-warn' : ($on ? 'b-ok' : 'b-mut')) . '"'
                   . ($partial ? ' title="the registrar API supports it; the purchase adapter is not written here yet"' : '')
                   . '>' . ($partial ? '~ ' : ($on ? '✓ ' : '✗ ')) . $lbl . '</span>';
@@ -105,25 +140,36 @@
       // have to be opened to answer "can it check, can it renew, can I see the money".
       $bulk  = (int) ($def['check_bulk'] ?? 1);
       $facts = [];
-      $facts[] = empty($def['check'])
-          ? 'no availability API'
-          : ($bulk >= 10 ? 'checks <b>' . $bulk . ' names per request</b>'
-                         : ($bulk === 1 ? 'checks <b>one at a time</b>' : 'checks <b>one per 10 seconds</b>'));
-      $facts[] = empty($def['autorenew']['ok']) ? '<b style="color:#b91c1c">auto-renew not settable</b>' : 'auto-renew by API';
-      $facts[] = empty($def['balance']) ? 'no balance endpoint' : 'reports balance';
+      if ($pending !== '') {
+          $facts[] = '<b style="color:#92400e">nothing wired yet — waiting on API access</b>';
+      } else {
+          $facts[] = empty($def['check'])
+              ? 'no availability API'
+              : ($bulk >= 10 ? 'checks <b>' . $bulk . ' names per request</b>'
+                             : ($bulk === 1 ? 'checks <b>one at a time</b>' : 'checks <b>one per 10 seconds</b>'));
+          // Three states, not two: works / cannot / nobody has established which.
+          $facts[] = !isset($def['autorenew'])       ? 'auto-renew unknown'
+                   : (empty($def['autorenew']['ok']) ? '<b style="color:#b91c1c">auto-renew not settable</b>'
+                                                     : 'auto-renew by API');
+          $facts[] = empty($def['balance']) ? 'no balance endpoint' : 'reports balance';
+      }
     ?>
       <details class="ic-card ic-fold" <?= $r['open'] ? 'open' : '' ?>>
         <summary>
           <h2 style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
             <span style="color:#9ca3af;font-weight:400">▸</span>
-            <?= ih($def['label']) ?>
-            <?php if (!$r['has']): ?>
+            <span style="color:#9ca3af">Register <?= $n ?> -</span> <?= ih($def['label']) ?>
+            <?php if ($pending !== ''): ?>
+              <span class="badge b-warn">no API yet</span>
+              <?php if ($r['row']): ?><span class="badge b-mut">recorded — domains can be assigned</span><?php endif; ?>
+            <?php elseif (!$r['has']): ?>
               <span class="badge b-mut">not configured</span>
             <?php elseif ($r['missing']): ?>
               <span class="badge b-warn"><?= count($r['missing']) ?> field<?= count($r['missing']) === 1 ? '' : 's' ?> still empty</span>
             <?php else: ?>
               <span class="badge b-ok">configured</span>
             <?php endif; ?>
+            <?php if ($unused !== ''): ?><span class="badge b-mut" title="works, but not where new fleet domains are bought">not used for new buys</span><?php endif; ?>
             <?php if ($r['borrowed']): ?><span class="badge b-mut" title="the credentials come from the Cloudflare account registry">borrowed creds</span><?php endif; ?>
             <?php if ($t): ?>
               <span class="badge <?= $t['ok'] ? 'b-ok' : 'b-err' ?>"><?= $t['ok'] ? '✓ just tested' : '✗ test failed' ?></span>
@@ -131,6 +177,7 @@
             <span style="margin-left:auto;font-weight:400;display:flex;gap:5px"><?= implode(' ', $caps) ?></span>
           </h2>
           <div class="ic-digest">
+            <span><?= $owned ? '<b>' . $owned . '</b> domain' . ($owned === 1 ? '' : 's') . ' held here' : 'no domains held here' ?></span>
             <?php foreach ($facts as $f): ?><span><?= $f ?></span><?php endforeach; ?>
             <?php if ($t && $t['ok'] && $t['balance'] !== null && $t['balance'] !== ''): ?>
               <span>balance <b><?= ih($t['balance']) ?> <?= ih($t['currency']) ?></b></span>
@@ -138,6 +185,22 @@
           </div>
         </summary>
         <div class="body">
+
+          <?php if ($pending !== ''): ?>
+            <div class="ic-note" style="background:#fffbeb;border-color:#fde047;color:#854d0e">
+              <strong>⏳ No API access yet.</strong> <?= ih($pending) ?>
+            </div>
+          <?php endif; ?>
+
+          <?php if ($unused !== ''): ?>
+            <div class="ic-note" style="background:#f9fafb;border-color:#e5e7eb;color:#374151">
+              <strong>Not used for new purchases.</strong> <?= ih($unused) ?>
+              <?php if ($owned): ?>
+                <br><br><strong><?= $owned ?> domain<?= $owned === 1 ? ' is' : 's are' ?> already registered here</strong>
+                — see them on the <a href="index.php?view=domains">Domains</a> tab.
+              <?php endif; ?>
+            </div>
+          <?php endif; ?>
 
           <?php if ($r['has'] && $r['missing']): ?>
             <div class="ic-note" style="background:#fffbeb;border-color:#fde047;color:#854d0e">
@@ -202,6 +265,12 @@
           <form method="post" action="actions/registrar_save.php">
             <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
             <input type="hidden" name="type" value="<?= ih($type) ?>">
+            <?php if (!$def['fields']): ?>
+              <div style="color:#6b7280;font-size:12.5px">
+                Nothing to enter — the credential fields are unknown until support says what the API authenticates with.
+                Saving here just records <?= ih($def['label']) ?> as a registrar you hold domains at, so it can be picked on a domain.
+              </div>
+            <?php endif; ?>
             <table>
               <?php foreach ($def['fields'] as $fname => $f):
                 $cur      = (string) ($cfg[$fname] ?? ($f['default'] ?? ''));
@@ -231,9 +300,11 @@
               <?php endforeach; ?>
             </table>
             <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-              <button class="btn" type="submit" name="action" value="save">Save credentials</button>
-              <button class="btn sec" type="submit" name="action" value="test" <?= $r['has'] ? '' : 'disabled' ?>>Test connection<?= !empty($def['balance']) ? ' &amp; balance' : '' ?></button>
-              <?php if ($r['has'] && !$r['borrowed']): ?>
+              <button class="btn" type="submit" name="action" value="save"><?= $def['fields'] ? 'Save credentials' : 'Record this registrar' ?></button>
+              <?php if ($def['fields']): ?>
+                <button class="btn sec" type="submit" name="action" value="test" <?= $r['has'] ? '' : 'disabled' ?>>Test connection<?= !empty($def['balance']) ? ' &amp; balance' : '' ?></button>
+              <?php endif; ?>
+              <?php if ($r['row'] && !$r['borrowed']): ?>
                 <button class="btn sec" type="submit" name="action" value="delete" style="color:#991b1b;margin-left:auto"
                         onclick="return confirm('Remove <?= ih($def['label']) ?> credentials? Domains assigned to it keep the assignment but cannot be bought until it is reconfigured.');">Remove</button>
               <?php endif; ?>

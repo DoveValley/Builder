@@ -190,6 +190,26 @@ function infra_registrar_types(): array
             'check' => true, 'buy' => true, 'buy_wired' => true, 'ns' => true, 'balance' => true,
             'note'  => 'Needs API access enabled, a funded balance, and this server\'s IP whitelisted in your Namecheap profile. Unlike NameSilo and Dynadot it will not fall back to an account default contact — registration must supply a full registrant/tech/admin/billing set, which is read from a domain you already hold rather than retyped. ⚠ AUTO-RENEW CANNOT BE SET BY API: domains register with it OFF and setAutoRenew reports success without applying anything, so every Namecheap purchase needs a manual dashboard visit or it lapses. Prefer NameSilo, Dynadot, Porkbun or Spaceship for fleet buying — Spaceship is Namecheap\'s own subsidiary and its API sets auto-renew fine, which is the whole reason it is here.',
         ],
+        'cosmotown' => [
+            'label'  => 'Cosmotown',
+            'check_bulk' => 0,
+            // Every capability is false because NOTHING IS WIRED, not because the
+            // registrar cannot do it. `pending_api` is what makes the difference
+            // visible: without it the card renders four ✗ badges and reads as "this
+            // place is useless", when the truth is "nobody has answered us yet".
+            // When support grants API access: set these flags from their docs, add
+            // the credential fields, and write the adapter cases — until then the
+            // switches in this file fall through to their defaults, which say
+            // "no adapter" and "set nameservers manually" rather than failing oddly.
+            'pending_api' => 'API access is not set up yet — asked 2026-08-17, waiting to hear back from Cosmotown support. '
+                           . 'Until they answer, nothing here is automated: availability, buying, nameserver switching and '
+                           . 'auto-renew all have to be done in their dashboard. What the console CAN do meanwhile is '
+                           . 'record that a domain is held here, so the fleet table is honest and go-live tells you to '
+                           . 'switch the nameservers by hand instead of silently skipping it.',
+            'fields' => [],         // unknown until support says what auth it uses
+            'check' => false, 'buy' => false, 'buy_wired' => false, 'ns' => false, 'balance' => false,
+            'note'  => 'Sells .com near cost, which is the reason to have an account here. Nothing is wired: no availability check, no auto-buy, no nameserver switch, no balance read — all of that waits on API access. Assigning a domain to Cosmotown is still worth doing: it records where the domain actually lives, and go-live will tell you to change the nameservers manually rather than assuming it was done.',
+        ],
         'cloudflare' => [
             'label'  => 'Cloudflare Registrar',
             'check_bulk' => 0,      // no availability endpoint at all
@@ -211,6 +231,16 @@ function infra_registrar_types(): array
                                  'hint' => 'alternative to the token — used when email + global key are both set'],
             ],
             'prefill_from_cf' => ['account_id', 'email'],
+            // Kept configured and wired, but NOT where new fleet domains are bought:
+            // a Cloudflare-registered domain is locked to Cloudflare's own nameservers
+            // and CDN, so registering here decides the hosting question as a side
+            // effect of choosing a registrar. Domains already held here are fine and
+            // stay — this is about where the next purchase goes.
+            'not_in_use' => 'Not used for new purchases — a domain registered at Cloudflare is forced onto '
+                          . 'Cloudflare nameservers and its CDN, which takes the choice of where the domain '
+                          . 'points away from us. Buy elsewhere and put the zone on Cloudflare deliberately, '
+                          . 'which is the same end state with the decision kept in our hands. Domains already '
+                          . 'registered here keep working and need no action.',
             'check' => false, 'buy' => true, 'buy_wired' => true, 'ns' => false, 'balance' => false,
             'note'  => 'Sells AT COST, so it is the cheapest place to hold a domain. Registration works over the API — POST /registrar/registrations, not the /registrar/domains path that returns 403 — and needs the GLOBAL KEY, since a scoped token gets "Authentication error" on Registrar. Billed to the card on the account, so there is no balance to check. No availability endpoint (check a name at another registrar first). Nameservers are n/a: a Cloudflare-registered domain is always on Cloudflare nameservers, so go-live has nothing to switch.',
         ],

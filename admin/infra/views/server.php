@@ -18,9 +18,9 @@
       <h2><?= ih($srv['label'] ?? $srv['id']) ?> <?= $badge ?></h2>
       <div class="body"><table>
         <tr><th style="width:200px">Server ID</th><td><code><?= ih($srv['id'] ?? '') ?></code></td></tr>
-        <tr><th>Plesk host</th><td><code><?= ih($srv['host'] ?? '') ?>:<?= ih($srv['port'] ?? 8443) ?></code></td></tr>
+        <tr><th>Hestia panel</th><td><code><?= ih($srv['host'] ?? '') ?>:<?= ih($srv['port'] ?? 8083) ?></code></td></tr>
         <tr><th>Default IP (CF targets this)</th><td><code><?= ih($srv['default_ip'] ?? $srv['host'] ?? '') ?></code></td></tr>
-        <tr><th>Plesk version</th><td><?= ih($info['panel_version'] ?? '—') ?><?= isset($info['hostname']) ? ' · ' . ih($info['hostname']) : '' ?></td></tr>
+        <tr><th>Hestia version</th><td><?= ih($info['panel_version'] ?? '—') ?><?= isset($info['hostname']) ? ' · ' . ih($info['hostname']) : '' ?></td></tr>
         <tr><th>Sites on this VPS</th><td><strong><?= count($sites) ?></strong></td></tr>
       </table></div>
     </div>
@@ -34,7 +34,7 @@
         <?php else: ?>
           <input class="ic-search" type="search" placeholder="Filter domains…" data-target="tbl-sites">
           <table id="tbl-sites">
-            <thead><tr><th>Domain</th><th>Plesk</th><th>Cloudflare</th><th>Registrar</th><th>State</th></tr></thead>
+            <thead><tr><th>Domain</th><th>Host</th><th>Cloudflare</th><th>Registrar</th><th>State</th></tr></thead>
             <tbody>
             <?php foreach ($sites as $d):
               $name = strtolower($d['name'] ?? '');

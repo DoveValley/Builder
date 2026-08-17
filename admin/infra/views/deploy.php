@@ -11,7 +11,8 @@
     }
     ?>
     <div class="ic-card"><h2>Deploy — hand provisioned creds to content upload</h2><div class="body">
-      <div class="ic-note">This bridges Phase&nbsp;1 (provisioning) → Phase&nbsp;2 (content). The console generated an FTP user for each provisioned domain; export them as a <strong>params CSV</strong> and merge into a master site's params (MultiSite tab) — then <strong>Build&nbsp;+&nbsp;Deploy</strong> uploads the generated content to the provisioned Plesk box (docroot <code>/httpdocs</code>, FTP:21) using these creds. Columns match the multisite params format exactly.</div>
+      <div class="ic-note">This bridges Phase&nbsp;1 (provisioning) → Phase&nbsp;2 (content). The console generated an FTP user for each provisioned domain; export them as a <strong>params CSV</strong> and merge into a master site's params (MultiSite tab) — then <strong>Build&nbsp;+&nbsp;Deploy</strong> uploads the generated content to the provisioned box using these creds. Columns match the multisite params format exactly.
+        <br><br><strong>The upload path is the FTP login's own home</strong> (<code>/home/{ftp_user}</code>, FTP:21, passive) — that is the docroot on Hestia, with no <code>/httpdocs</code> or <code>/public_html</code> beneath it. The CSV below writes that path for you. <strong>The trap:</strong> any params row still carrying <code>/httpdocs</code> or <code>/public_html</code> — the Plesk and cPanel conventions — uploads every file successfully into a folder nginx never reads, and reports success doing it.</div>
       <p><strong><?= count($rows) ?></strong> provisioned domain(s) have FTP credentials.</p>
       <?php if ($rows): ?>
         <a class="btn" href="actions/export_creds.php">&#8681; Download params-CSV (creds)</a>

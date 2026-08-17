@@ -148,10 +148,10 @@
       <p style="font-size:13px;color:#6b7280;margin-top:0">Each action requires typing <code><?= ih($d) ?></code> to confirm.</p>
       <?php
       $dz = [
-        ['delete_zone', 'Delete Cloudflare zone', 'Removes the CF zone (DNS/SSL/HSTS). Plesk site + fleet record kept.'],
-        ['delete_site', 'Delete Plesk site', 'Removes the site + files on the VPS. CF zone + fleet record kept.'],
-        ['untrack', 'Remove from fleet (untrack)', 'Forgets this domain here. Leaves Plesk + Cloudflare intact.'],
-        ['teardown', 'Full teardown', 'Deletes CF zone + Plesk site AND removes from fleet. Irreversible.'],
+        ['delete_zone', 'Delete Cloudflare zone', 'Removes the CF zone (DNS/SSL/HSTS). The host on the server + fleet record kept.'],
+        ['delete_site', 'Delete the host on the server', 'Removes the host + its files on the VPS. CF zone + fleet record kept.'],
+        ['untrack', 'Remove from fleet (untrack)', 'Forgets this domain here. Leaves the host + Cloudflare intact.'],
+        ['teardown', 'Full teardown', 'Deletes the CF zone + the host on the server AND removes from fleet. Irreversible.'],
       ];
       foreach ($dz as [$act, $label, $desc]): ?>
         <form method="post" action="actions/domain_manage.php" style="margin:10px 0;padding:10px;border:1px solid #f0f0f0;border-radius:8px" onsubmit="return confirm('<?= ih($label) ?> for <?= ih($d) ?>? This cannot be undone.');">

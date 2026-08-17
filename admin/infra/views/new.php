@@ -8,7 +8,7 @@
     <div class="ic-card">
       <h2>New Site — Phase 1 provisioning</h2>
       <div class="body">
-        <div class="ic-note">Creates the infrastructure only (Plesk site + Cloudflare zone). No content is uploaded and no nameservers are switched — the site stays <strong>staged</strong> until go-live. Safe to run; re-running skips anything that already exists.</div>
+        <div class="ic-note">Creates the infrastructure only (the host on the server + the Cloudflare zone). No content is uploaded and no nameservers are switched — the site stays <strong>staged</strong> until go-live. Safe to run; re-running skips anything that already exists.</div>
         <form method="post" action="actions/provision.php" onsubmit="return confirm(((this.do_register && this.do_register.checked) ? '⚠ This BUYS ' + this.domain.value + ' (real money) then provisions it.\n\n' : 'Provision ') + 'Proceed with ' + this.domain.value + '?');">
           <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
           <table>
@@ -24,7 +24,7 @@
                 <div style="color:#6b7280;font-size:12px;margin-top:4px">Auto-buy is wired for every registrar the console supports, and goes through the same guards as the Buy button — availability is re-checked immediately before paying. Leave unchecked if the domain is already registered; the selected registrar is still recorded for the go-live NS switch.</div>
               <?php else: ?><span class="badge b-mut">no registrar configured</span><?php endif; ?>
             </td></tr>
-            <tr><th>Plesk server</th><td>
+            <tr><th>Hestia server</th><td>
               <select name="server_id" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
                 <?php foreach ($servers as $s): ?>
                   <option value="<?= ih($s['id'] ?? '') ?>"><?= ih(($s['label'] ?? $s['id']) . ' — ' . ($s['host'] ?? '')) ?></option>

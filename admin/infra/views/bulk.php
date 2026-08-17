@@ -8,12 +8,12 @@
     <div class="ic-card">
       <h2>Bulk Provision — Phase 1 at scale</h2>
       <div class="body">
-        <div class="ic-note">Paste one domain per line. Each is created on Plesk + fully staged in Cloudflare (DNS→VPS IP proxied, SSL, HSTS) and saved to fleet state. Idempotent (existing sites/zones are skipped/updated), staged only — no nameservers switched. Progress streams live below.</div>
+        <div class="ic-note">Paste one domain per line. Each gets a host created on its Hestia server + is fully staged in Cloudflare (DNS→VPS IP proxied, SSL, HSTS) and saved to fleet state. Idempotent (existing sites/zones are skipped/updated), staged only — no nameservers switched. Progress streams live below.</div>
         <form id="bulkForm">
           <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
           <textarea name="domains" rows="8" placeholder="dallaspestpros.com&#10;katypestpros.com&#10;austinpestpros.com" style="width:100%;padding:10px;border:1px solid #d1d5db;border-radius:8px;font-family:monospace;font-size:13px"></textarea>
           <table style="margin-top:10px">
-            <tr><th style="width:180px">Plesk server</th><td>
+            <tr><th style="width:180px">Hestia server</th><td>
               <select name="server_id" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
                 <option value="__auto__">🔀 Auto — round-robin (footprint)</option><?php foreach ($servers as $s): ?><option value="<?= ih($s['id'] ?? '') ?>"><?= ih(($s['label'] ?? $s['id']) . ' — ' . ($s['host'] ?? '')) ?></option><?php endforeach; ?>
               </select></td></tr>
@@ -46,7 +46,7 @@
       var doms = (this.domains.value.match(/\S+/g) || []).length;
       if (!doms) { alert('Paste at least one domain.'); return; }
       var buying = this.do_register && this.do_register.checked;
-      if (!confirm(buying ? ('⚠ This BUYS ' + doms + ' domain(s) (real money) then provisions them. Proceed?') : ('Provision ' + doms + ' domain(s)? Creates Plesk sites + Cloudflare zones (staged).'))) return;
+      if (!confirm(buying ? ('⚠ This BUYS ' + doms + ' domain(s) (real money) then provisions them. Proceed?') : ('Provision ' + doms + ' domain(s)? Creates hosts + Cloudflare zones (staged).'))) return;
       var log = document.getElementById('bulkLog'), btn = document.getElementById('bulkBtn');
       log.style.display = 'block'; log.textContent = 'Starting…\n'; btn.disabled = true; btn.textContent = 'Running…';
       try {

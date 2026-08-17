@@ -215,7 +215,7 @@
               <th><?= $sortLink('buy_at', '6. Buy date') ?></th>
               <th><?= $sortLink('owned',  '7. Own') ?></th>
               <th><?= $sortLink('cf',     '8. Cloudflare') ?></th>
-              <th><?= $sortLink('vps',    '9. VPS / Plesk') ?></th>
+              <th><?= $sortLink('vps',    '9. VPS / host') ?></th>
               <th><?= $sortLink('state',  '10. State') ?></th>
               <th><?= $sortLink('drift',  '11. Drift') ?></th>
             </tr></thead>
