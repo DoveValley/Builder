@@ -20,6 +20,25 @@
 // defer on all three keeps that order while letting the page paint first.
 $dwBase = '../../assets/';   // views/ -> admin/infra/ -> admin/ -> webroot
 
+/**
+ * Cache-bust by the file's own modification time.
+ *
+ * Apache serves these with an ETag and Last-Modified but NO Cache-Control, so a
+ * browser applies its own heuristic and can keep serving a stale copy from disk
+ * without ever asking whether it changed. A rebuilt workbench therefore looked
+ * like a change that had not happened — the file on the server was new, the
+ * screen was old, and nothing about that is visible from either end.
+ *
+ * A new build changes the mtime, which changes the URL, which is a different
+ * resource as far as the cache is concerned. No headers to configure and nothing
+ * to remember at build time.
+ */
+$dwV = function (string $rel) use ($dwBase): string {
+    $abs = __DIR__ . '/../../../assets/' . $rel;
+    $t   = is_file($abs) ? filemtime($abs) : 0;
+    return $dwBase . $rel . ($t ? '?v=' . $t : '');
+};
+
 infra_header('dfinder');
 ?>
 <script>
@@ -32,9 +51,9 @@ infra_header('dfinder');
     csrf:     <?= json_encode(infra_csrf()) ?>
   };
 </script>
-<script src="<?= ih($dwBase) ?>vendor/react.production.min.js" defer></script>
-<script src="<?= ih($dwBase) ?>vendor/react-dom.production.min.js" defer></script>
-<script src="<?= ih($dwBase) ?>js/domain-workbench.js" defer></script>
+<script src="<?= ih($dwV('vendor/react.production.min.js')) ?>" defer></script>
+<script src="<?= ih($dwV('vendor/react-dom.production.min.js')) ?>" defer></script>
+<script src="<?= ih($dwV('js/domain-workbench.js')) ?>" defer></script>
 
 <!-- Full width: the workbench is a three-column layout of its own and the
      console's 1200px main column would squeeze it. Negative margins undo
