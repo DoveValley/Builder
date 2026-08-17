@@ -1,6 +1,8 @@
 <?php
 
     require_once __DIR__ . '/../lib/hestia_fleet.php';
+    // Who each box is rented from, derived from its notes — see lib/hosts.php.
+    require_once __DIR__ . '/../lib/hosts.php';
     infra_header('servers');
     ?>
     <div style="margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap">
@@ -283,6 +285,20 @@
                  : ($fresh ? '<span class="badge b-mut">not checked yet</span>'
                            : '<span class="badge b-err">cannot reach it</span>')) ?>
             <span style="font-weight:400;font-size:13px;color:#6b7280">
+                <?php
+                // Who the box is rented from, and one click to their login page. The
+                // moment a box stops answering, the next step is somebody else's panel —
+                // and until this line existed, finding out whose meant reading the notes.
+                // stopPropagation because a link inside <summary> would otherwise open
+                // the page AND fold the card underneath it.
+                $prov = infra_host_provider($srv);
+                if ($prov): ?>
+                    <a href="<?= ih($prov['login']) ?>" target="_blank" rel="noopener"
+                       onclick="event.stopPropagation()"
+                       title="Log in at <?= ih($prov['name']) ?> — the company this box is rented from"
+                       style="color:#2563eb;text-decoration:none"><?= ih($prov['name']) ?> &#8599;</a>
+                    &middot;
+                <?php endif; ?>
                 <code><?= ih($srv['host'] ?? '') ?></code>
                 <?php if ($d['ok']): ?>
                     &middot; Hestia <?= ih($f['panel_version'] ?: '?') ?>

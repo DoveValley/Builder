@@ -158,7 +158,21 @@
         <summary>
           <h2 style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
             <span style="color:#9ca3af;font-weight:400">▸</span>
-            <span style="color:#9ca3af">Register <?= $n ?> -</span> <?= ih($def['label']) ?>
+            <span style="color:#9ca3af">Register <?= $n ?> -</span>
+            <?php
+            // The name is the link to their dashboard. Half of what this page documents
+            // ends in "so do it in their dashboard" — Namecheap's auto-renew, Porkbun's
+            // per-domain API toggle, all of Cosmotown — and the address for that lived
+            // nowhere. stopPropagation because a link inside <summary> would otherwise
+            // open the page AND fold the card underneath it.
+            if (!empty($def['login'])): ?>
+              <a href="<?= ih($def['login']) ?>" target="_blank" rel="noopener"
+                 onclick="event.stopPropagation()"
+                 title="Log in at <?= ih($def['label']) ?>"
+                 style="color:#2563eb;text-decoration:none"><?= ih($def['label']) ?> &#8599;</a>
+            <?php else: ?>
+              <?= ih($def['label']) ?>
+            <?php endif; ?>
             <?php if ($pending !== ''): ?>
               <span class="badge b-warn">no API yet</span>
               <?php if ($r['row']): ?><span class="badge b-mut">recorded — domains can be assigned</span><?php endif; ?>

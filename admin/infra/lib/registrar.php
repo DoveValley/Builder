@@ -94,6 +94,14 @@ function infra_registrar_names(): array
  *
  * `fields` drives the admin form (and which keys are treated as secrets).
  *
+ * `login` is where you sign in to that registrar's own dashboard. It is here rather
+ * than in the view because the things this console cannot do are named all over these
+ * definitions — Namecheap's auto-renew, Porkbun's per-domain API toggle, everything
+ * about Cosmotown — and every one of them ends in "so do it in their dashboard". The
+ * address of that dashboard belongs with the fact that you will need it. Account login
+ * pages, deliberately, not deep links: a per-domain URL needs ids this console does not
+ * hold, and they rot.
+ *
  * Two SEPARATE buy flags, because conflating them would let the UI promise
  * something the code cannot deliver:
  *   `buy`       — the registrar's API is capable of registering a domain.
@@ -119,6 +127,7 @@ function infra_registrar_types(): array
     return [
         'namesilo' => [
             'label'  => 'NameSilo',
+            'login'  => 'https://www.namesilo.com/login',
             'check_bulk' => 50,
             'autorenew' => ['ok' => true, 'note' =>
                 'Set at registration via <code>auto_renew</code>, and changeable later with '
@@ -129,6 +138,7 @@ function infra_registrar_types(): array
         ],
         'dynadot' => [
             'label'  => 'Dynadot',
+            'login'  => 'https://www.dynadot.com/account/sign-in',
             'check_bulk' => 1,      // 1 per request, no rate limit
             'autorenew' => ['ok' => true, 'note' =>
                 '<code>set_renew_option</code> with <code>renew_option=auto|no</code>, as a <strong>separate call after registration</strong> '
@@ -141,6 +151,7 @@ function infra_registrar_types(): array
         ],
         'porkbun' => [
             'label'  => 'Porkbun',
+            'login'  => 'https://porkbun.com/account/login',
             'check_bulk' => 0,      // 1 per request AND 1 per 10 seconds
             'autorenew' => ['ok' => true, 'note' =>
                 '<code>/domain/updateAutoRenew/{domain}</code> takes <code>status: on|off</code> &mdash; note <em>status</em>, and '
@@ -154,6 +165,7 @@ function infra_registrar_types(): array
         ],
         'spaceship' => [
             'label'  => 'Spaceship',
+            'login'  => 'https://www.spaceship.com/login',
             'check_bulk' => 50,     // one request for the whole list
             'autorenew' => ['ok' => true, 'note' =>
                 '<code>PUT /domains/{domain}/autorenew</code> with <code>isEnabled</code>, and it can also be set at '
@@ -187,6 +199,7 @@ function infra_registrar_types(): array
         ],
         'gandi' => [
             'label'  => 'Gandi',
+            'login'  => 'https://admin.gandi.net/',
             'check_bulk' => 1,      // one name per request
             'autorenew' => ['ok' => true, 'note' =>
                 '<code>PATCH /v5/domain/domains/{domain}/autorenew</code> with <code>enabled</code>. It is a '
@@ -216,6 +229,7 @@ function infra_registrar_types(): array
         ],
         'namecheap' => [
             'label'  => 'Namecheap',
+            'login'  => 'https://www.namecheap.com/myaccount/login/',
             'check_bulk' => 40,     // domains per request
             'autorenew' => ['ok' => false, 'note' =>
                 '<strong>Domains bought here register with auto-renew OFF and there is no way to turn it on programmatically.</strong> '
@@ -241,6 +255,9 @@ function infra_registrar_types(): array
         ],
         'cosmotown' => [
             'label'  => 'Cosmotown',
+            // Their sign-in is an in-page route, so the #! is part of the address —
+            // https://www.cosmotown.com/login answers a 301 to it rather than serving it.
+            'login'  => 'https://www.cosmotown.com/#!/login',
             'check_bulk' => 0,
             // Every capability is false because NOTHING IS WIRED, not because the
             // registrar cannot do it. `pending_api` is what makes the difference
@@ -261,6 +278,7 @@ function infra_registrar_types(): array
         ],
         'cloudflare' => [
             'label'  => 'Cloudflare Registrar',
+            'login'  => 'https://dash.cloudflare.com/login',
             'check_bulk' => 0,      // no availability endpoint at all
             'autorenew' => ['ok' => true, 'note' =>
                 'Works via <code>PUT /registrar/domains/{domain}</code>, and can be passed in the registration body &mdash; '
