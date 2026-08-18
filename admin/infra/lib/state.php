@@ -132,6 +132,9 @@ const INFRA_STATE_COLS = ['domain','niche','server_id','cf_account_id','cf_zone_
                          // Namecheap cannot set this over its API, so a domain can be
                          // owned and quietly set to lapse; that has to be visible.
     'contact_set',       // which registrant contact set to register with (pass two)
+    'expires_at',        // 'YYYY-MM-DD' — READ BACK from the registrar by the Health
+                         // tab, not assumed. Every registrar reports it and nothing
+                         // recorded it, so "which of these lapses first" had no answer.
     // ── deployment stage ──
     'batch',             // free-text tag grouping domains for the go-live grid.
                          // A TAG, not an object: fifty domains carry the same string,

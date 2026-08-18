@@ -138,6 +138,33 @@ function cf_set_ssl_mode(array $account, string $zoneId, string $mode = 'full'):
         : ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
 }
 
+/**
+ * Read a zone's settings — every one of them, in a single request.
+ *
+ * The setters above have had no counterpart, so nothing could ever answer "is SSL
+ * actually on Full, is HSTS actually on" — only "we once asked for it". /settings
+ * returns the whole set at once, so checking two of them costs one call rather than
+ * two, and a third check later costs nothing.
+ *
+ * @return array{ok:bool, ssl:string, hsts:bool, always_https:bool, raw:array}
+ */
+function cf_get_settings(array $account, string $zoneId): array
+{
+    $r   = cf_api($account, 'GET', "/zones/{$zoneId}/settings");
+    $out = ['ok' => false, 'ssl' => '', 'hsts' => false, 'always_https' => false, 'raw' => []];
+    if ($r['code'] !== 200 || empty($r['json']['success'])) return $out;
+
+    foreach ((array) ($r['json']['result'] ?? []) as $s) {
+        $id = (string) ($s['id'] ?? '');
+        $out['raw'][$id] = $s['value'] ?? null;
+        if ($id === 'ssl')                $out['ssl']  = (string) ($s['value'] ?? '');
+        if ($id === 'security_header')    $out['hsts'] = !empty($s['value']['strict_transport_security']['enabled']);
+        if ($id === 'always_use_https')   $out['always_https'] = ($s['value'] ?? '') === 'on';
+    }
+    $out['ok'] = true;
+    return $out;
+}
+
 /** Enable HSTS at the edge (applies when the zone is proxied/live). @return array{ok:bool,message:string} */
 function cf_set_hsts(array $account, string $zoneId, int $maxAge = 15552000): array
 {

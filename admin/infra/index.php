@@ -37,11 +37,13 @@ infra_session_release();
 $view = $_GET['view'] ?? 'dashboard';
 if (!empty($_GET['refresh'])) infra_cache_force();   // ?refresh=1 → bypass cache, re-sweep live
 
-/** A box by id, from the fleet registry the rest of the console uses. */
+/**
+ * A box by id. Kept as a name because views/server.php calls it, but the lookup itself
+ * now lives once, in lib/hestia_fleet.php — this was the third copy of the same loop.
+ */
 function infra_find_server(string $id): ?array
 {
-    foreach (infra_hestia_servers() as $s) if (($s['id'] ?? '') === $id) return $s;
-    return null;
+    return infra_hestia_server($id);
 }
 
 /* small render helpers ------------------------------------------------- */

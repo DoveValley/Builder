@@ -156,6 +156,10 @@ function infra_header(string $active = 'dashboard'): void
         'servers'    => ['label' => 'Servers',     'href' => 'index.php?view=servers'],
         'cloudflare' => ['label' => 'Cloudflare',  'href' => 'index.php?view=cloudflare'],
         'golive'     => ['label' => 'Go-Live',     'href' => 'index.php?view=golive'],
+        // Steady state, not pipeline: renewal, nameserver delegation and zone
+        // conformance over everything already owned. Last because it is the tab you
+        // visit when nothing is being built.
+        'health'     => ['label' => 'DNS/Health',  'href' => 'index.php?view=health'],
     ];
     echo '<!doctype html><html lang="en"><head><meta charset="utf-8">';
     echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
