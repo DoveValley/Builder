@@ -72,13 +72,32 @@ function cf_list_accounts(array $account): array
     return ['ok' => true, 'error' => '', 'accounts' => $out];
 }
 
-/** All zones in an account (paginated). @return array of zone objects */
+/**
+ * All zones IN THIS ACCOUNT (paginated). @return array of zone objects
+ *
+ * ⚠ THE account.id FILTER IS NOT OPTIONAL. GET /zones returns every zone the CREDENTIAL
+ * can see, not every zone in the account it was fetched for. That distinction did not
+ * exist while each account had its own token — one token, one account, same answer. It
+ * appears the moment one token is scoped to all accounts, which is the arrangement that
+ * makes twenty accounts manageable at all.
+ *
+ * Without it, a brand-new empty account reported the 31 zones belonging to a different
+ * one: the box bound to it read "31/50 · 19 free", the estate totalled 62 zones held
+ * across two accounts holding 31 between them, and the allocator would have believed
+ * there was room where there was none and none where there was room. Every number on
+ * the page was wrong in a way that looked entirely plausible.
+ */
 function cf_list_zones(array $account): array
 {
     $zones = [];
     $page  = 1;
+    // A record with no account id is a broken record; ask unfiltered rather than
+    // silently returning nothing, and let the page's own checks show it up.
+    $acct  = trim((string) ($account['account_id'] ?? ''));
     do {
-        $r = cf_api($account, 'GET', '/zones', ['per_page' => 50, 'page' => $page]);
+        $q = ['per_page' => 50, 'page' => $page];
+        if ($acct !== '') $q['account.id'] = $acct;
+        $r = cf_api($account, 'GET', '/zones', $q);
         if ($r['code'] !== 200 || empty($r['json']['success']) || !isset($r['json']['result'])) break;
         foreach ($r['json']['result'] as $z) $zones[] = $z;
         $totalPages = (int) ($r['json']['result_info']['total_pages'] ?? 1);
