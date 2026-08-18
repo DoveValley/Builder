@@ -623,6 +623,13 @@
                 (<code>exim4</code>, <code>postfix</code>) is on the installer's conflict list and makes
                 it abort rather than purge.
                 <br><br>
+                <strong><code>apache2-utils</code> counts as <code>apache2</code> — purge it too.</strong>
+                It reads like a false positive in that grep (it is a few command-line tools and runs no
+                service) and it is not one: the installer matches its conflict list with a <em>glob</em>,
+                so it reports <code>apache2*</code> and aborts with "should be installed on a clean
+                server". Vultr's stock Debian 13 image ships it, so every box built from that image hits
+                this. Do not "fix" the grep to exclude it.
+                <br><br>
                 <code>--api yes</code> switches the API on during the install. Either way you must add
                 this console's IP (<code>187.127.254.206</code>) to <code>API_ALLOWED_IP</code>:
                 <code>v-change-sys-config-value API_ALLOWED_IP '187.127.254.206'</code>. Until you do,
