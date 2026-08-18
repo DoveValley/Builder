@@ -277,13 +277,27 @@
             <span style="color:#9ca3af;font-weight:400">▸</span>
             <?= ih($srv['label'] ?? $srv['id']) ?>
             <span class="badge" style="background:#dbeafe;color:#1e40af">HestiaCP</span>
+            <?php
+            // "Cannot reach it" was one badge for three different jobs. A box whose
+            // machine is up and whose panel is down is a login; a box that is dark is
+            // a call to the hosting company. The sweep already knows which — see
+            // hestia_reach() — so the badge says which, and only falls back to the old
+            // wording for answers stored before that verdict existed.
+            $reachV = $b['reach']['verdict'] ?? '';
+            $failBadge = [
+                'panel'   => ['port is open, API refused', '#fef3c7', '#92400e'],
+                'host_up' => ['machine up, panel down',    '#ffedd5', '#9a3412'],
+                'dark'    => ['nothing answers',           '#fee2e2', '#991b1b'],
+            ][$reachV] ?? ['cannot reach it', '#fee2e2', '#991b1b'];
+            ?>
             <?= $d['ok'] ? '<span class="badge b-ok">up</span>'
                  : ($unset ? '<span class="badge" style="background:#fef3c7;color:#92400e">not set up yet</span>'
                  // Not asked yet and asked-and-failed are different facts, and only
                  // the second is a fault. Showing "cannot reach it" for a box nobody
                  // has checked invents a problem out of an absence of information.
                  : ($fresh ? '<span class="badge b-mut">not checked yet</span>'
-                           : '<span class="badge b-err">cannot reach it</span>')) ?>
+                           : '<span class="badge" style="background:' . $failBadge[1] . ';color:' . $failBadge[2] . '">'
+                             . ih($failBadge[0]) . '</span>')) ?>
             <span style="font-weight:400;font-size:13px;color:#6b7280">
                 <?php
                 // Who the box is rented from, and one click to their login page. The
@@ -374,9 +388,30 @@
                 Press <strong>&#8635; Check all servers</strong> at the top of the page, or
                 <strong>Test connection</strong> below to read just this one.
             </div>
-            <?php elseif (!$d['ok']): ?>
-            <div class="ic-note" style="background:#fef2f2;border-color:#fca5a5;color:#991b1b">
+            <?php elseif (!$d['ok']): $words = $reachV !== '' ? hestia_reach_words($d['reach'], $srv) : null; ?>
+            <div class="ic-note" style="background:<?= $words && $words['tone'] === 'warn' ? '#fffbeb' : '#fef2f2' ?>;border-color:<?= $words && $words['tone'] === 'warn' ? '#fcd34d' : '#fca5a5' ?>;color:<?= $words && $words['tone'] === 'warn' ? '#92400e' : '#991b1b' ?>">
+                <?php if ($words): ?>
+                <strong><?= ih($words['title']) ?></strong><br><?= ih($words['detail']) ?>
+                <div style="font-size:12px;margin-top:8px;opacity:.85">
+                    <!-- The measurement, not just the conclusion: a refused connection and a
+                         silent one look the same in a sentence and mean different things. -->
+                    Port <code><?= ih((string) ($srv['port'] ?? '')) ?></code>
+                    <?= ih($d['reach']['panel']['verdict']) ?>
+                    (<?= (int) $d['reach']['panel']['ms'] ?>ms)
+                    <?php if (($d['reach']['ssh']['verdict'] ?? '') !== 'skipped'): ?>
+                        &middot; port <code><?= HESTIA_SSH_PORT ?></code>
+                        <?= ih($d['reach']['ssh']['verdict']) ?>
+                        (<?= (int) $d['reach']['ssh']['ms'] ?>ms)
+                    <?php endif; ?>
+                    &middot; the API said: <?= ih($d['error']) ?>
+                </div>
+                <?php else: ?>
                 <strong>The console could not talk to this server.</strong><br><?= ih($d['error']) ?>
+                <div style="font-size:12px;margin-top:8px;opacity:.85">
+                    This answer predates the reachability check. Press
+                    <strong>Test connection</strong> below to find out whether the machine itself is up.
+                </div>
+                <?php endif; ?>
                 <?php if (($d['error'] ?? '') !== '' && stripos($d['error'], 'allowed') !== false): ?>
                 <br><br>Hestia answers HTTP 200 with the body <code>Error</code> when the API is switched
                 off or the caller's IP is not allowed — it looks like nothing is wrong. On the box:

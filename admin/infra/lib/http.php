@@ -78,3 +78,53 @@ function infra_http(string $method, string $url, array $opts = []): array
         'error' => $error,
     ];
 }
+
+/**
+ * Can anything open a TCP connection to this host:port? One layer below infra_http() —
+ * no TLS, no HTTP, no credentials, so it answers a question a failed API call cannot:
+ * whether the machine is there at all.
+ *
+ * The three outcomes are genuinely different diagnoses and must not be flattened:
+ *
+ *   open      something is listening and accepted the connection
+ *   refused   the machine answered and said no — it is UP, nothing is on that port
+ *   filtered  nothing answered at all — a firewall dropping packets, or a dead host
+ *
+ * "refused" is the useful one: an immediate RST proves the host is alive, which is
+ * exactly what a timed-out API call leaves unknown. Sub-second, so it is cheap enough
+ * to run on a failure path (and only there).
+ *
+ * Counted like any other outbound call — it is one, and a diagnosis that hides its
+ * own cost is how sweeps quietly get expensive.
+ *
+ * @return array{open:bool,verdict:string,ms:int,error:string}
+ */
+function infra_tcp_probe(string $host, int $port, float $timeout = 4.0): array
+{
+    $GLOBALS['__infra_http_calls'] = infra_http_calls() + 1;
+    $host = trim($host);
+    if ($host === '') return ['open' => false, 'verdict' => 'filtered', 'ms' => 0, 'error' => 'no host'];
+
+    $t0   = microtime(true);
+    $errno = 0; $errstr = '';
+    // @-suppressed deliberately: a refused connection is an ANSWER here, not a fault,
+    // and letting it raise a warning would put "expected result" in the error log.
+    $sock = @fsockopen($host, $port, $errno, $errstr, $timeout);
+    $ms   = (int) round((microtime(true) - $t0) * 1000);
+
+    if ($sock !== false) {
+        fclose($sock);
+        return ['open' => true, 'verdict' => 'open', 'ms' => $ms, 'error' => ''];
+    }
+
+    // ECONNREFUSED is 111 on Linux. Anything else that came back fast is still a
+    // reply of some kind; only a silence that ran out the clock is 'filtered'.
+    $refused = ($errno === 111) || stripos($errstr, 'refused') !== false;
+
+    return [
+        'open'    => false,
+        'verdict' => $refused ? 'refused' : 'filtered',
+        'ms'      => $ms,
+        'error'   => trim($errstr) !== '' ? $errstr : 'no response within ' . $timeout . 's',
+    ];
+}

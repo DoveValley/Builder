@@ -57,7 +57,7 @@ function hestia_server_configured(array $server): bool
  * Key hestia:{id} — a separate namespace from the Plesk `server:{id}` keys, so
  * ?refresh=1 and cache invalidation on one side never touch the other.
  *
- * @return array{ok:bool,error:string,info:?array,sites:array,users:array,calls:int,ms:int,at:string}
+ * @return array{ok:bool,error:string,reach:?array,info:?array,sites:array,users:array,calls:int,ms:int,at:string}
  */
 function infra_discover_hestia(array $server, int $ttl = INFRA_HESTIA_TTL): array
 {
@@ -81,9 +81,16 @@ function infra_discover_hestia(array $server, int $ttl = INFRA_HESTIA_TTL): arra
     $users = $probe['ok'] ? hestia_account_list($server) : [];
     $sites = $probe['ok'] ? hestia_list_sites($server)   : [];
 
+    // Failure only, and only here: two sub-second TCP connections that separate a dead
+    // machine from a live machine with a dead panel. A healthy fleet never runs it, and
+    // it is stored WITH the failure so the page can explain it without going to the
+    // network itself — the same rule the rest of this file follows.
+    $reach = $probe['ok'] ? null : hestia_reach($server);
+
     $bundle = [
         'ok'    => $probe['ok'],
         'error' => $probe['error'],
+        'reach' => $reach,
         'info'  => $info,
         'sites' => $sites,
         'users' => $users,
@@ -122,7 +129,7 @@ function hestia_is_infra_vhost(string $domain, array $server): bool
  * slightly different shapes — the exact drift this file was written to end.
  *
  * @return array{server:array,id:string,label:string,host:string,ok:bool,
- *   pending:bool,never:bool,at:string,error:string,version:string,platform:string,
+ *   pending:bool,never:bool,at:string,error:string,reach:?array,version:string,platform:string,
  *   hostname:string,sites:array,deployed:int,accounts:array,calls:int,ms:int}
  */
 function infra_hestia_shape(array $srv, array $d): array
@@ -144,6 +151,9 @@ function infra_hestia_shape(array $srv, array $d): array
         'never'    => ((string) ($d['at'] ?? '')) === '' && empty($d['unconfigured']),
         'at'       => (string) ($d['at'] ?? ''),
         'error'    => (string) ($d['error'] ?? ''),
+        // null on a healthy box, and on any answer stored before this existed — so
+        // every reader must treat "no verdict" as "not diagnosed", never as "fine".
+        'reach'    => is_array($d['reach'] ?? null) ? $d['reach'] : null,
         'version'  => $f['panel_version'],
         'platform' => $f['platform'],
         'hostname' => $f['hostname'],

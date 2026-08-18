@@ -123,9 +123,12 @@ function hestia_test_flash(array $srv): array
                   . ' pair with v-add-access-key user "" "factory console" and paste both halves in.';
         }
     } elseif (stripos($err, 'timeout') !== false || stripos($err, 'connect') !== false) {
-        $tag  = 'no connection';
-        $hint = ' — nothing answered there. Check the box is up and that port ' . $port
-              . ' is reachable from this console (Hestia\'s firewall and any provider firewall).';
+        // This branch used to end with "check the box is up" — an instruction to go and
+        // find out something the console can settle itself in under a second. Ask.
+        $reach = hestia_reach($srv);
+        $words = hestia_reach_words($reach, $srv);
+        $tag   = $reach['verdict'] === 'dark' ? 'host is dark' : 'panel port only';
+        $hint  = ' — ' . $words['title'] . ' ' . $words['detail'];
     } else {
         $tag = 'no reply from Hestia';
     }

@@ -167,6 +167,97 @@ function hestia_probe(array $server): array
     ];
 }
 
+/** The SSH port, asked only to prove the machine is alive. Never connected to. */
+const HESTIA_SSH_PORT = 22;
+
+/**
+ * WHY A FAILED PROBE IS NOT ONE FACT.
+ *
+ * hestia_probe() answers one question — did the panel API reply — and every way of
+ * failing it comes back the same shape. But "the machine is gone" and "the machine is
+ * fine and the panel is not" need opposite responses: the first is a call to the
+ * hosting company, the second is a login over SSH to start a service. The console said
+ * "cannot reach it" to both, so the next step had to be worked out by hand every time.
+ *
+ * BOX 14 is the case that forced this (2026-08-18). Vultr's panel showed it Running and
+ * the console showed it unreachable, and BOTH were right: the VM was up and answering
+ * on 22 while 80, 443 and 8083 were all dropped, because what was on that IP was no
+ * longer our install. That is one TCP connection's worth of information, and it decided
+ * the whole diagnosis.
+ *
+ * So: ask the panel port, then the SSH port, and name what the pair means.
+ *
+ *   ok        the panel answered — the failure was auth or config, not the network
+ *   panel     panel port open, API still refused — the port is up, the API is not
+ *   host_up   panel port dead, SSH answering — the machine lives, the panel does not
+ *   dark      neither answers — nothing on this address is talking to us
+ *
+ * Only ever called on a failure, and only from the sweep, so a healthy fleet pays
+ * nothing for it. Verdict FIRST, sentence second: callers branch on the verdict and
+ * must never have to pattern-match English to do it.
+ *
+ * @return array{verdict:string,panel:array,ssh:array,at:string}
+ */
+function hestia_reach(array $server): array
+{
+    $host = (string) ($server['host'] ?? '');
+    $port = (int) ($server['port'] ?? 8083);
+
+    $panel = infra_tcp_probe($host, $port);
+    // Not asked when the panel port is open: the answer would change nothing, and a
+    // diagnosis that keeps probing after it knows is just a slower diagnosis.
+    $ssh   = $panel['open'] ? ['open' => false, 'verdict' => 'skipped', 'ms' => 0, 'error' => '']
+                            : infra_tcp_probe($host, HESTIA_SSH_PORT);
+
+    if ($panel['open'])  $verdict = 'panel';
+    elseif ($ssh['open']) $verdict = 'host_up';
+    else                  $verdict = 'dark';
+
+    return ['verdict' => $verdict, 'panel' => $panel, 'ssh' => $ssh, 'at' => date('c')];
+}
+
+/**
+ * The verdict as a sentence, and what to do about it. Kept beside the verdict rather
+ * than in the view, because the Servers tab is not the only place that has to explain
+ * a box that will not answer.
+ *
+ * @return array{title:string,detail:string,tone:string}
+ */
+function hestia_reach_words(array $reach, array $server): array
+{
+    $host = (string) ($server['host'] ?? 'the server');
+    $port = (int) ($server['port'] ?? 8083);
+
+    switch ($reach['verdict'] ?? '') {
+        case 'panel':
+            return [
+                'title'  => 'The panel port is open — the API is what refused.',
+                'detail' => 'Something is listening on ' . $host . ':' . $port . ', so this is not a network'
+                          . ' problem. Hestia\'s API is switched off, the caller IP is not allowed, or the key'
+                          . ' pair is wrong. Press Test connection for the exact code.',
+                'tone'   => 'warn',
+            ];
+        case 'host_up':
+            return [
+                'title'  => 'The machine is up. The panel is not.',
+                'detail' => $host . ' answered on port ' . HESTIA_SSH_PORT . ' but nothing answered on '
+                          . $port . '. The box is running, so the hosting company will show it healthy —'
+                          . ' but Hestia is stopped, its port is firewalled, or the OS on that address is'
+                          . ' no longer the one we installed. Log in over SSH before rebuilding anything.',
+                'tone'   => 'warn',
+            ];
+        case 'dark':
+            return [
+                'title'  => 'Nothing on this address is answering at all.',
+                'detail' => 'Neither ' . $port . ' nor ' . HESTIA_SSH_PORT . ' replied on ' . $host . '.'
+                          . ' The machine is off, gone, or entirely firewalled — this one belongs in the'
+                          . ' hosting company\'s panel, not here.',
+                'tone'   => 'err',
+            ];
+    }
+    return ['title' => '', 'detail' => '', 'tone' => 'err'];
+}
+
 /** Server info (also serves as a reachability/auth check). @return array|null */
 function hestia_server_info(array $server): ?array
 {
