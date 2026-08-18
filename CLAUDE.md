@@ -2,6 +2,15 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+**This file loads on every turn, so it holds only what is needed to avoid breaking something.**
+Task-specific detail lives in `docs/` — read the relevant one when the task calls for it:
+
+| read when | file |
+|---|---|
+| Building or rebuilding a client site into `site.json` | `docs/site-building.md` |
+| A block must go edge-to-edge, or a full-width block leaves a gap above the footer | `docs/content-blocks.md` |
+| Course data, the two schedule widgets, or the Schedule tab | `docs/course-schedule.md` |
+
 ## Running locally
 
 No build step. Serve with PHP's built-in server from the project root:
@@ -10,28 +19,37 @@ No build step. Serve with PHP's built-in server from the project root:
 php -S localhost:8080 router.php
 ```
 
-The `router.php` argument is required for pretty URLs to work locally. Without it, every non-file URL silently falls back to `index.php` (the homepage) because `php -S` does not process `.htaccess` mod_rewrite.
+The `router.php` argument is required for pretty URLs to work locally. Without it, every non-file URL
+silently falls back to `index.php` (the homepage) because `php -S` does not process `.htaccess`
+mod_rewrite.
 
-Admin panel: `http://localhost:8080/admin/login.php`  
-Default credentials: `admin` / `admin123`
+Admin panel: `http://localhost:8080/admin/login.php` — default `admin` / `admin123`.
+Replacement hash: `php -r "echo password_hash('your-password', PASSWORD_DEFAULT);"` → `config.php`
+as `ADMIN_PASSWORD_HASH`.
 
-To generate a replacement password hash:
-```bash
-php -r "echo password_hash('your-password', PASSWORD_DEFAULT);"
-```
-Paste the result into `config.php` as `ADMIN_PASSWORD_HASH`.
+## Local testing
+
+`php -S` does **not** process `.htaccess`/mod_rewrite, so pretty URLs (`/blog`, `/some-landing-page`)
+silently fall back to serving the homepage with HTTP 200 instead of routing or 404ing. This is
+expected, not a bug — test with the query-string forms (`page.php?slug=...`, `blog.php?slug=...`,
+`blog.php?tag=...`). For visual checks, take a headless Chrome screenshot and view it with the Read
+tool.
 
 ## Architecture
 
-**No database.** All site content lives in `data/site.json` (single-site) or `sites/{id}/data/site.json` (multi-site). Course schedule data lives in a parallel file: `data/courses.json` / `sites/{id}/data/courses.json`. `config.php` defines path constants (`DATA_FILE`, `COURSES_FILE`, `UPLOAD_DIR`, etc.) and admin credentials.
+**No database.** All site content lives in `data/site.json` (single-site) or
+`sites/{id}/data/site.json` (multi-site). Course schedule data lives in a parallel file:
+`data/courses.json` / `sites/{id}/data/courses.json`. `config.php` defines path constants
+(`DATA_FILE`, `COURSES_FILE`, `UPLOAD_DIR`, etc.) and admin credentials.
 
 **Data flow:**
-1. `load_data()` reads `site.json` and deep-merges it with `default_data()` so any newly-added keys get their defaults automatically.
-2. Public pages (`index.php`, `page.php`) call `load_data()`, set `$contentBlocks`, `$seo`, `$pageTitle`, and `$assetPathPrefix = '/'`, then `require` `includes/site-template.php`.
-3. `site-template.php` renders the full HTML page: shared header, then loops `$contentBlocks` calling `render_content_block($block, $pathPrefix)` for each, then shared footer.
-4. Admin saves go to `admin/save.php` (POST only, keyed by `$_POST['section']`: `header`, `theme`, `content`, `footer`, `pages`, `popups`) or `admin/schedule_save.php` (course schedule CRUD). Both redirect back with `?msg=success:...` or `?msg=error:...`.
+1. `load_data()` reads `site.json` and deep-merges it with `default_data()` so newly-added keys get their defaults automatically.
+2. Public pages (`index.php`, `page.php`) call `load_data()`, set `$contentBlocks`, `$seo`, `$pageTitle`, `$assetPathPrefix = '/'`, then `require` `includes/site-template.php`.
+3. `site-template.php` renders the full page: shared header, then loops `$contentBlocks` calling `render_content_block($block, $pathPrefix)`, then shared footer.
+4. Admin saves go to `admin/save.php` (POST only, keyed by `$_POST['section']`: `header`, `theme`, `content`, `footer`, `pages`, `popups`) or `admin/schedule_save.php`. Both redirect back with `?msg=success:...` or `?msg=error:...`.
 
-**Multi-site:** `$_SESSION['active_site']` selects the active site. `site_api.php` handles site switching via FormData POST (`action=select&site_id=...`). Admin redirects to `sites.php` when no site is selected.
+**Multi-site:** `$_SESSION['active_site']` selects the active site. `site_api.php` handles switching
+via FormData POST (`action=select&site_id=...`). Admin redirects to `sites.php` when none is selected.
 
 **`includes/` structure** — `functions.php` is a loader only; logic lives in focused files:
 - `data.php` — `load_data()`, `save_data()`, `default_data()`, `default_post_data()`
@@ -40,246 +58,96 @@ Paste the result into `config.php` as `ADMIN_PASSWORD_HASH`.
 - `blocks.php` — `allowed_block_types()`, `render_content_block($block, $pathPrefix = '')`
 - `editor.php` — `render_content_blocks_editor()`, per-block admin panel UI
 - `scripts.php` — JS templates for new-block scaffolding in the admin
-- `shortcodes.php` — `apply_shortcodes_to_block()`, `apply_course_shortcodes()`, `course_shortcode_inline_script()`, course data loaders
-- `schema.php` — JSON-LD schema helpers
-- `seo-editor.php` — SEO admin panel rendering
-- `site-template.php` — shared HTML template (head, content loop, footer, inline scripts). Sets `$lastBlockType` to conditionally zero `<main>` padding-bottom and `<footer>` margin-top when the last block is `custom_html`.
+- `shortcodes.php` — `apply_shortcodes_to_block()`, `apply_course_shortcodes()`, course data loaders
+- `schema.php` — JSON-LD helpers · `seo-editor.php` — SEO admin panel
+- `site-template.php` — shared HTML template (head, content loop, footer, inline scripts)
 
 ## Content blocks
 
-All block types are registered in `allowed_block_types()` in `includes/blocks.php`. Each block is a PHP associative array stored in `site.json`. The `render_content_block($block, $pathPrefix = '')` switch statement in `includes/blocks.php` handles rendering every type.
+All block types are registered in `allowed_block_types()` in `includes/blocks.php`. Each block is a
+PHP associative array stored in `site.json`, rendered by the `render_content_block()` switch.
 
-**Current block types (34):** `text`, `image_left`, `image_right`, `hero`, `hero_split`, `feature_split`, `split_cta`, `tab_services`, `hero_grid`, `service_cards`, `wide_banner`, `image_features`, `faq_two_col`, `cta_banner`, `links_grid`, `cta_card`, `map_info`, `image_text`, `faq`, `feature_columns`, `custom_html`, `steps`, `stats`, `cards`, `gallery`, `cta_button`, `testimonials`, `video`, `buttons_grid`, `html_two_col`, `pricing_cards`, `logo_bar`, `stage_cards`, `contact_form`
+**Current block types (34):** `text`, `image_left`, `image_right`, `hero`, `hero_split`,
+`feature_split`, `split_cta`, `tab_services`, `hero_grid`, `service_cards`, `wide_banner`,
+`image_features`, `faq_two_col`, `cta_banner`, `links_grid`, `cta_card`, `map_info`, `image_text`,
+`faq`, `feature_columns`, `custom_html`, `steps`, `stats`, `cards`, `gallery`, `cta_button`,
+`testimonials`, `video`, `buttons_grid`, `html_two_col`, `pricing_cards`, `logo_bar`, `stage_cards`,
+`contact_form`
 
-**Adding a new block type** requires changes across four files:
-1. `includes/blocks.php` — add entry to `allowed_block_types()`, add `case` in `render_content_block()`
-2. `includes/editor.php` — add admin panel UI for editing the block's fields
-3. `includes/scripts.php` — add the new-block JS template (default field values when block is added)
-4. `admin/save.php` — add the `case` in the `content` section that reads `$_POST` and builds the block array
+**Adding a new block type requires changes across four files:**
+1. `includes/blocks.php` — add to `allowed_block_types()`, add a `case` in `render_content_block()`
+2. `includes/editor.php` — admin panel UI for the block's fields
+3. `includes/scripts.php` — the new-block JS template (default field values)
+4. `admin/save.php` — the `case` in the `content` section that reads `$_POST` and builds the array
 
-Both `render_content_block()` and `render_content_blocks_editor()` are large switch statements — each `case` label matches the block type name 1:1, so grep for `case 'block_type'` to jump to it. When a new case needs a link/button URL field, save it through `sanitize_url()` — see "Security notes" below. When it needs a photo upload field, reuse `render_photo_upload_fields()`.
+Both `render_content_block()` and `render_content_blocks_editor()` are large switch statements — each
+`case` label matches the block type name 1:1, so grep for `case 'block_type'`. Link/button URL fields
+must be saved through `sanitize_url()` (see Security). Photo upload fields reuse
+`render_photo_upload_fields()`.
 
-`post_meta` and `blog_list` are pseudo block types — handled in `render_content_block()` but deliberately left out of `allowed_block_types()` since they're only ever generated by `blog.php`, never picked from the admin block editor.
+`post_meta` and `blog_list` are pseudo types — handled in `render_content_block()` but deliberately
+left out of `allowed_block_types()`, since only `blog.php` generates them.
 
-**`custom_html` is in `$isFullWidth`** — unlike most non-hero blocks, `custom_html` blocks are NOT wrapped in `.container` by `site-template.php`. The block renderer still adds a `.block-custom-html` wrapper (with `padding: 24px`) UNLESS the HTML starts with `<div[^>]*class="[^"]*\bcontent-block\b` — in that case it echoes the HTML raw with no wrapper at all.
-
-**Full-width `custom_html` pattern** — to create an edge-to-edge colored section inside a `custom_html` block, start the HTML with `<div class="content-block" style="padding:0;margin:0;">` (bypasses the padded wrapper), then use the viewport breakout technique on the inner div:
-```html
-<div class="content-block" style="padding:0;margin:0;">
-  <div style="width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#2563eb;padding:72px 0;">
-    <div style="max-width:860px;margin:0 auto;padding:0 24px;">
-      ...content...
-    </div>
-  </div>
-</div>
-```
-`flex-shrink:0` is required because `.content-block` is `display:flex` and would otherwise shrink the `100vw` div to the container width. The `calc(-50vw + 50%)` math works at any nesting level — it accounts for padding at every ancestor automatically.
-
-**Last-block gap elimination** — `site-template.php` checks `$lastBlockType` (the type of the final block in `$contentBlocks`). When it is `custom_html`, it adds `style="padding-bottom:0"` to `<main>` and `style="margin-top:0"` to `<footer>`. This prevents the 48px `site-main` padding and 48px `site-footer` margin-top from creating a white band between a full-width closing block and the footer.
-
-## Course schedule system
-
-Course data lives in `COURSES_FILE` (defined in `config.php`, parallel to `DATA_FILE`). Each course has: `id` (auto-increment), `course_type`, `delivery` (Live-Virtual / On-Demand), `dates`, `time_est` (time range string like `"8:30am-5:00pm"` or `"Self-paced"`), `price`, `old_price`, `register_url`, `availability_note`, `guaranteed`, `sort_order`.
-
-**Shortcodes** — resolved inside `custom_html` blocks by `apply_course_shortcodes()` in `includes/shortcodes.php`:
-- `[course_schedule type="PMP Certification"]` — Widget 1 filterable table (schedule.js / schedule.css)
-- `[course_card type="PMP Certification" start_tab="1"]` — Widget 2 compact card widget (card.js / card.css)
-- Both shortcodes accept `type="All"` to show all course types
-
-**Inline data pattern** — `course_shortcode_inline_script()` outputs `<script>var csmAllData={...}; var csm2AllData={...};</script>` before `</body>`, keyed by instance ID (e.g. `csm1_inst_1`). This replaces WP's `wp_localize_script`. Scripts and CSS are only injected when at least one shortcode was actually used on the page (checked via `$GLOBALS['_csm_w1_data']`/`$GLOBALS['_csm_w2_data']`).
-
-**DOMContentLoaded ordering (critical):** `<script src="schedule.js">` runs while `readyState === 'loading'` and defers `initAll()` to DOMContentLoaded. Any filter trigger scripts on test pages must be registered as DOMContentLoaded listeners placed *after* the `<script src="schedule.js">` tag — this puts them second in the listener queue (after schedule.js's own listener), so widgets initialize before filters fire. An inline IIFE immediately after the script tag does not work.
-
-**Admin:** `admin/tabs/schedule.php` provides list/add/edit UI. `admin/schedule_save.php` handles CRUD POSTs (actions: `save`, `delete`, `duplicate`). Same CSRF pattern as `save.php`.
-
-**Asset files:** `assets/css/schedule.css`, `assets/css/card.css`, `assets/js/schedule.js`, `assets/js/card.js` — ported from the course-schedule-manager WP plugin.
+`custom_html` is full-width (not wrapped in `.container`) — see `docs/content-blocks.md`.
 
 ## Theme / colors
 
-`theme_css_vars()` converts the `theme` section of `site.json` into CSS custom properties injected inline into every page (`--color-header-bg`, `--color-accent`, `--btn-radius`, `--font-primary`, etc.).
+`theme_css_vars()` converts the `theme` section of `site.json` into CSS custom properties injected
+inline into every page (`--color-header-bg`, `--color-accent`, `--btn-radius`, `--font-primary`).
 
-Many block fields accept a color mode string (`'accent'`, `'header'`, `'footer'`, `'custom'`) instead of a raw hex value. `resolve_color($which, $customHex)` resolves these to a concrete color at render time by reading the global `$data['theme']`.
+Many block fields accept a color mode string (`'accent'`, `'header'`, `'footer'`, `'custom'`) instead
+of a raw hex. `resolve_color($which, $customHex)` resolves these at render time from `$data['theme']`.
 
 ## Image uploads
 
-`save_uploaded_file()` validates MIME type (jpeg/png/gif/webp), enforces 8 MB max, and writes to `uploads/` with a time+random filename. The function returns the relative path `uploads/filename.ext`, which is stored in `site.json`. At render time, `$pathPrefix . $photo` resolves to the correct URL (`/uploads/filename.ext`).
+`save_uploaded_file()` validates MIME type (jpeg/png/gif/webp), enforces 8 MB max, and writes to
+`uploads/` with a time+random filename. It returns the relative path `uploads/filename.ext`, stored
+in `site.json`. At render time `$pathPrefix . $photo` resolves to the correct URL.
 
 ## URL routing
 
-Landing pages are at `page.php?slug=your-slug`. An `.htaccess` rewrite maps `/your-slug` → `page.php?slug=your-slug` on Apache. Slugs are validated against a reserved list in `reserved_slugs()` and deduplicated by `unique_slug()`.
+Landing pages are at `page.php?slug=your-slug`. An `.htaccess` rewrite maps `/your-slug` on Apache.
+Slugs are validated against `reserved_slugs()` and deduplicated by `unique_slug()`.
 
 ## Admin auth
 
-Session-based. `config.php` calls `session_start()`. Every admin page checks `$_SESSION['admin_logged_in']` and redirects to `login.php` if not set. Password is verified with `password_verify()` against the bcrypt hash in `ADMIN_PASSWORD_HASH`.
+Session-based. `config.php` calls `session_start()`. Every admin page checks
+`$_SESSION['admin_logged_in']` and redirects to `login.php`. Password verified with
+`password_verify()` against the bcrypt hash in `ADMIN_PASSWORD_HASH`.
 
 **Admin tabs:** header, theme, content, pages, blog, footer, popups, media, seo, schedule
 
 ## Blog system
 
-`data['posts']` is an id-keyed array (`default_post_data()` schema: title, slug, status, published_at, updated_at, author, tag, excerpt, featured_image, featured_image_alt, content_blocks, seo). `data['blog_settings']` holds `blog_heading`, `blog_intro`, `posts_per_page`. `blog.php` is the router: `/blog` (listing, supports `?tag=` and `?p=` pagination) and `/blog/{slug}` (single post). It builds synthetic `$contentBlocks` (a `post_meta` block followed by the post's own blocks for single posts, or a `blog_list` block for the listing) and `require`s `includes/site-template.php`, the same as `page.php`.
+`data['posts']` is an id-keyed array (`default_post_data()`: title, slug, status, published_at,
+updated_at, author, tag, excerpt, featured_image, featured_image_alt, content_blocks, seo).
+`data['blog_settings']` holds `blog_heading`, `blog_intro`, `posts_per_page`. `blog.php` routes
+`/blog` (listing, `?tag=` and `?p=`) and `/blog/{slug}`. It builds synthetic `$contentBlocks` (a
+`post_meta` block plus the post's own blocks, or a `blog_list` block) and requires
+`includes/site-template.php`, same as `page.php`.
 
-The tag is a single string per post; `/blog?tag=slug` filters by `slugify()` match. The blog listing page renders a persistent tag-pill bar (an "All" pill plus one pill per distinct tag) under its heading — this lives on the listing page only, not on individual post pages.
-
-## Site-building methodology
-
-Building a site directly into `site.json` should be done in phases, slowly and verifiably. Never generate all content at once — it produces placeholder-filled, structurally wrong output that takes longer to fix than to build correctly from the start.
-
-### Phase 1 — Research before touching any JSON
-
-Before writing a single field, fetch the real site and extract:
-- Business name, phone (exact format), email, physical address
-- Tagline / hero headline (use their actual words, not invented ones)
-- Nav menu structure and what pages exist
-- Real stats and numbers (pass rates, years in business, students trained, certifications offered) — never invent stats
-- Testimonials (real names, real quotes if available, or clearly paraphrased)
-- Brand colors (check CSS or screenshot)
-- All images needed — logo especially; download it immediately with `curl -L`
-
-Commands:
-```bash
-# Download logo directly into the site's uploads folder
-curl -L -o sites/{id}/uploads/logo.png "https://client.com/path/to/logo.png"
-# Check dimensions before assigning
-sips -g pixelWidth -g pixelHeight sites/{id}/uploads/logo.png
-```
-
-### Phase 2 — Foundation (site_vars, theme, header, footer)
-
-Set these before any content blocks. Every block that uses `{phone}`, `{business}`, `{website}` etc. depends on `site_vars` being correct first.
-
-**site_vars checklist:**
-```json
-{
-  "business": "Exact Business Name",
-  "phone": "555-555-5555",          // display format
-  "tel": "+15555555555",            // E.164 for tel: links
-  "email": "contact@domain.com",
-  "website": "https://domain.com",
-  "city": "City Name",
-  "state": "State Name",
-  "SS": "ST",                       // 2-letter state abbrev
-  "city_slug": "city-name-st",
-  "zip": "00000"
-}
-```
-
-**header checklist:**
-- `site_name` — set explicitly (not left blank)
-- `logo` — path to downloaded logo file
-- `phone` — use `{phone}` shortcode so it pulls from site_vars
-- `menu` — build the real nav, with real slugs (not hardcoded city names)
-
-**footer checklist:**
-- `phone`, `email` — use shortcodes
-- `copyright` — `© {year} {business}. All rights reserved.`
-- `columns` — address, quick links, contact info
-
-Take a screenshot and confirm header/footer look correct before proceeding.
-
-### Phase 3 — Homepage, one block at a time
-
-Build blocks in order. After each block, take a screenshot and confirm before adding the next.
-
-**Block order that works well for most service businesses:**
-1. `hero_split` or `hero` — headline, subtext, primary CTA, hero image
-2. `feature_columns` — 3–4 key differentiators with icons/images
-3. `stats` — real numbers only (pass rates, years, customers, etc.)
-4. `pricing_cards` or `service_cards` — main offerings
-5. `testimonials` — real quotes with real names
-6. `faq_two_col` — 6–10 real FAQs
-7. `cta_banner` — closing call to action
-8. `contact_form` — if needed
-
-**Hero block rules:**
-- Use the client's actual headline, not a generated one
-- `{city}` / `{city_state}` DO resolve on the homepage — `resolve_shortcodes()` always reads them from `site_vars` at render time, on every page. They never print literally.
-- But they resolve to the site's single primary city (`site_vars.city`), not a per-visitor/per-region value. On a business that serves many cities, hardcoding one city in the homepage hero headline may be undesirable — that's an editorial choice, not a rendering limitation.
-
-**Stats block rules:**
-- Only use numbers found on the real site or verifiable facts
-- Never invent a pass rate, years in business, or student count
-- If a real number isn't available, use a factual claim instead (e.g., "PMI Premier ATP" not "98% pass rate")
-
-Screenshot command (swap PORT and adjust window size as needed):
-```bash
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless=new --disable-gpu --screenshot=/tmp/block_check.png --window-size=1400,900 "http://localhost:PORT/"
-```
-
-### Phase 4 — Landing pages, one at a time
-
-Build each landing page (`pages` array in `site.json`) in sequence. Most important page first (usually the primary service).
-
-For each page:
-1. Fetch the corresponding page on the real site to extract real content
-2. Write the `content_blocks` array for that page
-3. Set the `seo` fields (title, meta description, canonical)
-4. Screenshot via `page.php?slug=the-slug` and review
-5. Move to the next page
-
-**Page URL slugs** — never hardcode a city name into a slug unless this is explicitly a city-specific site. Use generic service slugs:
-- `pmp-certification-training` not `pmp-certification-training-san-antonio-tx`
-
-### Phase 5 — Images
-
-For each block that has a `photo` field:
-1. Check `sites/{id}/uploads/media/` for an existing relevant image first
-2. If none exists, search for and download an appropriate image
-3. Check dimensions with `sips` before assigning
-4. Assign the path directly in the JSON: `"photo": "sites/{id}/uploads/media/filename.webp"`
-
-Never leave a photo field blank if the block type prominently features an image — it will render broken or empty.
-
-### Phase 6 — Course schedule (for training businesses)
-
-Populate `courses.json` last, once the site structure is solid. Real course dates, prices, and registration URLs from the client's live schedule. Use the admin Schedule tab or write directly to the JSON.
-
-### Common mistakes to avoid
-
-- **Assuming `{city}` won't resolve on the homepage** — it does. `resolve_shortcodes()` reads `{city}`/`{SS}`/`{city_state}` from `site_vars` at render time on every page, including the homepage. The real caveat: it always resolves to the site's single primary city (`site_vars.city`), so it can't localize a multi-city homepage per visitor — that's editorial, not a bug.
-- **Hardcoded city names in slugs** — nav menu URLs like `/pmp-certification-san-antonio-tx` will break if the site serves multiple cities or moves.
-- **Invented stats** — made-up pass rates and student counts are worse than no stats. Use only real numbers.
-- **Empty `site_name`** — always set `header.site_name`; it's used in the `<title>` tag and breadcrumbs.
-- **Placeholder phone** — `(210) 555-0190` style numbers in `site_vars` will appear everywhere. Set the real phone before any content.
-- **Skipping screenshots** — always take a screenshot after each phase. Problems found early are cheap; problems found after 10 blocks take much longer to untangle.
-
-## Writing blog/legal page content
-
-Don't reproduce another site's copyrighted text verbatim, even when adapting a real competitor or reference page (e.g. cloning a business's own blog or legal pages) and even when swapping in `{business}`/`{business_domain}` shortcodes — a find/replace pass over someone else's text is still a copy. Instead, write fully original copy that covers the same topics/structure (same section headings, same substantive points), in original wording.
-
-## Media library reuse
-
-Before uploading anything new, check `uploads/media/` for an existing topically-relevant image — it's pre-populated with scraped images. Check dimensions with `sips -g pixelWidth -g pixelHeight <file>` and preview candidates with the Read tool before assigning a path into a `photo`/`featured_image` field directly in `site.json`.
-
-## Site preview files
-
-For headless Chrome screenshots of a specific site without going through the admin session flow, create a `{site_id}preview.php` at the project root:
-
-```php
-<?php
-session_start();
-$_SESSION['active_site'] = 'site_id_here';
-session_write_close();
-require __DIR__ . '/index.php';
-```
-
-Then screenshot it directly: `http://localhost:PORT/granitepmacademy preview.php`. The `session_write_close()` before `require` is critical — without it the session isn't committed before `index.php` reads it.
-
-## Local testing
-
-`php -S localhost:PORT` (PHP's built-in server) does **not** process `.htaccess`/mod_rewrite, so pretty URLs (`/blog`, `/some-landing-page`) silently fall back to serving the homepage with HTTP 200 instead of routing correctly or 404ing. This is expected, not a bug — test with the query-string forms instead (`page.php?slug=...`, `blog.php?slug=...`, `blog.php?tag=...`). For visual verification, take a headless Chrome screenshot and view it with the Read tool:
-```bash
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless=new --disable-gpu --screenshot=/tmp/out.png --window-size=W,H "http://localhost:PORT/path"
-```
+The tag is a single string per post; `/blog?tag=slug` filters by `slugify()` match. The listing page
+renders a persistent tag-pill bar — listing only, not individual posts.
 
 ## Breadcrumbs
 
-`site-template.php` builds two separate breadcrumb arrays whenever `$slug` is set: `$bcItems` (relative URLs, used by the visible `<nav class="breadcrumb-bar">`) and `$bcSchemaItems` (absolute URLs, used only for the `BreadcrumbList` JSON-LD, since schema.org requires absolute URLs there). Keep these separate — reusing one absolute-URL array for both was a past bug that sent visible breadcrumb clicks off-site.
+`site-template.php` builds two separate arrays whenever `$slug` is set: `$bcItems` (relative URLs,
+for the visible `<nav class="breadcrumb-bar">`) and `$bcSchemaItems` (absolute URLs, for the
+`BreadcrumbList` JSON-LD, which schema.org requires). **Keep these separate** — reusing one
+absolute-URL array for both was a past bug that sent visible breadcrumb clicks off-site.
+
+## Writing blog/legal page content
+
+Don't reproduce another site's copyrighted text verbatim, even when adapting a real competitor or
+reference page and even when swapping in `{business}`/`{business_domain}` shortcodes — a
+find/replace pass over someone else's text is still a copy. Write fully original copy covering the
+same topics and structure, in original wording.
 
 ## API calls: one module per service, reused everywhere
 
-**Every call to an outside service goes through a single module for that service. No page, action handler or plugin talks to an API directly.** When something needs a service that has no module yet, write the module — do not inline "just this once".
-
-Existing clients, one per service:
+**Every call to an outside service goes through a single module for that service. No page, action
+handler or plugin talks to an API directly.** When something needs a service that has no module yet,
+write the module — do not inline "just this once".
 
 | Service | Module |
 |---|---|
@@ -292,17 +160,26 @@ Existing clients, one per service:
 | FTP/SFTP upload | `includes/multisite/deploy.php` |
 | Geocoding | `includes/multisite/geocode.php` |
 
-**Why, from this codebase.** Five places each ran their own "list the boxes, discover each, dig out the facts" loop and dug slightly differently — one counted the panel's own hostname vhost as a deployed site, so eight empty boxes reported eight sites. One `infra_hestia_fleet()` fixed every consumer at once. The same is still true of Anthropic: `admin/keyword_suggest.php`, `admin/schema_suggest.php` and `plugins/recovery/enrich.php` each hand-roll the API and have already drifted to different models. **Duplicated clients do not stay duplicates; they become different.**
+**Why, from this codebase.** Five places each ran their own "list the boxes, discover each, dig out
+the facts" loop and dug slightly differently — one counted the panel's own hostname vhost as a
+deployed site, so eight empty boxes reported eight sites. One `infra_hestia_fleet()` fixed every
+consumer at once. The same is still true of Anthropic: `admin/keyword_suggest.php`,
+`admin/schema_suggest.php` and `plugins/recovery/enrich.php` each hand-roll the API and have already
+drifted to different models. **Duplicated clients do not stay duplicates; they become different.**
 
-What a service module owns, so callers never repeat it: base URL and auth, retry/timeout, error shape, response parsing, and any rule about the data (e.g. "the box's own hostname vhost is not a site" lives in `hestia_is_infra_vhost()`, not in three pages).
+A service module owns, so callers never repeat it: base URL and auth, retry/timeout, error shape,
+response parsing, and any rule about the data (e.g. "the box's own hostname vhost is not a site"
+lives in `hestia_is_infra_vhost()`, not in three pages).
 
-Cross-boundary note: `admin/infra/lib/*` is deliberately self-contained, so other parts of the panel may `require_once` a lib directly. Do **not** require `admin/infra/bootstrap.php` from outside the console — it redirects when it cannot see a session, which turns a JSON endpoint into a 302.
+Cross-boundary note: `admin/infra/lib/*` is deliberately self-contained, so other parts of the panel
+may `require_once` a lib directly. Do **not** require `admin/infra/bootstrap.php` from outside the
+console — it redirects when it cannot see a session, which turns a JSON endpoint into a 302.
 
 ## Security notes
 
-- **All admin POST endpoints require CSRF tokens.** `admin/save.php`, `admin/media_api.php`, and `admin/schedule_save.php` all check `$_SESSION['csrf_token']` against a `csrf_token` field on every POST via `hash_equals()`. If you add a new POST endpoint, give it the same check.
-- **All user-entered URLs go through `sanitize_url()`** (`includes/helpers.php`) before being stored — it only allows `http(s)://`, `tel:`, `mailto:`, and relative/in-page links, blocking `javascript:` and other dangerous schemes. Every `*_url`/`*_btn_url` field in any save handler must use it; don't store `trim($_POST[...])` directly.
-- **Uploaded SVGs are sanitized** via `sanitize_svg()` (`includes/helpers.php`) — strips `<script>` tags, `on*` event handlers, and `javascript:` URIs before saving. GIFs are still passed through unprocessed (raster format, no script risk).
-- **Never deploy this repo with `.git/` present in the webroot.** The root `.htaccess` now blocks direct access to dotfiles/dotfolders as a safety net, but the correct practice is to not upload `.git/` to a live host at all — it would otherwise expose full commit history, including old credential hashes.
+- **All admin POST endpoints require CSRF tokens.** `admin/save.php`, `admin/media_api.php`, and `admin/schedule_save.php` all check `$_SESSION['csrf_token']` against a `csrf_token` field via `hash_equals()`. Any new POST endpoint gets the same check.
+- **All user-entered URLs go through `sanitize_url()`** (`includes/helpers.php`) before being stored — it allows only `http(s)://`, `tel:`, `mailto:`, and relative/in-page links, blocking `javascript:`. Every `*_url`/`*_btn_url` field in any save handler must use it; don't store `trim($_POST[...])` directly.
+- **Uploaded SVGs are sanitized** via `sanitize_svg()` — strips `<script>`, `on*` handlers, and `javascript:` URIs. GIFs pass through unprocessed (raster, no script risk).
+- **Never deploy this repo with `.git/` present in the webroot.** The root `.htaccess` blocks dotfiles as a safety net, but the correct practice is not uploading `.git/` to a live host at all — it would expose full commit history, including old credential hashes.
 - **Change the default admin password before any site goes live** — `config.php` ships with a placeholder bcrypt hash for `admin123`.
-- **Set `CONTACT_EMAIL` in `config.php`** before deploying the contact form — it defaults to `hello@yoursite.com`. The `contact_form` block renders via `contact_send.php` (public POST handler with CSRF, honeypot, and rate limiting). Session CSRF token is `$_SESSION['cf_csrf_token']` (separate from the admin token).
+- **Set `CONTACT_EMAIL` in `config.php`** before deploying the contact form — it defaults to `hello@yoursite.com`. The `contact_form` block renders via `contact_send.php` (public POST handler with CSRF, honeypot, rate limiting). Its session token is `$_SESSION['cf_csrf_token']`, separate from the admin token.
