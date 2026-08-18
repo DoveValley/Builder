@@ -86,6 +86,24 @@ function infra_cf_zones_cached(array $account): array
 }
 
 /**
+ * Has this account EVER been swept, regardless of what the sweep found?
+ *
+ * infra_cf_zones_cached() answers [] both for "swept, holds nothing" and for "nobody
+ * has ever asked" — fine for listing zones, wrong for counting them. An account nobody
+ * has swept would read as empty, and anything allocating against that count would
+ * cheerfully fill an account it knows nothing about. Same rule as everywhere else in
+ * this console: not asked and asked-and-empty are different facts.
+ */
+function infra_cf_zones_swept(array $account): bool
+{
+    $wasFresh = infra_cache_fresh();
+    if ($wasFresh) infra_cache_force(false);
+    $c = infra_cache_get(infra_cf_zones_key($account), PHP_INT_MAX);
+    if ($wasFresh) infra_cache_force(true);
+    return $c !== null;
+}
+
+/**
  * What is actually inside one zone, boiled down to the bit that matters.
  *
  * A zone can exist, have its nameservers set, and hold nothing at all — which is

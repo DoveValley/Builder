@@ -644,13 +644,27 @@ function infra_pipeline_do(string $step, string $domain, string $batch = ''): ar
                 break;
 
             case 'zone':
-                $box = infra_hestia_server((string) ($rec['server_id'] ?? ''));
+                require_once __DIR__ . '/cf_alloc.php';
+                $sid = (string) ($rec['server_id'] ?? '');
+                $box = infra_hestia_server($sid);
                 if (!$box) { $msg = 'no box assigned — the zone needs an IP to point at'; break; }
-                $accts = array_values(infra_cf_accounts());
-                if (!$accts) { $msg = 'no Cloudflare account configured'; break; }
+
+                // A zone already recorded against an account stays with it. Cloudflare
+                // cannot move a zone between accounts, so re-picking would create a
+                // second zone rather than relocating the first.
                 $acct = null;
-                foreach ($accts as $a) if (($a['id'] ?? '') === ($rec['cf_account_id'] ?? '')) $acct = $a;
-                $acct ??= $accts[infra_state_counter_next('pipeline_cf') % count($accts)];
+                foreach (infra_cf_accounts() as $a) {
+                    if (($a['id'] ?? '') !== '' && ($a['id'] ?? '') === ($rec['cf_account_id'] ?? '')) $acct = $a;
+                }
+                if (!$acct) {
+                    // THE BOX DECIDES THE ACCOUNT. This used to be a round-robin across
+                    // every account, unrelated to the box — which put a domain's
+                    // nameserver pair and its IP on two different groups of domains,
+                    // and made those groups chain together. See lib/cf_alloc.php.
+                    $pick = infra_cf_account_for_server($sid);
+                    if (!$pick['ok']) { $msg = $pick['why']; break; }   // refuse, never spill
+                    $acct = $pick['account'];
+                }
                 $r = infra_provision_one($domain, $box, $acct, ['site' => false, 'cf' => true]);
                 $msg = implode(' · ', $r['lines']);
                 break;

@@ -44,6 +44,34 @@ function cf_probe(array $account): array
     return ['ok' => $ok, 'code' => $r['code'], 'error' => $msg];
 }
 
+/**
+ * Every Cloudflare account this credential can see.
+ *
+ * Belongs here rather than in the caller for the same reason every other Cloudflare
+ * call does: one module owns the base URL, the auth headers, the error shape and the
+ * envelope-unwrapping, so a second reader cannot drift from the first.
+ *
+ * A token is normally scoped to one account, but one user invited into several can list
+ * them all — which is what makes binding twenty accounts a discovery rather than twenty
+ * hand-typed ids, each of which is invisible when wrong.
+ *
+ * @return array{ok:bool, error:string, accounts:array<int,array{id:string,name:string}>}
+ */
+function cf_list_accounts(array $account): array
+{
+    $r = cf_api($account, 'GET', '/accounts', ['per_page' => 50]);
+    if ($r['code'] !== 200 || empty($r['json']['success'])) {
+        return ['ok' => false, 'accounts' => [],
+                'error' => $r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code'])];
+    }
+    $out = [];
+    foreach ((array) ($r['json']['result'] ?? []) as $a) {
+        if (($a['id'] ?? '') === '') continue;
+        $out[] = ['id' => (string) $a['id'], 'name' => (string) ($a['name'] ?? '')];
+    }
+    return ['ok' => true, 'error' => '', 'accounts' => $out];
+}
+
 /** All zones in an account (paginated). @return array of zone objects */
 function cf_list_zones(array $account): array
 {

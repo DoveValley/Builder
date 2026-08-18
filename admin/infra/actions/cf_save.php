@@ -15,6 +15,7 @@
  * untouched; the console simply stops talking to that account.
  */
 require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../lib/cf_alloc.php';   // binding an account to a box
 
 $back = '../index.php?view=cloudflare';
 
@@ -55,6 +56,50 @@ if ($action === 'delete') {
             infra_set_flash('err', 'Could not write the account list.');
         }
     }
+    header('Location: ' . $back); exit;
+}
+
+/* ---- bind an account to a box ----------------------------------------- */
+/* The pairing is stored ON THE ACCOUNT — one field, one value — so "an account can
+ * only be on one box" is not a rule anything has to enforce. See lib/cf_alloc.php. */
+if ($action === 'bind') {
+    if ($idx === null) {
+        infra_set_flash('err', 'That account is not in the list.');
+        header('Location: ' . $back); exit;
+    }
+    $srv = trim((string) ($_POST['server_id'] ?? ''));
+    if ($srv !== '' && !infra_hestia_server($srv)) {
+        infra_set_flash('err', 'That box is not in the registry.');
+        header('Location: ' . $back); exit;
+    }
+    $cfg['accounts'][$idx]['server_id'] = $srv;
+    $cfg['accounts'][$idx]['order']     = max(0, (int) ($_POST['order'] ?? 0));
+    // The cap is a FOOTPRINT POLICY, not a Cloudflare limit — how many domains may
+    // share this account's nameserver pair. Cloudflare enforces nothing here.
+    $cfg['accounts'][$idx]['max_zones'] = max(1, (int) ($_POST['max_zones'] ?? INFRA_CF_DEFAULT_MAX));
+
+    if (!infra_save_json($path, $cfg)) {
+        infra_set_flash('err', 'Could not write the account list.');
+        header('Location: ' . $back); exit;
+    }
+    $lbl = $cfg['accounts'][$idx]['label'] ?? $id;
+    $box = $srv !== '' ? (infra_hestia_server($srv)['label'] ?? $srv) : '';
+    infra_set_flash('ok', $srv === ''
+        ? '"' . $lbl . '" is no longer bound to a box. Its existing zones are untouched.'
+        : '"' . $lbl . '" now takes the zones for ' . $box . ', up to '
+          . $cfg['accounts'][$idx]['max_zones'] . '. Zones already in it are untouched — '
+          . 'Cloudflare cannot move a zone between accounts.');
+    header('Location: ' . $back); exit;
+}
+
+/* ---- ask Cloudflare which accounts this credential can see ------------- */
+if ($action === 'discover') {
+    // STORES the answer; the page renders what is stored. The page itself never goes
+    // to the network — same rule as every other tab in this console, and the reason
+    // opening one is instant.
+    $d = infra_cf_discover();
+    infra_cache_put('cf_discovered', $d);
+    infra_set_flash($d['ok'] ? 'ok' : 'err', $d['msg']);
     header('Location: ' . $back); exit;
 }
 

@@ -86,6 +86,11 @@
         'href'        => 'index.php?view=cloudflare&refresh=1',
         'button'      => 'Refresh zones',
     ]);
+
+    // Which box each account serves, and whether there is room — above the per-account
+    // cards, which keep doing credentials, zone lists, Test and Remove. Two questions,
+    // two sections, rather than one card trying to answer both.
+    require __DIR__ . '/_cf_boxes.php';
     ?>
 
     <?php foreach ($accounts as $a):
