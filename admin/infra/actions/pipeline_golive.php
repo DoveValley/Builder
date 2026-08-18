@@ -58,7 +58,11 @@ switch ($action) {
             $label . ': ran ' . $r['ran'] . ', ' . $r['ok'] . ' done'
             . ($r['failed']  > 0 ? ', ' . $r['failed'] . ' failed' : '')
             . ($r['blocked'] > 0 ? ', ' . $r['blocked'] . ' blocked by an earlier step' : '')
-            . ($r['skipped'] > 0 ? ' (' . $r['skipped'] . ' already done)' : '') . '.');
+            . ($r['skipped'] > 0 ? ' (' . $r['skipped'] . ' already done)' : '')
+            // Worth saying out loud: until nginx restarts, a brand-new vhost answers
+            // with Hestia's placeholder and a 200, which looks like a working site.
+            . (!empty($r['restarted']) ? ' Web server restarted on ' . $r['restarted'] . ' box(es).' : '')
+            . '.');
         break;
 
     case 'tag':

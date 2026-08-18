@@ -573,7 +573,7 @@ const INFRA_STEP_STALE = 900;   // 15 minutes
  *
  * @return array{ok:bool, msg:string, state:string}
  */
-function infra_pipeline_do(string $step, string $domain, string $batch = ''): array
+function infra_pipeline_do(string $step, string $domain, string $batch = '', array $opts = []): array
 {
     $domain  = strtolower(trim($domain));
     $actions = infra_pipeline_actions();
@@ -683,9 +683,15 @@ function infra_pipeline_do(string $step, string $domain, string $batch = ''): ar
                 $box = infra_hestia_server((string) ($rec['server_id'] ?? ''));
                 if (!$box) { $msg = 'no box assigned'; break; }
                 // Idempotent: infra_provision_one() skips a vhost that already exists.
-                // restart=true because this is one domain on its own — the batch rule
-                // (restart once at the end) belongs to the batch runner, not here.
-                $r = infra_provision_one($domain, $box, null, ['site' => true, 'cf' => false, 'restart' => true]);
+                //
+                // The restart is deferred when a column run is doing this, and only then.
+                // nginx does not notice a new vhost until it restarts — until it does it
+                // serves Hestia's default page with a 200 OK, which looks like a working
+                // site. But restarting per domain means 37 restarts for a 37-row column,
+                // 37 interruptions to every site already on those boxes, for one restart's
+                // worth of effect. infra_pipeline_run() does it once per box at the end.
+                $r = infra_provision_one($domain, $box, null,
+                        ['site' => true, 'cf' => false, 'restart' => empty($opts['defer_restart'])]);
                 $msg = implode(' · ', $r['lines']);
                 break;
 
@@ -815,15 +821,43 @@ function infra_pipeline_upload(string $domain, array $rec): array
  */
 function infra_pipeline_run(string $step, string $batch = ''): array
 {
-    $out = ['step' => $step, 'ran' => 0, 'ok' => 0, 'failed' => 0, 'skipped' => 0, 'blocked' => 0];
+    $out = ['step' => $step, 'ran' => 0, 'ok' => 0, 'failed' => 0, 'skipped' => 0, 'blocked' => 0, 'restarted' => 0];
+    $touched = [];
+
     foreach (infra_pipeline_rows($batch) as $r) {
         $state = $r['cells'][$step]['state'] ?? '';
         if ($state === INFRA_STEP_OK) { $out['skipped']++; continue; }
-        $d = infra_pipeline_do($step, $r['domain'], $batch);
+        // Defer the web restart: one per BOX at the end, not one per domain. See the
+        // 'host' case — nginx serves the default page with a 200 until it restarts, so
+        // the restart is mandatory, but doing it 37 times is 37 interruptions for the
+        // same result.
+        $d = infra_pipeline_do($step, $r['domain'], $batch, ['defer_restart' => true]);
         $out['ran']++;
         if ($d['ok'])                                   $out['ok']++;
         elseif (str_starts_with($d['msg'], 'blocked:'))  $out['blocked']++;
         else                                            $out['failed']++;
+
+        if ($step === 'host' && $d['ok']) {
+            $sid = trim((string) (infra_state_get_domain($r['domain'])['server_id'] ?? ''));
+            if ($sid !== '') $touched[$sid] = true;
+        }
+    }
+
+    // Now the restarts — once per box that gained a vhost. Without this the sites just
+    // created answer with Hestia's placeholder and nothing says anything is wrong.
+    if ($touched) {
+        require_once __DIR__ . '/hestia.php';
+        foreach (array_keys($touched) as $sid) {
+            $srv = infra_hestia_server($sid);
+            if (!$srv) continue;
+            $w = hestia_restart_web($srv);
+            if (!empty($w['ok'])) $out['restarted']++;
+        }
+        // The Host column is re-checked after a restart, because "the vhost exists" and
+        // "nginx is serving it" are different facts and only the second one matters.
+        infra_cache_force(true);
+        infra_pipeline_refresh('host', $batch);
+        infra_cache_force(false);
     }
     return $out;
 }
