@@ -78,10 +78,13 @@ if ($action === 'bind' || $action === 'unbind') {
         header('Location: ' . $back); exit;
     }
     $cfg['accounts'][$idx]['server_id'] = $srv;
-    $cfg['accounts'][$idx]['order']     = max(0, (int) ($_POST['order'] ?? 0));
-    // The cap is a FOOTPRINT POLICY, not a Cloudflare limit — how many domains may
-    // share this account's nameserver pair. Cloudflare enforces nothing here.
-    $cfg['accounts'][$idx]['max_zones'] = max(1, (int) ($_POST['max_zones'] ?? INFRA_CF_DEFAULT_MAX));
+    $cfg['accounts'][$idx]['order']  = max(0, (int) ($_POST['order'] ?? 0));
+    // OPEN or CLOSED, not a number. Placement reads this and nothing else — no counts,
+    // no cache, nothing that can be stale or fetched from the wrong account. Closing is
+    // a footprint decision a person makes; Cloudflare enforces nothing.
+    if (array_key_exists('closed', $_POST)) {
+        $cfg['accounts'][$idx]['closed'] = ((string) $_POST['closed']) === 'yes' ? 'yes' : '';
+    }
 
     if (!infra_save_json($path, $cfg)) {
         infra_set_flash('err', 'Could not write the account list.');
@@ -89,11 +92,12 @@ if ($action === 'bind' || $action === 'unbind') {
     }
     $lbl = $cfg['accounts'][$idx]['label'] ?? $id;
     $box = $srv !== '' ? (infra_hestia_server($srv)['label'] ?? $srv) : '';
+    $shut = !infra_cf_is_open($cfg['accounts'][$idx]);
     infra_set_flash('ok', $srv === ''
         ? '"' . $lbl . '" is no longer bound to a box. Its existing zones are untouched.'
-        : '"' . $lbl . '" now takes the zones for ' . $box . ', up to '
-          . $cfg['accounts'][$idx]['max_zones'] . '. Zones already in it are untouched — '
-          . 'Cloudflare cannot move a zone between accounts.');
+        : '"' . $lbl . '" is bound to ' . $box . ' and is '
+          . ($shut ? 'CLOSED — it will not take new zones' : 'taking new zones for it')
+          . '. Zones already in it are untouched — Cloudflare cannot move a zone between accounts.');
     header('Location: ' . $back); exit;
 }
 
@@ -149,8 +153,8 @@ if (array_key_exists('server_id', $_POST)) {
     }
     $candidate['server_id'] = $srv;
 }
-if (array_key_exists('order', $_POST))     $candidate['order']     = max(0, (int) $_POST['order']);
-if (array_key_exists('max_zones', $_POST)) $candidate['max_zones'] = max(1, (int) $_POST['max_zones']);
+if (array_key_exists('order', $_POST))  $candidate['order']  = max(0, (int) $_POST['order']);
+if (array_key_exists('closed', $_POST)) $candidate['closed'] = ((string) $_POST['closed']) === 'yes' ? 'yes' : '';
 unset($candidate['niches']);   // never read by anything; dropped like the server one
 
 /* ---- test without saving ---------------------------------------------- */

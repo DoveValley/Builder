@@ -53,16 +53,16 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label style="color:#6b7280">Order and max zones
-                        <span style="font-size:12px">(when a box has more than one account, the lowest order fills first)</span></label></td>
+                    <td><strong>New zones</strong><br>
+                        <span style="color:#6b7280;font-size:12px">Closing an account stops its group growing.
+                        This is the only thing that decides where a zone goes &mdash; no counts, nothing to go stale.</span></td>
                     <td>
+                        <select name="closed" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
+                            <option value=""    <?= ($a['closed'] ?? '') === 'yes' ? '' : 'selected' ?>>Taking new zones</option>
+                            <option value="yes" <?= ($a['closed'] ?? '') === 'yes' ? 'selected' : '' ?>>Closed &mdash; no new zones</option>
+                        </select>
                         <input name="order" type="number" min="0" max="99" value="<?= ih((string) ($a['order'] ?? 0)) ?>"
-                               style="width:70px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px" title="fill order">
-                        <input name="max_zones" type="number" min="1" max="5000"
-                               value="<?= ih((string) ($a['max_zones'] ?? INFRA_CF_DEFAULT_MAX)) ?>"
-                               style="width:90px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px" title="max zones">
-                        <span style="color:#9ca3af;font-size:12px">max zones is a footprint policy &mdash; how many
-                        domains may share this account's nameserver pair. Cloudflare enforces nothing here.</span>
+                               style="width:70px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px;margin-left:8px" title="fill order — lowest first when a box has more than one account">
                     </td>
                 </tr>
                 </tbody>

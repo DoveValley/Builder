@@ -55,15 +55,13 @@ $cbBoxes = infra_hestia_servers();
     <div class="cb-row" style="margin-bottom:14px">
       <div><div class="cb-n"><?= (int) $cbCap['boxes'] ?></div><div class="cb-l">Boxes</div></div>
       <div><div class="cb-n"><?= (int) $cbCap['bound'] ?></div><div class="cb-l">Accounts bound</div></div>
-      <?php // While any bound account is uncounted these are a FLOOR, not a measurement.
-            // "0 zones held" reads as a fact and would be a guess. ?>
-      <div><div class="cb-n"><?= $cbCap['bound'] && $cbCap['unswept'] === $cbCap['bound'] ? '?' : (int) $cbCap['used'] ?></div><div class="cb-l">Zones held</div></div>
-      <div><div class="cb-n"><?= $cbCap['bound'] && $cbCap['unswept'] === $cbCap['bound'] ? '?' : (int) $cbCap['free'] ?></div><div class="cb-l">Room left</div></div>
+      <?php // Zones held is information. Boxes ready is the fact that matters, and it is
+            // computed from the open/closed flags alone — true whether or not anything
+            // has been swept. ?>
+      <div><div class="cb-n" style="color:<?= $cbCap['boxes_ready'] ? '#166534' : '#9ca3af' ?>"><?= (int) $cbCap['boxes_ready'] ?></div><div class="cb-l">Boxes ready</div></div>
+      <div><div class="cb-n"><?= (int) $cbCap['zones'] ?><?= $cbCap['uncounted'] ? '<span style="font-size:12px;color:#92400e">+?</span>' : '' ?></div><div class="cb-l">Zones held</div></div>
       <div><div class="cb-n" style="color:<?= $cbCap['boxes_with_none'] ? '#92400e' : '#9ca3af' ?>"><?= (int) $cbCap['boxes_with_none'] ?></div><div class="cb-l">Boxes with none</div></div>
-      <?php // Blue, not red. A full account is usually a ceiling somebody chose — CF #1
-            // is capped at the 31 zones it will always have — and colouring a deliberate
-            // decision as a fault trains you to ignore the colour. ?>
-      <div><div class="cb-n" style="color:<?= $cbCap['boxes_full'] ? '#1e40af' : '#9ca3af' ?>"><?= (int) $cbCap['boxes_full'] ?></div><div class="cb-l">Boxes full</div></div>
+      <div><div class="cb-n" style="color:<?= $cbCap['boxes_closed'] ? '#1e40af' : '#9ca3af' ?>"><?= (int) $cbCap['boxes_closed'] ?></div><div class="cb-l">Boxes closed</div></div>
       <div style="margin-left:auto">
         <?php // Asks Cloudflare which accounts this credential can see, and STORES the
               // answer. Twenty account ids typed by hand is twenty chances to paste the
@@ -98,7 +96,7 @@ $cbBoxes = infra_hestia_servers();
         <?php foreach ($cbFree as $a): ?>
           <?php // "0 zones" for an account nobody has counted is a claim, not a reading. ?>
           <span class="badge b-mut"><?= ih($a['label'] ?? $a['id']) ?> &middot;
-            <?= !empty($a['unswept']) ? 'not counted yet' : (int) $a['used'] . ' zone' . ((int) $a['used'] === 1 ? '' : 's') ?></span>
+            <?= empty($a['counted']) ? 'not counted yet' : (int) $a['zones'] . ' zone' . ((int) $a['zones'] === 1 ? '' : 's') ?></span>
         <?php endforeach; ?>
         <br>They still work; they are just outside the scheme, so nothing routes to them.
         <br><strong>Bind one to a box</strong> by editing it below, or on the box's own card.
@@ -111,20 +109,16 @@ $cbBoxes = infra_hestia_servers();
 <?php foreach ($cbBoxes as $cbS):
     $sid   = (string) ($cbS['id'] ?? '');
     $bound = infra_cf_accounts_for_server($sid);
-    // Counted and uncounted accounts are summed SEPARATELY. Adding an uncounted one in
-    // produced "0/50 zones · full" — three confident statements about an account
-    // nothing had ever looked at, and the badge contradicting the row beneath it.
-    $measured = array_values(array_filter($bound, fn($a) => empty($a['unswept'])));
-    $unswept  = count($bound) - count($measured);
-    $used  = array_sum(array_column($measured, 'used'));
-    $cap   = array_sum(array_column($measured, 'max'));
-    $free  = array_sum(array_column($measured, 'free'));
+    // Whether this box can take a zone comes from the open/closed flags ALONE — no
+    // counts, no cache, nothing that can be stale. The zone total beside it is
+    // information; it decides nothing.
+    $cbReady   = (bool) array_filter($bound, fn($a) => $a['open']);
+    $zones     = array_sum(array_column(array_filter($bound, fn($a) => $a['counted']), 'zones'));
+    $uncounted = count(array_filter($bound, fn($a) => !$a['counted']));
 
-    // Open when something is wrong OR actionable: no account bound, or nothing counted
-    // yet — in both cases no domain on this box can be staged, and the second is one
-    // Refresh away from being fixed. A genuinely full box is a ceiling somebody chose,
-    // so it folds.
-    $cbOpen = !$bound || !$measured;
+    // Open when a domain on this box CANNOT be staged: no account bound, or every
+    // account closed. Both are things to act on. A box quietly working folds away.
+    $cbOpen = !$bound || !$cbReady;
     $prov   = function_exists('infra_host_provider') ? infra_host_provider($cbS) : null; ?>
 <details class="ic-card ic-fold" <?= $cbOpen ? 'open' : '' ?>>
   <summary style="cursor:pointer">
@@ -133,13 +127,10 @@ $cbBoxes = infra_hestia_servers();
       <?= ih($cbS['label'] ?? $sid) ?>
       <?php if (!$bound): ?>
         <span class="badge b-warn">no account bound</span>
-      <?php elseif (!$measured): ?>
-        <?php // Not "full". Nothing has been counted, so nothing is known. ?>
-        <span class="badge b-warn" title="No sweep has counted this box's account yet — press Refresh zones">not counted yet</span>
-      <?php elseif ($free === 0): ?>
-        <span class="badge" style="background:#dbeafe;color:#1e40af" title="At its cap — it will not take another zone. That is usually deliberate.">full</span>
+      <?php elseif (!$cbReady): ?>
+        <span class="badge" style="background:#dbeafe;color:#1e40af" title="Every account here is closed to new zones — deliberately">closed</span>
       <?php else: ?>
-        <span class="badge b-ok"><?= $free ?> free</span>
+        <span class="badge b-ok">taking zones</span>
       <?php endif; ?>
       <span style="font-weight:400;font-size:13px;color:#6b7280">
         <?php if ($prov): ?>
@@ -149,13 +140,8 @@ $cbBoxes = infra_hestia_servers();
         <code><?= ih($cbS['host'] ?? '') ?></code>
         <?php if ($bound): ?>
           &middot; <?= count($bound) ?> account<?= count($bound) === 1 ? '' : 's' ?>
-          <?php if ($measured): ?>
-            &middot; <?= $used ?>/<?= $cap ?> zones
-            <span class="cb-bar"><span style="width:<?= $cap > 0 ? min(100, round($used / $cap * 100)) : 0 ?>%"></span></span>
-            <?php if ($unswept): ?>&middot; <span style="color:#92400e"><?= $unswept ?> not counted</span><?php endif; ?>
-          <?php else: ?>
-            &middot; <span style="color:#92400e">zones not counted yet</span>
-          <?php endif; ?>
+          &middot; <?= $zones ?> zone<?= $zones === 1 ? '' : 's' ?>
+          <?php if ($uncounted): ?>&middot; <span style="color:#92400e"><?= $uncounted ?> not counted yet</span><?php endif; ?>
         <?php endif; ?>
       </span>
     </h2>
@@ -167,39 +153,30 @@ $cbBoxes = infra_hestia_servers();
         <strong>No Cloudflare account is bound to this box</strong>, so no domain on it can be staged &mdash;
         the CF zone step will refuse rather than put the zone somewhere that breaks the separation.
       </div>
-    <?php elseif (!$measured): ?>
-      <div class="ic-note" style="background:#fffbeb;border-color:#fcd34d;color:#92400e">
-        <strong>Nothing has counted this box's account yet</strong>, so there is no way to know whether it has
-        room &mdash; and a zone will not be created into an account whose contents are unknown. Press
-        <strong>&#8635; Refresh zones</strong> at the top of this tab; it takes a few seconds.
-      </div>
-    <?php elseif ($free === 0): ?>
+    <?php elseif (!$cbReady): ?>
       <div class="ic-note">
-        <strong>Every account bound to this box is at its cap</strong>, so the next zone for it will be
-        refused rather than spilling into another box's account. That is often what you want &mdash; a cap
-        set to an account's current size keeps an existing group from growing. If this box should take more
-        domains, bind another account to it below.
+        <strong>Every account bound to this box is closed to new zones</strong>, so the next zone for it will be
+        refused rather than spilling into another box's account. That is usually deliberate &mdash; closing an
+        account keeps an existing group from growing. To let this box take more domains, reopen an account
+        below or bind another one.
       </div>
     <?php endif; ?>
 
     <?php if ($bound): ?>
     <table class="cb-t">
-      <thead><tr><th style="width:36px">#</th><th>Account</th><th>Cloudflare account id</th><th>Zones</th><th>Room</th><th></th></tr></thead>
+      <thead><tr><th style="width:36px">#</th><th>Account</th><th>Cloudflare account id</th><th>Zones</th><th>New zones</th><th></th></tr></thead>
       <tbody>
       <?php foreach ($bound as $a): ?>
         <tr>
           <td style="color:#9ca3af"><?= (int) ($a['order'] ?? 0) ?></td>
           <td><strong><?= ih($a['label'] ?? $a['id']) ?></strong></td>
           <td><code style="font-size:12px"><?= ih($a['account_id'] ?? '') ?></code></td>
-          <td>
-            <?php if (!empty($a['unswept'])): ?>
-              <span style="color:#92400e" title="No sweep has ever counted this account's zones, so no zone can be created in it yet">not counted yet</span>
-            <?php else: ?>
-              <?= (int) $a['used'] ?> / <?= (int) $a['max'] ?>
-            <?php endif; ?>
+          <?php // Information only. Nothing about where a zone goes reads this. ?>
+          <td<?= empty($a['counted']) ? ' style="color:#92400e"' : '' ?>>
+            <?= empty($a['counted']) ? 'not counted yet' : (int) $a['zones'] ?>
           </td>
-          <td style="color:<?= !empty($a['unswept']) ? '#92400e' : ($a['free'] > 0 ? '#166534' : '#1e40af') ?>">
-            <?= !empty($a['unswept']) ? 'unknown' : ($a['free'] > 0 ? (int) $a['free'] : 'full') ?>
+          <td style="color:<?= $a['open'] ? '#166534' : '#1e40af' ?>">
+            <?= $a['open'] ? 'taking' : 'closed' ?>
           </td>
           <td>
             <form method="post" action="actions/cf_save.php" class="cb-f">
@@ -208,7 +185,12 @@ $cbBoxes = infra_hestia_servers();
               <input type="hidden" name="id" value="<?= ih($a['id'] ?? '') ?>">
               <input type="hidden" name="server_id" value="<?= ih($sid) ?>">
               <div><label>order</label><input type="number" name="order" value="<?= (int) ($a['order'] ?? 0) ?>" min="0" max="99" style="width:60px"></div>
-              <div><label>max zones</label><input type="number" name="max_zones" value="<?= (int) $a['max'] ?>" min="1" max="5000" style="width:80px"></div>
+              <div><label>new zones</label>
+                <select name="closed">
+                  <option value="" <?= $a['open'] ? 'selected' : '' ?>>taking</option>
+                  <option value="yes" <?= $a['open'] ? '' : 'selected' ?>>closed</option>
+                </select>
+              </div>
               <button class="btn sec" type="submit">Save</button>
               <?php // Its own action, not "bind with a blank box" — see actions/cf_save.php. ?>
               <button class="btn sec" type="submit" name="action" value="unbind"
@@ -230,20 +212,16 @@ $cbBoxes = infra_hestia_servers();
           <label>bind another account to this box</label>
           <select name="id">
             <?php foreach ($cbFree as $a): ?>
-              <option value="<?= ih($a['id'] ?? '') ?>"><?= ih($a['label'] ?? $a['id']) ?> (<?= (int) $a['used'] ?> zones)</option>
+              <option value="<?= ih($a['id'] ?? '') ?>"><?= ih($a['label'] ?? $a['id']) ?> (<?= empty($a['counted']) ? 'not counted' : (int) $a['zones'] . ' zones' ?>)</option>
             <?php endforeach; ?>
           </select>
         </div>
         <div><label>order</label><input type="number" name="order" value="<?= count($bound) ?>" min="0" max="99" style="width:60px"></div>
-        <div>
-          <label title="A footprint policy, not a Cloudflare limit: how many domains may share this account's nameservers">max zones</label>
-          <input type="number" name="max_zones" value="<?= INFRA_CF_DEFAULT_MAX ?>" min="1" max="5000" style="width:80px">
-        </div>
         <button class="btn" type="submit">Bind</button>
       </form>
       <div style="font-size:11px;color:#9ca3af;margin-top:5px">
-        <strong>max zones</strong> is a footprint policy, not a Cloudflare limit &mdash; how many domains you are
-        willing to have share this account's nameserver pair. Cloudflare enforces nothing here.
+        An account bound here takes this box's new zones until you <strong>close</strong> it. Closing is how you
+        stop a group growing &mdash; it is your footprint decision, and Cloudflare enforces nothing.
       </div>
     <?php else: ?>
       <div style="font-size:12px;color:#9ca3af">
