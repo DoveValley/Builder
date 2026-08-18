@@ -316,7 +316,7 @@ function infra_pipeline_slug(string $domain): string
  *
  * @return array{step:string,checked:int,ok:int,todo:int,fail:int}
  */
-function infra_pipeline_refresh(string $step, string $batch = ''): array
+function infra_pipeline_refresh(string $step, string $batch = '', string $only = ''): array
 {
     require_once __DIR__ . '/cache.php';
     require_once __DIR__ . '/fleet.php';
@@ -327,6 +327,13 @@ function infra_pipeline_refresh(string $step, string $batch = ''): array
     if (!in_array($step, infra_pipeline_step_keys(), true)) return $out;
 
     $rows = infra_pipeline_rows($batch);
+    // $only re-checks a single row. It is the SAME code path as the column sweep on
+    // purpose: an action that verified itself by its own rules would be free to
+    // disagree with the column that draws it.
+    if ($only !== '') {
+        $only = strtolower(trim($only));
+        $rows = array_values(array_filter($rows, fn($r) => $r['domain'] === $only));
+    }
     if (!$rows) return $out;
 
     // A refresh means "go and look", so the shared indexes must not answer from the
@@ -511,12 +518,253 @@ function infra_pipeline_refresh(string $step, string $batch = ''): array
                 break;
         }
 
-        infra_pipeline_set($dom, $step, $state, $note, true);
+        // countAttempt is FALSE here: an attempt is a try at DOING the step, not at
+        // looking at it. Counting checks made `attempts` climb every time a column was
+        // swept, which destroys the one thing it is for — telling a flaky call apart
+        // from a box that has failed the same way four times.
+        infra_pipeline_set($dom, $step, $state, $note, false);
         $out['checked']++;
         $out[$state === INFRA_STEP_OK ? 'ok' : ($state === INFRA_STEP_FAIL ? 'fail' : 'todo')]++;
     }
 
     infra_cache_force(false);
+    return $out;
+}
+
+/* ──────────────────────────────── doing it ──────────────────────────────── */
+
+/**
+ * Which steps a button can actually perform, and what the button says.
+ *
+ * Four of the eight are things the console does; the other four are not, and saying so
+ * is better than a button that fails. `built` needs a master and a params row, which is
+ * the multisite builder's job, not a per-domain click here. `dns` has no separate act —
+ * switching the nameservers IS `golive`. `live` is an observation; there is nothing to
+ * perform, only something to see.
+ *
+ * @return array<string,string> step => button label
+ */
+function infra_pipeline_actions(): array
+{
+    return [
+        'assign' => 'Assign a box',
+        'host'   => 'Create the host area',
+        'zone'   => 'Stage the Cloudflare zone',
+        'upload' => 'Upload the built site',
+        'golive' => 'Switch the nameservers',
+    ];
+}
+
+/** How long a cell may sit in `running` before it is treated as a crashed run. */
+const INFRA_STEP_STALE = 900;   // 15 minutes
+
+/**
+ * Perform ONE step for ONE domain, then re-check it.
+ *
+ * The contract, in order, and none of it is optional:
+ *   1. every `do` is idempotent — running it on a green cell is a no-op, never a double
+ *   2. the cell goes `running` first, so a second click cannot start the same work twice
+ *   3. whatever the action claims, the CELL IS WRITTEN BY THE CHECK afterwards
+ *
+ * (3) is the one that matters. This console has watched FTP exit 0 having written
+ * nothing and Hestia confirm a folder while nginx served its default page with a 200.
+ * An action that marks its own homework is how a grid comes to show eight green ticks
+ * over a site that does not exist.
+ *
+ * @return array{ok:bool, msg:string, state:string}
+ */
+function infra_pipeline_do(string $step, string $domain, string $batch = ''): array
+{
+    $domain  = strtolower(trim($domain));
+    $actions = infra_pipeline_actions();
+    if (!isset($actions[$step])) {
+        return ['ok' => false, 'msg' => 'nothing to run for that step', 'state' => ''];
+    }
+
+    $rec = infra_state_get_domain($domain);
+    if (!$rec) return ['ok' => false, 'msg' => 'not in fleet state', 'state' => ''];
+
+    // Already done? Say so and do nothing. Idempotency starts here rather than relying
+    // on every underlying call to be a no-op.
+    $cur = infra_pipeline_stored([$domain])[$domain][$step] ?? null;
+    if (($cur['state'] ?? '') === INFRA_STEP_OK) {
+        return ['ok' => true, 'msg' => 'already done — nothing to do', 'state' => INFRA_STEP_OK];
+    }
+    // Somebody else is on it. A stale marker (a crashed run) is allowed through, because
+    // a cell stuck at `running` forever is worse than one that ran twice.
+    if (($cur['state'] ?? '') === INFRA_STEP_RUNNING && (time() - (int) ($cur['at'] ?? 0)) < INFRA_STEP_STALE) {
+        return ['ok' => false, 'msg' => 'already running (started ' . date('H:i', (int) $cur['at']) . ')',
+                'state' => INFRA_STEP_RUNNING];
+    }
+
+    // Prerequisites. Running a step whose inputs are missing produces a confusing
+    // failure at a lower layer; refusing here names the actual blocker.
+    foreach (infra_pipeline_steps() as $s) {
+        if ($s['key'] !== $step) continue;
+        foreach ($s['requires'] as $req) {
+            $rq = infra_pipeline_stored([$domain])[$domain][$req] ?? null;
+            if (($rq['state'] ?? '') !== INFRA_STEP_OK) {
+                $lbl = '';
+                foreach (infra_pipeline_steps() as $t) if ($t['key'] === $req) $lbl = $t['label'];
+                return ['ok' => false, 'state' => '',
+                        'msg' => 'blocked: ' . $lbl . ' is not done yet' . (($rq === null) ? ' (and has never been checked)' : '')];
+            }
+        }
+    }
+
+    infra_pipeline_set($domain, $step, INFRA_STEP_RUNNING, 'started ' . date('H:i:s'), true);
+
+    require_once __DIR__ . '/hestia_fleet.php';
+    require_once __DIR__ . '/provision.php';
+    require_once __DIR__ . '/golive.php';
+
+    $msg = '';
+    try {
+        switch ($step) {
+
+            case 'assign':
+                // Round-robin across configured boxes, using the same persistent counter
+                // the bulk runner uses so the two do not fill the fleet unevenly by
+                // taking turns from different starting points.
+                $boxes = array_values(array_filter(infra_hestia_servers(), 'hestia_server_configured'));
+                if (!$boxes) { $msg = 'no configured box to assign to'; break; }
+                $box = $boxes[infra_state_counter_next('pipeline_server') % count($boxes)];
+                infra_state_upsert_domain(['domain' => $domain, 'server_id' => (string) $box['id']]);
+                $msg = 'assigned to ' . ($box['label'] ?? $box['id']);
+                break;
+
+            case 'host':
+                $box = infra_hestia_server((string) ($rec['server_id'] ?? ''));
+                if (!$box) { $msg = 'no box assigned'; break; }
+                // Idempotent: infra_provision_one() skips a vhost that already exists.
+                // restart=true because this is one domain on its own — the batch rule
+                // (restart once at the end) belongs to the batch runner, not here.
+                $r = infra_provision_one($domain, $box, null, ['site' => true, 'cf' => false, 'restart' => true]);
+                $msg = implode(' · ', $r['lines']);
+                break;
+
+            case 'zone':
+                $box = infra_hestia_server((string) ($rec['server_id'] ?? ''));
+                if (!$box) { $msg = 'no box assigned — the zone needs an IP to point at'; break; }
+                $accts = array_values(infra_cf_accounts());
+                if (!$accts) { $msg = 'no Cloudflare account configured'; break; }
+                $acct = null;
+                foreach ($accts as $a) if (($a['id'] ?? '') === ($rec['cf_account_id'] ?? '')) $acct = $a;
+                $acct ??= $accts[infra_state_counter_next('pipeline_cf') % count($accts)];
+                $r = infra_provision_one($domain, $box, $acct, ['site' => false, 'cf' => true]);
+                $msg = implode(' · ', $r['lines']);
+                break;
+
+            case 'upload':
+                $r   = infra_pipeline_upload($domain, $rec);
+                $msg = $r['msg'];
+                break;
+
+            case 'golive':
+                // Goes through the same gate as the scheduler and the nightly run. No
+                // override here: the override lives on the row's own button, where the
+                // person choosing it can see the Upload cell they are overruling.
+                $r   = infra_golive_release($domain);
+                $msg = $r['message'];
+                break;
+        }
+    } catch (Throwable $e) {
+        // A thrown error must not leave the cell stuck at `running` — that reads as
+        // "in progress" forever and hides the fault completely.
+        infra_pipeline_set($domain, $step, INFRA_STEP_FAIL, 'error: ' . $e->getMessage());
+        return ['ok' => false, 'msg' => $e->getMessage(), 'state' => INFRA_STEP_FAIL];
+    }
+
+    // THE CHECK HAS THE LAST WORD. Whatever the action said, this is what goes in.
+    infra_cache_force(true);
+    $after = infra_pipeline_refresh($step, '', $domain);
+    infra_cache_force(false);
+
+    $state = $after['ok'] > 0 ? INFRA_STEP_OK : ($after['fail'] > 0 ? INFRA_STEP_FAIL : INFRA_STEP_TODO);
+    return ['ok' => $state === INFRA_STEP_OK, 'state' => $state,
+            'msg' => ($msg !== '' ? $msg . ' — ' : '') . 'checked: ' . $state];
+}
+
+/**
+ * Upload one domain's built site over FTP into its host area.
+ *
+ * Everything here is already written elsewhere and is deliberately not rewritten: the
+ * built output is found the same way the Built column finds it, and the transfer is
+ * deploy_site() — the same function the batch uploader uses, including its remote-path
+ * DETECTION, which matters because Hestia's FTP login lands IN the docroot and a
+ * hard-coded /public_html would transfer every file into a folder nginx never reads.
+ *
+ * deploy_site() reports through progress_log(), which is an SSE emitter by default —
+ * so its sink is redirected into an array here instead of being streamed at a page
+ * that is not listening.
+ *
+ * @return array{ok:bool, msg:string}
+ */
+function infra_pipeline_upload(string $domain, array $rec): array
+{
+    $box = infra_hestia_server((string) ($rec['server_id'] ?? ''));
+    if (!$box)                                   return ['ok' => false, 'msg' => 'no box assigned'];
+    if (trim((string) ($rec['ftp_user'] ?? '')) === '') return ['ok' => false, 'msg' => 'no FTP login — create the host area first'];
+
+    $built = infra_pipeline_built_index()[infra_pipeline_slug($domain)] ?? null;
+    if (!$built || !$built['has_index']) return ['ok' => false, 'msg' => 'nothing built for this domain yet'];
+
+    $base = dirname(__DIR__, 3);
+    require_once $base . '/includes/progress.php';
+    require_once $base . '/includes/multisite/deploy.php';
+
+    $dir = dirname(__DIR__) . '/state/manifests';
+    if (!is_dir($dir)) @mkdir($dir, 0775, true);
+
+    $lines = [];
+    $prev  = $GLOBALS['_progress_sink'] ?? null;
+    $GLOBALS['_progress_sink'] = function (array $p) use (&$lines) {
+        if (!empty($p['msg'])) $lines[] = (string) $p['msg'];
+    };
+    try {
+        $r = deploy_site([
+            'ftp_host'     => (string) ($box['host'] ?? ''),
+            'ftp_port'     => 21,
+            'ftp_user'     => (string) $rec['ftp_user'],
+            'ftp_pass'     => (string) $rec['ftp_pass'],
+            // Left blank ON PURPOSE so deploy_site detects it after login. See its own
+            // comment: guessing is silently wrong in both directions.
+            'ftp_path'     => '',
+            'ftp_passive'  => 'yes',
+            'ftp_protocol' => 'ftp',
+        ], rtrim($built['dir'], '/') . '/', $dir . '/' . infra_pipeline_slug($domain) . '.json');
+    } finally {
+        $GLOBALS['_progress_sink'] = $prev;
+    }
+
+    $ok = ($r['status'] ?? '') === 'done' && (int) ($r['failed'] ?? 0) === 0;
+    return ['ok' => $ok, 'msg' => 'uploaded ' . (int) ($r['uploaded'] ?? 0) . ' file(s)'
+                                . ((int) ($r['failed'] ?? 0) > 0 ? ', ' . (int) $r['failed'] . ' failed' : '')
+                                . (($r['msg'] ?? '') !== '' ? ' — ' . $r['msg'] : '')];
+}
+
+/**
+ * Run one step for every row that still needs it.
+ *
+ * Rows are independent: one failing must never stop the other forty-nine, so each is
+ * caught on its own and the run carries on. Greens are skipped, which is what makes
+ * pressing this twice safe and what makes "resume" mean nothing more than pressing it
+ * again.
+ *
+ * @return array{step:string, ran:int, ok:int, failed:int, skipped:int, blocked:int}
+ */
+function infra_pipeline_run(string $step, string $batch = ''): array
+{
+    $out = ['step' => $step, 'ran' => 0, 'ok' => 0, 'failed' => 0, 'skipped' => 0, 'blocked' => 0];
+    foreach (infra_pipeline_rows($batch) as $r) {
+        $state = $r['cells'][$step]['state'] ?? '';
+        if ($state === INFRA_STEP_OK) { $out['skipped']++; continue; }
+        $d = infra_pipeline_do($step, $r['domain'], $batch);
+        $out['ran']++;
+        if ($d['ok'])                                   $out['ok']++;
+        elseif (str_starts_with($d['msg'], 'blocked:'))  $out['blocked']++;
+        else                                            $out['failed']++;
+    }
     return $out;
 }
 

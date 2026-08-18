@@ -33,9 +33,33 @@ $selected = array_values(array_filter(array_map(
 // A per-row button carries its domain as its own value, which is how one form can
 // hold sixty-five of them: only the button actually pressed is submitted.
 $release = strtolower(trim((string) ($_POST['release'] ?? '')));
-$action  = $release !== '' ? 'release' : (string) ($_POST['action'] ?? '');
+// A cell button carries both halves — "upload:example.com" — for the same reason.
+$cell    = (string) ($_POST['do'] ?? '');
+$action  = $release !== '' ? 'release' : ($cell !== '' ? 'do' : (string) ($_POST['action'] ?? ''));
 
 switch ($action) {
+
+    case 'do':
+        // One cell. Runs the step, then RE-CHECKS it — the message says what the action
+        // claimed and, after the dash, what going back and looking found.
+        [$step, $dom] = array_pad(explode(':', $cell, 2), 2, '');
+        $r = infra_pipeline_do($step, $dom, $batch);
+        infra_set_flash($r['ok'] ? 'ok' : ($r['state'] === INFRA_STEP_FAIL ? 'err' : 'warn'),
+            $dom . ' — ' . (infra_pipeline_actions()[$step] ?? $step) . ': ' . $r['msg']);
+        break;
+
+    case 'run_column':
+        // Every row that still needs this step. Greens are skipped, rows are
+        // independent, and pressing it again is how you resume.
+        $step = (string) ($_POST['run_column'] ?? '');
+        $r = infra_pipeline_run($step, $batch);
+        $label = infra_pipeline_actions()[$step] ?? $step;
+        infra_set_flash($r['failed'] > 0 ? 'warn' : 'ok',
+            $label . ': ran ' . $r['ran'] . ', ' . $r['ok'] . ' done'
+            . ($r['failed']  > 0 ? ', ' . $r['failed'] . ' failed' : '')
+            . ($r['blocked'] > 0 ? ', ' . $r['blocked'] . ' blocked by an earlier step' : '')
+            . ($r['skipped'] > 0 ? ' (' . $r['skipped'] . ' already done)' : '') . '.');
+        break;
 
     case 'tag':
         // A batch is a tag. Writing one is a plain field update on the rows you ticked —

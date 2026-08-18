@@ -26,6 +26,7 @@ $pgRows    = infra_pipeline_rows($pgBatch);
 $pgSum     = infra_pipeline_summary($pgRows);
 $pgAges    = infra_pipeline_column_ages($pgRows);
 $pgToday   = infra_today();
+$pgActions = infra_pipeline_actions();   // which steps a click can actually perform
 
 // The scheduler's footprint. A scheduler that has silently stopped running is worse
 // than no scheduler, so the page says when it last ticked rather than implying it did.
@@ -56,6 +57,13 @@ function pg_cell(array $c): string
     // Said on every inferred cell, because "we worked this out from the fleet table"
     // and "somebody went and looked" must never look like the same claim.
     if (!empty($c['derived']) && $state !== '') $tips[] = 'derived from fleet state — not verified';
+
+    // A run that crashed leaves its cell at `running` forever, which reads as "in
+    // progress" and hides the fault completely. Past the stale window it says so.
+    if ($state === INFRA_STEP_RUNNING && (time() - (int) ($c['at'] ?? 0)) > INFRA_STEP_STALE) {
+        $state  = INFRA_STEP_FAIL;
+        $tips[] = 'started but never finished — treated as crashed, safe to run again';
+    }
 
     [$glyph, $colour] = match ($state) {
         INFRA_STEP_OK      => ['&#10003;', '#166534'],
@@ -91,6 +99,10 @@ function pg_cell(array $c): string
 .pg-r:hover { background:#111827; border-color:#111827; color:#fff }
 .pg-age     { display:block; margin-top:3px; font-size:10px; font-weight:400; color:#cbd5e1;
               text-transform:none; letter-spacing:0 }
+.pg-run:hover { background:#166534; border-color:#166534 }
+.pg-cb      { border:1px solid transparent; background:none; cursor:pointer; padding:2px 7px;
+              border-radius:5px; line-height:1 }
+.pg-cb:hover{ border-color:#111827; background:#f3f4f6 }
 .pg-gl      { width:172px; text-align:left }
 .pg-date    { width:118px; padding:2px 5px; border:1px solid #d1d5db; border-radius:5px; font-size:11.5px }
 .pg-go      { border:1px solid #b91c1c; background:#fff; color:#b91c1c; border-radius:5px; cursor:pointer;
@@ -161,6 +173,9 @@ function pg_cell(array $c): string
                     // way to re-check it, and its state decides every row's "next". ?>
               <button class="pg-r" type="submit" formaction="actions/pipeline_refresh.php"
                       name="step" value="assign" title="Re-check which box each domain is assigned to">&#8635;</button>
+              <button class="pg-r pg-run" type="submit" name="run_column" value="assign"
+                      title="Assign a box to every row that has none — round-robin across the fleet"
+                      onclick="return confirm('Assign a box to every row that has none?\n\nRound-robin across the configured boxes. Rows that already have one are skipped.')">&#9654;</button>
             </th>
             <?php foreach ($pgSteps as $s):
                 if ($s['key'] === 'assign') continue;
@@ -173,6 +188,14 @@ function pg_cell(array $c): string
                 <button class="pg-r" type="submit" formaction="actions/pipeline_refresh.php"
                         name="step" value="<?= ih($s['key']) ?>"
                         title="Go and check this column for all <?= count($pgRows) ?> rows">&#8635;</button>
+                <?php // ▶ DOES the step for every row that still needs it. Greens are
+                      // skipped and rows are independent, so pressing it again after a
+                      // failure is exactly what "resume" means here. ?>
+                <?php if (isset($pgActions[$s['key']]) && $s['key'] !== 'golive'): ?>
+                <button class="pg-r pg-run" type="submit" name="run_column" value="<?= ih($s['key']) ?>"
+                        title="<?= ih($pgActions[$s['key']]) ?> — for every row that still needs it"
+                        onclick="return confirm('<?= ih($pgActions[$s['key']]) ?>\n\nRuns for every row that is not already done. Rows already green are skipped.')">&#9654;</button>
+                <?php endif; ?>
                 <span class="pg-age"><?= isset($pgAges[$s['key']]) ? ih(pg_age($pgAges[$s['key']])) . ' ago' : 'never' ?></span>
               </th>
             <?php endforeach; ?>
@@ -212,8 +235,19 @@ function pg_cell(array $c): string
             </td>
             <?php foreach ($pgSteps as $s):
                 if ($s['key'] === 'assign') continue;
-                if ($s['key'] !== 'golive'): ?>
-                  <td class="num"><?= pg_cell($r['cells'][$s['key']]) ?></td>
+                if ($s['key'] !== 'golive'):
+                  $c = $r['cells'][$s['key']];
+                  // The cell IS the button. A red cell that only tells you what is wrong
+                  // sends you to four other tabs to put it right.
+                  $can = isset($pgActions[$s['key']]) && ($c['state'] ?? '') !== INFRA_STEP_OK; ?>
+                  <td class="num">
+                    <?php if ($can): ?>
+                      <button class="pg-cb" type="submit" name="do" value="<?= ih($s['key'] . ':' . $dom) ?>"
+                              title="<?= ih($pgActions[$s['key']]) ?> for <?= ih($dom) ?>"><?= pg_cell($c) ?></button>
+                    <?php else: ?>
+                      <?= pg_cell($c) ?>
+                    <?php endif; ?>
+                  </td>
                 <?php continue; endif; ?>
               <td class="pg-gl">
                 <?php if ($gone): ?>
@@ -273,6 +307,11 @@ function pg_cell(array $c): string
         <span class="pg-d" style="opacity:.45">faded</span> = worked out from fleet state, not verified.
         Nothing renders from the network &mdash; <strong>&#8635;</strong> in a column heading is the only thing
         that goes and looks, and it does the whole column in one pass.
+        <br>
+        <strong>Click a cell to run that step for that domain</strong>, or <strong>&#9654;</strong> in the heading to
+        run it for every row that still needs it. Every step is safe to run twice: rows already done are skipped,
+        rows are independent so one failing does not stop the rest, and whatever an action reports,
+        <em>the cell is written by going back and checking</em>. Pressing it again after a failure is what resume means.
         <br>
         <strong>A domain will not be released until its Upload cell is green</strong>, by the button or by the
         nightly run &mdash; pointing DNS at an empty folder is the one mistake here that the outside world sees.
