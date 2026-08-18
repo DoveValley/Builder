@@ -35,6 +35,25 @@ function infra_http(string $method, string $url, array $opts = []): array
         CURLOPT_CONNECTTIMEOUT => 12,
         CURLOPT_TIMEOUT        => $timeout,
         CURLOPT_HTTPHEADER     => $headers,
+        /* EVERY OUTBOUND CALL GOES OUT OVER IPv4.
+         *
+         * This factory is dual-stack: 187.127.254.206 on v4, 2a02:4780:75:a6dd::1 on
+         * v6. Which one a request uses is decided per destination — api.cloudflare.com
+         * publishes AAAA records, so curl preferred v6 and Cloudflare saw the v6
+         * address. A Cloudflare API token restricted to 187.127.254.206 then answered
+         * "Cannot use the access token from location: 2a02:4780:75:a6dd::1", which reads
+         * like a bad token and is not.
+         *
+         * The same trap is loaded for the rest of the estate: Hestia's API_ALLOWED_IP
+         * and Namecheap's whitelisted IP are both the v4 address, and both work today
+         * only because those hosts happen to be v4-only. The day one of them adds AAAA,
+         * every call would start failing for a reason nothing in the error says.
+         *
+         * So the source address is pinned rather than left to resolver order: one
+         * address to allowlist, everywhere, permanently. Nothing this console talks to
+         * is v6-only.
+         */
+        CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4,
     ]);
     if (array_key_exists('body', $opts)) {
         $body = is_string($opts['body']) ? $opts['body'] : json_encode($opts['body']);

@@ -111,14 +111,20 @@ $cbBoxes = infra_hestia_servers();
 <?php foreach ($cbBoxes as $cbS):
     $sid   = (string) ($cbS['id'] ?? '');
     $bound = infra_cf_accounts_for_server($sid);
-    $used  = array_sum(array_column($bound, 'used'));
-    $cap   = array_sum(array_column($bound, 'max'));
-    $free  = array_sum(array_column($bound, 'free'));
-    // Open when something is wrong with it, shut when it is fine. Twenty healthy boxes
-    // should fit on a screen; the one with no account should be the one you see.
-    // Open only when something is actually WRONG. A box with no account cannot stage
-    // anything; a full one is usually a ceiling somebody chose, so it stays folded.
-    $cbOpen = !$bound;
+    // Counted and uncounted accounts are summed SEPARATELY. Adding an uncounted one in
+    // produced "0/50 zones · full" — three confident statements about an account
+    // nothing had ever looked at, and the badge contradicting the row beneath it.
+    $measured = array_values(array_filter($bound, fn($a) => empty($a['unswept'])));
+    $unswept  = count($bound) - count($measured);
+    $used  = array_sum(array_column($measured, 'used'));
+    $cap   = array_sum(array_column($measured, 'max'));
+    $free  = array_sum(array_column($measured, 'free'));
+
+    // Open when something is wrong OR actionable: no account bound, or nothing counted
+    // yet — in both cases no domain on this box can be staged, and the second is one
+    // Refresh away from being fixed. A genuinely full box is a ceiling somebody chose,
+    // so it folds.
+    $cbOpen = !$bound || !$measured;
     $prov   = function_exists('infra_host_provider') ? infra_host_provider($cbS) : null; ?>
 <details class="ic-card ic-fold" <?= $cbOpen ? 'open' : '' ?>>
   <summary style="cursor:pointer">
@@ -127,6 +133,9 @@ $cbBoxes = infra_hestia_servers();
       <?= ih($cbS['label'] ?? $sid) ?>
       <?php if (!$bound): ?>
         <span class="badge b-warn">no account bound</span>
+      <?php elseif (!$measured): ?>
+        <?php // Not "full". Nothing has been counted, so nothing is known. ?>
+        <span class="badge b-warn" title="No sweep has counted this box's account yet — press Refresh zones">not counted yet</span>
       <?php elseif ($free === 0): ?>
         <span class="badge" style="background:#dbeafe;color:#1e40af" title="At its cap — it will not take another zone. That is usually deliberate.">full</span>
       <?php else: ?>
@@ -140,8 +149,13 @@ $cbBoxes = infra_hestia_servers();
         <code><?= ih($cbS['host'] ?? '') ?></code>
         <?php if ($bound): ?>
           &middot; <?= count($bound) ?> account<?= count($bound) === 1 ? '' : 's' ?>
-          &middot; <?= $used ?>/<?= $cap ?> zones
-          <span class="cb-bar"><span style="width:<?= $cap > 0 ? min(100, round($used / $cap * 100)) : 0 ?>%"></span></span>
+          <?php if ($measured): ?>
+            &middot; <?= $used ?>/<?= $cap ?> zones
+            <span class="cb-bar"><span style="width:<?= $cap > 0 ? min(100, round($used / $cap * 100)) : 0 ?>%"></span></span>
+            <?php if ($unswept): ?>&middot; <span style="color:#92400e"><?= $unswept ?> not counted</span><?php endif; ?>
+          <?php else: ?>
+            &middot; <span style="color:#92400e">zones not counted yet</span>
+          <?php endif; ?>
         <?php endif; ?>
       </span>
     </h2>
@@ -152,6 +166,12 @@ $cbBoxes = infra_hestia_servers();
       <div class="ic-note" style="background:#fffbeb;border-color:#fcd34d;color:#92400e">
         <strong>No Cloudflare account is bound to this box</strong>, so no domain on it can be staged &mdash;
         the CF zone step will refuse rather than put the zone somewhere that breaks the separation.
+      </div>
+    <?php elseif (!$measured): ?>
+      <div class="ic-note" style="background:#fffbeb;border-color:#fcd34d;color:#92400e">
+        <strong>Nothing has counted this box's account yet</strong>, so there is no way to know whether it has
+        room &mdash; and a zone will not be created into an account whose contents are unknown. Press
+        <strong>&#8635; Refresh zones</strong> at the top of this tab; it takes a few seconds.
       </div>
     <?php elseif ($free === 0): ?>
       <div class="ic-note">
