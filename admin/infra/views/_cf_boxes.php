@@ -58,7 +58,10 @@ $cbBoxes = infra_hestia_servers();
       <div><div class="cb-n"><?= (int) $cbCap['used'] ?></div><div class="cb-l">Zones held</div></div>
       <div><div class="cb-n"><?= (int) $cbCap['free'] ?></div><div class="cb-l">Room left</div></div>
       <div><div class="cb-n" style="color:<?= $cbCap['boxes_with_none'] ? '#92400e' : '#9ca3af' ?>"><?= (int) $cbCap['boxes_with_none'] ?></div><div class="cb-l">Boxes with none</div></div>
-      <div><div class="cb-n" style="color:<?= $cbCap['boxes_full'] ? '#991b1b' : '#9ca3af' ?>"><?= (int) $cbCap['boxes_full'] ?></div><div class="cb-l">Boxes full</div></div>
+      <?php // Blue, not red. A full account is usually a ceiling somebody chose — CF #1
+            // is capped at the 31 zones it will always have — and colouring a deliberate
+            // decision as a fault trains you to ignore the colour. ?>
+      <div><div class="cb-n" style="color:<?= $cbCap['boxes_full'] ? '#1e40af' : '#9ca3af' ?>"><?= (int) $cbCap['boxes_full'] ?></div><div class="cb-l">Boxes full</div></div>
       <div style="margin-left:auto">
         <?php // Asks Cloudflare which accounts this credential can see, and STORES the
               // answer. Twenty account ids typed by hand is twenty chances to paste the
@@ -108,7 +111,9 @@ $cbBoxes = infra_hestia_servers();
     $free  = array_sum(array_column($bound, 'free'));
     // Open when something is wrong with it, shut when it is fine. Twenty healthy boxes
     // should fit on a screen; the one with no account should be the one you see.
-    $cbOpen = !$bound || $free === 0;
+    // Open only when something is actually WRONG. A box with no account cannot stage
+    // anything; a full one is usually a ceiling somebody chose, so it stays folded.
+    $cbOpen = !$bound;
     $prov   = function_exists('infra_host_provider') ? infra_host_provider($cbS) : null; ?>
 <details class="ic-card ic-fold" <?= $cbOpen ? 'open' : '' ?>>
   <summary style="cursor:pointer">
@@ -118,7 +123,7 @@ $cbBoxes = infra_hestia_servers();
       <?php if (!$bound): ?>
         <span class="badge b-warn">no account bound</span>
       <?php elseif ($free === 0): ?>
-        <span class="badge b-err">full</span>
+        <span class="badge" style="background:#dbeafe;color:#1e40af" title="At its cap — it will not take another zone. That is usually deliberate.">full</span>
       <?php else: ?>
         <span class="badge b-ok"><?= $free ?> free</span>
       <?php endif; ?>
@@ -144,10 +149,11 @@ $cbBoxes = infra_hestia_servers();
         the CF zone step will refuse rather than put the zone somewhere that breaks the separation.
       </div>
     <?php elseif ($free === 0): ?>
-      <div class="ic-note" style="background:#fef2f2;border-color:#fca5a5;color:#991b1b">
-        <strong>Every account bound to this box is full.</strong> The next zone for it will be refused.
-        Bind another account below &mdash; deliberately, rather than having a batch quietly spill into
-        another box's account.
+      <div class="ic-note">
+        <strong>Every account bound to this box is at its cap</strong>, so the next zone for it will be
+        refused rather than spilling into another box's account. That is often what you want &mdash; a cap
+        set to an account's current size keeps an existing group from growing. If this box should take more
+        domains, bind another account to it below.
       </div>
     <?php endif; ?>
 
@@ -167,7 +173,7 @@ $cbBoxes = infra_hestia_servers();
               <?= (int) $a['used'] ?> / <?= (int) $a['max'] ?>
             <?php endif; ?>
           </td>
-          <td style="color:<?= $a['free'] > 0 ? '#166534' : '#991b1b' ?>"><?= $a['free'] > 0 ? (int) $a['free'] : 'full' ?></td>
+          <td style="color:<?= $a['free'] > 0 ? '#166534' : '#1e40af' ?>"><?= $a['free'] > 0 ? (int) $a['free'] : 'full' ?></td>
           <td>
             <form method="post" action="actions/cf_save.php" class="cb-f">
               <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
