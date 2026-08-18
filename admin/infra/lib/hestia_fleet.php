@@ -25,6 +25,21 @@ function infra_hestia_servers(): array
 }
 
 /**
+ * One box by its id, or null. Every caller that needed this used to loop the registry
+ * and compare ids inline — the same three lines in four places, each free to disagree
+ * about whether a missing box is null, an empty array or a fatal.
+ */
+function infra_hestia_server(string $id): ?array
+{
+    $id = trim($id);
+    if ($id === '') return null;
+    foreach (infra_hestia_servers() as $s) {
+        if ((string) ($s['id'] ?? '') === $id) return $s;
+    }
+    return null;
+}
+
+/**
  * Has this box been set up yet? A machine can be bought, running and pingable
  * long before Hestia is on it, and the console has to be able to hold it in that
  * state — otherwise a new VPS cannot be written down until it is finished.
@@ -241,14 +256,27 @@ function infra_hestia_fleet_age(array $fleet): ?int
 function infra_hestia_content_run(array $server): array
 {
     $d = infra_discover_hestia($server, 0);
-    $withFiles = 0; $empty = 0;
+    $withFiles = 0; $empty = 0; $sites = [];
     foreach ($d['sites'] as $s) {
         $name = (string) ($s['name'] ?? '');
         if ($name === '' || hestia_is_infra_vhost($name, $server)) continue;
         $r = hestia_docroot_files($server, (string) ($s['user'] ?? ''), $name);
         $r['placeholder_only'] ? $empty++ : $withFiles++;
+        // KEEP THE PER-DOMAIN ANSWER. This loop already asks each docroot what is in
+        // it and used to reduce the lot to two totals, so "which of these forty is
+        // still empty" cost another forty calls to find out. The go-live grid needs
+        // exactly that, per row, and it must be the SAME measurement the card above
+        // it counts — two readers deriving "does this folder hold a site" separately
+        // is how they come to disagree.
+        $sites[strtolower($name)] = [
+            'files'            => (int) $r['files'],
+            'dirs'             => (int) $r['dirs'],
+            'bytes'            => (int) $r['bytes'],
+            'placeholder_only' => (bool) $r['placeholder_only'],
+        ];
     }
-    $res = ['checked' => $withFiles + $empty, 'with_files' => $withFiles, 'empty' => $empty, 'at' => date('c')];
+    $res = ['checked' => $withFiles + $empty, 'with_files' => $withFiles, 'empty' => $empty,
+            'sites' => $sites, 'at' => date('c')];
     infra_cache_put('content:' . ($server['id'] ?? ''), $res);
     return $res;
 }

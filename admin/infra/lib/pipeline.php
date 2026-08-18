@@ -265,6 +265,279 @@ function infra_pipeline_row(array $rec, array $stored = []): array
             'next' => $next, 'worst' => $worst];
 }
 
+/* ─────────────────────────── going and looking ─────────────────────────── */
+
+/**
+ * Domain → the folder holding its generated site, for every batch on the factory.
+ *
+ * Globbed once for the whole grid rather than tested per row: sixty-five stat calls
+ * to draw one column is the filesystem version of the mistake this console already
+ * made over the network.
+ *
+ * The slug rule (dots and dashes to underscores) is ms_batch_output_dir()'s, in
+ * includes/multisite/batch.php. It is restated here rather than required, because
+ * admin/infra/lib/* is deliberately self-contained — if that rule ever changes, this
+ * line has to change with it.
+ *
+ * @return array<string,array{dir:string,at:int,has_index:bool}> keyed by slug
+ */
+function infra_pipeline_built_index(): array
+{
+    $out = [];
+    foreach (glob(dirname(__DIR__, 3) . '/sites/*/batches/*/output/*', GLOB_ONLYDIR) ?: [] as $dir) {
+        $slug = basename($dir);
+        $at   = (int) @filemtime($dir);
+        // Newest wins when the same domain has been built in two batches.
+        if (isset($out[$slug]) && $out[$slug]['at'] >= $at) continue;
+        // index.html is the cheap proof a build finished; counting every file under
+        // sixty-five trees costs thousands of stats and answers the same question.
+        $out[$slug] = ['dir' => $dir, 'at' => $at, 'has_index' => is_file($dir . '/index.html')];
+    }
+    return $out;
+}
+
+/** A domain as ms_batch_output_dir() names its folder. */
+function infra_pipeline_slug(string $domain): string
+{
+    return trim(preg_replace('/[^a-z0-9]+/', '_', strtolower(trim($domain))), '_');
+}
+
+/**
+ * Go and look, for ONE step, across a whole batch — then store what was found.
+ *
+ * Batched by the shape the underlying API actually has, which is why this is per
+ * column and not per cell: the host and upload answers arrive one box at a time, the
+ * zone and DNS answers one Cloudflare account at a time, and only `live` is genuinely
+ * one request per domain. Sixty-five rows therefore cost a handful of calls for most
+ * columns — and nothing at all for the three that are pure state.
+ *
+ * Every cell written here is what the CHECK saw. Nothing writes 'ok' because an action
+ * reported success.
+ *
+ * @return array{step:string,checked:int,ok:int,todo:int,fail:int}
+ */
+function infra_pipeline_refresh(string $step, string $batch = ''): array
+{
+    require_once __DIR__ . '/cache.php';
+    require_once __DIR__ . '/fleet.php';
+    require_once __DIR__ . '/hestia_fleet.php';
+    require_once __DIR__ . '/uptime.php';
+
+    $out = ['step' => $step, 'checked' => 0, 'ok' => 0, 'todo' => 0, 'fail' => 0];
+    if (!in_array($step, infra_pipeline_step_keys(), true)) return $out;
+
+    $rows = infra_pipeline_rows($batch);
+    if (!$rows) return $out;
+
+    // A refresh means "go and look", so the shared indexes must not answer from the
+    // store. This is the flag the fleet Refresh and the go-live cron already use.
+    infra_cache_force(true);
+
+    // Indexes that answer for every row at once. Built lazily so a column that does
+    // not need one never pays for it.
+    $hostIdx = null; $zoneIdx = null; $builtIdx = null; $content = null;
+
+    foreach ($rows as $r) {
+        $dom = $r['domain'];
+        $rec = $r['rec'];
+        $state = INFRA_STEP_TODO;
+        $note  = '';
+
+        switch ($step) {
+            case 'assign':
+                // PURE STATE, no network. Choosing a box is a decision recorded here,
+                // not something to go and discover. This first swept all twenty boxes
+                // to catch "assigned to one box, actually on another" — 70 seconds to
+                // answer a question the row already knew, and drift is D.Buy's Drift
+                // column anyway. What the boxes actually report is the next step's job.
+                $sid = trim((string) ($rec['server_id'] ?? ''));
+                if ($sid !== '') {
+                    $srv   = infra_hestia_server($sid);
+                    $state = INFRA_STEP_OK;
+                    $note  = $srv ? (string) ($srv['label'] ?? $sid)
+                                  : 'assigned to ' . $sid . ', which is no longer in the registry';
+                    if (!$srv) $state = INFRA_STEP_FAIL;
+                } else {
+                    $note = 'no box chosen yet';
+                }
+                break;
+
+            case 'host':
+                // The vhost is on the box, read from the box.
+                $hostIdx ??= infra_host_domain_index();
+                if (isset($hostIdx[$dom])) {
+                    $state = INFRA_STEP_OK;
+                    $note  = (string) ($hostIdx[$dom]['www_root'] ?? '');
+                } elseif (trim((string) ($rec['ftp_user'] ?? '')) !== '') {
+                    // An FTP login with no vhost behind it is a half-made host area,
+                    // not an absence — say so rather than reading as "not started".
+                    $state = INFRA_STEP_FAIL;
+                    $note  = 'an FTP login is recorded but the box lists no vhost for it';
+                }
+                break;
+
+            case 'built':
+                $builtIdx ??= infra_pipeline_built_index();
+                $b = $builtIdx[infra_pipeline_slug($dom)] ?? null;
+                if ($b && $b['has_index']) {
+                    $state = INFRA_STEP_OK;
+                    $note  = 'built ' . date('j M H:i', $b['at']);
+                } elseif ($b) {
+                    $state = INFRA_STEP_FAIL;
+                    $note  = 'output folder exists but has no index.html — the build did not finish';
+                }
+                break;
+
+            case 'upload':
+                // One content run per BOX covers every domain on it. The run stores its
+                // per-domain detail (see infra_hestia_content_run), so this column and
+                // the Files tile on the Servers card are the same measurement.
+                $sid = trim((string) ($rec['server_id'] ?? ''));
+                if ($sid === '') { $note = 'no box yet'; break; }
+                if (!isset($content[$sid])) {
+                    $srv = infra_hestia_server($sid);
+                    $content[$sid] = $srv ? infra_hestia_content_run($srv) : ['sites' => []];
+                }
+                $c = $content[$sid]['sites'][$dom] ?? null;
+                if ($c === null) {
+                    $note = 'no folder on the box for this domain';
+                } elseif ($c['placeholder_only']) {
+                    $note = 'folder holds only the placeholder — nothing uploaded';
+                } else {
+                    $state = INFRA_STEP_OK;
+                    $note  = $c['files'] . ' files, ' . round($c['bytes'] / 1024) . ' KB';
+                }
+                break;
+
+            case 'zone':
+                // A ZONE ON ITS OWN SENDS NOBODY ANYWHERE. This check first only asked
+                // whether Cloudflare listed the domain, and reported all 31 zoned
+                // domains as done — while the Live sweep found every one of them
+                // answering "could not resolve host", because not one had a record in
+                // it. Existing and pointing at the box are different facts, and the
+                // column claims the second.
+                $zoneIdx ??= infra_cf_zone_index();
+                $z = $zoneIdx[$dom] ?? null;
+                if (!$z) {
+                    if (trim((string) ($rec['cf_zone_id'] ?? '')) !== '') {
+                        // A zone id on record that Cloudflare no longer lists is a fact
+                        // about the record, not a missing step.
+                        $state = INFRA_STEP_FAIL;
+                        $note  = 'a zone id is stored but Cloudflare does not list this domain';
+                    }
+                    break;
+                }
+                $acct = null;
+                foreach (infra_cf_accounts() as $a) if (($a['id'] ?? '') === $z['account_id']) $acct = $a;
+                $recs = $acct ? infra_zone_contents_run($acct, (string) $z['zone_id']) : ['a' => [], 'n' => 0];
+                $apex = null;
+                foreach ($recs['a'] as $A) if (strtolower($A['name']) === $dom) { $apex = $A; break; }
+
+                if (!$apex) {
+                    $note = 'zone ' . ($z['status'] ?? '?') . ' in ' . ($z['account_label'] ?? '')
+                          . ' but no A record for the domain — it resolves nowhere';
+                } elseif (!$apex['proxied']) {
+                    // Unproxied means the origin IP is public and none of the caching
+                    // the whole architecture assumes is happening.
+                    $state = INFRA_STEP_FAIL;
+                    $note  = 'A record → ' . $apex['ip'] . ' but NOT proxied — origin exposed, no CDN';
+                } else {
+                    $want = trim((string) ($rec['default_ip'] ?? ''));
+                    $srv  = infra_hestia_server(trim((string) ($rec['server_id'] ?? '')));
+                    if ($srv) $want = trim((string) ($srv['default_ip'] ?? $srv['host'] ?? ''));
+                    if ($want !== '' && $apex['ip'] !== $want) {
+                        $state = INFRA_STEP_FAIL;
+                        $note  = 'A record → ' . $apex['ip'] . ', but its box is ' . $want;
+                    } else {
+                        $state = INFRA_STEP_OK;
+                        $note  = ($z['account_label'] ?? '') . ' · proxied → ' . $apex['ip'];
+                    }
+                }
+                break;
+
+            case 'golive':
+                // Pure state: has it been scheduled, or already released? Nothing to ask
+                // anyone. Overdue is a FAILURE — a date that passed with nothing having
+                // happened is the one state that looks fine and is not.
+                $status = strtolower(trim((string) ($rec['status'] ?? '')));
+                $when   = trim((string) ($rec['go_live_at'] ?? ''));
+                if (in_array($status, ['releasing', 'awaiting-ns', 'live'], true)) {
+                    $state = INFRA_STEP_OK;
+                    $note  = $when !== '' ? 'released ' . $when : 'released';
+                } elseif ($when !== '' && $when < infra_today()) {
+                    $state = INFRA_STEP_FAIL;
+                    $note  = 'scheduled ' . $when . ' — that date has passed and it has not been released';
+                } elseif ($when !== '') {
+                    $note = 'scheduled ' . $when;
+                } else {
+                    $note = 'not scheduled';
+                }
+                break;
+
+            case 'dns':
+                // Cloudflare calling the zone active IS the evidence the nameservers
+                // were switched: it only flips once it is answering for the domain.
+                $zoneIdx ??= infra_cf_zone_index();
+                $z = $zoneIdx[$dom] ?? null;
+                $zs = strtolower((string) ($z['status'] ?? ''));
+                if ($zs === 'active') {
+                    $state = INFRA_STEP_OK;
+                    // Says the delegation is done and nothing more. Whether anything is
+                    // IN the zone is the CF zone column's question — 31 domains here are
+                    // active and resolve nowhere.
+                    $note  = 'zone active — the nameservers point at Cloudflare';
+                } elseif ($z) {
+                    $note = 'zone ' . $zs . ' — nameservers not switched yet';
+                    if ($z['name_servers']) $note .= ' (expects ' . implode(' + ', array_slice($z['name_servers'], 0, 2)) . ')';
+                } else {
+                    $note = 'no zone yet';
+                }
+                break;
+
+            case 'live':
+                // The only genuinely per-domain request in the whole grid.
+                $c = infra_site_check_run($dom);
+                if (!empty($c['up']) && !empty($c['cert_ok'])) {
+                    $state = INFRA_STEP_OK;
+                    $note  = 'HTTP ' . $c['code'] . ' · ' . $c['ms'] . 'ms';
+                } elseif (!empty($c['up'])) {
+                    // Answering behind a bad certificate is a browser warning for every
+                    // visitor. It is not "up".
+                    $state = INFRA_STEP_FAIL;
+                    $note  = infra_site_verdict($c);
+                } else {
+                    $note = infra_site_verdict($c) . ($c['error'] ? ' — ' . $c['error'] : '');
+                }
+                break;
+        }
+
+        infra_pipeline_set($dom, $step, $state, $note, true);
+        $out['checked']++;
+        $out[$state === INFRA_STEP_OK ? 'ok' : ($state === INFRA_STEP_FAIL ? 'fail' : 'todo')]++;
+    }
+
+    infra_cache_force(false);
+    return $out;
+}
+
+/**
+ * When each column was last swept, as step => newest checked_at.
+ * Age belongs on screen: a green tick with no date is a claim about an unknown moment.
+ *
+ * @return array<string,int>
+ */
+function infra_pipeline_column_ages(array $rows): array
+{
+    $out = [];
+    foreach ($rows as $r) {
+        foreach ($r['cells'] as $k => $c) {
+            if (!empty($c['derived']) || empty($c['at'])) continue;
+            $out[$k] = max($out[$k] ?? 0, (int) $c['at']);
+        }
+    }
+    return $out;
+}
+
 /**
  * The batches that exist — every distinct non-empty `batch` tag, with its size.
  * A tag, not an object: fifty domains carry the same string, and re-tagging them

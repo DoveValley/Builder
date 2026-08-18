@@ -19,6 +19,17 @@ $pgBatches = infra_pipeline_batches();
 $pgSteps   = infra_pipeline_steps();
 $pgRows    = infra_pipeline_rows($pgBatch);
 $pgSum     = infra_pipeline_summary($pgRows);
+$pgAges    = infra_pipeline_column_ages($pgRows);
+
+/** "3m" / "2h" / "5d" — how old the last sweep of a column is. */
+function pg_age(int $ts): string
+{
+    $s = max(0, time() - $ts);
+    if ($s < 90)    return $s . 's';
+    if ($s < 5400)  return round($s / 60) . 'm';
+    if ($s < 172800) return round($s / 3600) . 'h';
+    return round($s / 86400) . 'd';
+}
 
 // id => label, so the Box column can say "BOX 7" rather than "hst-beaa53".
 $pgBoxes = [];
@@ -65,6 +76,11 @@ function pg_cell(array $c): string
 .pg-tabs a  { display:inline-block; padding:3px 10px; border:1px solid #d1d5db; border-radius:999px;
               font-size:12px; text-decoration:none; color:#374151; margin:0 6px 6px 0 }
 .pg-tabs a.on { background:#111827; border-color:#111827; color:#fff }
+.pg-r       { border:1px solid #d1d5db; background:#fff; border-radius:5px; cursor:pointer;
+              font-size:12px; line-height:1; padding:3px 7px; color:#374151 }
+.pg-r:hover { background:#111827; border-color:#111827; color:#fff }
+.pg-age     { display:block; margin-top:3px; font-size:10px; font-weight:400; color:#cbd5e1;
+              text-transform:none; letter-spacing:0 }
 </style>
 
 <div class="ic-card">
@@ -111,9 +127,34 @@ function pg_cell(array $c): string
         <thead>
           <tr>
             <th>Domain</th>
-            <th>Box</th>
+            <th>
+              Box
+              <?php // The Box column IS the `assign` step — it just shows the box's name
+                    // rather than a tick. Without this it would be the one step with no
+                    // way to re-check it, and its state decides what every row's "next"
+                    // is. Costs nothing: assign reads stored state and never calls out. ?>
+              <form method="post" action="actions/pipeline_refresh.php" style="display:inline;margin-left:6px">
+                <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+                <input type="hidden" name="step" value="assign">
+                <input type="hidden" name="batch" value="<?= ih($pgBatch) ?>">
+                <button class="pg-r" type="submit" title="Re-check which box each domain is assigned to">&#8635;</button>
+              </form>
+            </th>
             <?php foreach ($pgSteps as $s): if ($s['key'] === 'assign') continue; ?>
-              <th class="num" title="<?= ih($s['does']) ?>"><?= ih($s['label']) ?></th>
+              <th class="num" title="<?= ih($s['does']) ?>">
+                <?= ih($s['label']) ?>
+                <?php // One Refresh per column, because that is the shape the APIs have:
+                      // host and upload answer one box at a time, zone and DNS one
+                      // Cloudflare account at a time. Only Live is one call per row. ?>
+                <form method="post" action="actions/pipeline_refresh.php" style="margin:3px 0 0">
+                  <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+                  <input type="hidden" name="step" value="<?= ih($s['key']) ?>">
+                  <input type="hidden" name="batch" value="<?= ih($pgBatch) ?>">
+                  <button class="pg-r" type="submit"
+                          title="Go and check this column for all <?= count($pgRows) ?> rows">&#8635;</button>
+                </form>
+                <span class="pg-age"><?= isset($pgAges[$s['key']]) ? ih(pg_age($pgAges[$s['key']])) . ' ago' : 'never' ?></span>
+              </th>
             <?php endforeach; ?>
           </tr>
         </thead>
@@ -157,7 +198,8 @@ function pg_cell(array $c): string
         <span style="color:#991b1b;font-weight:700">&#10007;</span> failed &nbsp;
         <span style="color:#cbd5e1;font-weight:700">&#9675;</span> never checked &nbsp;
         <span class="pg-d" style="opacity:.45">faded</span> = worked out from fleet state, not verified.
-        Nothing on this page goes to the network &mdash; the per-column Refresh does that, and is next to be built.
+        Nothing renders from the network &mdash; <strong>&#8635;</strong> in a column heading is the only thing
+        that goes and looks, and it does the whole column in one pass.
       </div>
 
     <?php endif; ?>
