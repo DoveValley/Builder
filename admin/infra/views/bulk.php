@@ -1,6 +1,10 @@
 <?php
 /* ============================= BULK PROVISION ============================= */
     infra_header('bulk');
+    // The durable record of what a run achieved, above the form that starts one. The
+    // streaming log below says what is happening right now and is gone the moment you
+    // navigate away; the grid is what survives.
+    require __DIR__ . '/_pipeline_grid.php';
     $servers = infra_hestia_servers();
     $accts   = infra_cf_accounts();
     $regs    = infra_registrar_names();

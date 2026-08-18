@@ -88,6 +88,21 @@ function infra_state_db(): PDO
     // in its normalize(). Modelling its niches and candidates as columns here would
     // put the same schema in two places and make every UI change a migration.
     $db->exec('CREATE TABLE IF NOT EXISTS dfinder (k TEXT PRIMARY KEY, v TEXT, ts INTEGER)');
+    // One row per (domain, step): the go-live grid's checkpoint — see lib/pipeline.php.
+    // NARROW on purpose. One column per step would need an ALTER TABLE every time the
+    // pipeline gains one, and nine more columns to give each step its own note and
+    // timestamp; here a new step is just rows. This table holds only answers somebody
+    // actually went and checked — inferences from the domains table are computed at
+    // render time and never written here, so "verified" and "assumed" stay distinct.
+    $db->exec('CREATE TABLE IF NOT EXISTS domain_step (
+        domain     TEXT NOT NULL,
+        step       TEXT NOT NULL,
+        state      TEXT DEFAULT "",   -- ok | todo | fail | running
+        note       TEXT DEFAULT "",   -- why it failed, or anything worth saying
+        attempts   INTEGER DEFAULT 0, -- four failures is a broken box, not a flaky call
+        checked_at INTEGER DEFAULT 0,
+        PRIMARY KEY (domain, step)
+    )');
     return $db;
 }
 
@@ -117,6 +132,12 @@ const INFRA_STATE_COLS = ['domain','niche','server_id','cf_account_id','cf_zone_
                          // Namecheap cannot set this over its API, so a domain can be
                          // owned and quietly set to lapse; that has to be visible.
     'contact_set',       // which registrant contact set to register with (pass two)
+    // ── deployment stage ──
+    'batch',             // free-text tag grouping domains for the go-live grid.
+                         // A TAG, not an object: fifty domains carry the same string,
+                         // and re-tagging them tomorrow breaks nothing because there is
+                         // no membership table, no batch record and no ids to keep in
+                         // step. See lib/pipeline.php.
 ];
 
 /**
