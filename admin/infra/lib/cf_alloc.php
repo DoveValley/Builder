@@ -78,7 +78,12 @@ function infra_cf_accounts_for_server(string $serverId): array
             'used'    => max(0, $used),
             'unswept' => $used < 0,
             'max'     => $max,
-            'free'    => $used < 0 ? $max : max(0, $max - $used),
+            // An unmeasured account has UNKNOWN room, not full room. Reporting $max
+            // here made a never-swept CF #1 offer 31 free slots while actually holding
+            // 31 — the cap silently not applying until somebody happened to press
+            // Refresh. 0 is the honest floor; the `unswept` flag is what the UI reads
+            // to say "not counted yet" rather than "full".
+            'free'    => $used < 0 ? 0 : max(0, $max - $used),
         ];
     }
     usort($out, fn($x, $y) => [(int) ($x['order'] ?? 0), (string) $x['label']]
@@ -103,7 +108,19 @@ function infra_cf_account_for_server(string $serverId): array
         return ['ok' => false, 'account' => null,
                 'why' => 'no Cloudflare account is bound to this box — bind one on the Cloudflare tab'];
     }
+    // An account nobody has counted is NOT an empty account. Left to "0 used, so
+    // there is room", the allocator would have filled CF #1 — which holds 31 zones and
+    // is capped at 31 — with another 31, straight into the registrar account the cap
+    // exists to seal. Refuse until it has been measured; the cure is one Refresh.
+    $unswept = array_filter($bound, fn($a) => !empty($a['unswept']));
+    if (count($unswept) === count($bound)) {
+        return ['ok' => false, 'account' => null,
+                'why' => 'this box\'s Cloudflare account has never been counted, so there is no way to know '
+                       . 'whether it has room — press "Refresh zones" at the top of the Cloudflare tab first'];
+    }
+
     foreach ($bound as $a) {
+        if (!empty($a['unswept'])) continue;      // never guess at an unmeasured account
         if ($a['free'] > 0) return ['ok' => true, 'account' => $a, 'why' => ''];
     }
     $total = array_sum(array_column($bound, 'used'));
@@ -144,20 +161,27 @@ function infra_cf_capacity(): array
 {
     require_once __DIR__ . '/hestia_fleet.php';
     $out = ['boxes' => 0, 'bound' => 0, 'unbound' => count(infra_cf_accounts_unbound()),
-            'capacity' => 0, 'used' => 0, 'free' => 0, 'boxes_with_none' => 0, 'boxes_full' => 0];
+            'capacity' => 0, 'used' => 0, 'free' => 0, 'boxes_with_none' => 0, 'boxes_full' => 0,
+            // How many bound accounts nobody has counted. While this is non-zero the
+            // totals beside it are a floor, not a measurement, and the page says so —
+            // "0 zones held" reads as a fact and would be a guess.
+            'unswept' => 0];
 
     foreach (infra_hestia_servers() as $s) {
         $out['boxes']++;
         $bound = infra_cf_accounts_for_server((string) ($s['id'] ?? ''));
         if (!$bound) { $out['boxes_with_none']++; continue; }
-        $free = 0;
+        $free = 0; $measured = 0;
         foreach ($bound as $a) {
             $out['bound']++;
+            if (!empty($a['unswept'])) { $out['unswept']++; continue; }
+            $measured++;
             $out['capacity'] += $a['max'];
             $out['used']     += $a['used'];
             $free            += $a['free'];
         }
-        if ($free === 0) $out['boxes_full']++;
+        // A box whose accounts are all unmeasured is not "full" — it is unknown.
+        if ($measured > 0 && $free === 0) $out['boxes_full']++;
     }
     $out['free'] = max(0, $out['capacity'] - $out['used']);
     return $out;

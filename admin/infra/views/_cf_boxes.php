@@ -55,8 +55,10 @@ $cbBoxes = infra_hestia_servers();
     <div class="cb-row" style="margin-bottom:14px">
       <div><div class="cb-n"><?= (int) $cbCap['boxes'] ?></div><div class="cb-l">Boxes</div></div>
       <div><div class="cb-n"><?= (int) $cbCap['bound'] ?></div><div class="cb-l">Accounts bound</div></div>
-      <div><div class="cb-n"><?= (int) $cbCap['used'] ?></div><div class="cb-l">Zones held</div></div>
-      <div><div class="cb-n"><?= (int) $cbCap['free'] ?></div><div class="cb-l">Room left</div></div>
+      <?php // While any bound account is uncounted these are a FLOOR, not a measurement.
+            // "0 zones held" reads as a fact and would be a guess. ?>
+      <div><div class="cb-n"><?= $cbCap['bound'] && $cbCap['unswept'] === $cbCap['bound'] ? '?' : (int) $cbCap['used'] ?></div><div class="cb-l">Zones held</div></div>
+      <div><div class="cb-n"><?= $cbCap['bound'] && $cbCap['unswept'] === $cbCap['bound'] ? '?' : (int) $cbCap['free'] ?></div><div class="cb-l">Room left</div></div>
       <div><div class="cb-n" style="color:<?= $cbCap['boxes_with_none'] ? '#92400e' : '#9ca3af' ?>"><?= (int) $cbCap['boxes_with_none'] ?></div><div class="cb-l">Boxes with none</div></div>
       <?php // Blue, not red. A full account is usually a ceiling somebody chose — CF #1
             // is capped at the 31 zones it will always have — and colouring a deliberate
@@ -94,9 +96,12 @@ $cbBoxes = infra_hestia_servers();
       <div class="ic-note" style="margin-bottom:12px">
         <strong><?= count($cbFree) ?> account<?= count($cbFree) === 1 ? '' : 's' ?> bound to no box:</strong>
         <?php foreach ($cbFree as $a): ?>
-          <span class="badge b-mut"><?= ih($a['label'] ?? $a['id']) ?> &middot; <?= (int) $a['used'] ?> zone<?= (int) $a['used'] === 1 ? '' : 's' ?></span>
+          <?php // "0 zones" for an account nobody has counted is a claim, not a reading. ?>
+          <span class="badge b-mut"><?= ih($a['label'] ?? $a['id']) ?> &middot;
+            <?= !empty($a['unswept']) ? 'not counted yet' : (int) $a['used'] . ' zone' . ((int) $a['used'] === 1 ? '' : 's') ?></span>
         <?php endforeach; ?>
         <br>They still work; they are just outside the scheme, so nothing routes to them.
+        <br><strong>Bind one to a box</strong> by editing it below, or on the box's own card.
       </div>
     <?php endif; ?>
 
@@ -168,12 +173,14 @@ $cbBoxes = infra_hestia_servers();
           <td><code style="font-size:12px"><?= ih($a['account_id'] ?? '') ?></code></td>
           <td>
             <?php if (!empty($a['unswept'])): ?>
-              <span style="color:#9ca3af" title="No sweep has ever counted this account's zones">not counted yet</span>
+              <span style="color:#92400e" title="No sweep has ever counted this account's zones, so no zone can be created in it yet">not counted yet</span>
             <?php else: ?>
               <?= (int) $a['used'] ?> / <?= (int) $a['max'] ?>
             <?php endif; ?>
           </td>
-          <td style="color:<?= $a['free'] > 0 ? '#166534' : '#1e40af' ?>"><?= $a['free'] > 0 ? (int) $a['free'] : 'full' ?></td>
+          <td style="color:<?= !empty($a['unswept']) ? '#92400e' : ($a['free'] > 0 ? '#166534' : '#1e40af') ?>">
+            <?= !empty($a['unswept']) ? 'unknown' : ($a['free'] > 0 ? (int) $a['free'] : 'full') ?>
+          </td>
           <td>
             <form method="post" action="actions/cf_save.php" class="cb-f">
               <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
@@ -183,7 +190,8 @@ $cbBoxes = infra_hestia_servers();
               <div><label>order</label><input type="number" name="order" value="<?= (int) ($a['order'] ?? 0) ?>" min="0" max="99" style="width:60px"></div>
               <div><label>max zones</label><input type="number" name="max_zones" value="<?= (int) $a['max'] ?>" min="1" max="5000" style="width:80px"></div>
               <button class="btn sec" type="submit">Save</button>
-              <button class="btn sec" type="submit" name="server_id" value=""
+              <?php // Its own action, not "bind with a blank box" — see actions/cf_save.php. ?>
+              <button class="btn sec" type="submit" name="action" value="unbind"
                       onclick="return confirm('Unbind <?= ih($a['label'] ?? $a['id']) ?> from this box?\n\nZones already in it stay exactly where they are — Cloudflare cannot move a zone between accounts. It just stops receiving new ones.')">Unbind</button>
             </form>
           </td>

@@ -62,12 +62,17 @@ if ($action === 'delete') {
 /* ---- bind an account to a box ----------------------------------------- */
 /* The pairing is stored ON THE ACCOUNT — one field, one value — so "an account can
  * only be on one box" is not a rule anything has to enforce. See lib/cf_alloc.php. */
-if ($action === 'bind') {
+if ($action === 'bind' || $action === 'unbind') {
     if ($idx === null) {
         infra_set_flash('err', 'That account is not in the list.');
         header('Location: ' . $back); exit;
     }
-    $srv = trim((string) ($_POST['server_id'] ?? ''));
+    // Unbind is its own action rather than "bind with an empty box". It used to be a
+    // submit button named server_id with an empty value, sitting in a form that already
+    // had a hidden server_id — so which one won came down to DOM order, and a binding
+    // could be cleared by a click that did not look like it was clearing anything.
+    // That is how CF #1 lost its box while keeping the cap somebody had typed.
+    $srv = $action === 'unbind' ? '' : trim((string) ($_POST['server_id'] ?? ''));
     if ($srv !== '' && !infra_hestia_server($srv)) {
         infra_set_flash('err', 'That box is not in the registry.');
         header('Location: ' . $back); exit;
@@ -131,6 +136,21 @@ $candidate = array_merge($existing, [
     'account_id' => $acctId,
     'api_token'  => $token,
 ]);
+
+// The box is part of the account form now, so an account can be created already bound
+// instead of appearing as an option on all twenty box cards afterwards. Only applied
+// when the form actually carried the field — the bind action posts none of these, and
+// merging absent fields would wipe a binding made elsewhere.
+if (array_key_exists('server_id', $_POST)) {
+    $srv = trim((string) $_POST['server_id']);
+    if ($srv !== '' && !infra_hestia_server($srv)) {
+        infra_set_flash('err', 'That box is not in the registry.');
+        header('Location: ' . $back); exit;
+    }
+    $candidate['server_id'] = $srv;
+}
+if (array_key_exists('order', $_POST))     $candidate['order']     = max(0, (int) $_POST['order']);
+if (array_key_exists('max_zones', $_POST)) $candidate['max_zones'] = max(1, (int) $_POST['max_zones']);
 unset($candidate['niches']);   // never read by anything; dropped like the server one
 
 /* ---- test without saving ---------------------------------------------- */
