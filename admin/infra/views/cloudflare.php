@@ -105,12 +105,35 @@
         $strays   = array_values(array_filter($zones, fn($z) => !isset($known[strtolower($z['name'] ?? '')])));
         $usesGlobalKey = !empty($a['email']) && !empty($a['global_key']);
     ?>
-    <div class="ic-card">
-        <h2><?= ih($a['label'] ?? $a['id'] ?? 'Cloudflare account') ?>
+    <?php
+    // Folds like Servers, Registers and the box cards above. It used to be a plain
+    // card, which on the account holding 31 zones put Edit and Remove below a 31-row
+    // table — far enough down the page to look as though they were not there at all.
+    // Open when the credentials are wrong or you are editing it; shut otherwise.
+    $cfOpen = (!$ok && !$never) || $editId === ($a['id'] ?? '');
+    // The box it serves, so the summary answers "what is this account for" without
+    // scrolling up to the section that owns that question.
+    $cfBox = trim((string) ($a['server_id'] ?? '')) !== '' ? infra_hestia_server((string) $a['server_id']) : null;
+    ?>
+    <details class="ic-card ic-fold" <?= $cfOpen ? 'open' : '' ?>>
+        <summary style="cursor:pointer">
+        <h2 style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <span style="color:#9ca3af;font-weight:400">&#9656;</span>
+            <?= ih($a['label'] ?? $a['id'] ?? 'Cloudflare account') ?>
             <?= $ok ? '<span class="badge b-ok">connected</span>'
                  : ($never ? '<span class="badge b-mut">not checked yet</span>'
                            : '<span class="badge b-err">credentials rejected</span>') ?>
+            <span style="font-weight:400;font-size:13px;color:#6b7280">
+                <?= count($zones) ?> zone<?= count($zones) === 1 ? '' : 's' ?>
+                <?php if ($cfBox): ?>
+                    &middot; serves <strong><?= ih($cfBox['label'] ?? $a['server_id']) ?></strong>
+                <?php else: ?>
+                    &middot; <span style="color:#9ca3af">bound to no box</span>
+                <?php endif; ?>
+                <?php if ($usesGlobalKey): ?>&middot; global key<?php endif; ?>
+            </span>
         </h2>
+        </summary>
         <div class="body">
 
             <?php if ($never): ?>
@@ -271,7 +294,7 @@
             </div>
             <?php endif; ?>
         </div>
-    </div>
+    </details>
     <?php endforeach; ?>
 
     <div class="ic-card" id="add-cf">
