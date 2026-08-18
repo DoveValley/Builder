@@ -20,14 +20,31 @@ infra_cache_force();                 // cron always polls Cloudflare live
 $pre = infra_golive_refresh_live();
 $due = infra_golive_due();
 
-$released = 0;
+// A domain refused by the gate (nothing uploaded, or nobody has checked) does NOT
+// count against the cap: it never went anywhere, and letting it eat a slot would
+// quietly shrink the day's release run. It stays due, and says so every morning
+// until somebody either uploads the site or overrides deliberately from the grid.
+$released = 0; $gated = 0;
 foreach ($due as $domain => $rec) {
     if ($released >= $cap) break;
     $r = infra_golive_release($domain);
+    if (!empty($r['gated'])) {
+        $gated++;
+        echo "{$ts} HELD {$domain}: {$r['message']}\n";
+        continue;
+    }
     echo "{$ts} release {$domain}: {$r['message']}\n";
     $released++;
 }
 
 $post = infra_golive_refresh_live();
-$remaining = max(0, count($due) - $released);
-echo "{$ts} tick done — newly-live: " . ($pre + $post) . ", released: {$released}/{$cap}, still-due: {$remaining}\n";
+$remaining = max(0, count($due) - $released - $gated);
+echo "{$ts} tick done — newly-live: " . ($pre + $post) . ", released: {$released}/{$cap}"
+   . ($gated ? ", held: {$gated} (nothing uploaded)" : '') . ", still-due: {$remaining}\n";
+
+// A run that leaves a footprint is a run you can ask about later. The grid reads this
+// to say when the tick last ran — a scheduler that has silently stopped is worse than
+// no scheduler, and until this line existed there was no way to tell the difference.
+@file_put_contents(dirname(__DIR__) . '/state/golive_tick.json', json_encode([
+    'at' => time(), 'due' => count($due), 'released' => $released, 'held' => $gated, 'cap' => $cap,
+], JSON_PRETTY_PRINT));

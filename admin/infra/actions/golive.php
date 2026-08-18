@@ -22,13 +22,18 @@ switch ($_POST['action'] ?? '') {
     case 'schedule':
         $perDay = (int) ($_POST['per_day'] ?? 20);
         $start  = trim($_POST['start_date'] ?? '');
-        $n = infra_golive_schedule($perDay, $start);
-        infra_set_flash('ok', "Scheduled {$n} domain(s), {$perDay}/day from " . ($start ?: 'today') . '.');
+        // Gated: a date scheduled for a domain the release will refuse just moves the
+        // failure to a morning when nobody is watching.
+        $r = infra_golive_schedule($perDay, $start, ['gate' => true]);
+        infra_set_flash($r['skipped'] > 0 ? 'warn' : 'ok',
+            "Scheduled {$r['scheduled']} domain(s), {$perDay}/day from " . ($start ?: 'today') . '.'
+            . ($r['skipped'] > 0 ? " {$r['skipped']} skipped — nothing is uploaded to them yet." : ''));
         break;
 
     case 'release':
         $domain = strtolower(trim($_POST['domain'] ?? ''));
-        $r = infra_golive_release($domain);
+        // Overriding the empty-site gate has to be an explicit tick, never a default.
+        $r = infra_golive_release($domain, !empty($_POST['force']));
         $type = $r['ok'] ? 'ok' : ($r['manual'] ? 'warn' : 'err');
         infra_set_flash($type, "Release '{$domain}': {$r['message']}"
             . ($r['ns'] ? "\nNameservers: " . implode(', ', $r['ns']) : ''));
