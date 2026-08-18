@@ -15,6 +15,13 @@
  * one value, so "an account can only be on one box" cannot be violated — there is
  * nowhere to write a second answer.
  *
+ * (Considered 2026-08-18 and NOT done: moving the binding onto the box, so one account
+ * could own a block of boxes. That is sound — what causes the chain is OVERLAP, not an
+ * account having several boxes — and it would let five accounts cover twenty boxes as
+ * islands of four. It was rejected because the estate has twenty accounts for twenty
+ * boxes, where one-to-one is both the tightest isolation available and already enforced
+ * by this field. Revisit only if the account count ever drops below the box count.)
+ *
  * ⚠ CLOUDFLARE CANNOT MOVE A ZONE BETWEEN ACCOUNTS. Correcting a misplaced zone means
  * delete + recreate, which issues a NEW nameserver pair, needs a registrar change and
  * re-propagation — downtime, once the site is live. So a zone placed wrongly is placed

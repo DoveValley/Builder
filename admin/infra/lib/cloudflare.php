@@ -63,10 +63,46 @@ function cf_probe(array $account): array
     // so it answers 403 for a perfectly good account and would have marked every
     // correctly-configured entry as rejected. (It works for a global key, which is why
     // it passed the first account tested and failed the second.)
-    $r   = cf_api($account, 'GET', '/zones', ['per_page' => 1, 'account.id' => $acct]);
-    $ok  = $r['code'] === 200 && !empty($r['json']['success']);
-    $msg = $ok ? '' : ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']));
-    return ['ok' => $ok, 'code' => $r['code'], 'error' => $msg];
+    $r = cf_api($account, 'GET', '/zones', ['per_page' => 1, 'account.id' => $acct]);
+    if (!($r['code'] === 200 && !empty($r['json']['success']))) {
+        return ['ok' => false, 'state' => 'bad', 'name' => '', 'code' => $r['code'],
+                'error' => $r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code'])];
+    }
+
+    // ── RECOGNISED IS NOT THE SAME AS USABLE ────────────────────────────────────
+    //
+    // The filter above only proves Cloudflare KNOWS this id. An account that exists and
+    // that this credential simply may not touch answers 200 with an empty zone list —
+    // identical, byte for byte, to a working account holding no zones yet. Only an id
+    // that exists NOWHERE returns 400.
+    //
+    // Measured 2026-08-18: fourteen accounts probed "OK" this way and every one of them
+    // answered `Permission denied` the moment a zone was actually created in it. The
+    // console reported 20/20 healthy while 14 boxes could not have gone live — the same
+    // "confident green over an unasked question" this function's own history is about.
+    //
+    // So ask the second question. GET /accounts lists what the credential may actually
+    // use; if the id is not in its own list, it is not ours no matter what /zones said.
+    $list = cf_list_accounts($account);
+    if (!empty($list['ok']) && $list['accounts']) {
+        foreach ($list['accounts'] as $x) {
+            if (strcasecmp((string) $x['id'], $acct) === 0) {
+                return ['ok' => true, 'state' => 'verified', 'name' => (string) $x['name'],
+                        'code' => 200, 'error' => ''];
+            }
+        }
+        return ['ok' => false, 'state' => 'foreign', 'name' => '', 'code' => 200,
+                'error' => 'Cloudflare knows this account id, but this credential cannot use it — '
+                         . 'it is not among the ' . count($list['accounts']) . ' account(s) the token can reach. '
+                         . 'Zone creation here would fail with "Permission denied".'];
+    }
+
+    // The credential cannot enumerate its accounts (no Account Settings: Read), so the
+    // question is unanswerable rather than answered. Say so instead of promoting a
+    // silence to a pass — 'unverified' is deliberately NOT drawn as healthy.
+    return ['ok' => true, 'state' => 'unverified', 'name' => '', 'code' => 200,
+            'error' => 'the token cannot list its accounts, so access to this one could not be '
+                     . 'confirmed — add "Account Settings: Read" to it to make this checkable'];
 }
 
 /**

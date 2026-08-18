@@ -165,13 +165,26 @@ if ($action === 'test') {
         // Naming the account that answered is the whole point of the test. "Credentials
         // accepted" says the token works; "connected to <name>, 0 zones" is what tells
         // you the id you pasted belongs to the account you meant.
-        // The name is a nicety, not the verdict — a zone-scoped token cannot read it.
-        $nm = cf_account_name($candidate);
-        infra_set_flash('ok', '✓ Connected to ' . ($nm !== '' ? '"' . $nm . '"' : 'that account')
-            . ' — ' . count($zones) . ' zone(s) in it. Check that is the account you meant. Nothing was saved.');
+        $nm = (string) ($probe['name'] ?? '') !== '' ? $probe['name'] : cf_account_name($candidate);
+        // VERIFIED and COULD-NOT-CHECK are different answers and get different words.
+        // Saying "connected" for the second one is how fourteen accounts that could not
+        // create a single zone sat green on this page.
+        if (($probe['state'] ?? '') === 'unverified') {
+            infra_set_flash('warn', '⚠ The token works and Cloudflare knows that account id — but access to '
+                . 'it could NOT be confirmed, because the token cannot list its own accounts. An account you '
+                . 'have no rights to answers exactly like an empty account you own. Add "Account Settings: Read" '
+                . 'to the token to make this checkable. Nothing was saved.');
+        } else {
+            infra_set_flash('ok', '✓ Verified — this token really can use '
+                . ($nm !== '' ? '"' . $nm . '"' : 'that account')
+                . ', ' . count($zones) . ' zone(s) in it. Check that is the account you meant. Nothing was saved.');
+        }
     } else {
-        infra_set_flash('err', '✗ Cloudflare would not confirm that account — ' . ($probe['error'] ?: 'no reply')
-            . '. Either the account ID is wrong or this token cannot see it. Nothing was saved.');
+        infra_set_flash('err', ($probe['state'] ?? '') === 'foreign'
+            ? '✗ That account id is real, but this token cannot use it — ' . $probe['error']
+              . ' Nothing was saved.'
+            : '✗ Cloudflare would not confirm that account — ' . ($probe['error'] ?: 'no reply')
+              . '. Either the account ID is wrong or this token cannot see it. Nothing was saved.');
     }
     header('Location: ' . $back); exit;
 }

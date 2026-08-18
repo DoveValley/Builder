@@ -76,3 +76,4 @@ admin/_dirnet-data/sheet3-legend.csv
 # one machine's approvals onto every checkout. The shared settings file (without
 # .local) is the one that belongs in git, if we ever need one.
 .claude/settings.local.json
+.claude/settings.local.json.bak-*

@@ -38,7 +38,12 @@ function infra_discover_cf_zones(array $account, int $ttl = INFRA_DISCOVER_TTL):
  * says "credentials rejected" because nobody has asked yet invents a problem out of
  * an absence of information — the same rule the server cards already follow.
  *
- * @return array{ok:bool,never:bool,error:string}
+ * `state` is carried through, not flattened into ok/failed: cf_probe() distinguishes an
+ * account it VERIFIED the credential can use from one it merely could not disprove, and
+ * collapsing those two here would put the confident green straight back — which is the
+ * bug that hid fourteen unusable accounts.
+ *
+ * @return array{ok:bool,never:bool,error:string,state:string,name:string}
  */
 function infra_cf_probe_cached(array $account): array
 {
@@ -46,8 +51,12 @@ function infra_cf_probe_cached(array $account): array
 
     if (infra_cache_fresh()) {                 // the Refresh button, and only that
         $p = cf_probe($account);
-        infra_cache_put($key, ['ok' => !empty($p['ok']), 'error' => (string) ($p['error'] ?? $p['message'] ?? '')]);
-        return ['ok' => !empty($p['ok']), 'never' => false, 'error' => (string) ($p['error'] ?? $p['message'] ?? '')];
+        $v = ['ok'    => !empty($p['ok']),
+              'error' => (string) ($p['error'] ?? $p['message'] ?? ''),
+              'state' => (string) ($p['state'] ?? ''),
+              'name'  => (string) ($p['name']  ?? '')];
+        infra_cache_put($key, $v);
+        return $v + ['never' => false];
     }
 
     $wasFresh = infra_cache_fresh();
@@ -56,8 +65,13 @@ function infra_cf_probe_cached(array $account): array
     if ($wasFresh) infra_cache_force(true);
 
     return $c === null
-        ? ['ok' => false, 'never' => true,  'error' => '']
-        : ['ok' => !empty($c['ok']), 'never' => false, 'error' => (string) ($c['error'] ?? '')];
+        ? ['ok' => false, 'never' => true,  'error' => '', 'state' => '', 'name' => '']
+        : ['ok'    => !empty($c['ok']),  'never' => false,
+           'error' => (string) ($c['error'] ?? ''),
+           // Answers stored before states existed carry none — shown as unconfirmed
+           // rather than promoted to verified, because that is what they are.
+           'state' => (string) ($c['state'] ?? ''),
+           'name'  => (string) ($c['name']  ?? '')];
 }
 
 /**

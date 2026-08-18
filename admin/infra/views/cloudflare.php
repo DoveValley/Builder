@@ -182,8 +182,27 @@
             </div>
             <?php elseif (!$ok): ?>
             <div class="ic-note" style="background:#fef2f2;border-color:#fca5a5;color:#991b1b">
-                <strong>Cloudflare would not accept these credentials.</strong><br>
+                <strong><?= ($probe['state'] ?? '') === 'foreign'
+                    ? 'This account id is real, but these credentials cannot use it.'
+                    : 'Cloudflare would not accept these credentials.' ?></strong><br>
                 <?= ih($probe['error'] ?: 'no reply') ?>
+                <?php if (($probe['state'] ?? '') === 'foreign'): ?>
+                <br><br>Either the token belongs to a different account, or this account never
+                granted it access. Nothing can be created here until one of those is fixed —
+                and it would fail only at the moment a zone was made, which is far too late.
+                <?php endif; ?>
+            </div>
+            <?php elseif (($probe['state'] ?? '') === 'unverified'): ?>
+            <?php // Passed every check that could be run, but one check could NOT be run.
+                  // Amber, not green: this is the exact gap that hid 14 unusable accounts. ?>
+            <div class="ic-note" style="background:#fffbeb;border-color:#fcd34d;color:#92400e">
+                <strong>Working, but access to this account could not be confirmed.</strong><br>
+                The token answered, and Cloudflare recognises the account id — but the token
+                cannot list its own accounts, so the console cannot prove the two belong together.
+                An account you have no rights to looks identical to an empty one you own.
+                <br><br>Add <code>Account&nbsp;&rarr;&nbsp;Account Settings&nbsp;&rarr;&nbsp;Read</code>
+                to this token and press Refresh; it will then say <strong>verified</strong> and name
+                the account it reached.
             </div>
             <?php endif; ?>
 
