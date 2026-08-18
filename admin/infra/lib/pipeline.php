@@ -623,9 +623,55 @@ function infra_pipeline_do(string $step, string $domain, string $batch = ''): ar
         switch ($step) {
 
             case 'assign':
-                // Round-robin across configured boxes, using the same persistent counter
-                // the bulk runner uses so the two do not fill the fleet unevenly by
-                // taking turns from different starting points.
+                require_once __DIR__ . '/cf_alloc.php';
+
+                // THE ZONE DECIDES THE BOX, when there already is one.
+                //
+                // A domain whose zone exists must go on the box its account is bound to,
+                // or the containment only holds for domains that happened to be created
+                // in the right order. Round-robin here would scatter the 31 domains
+                // registered at Cloudflare — which share one nameserver pair permanently,
+                // and cannot be moved to another account — across twenty different IPs.
+                // That is the maximum-chaining case this whole scheme exists to prevent:
+                // one pair linking 31 domains, each also linked to whatever else sits on
+                // its box. Cloudflare cannot move a zone, so the box is the only end of
+                // this that can still be chosen.
+                $zoneAcct = trim((string) ($rec['cf_account_id'] ?? ''));
+                if ($zoneAcct !== '') {
+                    $acct = null;
+                    foreach (infra_cf_accounts() as $a) {
+                        if ((string) ($a['id'] ?? '') === $zoneAcct) { $acct = $a; break; }
+                    }
+                    // Every branch below REFUSES rather than falling through to the
+                    // round-robin. A domain that already has a zone has already had its
+                    // box decided for it; picking a different one would place the site
+                    // and its nameservers in two different groups, which is the failure
+                    // this rule exists to prevent — and it would do it silently.
+                    if (!$acct) {
+                        $msg = 'its zone is in account ' . $zoneAcct . ', which the console no longer has — '
+                             . 'add it back before assigning a box';
+                        break;
+                    }
+                    $bound = trim((string) ($acct['server_id'] ?? ''));
+                    if ($bound === '') {
+                        $msg = 'its zone is in ' . ($acct['label'] ?? $zoneAcct)
+                             . ', which is not bound to a box yet — bind it on the Cloudflare tab so this '
+                             . 'domain lands on the same box as the rest of that account';
+                        break;
+                    }
+                    $box = infra_hestia_server($bound);
+                    if (!$box) {
+                        $msg = 'its zone is bound to ' . $bound . ', which is not in the box registry';
+                        break;
+                    }
+                    infra_state_upsert_domain(['domain' => $domain, 'server_id' => $bound]);
+                    $msg = 'assigned to ' . ($box['label'] ?? $bound) . ' — the box its existing zone belongs to';
+                    break;
+                }
+
+                // No zone yet, so the box is a free choice: round-robin across configured
+                // boxes on the same persistent counter the bulk runner uses, so the two
+                // do not fill the fleet unevenly by taking turns from different starts.
                 $boxes = array_values(array_filter(infra_hestia_servers(), 'hestia_server_configured'));
                 if (!$boxes) { $msg = 'no configured box to assign to'; break; }
                 $box = $boxes[infra_state_counter_next('pipeline_server') % count($boxes)];
