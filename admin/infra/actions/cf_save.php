@@ -158,9 +158,16 @@ if ($action === 'test') {
     $probe = cf_probe($candidate);
     if (!empty($probe['ok'])) {
         $zones = cf_list_zones($candidate);
-        infra_set_flash('ok', '✓ Cloudflare accepted these credentials — ' . count($zones) . ' zone(s) visible. Nothing was saved.');
+        // Naming the account that answered is the whole point of the test. "Credentials
+        // accepted" says the token works; "connected to <name>, 0 zones" is what tells
+        // you the id you pasted belongs to the account you meant.
+        // The name is a nicety, not the verdict — a zone-scoped token cannot read it.
+        $nm = cf_account_name($candidate);
+        infra_set_flash('ok', '✓ Connected to ' . ($nm !== '' ? '"' . $nm . '"' : 'that account')
+            . ' — ' . count($zones) . ' zone(s) in it. Check that is the account you meant. Nothing was saved.');
     } else {
-        infra_set_flash('err', '✗ Cloudflare rejected these credentials — ' . ($probe['error'] ?? $probe['message'] ?? 'no reply') . '. Nothing was saved.');
+        infra_set_flash('err', '✗ Cloudflare would not confirm that account — ' . ($probe['error'] ?: 'no reply')
+            . '. Either the account ID is wrong or this token cannot see it. Nothing was saved.');
     }
     header('Location: ' . $back); exit;
 }
@@ -187,9 +194,10 @@ if ($action === 'save') {
     $probe = cf_probe($candidate);
     infra_set_flash(!empty($probe['ok']) ? 'ok' : 'warn',
         !empty($probe['ok'])
-            ? 'Saved "' . $label . '" — Cloudflare accepted the credentials.'
-            : 'Saved "' . $label . '", but Cloudflare rejected the credentials: '
-              . ($probe['error'] ?? $probe['message'] ?? 'no reply'));
+            ? 'Saved "' . $label . '" — connected to ' . (($nm = cf_account_name($candidate)) !== '' ? '"' . $nm . '"' : 'that account') . ' at Cloudflare.'
+            : 'Saved "' . $label . '", but Cloudflare would not confirm that account: '
+              . ($probe['error'] ?: 'no reply')
+              . ' — either the account ID is wrong or this token cannot see it.');
     header('Location: ' . $back); exit;
 }
 

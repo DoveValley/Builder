@@ -38,10 +38,52 @@ function cf_api(array $account, string $method, string $path, array $query = [],
 /** Reachability + token validity probe. @return array{ok:bool,code:int,error:string} */
 function cf_probe(array $account): array
 {
-    $r  = cf_api($account, 'GET', '/zones', ['per_page' => 1]);
-    $ok = $r['code'] === 200 && !empty($r['json']['success']);
+    // ASKS ABOUT THE ACCOUNT, not just the credential.
+    //
+    // This used to fetch /zones and call any 200 a pass — which tested the token and
+    // nothing else. With a token scoped to all accounts that meant an account id of
+    // thirty-two zeros probed "connected", and a mistyped id stayed invisible until a
+    // zone was created in the wrong place. Measured: bogus id → /zones 200 (pass),
+    // /accounts/{id} 403 "Invalid account identifier".
+    //
+    // Returning the account's NAME matters as much as the verdict: seeing which
+    // account answered is what tells you the id you pasted is the one you meant.
+    $acct = trim((string) ($account['account_id'] ?? ''));
+    if ($acct === '') {
+        return ['ok' => false, 'code' => 0, 'error' => 'no account id on this record'];
+    }
+
+    // Zones filtered BY ACCOUNT, in one call, using only the zone-read permission these
+    // tokens are told to carry. Cloudflare validates the filter — a bad id comes back
+    // 400 "account with given Tag doesn't exist" — so this proves the token AND the id
+    // together.
+    //
+    // NOT /accounts/{id}, which looks like the obvious check and is not: reading an
+    // account needs an account-level permission the recommended token does not have,
+    // so it answers 403 for a perfectly good account and would have marked every
+    // correctly-configured entry as rejected. (It works for a global key, which is why
+    // it passed the first account tested and failed the second.)
+    $r   = cf_api($account, 'GET', '/zones', ['per_page' => 1, 'account.id' => $acct]);
+    $ok  = $r['code'] === 200 && !empty($r['json']['success']);
     $msg = $ok ? '' : ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']));
     return ['ok' => $ok, 'code' => $r['code'], 'error' => $msg];
+}
+
+/**
+ * The account's name at Cloudflare, or '' when this credential may not read it.
+ *
+ * Separate from cf_probe() and deliberately allowed to fail: reading an account needs a
+ * permission a zone-scoped token does not have, and not knowing the name is no reason
+ * to call a working account broken. Used where a human is looking — seeing WHICH
+ * account answered is what confirms the id pasted is the one intended — and never on
+ * the cached sweep, where it would double the calls for a label.
+ */
+function cf_account_name(array $account): string
+{
+    $acct = trim((string) ($account['account_id'] ?? ''));
+    if ($acct === '') return '';
+    $r = cf_api($account, 'GET', '/accounts/' . $acct);
+    return $r['code'] === 200 ? (string) ($r['json']['result']['name'] ?? '') : '';
 }
 
 /**
