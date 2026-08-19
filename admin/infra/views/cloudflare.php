@@ -106,6 +106,43 @@
 
     infra_header('cloudflare');
     ?>
+    <details class="ic-card ic-fold" open style="margin-bottom:18px">
+        <summary style="cursor:pointer">
+            <h2 style="display:inline;font-size:15px"><span style="color:#9ca3af;font-weight:400">&#9656;</span>
+                How to add a Cloudflare account</h2>
+        </summary>
+        <div class="body">
+            <ul style="margin:4px 0 0 18px;line-height:1.9">
+                <li>Log into Cloudflare. If this account shares a login with others you already manage, use the
+                    <strong>account switcher</strong> (top-left, next to the Cloudflare logo) to select it rather
+                    than signing in separately.</li>
+                <li>Go to <strong>Manage Account &rarr; Account API Tokens</strong> &mdash; not
+                    <em>My Profile &rarr; API Tokens</em>, which makes a token that reaches every account your
+                    login can see, not just this one.</li>
+                <li><strong>Create Token &rarr; Custom Token</strong>, and add these 5 permissions exactly:
+                    <ul style="margin:6px 0 6px 18px;line-height:1.8">
+                        <li><code>Account &rarr; Zone &rarr; Edit</code> &mdash; easy to miss: without this,
+                            creating a zone fails with a permission error even though the item below looks the same.</li>
+                        <li><code>Account &rarr; Account Settings &rarr; Read</code></li>
+                        <li><code>Zone &rarr; Zone &rarr; Edit</code></li>
+                        <li><code>Zone &rarr; DNS &rarr; Edit</code></li>
+                        <li><code>Zone &rarr; Zone Settings &rarr; Edit</code></li>
+                    </ul>
+                </li>
+                <li>Leave the token's <strong>Start / End date empty</strong> &mdash; a past start date makes
+                    Cloudflare reject it with an unhelpful "unknown error".</li>
+                <li>Copy the <strong>Account ID</strong> (shown on the token page, or Account Home &rarr;
+                    right sidebar) and the <strong>token</strong> itself &mdash; Cloudflare shows the token
+                    exactly once.</li>
+                <li>Paste both into the form at the bottom of this page. Use <strong>Test without saving</strong>
+                    first to confirm it reaches the account you meant, before saving it for real.</li>
+                <li>If Cloudflare blocks the account with something like <em>"you must verify your email
+                    address before you can invite members (Code 1001)"</em>, or login otherwise won't go
+                    through: try <strong>Update email</strong> on that account to a variant address (e.g. add a
+                    letter) to force a fresh verification email, verify it, then create the token from there.</li>
+            </ul>
+        </div>
+    </details>
     <?php
     // Oldest stored zone list across the accounts: the bar should reflect the
     // staleset thing on the page, not the freshest.
@@ -355,7 +392,9 @@
     <div class="ic-card" id="add-cf">
         <h2>Add a Cloudflare account</h2>
         <div class="body">
-            <div class="ic-note">Cloudflare limits how many domains one account can hold, so a large fleet is normally spread over several. Each one you add here is listed separately above.</div>
+            <div class="ic-note">Cloudflare limits how many domains one account can hold, so a large fleet is normally spread over several. Each one you add here is listed separately above.
+                Need the Cloudflare-side steps (creating the account's token, which 5 permissions it needs)? See
+                <strong>"How to add a Cloudflare account"</strong> at the top of this page.</div>
             <?php infra_cf_form(null); ?>
         </div>
     </div>

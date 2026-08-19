@@ -147,6 +147,11 @@ function infra_cf_accounts_unbound(): array
     $out = [];
     foreach (infra_cf_accounts() as $a) {
         if (trim((string) ($a['server_id'] ?? '')) !== '') continue;
+        // Some accounts are unbound on purpose and must STAY that way — a human decided this
+        // one, not a box, and a bind dropdown listing it next to every real candidate is the
+        // click that undoes the decision. `excluded` is the only thing that hides an account
+        // here; closed/open still binds fine, closed just will not take a zone once bound.
+        if ((string) ($a['excluded'] ?? '') === 'yes') continue;
         $n = $counts[(string) ($a['id'] ?? '')] ?? -1;
         $out[] = $a + ['open' => infra_cf_is_open($a), 'zones' => max(0, $n), 'counted' => $n >= 0];
     }
