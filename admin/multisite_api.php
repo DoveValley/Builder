@@ -39,6 +39,12 @@ if ($active) {
     exit;
 }
 
+// PHP holds an exclusive lock on the session file for the whole of a request, so
+// without this close, every action on this page queues behind whichever one is
+// slowest (e.g. 'servers' sweeping the fleet) — see admin/infra/actions/fleet_refresh.php
+// for the same fix on the Infra console. Nothing below writes to $_SESSION.
+session_write_close();
+
 /** Build browser-safe display rows — never sends ftp_pass to the client. */
 function ms_rows_for_ui(array $v): array {
     $out = [];
@@ -170,8 +176,14 @@ switch ($action) {
         // would turn this JSON endpoint into a 302. The libraries under
         // admin/infra/lib are self-contained by design; this is what that buys.
         require_once __DIR__ . '/infra/lib/hestia_fleet.php';
+        // Plain page loads render the last stored answer only — never touch the
+        // network (infra_hestia_fleet() is TTL-gated, not cache-only, so a page
+        // load landing after any box's 180s cache expired was doing a live sweep
+        // here on every batch.php open). The explicit "Re-read fleet" button sends
+        // refresh=1 to force a real look, same as the Infra console's Refresh.
+        $fleetRows = !empty($_GET['refresh']) ? infra_hestia_fleet(0) : infra_hestia_fleet_cached();
         $fleet = [];
-        foreach (infra_hestia_fleet() as $b) {
+        foreach ($fleetRows as $b) {
             $fleet[] = [
                 'server_id' => $b['id'],   'label'   => $b['label'],
                 'host'      => $b['host'], 'notes'   => $b['server']['notes'] ?? '',
