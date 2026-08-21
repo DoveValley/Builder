@@ -26,10 +26,11 @@
         <label class="hint">Limit (0 = all)<br><input type="number" id="ms-up-limit" value="0" min="0" style="width:90px;"></label>
         <label class="hint">Only this domain (optional)<br><input type="text" id="ms-up-only" placeholder="example.com" style="width:200px;"></label>
         <label class="hint"><input type="checkbox" id="ms-up-force"> Force (send every file)</label>
-        <button type="button" class="btn btn-primary" id="ms-up-btn" onclick="msUpload()">Upload sites</button>
+        <button type="button" class="btn btn-primary" id="ms-up-btn" onclick="msUploadSites()">Upload sites</button>
         <span id="ms-up-msg" class="hint"></span>
     </div>
 
+    <div id="ms-up-progress"></div>
     <pre id="ms-up-out" style="display:none;margin-top:14px;background:#0f172a;color:#e2e8f0;padding:12px;border-radius:6px;font-size:0.8rem;max-height:340px;overflow:auto;white-space:pre-wrap;"></pre>
 </div>
 
@@ -53,10 +54,23 @@
         document.getElementById('ms-up-btn').disabled = (d.ready | 0) === 0;
     }
 
-    window.msUpload = async function () {
+    function renderUploadProgress(s) {
+        const el = document.getElementById('ms-up-progress');
+        const total = s.total || 0;
+        const processed = s.processed || 0;
+        const pct = total ? Math.round((processed / total) * 100) : (s.done ? 100 : 0);
+        const color = !s.done ? '#2563eb' : ((s.failed || 0) > 0 ? '#991b1b' : '#166534');
+        el.innerHTML =
+            '<div>' + processed + '/' + total + ' done · ' + (s.ok || 0) + ' ok · ' + (s.failed || 0) + ' failed</div>' +
+            '<div style="height:8px;background:#e2e8f0;border-radius:4px;margin:8px 0 12px;overflow:hidden;">' +
+            '<div style="height:100%;width:' + pct + '%;background:' + color + ';transition:width .3s;"></div></div>';
+    }
+
+    window.msUploadSites = async function () {
         const btn = document.getElementById('ms-up-btn');
         const msg = document.getElementById('ms-up-msg');
         const out = document.getElementById('ms-up-out');
+        const progress = document.getElementById('ms-up-progress');
 
         const fd = new FormData();
         fd.append('csrf_token', csrf);
@@ -66,7 +80,7 @@
         if (only)    fd.append('only', only);
         if (document.getElementById('ms-up-force').checked) fd.append('force', '1');
 
-        btn.disabled = true; msg.textContent = 'Starting…'; msg.style.color = '#475569';
+        btn.disabled = true; msg.textContent = 'Starting…'; msg.style.color = '#475569'; progress.innerHTML = '';
         const r = await fetch('multisite_api.php?action=upload', { method: 'POST', body: fd });
         const d = await r.json();
         if (d.error) { btn.disabled = false; msg.textContent = d.error; msg.style.color = '#b91c1c'; return; }
@@ -76,13 +90,13 @@
         upTimer = setInterval(async function () {
             const s = await (await fetch('multisite_api.php?action=upload_status&run_id=' + encodeURIComponent(d.run_id))).json();
             if (s.error) { clearInterval(upTimer); out.textContent = s.error; btn.disabled = false; return; }
+            renderUploadProgress(s);
             out.textContent = s.log || 'Working…';
             out.scrollTop = out.scrollHeight;
             if (!s.done) return;
             clearInterval(upTimer);
             btn.disabled = false;
-            const failed = /(\d+) failed/.exec(s.log || '');
-            const bad = failed && parseInt(failed[1], 10) > 0;
+            const bad = (s.failed || 0) > 0;
             msg.textContent = bad ? 'Finished with failures — read the log.' : 'Done.';
             msg.style.color = bad ? '#b91c1c' : '#166534';
             upState();

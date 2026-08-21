@@ -262,8 +262,22 @@ switch ($action) {
         $f   = $batchDir . '/uploads/' . $rid . '.out';
         if ($rid === '' || !is_file($f)) { echo json_encode(['error' => 'Unknown run.']); break; }
         $txt = (string) @file_get_contents($f);
-        echo json_encode(['done' => strpos($txt, '__MS_UPLOAD_DONE__') !== false,
-                          'log'  => trim(str_replace('__MS_UPLOAD_DONE__', '', $txt))]);
+        // Progress comes from parsing upload_sites.php's own printed lines — it has no
+        // separate machine-readable channel, so the header count and the per-domain
+        // ✓/✗ markers ARE the source of truth for "how far along is this".
+        $total = 0;
+        if (preg_match('/(\d+) ready to upload/', $txt, $m)) $total = (int) $m[1];
+        preg_match_all('/file\(s\)\s*…\s*(✓|✗)/u', $txt, $mm);
+        $marks = $mm[1] ?? [];
+        $ok    = count(array_filter($marks, fn($c) => $c === '✓'));
+        echo json_encode([
+            'done'      => strpos($txt, '__MS_UPLOAD_DONE__') !== false,
+            'total'     => $total,
+            'processed' => count($marks),
+            'ok'        => $ok,
+            'failed'    => count($marks) - $ok,
+            'log'       => trim(str_replace('__MS_UPLOAD_DONE__', '', $txt)),
+        ]);
         break;
 
     /* What is generated and waiting, so the upload panel can say so before you press. */
