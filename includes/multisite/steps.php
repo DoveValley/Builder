@@ -23,6 +23,7 @@
 
 require_once __DIR__ . '/params.php';
 require_once __DIR__ . '/batch.php';
+require_once __DIR__ . '/landing.php';
 
 /** Cell states. 'off' = will be skipped, which is often deliberate, so it is not a warning. */
 const MS_STEP_OK   = 'ok';
@@ -267,10 +268,14 @@ function ms_step_readiness(string $masterId, string $batchId): array {
     $withCities = $countWhere(fn($r) => trim((string) ($r['landing_cities'] ?? '')) !== '');
     $templates  = count($readJson($siteDir . '/data/templates.json'));
     // Total city-pages this batch would generate: cities requested × templates.
+    // Goes through the real ms_parse_landing_cities() (splits on newlines too, not
+    // just ';', validates "City, ST" shape, and de-dupes) rather than a naive
+    // explode(';') — a malformed or duplicate-heavy value used to over/undercount
+    // here relative to what the build step actually produces.
     $cityCount = 0;
     foreach ($rows as $r) {
         $v = trim((string) ($r['landing_cities'] ?? ''));
-        if ($v !== '') $cityCount += count(array_filter(array_map('trim', explode(';', $v))));
+        if ($v !== '') $cityCount += count(ms_parse_landing_cities($v));
     }
     $landItems = [
         ms_item_rows('landing_cities', 'Which cities each site gets its own page for', $withCities, $n, false),
