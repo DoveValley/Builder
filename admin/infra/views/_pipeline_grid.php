@@ -252,6 +252,15 @@ function pg_cell(array $c): string
                     <?php else: ?>
                       <?= pg_cell($c) ?>
                     <?php endif; ?>
+                    <?php // The one action this grid used to be missing entirely: pulling a
+                          // live domain back offline. Only the batch page could do this
+                          // before, even though this console owns the pipeline it acts on. ?>
+                    <?php if ($s['key'] === 'zone' && ($c['state'] ?? '') === INFRA_STEP_OK): ?>
+                      <button class="pg-r" type="submit" name="offline" value="<?= ih($dom) ?>"
+                              style="margin-left:3px;color:#b91c1c;border-color:#b91c1c;font-size:10px;"
+                              title="Remove the Cloudflare A record — the zone and nameservers stay, so Create zone brings it right back"
+                              onclick="return confirm('<?= ih($dom) ?> will stop resolving within seconds. Its Cloudflare zone and nameservers are left in place, so pressing Create zone brings it straight back. Continue?')">offline</button>
+                    <?php endif; ?>
                   </td>
                 <?php continue; endif; ?>
               <td class="pg-gl">

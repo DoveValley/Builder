@@ -35,7 +35,9 @@ $selected = array_values(array_filter(array_map(
 $release = strtolower(trim((string) ($_POST['release'] ?? '')));
 // A cell button carries both halves — "upload:example.com" — for the same reason.
 $cell    = (string) ($_POST['do'] ?? '');
-$action  = $release !== '' ? 'release' : ($cell !== '' ? 'do' : (string) ($_POST['action'] ?? ''));
+// Same one-domain-per-button shape as $release, for the CF Zone column's "offline" button.
+$offline = strtolower(trim((string) ($_POST['offline'] ?? '')));
+$action  = $release !== '' ? 'release' : ($offline !== '' ? 'offline' : ($cell !== '' ? 'do' : (string) ($_POST['action'] ?? '')));
 
 switch ($action) {
 
@@ -123,6 +125,18 @@ switch ($action) {
         // Re-read the two columns the release just changed, so the row tells the truth
         // on the page you land back on instead of a minute later.
         if ($r['ok']) { infra_pipeline_refresh('golive', $batch); infra_pipeline_refresh('dns', $batch); }
+        break;
+
+    case 'offline':
+        // Removes only the Cloudflare A record — the zone and nameservers stay in
+        // place, so pressing Create zone brings it straight back within seconds.
+        // Previously this console had no button for its own pipeline's take-offline
+        // function at all; only the batch page (multisite_api.php's golive_offline)
+        // could reach it, despite this being the subsystem that owns the pipeline.
+        // infra_golive_take_offline() re-checks the zone/live cells itself, so
+        // nothing extra to refresh here.
+        $r = infra_golive_take_offline($offline);
+        infra_set_flash($r['ok'] ? 'ok' : 'err', ($r['ok'] ? 'Took ' : 'Could not take ') . $offline . ' offline: ' . $r['message']);
         break;
 
     default:
