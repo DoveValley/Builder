@@ -296,7 +296,16 @@ if (!isset($csrfToken)) return;
         }
         el.innerHTML = html;
         if (state === 'running') { btn.disabled = true; }
-        else { btn.disabled = false; if (msPollTimer) { clearInterval(msPollTimer); msPollTimer = null; loadRuns(); } }
+        else {
+            btn.disabled = false;
+            if (msPollTimer) {
+                clearInterval(msPollTimer); msPollTimer = null; loadRuns();
+                // The Upload card (step 5) reads "how many are ready to upload" once at
+                // page load and otherwise never hears about a Generate-sites run finishing
+                // — without this it keeps showing a stale "0 ready" until a manual reload.
+                if (typeof window.msRefreshUploadState === 'function') window.msRefreshUploadState();
+            }
+        }
     }
 
     // ── Runs history ──────────────────────────────────────────────────────────

@@ -57,6 +57,10 @@
             el.textContent = 'Could not check upload readiness — reload to try again.';
         }
     }
+    // Exposed so the Generate-sites card (admin/_batch_panels.php) can refresh this
+    // one when ITS run finishes — otherwise this card keeps showing whatever "ready
+    // to upload" count was true at page load, stale, until a manual reload.
+    window.msRefreshUploadState = upState;
 
     function renderUploadProgress(s) {
         const el = document.getElementById('ms-up-progress');
