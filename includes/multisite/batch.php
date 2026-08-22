@@ -143,9 +143,20 @@ function ms_create_batch(string $masterId, string $name): array {
     if ($name === '')            return ['error' => 'Give the batch a name.'];
     if (mb_strlen($name) > 80)   return ['error' => 'That name is too long (80 characters max).'];
 
-    $id  = ms_next_batch_id($masterId);
-    $dir = ms_batch_dir($masterId, $id);
-    if (!@mkdir($dir, 0775, true) && !is_dir($dir)) return ['error' => 'Could not create the batch folder.'];
+    // Pick-the-next-id-then-claim-it is one locked step: without it, two requests
+    // computing the same id from ms_next_batch_id() at nearly the same moment could
+    // both "succeed" into the same folder — whichever wrote batch.json last wins the
+    // name, and the other request believes it created a distinct batch that never
+    // existed.
+    $lock = ms_batches_root($masterId) . '/.newid.lock';
+    $claim = ms_with_launch_lock($lock, function () use ($masterId) {
+        $id  = ms_next_batch_id($masterId);
+        $dir = ms_batch_dir($masterId, $id);
+        if (!@mkdir($dir, 0775, true) && !is_dir($dir)) return ['error' => 'Could not create the batch folder.'];
+        return ['id' => $id, 'dir' => $dir];
+    });
+    if (isset($claim['error'])) return $claim;
+    $id = $claim['id'];
 
     $ok = ms_save_batch_meta($masterId, $id, [
         'id'         => $id,
@@ -205,10 +216,21 @@ function ms_copy_batch(string $masterId, string $batchId, string $name = ''): ar
     if ($name === '')          $name = trim((string) ($meta['name'] ?? $batchId)) . ' (copy)';
     if (mb_strlen($name) > 80) return ['error' => 'That name is too long (80 characters max).'];
 
-    $newId  = ms_next_batch_id($masterId);
+    // Same locked pick-then-claim as ms_create_batch() — otherwise two concurrent
+    // copies could land on the same new id and interleave writes of params.csv/
+    // params_versions/research from two DIFFERENT source batches into one folder,
+    // corrupting both copies' target lists.
+    $lock  = ms_batches_root($masterId) . '/.newid.lock';
+    $claim = ms_with_launch_lock($lock, function () use ($masterId) {
+        $id  = ms_next_batch_id($masterId);
+        $dir = ms_batch_dir($masterId, $id);
+        if (!@mkdir($dir, 0775, true) && !is_dir($dir)) return ['error' => 'Could not create the batch folder.'];
+        return ['id' => $id, 'dir' => $dir];
+    });
+    if (isset($claim['error'])) return $claim;
+    $newId  = $claim['id'];
     $srcDir = ms_batch_dir($masterId, $batchId);
-    $dstDir = ms_batch_dir($masterId, $newId);
-    if (!@mkdir($dstDir, 0775, true) && !is_dir($dstDir)) return ['error' => 'Could not create the batch folder.'];
+    $dstDir = $claim['dir'];
 
     // Named explicitly rather than "everything except runs/": a copy should gain
     // new inputs only when someone decides it should, not because a later feature
@@ -262,16 +284,32 @@ function ms_set_batch_master(string $masterId, string $batchId, string $newMaste
     if (!ms_valid_master_id($newMasterId)) return ['error' => 'Pick a master site.'];
     if ($newMasterId === $masterId)      return ['ok' => true, 'id' => $batchId];
 
-    $newId  = ms_next_batch_id($newMasterId);
-    $newDir = ms_batch_dir($newMasterId, $newId);
-    if (!is_dir(dirname($newDir)) && !@mkdir(dirname($newDir), 0775, true) && !is_dir(dirname($newDir))) {
-        return ['error' => 'Could not create the batch folder on the new master.'];
-    }
-    if (!@rename(ms_batch_dir($masterId, $batchId), $newDir)) return ['error' => 'Could not move the batch.'];
+    // Locked the same way as ms_create_batch()/ms_copy_batch(): pick the id and move
+    // the folder into place as one step, so two concurrent moves onto the same new
+    // master can't compute the same id and race each other's rename().
+    $lock = ms_batches_root($newMasterId) . '/.newid.lock';
+    $moved = ms_with_launch_lock($lock, function () use ($masterId, $batchId, $newMasterId) {
+        $newId  = ms_next_batch_id($newMasterId);
+        $newDir = ms_batch_dir($newMasterId, $newId);
+        if (!is_dir(dirname($newDir)) && !@mkdir(dirname($newDir), 0775, true) && !is_dir(dirname($newDir))) {
+            return ['error' => 'Could not create the batch folder on the new master.'];
+        }
+        if (!@rename(ms_batch_dir($masterId, $batchId), $newDir)) return ['error' => 'Could not move the batch.'];
+        return ['id' => $newId];
+    });
+    if (isset($moved['error'])) return $moved;
+    $newId = $moved['id'];
 
     $meta['id']        = $newId;
     $meta['master_id'] = $newMasterId;
-    ms_save_batch_meta($newMasterId, $newId, $meta);
+    // Checked, unlike its siblings above weren't: a rename() that succeeded but a
+    // metadata write that then failed used to still report ok:true, re-point the
+    // session at the new id, and leave batch.json on disk holding the OLD id/
+    // master_id — every later action keyed off that stale id then failed with
+    // "Batch not found" for a batch whose data was actually intact.
+    if (!ms_save_batch_meta($newMasterId, $newId, $meta)) {
+        return ['error' => 'Batch moved, but its record could not be updated — reload before continuing.', 'id' => $newId, 'master_id' => $newMasterId];
+    }
     return ['ok' => true, 'id' => $newId, 'master_id' => $newMasterId];
 }
 
@@ -423,17 +461,20 @@ function ms_active_run(string $runsDir): ?array {
 }
 
 /**
- * Run $fn() while holding an exclusive file lock, so "is a job already
- * running?" (a filesystem read) and "start it" (spawning the detached
- * process) happen as one atomic step instead of two. Without this, two
- * requests landing close together — a double-click, or a retried request
- * on a slow connection — can both see "not running" and both launch a
- * background job for the same batch.
+ * Run $fn() while holding an exclusive file lock, so a "check something,
+ * then act on it" sequence — that would otherwise be two separate steps a
+ * second request could interleave with — happens as one atomic step instead.
+ * Two uses in this file: "is a job already running?" then "start it" (a
+ * double-click, or a retried request on a slow connection, could otherwise
+ * see "not running" twice and launch two background jobs for the same
+ * batch), and "pick the next batch id" then "claim its folder" (two
+ * concurrent creates/copies could otherwise both compute the same id and
+ * collide on one folder).
  *
- * The lock is held only for $fn()'s own duration (a glob + an exec, both
- * fast), never for the background job itself, which runs detached and is
- * tracked by its own .out/.json marker file — this does not reintroduce
- * the whole-request session-lock bug this project already hit once.
+ * The lock is held only for $fn()'s own duration — a glob+exec, or an
+ * id-scan+mkdir, both fast — never for a background job or a big copy
+ * itself, so this does not reintroduce the whole-request session-lock bug
+ * this project already hit once.
  */
 function ms_with_launch_lock(string $lockFile, callable $fn) {
     $dir = dirname($lockFile);
