@@ -15,6 +15,12 @@
  * Expects: $csrfToken.
  */
 
+// For infra_today() below — the console's own notion of "today" (US Central,
+// see INFRA_TZ's docblock), not the server's default timezone. Needed so the
+// Schedule control's default start date agrees with what infra_golive_schedule()
+// itself falls back to and what the rest of the console calls "today".
+require_once __DIR__ . '/infra/lib/state.php';
+
 // The scheduler's own footprint (admin/infra/cron/golive_tick.php, daily via
 // /etc/cron.d/infra-golive) — read directly, the same file the Bulk tab's grid reads,
 // so this card can say when it last ran instead of leaving that only discoverable from
@@ -53,7 +59,7 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
 
     <div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-bottom:12px;padding:10px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;">
         <label class="hint">Release<br><input type="number" id="ms-gl-perday" value="10" min="1" max="200" style="width:64px;"></label>
-        <label class="hint">per day, starting<br><input type="date" id="ms-gl-startdate" value="<?= htmlspecialchars(date('Y-m-d')) ?>"></label>
+        <label class="hint">per day, starting<br><input type="date" id="ms-gl-startdate" value="<?= htmlspecialchars(infra_today()) ?>"></label>
         <button type="button" class="btn sec" id="ms-gl-sched-btn" onclick="msGoLiveSchedule()">Schedule rollout</button>
         <span id="ms-gl-sched-msg" class="hint"></span>
     </div>
