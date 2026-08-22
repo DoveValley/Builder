@@ -94,7 +94,7 @@ foreach ($domains as $i => $dom) {
     if ($rrSrv || $rrCf || $rrReg) {
         bulk_emit('  [assigned] server=' . ($server['id'] ?? '—') . '  cf=' . ($account['id'] ?? '—') . '  registrar=' . ($regName ?: '—'));
     }
-    $res = infra_provision_one($dom, $server, $account, $opts);
+    $res = infra_provision_locked($dom, $server, $account, $opts);
     if ($optsBase['site'] && $server) $touched[$server['id'] ?? ''] = $server;
     foreach ($res['lines'] as $line) bulk_emit('  ' . $line);
     if ($res['ok']) { $okCount++; bulk_emit('  → staged ✓'); }

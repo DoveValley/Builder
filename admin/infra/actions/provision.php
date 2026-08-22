@@ -39,7 +39,7 @@ if (!$opts['register'] && !$opts['site'] && !$opts['cf']) {
 $server = null;  foreach (infra_hestia_servers() as $s) if (($s['id'] ?? '') === ($_POST['server_id'] ?? '')) $server = $s;
 $account = null; foreach (infra_cf_accounts() as $a) if (($a['id'] ?? '') === ($_POST['cf_account_id'] ?? '')) $account = $a;
 
-$res = infra_provision_one($domain, $server, $account, $opts);
+$res = infra_provision_locked($domain, $server, $account, $opts);
 infra_cache_flush();   // created a site / CF zone — invalidate discovery cache
 infra_set_flash($res['ok'] ? 'ok' : 'warn', "Provision '$domain':\n" . implode("\n", $res['lines']));
 header('Location: ' . $back);

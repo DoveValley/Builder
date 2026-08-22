@@ -137,7 +137,10 @@ echo str_repeat('-', 52) . "\n";
 $touched = []; $ok = 0; $fail = 0;
 foreach ($assignment as $i => $srv) {
     $domain = $todo[$i];
-    $res = infra_provision_one($domain, $srv, null, ['site' => true, 'cf' => false, 'restart' => false]);
+    // Locked against the infra console's own Host column button — this batch job
+    // and that button both provision the same domain the same way, and used to be
+    // able to race each other unprotected.
+    $res = infra_provision_locked($domain, $srv, null, ['site' => true, 'cf' => false, 'restart' => false]);
     $rec = infra_state_get_domain($domain);
     $user = (string) ($rec['ftp_user'] ?? '');
     $pass = (string) ($rec['ftp_pass'] ?? '');

@@ -12,6 +12,7 @@ if (PHP_SAPI !== 'cli') { fwrite(STDERR, "CLI only\n"); exit(1); }
 
 require_once __DIR__ . '/../lib/golive.php';
 require_once __DIR__ . '/../lib/cache.php';
+require_once __DIR__ . '/../lib/pipeline.php';
 
 $cap = max(1, (int) ($argv[1] ?? 20));
 $ts  = gmdate('c');
@@ -27,7 +28,10 @@ $due = infra_golive_due();
 $released = 0; $gated = 0;
 foreach ($due as $domain => $rec) {
     if ($released >= $cap) break;
-    $r = infra_golive_release($domain);
+    // Locked the same way an interactive Go Live click is (infra_pipeline_do()'s
+    // 'golive' step) — this unattended run used to be the one caller that never
+    // took the lock at all, so it could race a manual click on the same domain.
+    $r = infra_pipeline_lock($domain, 'golive', fn() => infra_golive_release($domain));
     if (!empty($r['gated'])) {
         $gated++;
         echo "{$ts} HELD {$domain}: {$r['message']}\n";

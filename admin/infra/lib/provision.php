@@ -226,3 +226,27 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
 
     return ['ok' => $ok, 'lines' => $lines];
 }
+
+/**
+ * infra_provision_one(), locked against whichever of the 'host'/'zone' pipeline
+ * steps this call will touch — the same per-domain-per-step lock
+ * infra_pipeline_do() takes for those steps. The "New Site" form and the bulk
+ * runner used to call infra_provision_one() directly, unlocked, so either one
+ * could race the pipeline grid's own Host/Zone buttons (or each other) on the
+ * same domain. Always locks 'host' before 'zone' when both apply, so this can
+ * never deadlock against infra_pipeline_do() (which only ever holds one step's
+ * lock at a time).
+ */
+function infra_provision_locked(string $domain, ?array $server, ?array $account, array $opts): array
+{
+    require_once __DIR__ . '/pipeline.php';
+    $call = fn() => infra_provision_one($domain, $server, $account, $opts);
+    $doSite = !empty($opts['site']) || !empty($opts['plesk']);
+    $doCf   = !empty($opts['cf']);
+    if ($doSite && $doCf) {
+        return infra_pipeline_lock($domain, 'host', fn() => infra_pipeline_lock($domain, 'zone', $call));
+    }
+    if ($doSite) return infra_pipeline_lock($domain, 'host', $call);
+    if ($doCf)   return infra_pipeline_lock($domain, 'zone', $call);
+    return $call();   // register-only — no host/zone step to lock
+}

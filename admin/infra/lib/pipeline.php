@@ -597,8 +597,31 @@ function infra_pipeline_lock(string $domain, string $step, callable $fn)
     $dir = dirname(__DIR__) . '/state/locks';
     if (!is_dir($dir)) @mkdir($dir, 0700, true);
     $safe = fn(string $s) => preg_replace('/[^a-z0-9]+/', '_', strtolower($s));
-    $fh = @fopen($dir . '/' . $safe($domain) . '__' . $safe($step) . '.lock', 'c');
-    if (!$fh) return $fn();   // can't lock — fail open rather than block the action entirely
+    $path = $dir . '/' . $safe($domain) . '__' . $safe($step) . '.lock';
+    $fh = @fopen($path, 'c');
+    if (!$fh) {
+        // Still fails open — refusing every go-live/provision click over a broken
+        // lock directory would take the whole console down for what is usually a
+        // permissions slip, not a busy lock. But it used to fail SILENTLY: a
+        // root-owned locks/ directory (created by a root-run test, not www-data)
+        // disabled this exact protection in production for days with the fix
+        // looking shipped, and nothing anywhere said so. Now it logs AND leaves a
+        // file the console itself can show on the Go Live card, the same way
+        // golive_tick.json surfaces the cron's health — a lock nobody can take is
+        // exactly the kind of "still running, but not really" fact this whole
+        // subsystem's convention is to surface, not assume.
+        $err = error_get_last();
+        error_log("infra_pipeline_lock: could not open {$path} for {$domain}/{$step}"
+            . ($err ? ' — ' . $err['message'] : '') . ' — proceeding WITHOUT the lock');
+        @file_put_contents($dir . '/../lock_failure.json', json_encode([
+            'at' => time(), 'domain' => $domain, 'step' => $step, 'path' => $path,
+        ], JSON_PRETTY_PRINT));
+        return $fn();
+    }
+    // A working lock clears any earlier failure marker — otherwise a permissions
+    // fix (like the one this file's own docblock describes) leaves a stale red
+    // warning on the console forever after the real problem is gone.
+    @unlink($dir . '/../lock_failure.json');
     try {
         flock($fh, LOCK_EX);
         return $fn();

@@ -113,7 +113,10 @@ switch ($action) {
         // pressed on any other. For the one action here the outside world can see, that
         // is not a risk worth carrying.
         $force = !empty($_POST['force'][$release]);
-        $r = infra_golive_release($release, $force);
+        // Locked the same way infra_pipeline_do()'s 'golive' step is — this button
+        // calls infra_golive_release() directly rather than through 'do', and used
+        // to race it (and the cron, and the old Phase-3 tab) for the same domain.
+        $r = infra_pipeline_lock($release, 'golive', fn() => infra_golive_release($release, $force));
         infra_set_flash($r['ok'] ? 'ok' : (!empty($r['manual']) || !empty($r['gated']) ? 'warn' : 'err'),
             ($r['ok'] ? 'Released ' : 'Did not release ') . $release . ': ' . $r['message']
             . (!empty($r['gated']) ? ' — tick "override" beside the button if you mean to do it anyway.' : ''));

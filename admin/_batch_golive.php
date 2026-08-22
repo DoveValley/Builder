@@ -20,6 +20,12 @@
 // so this card can say when it last ran instead of leaving that only discoverable from
 // the Bulk tab or a shell. A scheduler that has silently stopped is worse than none.
 $msGoliveTick = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/golive_tick.json'), true);
+// infra_pipeline_lock()'s own failure marker (admin/infra/lib/pipeline.php) — if the
+// per-domain lock directory can't be written to, every Go Live click on this card
+// (and the Bulk tab, and the nightly cron) runs unprotected against a double-click
+// or an overlapping cron run. That used to fail with no trace anywhere; now it's a
+// file, cleared automatically the next time a lock succeeds.
+$msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/lock_failure.json'), true);
 ?>
 <!-- ===== GO LIVE (DNS) ===== -->
 <div class="card" id="ms-golive-card">
@@ -37,6 +43,11 @@ $msGoliveTick = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state
             of <?= (int) $msGoliveTick['due'] ?> due that day (fleet-wide, not just this batch).
         <?php else: ?>
             <br><span style="color:#b91c1c;">Daily auto-release has never recorded a run — check <code>/etc/cron.d/infra-golive</code> is installed.</span>
+        <?php endif; ?>
+        <?php if (is_array($msLockFail) && !empty($msLockFail['at'])): ?>
+            <br><span style="color:#b91c1c;">&#9888; The Go Live lock could not be taken at <?= htmlspecialchars(date('j M H:i', (int) $msLockFail['at'])) ?>
+            for <strong><?= htmlspecialchars((string) $msLockFail['domain']) ?></strong> — a click here could race the nightly cron
+            or another tab. Check that <code>admin/infra/state/locks/</code> is writable by the web server user.</span>
         <?php endif; ?>
     </p>
 

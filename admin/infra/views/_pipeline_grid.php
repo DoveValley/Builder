@@ -32,6 +32,11 @@ $pgActions = infra_pipeline_actions();   // which steps a click can actually per
 // than no scheduler, so the page says when it last ticked rather than implying it did.
 $pgTick = @json_decode((string) @file_get_contents(dirname(__DIR__) . '/state/golive_tick.json'), true);
 
+// infra_pipeline_lock()'s own failure marker — see admin/infra/lib/pipeline.php.
+// If the lock directory isn't writable, every Release/Do click on this grid (and
+// the nightly cron) runs unprotected, which used to happen with no trace at all.
+$pgLockFail = @json_decode((string) @file_get_contents(dirname(__DIR__) . '/state/lock_failure.json'), true);
+
 // id => label, so the Box column can say "BOX 7" rather than "hst-beaa53".
 $pgBoxes = [];
 foreach (infra_hestia_servers() as $s) $pgBoxes[(string) ($s['id'] ?? '')] = (string) ($s['label'] ?? $s['id'] ?? '');
@@ -326,6 +331,12 @@ function pg_cell(array $c): string
         <?php else: ?>
           <span style="color:#92400e"><strong>has never run.</strong> Dates set here will not fire until
           <code>cron/golive_tick.php</code> is in crontab.</span>
+        <?php endif; ?>
+        <?php if (is_array($pgLockFail) && !empty($pgLockFail['at'])): ?>
+          <br><span style="color:#b91c1c;">&#9888; The release lock could not be taken at
+          <?= ih(date('j M H:i', (int) $pgLockFail['at'])) ?> for <strong><?= ih((string) $pgLockFail['domain']) ?></strong>
+          — actions here ran unprotected against a double-click or the nightly cron. Check that
+          <code>state/locks/</code> is writable by the web server user.</span>
         <?php endif; ?>
       </div>
 

@@ -5,6 +5,7 @@
  */
 require_once __DIR__ . '/../bootstrap.php';
 require_once __DIR__ . '/../lib/golive.php';
+require_once __DIR__ . '/../lib/pipeline.php';
 
 $back = '../index.php?view=golive';
 
@@ -33,7 +34,11 @@ switch ($_POST['action'] ?? '') {
     case 'release':
         $domain = strtolower(trim($_POST['domain'] ?? ''));
         // Overriding the empty-site gate has to be an explicit tick, never a default.
-        $r = infra_golive_release($domain, !empty($_POST['force']));
+        $force = !empty($_POST['force']);
+        // Locked the same way infra_pipeline_do() locks the 'golive' step — this is
+        // the OTHER caller of infra_golive_release() and used to race it, including
+        // two concurrent registrar nameserver-switch calls for the same domain.
+        $r = infra_pipeline_lock($domain, 'golive', fn() => infra_golive_release($domain, $force));
         $type = $r['ok'] ? 'ok' : ($r['manual'] ? 'warn' : 'err');
         infra_set_flash($type, "Release '{$domain}': {$r['message']}"
             . ($r['ns'] ? "\nNameservers: " . implode(', ', $r['ns']) : ''));
