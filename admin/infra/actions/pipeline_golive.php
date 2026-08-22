@@ -134,8 +134,10 @@ switch ($action) {
         // function at all; only the batch page (multisite_api.php's golive_offline)
         // could reach it, despite this being the subsystem that owns the pipeline.
         // infra_golive_take_offline() re-checks the zone/live cells itself, so
-        // nothing extra to refresh here.
-        $r = infra_golive_take_offline($offline);
+        // nothing extra to refresh here. Locked against 'zone' — this and Create
+        // zone both write the same Cloudflare A record, and this was the one
+        // golive_* mutation left unlocked when the others were closed (v58).
+        $r = infra_pipeline_lock($offline, 'zone', fn() => infra_golive_take_offline($offline));
         infra_set_flash($r['ok'] ? 'ok' : 'err', ($r['ok'] ? 'Took ' : 'Could not take ') . $offline . ' offline: ' . $r['message']);
         break;
 

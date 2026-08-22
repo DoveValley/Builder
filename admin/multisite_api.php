@@ -387,10 +387,15 @@ switch ($action) {
     case 'golive_offline':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         require_once __DIR__ . '/infra/lib/golive.php';
+        require_once __DIR__ . '/infra/lib/pipeline.php';
         $gDom = strtolower(trim((string) ($_POST['domain'] ?? '')));
         if ($gDom === '') { echo json_encode(['error' => 'Missing domain.']); break; }
         set_time_limit(0);
-        echo json_encode(infra_golive_take_offline($gDom));
+        // Locked against the 'zone' step — take-offline and Create zone both write
+        // the same Cloudflare A record, and this was the one golive_* mutation left
+        // unlocked when the others were closed (v58): a near-simultaneous click of
+        // both on the same domain could interleave delete-then-create in either order.
+        echo json_encode(infra_pipeline_lock($gDom, 'zone', fn() => infra_golive_take_offline($gDom)));
         break;
 
     // Re-check one cell without acting — the per-column ↻, mainly for 'live' since
