@@ -16,6 +16,45 @@ require_once __DIR__ . '/acquire.php'; // infra_domain_buy() — the ONE guarded
 // infra_valid_domain() now lives in store.php (shared with the domain loader).
 
 /**
+ * Issue a Cloudflare Origin CA cert for $domain and install it on the box, via
+ * the domain's own FTP login (Hestia's API has no upload verb — see
+ * hestia_install_cert()'s docblock). Returns ok:false, not an exception, when
+ * the account has no origin_ca_key configured yet — that is the expected state
+ * for every account until one is added by hand, not a failure worth aborting a
+ * provision run over.
+ */
+function infra_install_origin_cert(array $server, array $account, string $domain, string $ftpUser, string $ftpPass): array
+{
+    if ($ftpUser === '' || $ftpPass === '') {
+        return ['ok' => false, 'message' => 'no FTP credentials on record for this domain'];
+    }
+    $cert = cf_create_origin_ca_cert($account, $domain);
+    if (!$cert['ok']) return $cert;
+
+    $host   = $server['default_ip'] ?? ($server['host'] ?? '');
+    $user   = hestia_fleet_user($server);
+    $sslDir = "/home/{$user}/web/{$domain}/public_html/ssl";
+    $crtRel = 'ssl/' . $domain . '.crt';
+    $keyRel = 'ssl/' . $domain . '.key';
+
+    try {
+        $upCert = hestia_ftp_put($host, $ftpUser, $ftpPass, $crtRel, $cert['cert']);
+        $upKey  = hestia_ftp_put($host, $ftpUser, $ftpPass, $keyRel, $cert['key']);
+        if (!$upCert['ok'] || !$upKey['ok']) {
+            return ['ok' => false, 'message' => 'could not stage cert on the box: '
+                . trim(($upCert['message'] ?? '') . ' ' . ($upKey['message'] ?? ''))];
+        }
+        return hestia_install_cert($server, $domain, $user, $sslDir);
+    } finally {
+        // The key sits inside public_html while staged, so it is reachable over
+        // plain HTTP until Hestia's own copy takes over — remove it the moment
+        // v-add-web-domain-ssl has read it, whether or not that call succeeded.
+        hestia_ftp_delete($host, $ftpUser, $ftpPass, $crtRel);
+        hestia_ftp_delete($host, $ftpUser, $ftpPass, $keyRel);
+    }
+}
+
+/**
  * Provision one domain end-to-end (idempotent, staged-only), persist to state.
  * @param array $opts { register:bool, registrar:string, years:int, site:bool, cf:bool,
  *                        restart:bool — false in a batch; caller restarts once at the end }
@@ -138,8 +177,26 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
                 $lines[] = '  A @   -> ' . $ip . ': ' . ($a1['ok'] ? '✓ ' . $a1['message'] : '✗ ' . $a1['message']); if (!$a1['ok']) $ok = false;
                 $a2 = cf_upsert_a_record($account, $zoneId, 'www.' . $domain, $ip, true);
                 $lines[] = '  A www -> ' . $ip . ': ' . ($a2['ok'] ? '✓ ' . $a2['message'] : '✗ ' . $a2['message']); if (!$a2['ok']) $ok = false;
-                $s = cf_set_ssl_mode($account, $zoneId, 'full');
-                $lines[] = '  SSL: ' . ($s['ok'] ? '✓ full' : '✗ ' . $s['message']); if (!$s['ok']) $ok = false;
+
+                // 'full' only ever means anything if the origin can answer HTTPS for
+                // this domain. It never could — hestia_install_cert() had zero callers
+                // — and asserting 'full' anyway took nelsonrestoration.com down twice
+                // in one night (2026-08-22): once on its first Go Live, once again the
+                // moment "Create zone" re-ran after a Take offline reset this same
+                // setting. Try to install a real Origin CA cert first; only claim
+                // 'full' when one is actually on the box.
+                $ftpUser = $prov['ftp_user'] ?? '';
+                $ftpPass = $prov['ftp_pass'] ?? '';
+                if ($ftpUser === '' || $ftpPass === '') {
+                    $exFtp   = infra_state_get_domain($domain);
+                    $ftpUser = $ftpUser !== '' ? $ftpUser : (string) ($exFtp['ftp_user'] ?? '');
+                    $ftpPass = $ftpPass !== '' ? $ftpPass : (string) ($exFtp['ftp_pass'] ?? '');
+                }
+                $cert = infra_install_origin_cert($server, $account, $domain, $ftpUser, $ftpPass);
+                $lines[] = '  Origin cert: ' . ($cert['ok'] ? '✓ ' . $cert['message'] : '— ' . $cert['message']);
+                $sslMode = $cert['ok'] ? 'full' : 'flexible';
+                $s = cf_set_ssl_mode($account, $zoneId, $sslMode);
+                $lines[] = '  SSL: ' . ($s['ok'] ? "✓ {$sslMode}" : '✗ ' . $s['message']); if (!$s['ok']) $ok = false;
                 $h = cf_set_hsts($account, $zoneId);
                 $lines[] = '  HSTS: ' . ($h['ok'] ? '✓ on' : '✗ ' . $h['message']); if (!$h['ok']) $ok = false;
                 $lines[] = '  NS: ' . implode(', ', $ns);
@@ -155,7 +212,16 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
     if (empty($prov['registrar']) && $mappedRegistrar !== '') $prov['registrar'] = $mappedRegistrar;
     // 'staged' means infrastructure exists. Buying alone does not make it so — a
     // register-only run leaves the domain at 'owned', which is what it is.
-    if ($doSite || $doCf) $prov['status'] = $ok ? 'staged' : 'partial';
+    //
+    // But never REGRESS a domain that is already ahead of 'staged' — a Take
+    // offline followed by Create zone re-runs this exact function on a domain
+    // that is already 'live'/'releasing', and this line used to stomp it back
+    // to 'staged' unconditionally, silently re-arming it for the daily go-live
+    // cron sweep (which only reconsiders staged/queued/releasing/awaiting-ns
+    // domains) and turning a working site's status into a lie on the grid.
+    $curStatus = (string) (infra_state_get_domain($domain)['status'] ?? '');
+    $alreadyAdvanced = in_array($curStatus, ['releasing', 'live', 'awaiting-ns'], true);
+    if (($doSite || $doCf) && !($ok && $alreadyAdvanced)) $prov['status'] = $ok ? 'staged' : 'partial';
     infra_state_upsert_domain($prov);
 
     return ['ok' => $ok, 'lines' => $lines];

@@ -285,6 +285,58 @@ function cf_set_ssl_mode(array $account, string $zoneId, string $mode = 'full'):
 }
 
 /**
+ * Issue a Cloudflare Origin CA certificate for a domain (+ wildcard), signing a
+ * CSR generated locally so the private key never leaves this box unencrypted
+ * over the wire. This is a SEPARATE credential from the account's api_token or
+ * global_key — Cloudflare's Origin CA endpoint only accepts an Origin CA Key
+ * (`X-Auth-User-Service-Key`), which is per-login, not per-token, and has to be
+ * copied in by hand from that account's dashboard (My Profile → API Tokens →
+ * Origin CA Key). Store it as `origin_ca_key` on the account record in
+ * config/cloudflare.json. Until that's set, callers should fall back to
+ * Cloudflare SSL mode `flexible` rather than call this at all — see the
+ * `full`-with-no-origin-cert incident in provision.php.
+ *
+ * @return array{ok:bool, cert?:string, key?:string, message:string}
+ */
+function cf_create_origin_ca_cert(array $account, string $domain, int $days = 5475): array
+{
+    if (empty($account['origin_ca_key'])) {
+        return ['ok' => false, 'message' => 'no origin_ca_key configured for this Cloudflare account'];
+    }
+
+    $dir = sys_get_temp_dir() . '/cf_origin_ca_' . bin2hex(random_bytes(6));
+    if (!@mkdir($dir, 0700, true)) return ['ok' => false, 'message' => 'could not create a temp dir for the CSR'];
+    $cnfPath = $dir . '/req.cnf';
+    $keyPath = $dir . '/key.pem';
+    $csrPath = $dir . '/req.csr';
+    file_put_contents($cnfPath, "[req]\ndistinguished_name=dn\nreq_extensions=ext\nprompt=no\n"
+        . "[dn]\nCN={$domain}\n[ext]\nsubjectAltName=DNS:{$domain},DNS:*.{$domain}\n");
+    shell_exec(sprintf(
+        'openssl req -new -newkey rsa:2048 -nodes -keyout %s -out %s -config %s 2>&1',
+        escapeshellarg($keyPath), escapeshellarg($csrPath), escapeshellarg($cnfPath)
+    ));
+    $csr = is_file($csrPath) ? file_get_contents($csrPath) : '';
+    $key = is_file($keyPath) ? file_get_contents($keyPath) : '';
+    @unlink($cnfPath); @unlink($csrPath); @unlink($keyPath); @rmdir($dir);
+    if ($csr === '' || $key === '') return ['ok' => false, 'message' => 'openssl could not generate a CSR'];
+
+    $r = infra_http('POST', 'https://api.cloudflare.com/client/v4/certificates', [
+        'headers' => ['X-Auth-User-Service-Key: ' . $account['origin_ca_key'], 'Content-Type: application/json'],
+        'body'    => ['hostnames' => [$domain, '*.' . $domain], 'requested_validity' => $days,
+                      'request_type' => 'origin-rsa', 'csr' => $csr],
+        'timeout' => 30,
+    ]);
+    if (!($r['code'] === 200 && !empty($r['json']['success']))) {
+        return ['ok' => false, 'message' => 'Cloudflare Origin CA: '
+            . ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
+    }
+    $cert = $r['json']['result']['certificate'] ?? '';
+    if ($cert === '') return ['ok' => false, 'message' => 'Cloudflare Origin CA returned no certificate'];
+
+    return ['ok' => true, 'cert' => $cert, 'key' => $key, 'message' => 'origin certificate issued'];
+}
+
+/**
  * Read a zone's settings — every one of them, in a single request.
  *
  * The setters above have had no counterpart, so nothing could ever answer "is SSL

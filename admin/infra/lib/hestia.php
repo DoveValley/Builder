@@ -561,6 +561,54 @@ function hestia_install_cert(array $server, string $domain, string $user, string
 }
 
 /**
+ * Write one file to a domain's own FTP login — the transport for getting a
+ * certificate onto the box for hestia_install_cert() to read (see its
+ * docblock: the Hestia API has no upload verb).
+ */
+function hestia_ftp_put(string $host, string $ftpUser, string $ftpPass, string $remotePath, string $content): array
+{
+    $tmp = tmpfile();
+    fwrite($tmp, $content);
+    rewind($tmp);
+    $ch = curl_init();
+    curl_setopt_array($ch, [
+        CURLOPT_URL                      => 'ftp://' . $host . '/' . ltrim($remotePath, '/'),
+        CURLOPT_USERPWD                  => $ftpUser . ':' . $ftpPass,
+        CURLOPT_UPLOAD                   => true,
+        CURLOPT_INFILE                   => $tmp,
+        CURLOPT_INFILESIZE               => strlen($content),
+        CURLOPT_FTP_CREATE_MISSING_DIRS  => CURLFTP_CREATE_DIR,
+        CURLOPT_CONNECTTIMEOUT           => 15,
+        CURLOPT_TIMEOUT                  => 45,
+        CURLOPT_RETURNTRANSFER           => true,
+    ]);
+    $ok  = curl_exec($ch) !== false;
+    $err = curl_error($ch);
+    curl_close($ch);
+    fclose($tmp);
+    return ['ok' => $ok, 'message' => $ok ? 'uploaded' : $err];
+}
+
+/** Delete one file over FTP — cleans up the staged cert once Hestia has read it. */
+function hestia_ftp_delete(string $host, string $ftpUser, string $ftpPass, string $remotePath): array
+{
+    $ch = curl_init();
+    curl_setopt_array($ch, [
+        CURLOPT_URL             => 'ftp://' . $host . '/',
+        CURLOPT_USERPWD         => $ftpUser . ':' . $ftpPass,
+        CURLOPT_QUOTE           => ['DELE ' . ltrim($remotePath, '/')],
+        CURLOPT_CONNECTTIMEOUT  => 15,
+        CURLOPT_TIMEOUT         => 20,
+        CURLOPT_RETURNTRANSFER  => true,
+        CURLOPT_NOBODY          => true,
+    ]);
+    curl_exec($ch);
+    $err = curl_error($ch);
+    curl_close($ch);
+    return ['ok' => $err === '', 'message' => $err ?: 'deleted'];
+}
+
+/**
  * Delete a domain. Removes the WEB DOMAIN ONLY and never the owning account.
  *
  * ⚠ This is the load-bearing consequence of one-user-per-server: v-delete-user
