@@ -14,6 +14,12 @@
  *
  * Expects: $csrfToken.
  */
+
+// The scheduler's own footprint (admin/infra/cron/golive_tick.php, daily via
+// /etc/cron.d/infra-golive) — read directly, the same file the Bulk tab's grid reads,
+// so this card can say when it last ran instead of leaving that only discoverable from
+// the Bulk tab or a shell. A scheduler that has silently stopped is worse than none.
+$msGoliveTick = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/golive_tick.json'), true);
 ?>
 <!-- ===== GO LIVE (DNS) ===== -->
 <div class="card" id="ms-golive-card">
@@ -25,10 +31,18 @@
         removes the domain's Cloudflare record (not its nameservers) so you can pull a
         site back &mdash; usually within seconds &mdash; without waiting hours for DNS to
         re-propagate; pressing Create zone again restores it.
+        <?php if (is_array($msGoliveTick) && !empty($msGoliveTick['at'])): ?>
+            <br>Daily auto-release: last ran <strong><?= htmlspecialchars(date('j M H:i', (int) $msGoliveTick['at'])) ?></strong>
+            &mdash; <?= (int) $msGoliveTick['released'] ?> released<?= !empty($msGoliveTick['held']) ? ', ' . (int) $msGoliveTick['held'] . ' held' : '' ?>
+            of <?= (int) $msGoliveTick['due'] ?> due that day (fleet-wide, not just this batch).
+        <?php else: ?>
+            <br><span style="color:#b91c1c;">Daily auto-release has never recorded a run — check <code>/etc/cron.d/infra-golive</code> is installed.</span>
+        <?php endif; ?>
     </p>
 
     <div id="ms-golive-state" class="hint" style="margin-bottom:4px;">Loading&hellip;</div>
-    <div id="ms-golive-run-msg" class="hint" style="margin-bottom:10px;font-weight:600;"></div>
+    <div id="ms-golive-run-msg" class="hint" style="margin-bottom:4px;font-weight:600;"></div>
+    <pre id="ms-golive-run-out" style="display:none;margin-bottom:10px;background:#0f172a;color:#e2e8f0;padding:12px;border-radius:6px;font-size:0.78rem;max-height:260px;overflow:auto;white-space:pre-wrap;"></pre>
 
     <div id="ms-golive-body"><p class="hint">Loading&hellip;</p></div>
 </div>

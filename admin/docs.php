@@ -4308,9 +4308,21 @@ curl -sI http://localhost/admin/login.php | head -1</code></pre>
 
 <section id="dev-cron">
     <h2>Cron jobs</h2>
-    <p>No application-specific cron jobs are configured — content generation and deploys are triggered manually from the admin. The entries under <code>/etc/cron.d/</code> (<code>e2scrub_all</code>, <code>php</code>, <code>sysstat</code>) are stock OS maintenance, not Site Factory.</p>
-    <pre><code>crontab -l                 # user crontab (currently none for the app)
-ls /etc/cron.d/            # system cron jobs</code></pre>
+    <p>One application cron job is configured: <code>/etc/cron.d/infra-golive</code> runs
+    <code>admin/infra/cron/golive_tick.php</code> daily at 09:00 as <code>www-data</code>. It releases
+    domains whose scheduled <code>go_live_at</code> date has arrived by switching their nameservers at
+    the registrar, up to a daily cap — everything else (content generation, deploys, one-off Go Live
+    clicks) is still triggered manually from the admin. It refuses any domain whose Upload cell isn't
+    green (<code>infra_golive_gate()</code>), so a scheduled date can never point DNS at an empty
+    folder. Its last-run result is <code>admin/infra/state/golive_tick.json</code>
+    (<code>at</code>/<code>due</code>/<code>released</code>/<code>held</code>/<code>cap</code>) and its
+    output is appended to <code>/var/log/infra-golive.log</code>. The other entries under
+    <code>/etc/cron.d/</code> (<code>e2scrub_all</code>, <code>php</code>, <code>sysstat</code>) are
+    stock OS maintenance, not Site Factory.</p>
+    <pre><code>cat /etc/cron.d/infra-golive                     # the job itself
+cat admin/infra/state/golive_tick.json           # last run's result
+tail -50 /var/log/infra-golive.log               # its output history
+ls /etc/cron.d/                                  # system cron jobs</code></pre>
     <div class="callout tip">
         <p>If you later automate backups or Let's Encrypt renewal, this is where those jobs would go.</p>
     </div>
