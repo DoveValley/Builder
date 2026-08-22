@@ -216,12 +216,22 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
     // But never REGRESS a domain that is already ahead of 'staged' — a Take
     // offline followed by Create zone re-runs this exact function on a domain
     // that is already 'live'/'releasing', and this line used to stomp it back
-    // to 'staged' unconditionally, silently re-arming it for the daily go-live
-    // cron sweep (which only reconsiders staged/queued/releasing/awaiting-ns
-    // domains) and turning a working site's status into a lie on the grid.
+    // to 'staged' (or, on any failure, 'partial') unconditionally, silently
+    // re-arming it for the daily go-live cron sweep (which only reconsiders
+    // staged/queued/releasing/awaiting-ns domains — 'partial' is not in that
+    // list) and turning a working site's status into a lie on the grid that
+    // nothing would ever self-heal, since infra_golive_refresh_live()'s own
+    // candidate filter excludes 'partial' too.
+    //
+    // This has to hold on FAILURE as well as success: an already-advanced domain
+    // whose re-provision hits one flaky call (an HSTS timeout, say) is still
+    // live right up until something that actually asks the site says otherwise
+    // — infra_pipeline_refresh() re-checks the zone/host cell right after this
+    // returns, and that per-step cell is where a real failure belongs, not this
+    // coarse status field.
     $curStatus = (string) (infra_state_get_domain($domain)['status'] ?? '');
     $alreadyAdvanced = in_array($curStatus, ['releasing', 'live', 'awaiting-ns'], true);
-    if (($doSite || $doCf) && !($ok && $alreadyAdvanced)) $prov['status'] = $ok ? 'staged' : 'partial';
+    if (($doSite || $doCf) && !$alreadyAdvanced) $prov['status'] = $ok ? 'staged' : 'partial';
     infra_state_upsert_domain($prov);
 
     return ['ok' => $ok, 'lines' => $lines];
