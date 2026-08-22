@@ -43,15 +43,19 @@
     // two reasons a row is not: never generated, or generated with nowhere to send it.
     async function upState() {
         const el = document.getElementById('ms-up-state');
-        const r = await fetch('multisite_api.php?action=built');
-        const d = await r.json();
-        if (d.error) { el.textContent = d.error; return; }
-        const bits = ['<strong>' + (d.ready | 0) + '</strong> ready to upload'];
-        if (d.no_build | 0) bits.push((d.no_build | 0) + ' not generated yet');
-        if (d.no_creds | 0) bits.push((d.no_creds | 0) + ' without credentials (run step 3)');
-        el.innerHTML = bits.join(' &middot; ') + ' &middot; ' + (d.total | 0) + ' in the target list';
-        el.style.color = (d.ready | 0) > 0 ? '#166534' : '#94a3b8';
-        document.getElementById('ms-up-btn').disabled = (d.ready | 0) === 0;
+        try {
+            const r = await fetch('multisite_api.php?action=built');
+            const d = await r.json();
+            if (d.error) { el.textContent = d.error; return; }
+            const bits = ['<strong>' + (d.ready | 0) + '</strong> ready to upload'];
+            if (d.no_build | 0) bits.push((d.no_build | 0) + ' not generated yet');
+            if (d.no_creds | 0) bits.push((d.no_creds | 0) + ' without credentials (run step 3)');
+            el.innerHTML = bits.join(' &middot; ') + ' &middot; ' + (d.total | 0) + ' in the target list';
+            el.style.color = (d.ready | 0) > 0 ? '#166534' : '#94a3b8';
+            document.getElementById('ms-up-btn').disabled = (d.ready | 0) === 0;
+        } catch (e) {
+            el.textContent = 'Could not check upload readiness — reload to try again.';
+        }
     }
 
     function renderUploadProgress(s) {
@@ -81,25 +85,40 @@
         if (document.getElementById('ms-up-force').checked) fd.append('force', '1');
 
         btn.disabled = true; msg.textContent = 'Starting…'; msg.style.color = '#475569'; progress.innerHTML = '';
-        const r = await fetch('multisite_api.php?action=upload', { method: 'POST', body: fd });
-        const d = await r.json();
+        let d;
+        try {
+            const r = await fetch('multisite_api.php?action=upload', { method: 'POST', body: fd });
+            d = await r.json();
+        } catch (e) {
+            btn.disabled = false; msg.textContent = 'Could not reach the server — try again.'; msg.style.color = '#b91c1c'; return;
+        }
         if (d.error) { btn.disabled = false; msg.textContent = d.error; msg.style.color = '#b91c1c'; return; }
 
         out.style.display = 'block'; out.textContent = 'Working…'; msg.textContent = 'Uploading…';
         clearInterval(upTimer);
+        let misses = 0;   // consecutive failed polls — tolerate a blip, don't hang forever on one
         upTimer = setInterval(async function () {
-            const s = await (await fetch('multisite_api.php?action=upload_status&run_id=' + encodeURIComponent(d.run_id))).json();
-            if (s.error) { clearInterval(upTimer); out.textContent = s.error; btn.disabled = false; return; }
-            renderUploadProgress(s);
-            out.textContent = s.log || 'Working…';
-            out.scrollTop = out.scrollHeight;
-            if (!s.done) return;
-            clearInterval(upTimer);
-            btn.disabled = false;
-            const bad = (s.failed || 0) > 0;
-            msg.textContent = bad ? 'Finished with failures — read the log.' : 'Done.';
-            msg.style.color = bad ? '#b91c1c' : '#166534';
-            upState();
+            try {
+                const s = await (await fetch('multisite_api.php?action=upload_status&run_id=' + encodeURIComponent(d.run_id))).json();
+                misses = 0;
+                if (s.error) { clearInterval(upTimer); out.textContent = s.error; btn.disabled = false; return; }
+                renderUploadProgress(s);
+                out.textContent = s.log || 'Working…';
+                out.scrollTop = out.scrollHeight;
+                if (!s.done) return;
+                clearInterval(upTimer);
+                btn.disabled = false;
+                const bad = (s.failed || 0) > 0;
+                msg.textContent = bad ? 'Finished with failures — read the log.' : 'Done.';
+                msg.style.color = bad ? '#b91c1c' : '#166534';
+                upState();
+            } catch (e) {
+                if (++misses < 5) return;
+                clearInterval(upTimer);
+                btn.disabled = false;
+                msg.textContent = 'Lost contact with the server — the job may still be running; reload to check.';
+                msg.style.color = '#b91c1c';
+            }
         }, 2000);
     };
 

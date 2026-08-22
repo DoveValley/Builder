@@ -71,8 +71,14 @@
     }
 
     async function post(action, extra) {
-        const r = await fetch('multisite_api.php?action=' + action, { method: 'POST', body: fd(extra) });
-        return r.json();
+        try {
+            const r = await fetch('multisite_api.php?action=' + action, { method: 'POST', body: fd(extra) });
+            return await r.json();
+        } catch (e) {
+            // Centralized so every caller (msGoLiveZone/Offline/Release/RunColumn) gets
+            // this for free instead of leaving its button stuck on "Working…" forever.
+            return { error: 'Could not reach the server — try again.' };
+        }
     }
 
     window.msGoLiveZone = async function (domain, btn) {
@@ -101,7 +107,13 @@
 
     window.msGoLiveRefreshLive = async function (domain, btn) {
         btn.disabled = true;
-        await fetch('multisite_api.php?action=golive_refresh&step=live&domain=' + encodeURIComponent(domain));
+        try {
+            await fetch('multisite_api.php?action=golive_refresh&step=live&domain=' + encodeURIComponent(domain));
+        } catch (e) {
+            // Fall through to loadGoLive() regardless — it fully re-renders this row
+            // (a fresh button included), so a dropped request here doesn't leave the
+            // ↻ button stuck disabled with no way to retry short of a page reload.
+        }
         await loadGoLive();
     };
 

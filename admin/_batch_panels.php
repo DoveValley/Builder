@@ -342,9 +342,18 @@ if (!isset($csrfToken)) return;
             .catch(() => {});
     };
 
+    let pollRunMisses = 0;   // consecutive failed polls — one blip self-heals silently
     function pollRun(runId) {
         const url = 'multisite_api.php?action=run_status' + (runId ? '&run_id=' + encodeURIComponent(runId) : '');
-        fetch(url).then(r => r.json()).then(renderRun).catch(() => {});
+        fetch(url).then(r => r.json()).then(d => { pollRunMisses = 0; renderRun(d); }).catch(() => {
+            // A persistent failure used to leave #ms-run-btn disabled forever with the
+            // interval silently retrying and zero feedback — surface it once instead.
+            if (++pollRunMisses === 5) {
+                const el = document.getElementById('ms-run-progress');
+                if (el) el.insertAdjacentHTML('beforeend',
+                    '<div style="color:#991b1b;margin-top:6px;">Lost contact with the server — still trying… (the run itself may still be in progress; reload to check)</div>');
+            }
+        });
     }
 
     window.msRun = function () {
@@ -377,10 +386,12 @@ if (!isset($csrfToken)) return;
 
     // ── Research cities — detached; poll the output file ──────────────────────
     var msResearchTimer = null;
+    var msResearchMisses = 0;   // consecutive failed polls — one blip self-heals silently
     function msPollResearch(runId) {
         fetch('multisite_api.php?action=research_status&run_id=' + encodeURIComponent(runId))
             .then(r => r.json())
             .then(d => {
+                msResearchMisses = 0;
                 var out = document.getElementById('ms-research-out');
                 if (d.error) { out.textContent = d.error; return; }
                 if (d.none)  { out.textContent = 'Starting…'; return; }
@@ -393,7 +404,17 @@ if (!isset($csrfToken)) return;
                     out.textContent += (d.exit === 0 ? '\n\n✓ Done.' : '\n\n✗ Exited with code ' + d.exit + '.');
                 }
             })
-            .catch(() => {});
+            .catch(() => {
+                // A persistent failure used to leave both research buttons disabled
+                // forever with zero feedback while the job may have finished or died
+                // server-side. Give up after a run of misses instead of hanging silently.
+                if (++msResearchMisses < 5) return;
+                if (msResearchTimer) clearInterval(msResearchTimer);
+                document.getElementById('ms-research-dry').disabled = false;
+                document.getElementById('ms-research-btn').disabled = false;
+                var out = document.getElementById('ms-research-out');
+                if (out) out.textContent += '\n\n✗ Lost contact with the server — the job may still be running; reload to check.';
+            });
     }
     window.msResearch = function (dry) {
         var dryBtn = document.getElementById('ms-research-dry');

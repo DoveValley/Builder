@@ -49,40 +49,59 @@
         if (document.getElementById('ms-hosts-force').checked) fd.append('force', '1');
 
         btn.disabled = true; msg.textContent = 'Starting…'; msg.style.color = '#475569';
-        const r = await fetch('multisite_api.php?action=create_hosts', { method: 'POST', body: fd });
-        const d = await r.json();
-        if (d.error) { btn.disabled = false; msg.textContent = d.error; msg.style.color = '#b91c1c'; return; }
+        try {
+            const r = await fetch('multisite_api.php?action=create_hosts', { method: 'POST', body: fd });
+            const d = await r.json();
+            if (d.error) { btn.disabled = false; msg.textContent = d.error; msg.style.color = '#b91c1c'; return; }
 
-        out.style.display = 'block';
-        out.textContent = 'Working…';
-        msg.textContent = 'Running…';
-        poll(d.run_id);
+            out.style.display = 'block';
+            out.textContent = 'Working…';
+            msg.textContent = 'Running…';
+            poll(d.run_id);
+        } catch (e) {
+            btn.disabled = false;
+            msg.textContent = 'Could not reach the server — try again.';
+            msg.style.color = '#b91c1c';
+        }
     };
 
     // Polls the same way the run panel does: the work is detached, so the page is
     // reading a log rather than holding a request open.
     function poll(runId) {
         clearInterval(hostsTimer);
+        let misses = 0;   // consecutive failed polls — tolerate a blip, don't hang forever on one
         hostsTimer = setInterval(async function () {
-            const r = await fetch('multisite_api.php?action=create_hosts_status&run_id=' + encodeURIComponent(runId));
-            const d = await r.json();
-            const out = document.getElementById('ms-hosts-out');
-            if (d.error) { clearInterval(hostsTimer); out.textContent = d.error; return; }
-            out.textContent = d.log || 'Working…';
-            out.scrollTop = out.scrollHeight;
-            if (!d.done) return;
-
-            clearInterval(hostsTimer);
             const btn = document.getElementById('ms-hosts-btn');
             const msg = document.getElementById('ms-hosts-msg');
-            btn.disabled = false;
-            const failed = / (\d+) failed/.exec(d.log || '');
-            const bad = failed && parseInt(failed[1], 10) > 0;
-            msg.textContent = bad ? 'Finished with failures — read the log.' : 'Done.';
-            msg.style.color = bad ? '#b91c1c' : '#166534';
-            // The target list and the phase strip both changed; reload so neither is
-            // showing the state from before this ran.
-            if (!bad) setTimeout(() => window.location.reload(), 1200);
+            const out = document.getElementById('ms-hosts-out');
+            try {
+                const r = await fetch('multisite_api.php?action=create_hosts_status&run_id=' + encodeURIComponent(runId));
+                const d = await r.json();
+                misses = 0;
+                if (d.error) { clearInterval(hostsTimer); btn.disabled = false; out.textContent = d.error; return; }
+                out.textContent = d.log || 'Working…';
+                out.scrollTop = out.scrollHeight;
+                if (!d.done) return;
+
+                clearInterval(hostsTimer);
+                btn.disabled = false;
+                const failed = / (\d+) failed/.exec(d.log || '');
+                const bad = failed && parseInt(failed[1], 10) > 0;
+                msg.textContent = bad ? 'Finished with failures — read the log.' : 'Done.';
+                msg.style.color = bad ? '#b91c1c' : '#166534';
+                // The target list and the phase strip both changed; reload so neither is
+                // showing the state from before this ran.
+                if (!bad) setTimeout(() => window.location.reload(), 1200);
+            } catch (e) {
+                // One dropped poll self-heals on the next tick (misses resets on success);
+                // only a run of failures — a dead session, a server error — gives up and
+                // says so, instead of leaving the button stuck on "Working…" forever.
+                if (++misses < 5) return;
+                clearInterval(hostsTimer);
+                btn.disabled = false;
+                msg.textContent = 'Lost contact with the server — the job may still be running; reload to check.';
+                msg.style.color = '#b91c1c';
+            }
         }, 2000);
     }
 })();
