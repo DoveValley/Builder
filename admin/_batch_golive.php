@@ -9,8 +9,8 @@
  * filtered by the "batch" tag create_hosts.php writes onto each domain
  * (admin/infra/lib/state.php's `domains.batch` column). It talks to it through new
  * JSON actions on multisite_api.php (golive_status / golive_do / golive_run /
- * golive_offline) rather than admin/infra/actions/pipeline_golive.php, which is built
- * to redirect back to the Bulk tab's own page.
+ * golive_offline / golive_schedule) rather than admin/infra/actions/pipeline_golive.php,
+ * which is built to redirect back to the Bulk tab's own page.
  *
  * Expects: $csrfToken.
  */
@@ -50,6 +50,13 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
             or another tab. Check that <code>admin/infra/state/locks/</code> is writable by the web server user.</span>
         <?php endif; ?>
     </p>
+
+    <div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-bottom:12px;padding:10px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;">
+        <label class="hint">Release<br><input type="number" id="ms-gl-perday" value="10" min="1" max="200" style="width:64px;"></label>
+        <label class="hint">per day, starting<br><input type="date" id="ms-gl-startdate" value="<?= htmlspecialchars(date('Y-m-d')) ?>"></label>
+        <button type="button" class="btn sec" id="ms-gl-sched-btn" onclick="msGoLiveSchedule()">Schedule rollout</button>
+        <span id="ms-gl-sched-msg" class="hint"></span>
+    </div>
 
     <div id="ms-golive-state" class="hint" style="margin-bottom:4px;">Loading&hellip;</div>
     <div id="ms-golive-run-msg" class="hint" style="margin-bottom:4px;font-weight:600;"></div>
@@ -136,6 +143,25 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
         const r = await post('golive_do', { step: 'golive', domain: domain });
         if (r.error) alert(r.error);
         else if (!r.ok) alert(r.msg || 'Go Live did not complete — see the status column.');
+        await loadGoLive();
+    };
+
+    window.msGoLiveSchedule = async function () {
+        const btn   = document.getElementById('ms-gl-sched-btn');
+        const msg   = document.getElementById('ms-gl-sched-msg');
+        const perDay = parseInt(document.getElementById('ms-gl-perday').value, 10) || 10;
+        const start  = document.getElementById('ms-gl-startdate').value;
+        if (!confirm('Schedule every eligible not-yet-live domain in this batch into daily releases, '
+            + perDay + '/day starting ' + (start || 'today')
+            + '? The nightly cron releases them automatically as each date arrives — nothing goes live right now.')) return;
+        btn.disabled = true; msg.textContent = 'Scheduling…'; msg.style.color = '#475569';
+        const r = await post('golive_schedule', { per_day: String(perDay), start_date: start });
+        btn.disabled = false;
+        if (r.error) { msg.textContent = r.error; msg.style.color = '#b91c1c'; return; }
+        msg.textContent = 'Scheduled ' + r.scheduled + ' domain(s)'
+            + (r.first ? (', ' + r.first + ' to ' + r.last) : '')
+            + (r.skipped ? (', ' + r.skipped + ' skipped — nothing uploaded to them yet') : '') + '.';
+        msg.style.color = r.skipped ? '#92400e' : '#166534';
         await loadGoLive();
     };
 

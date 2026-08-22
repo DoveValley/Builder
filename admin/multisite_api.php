@@ -332,6 +332,19 @@ switch ($action) {
         echo json_encode(infra_pipeline_do($gStep, $gDom, $masterId . '/' . $batchId));
         break;
 
+    // Spread this batch's not-yet-live domains into daily releases (N/day from a
+    // start date) for the nightly cron to pick up — the one thing card 6 could not
+    // do without leaving for the Bulk tab's pipeline grid, which has had this
+    // since the grid was built. Same underlying call, same gate.
+    case 'golive_schedule':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/golive.php';
+        $gPerDay = max(1, (int) ($_POST['per_day'] ?? 10));
+        $gStart  = trim((string) ($_POST['start_date'] ?? ''));
+        $r = infra_golive_schedule($gPerDay, $gStart, ['batch' => $masterId . '/' . $batchId, 'gate' => true]);
+        echo json_encode($r);
+        break;
+
     // The same step for every row in this batch that still needs it — the "▶ run
     // all" header buttons. Greens are skipped; safe (and how you resume) to press twice.
     //
