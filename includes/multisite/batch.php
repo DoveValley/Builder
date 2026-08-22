@@ -403,6 +403,33 @@ function ms_active_run(string $runsDir): ?array {
     return ($cur && ($cur['state'] ?? '') === 'running') ? $cur : null;
 }
 
+/**
+ * Run $fn() while holding an exclusive file lock, so "is a job already
+ * running?" (a filesystem read) and "start it" (spawning the detached
+ * process) happen as one atomic step instead of two. Without this, two
+ * requests landing close together — a double-click, or a retried request
+ * on a slow connection — can both see "not running" and both launch a
+ * background job for the same batch.
+ *
+ * The lock is held only for $fn()'s own duration (a glob + an exec, both
+ * fast), never for the background job itself, which runs detached and is
+ * tracked by its own .out/.json marker file — this does not reintroduce
+ * the whole-request session-lock bug this project already hit once.
+ */
+function ms_with_launch_lock(string $lockFile, callable $fn) {
+    $dir = dirname($lockFile);
+    if (!is_dir($dir)) mkdir($dir, 0775, true);
+    $fh = fopen($lockFile, 'c');
+    if (!$fh) return $fn();   // can't lock — fail open rather than block the action entirely
+    try {
+        flock($fh, LOCK_EX);
+        return $fn();
+    } finally {
+        flock($fh, LOCK_UN);
+        fclose($fh);
+    }
+}
+
 /** How many target rows a batch holds (cheap line count — no CSV parse). */
 function ms_batch_target_count(string $masterId, string $batchId): int {
     $csv = ms_batch_dir($masterId, $batchId) . '/params.csv';

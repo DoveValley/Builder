@@ -213,22 +213,26 @@ switch ($action) {
         if (!ms_batch_servers($masterId, $batchId)) { echo json_encode(['error' => 'No deployment servers picked — choose them above first.']); break; }
         $hdir = $batchDir . '/hosts';
         if (!is_dir($hdir)) mkdir($hdir, 0775, true);
-        // One at a time: a live run leaves an .out file with no DONE marker.
-        foreach (glob($hdir . '/*.out') ?: [] as $f) {
-            if (strpos((string) @file_get_contents($f), '__MS_HOSTS_DONE__') === false
-                && (time() - filemtime($f)) < 3600) {
-                echo json_encode(['error' => 'Host creation is already running.', 'run_id' => basename($f, '.out')]);
-                break 2;
+        // Check-then-launch is one atomic step under the lock, so two near-simultaneous
+        // clicks can't both see "not running" and both start a host-creation run.
+        $hres = ms_with_launch_lock($hdir . '/.lock', function () use ($hdir, $masterId, $batchId) {
+            // One at a time: a live run leaves an .out file with no DONE marker.
+            foreach (glob($hdir . '/*.out') ?: [] as $f) {
+                if (strpos((string) @file_get_contents($f), '__MS_HOSTS_DONE__') === false
+                    && (time() - filemtime($f)) < 3600) {
+                    return ['error' => 'Host creation is already running.', 'run_id' => basename($f, '.out')];
+                }
             }
-        }
-        $hid   = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
-        $out   = $hdir . '/' . $hid . '.out';
-        $forceArg = !empty($_POST['force']) ? ' --force' : '';
-        $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/create_hosts.php')
-               . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId) . $forceArg
-               . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_HOSTS_DONE__ $?" >> ' . escapeshellarg($out);
-        exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
-        echo json_encode(['started' => true, 'run_id' => $hid]);
+            $hid   = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+            $out   = $hdir . '/' . $hid . '.out';
+            $forceArg = !empty($_POST['force']) ? ' --force' : '';
+            $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/create_hosts.php')
+                   . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId) . $forceArg
+                   . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_HOSTS_DONE__ $?" >> ' . escapeshellarg($out);
+            exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
+            return ['started' => true, 'run_id' => $hid];
+        });
+        echo json_encode($hres);
         break;
 
     /* Phase 5 — upload what has already been generated. Detached like the others. */
@@ -237,24 +241,26 @@ switch ($action) {
         if (!ms_batch_built($masterId, $batchId)) { echo json_encode(['error' => 'Nothing generated yet — run Generate sites first.']); break; }
         $udir = $batchDir . '/uploads';
         if (!is_dir($udir)) mkdir($udir, 0775, true);
-        foreach (glob($udir . '/*.out') ?: [] as $f) {
-            if (strpos((string) @file_get_contents($f), '__MS_UPLOAD_DONE__') === false
-                && (time() - filemtime($f)) < 3600) {
-                echo json_encode(['error' => 'An upload is already running.', 'run_id' => basename($f, '.out')]);
-                break 2;
+        $ures = ms_with_launch_lock($udir . '/.lock', function () use ($udir, $masterId, $batchId) {
+            foreach (glob($udir . '/*.out') ?: [] as $f) {
+                if (strpos((string) @file_get_contents($f), '__MS_UPLOAD_DONE__') === false
+                    && (time() - filemtime($f)) < 3600) {
+                    return ['error' => 'An upload is already running.', 'run_id' => basename($f, '.out')];
+                }
             }
-        }
-        $uid   = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
-        $out   = $udir . '/' . $uid . '.out';
-        $uf    = '';
-        if (!empty($_POST['force'])) $uf .= ' --force';
-        $ulim = max(0, (int) ($_POST['limit'] ?? 0));  if ($ulim > 0) $uf .= ' --limit=' . $ulim;
-        if (!empty($_POST['only'])) $uf .= ' --only=' . escapeshellarg((string) $_POST['only']);
-        $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/upload_sites.php')
-               . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId) . $uf
-               . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_UPLOAD_DONE__ $?" >> ' . escapeshellarg($out);
-        exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
-        echo json_encode(['started' => true, 'run_id' => $uid]);
+            $uid   = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+            $out   = $udir . '/' . $uid . '.out';
+            $uf    = '';
+            if (!empty($_POST['force'])) $uf .= ' --force';
+            $ulim = max(0, (int) ($_POST['limit'] ?? 0));  if ($ulim > 0) $uf .= ' --limit=' . $ulim;
+            if (!empty($_POST['only'])) $uf .= ' --only=' . escapeshellarg((string) $_POST['only']);
+            $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/upload_sites.php')
+                   . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId) . $uf
+                   . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_UPLOAD_DONE__ $?" >> ' . escapeshellarg($out);
+            exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
+            return ['started' => true, 'run_id' => $uid];
+        });
+        echo json_encode($ures);
         break;
 
     case 'upload_status':
@@ -520,14 +526,17 @@ switch ($action) {
     case 'run':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         if (!is_file($paramsPath)) { echo json_encode(['error' => 'No target list stored — upload it first.']); break; }
-        if ($running = ms_active_run($runsDir)) { echo json_encode(['error' => 'This batch is already running.', 'run_id' => $running['run_id'] ?? null]); break; }
-        $flags = ms_run_flags([
-            'jobs' => $_POST['jobs'] ?? 1, 'retries' => $_POST['retries'] ?? 0, 'limit' => $_POST['limit'] ?? 0,
-            'no_ai' => !empty($_POST['no_ai']), 'force' => !empty($_POST['force']),
-    'skip'  => array_filter(array_map('trim', explode(',', (string) ($_POST['skip'] ?? '')))),
-    'no_deploy' => !empty($_POST['no_deploy']),
-        ]);
-        echo json_encode(['started' => true, 'run_id' => ms_launch_campaign($masterId, $batchId, $runsDir, $flags)]);
+        $rres = ms_with_launch_lock($runsDir . '/.lock', function () use ($runsDir, $masterId, $batchId) {
+            if ($running = ms_active_run($runsDir)) return ['error' => 'This batch is already running.', 'run_id' => $running['run_id'] ?? null];
+            $flags = ms_run_flags([
+                'jobs' => $_POST['jobs'] ?? 1, 'retries' => $_POST['retries'] ?? 0, 'limit' => $_POST['limit'] ?? 0,
+                'no_ai' => !empty($_POST['no_ai']), 'force' => !empty($_POST['force']),
+                'skip'  => array_filter(array_map('trim', explode(',', (string) ($_POST['skip'] ?? '')))),
+                'no_deploy' => !empty($_POST['no_deploy']),
+            ]);
+            return ['started' => true, 'run_id' => ms_launch_campaign($masterId, $batchId, $runsDir, $flags)];
+        });
+        echo json_encode($rres);
         break;
 
     // Poll the latest run (or a specific run_id) for live progress.
@@ -570,10 +579,13 @@ switch ($action) {
         if (!$d) { echo json_encode(['error' => 'Run not found.']); break; }
         $failed = array_values(array_unique(array_map(fn($r) => $r['domain'], array_filter($d['results'] ?? [], fn($r) => ($r['status'] ?? '') === 'failed'))));
         if (!$failed) { echo json_encode(['error' => 'No failed rows to retry.']); break; }
-        if ($running = ms_active_run($runsDir)) { echo json_encode(['error' => 'This batch is already running.', 'run_id' => $running['run_id'] ?? null]); break; }
-        $o = $d['options'] ?? [];
-        $o['only'] = $failed;   // scope the new run to just the failed domains
-        echo json_encode(['started' => true, 'run_id' => ms_launch_campaign($masterId, $batchId, $runsDir, ms_run_flags($o)), 'retrying' => count($failed)]);
+        $fres = ms_with_launch_lock($runsDir . '/.lock', function () use ($runsDir, $masterId, $batchId, $d, $failed) {
+            if ($running = ms_active_run($runsDir)) return ['error' => 'This batch is already running.', 'run_id' => $running['run_id'] ?? null];
+            $o = $d['options'] ?? [];
+            $o['only'] = $failed;   // scope the new run to just the failed domains
+            return ['started' => true, 'run_id' => ms_launch_campaign($masterId, $batchId, $runsDir, ms_run_flags($o)), 'retrying' => count($failed)];
+        });
+        echo json_encode($fres);
         break;
 
     // ── Research step (item 1e): seed cities.json from params + niche-aware lookup.
@@ -583,22 +595,24 @@ switch ($action) {
         if (!is_file($paramsPath)) { echo json_encode(['error' => 'No target list stored — upload it first.']); break; }
         $rdir = $batchDir . '/research';
         if (!is_dir($rdir)) mkdir($rdir, 0775, true);
-        // One at a time: a running research process leaves an out file with no DONE marker.
-        foreach (glob($rdir . '/*.out') ?: [] as $f) {
-            if (strpos((string)@file_get_contents($f), '__MS_RESEARCH_DONE__') === false
-                && (time() - filemtime($f)) < 3600) {
-                echo json_encode(['error' => 'Research is already running.', 'run_id' => basename($f, '.out')]);
-                break 2;
+        $rrres = ms_with_launch_lock($rdir . '/.lock', function () use ($rdir, $masterId, $batchId) {
+            // One at a time: a running research process leaves an out file with no DONE marker.
+            foreach (glob($rdir . '/*.out') ?: [] as $f) {
+                if (strpos((string)@file_get_contents($f), '__MS_RESEARCH_DONE__') === false
+                    && (time() - filemtime($f)) < 3600) {
+                    return ['error' => 'Research is already running.', 'run_id' => basename($f, '.out')];
+                }
             }
-        }
-        $rid  = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
-        $out  = $rdir . '/' . $rid . '.out';
-        $dry  = !empty($_POST['dry_run']) ? ' --dry-run' : '';
-        $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/research_cities.php')
-               . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId) . $dry
-               . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_RESEARCH_DONE__ $?" >> ' . escapeshellarg($out);
-        exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
-        echo json_encode(['started' => true, 'run_id' => $rid]);
+            $rid  = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+            $out  = $rdir . '/' . $rid . '.out';
+            $dry  = !empty($_POST['dry_run']) ? ' --dry-run' : '';
+            $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/research_cities.php')
+                   . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId) . $dry
+                   . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_RESEARCH_DONE__ $?" >> ' . escapeshellarg($out);
+            exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
+            return ['started' => true, 'run_id' => $rid];
+        });
+        echo json_encode($rrres);
         break;
 
     case 'research_status':

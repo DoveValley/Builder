@@ -20,6 +20,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'
     http_response_code(403); echo json_encode(['error' => 'Invalid security token.']); exit;
 }
 
+// Same fix as multisite_api.php: PHP holds an exclusive lock on the session file
+// for the whole of a request, so without this close, 'copy' (which can walk a
+// large params_versions/research tree) or 'set_master' block every other tab's
+// poll on this session for their full duration. The three actions below that
+// still need to WRITE $_SESSION (select/delete/set_master) briefly reopen the
+// session just for that write, rather than holding it for the whole request.
+session_write_close();
+
 $action   = $_REQUEST['action'] ?? '';
 $masterId = trim((string) ($_REQUEST['master_id'] ?? ''));
 $batchId  = trim((string) ($_REQUEST['batch_id']  ?? ''));
@@ -68,8 +76,13 @@ switch ($action) {
     case 'delete':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         $res = ms_delete_batch($masterId, $batchId);
-        // Don't leave a deleted batch open in the session.
-        if (!isset($res['error']) && ($_SESSION['active_batch'] ?? '') === $batchId) unset($_SESSION['active_batch']);
+        // Don't leave a deleted batch open in the session. session_write_close()
+        // above ended the session; reopen just long enough to persist this unset.
+        if (!isset($res['error']) && ($_SESSION['active_batch'] ?? '') === $batchId) {
+            session_start();
+            unset($_SESSION['active_batch']);
+            session_write_close();
+        }
         echo json_encode($res);
         break;
 
@@ -78,14 +91,18 @@ switch ($action) {
     case 'select':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         if (!ms_batch_exists($masterId, $batchId)) { echo json_encode(['error' => 'Batch not found.']); break; }
+        session_start();
         $_SESSION['active_site']  = $masterId;
         $_SESSION['active_batch'] = $batchId;
+        session_write_close();
         echo json_encode(['ok' => true, 'redirect' => 'batch.php']);
         break;
 
     // Close the open batch (used when leaving the batch page for the site admin).
     case 'deselect':
+        session_start();
         unset($_SESSION['active_batch']);
+        session_write_close();
         echo json_encode(['ok' => true]);
         break;
 
@@ -104,8 +121,10 @@ switch ($action) {
         $res = ms_set_batch_master($masterId, $batchId, $newMaster);
         if (isset($res['error'])) { echo json_encode($res); break; }
         // The batch physically moved, so re-point the session at its new home.
+        session_start();
         $_SESSION['active_site']  = $res['master_id'] ?? $masterId;
         $_SESSION['active_batch'] = $res['id'];
+        session_write_close();
         echo json_encode($res);
         break;
 
