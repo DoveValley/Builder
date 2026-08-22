@@ -71,14 +71,29 @@ function ms_batch_meta(string $masterId, string $batchId): ?array {
     return is_array($d) ? $d : null;
 }
 
+/**
+ * Write JSON atomically: to a name unique to THIS call, then rename() over the
+ * real path. A fixed, shared tmp filename ("foo.json.tmp") used to mean two
+ * concurrent writers (two tabs, a double-click before a button disables) raced
+ * on the very file meant to make the write atomic — whichever rename() ran
+ * first would silently pick up whatever the OTHER writer had just put in that
+ * shared tmp file, and the request that "succeeded" was not necessarily the
+ * one whose data ended up on disk.
+ */
+function ms_atomic_write_json(string $finalPath, $data): bool {
+    $tmp = $finalPath . '.' . bin2hex(random_bytes(6)) . '.tmp';
+    $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    if (@file_put_contents($tmp, $json) === false) return false;
+    if (@rename($tmp, $finalPath)) return true;
+    @unlink($tmp);
+    return false;
+}
+
 function ms_save_batch_meta(string $masterId, string $batchId, array $meta): bool {
     $dir = ms_batch_dir($masterId, $batchId);
     if (!is_dir($dir) && !@mkdir($dir, 0775, true) && !is_dir($dir)) return false;
     $meta['updated_at'] = gmdate('c');
-    $tmp = $dir . '/batch.json.tmp';
-    $json = json_encode($meta, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-    if (@file_put_contents($tmp, $json) === false) return false;
-    return @rename($tmp, $dir . '/batch.json');
+    return ms_atomic_write_json($dir . '/batch.json', $meta);
 }
 
 // ── Listing ───────────────────────────────────────────────────────────────────
@@ -369,12 +384,8 @@ function ms_save_batch_servers(string $masterId, string $batchId, array $plan): 
     }
 
     $dir = ms_batch_dir($masterId, $batchId);
-    $tmp = $dir . '/servers.json.tmp';
-    $json = json_encode(['updated_at' => gmdate('c'), 'plan' => $clean],
-        JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-    if (@file_put_contents($tmp, $json) === false) return ['error' => 'Could not write the server plan.'];
-    return @rename($tmp, $dir . '/servers.json') ? ['ok' => true, 'plan' => $clean]
-                                                 : ['error' => 'Could not save the server plan.'];
+    $ok = ms_atomic_write_json($dir . '/servers.json', ['updated_at' => gmdate('c'), 'plan' => $clean]);
+    return $ok ? ['ok' => true, 'plan' => $clean] : ['error' => 'Could not save the server plan.'];
 }
 
 // ── Run reading (shared by the batch page and the home panel) ─────────────────
