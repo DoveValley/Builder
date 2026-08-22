@@ -640,15 +640,29 @@ switch ($action) {
 
     case 'research_status':
         $rdir = $batchDir . '/research';
-        $rid  = $_GET['run_id'] ?? '';
-        if ($rid === '' || !preg_match('/^[0-9]{8}-[0-9]{6}-[a-f0-9]{6}$/', $rid)) { echo json_encode(['error' => 'Invalid run id.']); break; }
+        $rid  = (string) ($_GET['run_id'] ?? '');
+        // No run_id given: find the latest research run for this batch, so a page
+        // reload while research is running can resume watching it instead of
+        // showing nothing — the way run_status already does for 'run'.
+        if ($rid === '') {
+            // Sort by FILENAME, not filemtime(): mtime only has second-level
+            // resolution, so two runs started under a second apart tie, and which
+            // one glob() happens to list first is not reliably the newer one. The
+            // filename's Ymd-His prefix already sorts correctly chronologically.
+            $files = glob($rdir . '/*.out') ?: [];
+            sort($files);
+            $latest = end($files) ?: null;
+            if ($latest === null) { echo json_encode(['none' => true]); break; }
+            $rid = basename($latest, '.out');
+        }
+        if (!preg_match('/^[0-9]{8}-[0-9]{6}-[a-f0-9]{6}$/', $rid)) { echo json_encode(['error' => 'Invalid run id.']); break; }
         $out = $rdir . '/' . $rid . '.out';
         if (!is_file($out)) { echo json_encode(['none' => true]); break; }
         $txt  = (string)file_get_contents($out);
         $done = false; $exit = null;
         if (preg_match('/__MS_RESEARCH_DONE__ (\d+)/', $txt, $m)) { $done = true; $exit = (int)$m[1]; }
         $txt = preg_replace('/\n?__MS_RESEARCH_DONE__ \d+\s*$/', '', $txt);
-        echo json_encode(['output' => $txt, 'done' => $done, 'exit' => $exit]);
+        echo json_encode(['output' => $txt, 'done' => $done, 'exit' => $exit, 'run_id' => $rid]);
         break;
 
     // Master lint — flag authoring leaks (literal city/state/zip; master-domain URLs).

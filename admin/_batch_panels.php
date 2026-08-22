@@ -438,7 +438,20 @@ if (!isset($csrfToken)) return;
         fetch('multisite_api.php?action=research', { method: 'POST', body: fd })
             .then(r => r.json())
             .then(d => {
-                if (d.error) { dryBtn.disabled = false; runBtn.disabled = false; out.textContent = d.error; return; }
+                if (d.error) {
+                    out.textContent = d.error;
+                    // "Research is already running" carries the live run_id — resume
+                    // watching it instead of just re-enabling the buttons and leaving
+                    // the operator to guess whether anything is actually happening.
+                    if (d.run_id) {
+                        if (msResearchTimer) clearInterval(msResearchTimer);
+                        msResearchTimer = setInterval(() => msPollResearch(d.run_id), 2000);
+                        msPollResearch(d.run_id);
+                    } else {
+                        dryBtn.disabled = false; runBtn.disabled = false;
+                    }
+                    return;
+                }
                 if (msResearchTimer) clearInterval(msResearchTimer);
                 msResearchTimer = setInterval(() => msPollResearch(d.run_id), 2000);
                 msPollResearch(d.run_id);
@@ -478,5 +491,22 @@ if (!isset($csrfToken)) return;
     }).catch(() => {});
     loadRuns();            // runs history
     refreshParamsState();  // download-current button + saved versions
+    // Resume any latest/in-progress research job. Unlike 'run' above, this used to
+    // have no bootstrap at all: reloading the page (or leaving and coming back)
+    // while a paid, possibly long research job was running left both buttons
+    // re-enabled and the output box empty, with no way to tell it was still going
+    // short of clicking "Research cities" again and reading the "already running"
+    // error's buried run_id.
+    fetch('multisite_api.php?action=research_status').then(r => r.json()).then(d => {
+        if (!d || d.none || d.error) return;
+        document.getElementById('ms-research-out').style.display = 'block';
+        if (!d.done) {
+            document.getElementById('ms-research-dry').disabled = true;
+            document.getElementById('ms-research-btn').disabled = true;
+            if (msResearchTimer) clearInterval(msResearchTimer);
+            msResearchTimer = setInterval(() => msPollResearch(d.run_id), 2000);
+        }
+        msPollResearch(d.run_id);
+    }).catch(() => {});
 })();
 </script>
