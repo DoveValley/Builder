@@ -441,8 +441,39 @@ function ms_save_batch_servers(string $masterId, string $batchId, array $plan): 
 // ── Run reading (shared by the batch page and the home panel) ─────────────────
 
 /** True if a process id is alive (Linux /proc, or posix). */
-function ms_pid_alive(int $pid): bool {
+/**
+ * A process's kernel start time (clock ticks since boot, /proc/PID/stat field 22),
+ * or null when /proc isn't available (non-Linux) or the process doesn't exist.
+ * Used to tell "the same process is still running" from "the OS recycled this pid
+ * for something unrelated" — a plain alive-check alone can't.
+ */
+function ms_pid_start_time(int $pid): ?int {
+    if ($pid <= 0) return null;
+    $stat = @file_get_contents('/proc/' . $pid . '/stat');
+    if ($stat === false) return null;
+    // comm (field 2) is wrapped in parens and may itself contain ") ", so split on
+    // the LAST ")" rather than assuming a fixed field position.
+    $pos = strrpos($stat, ')');
+    if ($pos === false) return null;
+    $fields = preg_split('/\s+/', trim(substr($stat, $pos + 2)));
+    // Field 3 (state) is $fields[0] here; starttime is field 22, i.e. index 22-3=19.
+    return isset($fields[19]) && is_numeric($fields[19]) ? (int) $fields[19] : null;
+}
+
+/**
+ * @param int $expectedStart pid_start_time recorded when this run began. If given
+ *   and /proc is available, a pid that exists but whose start time has changed is
+ *   treated as NOT alive — the OS reused the pid for an unrelated process, so a
+ *   crashed run would otherwise read as "running" forever until that new process
+ *   also happens to exit.
+ */
+function ms_pid_alive(int $pid, ?int $expectedStart = null): bool {
     if ($pid <= 0) return false;
+    if ($expectedStart !== null) {
+        $now = ms_pid_start_time($pid);
+        if ($now !== null) return $now === $expectedStart;   // /proc available: the real check
+        // /proc unavailable — fall through to the plain alive check below.
+    }
     if (function_exists('posix_kill')) return @posix_kill($pid, 0);
     return file_exists('/proc/' . $pid);
 }
@@ -460,7 +491,10 @@ function ms_read_run(string $file): ?array {
     if (!is_file($file)) return null;
     $d = json_decode((string) file_get_contents($file), true);
     if (!is_array($d)) return null;
-    if (($d['state'] ?? '') === 'running' && !ms_pid_alive((int) ($d['pid'] ?? 0))) $d['state'] = 'stale';
+    if (($d['state'] ?? '') === 'running'
+        && !ms_pid_alive((int) ($d['pid'] ?? 0), isset($d['pid_started']) ? (int) $d['pid_started'] : null)) {
+        $d['state'] = 'stale';
+    }
     return $d;
 }
 

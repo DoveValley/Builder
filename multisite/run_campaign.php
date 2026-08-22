@@ -274,6 +274,10 @@ $writeStatus = function (string $state, array $results) use ($statusFile, $runId
         'params_version' => $paramsVersion,
         'state'       => $state,
         'pid'         => getmypid(),
+        // Lets ms_pid_alive() tell "still this process" from "the OS recycled this
+        // pid for something else" once this process has exited — a plain
+        // exists-check alone can't.
+        'pid_started' => ms_pid_start_time(getmypid()),
         'started_at'  => $startedAt,
         'finished_at' => $state === 'running' ? null : gmdate('c'),
         'options'     => ['no_ai' => $noAi, 'force' => $force, 'skip' => $skip, 'only' => $only, 'limit' => $limit, 'retries' => $retries, 'jobs' => $jobs],
