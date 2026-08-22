@@ -509,7 +509,14 @@ function ms_batch_target_count(string $masterId, string $batchId): int {
     $n = 0;
     $fh = fopen($csv, 'r');
     if (!$fh) return 0;
-    while (fgetcsv($fh) !== false) $n++;
+    while (($cells = fgetcsv($fh)) !== false) {
+        // fgetcsv() returns [null], not false, for a blank line — a params.csv with
+        // trailing newlines (common from some CSV writers/editors) would otherwise
+        // inflate this count by one per trailing blank line. Same skip ms_parse_csv()
+        // already applies.
+        if (count($cells) === 1 && trim((string) $cells[0]) === '') continue;
+        $n++;
+    }
     fclose($fh);
     return max(0, $n - 1);   // minus the header line
 }
