@@ -85,8 +85,11 @@
 
                 clearInterval(hostsTimer);
                 btn.disabled = false;
+                // A nonzero exit code catches a crash (uncaught error, killed process)
+                // that never reached create_hosts.php's own "N failed" summary line —
+                // the log-text regex alone used to read that case as a clean "Done."
                 const failed = / (\d+) failed/.exec(d.log || '');
-                const bad = failed && parseInt(failed[1], 10) > 0;
+                const bad = (failed && parseInt(failed[1], 10) > 0) || (d.exit != null && d.exit !== 0);
                 msg.textContent = bad ? 'Finished with failures — read the log.' : 'Done.';
                 msg.style.color = bad ? '#b91c1c' : '#166534';
                 // The target list and the phase strip both changed; reload so neither is

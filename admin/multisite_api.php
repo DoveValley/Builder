@@ -274,15 +274,26 @@ switch ($action) {
         $total = 0;
         if (preg_match('/(\d+) ready to upload/', $txt, $m)) $total = (int) $m[1];
         preg_match_all('/file\(s\)\s*…\s*(✓|✗)/u', $txt, $mm);
-        $marks = $mm[1] ?? [];
-        $ok    = count(array_filter($marks, fn($c) => $c === '✓'));
+        $marks  = $mm[1] ?? [];
+        $ok     = count(array_filter($marks, fn($c) => $c === '✓'));
+        $failed = count($marks) - $ok;
+        // The exit code the shell wrapper captured — catches a crash mid-run that a
+        // text-only check would miss. A row with no ✓/✗ mark at all once the run is
+        // actually done (marker present) is exactly as much a failure as an explicit
+        // ✗ — without this, 8 of 10 domains never uploaded because the process died
+        // could still show a partial bar with "0 failed" and no error at all.
+        $exit = null;
+        if (preg_match('/__MS_UPLOAD_DONE__ (\d+)/', $txt, $m)) $exit = (int) $m[1];
+        $done = $exit !== null;
+        if ($done && $total > count($marks)) $failed += ($total - count($marks));
         echo json_encode([
-            'done'      => strpos($txt, '__MS_UPLOAD_DONE__') !== false,
+            'done'      => $done,
+            'exit'      => $exit,
             'total'     => $total,
             'processed' => count($marks),
             'ok'        => $ok,
-            'failed'    => count($marks) - $ok,
-            'log'       => trim(str_replace('__MS_UPLOAD_DONE__', '', $txt)),
+            'failed'    => $failed,
+            'log'       => trim(preg_replace('/__MS_UPLOAD_DONE__ \d+\s*$/', '', $txt)),
         ]);
         break;
 
@@ -387,10 +398,17 @@ switch ($action) {
         $f   = $batchDir . '/hosts/' . $rid . '.out';
         if ($rid === '' || !is_file($f)) { echo json_encode(['error' => 'Unknown run.']); break; }
         $txt  = (string) @file_get_contents($f);
-        $done = strpos($txt, '__MS_HOSTS_DONE__') !== false;
+        // The exit code the shell wrapper captured — real signal even when the CLI
+        // script crashed before printing its own "N failed" summary line, which a
+        // text-only "does the log contain ' failed'" check would otherwise miss
+        // entirely and report a crashed run as a clean "Done."
+        $exit = null;
+        if (preg_match('/__MS_HOSTS_DONE__ (\d+)/', $txt, $m)) $exit = (int) $m[1];
+        $done = $exit !== null;
         echo json_encode([
             'done' => $done,
-            'log'  => trim(str_replace('__MS_HOSTS_DONE__', '', $txt)),
+            'exit' => $exit,
+            'log'  => trim(preg_replace('/__MS_HOSTS_DONE__ \d+\s*$/', '', $txt)),
         ]);
         break;
 

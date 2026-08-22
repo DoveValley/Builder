@@ -199,4 +199,8 @@ if ($touched) {
 
 echo "\n" . str_repeat('=', 52) . "\n";
 printf("DONE — %d created, %d failed%s.\n", $ok, $fail, $unplaced ? ', ' . count($unplaced) . ' unallocated' : '');
-exit($fail > 0 ? 1 : 0);
+// Unallocated rows are folded into the exit code, not just $fail's count in the log
+// line, so a plan that doesn't cover the whole batch can't finish looking clean
+// (exit 0, "0 failed") to the caller — the JS side reads THIS to decide whether to
+// show "Done." and auto-reload, not the printed sentence.
+exit(($fail > 0 || $unplaced) ? 1 : 0);

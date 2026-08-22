@@ -66,7 +66,15 @@
         const el = document.getElementById('ms-up-progress');
         const total = s.total || 0;
         const processed = s.processed || 0;
-        const pct = total ? Math.round((processed / total) * 100) : (s.done ? 100 : 0);
+        // total===0 (e.g. a typo in "Only this domain" matched nothing) used to fall
+        // into the s.done ? 100 : 0 branch and paint a full GREEN bar — visually
+        // identical to a real successful upload, even though nothing was sent.
+        if (s.done && total === 0) {
+            el.innerHTML = '<div style="color:#92400e;">No rows matched — nothing was uploaded. ' +
+                'Check the domain filter or the target list.</div>';
+            return;
+        }
+        const pct = total ? Math.round((processed / total) * 100) : 0;
         const color = !s.done ? '#2563eb' : ((s.failed || 0) > 0 ? '#991b1b' : '#166534');
         el.innerHTML =
             '<div>' + processed + '/' + total + ' done · ' + (s.ok || 0) + ' ok · ' + (s.failed || 0) + ' failed</div>' +
@@ -112,9 +120,12 @@
                 if (!s.done) return;
                 clearInterval(upTimer);
                 btn.disabled = false;
-                const bad = (s.failed || 0) > 0;
-                msg.textContent = bad ? 'Finished with failures — read the log.' : 'Done.';
-                msg.style.color = bad ? '#b91c1c' : '#166534';
+                // A nonzero exit code catches a crash that never reached
+                // upload_sites.php's own summary line — the backend already folds an
+                // unprocessed-rows gap into s.failed once done, this is belt-and-suspenders.
+                const bad = (s.failed || 0) > 0 || (s.exit != null && s.exit !== 0);
+                if ((s.total || 0) === 0) { msg.textContent = 'No rows matched — nothing was uploaded.'; msg.style.color = '#92400e'; }
+                else { msg.textContent = bad ? 'Finished with failures — read the log.' : 'Done.'; msg.style.color = bad ? '#b91c1c' : '#166534'; }
                 upState();
             } catch (e) {
                 if (++misses < 5) return;
