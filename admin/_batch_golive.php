@@ -38,7 +38,10 @@
     const csrf = <?= json_encode($csrfToken) ?>;
     let glRows = [];
 
-    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+    // See admin/_batch_servers.php's esc() for why ' is escaped too — this file also
+    // interpolates domain values into single-quoted JS string literals inside
+    // onclick="...".
+    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
     function ago(ts) {
         if (!ts) return '';

@@ -36,7 +36,11 @@
     const csrf = <?= json_encode($csrfToken) ?>;
     let msFleet = [], msPlan = [], msTargets = 0;
 
-    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+    // Escapes ' too: several callers interpolate this into a single-quoted JS string
+    // literal inside a double-quoted onclick="..." attribute — a value containing an
+    // apostrophe (e.g. a hand-edited server_id) would otherwise break out of that
+    // string literal and inject markup/script into the admin page.
+    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
     window.msLoadServers = async function (refresh) {
         const box = document.getElementById('ms-srv-body');
