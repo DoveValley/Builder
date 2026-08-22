@@ -27,7 +27,8 @@
         re-propagate; pressing Create zone again restores it.
     </p>
 
-    <div id="ms-golive-state" class="hint" style="margin-bottom:10px;">Loading&hellip;</div>
+    <div id="ms-golive-state" class="hint" style="margin-bottom:4px;">Loading&hellip;</div>
+    <div id="ms-golive-run-msg" class="hint" style="margin-bottom:10px;font-weight:600;"></div>
 
     <div id="ms-golive-body"><p class="hint">Loading&hellip;</p></div>
 </div>
@@ -129,11 +130,15 @@
             ? 'This releases EVERY eligible domain in this batch (up to ' + n + ') right now — each one becomes publicly reachable. Continue?'
             : 'Run "' + label + '" for every domain in this batch that still needs it (up to ' + n + ')?';
         if (!confirm(warn)) return;
-        const el = document.getElementById('ms-golive-state');
-        el.textContent = 'Running ' + label + ' for the whole batch… this can take a while for many domains.';
+        // A separate element from #ms-golive-state, which render() (called by
+        // loadGoLive below) unconditionally overwrites with "X of Y live." — this
+        // used to be the same node, so the "ran N, M ok, K failed" summary was
+        // visible for roughly one network round-trip before being clobbered.
+        const runMsg = document.getElementById('ms-golive-run-msg');
+        runMsg.textContent = 'Running ' + label + ' for the whole batch… this can take a while for many domains.';
         const r = await post('golive_run', { step: step });
         if (r.error) alert(r.error);
-        else el.textContent = label + ': ran ' + r.ran + ', ' + r.ok + ' ok'
+        else runMsg.textContent = label + ': ran ' + r.ran + ', ' + r.ok + ' ok'
             + (r.failed ? ', ' + r.failed + ' failed' : '')
             + (r.blocked ? ', ' + r.blocked + ' blocked by an earlier step' : '') + '.';
         await loadGoLive(false);
