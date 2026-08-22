@@ -14,8 +14,9 @@
  *   views/server.php      one box
  *   views/deploy.php      hand provisioned credentials to a batch
  *   views/new.php         provision one domain
- *   views/bulk.php        provision many
- *   views/golive.php      the nameserver switch
+ *   views/bulk.php        provision many; also the go-live grid (schedule / release /
+ *                         take offline / refresh) — retired the older, single-purpose
+ *                         views/golive.php + actions/golive.php once this superseded it
  *   views/cities.php      city + niche research and scoring
  *   views/buyqueue.php    scheduled purchases
  *   views/registrars.php  registrar credentials and balances

@@ -3375,7 +3375,7 @@ Visitor  →  https://{domain}</code></pre>
     <tr><td><strong>0 — Acquire</strong></td><td>Load candidate names, check availability, decide which registrar buys each and when, then buy. Nothing exists yet but the domain.</td><td>D.Buy (+ Registers)</td></tr>
     <tr><td><strong>1 — Provision</strong></td><td>Create the host on its HestiaCP box + stage the Cloudflare zone (DNS, SSL, HSTS). Staged, not public.</td><td>New Site, Bulk</td></tr>
     <tr><td><strong>2 — Content</strong></td><td>Generate + upload the site's files. On the server, still not reachable.</td><td>Deploy (hands creds to the MultiSite generator)</td></tr>
-    <tr><td><strong>3 — Go-Live</strong></td><td>Switch the registrar nameservers to Cloudflare; the zone flips active. Paced ~20/day.</td><td>Go-Live (schedule / release / cron)</td></tr>
+    <tr><td><strong>3 — Go-Live</strong></td><td>Switch the registrar nameservers to Cloudflare; the zone flips active. Paced ~20/day.</td><td>Bulk (go-live grid: schedule / release / cron)</td></tr>
 </table>
 <p><strong>Domain lifecycle.</strong> One <code>status</code> field carries a domain the whole way, so a single table shows everything from a name you typed to a live site:</p>
 <pre><code>begin → ready → owned → staged → queued → releasing/awaiting-ns → live
@@ -3404,9 +3404,8 @@ Visitor  →  https://{domain}</code></pre>
     <tr><td><strong>Registers</strong> (Registrars)</td><td>Add / edit / remove registrar API credentials, with a read-only <strong>Test</strong> that reports reachability <em>and account balance</em>. Also shows what each registrar's API can actually do.</td></tr>
     <tr><td><strong>Server detail</strong></td><td>One VPS: its config + every site's stack wiring (host / Cloudflare / registrar / state).</td></tr>
     <tr><td><strong>+ New Site</strong></td><td>Provision one domain end-to-end (register optional).</td></tr>
-    <tr><td><strong>Bulk</strong></td><td>Provision many domains from a pasted list with a live streaming log; optional round-robin across servers / CF accounts / registrars.</td></tr>
+    <tr><td><strong>Bulk</strong></td><td>Provision many domains from a pasted list with a live streaming log; optional round-robin across servers / CF accounts / registrars. Also hosts the go-live grid: one row per domain, one column per pipeline step, schedule the rollout (N/day), release domains (NS switch), take a live domain back offline, refresh live status.</td></tr>
     <tr><td><strong>Deploy</strong></td><td>Export provisioned FTP creds as a params-CSV for the MultiSite content upload.</td></tr>
-    <tr><td><strong>Go-Live</strong></td><td>Schedule the rollout (N/day), release domains (NS switch), refresh live status.</td></tr>
     <tr><td><strong>Domain manage</strong></td><td>(click a managed domain) edit fields + Danger Zone: delete zone / delete site / untrack / full teardown.</td></tr>
 </table>
 <div class="callout tip"><p><strong>Discover / Refresh</strong> is the only thing that hits the live APIs — normal navigation serves cached data (see <a href="#console-state">State &amp; cache</a>). After any provision/teardown the cache auto-invalidates so views are immediately accurate.</p></div>
@@ -3607,12 +3606,16 @@ Visitor  →  https://{domain}</code></pre>
 
 <section id="console-golive">
 <h2>Go-Live &amp; the daily cron</h2>
-<p>Going live = switching a domain's nameservers at the registrar to its Cloudflare pair; Cloudflare then flips the zone <code>active</code>, which the console detects. The Go-Live view lets you:</p>
+<p>Going live = switching a domain's nameservers at the registrar to its Cloudflare pair; Cloudflare then flips the zone <code>active</code>, which the console detects. The <strong>Bulk</strong> tab's go-live grid lets you:</p>
 <ul>
     <li><strong>Schedule rollout</strong> — spread all <code>staged</code>/<code>queued</code> domains into daily batches (N per day from a start date), setting each a <code>go_live_at</code>.</li>
     <li><strong>Release now</strong> — switch one domain's NS immediately (via its registrar API, or surfaced manually).</li>
+    <li><strong>Take offline</strong> — remove a live domain's Cloudflare A record (seconds, not hours); pressing the zone cell's Create-zone button restores it.</li>
     <li><strong>Refresh live status</strong> — poll Cloudflare and mark newly-active zones <code>live</code>.</li>
 </ul>
+<p>An older, single-purpose Go-Live tab (schedule / release / refresh only, no per-step
+pipeline detail and no Take offline) has been retired now that the Bulk tab's grid
+covers everything it did and more.</p>
 <p>The daily batch runs from real cron on the VPS. Add (as <code>www-data</code>):</p>
 <pre><code>0 9 * * *  www-data  php /var/www/homepage-builder-new/admin/infra/cron/golive_tick.php 20 &gt;&gt; /var/log/infra-golive.log 2&gt;&amp;1</code></pre>
 <p>The arg (<code>20</code>) is the per-run cap. Each tick refreshes live status, releases up to the cap of due domains, and refreshes again.</p>
@@ -3688,11 +3691,13 @@ Visitor  →  https://{domain}</code></pre>
     summary.php        dashboard counters
   views/               one file per screen: dashboard is index.php, then
                        registrars · dfinder · domains · buyqueue · cities · new ·
-                       bulk · deploy · servers · server · domain · cloudflare · golive
-  actions/             CSRF POST endpoints: provision · bulk_run · golive · domain_buy ·
-                       domain_manage · domains_load · domains_bulk · export_creds ·
-                       registrar_save · hestia_save · cf_save · cities_save ·
-                       fleet_refresh · dfinder_state · dfinder_ai · dfinder_check
+                       bulk (also the go-live grid) · deploy · servers · server ·
+                       domain · cloudflare
+  actions/             CSRF POST endpoints: provision · bulk_run · pipeline_golive ·
+                       pipeline_refresh · domain_buy · domain_manage · domains_load ·
+                       domains_bulk · export_creds · registrar_save · hestia_save ·
+                       cf_save · cities_save · fleet_refresh · dfinder_state ·
+                       dfinder_ai · dfinder_check · health
   cron/
     golive_tick.php    daily go-live batch runner (run as www-data)
     backup_state.sh    nightly 03:30 off-box backup of fleet.db + config (VACUUM INTO)
@@ -3716,7 +3721,7 @@ Visitor  →  https://{domain}</code></pre>
     <tr><td>Plan a buying run</td><td>Tick rows &rarr; set <strong>Registrar</strong> (or 🔀 spread) &rarr; <strong>Spread N/day from</strong> a date.</td></tr>
     <tr><td>Provision one / many</td><td>New Site / Bulk (Auto round-robin for footprint).</td></tr>
     <tr><td>Deploy content</td><td>Deploy &rarr; download params-CSV &rarr; merge into MultiSite &rarr; Build + Deploy.</td></tr>
-    <tr><td>Go live gradually</td><td>Go-Live &rarr; Schedule (N/day); the cron releases daily.</td></tr>
+    <tr><td>Go live gradually</td><td>Bulk &rarr; Schedule (N/day); the cron releases daily.</td></tr>
     <tr><td>See real (uncached) state</td><td>Check all servers, on Dashboard or Servers.</td></tr>
     <tr><td>Remove a site</td><td>D.Buy &rarr; click domain &rarr; Danger Zone (type domain to confirm).</td></tr>
 </table>

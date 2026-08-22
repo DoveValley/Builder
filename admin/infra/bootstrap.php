@@ -155,7 +155,6 @@ function infra_header(string $active = 'dashboard'): void
         'deploy'     => ['label' => 'Deploy',      'href' => 'index.php?view=deploy'],
         'servers'    => ['label' => 'Servers',     'href' => 'index.php?view=servers'],
         'cloudflare' => ['label' => 'Cloudflare',  'href' => 'index.php?view=cloudflare'],
-        'golive'     => ['label' => 'Go-Live',     'href' => 'index.php?view=golive'],
         // Steady state, not pipeline: renewal, nameserver delegation and zone
         // conformance over everything already owned. Last because it is the tab you
         // visit when nothing is being built.
