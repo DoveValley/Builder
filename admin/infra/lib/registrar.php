@@ -1442,11 +1442,24 @@ function infra_reg_spaceship_register(string $domain, int $years, array $cfg, ar
     ]);
 
     if ($r['ok'] || $r['code'] === 202) {
-        $op = (string) ($r['json']['operationId'] ?? $r['json']['id'] ?? '');
-        return ['ok' => true, 'message' => 'Spaceship: registration accepted'
+        $op  = (string) ($r['json']['operationId'] ?? $r['json']['id'] ?? '');
+        $msg = 'Spaceship: registration accepted'
             . ($op !== '' ? ' (operation ' . $op . ')' : '')
-            . ' — it completes asynchronously'
-            . (!empty($opts['auto_renew']) ? ', auto-renew ON' : '')];
+            . ' — it completes asynchronously';
+        // The create call above already asked for autoRenew, but nothing ever
+        // confirmed it actually took — infra_reg_spaceship_set_autorenew() existed
+        // for exactly this and had zero callers. Namecheap is known to accept an
+        // auto-renew request and silently not apply it; re-asserting here (cheap —
+        // same PUT the manual toggle uses) is what turns that same failure mode,
+        // if Spaceship ever has it, into a visible warning instead of a domain
+        // quietly left to lapse. Same pattern infra_reg_gandi_register() already
+        // uses just below.
+        if (!empty($opts['auto_renew'])) {
+            $a = infra_reg_spaceship_set_autorenew($domain, true, $cfg);
+            $msg .= $a['ok'] ? ', auto-renew ON'
+                             : ' ⚠ auto-renew NOT confirmed (' . $a['message'] . ') — set it before the term lapses';
+        }
+        return ['ok' => true, 'message' => $msg];
     }
     return ['ok' => false, 'message' => 'Spaceship error: ' . $r['message']];
 }
