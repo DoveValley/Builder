@@ -151,13 +151,26 @@
     // Drop a planned server the fleet no longer has, and persist immediately — the
     // point of surfacing it is to be able to clear it.
     window.msDropServer = async function (id) {
+        // Keep the pre-filter plan so a rejected/failed save can put it back — this
+        // used to filter msPlan optimistically and, on failure, leave it silently
+        // out of sync with what the server actually still has (no error shown, no
+        // re-render either, so the drift wasn't even visible until the next full
+        // "Re-read fleet").
+        const before = msPlan;
         msPlan = msPlan.filter(p => p.server_id !== id);
         const fd = new FormData();
         fd.append('csrf_token', csrf);
         fd.append('plan', JSON.stringify(msPlan));
-        const r = await fetch('multisite_api.php?action=save_servers', { method: 'POST', body: fd });
-        const d = await r.json();
-        if (!d.error) { msPlan = d.plan || []; renderServers(); }
+        try {
+            const r = await fetch('multisite_api.php?action=save_servers', { method: 'POST', body: fd });
+            const d = await r.json();
+            if (d.error) { msPlan = before; alert(d.error); return; }
+            msPlan = d.plan || [];
+            renderServers();
+        } catch (e) {
+            msPlan = before;
+            alert('Could not remove it — try again.');
+        }
     };
 
     window.msSaveServers = async function () {
