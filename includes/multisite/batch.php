@@ -270,7 +270,14 @@ function ms_copytree(string $src, string $dst): bool {
 
 function ms_delete_batch(string $masterId, string $batchId): array {
     if (!ms_batch_exists($masterId, $batchId)) return ['error' => 'Batch not found.'];
-    return ms_rmtree(ms_batch_dir($masterId, $batchId)) ? ['ok' => true] : ['error' => 'Could not delete the batch folder.'];
+    $dir = ms_batch_dir($masterId, $batchId);
+    // A background run_campaign.php process writes into this exact tree while it
+    // works (runs/*.json, output/*) — deleting out from under it doesn't error here,
+    // it just makes the running process start failing its own writes silently,
+    // matching the same "moved/removed files under a live process" pattern already
+    // fixed once for Go Live's origin-cert step.
+    if (ms_active_run($dir . '/runs')) return ['error' => 'This batch has a run in progress — wait for it to finish (or check its status) before deleting.'];
+    return ms_rmtree($dir) ? ['ok' => true] : ['error' => 'Could not delete the batch folder.'];
 }
 
 /**
@@ -283,6 +290,11 @@ function ms_set_batch_master(string $masterId, string $batchId, string $newMaste
     if (!$meta)                          return ['error' => 'Batch not found.'];
     if (!ms_valid_master_id($newMasterId)) return ['error' => 'Pick a master site.'];
     if ($newMasterId === $masterId)      return ['ok' => true, 'id' => $batchId];
+    // Moving the folder out from under a background run_campaign.php process that's
+    // mid-write to it would silently break that process rather than error here.
+    if (ms_active_run(ms_batch_dir($masterId, $batchId) . '/runs')) {
+        return ['error' => 'This batch has a run in progress — wait for it to finish before moving it.'];
+    }
 
     // Locked the same way as ms_create_batch()/ms_copy_batch(): pick the id and move
     // the folder into place as one step, so two concurrent moves onto the same new
@@ -637,6 +649,11 @@ function ms_migrate_legacy_batch(string $masterId): ?string {
     if (ms_master_batches($masterId)) return null;               // already has batches
     $old = ms_master_dir($masterId);
     if (!is_file($old . '/params.csv')) return null;             // nothing to migrate
+    // Same "don't move files out from under a live process" rule as
+    // ms_delete_batch()/ms_set_batch_master() — narrow (this only runs once, the
+    // first time a pre-batch master's sites.php loads), but a legacy run mid-flight
+    // at that exact moment would otherwise have its runs/ moved out from under it.
+    if (ms_active_run($old . '/runs')) return null;
 
     $res = ms_create_batch($masterId, 'Batch 1');
     if (isset($res['error'])) return null;
