@@ -565,6 +565,7 @@ switch ($action) {
                 'no_ai' => !empty($_POST['no_ai']), 'force' => !empty($_POST['force']),
                 'skip'  => array_filter(array_map('trim', explode(',', (string) ($_POST['skip'] ?? '')))),
                 'no_deploy' => !empty($_POST['no_deploy']),
+                'only'  => trim((string) ($_POST['only'] ?? '')),
             ]);
             return ['started' => true, 'run_id' => ms_launch_campaign($masterId, $batchId, $runsDir, $flags)];
         });

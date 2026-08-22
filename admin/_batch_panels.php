@@ -110,6 +110,7 @@ if (!isset($csrfToken)) return;
         (free on rebuilds).</p>
     <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end;">
         <label class="hint">Build this many (0 = all)<br><input type="number" id="ms-limit" value="0" min="0" style="width:110px;"></label>
+        <label class="hint">Only this domain (optional)<br><input type="text" id="ms-run-only" placeholder="example.com" style="width:200px;"></label>
         <label class="hint"><input type="checkbox" id="ms-force"> Force (rebuild everything, refresh AI)</label>
         <button type="button" class="btn btn-primary" id="ms-run-btn" onclick="msRun()">Generate sites</button>
     </div>
@@ -416,6 +417,8 @@ if (!isset($csrfToken)) return;
         if (skip.length) fd.append('skip', skip.join(','));
         if (skip.includes('ai')) fd.append('no_ai', '1');
         if (document.getElementById('ms-force').checked) fd.append('force', '1');
+        const only = document.getElementById('ms-run-only').value.trim();
+        if (only) fd.append('only', only);
         btn.disabled = true;
         document.getElementById('ms-run-progress').innerHTML = '<span class="hint">Starting…</span>';
         fetch('multisite_api.php?action=run', { method: 'POST', body: fd })
