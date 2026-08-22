@@ -140,6 +140,8 @@ $msGoliveTick = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state
         await loadGoLive();
     };
 
+    let golRunTimer = null;
+
     window.msGoLiveRunColumn = async function (step) {
         const n = glRows.length;
         const label = step === 'zone' ? 'Create zone' : 'Go Live';
@@ -147,19 +149,62 @@ $msGoliveTick = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state
             ? 'This releases EVERY eligible domain in this batch (up to ' + n + ') right now — each one becomes publicly reachable. Continue?'
             : 'Run "' + label + '" for every domain in this batch that still needs it (up to ' + n + ')?';
         if (!confirm(warn)) return;
+
         // A separate element from #ms-golive-state, which render() (called by
         // loadGoLive below) unconditionally overwrites with "X of Y live." — this
-        // used to be the same node, so the "ran N, M ok, K failed" summary was
-        // visible for roughly one network round-trip before being clobbered.
+        // used to be the same node, so a run's own status would otherwise be
+        // clobbered the moment loadGoLive() next refreshes the table.
         const runMsg = document.getElementById('ms-golive-run-msg');
-        runMsg.textContent = 'Running ' + label + ' for the whole batch… this can take a while for many domains.';
+        const runOut = document.getElementById('ms-golive-run-out');
+        runMsg.textContent = 'Starting…';
+        runOut.style.display = 'none';
+
+        // Detached and polled, like every other bulk action on this page — a run
+        // touching dozens of domains (a Cloudflare call and a registrar NS-switch
+        // call each) used to run inside this one request, so a slow registrar or a
+        // proxy timeout could kill the whole thing with no record of how far it got.
         const r = await post('golive_run', { step: step });
-        if (r.error) alert(r.error);
-        else runMsg.textContent = label + ': ran ' + r.ran + ', ' + r.ok + ' ok'
-            + (r.failed ? ', ' + r.failed + ' failed' : '')
-            + (r.blocked ? ', ' + r.blocked + ' blocked by an earlier step' : '') + '.';
-        await loadGoLive(false);
+        if (r.error) { runMsg.textContent = r.error; return; }
+        runMsg.textContent = 'Running ' + label + ' for the whole batch… this can take a while for many domains.';
+        runOut.style.display = 'block';
+        runOut.textContent = 'Working…';
+        pollGoLiveRun(r.run_id, label);
     };
+
+    function pollGoLiveRun(runId, label) {
+        clearInterval(golRunTimer);
+        let misses = 0;
+        golRunTimer = setInterval(async function () {
+            const runMsg = document.getElementById('ms-golive-run-msg');
+            const runOut = document.getElementById('ms-golive-run-out');
+            try {
+                const r = await fetch('multisite_api.php?action=golive_run_status&run_id=' + encodeURIComponent(runId));
+                const d = await r.json();
+                misses = 0;
+                if (d.error) { clearInterval(golRunTimer); runMsg.textContent = d.error; return; }
+                runOut.textContent = d.log || 'Working…';
+                runOut.scrollTop = runOut.scrollHeight;
+                if (!d.done) return;
+
+                clearInterval(golRunTimer);
+                const failed = d.failed_domains || [];
+                const bad = failed.length > 0 || (d.exit != null && d.exit !== 0);
+                runMsg.textContent = label + ': ' + d.processed + ' domain(s) touched'
+                    + (failed.length ? ', ' + failed.length + ' not ok: ' + failed.join(', ') : ', all ok')
+                    + '.';
+                runMsg.style.color = bad ? '#b91c1c' : '#166534';
+                await loadGoLive(false);
+            } catch (e) {
+                // One dropped poll self-heals on the next tick; only a run of failures
+                // gives up and says so, instead of leaving the message stuck on
+                // "Running…" forever while the job may have already finished.
+                if (++misses < 5) return;
+                clearInterval(golRunTimer);
+                runMsg.textContent = 'Lost contact with the server — the job may still be running; reload to check.';
+                runMsg.style.color = '#b91c1c';
+            }
+        }, 2000);
+    }
 
     function renderRow(r) {
         const zoneOk = r.zone.state === 'ok';

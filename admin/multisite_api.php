@@ -372,13 +372,57 @@ switch ($action) {
 
     // The same step for every row in this batch that still needs it — the "▶ run
     // all" header buttons. Greens are skipped; safe (and how you resume) to press twice.
+    //
+    // Detached like create_hosts/upload, not run in-request: this can mean a registrar
+    // NS-switch call per domain, and a slow registrar or a proxy timeout used to be able
+    // to kill the whole batch mid-run with no record of which domains it got through —
+    // the one bulk action on this page that still had that gap.
     case 'golive_run':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
-        require_once __DIR__ . '/infra/lib/pipeline.php';
         $gStep = (string) ($_POST['step'] ?? '');
         if (!in_array($gStep, ['zone', 'golive'], true)) { echo json_encode(['error' => 'Unknown step.']); break; }
-        set_time_limit(0);
-        echo json_encode(infra_pipeline_run($gStep, $masterId . '/' . $batchId));
+        $gdir = $batchDir . '/golive';
+        if (!is_dir($gdir)) mkdir($gdir, 0775, true);
+        $gres = ms_with_launch_lock($gdir . '/.lock', function () use ($gdir, $masterId, $batchId, $gStep) {
+            foreach (glob($gdir . '/*.out') ?: [] as $f) {
+                if (strpos((string) @file_get_contents($f), '__MS_GOLIVE_DONE__') === false
+                    && (time() - filemtime($f)) < 3600) {
+                    return ['error' => 'A "run all" for this batch is already in progress.', 'run_id' => basename($f, '.out')];
+                }
+            }
+            $gid   = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+            $out   = $gdir . '/' . $gid . '.out';
+            $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/golive_run.php')
+                   . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId) . ' --step=' . escapeshellarg($gStep)
+                   . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_GOLIVE_DONE__ $?" >> ' . escapeshellarg($out);
+            exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
+            return ['started' => true, 'run_id' => $gid];
+        });
+        echo json_encode($gres);
+        break;
+
+    case 'golive_run_status':
+        $rid = preg_replace('/[^A-Za-z0-9\-]/', '', (string) ($_REQUEST['run_id'] ?? ''));
+        $f   = $batchDir . '/golive/' . $rid . '.out';
+        if ($rid === '' || !is_file($f)) { echo json_encode(['error' => 'Unknown run.']); break; }
+        $txt = (string) @file_get_contents($f);
+        // One line per domain, printed by golive_run.php as it goes: "  ✓ domain msg",
+        // "  ✗ domain msg", or "  ⧗ domain msg" (blocked on an earlier step) — parsed
+        // here so a partial or crashed run still shows exactly which domains it reached
+        // and which of those failed, not just a final count that never arrives.
+        preg_match_all('/^ {2}(✓|✗|⧗) (\S+)/mu', $txt, $mm, PREG_SET_ORDER);
+        $failedDomains = [];
+        foreach ($mm as $m) if ($m[1] !== '✓') $failedDomains[] = $m[2];
+        $exit = null;
+        if (preg_match('/__MS_GOLIVE_DONE__ (\d+)/', $txt, $m)) $exit = (int) $m[1];
+        $done = $exit !== null;
+        echo json_encode([
+            'done'           => $done,
+            'exit'           => $exit,
+            'processed'      => count($mm),
+            'failed_domains' => $failedDomains,
+            'log'            => trim(preg_replace('/__MS_GOLIVE_DONE__ \d+\s*$/', '', $txt)),
+        ]);
         break;
 
     // "Take offline" — removes the domain's Cloudflare A record (fast, and does not

@@ -874,9 +874,15 @@ function infra_pipeline_upload(string $domain, array $rec): array
  * pressing this twice safe and what makes "resume" mean nothing more than pressing it
  * again.
  *
+ * $onEach, when given, is called after every row this run actually touches —
+ * fn(string $domain, array $result). It exists so a CLI wrapper can print one line per
+ * domain as it goes (see multisite/golive_run.php): without it, a caller only learns
+ * anything once the WHOLE batch has finished, which is what let a slow registrar call
+ * or a proxy timeout kill an in-request bulk run with no record of how far it got.
+ *
  * @return array{step:string, ran:int, ok:int, failed:int, skipped:int, blocked:int}
  */
-function infra_pipeline_run(string $step, string $batch = ''): array
+function infra_pipeline_run(string $step, string $batch = '', ?callable $onEach = null): array
 {
     $out = ['step' => $step, 'ran' => 0, 'ok' => 0, 'failed' => 0, 'skipped' => 0, 'blocked' => 0, 'restarted' => 0];
     $touched = [];
@@ -893,6 +899,7 @@ function infra_pipeline_run(string $step, string $batch = ''): array
         if ($d['ok'])                                   $out['ok']++;
         elseif (str_starts_with($d['msg'], 'blocked:'))  $out['blocked']++;
         else                                            $out['failed']++;
+        if ($onEach) $onEach($r['domain'], $d);
 
         if ($step === 'host' && $d['ok']) {
             $sid = trim((string) (infra_state_get_domain($r['domain'])['server_id'] ?? ''));
