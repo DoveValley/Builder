@@ -84,7 +84,12 @@
     window.msGoLiveZone = async function (domain, btn) {
         btn.disabled = true; btn.textContent = 'Working…';
         const r = await post('golive_do', { step: 'zone', domain: domain });
+        // infra_pipeline_do() reports a refused/blocked run as {ok:false, msg:'...'}
+        // with no top-level `error` — msGoLiveRelease below already checks both;
+        // this one used to check only `error`, so every blocked/already-running/
+        // not-in-fleet case here produced silent no feedback at all.
         if (r.error) alert(r.error);
+        else if (!r.ok) alert(r.msg || 'Create zone did not complete — see the status column.');
         await loadGoLive();
     };
 
