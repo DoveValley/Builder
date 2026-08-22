@@ -221,7 +221,7 @@ if (!isset($csrfToken)) return;
                 '<td>' + esc(fmtStamp(v.id)) + '</td>' +
                 '<td>' + esc(v.rows) + '</td>' +
                 '<td><a href="multisite_api.php?action=download_version&id=' + encodeURIComponent(v.id) + '">download</a> &nbsp;·&nbsp; ' +
-                '<a href="#" onclick="msRestore(\'' + esc(v.id) + '\');return false;">restore</a></td>' +
+                '<a href="#" onclick="msRestore(\'' + esc(v.id) + '\', this);return false;">restore</a></td>' +
                 '</tr>').join('') + '</tbody></table></div>';
     }
     function loadVersions() { fetch('multisite_api.php?action=list_versions').then(r => r.json()).then(renderVersions).catch(() => {}); }
@@ -231,13 +231,26 @@ if (!isset($csrfToken)) return;
         }).catch(() => {});
         loadVersions();
     }
-    window.msRestore = function (id) {
+    window.msRestore = function (id, link) {
+        // Guards against a double-click/second click firing a second restore_version
+        // POST before the first one's response lands — the two would race, and
+        // whichever responded second silently won regardless of which was clicked
+        // last. Checked before confirm() so a second click can't even open a second
+        // dialog while the first request is still in flight.
+        if (link && link.dataset.busy) return;
         if (!confirm('Restore this version as the current target list? (A fresh snapshot is also saved.)')) return;
+        // refreshParamsState()'s loadVersions() re-renders this whole link (and its
+        // busy state along with it) on success; only the error path needs to
+        // explicitly restore it.
+        if (link) { link.dataset.busy = '1'; link.style.opacity = '0.5'; }
         const fd = new FormData(); fd.append('csrf_token', csrfToken); fd.append('id', id);
         fetch('multisite_api.php?action=restore_version', { method: 'POST', body: fd })
             .then(r => r.json())
-            .then(d => { if (d.error) { alert(d.error); return; } render(d); refreshParamsState(); })
-            .catch(() => {});
+            .then(d => {
+                if (d.error) { alert(d.error); if (link) { delete link.dataset.busy; link.style.opacity = ''; } return; }
+                render(d); refreshParamsState();
+            })
+            .catch(() => { if (link) { delete link.dataset.busy; link.style.opacity = ''; } });
     };
 
     window.msPreflight = function () {
@@ -322,7 +335,7 @@ if (!isset($csrfToken)) return;
             runs.map(r => {
                 const c = stC[r.state] || '#334155';
                 const retry = r.failed > 0
-                    ? ' <button type="button" class="btn" style="padding:1px 8px;font-size:0.76rem;" onclick="msRetry(\'' + esc(r.run_id) + '\')">retry ' + r.failed + ' failed</button>'
+                    ? ' <button type="button" class="btn" style="padding:1px 8px;font-size:0.76rem;" onclick="msRetry(\'' + esc(r.run_id) + '\', this)">retry ' + r.failed + ' failed</button>'
                     : '';
                 return '<tr>' +
                     '<td>' + esc(fmtTime(r.started_at)) + '</td>' +
@@ -339,18 +352,25 @@ if (!isset($csrfToken)) return;
         pollRun(id);
         document.getElementById('ms-run-progress').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     };
-    window.msRetry = function (id) {
+    window.msRetry = function (id, btn) {
+        // Same double-submit guard as msRestore above — checked before confirm() so a
+        // second click while the first retry is still in flight can't open a second
+        // dialog and fire a second retry_failed for the same run.
+        if (btn && btn.disabled) return;
         if (!confirm('Re-run only the failed rows from this run?')) return;
+        if (btn) btn.disabled = true;
         const fd = new FormData(); fd.append('csrf_token', csrfToken); fd.append('run_id', id);
         fetch('multisite_api.php?action=retry_failed', { method: 'POST', body: fd })
             .then(r => r.json())
             .then(d => {
-                if (d.error) { alert(d.error); return; }
+                if (d.error) { alert(d.error); if (btn) btn.disabled = false; return; }
                 if (msPollTimer) clearInterval(msPollTimer);
                 msPollTimer = setInterval(() => pollRun(d.run_id), 2500);
                 pollRun(d.run_id);
+                // Stays disabled until the retry run finishes — renderRun()'s completion
+                // branch calls loadRuns(), which re-renders this whole row anyway.
             })
-            .catch(() => {});
+            .catch(() => { if (btn) btn.disabled = false; });
     };
 
     let pollRunMisses = 0;   // consecutive failed polls — one blip self-heals silently
