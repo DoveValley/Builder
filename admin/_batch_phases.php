@@ -21,6 +21,7 @@
 if (!isset($masterId, $batchId)) return;
 
 require_once __DIR__ . '/../includes/multisite/batch.php';
+require_once __DIR__ . '/../includes/multisite/params.php';
 require_once __DIR__ . '/infra/lib/pipeline.php';
 
 const BPH_IDLE = 'idle', BPH_BUSY = 'busy', BPH_DONE = 'done', BPH_FAIL = 'fail';
@@ -35,21 +36,21 @@ $bphFailed  = (int) ($status['failed'] ?? 0);
 /* Phase 3 (Create host) is answered by the target list itself: a row that carries an
    ftp_host and ftp_user has had its host created, because that is where provisioning
    writes the credentials back to. Reading the rows costs nothing; asking every box
-   would cost an API call each, on every page load. */
+   would cost an API call each, on every page load.
+   Goes through ms_parse_csv() rather than a hand-rolled fgetcsv(), because a plain
+   fgetcsv() assumes a comma delimiter — a semicolon-delimited export (common from
+   Excel) would make every ftp_host/ftp_user lookup miss, permanently pinning this
+   phase at "no hosts yet" even once hosts really exist. */
 $bphRows = 0; $bphWithHost = 0;
 $bphCsv  = ms_batch_dir($masterId, $batchId) . '/params.csv';
 if (is_file($bphCsv)) {
-    $fh = fopen($bphCsv, 'r');
-    $hd = fgetcsv($fh) ?: [];
-    $ix = array_flip(array_map('trim', $hd));
-    while (($r = fgetcsv($fh)) !== false) {
-        if ($r === [null] || $r === false) continue;
+    $bphParsed = ms_parse_csv($bphCsv);
+    foreach ($bphParsed['rows'] as $r) {
         $bphRows++;
-        $host = isset($ix['ftp_host']) ? trim((string) ($r[$ix['ftp_host']] ?? '')) : '';
-        $user = isset($ix['ftp_user']) ? trim((string) ($r[$ix['ftp_user']] ?? '')) : '';
+        $host = trim((string) ($r['ftp_host'] ?? ''));
+        $user = trim((string) ($r['ftp_user'] ?? ''));
         if ($host !== '' && $user !== '') $bphWithHost++;
     }
-    fclose($fh);
 }
 
 /* 1 — Upload target list. Targets exist or they do not. */
