@@ -107,13 +107,13 @@
 
     window.msGoLiveRefreshLive = async function (domain, btn) {
         btn.disabled = true;
-        try {
-            await fetch('multisite_api.php?action=golive_refresh&step=live&domain=' + encodeURIComponent(domain));
-        } catch (e) {
-            // Fall through to loadGoLive() regardless — it fully re-renders this row
-            // (a fresh button included), so a dropped request here doesn't leave the
-            // ↻ button stuck disabled with no way to retry short of a page reload.
-        }
+        // POST + csrf_token via the shared post() helper — this used to be a bare,
+        // tokenless GET, the one action on this page that never rode the file's CSRF
+        // check (which only fires on POST). post() also never throws, so a dropped
+        // request here still falls through to loadGoLive() below, which fully
+        // re-renders this row (a fresh button included) rather than leaving the ↻
+        // button stuck disabled.
+        await post('golive_refresh', { step: 'live', domain: domain });
         await loadGoLive();
     };
 

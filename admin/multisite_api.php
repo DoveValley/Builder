@@ -367,11 +367,16 @@ switch ($action) {
         break;
 
     // Re-check one cell without acting — the per-column ↻, mainly for 'live' since
-    // nothing else writes that cell on its own.
+    // nothing else writes that cell on its own. Still a real state-mutating write
+    // (infra_pipeline_refresh persists the fresh check to domain_step), so this needs
+    // the same POST-required guard every sibling golive_* action has above — without
+    // it, this was the one action here that never reached the file's CSRF check
+    // (which only fires on POST), reachable via a plain GET/CSRF-forgeable request.
     case 'golive_refresh':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         require_once __DIR__ . '/infra/lib/pipeline.php';
-        $gStep = (string) ($_REQUEST['step'] ?? 'live');
-        $gDom  = strtolower(trim((string) ($_REQUEST['domain'] ?? '')));
+        $gStep = (string) ($_POST['step'] ?? 'live');
+        $gDom  = strtolower(trim((string) ($_POST['domain'] ?? '')));
         if (!in_array($gStep, infra_pipeline_step_keys(), true)) { echo json_encode(['error' => 'Unknown step.']); break; }
         set_time_limit(0);
         echo json_encode(infra_pipeline_refresh($gStep, $masterId . '/' . $batchId, $gDom));
