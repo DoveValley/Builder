@@ -370,6 +370,13 @@
                               style="font-family:monospace;font-size:0.82rem;"><?= h($theme['facebook_pixel'] ?? '') ?></textarea>
                     <span class="hint">Paste the full Pixel base code here.</span>
                 </div>
+                <div class="form-group">
+                    <label for="head_extra">Search Console verification / other &lt;head&gt; tags</label>
+                    <textarea id="head_extra" name="head_extra" rows="3"
+                              style="font-family:monospace;font-size:0.82rem;"><?= h($theme['head_extra'] ?? '') ?></textarea>
+                    <span class="hint">Paste the full <code>&lt;meta name="google-site-verification" content="..."&gt;</code> tag
+                        Google gives you, or any other raw tag that belongs in <code>&lt;head&gt;</code>.</span>
+                </div>
             </div>
 
             <script>

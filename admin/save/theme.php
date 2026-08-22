@@ -73,3 +73,8 @@
         // Analytics snippets — stored as-is (admin only, trusted input)
         $data['theme']['analytics_head']  = $_POST['analytics_head']  ?? '';
         $data['theme']['facebook_pixel']  = $_POST['facebook_pixel']  ?? '';
+        // Same field the multisite batch pipeline writes (ms_gsc_meta(),
+        // includes/multisite/differentiate.php) — this was the one tracking field
+        // with no manual UI at all; a single site could only get one by hand-editing
+        // site.json directly.
+        $data['theme']['head_extra']      = $_POST['head_extra']      ?? '';
