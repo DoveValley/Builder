@@ -18,6 +18,14 @@
  * theme_presets.json, icons/, hero_style.json, cache/. Those stay in
  * sites/{master}/multisite/ and are untouched by this file.
  *
+ * Requires params.php itself (rather than trusting the caller to have loaded it)
+ * because ms_swap_master_warnings() below calls ms_parse_csv() — its old
+ * function_exists('ms_parse_csv') guard silently did nothing everywhere admin/
+ * batch_api.php is the entry point, since that file never loads params.php, and
+ * the missing-preset warning it exists to show never fired.
+ */
+require_once __DIR__ . '/params.php';
+/**
  * This file owns the batch layout. Nothing else should build a batch path by hand —
  * ask ms_batch_dir() (or ms_active_batch_dir()) for it.
  */
@@ -542,7 +550,7 @@ function ms_swap_master_warnings(string $masterId, string $batchId, string $newM
 
     // 3. theme_preset values that do not exist on the new master fail silently.
     $csv = ms_batch_dir($masterId, $batchId) . '/params.csv';
-    if (is_file($csv) && function_exists('ms_parse_csv')) {
+    if (is_file($csv)) {
         $p = ms_parse_csv($csv);
         if (empty($p['error'])) {
             $have = ms_master_preset_keys($newMasterId);
