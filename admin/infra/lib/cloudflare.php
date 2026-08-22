@@ -254,6 +254,27 @@ function cf_upsert_a_record(array $account, string $zoneId, string $name, string
         : ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
 }
 
+/**
+ * Delete a record by type+name, if one exists — idempotent, so "no record" is
+ * success, not a failure. This is the "take it offline" primitive: removing the
+ * A record makes the hostname stop resolving through this zone WITHOUT touching
+ * the zone itself or the nameservers, which is what makes it fast (Cloudflare is
+ * already authoritative once NS are switched, so this takes effect in seconds,
+ * unlike reverting nameservers at the registrar) and cheap to reverse
+ * (cf_upsert_a_record() recreates the exact same record).
+ * @return array{ok:bool,message:string}
+ */
+function cf_delete_dns_record(array $account, string $zoneId, string $type, string $name): array
+{
+    $list = cf_api($account, 'GET', "/zones/{$zoneId}/dns_records", ['type' => $type, 'name' => $name]);
+    $id   = $list['json']['result'][0]['id'] ?? null;
+    if (!$id) return ['ok' => true, 'message' => 'no ' . $type . ' record to remove — already offline'];
+    $r  = cf_api($account, 'DELETE', "/zones/{$zoneId}/dns_records/{$id}");
+    $ok = $r['code'] === 200 && !empty($r['json']['success']);
+    return ['ok' => $ok, 'message' => $ok ? 'record removed'
+        : ($r['json']['errors'][0]['message'] ?? ($r['error'] ?: ('HTTP ' . $r['code'])))];
+}
+
 /** Set SSL mode: off|flexible|full|strict. @return array{ok:bool,message:string} */
 function cf_set_ssl_mode(array $account, string $zoneId, string $mode = 'full'): array
 {

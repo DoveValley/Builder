@@ -49,6 +49,18 @@ $rows   = $parsed['rows'];
 $header = $parsed['header'];
 if (!$rows) { fwrite(STDERR, "The target list is empty.\n"); exit(2); }
 
+/* Tag every domain in the target list into the Infra console's own registry under
+ * this batch, so the go-live pipeline (zone/DNS/live) has something to show for it —
+ * unconditionally, not just rows that get a host created THIS run, since a row
+ * already holding credentials from a prior run is just as much a member of this
+ * batch and must not need --force to become visible there. infra_state_upsert_domain()
+ * creates the row if this domain has never been tracked at all, so this works for
+ * ad-hoc domains too, not just ones bought through D.Buy. */
+foreach ($rows as $r) {
+    $d = strtolower(trim((string) ($r['domain'] ?? '')));
+    if ($d !== '') infra_state_upsert_domain(['domain' => $d, 'batch' => $masterId . '/' . $batchId]);
+}
+
 /* The plan: which boxes, how many each. */
 $plan = ms_batch_servers($masterId, $batchId);
 if (!$plan) { fwrite(STDERR, "No deployment servers picked for this batch — choose them first.\n"); exit(2); }
@@ -69,7 +81,16 @@ foreach ($rows as $i => $r) {
 }
 
 printf("Batch %s/%s — %d target(s), %d needing a host.\n", $masterId, $batchId, count($rows), count($todo));
-if (!$todo) { echo "Nothing to do — every row already has credentials.\n"; exit(0); }
+if (!$todo) {
+    echo "Nothing to do — every row already has credentials.\n";
+    // Still worth telling the go-live pipeline what is already true, so a batch that
+    // has always had its hosts (nothing new to create) is not the one case where its
+    // assign/host cells never get checked at all.
+    require_once __DIR__ . '/../admin/infra/lib/pipeline.php';
+    infra_pipeline_refresh('assign', $masterId . '/' . $batchId);
+    infra_pipeline_refresh('host', $masterId . '/' . $batchId);
+    exit(0);
+}
 
 /* Hand rows out to boxes, in plan order. count 0 = take whatever is left. */
 $queue      = array_keys($todo);
@@ -133,6 +154,20 @@ if ($ok > 0) {
     @chown($csvPath, 'www-data'); @chgrp($csvPath, 'www-data');
     printf("\nTarget list updated — %d row(s) now carry credentials.\n", $ok);
 }
+
+/* Tell the go-live pipeline what this run just confirmed. Its own prerequisite
+ * checks trust ONLY a stored, checked cell — never an inferred one (see
+ * infra_pipeline_do()'s "and has never been checked" refusal) — so without this, a
+ * domain provisioned entirely through the multisite wizard would refuse its first
+ * "Create zone" press with "blocked: Box is not done yet", even though the box is
+ * plainly assigned. One call per step for the WHOLE batch, not per domain: both
+ * checks are priced per BOX, not per domain (infra_host_domain_index() sweeps the
+ * fleet once and infra_pipeline_refresh() reuses it for every row it is asked
+ * about), so this costs the same whether the batch is 1 domain or 50. */
+require_once __DIR__ . '/../admin/infra/lib/pipeline.php';
+$golivetag = $masterId . '/' . $batchId;
+infra_pipeline_refresh('assign', $golivetag);
+infra_pipeline_refresh('host', $golivetag);
 
 /* One restart per box, at the end. */
 if ($touched) {

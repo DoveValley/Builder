@@ -118,6 +118,15 @@ foreach ($ready as $t) {
     }
 }
 
+/* Tell the go-live pipeline what this run just confirmed, same reason create_hosts.php
+ * does for assign/host: its "upload" cell only trusts a stored, checked answer, and a
+ * domain built entirely through the multisite wizard would otherwise never get one —
+ * the Go Live button gates on exactly this cell. One call for the whole batch: the
+ * check is priced per BOX (infra_hestia_content_run() caches per server_id), so this
+ * costs the same whether the batch is 1 domain or 50. */
+require_once __DIR__ . '/../admin/infra/lib/pipeline.php';
+infra_pipeline_refresh('upload', $masterId . '/' . $batchId);
+
 echo "\n" . str_repeat('=', 58) . "\n";
 printf("DONE — %d uploaded, %d failed, %d file(s) sent.\n", $ok, $fail, $sent);
 exit($fail > 0 ? 1 : 0);

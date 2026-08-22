@@ -118,6 +118,8 @@ if (!isset($csrfToken)) return;
 
 <?php include __DIR__ . '/_batch_upload.php'; ?>
 
+<?php include __DIR__ . '/_batch_golive.php'; ?>
+
 <!-- ===== PARAMS VERSIONS CARD ===== -->
 <div class="card" id="ms-versions-card">
     <h3 style="margin-top:0;">Saved target-list versions</h3>

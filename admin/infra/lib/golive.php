@@ -180,3 +180,48 @@ function infra_golive_release(string $domain, bool $force = false): array
     ]);
     return ['ok' => $sw['ok'], 'manual' => !empty($sw['manual']), 'message' => $sw['message'], 'ns' => $ns];
 }
+
+/**
+ * Take a live (or staged) domain offline WITHOUT reverting its nameservers.
+ *
+ * Deliberately not "undo golive" by reverting NS at the registrar — that would take
+ * the domain's nameservers out of Cloudflare, and reverting them back later has to
+ * propagate across the whole internet again (minutes to hours). Instead this removes
+ * the A record from the Cloudflare zone: Cloudflare is already authoritative for the
+ * domain once NS are switched, so the hostname stops resolving in seconds, and going
+ * back live is just re-running the zone step, which recreates the exact same record.
+ *
+ * This un-does the `zone` step's cell specifically (its check requires a matching A
+ * record — see infra_pipeline_refresh('zone')), not a new pipeline step: there is
+ * nothing else to track, since `golive`/`dns` describe the nameserver switch, which
+ * this does not touch.
+ *
+ * @return array{ok:bool, message:string}
+ */
+function infra_golive_take_offline(string $domain): array
+{
+    require_once __DIR__ . '/pipeline.php';
+
+    $domain = strtolower(trim($domain));
+    $rec    = infra_state_get_domain($domain);
+    if (!$rec) return ['ok' => false, 'message' => 'not in fleet state'];
+
+    infra_cache_force(true);
+    $z = infra_cf_zone_index()[$domain] ?? null;
+    if (!$z) { infra_cache_force(false); return ['ok' => false, 'message' => 'no Cloudflare zone on record for this domain']; }
+
+    $acct = null;
+    foreach (infra_cf_accounts() as $a) if (($a['id'] ?? '') === $z['account_id']) $acct = $a;
+    if (!$acct) { infra_cache_force(false); return ['ok' => false, 'message' => 'zone is in an account the console no longer has']; }
+
+    $r = cf_delete_dns_record($acct, (string) $z['zone_id'], 'A', $domain);
+
+    // THE CHECK HAS THE LAST WORD, same rule as every pipeline action: the zone (and
+    // live) cells are re-derived from what Cloudflare/the site actually report now,
+    // not from what this call claims.
+    infra_pipeline_refresh('zone', '', $domain);
+    infra_pipeline_refresh('live', '', $domain);
+    infra_cache_force(false);
+
+    return $r;
+}

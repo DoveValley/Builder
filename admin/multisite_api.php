@@ -296,6 +296,81 @@ switch ($action) {
         echo json_encode($n + ['total' => count($rows)]);
         break;
 
+    /* Phase 6 — go live. Wraps the Infra console's own per-domain pipeline
+     * (admin/infra/lib/pipeline.php / golive.php) rather than re-implementing any
+     * Cloudflare or registrar logic here — the "batch" tag written by create_hosts.php
+     * is what lets infra_pipeline_rows() find exactly this batch's domains. These
+     * actions call the pipeline library directly (not admin/infra/actions/pipeline_golive.php,
+     * which is built to redirect back to the Bulk tab's own page) and ride this file's
+     * own CSRF gate above, same as every other POST action here. */
+    case 'golive_status':
+        require_once __DIR__ . '/infra/lib/pipeline.php';
+        $tag = $masterId . '/' . $batchId;
+        $out = [];
+        foreach (infra_pipeline_rows($tag) as $r) {
+            $c = $r['cells'];
+            $cell = fn(string $k) => ['state' => $c[$k]['state'] ?? '', 'note' => $c[$k]['note'] ?? '', 'at' => (int) ($c[$k]['at'] ?? 0)];
+            $out[] = [
+                'domain'    => $r['domain'],
+                'zone'      => $cell('zone'),
+                'golive'    => $cell('golive'),
+                'dns'       => $cell('dns'),
+                'live'      => $cell('live'),
+                // Go Live's own gate reads the Upload cell — surfaced here so the button
+                // can explain itself instead of just failing when pressed.
+                'upload_ok' => ($c['upload']['state'] ?? '') === INFRA_STEP_OK,
+            ];
+        }
+        echo json_encode(['rows' => $out]);
+        break;
+
+    // One step, one domain: 'zone' (stage/restore the Cloudflare zone) or 'golive'
+    // (switch the nameservers — the real public cutover).
+    case 'golive_do':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/pipeline.php';
+        $gStep = (string) ($_POST['step'] ?? '');
+        $gDom  = strtolower(trim((string) ($_POST['domain'] ?? '')));
+        if (!in_array($gStep, ['zone', 'golive'], true)) { echo json_encode(['error' => 'Unknown step.']); break; }
+        if ($gDom === '') { echo json_encode(['error' => 'Missing domain.']); break; }
+        set_time_limit(0);
+        echo json_encode(infra_pipeline_do($gStep, $gDom, $masterId . '/' . $batchId));
+        break;
+
+    // The same step for every row in this batch that still needs it — the "▶ run
+    // all" header buttons. Greens are skipped; safe (and how you resume) to press twice.
+    case 'golive_run':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/pipeline.php';
+        $gStep = (string) ($_POST['step'] ?? '');
+        if (!in_array($gStep, ['zone', 'golive'], true)) { echo json_encode(['error' => 'Unknown step.']); break; }
+        set_time_limit(0);
+        echo json_encode(infra_pipeline_run($gStep, $masterId . '/' . $batchId));
+        break;
+
+    // "Take offline" — removes the domain's Cloudflare A record (fast, and does not
+    // touch nameservers), so a live site can be pulled back without hours of DNS
+    // propagation. Re-running the zone step above restores the same record.
+    case 'golive_offline':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/golive.php';
+        $gDom = strtolower(trim((string) ($_POST['domain'] ?? '')));
+        if ($gDom === '') { echo json_encode(['error' => 'Missing domain.']); break; }
+        set_time_limit(0);
+        echo json_encode(infra_golive_take_offline($gDom));
+        break;
+
+    // Re-check one cell without acting — the per-column ↻, mainly for 'live' since
+    // nothing else writes that cell on its own.
+    case 'golive_refresh':
+        require_once __DIR__ . '/infra/lib/pipeline.php';
+        $gStep = (string) ($_REQUEST['step'] ?? 'live');
+        $gDom  = strtolower(trim((string) ($_REQUEST['domain'] ?? '')));
+        if (!in_array($gStep, infra_pipeline_step_keys(), true)) { echo json_encode(['error' => 'Unknown step.']); break; }
+        set_time_limit(0);
+        echo json_encode(infra_pipeline_refresh($gStep, $masterId . '/' . $batchId, $gDom));
+        break;
+
     case 'create_hosts_status':
         $rid = preg_replace('/[^A-Za-z0-9\-]/', '', (string) ($_REQUEST['run_id'] ?? ''));
         $f   = $batchDir . '/hosts/' . $rid . '.out';
