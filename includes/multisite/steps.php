@@ -14,8 +14,11 @@
  * rather than verdicts ("ready ✓"), because every check here can only see that a
  * thing EXISTS. It cannot see whether the thing is any good.
  *
- * The third column — what actually executed — needs build_one.php to tag its progress
- * lines with a step key. Not built yet; these keys are the vocabulary for it.
+ * The third column — what actually executed — reads build_one.php's ms_step_begin()
+ * tags via ms_step_execution() below. Every key here must match a real ms_step_begin()
+ * call in build_one.php exactly: ms_step_begin() silently drops any key not listed in
+ * ms_run_steps(), so a step added to one without the other doesn't error — it just
+ * misattributes that step's failures to whichever real step ran last before it.
  */
 
 require_once __DIR__ . '/params.php';
@@ -63,6 +66,10 @@ function ms_run_steps(): array {
         ['key' => 'build',         'label' => 'Build',
          'does' => 'Render the actual pages, sitemap and robots.txt.',
          'where' => 'Rarely — this is the renderer'],
+
+        ['key' => 'deploy',        'label' => 'Deploy',
+         'does' => 'Upload the built site to its host over FTP/SFTP.',
+         'where' => 'The ftp_host / ftp_user / ftp_pass columns'],
 
 ];
 }
