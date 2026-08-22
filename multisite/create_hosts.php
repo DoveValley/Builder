@@ -92,17 +92,34 @@ if (!$todo) {
     exit(0);
 }
 
-/* Hand rows out to boxes, in plan order. count 0 = take whatever is left. */
+/* Hand rows out to boxes. count 0 = take whatever is left.
+ *
+ * Two passes, not one: boxes with an explicit count get exactly that many first,
+ * regardless of where they sit in plan order, and only THEN is whatever remains
+ * split — round-robin, evenly — across every box that asked for "whatever is
+ * left". A single pass in plan order used to hand the first count-0 box the
+ * ENTIRE remaining queue (`count($queue)` at that moment), which starved every
+ * other count-0 box checked in the same batch and quietly put 100% of the batch
+ * on whichever box happened to be listed first — the opposite of the point of
+ * spreading a batch across several boxes. */
 $queue      = array_keys($todo);
 $assignment = [];          // row index => server
-$unplaced   = [];
+$zeroBoxes  = [];          // plan entries with count 0 ("whatever is left"), in plan order
 foreach ($plan as $p) {
     $srv = $fleet[$p['server_id']] ?? null;
     if (!$srv) { printf("  ! %s is in the plan but not in the console — skipped\n", $p['label'] ?? $p['server_id']); continue; }
     $take = (int) ($p['count'] ?? 0);
-    $n    = $take > 0 ? $take : count($queue);
-    for ($k = 0; $k < $n && $queue; $k++) {
-        $assignment[array_shift($queue)] = $srv;
+    if ($take > 0) {
+        for ($k = 0; $k < $take && $queue; $k++) {
+            $assignment[array_shift($queue)] = $srv;
+        }
+    } else {
+        $zeroBoxes[] = $srv;
+    }
+}
+if ($zeroBoxes) {
+    for ($z = 0; $queue; $z++) {
+        $assignment[array_shift($queue)] = $zeroBoxes[$z % count($zeroBoxes)];
     }
 }
 $unplaced = $queue;
