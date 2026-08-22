@@ -462,6 +462,19 @@ function infra_pipeline_refresh(string $step, string $batch = '', string $only =
                     } else {
                         $state = INFRA_STEP_OK;
                         $note  = ($z['account_label'] ?? '') . ' · proxied → ' . $apex['ip'];
+                        // A green zone cell otherwise looks identical whether the origin
+                        // holds a real cert (SSL full — CF↔origin encrypted) or fell back
+                        // to flexible (CF↔origin plain HTTP, because no CF account has an
+                        // origin_ca_key on file yet) — surface which one it actually is
+                        // rather than let "resolves fine" stand in for "fully secure".
+                        if ($acct) {
+                            $ssl = cf_get_ssl_mode($acct, (string) $z['zone_id']);
+                            if ($ssl['ok'] && $ssl['mode'] !== 'full' && $ssl['mode'] !== 'strict') {
+                                $note .= ' · SSL: ' . $ssl['mode'] . ' (CF↔origin unencrypted — no origin cert)';
+                            } elseif ($ssl['ok']) {
+                                $note .= ' · SSL: ' . $ssl['mode'];
+                            }
+                        }
                     }
                 }
                 break;

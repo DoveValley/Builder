@@ -285,6 +285,26 @@ function cf_set_ssl_mode(array $account, string $zoneId, string $mode = 'full'):
 }
 
 /**
+ * Read back the SSL mode Cloudflare is actually enforcing for a zone right now —
+ * what cf_set_ssl_mode() last asked for, not what provision.php claimed at the
+ * time. Used by the zone-step check so a batch's "CF Zone: ✓" cell can say
+ * whether the domain is really CDN-to-origin encrypted (`full`) or only
+ * visitor-to-CDN (`flexible`) — the two look identical on a plain "it resolves"
+ * check, which is what let a flexible-mode fallback go unnoticed for every
+ * domain in the fleet.
+ *
+ * @return array{ok:bool,mode:string,message:string}
+ */
+function cf_get_ssl_mode(array $account, string $zoneId): array
+{
+    $r  = cf_api($account, 'GET', "/zones/{$zoneId}/settings/ssl");
+    $ok = $r['code'] === 200 && !empty($r['json']['success']);
+    $mode = $ok ? (string) ($r['json']['result']['value'] ?? '') : '';
+    return ['ok' => $ok && $mode !== '', 'mode' => $mode,
+        'message' => $ok ? $mode : ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
+}
+
+/**
  * Issue a Cloudflare Origin CA certificate for a domain (+ wildcard), signing a
  * CSR generated locally so the private key never leaves this box unencrypted
  * over the wire. This is a SEPARATE credential from the account's api_token or
