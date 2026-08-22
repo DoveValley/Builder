@@ -253,7 +253,7 @@ if (!isset($csrfToken)) return;
             .catch(() => { if (link) { delete link.dataset.busy; link.style.opacity = ''; } });
     };
 
-    window.msPreflight = function () {
+    window.msPreflight = async function () {
         const btn = document.getElementById('ms-pf-btn');
         const msg = document.getElementById('ms-pf-msg');
         // reset FTP cells that have creds to a pending dot
@@ -262,7 +262,21 @@ if (!isset($csrfToken)) return;
             if (cell && cell.textContent.trim() === '✓') cell.innerHTML = '<span style="color:#94a3b8;">…</span>';
         });
         btn.disabled = true; msg.textContent = 'Connecting…';
-        const es = new EventSource('multisite_preflight.php?token=' + encodeURIComponent(csrfToken));
+        // A dedicated, single-use, 60s token for this EventSource URL — not the real
+        // csrf_token. EventSource can't send a header or a body, so SOME token has to
+        // be in the URL where an access log or proxy could see it; this one is good
+        // for nothing else and only briefly, unlike the general csrf_token.
+        let pfToken;
+        try {
+            const fd = new FormData(); fd.append('csrf_token', csrfToken);
+            const r = await fetch('multisite_api.php?action=preflight_token', { method: 'POST', body: fd });
+            const d = await r.json();
+            if (!d.token) { btn.disabled = false; msg.textContent = d.error || 'Could not start pre-flight.'; return; }
+            pfToken = d.token;
+        } catch (e) {
+            btn.disabled = false; msg.textContent = 'Could not reach the server — try again.'; return;
+        }
+        const es = new EventSource('multisite_preflight.php?token=' + encodeURIComponent(pfToken));
         es.onmessage = function (e) {
             const d = JSON.parse(e.data);
             if (d.type === 'row') {

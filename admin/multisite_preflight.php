@@ -13,7 +13,16 @@ function ms_pf_sse(array $obj): void { echo 'data: ' . json_encode($obj) . "\n\n
 
 if (empty($_SESSION['admin_logged_in'])) { http_response_code(403); ms_pf_sse(['type' => 'fatal', 'msg' => 'Not authenticated.']); exit; }
 if (!ACTIVE_SITE_ID)                      { http_response_code(400); ms_pf_sse(['type' => 'fatal', 'msg' => 'No active site.']); exit; }
-if (!hash_equals($_SESSION['csrf_token'] ?? '', $_GET['token'] ?? '')) { http_response_code(403); ms_pf_sse(['type' => 'fatal', 'msg' => 'Invalid security token.']); exit; }
+// A dedicated, single-use, 60s token (minted by action=preflight_token) — NOT the
+// general csrf_token. EventSource can't send a header or POST body, so this token
+// has to travel in the URL; using the real csrf_token here (as this used to) meant
+// a leaked URL (an access log, an intermediate proxy) exposed the same secret every
+// other admin POST trusts. Consumed immediately so it can't be replayed.
+$pfOk = isset($_SESSION['ms_pf_token'], $_SESSION['ms_pf_token_exp'])
+    && hash_equals($_SESSION['ms_pf_token'], (string) ($_GET['token'] ?? ''))
+    && time() <= $_SESSION['ms_pf_token_exp'];
+unset($_SESSION['ms_pf_token'], $_SESSION['ms_pf_token_exp']);
+if (!$pfOk) { http_response_code(403); ms_pf_sse(['type' => 'fatal', 'msg' => 'Invalid or expired security token.']); exit; }
 
 // Resolve the open batch while the session is still open.
 $batchDir = ms_active_batch_dir();

@@ -109,6 +109,22 @@ function ms_run_flags(array $o): string {
 
 switch ($action) {
 
+    // Mint a short-lived, single-use token for the FTP pre-flight SSE endpoint.
+    // EventSource can't send a header or a POST body, so its auth has to travel in
+    // the URL — putting the REAL session-wide csrf_token there (as this used to)
+    // meant a leaked URL (server access logs, an intermediate proxy) exposed the
+    // same secret every other admin POST trusts, not just this one read-only check.
+    // This one is single-use, expires in 60s, and is good for nothing else.
+    case 'preflight_token':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        $pfToken = bin2hex(random_bytes(16));
+        session_start();
+        $_SESSION['ms_pf_token']     = $pfToken;
+        $_SESSION['ms_pf_token_exp'] = time() + 60;
+        session_write_close();
+        echo json_encode(['token' => $pfToken]);
+        break;
+
     // Download a ready-to-edit sample CSV (all columns, 5 example cities).
     case 'sample_csv':
         header_remove('Content-Type');
