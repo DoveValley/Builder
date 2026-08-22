@@ -583,6 +583,32 @@ function infra_pipeline_actions(): array
 const INFRA_STEP_STALE = 900;   // 15 minutes
 
 /**
+ * Run $fn() while holding an exclusive file lock on ONE domain+step, so its
+ * check-then-mark-running sequence can't be split across two near-simultaneous
+ * requests — a double click, or two open tabs on the same Go Live button. Without
+ * this, infra_pipeline_do()'s guard was a plain read-then-write with a real gap
+ * between them: two requests could both read "not running" and both dispatch the
+ * underlying action, including two concurrent registrar nameserver-switch calls
+ * for the same domain. The multisite launch actions hit this exact bug class and
+ * fixed it the same way — see ms_with_launch_lock() in includes/multisite/batch.php.
+ */
+function infra_pipeline_lock(string $domain, string $step, callable $fn)
+{
+    $dir = dirname(__DIR__) . '/state/locks';
+    if (!is_dir($dir)) @mkdir($dir, 0700, true);
+    $safe = fn(string $s) => preg_replace('/[^a-z0-9]+/', '_', strtolower($s));
+    $fh = @fopen($dir . '/' . $safe($domain) . '__' . $safe($step) . '.lock', 'c');
+    if (!$fh) return $fn();   // can't lock — fail open rather than block the action entirely
+    try {
+        flock($fh, LOCK_EX);
+        return $fn();
+    } finally {
+        flock($fh, LOCK_UN);
+        fclose($fh);
+    }
+}
+
+/**
  * Perform ONE step for ONE domain, then re-check it.
  *
  * The contract, in order, and none of it is optional:
@@ -608,35 +634,42 @@ function infra_pipeline_do(string $step, string $domain, string $batch = '', arr
     $rec = infra_state_get_domain($domain);
     if (!$rec) return ['ok' => false, 'msg' => 'not in fleet state', 'state' => ''];
 
-    // Already done? Say so and do nothing. Idempotency starts here rather than relying
-    // on every underlying call to be a no-op.
-    $cur = infra_pipeline_stored([$domain])[$domain][$step] ?? null;
-    if (($cur['state'] ?? '') === INFRA_STEP_OK) {
-        return ['ok' => true, 'msg' => 'already done — nothing to do', 'state' => INFRA_STEP_OK];
-    }
-    // Somebody else is on it. A stale marker (a crashed run) is allowed through, because
-    // a cell stuck at `running` forever is worse than one that ran twice.
-    if (($cur['state'] ?? '') === INFRA_STEP_RUNNING && (time() - (int) ($cur['at'] ?? 0)) < INFRA_STEP_STALE) {
-        return ['ok' => false, 'msg' => 'already running (started ' . date('H:i', (int) $cur['at']) . ')',
-                'state' => INFRA_STEP_RUNNING];
-    }
+    // Already done, already running, and the mark-running that follows all have to
+    // happen as one atomic step — see infra_pipeline_lock()'s docblock for what goes
+    // wrong when they don't. $claim is non-null only when the caller should stop.
+    $claim = infra_pipeline_lock($domain, $step, function () use ($domain, $step) {
+        // Already done? Say so and do nothing. Idempotency starts here rather than
+        // relying on every underlying call to be a no-op.
+        $cur = infra_pipeline_stored([$domain])[$domain][$step] ?? null;
+        if (($cur['state'] ?? '') === INFRA_STEP_OK) {
+            return ['ok' => true, 'msg' => 'already done — nothing to do', 'state' => INFRA_STEP_OK];
+        }
+        // Somebody else is on it. A stale marker (a crashed run) is allowed through,
+        // because a cell stuck at `running` forever is worse than one that ran twice.
+        if (($cur['state'] ?? '') === INFRA_STEP_RUNNING && (time() - (int) ($cur['at'] ?? 0)) < INFRA_STEP_STALE) {
+            return ['ok' => false, 'msg' => 'already running (started ' . date('H:i', (int) $cur['at']) . ')',
+                    'state' => INFRA_STEP_RUNNING];
+        }
 
-    // Prerequisites. Running a step whose inputs are missing produces a confusing
-    // failure at a lower layer; refusing here names the actual blocker.
-    foreach (infra_pipeline_steps() as $s) {
-        if ($s['key'] !== $step) continue;
-        foreach ($s['requires'] as $req) {
-            $rq = infra_pipeline_stored([$domain])[$domain][$req] ?? null;
-            if (($rq['state'] ?? '') !== INFRA_STEP_OK) {
-                $lbl = '';
-                foreach (infra_pipeline_steps() as $t) if ($t['key'] === $req) $lbl = $t['label'];
-                return ['ok' => false, 'state' => '',
-                        'msg' => 'blocked: ' . $lbl . ' is not done yet' . (($rq === null) ? ' (and has never been checked)' : '')];
+        // Prerequisites. Running a step whose inputs are missing produces a confusing
+        // failure at a lower layer; refusing here names the actual blocker.
+        foreach (infra_pipeline_steps() as $s) {
+            if ($s['key'] !== $step) continue;
+            foreach ($s['requires'] as $req) {
+                $rq = infra_pipeline_stored([$domain])[$domain][$req] ?? null;
+                if (($rq['state'] ?? '') !== INFRA_STEP_OK) {
+                    $lbl = '';
+                    foreach (infra_pipeline_steps() as $t) if ($t['key'] === $req) $lbl = $t['label'];
+                    return ['ok' => false, 'state' => '',
+                            'msg' => 'blocked: ' . $lbl . ' is not done yet' . (($rq === null) ? ' (and has never been checked)' : '')];
+                }
             }
         }
-    }
 
-    infra_pipeline_set($domain, $step, INFRA_STEP_RUNNING, 'started ' . date('H:i:s'), true);
+        infra_pipeline_set($domain, $step, INFRA_STEP_RUNNING, 'started ' . date('H:i:s'), true);
+        return null;
+    });
+    if ($claim !== null) return $claim;
 
     require_once __DIR__ . '/hestia_fleet.php';
     require_once __DIR__ . '/provision.php';
