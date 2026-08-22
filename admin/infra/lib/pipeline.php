@@ -204,10 +204,14 @@ function infra_pipeline_derived(array $rec): array
         'upload' => ['state' => '', 'note' => ''],
         'zone'   => $g($has('cf_zone_id')),
         // A date on its own is a plan, not an event; the release itself is what these
-        // later statuses record.
-        'golive' => ['state' => in_array($status, ['releasing', 'awaiting-ns'], true) || $live
-                        ? INFRA_STEP_OK : INFRA_STEP_TODO,
-                     'note'  => $has('go_live_at') ? 'scheduled ' . $rec['go_live_at'] : ''],
+        // later statuses record. 'awaiting-ns' means the automatic registrar switch
+        // did NOT go through (no registrar module, or nothing on record) — that is a
+        // FAILURE to surface, not the same as 'releasing' (switch sent, propagating),
+        // or the button to retry it never comes back.
+        'golive' => $status === 'awaiting-ns'
+                        ? ['state' => INFRA_STEP_FAIL, 'note' => 'automatic nameserver switch failed — set nameservers manually at the registrar, or fix the registrar field and retry']
+                        : ['state' => (in_array($status, ['releasing'], true) || $live) ? INFRA_STEP_OK : INFRA_STEP_TODO,
+                           'note'  => $has('go_live_at') ? 'scheduled ' . $rec['go_live_at'] : ''],
         // `nameservers` holds the pair the ZONE EXPECTS, not proof the registrar was
         // changed to it — so it cannot stand in for this step. Only the state machine
         // reaching 'live' (Cloudflare reports the zone active) evidences the switch.
@@ -465,10 +469,17 @@ function infra_pipeline_refresh(string $step, string $batch = '', string $only =
             case 'golive':
                 // Pure state: has it been scheduled, or already released? Nothing to ask
                 // anyone. Overdue is a FAILURE — a date that passed with nothing having
-                // happened is the one state that looks fine and is not.
+                // happened is the one state that looks fine and is not. 'awaiting-ns' is
+                // ALSO a failure to surface: it means infra_golive_release() tried and the
+                // automatic registrar switch did not go through (no registrar module, or
+                // the registrar field was blank) — lumping it in with 'releasing' hid a
+                // stuck domain behind a green check and removed the only retry button.
                 $status = strtolower(trim((string) ($rec['status'] ?? '')));
                 $when   = trim((string) ($rec['go_live_at'] ?? ''));
-                if (in_array($status, ['releasing', 'awaiting-ns', 'live'], true)) {
+                if ($status === 'awaiting-ns') {
+                    $state = INFRA_STEP_FAIL;
+                    $note  = 'automatic nameserver switch failed — set nameservers manually at the registrar, or fix the registrar field and retry';
+                } elseif (in_array($status, ['releasing', 'live'], true)) {
                     $state = INFRA_STEP_OK;
                     $note  = $when !== '' ? 'released ' . $when : 'released';
                 } elseif ($when !== '' && $when < infra_today()) {

@@ -147,7 +147,12 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
         }
     }
 
-    if (empty($prov['registrar'])) $prov['registrar'] = infra_registrar_map()[$domain]['registrar'] ?? '';
+    // Only fill registrar from the acquisition map when it actually knows one — a
+    // domain marked owned by hand (never bought through that flow) has no map entry,
+    // and writing '' here would overwrite a registrar someone already recorded by
+    // hand (upsert treats a present key as an explicit value, not "leave alone").
+    $mappedRegistrar = infra_registrar_map()[$domain]['registrar'] ?? '';
+    if (empty($prov['registrar']) && $mappedRegistrar !== '') $prov['registrar'] = $mappedRegistrar;
     // 'staged' means infrastructure exists. Buying alone does not make it so — a
     // register-only run leaves the domain at 'owned', which is what it is.
     if ($doSite || $doCf) $prov['status'] = $ok ? 'staged' : 'partial';
