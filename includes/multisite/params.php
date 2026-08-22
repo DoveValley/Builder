@@ -232,7 +232,16 @@ function ms_ftp_preflight(array $row, int $timeout = 15): array {
 function ms_store_params_csv(string $dir, string $srcCsvPath): string {
     if (!is_dir($dir)) mkdir($dir, 0775, true);
     $dest = $dir . '/params.csv';
-    copy($srcCsvPath, $dest);
+    // tmp-then-rename, not a direct copy() onto the live path: a reader (status,
+    // built, or a background create_hosts.php/upload_sites.php/run_campaign.php
+    // that just launched) calling ms_parse_csv($dest) mid-copy could otherwise see
+    // a truncated file and report a spurious parse error or an incomplete row set.
+    $tmp = $dest . '.' . bin2hex(random_bytes(6)) . '.tmp';
+    if (@copy($srcCsvPath, $tmp) && @rename($tmp, $dest)) {
+        // ok
+    } else {
+        @unlink($tmp);
+    }
     $ver = ms_snapshot_params_version($dir, $srcCsvPath);
     if ($ver !== '') @file_put_contents($dir . '/params.version', $ver);   // pointer to the current version
     return $dest;
