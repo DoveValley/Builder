@@ -172,6 +172,23 @@ function infra_golive_release(string $domain, bool $force = false): array
     $ns = array_values(array_filter(array_map('trim', explode(',', $rec['nameservers'] ?? ''))));
     if (!$ns) return ['ok' => false, 'manual' => false, 'message' => 'no Cloudflare nameservers on record — stage it first', 'ns' => []];
 
+    // Recordkeeping only, not a rollback mechanism: capture whatever nameservers this
+    // domain answers with RIGHT NOW, one call before we ever switch them away. Only on
+    // the first switch — once pre_golive_ns is set, a later re-run of Go Live would see
+    // Cloudflare's OWN nameservers here (since that's what DNS now resolves), and
+    // writing that over the real original would destroy the one thing worth keeping.
+    if (($rec['pre_golive_ns'] ?? '') === '') {
+        $before = @dns_get_record($domain, DNS_NS);
+        if ($before) {
+            $preNs = array_values(array_unique(array_filter(array_map(
+                fn($r) => strtolower(rtrim($r['target'] ?? '', '.')), $before
+            ))));
+            if ($preNs) {
+                infra_state_upsert_domain(['domain' => $domain, 'pre_golive_ns' => implode(',', $preNs)]);
+            }
+        }
+    }
+
     $sw = infra_registrar_set_ns($domain, $ns, $rec['registrar'] ?? '');
     infra_state_upsert_domain([
         'domain'     => $domain,

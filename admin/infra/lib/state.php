@@ -141,6 +141,12 @@ const INFRA_STATE_COLS = ['domain','niche','server_id','cf_account_id','cf_zone_
                          // and re-tagging them tomorrow breaks nothing because there is
                          // no membership table, no batch record and no ids to keep in
                          // step. See lib/pipeline.php.
+    'pre_golive_ns',     // comma-separated NS this domain answered with the moment
+                         // BEFORE its first-ever nameserver switch — recordkeeping only,
+                         // nothing reads it back to revert. Written once by
+                         // infra_golive_release() and never overwritten, so a second
+                         // Go Live on an already-switched domain can't clobber it with
+                         // Cloudflare's own pair.
 ];
 
 /**
