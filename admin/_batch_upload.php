@@ -82,6 +82,47 @@
             '<div style="height:100%;width:' + pct + '%;background:' + color + ';transition:width .3s;"></div></div>';
     }
 
+    // checkOnce() is a single fetch-and-render pass, called both by the interval
+    // in pollUpload() and, once, by the page-load resume check at the bottom of
+    // this file — mirroring how the Research cities panel's own poll function
+    // resumes after a reload.
+    let upMisses = 0;
+    async function checkOnce(runId) {
+        const btn = document.getElementById('ms-up-btn');
+        const msg = document.getElementById('ms-up-msg');
+        const out = document.getElementById('ms-up-out');
+        try {
+            const s = await (await fetch('multisite_api.php?action=upload_status&run_id=' + encodeURIComponent(runId))).json();
+            upMisses = 0;
+            if (s.none)  { clearInterval(upTimer); out.textContent = 'Lost track of this run.'; btn.disabled = false; return; }
+            if (s.error) { clearInterval(upTimer); out.textContent = s.error; btn.disabled = false; return; }
+            renderUploadProgress(s);
+            out.textContent = s.log || 'Working…';
+            out.scrollTop = out.scrollHeight;
+            if (!s.done) return;
+            clearInterval(upTimer);
+            btn.disabled = false;
+            // A nonzero exit code catches a crash that never reached
+            // upload_sites.php's own summary line — the backend already folds an
+            // unprocessed-rows gap into s.failed once done, this is belt-and-suspenders.
+            const bad = (s.failed || 0) > 0 || (s.exit != null && s.exit !== 0);
+            if ((s.total || 0) === 0) { msg.textContent = 'No rows matched — nothing was uploaded.'; msg.style.color = '#92400e'; }
+            else { msg.textContent = bad ? 'Finished with failures — read the log.' : 'Done.'; msg.style.color = bad ? '#b91c1c' : '#166534'; }
+            upState();
+        } catch (e) {
+            if (++upMisses < 5) return;
+            clearInterval(upTimer);
+            btn.disabled = false;
+            msg.textContent = 'Lost contact with the server — the job may still be running; reload to check.';
+            msg.style.color = '#b91c1c';
+        }
+    }
+    function pollUpload(runId) {
+        clearInterval(upTimer);
+        upMisses = 0;
+        upTimer = setInterval(() => checkOnce(runId), 2000);
+    }
+
     window.msUploadSites = async function () {
         const btn = document.getElementById('ms-up-btn');
         const msg = document.getElementById('ms-up-msg');
@@ -107,36 +148,25 @@
         if (d.error) { btn.disabled = false; msg.textContent = d.error; msg.style.color = '#b91c1c'; return; }
 
         out.style.display = 'block'; out.textContent = 'Working…'; msg.textContent = 'Uploading…';
-        clearInterval(upTimer);
-        let misses = 0;   // consecutive failed polls — tolerate a blip, don't hang forever on one
-        upTimer = setInterval(async function () {
-            try {
-                const s = await (await fetch('multisite_api.php?action=upload_status&run_id=' + encodeURIComponent(d.run_id))).json();
-                misses = 0;
-                if (s.error) { clearInterval(upTimer); out.textContent = s.error; btn.disabled = false; return; }
-                renderUploadProgress(s);
-                out.textContent = s.log || 'Working…';
-                out.scrollTop = out.scrollHeight;
-                if (!s.done) return;
-                clearInterval(upTimer);
-                btn.disabled = false;
-                // A nonzero exit code catches a crash that never reached
-                // upload_sites.php's own summary line — the backend already folds an
-                // unprocessed-rows gap into s.failed once done, this is belt-and-suspenders.
-                const bad = (s.failed || 0) > 0 || (s.exit != null && s.exit !== 0);
-                if ((s.total || 0) === 0) { msg.textContent = 'No rows matched — nothing was uploaded.'; msg.style.color = '#92400e'; }
-                else { msg.textContent = bad ? 'Finished with failures — read the log.' : 'Done.'; msg.style.color = bad ? '#b91c1c' : '#166534'; }
-                upState();
-            } catch (e) {
-                if (++misses < 5) return;
-                clearInterval(upTimer);
-                btn.disabled = false;
-                msg.textContent = 'Lost contact with the server — the job may still be running; reload to check.';
-                msg.style.color = '#b91c1c';
-            }
-        }, 2000);
+        pollUpload(d.run_id);
     };
 
     upState();
+    // Resume any upload already in progress — reloading the page (or leaving and
+    // coming back) used to show nothing at all until it finished on its own, the
+    // same gap already fixed for Generate sites and Research cities.
+    fetch('multisite_api.php?action=upload_status').then(r => r.json()).then(d => {
+        if (!d || d.none || d.error) return;
+        const out = document.getElementById('ms-up-out');
+        out.style.display = 'block';
+        if (!d.done) {
+            document.getElementById('ms-up-btn').disabled = true;
+            document.getElementById('ms-up-msg').textContent = 'Uploading…';
+            pollUpload(d.run_id);
+        } else {
+            renderUploadProgress(d);
+            out.textContent = d.log || '';
+        }
+    }).catch(() => {});
 })();
 </script>

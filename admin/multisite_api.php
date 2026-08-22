@@ -227,89 +227,51 @@ switch ($action) {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         if (!is_file($paramsPath)) { echo json_encode(['error' => 'No target list stored — upload it first.']); break; }
         if (!ms_batch_servers($masterId, $batchId)) { echo json_encode(['error' => 'No deployment servers picked — choose them above first.']); break; }
-        $hdir = $batchDir . '/hosts';
-        if (!is_dir($hdir)) mkdir($hdir, 0775, true);
-        // Check-then-launch is one atomic step under the lock, so two near-simultaneous
-        // clicks can't both see "not running" and both start a host-creation run.
-        $hres = ms_with_launch_lock($hdir . '/.lock', function () use ($hdir, $masterId, $batchId) {
-            // One at a time: a live run leaves an .out file with no DONE marker.
-            foreach (glob($hdir . '/*.out') ?: [] as $f) {
-                if (strpos((string) @file_get_contents($f), '__MS_HOSTS_DONE__') === false
-                    && (time() - filemtime($f)) < 3600) {
-                    return ['error' => 'Host creation is already running.', 'run_id' => basename($f, '.out')];
-                }
-            }
-            $hid   = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
-            $out   = $hdir . '/' . $hid . '.out';
-            $forceArg = !empty($_POST['force']) ? ' --force' : '';
-            $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/create_hosts.php')
-                   . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId) . $forceArg
-                   . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_HOSTS_DONE__ $?" >> ' . escapeshellarg($out);
-            exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
-            return ['started' => true, 'run_id' => $hid];
-        });
-        echo json_encode($hres);
+        $hArgs = [$masterId, '--batch=' . $batchId];
+        if (!empty($_POST['force'])) $hArgs[] = '--force';
+        echo json_encode(ms_launch_job($batchDir . '/hosts', '__MS_HOSTS_DONE__', 'Host creation is already running.',
+            BASE_DIR . '/multisite/create_hosts.php', $hArgs));
         break;
 
     /* Phase 5 — upload what has already been generated. Detached like the others. */
     case 'upload':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         if (!ms_batch_built($masterId, $batchId)) { echo json_encode(['error' => 'Nothing generated yet — run Generate sites first.']); break; }
-        $udir = $batchDir . '/uploads';
-        if (!is_dir($udir)) mkdir($udir, 0775, true);
-        $ures = ms_with_launch_lock($udir . '/.lock', function () use ($udir, $masterId, $batchId) {
-            foreach (glob($udir . '/*.out') ?: [] as $f) {
-                if (strpos((string) @file_get_contents($f), '__MS_UPLOAD_DONE__') === false
-                    && (time() - filemtime($f)) < 3600) {
-                    return ['error' => 'An upload is already running.', 'run_id' => basename($f, '.out')];
-                }
-            }
-            $uid   = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
-            $out   = $udir . '/' . $uid . '.out';
-            $uf    = '';
-            if (!empty($_POST['force'])) $uf .= ' --force';
-            $ulim = max(0, (int) ($_POST['limit'] ?? 0));  if ($ulim > 0) $uf .= ' --limit=' . $ulim;
-            if (!empty($_POST['only'])) $uf .= ' --only=' . escapeshellarg((string) $_POST['only']);
-            $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/upload_sites.php')
-                   . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId) . $uf
-                   . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_UPLOAD_DONE__ $?" >> ' . escapeshellarg($out);
-            exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
-            return ['started' => true, 'run_id' => $uid];
-        });
-        echo json_encode($ures);
+        $uArgs = [$masterId, '--batch=' . $batchId];
+        if (!empty($_POST['force'])) $uArgs[] = '--force';
+        $ulim = max(0, (int) ($_POST['limit'] ?? 0)); if ($ulim > 0) $uArgs[] = '--limit=' . $ulim;
+        if (!empty($_POST['only'])) $uArgs[] = '--only=' . (string) $_POST['only'];
+        echo json_encode(ms_launch_job($batchDir . '/uploads', '__MS_UPLOAD_DONE__', 'An upload is already running.',
+            BASE_DIR . '/multisite/upload_sites.php', $uArgs));
         break;
 
     case 'upload_status':
-        $rid = preg_replace('/[^A-Za-z0-9\-]/', '', (string) ($_REQUEST['run_id'] ?? ''));
-        $f   = $batchDir . '/uploads/' . $rid . '.out';
-        if ($rid === '' || !is_file($f)) { echo json_encode(['error' => 'Unknown run.']); break; }
-        $txt = (string) @file_get_contents($f);
+        $run = ms_job_resolve_run($batchDir . '/uploads', (string) ($_REQUEST['run_id'] ?? ''));
+        if (!$run) { echo json_encode(['none' => true]); break; }
+        $j = ms_job_read_out($run['path'], '__MS_UPLOAD_DONE__');
         // Progress comes from parsing upload_sites.php's own printed lines — it has no
         // separate machine-readable channel, so the header count and the per-domain
         // ✓/✗ markers ARE the source of truth for "how far along is this".
         $total = 0;
-        if (preg_match('/(\d+) ready to upload/', $txt, $m)) $total = (int) $m[1];
-        preg_match_all('/file\(s\)\s*…\s*(✓|✗)/u', $txt, $mm);
+        if (preg_match('/(\d+) ready to upload/', $j['raw'], $m)) $total = (int) $m[1];
+        preg_match_all('/file\(s\)\s*…\s*(✓|✗)/u', $j['raw'], $mm);
         $marks  = $mm[1] ?? [];
         $ok     = count(array_filter($marks, fn($c) => $c === '✓'));
         $failed = count($marks) - $ok;
-        // The exit code the shell wrapper captured — catches a crash mid-run that a
-        // text-only check would miss. A row with no ✓/✗ mark at all once the run is
-        // actually done (marker present) is exactly as much a failure as an explicit
-        // ✗ — without this, 8 of 10 domains never uploaded because the process died
-        // could still show a partial bar with "0 failed" and no error at all.
-        $exit = null;
-        if (preg_match('/__MS_UPLOAD_DONE__ (\d+)/', $txt, $m)) $exit = (int) $m[1];
-        $done = $exit !== null;
-        if ($done && $total > count($marks)) $failed += ($total - count($marks));
+        // A row with no ✓/✗ mark at all once the run is actually done (marker
+        // present) is exactly as much a failure as an explicit ✗ — without this,
+        // 8 of 10 domains never uploaded because the process died could still show
+        // a partial bar with "0 failed" and no error at all.
+        if ($j['done'] && $total > count($marks)) $failed += ($total - count($marks));
         echo json_encode([
-            'done'      => $done,
-            'exit'      => $exit,
+            'run_id'    => $run['run_id'],
+            'done'      => $j['done'],
+            'exit'      => $j['exit'],
             'total'     => $total,
             'processed' => count($marks),
             'ok'        => $ok,
             'failed'    => $failed,
-            'log'       => trim(preg_replace('/__MS_UPLOAD_DONE__ \d+\s*$/', '', $txt)),
+            'log'       => $j['log'],
         ]);
         break;
 
@@ -381,47 +343,28 @@ switch ($action) {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         $gStep = (string) ($_POST['step'] ?? '');
         if (!in_array($gStep, ['zone', 'golive'], true)) { echo json_encode(['error' => 'Unknown step.']); break; }
-        $gdir = $batchDir . '/golive';
-        if (!is_dir($gdir)) mkdir($gdir, 0775, true);
-        $gres = ms_with_launch_lock($gdir . '/.lock', function () use ($gdir, $masterId, $batchId, $gStep) {
-            foreach (glob($gdir . '/*.out') ?: [] as $f) {
-                if (strpos((string) @file_get_contents($f), '__MS_GOLIVE_DONE__') === false
-                    && (time() - filemtime($f)) < 3600) {
-                    return ['error' => 'A "run all" for this batch is already in progress.', 'run_id' => basename($f, '.out')];
-                }
-            }
-            $gid   = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
-            $out   = $gdir . '/' . $gid . '.out';
-            $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/golive_run.php')
-                   . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId) . ' --step=' . escapeshellarg($gStep)
-                   . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_GOLIVE_DONE__ $?" >> ' . escapeshellarg($out);
-            exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
-            return ['started' => true, 'run_id' => $gid];
-        });
-        echo json_encode($gres);
+        echo json_encode(ms_launch_job($batchDir . '/golive', '__MS_GOLIVE_DONE__', 'A "run all" for this batch is already in progress.',
+            BASE_DIR . '/multisite/golive_run.php', [$masterId, '--batch=' . $batchId, '--step=' . $gStep]));
         break;
 
     case 'golive_run_status':
-        $rid = preg_replace('/[^A-Za-z0-9\-]/', '', (string) ($_REQUEST['run_id'] ?? ''));
-        $f   = $batchDir . '/golive/' . $rid . '.out';
-        if ($rid === '' || !is_file($f)) { echo json_encode(['error' => 'Unknown run.']); break; }
-        $txt = (string) @file_get_contents($f);
+        $run = ms_job_resolve_run($batchDir . '/golive', (string) ($_REQUEST['run_id'] ?? ''));
+        if (!$run) { echo json_encode(['none' => true]); break; }
+        $j = ms_job_read_out($run['path'], '__MS_GOLIVE_DONE__');
         // One line per domain, printed by golive_run.php as it goes: "  ✓ domain msg",
         // "  ✗ domain msg", or "  ⧗ domain msg" (blocked on an earlier step) — parsed
         // here so a partial or crashed run still shows exactly which domains it reached
         // and which of those failed, not just a final count that never arrives.
-        preg_match_all('/^ {2}(✓|✗|⧗) (\S+)/mu', $txt, $mm, PREG_SET_ORDER);
+        preg_match_all('/^ {2}(✓|✗|⧗) (\S+)/mu', $j['raw'], $mm, PREG_SET_ORDER);
         $failedDomains = [];
         foreach ($mm as $m) if ($m[1] !== '✓') $failedDomains[] = $m[2];
-        $exit = null;
-        if (preg_match('/__MS_GOLIVE_DONE__ (\d+)/', $txt, $m)) $exit = (int) $m[1];
-        $done = $exit !== null;
         echo json_encode([
-            'done'           => $done,
-            'exit'           => $exit,
+            'run_id'         => $run['run_id'],
+            'done'           => $j['done'],
+            'exit'           => $j['exit'],
             'processed'      => count($mm),
             'failed_domains' => $failedDomains,
-            'log'            => trim(preg_replace('/__MS_GOLIVE_DONE__ \d+\s*$/', '', $txt)),
+            'log'            => $j['log'],
         ]);
         break;
 
@@ -454,22 +397,10 @@ switch ($action) {
         break;
 
     case 'create_hosts_status':
-        $rid = preg_replace('/[^A-Za-z0-9\-]/', '', (string) ($_REQUEST['run_id'] ?? ''));
-        $f   = $batchDir . '/hosts/' . $rid . '.out';
-        if ($rid === '' || !is_file($f)) { echo json_encode(['error' => 'Unknown run.']); break; }
-        $txt  = (string) @file_get_contents($f);
-        // The exit code the shell wrapper captured — real signal even when the CLI
-        // script crashed before printing its own "N failed" summary line, which a
-        // text-only "does the log contain ' failed'" check would otherwise miss
-        // entirely and report a crashed run as a clean "Done."
-        $exit = null;
-        if (preg_match('/__MS_HOSTS_DONE__ (\d+)/', $txt, $m)) $exit = (int) $m[1];
-        $done = $exit !== null;
-        echo json_encode([
-            'done' => $done,
-            'exit' => $exit,
-            'log'  => trim(preg_replace('/__MS_HOSTS_DONE__ \d+\s*$/', '', $txt)),
-        ]);
+        $run = ms_job_resolve_run($batchDir . '/hosts', (string) ($_REQUEST['run_id'] ?? ''));
+        if (!$run) { echo json_encode(['none' => true]); break; }
+        $j = ms_job_read_out($run['path'], '__MS_HOSTS_DONE__');
+        echo json_encode(['run_id' => $run['run_id'], 'done' => $j['done'], 'exit' => $j['exit'], 'log' => $j['log']]);
         break;
 
     case 'save_servers':
@@ -676,53 +607,17 @@ switch ($action) {
     case 'research':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         if (!is_file($paramsPath)) { echo json_encode(['error' => 'No target list stored — upload it first.']); break; }
-        $rdir = $batchDir . '/research';
-        if (!is_dir($rdir)) mkdir($rdir, 0775, true);
-        $rrres = ms_with_launch_lock($rdir . '/.lock', function () use ($rdir, $masterId, $batchId) {
-            // One at a time: a running research process leaves an out file with no DONE marker.
-            foreach (glob($rdir . '/*.out') ?: [] as $f) {
-                if (strpos((string)@file_get_contents($f), '__MS_RESEARCH_DONE__') === false
-                    && (time() - filemtime($f)) < 3600) {
-                    return ['error' => 'Research is already running.', 'run_id' => basename($f, '.out')];
-                }
-            }
-            $rid  = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
-            $out  = $rdir . '/' . $rid . '.out';
-            $dry  = !empty($_POST['dry_run']) ? ' --dry-run' : '';
-            $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/research_cities.php')
-                   . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId) . $dry
-                   . ' > ' . escapeshellarg($out) . ' 2>&1; echo "__MS_RESEARCH_DONE__ $?" >> ' . escapeshellarg($out);
-            exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
-            return ['started' => true, 'run_id' => $rid];
-        });
-        echo json_encode($rrres);
+        $rArgs = [$masterId, '--batch=' . $batchId];
+        if (!empty($_POST['dry_run'])) $rArgs[] = '--dry-run';
+        echo json_encode(ms_launch_job($batchDir . '/research', '__MS_RESEARCH_DONE__', 'Research is already running.',
+            BASE_DIR . '/multisite/research_cities.php', $rArgs));
         break;
 
     case 'research_status':
-        $rdir = $batchDir . '/research';
-        $rid  = (string) ($_GET['run_id'] ?? '');
-        // No run_id given: find the latest research run for this batch, so a page
-        // reload while research is running can resume watching it instead of
-        // showing nothing — the way run_status already does for 'run'.
-        if ($rid === '') {
-            // Sort by FILENAME, not filemtime(): mtime only has second-level
-            // resolution, so two runs started under a second apart tie, and which
-            // one glob() happens to list first is not reliably the newer one. The
-            // filename's Ymd-His prefix already sorts correctly chronologically.
-            $files = glob($rdir . '/*.out') ?: [];
-            sort($files);
-            $latest = end($files) ?: null;
-            if ($latest === null) { echo json_encode(['none' => true]); break; }
-            $rid = basename($latest, '.out');
-        }
-        if (!preg_match('/^[0-9]{8}-[0-9]{6}-[a-f0-9]{6}$/', $rid)) { echo json_encode(['error' => 'Invalid run id.']); break; }
-        $out = $rdir . '/' . $rid . '.out';
-        if (!is_file($out)) { echo json_encode(['none' => true]); break; }
-        $txt  = (string)file_get_contents($out);
-        $done = false; $exit = null;
-        if (preg_match('/__MS_RESEARCH_DONE__ (\d+)/', $txt, $m)) { $done = true; $exit = (int)$m[1]; }
-        $txt = preg_replace('/\n?__MS_RESEARCH_DONE__ \d+\s*$/', '', $txt);
-        echo json_encode(['output' => $txt, 'done' => $done, 'exit' => $exit, 'run_id' => $rid]);
+        $run = ms_job_resolve_run($batchDir . '/research', (string) ($_GET['run_id'] ?? ''));
+        if (!$run) { echo json_encode(['none' => true]); break; }
+        $j = ms_job_read_out($run['path'], '__MS_RESEARCH_DONE__');
+        echo json_encode(['output' => $j['log'], 'done' => $j['done'], 'exit' => $j['exit'], 'run_id' => $run['run_id']]);
         break;
 
     // Master lint — flag authoring leaks (literal city/state/zip; master-domain URLs).

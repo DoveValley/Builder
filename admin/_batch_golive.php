@@ -192,6 +192,7 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
                 const r = await fetch('multisite_api.php?action=golive_run_status&run_id=' + encodeURIComponent(runId));
                 const d = await r.json();
                 misses = 0;
+                if (d.none) { clearInterval(golRunTimer); runMsg.textContent = 'Lost track of this run.'; return; }
                 if (d.error) { clearInterval(golRunTimer); runMsg.textContent = d.error; return; }
                 runOut.textContent = d.log || 'Working…';
                 runOut.scrollTop = runOut.scrollHeight;
@@ -278,5 +279,19 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
 
     window.msGoLiveRefreshAll = () => loadGoLive();
     loadGoLive();
+    // Resume any "▶ all" run already in progress for this batch — reloading the
+    // page mid-run used to show nothing at all until it finished on its own, the
+    // same gap already fixed for Generate sites and Research cities.
+    fetch('multisite_api.php?action=golive_run_status').then(r => r.json()).then(d => {
+        if (!d || d.none || d.error) return;
+        const runOut = document.getElementById('ms-golive-run-out');
+        runOut.style.display = 'block';
+        if (!d.done) {
+            document.getElementById('ms-golive-run-msg').textContent = 'Resuming a run already in progress…';
+            pollGoLiveRun(d.run_id, 'Batch run');
+        } else {
+            runOut.textContent = d.log || '';
+        }
+    }).catch(() => {});
 })();
 </script>

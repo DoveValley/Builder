@@ -66,46 +66,68 @@
     };
 
     // Polls the same way the run panel does: the work is detached, so the page is
-    // reading a log rather than holding a request open.
+    // reading a log rather than holding a request open. checkOnce() is a single
+    // fetch-and-render pass, called both by the interval below and, once, by the
+    // page-load resume check at the bottom of this file — mirroring how the
+    // Research cities panel's own poll function resumes after a reload.
+    let hostsMisses = 0;
+    async function checkOnce(runId) {
+        const btn = document.getElementById('ms-hosts-btn');
+        const msg = document.getElementById('ms-hosts-msg');
+        const out = document.getElementById('ms-hosts-out');
+        try {
+            const r = await fetch('multisite_api.php?action=create_hosts_status&run_id=' + encodeURIComponent(runId));
+            const d = await r.json();
+            hostsMisses = 0;
+            if (d.none)  { clearInterval(hostsTimer); btn.disabled = false; out.textContent = 'Lost track of this run.'; return; }
+            if (d.error) { clearInterval(hostsTimer); btn.disabled = false; out.textContent = d.error; return; }
+            out.textContent = d.log || 'Working…';
+            out.scrollTop = out.scrollHeight;
+            if (!d.done) return;
+
+            clearInterval(hostsTimer);
+            btn.disabled = false;
+            // A nonzero exit code catches a crash (uncaught error, killed process)
+            // that never reached create_hosts.php's own "N failed" summary line —
+            // the log-text regex alone used to read that case as a clean "Done."
+            const failed = / (\d+) failed/.exec(d.log || '');
+            const bad = (failed && parseInt(failed[1], 10) > 0) || (d.exit != null && d.exit !== 0);
+            msg.textContent = bad ? 'Finished with failures — read the log.' : 'Done.';
+            msg.style.color = bad ? '#b91c1c' : '#166534';
+            // The target list and the phase strip both changed; reload so neither is
+            // showing the state from before this ran.
+            if (!bad) setTimeout(() => window.location.reload(), 1200);
+        } catch (e) {
+            // One dropped poll self-heals on the next tick (misses resets on success);
+            // only a run of failures — a dead session, a server error — gives up and
+            // says so, instead of leaving the button stuck on "Working…" forever.
+            if (++hostsMisses < 5) return;
+            clearInterval(hostsTimer);
+            btn.disabled = false;
+            msg.textContent = 'Lost contact with the server — the job may still be running; reload to check.';
+            msg.style.color = '#b91c1c';
+        }
+    }
     function poll(runId) {
         clearInterval(hostsTimer);
-        let misses = 0;   // consecutive failed polls — tolerate a blip, don't hang forever on one
-        hostsTimer = setInterval(async function () {
-            const btn = document.getElementById('ms-hosts-btn');
-            const msg = document.getElementById('ms-hosts-msg');
-            const out = document.getElementById('ms-hosts-out');
-            try {
-                const r = await fetch('multisite_api.php?action=create_hosts_status&run_id=' + encodeURIComponent(runId));
-                const d = await r.json();
-                misses = 0;
-                if (d.error) { clearInterval(hostsTimer); btn.disabled = false; out.textContent = d.error; return; }
-                out.textContent = d.log || 'Working…';
-                out.scrollTop = out.scrollHeight;
-                if (!d.done) return;
-
-                clearInterval(hostsTimer);
-                btn.disabled = false;
-                // A nonzero exit code catches a crash (uncaught error, killed process)
-                // that never reached create_hosts.php's own "N failed" summary line —
-                // the log-text regex alone used to read that case as a clean "Done."
-                const failed = / (\d+) failed/.exec(d.log || '');
-                const bad = (failed && parseInt(failed[1], 10) > 0) || (d.exit != null && d.exit !== 0);
-                msg.textContent = bad ? 'Finished with failures — read the log.' : 'Done.';
-                msg.style.color = bad ? '#b91c1c' : '#166534';
-                // The target list and the phase strip both changed; reload so neither is
-                // showing the state from before this ran.
-                if (!bad) setTimeout(() => window.location.reload(), 1200);
-            } catch (e) {
-                // One dropped poll self-heals on the next tick (misses resets on success);
-                // only a run of failures — a dead session, a server error — gives up and
-                // says so, instead of leaving the button stuck on "Working…" forever.
-                if (++misses < 5) return;
-                clearInterval(hostsTimer);
-                btn.disabled = false;
-                msg.textContent = 'Lost contact with the server — the job may still be running; reload to check.';
-                msg.style.color = '#b91c1c';
-            }
-        }, 2000);
+        hostsMisses = 0;
+        hostsTimer = setInterval(() => checkOnce(runId), 2000);
     }
+
+    // Resume any host-creation run already in progress — reloading the page (or
+    // leaving and coming back) used to show nothing at all until it finished on
+    // its own, the same gap already fixed for Generate sites and Research cities.
+    fetch('multisite_api.php?action=create_hosts_status').then(r => r.json()).then(d => {
+        if (!d || d.none || d.error) return;
+        const out = document.getElementById('ms-hosts-out');
+        out.style.display = 'block';
+        if (!d.done) {
+            document.getElementById('ms-hosts-btn').disabled = true;
+            document.getElementById('ms-hosts-msg').textContent = 'Running…';
+            poll(d.run_id);
+        } else {
+            out.textContent = d.log || '';
+        }
+    }).catch(() => {});
 })();
 </script>

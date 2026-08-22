@@ -536,6 +536,96 @@ function ms_with_launch_lock(string $lockFile, callable $fn) {
     }
 }
 
+/**
+ * Check-then-launch ONE detached CLI job under a per-dir lock — the shared shape
+ * behind create_hosts/upload/golive_run/research, which each used to hand-roll
+ * the same ~15 lines: "is one already running" (an .out file in $dir with no
+ * DONE marker and not stale), the run-id, the setsid+sentinel wrapper, and the
+ * launch lock so a double-click (or a retried request on a slow connection)
+ * can't start two.
+ *
+ * $args are plain values — this escapes each one itself, so callers pass e.g.
+ * ['--batch=' . $batchId, '--force'], not pre-escaped strings. $sentinel is the
+ * DONE marker this job's own *_status action greps for (e.g. "__MS_HOSTS_DONE__")
+ * — must be unique per job type, since the "already running" scan looks for it
+ * across every .out file in the SAME directory.
+ *
+ * @return array{started:true,run_id:string}|array{error:string,run_id:string}
+ */
+function ms_launch_job(string $dir, string $sentinel, string $alreadyRunningMsg, string $script, array $args): array
+{
+    if (!is_dir($dir)) mkdir($dir, 0775, true);
+    return ms_with_launch_lock($dir . '/.lock', function () use ($dir, $sentinel, $alreadyRunningMsg, $script, $args) {
+        foreach (glob($dir . '/*.out') ?: [] as $f) {
+            if (strpos((string) @file_get_contents($f), $sentinel) === false
+                && (time() - filemtime($f)) < 3600) {
+                return ['error' => $alreadyRunningMsg, 'run_id' => basename($f, '.out')];
+            }
+        }
+        $runId  = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+        $out    = $dir . '/' . $runId . '.out';
+        // Created NOW, before exec() — setsid+sh+the redirect itself takes a moment
+        // to actually open $out, and without this the "already running" scan above
+        // can find nothing yet for a job that in truth just started a few
+        // milliseconds ago, letting a near-simultaneous second call slip through.
+        touch($out);
+        $argStr = implode(' ', array_map('escapeshellarg', $args));
+        // The sentinel line is deliberately NOT escapeshellarg'd as a whole — it has
+        // to stay inside double quotes so $? expands to the exit code of the command
+        // just before it, inside the sh -c context. escapeshellarg() would wrap it in
+        // single quotes instead, which suppresses that expansion and always prints a
+        // literal "$?".
+        $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg($script) . ' ' . $argStr
+               . ' > ' . escapeshellarg($out) . ' 2>&1; echo "' . $sentinel . ' $?" >> ' . escapeshellarg($out);
+        exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
+        return ['started' => true, 'run_id' => $runId];
+    });
+}
+
+/**
+ * Resolve which run a *_status action should read: the given run_id if valid and
+ * present, otherwise the latest run in $dir. Sorted by FILENAME (the run-id's own
+ * Ymd-His-hex prefix), not filemtime() — mtime only has second-level resolution,
+ * so two runs started under a second apart tie, and glob()'s listing order for
+ * that tie is not reliably the newer one.
+ *
+ * The "no run_id, find the latest" branch is what lets reloading the page (or
+ * just opening it fresh) resume watching an in-flight job. Only 'research' had
+ * this before; create_hosts/upload/golive_run showed nothing at all after a
+ * reload until the job finished on its own.
+ *
+ * @return array{run_id:string, path:string}|null null when there's nothing to show
+ */
+function ms_job_resolve_run(string $dir, string $requestedId): ?array
+{
+    $rid = preg_replace('/[^A-Za-z0-9\-]/', '', $requestedId);
+    if ($rid !== '') {
+        $path = $dir . '/' . $rid . '.out';
+        return is_file($path) ? ['run_id' => $rid, 'path' => $path] : null;
+    }
+    $files = glob($dir . '/*.out') ?: [];
+    sort($files);
+    $latest = end($files) ?: null;
+    return $latest ? ['run_id' => basename($latest, '.out'), 'path' => $latest] : null;
+}
+
+/**
+ * Read one job's .out file and split it into done/exit/log. $sentinel's captured
+ * exit code is real signal even when the CLI script crashed before printing its
+ * own summary line, which a text-only "does the log say failed" check would
+ * otherwise miss and read as a silent, fake "Done."
+ *
+ * @return array{done:bool, exit:?int, log:string, raw:string}
+ */
+function ms_job_read_out(string $path, string $sentinel): array
+{
+    $txt  = (string) @file_get_contents($path);
+    $exit = null;
+    if (preg_match('/' . preg_quote($sentinel, '/') . ' (\d+)/', $txt, $m)) $exit = (int) $m[1];
+    $log  = trim(preg_replace('/' . preg_quote($sentinel, '/') . ' \d+\s*$/', '', $txt));
+    return ['done' => $exit !== null, 'exit' => $exit, 'log' => $log, 'raw' => $txt];
+}
+
 /** How many target rows a batch holds (cheap line count — no CSV parse). */
 function ms_batch_target_count(string $masterId, string $batchId): int {
     $csv = ms_batch_dir($masterId, $batchId) . '/params.csv';
