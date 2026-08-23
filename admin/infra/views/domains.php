@@ -11,19 +11,37 @@
     // Tiles reflect the WHOLE fleet, not the filtered/paged slice. The acquisition
     // buckets come first because with 400 loaded-but-unbought rows the old
     // Live/Staged/Drift trio said nothing useful.
-    $tally = ['begin' => 0, 'ready' => 0, 'owned' => 0, 'staged' => 0, 'live' => 0, 'drift' => 0, 'failed' => 0];
-    foreach ($allRows as $r) {
+    $blankTally = ['begin' => 0, 'ready' => 0, 'owned' => 0, 'staged' => 0, 'live' => 0, 'drift' => 0, 'failed' => 0, 'all' => 0];
+    $tally = $blankTally;
+    // Same pass, same switch, split by niche as well as totalled — so a niche row
+    // and the all-fleet row above it can never disagree about the same domain.
+    $nicheTally = [];
+    $classify = function (array $r, array &$t): void {
         switch ($r['state']) {
-            case 'begin':                                     $tally['begin']++;  break;
-            case 'ready':                                     $tally['ready']++;  break;
-            case 'owned':                                     $tally['owned']++;  break;
-            case 'live':                                      $tally['live']++;   break;
+            case 'begin':                                     $t['begin']++;  break;
+            case 'ready':                                     $t['ready']++;  break;
+            case 'owned':                                     $t['owned']++;  break;
+            case 'live':                                      $t['live']++;   break;
             case 'buy-failed': case 'register-failed':
-            case 'partial':                                   $tally['failed']++; break;
-            default:                                          $tally['staged']++; break;
+            case 'partial':                                   $t['failed']++; break;
+            default:                                          $t['staged']++; break;
         }
-        if ($r['drift']) $tally['drift']++;
+        if ($r['drift']) $t['drift']++;
+        $t['all']++;
+    };
+    foreach ($allRows as $r) {
+        $classify($r, $tally);
+        $n = trim((string) ($r['niche'] ?? '')) ?: '';
+        if (!isset($nicheTally[$n])) $nicheTally[$n] = $blankTally;
+        $classify($r, $nicheTally[$n]);
     }
+    // Biggest niche first; the unset bucket always last, since it is a gap to close
+    // rather than a niche to compare against.
+    uksort($nicheTally, function ($a, $b) use ($nicheTally) {
+        if ($a === '') return 1;
+        if ($b === '') return -1;
+        return $nicheTally[$b]['all'] <=> $nicheTally[$a]['all'];
+    });
 
     /* search across the full set ------------------------------------------ */
     $q = trim((string) ($_GET['q'] ?? ''));
@@ -90,6 +108,22 @@
       <div class="ic-tile"><div class="n"><?= $tally['live'] ?></div><div class="l">Live</div></div>
       <div class="ic-tile"><div class="n"><?= $tally['drift'] + $tally['failed'] ?></div><div class="l">Needs attention</div></div>
     </div>
+
+    <?php /* One row per niche, same seven columns as the fleet row above it. */ ?>
+    <?php foreach ($nicheTally as $nName => $t): ?>
+    <div class="ic-tiles" style="margin-top:6px;">
+      <div class="ic-tile" style="background:#f8fafc;">
+        <div class="n" style="font-size:1.05rem;line-height:1.9;"><?= $nName === '' ? '<span style="color:#9ca3af">no niche</span>' : ih(ucfirst($nName)) ?></div>
+        <div class="l"><?= $t['all'] ?> domains</div>
+      </div>
+      <div class="ic-tile"><div class="n"><?= $t['begin'] ?></div><div class="l">Begin</div></div>
+      <div class="ic-tile"><div class="n"><?= $t['ready'] ?></div><div class="l">Ready to buy</div></div>
+      <div class="ic-tile"><div class="n"><?= $t['owned'] ?></div><div class="l">Owned</div></div>
+      <div class="ic-tile"><div class="n"><?= $t['staged'] ?></div><div class="l">Staged</div></div>
+      <div class="ic-tile"><div class="n"><?= $t['live'] ?></div><div class="l">Live</div></div>
+      <div class="ic-tile"><div class="n"><?= $t['drift'] + $t['failed'] ?></div><div class="l">Needs attention</div></div>
+    </div>
+    <?php endforeach; ?>
 
     <?php
     // Columns 8 and 9 (Cloudflare, VPS/host) and the drift flag come from the last

@@ -254,17 +254,26 @@ function render_content_blocks_editor($blocks) {
                         <div class="form-group" style="flex:1 1 160px;">
                             <label>Background color</label>
                             <input type="color" name="hs_bg_color[]" value="<?= h($block['hs_bg_color'] ?? '#f3f6f7') ?>">
-                            <span class="hint">Light gray (#f3f6f7) matches katypestpros.com</span>
+                            <span class="hint">Light gray (#f3f6f7) &mdash; a neutral page background</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Background texture / pattern (optional — overlays on color)</label>
-                        <?php if (!empty($block['hs_bg_photo'])): ?>
-                            <img src="/<?= h($block['hs_bg_photo']) ?>" style="max-height:60px;border-radius:4px;margin-bottom:6px;display:block;" onerror="this.style.display='none'">
-                        <?php endif; ?>
-                        <input type="hidden" id="hs_bg_photo_existing_<?= $i ?>" name="hs_bg_photo_existing[]" value="<?= h($block['hs_bg_photo'] ?? '') ?>">
-                        <?php photo_picker_btn('hs_bg_photo_existing[]', '', 'hs_bg_photo_existing_' . $i); ?>
-                        <span class="hint">Use a vector/texture image for a full-width background effect.</span>
+                        <?php $hsBg = (string) ($block['hs_bg_photo'] ?? ''); ?>
+                        <?php /* The preview is a container, not a bare <img>, so the picker can
+                                 swap it live and Remove can empty it without a page reload. */ ?>
+                        <div id="hs_bg_photo_prev_<?= $i ?>" style="margin-bottom:6px;">
+                            <?php if ($hsBg !== ''): ?>
+                                <img src="/<?= h($hsBg) ?>" style="max-height:60px;border-radius:4px;display:block;" onerror="this.style.display='none'">
+                            <?php endif; ?>
+                        </div>
+                        <input type="hidden" id="hs_bg_photo_existing_<?= $i ?>" name="hs_bg_photo_existing[]" value="<?= h($hsBg) ?>">
+                        <?php photo_picker_btn('hs_bg_photo_existing[]', 'hs_bg_photo_prev_' . $i, 'hs_bg_photo_existing_' . $i); ?>
+                        <button type="button" class="btn btn-small btn-secondary" style="margin-left:6px;"
+                                onclick="var i=document.getElementById('hs_bg_photo_existing_<?= $i ?>');var p=document.getElementById('hs_bg_photo_prev_<?= $i ?>');if(i)i.value='';if(p)p.innerHTML='';this.blur();">
+                            &#10005; Remove
+                        </button>
+                        <span class="hint">Optional. Add or change with <strong>Library</strong>, clear it with <strong>Remove</strong>, then Save. A vector/texture image gives a full-width background effect over the colour above.</span>
                     </div>
                     <div class="form-group">
                         <label>Image position</label>
@@ -1213,7 +1222,7 @@ function render_content_blocks_editor($blocks) {
                         <div class="form-group" style="flex:1 1 160px;">
                             <label>Icon circle background color</label>
                             <input type="color" name="sc_icon_bg[]" value="<?= h($block['sc_icon_bg'] ?? '#fef0e7') ?>">
-                            <span class="hint">Light peach (#fef0e7) matches katypestpros.com</span>
+                            <span class="hint">Light peach (#fef0e7) &mdash; a warm tinted background</span>
                         </div>
                     </div>
 

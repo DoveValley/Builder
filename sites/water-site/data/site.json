@@ -51,7 +51,7 @@
     "site_name": "{business}",
     "logo": "uploads/logo_elk-restoration-pros.png",
     "phone": "{phone}",
-    "city": "{city_state}",
+    "city": "",
     "topbar_text": "",
     "topbar_link": "",
     "menu": [
@@ -81,6 +81,10 @@
     "sticky": true,
     "info_items": [
       {
+        "icon": "🌐",
+        "text": "{city_state}"
+      },
+      {
         "icon": "🇺🇸",
         "text": "Proudly American"
       },
@@ -94,7 +98,9 @@
     "show_sponsored": true,
     "cta_text": "",
     "cta_url": "",
-    "favicon": "uploads/favicon_elk-restoration-pros.png"
+    "favicon": "uploads/favicon_elk-restoration-pros.png",
+    "header_layout": "standard",
+    "sr_bar_height": 64
   },
   "content_blocks": [
     {
@@ -109,7 +115,7 @@
       "hs_image_side": "right",
       "hs_bg_color": "#eef4fb",
       "hs_photo": "sites/water-site/uploads/media/home-1.webp",
-      "hs_bg_photo": "sites/water-site/uploads/media/home-2.webp",
+      "hs_bg_photo": "",
       "hs_mobile_order": "",
       "id": "home_hero",
       "ai_type_id": "hero_subtext",

@@ -54,6 +54,13 @@
 
         <form action="save.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="section" value="content">
+            <?php /* Static, and FIRST. index.php's submit listener would otherwise
+                     appendChild() the token at the END of the form — past PHP's
+                     max_input_vars on a page with thousands of block fields, so it
+                     was silently dropped and every save failed the CSRF check and
+                     bounced to the Header tab with no error. The listener reuses
+                     this input when it exists instead of appending a new one. */ ?>
+            <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
             <div style="margin-bottom:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
                 <button type="submit" class="btn">Save Content</button>
                 <a href="../index.php?show_blocks=1" target="_blank" class="btn btn-secondary">Preview Blocks &rarr;</a>
