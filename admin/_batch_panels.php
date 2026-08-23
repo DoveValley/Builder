@@ -103,6 +103,58 @@ if (!isset($csrfToken)) return;
             The identity scrub always runs &mdash; it removes the master's own domain, email,
             phone and business name from every clone, so it is not an option.
         </p>
+
+        <details style="margin-top:10px;">
+            <summary class="hint" style="cursor:pointer;color:#1e3a5f;font-weight:600;">What each step actually does</summary>
+            <div style="margin-top:8px;display:grid;gap:12px;">
+                <div>
+                    <strong style="font-size:.85rem;">Landing pages</strong>
+                    <ul class="hint" style="margin:4px 0 0;padding-left:18px;">
+                        <li>Generates one page per city on this domain's list, using the master's page templates</li>
+                        <li>Reuses whatever city research the master's Cities/Niche tab already gathered — doesn't re-fetch it per domain</li>
+                        <li>Comes from the <code>landing_cities</code> column in this batch's target list ("City, ST; City, ST")</li>
+                        <li>Untick this and a domain gets only its homepage + core pages, no city-specific landers</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong style="font-size:.85rem;">Visual identity</strong>
+                    <ul class="hint" style="margin:4px 0 0;padding-left:18px;">
+                        <li>Assigns each domain a color/font preset so batch-generated sites don't all look identical</li>
+                        <li>Reads the <code>theme_preset</code> column if the row specifies one; otherwise rotates through the master's presets automatically</li>
+                        <li>Presets are defined once, on the master's Theme tab — this step only applies them, never creates new ones</li>
+                        <li>Also generates that domain's logo and favicon in the assigned preset's colors</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong style="font-size:.85rem;">AI content</strong>
+                    <ul class="hint" style="margin:4px 0 0;padding-left:18px;">
+                        <li>Writes the actual page copy — headlines, service descriptions, about text — for each domain</li>
+                        <li>Fills in only what's tagged AI-eligible on the master; everything else stays exactly like the master</li>
+                        <li>Uses that row's business name, city, and state as the input, so every domain reads uniquely</li>
+                        <li>Caches what it generates per domain, so a later rebuild doesn't re-pay for content that hasn't changed</li>
+                        <li>Costs roughly $0.02&ndash;0.05 per site (free on a rebuild that hits the cache)</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong style="font-size:.85rem;">Images</strong>
+                    <ul class="hint" style="margin:4px 0 0;padding-left:18px;">
+                        <li>Stamps each domain's city name onto its hero image so photos aren't generic</li>
+                        <li>Slightly varies every other photo (renamed, bytes tweaked) so no two domains in the batch share an identical file</li>
+                        <li>Fetches one real photo of the city (as part of the AI content step) to use in the site's imagery</li>
+                        <li>Removes any uploaded photo the built site doesn't actually use</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong style="font-size:.85rem;">Site tags (analytics, Search Console)</strong>
+                    <ul class="hint" style="margin:4px 0 0;padding-left:18px;">
+                        <li>Writes that row's <code>analytics_id</code> into a real tracking snippet on every page</li>
+                        <li>Writes that row's <code>gsc_verification</code> token into the page <code>&lt;head&gt;</code> so Search Console can verify ownership</li>
+                        <li>Untick this and BOTH are deliberately cleared, not left alone — so a clone never accidentally inherits the master's own analytics account</li>
+                        <li>Comes straight from that domain's own row — nothing shared across the batch</li>
+                    </ul>
+                </div>
+            </div>
+        </details>
     </div>
 
     <p class="hint">Builds every valid row and keeps the result, ready to upload. Nothing goes to a
