@@ -24,6 +24,7 @@
 require_once __DIR__ . '/params.php';
 require_once __DIR__ . '/batch.php';
 require_once __DIR__ . '/landing.php';
+require_once __DIR__ . '/image_overlay.php';   // ms_image_settings_locate()
 
 /** Cell states. 'off' = will be skipped, which is often deliberate, so it is not a warning. */
 const MS_STEP_OK   = 'ok';
@@ -384,12 +385,16 @@ function ms_step_readiness(string $masterId, string $batchId): array {
 
     // ── Images ────────────────────────────────────────────────────────────────
     $media = array_filter(glob($siteDir . '/uploads/media/*') ?: [], 'is_file');
-    $heroStyleFile = $masterDir . '/hero_style.json';
+    // Resolve the hero style the same way the build does — per-master first, then
+    // the shared global. This used to check only the per-master path, so it read
+    // "default" even when a style was really in effect. ms_image_settings_locate()
+    // is the single place that order lives (includes/multisite/image_overlay.php).
+    $heroStyleScope = ms_image_settings_locate($siteDir, 'hero_style.json')['scope'];
     $withCityImg   = count(array_filter($cities, fn($c) => !empty($c['city_image'])));
     $imgItems = [
         ms_item('media library', 'The pool photos are varied from', (string) count($media), $media ? MS_STEP_OK : MS_STEP_WARN),
         ms_item('hero text',     'City name stamped onto the hero image',
-                is_file($heroStyleFile) ? 'styled' : 'default', MS_STEP_OK),
+                $heroStyleScope === 'master' ? 'styled' : ($heroStyleScope === 'global' ? 'styled (shared)' : 'default'), MS_STEP_OK),
         ms_item('city photos',   'A real photo of the city, where one was fetched',
                 $cities ? ($withCityImg . ' of ' . count($cities) . ' cities') : 'no cities yet',
                 $withCityImg > 0 ? MS_STEP_OK : MS_STEP_OFF),

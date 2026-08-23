@@ -228,6 +228,72 @@ function ms_is_content_image($val): bool {
 }
 
 /**
+ * Where a Gen-Image settings file lives for ONE master, and which copy is really
+ * in effect. `$name` is a bare filename — 'hero_style.json' or
+ * 'image_variation.json'.
+ *
+ * The build's rule (multisite/build_one.php, includes/generation/engine.php) is
+ * per-master-first, repo-global as fallback. This function is the ONE place that
+ * rule is written down, so the admin can never show or write a different file
+ * from the one the build reads — it used to: the Gen-Image tab read and wrote
+ * only the global copy while calling itself a per-master setting, so a lock made
+ * on one master silently applied to every master, and was ignored outright by any
+ * master that had its own file.
+ *
+ * `$masterDir` is the site directory (ACTIVE_SITE_DIR, or BASE_DIR/sites/{id}).
+ * Returns:
+ *   master → absolute per-master path (always the WRITE target)
+ *   global → absolute repo-global path (legacy/shared fallback, read-only now)
+ *   path   → the file actually in effect, or null when neither exists
+ *   scope  → 'master' | 'global' | 'none', matching `path`
+ */
+function ms_image_settings_locate(string $masterDir, string $name): array {
+    $name   = basename($name);
+    $master = rtrim($masterDir, '/') . '/multisite/' . $name;
+    $global = BASE_DIR . '/multisite/' . $name;
+    $path   = null; $scope = 'none';
+    // Same order as build_one.php: the master's own copy wins outright.
+    if (rtrim($masterDir, '/') !== '' && is_file($master)) { $path = $master; $scope = 'master'; }
+    elseif (is_file($global))                              { $path = $global; $scope = 'global'; }
+    return ['master' => $master, 'global' => $global, 'path' => $path, 'scope' => $scope];
+}
+
+/** Decode whichever copy is in effect for this master; [] when there is none. */
+function ms_image_settings_read(string $masterDir, string $name): array {
+    $loc = ms_image_settings_locate($masterDir, $name);
+    if ($loc['path'] === null) return [];
+    return json_decode((string) @file_get_contents($loc['path']), true) ?: [];
+}
+
+/**
+ * Write a Gen-Image settings file for one master, atomically. Always writes the
+ * PER-MASTER copy — the one the build prefers — so a save can only ever affect
+ * the master it was made on. Shared by admin/hero_style_save.php and
+ * admin/image_variation_save.php so the two cannot drift apart.
+ * Returns ['ok'=>bool, 'error'=>string, 'path'=>string].
+ */
+function ms_image_settings_write(string $masterDir, string $name, array $payload): array {
+    $masterDir = rtrim($masterDir, '/');
+    // No active site means no master to attribute the setting to. Refuse rather
+    // than fall back to the shared global file — writing that was the bug.
+    if ($masterDir === '' || !is_dir($masterDir)) {
+        return ['ok' => false, 'error' => 'No active site — open a site first.', 'path' => ''];
+    }
+    $loc = ms_image_settings_locate($masterDir, $name);
+    $dir = dirname($loc['master']);
+    if (!is_dir($dir) && !@mkdir($dir, 0775, true) && !is_dir($dir)) {
+        return ['ok' => false, 'error' => 'Could not create ' . basename($dir) . '/ for this site.', 'path' => ''];
+    }
+    $tmp = $loc['master'] . '.tmp.' . getmypid();
+    $json = json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    if ($json === false || @file_put_contents($tmp, $json) === false || !@rename($tmp, $loc['master'])) {
+        @unlink($tmp);
+        return ['ok' => false, 'error' => 'Could not write ' . basename($name) . '.', 'path' => ''];
+    }
+    return ['ok' => true, 'error' => '', 'path' => $loc['master']];
+}
+
+/**
  * The tunable ranges ms_perturb_image() jitters within, and their fallback
  * values — the exact numbers this whole mechanism used to be hardcoded to,
  * before the Gen-Image tab existed. A missing/invalid key here always falls

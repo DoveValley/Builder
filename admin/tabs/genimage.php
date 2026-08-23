@@ -29,17 +29,40 @@ foreach (glob(ACTIVE_SITE_DIR . '/uploads/{media,}/*.{jpg,jpeg,png,webp}', GLOB_
 usort($giSrcOptions, fn($a, $b) => $b['a'] <=> $a['a']);   // largest first
 $giSrcOptions = array_slice($giSrcOptions, 0, 25);
 
+// Both settings resolve per-master-first, repo-global as fallback — exactly the
+// order multisite/build_one.php uses, via the one shared helper, so this screen
+// can never show a different file from the one the build reads. Saving always
+// writes THIS master's own copy (see ms_image_settings_write()).
+$giStyleLoc = ms_image_settings_locate(ACTIVE_SITE_DIR, 'hero_style.json');
+$giVaryLoc  = ms_image_settings_locate(ACTIVE_SITE_DIR, 'image_variation.json');
+
 // Currently-locked overlay style, if any — seeds the controls so this screen
 // shows what the build actually uses, not just the form's own defaults.
-$giLockedStyle = @json_decode((string)@file_get_contents(BASE_DIR . '/multisite/hero_style.json'), true) ?: [];
+$giLockedStyle = ms_image_settings_read(ACTIVE_SITE_DIR, 'hero_style.json');
 $giLS = fn($k, $d) => $giLockedStyle[$k] ?? $d;
 
 // Currently-saved variation ranges, filled in against the real defaults so the
 // form always shows real numbers, never blanks.
-$giRanges = ms_image_variation_ranges(
-    @json_decode((string)@file_get_contents(BASE_DIR . '/multisite/image_variation.json'), true) ?: []
-);
-$giVaryLocked = is_file(BASE_DIR . '/multisite/image_variation.json');
+$giRanges     = ms_image_variation_ranges(ms_image_settings_read(ACTIVE_SITE_DIR, 'image_variation.json'));
+$giVaryLocked = $giVaryLoc['scope'] !== 'none';
+
+// One shared "where is this coming from" line, so the scope is never ambiguous.
+$giScopeNote = function (array $loc) {
+    if ($loc['scope'] === 'master') {
+        return '<span style="color:#065f46;">Saved for <strong>this site only</strong></span> &mdash; <code>'
+             . htmlspecialchars(ACTIVE_SITE_ID, ENT_QUOTES) . '/multisite/' . htmlspecialchars(basename($loc['master']), ENT_QUOTES)
+             . '</code>. No other master is affected.';
+    }
+    if ($loc['scope'] === 'global') {
+        return '<span style="color:#b45309;">Currently inheriting the shared fallback</span> <code>multisite/'
+             . htmlspecialchars(basename($loc['global']), ENT_QUOTES)
+             . '</code>, which every master without its own file uses. Saving below writes a copy for '
+             . '<strong>this site only</strong> and stops it inheriting.';
+    }
+    return '<span style="color:#94a3b8;">Nothing saved for this site and no shared fallback</span> &mdash; builds use the '
+         . 'built-in defaults. Saving writes <code>' . htmlspecialchars(ACTIVE_SITE_ID, ENT_QUOTES) . '/multisite/'
+         . htmlspecialchars(basename($loc['master']), ENT_QUOTES) . '</code>, for this site only.';
+};
 
 $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
 ?>
@@ -49,8 +72,9 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
     <h2>&#128248; Hero text overlay</h2>
     <p class="hint">Bakes two lines &mdash; <strong>keyword</strong> + <strong>city, ST</strong> &mdash; onto a hero image,
         the way every generated site will. Read-only here: nothing is written to any site's uploads until you press
-        <strong>Lock this style</strong>. Applies fleet-wide (every batch build uses this) unless a master has its own
-        override file.</p>
+        <strong>Lock this style</strong>. What you lock applies to <strong>every domain generated from this site</strong>,
+        and to no other master.</p>
+    <p class="hint" style="margin-top:8px;"><?= $giScopeNote($giStyleLoc) ?></p>
 
     <div style="display:grid;grid-template-columns:340px 1fr;gap:24px;align-items:start;margin-top:14px;">
         <div>
@@ -104,7 +128,7 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
             <div style="margin-top:14px;padding-top:14px;border-top:1px solid #e2e8f0;">
                 <button type="button" id="gi-lockbtn" class="btn btn-primary">&#128274; Lock this style into the build</button>
                 <div id="gi-lockmsg" class="hint" style="margin-top:8px;"></div>
-                <?php if ($giLockedStyle): ?><div class="hint" style="margin-top:4px;color:#065f46;">A locked style is active &mdash; every build uses it. Adjust above and re-lock to change.</div><?php endif; ?>
+                <?php if ($giLockedStyle): ?><div class="hint" style="margin-top:4px;">A locked style is active &mdash; every build of this site's domains uses it. Adjust above and re-lock to change.<br><?= $giScopeNote($giStyleLoc) ?></div><?php endif; ?>
             </div>
         </div>
         <div>
@@ -172,8 +196,11 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
     <div style="margin-top:16px;padding-top:14px;border-top:1px solid #e2e8f0;">
         <button type="button" id="gi-varybtn" class="btn btn-primary">Save these ranges</button>
         <div id="gi-varymsg" class="hint" style="margin-top:8px;"></div>
-        <?php if ($giVaryLocked): ?><div class="hint" style="margin-top:4px;color:#065f46;">Custom ranges are saved &mdash; every build uses them. Leaving all four at their original numbers is the same as never having saved this.</div>
-        <?php else: ?><div class="hint" style="margin-top:4px;color:#94a3b8;">Nothing saved yet &mdash; builds are using the original hardcoded numbers shown above.</div><?php endif; ?>
+        <div class="hint" style="margin-top:4px;">
+            <?php if ($giVaryLocked): ?>Custom ranges are in effect &mdash; every build of this site's domains uses them.
+                Leaving all four at their original numbers is the same as never having saved this.<br><?php endif; ?>
+            <?= $giScopeNote($giVaryLoc) ?>
+        </div>
     </div>
 </div>
 

@@ -212,12 +212,9 @@ function generate_city_pages(array $options = []): array {
     // seed-deterministic per city, no-ops without ImageMagick or on a dry run.
     $imgDiff   = in_array($options['image_diff'] ?? '', ['hero', 'full'], true) ? $options['image_diff'] : '';
     $imgCanRun = $imgDiff !== '' && empty($options['dry_run']) && function_exists('ms_convert_bin') && ms_convert_bin() !== null;
-    $imgStyle  = [];
-    if ($imgCanRun) {
-        foreach ([ACTIVE_SITE_DIR . '/multisite/hero_style.json', BASE_DIR . '/multisite/hero_style.json'] as $sf) {
-            if (is_file($sf)) { $imgStyle = json_decode((string)file_get_contents($sf), true) ?: []; break; }
-        }
-    }
+    // Same per-master-then-global resolution the multisite build and the Gen-Image
+    // tab use, through the one helper that owns that order (image_overlay.php).
+    $imgStyle  = $imgCanRun ? ms_image_settings_read(ACTIVE_SITE_DIR, 'hero_style.json') : [];
     $imgStamped = 0; $imgVaried = 0;
 
     // ── Per-city layout variation (opt-in) ───────────────────────────────────

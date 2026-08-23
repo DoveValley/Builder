@@ -256,22 +256,19 @@ if ($noAi) {
 // ── Per-site image differentiation (4c hero overlay + image pass) ─────────────
 // After AI (so nothing overwrites the repointed fields) and before the build.
 // Breaks the shared-uploads symlink first so per-site files never touch the snapshot.
-//   (1) bake keyword + "City, ST" onto each hero — style locked from the Test Lab
-//       (per-master hero_style.json overrides the global one);
+//   (1) bake keyword + "City, ST" onto each hero — style locked on the Gen-Image
+//       tab (this master's own hero_style.json, else the shared global one);
 //   (2) perturb bytes + city-rename every other content photo so no image is byte-
 //       or name-identical across sites (and the master city is stripped from names).
-$styleFile = BASE_DIR . '/sites/' . $masterId . '/multisite/hero_style.json';
-if (!is_file($styleFile)) $styleFile = BASE_DIR . '/multisite/hero_style.json';
-$heroStyle = is_file($styleFile) ? (json_decode((string)file_get_contents($styleFile), true) ?: []) : [];
-
-// Same per-master-override-else-global pattern as hero_style.json — the
-// crop/brightness/saturation/quality ranges ms_perturb_image() jitters within.
-// Missing/absent file = the original hardcoded defaults (see
-// ms_image_variation_defaults() in image_overlay.php), so a master that has
-// never touched the Gen-Image tab builds exactly as it always has.
-$varyFile = BASE_DIR . '/sites/' . $masterId . '/multisite/image_variation.json';
-if (!is_file($varyFile)) $varyFile = BASE_DIR . '/multisite/image_variation.json';
-$imageVariation = is_file($varyFile) ? (json_decode((string)file_get_contents($varyFile), true) ?: []) : [];
+// Both resolve through ms_image_settings_read() (includes/multisite/image_overlay.php),
+// the single place the per-master-then-global order is written down — the admin tab
+// reads through the same helper, so the two can never resolve to different files.
+// Neither file present = the original hardcoded defaults (see
+// ms_image_variation_defaults()), so a master that has never touched the Gen-Image
+// tab builds exactly as it always has.
+$masterSiteDir  = BASE_DIR . '/sites/' . $masterId;
+$heroStyle      = ms_image_settings_read($masterSiteDir, 'hero_style.json');
+$imageVariation = ms_image_settings_read($masterSiteDir, 'image_variation.json');
 
 $masterVars = (json_decode((string)@file_get_contents(BASE_DIR . '/sites/' . $masterId . '/data/site.json'), true) ?: [])['site_vars'] ?? [];
 $masterCitySlug = $masterVars['city_slug'] ?? '';

@@ -1,9 +1,11 @@
 <?php
 /**
  * Gen-Image tab · save the photo-variation ranges into the build.
- * Auth + CSRF. Writes multisite/image_variation.json, which multisite/build_one.php
- * reads (per-master override at sites/{master}/multisite/image_variation.json wins
- * if present) and ms_perturb_image() jitters within. A missing/blank file means the
+ * Auth + CSRF. Writes THIS master's own
+ * sites/{master}/multisite/image_variation.json — the copy multisite/build_one.php
+ * prefers, and the ranges ms_perturb_image() jitters within. It used to write the
+ * repo-global multisite/image_variation.json shared by every master; see the same
+ * note in hero_style_save.php. A missing file (neither master nor global) means the
  * original hardcoded defaults — see ms_image_variation_defaults() in
  * includes/multisite/image_overlay.php.
  */
@@ -31,11 +33,6 @@ $ranges = ms_image_variation_ranges([
     'quality_max'    => $_POST['quality_max']    ?? null,
 ]);
 
-$file = BASE_DIR . '/multisite/image_variation.json';
-if (!is_dir(dirname($file))) { http_response_code(500); echo json_encode(['error' => 'multisite/ directory missing.']); exit; }
-$tmp = $file . '.tmp.' . getmypid();
-if (file_put_contents($tmp, json_encode($ranges, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)) === false || !rename($tmp, $file)) {
-    @unlink($tmp);
-    echo json_encode(['error' => 'Could not write the ranges file.']); exit;
-}
-echo json_encode(['ok' => true, 'ranges' => $ranges]);
+$res = ms_image_settings_write(ACTIVE_SITE_DIR, 'image_variation.json', $ranges);
+if (!$res['ok']) { http_response_code(500); echo json_encode(['error' => $res['error']]); exit; }
+echo json_encode(['ok' => true, 'ranges' => $ranges, 'scope' => 'master', 'site' => ACTIVE_SITE_ID]);
