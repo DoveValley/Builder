@@ -58,6 +58,7 @@ if ($_msBase !== '' && is_dir($_msBase) && is_dir(rtrim($_msBase, '/') . '/data'
     define('STRUCTURE_LOG_FILE', $_b . '/data/structure_log.json');
     define('AI_REGISTRY_FILE',   $_b . '/data/ai_block_types.json');
     define('REDIRECTS_FILE',     $_b . '/data/redirects.json');
+    define('STARTERS_FILE',      $_b . '/data/page_starters.json');
     unset($_b);
 } elseif ($_activeSiteId
     && preg_match('/^[a-z0-9][a-z0-9-]{0,59}$/', $_activeSiteId)
@@ -76,6 +77,7 @@ if ($_msBase !== '' && is_dir($_msBase) && is_dir(rtrim($_msBase, '/') . '/data'
     define('STRUCTURE_LOG_FILE', BASE_DIR . '/sites/' . $_activeSiteId . '/data/structure_log.json');
     define('AI_REGISTRY_FILE',   BASE_DIR . '/sites/' . $_activeSiteId . '/data/ai_block_types.json');
     define('REDIRECTS_FILE',     BASE_DIR . '/sites/' . $_activeSiteId . '/data/redirects.json');
+    define('STARTERS_FILE',      BASE_DIR . '/sites/' . $_activeSiteId . '/data/page_starters.json');
 } else {
     define('ACTIVE_SITE_ID',   '');
     define('ACTIVE_SITE_DIR',  '');
@@ -91,11 +93,19 @@ if ($_msBase !== '' && is_dir($_msBase) && is_dir(rtrim($_msBase, '/') . '/data'
     define('STRUCTURE_LOG_FILE', BASE_DIR . '/data/structure_log.json');
     define('AI_REGISTRY_FILE',   BASE_DIR . '/data/ai_block_types.json');
     define('REDIRECTS_FILE',     BASE_DIR . '/data/redirects.json');
+    define('STARTERS_FILE',      BASE_DIR . '/data/page_starters.json');
 }
 unset($_activeSiteId, $_msBase);
 
-// Page starters are global (shared across all sites)
-define('STARTERS_FILE', BASE_DIR . '/data/page_starters.json');
+// The legacy SHARED starter library. Page starters used to be global — one file
+// for every site on the box, so editing a starter for one site changed it for all
+// of them. They are per-site now (STARTERS_FILE, defined per branch above, next to
+// its DATA_FILE/TEMPLATES_FILE siblings); this path is kept as a read-only
+// fallback so a site that has never edited its starters still inherits the shared
+// library instead of dropping to the bare code defaults. The first save on a site
+// writes that site's own copy and it stops inheriting. Nothing writes this file
+// any more except in legacy single-site mode, where it IS the site's own library.
+define('STARTERS_SHARED_FILE', BASE_DIR . '/data/page_starters.json');
 
 // Anthropic API key. Priority: .ai_key file (set via admin AI tab) → env var.
 // The explicit, admin-managed .ai_key intentionally wins over ambient env vars:

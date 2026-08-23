@@ -168,22 +168,52 @@ function default_starters(): array {
     ];
 }
 
+/**
+ * Which starter library is in effect for the ACTIVE site, and where it came from.
+ * Starters used to be global — one file for every site on the box — so editing a
+ * starter for one site silently changed it for all of them. They are per-site now:
+ *
+ *   site     → sites/{id}/data/page_starters.json, this site's own library
+ *   shared   → data/page_starters.json, the legacy shared library, READ-ONLY.
+ *              A site that has never edited its starters inherits this, so nobody
+ *              loses the library they already had.
+ *   defaults → neither file exists; the built-in default_starters() set.
+ *
+ * Writes always go to STARTERS_FILE (per-site), so the first save on a site
+ * materialises the full inherited list there and it stops inheriting.
+ * Returns ['path' => string ('' for defaults), 'scope' => 'site'|'shared'|'defaults'].
+ */
+function starters_source(): array {
+    $site   = defined('STARTERS_FILE')        ? STARTERS_FILE        : '';
+    $shared = defined('STARTERS_SHARED_FILE') ? STARTERS_SHARED_FILE : '';
+    // Site first. In legacy single-site mode the two paths are the same file, which
+    // is correct — there is only one site, so that library IS its own.
+    if ($site !== '' && is_file($site))     return ['path' => $site,   'scope' => 'site'];
+    if ($shared !== '' && is_file($shared)) return ['path' => $shared, 'scope' => 'shared'];
+    return ['path' => '', 'scope' => 'defaults'];
+}
+
 function starters_load(): array {
-    if (defined('STARTERS_FILE') && file_exists(STARTERS_FILE)) {
-        $raw = json_decode(file_get_contents(STARTERS_FILE), true);
+    $src = starters_source();
+    if ($src['path'] !== '') {
+        $raw = json_decode((string) @file_get_contents($src['path']), true);
         if (is_array($raw) && !empty($raw)) return $raw;
     }
     return default_starters();
 }
 
+/** Always writes THIS site's own library, never the shared one (except in legacy
+ *  single-site mode, where STARTERS_FILE already is the shared path). */
 function starters_save(array $starters): bool {
-    if (!defined('STARTERS_FILE')) return false;
+    if (!defined('STARTERS_FILE') || STARTERS_FILE === '') return false;
     $dir = dirname(STARTERS_FILE);
-    if (!is_dir($dir)) mkdir($dir, 0755, true);
+    if (!is_dir($dir) && !@mkdir($dir, 0775, true) && !is_dir($dir)) return false;
     $content = json_encode(array_values($starters), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    if ($content === false) return false;
     $tmp = STARTERS_FILE . '.tmp.' . getmypid();
-    if (file_put_contents($tmp, $content) === false) return false;
-    return rename($tmp, STARTERS_FILE);
+    if (@file_put_contents($tmp, $content) === false) { @unlink($tmp); return false; }
+    if (!@rename($tmp, STARTERS_FILE)) { @unlink($tmp); return false; }
+    return true;
 }
 
 function default_block_data(string $type): array {

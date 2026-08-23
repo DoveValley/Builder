@@ -15,8 +15,27 @@ $cats = starter_categories();
         <h2>Add a New Page Starter</h2>
         <p class="hint" style="margin-bottom:18px;">
             Starters are block-sequence skeletons that pre-populate a new page when you create it.
-            They are global — shared across all sites.
+            They belong to <strong>this site</strong> — editing one here never changes another site's.
         </p>
+        <?php $stSrc = starters_source(); ?>
+        <?php if ($stSrc['scope'] === 'shared'): ?>
+        <p class="hint" style="margin:-8px 0 18px;color:#b45309;">
+            This site is still <strong>inheriting the shared starter library</strong> — it has no
+            starters of its own yet. The moment you add, edit, duplicate or delete one, this site
+            gets its own copy of the whole list and stops inheriting. Other sites are unaffected
+            either way.
+        </p>
+        <?php elseif ($stSrc['scope'] === 'defaults'): ?>
+        <p class="hint" style="margin:-8px 0 18px;color:#94a3b8;">
+            Showing the built-in default starters — nothing saved for this site yet. Your first
+            change writes this site's own library.
+        </p>
+        <?php else: ?>
+        <p class="hint" style="margin:-8px 0 18px;color:#065f46;">
+            This site has its own starter library
+            (<code><?= h(ACTIVE_SITE_ID !== '' ? ACTIVE_SITE_ID . '/data/page_starters.json' : 'data/page_starters.json') ?></code>).
+        </p>
+        <?php endif; ?>
         <form action="starters_save.php" method="post">
             <input type="hidden" name="action" value="add">
             <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">

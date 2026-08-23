@@ -1046,7 +1046,8 @@ tr.ms-rec td { background: #fff3cd !important; }
 
 <section id="tab-starters">
     <h2>Tab: Page Starters</h2>
-    <p>Pre-built page layouts — block sequence skeletons that pre-populate a new page when you apply one. Starters are applied once; the result becomes a regular editable page. The original starter is never modified. Starters are global — shared across all sites in the system.</p>
+    <p>Pre-built page layouts — block sequence skeletons that pre-populate a new page when you apply one. Starters are applied once; the result becomes a regular editable page. The original starter is never modified. Starters are <strong>per-site</strong>: each site has its own library, and editing one never affects another site.</p>
+    <div class="callout tip"><p><strong>Per-site, not global (changed 2026-08-23).</strong> Starters used to live in one shared <code>data/page_starters.json</code> for the whole box, so editing a starter for one site silently changed it for every site. Each site now keeps its own <code>sites/{id}/data/page_starters.json</code> (<code>STARTERS_FILE</code>, defined per branch in <code>config.php</code> alongside its <code>DATA_FILE</code>/<code>TEMPLATES_FILE</code> siblings). A site that has never edited its starters still <strong>inherits the shared library read-only</strong>, so nothing was lost in the change and no migration was needed; the first add/edit/duplicate/delete writes that site's own copy of the whole list and it stops inheriting. The tab says which of the three is in effect. Resolution lives in <code>starters_source()</code> (<code>includes/page_starters.php</code>): site → shared → built-in defaults.</p></div>
 
     <h3>Add a New Starter</h3>
     <p>Quick-add form: enter a name, choose a category (Training, Universal, etc.), and add an optional short description (shown in the picker when applying a starter to a page). Click <strong>Add Starter</strong> — then click <strong>Edit</strong> on the new row to build its block sequence.</p>
@@ -2060,7 +2061,7 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
         <p><strong>Applying a starter overwrites existing blocks.</strong> Only use this on a blank or throwaway homepage — it cannot be undone without re-entering your content.</p>
     </div>
     <h3>Managing starters</h3>
-    <p>Starters are created and edited in the <strong>Page Starters</strong> tab. They are global — shared across all sites in the system. A starter only stores block types and order; it does not store field content. When applied, blocks are created with default field values ready to fill in.</p>
+    <p>Starters are created and edited in the <strong><a href="#tab-starters">Page Starters</a></strong> tab. Each site has its own library (a site that has never edited them inherits the shared one read-only). A starter only stores block types and order; it does not store field content. When applied, blocks are created with default field values ready to fill in.</p>
     <p>To build a new starter: go to Page Starters → Add a New Starter → give it a name and category → Edit → add blocks in order → Save.</p>
 </section>
 
