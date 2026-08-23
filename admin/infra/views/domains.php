@@ -318,6 +318,13 @@
             <input type="date" name="spread_from" value="<?= ih(infra_today()) ?>" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:8px">
             <button class="btn sec" type="submit" name="action" value="schedule_buys">Schedule</button>
             <span style="color:#d1d5db">|</span>
+            <?php /* Taken names do not belong in a buy queue, but deleting them loses the
+                     fact that they were checked — so D.Finder can propose them again next
+                     week. This hands them back with that verdict attached. */ ?>
+            <button class="btn sec" type="submit" name="action" value="to_dfinder"
+                    title="Adds each as a D.Finder candidate marked Not available, then removes it here"
+                    onclick="return confirm('Move the ticked TAKEN domains to D.Finder as “Not available” and remove them from this table?\n\nOnly rows that were checked, came back taken and were never bought are moved — anything else is skipped and reported.')">&rarr; D.Finder (not available)</button>
+            <span style="color:#d1d5db">|</span>
             <button class="btn sec" type="submit" name="action" value="remove" style="color:#991b1b" onclick="return confirm('Remove the ticked domains from the table? Only untracks them here — no infrastructure is touched.')">Remove</button>
           </div>
 

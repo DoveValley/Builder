@@ -297,3 +297,46 @@ function infra_state_schedule_buys(array $domains, int $perDay, string $startDat
     }
     return $i;
 }
+
+/* ── D.Finder workbench state ──────────────────────────────────────────────
+   The blob is OPAQUE by design — the React workbench owns its shape and repairs
+   older ones in normalize() on load. These two are storage only, so more than one
+   caller can reach it without repeating the table, the key and the size cap.
+   Anything that writes MEANING into the blob (adding a candidate, say) belongs
+   with the caller, not here. */
+
+const INFRA_DFINDER_KEY = 'default';
+const INFRA_DFINDER_MAX = 4194304;   // 4 MB — a runaway loop, not a real workbench
+
+/** The saved workbench state, or null when nothing has been saved yet. */
+function infra_dfinder_load(): ?array
+{
+    $stmt = infra_state_db()->prepare('SELECT v FROM dfinder WHERE k = ?');
+    $stmt->execute([INFRA_DFINDER_KEY]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    if (!$row) return null;
+    $s = json_decode((string) $row['v'], true);
+    return is_array($s) ? $s : null;
+}
+
+/**
+ * Save workbench state. Refuses anything that is not recognisably workbench state:
+ * a bad blob would come back on the next load, the workbench would fall through to
+ * a fresh empty state, and the real one would be gone with nothing said.
+ * @return string '' on success, otherwise why it was refused
+ */
+function infra_dfinder_save(array $state): string
+{
+    if (!isset($state['niches']) || !is_array($state['niches'])) {
+        return 'that does not look like workbench state (no niches)';
+    }
+    $raw = json_encode($state, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    if ($raw === false) return 'state could not be encoded';
+    if (strlen($raw) > INFRA_DFINDER_MAX) {
+        return 'state is too large to save (' . round(strlen($raw) / 1048576, 1) . ' MB)';
+    }
+    infra_state_db()
+        ->prepare('REPLACE INTO dfinder (k, v, ts) VALUES (?, ?, ?)')
+        ->execute([INFRA_DFINDER_KEY, $raw, time()]);
+    return '';
+}
