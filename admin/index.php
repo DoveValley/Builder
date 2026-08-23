@@ -44,7 +44,7 @@ $blogSettings = $data['blog_settings'];
 $tab = $_GET['tab'] ?? 'header';
 // 'theme' is kept in this list only so the legacy redirect below can see it — same
 // reason 'schedule'/'popups' are still here. It is no longer a tab.
-if (!in_array($tab, ['header', 'theme', 'genvisual', 'content', 'pages', 'templates', 'keywords', 'cities', 'citypages', 'genimage', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'niche_brief', 'multisite'], true)) {
+if (!in_array($tab, ['header', 'theme', 'genvisual', 'content', 'pages', 'templates', 'keywords', 'cities', 'citypages', 'genimage', 'picdrop', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'niche_brief', 'multisite'], true)) {
     $tab = 'header';
 }
 // The Theme / Colors tab was renamed Gen-Visual — keep old links and bookmarks working.
@@ -289,6 +289,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'citypages' ? 'active' : '' ?>" href="?tab=citypages">Landing City Page Gen</a>
         <a class="tab-link <?= $tab === 'genimage' ? 'active' : '' ?>" href="?tab=genimage">&#128248; Gen-Image</a>
         <a class="tab-link <?= $tab === 'genvisual' ? 'active' : '' ?>" href="?tab=genvisual">&#127912; Gen-Visual</a>
+        <a class="tab-link <?= $tab === 'picdrop' ? 'active' : '' ?>" href="?tab=picdrop">&#128206; Pic Drop</a>
         <span style="flex-basis:100%;height:0;border-top:1px solid #e5e7eb;margin:0 -4px;"></span>
         <a class="tab-link <?= $tab === 'ai' ? 'active' : '' ?>" href="?tab=ai">&#127916; AI Generation</a>
         <a class="tab-link <?= $tab === 'ai_review' ? 'active' : '' ?>" href="?tab=ai_review">&#128269; Content Review</a>
@@ -326,6 +327,9 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- ================= GEN-VISUAL TAB (was Theme / Colors) ================= -->
     <?php require __DIR__ . '/tabs/genvisual.php'; ?>
+
+    <!-- ================= PIC DROP TAB ================= -->
+    <?php require __DIR__ . '/tabs/picdrop.php'; ?>
 
     <!-- ================= BLOG TAB ================= -->
     <?php require __DIR__ . '/tabs/blog.php'; ?>

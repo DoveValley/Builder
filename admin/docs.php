@@ -199,6 +199,7 @@ tr.ms-rec td { background: #fff3cd !important; }
         <a href="#tab-footer">Footer</a>
         <a href="#tab-popups">Popups</a>
         <a href="#tab-media">Media</a>
+        <a href="#tab-picdrop">Pic Drop</a>
         <a href="#tab-seo">SEO &amp; Sitemap</a>
         <a href="#tab-schedule">Schedule</a>
         <a href="#tab-starters">Page Starters</a>
@@ -959,6 +960,41 @@ tr.ms-rec td { background: #fff3cd !important; }
     <p>Each popup has: headline, body text, optional image, optional button (label + URL), and an optional email capture form. The popup renders as a centered modal with a dark overlay. Visitors can dismiss it with the X button or by clicking outside — their dismissal is stored in <code>localStorage</code> so the popup does not reappear on subsequent visits within the same browser.</p>
     <div class="callout tip">
         <p><strong>Tip:</strong> Keep popup copy short and the offer clear. Popups with a single focused CTA (e.g., "Get the free guide") convert better than multi-purpose ones.</p>
+    </div>
+</section>
+
+<section id="tab-picdrop">
+    <h2>Tab: Pic Drop</h2>
+    <p>Every picture on the site in one list, page by page — site-wide blocks first, then Home, then core pages, then every generated landing page. Expand a page to see its images; drop a new file on any slot to replace it.</p>
+
+    <h3>What a drop does</h3>
+    <ol>
+        <li>Validates the file by its real content (not its extension) and rejects anything that is not a JPG, PNG, GIF or WebP.</li>
+        <li><strong>Resizes it to the exact dimensions of the image already in that slot.</strong> If the shapes differ by more than 2% it centre-crops to cover, so the slot is filled with no letterboxing and no distortion. There is no per-field size table to maintain — the slot's current image <em>is</em> the spec. An empty slot keeps the dropped image's own size (capped at 1800px wide).</li>
+        <li>Encodes it to WebP at quality 82 and files it in the media library under a unique name, tagged <code>picdrop</code>.</li>
+        <li>Writes the path into the page JSON.</li>
+    </ol>
+
+    <h3>Why it is a separate tab and not part of the block editor</h3>
+    <p>The Home tab posts every field of every block in one form — around 6,200 inputs on a busy site — and PHP silently discards anything past <code>max_input_vars</code> / <code>max_multipart_body_parts</code>. Pic Drop posts <strong>one field per drop</strong> to <code>admin/picdrop_api.php</code>, so no amount of page growth can truncate it.</p>
+
+    <h3>Alt text</h3>
+    <p>Each photo slot shows its alt field inline, saved on blur. Changing a picture makes its old alt text wrong, so the two are edited in the same place. Note the alt key is not uniformly <code>&lt;field&gt;_alt</code> — <code>image_text</code> pairs <code>it_photo</code> with <code>it_alt</code>; the mapping lives in <code>picdrop_fields()</code>. Decorative backgrounds (<code>hs_bg_photo</code>, <code>bg_photo</code>) have no alt field and say so.</p>
+
+    <h3>Replacing the same picture everywhere</h3>
+    <p>Landing pages are template clones, so one image is usually shared across many of them. When a slot's picture appears elsewhere in the same kind of field, a checkbox offers to replace all of them and states the count. It is on by default. Matching is on image path <em>and</em> field type, so swapping a hero never rewrites a body image that happens to use the same file.</p>
+
+    <h3>Burn-in screening</h3>
+    <p>An optional toggle runs the four-variant OCR check on each dropped image and refuses anything with text baked into the pixels, naming the words it read. Off by default because it is slow; disabled entirely if <code>tesseract</code> is not installed.</p>
+
+    <h3>Rebuild</h3>
+    <p>Page JSON is not the built site. After any change a warning appears and the <strong>Rebuild static site</strong> button re-runs <code>generate_static.php</code> for the active site.</p>
+
+    <h3>Which fields it manages</h3>
+    <p>A deliberate whitelist in <code>picdrop_fields()</code>: <code>hs_photo</code>, <code>hs_bg_photo</code>, <code>it_photo</code>, <code>fs_photo</code>, <code>hg_photo</code>, <code>wb_photo</code>, <code>if_photo</code>, <code>lg_photo</code>, <code>mi_info_photo</code>, <code>mi_photo</code>, <code>photo</code>, <code>bg_photo</code>. Left out on purpose: <code>icon</code> (the renderer puts it in a ~60px circular badge, so a photograph there looks broken), logos and favicons (Header / Gen-Visual own those), <code>og_image</code> (SEO tab, never rendered on the page), popup images, and blog featured images.</p>
+
+    <div class="callout tip">
+        <p><strong>Note:</strong> writes preserve each file's existing JSON indent. <code>site.json</code> is stored at 2 spaces on some sites and 4 on others; re-encoding with the wrong one turns a one-field change into a whole-file diff.</p>
     </div>
 </section>
 

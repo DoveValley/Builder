@@ -26,58 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Use per-site paths when a site is active; fall back to root-level for single-site installs
-$_mediaSiteRoot = (ACTIVE_SITE_DIR !== '' ? ACTIVE_SITE_DIR : BASE_DIR);
-define('MEDIA_DIR',  $_mediaSiteRoot . '/uploads/media/');
-define('MEDIA_JSON', $_mediaSiteRoot . '/data/media.json');
-unset($_mediaSiteRoot);
-define('MAX_WIDTH',  1800);
+// MEDIA_DIR / MEDIA_JSON / MAX_WIDTH and media_load/media_save/img_optimize now live
+// in includes/media_lib.php so picdrop_api.php can share them rather than re-declare.
+require_once __DIR__ . '/../includes/media_lib.php';
 
 header('Content-Type: application/json');
-
-function media_load(): array {
-    if (!file_exists(MEDIA_JSON)) return [];
-    $d = json_decode(file_get_contents(MEDIA_JSON), true);
-    return is_array($d) ? $d : [];
-}
-
-function media_save(array $items): void {
-    $json = json_encode(array_values($items), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-    $tmp  = MEDIA_JSON . '.tmp.' . getmypid();
-    if (file_put_contents($tmp, $json) !== false) {
-        rename($tmp, MEDIA_JSON);
-    } else {
-        @unlink($tmp);
-    }
-}
-
-function img_optimize(string $tmp, string $dest, string $mime): bool {
-    if (!extension_loaded('gd')) return copy($tmp, $dest);
-    $src = match($mime) {
-        'image/jpeg' => @imagecreatefromjpeg($tmp),
-        'image/png'  => @imagecreatefrompng($tmp),
-        'image/webp' => @imagecreatefromwebp($tmp),
-        'image/gif'  => @imagecreatefromgif($tmp),
-        default      => false,
-    };
-    if (!$src) return copy($tmp, $dest);
-
-    $ow = imagesx($src); $oh = imagesy($src);
-    if ($ow > MAX_WIDTH) {
-        $nw = MAX_WIDTH;
-        $nh = (int) round($oh * MAX_WIDTH / $ow);
-        $dst = imagecreatetruecolor($nw, $nh);
-        imagealphablending($dst, false);
-        imagesavealpha($dst, true);
-        imagefill($dst, 0, 0, imagecolorallocatealpha($dst, 0, 0, 0, 127));
-        imagecopyresampled($dst, $src, 0, 0, 0, 0, $nw, $nh, $ow, $oh);
-        imagedestroy($src);
-        $src = $dst;
-    }
-    $ok = imagewebp($src, $dest, 82);
-    imagedestroy($src);
-    return $ok;
-}
 
 function compute_dhash(string $filepath, string $mime): ?string {
     if (!extension_loaded('gd')) return null;
@@ -410,16 +363,34 @@ if ($action === 'usage') {
         $scanBlock($block, 'Home');
     }
 
-    // Landing pages
-    foreach ($siteData['pages'] ?? [] as $page) {
+    // One page's blocks + its own OG image, whichever file it came out of.
+    $scanPage = function(array $page) use ($scanBlock, $addUsage): void {
         $rawTitle = $page['title'] ?? ($page['slug'] ?? 'Page');
         $title    = preg_replace('/\s*[|\-–—].*$/', '', trim($rawTitle));
         foreach ($page['content_blocks'] ?? [] as $block) {
-            $scanBlock($block, $title);
+            if (is_array($block)) $scanBlock($block, $title);
         }
         $pageOg = $page['seo']['og_image'] ?? '';
-        if ($pageOg && str_starts_with($pageOg, 'uploads/')) {
+        // Same two prefixes $scanBlock accepts — checking only 'uploads/' missed every
+        // image stored in the usual 'sites/<id>/uploads/...' form.
+        if ($pageOg && (str_starts_with($pageOg, 'uploads/') || str_starts_with($pageOg, 'sites/'))) {
             $addUsage($pageOg, $title . ' › OG Image');
+        }
+    };
+
+    // Core pages — these live inside site.json under "pages".
+    foreach ($siteData['pages'] ?? [] as $page) {
+        if (is_array($page)) $scanPage($page);
+    }
+
+    // Generated landing pages — one file each under data/pages/. These were missed
+    // entirely: the loop above was labelled "landing pages" but site.json has never
+    // held them, so "where is this image used?" only ever saw the homepage and the
+    // handful of core pages. On appliance-site that hid 153 pages' worth of usage.
+    if (defined('PAGES_DIR')) {
+        foreach (glob(PAGES_DIR . '*.json') ?: [] as $pageFile) {
+            $page = json_decode((string) @file_get_contents($pageFile), true);
+            if (is_array($page)) $scanPage($page);
         }
     }
 
