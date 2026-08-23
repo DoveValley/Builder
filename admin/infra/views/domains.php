@@ -11,7 +11,10 @@
     // Tiles reflect the WHOLE fleet, not the filtered/paged slice. The acquisition
     // buckets come first because with 400 loaded-but-unbought rows the old
     // Live/Staged/Drift trio said nothing useful.
-    $blankTally = ['begin' => 0, 'ready' => 0, 'owned' => 0, 'staged' => 0, 'live' => 0, 'drift' => 0, 'failed' => 0, 'all' => 0];
+    // 'regs' splits the Owned figure by which registrar actually holds the domain.
+    // One number for 695 domains across seven accounts says nothing about where the
+    // renewal bills land; the split is the part worth reading at a glance.
+    $blankTally = ['begin' => 0, 'ready' => 0, 'owned' => 0, 'staged' => 0, 'live' => 0, 'drift' => 0, 'failed' => 0, 'all' => 0, 'regs' => []];
     $tally = $blankTally;
     // Same pass, same switch, split by niche as well as totalled — so a niche row
     // and the all-fleet row above it can never disagree about the same domain.
@@ -20,7 +23,11 @@
         switch ($r['state']) {
             case 'begin':                                     $t['begin']++;  break;
             case 'ready':                                     $t['ready']++;  break;
-            case 'owned':                                     $t['owned']++;  break;
+            case 'owned':
+                $t['owned']++;
+                $reg = strtolower(trim((string) ($r['registrar'] ?? ''))) ?: '?';
+                $t['regs'][$reg] = ($t['regs'][$reg] ?? 0) + 1;
+                break;
             case 'live':                                      $t['live']++;   break;
             case 'buy-failed': case 'register-failed':
             case 'partial':                                   $t['failed']++; break;
@@ -37,6 +44,21 @@
     }
     // Biggest niche first; the unset bucket always last, since it is a gap to close
     // rather than a niche to compare against.
+    /* The top few registrars behind an Owned figure, as "namecheap 383 · dynadot 76".
+       Capped at three with a "+N more" so a seven-registrar split cannot outgrow the
+       tile — a silent top-3 would read as the whole picture when it is not. */
+    $ownedRegs = function (array $t, int $top = 3): string {
+        $r = $t['regs'];
+        if (!$r) return '';
+        arsort($r);
+        $shown = array_slice($r, 0, $top, true);
+        $parts = [];
+        foreach ($shown as $name => $n) $parts[] = ih($name === '?' ? 'unknown' : $name) . ' ' . $n;
+        $rest = count($r) - count($shown);
+        if ($rest > 0) $parts[] = '+' . $rest . ' more';
+        return implode(' · ', $parts);
+    };
+
     uksort($nicheTally, function ($a, $b) use ($nicheTally) {
         if ($a === '') return 1;
         if ($b === '') return -1;
@@ -103,7 +125,12 @@
       <div class="ic-tile"><div class="n"><?= count($allRows) ?></div><div class="l">Domains</div></div>
       <div class="ic-tile"><div class="n"><?= $tally['begin'] ?></div><div class="l">Begin</div></div>
       <div class="ic-tile"><div class="n"><?= $tally['ready'] ?></div><div class="l">Ready to buy</div></div>
-      <div class="ic-tile"><div class="n"><?= $tally['owned'] ?></div><div class="l">Owned</div></div>
+      <div class="ic-tile">
+        <div class="n"><?= $tally['owned'] ?></div><div class="l">Owned</div>
+        <?php if ($rAll = $ownedRegs($tally)): ?>
+          <div style="font-size:.66rem;color:#6b7280;line-height:1.35;margin-top:3px;"><?= $rAll ?></div>
+        <?php endif; ?>
+      </div>
       <div class="ic-tile"><div class="n"><?= $tally['staged'] ?></div><div class="l">Staged</div></div>
       <div class="ic-tile"><div class="n"><?= $tally['live'] ?></div><div class="l">Live</div></div>
       <div class="ic-tile"><div class="n"><?= $tally['drift'] + $tally['failed'] ?></div><div class="l">Needs attention</div></div>
@@ -118,7 +145,12 @@
       </div>
       <div class="ic-tile"><div class="n"><?= $t['begin'] ?></div><div class="l">Begin</div></div>
       <div class="ic-tile"><div class="n"><?= $t['ready'] ?></div><div class="l">Ready to buy</div></div>
-      <div class="ic-tile"><div class="n"><?= $t['owned'] ?></div><div class="l">Owned</div></div>
+      <div class="ic-tile">
+        <div class="n"><?= $t['owned'] ?></div><div class="l">Owned</div>
+        <?php if ($rN = $ownedRegs($t)): ?>
+          <div style="font-size:.66rem;color:#6b7280;line-height:1.35;margin-top:3px;"><?= $rN ?></div>
+        <?php endif; ?>
+      </div>
       <div class="ic-tile"><div class="n"><?= $t['staged'] ?></div><div class="l">Staged</div></div>
       <div class="ic-tile"><div class="n"><?= $t['live'] ?></div><div class="l">Live</div></div>
       <div class="ic-tile"><div class="n"><?= $t['drift'] + $t['failed'] ?></div><div class="l">Needs attention</div></div>

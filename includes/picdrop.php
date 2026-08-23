@@ -317,6 +317,7 @@ function picdrop_scope_file(string $scope, string $id): ?string {
     return match ($scope) {
         'global', 'home', 'core' => DATA_FILE,
         'landing'                => defined('PAGES_DIR') ? PAGES_DIR . basename($id) : null,
+        'template'               => defined('TEMPLATES_FILE') ? TEMPLATES_FILE : null,
         default                  => null,
     };
 }
@@ -348,23 +349,42 @@ function picdrop_apply_edits(array $edits): array {
 
         $dirty = false;
         foreach ($fileEdits as $e) {
-            // Locate the block array this edit lives in, by reference.
+            // Two kinds of edit. A block edit addresses one block inside a document;
+            // a ROOT edit ($e['root']) addresses the document itself, which is how
+            // seo.og_image is reached — it hangs off the page, not off any block.
+            $root = !empty($e['root']);
+
+            // Locate the container this edit lives in, by reference.
             if ($e['scope'] === 'global') {
                 if (!isset($doc[$e['id']]) || !is_array($doc[$e['id']])) { $errors[] = $e['id'] . ': missing'; continue; }
                 $target = &$doc[$e['id']];
             } elseif ($e['scope'] === 'home') {
-                if (!isset($doc['content_blocks'][$e['block']])) { $errors[] = 'home block ' . $e['block'] . ': out of range'; continue; }
-                $target = &$doc['content_blocks'][$e['block']];
+                if ($root) { $target = &$doc; }
+                elseif (!isset($doc['content_blocks'][$e['block']])) { $errors[] = 'home block ' . $e['block'] . ': out of range'; continue; }
+                else { $target = &$doc['content_blocks'][$e['block']]; }
             } elseif ($e['scope'] === 'core') {
-                if (!isset($doc['pages'][$e['id']]['content_blocks'][$e['block']])) { $errors[] = $e['id'] . ' block ' . $e['block'] . ': out of range'; continue; }
-                $target = &$doc['pages'][$e['id']]['content_blocks'][$e['block']];
+                if (!isset($doc['pages'][$e['id']])) { $errors[] = $e['id'] . ': no such core page'; continue; }
+                if ($root) { $target = &$doc['pages'][$e['id']]; }
+                elseif (!isset($doc['pages'][$e['id']]['content_blocks'][$e['block']])) { $errors[] = $e['id'] . ' block ' . $e['block'] . ': out of range'; continue; }
+                else { $target = &$doc['pages'][$e['id']]['content_blocks'][$e['block']]; }
+            } elseif ($e['scope'] === 'template') {
+                // templates.json is a LIST. Address by template id, never by position —
+                // adding or removing a template would silently repoint an index.
+                $ti = null;
+                foreach ($doc as $i => $t) { if (is_array($t) && ($t['id'] ?? '') === $e['id']) { $ti = $i; break; } }
+                if ($ti === null) { $errors[] = 'template ' . $e['id'] . ': not found'; continue; }
+                if ($root) { $target = &$doc[$ti]; }
+                elseif (!isset($doc[$ti]['content_blocks'][$e['block']])) { $errors[] = 'template ' . $e['id'] . ' block ' . $e['block'] . ': out of range'; continue; }
+                else { $target = &$doc[$ti]['content_blocks'][$e['block']]; }
             } else {
-                if (!isset($doc['content_blocks'][$e['block']])) { $errors[] = basename($file) . ' block ' . $e['block'] . ': out of range'; continue; }
-                $target = &$doc['content_blocks'][$e['block']];
+                if ($root) { $target = &$doc; }
+                elseif (!isset($doc['content_blocks'][$e['block']])) { $errors[] = basename($file) . ' block ' . $e['block'] . ': out of range'; continue; }
+                else { $target = &$doc['content_blocks'][$e['block']]; }
             }
 
             if (picdrop_set($target, $e['field'], $e['value'])) { $dirty = true; $ok++; }
-            else $errors[] = basename($file) . ': field ' . $e['field'] . ' not present on block ' . $e['block'];
+            else $errors[] = basename($file) . ': field ' . $e['field'] . ' not present'
+                           . ($root ? ' on ' . ($e['id'] ?: 'the document') : ' on block ' . $e['block']);
 
             unset($target);
         }
@@ -393,6 +413,77 @@ function picdrop_matching_slots(string $excludeKey, string $value, string $leaf)
             if ($s['key'] === $excludeKey) continue;
             if ($s['value'] === $value && picdrop_leaf($s['field']) === $leaf) {
                 $out[] = $s + ['page_title' => $g['title']];
+            }
+        }
+    }
+    return $out;
+}
+
+/**
+ * Landing-template slots holding the same image in the same kind of field.
+ *
+ * Pic Drop edits PAGES; the templates in data/templates.json are what pages are
+ * generated FROM. Replace a hero on three landing pages and the template still holds
+ * the old file, so the next regen of any of them quietly puts it back. Anyone who then
+ * looked would conclude Pic Drop had not saved.
+ *
+ * Returned as ready-made edits rather than slots — templates are not pages and have no
+ * row in the tab; they only ever ride along with a propagate.
+ */
+function picdrop_template_matches(string $value, string $leaf): array {
+    if (trim($value) === '' || !defined('TEMPLATES_FILE') || !is_file(TEMPLATES_FILE)) return [];
+    $tpls = json_decode((string) @file_get_contents(TEMPLATES_FILE), true);
+    if (!is_array($tpls)) return [];
+
+    $out = [];
+    foreach ($tpls as $t) {
+        if (!is_array($t) || ($t['id'] ?? '') === '') continue;
+        foreach (($t['content_blocks'] ?? []) as $bi => $block) {
+            if (!is_array($block)) continue;
+            foreach (picdrop_block_paths($block) as $path) {
+                if (picdrop_leaf($path) !== $leaf) continue;
+                if ((string) picdrop_get($block, $path) !== $value) continue;
+                $out[] = ['scope' => 'template', 'id' => (string) $t['id'], 'block' => $bi, 'field' => $path];
+            }
+        }
+    }
+    return $out;
+}
+
+/**
+ * Documents whose seo.og_image is the very file being replaced.
+ *
+ * og_image is deliberately NOT a Pic Drop slot — it is never rendered on the page and
+ * the SEO tab owns it. But when it points at the same file as the picture being
+ * swapped, it was tracking that picture, and leaving it behind means the social
+ * preview keeps showing an image that is no longer anywhere on the page. When it
+ * points at something else it is an independent choice and is left alone.
+ *
+ * Scanned across home, core pages, landing pages and templates. Returns root edits.
+ */
+function picdrop_og_matches(string $value): array {
+    if (trim($value) === '') return [];
+    $out = [];
+
+    $site = file_exists(DATA_FILE) ? (json_decode((string) file_get_contents(DATA_FILE), true) ?: []) : [];
+    if ((string) ($site['seo']['og_image'] ?? '') === $value) {
+        $out[] = ['scope' => 'home', 'id' => '', 'block' => 0, 'field' => 'seo.og_image', 'root' => true];
+    }
+    foreach (($site['pages'] ?? []) as $pid => $page) {
+        if (is_array($page) && (string) ($page['seo']['og_image'] ?? '') === $value) {
+            $out[] = ['scope' => 'core', 'id' => (string) $pid, 'block' => 0, 'field' => 'seo.og_image', 'root' => true];
+        }
+    }
+    foreach ((defined('PAGES_DIR') ? (glob(PAGES_DIR . '*.json') ?: []) : []) as $f) {
+        $page = json_decode((string) @file_get_contents($f), true);
+        if (is_array($page) && (string) ($page['seo']['og_image'] ?? '') === $value) {
+            $out[] = ['scope' => 'landing', 'id' => basename($f), 'block' => 0, 'field' => 'seo.og_image', 'root' => true];
+        }
+    }
+    if (defined('TEMPLATES_FILE') && is_file(TEMPLATES_FILE)) {
+        foreach ((array) json_decode((string) @file_get_contents(TEMPLATES_FILE), true) as $t) {
+            if (is_array($t) && ($t['id'] ?? '') !== '' && (string) ($t['seo']['og_image'] ?? '') === $value) {
+                $out[] = ['scope' => 'template', 'id' => (string) $t['id'], 'block' => 0, 'field' => 'seo.og_image', 'root' => true];
             }
         }
     }

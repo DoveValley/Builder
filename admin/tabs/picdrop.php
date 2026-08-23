@@ -25,6 +25,25 @@
                     }
                 }
             }
+            // Landing templates holding the same picture. Counted separately because a
+            // template is not a page — it is what pages get regenerated FROM, so it is
+            // worth naming in the propagate label rather than folding into the page count.
+            $pdTpl = [];
+            if (defined('TEMPLATES_FILE') && is_file(TEMPLATES_FILE)) {
+                foreach ((array) json_decode((string) @file_get_contents(TEMPLATES_FILE), true) as $t) {
+                    if (!is_array($t)) continue;
+                    foreach (($t['content_blocks'] ?? []) as $block) {
+                        if (!is_array($block)) continue;
+                        foreach (picdrop_block_paths($block) as $path) {
+                            $v = (string) picdrop_get($block, $path);
+                            if ($v === '') continue;
+                            $k = $v . '|' . picdrop_leaf($path);
+                            $pdTpl[$k] = ($pdTpl[$k] ?? 0) + 1;
+                        }
+                    }
+                }
+            }
+
             $pdMissing = 0;
             foreach ($pdGroups as $g) {
                 // A token slot has no file by design, and an empty slot is not broken —
@@ -83,8 +102,10 @@
                         <?php else: ?>
                             <?php foreach ($g['slots'] as $s): ?>
                                 <?php
-                                $sid    = 'pds' . md5($s['key']);
-                                $shared = $pdShared[$s['value'] . '|' . picdrop_leaf($s['field'])] ?? 1;
+                                $sid     = 'pds' . md5($s['key']);
+                                $shareKey= $s['value'] . '|' . picdrop_leaf($s['field']);
+                                $shared  = $pdShared[$shareKey] ?? 1;
+                                $tplHits = $pdTpl[$shareKey] ?? 0;
                                 ?>
                                 <div class="pd-slot" style="display:flex;gap:14px;padding:12px 0;border-bottom:1px solid #f1f5f9;">
                                     <div id="<?= $sid ?>_prev" style="flex-shrink:0;width:132px;">
@@ -135,10 +156,16 @@
                                             <div class="hint" style="margin-top:7px;">Decorative background &mdash; no alt text.</div>
                                         <?php endif; ?>
 
-                                        <?php if ($shared > 1): ?>
+                                        <?php if ($shared > 1 || $tplHits > 0): ?>
                                             <label class="hint" style="display:flex;align-items:center;gap:6px;margin-top:6px;">
                                                 <input type="checkbox" class="pd-prop" checked>
-                                                Also replace on the other <?= $shared - 1 ?> page<?= $shared - 1 === 1 ? '' : 's' ?> using this same picture here
+                                                Also replace
+                                                <?php if ($shared > 1): ?>
+                                                    on the other <?= $shared - 1 ?> page<?= $shared - 1 === 1 ? '' : 's' ?> using this same picture here<?= $tplHits ? ',' : '' ?>
+                                                <?php endif; ?>
+                                                <?php if ($tplHits): ?>
+                                                    <?= $shared > 1 ? 'and in' : 'in' ?> <?= $tplHits ?> landing template<?= $tplHits === 1 ? '' : 's' ?> (or a regen puts the old one back)
+                                                <?php endif; ?>
                                             </label>
                                         <?php endif; ?>
                                     </div>
@@ -327,6 +354,8 @@
 
                             var msg = d.width + '×' + d.height + ' · ' + d.note;
                             if (d.propagated) msg += ' · also applied to ' + d.propagated + ' other page' + (d.propagated === 1 ? '' : 's');
+                            if (d.templates)  msg += ' · ' + d.templates + ' landing template' + (d.templates === 1 ? '' : 's') + ' updated so a regen keeps it';
+                            if (d.og_updated) msg += ' · social image followed on ' + d.og_updated;
                             if (d.screened)   msg += ' · ' + d.screened;
                             if (d.errors && d.errors.length) msg += ' · ' + d.errors.length + ' write error(s): ' + d.errors[0];
                             setMeta(sid, msg, d.errors && d.errors.length ? '#b45309' : '#15803d');

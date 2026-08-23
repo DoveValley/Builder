@@ -182,6 +182,7 @@ $edits = [[
 ]];
 
 $propagated = 0;
+$templates  = 0;
 if (!empty($_POST['propagate'])) {
     foreach (picdrop_matching_slots($key, $slot['value'], picdrop_leaf($parts['field'])) as $m) {
         $edits[] = [
@@ -190,6 +191,22 @@ if (!empty($_POST['propagate'])) {
         ];
         $propagated++;
     }
+    // Also fix the landing templates these pages are generated from. Without this the
+    // next regen puts the old picture straight back, which reads as "Pic Drop did not
+    // save" long after the drop.
+    foreach (picdrop_template_matches($slot['value'], picdrop_leaf($parts['field'])) as $t) {
+        $edits[] = $t + ['value' => $newValue];
+        $templates++;
+    }
+}
+
+// seo.og_image follows the picture wherever it was pointing at this exact file. Not
+// gated on propagate: if THIS page's social image was the picture just replaced, it
+// should follow regardless.
+$ogUpdated = 0;
+foreach (picdrop_og_matches($slot['value']) as $og) {
+    $edits[] = $og + ['value' => $newValue];
+    $ogUpdated++;
 }
 
 $res = picdrop_apply_edits($edits);
@@ -207,5 +224,7 @@ echo json_encode([
     'note'       => $note,
     'screened'   => $screened,
     'propagated' => $propagated,
+    'templates'  => $templates,
+    'og_updated' => $ogUpdated,
     'errors'     => $res['errors'],
 ]);
