@@ -287,40 +287,32 @@ switch ($action) {
             if ($k === '' || !isset($nicheIdx[$k])) { $noNiche[] = $d; continue; }
             $ni = $nicheIdx[$k];
 
-            $cands = $state['niches'][$ni]['candidates'] ?? [];
-            $found = false;
-            foreach ($cands as $ci => $c) {
-                if (strtolower((string) ($c['domain'] ?? '')) !== $d) continue;
-                // Already known to the workbench — just make sure it reads correctly.
-                $state['niches'][$ni]['candidates'][$ci]['status'] = 'taken';
-                $found = true; $alreadyThere++;
-                break;
+            foreach (($state['niches'][$ni]['candidates'] ?? []) as $c) {
+                if (strtolower((string) ($c['domain'] ?? '')) === $d) { $alreadyThere++; break; }
             }
 
-            if (!$found) {
-                /* 'person' is the name without the service keyword — the workbench
-                   groups by it. Strip the longest matching pattern so "adamspest" and
-                   "adamspestcontrol" both reduce to "adams". */
-                $label  = preg_replace('/\.[a-z]+$/i', '', $d);
-                $person = $label;
-                $best   = '';
-                foreach (($state['niches'][$ni]['patterns'] ?? []) as $p) {
-                    $kw = strtolower((string) ($p['kw'] ?? ''));
-                    if ($kw !== '' && str_ends_with($label, $kw) && strlen($kw) > strlen($best)) $best = $kw;
-                }
-                if ($best !== '') $person = substr($label, 0, -strlen($best));
-
-                array_unshift($state['niches'][$ni]['candidates'], [
-                    'id'     => 'db' . bin2hex(random_bytes(4)),
-                    'person' => $person,
-                    'domain' => $d,
-                    'tier'   => 1,
-                    'status' => 'taken',            // the workbench labels this "Not available"
-                    'note'   => 'from D.Buy — availability check said taken',
-                    'at'     => time() * 1000,      // the workbench stores JS milliseconds
-                ]);
+            /* 'person' is the name without the service keyword — the workbench groups
+               by it. Strip the LONGEST matching pattern so "adamspest" and
+               "adamspestcontrol" both reduce to "adams". */
+            $label  = preg_replace('/\.[a-z]+$/i', '', $d);
+            $person = $label;
+            $best   = '';
+            foreach (($state['niches'][$ni]['patterns'] ?? []) as $p) {
+                $kw = strtolower((string) ($p['kw'] ?? ''));
+                if ($kw !== '' && str_ends_with($label, $kw) && strlen($kw) > strlen($best)) $best = $kw;
             }
+            if ($best !== '') $person = substr($label, 0, -strlen($best));
 
+            /* QUEUE it rather than writing the blob. The workbench autosaves its whole
+               in-memory state 500ms after any change, so a tab that was already open
+               posts its older copy over the top and the addition disappears with
+               nothing said — which is exactly what happened the first time this ran.
+               dfinder_state.php folds the queue into every read instead, so the
+               hand-off survives an overwrite and reloading D.Finder is enough.
+
+               Queue FIRST, untrack second: the reverse order meant a failed write left
+               the domain deleted and nowhere to be found. */
+            infra_dfinder_taken_add($d, (string) $state['niches'][$ni]['name'], $person);
             infra_state_delete_domain($d);
             $moved++;
         }
@@ -330,19 +322,11 @@ switch ($action) {
            never really used, reuse it" — so retiring the name here would fight its
            own design and cost you every other keyword on that name. */
 
-        if ($moved > 0) {
-            $err = infra_dfinder_save($state);
-            if ($err !== '') {
-                infra_set_flash('err', 'Nothing was moved — D.Finder refused the write: ' . $err
-                    . '. The domains are still in the table.');
-                break;
-            }
-        }
-
         $msg = $moved
             ? "Moved {$moved} taken domain(s) to D.Finder as \u{201C}Not available\u{201D} and removed them here."
+                . "\nReload D.Finder to see them — it only reads its state when the page loads."
             : 'Nothing moved.';
-        if ($alreadyThere) $msg .= "\n{$alreadyThere} were already candidates there — their status was set to Not available.";
+        if ($alreadyThere) $msg .= "\n{$alreadyThere} were already candidates there — their status will be set to Not available.";
         if ($noNiche) {
             $msg .= "\nLeft " . count($noNiche) . ' with no matching D.Finder niche: '
                   . implode(', ', array_slice($noNiche, 0, 6)) . (count($noNiche) > 6 ? ' …' : '');

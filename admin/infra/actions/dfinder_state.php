@@ -37,6 +37,19 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         exit;
     }
     $state = json_decode((string) $row['v'], true);
+
+    /* Fold in anything D.Buy has handed over as taken.
+       Merged on READ rather than written into the blob at hand-off time, because the
+       workbench autosaves its whole in-memory state 500ms after any change: a tab that
+       was already open would post its older copy straight over the top and the
+       additions would vanish with nothing said. Merging here survives that — the queue
+       stays the source of truth until the workbench stores them itself, and the merge
+       is idempotent, so repeating it cannot duplicate anything. */
+    if (is_array($state)) {
+        $pending = infra_dfinder_taken_all();
+        if ($pending) [$state] = infra_dfinder_merge_taken($state, $pending);
+    }
+
     echo json_encode(['state' => is_array($state) ? $state : null, 'at' => (int) $row['ts']]);
     exit;
 }
@@ -73,5 +86,17 @@ if (!is_array($parsed) || !isset($parsed['niches']) || !is_array($parsed['niches
 infra_state_db()
     ->prepare('REPLACE INTO dfinder (k, v, ts) VALUES (?, ?, ?)')
     ->execute([DFINDER_KEY, $raw, time()]);
+
+/* A queued hand-off the workbench has now stored itself can be dropped — otherwise
+   the queue grows forever and every read re-merges names that are already there.
+   Checked against what was actually saved, not against what we hoped it saved. */
+$pending = infra_dfinder_taken_all();
+if ($pending) {
+    $stored = [];
+    foreach ($parsed['niches'] as $n) {
+        foreach (($n['candidates'] ?? []) as $c) $stored[strtolower((string) ($c['domain'] ?? ''))] = true;
+    }
+    infra_dfinder_taken_forget(array_keys(array_intersect_key($pending, $stored)));
+}
 
 echo json_encode(['ok' => true, 'bytes' => strlen($raw), 'at' => time()]);

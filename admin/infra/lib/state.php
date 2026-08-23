@@ -88,6 +88,16 @@ function infra_state_db(): PDO
     // in its normalize(). Modelling its niches and candidates as columns here would
     // put the same schema in two places and make every UI change a migration.
     $db->exec('CREATE TABLE IF NOT EXISTS dfinder (k TEXT PRIMARY KEY, v TEXT, ts INTEGER)');
+    // Names D.Buy has handed back as taken, waiting to be folded into that blob.
+    //
+    // They CANNOT simply be written into it. The workbench autosaves its whole
+    // in-memory state 500ms after any change, so a tab that was already open when the
+    // hand-off happened posts its older copy straight over the top and the additions
+    // vanish with nothing said. Queuing them here instead makes the hand-off durable:
+    // dfinder_state.php merges the queue into every read, so an overwrite costs
+    // nothing and the merge is idempotent.
+    $db->exec('CREATE TABLE IF NOT EXISTS dfinder_taken (
+        domain TEXT PRIMARY KEY, niche TEXT DEFAULT "", person TEXT DEFAULT "", at INTEGER)');
     // One row per (domain, step): the go-live grid's checkpoint — see lib/pipeline.php.
     // NARROW on purpose. One column per step would need an ALTER TABLE every time the
     // pipeline gains one, and nine more columns to give each step its own note and
@@ -339,4 +349,75 @@ function infra_dfinder_save(array $state): string
         ->prepare('REPLACE INTO dfinder (k, v, ts) VALUES (?, ?, ?)')
         ->execute([INFRA_DFINDER_KEY, $raw, time()]);
     return '';
+}
+
+/** Queue a name D.Buy has found taken, for D.Finder to pick up on its next read. */
+function infra_dfinder_taken_add(string $domain, string $nicheName, string $person): void
+{
+    infra_state_db()
+        ->prepare('REPLACE INTO dfinder_taken (domain, niche, person, at) VALUES (?, ?, ?, ?)')
+        ->execute([strtolower(trim($domain)), $nicheName, $person, time()]);
+}
+
+/** @return array domain => ['niche'=>string,'person'=>string,'at'=>int] */
+function infra_dfinder_taken_all(): array
+{
+    $out = [];
+    foreach (infra_state_db()->query('SELECT * FROM dfinder_taken')->fetchAll(PDO::FETCH_ASSOC) as $r) {
+        $out[$r['domain']] = ['niche' => $r['niche'], 'person' => $r['person'], 'at' => (int) $r['at']];
+    }
+    return $out;
+}
+
+/** Drop queue rows the workbench has now stored itself. */
+function infra_dfinder_taken_forget(array $domains): void
+{
+    if (!$domains) return;
+    $in = implode(',', array_fill(0, count($domains), '?'));
+    infra_state_db()
+        ->prepare("DELETE FROM dfinder_taken WHERE domain IN ($in)")
+        ->execute(array_map('strtolower', $domains));
+}
+
+/**
+ * Fold the queued taken names into a workbench state array.
+ *
+ * Idempotent: a domain already present as a candidate is skipped (its status is
+ * corrected if it disagrees), so merging on every read is safe and repeated merges
+ * cannot duplicate anything.
+ *
+ * @return array{0:array,1:string[]} the state, and the domains the blob already holds
+ */
+function infra_dfinder_merge_taken(array $state, array $pending): array
+{
+    if (!$pending || !isset($state['niches']) || !is_array($state['niches'])) return [$state, []];
+
+    $byName = [];
+    foreach ($state['niches'] as $i => $n) $byName[(string) ($n['name'] ?? '')] = $i;
+
+    $settled = [];
+    foreach ($pending as $domain => $p) {
+        $ni = $byName[$p['niche']] ?? null;
+        if ($ni === null) continue;                      // niche renamed or gone — leave queued
+
+        $found = false;
+        foreach (($state['niches'][$ni]['candidates'] ?? []) as $ci => $c) {
+            if (strtolower((string) ($c['domain'] ?? '')) !== $domain) continue;
+            if (($c['status'] ?? '') !== 'taken') $state['niches'][$ni]['candidates'][$ci]['status'] = 'taken';
+            $found = true;
+            break;
+        }
+        if ($found) { $settled[] = $domain; continue; }
+
+        array_unshift($state['niches'][$ni]['candidates'], [
+            'id'     => 'db' . substr(md5($domain), 0, 8),
+            'person' => $p['person'],
+            'domain' => $domain,
+            'tier'   => 1,
+            'status' => 'taken',
+            'note'   => 'from D.Buy — availability check said taken',
+            'at'     => $p['at'] * 1000,
+        ]);
+    }
+    return [$state, $settled];
 }
