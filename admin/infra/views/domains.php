@@ -15,7 +15,8 @@
     // One number for 695 domains across seven accounts says nothing about where the
     // renewal bills land; the split is the part worth reading at a glance.
     $blankTally = ['begin' => 0, 'ready' => 0, 'owned' => 0, 'staged' => 0, 'live' => 0, 'drift' => 0, 'failed' => 0, 'all' => 0, 'regs' => []];
-    $tally = $blankTally;
+    $tally      = $blankTally;
+    $infraTally = $blankTally;
     // Same pass, same switch, split by niche as well as totalled — so a niche row
     // and the all-fleet row above it can never disagree about the same domain.
     $nicheTally = [];
@@ -43,16 +44,6 @@
        a root domain by standing rule, so anything with a third label is a subdomain. */
     $isInfra = fn(string $d): bool => substr_count($d, '.') >= 2;
 
-    $infraTally = $blankTally;
-    foreach ($allRows as $r) {
-        if ($isInfra((string) $r['domain'])) { $classify($r, $infraTally); continue; }
-        $classify($r, $tally);
-        $n = trim((string) ($r['niche'] ?? '')) ?: '';
-        if (!isset($nicheTally[$n])) $nicheTally[$n] = $blankTally;
-        $classify($r, $nicheTally[$n]);
-    }
-    // Biggest niche first; the unset bucket always last, since it is a gap to close
-    // rather than a niche to compare against.
     /* Every registrar behind an Owned figure, biggest first. Not a top-3 with a
        "+N more": the whole point is seeing where the renewal bills land, and the four
        it hid were four whole accounts. */
@@ -64,12 +55,6 @@
         foreach ($r as $name => $n) $parts[] = ih($name === '?' ? 'unknown' : $name) . ' ' . $n;
         return implode(' · ', $parts);
     };
-
-    uksort($nicheTally, function ($a, $b) use ($nicheTally) {
-        if ($a === '') return 1;
-        if ($b === '') return -1;
-        return $nicheTally[$b]['all'] <=> $nicheTally[$a]['all'];
-    });
 
     /* search across the full set ------------------------------------------ */
     $q = trim((string) ($_GET['q'] ?? ''));
@@ -84,6 +69,26 @@
     } else {
         $rows = $allRows;
     }
+
+    /* Tally the SEARCHED set, not the whole fleet. Tiles that ignored the search
+       described a different population from the table underneath them, so filtering
+       to one niche or registrar left the numbers above saying something else entirely.
+       Counted after the filter and before paging: the tiles describe the whole result,
+       not just the visible page. */
+    foreach ($rows as $r) {
+        if ($isInfra((string) $r['domain'])) { $classify($r, $infraTally); continue; }
+        $classify($r, $tally);
+        $n = trim((string) ($r['niche'] ?? '')) ?: '';
+        if (!isset($nicheTally[$n])) $nicheTally[$n] = $blankTally;
+        $classify($r, $nicheTally[$n]);
+    }
+    // Biggest niche first; the unset bucket always last, since it is a gap to close
+    // rather than a niche to compare against.
+    uksort($nicheTally, function ($a, $b) use ($nicheTally) {
+        if ($a === '') return 1;
+        if ($b === '') return -1;
+        return $nicheTally[$b]['all'] <=> $nicheTally[$a]['all'];
+    });
 
     /* sort across the full set (not just the visible page) ----------------- */
     $sort = (string) ($_GET['sort'] ?? 'domain');
