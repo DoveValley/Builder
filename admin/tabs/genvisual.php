@@ -71,8 +71,11 @@
 
         $gvDoc     = @json_decode((string)@file_get_contents(ACTIVE_SITE_DIR . '/multisite/theme_presets.json'), true) ?: [];
         $gvPresets = is_array($gvDoc['presets'] ?? null) ? $gvDoc['presets'] : [];
+        // Must match ms_pick_theme_preset()'s pool filter EXACTLY (includes/multisite/
+        // visual.php) — it admits anything that is not literally false, so a truthiness
+        // test would miscount a 0/""/null that the build would still rotate through.
         $gvRotating = 0;
-        foreach ($gvPresets as $p) if (!array_key_exists('in_rotation', $p) || $p['in_rotation']) $gvRotating++;
+        foreach ($gvPresets as $p) if (($p['in_rotation'] ?? true) !== false) $gvRotating++;
         // Match apply_preset.php's lookup exactly: by stored id, ordinal as fallback.
         $gvSingleId = (int)($gvDoc['single_preset_id'] ?? 0);
         $gvSingle   = '';
