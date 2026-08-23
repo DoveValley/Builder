@@ -1714,7 +1714,12 @@ function infra_reg_gandi_register(string $domain, int $years, array $cfg, array 
         $msg .= $a['ok'] ? ', auto-renew ON'
                          : ' ⚠ auto-renew NOT set (' . $a['message'] . ') — set it before the term lapses';
     }
-    return ['ok' => true, 'message' => $msg];
+    // ACCEPTED IS NOT REGISTERED. Gandi answers this POST with 202 and finishes the
+    // registration on its own schedule; if that job then fails, nothing calls back.
+    // Returning a plain ok=true had the caller write owned=yes immediately, which
+    // produced five receipts for domains WHOIS says were never registered at all.
+    // 'pending' tells infra_domain_buy() to confirm before recording a purchase.
+    return ['ok' => true, 'pending' => true, 'message' => $msg];
 }
 
 /** Nameservers. */

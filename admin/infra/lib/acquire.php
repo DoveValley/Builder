@@ -245,6 +245,38 @@ function infra_domain_buy(string $domain, array $opts = []): array
         return $fail($buy['message'] ?? 'purchase failed', true);
     }
 
+    // An adapter that only got an ACCEPTANCE must not produce a receipt. Gandi's
+    // create returns 202 and registers asynchronously, so a purchase can be accepted
+    // and still never happen — five domains carried owned=yes with no registration
+    // behind them before this check existed. Confirm against the registrar's own
+    // domain list, then decide.
+    if (!empty($buy['pending'])) {
+        $confirmed = false;
+        for ($try = 0; $try < 4; $try++) {
+            if ($try > 0) sleep(5);
+            if (in_array($domain, array_map('strtolower', infra_registrar_list_owned($registrar)), true)) {
+                $confirmed = true;
+                break;
+            }
+        }
+        if (!$confirmed) {
+            // Deliberately NOT an error: the order may still land. Leave the domain in
+            // the acquisition stage with no receipt and say plainly what to do. Once it
+            // completes, the next availability sweep marks it self-owned.
+            infra_state_upsert_domain([
+                'domain'     => $domain,
+                'registrar'  => $registrar,
+                'buy_at'     => infra_today(),
+                'buy_error'  => $registrar . ' accepted the order but had not registered it within 20s'
+                              . ' — re-check before treating this as owned',
+                'avail_note' => 'purchase pending at ' . $registrar,
+            ]);
+            return ['ok' => true, 'pending' => true,
+                    'message' => $domain . ': ' . $registrar . ' accepted the order, but it is NOT confirmed'
+                               . ' registered yet. No receipt written — re-check shortly.'];
+        }
+    }
+
     $now = infra_now();
     // Record the VERIFIED auto-renew state. Namecheap cannot set it over its API
     // (its setAutoRenew returns success and does nothing), so a domain can be
