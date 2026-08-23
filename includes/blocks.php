@@ -595,7 +595,20 @@ function render_content_block($block, $pathPrefix = '') {
                 if (preg_match('/^\s*<div[^>]*class="[^"]*\bcontent-block\b/', $html)) {
                     // Raw path skips the wrapper (and thus $anchorAttr) — inject the anchor id
                     // into that first div so in-page links (e.g. nav "#services") still work.
-                    if (!empty($block['anchor'])) {
+                    //
+                    // ONLY when that div has no id of its own. Injecting unconditionally put a
+                    // SECOND id on the same element:
+                    //
+                    //   <div id="pest_services" class="content-block block-links-grid" id="water_services">
+                    //
+                    // HTML keeps the first id and discards the rest, so the anchor the nav
+                    // actually points at silently stopped existing. grep found it in the file,
+                    // the browser's DOM did not have it, and the link did nothing. It hit every
+                    // page whose shortcode emits its own id — which is all of them for
+                    // [services_links]. The homepage worked only because its block carries no
+                    // stale anchor to collide with.
+                    if (!empty($block['anchor'])
+                        && !preg_match('/^\s*<div[^>]*\sid\s*=/i', $html)) {
                         $html = preg_replace('/<div/', '<div id="' . h($block['anchor']) . '"', $html, 1);
                     }
                     echo $html;
