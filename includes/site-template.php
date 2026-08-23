@@ -11,6 +11,30 @@
  * The header, footer, and theme colors are shared (global) across every page.
  */
 
+/**
+ * Never let a browser cache a dynamically rendered page.
+ *
+ * This is the factory's own view of a site and must always show what the data says
+ * right now. Apache sends no Cache-Control for these responses — only ETag and
+ * Last-Modified — so a browser applies its own heuristic and can serve the page from
+ * disk without ever asking whether it changed. Edits then look like they did not save
+ * and fixes look like they did not work, with nothing on screen saying the page is
+ * old. That has already cost real debugging time.
+ *
+ * It also matches what the generated production .htaccess does for the deployed static
+ * site (ExpiresByType text/html "access plus 0 seconds"), so preview and production
+ * agree instead of differing in a way only one of them reveals.
+ *
+ * Here rather than in index.php / page.php / blog.php because those three reach this
+ * template through seven separate require sites — one would have been missed. Skipped
+ * during a static build, where there is no response to send, and guarded on
+ * headers_sent() so an already-streaming endpoint cannot warn.
+ */
+if (!defined('STATIC_BUILD') && PHP_SAPI !== 'cli' && !headers_sent()) {
+    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+    header('Pragma: no-cache');
+}
+
 $theme   = $data['theme'];
 $header  = apply_shortcodes_to_block($data['header']);
 $footer  = apply_shortcodes_to_block($data['footer']);
