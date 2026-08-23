@@ -772,5 +772,55 @@
     "output_tokens": 28740,
     "api_calls": 78,
     "estimated_cost_usd": 0.204247
+  },
+  {
+    "run_id": "25a48866-5e11-49f7-a803-895ed5bae4e7",
+    "started_at": "2026-08-23T15:40:20.141570Z",
+    "finished_at": "2026-08-23T15:41:54.750045Z",
+    "duration_ms": 94608,
+    "dry_run": false,
+    "options": {
+      "site": "mold-site",
+      "page": "landing",
+      "all": true,
+      "file": null,
+      "refresh": true,
+      "research": false
+    },
+    "pages_written": 82,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 1,
+    "blocks_generated": 82,
+    "cities_researched": 0,
+    "input_tokens": 71396,
+    "output_tokens": 32059,
+    "api_calls": 84,
+    "estimated_cost_usd": 0.262423
+  },
+  {
+    "run_id": "46a1be42-485e-4389-81b6-2168ad749d64",
+    "started_at": "2026-08-23T15:42:32.123728Z",
+    "finished_at": "2026-08-23T15:43:12.962800Z",
+    "duration_ms": 40839,
+    "dry_run": false,
+    "options": {
+      "site": "mold-site",
+      "page": "homepage",
+      "all": false,
+      "file": null,
+      "refresh": true,
+      "research": false
+    },
+    "pages_written": 5,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 5,
+    "cities_researched": 0,
+    "input_tokens": 6245,
+    "output_tokens": 2891,
+    "api_calls": 6,
+    "estimated_cost_usd": 0.050672
   }
 ]
