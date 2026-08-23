@@ -264,6 +264,15 @@ $styleFile = BASE_DIR . '/sites/' . $masterId . '/multisite/hero_style.json';
 if (!is_file($styleFile)) $styleFile = BASE_DIR . '/multisite/hero_style.json';
 $heroStyle = is_file($styleFile) ? (json_decode((string)file_get_contents($styleFile), true) ?: []) : [];
 
+// Same per-master-override-else-global pattern as hero_style.json — the
+// crop/brightness/saturation/quality ranges ms_perturb_image() jitters within.
+// Missing/absent file = the original hardcoded defaults (see
+// ms_image_variation_defaults() in image_overlay.php), so a master that has
+// never touched the Gen-Image tab builds exactly as it always has.
+$varyFile = BASE_DIR . '/sites/' . $masterId . '/multisite/image_variation.json';
+if (!is_file($varyFile)) $varyFile = BASE_DIR . '/multisite/image_variation.json';
+$imageVariation = is_file($varyFile) ? (json_decode((string)file_get_contents($varyFile), true) ?: []) : [];
+
 $masterVars = (json_decode((string)@file_get_contents(BASE_DIR . '/sites/' . $masterId . '/data/site.json'), true) ?: [])['site_vars'] ?? [];
 $masterCitySlug = $masterVars['city_slug'] ?? '';
 if ($masterCitySlug === '' && !empty($masterVars['city'])) $masterCitySlug = slugify(($masterVars['city'] ?? '') . ' ' . ($masterVars['SS'] ?? ''));
@@ -273,7 +282,7 @@ if ($skipped('images')) {
     $imgRes = ['stamped' => 0, 'varied' => 0, 'pruned' => 0];
 } else {
     ms_step_begin('images');
-    $imgRes = ms_differentiate_site_images($workingDir, $params, $masterCitySlug, $heroStyle);
+    $imgRes = ms_differentiate_site_images($workingDir, $params, $masterCitySlug, $heroStyle, $imageVariation);
     if ($imgRes['stamped'] > 0 || $imgRes['varied'] > 0 || ($imgRes['pruned'] ?? 0) > 0) {
         progress_log("Images: stamped {$imgRes['stamped']} hero(s), differentiated {$imgRes['varied']} photo(s), pruned " . ($imgRes['pruned'] ?? 0) . " unreferenced.");
     }

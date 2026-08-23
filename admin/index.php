@@ -42,7 +42,7 @@ $blogSettings = $data['blog_settings'];
 
 // Active tab
 $tab = $_GET['tab'] ?? 'header';
-if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'keywords', 'cities', 'citypages', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'niche_brief', 'multisite'], true)) {
+if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'keywords', 'cities', 'citypages', 'genimage', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'niche_brief', 'multisite'], true)) {
     $tab = 'header';
 }
 // Redirect legacy tab links into the Plugins tab.
@@ -279,6 +279,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'templates' ? 'active' : '' ?>" href="?tab=templates">Landing Templates</a>
         <a class="tab-link <?= $tab === 'cities' ? 'active' : '' ?>" href="?tab=cities">Landing Cities</a>
         <a class="tab-link <?= $tab === 'citypages' ? 'active' : '' ?>" href="?tab=citypages">Landing City Page Gen</a>
+        <a class="tab-link <?= $tab === 'genimage' ? 'active' : '' ?>" href="?tab=genimage">&#128248; Gen-Image</a>
         <span style="flex-basis:100%;height:0;border-top:1px solid #e5e7eb;margin:0 -4px;"></span>
         <a class="tab-link <?= $tab === 'ai' ? 'active' : '' ?>" href="?tab=ai">&#127916; AI Generation</a>
         <a class="tab-link <?= $tab === 'ai_review' ? 'active' : '' ?>" href="?tab=ai_review">&#128269; Content Review</a>
@@ -313,6 +314,9 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- ================= CITY PAGES TAB ================= -->
     <?php require __DIR__ . '/tabs/citypages.php'; ?>
+
+    <!-- ================= GEN-IMAGE TAB ================= -->
+    <?php require __DIR__ . '/tabs/genimage.php'; ?>
 
     <!-- ================= BLOG TAB ================= -->
     <?php require __DIR__ . '/tabs/blog.php'; ?>

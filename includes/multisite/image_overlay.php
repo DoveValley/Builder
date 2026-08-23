@@ -227,24 +227,76 @@ function ms_is_content_image($val): bool {
     return true;
 }
 
+/**
+ * The tunable ranges ms_perturb_image() jitters within, and their fallback
+ * values — the exact numbers this whole mechanism used to be hardcoded to,
+ * before the Gen-Image tab existed. A missing/invalid key here always falls
+ * back to that original number, never to zero.
+ */
+function ms_image_variation_defaults(): array {
+    return [
+        'crop_min'       => 1.0,  'crop_max'       => 1.9,    // % of width/height cropped off
+        'brightness_min' => 98,   'brightness_max' => 102,    // % modulate
+        'saturation_min' => 98,   'saturation_max' => 102,    // % modulate
+        'quality_min'    => 80,   'quality_max'    => 88,     // re-encode quality
+    ];
+}
+
+/** Clamp $ranges to sane, safe bounds and fill in anything missing from the
+ *  defaults — the one place both the save endpoint and the build read from,
+ *  so a hand-edited or half-written config file can't produce a broken crop. */
+function ms_image_variation_ranges(array $ranges): array {
+    $d = ms_image_variation_defaults();
+    $num = fn($k, $lo, $hi) => is_numeric($ranges[$k] ?? null) ? max($lo, min($hi, (float)$ranges[$k])) : $d[$k];
+    $r = [
+        'crop_min'       => $num('crop_min', 0, 10),
+        'crop_max'       => $num('crop_max', 0, 10),
+        'brightness_min' => $num('brightness_min', 80, 120),
+        'brightness_max' => $num('brightness_max', 80, 120),
+        'saturation_min' => $num('saturation_min', 80, 120),
+        'saturation_max' => $num('saturation_max', 80, 120),
+        'quality_min'    => $num('quality_min', 40, 100),
+        'quality_max'    => $num('quality_max', 40, 100),
+    ];
+    // A flipped pair (min > max) would make the seeded range() calls below throw —
+    // swap rather than reject, since "82 to 80" obviously means "80 to 82".
+    foreach (['crop', 'brightness', 'saturation', 'quality'] as $k) {
+        if ($r["{$k}_min"] > $r["{$k}_max"]) [$r["{$k}_min"], $r["{$k}_max"]] = [$r["{$k}_max"], $r["{$k}_min"]];
+    }
+    return $r;
+}
+
 /** Re-encode $src → $out with subtle, seed-deterministic perturbation: strip
- *  metadata, off-centre crop ~1-2%, ±2% tone, re-compress. Visually a non-event;
- *  changes every byte and shifts the perceptual hash. Format from $out extension. */
-function ms_perturb_image(string $src, string $out, string $seed): bool {
+ *  metadata, off-centre crop, tone shift, re-compress. Visually a non-event at
+ *  the default ranges; changes every byte and shifts the perceptual hash.
+ *  Format from $out extension. $ranges — see ms_image_variation_defaults(). */
+function ms_perturb_image(string $src, string $out, string $seed, array $ranges = []): bool {
     $bin = ms_convert_bin();
     if ($bin === null) return false;
     $g = @getimagesize($src);
     if (!$g) return false;
     $W = (int)$g[0]; $H = (int)$g[1];
+    $r = ms_image_variation_ranges($ranges);
 
-    $dx = max(2, (int)round($W * (0.010 + ms_seed_int($seed . 'dx', 10) / 1000)));  // 1.0–1.9%
-    $dy = max(2, (int)round($H * (0.010 + ms_seed_int($seed . 'dy', 10) / 1000)));
+    // 10 discrete steps across the span (same granularity the hardcoded 1.0–1.9%
+    // used) so that at the untouched default range this reproduces the exact same
+    // crop for the exact same domain — changing the math here, even by a value
+    // that stays inside the same range, would re-crop every already-built photo
+    // on the next rebuild and force a full re-upload for no visible reason.
+    $cropSpan = max(0, $r['crop_max'] - $r['crop_min']);
+    $cropPctX = $r['crop_min'] + ($cropSpan > 0 ? ms_seed_int($seed . 'dx', 10) * $cropSpan / 9 : 0);
+    $cropPctY = $r['crop_min'] + ($cropSpan > 0 ? ms_seed_int($seed . 'dy', 10) * $cropSpan / 9 : 0);
+    $dx = max(2, (int)round($W * $cropPctX / 100));
+    $dy = max(2, (int)round($H * $cropPctY / 100));
     $ox = ms_seed_int($seed . 'ox', $dx + 1);
     $oy = ms_seed_int($seed . 'oy', $dy + 1);
     $cw = max(1, $W - $dx); $ch = max(1, $H - $dy);
-    $b  = 98 + ms_seed_int($seed . 'b', 5);   // 98–102
-    $s  = 98 + ms_seed_int($seed . 's', 5);   // 98–102
-    $q  = 80 + ms_seed_int($seed . 'q', 9);   // 80–88
+    $bSpan = max(0, $r['brightness_max'] - $r['brightness_min']);
+    $sSpan = max(0, $r['saturation_max'] - $r['saturation_min']);
+    $qSpan = max(0, $r['quality_max'] - $r['quality_min']);
+    $b = (int)round($r['brightness_min'] + ($bSpan > 0 ? ms_seed_int($seed . 'b', (int)$bSpan + 1) : 0));
+    $s = (int)round($r['saturation_min'] + ($sSpan > 0 ? ms_seed_int($seed . 's', (int)$sSpan + 1) : 0));
+    $q = (int)round($r['quality_min']    + ($qSpan > 0 ? ms_seed_int($seed . 'q', (int)$qSpan + 1) : 0));
 
     $cmd = [$bin, $src, '-strip', '-crop', "{$cw}x{$ch}+{$ox}+{$oy}", '+repage',
             '-modulate', "{$b},{$s}", '-quality', (string)$q, $out];
@@ -273,7 +325,7 @@ function ms_city_image_path(string $rel, string $siteCitySlug, string $masterCit
 /** Perturb one image and give it a city filename. Idempotent (skips if the target
  *  already exists). Leaves the source in place. Returns the new relative path, the
  *  original if unchanged, or null on failure. */
-function ms_vary_one(string $baseDir, string $rel, string $seed, string $siteCitySlug, string $masterCitySlug): ?string {
+function ms_vary_one(string $baseDir, string $rel, string $seed, string $siteCitySlug, string $masterCitySlug, array $ranges = []): ?string {
     $newRel = ms_city_image_path($rel, $siteCitySlug, $masterCitySlug);
     if ($newRel === $rel) return $rel;
     $newFile = $baseDir . '/' . $newRel;
@@ -281,7 +333,7 @@ function ms_vary_one(string $baseDir, string $rel, string $seed, string $siteCit
     $srcFile = $baseDir . '/' . $rel;
     if (!is_file($srcFile)) return null;
     $tmp = $newFile . '.tmp.' . getmypid();
-    if (!ms_perturb_image($srcFile, $tmp, $seed . '|' . $rel)) { @unlink($tmp); return null; }
+    if (!ms_perturb_image($srcFile, $tmp, $seed . '|' . $rel, $ranges)) { @unlink($tmp); return null; }
     if (!@rename($tmp, $newFile)) { @unlink($tmp); return null; }
     // Leave the source in place — other city pages may still need it. The
     // now-unreferenced original is removed later by ms_prune_unreferenced_uploads().
@@ -334,14 +386,14 @@ function ms_prune_unreferenced_uploads(string $workingDir): int {
 /** Walk a block tree (by ref); perturb + rename every content image, repointing
  *  the field. $skip holds paths to leave alone (e.g. already-stamped heroes).
  *  $rename memoises so a shared image is processed once. Returns true if changed. */
-function ms_vary_walk(&$node, string $baseDir, string $seed, string $siteCitySlug, string $masterCitySlug, array &$rename, array $skip, int &$count): bool {
+function ms_vary_walk(&$node, string $baseDir, string $seed, string $siteCitySlug, string $masterCitySlug, array &$rename, array $skip, int &$count, array $ranges = []): bool {
     if (!is_array($node)) return false;
     $changed = false;
     $recordOrig = [];   // origKey => original path — applied after the loop (never mutate $node mid-foreach)
     foreach ($node as $k => &$v) {
         if (is_string($k) && $k !== '' && $k[0] === '_') continue;   // skip metadata keys (incl _<field>_orig)
         if (is_array($v)) {
-            if (ms_vary_walk($v, $baseDir, $seed, $siteCitySlug, $masterCitySlug, $rename, $skip, $count)) $changed = true;
+            if (ms_vary_walk($v, $baseDir, $seed, $siteCitySlug, $masterCitySlug, $rename, $skip, $count, $ranges)) $changed = true;
             continue;
         }
         if (!ms_is_content_image($v)) continue;
@@ -357,7 +409,7 @@ function ms_vary_walk(&$node, string $baseDir, string $seed, string $siteCitySlu
             ? ltrim((string)$node[$origKey], '/') : ltrim((string)$v, '/');
         if (isset($skip[$src])) continue;
         if (!array_key_exists($src, $rename)) {
-            $new = ms_vary_one($baseDir, $src, $seed, $siteCitySlug, $masterCitySlug);
+            $new = ms_vary_one($baseDir, $src, $seed, $siteCitySlug, $masterCitySlug, $ranges);
             $rename[$src] = ($new !== null && $new !== $src) ? $new : null;
             if ($rename[$src] !== null) $count++;
         }
@@ -381,7 +433,8 @@ function ms_vary_walk(&$node, string $baseDir, string $seed, string $siteCitySlu
  * $ctx: site_dir (dir holding uploads/, required) · seed (determinism string,
  * required) · city, ss · keyword (hero line 1) · master_city_slug · style ·
  * page_key (hero output naming) · stamp_hero (bool, default true) · vary_images
- * (bool, default true). Returns ['stamped'=>[paths], 'varied'=>int, 'changed'=>bool].
+ * (bool, default true) · ranges (crop/tone/quality jitter, see
+ * ms_image_variation_defaults()). Returns ['stamped'=>[paths], 'varied'=>int, 'changed'=>bool].
  */
 function ms_process_blocks_images(array &$blocks, array $ctx): array {
     $baseDir = $ctx['site_dir'] ?? '';
@@ -392,6 +445,7 @@ function ms_process_blocks_images(array &$blocks, array $ctx): array {
     $citySlug = ms_slug_city($city, $ss);
     $mcs     = (string)($ctx['master_city_slug'] ?? '');
     $style   = $ctx['style'] ?? [];
+    $ranges  = $ctx['ranges'] ?? [];
     $pageKey = (string)($ctx['page_key'] ?? 'p');
     $keyword = trim((string)($ctx['keyword'] ?? ''));
     $doHero  = $ctx['stamp_hero']  ?? true;
@@ -406,7 +460,7 @@ function ms_process_blocks_images(array &$blocks, array $ctx): array {
         $skip = [];
         foreach ($stamped as $p) $skip[ltrim($p, '/')] = true;
         $rename = [];
-        ms_vary_walk($blocks, $baseDir, $seed, $citySlug, $mcs, $rename, $skip, $varied);
+        ms_vary_walk($blocks, $baseDir, $seed, $citySlug, $mcs, $rename, $skip, $varied, $ranges);
     }
     return ['stamped' => $stamped, 'varied' => $varied, 'changed' => ($stamped || $varied > 0)];
 }
@@ -417,7 +471,7 @@ function ms_process_blocks_images(array &$blocks, array $ctx): array {
  * remaining content image, and string-replaces the path. Guards skip already-
  * city-named files, hero outputs, and brand assets. Returns count.
  */
-function ms_vary_raw_image_refs(string $file, string $baseDir, string $seed, string $siteCitySlug, string $masterCitySlug, array $skip): int {
+function ms_vary_raw_image_refs(string $file, string $baseDir, string $seed, string $siteCitySlug, string $masterCitySlug, array $skip, array $ranges = []): int {
     if ($siteCitySlug === '') return 0;
     $txt = @file_get_contents($file);
     if ($txt === false || !preg_match_all('#uploads/[A-Za-z0-9._/\-]+\.(?:jpe?g|png|webp)#i', $txt, $m)) return 0;
@@ -433,7 +487,7 @@ function ms_vary_raw_image_refs(string $file, string $baseDir, string $seed, str
         $bn = strtolower(basename($rel)); $brand = false;
         foreach (['logo', 'icon', 'favicon', 'badge', 'sprite'] as $ex) if (strpos($bn, $ex) !== false) { $brand = true; break; }
         if ($brand) continue;
-        $new = ms_vary_one($baseDir, $rel, $seed, $siteCitySlug, $masterCitySlug);
+        $new = ms_vary_one($baseDir, $rel, $seed, $siteCitySlug, $masterCitySlug, $ranges);
         if ($new && $new !== $rel) { $txt = str_replace($raw, $new, $txt); $count++; }
     }
     if ($count > 0) file_put_contents($file, $txt);
@@ -446,7 +500,7 @@ function ms_vary_raw_image_refs(string $file, string $baseDir, string $seed, str
  * city_vars). Runs the reusable per-block core, then a raw-text sweep for
  * HTML-embedded refs, then prunes unreferenced files. Returns totals.
  */
-function ms_differentiate_site_images(string $workingDir, array $params, string $masterCitySlug = '', array $style = []): array {
+function ms_differentiate_site_images(string $workingDir, array $params, string $masterCitySlug = '', array $style = [], array $ranges = []): array {
     if (ms_convert_bin() === null) return ['stamped' => 0, 'varied' => 0, 'pruned' => 0];
     if (!ms_materialize_uploads($workingDir)) return ['stamped' => 0, 'varied' => 0, 'pruned' => 0];
 
@@ -457,14 +511,15 @@ function ms_differentiate_site_images(string $workingDir, array $params, string 
     $tot    = ['stamped' => 0, 'varied' => 0, 'pruned' => 0];
 
     // One file = one city (site.json uses the site's city; a landing page its own).
-    $processFile = function (string $file, string $fcity, string $fss) use ($workingDir, $seed, $masterCitySlug, $style, &$tot) {
+    $processFile = function (string $file, string $fcity, string $fss) use ($workingDir, $seed, $masterCitySlug, $style, $ranges, &$tot) {
         $data = json_decode((string)@file_get_contents($file), true);
         if (!is_array($data)) return;
         $stamped = [];
-        $run = function (array &$blocks, string $keyword, string $pageKey) use ($workingDir, $seed, $fcity, $fss, $masterCitySlug, $style, &$tot, &$stamped) {
+        $run = function (array &$blocks, string $keyword, string $pageKey) use ($workingDir, $seed, $fcity, $fss, $masterCitySlug, $style, $ranges, &$tot, &$stamped) {
             $r = ms_process_blocks_images($blocks, [
                 'site_dir' => $workingDir, 'seed' => $seed, 'city' => $fcity, 'ss' => $fss,
-                'keyword' => $keyword, 'master_city_slug' => $masterCitySlug, 'style' => $style, 'page_key' => $pageKey,
+                'keyword' => $keyword, 'master_city_slug' => $masterCitySlug, 'style' => $style,
+                'ranges' => $ranges, 'page_key' => $pageKey,
             ]);
             $tot['stamped'] += count($r['stamped']);
             $tot['varied']  += $r['varied'];
@@ -491,7 +546,7 @@ function ms_differentiate_site_images(string $workingDir, array $params, string 
         // raw-text sweep for anything embedded in HTML the typed walk missed
         $skip = [];
         foreach ($stamped as $p) $skip[ltrim($p, '/')] = true;
-        $tot['varied'] += ms_vary_raw_image_refs($file, $workingDir, $seed, ms_slug_city($fcity, $fss), $masterCitySlug, $skip);
+        $tot['varied'] += ms_vary_raw_image_refs($file, $workingDir, $seed, ms_slug_city($fcity, $fss), $masterCitySlug, $skip, $ranges);
     };
 
     $processFile($workingDir . '/data/site.json', $city, $ss);

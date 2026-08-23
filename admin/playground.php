@@ -1,39 +1,20 @@
 <?php
 /**
  * Test Lab — a permanent playground for previewing generator features before
- * they're wired into the build. First test: the per-site hero text overlay (4c).
- * Add more tests by adding a panel + (optionally) a backend endpoint.
+ * they're wired into the build. Add more tests by adding a panel + (optionally)
+ * a backend endpoint.
  * Auth required. Read-only: nothing here writes into any site.
+ *
+ * The hero text-overlay preview that used to live here has moved to the
+ * Gen-Image tab (admin/tabs/genimage.php) in the core admin panel, alongside
+ * the photo-variation ranges it's paired with — a real, permanent setting
+ * belongs in the panel that owns the site, not this experiments page.
  */
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/convo_uploads.php';   // accepted upload types, shared with convo_upload.php
 if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
 
-// Gather candidate source images from every site's uploads. Only photo-sized
-// images (icons/logos/thumbnails filtered out), largest first, dimensions shown.
-$srcOptions = [];
-foreach (glob(BASE_DIR . '/sites/*', GLOB_ONLYDIR) ?: [] as $siteDir) {
-    $sid = basename($siteDir);
-    $imgs = [];
-    foreach (glob($siteDir . '/uploads/{media,}/*.{jpg,jpeg,png,webp}', GLOB_BRACE) ?: [] as $f) {
-        $sz = @getimagesize($f);
-        if (!$sz || (int)$sz[0] < 480 || (int)$sz[1] < 240) continue;   // skip icons/logos
-        $imgs[] = ['p' => 'sites/' . $sid . substr($f, strlen($siteDir)), 'w' => (int)$sz[0], 'h' => (int)$sz[1], 'a' => (int)$sz[0] * (int)$sz[1]];
-    }
-    if ($imgs) {
-        usort($imgs, fn($a, $b) => $b['a'] <=> $a['a']);          // largest first
-        $srcOptions[$sid] = array_slice($imgs, 0, 25);
-    }
-}
-$defaultSrc = 'sites/pest-template/uploads/media/about-whitefly-treatment-katy_93c79d.webp';
-// If the known pest hero didn't survive the filter, fall back to the first listed image.
-$haveDefault = false;
-foreach ($srcOptions as $imgs) { foreach ($imgs as $im) { if ($im['p'] === $defaultSrc) { $haveDefault = true; break 2; } } }
-if (!$haveDefault) { foreach ($srcOptions as $imgs) { if ($imgs) { $defaultSrc = $imgs[0]['p']; break; } } }
 $csrf = $_SESSION['csrf_token'] ?? '';
-// Currently-locked style (if any) → seed the controls so the Lab shows what the build uses.
-$lockedStyle = @json_decode((string)@file_get_contents(BASE_DIR . '/multisite/hero_style.json'), true) ?: [];
-$ls = fn($k, $d) => $lockedStyle[$k] ?? $d;
 $h = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
 // "Share with Claude" uploads (newest first) for the gallery.
 $convoDir = BASE_DIR . '/uploads/convo';
@@ -88,7 +69,6 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
     <a href="#downloads-scott" style="color:#fcd34d;font-weight:700;">⬇ Downloads for Scott</a>
     <a href="#keyword-lists" style="color:#86efac;font-weight:700;">🔑 Keyword lists</a>
     <a href="#water-icons" style="color:#7dd3fc;font-weight:700;">💧 Water icons</a>
-    <button type="button" class="active">Hero text overlay</button>
     <a class="back" href="#preset-check" style="color:#fd783b;">↓ Theme Preset check</a>
     <a class="back" href="#logo-gen" style="color:#fd783b;">↓ Logo generator</a>
     <a class="back" href="#bug-icons" style="color:#fd783b;">↓ Bug icons</a>
@@ -301,172 +281,10 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
         <p class="note" style="margin-top:8px;">✅ Wired into the build — see the finished logos in the <a href="#logo-gen">Logo generator</a> panel above.</p>
     </section>
 
-    <h1 id="hero-overlay">Hero text overlay <span class="pill">4c · preview</span></h1>
-    <p class="sub">Bake two lines — <strong>keyword</strong> + <strong>city, ST</strong> — onto a hero image, the way each generated site will. Read-only: originals are never touched. Tune the look here, then we wire the chosen style into the build.</p>
-
-    <div class="lab">
-        <div class="card">
-            <h3>Controls</h3>
-
-            <label for="src">Source image</label>
-            <select id="src">
-                <?php foreach ($srcOptions as $sid => $imgs): ?>
-                    <optgroup label="<?= $h($sid) ?>">
-                        <?php foreach ($imgs as $img): ?>
-                            <option value="<?= $h($img['p']) ?>" <?= $img['p'] === $defaultSrc ? 'selected' : '' ?>><?= $h(basename($img['p'])) ?> (<?= $img['w'] ?>×<?= $img['h'] ?>)</option>
-                        <?php endforeach; ?>
-                    </optgroup>
-                <?php endforeach; ?>
-            </select>
-            <span class="note">Only photo-sized images shown (icons/logos hidden).</span>
-
-            <label for="line1">Line 1 — keyword</label>
-            <input type="text" id="line1" value="Cockroach Exterminator" maxlength="60">
-
-            <label for="line2">Line 2 — city, ST</label>
-            <input type="text" id="line2" value="Dallas, TX" maxlength="60">
-
-            <label for="line3">Line 3 — optional (e.g. business)</label>
-            <input type="text" id="line3" value="" maxlength="60" placeholder="(leave blank for 2 lines)">
-
-            <div class="row">
-                <div>
-                    <label for="pos">Position</label>
-                    <select id="pos">
-                        <option value="bl" <?= $ls('pos','bl') === 'bl' ? 'selected' : '' ?>>Bottom left</option>
-                        <option value="bc" <?= $ls('pos','bl') === 'bc' ? 'selected' : '' ?>>Bottom center</option>
-                        <option value="tl" <?= $ls('pos','bl') === 'tl' ? 'selected' : '' ?>>Top left</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="c2">City color</label>
-                    <input type="color" id="c2" value="<?= $h($ls('c2','#fd783b')) ?>">
-                </div>
-            </div>
-
-            <label>Keyword size <span id="s1v" style="color:#64748b;font-weight:400"></span></label>
-            <div class="rng"><input type="range" id="s1" min="20" max="90" value="<?= (int)$ls('s1',44) ?>"><output id="s1o"></output></div>
-
-            <label>City size <span id="s2v" style="color:#64748b;font-weight:400"></span></label>
-            <div class="rng"><input type="range" id="s2" min="16" max="80" value="<?= (int)$ls('s2',40) ?>"><output id="s2o"></output></div>
-
-            <label>Dark fade height <span style="color:#64748b;font-weight:400">(readability)</span></label>
-            <div class="rng"><input type="range" id="scrim" min="0" max="600" value="<?= (int)$ls('scrim',300) ?>"><output id="scrimo"></output></div>
-
-            <div style="margin-top:16px;padding-top:14px;border-top:1px solid #e2e8f0;">
-                <button type="button" id="lockbtn" style="background:#1e3a5f;color:#fff;border:0;border-radius:6px;padding:9px 16px;font-size:.88rem;font-weight:600;cursor:pointer;">🔒 Lock this style into the build</button>
-                <div id="lockmsg" class="note" style="margin-top:8px;"></div>
-                <?php if ($lockedStyle): ?><div class="note" style="margin-top:4px;color:#065f46;">A locked style is active — the build uses it. Adjust above and re-lock to change.</div><?php endif; ?>
-            </div>
-        </div>
-
-        <div>
-            <div class="preview">
-                <img id="out" alt="preview" src="">
-                <div id="err" style="display:none;color:#fca5a5;font-family:monospace;font-size:.78rem;text-align:left;white-space:pre-wrap;padding:12px;line-height:1.5"></div>
-            </div>
-            <p class="note">
-                Same photo, different city → a genuinely different image file per site (defeats duplicate-image detection).
-                Both lines come from data the system already stores: the page's <code>primary_keyword</code> and the site's <code>city</code>/<code>SS</code>.
-                Nudge the position/size/color to taste — when you're happy, tell me and I'll lock this style into the multisite build.
-            </p>
-        </div>
-    </div>
-
-    <div class="card" style="margin-top:20px;max-width:720px;">
-        <h3>Upload a test image</h3>
-        <p class="note" style="margin-top:0;margin-bottom:12px;">Preview the overlay on your own photo (e.g. a real hero, or a screenshot). It's saved only as a temporary scratch file for testing and auto-deleted after a day — it never goes into any real site.</p>
-        <input type="file" id="upl" accept="image/jpeg,image/png,image/webp,image/gif">
-        <span id="uplmsg" class="note" style="margin-left:10px;"></span>
-    </div>
 </main>
 
 <script>
 var LAB_CSRF = <?= json_encode($csrf) ?>;
-</script>
-<script>
-(function () {
-    var ids = ['src','line1','line2','line3','pos','c2','s1','s2','scrim'];
-    var el = {}; ids.forEach(function (i) { el[i] = document.getElementById(i); });
-    var out = document.getElementById('out');
-    var err = document.getElementById('err');
-    function sync() {
-        document.getElementById('s1o').textContent = el.s1.value;
-        document.getElementById('s2o').textContent = el.s2.value;
-        document.getElementById('scrimo').textContent = el.scrim.value;
-    }
-    function params() {
-        return new URLSearchParams({
-            src: el.src.value, line1: el.line1.value, line2: el.line2.value, line3: el.line3.value,
-            pos: el.pos.value, c2: el.c2.value, s1: el.s1.value, s2: el.s2.value, scrim: el.scrim.value
-        });
-    }
-    // If the image fails, fetch the same request with debug=1 and show the reason inline.
-    out.onload = function () { err.style.display = 'none'; out.style.display = ''; };
-    out.onerror = function () {
-        var q = params(); q.set('debug', '1');
-        fetch('hero_overlay.php?' + q.toString())
-            .then(function (r) { return r.text(); })
-            .then(function (txt) { out.style.display = 'none'; err.style.display = 'block'; err.textContent = 'Preview failed:\n\n' + txt; })
-            .catch(function () { out.style.display = 'none'; err.style.display = 'block'; err.textContent = 'Preview failed and the diagnostic request also failed (network/auth?).'; });
-    };
-    var t = null;
-    function render() {
-        sync();
-        var q = params(); q.set('_', Date.now());
-        out.src = 'hero_overlay.php?' + q.toString();
-    }
-    function schedule() { clearTimeout(t); t = setTimeout(render, 180); }
-    ids.forEach(function (i) { el[i].addEventListener('input', schedule); el[i].addEventListener('change', schedule); });
-
-    // Upload a scratch image, then select it as the source and re-render.
-    var upl = document.getElementById('upl'), uplmsg = document.getElementById('uplmsg');
-    upl.addEventListener('change', function () {
-        if (!upl.files || !upl.files[0]) return;
-        var fd = new FormData();
-        fd.append('csrf_token', LAB_CSRF);
-        fd.append('image', upl.files[0]);
-        uplmsg.textContent = 'Uploading…';
-        fetch('hero_upload.php', { method: 'POST', body: fd })
-            .then(function (r) { return r.json(); })
-            .then(function (d) {
-                if (d.error) { uplmsg.textContent = '✗ ' + d.error; return; }
-                var opt = document.createElement('option');
-                opt.value = d.src; opt.textContent = '⬆ ' + d.name + ' (' + d.w + '×' + d.h + ')';
-                var grp = document.createElement('optgroup'); grp.label = 'Uploaded'; grp.appendChild(opt);
-                el.src.insertBefore(grp, el.src.firstChild);
-                el.src.value = d.src;
-                uplmsg.textContent = '✓ uploaded';
-                render();
-            })
-            .catch(function () { uplmsg.textContent = '✗ upload failed'; });
-    });
-
-    // Lock the current style into the build (store control values + reference dims).
-    var lockBtn = document.getElementById('lockbtn'), lockMsg = document.getElementById('lockmsg');
-    lockBtn.addEventListener('click', function () {
-        var fd = new FormData();
-        fd.append('csrf_token', LAB_CSRF);
-        fd.append('pos', el.pos.value);
-        fd.append('c1', '#ffffff');
-        fd.append('c2', el.c2.value);
-        fd.append('s1', el.s1.value);
-        fd.append('s2', el.s2.value);
-        fd.append('scrim', el.scrim.value);
-        fd.append('ref_w', out.naturalWidth || 715);
-        fd.append('ref_h', out.naturalHeight || 600);
-        lockMsg.textContent = 'Saving…';
-        fetch('hero_style_save.php', { method: 'POST', body: fd })
-            .then(function (r) { return r.json(); })
-            .then(function (d) {
-                lockMsg.textContent = d.error ? ('✗ ' + d.error) : '✓ Locked — every build now uses this style (sizes scale to each hero).';
-                lockMsg.style.color = d.error ? '#991b1b' : '#065f46';
-            })
-            .catch(function () { lockMsg.textContent = '✗ save failed'; lockMsg.style.color = '#991b1b'; });
-    });
-
-    render();
-})();
 </script>
 <script>
 // "Share with Claude" — drag & drop / click / paste-screenshot upload.
