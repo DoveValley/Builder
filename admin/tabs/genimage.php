@@ -67,6 +67,8 @@ $giScopeNote = function (array $loc) {
 $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
 ?>
 <div class="tab-content" style="<?= $tab === 'genimage' ? '' : 'display:none;' ?>">
+<?php // tab_header() runs h() over both strings — raw characters, not HTML entities. ?>
+<?php tab_header('Gen-Image', 'What the build does to a generated domain\'s photos — the hero text baked onto each hero, and the variation that makes every other photo byte-unique.', 'tab-genimage'); ?>
 
 <div class="card">
     <h2>&#128248; Hero text overlay</h2>

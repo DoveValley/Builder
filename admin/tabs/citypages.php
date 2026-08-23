@@ -62,7 +62,7 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
             <li><a href="?tab=templates">Landing Templates</a> — the reusable page skeleton(s): blocks + <code>{city}</code>/<code>{business}</code> shortcodes + AI archetype blocks</li>
             <li><a href="?tab=cities">Landing Cities</a> — the cities to generate for (name, state, slug…)</li>
             <li><a href="?tab=niche_brief">Niche Brief</a> + <a href="?tab=seo">Keywords</a> — AI vocabulary + guardrails + the per-page keyword the AI blocks target</li>
-            <li><em>Optional</em> — <a href="playground.php#hero-overlay" target="_blank">hero style</a> in the Test Lab, if you turn on per-city image overlays below</li>
+            <li><em>Optional</em> — <a href="index.php?tab=genimage">hero style</a> on the Gen-Image tab, if you turn on per-city image overlays below</li>
         </ul>
         <p style="margin:0 0 6px;"><strong>Then, for each template × city (Generate below):</strong></p>
         <ol style="margin:0 0 14px 18px;padding:0;">
@@ -118,7 +118,7 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
                 <option value="hero">Hero text overlay — bake keyword + city onto the hero</option>
                 <option value="full">Full — hero overlay + unique photo per city</option>
             </select>
-            <a href="playground.php#hero-overlay" target="_blank" style="font-size:.8rem;color:#2563eb;text-decoration:none;">tune hero style ↗</a>
+            <a href="index.php?tab=genimage" style="font-size:.8rem;color:#2563eb;text-decoration:none;">tune hero style ↗</a>
 
             <span style="width:1px;height:22px;background:#e2e8f0;margin:0 4px;"></span>
 

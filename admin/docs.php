@@ -205,6 +205,7 @@ tr.ms-rec td { background: #fff3cd !important; }
         <a href="#tab-templates">Templates</a>
         <a href="#tab-cities">Landing Cities</a>
         <a href="#tab-citypages">Landing City Page Gen</a>
+        <a href="#tab-genimage">Gen-Image</a>
         <a href="#tab-generate">AI Generation</a>
         <a href="#tab-ai-review">Content Review</a>
         <a href="#tab-ai-blocks">Block Registry</a>
@@ -1197,12 +1198,70 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
     <ul>
         <li><strong>Per-city images</strong> dropdown — <em>Off</em> (share the template's images), <em>Hero text overlay</em> (bake the keyword + "City, ST" onto each hero), or <em>Full</em> (hero overlay plus a unique, city-renamed copy of every content photo). Non-destructive; deterministic per city; needs ImageMagick.</li>
         <li><strong>Vary block order per city</strong> checkbox — gives each city page a slightly different section order (hero first, closing block last, a couple of middle sections swap). Needs 4+ blocks.</li>
-        <li><strong>"tune hero style ↗"</strong> link — opens the <a href="playground.php#hero-overlay">Test Lab</a> hero-overlay panel to set and lock the overlay text position/size/colors.</li>
+        <li><strong>"tune hero style ↗"</strong> link — opens the <a href="#tab-genimage">Gen-Image</a> tab to set and lock the overlay text position/size/colors.</li>
     </ul>
     <p>Full detail: <a href="#cities-differentiation">City Pages — Per-city differentiation</a>.</p>
 
     <h3>Generation History</h3>
     <p>A log of all past structure generation runs for this site — timestamp, template, city filter used, number of pages written, and duration. Use this to verify when pages were last regenerated and confirm which template version was used.</p>
+</section>
+
+<section id="tab-genimage">
+    <h2>Tab: Gen-Image</h2>
+    <p>The two things the build does to a domain's <strong>photos</strong>, in one place: it bakes text onto each hero, and it makes every other photo byte-unique per domain. Both are <strong>master-level settings</strong> — what you set here is what every domain generated from this site inherits. It sits between <strong>Landing City Page Gen</strong> and <a href="#tab-genvisual">Gen-Visual</a> in the nav; the two Gen-* tabs are the pair that decide how generated sites <em>look</em> (this one images, the other colour/type/brand).</p>
+    <div class="callout tip"><p><strong>Moved here from the Test Lab (2026-08-23).</strong> The hero-overlay preview used to live on the <a href="playground.php">Test Lab</a> page, which is a scratchpad for unfinished experiments. A permanent setting the build reads on every run belongs in the panel that owns the site, so it moved — along with the photo-variation ranges, which had no admin surface at all before and were plain hardcoded numbers in <code>includes/multisite/image_overlay.php</code>. Old links to <code>playground.php#hero-overlay</code> are gone; the panel is here now.</p></div>
+
+    <h3>Hero text overlay</h3>
+    <p>Bakes up to three lines onto a hero image — line 1 the page's <code>primary_keyword</code>, line 2 the site's <code>city</code>/<code>SS</code> — so no two domains ship the same hero. The panel is a <strong>live preview and nothing more</strong>: it renders through <code>admin/hero_overlay.php</code>, which is read-only and never writes into any site's uploads. Because the preview and the build share the same render core, what you see is what production produces.</p>
+    <ul>
+        <li><strong>Source image</strong> — <em>this</em> site's own uploads only, filtered to photo-sized images (icons, logos and thumbnails are hidden), largest first, capped at 25. Purely a preview subject; it is not saved.</li>
+        <li><strong>Line 1 / 2 / 3</strong> — sample text for the preview. The build substitutes the real keyword and city; leave line 3 blank for a two-line overlay.</li>
+        <li><strong>Position</strong> — bottom left, bottom centre, or top left.</li>
+        <li><strong>City colour</strong>, <strong>keyword size</strong>, <strong>city size</strong>, and <strong>dark fade height</strong> (the readability gradient behind the text).</li>
+    </ul>
+    <p><strong>Lock this style into the build</strong> saves it. Sizes are stored alongside the <em>reference</em> image dimensions (<code>ref_w</code>/<code>ref_h</code>) so the build scales them proportionally to each hero's real size rather than applying a fixed point size to images of different dimensions. Values are clamped on save: sizes 8–400, fade 0–4000, reference dimensions 1–20000.</p>
+
+    <h3>Photo variation</h3>
+    <p>Every <em>other</em> photo on a generated domain — everything the hero overlay doesn't touch — gets a small automatic treatment so two domains built from the same master never share an identical file:</p>
+    <ul>
+        <li><strong>Cropped</strong> slightly off-centre — a sliver off two edges, not a visible reframe.</li>
+        <li><strong>Brightness and saturation</strong> nudged a few percent either way.</li>
+        <li><strong>Re-compressed</strong> at a slightly different quality, which also strips the original file's metadata.</li>
+    </ul>
+    <p>The four ranges are adjustable here. The same domain always lands on the same numbers within whatever range you set (so a rebuild doesn't reshuffle a photo that hasn't otherwise changed), while different domains land on different numbers — the jitter is seeded from the domain, not random.</p>
+    <table>
+        <thead><tr><th>Range</th><th>Default</th><th>Clamped to</th><th>What it changes</th></tr></thead>
+        <tbody>
+            <tr><td><code>crop_min</code> / <code>crop_max</code></td><td>1.0 – 1.9</td><td>0 – 10</td><td>% of width/height taken off, off-centre</td></tr>
+            <tr><td><code>brightness_min</code> / <code>_max</code></td><td>98 – 102</td><td>80 – 120</td><td>% modulate</td></tr>
+            <tr><td><code>saturation_min</code> / <code>_max</code></td><td>98 – 102</td><td>80 – 120</td><td>% modulate</td></tr>
+            <tr><td><code>quality_min</code> / <code>_max</code></td><td>80 – 88</td><td>40 – 100</td><td>re-encode quality</td></tr>
+        </tbody>
+    </table>
+    <p>The defaults are the exact numbers this mechanism was hardcoded to before the tab existed, so a master that never opens this card builds byte-for-byte as it always has. <code>ms_image_variation_ranges()</code> is the single validator — used by both the save endpoint and the build — and it <strong>swaps a flipped pair</strong> rather than rejecting it ("82 to 80" obviously means 80 to 82) and falls back to the default for anything missing or non-numeric, so a hand-edited file cannot produce a broken crop.</p>
+    <div class="callout"><p><strong>The city-name filename suffix is deliberately not adjustable.</strong> Every varied photo gets that domain's city appended to its filename (<code>hero-topeka.jpg</code> → <code>hero-overland-park.jpg</code>). That is a real local-SEO signal for that city's page, not an arbitrary naming choice, so it stays regardless of the ranges above. It is called out on the tab itself so it isn't mistaken for an oversight.</p></div>
+
+    <h3>Where the settings are stored</h3>
+    <p>Both cards resolve <strong>this master's own file first, the repo-global copy as a fallback</strong> — the same order <code>multisite/build_one.php</code> uses. Saving <strong>always</strong> writes the per-master copy, so a style locked while one site is active can never affect another.</p>
+    <table>
+        <thead><tr><th>Setting</th><th>Written to (always)</th><th>Fallback (read-only)</th></tr></thead>
+        <tbody>
+            <tr><td>Hero overlay style</td><td><code>sites/{master}/multisite/hero_style.json</code></td><td><code>multisite/hero_style.json</code></td></tr>
+            <tr><td>Photo-variation ranges</td><td><code>sites/{master}/multisite/image_variation.json</code></td><td><code>multisite/image_variation.json</code></td></tr>
+        </tbody>
+    </table>
+    <p>Each card states which of the three is in effect for the current site — <em>this site's own file</em>, <em>the shared fallback</em>, or <em>the built-in defaults</em> — so the scope is never ambiguous. Neither file present means the built-in defaults.</p>
+    <div class="callout tip"><p><strong>Per-master, not global (fixed 2026-08-23).</strong> Until this was fixed the tab read and wrote <em>only</em> the global copy while describing itself as a per-master setting: locking a style on one master silently changed every master, and was ignored outright by any master that had its own file. The resolution order now lives in exactly one place — <code>ms_image_settings_locate()</code> / <code>ms_image_settings_read()</code> / <code>ms_image_settings_write()</code> in <code>includes/multisite/image_overlay.php</code> — shared by this tab, both save endpoints, <code>build_one.php</code>, the single-site engine and the batch preflight, so the admin and the build cannot resolve to different files. <code>ms_image_settings_write()</code> refuses when there is no active site rather than falling back to the shared file.</p></div>
+
+    <h3>Files &amp; endpoints</h3>
+    <ul>
+        <li><code>admin/tabs/genimage.php</code> — the tab.</li>
+        <li><code>admin/hero_overlay.php</code> — streams the live preview PNG. Auth-gated, read-only; the <code>src</code> parameter is <code>realpath</code>-checked to stay inside the project.</li>
+        <li><code>admin/hero_style_save.php</code> — locks the overlay style (auth + CSRF).</li>
+        <li><code>admin/image_variation_save.php</code> — saves the four ranges (auth + CSRF).</li>
+        <li><code>includes/multisite/image_overlay.php</code> — the shared render core, the settings resolver, and <code>ms_perturb_image()</code>.</li>
+    </ul>
+    <p><strong>Requires ImageMagick</strong> on the server (<code>/usr/bin/convert</code>, located by absolute path — the web SAPI's <code>PATH</code> is minimal). See also <a href="#ms-differentiation">Per-site differentiation</a> for where the image pass runs inside the build, and <a href="#cities-differentiation">City Pages — Per-city differentiation</a> for the single-site reuse of the same core.</p>
 </section>
 
 <section id="tab-generate">
@@ -2843,7 +2902,7 @@ Output valid JSON only — no explanation.</code></pre>
         <li><strong>Full</strong> — the hero overlay <em>plus</em> a byte-perturbed, city-renamed copy of every content photo, so no two city pages share an image file (beats exact <em>and</em> perceptual duplicate detection). Adds the most images to <code>uploads/</code>.</li>
     </ul>
     <p>It reuses the shared multisite image core <code>ms_process_blocks_images()</code> — the same function the multisite build uses. It is <strong>non-destructive</strong>: it adds city-named variants alongside the originals and never prunes or deletes. It runs as the admin (www-data) user into <code>sites/{id}/uploads/</code>, is <strong>opt-in</strong> and <strong>deterministic per city</strong> (same city → same files → SEO-stable and reproducible), and <strong>no-ops</strong> on Dry Run, without ImageMagick, and for the multisite build (which does its own image pass). Requires ImageMagick.</p>
-    <p>The hero overlay <strong>style</strong> (text position, size, colors) is set and locked in the <a href="playground.php#hero-overlay">Test Lab</a> (Docs → 🧪 Test Lab → hero-overlay panel); the <strong>"tune hero style ↗"</strong> link next to the dropdown opens it. Sensible defaults work without any tuning.</p>
+    <p>The hero overlay <strong>style</strong> (text position, size, colors) is set and locked on the <a href="#tab-genimage">Gen-Image</a> tab; the <strong>"tune hero style ↗"</strong> link next to the dropdown opens it. Sensible defaults work without any tuning.</p>
 
     <h3>Real per-city scenic photo — the City Image plugin</h3>
     <p>Distinct from the overlay/perturb differentiation above, the <strong>City Image</strong> plugin (Plugins tab) sources a genuine scenic photo of the site's city from the Wikipedia/Wikimedia API, self-hosts it as webp, and derives an SEO <em>alt</em> string plus a CC credit line. It exposes them as render-time tokens — <code>{city_image}</code> (drop into any photo field, e.g. a <code>map_info</code> block), <code>{city_image_alt}</code>, <code>{city_image_credit}</code> — plus a <code>[city_image]</code> shortcode that renders a captioned <code>&lt;figure&gt;</code> inside a Custom HTML block. Values are written into <code>site_vars</code> by the fetch step (the plugin's admin panel, <code>plugins/city-image/cli.php</code>, or the MultiSite generator); the tokens are contributed through a <code>shortcode_tokens</code> filter hook, so they resolve everywhere the standard city tokens do. Before anything is fetched, the tokens resolve to empty and <code>[city_image]</code> renders nothing.</p>
@@ -4785,7 +4844,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 <section id="ms-visual-identity">
     <h2>Visual identity — Theme Presets, logo, favicon</h2>
     <p>A clone otherwise carries the master's <em>look</em> — same colors, same font, and (worst) the master's <strong>wordmark logo</strong> baked into pixels — onto every site. The <strong>visual-identity step</strong> gives each site a coordinated, distinct visual brand: a color/font <em>Theme Preset</em>, plus a generated logo and favicon in those colors. It runs in <code>build_one.php</code> right after <a href="#ms-differentiation">differentiation</a> and before the <a href="#spec-image-assign">4c</a> image prune (<code>includes/multisite/visual.php</code>).</p>
-    <div class="callout tip"><strong>One library, two jobs.</strong> A site's preset library is edited on the <strong><a href="#tab-genvisual">Gen-Visual</a></strong> tab (the <em>Visual Identity — Presets</em> panel) — the Theme / Colors tab it used to live on <em>is</em> Gen-Visual, renamed 2026-08-23. The same library serves both a <strong>single site</strong> — pick one preset as that site's own brand (<em>Use for this site</em>, stored as <code>single_preset_id</code>) — and the <strong>multisite build</strong>, which rotates through the presets flagged <em>in rotation</em>. The Multisite tab now shows a read-only summary + a link back to Gen-Visual.</p></div>
+    <div class="callout tip"><p><strong>One library, two jobs.</strong> A site's preset library is edited on the <strong><a href="#tab-genvisual">Gen-Visual</a></strong> tab (the <em>Visual Identity — Presets</em> panel) — the Theme / Colors tab it used to live on <em>is</em> Gen-Visual, renamed 2026-08-23. The same library serves both a <strong>single site</strong> — pick one preset as that site's own brand (<em>Use for this site</em>, stored as <code>single_preset_id</code>) — and the <strong>multisite build</strong>, which rotates through the presets flagged <em>in rotation</em>. The Multisite tab now shows a read-only summary + a link back to Gen-Visual.</p></div>
 
     <h3>Theme Presets</h3>
     <p>A <strong>Theme Preset</strong> is a named bundle of theme values — accent + highlight colors, brand/heading fonts, button radius, header/footer colors, and a <strong>bug icon</strong> (the mark used to build the logo). Presets are stored <strong>per site</strong> under the <code>presets</code> key of <code>sites/{site}/multisite/theme_presets.json</code> (up to <strong>10</strong>; ~6 recommended). Each entry is <code>{ name, note, icon, in_rotation, theme:{accent_color, header_bg, footer_bg, heading_color, header_text, footer_text, header_top_bg, primary_font, heading_font, button_radius}, header:{nav_bg} }</code>. The doc also holds <code>single_preset_id</code> — the preset applied to the site itself. Both <code>in_rotation</code> (default true) and <code>single_preset_id</code> (default 0 = none) are optional and back-compatible.</p>
