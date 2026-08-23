@@ -1,7 +1,44 @@
-    <div class="tab-content" style="<?= $tab === 'theme' ? '' : 'display:none;' ?>">
-        <?php tab_header('Theme / Colors', 'Colors, fonts &amp; buttons for the whole site. Pick a Theme Preset to set everything at once, then fine-tune below.', 'tab-theme'); ?>
+    <?php
+    /**
+     * Gen-Visual — everything that decides how a site LOOKS, for this master and for
+     * every domain a batch generates from it. Was the "Theme / Colors" tab (tab id
+     * `theme`, admin/tabs/theme.php) until it was renamed and moved next to Gen-Image:
+     * the split was never real. A generated domain is a clone of this master's
+     * site.json with a preset merged over it (ms_apply_theme_preset(),
+     * includes/multisite/visual.php), and a preset carries only 10 of the theme's 25
+     * keys — so everything here is either rotated per domain or inherited fleet-wide.
+     * The two bands below say which is which, per card.
+     *
+     * POST section names are deliberately unchanged (`theme`, `theme_reset`,
+     * `apply_preset`, `generate_brand`) — those are save-handler keys, not tab ids.
+     */
+    ?>
+    <div class="tab-content" style="<?= $tab === 'genvisual' ? '' : 'display:none;' ?>">
+        <?php // tab_header() runs h() over both strings — pass raw characters, not HTML entities. ?>
+        <?php tab_header('Gen-Visual', 'Colors, fonts, buttons and brand identity — this master\'s own look, plus the preset library every generated domain draws from.', 'tab-genvisual'); ?>
 
         <?php
+        // Per-card marker: does a batch-generated domain get its own value for this
+        // card, or does it inherit the master's? Driven by which keys a preset carries
+        // (see the docblock above) — static labels, deliberately not computed.
+        $gvTag = function (string $kind, string $note = ''): string {
+            [$bg, $fg, $br, $txt] = $kind === 'domain' ? ['#eff6ff', '#1d4ed8', '#bfdbfe', 'rotated per domain']
+                                  : ($kind === 'fleet' ? ['#f1f5f9', '#475569', '#e2e8f0', 'same on every domain']
+                                                       : ['#fefce8', '#854d0e', '#fde68a', 'part rotated, part fleet-wide']);
+            return '<span style="display:inline-block;background:' . $bg . ';color:' . $fg . ';border:1px solid ' . $br
+                 . ';border-radius:999px;padding:2px 9px;font-size:.7rem;font-weight:600;vertical-align:middle;margin-left:8px;">'
+                 . $txt . '</span>'
+                 . ($note !== '' ? '<span class="hint" style="display:block;margin-top:6px;">' . $note . '</span>' : '');
+        };
+
+        // Band heading between the two groups of cards.
+        $gvBand = function (string $title, string $sub): string {
+            return '<h3 style="margin:30px 0 12px;font-size:.82rem;color:#1e3a5f;text-transform:uppercase;letter-spacing:.07em;'
+                 . 'border-bottom:2px solid #e2e8f0;padding-bottom:7px;">' . $title
+                 . '<span class="hint" style="display:block;text-transform:none;letter-spacing:0;font-size:.8rem;'
+                 . 'font-weight:400;margin-top:5px;">' . $sub . '</span></h3>';
+        };
+
         // Reusable color-field renderer (picker + synced text input).
         $colorField = function ($key, $label, $value, $hint = '') {
             ?>
@@ -26,23 +63,69 @@
         $navTextCur = $header['nav_text'] ?? ($theme['header_text'] ?? '#ffffff');
         ?>
 
+        <?php
+        // Icon library (feeds the presets) + the numbers behind the summary card.
+        $iconDir  = ACTIVE_SITE_DIR . '/multisite/icons/';
+        $iconList = array_map('basename', glob($iconDir . '*.svg') ?: []);
+        sort($iconList);
+
+        $gvDoc     = @json_decode((string)@file_get_contents(ACTIVE_SITE_DIR . '/multisite/theme_presets.json'), true) ?: [];
+        $gvPresets = is_array($gvDoc['presets'] ?? null) ? $gvDoc['presets'] : [];
+        $gvRotating = 0;
+        foreach ($gvPresets as $p) if (!array_key_exists('in_rotation', $p) || $p['in_rotation']) $gvRotating++;
+        // Match apply_preset.php's lookup exactly: by stored id, ordinal as fallback.
+        $gvSingleId = (int)($gvDoc['single_preset_id'] ?? 0);
+        $gvSingle   = '';
+        foreach ($gvPresets as $i => $p) {
+            if ((int)($p['id'] ?? ($i + 1)) === $gvSingleId) { $gvSingle = trim((string)($p['name'] ?? '')); break; }
+        }
+        ?>
+
         <!-- How it works -->
         <div class="card" style="background:#f8fafc;border-left:3px solid #2563eb;">
-            <h2 style="margin-top:0;">How colors work here</h2>
-            <p class="hint" style="margin:0;line-height:1.8;">
-                <strong>① Theme Preset</strong> — one click sets everything below.<br>
-                <strong>② Brand colors</strong> — the accent that buttons, links &amp; badges follow.<br>
-                <strong>③ Header &amp; Footer</strong> — the bars at the very top and bottom of every page.<br>
-                <strong>④ Section moods (block skins)</strong> — the 4 background looks a section can wear. Set the colors here once, then <em>pick a mood per block</em> in the block editor.
+            <h2 style="margin-top:0;">How this tab works</h2>
+            <p class="hint" style="margin:0 0 10px;">Everything that decides how a site looks lives here &mdash; for this master
+                <em>and</em> for every domain a batch generates from it. A generated domain is a copy of this master with one
+                <strong>preset</strong> merged over the top, and a preset only carries 10 of the theme's 25 settings. So each card
+                below is marked with which of the two it is:</p>
+            <p class="hint" style="margin:0;line-height:2;">
+                <?= $gvTag('domain') ?> &mdash; every generated domain gets its own value, drawn from the preset it was assigned.<br>
+                <?= $gvTag('fleet') ?> &mdash; set once here, and <strong>every</strong> domain in every batch inherits it unchanged.
+            </p>
+        </div>
+
+        <?= $gvBand('Brand identity &mdash; the preset library', 'The master-level library a batch rotates through. Nothing here changes this site on its own until you apply a preset to it.') ?>
+
+        <!-- At a glance: the state you'd otherwise have to infer by scanning checkboxes -->
+        <div class="card">
+            <h2 style="margin-top:0;">At a glance</h2>
+            <p class="hint" style="margin:0;line-height:1.9;">
+                <strong><?= count($gvPresets) ?></strong> preset<?= count($gvPresets) === 1 ? '' : 's' ?> in the library
+                &nbsp;·&nbsp;
+                <?php if (!$gvPresets): ?>
+                    <span style="color:#b45309;">none yet &mdash; add one below</span>
+                <?php elseif ($gvRotating === 0): ?>
+                    <span style="color:#b45309;"><strong>0</strong> flagged in rotation</span> &mdash; with none flagged the build
+                    falls back to rotating through <strong>all <?= count($gvPresets) ?></strong>
+                <?php else: ?>
+                    <strong><?= $gvRotating ?></strong> in the batch rotation
+                <?php endif; ?>
+                &nbsp;·&nbsp;
+                <?php if ($gvSingle !== ''): ?>
+                    this site's own brand: <strong><?= h($gvSingle) ?></strong>
+                <?php else: ?>
+                    <span style="color:#64748b;">this site has no preset applied to it</span>
+                <?php endif; ?>
+                &nbsp;·&nbsp;
+                <?php if ($iconList): ?>
+                    <strong><?= count($iconList) ?></strong> brand icon<?= count($iconList) === 1 ? '' : 's' ?>
+                <?php else: ?>
+                    <span style="color:#b45309;">no brand icons</span>
+                <?php endif; ?>
             </p>
         </div>
 
         <!-- Brand icons: upload/manage the SVG icon library that feeds the presets -->
-        <?php
-        $iconDir  = ACTIVE_SITE_DIR . '/multisite/icons/';
-        $iconList = array_map('basename', glob($iconDir . '*.svg') ?: []);
-        sort($iconList);
-        ?>
         <div class="card" id="brand-icons">
             <h2 style="margin-top:0;">Brand icons <span class="hint" style="font-weight:400;">— SVG marks for logos &amp; favicons</span></h2>
             <p class="hint" style="margin-bottom:12px;">Upload simple <strong>single-color silhouette SVGs</strong> (a wrench, house, leaf, tool…). Each preset below picks one — it becomes the colored mark in that preset's generated <strong>logo + favicon</strong>. Upload ~10 (one per preset), then click <strong>Auto-assign</strong>.</p>
@@ -94,6 +177,8 @@
              brand, flag the multisite rotation. Sits OUTSIDE the theme form. -->
         <?php require __DIR__ . '/multisite_visual.php'; ?>
 
+        <?= $gvBand('This master&rsquo;s own look', 'Applying a preset above overwrites part of what follows. Everything a preset does <em>not</em> carry is inherited, unchanged, by every domain in every batch.') ?>
+
         <form action="save.php" method="post" id="theme-form">
             <input type="hidden" name="section" value="theme">
             <!-- Static CSRF: the index.php submit-listener only fires on real submits, not on
@@ -101,16 +186,13 @@
             <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
             <div style="margin-bottom:16px;"><button type="submit" class="btn">Save Theme</button></div>
 
-            <!-- ① THEME PRESET → now handled by the Visual Identity panel above -->
-            <div class="card" style="background:#f8fafc;border-left:3px solid #2563eb;">
-                <h2 style="margin-top:0;">① Theme Preset <span class="hint" style="font-weight:400;">— start here</span></h2>
-                <p class="hint" style="margin:0;">Use the <strong>Visual Identity — Presets</strong> panel at the top of this tab: click <strong>“Use for this site”</strong> on a preset to set this site's whole look (colors + font + buttons) and regenerate its logo &amp; favicon in one step. The fields below are for fine-tuning after.</p>
-            </div>
-
-            <!-- ② BRAND COLORS -->
+            <!-- ① BRAND COLORS -->
             <div class="card">
-                <h2>② Brand colors</h2>
-                <p class="hint" style="margin-bottom:14px;">Your signature colors. Buttons, links, badges and icons all follow the accent.</p>
+                <h2>① Brand colors <?= $gvTag('mixed') ?></h2>
+                <p class="hint" style="margin-bottom:14px;">Your signature colors. Buttons, links, badges and icons all follow the accent.
+                    <strong>Primary accent</strong> is one of the 10 settings a preset carries, so a generated domain uses its
+                    preset's accent instead of this one; <strong>Highlight</strong> and <strong>Button text</strong> are not, so
+                    every domain inherits exactly what you set here.</p>
                 <?php
                 $brandFields = [
                     'accent_color'  => ['Primary accent', 'Drives links, buttons, icon backgrounds, badges, and the Accent section mood — all from one color.', '#2563eb'],
@@ -123,8 +205,10 @@
 
             <!-- Brand assets: generated logo + favicon (palette -> assets cascade) -->
             <div class="card">
-                <h2>Brand — Logo &amp; Favicon</h2>
+                <h2>Brand — Logo &amp; Favicon <?= $gvTag('domain') ?></h2>
                 <p class="hint" style="margin-bottom:12px;">
+                    <em>This master's</em> logo and favicon. Every generated domain gets its own pair built the same way, from its
+                    own business name in its own preset's colors &mdash; so what you generate here is never shipped to a clone.<br>
                     Generate a two-tone wordmark logo + a monogram favicon from your business name
                     (<code><?= h($data['site_vars']['business'] ?? '(set business name in Header)') ?></code>)
                     in the palette above. Change colors, then click Generate — it saves the palette <em>and</em> regenerates both.
@@ -150,10 +234,13 @@
                 <span class="hint" style="display:block;margin-top:6px;">Needs ImageMagick on the server. The wordmark uses the first word in the accent color and the rest in the heading color.</span>
             </div>
 
-            <!-- ③ HEADER & FOOTER -->
+            <!-- ② HEADER & FOOTER -->
             <div class="card">
-                <h2>③ Header &amp; Footer</h2>
-                <p class="hint" style="margin-bottom:14px;">The colored bars at the very top and bottom of every page.</p>
+                <h2>② Header &amp; Footer <?= $gvTag('mixed') ?></h2>
+                <p class="hint" style="margin-bottom:14px;">The colored bars at the very top and bottom of every page.
+                    A preset carries the header bar color, the announcement strip and both footer colors, so a generated domain
+                    gets its own. <strong>Header bar text</strong> is the exception &mdash; it drives two separate values, and only
+                    the menu-link half is carried by a preset; the bar's own text color stays whatever you set here, fleet-wide.</p>
 
                 <div class="form-group">
                     <label>Header bar color</label>
@@ -182,10 +269,14 @@
                 <?php $colorField('footer_text', 'Footer text', $theme['footer_text'] ?? '#ffffff', 'Text and links inside the footer.'); ?>
             </div>
 
-            <!-- ④ SECTION MOODS (BLOCK SKINS) -->
+            <!-- ③ SECTION MOODS (BLOCK SKINS) -->
             <div class="card" style="background:#f8fafc;border-left:3px solid #64748b;">
-                <h2 style="margin-top:0;">④ Section moods <span class="hint" style="font-weight:400;">— block skins</span></h2>
+                <h2 style="margin-top:0;">③ Section moods <span class="hint" style="font-weight:400;">— block skins</span> <?= $gvTag('fleet') ?></h2>
                 <p class="hint" style="margin:0;">Every content section wears one of these four moods. Set the colors here <strong>once</strong>; choose which mood a section uses with the <strong>Block skin</strong> picker on each block. The <strong>Light</strong> mood’s heading color is also your default heading color site-wide.</p>
+                <p class="hint" style="margin:10px 0 0;">No preset carries block skins, so <strong>these four moods look identical on
+                    every domain you generate</strong> &mdash; this is the single biggest thing on this tab that a batch does <em>not</em>
+                    vary. (The one exception: the site-wide heading color the Light mood also sets <em>is</em> preset-carried, because the
+                    generated logo reads it.)</p>
             </div>
             <?php
             $skinDefs = [
@@ -227,17 +318,21 @@
             </div>
             <?php endforeach; ?>
 
-            <!-- ⑤ PAGE BACKGROUND & BORDERS -->
+            <!-- ④ PAGE BACKGROUND & BORDERS -->
             <div class="card">
-                <h2>⑤ Page background &amp; borders</h2>
-                <p class="hint" style="margin-bottom:14px;">Rarely changed — the base page color behind all sections, and structural divider lines.</p>
+                <h2>④ Page background &amp; borders <?= $gvTag('fleet') ?></h2>
+                <p class="hint" style="margin-bottom:14px;">Rarely changed — the base page color behind all sections, and structural divider lines.
+                    Neither is preset-carried, so both are inherited by every generated domain.</p>
                 <?php $colorField('content_bg', 'Page background', $theme['content_bg'] ?? '#ffffff', 'The base background behind every section. Usually white.'); ?>
                 <?php $colorField('border_color', 'Border / divider', $theme['border_color'] ?? '#e5e7eb', 'Footer divider lines and structural borders. Use as <code>var(--color-border)</code>.'); ?>
             </div>
 
-            <!-- ⑥ TYPOGRAPHY & BUTTONS -->
+            <!-- ⑤ TYPOGRAPHY & BUTTONS -->
             <div class="card">
-                <h2>⑥ Typography &amp; Buttons</h2>
+                <h2>⑤ Typography &amp; Buttons <?= $gvTag('mixed') ?></h2>
+                <p class="hint" style="margin-bottom:14px;">A preset carries the <strong>two font choices</strong> and the
+                    <strong>button radius</strong>, so a generated domain gets its own. Every <strong>size</strong> below &mdash; body,
+                    headings, supporting text &mdash; is inherited fleet-wide.</p>
                 <div class="form-group">
                     <label for="primary_font">Body / nav font</label>
                     <select id="primary_font" name="primary_font">
@@ -354,10 +449,15 @@
                 </div>
             </div>
 
-            <!-- ⑦ TRACKING -->
+            <?= $gvBand('Not visual &mdash; tracking', 'Saved by the same button, but nothing here affects how a site looks. It lives on this tab because it is part of the same <code>theme</code> record.') ?>
+
+            <!-- TRACKING -->
             <div class="card">
-                <h2>⑦ Analytics &amp; Tracking</h2>
-                <p class="hint" style="margin-bottom:14px;">Paste your tracking code here. It will be added to the <code>&lt;head&gt;</code> of every page automatically.</p>
+                <h2>Analytics &amp; Tracking</h2>
+                <p class="hint" style="margin-bottom:14px;">Paste your tracking code here. It will be added to the <code>&lt;head&gt;</code> of every page automatically.
+                    <strong>Note for batches:</strong> the two snippets below are copied onto every generated domain exactly as written
+                    &mdash; one GA property and one Pixel for the whole fleet unless you clear them. The Search Console field is the
+                    opposite: the batch overwrites it per domain with that domain's own verification tag.</p>
                 <div class="form-group">
                     <label for="analytics_head">Google Analytics / GA4 snippet</label>
                     <textarea id="analytics_head" name="analytics_head" rows="5"

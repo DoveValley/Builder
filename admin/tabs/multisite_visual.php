@@ -7,7 +7,8 @@
  *     applies colors, optionally font/buttons, and regenerates logo + favicon),
  *   • flags which presets the multisite build rotates through when generating clones.
  *
- * Included by admin/tabs/theme.php (the per-site home). Reads theme_presets.json +
+ * Included by admin/tabs/genvisual.php (was theme.php until that tab was renamed
+ * Gen-Visual and moved next to Gen-Image). Reads theme_presets.json +
  * icons/; previews via admin/visual_preview.php; library save via
  * admin/visual_presets_save.php; single-site apply via save.php (section=apply_preset).
  * Needs $csrfToken (from index.php). Must sit OUTSIDE the Theme <form>.

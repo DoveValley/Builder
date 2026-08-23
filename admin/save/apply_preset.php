@@ -6,7 +6,7 @@
 // those colors, points the LocalBusiness logo at it, and records single_preset_id.
 require_once __DIR__ . '/../../includes/multisite/visual.php'; // ms_apply_theme_preset(), ms_generate_logo(), ms_convert_*()
 
-$activeTab = 'theme';
+$activeTab = 'genvisual';
 
 $presetsFile = ACTIVE_SITE_DIR . '/multisite/theme_presets.json';
 $doc = @json_decode((string)@file_get_contents($presetsFile), true) ?: [];

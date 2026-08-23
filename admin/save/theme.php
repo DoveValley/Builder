@@ -1,5 +1,5 @@
 <?php
-        $activeTab = 'theme';
+        $activeTab = 'genvisual';
         // header_bg (container/dropdowns) now auto-follows the header bar color at render;
         // header_text is driven by the merged "Header bar text" control below — both omitted here.
         $colorKeys = ['header_top_bg','content_bg','footer_bg','footer_text','accent_color','accent2_color','btn_text','border_color'];

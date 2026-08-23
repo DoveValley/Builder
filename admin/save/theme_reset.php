@@ -1,5 +1,5 @@
 <?php
-        $activeTab = 'theme';
+        $activeTab = 'genvisual';
         $defaults = default_data()['theme'];
         // Merge defaults into current theme, preserving skins and font settings.
         // Only reset the base color tokens back to their default values.

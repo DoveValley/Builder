@@ -192,7 +192,7 @@ tr.ms-rec td { background: #fff3cd !important; }
     <nav id="reference-nav" hidden>
         <a class="nav-group" href="#group-admin">Admin Tabs</a>
         <a href="#tab-header">Header</a>
-        <a href="#tab-theme">Theme</a>
+        <a href="#tab-genvisual">Gen-Visual</a>
         <a href="#tab-content">Content</a>
         <a href="#tab-pages">Pages</a>
         <a href="#tab-blog">Blog</a>
@@ -716,7 +716,7 @@ tr.ms-rec td { background: #fff3cd !important; }
     <p>The phone number displayed in the header (typically top-right). Use <code>{phone}</code> to pull from site_vars. Location text (city, state) can appear alongside the phone on the 2-row layout.</p>
 
     <h3>Nav Bar Style</h3>
-    <p>Spacing and alignment for the navigation bar. The nav bar <strong>background and text colors have moved to the <a href="#tab-theme">Theme / Colors</a> tab</strong> — the old nav_bg / nav_text pickers were removed here, and a pointer sends you there. Set the "Header bar color" and "Header bar text" on Theme / Colors; the header container and menu links follow automatically.</p>
+    <p>Spacing and alignment for the navigation bar. The nav bar <strong>background and text colors have moved to the <a href="#tab-genvisual">Gen-Visual</a> tab</strong> — the old nav_bg / nav_text pickers were removed here, and a pointer sends you there. Set the "Header bar color" and "Header bar text" on Gen-Visual; the header container and menu links follow automatically.</p>
 
     <h3>Nav CTA Button</h3>
     <p>An optional call-to-action button inside the nav bar (e.g. "Get a Quote", "Register Now"). Shows as a colored button, separate from the regular menu links. Set label and URL.</p>
@@ -728,22 +728,29 @@ tr.ms-rec td { background: #fff3cd !important; }
     <p>Social profile icons shown in the header. Each entry is a platform name and URL. Icons are rendered automatically based on the platform. Leave the URL blank to hide that platform's icon.</p>
 </section>
 
-<section id="tab-theme">
-    <h2>Tab: Theme / Colors</h2>
+<section id="tab-genvisual">
+    <h2>Tab: Gen-Visual</h2>
+    <div class="callout tip"><p><strong>Renamed 2026-08-23.</strong> This was the <strong>Theme / Colors</strong> tab (<code>?tab=theme</code>, <code>admin/tabs/theme.php</code>). It is now <strong>Gen-Visual</strong> (<code>?tab=genvisual</code>, <code>admin/tabs/genvisual.php</code>), sitting next to <strong>Gen-Image</strong>, because the split was never real: a generated domain is a clone of the master's <code>site.json</code> with a preset merged over it, so <em>everything</em> on this tab is a batch setting. Old <code>?tab=theme</code> links redirect here automatically (<code>admin/index.php</code>, same mechanism as the legacy <code>schedule</code>/<code>popups</code> links). The POST section names are unchanged — <code>theme</code>, <code>theme_reset</code>, <code>apply_preset</code>, <code>generate_brand</code> — since those are save-handler keys, not tab ids.</p></div>
     <p>Controls global colors, fonts, and button styles. All values are converted to CSS custom properties and injected inline into every page. Change a color here and it updates everywhere on the site automatically.</p>
-    <p>The tab reads top-to-bottom as a hierarchy, each block with its own "when to use" guidance: <strong>① Theme Preset</strong> → <strong>② Brand colors</strong> → <strong>③ Header &amp; Footer</strong> → <strong>④ Section moods (Block Skins)</strong> → <strong>⑤ Page background &amp; borders</strong> → <strong>⑥ Typography &amp; Buttons</strong> → <strong>⑦ Tracking</strong>. Start at the top and work down.</p>
+    <p>The tab is organised into <strong>three bands</strong>, and every card carries a marker saying which side of the batch line it falls on:</p>
+    <ul>
+        <li><strong>Brand identity — the preset library</strong> — the <em>At a glance</em> summary, <strong>Brand icons</strong>, and the <strong>Visual Identity — Presets</strong> panel. Master-level; this is what a batch rotates through.</li>
+        <li><strong>This master's own look</strong> — <strong>① Brand colors</strong> → <strong>Brand — Logo &amp; Favicon</strong> → <strong>② Header &amp; Footer</strong> → <strong>③ Section moods (Block Skins)</strong> → <strong>④ Page background &amp; borders</strong> → <strong>⑤ Typography &amp; Buttons</strong>.</li>
+        <li><strong>Not visual — tracking</strong> — <strong>Analytics &amp; Tracking</strong>, saved by the same button but affecting nothing about how a site looks.</li>
+    </ul>
+    <p>The per-card markers come from one fact: <code>ms_apply_theme_preset()</code> (<code>includes/multisite/visual.php</code>) merges a preset over the cloned master, and a preset carries only <strong>10</strong> of the theme record's <strong>25</strong> keys. So a card is either <em>rotated per domain</em> (<code>accent_color</code>, <code>header_bg</code>, <code>header_text</code>, <code>header_top_bg</code>, <code>footer_bg</code>, <code>footer_text</code>, <code>heading_color</code>, <code>primary_font</code>, <code>heading_font</code>, <code>button_radius</code>, plus <code>header.nav_bg</code>) or <em>the same on every domain</em> (everything else — notably all four <strong>block skins</strong>, every <strong>font size</strong>, <code>accent2_color</code>, <code>btn_text</code>, <code>content_bg</code>, <code>border_color</code>).</p>
     <div class="callout tip">
         <p><strong>Tip:</strong> Color fields in content blocks accept the keywords <code>accent</code>, <code>header</code>, or <code>footer</code> instead of a hex value — they resolve at render time, so one theme change ripples to every block that uses them.</p>
     </div>
 
-    <h3>① Theme Preset — the Visual Identity panel</h3>
-    <p>At the top of the tab is the <strong>Visual Identity — Presets</strong> panel: this site's library of visual identities. Each preset bundles accent + dark colors, a font, a button radius, and a bug icon — and drives a generated <strong>logo + favicon</strong> (with live previews). It does three jobs, all here:</p>
+    <h3>The Visual Identity panel</h3>
+    <p>In the first band is the <strong>Visual Identity — Presets</strong> panel: this site's library of visual identities. Each preset bundles accent + dark colors, a font, a button radius, and a bug icon — and drives a generated <strong>logo + favicon</strong> (with live previews). It does three jobs, all here:</p>
     <ul>
         <li><strong>Use for this site →</strong> (per-preset button) — applies that one preset to <em>this</em> site immediately: merges its colors (and its font + button style when <em>“Use for this site” applies font &amp; buttons too</em> is checked) into the theme and regenerates the logo + favicon in those colors. Apply-on-select, with an overwrite confirm; the applied preset then shows a <strong>★ This site's brand</strong> badge. The choice is remembered as <code>single_preset_id</code>.</li>
         <li><strong>In multisite rotation</strong> (checkbox) — whether the <a href="#ms-visual-identity">multisite build</a> rotates through this preset when generating clone sites.</li>
         <li><strong>Save library</strong> — persists the presets + both selections to <code>sites/{site}/multisite/theme_presets.json</code>.</li>
     </ul>
-    <p>Fastest way to reskin the whole site in one move. The color/font/button fields below the panel are for fine-tuning after applying. (Prefer your own logo artwork? Upload it on the <strong>Header</strong> tab.)</p>
+    <p>Fastest way to reskin the whole site in one move. The color/font/button fields in the band below the panel are for fine-tuning after applying. (Prefer your own logo artwork? Upload it on the <strong>Header</strong> tab.)</p>
 
     <h3>② Brand colors</h3>
     <p>The core palette — typically 2–3 colors from the client's brand guide:</p>
@@ -4778,7 +4785,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 <section id="ms-visual-identity">
     <h2>Visual identity — Theme Presets, logo, favicon</h2>
     <p>A clone otherwise carries the master's <em>look</em> — same colors, same font, and (worst) the master's <strong>wordmark logo</strong> baked into pixels — onto every site. The <strong>visual-identity step</strong> gives each site a coordinated, distinct visual brand: a color/font <em>Theme Preset</em>, plus a generated logo and favicon in those colors. It runs in <code>build_one.php</code> right after <a href="#ms-differentiation">differentiation</a> and before the <a href="#spec-image-assign">4c</a> image prune (<code>includes/multisite/visual.php</code>).</p>
-    <div class="callout tip"><strong>One library, two jobs.</strong> A site's preset library is now edited on the <strong>Theme tab</strong> (the <em>Visual Identity — Presets</em> panel), not the Multisite tab. The same library serves both a <strong>single site</strong> — pick one preset as that site's own brand (<em>Use for this site</em>, stored as <code>single_preset_id</code>) — and the <strong>multisite build</strong>, which rotates through the presets flagged <em>in rotation</em>. The Multisite tab now shows a read-only summary + a link back to the Theme tab.</p></div>
+    <div class="callout tip"><strong>One library, two jobs.</strong> A site's preset library is edited on the <strong><a href="#tab-genvisual">Gen-Visual</a></strong> tab (the <em>Visual Identity — Presets</em> panel) — the Theme / Colors tab it used to live on <em>is</em> Gen-Visual, renamed 2026-08-23. The same library serves both a <strong>single site</strong> — pick one preset as that site's own brand (<em>Use for this site</em>, stored as <code>single_preset_id</code>) — and the <strong>multisite build</strong>, which rotates through the presets flagged <em>in rotation</em>. The Multisite tab now shows a read-only summary + a link back to Gen-Visual.</p></div>
 
     <h3>Theme Presets</h3>
     <p>A <strong>Theme Preset</strong> is a named bundle of theme values — accent + highlight colors, brand/heading fonts, button radius, header/footer colors, and a <strong>bug icon</strong> (the mark used to build the logo). Presets are stored <strong>per site</strong> under the <code>presets</code> key of <code>sites/{site}/multisite/theme_presets.json</code> (up to <strong>10</strong>; ~6 recommended). Each entry is <code>{ name, note, icon, in_rotation, theme:{accent_color, header_bg, footer_bg, heading_color, header_text, footer_text, header_top_bg, primary_font, heading_font, button_radius}, header:{nav_bg} }</code>. The doc also holds <code>single_preset_id</code> — the preset applied to the site itself. Both <code>in_rotation</code> (default true) and <code>single_preset_id</code> (default 0 = none) are optional and back-compatible.</p>
@@ -4800,7 +4807,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <p>The same bug tile is rendered at 128px and set as <code>header.favicon</code> — so no two sites ship a byte-identical favicon. See <a href="#spec-favicon">4a</a>.</p>
 
     <h3>Brand icons</h3>
-    <p>Icons live in <code>sites/{site}/multisite/icons/</code> as single-color silhouette SVGs; each colorizes to a preset's accent-on-dark tile for the logo mark and favicon. Manage them from the <strong>Brand icons</strong> card on the Theme tab (above the presets):</p>
+    <p>Icons live in <code>sites/{site}/multisite/icons/</code> as single-color silhouette SVGs; each colorizes to a preset's accent-on-dark tile for the logo mark and favicon. Manage them from the <strong>Brand icons</strong> card on the <a href="#tab-genvisual">Gen-Visual</a> tab (above the presets):</p>
     <ul>
         <li><strong>Upload</strong> — one or more <strong>SVG</strong> files (≤512&nbsp;KB each). Each is run through <code>sanitize_svg()</code> (strips <code>&lt;script&gt;</code>, <code>on*</code> handlers, external refs) before it's saved. SVG only — the generator needs a clean single-color shape to silhouette.</li>
         <li><strong>Grid + delete</strong> — every icon shows as a tile thumbnail with a remove button.</li>
@@ -4810,7 +4817,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <p>Endpoints: <code>admin/visual_icon_upload.php</code> (upload/delete, CSRF), <code>admin/visual_montage.php</code> (export). The pest master ships a Noto Emoji set (Apache 2.0, no attribution; codepoints in <code>icons/LICENSE.txt</code>).</p>
 
     <h3>Editing presets in the admin</h3>
-    <p>The <strong>Theme tab</strong> has the <strong>"Visual Identity — Presets"</strong> panel to view / edit / add / remove / save presets (up to 10) with <strong>live logo + favicon previews</strong>. Per preset: name, accent + dark color pickers, bug-icon dropdown, font, button radius, an <strong>In multisite rotation</strong> checkbox, and a <strong>Use for this site</strong> radio (single-site apply). Files: <code>admin/tabs/multisite_visual.php</code> (panel, included by the Theme tab), <code>admin/visual_preview.php</code> (streams the live preview PNG), <code>admin/visual_presets_save.php</code> (CSRF library save), and <code>admin/save/apply_preset.php</code> (single-site apply — <code>save.php</code> section <code>apply_preset</code>: merges the preset theme, optionally its font/buttons, regenerates the logo + favicon, records <code>single_preset_id</code>). The MultiSite tab shows a read-only rotation summary linking here.</p>
+    <p>The <strong><a href="#tab-genvisual">Gen-Visual</a> tab</strong> has the <strong>"Visual Identity — Presets"</strong> panel to view / edit / add / remove / save presets (up to 10) with <strong>live logo + favicon previews</strong>. Per preset: name, accent + dark color pickers, bug-icon dropdown, font, button radius, an <strong>In multisite rotation</strong> checkbox, and a <strong>Use for this site</strong> radio (single-site apply). Files: <code>admin/tabs/multisite_visual.php</code> (panel, included by <code>admin/tabs/genvisual.php</code>), <code>admin/visual_preview.php</code> (streams the live preview PNG), <code>admin/visual_presets_save.php</code> (CSRF library save), and <code>admin/save/apply_preset.php</code> (single-site apply — <code>save.php</code> section <code>apply_preset</code>: merges the preset theme, optionally its font/buttons, regenerates the logo + favicon, records <code>single_preset_id</code>). The MultiSite tab shows a read-only rotation summary linking here.</p>
     <div class="callout tip">Preview a preset, its four sample logos, real headers, favicons and the bug icons in the <a href="playground.php">Test Lab</a> (docs nav → 🧪 Test Lab).</div>
 </section>
 
@@ -5238,7 +5245,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <p>The whole campaign runs from the admin <strong>MultiSite</strong> tab (the active site is the campaign master) — no shell needed. It wraps the same cores documented under Command Line below.</p>
     <p>A collapsible <strong>"How a multisite run works"</strong> card sits at the top of the tab — a setup/verify checklist (Master site, Niche Brief, Keywords, <a href="#ms-visual-identity">Visual Identity</a>, Block/layout order, Params CSV, each linked to its tab), the per-row pipeline (clone → identity → landing → differentiate → visual → AI → build → deploy), and the finish. Read it once to see how the pieces fit before your first run.</p>
     <ol>
-        <li><strong>Set up the master</strong> — before uploading params, author the master, the <a href="#ai-niche">Niche Brief</a> + keywords, and the <a href="#ms-visual-identity">Visual Identity — Presets</a> library (now edited on the <strong>Theme tab</strong>; up to 10 presets with live logo + favicon previews). Flag which presets are <em>in rotation</em> — each generated site draws its palette + logo/favicon from a rotation preset. (This tab shows a read-only rotation summary.)</li>
+        <li><strong>Set up the master</strong> — before uploading params, author the master, the <a href="#ai-niche">Niche Brief</a> + keywords, and the <a href="#ms-visual-identity">Visual Identity — Presets</a> library (edited on the <strong><a href="#tab-genvisual">Gen-Visual</a></strong> tab; up to 10 presets with live logo + favicon previews). Flag which presets are <em>in rotation</em> — each generated site draws its palette + logo/favicon from a rotation preset. (This tab shows a read-only rotation summary.)</li>
         <li><strong>Upload params</strong> — download the sample CSV, edit it, and upload. The table is validated inline (per-row ok / warn / error, plus an unknown-column report) and stored only when every row is error-free; rows with warnings are kept.</li>
         <li><strong>Download &amp; edit the current table</strong> — once a table is stored, <em>Download current table (FTP masked)</em> exports it with every FTP password shown as <code>__KEEP__</code> (safe to store/email). Edit any fields and re-upload: leave <code>__KEEP__</code> to keep a password, or type a new one — real passwords are re-hydrated by domain, so you never retype what you didn't change. A brand-new row that still has <code>__KEEP__</code> is rejected as partial-FTP, forcing a real password.</li>
         <li><strong>Saved params versions</strong> — every successful upload (and restore) is snapshotted to <code>sites/{master}/multisite/params_versions/</code>; the newest <strong>15</strong> are kept. Each can be downloaded (masked) or <strong>restored</strong> as the current table. The whole dir is gitignored, so real passwords never reach git.</li>

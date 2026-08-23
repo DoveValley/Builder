@@ -42,8 +42,17 @@ $blogSettings = $data['blog_settings'];
 
 // Active tab
 $tab = $_GET['tab'] ?? 'header';
-if (!in_array($tab, ['header', 'theme', 'content', 'pages', 'templates', 'keywords', 'cities', 'citypages', 'genimage', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'niche_brief', 'multisite'], true)) {
+// 'theme' is kept in this list only so the legacy redirect below can see it — same
+// reason 'schedule'/'popups' are still here. It is no longer a tab.
+if (!in_array($tab, ['header', 'theme', 'genvisual', 'content', 'pages', 'templates', 'keywords', 'cities', 'citypages', 'genimage', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'niche_brief', 'multisite'], true)) {
     $tab = 'header';
+}
+// The Theme / Colors tab was renamed Gen-Visual — keep old links and bookmarks working.
+if ($tab === 'theme') {
+    $params = $_GET;
+    $params['tab'] = 'genvisual';
+    header('Location: index.php?' . http_build_query($params));
+    exit;
 }
 // Redirect legacy tab links into the Plugins tab.
 if ($tab === 'schedule' || $tab === 'popups') {
@@ -266,7 +275,6 @@ foreach ($footer['columns'] as $ci => $column) {
     <div class="tabs">
         <a class="tab-link <?= $tab === 'header' ? 'active' : '' ?>" href="?tab=header">Header</a>
         <a class="tab-link <?= $tab === 'footer' ? 'active' : '' ?>" href="?tab=footer">Footer</a>
-        <a class="tab-link <?= $tab === 'theme' ? 'active' : '' ?>" href="?tab=theme">Theme / Colors</a>
         <a class="tab-link <?= $tab === 'blog' ? 'active' : '' ?>" href="?tab=blog">Blog</a>
         <a class="tab-link <?= $tab === 'media' ? 'active' : '' ?>" href="?tab=media">Media Library</a>
         <a class="tab-link <?= $tab === 'seo' ? 'active' : '' ?>" href="?tab=seo">SEO</a>
@@ -280,6 +288,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'cities' ? 'active' : '' ?>" href="?tab=cities">Landing Cities</a>
         <a class="tab-link <?= $tab === 'citypages' ? 'active' : '' ?>" href="?tab=citypages">Landing City Page Gen</a>
         <a class="tab-link <?= $tab === 'genimage' ? 'active' : '' ?>" href="?tab=genimage">&#128248; Gen-Image</a>
+        <a class="tab-link <?= $tab === 'genvisual' ? 'active' : '' ?>" href="?tab=genvisual">&#127912; Gen-Visual</a>
         <span style="flex-basis:100%;height:0;border-top:1px solid #e5e7eb;margin:0 -4px;"></span>
         <a class="tab-link <?= $tab === 'ai' ? 'active' : '' ?>" href="?tab=ai">&#127916; AI Generation</a>
         <a class="tab-link <?= $tab === 'ai_review' ? 'active' : '' ?>" href="?tab=ai_review">&#128269; Content Review</a>
@@ -290,9 +299,6 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- ================= HEADER TAB ================= -->
     <?php require __DIR__ . '/tabs/header.php'; ?>
-
-    <!-- ================= THEME TAB ================= -->
-    <?php require __DIR__ . '/tabs/theme.php'; ?>
 
     <!-- ================= CONTENT TAB ================= -->
     <?php require __DIR__ . '/tabs/content.php'; ?>
@@ -317,6 +323,9 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- ================= GEN-IMAGE TAB ================= -->
     <?php require __DIR__ . '/tabs/genimage.php'; ?>
+
+    <!-- ================= GEN-VISUAL TAB (was Theme / Colors) ================= -->
+    <?php require __DIR__ . '/tabs/genvisual.php'; ?>
 
     <!-- ================= BLOG TAB ================= -->
     <?php require __DIR__ . '/tabs/blog.php'; ?>

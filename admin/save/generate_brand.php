@@ -6,7 +6,7 @@
 require __DIR__ . '/theme.php';                               // apply posted palette to $data['theme']
 require_once __DIR__ . '/../../includes/multisite/visual.php'; // ms_generate_logo(), ms_convert_run(), ms_convert_bin()
 
-$activeTab = 'theme';
+$activeTab = 'genvisual';
 $business  = trim($data['site_vars']['business'] ?? '');
 
 if ($business === '') {
