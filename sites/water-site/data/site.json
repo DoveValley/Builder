@@ -45,7 +45,7 @@
         "text": "#555e6d"
       }
     },
-    "head_extra": "<style>\n/* sticky footer — match pest style: FA phone-in-circle + FA info \"i\", bigger text, phone not bold */\n.sticky-phone-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#0c2a4a;flex:0 0 44px;margin-right:8px;}\n.sticky-phone-icon svg{display:none;}\n.sticky-phone-icon::before{content:\"\";display:inline-block;width:22px;height:22px;background:#fff;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n.sticky-info-trigger svg{display:none;}\n.sticky-info-trigger::before{content:\"\";display:inline-block;width:26px;height:26px;vertical-align:middle;background:currentColor;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n.sticky-bar-text{font-size:1.4rem !important;}\n.sticky-phone-number{font-size:1.75rem !important;font-weight:400 !important;}\n\n/* header info items — match pest: even spacing, regular weight, 1.05rem, sized icons */\n.header-info-items{justify-content:space-between !important;padding-left:72px !important;}\n.header-info-item{font-weight:400 !important;font-size:1.05rem !important;}\n.header-info-item:last-child{margin-left:0 !important;}\n.header-info-item .info-icon{font-size:2rem !important;line-height:1;}\n.header-info-item:first-child .info-icon{font-size:1.5rem !important;}\n.header-info-item:nth-child(2) .info-icon{font-size:1.6rem !important;}\n.header-info-item:nth-child(3) .info-icon{font-size:1.6rem !important;}\n\n/* nav strip — match pest: 40% taller + 2x phone icon + FA info \"i\" */\n.header-nav-inner{min-height:73px;}\n.header-phone-btn svg{display:none;}\n.header-phone-btn{font-size:1.5rem !important;font-weight:400 !important;}\n.helpline-sponsored .info-trigger svg{display:none;}\n.helpline-sponsored .info-trigger::before{content:\"\";display:inline-block;width:1.1em;height:1.1em;margin-right:5px;vertical-align:middle;background:currentColor;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n/* bigger nav links (match pest) */\n.header-nav-row .site-nav ul li a{font-size:1.15rem !important;}\n/* helpline/sponsored/i like pest (katypestpros.com) */\n.header-helpline{font-size:1.1rem !important;text-align:left !important;}\n.helpline-label{font-weight:400 !important;}\n.helpline-sponsored{opacity:1 !important;}\n/* footer contact: phone like sticky (FA phone in brand circle) + bigger globe */\n.contact-icon-phone{background:#0c2a4a !important;font-size:0 !important;}\n.contact-icon-phone::before{content:\"\";display:inline-block;width:16px;height:16px;background:#fff;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n.contact-icon-city{font-size:1.6rem !important;}\n</style>"
+    "head_extra": "<style>\n/* sticky footer — FA phone-in-circle + FA info \"i\", bigger text, phone not bold */\n.sticky-phone-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#0c2a4a;flex:0 0 44px;margin-right:8px;}\n.sticky-phone-icon svg{display:none;}\n.sticky-phone-icon::before{content:\"\";display:inline-block;width:22px;height:22px;background:#fff;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n.sticky-info-trigger svg{display:none;}\n.sticky-info-trigger::before{content:\"\";display:inline-block;width:26px;height:26px;vertical-align:middle;background:currentColor;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n.sticky-bar-text{font-size:1.4rem !important;}\n.sticky-phone-number{font-size:1.75rem !important;font-weight:400 !important;}\n\n/* header info items — even spacing, regular weight, 1.05rem, sized icons */\n.header-info-items{justify-content:space-between !important;padding-left:72px !important;}\n.header-info-item{font-weight:400 !important;font-size:1.05rem !important;}\n.header-info-item:last-child{margin-left:0 !important;}\n.header-info-item .info-icon{font-size:2rem !important;line-height:1;}\n.header-info-item:first-child .info-icon{font-size:1.5rem !important;}\n.header-info-item:nth-child(2) .info-icon{font-size:1.6rem !important;}\n.header-info-item:nth-child(3) .info-icon{font-size:1.6rem !important;}\n\n/* nav strip — 40% taller + 2x phone icon + FA info \"i\" */\n.header-nav-inner{min-height:73px;}\n.header-phone-btn svg{display:none;}\n.header-phone-btn{font-size:1.5rem !important;font-weight:400 !important;}\n.helpline-sponsored .info-trigger svg{display:none;}\n.helpline-sponsored .info-trigger::before{content:\"\";display:inline-block;width:1.1em;height:1.1em;margin-right:5px;vertical-align:middle;background:currentColor;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n/* bigger nav links */\n.header-nav-row .site-nav ul li a{font-size:1.15rem !important;}\n/* helpline / sponsored / info \"i\" */\n.header-helpline{font-size:1.1rem !important;text-align:left !important;}\n.helpline-label{font-weight:400 !important;}\n.helpline-sponsored{opacity:1 !important;}\n/* footer contact: phone like sticky (FA phone in brand circle) + bigger globe */\n.contact-icon-phone{background:#0c2a4a !important;font-size:0 !important;}\n.contact-icon-phone::before{content:\"\";display:inline-block;width:16px;height:16px;background:#fff;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n.contact-icon-city{font-size:1.6rem !important;}\n</style>"
   },
   "header": {
     "site_name": "{business}",
@@ -100,7 +100,7 @@
     {
       "type": "hero_split",
       "hs_heading": "Water Damage Restoration in {city_state}",
-      "hs_subtext": "<p>East Texas experiences heavy spring and summer storms alongside winter freeze-thaw cycles that can compromise roofs, foundations, and interior structures, leaving standing water and moisture that threaten property stability within hours. Elk Restoration Pros specializes in water damage restoration—extracting standing water, drying affected materials, and addressing structural moisture before secondary damage takes hold in homes and businesses across Lufkin and the surrounding area. A fast, professional response protects your property's integrity and helps minimize costly repairs down the road.</p>",
+      "hs_subtext": "<p>Lufkin's humid subtropical climate and seasonal weather patterns—including spring storms and occasional freeze-thaw cycles—create conditions where water intrusion, pipe breaks, and storm-related flooding can damage properties quickly. Elk Restoration Pros specializes in water damage restoration, addressing everything from burst pipes and roof leaks to storm water intrusion, working to stabilize and restore affected structures before secondary damage compounds the problem. For property owners facing active water damage, rapid response and thorough restoration help protect what you've built and minimize long-term structural risk.</p>",
       "hs_btn_text": "{phone}",
       "hs_btn_url": "tel:{tel}",
       "hs_caption1": "24/7 Emergency Response",
@@ -108,16 +108,16 @@
       "hs_photo_alt": "Water damage restoration in {city}, {SS}",
       "hs_image_side": "right",
       "hs_bg_color": "#eef4fb",
-      "hs_photo": "sites/water-site/uploads/media/water-damage-repair.webp",
-      "hs_bg_photo": "sites/water-site/uploads/media/hero-bg-light.webp",
+      "hs_photo": "sites/water-site/uploads/media/home-1.webp",
+      "hs_bg_photo": "sites/water-site/uploads/media/home-2.webp",
       "hs_mobile_order": "",
       "id": "home_hero",
       "ai_type_id": "hero_subtext",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-07-12T00:34:41.910303Z",
+      "_ai_generated_at": "2026-08-23T14:23:33.609125Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "hero_subtext",
-      "_ai_locked": false,
+      "_ai_locked": true,
       "_ai_input_hash": "55da8076bd6bbe52"
     },
     {
@@ -129,14 +129,14 @@
       "ai_model": "claude-sonnet-5",
       "skin": "light",
       "heading_level": "h2",
-      "heading_text": "Water Damage Restoration Lufkin Homeowners Can Trust",
-      "text": "<p>Lufkin's location in the heart of East Texas means property owners contend with a mix of heavy spring thunderstorms, humid summers, and the occasional tropical system that pushes inland from the Gulf. These weather patterns can bring sudden downpours and rising water that overwhelm drainage around homes and businesses. Winter adds another layer of risk, as occasional hard freezes followed by quick thaws can stress older pipes and plumbing fixtures, leading to leaks or bursts that show up without warning. Whether the cause is a storm system or a frozen pipe, water damage in Lufkin tends to spread quickly through flooring, drywall, and insulation if it isn't addressed right away.</p><p>Elk Restoration Pros responds with a thorough, methodical approach built around careful inspection, water extraction, and structured drying, so hidden moisture doesn't linger where it can't be seen. Our team documents each step and follows up to confirm conditions are stabilizing throughout the process. From Downtown Lufkin to Crown Colony and Kurth, we treat every property with the same attention to detail. While our focus stays on water and storm damage restoration, we're also equipped to help with related property concerns as they arise. Lufkin residents facing an active water emergency can count on a responsive team ready to help protect what matters most.</p>",
+      "heading_text": "Why Lufkin Property Owners Rely on Water Damage Restoration",
+      "text": "<p>Lufkin's humid subtropical climate brings heavy spring and summer storms, occasional tropical remnants, and sudden downpours that can overwhelm drainage and saturate foundations. Flood damage restoration needs often follow when creeks and low-lying areas swell after intense rainfall. Winter adds its own risk, as freezes followed by rapid thaws can stress pipes and plumbing, leading to unexpected leaks or bursts. Whether the source is a major storm or a slow, hidden leak, moisture trapped in walls, flooring, or crawl spaces can compromise a structure over time, making prompt water extraction and mitigation important for Lufkin property owners.</p><p>Elk Restoration Pros responds to Lufkin water emergencies with careful assessment, thorough extraction, and controlled drying suited to each property's layout, from Downtown Lufkin storefronts to homes near Crown Colony and Fuller Springs. The team also addresses other property concerns beyond water and storm damage. Every project includes clear follow-up so owners understand what comes next as the space dries and stabilizes, and Elk Restoration Pros stays ready to respond whenever the weather turns severe again.</p>",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-07-12T00:34:51.027571Z",
+      "_ai_generated_at": "2026-08-23T14:24:06.339929Z",
       "_ai_model": "claude-sonnet-5",
       "_ai_type": "city_intro",
-      "_ai_locked": false,
-      "_ai_input_hash": "0164767552de5788"
+      "_ai_locked": true,
+      "_ai_input_hash": "425a323aca3369c2"
     },
     {
       "type": "feature_split",
@@ -148,7 +148,7 @@
       "fs_accent": "#2563eb",
       "fs_image_side": "left",
       "fs_mobile_order": "text_first",
-      "fs_photo": "sites/water-site/uploads/media/about-water-restoration.webp",
+      "fs_photo": "sites/water-site/uploads/media/home-3.webp",
       "fs_items": [
         {
           "icon": "",
@@ -205,35 +205,35 @@
       "type": "tab_services",
       "ts_badge1": "{business}",
       "ts_badge2": "SERVICES {city}, {SS}",
-      "ts_heading": "Professional Water Damage Restoration Serving {city_state}",
+      "ts_heading": "Water Extraction, Structural Drying, Flood & Sewage Cleanup",
       "ts_active_bg": "header",
       "ts_active_bg_custom": "#0d2340",
       "ts_tabs": [
         {
           "label": "Water Extraction",
           "icon": "",
-          "photo": "sites/water-site/uploads/media/water-removal-extraction.webp",
+          "photo": "sites/water-site/uploads/media/home-4.webp",
           "alt": "Water extraction {city} {SS}",
           "desc": "Powerful pumps and extraction units remove standing water fast to limit further damage."
         },
         {
           "label": "Structural Drying",
           "icon": "",
-          "photo": "sites/water-site/uploads/media/water-mitigation.webp",
+          "photo": "sites/water-site/uploads/media/home-5.webp",
           "alt": "Structural drying {city} {SS}",
           "desc": "Industrial air movers and dehumidifiers dry framing, drywall, and floors to help prevent mold."
         },
         {
           "label": "Flood Cleanup",
           "icon": "",
-          "photo": "sites/water-site/uploads/media/flooded-basement-water-damage.webp",
+          "photo": "sites/water-site/uploads/media/home-6.webp",
           "alt": "Flood cleanup {city} {SS}",
           "desc": "Full cleanup and sanitizing after flooding, including debris and contaminated materials."
         },
         {
           "label": "Sewage Cleanup",
           "icon": "",
-          "photo": "sites/water-site/uploads/media/water-damage-cleanup.webp",
+          "photo": "sites/water-site/uploads/media/home-7.webp",
           "alt": "Sewage cleanup {city} {SS}",
           "desc": "Safe removal and disinfection of sewage backups and contaminated black water."
         }
@@ -243,12 +243,12 @@
     {
       "type": "hero_grid",
       "hg_label": "{business}",
-      "hg_heading": "Trusted Water Damage Restoration in {city_state}",
+      "hg_heading": "Common Causes of Water Damage in {city_state} Homes",
       "hg_body": "<p>When water damage happens, our providers assess the source, extent, and category of water to build the right restoration plan for your property. Trained specialists follow proven mitigation and drying standards for fast, thorough results &mdash; minimizing loss and getting your home or business back to normal.</p>",
       "hg_btn_text": "Call Us",
       "hg_btn_url": "tel:{tel}",
       "hg_photo_alt": "Water damage restoration in {city}, {SS}",
-      "hg_photo": "sites/water-site/uploads/media/living-room-water-damage.webp",
+      "hg_photo": "sites/water-site/uploads/media/home-8.webp",
       "hg_color1": "accent",
       "hg_color2": "header",
       "hg_color1_custom": "#2563eb",
@@ -289,7 +289,7 @@
     {
       "type": "service_cards",
       "sc_badge": "PROFESSIONAL {city}, {SS} RESTORATION",
-      "sc_heading": "Water Damage Restoration Services in {city_state}",
+      "sc_heading": "Our Full Range of Restoration Services in {city_state}",
       "sc_cols": 4,
       "sc_badge_bg": "accent",
       "sc_head_color": "header",
@@ -366,7 +366,7 @@
     {
       "type": "wide_banner",
       "wb_badge": "{city}, {SS} SPECIALISTS",
-      "wb_heading": "Your First Choice for Water Damage Restoration in {city_state}",
+      "wb_heading": "Local Crews, On Site Fast — 24/7 Across {city_state}",
       "wb_subtext": "",
       "wb_btn_text": "Call Us",
       "wb_btn_url": "tel:{tel}",
@@ -377,7 +377,7 @@
       "wb_bg_color": "#0d2340",
       "wb_badge_bg": "accent",
       "wb_badge_bg_custom": "#2563eb",
-      "wb_photo": "sites/water-site/uploads/media/water-damage-restoration-hero.webp",
+      "wb_photo": "sites/water-site/uploads/media/home-9.webp",
       "skin": "dark"
     },
     {
@@ -394,7 +394,7 @@
       "if_head_color": "header",
       "if_check_color_custom": "#2563eb",
       "if_head_color_custom": "#0d2340",
-      "if_photo": "sites/water-site/uploads/media/about-us-water.webp",
+      "if_photo": "sites/water-site/uploads/media/home-10.webp",
       "if_features": [
         "24/7 emergency water extraction",
         "Structural drying & dehumidification",
@@ -410,31 +410,31 @@
       "ai_mode": "standalone",
       "ai_render_as": "steps",
       "ai_model": "claude-sonnet-5",
-      "skin": "subtle",
-      "steps_heading": "Lufkin Seasonal Water Damage Restoration Guide Year-Round",
+      "skin": "light",
+      "steps_heading": "Lufkin Seasonal Guide to Year-Round Water Damage Risks",
       "steps_items": [
         {
           "heading": "Spring Storm Flooding",
-          "text": "<p>Spring brings heavy East Texas downpours and fast-moving thunderstorms that can overwhelm drainage near Fuller Springs and Copeland Springs. Elk Restoration Pros responds quickly to extract water, assess saturated materials, and begin structural drying before moisture spreads further.</p>"
+          "text": "<p>Spring brings heavy rain, thunderstorms, and occasional flash flooding to low-lying areas near Crown Colony and Fuller Springs. Saturated ground and clogged gutters can push water into homes. Elk Restoration Pros responds quickly to extract standing water and begin drying before moisture spreads further into structures.</p>"
         },
         {
-          "heading": "Summer Humidity and Tropical Rain",
-          "text": "<p>Gulf humidity and occasional tropical systems bring intense summer downpours and wind-driven rain to Lufkin homes, including around Crown Colony. Elk Restoration Pros helps property owners address roof leaks, saturated insulation, and interior water intrusion before conditions worsen.</p>"
+          "heading": "Summer Humidity Moisture",
+          "text": "<p>Hot, humid East Texas summers bring intense downpours and occasional tropical systems that can overwhelm drainage around Downtown Lufkin. High humidity slows natural drying and stresses roofs and foundations. Elk Restoration Pros uses professional drying equipment to help address moisture buildup after summer storms.</p>"
         },
         {
-          "heading": "Fall Shifting Weather Patterns",
-          "text": "<p>Fall in the Lufkin area can bring lingering tropical moisture, gusty storms, and clogged gutters from falling leaves, raising the risk of roof and window leaks near Downtown Lufkin. Elk Restoration Pros inspects affected areas and manages water removal and drying.</p>"
+          "heading": "Fall Rain Runoff",
+          "text": "<p>Fall often brings a return of heavier rainfall and occasional lingering tropical moisture across the region, straining aging gutters and drainage near Kurth and Brentwood. Fallen leaves can block runoff paths. Elk Restoration Pros helps homeowners manage water intrusion and begin restoring affected areas promptly.</p>"
         },
         {
-          "heading": "Winter Freeze Thaw Risk",
-          "text": "<p>Occasional hard freezes followed by rapid thawing can stress pipes and plumbing in Kurth and surrounding neighborhoods, leading to unexpected leaks or bursts. Elk Restoration Pros assists with water extraction, drying, and helping restore affected areas after a freeze-related event.</p>"
+          "heading": "Winter Freeze Thaw",
+          "text": "<p>Winter in Lufkin brings occasional hard freezes followed by thaws, which can stress pipes and plumbing throughout area homes. Sudden pipe bursts may cause significant indoor water damage. Elk Restoration Pros offers responsive water extraction and structural drying support when freeze-related emergencies strike local properties.</p>"
         }
       ],
       "_ai_generated": true,
-      "_ai_generated_at": "2026-07-12T00:35:00.861417Z",
+      "_ai_generated_at": "2026-08-23T14:24:14.299629Z",
       "_ai_model": "claude-sonnet-5",
       "_ai_type": "seasonal_calendar",
-      "_ai_locked": false,
+      "_ai_locked": true,
       "_ai_input_hash": "ca48caabf640cebd"
     },
     {
@@ -448,40 +448,41 @@
       "fq_icon_bg_custom": "#fd783b",
       "fq_items": [
         {
-          "question": "What exactly does water damage restoration in Lufkin involve?",
-          "answer": "<p>Water damage restoration includes water extraction, drying structural materials, removing damaged contents, dehumidifying spaces, and cleaning affected areas. Our team assesses moisture penetration, identifies what can be salvaged, and works to restore your property to safe, dry condition. The specific steps depend on damage severity, water source, and how long moisture has been present.</p>"
+          "question": "What does water damage restoration involve for Lufkin homeowners?",
+          "answer": "<p>Restoration begins with a thorough assessment of affected areas—walls, floors, insulation, and structural materials. Our team removes standing water, dries out the property using specialized equipment, and cleans contaminated surfaces. We document damage for your insurance claim and work to preserve what can be salvaged while removing materials beyond repair. The goal is to return your home to safe, dry condition.</p>"
         },
         {
           "question": "How quickly can Elk Restoration Pros respond to water damage in Lufkin?",
-          "answer": "<p>We understand water damage demands urgent action. Our locally based team responds to emergency calls promptly to begin water extraction and drying as soon as possible. The faster restoration starts, the better the chances of limiting secondary damage. Contact us immediately if you discover active water intrusion, flooding, or storm-related moisture.</p>"
+          "answer": "<p>We understand that every hour matters when water is actively damaging your property. Our locally based team responds promptly to emergency calls in the Lufkin area, arriving equipped to assess the situation and begin water extraction and drying right away. Fast action reduces the scope of damage and the cost of repairs, so reach out immediately if you experience a leak, burst pipe, or storm-related intrusion.</p>"
         },
         {
-          "question": "What factors affect the cost of water damage restoration?",
-          "answer": "<p>Water damage restoration costs vary based on affected square footage, water source (clean, gray, or contaminated), materials involved, and how long moisture has been present. Structural damage, HVAC involvement, and personal property loss also factor into scope. We evaluate your specific situation to provide an accurate estimate for the work required.</p>"
+          "question": "What factors affect the cost of water damage cleanup?",
+          "answer": "<p>The extent of the damage—how much water entered, which materials are affected, and how long water was present—all influence the scope and cost of restoration work. Contamination level (clean water versus sewage or floodwater) also matters. Your insurance coverage may help offset costs. We provide a clear assessment so you understand what's needed and can work with your adjuster on coverage.</p>"
         },
         {
-          "question": "What should I do to prepare for water damage restoration work?",
-          "answer": "<p>Before restoration begins, move unaffected personal items away from work areas if safe to do so. Clear access to affected rooms and turn off utilities if water poses electrical risk. Our team will guide you on securing valuables and preparing your space. Document damage with photos for insurance purposes before restoration starts.</p>"
+          "question": "What should I do to prepare before water damage restoration begins?",
+          "answer": "<p>Before the team arrives, turn off the water source if safe to do so, avoid walking through standing water, and keep children and pets away from affected areas. Document the damage with photos for your claim. Move unaffected belongings away from wet zones if possible. Our crew will handle the rest—we'll assess, extract water, and set up drying equipment while you step back and let professionals manage the cleanup.</p>"
         },
         {
-          "question": "How can I prevent water damage from happening again in my Lufkin home?",
-          "answer": "<p>Regular maintenance of gutters, downspouts, and roof condition helps prevent water entry. Inspect plumbing, water heater connections, and foundation seals seasonally. Grade soil away from your home's foundation, maintain sump pumps, and consider backflow prevention on sewer lines. Addressing minor leaks and moisture early stops damage before it spreads.</p>"
+          "question": "How can I prevent water damage to my Lufkin home?",
+          "answer": "<p>Regular maintenance is your best defense: inspect pipes and water heaters, clean gutters and downspouts, seal foundation cracks, and ensure proper grading away from your house. Check around windows and doors for gaps. Consider a sump pump if you're in a low-lying area. In storm season, know your roof's condition and keep an eye on weather. Early attention to small leaks prevents costly emergencies later.</p>"
         },
         {
-          "question": "Is Lufkin at higher risk for water damage during certain seasons?",
-          "answer": "<p>East Texas experiences heavy rainfall during spring and early summer, increasing flooding and water intrusion risk. Winter freeze-thaw cycles can crack pipes and damage foundations. Fall brings tropical storm potential. Year-round humidity also promotes moisture issues indoors. Being aware of these seasonal patterns helps you stay vigilant about water damage prevention and respond quickly when problems occur.</p>"
+          "question": "Why does water damage happen more in certain seasons in East Texas?",
+          "answer": "<p>The Lufkin area experiences heavy spring and summer thunderstorms that bring roof leaks, flooding, and overwhelmed drainage systems. Winter freeze-thaw cycles can crack pipes and burst water lines, especially in older homes. Fall tropical systems also pose risk. These seasonal patterns mean water intrusion isn't just a spring concern—stay vigilant year-round and have vulnerable areas inspected before each high-risk season.</p>"
         }
       ],
       "id": "home_faq",
       "ai_type_id": "faq_local",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-07-12T01:03:53.788410Z",
+      "_ai_generated_at": "2026-08-23T14:24:22.758878Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "faq_local",
-      "_ai_locked": false,
-      "_ai_input_hash": "932cd600fd442878",
+      "_ai_locked": true,
+      "_ai_input_hash": "b013fe4934167fdd",
       "skin": "dark",
-      "fq_open": true
+      "fq_open": true,
+      "ai_inject_mode": "replace"
     },
     {
       "id": "home_local_rel",
@@ -492,14 +493,14 @@
       "ai_model": "claude-sonnet-5",
       "skin": "light",
       "heading_level": "h2",
-      "heading_text": "Serving Lufkin and Surrounding East Texas Communities",
-      "text": "<p>Water damage in Lufkin rarely looks the same from one property to the next, and that's largely due to the mix of housing ages and building styles found across the area. Older homes near Downtown Lufkin often feature aging plumbing, original foundations, and mature tree canopies that can strain roofing and gutters during heavy East Texas storms, while newer subdivisions closer to Crown Colony tend to have more modern drainage systems but can still face runoff issues when grading or landscaping doesn't keep pace with intense rainfall. Wooded, low-lying areas like those around Fuller Springs may also see slower water dispersal after significant storms.</p><p>Seasonal shifts add another layer of risk. Humid summers bring the threat of sudden downpours and tropical remnants, while winter cold snaps can cause pipes to freeze and later burst as temperatures rebound. Understanding these neighborhood-level differences helps our team respond with an approach suited to each home's construction and surroundings.</p>",
+      "heading_text": "Serving Lufkin and the Surrounding East Texas Communities",
+      "text": "<p>Lufkin's mix of older and newer construction plays a real role in how water damage develops and spreads. In established areas like Downtown Lufkin and Kurth, mature trees and aging rooflines, foundations, and plumbing can make homes more vulnerable to slow leaks, root intrusion, and storm-driven water intrusion after heavy East Texas rain. Newer subdivisions such as Crown Colony often have different concerns, including grading and drainage that hasn't yet been tested by years of seasonal storms. Across the region, our humid subtropical climate brings intense summer downpours, occasional tropical system remnants, and periodic winter freeze-thaw cycles that can stress pipes and building materials alike.</p><p>Because storm damage and flooding can escalate quickly, prompt water extraction and water mitigation help limit further harm to floors, walls, and belongings. Our trained crews respond to active emergencies, including sewage cleanup situations, with a careful, methodical approach tailored to your property's age, construction, and location throughout the Lufkin area.</p>",
       "_ai_generated": true,
-      "_ai_generated_at": "2026-07-12T00:35:13.412809Z",
+      "_ai_generated_at": "2026-08-23T14:24:28.456258Z",
       "_ai_model": "claude-sonnet-5",
       "_ai_type": "local_relevance",
-      "_ai_locked": false,
-      "_ai_input_hash": "ccda5a5710888edd"
+      "_ai_locked": true,
+      "_ai_input_hash": "7d8e1357abe92bb2"
     },
     {
       "type": "cta_banner",
@@ -558,7 +559,7 @@
     },
     {
       "type": "links_grid",
-      "lg_heading": "Professional Water Damage Restoration in {city_state}",
+      "lg_heading": "Browse Every Service We Cover in {city_state}",
       "lg_subtext": "",
       "lg_sublabel": "Trusted {city_state} Water & Storm Restoration",
       "lg_photo_alt": "",
@@ -568,7 +569,7 @@
       "lg_bg_color": "#ffffff",
       "lg_accent": "accent",
       "lg_accent_custom": "#2563eb",
-      "lg_photo": "sites/water-site/uploads/media/water-damage-services-bg.webp",
+      "lg_photo": "sites/water-site/uploads/media/home-11.webp",
       "lg_links": [
         {
           "label": "Flood Damage Restoration",
@@ -1079,7 +1080,7 @@
     "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
     "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
     "email": "contact@elkrestorationpros.com",
-    "city_spotlight": "Tucked deep in the Piney Woods, Lufkin, Texas stands as the commercial anchor of Deep East Texas, its identity shaped by generations of timber harvesting and wood products manufacturing. That forestry heritage still runs through the local economy, joined today by oil field equipment production, healthcare, and education as steady employment pillars. As the Angelina County seat, Lufkin also carries a solid base of retail, distribution, and government work, giving the city a balanced, self-sufficient economic footing rather than reliance on any single industry.\n\nHome to roughly 34,000 residents, Lufkin feels like a true regional hub rather than a small town passing through. Around Downtown Lufkin and out toward Crown Colony, the city blends working neighborhoods with a slower, tree-shaded pace that reflects its forested surroundings and long-standing community roots.",
+    "city_spotlight": "Lufkin sits at the heart of Deep East Texas, tucked into the tall pines of the Piney Woods, and it has long served as the region's economic anchor. Timber built the town's early identity, and that forestry heritage still runs deep, but Lufkin's economy today is broader—oil field equipment manufacturing through Lufkin Industries, healthcare anchored by CHI St. Luke's Health Memorial, and education through Angelina College all add steady work alongside retail, distribution, and government jobs tied to its role as Angelina County seat.\n\nAround town, neighborhoods like Crown Colony and Fuller Springs give Lufkin a settled, tree-shaded feel, home to roughly 34,000 residents who carry a working, unpretentious pride in their city. It's a place where the pines, the mills, and the people all still feel connected.",
     "business_domain": "elkrestorationpros.com"
   },
   "posts": [],
