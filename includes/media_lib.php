@@ -206,78 +206,70 @@ function img_fit_to(string $tmp, string $dest, string $mime, int $tw, int $th, f
 }
 
 /**
- * Crop a rectangle out of an image and scale it to exact target dimensions.
+ * Place a picture into a slot at a given zoom and offset, and write it as webp.
  *
- * The rectangle is in SOURCE pixels. Callers work out where it sits; this only cuts.
- * Used by the Pic Drop adjuster, where the browser preview computes the same
- * rectangle from the same numbers, so what you drag is what gets written.
+ * ONE model for both directions, because the split version could only ever crop:
+ *
+ *   zoom 1        "cover" — fills the slot, overflow trimmed. Exactly what a plain
+ *                 drop produces, so opening the adjuster changes nothing.
+ *   zoom > 1      tighter crop.
+ *   zoom < 1      the picture shrinks inside the slot and the remainder is filled,
+ *                 down to img_zoom_min() where the WHOLE picture is visible.
+ *
+ * The old version clamped zoom at 1, which meant a tall photo could never be shown
+ * whole in a wide slot — there was no way to say "show all of it and pad the sides".
+ *
+ * ImageMagick does both with one -resize plus one -extent: a viewport bigger than the
+ * scaled image pads it, a smaller one crops it. No branch, so the two cases cannot
+ * drift apart.
  *
  * @return array{0:bool,1:string} ok, and a note for the UI
  */
-function img_crop_to(string $src, string $dest, int $sx, int $sy, int $sw, int $sh, int $tw, int $th): array {
-    [$ow, $oh] = @getimagesize($src) ?: [0, 0];
-    if ($ow < 1 || $oh < 1) return [false, 'could not read the source image'];
-
-    // Clamp into the image. A rectangle that hangs over the edge makes ImageMagick
-    // return a smaller crop than asked for, and the result silently stops matching
-    // the preview — better to pull it back inside than to write something wrong.
-    $sw = max(1, min($sw, $ow));
-    $sh = max(1, min($sh, $oh));
-    $sx = max(0, min($sx, $ow - $sw));
-    $sy = max(0, min($sy, $oh - $sh));
-
-    if (extension_loaded('gd')) {
-        $mime = (string) (@getimagesize($src)['mime'] ?? '');
-        $im   = media_imagecreate($src, $mime);
-        if ($im) {
-            $dst = imagecreatetruecolor($tw, $th);
-            imagealphablending($dst, false);
-            imagesavealpha($dst, true);
-            imagefill($dst, 0, 0, imagecolorallocatealpha($dst, 0, 0, 0, 127));
-            imagecopyresampled($dst, $im, 0, 0, $sx, $sy, $tw, $th, $sw, $sh);
-            imagedestroy($im);
-            $ok = imagewebp($dst, $dest, 82);
-            imagedestroy($dst);
-            if ($ok) return [true, sprintf('cut %d×%d from %d×%d → %d×%d', $sw, $sh, $ow, $oh, $tw, $th)];
-        }
-    }
-
-    $ok = media_magick($src, $dest, [
-        '-crop', escapeshellarg($sw . 'x' . $sh . '+' . $sx . '+' . $sy),
-        '+repage',
-        '-resize', escapeshellarg($tw . 'x' . $th . '!'),
-    ]);
-    return $ok
-        ? [true, sprintf('cut %d×%d from %d×%d → %d×%d', $sw, $sh, $ow, $oh, $tw, $th)]
-        : [false, 'the crop could not be written'];
-}
-
-/**
- * The source rectangle for a given zoom and offset.
- *
- * zoom 1 means "cover" — the largest rectangle of this shape that fits the source,
- * which is exactly what a plain drop produces. Above 1 crops tighter. Below 1 would
- * need pixels that are not there, so it is clamped away rather than half-working.
- *
- * fx/fy are 0..1 across whatever slack the zoom leaves: 0.5/0.5 is centred, which is
- * why an unadjusted picture and a freshly dropped one look identical.
- */
-function img_source_rect(int $ow, int $oh, int $tw, int $th, float $zoom, float $fx, float $fy): array {
-    $zoom = max(1.0, min(8.0, $zoom));
+function img_place_geometry(int $ow, int $oh, int $tw, int $th, float $zoom, float $fx, float $fy): array {
+    $zoom = max(img_zoom_min($ow, $oh, $tw, $th), min(8.0, $zoom));
     $fx   = max(0.0, min(1.0, $fx));
     $fy   = max(0.0, min(1.0, $fy));
 
-    $target = $tw / $th;
-    // Widest rectangle of the target shape that still fits inside the source.
-    if ($ow / $oh > $target) { $sh = $oh;                  $sw = (int) round($oh * $target); }
-    else                     { $sw = $ow;                  $sh = (int) round($ow / $target); }
+    $scale = max($tw / $ow, $th / $oh) * $zoom;      // zoom 1 == cover
+    $nw    = max(1, (int) round($ow * $scale));
+    $nh    = max(1, (int) round($oh * $scale));
 
-    $sw = max(1, (int) round($sw / $zoom));
-    $sh = max(1, (int) round($sh / $zoom));
+    // One formula for pan and pad: negative when the picture overflows the slot,
+    // positive when it sits inside it.
+    return [$nw, $nh, (int) round($fx * ($tw - $nw)), (int) round($fy * ($th - $nh))];
+}
 
-    return [
-        (int) round($fx * ($ow - $sw)),
-        (int) round($fy * ($oh - $sh)),
-        $sw, $sh,
-    ];
+/** The zoom at which the whole picture is visible — contain, relative to cover. */
+function img_zoom_min(int $ow, int $oh, int $tw, int $th): float {
+    if ($ow < 1 || $oh < 1 || $tw < 1 || $th < 1) return 1.0;
+    $cover   = max($tw / $ow, $th / $oh);
+    $contain = min($tw / $ow, $th / $oh);
+    return $cover > 0 ? round($contain / $cover, 4) : 1.0;
+}
+
+function img_place_to(string $src, string $dest, int $tw, int $th,
+                      float $zoom, float $fx, float $fy, string $fill = 'white'): array {
+    [$ow, $oh] = @getimagesize($src) ?: [0, 0];
+    if ($ow < 1 || $oh < 1) return [false, 'could not read the source image'];
+    if ($tw < 1 || $th < 1) return [false, 'the slot has no size to fit'];
+
+    // Only ever a name we chose. This reaches a shell argument.
+    $fills = ['white' => 'white', 'black' => 'black', 'none' => 'none'];
+    $bg    = $fills[$fill] ?? 'white';
+
+    [$nw, $nh, $px, $py] = img_place_geometry($ow, $oh, $tw, $th, $zoom, $fx, $fy);
+
+    $ok = media_magick($src, $dest, [
+        '-resize',    escapeshellarg($nw . 'x' . $nh . '!'),
+        '-background', escapeshellarg($bg),
+        '-gravity',   'none',
+        // A viewport offset by -px/-py: bigger than the image pads, smaller crops.
+        '-extent',    escapeshellarg(sprintf('%dx%d%+d%+d', $tw, $th, -$px, -$py)),
+    ]);
+    if (!$ok) return [false, 'the image could not be written'];
+
+    $note = ($nw < $tw || $nh < $th)
+        ? sprintf('whole picture shown at %.2f×, padded %s', $zoom, $bg === 'none' ? 'transparent' : $bg)
+        : sprintf('%d×%d source at %.2f× → %d×%d', $ow, $oh, $zoom, $tw, $th);
+    return [true, $note];
 }

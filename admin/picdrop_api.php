@@ -72,9 +72,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             'src_w'        => (int) $sw,
             'src_h'        => (int) $sh,
             'has_original' => $hasOriginal,
+            // How far you can zoom OUT before the whole picture is visible. 1 means
+            // the source is already the slot's shape, so there is nothing to reveal.
+            'zoom_min'     => img_zoom_min((int) $sw, (int) $sh, (int) $gSlot['w'], (int) $gSlot['h']),
             'zoom'         => (float) ($adj['zoom'] ?? 1),
             'fx'           => (float) ($adj['fx'] ?? 0.5),
             'fy'           => (float) ($adj['fy'] ?? 0.5),
+            'fill'         => (string) ($adj['fill'] ?? 'white'),
         ]);
         exit;
     }
@@ -193,7 +197,7 @@ if ($action === 'adjust') {
     $th = (int) $slot['h'];
     if ($tw < 1 || $th < 1) pd_fail('This slot has no size to crop to.');
 
-    [$sx, $sy, $sw, $sh] = img_source_rect($ow, $oh, $tw, $th, $zoom, $fx, $fy);
+    $fill = (string) ($_POST['fill'] ?? 'white');
 
     if (!is_dir(MEDIA_DIR)) mkdir(MEDIA_DIR, 0775, true);
     /* A NEW file, not an overwrite. One picture can sit in several slots — propagate
@@ -204,7 +208,7 @@ if ($action === 'adjust') {
     $filename = $base . '_' . substr(md5(uniqid('', true)), 0, 6) . '.webp';
     $dest     = MEDIA_DIR . $filename;
 
-    [$ok, $note] = img_crop_to($srcPath, $dest, $sx, $sy, $sw, $sh, $tw, $th);
+    [$ok, $note] = img_place_to($srcPath, $dest, $tw, $th, $zoom, $fx, $fy, $fill);
     if (!$ok) pd_fail($note);
 
     $oldValue = $slot['value'];
@@ -222,7 +226,7 @@ if ($action === 'adjust') {
         'added_at'   => date('Y-m-d H:i:s'),
         // Carry the original forward, or this becomes a one-shot crop.
         'origin'     => (string) ($mediaItem['origin'] ?? ''),
-        'adjust'     => ['zoom' => $zoom, 'fx' => $fx, 'fy' => $fy],
+        'adjust'     => ['zoom' => $zoom, 'fx' => $fx, 'fy' => $fy, 'fill' => $fill],
     ]);
 
     $res = picdrop_apply_edits([[

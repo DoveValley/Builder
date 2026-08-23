@@ -209,7 +209,20 @@
                   <span class="hint" style="white-space:nowrap;">Zoom</span>
                   <input id="pd-adj-zoom" type="range" min="100" max="400" value="100" style="flex:1;min-width:160px;">
                   <span id="pd-adj-zval" class="hint" style="width:52px;">1.00×</span>
-                  <button type="button" class="btn btn-secondary btn-small" id="pd-adj-reset">Reset</button>
+                  <?php /* Only offered when the source is a different shape from the slot —
+                           otherwise "show the whole picture" and "fill the slot" are the
+                           same thing and the button would do nothing. */ ?>
+                  <button type="button" class="btn btn-secondary btn-small" id="pd-adj-fit" style="display:none;">Fit whole picture</button>
+                  <button type="button" class="btn btn-secondary btn-small" id="pd-adj-reset">Fill slot</button>
+                </div>
+
+                <div id="pd-adj-fillwrap" style="display:none;align-items:center;gap:8px;margin-top:8px;">
+                  <span class="hint">Empty space</span>
+                  <select id="pd-adj-fill" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:5px;font-size:.82rem;">
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                    <option value="none">Transparent</option>
+                  </select>
                 </div>
                 <div id="pd-adj-note" class="hint" style="margin-top:8px;min-height:1.2em;"></div>
 
@@ -405,7 +418,7 @@
                 // on the server, from the same zoom/fx/fy. Keep the two in step or the
                 // preview stops predicting the result.
                 var adj = {
-                    key: null, sid: null, zoom: 1, fx: 0.5, fy: 0.5,
+                    key: null, sid: null, zoom: 1, zoomMin: 1, fill: 'white', fx: 0.5, fy: 0.5,
                     ow: 0, oh: 0, tw: 0, th: 0, frameW: 0, frameH: 0, drag: null
                 };
                 var adjBox   = document.getElementById('pd-adj');
@@ -416,28 +429,35 @@
                 var adjNote  = document.getElementById('pd-adj-note');
                 var adjSub   = document.getElementById('pd-adj-sub');
 
-                function adjRect() {
-                    var target = adj.tw / adj.th, sw0, sh0;
-                    if (adj.ow / adj.oh > target) { sh0 = adj.oh; sw0 = Math.round(adj.oh * target); }
-                    else                          { sw0 = adj.ow; sh0 = Math.round(adj.ow / target); }
-                    var sw = Math.max(1, Math.round(sw0 / adj.zoom));
-                    var sh = Math.max(1, Math.round(sh0 / adj.zoom));
+                // Mirrors img_place_geometry() exactly. One formula covers both cases:
+                // the offset goes negative when the picture overflows the slot (pan)
+                // and positive when it sits inside it (pad).
+                function adjGeom() {
+                    var scale = Math.max(adj.tw / adj.ow, adj.th / adj.oh) * adj.zoom;
+                    var nw = Math.max(1, Math.round(adj.ow * scale));
+                    var nh = Math.max(1, Math.round(adj.oh * scale));
                     return {
-                        sx: Math.round(adj.fx * (adj.ow - sw)),
-                        sy: Math.round(adj.fy * (adj.oh - sh)),
-                        sw: sw, sh: sh
+                        nw: nw, nh: nh,
+                        px: Math.round(adj.fx * (adj.tw - nw)),
+                        py: Math.round(adj.fy * (adj.th - nh))
                     };
                 }
 
                 function adjPaint() {
-                    var r = adjRect();
-                    var k = adj.frameW / r.sw;          // frame pixels per source pixel
-                    adjImg.style.width  = (adj.ow * k) + 'px';
-                    adjImg.style.height = (adj.oh * k) + 'px';
-                    adjImg.style.left   = (-r.sx * k) + 'px';
-                    adjImg.style.top    = (-r.sy * k) + 'px';
+                    var g = adjGeom();
+                    var k = adj.frameW / adj.tw;        // frame pixels per slot pixel
+                    adjImg.style.width  = (g.nw * k) + 'px';
+                    adjImg.style.height = (g.nh * k) + 'px';
+                    adjImg.style.left   = (g.px * k) + 'px';
+                    adjImg.style.top    = (g.py * k) + 'px';
+                    adjFrame.style.background =
+                        adj.fill === 'black' ? '#000' :
+                        adj.fill === 'none'  ? 'repeating-conic-gradient(#e5e7eb 0 25%, #fff 0 50%) 0 0/16px 16px' : '#fff';
                     adjZval.textContent = adj.zoom.toFixed(2) + '×';
                     adjZoom.value = Math.round(adj.zoom * 100);
+                    // Only meaningful once part of the slot is empty.
+                    document.getElementById('pd-adj-fillwrap').style.display =
+                        (g.nw < adj.tw || g.nh < adj.th) ? '' : 'none';
                 }
 
                 function adjOpen(key, sid) {
@@ -458,6 +478,12 @@
                             adj.ow = d.src_w; adj.oh = d.src_h;
                             adj.tw = d.slot_w; adj.th = d.slot_h;
                             adj.zoom = d.zoom || 1; adj.fx = d.fx; adj.fy = d.fy;
+                            adj.zoomMin = d.zoom_min || 1;
+                            adj.fill = d.fill || 'white';
+                            document.getElementById('pd-adj-fill').value = adj.fill;
+                            // Floor the slider at 'whole picture visible' rather than 1.
+                            adjZoom.min = Math.round(adj.zoomMin * 100);
+                            document.getElementById('pd-adj-fit').style.display = adj.zoomMin < 0.999 ? '' : 'none';
 
                             // Frame drawn at the slot's own shape so nothing is implied
                             // about the crop that is not true.
@@ -471,7 +497,9 @@
 
                             adjSub.textContent = 'Slot ' + adj.tw + '×' + adj.th
                                 + ' · source ' + adj.ow + '×' + adj.oh
-                                + (d.has_original ? ' (full original kept)' : ' (no original — you can zoom in, not out)');
+                                + (adj.zoomMin < 0.999
+                                    ? ' · zoom out to ' + adj.zoomMin.toFixed(2) + '× to show the whole picture'
+                                    : ' · already the slot\u2019s shape, nothing more to reveal');
                             adjNote.textContent = 'Drag to move · scroll or use the slider to zoom';
 
                             adjImg.onload = adjPaint;
@@ -505,15 +533,21 @@
                 adjFrame.addEventListener('wheel', function (e) {
                     if (!adj.ow) return;
                     e.preventDefault();
-                    adj.zoom = Math.max(1, Math.min(4, adj.zoom * (e.deltaY < 0 ? 1.08 : 1 / 1.08)));
+                    adj.zoom = Math.max(adj.zoomMin, Math.min(4, adj.zoom * (e.deltaY < 0 ? 1.08 : 1 / 1.08)));
                     adjPaint();
                 }, { passive: false });
                 adjZoom.addEventListener('input', function () {
-                    adj.zoom = Math.max(1, Math.min(4, this.value / 100));
+                    adj.zoom = Math.max(adj.zoomMin, Math.min(4, this.value / 100));
                     adjPaint();
                 });
                 document.getElementById('pd-adj-reset').addEventListener('click', function () {
-                    adj.zoom = 1; adj.fx = 0.5; adj.fy = 0.5; adjPaint();
+                    adj.zoom = 1; adj.fx = 0.5; adj.fy = 0.5; adjPaint();   // back to cover
+                });
+                document.getElementById('pd-adj-fit').addEventListener('click', function () {
+                    adj.zoom = adj.zoomMin; adj.fx = 0.5; adj.fy = 0.5; adjPaint();
+                });
+                document.getElementById('pd-adj-fill').addEventListener('change', function () {
+                    adj.fill = this.value; adjPaint();
                 });
                 document.getElementById('pd-adj-cancel').addEventListener('click', adjClose);
                 adjBox.addEventListener('click', function (e) { if (e.target === adjBox) adjClose(); });
@@ -535,6 +569,7 @@
                     fd.append('zoom', adj.zoom);
                     fd.append('fx', adj.fx);
                     fd.append('fy', adj.fy);
+                    fd.append('fill', adj.fill);
 
                     var sid = adj.sid;
                     fetch('picdrop_api.php', { method: 'POST', body: fd })
