@@ -1428,9 +1428,20 @@ summary.block-card-header::-webkit-details-marker { display: none; }
    COMPREHENSIVE RESPONSIVE FIXES (v16 mobile/tablet audit)
    ============================================================ */
 
-/* Fix #20: prevent horizontal scroll on any device */
+/* Fix #20: prevent horizontal scroll on any device.
+
+   MUST be clip, not hidden. `overflow-x: hidden` forces the other axis to compute as
+   `auto`, which turns html AND body into scroll containers. With two of them the
+   document has no single scrolling element and the browser silently stops honouring
+   anchor jumps: clicking a #link updates the URL and nothing moves. That is what broke
+   the header's Services button — the markup was correct the whole time.
+
+   `overflow-x: clip` stops the same horizontal overflow WITHOUT creating a scroll
+   container, so anchors and smooth scrolling keep working. `hidden` stays first as the
+   fallback for Safari below 16, which ignores the clip line. */
 html, body {
     overflow-x: hidden;
+    overflow-x: clip;
 }
 
 /* ---- TABLET (769px – 1024px) ---- */
