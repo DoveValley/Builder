@@ -1056,6 +1056,31 @@ function infra_registrar_list_owned(string $name): array
             $list = $r['json']['ListDomainInfoResponse']['MainDomains'] ?? $r['json']['MainDomains'] ?? [];
             foreach ($list as $d) if (!empty($d['Name'])) $out[] = $d['Name'];
             break;
+        case 'spaceship':
+            // Both of these were MISSING, and missing silently — the switch had no case
+            // for them, so a configured account with real domains in it returned [] and
+            // looked exactly like an unconfigured one. That made every domain held at
+            // Spaceship or Gandi read as "we do not own this": availability checks never
+            // marked them 'self-owned', and an ownership audit reported 73 bought
+            // domains as having no registrar behind them. Both APIs list fine.
+            for ($skip = 0; $skip <= 20000; $skip += 100) {
+                $r = infra_reg_spaceship_call($cfg, 'GET', '/domains?take=100&skip=' . $skip);
+                $batch = $r['json']['items'] ?? [];
+                if (!is_array($batch) || !$batch) break;
+                foreach ($batch as $d) if (!empty($d['name'])) $out[] = $d['name'];
+                if (count($batch) < 100) break;
+            }
+            break;
+        case 'gandi':
+            // Paginated from page 1; the body is a bare list, not a wrapper.
+            for ($page = 1; $page <= 200; $page++) {
+                $r = infra_reg_gandi_call($cfg, 'GET', '/v5/domain/domains?per_page=500&page=' . $page);
+                $batch = is_array($r['json']) ? $r['json'] : [];
+                if (!$batch) break;
+                foreach ($batch as $d) if (!empty($d['fqdn'])) $out[] = $d['fqdn'];
+                if (count($batch) < 500) break;
+            }
+            break;
     }
     return array_values(array_filter(array_map('strval', $out)));
 }

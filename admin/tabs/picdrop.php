@@ -91,8 +91,9 @@
                                         <?php if ($s['token']): ?>
                                             <div style="width:132px;height:88px;border-radius:5px;background:#f8fafc;border:1px dashed #cbd5e1;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#94a3b8;">&#127961;</div>
                                         <?php elseif ($s['value'] !== ''): ?>
-                                            <img data-src="/<?= h($s['value']) ?>" alt=""
-                                                 style="width:132px;height:88px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;"
+                                            <img data-src="/<?= h($s['value']) ?>" data-full="/<?= h($s['value']) ?>"
+                                                 data-name="<?= h(basename($s['value'])) ?>" alt="" title="Click to view full size"
+                                                 style="width:132px;height:88px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;cursor:zoom-in;"
                                                  onerror="this.style.display='none'">
                                         <?php else: ?>
                                             <div style="width:132px;height:88px;border-radius:5px;background:#f8fafc;border:1px dashed #cbd5e1;"></div>
@@ -114,6 +115,17 @@
                                                 <?= (int) $s['w'] ?>&times;<?= (int) $s['h'] ?> &middot; <?= round($s['bytes'] / 1024) ?> KB
                                             <?php endif; ?>
                                         </div>
+
+                                        <?php if ($s['value'] !== '' && !$s['token']): ?>
+                                            <div id="<?= $sid ?>_acts" style="margin-top:5px;display:flex;gap:10px;font-size:.76rem;">
+                                                <a href="#" data-view="/<?= h($s['value']) ?>" data-name="<?= h(basename($s['value'])) ?>"
+                                                   style="color:#2563eb;text-decoration:none;">&#128269; View full size</a>
+                                                <?php /* A plain same-origin link with `download`; the file is already served
+                                                         from this host, so no endpoint is needed to hand it back. */ ?>
+                                                <a href="/<?= h($s['value']) ?>" download="<?= h(basename($s['value'])) ?>"
+                                                   style="color:#2563eb;text-decoration:none;">&#11015; Download</a>
+                                            </div>
+                                        <?php endif; ?>
 
                                         <?php if ($s['alt_field'] !== null): ?>
                                             <input type="text" value="<?= h($s['alt']) ?>" placeholder="Alt text&hellip;"
@@ -149,6 +161,18 @@
             <?php endforeach; ?>
 
             <input type="file" id="pd-file" accept="image/jpeg,image/png,image/gif,image/webp" style="display:none;">
+
+            <div id="pd-lightbox" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(15,23,42,.88);align-items:center;justify-content:center;padding:32px;">
+                <div style="max-width:100%;max-height:100%;display:flex;flex-direction:column;gap:10px;align-items:center;">
+                    <img id="pd-lb-img" src="" alt="" style="max-width:100%;max-height:calc(100vh - 132px);object-fit:contain;border-radius:6px;background:#fff;">
+                    <div style="display:flex;align-items:center;gap:14px;color:#e2e8f0;font-size:.82rem;flex-wrap:wrap;justify-content:center;">
+                        <span id="pd-lb-name" style="font-weight:600;"></span>
+                        <span id="pd-lb-dims"></span>
+                        <a id="pd-lb-dl" href="" download="" style="color:#93c5fd;text-decoration:none;">&#11015; Download</a>
+                        <button type="button" id="pd-lb-close" style="background:none;border:1px solid #64748b;color:#e2e8f0;border-radius:5px;padding:3px 10px;cursor:pointer;font-size:.78rem;">Close (Esc)</button>
+                    </div>
+                </div>
+            </div>
 
             <script>
             (function () {
@@ -196,6 +220,55 @@
                     document.getElementById('pd-dirty').style.display = '';
                 }
 
+                // ── Full-size viewer ──────────────────────────────────────────────
+                var lb     = document.getElementById('pd-lightbox');
+                var lbImg  = document.getElementById('pd-lb-img');
+                var lbName = document.getElementById('pd-lb-name');
+                var lbDims = document.getElementById('pd-lb-dims');
+                var lbDl   = document.getElementById('pd-lb-dl');
+
+                function pdOpen(url, name) {
+                    lbName.textContent = name || '';
+                    lbDims.textContent = '';
+                    lbDl.href = url;
+                    lbDl.setAttribute('download', name || '');
+                    // Read the natural size off the loaded image rather than trusting the
+                    // stored dimensions — after a replace they can differ until reload.
+                    lbImg.onload = function () {
+                        lbDims.textContent = lbImg.naturalWidth + ' × ' + lbImg.naturalHeight;
+                    };
+                    lbImg.src = url;
+                    lb.style.display = 'flex';
+                }
+
+                function pdClose() {
+                    lb.style.display = 'none';
+                    lbImg.src = '';        // stop a large image decoding in the background
+                }
+
+                // Delegated, so thumbnails swapped in after an upload work without rebinding.
+                document.addEventListener('click', function (e) {
+                    var link = e.target.closest ? e.target.closest('a[data-view]') : null;
+                    if (link) {
+                        e.preventDefault();
+                        pdOpen(link.getAttribute('data-view'), link.getAttribute('data-name'));
+                        return;
+                    }
+                    var img = e.target.closest ? e.target.closest('img[data-full]') : null;
+                    if (img) {
+                        pdOpen(img.getAttribute('data-full'), img.getAttribute('data-name'));
+                    }
+                });
+
+                lb.addEventListener('click', function (e) {
+                    // Backdrop only — a click on the image itself should not dismiss it.
+                    if (e.target === lb) pdClose();
+                });
+                document.getElementById('pd-lb-close').addEventListener('click', pdClose);
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && lb.style.display !== 'none') pdClose();
+                });
+
                 function setMeta(sid, text, colour) {
                     var el = document.getElementById(sid + '_meta');
                     if (el) { el.innerHTML = ''; el.textContent = text; el.style.color = colour || ''; }
@@ -226,13 +299,31 @@
                                 setMeta(sid, (d && d.error) || 'Upload failed.', '#b91c1c');
                                 return;
                             }
+                            // Cache-bust the thumbnail only. data-full stays clean so the
+                            // viewer and the download link keep a tidy filename.
                             var prev = document.getElementById(sid + '_prev');
                             prev.innerHTML = '';
                             var img = document.createElement('img');
                             img.src = '/' + d.url + '?t=' + Date.now();
+                            img.setAttribute('data-full', '/' + d.url);
+                            img.setAttribute('data-name', d.filename);
                             img.alt = '';
-                            img.style.cssText = 'width:132px;height:88px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;';
+                            img.title = 'Click to view full size';
+                            img.style.cssText = 'width:132px;height:88px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;cursor:zoom-in;';
                             prev.appendChild(img);
+
+                            // The row may not have had View/Download links yet (empty slot).
+                            var acts = document.getElementById(sid + '_acts');
+                            if (!acts) {
+                                acts = document.createElement('div');
+                                acts.id = sid + '_acts';
+                                acts.style.cssText = 'margin-top:5px;display:flex;gap:10px;font-size:.76rem;';
+                                var meta = document.getElementById(sid + '_meta');
+                                meta.parentNode.insertBefore(acts, meta.nextSibling);
+                            }
+                            acts.innerHTML =
+                                '<a href="#" data-view="/' + d.url + '" data-name="' + d.filename + '" style="color:#2563eb;text-decoration:none;">&#128269; View full size</a>' +
+                                '<a href="/' + d.url + '" download="' + d.filename + '" style="color:#2563eb;text-decoration:none;">&#11015; Download</a>';
 
                             var msg = d.width + '×' + d.height + ' · ' + d.note;
                             if (d.propagated) msg += ' · also applied to ' + d.propagated + ' other page' + (d.propagated === 1 ? '' : 's');
