@@ -77,3 +77,10 @@ admin/_dirnet-data/sheet3-legend.csv
 # .local) is the one that belongs in git, if we ever need one.
 .claude/settings.local.json
 .claude/settings.local.json.bak-*
+
+# Full-size crop sources kept by Pic Drop so a picture can be re-cropped later.
+# Local artifacts, not source: they are never deployed (the build copies only
+# uploads/) and are regenerated on the next drop. The folder's .htaccess IS source —
+# it is what stops the webroot serving them — so that one is tracked.
+sites/*/_originals/*
+!sites/*/_originals/.htaccess

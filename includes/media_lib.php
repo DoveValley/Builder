@@ -25,6 +25,37 @@ if (!defined('MEDIA_DIR')) {
 }
 if (!defined('MAX_WIDTH')) define('MAX_WIDTH', 1800);
 
+/**
+ * Where full-size originals are kept so a picture can be re-cropped later.
+ *
+ * DELIBERATELY OUTSIDE uploads/. The static build copies that whole tree to the live
+ * site recursively (gen_copy_dir in static_build.php), so an original stored there
+ * would be published — megabytes per deploy, full-size files publicly reachable. It
+ * would also be deleted: ms_prune_unreferenced_uploads() removes any image no page
+ * points at, and an original is unreferenced by definition. Nothing serves this path
+ * and nothing copies it.
+ */
+if (!defined('ORIGINALS_DIR')) {
+    define('ORIGINALS_DIR', (ACTIVE_SITE_DIR !== '' ? ACTIVE_SITE_DIR : BASE_DIR) . '/_originals/');
+}
+
+/**
+ * Create the originals folder with a deny rule inside it.
+ *
+ * It sits under the webroot, so without this anyone who guessed the path could pull
+ * full-size sources for the whole fleet straight out of the browser. The adjuster
+ * reads them through picdrop_api.php, which is behind the admin session; nothing
+ * needs the raw path.
+ */
+function media_originals_dir(): ?string {
+    if (!is_dir(ORIGINALS_DIR) && !@mkdir(ORIGINALS_DIR, 0775, true)) return null;
+    $deny = ORIGINALS_DIR . '.htaccess';
+    if (!is_file($deny)) {
+        @file_put_contents($deny, "Require all denied\n<IfModule !mod_authz_core.c>\n  Deny from all\n</IfModule>\n");
+    }
+    return ORIGINALS_DIR;
+}
+
 function media_load(): array {
     if (!file_exists(MEDIA_JSON)) return [];
     $d = json_decode(file_get_contents(MEDIA_JSON), true);
@@ -172,4 +203,81 @@ function img_fit_to(string $tmp, string $dest, string $mime, int $tw, int $th, f
     imagedestroy($dst);
 
     return [$ok, $note];
+}
+
+/**
+ * Crop a rectangle out of an image and scale it to exact target dimensions.
+ *
+ * The rectangle is in SOURCE pixels. Callers work out where it sits; this only cuts.
+ * Used by the Pic Drop adjuster, where the browser preview computes the same
+ * rectangle from the same numbers, so what you drag is what gets written.
+ *
+ * @return array{0:bool,1:string} ok, and a note for the UI
+ */
+function img_crop_to(string $src, string $dest, int $sx, int $sy, int $sw, int $sh, int $tw, int $th): array {
+    [$ow, $oh] = @getimagesize($src) ?: [0, 0];
+    if ($ow < 1 || $oh < 1) return [false, 'could not read the source image'];
+
+    // Clamp into the image. A rectangle that hangs over the edge makes ImageMagick
+    // return a smaller crop than asked for, and the result silently stops matching
+    // the preview — better to pull it back inside than to write something wrong.
+    $sw = max(1, min($sw, $ow));
+    $sh = max(1, min($sh, $oh));
+    $sx = max(0, min($sx, $ow - $sw));
+    $sy = max(0, min($sy, $oh - $sh));
+
+    if (extension_loaded('gd')) {
+        $mime = (string) (@getimagesize($src)['mime'] ?? '');
+        $im   = media_imagecreate($src, $mime);
+        if ($im) {
+            $dst = imagecreatetruecolor($tw, $th);
+            imagealphablending($dst, false);
+            imagesavealpha($dst, true);
+            imagefill($dst, 0, 0, imagecolorallocatealpha($dst, 0, 0, 0, 127));
+            imagecopyresampled($dst, $im, 0, 0, $sx, $sy, $tw, $th, $sw, $sh);
+            imagedestroy($im);
+            $ok = imagewebp($dst, $dest, 82);
+            imagedestroy($dst);
+            if ($ok) return [true, sprintf('cut %d×%d from %d×%d → %d×%d', $sw, $sh, $ow, $oh, $tw, $th)];
+        }
+    }
+
+    $ok = media_magick($src, $dest, [
+        '-crop', escapeshellarg($sw . 'x' . $sh . '+' . $sx . '+' . $sy),
+        '+repage',
+        '-resize', escapeshellarg($tw . 'x' . $th . '!'),
+    ]);
+    return $ok
+        ? [true, sprintf('cut %d×%d from %d×%d → %d×%d', $sw, $sh, $ow, $oh, $tw, $th)]
+        : [false, 'the crop could not be written'];
+}
+
+/**
+ * The source rectangle for a given zoom and offset.
+ *
+ * zoom 1 means "cover" — the largest rectangle of this shape that fits the source,
+ * which is exactly what a plain drop produces. Above 1 crops tighter. Below 1 would
+ * need pixels that are not there, so it is clamped away rather than half-working.
+ *
+ * fx/fy are 0..1 across whatever slack the zoom leaves: 0.5/0.5 is centred, which is
+ * why an unadjusted picture and a freshly dropped one look identical.
+ */
+function img_source_rect(int $ow, int $oh, int $tw, int $th, float $zoom, float $fx, float $fy): array {
+    $zoom = max(1.0, min(8.0, $zoom));
+    $fx   = max(0.0, min(1.0, $fx));
+    $fy   = max(0.0, min(1.0, $fy));
+
+    $target = $tw / $th;
+    // Widest rectangle of the target shape that still fits inside the source.
+    if ($ow / $oh > $target) { $sh = $oh;                  $sw = (int) round($oh * $target); }
+    else                     { $sw = $ow;                  $sh = (int) round($ow / $target); }
+
+    $sw = max(1, (int) round($sw / $zoom));
+    $sh = max(1, (int) round($sh / $zoom));
+
+    return [
+        (int) round($fx * ($ow - $sw)),
+        (int) round($fy * ($oh - $sh)),
+        $sw, $sh,
+    ];
 }

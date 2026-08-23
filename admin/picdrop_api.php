@@ -26,6 +26,61 @@ function pd_fail(string $msg, int $code = 400): never {
 }
 
 if (empty($_SESSION['admin_logged_in']))              pd_fail('Not authenticated.', 403);
+
+/* ── GET: the adjuster's two read-only needs ───────────────────────────────────
+   Kept behind this endpoint rather than letting the browser fetch _originals/
+   directly. That folder lives under the webroot (sites/<id>/_originals/), so a raw
+   path would be world-readable to anyone who guessed it — full-size sources for the
+   whole fleet. Here it is gated by the same admin session as everything else. */
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if (!ACTIVE_SITE_ID) pd_fail('No active site.');
+    $gAction = (string) ($_GET['action'] ?? '');
+    $gKey    = (string) ($_GET['key'] ?? '');
+    $gParts  = picdrop_parse_key($gKey);
+    if ($gParts === null) pd_fail('Unrecognised slot.');
+
+    $gSlot = null;
+    foreach (picdrop_groups() as $g) {
+        foreach ($g['slots'] as $s) { if ($s['key'] === $gKey) { $gSlot = $s; break 2; } }
+    }
+    if ($gSlot === null || $gSlot['value'] === '' || !empty($gSlot['token'])) {
+        pd_fail('Nothing croppable in that slot.');
+    }
+
+    // pd_crop_source() is declared further down; PHP hoists top-level functions.
+    [$srcPath, $hasOriginal, $mediaItem] = pd_crop_source($gSlot);
+    if ($srcPath === null || !is_file($srcPath)) pd_fail('The source image is missing from disk.');
+
+    if ($gAction === 'source') {
+        // Stream the crop source for the preview. No caching: after an adjust the
+        // same key can resolve to a different file.
+        $mime = (string) (@getimagesize($srcPath)['mime'] ?? 'application/octet-stream');
+        header('Content-Type: ' . $mime);
+        header('Content-Length: ' . filesize($srcPath));
+        header('Cache-Control: no-store');
+        readfile($srcPath);
+        exit;
+    }
+
+    if ($gAction === 'info') {
+        [$sw, $sh] = @getimagesize($srcPath) ?: [0, 0];
+        $adj = $mediaItem['adjust'] ?? [];
+        echo json_encode([
+            'success'      => true,
+            'slot_w'       => (int) $gSlot['w'],
+            'slot_h'       => (int) $gSlot['h'],
+            'src_w'        => (int) $sw,
+            'src_h'        => (int) $sh,
+            'has_original' => $hasOriginal,
+            'zoom'         => (float) ($adj['zoom'] ?? 1),
+            'fx'           => (float) ($adj['fx'] ?? 0.5),
+            'fy'           => (float) ($adj['fy'] ?? 0.5),
+        ]);
+        exit;
+    }
+    pd_fail('Unknown action.');
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST')            pd_fail('POST required.', 405);
 if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? ''))
                                                       pd_fail('Invalid request token.', 403);
@@ -90,6 +145,122 @@ if ($action === 'alt') {
 
     if ($res['ok'] === 0) pd_fail($res['errors'][0] ?? 'Nothing was written.');
     echo json_encode(['success' => true]);
+    exit;
+}
+
+/* The media.json entry for a stored image path, or null. */
+function pd_media_for(string $value): ?array {
+    $file = basename($value);
+    foreach (media_load() as $m) if (($m['filename'] ?? '') === $file) return $m;
+    return null;
+}
+
+/* The best crop source for a slot: the kept original if there is one, otherwise the
+   slot's own file. With no original the file IS already the cover crop, so zoom 1
+   simply means "as it is" and only tightening is possible — which is the honest
+   behaviour, not a special case. */
+function pd_crop_source(array $slot): array {
+    $m    = pd_media_for($slot['value']);
+    $orig = (string) ($m['origin'] ?? '');
+    if ($orig !== '' && is_file(ORIGINALS_DIR . basename($orig))) {
+        return [ORIGINALS_DIR . basename($orig), true, $m];
+    }
+    $own = picdrop_resolve($slot['value']);
+    return [$own, false, $m];
+}
+
+// ── ADJUST: RE-CROP AN EXISTING SLOT ─────────────────────────────────────────────
+if ($action === 'adjust') {
+    $slot = null;
+    foreach (picdrop_groups() as $g) {
+        foreach ($g['slots'] as $s) { if ($s['key'] === $key) { $slot = $s; break 2; } }
+    }
+    if ($slot === null)            pd_fail('That slot no longer exists — reload the tab.');
+    if (!empty($slot['token']))    pd_fail('This slot is filled per city and cannot be cropped here.');
+    if ($slot['value'] === '')     pd_fail('There is no picture in this slot yet.');
+
+    [$srcPath, $hasOriginal, $mediaItem] = pd_crop_source($slot);
+    if ($srcPath === null || !is_file($srcPath)) pd_fail('The source image is missing from disk.');
+
+    $zoom = (float) ($_POST['zoom'] ?? 1);
+    $fx   = (float) ($_POST['fx']   ?? 0.5);
+    $fy   = (float) ($_POST['fy']   ?? 0.5);
+
+    [$ow, $oh] = @getimagesize($srcPath) ?: [0, 0];
+    if ($ow < 1) pd_fail('Could not read the source image.');
+
+    $tw = (int) $slot['w'];
+    $th = (int) $slot['h'];
+    if ($tw < 1 || $th < 1) pd_fail('This slot has no size to crop to.');
+
+    [$sx, $sy, $sw, $sh] = img_source_rect($ow, $oh, $tw, $th, $zoom, $fx, $fy);
+
+    if (!is_dir(MEDIA_DIR)) mkdir(MEDIA_DIR, 0775, true);
+    /* A NEW file, not an overwrite. One picture can sit in several slots — propagate
+       puts it there deliberately — and re-cropping in place would silently change all
+       of them. A new file keeps the adjustment to the slot you are looking at. */
+    $base     = preg_replace('/(\.orig)?\.webp$/', '', basename($slot['value'])) ?: 'image';
+    $base     = preg_replace('/_[0-9a-f]{6}$/', '', $base);
+    $filename = $base . '_' . substr(md5(uniqid('', true)), 0, 6) . '.webp';
+    $dest     = MEDIA_DIR . $filename;
+
+    [$ok, $note] = img_crop_to($srcPath, $dest, $sx, $sy, $sw, $sh, $tw, $th);
+    if (!$ok) pd_fail($note);
+
+    $oldValue = $slot['value'];
+    $newValue = UPLOAD_URL . 'media/' . $filename;
+
+    media_register([
+        'filename'   => $filename,
+        'url'        => $newValue,
+        'width'      => $tw,
+        'height'     => $th,
+        'size'       => (int) filesize($dest),
+        'alt'        => $slot['alt'],
+        'tags'       => ['picdrop'],
+        'source_url' => '',
+        'added_at'   => date('Y-m-d H:i:s'),
+        // Carry the original forward, or this becomes a one-shot crop.
+        'origin'     => (string) ($mediaItem['origin'] ?? ''),
+        'adjust'     => ['zoom' => $zoom, 'fx' => $fx, 'fy' => $fy],
+    ]);
+
+    $res = picdrop_apply_edits([[
+        'scope' => $parts['scope'], 'id' => $parts['id'],
+        'block' => $parts['block'], 'field' => $parts['field'], 'value' => $newValue,
+    ]]);
+    if ($res['ok'] === 0) {
+        @unlink($dest);
+        pd_fail($res['errors'][0] ?? 'The crop was made but nothing could be written.');
+    }
+
+    /* Tidy up the file this one replaced, but only when it was produced here and
+       nothing else still points at it. Never touch an image that arrived some other
+       way, and never one another slot is using. */
+    $pruned = false;
+    $oldItem = pd_media_for($oldValue);
+    if ($oldItem && ($oldItem['origin'] ?? '') !== '') {
+        $stillUsed = false;
+        foreach (picdrop_groups() as $g) {
+            foreach ($g['slots'] as $s) { if ($s['value'] === $oldValue) { $stillUsed = true; break 2; } }
+        }
+        if (!$stillUsed) {
+            $p = picdrop_resolve($oldValue);
+            if ($p !== null) { @unlink($p); $pruned = true; }
+            media_save(array_filter(media_load(), fn($m) => ($m['filename'] ?? '') !== basename($oldValue)));
+        }
+    }
+
+    echo json_encode([
+        'success'      => true,
+        'url'          => $newValue,
+        'filename'     => $filename,
+        'width'        => $tw,
+        'height'       => $th,
+        'note'         => $note,
+        'has_original' => $hasOriginal,
+        'pruned'       => $pruned,
+    ]);
     exit;
 }
 
@@ -158,6 +329,19 @@ $dest     = MEDIA_DIR . $filename;
 [$ok, $note] = img_fit_to($tmpFile, $dest, $mime, (int) $slot['w'], (int) $slot['h']);
 if (!$ok) pd_fail('Could not process that image.');
 
+/* Keep the full-size original so the picture can be re-cropped later. The slot file
+   is already trimmed to the slot, so without this a later "zoom out" would have no
+   pixels to reveal. Stored OUTSIDE uploads/ — see ORIGINALS_DIR — so it is never
+   deployed and never pruned. */
+$origName = '';
+if (media_originals_dir() !== null) {
+    $origName = preg_replace('/\.webp$/', '', $filename) . '.orig.webp';
+    // Held as webp at up to MAX_WIDTH rather than the raw upload: a 12 MB phone JPEG
+    // is no more useful as a crop source than a 1800px webp, and this is disk we keep
+    // for every drop.
+    if (!img_optimize($tmpFile, ORIGINALS_DIR . $origName, $mime)) $origName = '';
+}
+
 [$nw, $nh] = @getimagesize($dest) ?: [0, 0];
 
 media_register([
@@ -170,6 +354,10 @@ media_register([
     'tags'       => ['picdrop'],
     'source_url' => '',
     'added_at'   => date('Y-m-d H:i:s'),
+    // Crop state, so reopening the adjuster resumes where you left it rather than
+    // snapping back to centre.
+    'origin'     => $origName,
+    'adjust'     => ['zoom' => 1.0, 'fx' => 0.5, 'fy' => 0.5],
 ]);
 
 $newValue = UPLOAD_URL . 'media/' . $filename;

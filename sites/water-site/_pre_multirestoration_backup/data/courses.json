@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "course_type": "PMP Certification",
+        "delivery": "Live-Virtual",
+        "dates": "Jul 7, 8, 9, 10",
+        "time_est": "8:30am-5:00pm",
+        "price": 1995,
+        "old_price": 2295,
+        "register_url": "https://example.com/register",
+        "availability_note": "4 seats left",
+        "guaranteed": true,
+        "sort_order": 1
+    },
+    {
+        "id": 2,
+        "course_type": "CAPM Certification",
+        "delivery": "On-Demand",
+        "dates": "Available Now",
+        "time_est": "Self-paced",
+        "price": 695,
+        "old_price": 0,
+        "register_url": "https://example.com/capm",
+        "availability_note": "",
+        "guaranteed": false,
+        "sort_order": 2
+    },
+    {
+        "id": 3,
+        "course_type": "PMP Certification",
+        "delivery": "Live-Virtual",
+        "dates": "Aug 4, 5, 6, 7",
+        "time_est": "8:30am-5:00pm",
+        "price": 1995,
+        "old_price": 0,
+        "register_url": "https://example.com/pmp2",
+        "availability_note": "",
+        "guaranteed": true,
+        "sort_order": 3
+    },
+    {
+        "id": 4,
+        "course_type": "CAPM Certification",
+        "delivery": "Live-Virtual",
+        "dates": "Jul 21, 22",
+        "time_est": "9:00am-6:00pm",
+        "price": 795,
+        "old_price": 895,
+        "register_url": "https://example.com/capm-live",
+        "availability_note": "Last 3 spots",
+        "guaranteed": true,
+        "sort_order": 4
+    },
+    {
+        "id": 5,
+        "course_type": "PMP Certification",
+        "delivery": "On-Demand",
+        "dates": "Available Now",
+        "time_est": "Self-paced",
+        "price": 995,
+        "old_price": 0,
+        "register_url": "https://example.com/pmp-od",
+        "availability_note": "",
+        "guaranteed": false,
+        "sort_order": 5
+    }
+]

@@ -145,6 +145,8 @@
                                                          from this host, so no endpoint is needed to hand it back. */ ?>
                                                 <a href="/<?= h($s['value']) ?>" download="<?= h(basename($s['value'])) ?>"
                                                    style="color:#2563eb;text-decoration:none;">&#11015; Download</a>
+                                                <a href="#" data-adjust="<?= h($s['key']) ?>" data-sid="<?= $sid ?>"
+                                                   style="color:#2563eb;text-decoration:none;">&#9635; Adjust view</a>
                                             </div>
                                         <?php endif; ?>
 
@@ -188,6 +190,35 @@
             <?php endforeach; ?>
 
             <input type="file" id="pd-file" accept="image/jpeg,image/png,image/gif,image/webp" style="display:none;">
+
+            <div id="pd-adj" style="display:none;position:fixed;inset:0;z-index:9100;background:rgba(15,23,42,.9);align-items:center;justify-content:center;padding:24px;">
+              <div style="background:#fff;border-radius:10px;padding:18px;max-width:min(92vw,760px);width:100%;">
+                <div style="font-weight:700;color:#1e3a5f;margin-bottom:2px;">Adjust view</div>
+                <div id="pd-adj-sub" class="hint" style="margin-bottom:12px;">&nbsp;</div>
+
+                <?php /* The frame IS the slot: what you see inside these edges is exactly
+                         what the page will show, because the browser computes the same
+                         source rectangle the server then cuts. */ ?>
+                <div id="pd-adj-frame"
+                     style="position:relative;overflow:hidden;background:#0f172a;border-radius:6px;margin:0 auto;cursor:grab;user-select:none;touch-action:none;">
+                  <img id="pd-adj-img" src="" alt="" draggable="false"
+                       style="position:absolute;left:0;top:0;transform-origin:0 0;max-width:none;pointer-events:none;">
+                </div>
+
+                <div style="display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap;">
+                  <span class="hint" style="white-space:nowrap;">Zoom</span>
+                  <input id="pd-adj-zoom" type="range" min="100" max="400" value="100" style="flex:1;min-width:160px;">
+                  <span id="pd-adj-zval" class="hint" style="width:52px;">1.00×</span>
+                  <button type="button" class="btn btn-secondary btn-small" id="pd-adj-reset">Reset</button>
+                </div>
+                <div id="pd-adj-note" class="hint" style="margin-top:8px;min-height:1.2em;"></div>
+
+                <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px;">
+                  <button type="button" class="btn btn-secondary btn-small" id="pd-adj-cancel">Cancel</button>
+                  <button type="button" class="btn btn-small" id="pd-adj-apply">Apply</button>
+                </div>
+              </div>
+            </div>
 
             <div id="pd-lightbox" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(15,23,42,.88);align-items:center;justify-content:center;padding:32px;">
                 <div style="max-width:100%;max-height:100%;display:flex;flex-direction:column;gap:10px;align-items:center;">
@@ -275,6 +306,12 @@
 
                 // Delegated, so thumbnails swapped in after an upload work without rebinding.
                 document.addEventListener('click', function (e) {
+                    var adjLink = e.target.closest ? e.target.closest('a[data-adjust]') : null;
+                    if (adjLink) {
+                        e.preventDefault();
+                        adjOpen(adjLink.getAttribute('data-adjust'), adjLink.getAttribute('data-sid'));
+                        return;
+                    }
                     var link = e.target.closest ? e.target.closest('a[data-view]') : null;
                     if (link) {
                         e.preventDefault();
@@ -362,6 +399,177 @@
                             markDirty();
                         });
                 }
+
+                // ── Adjust view: zoom + pan ───────────────────────────────────────
+                // The rectangle worked out here is the SAME one img_source_rect() cuts
+                // on the server, from the same zoom/fx/fy. Keep the two in step or the
+                // preview stops predicting the result.
+                var adj = {
+                    key: null, sid: null, zoom: 1, fx: 0.5, fy: 0.5,
+                    ow: 0, oh: 0, tw: 0, th: 0, frameW: 0, frameH: 0, drag: null
+                };
+                var adjBox   = document.getElementById('pd-adj');
+                var adjFrame = document.getElementById('pd-adj-frame');
+                var adjImg   = document.getElementById('pd-adj-img');
+                var adjZoom  = document.getElementById('pd-adj-zoom');
+                var adjZval  = document.getElementById('pd-adj-zval');
+                var adjNote  = document.getElementById('pd-adj-note');
+                var adjSub   = document.getElementById('pd-adj-sub');
+
+                function adjRect() {
+                    var target = adj.tw / adj.th, sw0, sh0;
+                    if (adj.ow / adj.oh > target) { sh0 = adj.oh; sw0 = Math.round(adj.oh * target); }
+                    else                          { sw0 = adj.ow; sh0 = Math.round(adj.ow / target); }
+                    var sw = Math.max(1, Math.round(sw0 / adj.zoom));
+                    var sh = Math.max(1, Math.round(sh0 / adj.zoom));
+                    return {
+                        sx: Math.round(adj.fx * (adj.ow - sw)),
+                        sy: Math.round(adj.fy * (adj.oh - sh)),
+                        sw: sw, sh: sh
+                    };
+                }
+
+                function adjPaint() {
+                    var r = adjRect();
+                    var k = adj.frameW / r.sw;          // frame pixels per source pixel
+                    adjImg.style.width  = (adj.ow * k) + 'px';
+                    adjImg.style.height = (adj.oh * k) + 'px';
+                    adjImg.style.left   = (-r.sx * k) + 'px';
+                    adjImg.style.top    = (-r.sy * k) + 'px';
+                    adjZval.textContent = adj.zoom.toFixed(2) + '×';
+                    adjZoom.value = Math.round(adj.zoom * 100);
+                }
+
+                function adjOpen(key, sid) {
+                    adj.key = key; adj.sid = sid;
+                    adjNote.textContent = 'Loading…';
+                    adjNote.style.color = '';
+                    adjBox.style.display = 'flex';
+
+                    fetch('picdrop_api.php?action=info&key=' + encodeURIComponent(key))
+                        .then(function (r) { return r.json(); })
+                        .catch(function () { return { error: 'could not reach the server' }; })
+                        .then(function (d) {
+                            if (!d || !d.success) {
+                                adjNote.textContent = (d && d.error) || 'Could not load this picture.';
+                                adjNote.style.color = '#b91c1c';
+                                return;
+                            }
+                            adj.ow = d.src_w; adj.oh = d.src_h;
+                            adj.tw = d.slot_w; adj.th = d.slot_h;
+                            adj.zoom = d.zoom || 1; adj.fx = d.fx; adj.fy = d.fy;
+
+                            // Frame drawn at the slot's own shape so nothing is implied
+                            // about the crop that is not true.
+                            var maxW = Math.min(660, window.innerWidth - 90);
+                            var maxH = window.innerHeight - 320;
+                            adj.frameW = maxW;
+                            adj.frameH = Math.round(maxW * adj.th / adj.tw);
+                            if (adj.frameH > maxH) { adj.frameH = maxH; adj.frameW = Math.round(maxH * adj.tw / adj.th); }
+                            adjFrame.style.width  = adj.frameW + 'px';
+                            adjFrame.style.height = adj.frameH + 'px';
+
+                            adjSub.textContent = 'Slot ' + adj.tw + '×' + adj.th
+                                + ' · source ' + adj.ow + '×' + adj.oh
+                                + (d.has_original ? ' (full original kept)' : ' (no original — you can zoom in, not out)');
+                            adjNote.textContent = 'Drag to move · scroll or use the slider to zoom';
+
+                            adjImg.onload = adjPaint;
+                            adjImg.src = 'picdrop_api.php?action=source&key=' + encodeURIComponent(key) + '&t=' + Date.now();
+                        });
+                }
+
+                function adjClose() { adjBox.style.display = 'none'; adjImg.src = ''; adj.key = null; }
+
+                adjFrame.addEventListener('pointerdown', function (e) {
+                    if (!adj.ow) return;
+                    adj.drag = { x: e.clientX, y: e.clientY };
+                    adjFrame.style.cursor = 'grabbing';
+                    adjFrame.setPointerCapture(e.pointerId);
+                });
+                adjFrame.addEventListener('pointermove', function (e) {
+                    if (!adj.drag) return;
+                    var r = adjRect();
+                    var k = adj.frameW / r.sw;
+                    // Dragging right reveals what is to the LEFT, so the offset moves the
+                    // opposite way. Divided by the slack, since fx/fy are fractions of it.
+                    var slackX = adj.ow - r.sw, slackY = adj.oh - r.sh;
+                    if (slackX > 0) adj.fx = Math.max(0, Math.min(1, adj.fx - (e.clientX - adj.drag.x) / (k * slackX)));
+                    if (slackY > 0) adj.fy = Math.max(0, Math.min(1, adj.fy - (e.clientY - adj.drag.y) / (k * slackY)));
+                    adj.drag = { x: e.clientX, y: e.clientY };
+                    adjPaint();
+                });
+                ['pointerup', 'pointercancel'].forEach(function (ev) {
+                    adjFrame.addEventListener(ev, function () { adj.drag = null; adjFrame.style.cursor = 'grab'; });
+                });
+                adjFrame.addEventListener('wheel', function (e) {
+                    if (!adj.ow) return;
+                    e.preventDefault();
+                    adj.zoom = Math.max(1, Math.min(4, adj.zoom * (e.deltaY < 0 ? 1.08 : 1 / 1.08)));
+                    adjPaint();
+                }, { passive: false });
+                adjZoom.addEventListener('input', function () {
+                    adj.zoom = Math.max(1, Math.min(4, this.value / 100));
+                    adjPaint();
+                });
+                document.getElementById('pd-adj-reset').addEventListener('click', function () {
+                    adj.zoom = 1; adj.fx = 0.5; adj.fy = 0.5; adjPaint();
+                });
+                document.getElementById('pd-adj-cancel').addEventListener('click', adjClose);
+                adjBox.addEventListener('click', function (e) { if (e.target === adjBox) adjClose(); });
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && adjBox.style.display !== 'none') adjClose();
+                });
+
+                document.getElementById('pd-adj-apply').addEventListener('click', function () {
+                    if (!adj.key) return;
+                    var btn = this;
+                    btn.disabled = true;
+                    adjNote.textContent = 'Cutting…';
+                    adjNote.style.color = '';
+
+                    var fd = new FormData();
+                    fd.append('csrf_token', CSRF_TOKEN);
+                    fd.append('action', 'adjust');
+                    fd.append('key', adj.key);
+                    fd.append('zoom', adj.zoom);
+                    fd.append('fx', adj.fx);
+                    fd.append('fy', adj.fy);
+
+                    var sid = adj.sid;
+                    fetch('picdrop_api.php', { method: 'POST', body: fd })
+                        .then(function (r) { return r.json(); })
+                        .catch(function () { return { error: 'The server did not return a valid response.' }; })
+                        .then(function (d) {
+                            btn.disabled = false;
+                            if (!d || !d.success) {
+                                adjNote.textContent = (d && d.error) || 'Could not apply.';
+                                adjNote.style.color = '#b91c1c';
+                                return;
+                            }
+                            var prev = document.getElementById(sid + '_prev');
+                            if (prev) {
+                                prev.innerHTML = '';
+                                var img = document.createElement('img');
+                                img.src = '/' + d.url + '?t=' + Date.now();
+                                img.setAttribute('data-full', '/' + d.url);
+                                img.setAttribute('data-name', d.filename);
+                                img.alt = ''; img.title = 'Click to view full size';
+                                img.style.cssText = 'width:132px;height:88px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;cursor:zoom-in;';
+                                prev.appendChild(img);
+                            }
+                            var acts = document.getElementById(sid + '_acts');
+                            if (acts) {
+                                acts.innerHTML =
+                                    '<a href="#" data-view="/' + d.url + '" data-name="' + d.filename + '" style="color:#2563eb;text-decoration:none;">&#128269; View full size</a>' +
+                                    '<a href="/' + d.url + '" download="' + d.filename + '" style="color:#2563eb;text-decoration:none;">&#11015; Download</a>' +
+                                    '<a href="#" data-adjust="' + adj.key + '" data-sid="' + sid + '" style="color:#2563eb;text-decoration:none;">&#9635; Adjust view</a>';
+                            }
+                            setMeta(sid, d.width + '×' + d.height + ' · ' + d.note, '#15803d');
+                            markDirty();
+                            adjClose();
+                        });
+                });
 
                 window.pdSaveAlt = function (input) {
                     var fd = new FormData();
