@@ -36,7 +36,16 @@
         if ($r['drift']) $t['drift']++;
         $t['all']++;
     };
+    /* Infrastructure hostnames are NOT domains, and counting them as such made the
+       headline wrong. box1…box20.q111.xyz, t01…t28.q111.xyz and p.q111.xyz are server
+       and test subdomains of ONE domain — 49 rows that inflated "904 DOMAINS" by 49.
+       The test is the label count, not a hardcoded q111.xyz: every real fleet name is
+       a root domain by standing rule, so anything with a third label is a subdomain. */
+    $isInfra = fn(string $d): bool => substr_count($d, '.') >= 2;
+
+    $infraTally = $blankTally;
     foreach ($allRows as $r) {
+        if ($isInfra((string) $r['domain'])) { $classify($r, $infraTally); continue; }
         $classify($r, $tally);
         $n = trim((string) ($r['niche'] ?? '')) ?: '';
         if (!isset($nicheTally[$n])) $nicheTally[$n] = $blankTally;
@@ -44,18 +53,15 @@
     }
     // Biggest niche first; the unset bucket always last, since it is a gap to close
     // rather than a niche to compare against.
-    /* The top few registrars behind an Owned figure, as "namecheap 383 · dynadot 76".
-       Capped at three with a "+N more" so a seven-registrar split cannot outgrow the
-       tile — a silent top-3 would read as the whole picture when it is not. */
-    $ownedRegs = function (array $t, int $top = 3): string {
+    /* Every registrar behind an Owned figure, biggest first. Not a top-3 with a
+       "+N more": the whole point is seeing where the renewal bills land, and the four
+       it hid were four whole accounts. */
+    $ownedRegs = function (array $t): string {
         $r = $t['regs'];
         if (!$r) return '';
         arsort($r);
-        $shown = array_slice($r, 0, $top, true);
         $parts = [];
-        foreach ($shown as $name => $n) $parts[] = ih($name === '?' ? 'unknown' : $name) . ' ' . $n;
-        $rest = count($r) - count($shown);
-        if ($rest > 0) $parts[] = '+' . $rest . ' more';
+        foreach ($r as $name => $n) $parts[] = ih($name === '?' ? 'unknown' : $name) . ' ' . $n;
         return implode(' · ', $parts);
     };
 
@@ -122,7 +128,15 @@
     };
     ?>
     <div class="ic-tiles">
-      <div class="ic-tile"><div class="n"><?= count($allRows) ?></div><div class="l">Domains</div></div>
+      <div class="ic-tile">
+        <div class="n"><?= $tally['all'] ?></div><div class="l">Domains</div>
+        <?php if ($infraTally['all']): ?>
+          <?php /* Never a silent exclusion — say what was set aside and why. */ ?>
+          <div style="font-size:.66rem;color:#6b7280;line-height:1.35;margin-top:3px;">
+            + <?= $infraTally['all'] ?> infra hostnames
+          </div>
+        <?php endif; ?>
+      </div>
       <div class="ic-tile"><div class="n"><?= $tally['begin'] ?></div><div class="l">Begin</div></div>
       <div class="ic-tile"><div class="n"><?= $tally['ready'] ?></div><div class="l">Ready to buy</div></div>
       <div class="ic-tile">
@@ -156,6 +170,23 @@
       <div class="ic-tile"><div class="n"><?= $t['drift'] + $t['failed'] ?></div><div class="l">Needs attention</div></div>
     </div>
     <?php endforeach; ?>
+
+    <?php /* Infra hostnames get their own row rather than vanishing from the page —
+             they still need provisioning and drift tracking, they just are not domains. */ ?>
+    <?php if ($infraTally['all']): $t = $infraTally; ?>
+    <div class="ic-tiles" style="margin-top:6px;opacity:.75;">
+      <div class="ic-tile" style="background:#f8fafc;">
+        <div class="n" style="font-size:1.05rem;line-height:1.9;color:#6b7280;">Infra</div>
+        <div class="l"><?= $t['all'] ?> hostnames &mdash; not counted above</div>
+      </div>
+      <div class="ic-tile"><div class="n"><?= $t['begin'] ?></div><div class="l">Begin</div></div>
+      <div class="ic-tile"><div class="n"><?= $t['ready'] ?></div><div class="l">Ready to buy</div></div>
+      <div class="ic-tile"><div class="n"><?= $t['owned'] ?></div><div class="l">Owned</div></div>
+      <div class="ic-tile"><div class="n"><?= $t['staged'] ?></div><div class="l">Staged</div></div>
+      <div class="ic-tile"><div class="n"><?= $t['live'] ?></div><div class="l">Live</div></div>
+      <div class="ic-tile"><div class="n"><?= $t['drift'] + $t['failed'] ?></div><div class="l">Needs attention</div></div>
+    </div>
+    <?php endif; ?>
 
     <?php
     // Columns 8 and 9 (Cloudflare, VPS/host) and the drift flag come from the last
