@@ -224,6 +224,10 @@ function generate_city_pages(array $options = []): array {
     // "identical block order on 40 pages" template footprint.
     $varyLayout   = !empty($options['vary_layout']) && empty($options['dry_run']);
     $layoutVaried = 0;
+    // Same per-master-then-global resolution the multisite build and the
+    // Gen-Image tab use, through the one helper that owns that order
+    // (image_overlay.php) — set on the Gen-Mod tab, defaults to 4 if untouched.
+    $layoutSettings = ms_layout_variation_settings($varyLayout ? ms_image_settings_read(ACTIVE_SITE_DIR, 'layout_variation.json') : []);
 
     // ── Template × city loop ─────────────────────────────────────────────────
     foreach ($templates as $tpl) {
@@ -235,7 +239,7 @@ function generate_city_pages(array $options = []): array {
         $layoutChoices = [];
         if ($varyLayout) {
             $tplBlocksIded = ensure_block_ids($tplBlocksIded);
-            $layoutChoices = layout_generate_variants($tplBlocksIded, 4);
+            $layoutChoices = layout_generate_variants($tplBlocksIded, $layoutSettings['variant_count']);
         }
 
         foreach ($cities as $city) {

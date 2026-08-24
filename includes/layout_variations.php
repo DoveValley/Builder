@@ -109,6 +109,26 @@ function layout_apply(array $blocks, array $variantIds): array {
     return $out;
 }
 
+/**
+ * The tunable knob for per-city block-order variation, and its fallback — the
+ * exact number (4) this whole mechanism was hardcoded to before the Gen-Mod
+ * tab existed. A missing/invalid value always falls back to that original
+ * number, so a master that's never touched Gen-Mod builds exactly as it
+ * always has.
+ */
+function ms_layout_variation_defaults(): array {
+    return ['variant_count' => 4];
+}
+
+/** Clamp to a sane range and fill in anything missing — the one place both the
+ *  save endpoint and the generator read from, so a hand-edited or half-written
+ *  config file can't produce a nonsensical count. */
+function ms_layout_variation_settings(array $raw): array {
+    $d = ms_layout_variation_defaults();
+    $n = is_numeric($raw['variant_count'] ?? null) ? max(2, min(8, (int)$raw['variant_count'])) : $d['variant_count'];
+    return ['variant_count' => $n];
+}
+
 /** Short human label for a block (type + first heading-ish field) — for review/preview UIs. */
 function layout_block_label(array $b): string {
     $type = (string)($b['type'] ?? 'block');

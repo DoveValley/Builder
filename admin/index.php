@@ -44,7 +44,7 @@ $blogSettings = $data['blog_settings'];
 $tab = $_GET['tab'] ?? 'header';
 // 'theme' is kept in this list only so the legacy redirect below can see it — same
 // reason 'schedule'/'popups' are still here. It is no longer a tab.
-if (!in_array($tab, ['header', 'theme', 'genvisual', 'content', 'pages', 'templates', 'keywords', 'cities', 'citypages', 'genimage', 'picdrop', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'niche_brief', 'multisite'], true)) {
+if (!in_array($tab, ['header', 'theme', 'genvisual', 'content', 'pages', 'templates', 'keywords', 'cities', 'citypages', 'genimage', 'genmod', 'picdrop', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'niche_brief', 'multisite'], true)) {
     $tab = 'header';
 }
 // The Theme / Colors tab was renamed Gen-Visual — keep old links and bookmarks working.
@@ -288,6 +288,7 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'cities' ? 'active' : '' ?>" href="?tab=cities">Landing Cities</a>
         <a class="tab-link <?= $tab === 'citypages' ? 'active' : '' ?>" href="?tab=citypages">Landing City Page Gen</a>
         <a class="tab-link <?= $tab === 'genimage' ? 'active' : '' ?>" href="?tab=genimage">&#128248; Gen-Image</a>
+        <a class="tab-link <?= $tab === 'genmod' ? 'active' : '' ?>" href="?tab=genmod">&#128260; Gen-Mod</a>
         <a class="tab-link <?= $tab === 'genvisual' ? 'active' : '' ?>" href="?tab=genvisual">&#127912; Gen-Visual</a>
         <a class="tab-link <?= $tab === 'picdrop' ? 'active' : '' ?>" href="?tab=picdrop">&#128206; Pic Drop</a>
         <span style="flex-basis:100%;height:0;border-top:1px solid #e5e7eb;margin:0 -4px;"></span>
@@ -324,6 +325,9 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- ================= GEN-IMAGE TAB ================= -->
     <?php require __DIR__ . '/tabs/genimage.php'; ?>
+
+    <!-- ================= GEN-MOD TAB ================= -->
+    <?php require __DIR__ . '/tabs/genmod.php'; ?>
 
     <!-- ================= GEN-VISUAL TAB (was Theme / Colors) ================= -->
     <?php require __DIR__ . '/tabs/genvisual.php'; ?>
