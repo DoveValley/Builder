@@ -11,6 +11,29 @@
         }
         $activeTab = $isLandingPage ? 'pages' : ($isPost ? 'blog' : 'content');
 
+        /* REFUSE A TRUNCATED POST — never write a partial page over a complete one.
+           form_complete is the LAST field in the form, so if PHP cut the body at
+           max_input_vars / max_multipart_body_parts it cannot have arrived. PHP reports
+           that only as a warning in the Apache error log and carries on; the save would
+           otherwise write whatever did arrive. That is exactly how water-site lost two
+           homepage blocks and most of its SEO — the SEO inputs sit at the end of this
+           same form, came through empty, and overwrote good values with ''. */
+        if (empty($_POST['form_complete'])) {
+            $got  = count((array) ($_POST['block_type'] ?? []));
+            $want = (int) ($_POST['expected_blocks'] ?? 0);
+            error_log(sprintf(
+                'homepage-builder: REFUSED truncated content save — %d of %d blocks arrived; '
+                . 'max_input_vars=%s max_multipart_body_parts=%s',
+                $got, $want, ini_get('max_input_vars'), ini_get('max_multipart_body_parts')
+            ));
+            header('Location: index.php?tab=' . $activeTab . '&msg=' . urlencode(
+                'error:NOT SAVED — the browser sent an incomplete form ('
+                . $got . ' of ' . $want . ' blocks arrived). Nothing was changed, so the '
+                . 'page is intact. This page has more fields than PHP will accept in one '
+                . 'POST — raise max_input_vars and max_multipart_body_parts, then retry.'));
+            exit;
+        }
+
         require_once BASE_DIR . '/includes/blocks_from_post.php';
         [$blocks, $uploadError] = parse_blocks_from_post();
         $blocks = ensure_block_ids($blocks);   // stable ids for layout variations (2a)

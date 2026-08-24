@@ -79,5 +79,18 @@
                 <a href="../index.php?show_blocks=1" target="_blank" class="btn btn-secondary">Preview Blocks &rarr;</a>
                 <a href="../index.php" target="_blank" class="btn btn-secondary">Preview Home Page &rarr;</a>
             </div>
+
+            <?php /* TRUNCATION SENTINEL — must stay the LAST field in this form.
+                     PHP drops everything past max_input_vars / max_multipart_body_parts
+                     and reports it only as a warning in the Apache error log. The save
+                     then writes whatever DID arrive: on 2026-08-24 that silently cost
+                     water-site its last two homepage blocks and most of its SEO, because
+                     those fields sit at the end of the form and simply never appeared.
+                     A sentinel at the very end cannot survive a cut body, so its absence
+                     is proof the POST was truncated — and the handler refuses rather than
+                     saving a partial page over a complete one. expected_blocks gives the
+                     refusal message something concrete to report. */ ?>
+            <input type="hidden" name="expected_blocks" value="<?= (int) count($blocks ?? []) ?>">
+            <input type="hidden" name="form_complete" value="1">
         </form>
     </div>
