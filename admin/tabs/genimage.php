@@ -17,17 +17,67 @@
  */
 require_once __DIR__ . '/../../includes/multisite/image_overlay.php';
 
-// Source images for the overlay preview — THIS site's own media only (not every
-// site in the fleet, unlike Test Lab's picker, which browsed everything on the
-// box). Only photo-sized images; icons/logos/thumbnails filtered out.
+// Source images for the overlay preview — real HERO photos only, picked by the
+// exact same ms_hero_image_field() the actual build/generate step uses to
+// decide what to stamp. Previously this scanned every big image file under
+// uploads/ regardless of what block (if any) it belonged to, so the default
+// preview — and the size-based fallback numbers computed from it — could land
+// on an unrelated section/background photo instead of an actual hero picture,
+// which is a different shape and gave a misleading preview.
+$giHeroCandidates = []; // path => true, de-duped across every page sharing one
+$giCollectHeroImages = function (array $blocks) use (&$giHeroCandidates) {
+    foreach ($blocks as $b) {
+        if (!is_array($b)) continue;
+        $field = ms_hero_image_field($b);
+        if ($field === null) continue;
+        // The pre-stamp original (if this block has already been baked once)
+        // wins over the current value — same preference ms_stamp_blocks() uses,
+        // so the preview never shows text baked on top of already-baked text.
+        $origKey = '_' . $field . '_orig';
+        $v = (isset($b[$origKey]) && is_string($b[$origKey]) && $b[$origKey] !== '') ? $b[$origKey] : ($b[$field] ?? '');
+        if (is_string($v) && $v !== '') $giHeroCandidates[$v] = true;
+    }
+};
+$giCollectHeroImages($data['content_blocks'] ?? []);
+foreach (glob(PAGES_DIR . '*.json') ?: [] as $pf) {
+    // glob's own *.json pattern already excludes the .bak siblings — nothing
+    // ending in .json.bak matches it, so no extra filter is needed here.
+    $pg = json_decode((string) @file_get_contents($pf), true);
+    if (is_array($pg)) $giCollectHeroImages($pg['content_blocks'] ?? []);
+}
+
 $giSrcOptions = [];
-foreach (glob(ACTIVE_SITE_DIR . '/uploads/{media,}/*.{jpg,jpeg,png,webp}', GLOB_BRACE) ?: [] as $f) {
+foreach (array_keys($giHeroCandidates) as $rel) {
+    $f = BASE_DIR . '/' . ltrim($rel, '/');
     $sz = @getimagesize($f);
-    if (!$sz || (int)$sz[0] < 480 || (int)$sz[1] < 240) continue;
-    $giSrcOptions[] = ['p' => 'sites/' . ACTIVE_SITE_ID . substr($f, strlen(ACTIVE_SITE_DIR)), 'w' => (int)$sz[0], 'h' => (int)$sz[1], 'a' => (int)$sz[0] * (int)$sz[1]];
+    if (!$sz) continue;
+    $giSrcOptions[] = ['p' => $rel, 'w' => (int)$sz[0], 'h' => (int)$sz[1], 'a' => (int)$sz[0] * (int)$sz[1]];
 }
 usort($giSrcOptions, fn($a, $b) => $b['a'] <=> $a['a']);   // largest first
 $giSrcOptions = array_slice($giSrcOptions, 0, 25);
+
+// A site with zero hero blocks anywhere (shouldn't normally happen, but keeps
+// the picker from rendering empty) falls back to the old any-big-photo scan.
+if (!$giSrcOptions) {
+    foreach (glob(ACTIVE_SITE_DIR . '/uploads/{media,}/*.{jpg,jpeg,png,webp}', GLOB_BRACE) ?: [] as $f) {
+        $sz = @getimagesize($f);
+        if (!$sz || (int)$sz[0] < 480 || (int)$sz[1] < 240) continue;
+        $giSrcOptions[] = ['p' => 'sites/' . ACTIVE_SITE_ID . substr($f, strlen(ACTIVE_SITE_DIR)), 'w' => (int)$sz[0], 'h' => (int)$sz[1], 'a' => (int)$sz[0] * (int)$sz[1]];
+    }
+    usort($giSrcOptions, fn($a, $b) => $b['a'] <=> $a['a']);
+    $giSrcOptions = array_slice($giSrcOptions, 0, 25);
+}
+
+// The live site never shows a hero_split photo at its native size or aspect —
+// includes/blocks.php's .hs-image-wrap/.hs-image CSS caps it at 500px wide,
+// forced to a 4:3 box via object-fit:cover (site-wide: every one of this
+// site's hero blocks is hero_split). The preview below replicates that exact
+// box so text/position tuned here isn't previewed bigger and uncropped
+// compared to what actually ships — including each photo's real focal point,
+// since a non-center focal point shifts which part of the image survives the
+// crop, same as get_focal_point() already does for the live render.
+$giFocalPoints = [];
+foreach ($giSrcOptions as $img) { $giFocalPoints[$img['p']] = get_focal_point($img['p']); }
 
 // Both settings resolve per-master-first, repo-global as fallback — exactly the
 // order multisite/build_one.php uses, via the one shared helper, so this screen
@@ -198,9 +248,13 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
         </div>
         <div>
             <div style="background:#0f172a;border-radius:10px;padding:16px;text-align:center;">
-                <img id="gi-out" alt="preview" src="" style="max-width:100%;height:auto;border-radius:6px;">
+                <img id="gi-out" alt="preview" src="" style="width:500px;max-width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;">
                 <div id="gi-err" style="display:none;color:#fca5a5;font-family:monospace;font-size:.78rem;text-align:left;white-space:pre-wrap;padding:12px;line-height:1.5;"></div>
             </div>
+            <p class="hint" style="margin-top:8px;">Shown at the site's real display size for a hero photo &mdash; capped at
+                500px wide and cropped to 4:3 (<code>object-fit:cover</code>), exactly like <code>.hs-image-wrap</code> on
+                the live page. The raw image is always rendered full-size first; this box only crops what's <em>displayed</em>,
+                the same as the browser does &mdash; nothing here changes the file that gets baked.</p>
             <div class="form-group" style="margin-top:10px;">
                 <label><input type="checkbox" id="gi-edgeguide"> Show image edge guide</label>
                 <span class="hint">A thin white outline around the preview so you can see exactly where the image's edges are while placing text. This box only &mdash; never rendered onto the actual image or the live site.</span>
@@ -278,6 +332,10 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
 (function () {
     var giCsrf = <?= json_encode($csrfToken) ?>;
     var giActive = <?= $tab === 'genimage' ? 'true' : 'false' ?>;
+    // Each photo's real crop focal point (same data get_focal_point() reads on
+    // the live page) — so the preview's 4:3 crop centers on the same spot the
+    // real hero image does, not always the geometric center.
+    var giFocalPoints = <?= json_encode($giFocalPoints) ?>;
 
     // ── Hero overlay preview (only fetches while this tab is the one showing —
     // no reason to spend an ImageMagick call on every admin page load). ──────
@@ -308,6 +366,7 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
         document.getElementById('gi-yo').textContent = el['gi-y'].value + '% from top';
         document.getElementById('gi-bgheighto').textContent = el['gi-bgheight'].value + '%';
         document.getElementById('gi-bgopacityo').textContent = el['gi-bgopacity'].value + '%';
+        out.style.objectPosition = giFocalPoints[el['gi-src'].value] || '50% 50%';
         syncBgVisibility();
     }
     function params() {

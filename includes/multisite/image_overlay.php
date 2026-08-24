@@ -77,7 +77,37 @@ function ms_hero_overlay_render(string $src, string $out, array $o): array {
     // no separate top-anchored/bottom-anchored branches to keep in sync.
     $x = (int)round($W * max(0, min(100, (float)($o['x'] ?? 5))) / 100);
     $y = (int)round($H * max(0, min(100, (float)($o['y'] ?? 80))) / 100);
+
+    // Shrink-to-fit: the SAME font size is baked onto every page's own
+    // AI-written keyword, and those vary in length ("Flood Damage Restoration"
+    // vs "Commercial Water Damage Restoration") — a size tuned against a short
+    // sample can still overflow a longer one on a different page. Two limits,
+    // whichever is tighter:
+    //  1. The x-inset as a horizontal margin — whatever the admin configured.
+    //  2. Every hero image on this system ends up in a hero_split block, whose
+    //     .hs-image-wrap/.hs-image CSS forces it into a 4:3 box via
+    //     object-fit:cover — a wider source has its outer edges cropped away
+    //     on the live page, invisibly, at H*(4/3) px of the original width.
+    //     Fitting text to only the surviving center avoids baking something
+    //     that looks fine in the full file but is cut off once displayed.
+    // Only ever shrinks a line, never grows one.
+    $maxLineW = max(1, min($W - 2 * $x, (int)round($H * 4 / 3)));
+    foreach ($lines as &$ln) {
+        $lw = ms_text_width($bin, $font, $ln['s'], $ln['t']);
+        if ($lw > $maxLineW && $lw > 0) $ln['s'] = max(8, (int)floor($ln['s'] * $maxLineW / $lw));
+    }
+    unset($ln);
+
     $gap = (int)round($s2 * 0.30);
+
+    // A y% chosen against one hero can clip a differently-shaped one — a short,
+    // wide image has far less vertical room at the same percentage as a tall
+    // one. Clamp so the whole stacked block always fits inside the image,
+    // pulling it up off the bottom edge rather than letting the last line run
+    // off frame; falls back to the top edge only if the block is taller than
+    // the image itself (nothing left to fit it into).
+    $blockH = array_sum(array_column($lines, 's')) + $gap * (count($lines) - 1);
+    $y = max(0, min($y, $H - $blockH));
 
     $cmd = [$bin, $src, '-strip'];   // -strip: no metadata → byte-reproducible rebuilds
 

@@ -356,7 +356,13 @@ function generate_city_pages(array $options = []): array {
             // ── Per-city image differentiation (opt-in, reused multisite core) ──
             if ($imgCanRun && !empty($page['content_blocks'])) {
                 $ir = ms_process_blocks_images($page['content_blocks'], [
-                    'site_dir'         => ACTIVE_SITE_DIR,
+                    // BASE_DIR, not ACTIVE_SITE_DIR: this site's own photo fields are
+                    // stored project-root-relative ("sites/{id}/uploads/...", the same
+                    // form $pathPrefix resolves at render time), but ms_stamp_blocks()
+                    // resolves a block's path as $site_dir . '/' . $path — passing
+                    // ACTIVE_SITE_DIR here doubled the "sites/{id}/" segment, so the
+                    // source file was never found and every stamp silently no-op'd.
+                    'site_dir'         => BASE_DIR,
                     'seed'             => $tplId . '_' . $cityId,
                     'city'             => $city['city'] ?? '',
                     'ss'               => $city['SS'] ?? '',
