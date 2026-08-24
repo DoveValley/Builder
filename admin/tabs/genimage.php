@@ -37,9 +37,17 @@ $giStyleLoc = ms_image_settings_locate(ACTIVE_SITE_DIR, 'hero_style.json');
 $giVaryLoc  = ms_image_settings_locate(ACTIVE_SITE_DIR, 'image_variation.json');
 
 // Currently-locked overlay style, if any — seeds the controls so this screen
-// shows what the build actually uses, not just the form's own defaults.
+// shows what the build actually uses, not just the form's own defaults. When
+// nothing is locked, fall back to ms_hero_style()'s OWN no-locked-style output
+// (computed against the default preview image's real dimensions) rather than a
+// second, hand-picked set of numbers here that can quietly drift from what a
+// real build actually falls back to — c2/s1/s2 previously did exactly that
+// (c2 showed an orange placeholder while the build's real fallback is white;
+// s1/s2 showed flat numbers while the build scales them from image width).
 $giLockedStyle = ms_image_settings_read(ACTIVE_SITE_DIR, 'hero_style.json');
-$giLS = fn($k, $d) => $giLockedStyle[$k] ?? $d;
+$giPreviewImg = $giSrcOptions[0] ?? ['w' => 900, 'h' => 600];
+$giFallbackStyle = ms_hero_style((int)$giPreviewImg['w'], (int)$giPreviewImg['h'], []);
+$giLS = fn($k, $d) => $giLockedStyle[$k] ?? ($giFallbackStyle[$k] ?? $d);
 
 // Currently-saved variation ranges, filled in against the real defaults so the
 // form always shows real numbers, never blanks.
@@ -80,6 +88,7 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
 
     <div style="display:grid;grid-template-columns:340px 1fr;gap:24px;align-items:start;margin-top:14px;">
         <div>
+            <h3 style="margin:0 0 10px;font-size:.95rem;color:#334155;">Text</h3>
             <div class="form-group">
                 <label for="gi-src">Source image</label>
                 <select id="gi-src" style="width:100%;">
@@ -89,31 +98,52 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
                 </select>
                 <span class="hint">This site's own photos only &mdash; only photo-sized images shown (icons/logos hidden).</span>
             </div>
-            <div class="form-group">
-                <label for="gi-line1">Line 1 &mdash; keyword</label>
-                <input type="text" id="gi-line1" value="Cockroach Exterminator" maxlength="60">
-            </div>
-            <div class="form-group">
-                <label for="gi-line2">Line 2 &mdash; city, ST</label>
-                <input type="text" id="gi-line2" value="Dallas, TX" maxlength="60">
-            </div>
-            <div class="form-group">
-                <label for="gi-line3">Line 3 &mdash; optional</label>
-                <input type="text" id="gi-line3" value="" maxlength="60" placeholder="(leave blank for 2 lines)">
-            </div>
-            <div style="display:flex;gap:12px;">
+            <div style="display:flex;gap:10px;align-items:flex-end;">
                 <div class="form-group" style="flex:1;">
-                    <label for="gi-pos">Position</label>
-                    <select id="gi-pos" style="width:100%;">
-                        <option value="bl" <?= $giLS('pos','bl') === 'bl' ? 'selected' : '' ?>>Bottom left</option>
-                        <option value="bc" <?= $giLS('pos','bl') === 'bc' ? 'selected' : '' ?>>Bottom center</option>
-                        <option value="tl" <?= $giLS('pos','bl') === 'tl' ? 'selected' : '' ?>>Top left</option>
-                    </select>
+                    <label for="gi-line1">Line 1 &mdash; keyword</label>
+                    <input type="text" id="gi-line1" value="Cockroach Exterminator" maxlength="60">
                 </div>
                 <div class="form-group">
-                    <label for="gi-c2">City color</label>
-                    <input type="color" id="gi-c2" value="<?= $gh($giLS('c2','#fd783b')) ?>">
+                    <label for="gi-j1">Justify</label>
+                    <select id="gi-j1">
+                        <option value="left" <?= $giLS('j1','left') === 'left' ? 'selected' : '' ?>>Left</option>
+                        <option value="center" <?= $giLS('j1','left') === 'center' ? 'selected' : '' ?>>Center</option>
+                        <option value="right" <?= $giLS('j1','left') === 'right' ? 'selected' : '' ?>>Right</option>
+                    </select>
                 </div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-end;">
+                <div class="form-group" style="flex:1;">
+                    <label for="gi-line2">Line 2 &mdash; city, ST</label>
+                    <input type="text" id="gi-line2" value="Dallas, TX" maxlength="60">
+                </div>
+                <div class="form-group">
+                    <label for="gi-j2">Justify</label>
+                    <select id="gi-j2">
+                        <option value="left" <?= $giLS('j2','left') === 'left' ? 'selected' : '' ?>>Left</option>
+                        <option value="center" <?= $giLS('j2','left') === 'center' ? 'selected' : '' ?>>Center</option>
+                        <option value="right" <?= $giLS('j2','left') === 'right' ? 'selected' : '' ?>>Right</option>
+                    </select>
+                </div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-end;">
+                <div class="form-group" style="flex:1;">
+                    <label for="gi-line3">Line 3 &mdash; optional</label>
+                    <input type="text" id="gi-line3" value="" maxlength="60" placeholder="(leave blank for 2 lines)">
+                </div>
+                <div class="form-group">
+                    <label for="gi-j3">Justify</label>
+                    <select id="gi-j3">
+                        <option value="left" <?= $giLS('j3','left') === 'left' ? 'selected' : '' ?>>Left</option>
+                        <option value="center" <?= $giLS('j3','left') === 'center' ? 'selected' : '' ?>>Center</option>
+                        <option value="right" <?= $giLS('j3','left') === 'right' ? 'selected' : '' ?>>Right</option>
+                    </select>
+                </div>
+            </div>
+            <p class="hint" style="margin:-6px 0 10px;">Line 1 justifies relative to the image width (inset by the X position below); line 2/3 justify relative to line 1's own width &mdash; e.g. a short city line can center or right-align under a longer keyword line.</p>
+            <div class="form-group">
+                <label for="gi-c2">City color</label>
+                <input type="color" id="gi-c2" value="<?= $gh($giLS('c2','#fd783b')) ?>">
             </div>
             <div class="form-group">
                 <label>Keyword size <output id="gi-s1o" style="color:#64748b;font-weight:400"></output></label>
@@ -124,13 +154,46 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
                 <input type="range" id="gi-s2" min="16" max="80" value="<?= (int)$giLS('s2',40) ?>" style="width:100%;">
             </div>
             <div class="form-group">
-                <label>Dark fade height <span style="color:#64748b;font-weight:400">(readability)</span> <output id="gi-scrimo" style="color:#64748b;font-weight:400"></output></label>
-                <input type="range" id="gi-scrim" min="0" max="600" value="<?= (int)$giLS('scrim',300) ?>" style="width:100%;">
+                <label>Horizontal position <output id="gi-xo" style="color:#64748b;font-weight:400"></output></label>
+                <input type="range" id="gi-x" min="0" max="100" value="<?= (int)$giLS('x',5) ?>" style="width:100%;">
             </div>
+            <div class="form-group">
+                <label>Vertical position <output id="gi-yo" style="color:#64748b;font-weight:400"></output></label>
+                <input type="range" id="gi-y" min="0" max="100" value="<?= (int)$giLS('y',80) ?>" style="width:100%;">
+                <span class="hint">Both are % of the image, measured from the top-left corner &mdash; place text anywhere, not just a preset corner.</span>
+            </div>
+
+            <h3 style="margin:18px 0 10px;padding-top:14px;border-top:1px solid #e2e8f0;font-size:.95rem;color:#334155;">Background</h3>
+            <div class="form-group">
+                <label for="gi-bgside">Edge</label>
+                <select id="gi-bgside" style="width:100%;">
+                    <option value="bottom" <?= $giLS('bg_side','bottom') === 'bottom' ? 'selected' : '' ?>>Bottom band</option>
+                    <option value="top" <?= $giLS('bg_side','bottom') === 'top' ? 'selected' : '' ?>>Top band</option>
+                    <option value="full" <?= $giLS('bg_side','bottom') === 'full' ? 'selected' : '' ?>>Full image tint</option>
+                    <option value="none" <?= $giLS('bg_side','bottom') === 'none' ? 'selected' : '' ?>>None</option>
+                </select>
+                <span class="hint">Independent of where the text sits above &mdash; e.g. text can be centered while the band still hugs the bottom edge.</span>
+            </div>
+            <div class="form-group" id="gi-bgheight-row">
+                <label>Band height <output id="gi-bgheighto" style="color:#64748b;font-weight:400"></output></label>
+                <input type="range" id="gi-bgheight" min="0" max="100" value="<?= (int)$giLS('bg_height',55) ?>" style="width:100%;">
+            </div>
+            <div class="form-group" id="gi-bgfade-row">
+                <label><input type="checkbox" id="gi-bgfade" <?= $giLS('bg_fade',true) ? 'checked' : '' ?>> Fade (soft gradient) &mdash; unchecked is a flat, hard-edged band</label>
+            </div>
+            <div class="form-group">
+                <label>Darkness <output id="gi-bgopacityo" style="color:#64748b;font-weight:400"></output></label>
+                <input type="range" id="gi-bgopacity" min="0" max="100" value="<?= (int)$giLS('bg_opacity',100) ?>" style="width:100%;">
+            </div>
+
             <div style="margin-top:14px;padding-top:14px;border-top:1px solid #e2e8f0;">
-                <button type="button" id="gi-lockbtn" class="btn btn-primary">&#128274; Lock this style into the build</button>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+                    <button type="button" id="gi-lockbtn" class="btn btn-primary">&#128274; Lock this style into the build</button>
+                    <button type="button" id="gi-defaultbtn" class="btn btn-secondary">Default</button>
+                </div>
                 <div id="gi-lockmsg" class="hint" style="margin-top:8px;"></div>
                 <?php if ($giLockedStyle): ?><div class="hint" style="margin-top:4px;">A locked style is active &mdash; every build of this site's domains uses it. Adjust above and re-lock to change.<br><?= $giScopeNote($giStyleLoc) ?></div><?php endif; ?>
+                <span class="hint"><strong>Default</strong> resets the controls above back to <?= $giLockedStyle ? "this site's currently locked style" : "the plain fallback style (nothing is locked for this site yet)" ?> &mdash; discarding whatever you've changed since the page loaded. It doesn't save anything; press <strong>Lock this style</strong> to persist a change.</span>
             </div>
         </div>
         <div>
@@ -138,9 +201,14 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
                 <img id="gi-out" alt="preview" src="" style="max-width:100%;height:auto;border-radius:6px;">
                 <div id="gi-err" style="display:none;color:#fca5a5;font-family:monospace;font-size:.78rem;text-align:left;white-space:pre-wrap;padding:12px;line-height:1.5;"></div>
             </div>
+            <div class="form-group" style="margin-top:10px;">
+                <label><input type="checkbox" id="gi-edgeguide"> Show image edge guide</label>
+                <span class="hint">A thin white outline around the preview so you can see exactly where the image's edges are while placing text. This box only &mdash; never rendered onto the actual image or the live site.</span>
+            </div>
             <p class="hint" style="margin-top:10px;">Both lines come from data the system already stores: the page's
-                <code>primary_keyword</code> and the site's <code>city</code>/<code>SS</code>. Nudge position/size/color
-                to taste, then lock it in &mdash; sizes scale proportionally to each hero's actual dimensions.</p>
+                <code>primary_keyword</code> and the site's <code>city</code>/<code>SS</code>. Nudge position/background/color
+                to taste, then lock it in &mdash; position and background are percentages of each hero's actual dimensions, so
+                the look holds steady across heroes of any size.</p>
         </div>
     </div>
 </div>
@@ -213,18 +281,42 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
 
     // ── Hero overlay preview (only fetches while this tab is the one showing —
     // no reason to spend an ImageMagick call on every admin page load). ──────
-    var ids = ['gi-src','gi-line1','gi-line2','gi-line3','gi-pos','gi-c2','gi-s1','gi-s2','gi-scrim'];
+    var ids = ['gi-src','gi-line1','gi-line2','gi-line3','gi-c2','gi-s1','gi-s2','gi-x','gi-y','gi-j1','gi-j2','gi-j3',
+               'gi-bgside','gi-bgheight','gi-bgfade','gi-bgopacity'];
     var el = {}; ids.forEach(function (i) { el[i] = document.getElementById(i); });
+    // Snapshot of every control's server-rendered starting value (this site's
+    // locked style, or the plain fallback if nothing's locked) — captured once,
+    // before any user edits, so "Default" restores the real thing instead of a
+    // second, separately-hardcoded guess that can drift from it. Deliberately
+    // excludes gi-src — resetting the style shouldn't also swap the preview photo.
+    var giDefaults = {};
+    ids.forEach(function (i) {
+        if (i === 'gi-src') return;
+        giDefaults[i] = (el[i].type === 'checkbox') ? el[i].checked : el[i].value;
+    });
     var out = document.getElementById('gi-out'), err = document.getElementById('gi-err');
+    var bgHeightRow = document.getElementById('gi-bgheight-row'), bgFadeRow = document.getElementById('gi-bgfade-row');
+    function syncBgVisibility() {
+        var side = el['gi-bgside'].value;
+        bgHeightRow.style.display = (side === 'full' || side === 'none') ? 'none' : '';
+        bgFadeRow.style.display = (side === 'full' || side === 'none') ? 'none' : '';
+    }
     function sync() {
         document.getElementById('gi-s1o').textContent = el['gi-s1'].value;
         document.getElementById('gi-s2o').textContent = el['gi-s2'].value;
-        document.getElementById('gi-scrimo').textContent = el['gi-scrim'].value;
+        document.getElementById('gi-xo').textContent = el['gi-x'].value + '% from left';
+        document.getElementById('gi-yo').textContent = el['gi-y'].value + '% from top';
+        document.getElementById('gi-bgheighto').textContent = el['gi-bgheight'].value + '%';
+        document.getElementById('gi-bgopacityo').textContent = el['gi-bgopacity'].value + '%';
+        syncBgVisibility();
     }
     function params() {
         return new URLSearchParams({
             src: el['gi-src'].value, line1: el['gi-line1'].value, line2: el['gi-line2'].value, line3: el['gi-line3'].value,
-            pos: el['gi-pos'].value, c2: el['gi-c2'].value, s1: el['gi-s1'].value, s2: el['gi-s2'].value, scrim: el['gi-scrim'].value
+            x: el['gi-x'].value, y: el['gi-y'].value, j1: el['gi-j1'].value, j2: el['gi-j2'].value, j3: el['gi-j3'].value,
+            c2: el['gi-c2'].value, s1: el['gi-s1'].value, s2: el['gi-s2'].value,
+            bg_side: el['gi-bgside'].value, bg_height: el['gi-bgheight'].value,
+            bg_fade: el['gi-bgfade'].checked ? '1' : '0', bg_opacity: el['gi-bgopacity'].value
         });
     }
     out.onload = function () { err.style.display = 'none'; out.style.display = ''; };
@@ -246,25 +338,59 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
     ids.forEach(function (i) { el[i].addEventListener('input', schedule); el[i].addEventListener('change', schedule); });
     if (giActive) render();
 
-    var lockBtn = document.getElementById('gi-lockbtn'), lockMsg = document.getElementById('gi-lockmsg');
-    lockBtn.addEventListener('click', function () {
+    // ── Image edge guide — preview-only visual aid, never sent to the server or
+    // included in the locked style. ──────────────────────────────────────────
+    var edgeGuide = document.getElementById('gi-edgeguide');
+    function applyEdgeGuide() {
+        out.style.outline = edgeGuide.checked ? '2px dashed #fff' : 'none';
+        out.style.outlineOffset = edgeGuide.checked ? '-2px' : '0';
+    }
+    edgeGuide.addEventListener('change', applyEdgeGuide);
+    applyEdgeGuide();
+
+    // Shared by both save buttons below — the current on-screen style, as FormData.
+    function styleFormData() {
         var fd = new FormData();
         fd.append('csrf_token', giCsrf);
-        fd.append('pos', el['gi-pos'].value);
+        fd.append('x', el['gi-x'].value);
+        fd.append('y', el['gi-y'].value);
+        fd.append('j1', el['gi-j1'].value);
+        fd.append('j2', el['gi-j2'].value);
+        fd.append('j3', el['gi-j3'].value);
         fd.append('c1', '#ffffff');
         fd.append('c2', el['gi-c2'].value);
         fd.append('s1', el['gi-s1'].value);
         fd.append('s2', el['gi-s2'].value);
-        fd.append('scrim', el['gi-scrim'].value);
+        fd.append('bg_side', el['gi-bgside'].value);
+        fd.append('bg_height', el['gi-bgheight'].value);
+        fd.append('bg_fade', el['gi-bgfade'].checked ? '1' : '0');
+        fd.append('bg_opacity', el['gi-bgopacity'].value);
         fd.append('ref_w', out.naturalWidth || 715);
-        fd.append('ref_h', out.naturalHeight || 600);
+        return fd;
+    }
+
+    var lockMsg = document.getElementById('gi-lockmsg');
+    document.getElementById('gi-lockbtn').addEventListener('click', function () {
         lockMsg.textContent = 'Saving…';
-        fetch('hero_style_save.php', { method: 'POST', body: fd }).then(function (r) { return r.json(); })
+        fetch('hero_style_save.php', { method: 'POST', body: styleFormData() }).then(function (r) { return r.json(); })
             .then(function (d) {
-                lockMsg.textContent = d.error ? ('✗ ' + d.error) : '✓ Locked — every build now uses this style.';
+                lockMsg.textContent = d.error ? ('✗ ' + d.error) : '✓ Locked — every build of this site now uses this style.';
                 lockMsg.style.color = d.error ? '#991b1b' : '#065f46';
             })
             .catch(function () { lockMsg.textContent = '✗ save failed'; lockMsg.style.color = '#991b1b'; });
+    });
+
+    // ── Default — restores every control to the snapshot captured on page load
+    // (this site's own locked style, or the plain fallback). Pure form reset,
+    // nothing is written to disk; press "Lock this style" to persist a change.
+    document.getElementById('gi-defaultbtn').addEventListener('click', function () {
+        Object.keys(giDefaults).forEach(function (i) {
+            if (el[i].type === 'checkbox') el[i].checked = giDefaults[i];
+            else el[i].value = giDefaults[i];
+        });
+        lockMsg.textContent = '';
+        sync();
+        schedule();
     });
 
     // ── Photo-variation ranges ────────────────────────────────────────────────

@@ -23,17 +23,32 @@ function ms_convert_bin(): ?string {
     return $bin = ($found !== '' ? $found : null);
 }
 
+/** Rendered pixel width of $text at $font/$size — used only to justify a line
+ *  relative to another (center/right); left-justified lines never call this. */
+function ms_text_width(string $bin, string $font, int $size, string $text): int {
+    if ($text === '') return 0;
+    $cmd = [$bin, '-font', $font, '-pointsize', (string)$size, 'label:' . $text, '-format', '%w', 'info:'];
+    $shell = implode(' ', array_map('escapeshellarg', $cmd));
+    return max(0, (int)trim((string)@shell_exec($shell . ' 2>/dev/null')));
+}
+
 /**
  * Render up to 3 text lines onto $src → $out (output format taken from $out's
  * extension). Returns ['ok'=>bool, 'error'=>string, 'cmd'=>string].
- * $o keys: line1,line2,line3, pos(bl|bc|tl), c1,c2, s1,s2, scrim, font, W,H.
+ * $o keys: line1,line2,line3, x,y (% position of the text block's top-left
+ * corner — free placement, not a preset), c1,c2, s1,s2,
+ * j1 (left|center|right — line 1 justified relative to the image width, inset
+ * by x on the side(s) it isn't anchored to), j2,j3 (left|center|right — line
+ * 2/3 justified within line 1's own ACTUAL rendered horizontal span, tracking
+ * wherever line 1 itself lands — not the raw x anchor),
+ * bg_side(top|bottom|full|none), bg_height(% of image height, ignored for
+ * full/none), bg_fade(bool), bg_opacity(0-100), font, W,H.
  */
 function ms_hero_overlay_render(string $src, string $out, array $o): array {
     $bin = ms_convert_bin();
     if ($bin === null) return ['ok' => false, 'error' => 'ImageMagick (convert) not found', 'cmd' => ''];
 
     $font = $o['font'] ?? '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf';
-    $pos  = in_array($o['pos'] ?? 'bl', ['bl', 'bc', 'tl'], true) ? $o['pos'] : 'bl';
     $c1   = preg_match('/^#[0-9a-fA-F]{6}$/', (string)($o['c1'] ?? '')) ? $o['c1'] : '#ffffff';
     $c2   = preg_match('/^#[0-9a-fA-F]{6}$/', (string)($o['c2'] ?? '')) ? $o['c2'] : '#ffffff';
     $s1   = max(8, (int)($o['s1'] ?? 44));
@@ -45,34 +60,79 @@ function ms_hero_overlay_render(string $src, string $out, array $o): array {
         if (!$g) return ['ok' => false, 'error' => 'source not a readable image', 'cmd' => ''];
         $W = (int)$g[0]; $H = (int)$g[1];
     }
-    $scrim = max(0, min($H, (int)($o['scrim'] ?? round($H * 0.5))));
+
+    $j1 = in_array($o['j1'] ?? 'left', ['left', 'center', 'right'], true) ? ($o['j1'] ?? 'left') : 'left';
+    $j2 = in_array($o['j2'] ?? 'left', ['left', 'center', 'right'], true) ? ($o['j2'] ?? 'left') : 'left';
+    $j3 = in_array($o['j3'] ?? 'left', ['left', 'center', 'right'], true) ? ($o['j3'] ?? 'left') : 'left';
 
     $lines = [];
-    if (($o['line1'] ?? '') !== '') $lines[] = ['t' => (string)$o['line1'], 's' => $s1, 'c' => $c1];
-    if (($o['line2'] ?? '') !== '') $lines[] = ['t' => (string)$o['line2'], 's' => $s2, 'c' => $c2];
-    if (($o['line3'] ?? '') !== '') $lines[] = ['t' => (string)$o['line3'], 's' => $s2, 'c' => $c2];
+    if (($o['line1'] ?? '') !== '') $lines[] = ['t' => (string)$o['line1'], 's' => $s1, 'c' => $c1, 'j' => $j1];
+    if (($o['line2'] ?? '') !== '') $lines[] = ['t' => (string)$o['line2'], 's' => $s2, 'c' => $c2, 'j' => $j2];
+    if (($o['line3'] ?? '') !== '') $lines[] = ['t' => (string)$o['line3'], 's' => $s2, 'c' => $c2, 'j' => $j3];
     if (!$lines) return ['ok' => false, 'error' => 'no text to render', 'cmd' => ''];
 
-    $pad = max(12, (int)round($W * 0.03));
+    // Free placement: (x%,y%) is the top-left anchor of the whole text block.
+    // Gravity is always northwest and lines always stack downward from there,
+    // so the anchor math stays one simple case regardless of where it lands —
+    // no separate top-anchored/bottom-anchored branches to keep in sync.
+    $x = (int)round($W * max(0, min(100, (float)($o['x'] ?? 5))) / 100);
+    $y = (int)round($H * max(0, min(100, (float)($o['y'] ?? 80))) / 100);
     $gap = (int)round($s2 * 0.30);
-    if ($pos === 'tl')      { $grav = 'northwest'; $sg = 'north'; $grad = 'gradient:black-none'; $top = true;  $x = $pad; }
-    elseif ($pos === 'bc')  { $grav = 'south';     $sg = 'south'; $grad = 'gradient:none-black'; $top = false; $x = 0;    }
-    else                    { $grav = 'southwest'; $sg = 'south'; $grad = 'gradient:none-black'; $top = false; $x = $pad; }
-
-    $n = count($lines); $y = array_fill(0, $n, $pad);
-    if ($top) { $yy = $pad; for ($i = 0; $i < $n; $i++) { $y[$i] = $yy; $yy += $lines[$i]['s'] + $gap; } }
-    else      { $yy = $pad; for ($i = $n - 1; $i >= 0; $i--) { $y[$i] = $yy; $yy += $lines[$i]['s'] + $gap; } }
 
     $cmd = [$bin, $src, '-strip'];   // -strip: no metadata → byte-reproducible rebuilds
-    if ($scrim > 0) $cmd = array_merge($cmd, ['(', '-size', "{$W}x{$scrim}", $grad, ')', '-gravity', $sg, '-composite']);
-    $cmd = array_merge($cmd, ['-font', $font, '-gravity', $grav]);
+
+    // Background band — independent of where the text sits, so text can be
+    // centered while the band still hugs an edge (or vice versa).
+    $bgSide = in_array($o['bg_side'] ?? 'bottom', ['top', 'bottom', 'full', 'none'], true) ? ($o['bg_side'] ?? 'bottom') : 'bottom';
+    $alpha  = round(max(0, min(100, (float)($o['bg_opacity'] ?? 100))) / 100, 2);
+    if ($bgSide !== 'none' && $alpha > 0) {
+        if ($bgSide === 'full') {
+            // A gradient fade makes no sense across the whole image — always flat.
+            $cmd = array_merge($cmd, ['(', '-size', "{$W}x{$H}", "xc:rgba(0,0,0,{$alpha})", ')', '-gravity', 'center', '-composite']);
+        } else {
+            $bandH = max(1, (int)round($H * max(0, min(100, (float)($o['bg_height'] ?? 55))) / 100));
+            $grav  = $bgSide === 'top' ? 'north' : 'south';
+            $fade  = array_key_exists('bg_fade', $o) ? (bool)$o['bg_fade'] : true;
+            $fill  = $fade
+                ? ($bgSide === 'top' ? "gradient:rgba(0,0,0,{$alpha})-none" : "gradient:none-rgba(0,0,0,{$alpha})")
+                : "xc:rgba(0,0,0,{$alpha})";
+            $cmd = array_merge($cmd, ['(', '-size', "{$W}x{$bandH}", $fill, ')', '-gravity', $grav, '-composite']);
+        }
+    }
+
+    $cmd = array_merge($cmd, ['-font', $font, '-gravity', 'northwest']);
+    $yy = $y;
+    $refW = null;   // line 1's rendered width — measured lazily, only if line 2/3 actually needs it
+    $dx0  = 0;      // line 1's own horizontal offset — line 2/3 justify within line 1's ACTUAL
+                     // rendered span (its real left edge is $x + $dx0), not the raw $x anchor,
+                     // so they still track line 1 correctly when line 1 itself isn't left-justified.
     foreach ($lines as $i => $ln) {
-        $at = '+' . $x . '+' . $y[$i];
+        if ($i === 0) {
+            $dx = 0;
+            // Line 1 has no wider line above it to justify against, so it's measured
+            // against the image itself: available width mirrors the left inset $x on
+            // the opposite edge, keeping the margin symmetric when centered/right-aligned.
+            if ($ln['j'] !== 'left') {
+                $lw = ms_text_width($bin, $font, $ln['s'], $ln['t']);
+                $avail = max(0, $W - 2 * $x);
+                $dx = $ln['j'] === 'center' ? (int)round(($avail - $lw) / 2) : ($avail - $lw);
+            }
+            $dx0 = $dx;
+        } else {
+            $dx = $dx0;
+            if ($ln['j'] !== 'left') {
+                if ($refW === null) $refW = ms_text_width($bin, $font, $lines[0]['s'], $lines[0]['t']);
+                $lw = ms_text_width($bin, $font, $ln['s'], $ln['t']);
+                $dx += $ln['j'] === 'center' ? (int)round(($refW - $lw) / 2) : ($refW - $lw);
+            }
+        }
+        $at = '+' . ($x + $dx) . '+' . $yy;
         $cmd = array_merge($cmd, [
             '-pointsize', (string)$ln['s'],
             '-strokewidth', '3', '-stroke', 'rgba(0,0,0,0.55)', '-fill', 'rgba(0,0,0,0.55)', '-annotate', $at, $ln['t'],
             '-strokewidth', '0', '-stroke', 'none', '-fill', $ln['c'], '-annotate', $at, $ln['t'],
         ]);
+        $yy += $ln['s'] + $gap;
     }
     $cmd[] = $out;
 
@@ -99,27 +159,34 @@ function ms_hero_image_field(array $block): ?string {
 }
 
 /** Build-time overlay style. If a locked style is given (from the Test Lab, with
- *  ref_w/ref_h), its point sizes are scaled from the reference image to THIS hero's
+ *  ref_w), its point sizes are scaled from the reference image to THIS hero's
  *  size so the look stays consistent across heroes of any dimension. With no locked
  *  style, sizes fall back to a fraction of image width. Colours default to legible
- *  white on the dark fade. */
+ *  white on the dark band. Position and background are stored as percentages of
+ *  the hero's own dimensions, so — unlike point sizes — they never need scaling. */
 function ms_hero_style(int $W, int $H, array $locked = []): array {
     $refW = (int)($locked['ref_w'] ?? 0);
-    $refH = (int)($locked['ref_h'] ?? 0);
     $scaleW = $refW > 0 ? $W / $refW : null;
-    $scaleH = $refH > 0 ? $H / $refH : null;
 
     $s1 = isset($locked['s1']) ? ($scaleW ? (int)round($locked['s1'] * $scaleW) : (int)$locked['s1']) : max(20, (int)round($W * 0.055));
     $s2 = isset($locked['s2']) ? ($scaleW ? (int)round($locked['s2'] * $scaleW) : (int)$locked['s2']) : max(16, (int)round($W * 0.048));
-    $scrim = isset($locked['scrim']) ? ($scaleH ? (int)round($locked['scrim'] * $scaleH) : (int)$locked['scrim']) : (int)round($H * 0.55);
+
+    $pct = fn($v, $d) => is_numeric($v) ? max(0, min(100, (float)$v)) : $d;
 
     return [
-        'pos'   => in_array($locked['pos'] ?? 'bl', ['bl', 'bc', 'tl'], true) ? ($locked['pos'] ?? 'bl') : 'bl',
-        's1'    => max(8, $s1),
-        's2'    => max(8, $s2),
-        'scrim' => max(0, min($H, $scrim)),
-        'c1'    => preg_match('/^#[0-9a-fA-F]{6}$/', (string)($locked['c1'] ?? '')) ? $locked['c1'] : '#ffffff',
-        'c2'    => preg_match('/^#[0-9a-fA-F]{6}$/', (string)($locked['c2'] ?? '')) ? $locked['c2'] : '#ffffff',
+        'x'          => $pct($locked['x'] ?? null, 5),
+        'y'          => $pct($locked['y'] ?? null, 80),
+        's1'         => max(8, $s1),
+        's2'         => max(8, $s2),
+        'c1'         => preg_match('/^#[0-9a-fA-F]{6}$/', (string)($locked['c1'] ?? '')) ? $locked['c1'] : '#ffffff',
+        'c2'         => preg_match('/^#[0-9a-fA-F]{6}$/', (string)($locked['c2'] ?? '')) ? $locked['c2'] : '#ffffff',
+        'j1'         => in_array($locked['j1'] ?? 'left', ['left', 'center', 'right'], true) ? ($locked['j1'] ?? 'left') : 'left',
+        'j2'         => in_array($locked['j2'] ?? 'left', ['left', 'center', 'right'], true) ? ($locked['j2'] ?? 'left') : 'left',
+        'j3'         => in_array($locked['j3'] ?? 'left', ['left', 'center', 'right'], true) ? ($locked['j3'] ?? 'left') : 'left',
+        'bg_side'    => in_array($locked['bg_side'] ?? 'bottom', ['top', 'bottom', 'full', 'none'], true) ? ($locked['bg_side'] ?? 'bottom') : 'bottom',
+        'bg_height'  => $pct($locked['bg_height'] ?? null, 55),
+        'bg_fade'    => array_key_exists('bg_fade', $locked) ? (bool)$locked['bg_fade'] : true,
+        'bg_opacity' => $pct($locked['bg_opacity'] ?? null, 100),
     ];
 }
 

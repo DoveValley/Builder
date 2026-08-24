@@ -1253,10 +1253,13 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
     <ul>
         <li><strong>Source image</strong> — <em>this</em> site's own uploads only, filtered to photo-sized images (icons, logos and thumbnails are hidden), largest first, capped at 25. Purely a preview subject; it is not saved.</li>
         <li><strong>Line 1 / 2 / 3</strong> — sample text for the preview. The build substitutes the real keyword and city; leave line 3 blank for a two-line overlay.</li>
-        <li><strong>Position</strong> — bottom left, bottom centre, or top left.</li>
-        <li><strong>City colour</strong>, <strong>keyword size</strong>, <strong>city size</strong>, and <strong>dark fade height</strong> (the readability gradient behind the text).</li>
+        <li><strong>Horizontal / vertical position</strong> — two sliders, each a % of the image, anchoring the top-left corner of the text block anywhere on the image (not limited to a preset corner).</li>
+        <li><strong>Justify (line 1 / 2 / 3)</strong> — left, center, or right, each measured against a different reference: line 1 justifies against the image's own width (inset by the horizontal position slider on the side it isn't anchored to), while line 2/3 justify against line 1's own rendered width — e.g. a short city line can center or right-align itself under a longer keyword line.</li>
+        <li><strong>City colour</strong>, <strong>keyword size</strong>, and <strong>city size</strong>.</li>
+        <li><strong>Background</strong> — its own section, independent of where the text sits: <strong>edge</strong> (bottom band, top band, full-image tint, or none), <strong>band height</strong> (% of image height, hidden for full/none), <strong>fade</strong> (gradient) vs flat/hard-edged, and <strong>darkness</strong> (0–100% opacity).</li>
+        <li><strong>Show image edge guide</strong> — a thin dashed outline drawn around the preview box only (pure CSS), so it's easy to see exactly where the image's edges are while placing text with the position sliders. Never sent to the server, never part of the locked style, never rendered onto the actual image.</li>
     </ul>
-    <p><strong>Lock this style into the build</strong> saves it. Sizes are stored alongside the <em>reference</em> image dimensions (<code>ref_w</code>/<code>ref_h</code>) so the build scales them proportionally to each hero's real size rather than applying a fixed point size to images of different dimensions. Values are clamped on save: sizes 8–400, fade 0–4000, reference dimensions 1–20000.</p>
+    <p><strong>Lock this style into the build</strong> saves it. Position and background are stored as percentages, so they hold steady across heroes of any size with no scaling needed. Font sizes are stored alongside the <em>reference</em> image width (<code>ref_w</code>) so the build scales them proportionally to each hero's real width. Values are clamped on save: sizes 8–400, all percentages 0–100, reference width 1–20000.</p>
 
     <h3>Photo variation</h3>
     <p>Every <em>other</em> photo on a generated domain — everything the hero overlay doesn't touch — gets a small automatic treatment so two domains built from the same master never share an identical file:</p>
