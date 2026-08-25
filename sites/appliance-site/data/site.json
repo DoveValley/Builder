@@ -502,7 +502,7 @@
         "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"url\":\"{website}\",\"telephone\":\"{tel}\",\"description\":\"{business} provides appliance repair across {city_state} — all major brands and appliances, factory-trained technicians, same-day service, and warranty-backed repairs.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"priceRange\":\"$$\",\"openingHours\":\"Mo-Fr 08:00-18:00, Sa 09:00-13:00\"},{\"@type\":\"WebSite\",\"@id\":\"{website}/#website\",\"url\":\"{website}\",\"name\":\"{business}\",\"publisher\":{\"@id\":\"{website}/#localbusiness\"}}]}"
     },
     "footer": {
-        "logo": "",
+        "logo": "uploads/logo_wells-appliance-repair.png",
         "phone": "{phone}",
         "columns": [
             {
@@ -574,7 +574,7 @@
         "disclaimer": "",
         "sticky_bar_text": "24/7 Support Line - Call Now",
         "sticky_bar_info": "Calls are answered by our advertising partners who can help match you with a suitable provider.",
-        "logo_in_copyright_bar": true,
+        "logo_in_copyright_bar": false,
         "col_count": 3,
         "socials": {
             "facebook": "",
@@ -582,7 +582,8 @@
             "linkedin": "",
             "youtube": "",
             "twitter": ""
-        }
+        },
+        "logo_in_contact_column": true
     },
     "pages": {
         "page_8845f40cd5d04": {

@@ -1,1352 +1,1304 @@
 {
-  "theme": {
-    "header_bg": "#18181b",
-    "header_text": "#ffffff",
-    "content_bg": "#ffffff",
-    "content_text": "#888c92",
-    "footer_bg": "#18181b",
-    "footer_text": "#ffffff",
-    "accent_color": "#f97316",
-    "primary_font": "Montserrat, sans-serif",
-    "button_radius": "3",
-    "analytics_head": "",
-    "facebook_pixel": "",
-    "font_family": "Nunito, sans-serif",
-    "header_top_bg": "#ffffff",
-    "heading_color": "#18181b",
-    "font_size_body": 16,
-    "font_size_h1": 3,
-    "font_size_h2": 2.25,
-    "font_size_h3": 1.63,
-    "font_size_h4": 1.5,
-    "heading_font": "",
-    "accent2_color": "#f5a623",
-    "btn_text": "#ffffff",
-    "border_color": "#e5e7eb",
-    "skins": {
-      "light": {
-        "bg": "#ffffff",
-        "heading": "#1a2e5a",
-        "text": "#555e6d"
-      },
-      "dark": {
-        "bg": "#120575",
-        "heading": "#ffffff",
-        "text": "#e2e8f0"
-      },
-      "accent": {
-        "bg": "#2563eb",
-        "heading": "#ffffff",
-        "text": "#fff5ec"
-      },
-      "subtle": {
-        "bg": "#faf6f3",
-        "heading": "#1a2e5a",
-        "text": "#555e6d"
-      }
+    "theme": {
+        "header_bg": "#18181b",
+        "header_text": "#ffffff",
+        "content_bg": "#ffffff",
+        "content_text": "#888c92",
+        "footer_bg": "#18181b",
+        "footer_text": "#ffffff",
+        "accent_color": "#f97316",
+        "primary_font": "Montserrat, sans-serif",
+        "button_radius": "3",
+        "analytics_head": "",
+        "facebook_pixel": "",
+        "font_family": "Nunito, sans-serif",
+        "header_top_bg": "#ffffff",
+        "heading_color": "#18181b",
+        "font_size_body": 16,
+        "font_size_h1": 3,
+        "font_size_h2": 2.25,
+        "font_size_h3": 1.63,
+        "font_size_h4": 1.5,
+        "heading_font": "",
+        "accent2_color": "#f5a623",
+        "btn_text": "#ffffff",
+        "border_color": "#e5e7eb",
+        "skins": {
+            "light": {
+                "bg": "#ffffff",
+                "heading": "#1a2e5a",
+                "text": "#555e6d"
+            },
+            "dark": {
+                "bg": "#120575",
+                "heading": "#ffffff",
+                "text": "#e2e8f0"
+            },
+            "accent": {
+                "bg": "#2563eb",
+                "heading": "#ffffff",
+                "text": "#fff5ec"
+            },
+            "subtle": {
+                "bg": "#faf6f3",
+                "heading": "#1a2e5a",
+                "text": "#555e6d"
+            }
+        },
+        "head_extra": "<style>\n/* pest: nav strip 40% taller (52px -> 73px) */\n.header-nav-inner{min-height:73px;}\n/* pest: 2x header phone icon */\n.header-phone-btn svg{display:none;}\n.header-phone-btn{font-size:1.5rem !important;font-weight:400 !important;}\n/* pest: header info \"i\" -> FA info-circle (match katypestpros.com) */\n.helpline-sponsored .info-trigger svg{display:none;}\n.helpline-sponsored .info-trigger::before{content:\"\";display:inline-block;width:1.1em;height:1.1em;margin-right:5px;vertical-align:middle;background:currentColor;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n/* pest: sticky-bar phone in a brand-blue circle (match katypestpros.com .mobile-icon) */\n.sticky-phone-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#120575;flex:0 0 44px;margin-right:8px;}\n.sticky-phone-icon svg{display:none;}\n.sticky-phone-icon::before{content:\"\";display:inline-block;width:22px;height:22px;background:#fff;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n/* pest: sticky-bar info \"i\" -> FA info-circle */\n.sticky-info-trigger svg{display:none;}\n.sticky-info-trigger::before{content:\"\";display:inline-block;width:26px;height:26px;vertical-align:middle;background:currentColor;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n/* pest: evenly space + bold header info items */\n.header-info-items{justify-content:space-between !important;padding-left:72px !important;}\n.header-info-item{font-weight:400 !important;font-size:1.05rem !important;}\n.header-info-item:last-child{margin-left:0 !important;}\n.header-info-item .info-icon{font-size:2rem !important;line-height:1;}\n.header-info-item:first-child .info-icon{font-size:1.5rem !important;}\n.header-info-item:nth-child(2) .info-icon{font-size:1.6rem !important;}\n.header-info-item:nth-child(3) .info-icon{font-size:1.6rem !important;}\n/* pest: sticky footer — bigger text, phone not bold */\n.sticky-bar-text{font-size:1.4rem !important;}\n.sticky-phone-number{font-size:1.75rem !important;font-weight:400 !important;}\n/* pest: helpline/sponsored/i like katypestpros.com */\n.header-helpline{font-size:1.1rem !important;text-align:left !important;}\n.helpline-label{font-weight:400 !important;}\n.helpline-sponsored{opacity:1 !important;}\n/* pest: bigger nav links */\n.header-nav-row .site-nav ul li a{font-size:1.15rem !important;}\n/* pest footer contact: phone like sticky (FA phone in brand-blue circle) + bigger globe */\n.contact-icon-phone{background:#120575 !important;font-size:0 !important;}\n.contact-icon-phone::before{content:\"\";display:inline-block;width:16px;height:16px;background:#fff;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n.contact-icon-city{font-size:1.6rem !important;}\n</style>"
     },
-    "head_extra": "<style>\n/* pest: nav strip 40% taller (52px -> 73px) */\n.header-nav-inner{min-height:73px;}\n/* pest: 2x header phone icon */\n.header-phone-btn svg{display:none;}\n.header-phone-btn{font-size:1.5rem !important;font-weight:400 !important;}\n/* pest: header info \"i\" -> FA info-circle (match katypestpros.com) */\n.helpline-sponsored .info-trigger svg{display:none;}\n.helpline-sponsored .info-trigger::before{content:\"\";display:inline-block;width:1.1em;height:1.1em;margin-right:5px;vertical-align:middle;background:currentColor;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n/* pest: sticky-bar phone in a brand-blue circle (match katypestpros.com .mobile-icon) */\n.sticky-phone-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#120575;flex:0 0 44px;margin-right:8px;}\n.sticky-phone-icon svg{display:none;}\n.sticky-phone-icon::before{content:\"\";display:inline-block;width:22px;height:22px;background:#fff;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n/* pest: sticky-bar info \"i\" -> FA info-circle */\n.sticky-info-trigger svg{display:none;}\n.sticky-info-trigger::before{content:\"\";display:inline-block;width:26px;height:26px;vertical-align:middle;background:currentColor;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n/* pest: evenly space + bold header info items */\n.header-info-items{justify-content:space-between !important;padding-left:72px !important;}\n.header-info-item{font-weight:400 !important;font-size:1.05rem !important;}\n.header-info-item:last-child{margin-left:0 !important;}\n.header-info-item .info-icon{font-size:2rem !important;line-height:1;}\n.header-info-item:first-child .info-icon{font-size:1.5rem !important;}\n.header-info-item:nth-child(2) .info-icon{font-size:1.6rem !important;}\n.header-info-item:nth-child(3) .info-icon{font-size:1.6rem !important;}\n/* pest: sticky footer — bigger text, phone not bold */\n.sticky-bar-text{font-size:1.4rem !important;}\n.sticky-phone-number{font-size:1.75rem !important;font-weight:400 !important;}\n/* pest: helpline/sponsored/i like katypestpros.com */\n.header-helpline{font-size:1.1rem !important;text-align:left !important;}\n.helpline-label{font-weight:400 !important;}\n.helpline-sponsored{opacity:1 !important;}\n/* pest: bigger nav links */\n.header-nav-row .site-nav ul li a{font-size:1.15rem !important;}\n/* pest footer contact: phone like sticky (FA phone in brand-blue circle) + bigger globe */\n.contact-icon-phone{background:#120575 !important;font-size:0 !important;}\n.contact-icon-phone::before{content:\"\";display:inline-block;width:16px;height:16px;background:#fff;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n.contact-icon-city{font-size:1.6rem !important;}\n</style>"
-  },
-  "header": {
-    "site_name": "{business}",
-    "logo": "uploads/logo_littleton-pest-pros.png",
-    "phone": "{phone}",
-    "city": "{city_state}",
-    "topbar_text": "",
-    "topbar_link": "",
-    "menu": [
-      {
-        "label": "Home",
-        "url": "/",
-        "children": []
-      },
-      {
-        "label": "Pest Services",
-        "url": "#pest_services",
-        "children": []
-      }
-    ],
-    "socials": {
-      "facebook": "",
-      "instagram": "",
-      "twitter": "",
-      "youtube": "",
-      "linkedin": "",
-      "tiktok": "",
-      "yelp": ""
-    },
-    "nav_bg": "accent",
-    "nav_text": "#ffffff",
-    "phone_btn_style": "outline",
-    "sticky": true,
-    "info_items": [
-      {
-        "icon": "🇺🇸",
-        "text": "Proudly American"
-      },
-      {
-        "icon": "",
-        "text": "Call for Great Service!"
-      }
-    ],
-    "logo_max_height": 72,
-    "phone_label": "Helpline:",
-    "show_sponsored": true,
-    "cta_text": "",
-    "cta_url": "",
-    "favicon": "uploads/favicon_littleton-pest-pros.png",
-    "header_layout": "standard",
-    "sr_bar_height": 64
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "Trusted Local Pest Control in {city_state}",
-      "hs_subtext": "<p>Colorado's Front Range climate brings predictable pest pressures each season, and Littleton homeowners know that early intervention makes the difference. Littleton Pest Pros addresses active infestations with trained, locally-informed pest control tailored to your home's specific situation. Taking action now protects your property and gives you peace of mind without the uncertainty of DIY approaches.</p>",
-      "hs_btn_text": "{phone}",
-      "hs_btn_url": "tel:{tel}",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "Pest control services in {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f3f6f7",
-      "hs_photo": "sites/pest-template/uploads/media/about-whitefly-treatment-katy_93c79d.webp",
-      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
-      "hs_mobile_order": "",
-      "id": "home_hero",
-      "ai_type_id": "hero_subtext",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-23T15:55:37.503936Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "b4a593b09b1b4ba5",
-      "_ai_locked": true
-    },
-    {
-      "id": "home_city_intro",
-      "type": "ai_block",
-      "ai_type_id": "city_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-sonnet-5",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Littleton Pest Control Solutions For Every Season",
-      "text": "<p>Littleton homeowners face a unique mix of pest pressures shaped by Colorado's shifting seasons, from dry summer heat that pushes ants and spiders indoors seeking moisture to cooling autumn temperatures that send rodents and other invaders looking for warm shelter. Neighborhoods like Ken Caryl and Governor's Ranch, with their proximity to open space and foothills terrain, often see more wildlife-adjacent pest activity, while established areas such as Historic Littleton deal with older homes that can offer easy entry points through aging foundations and utility lines. Without consistent attention, small pest issues in Littleton can escalate quickly once the weather turns.</p><p>Littleton Pest Pros approaches every pest control visit with a thorough inspection first, identifying entry points, nesting areas, and conditions that attract pests before any treatment begins. Our trained technicians tailor each plan to the specific property and pest pressure at hand, rather than applying a one-size-fits-all solution, and we follow up to monitor results and adjust as needed. While our focus stays on comprehensive pest control, we also recognize that homes can face a range of related invaders throughout the year. As Littleton continues to grow, we remain committed to helping local homeowners stay ahead of pest problems season after season.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-23T15:55:44.020264Z",
-      "_ai_model": "claude-sonnet-5",
-      "_ai_type": "city_intro",
-      "_ai_input_hash": "ffc7e431f16fb786",
-      "_ai_locked": true
-    },
-    {
-      "type": "feature_split",
-      "fs_heading": "Full-Service Pest Management for Common {city} Pests",
-      "fs_subtext": "{city}'s warm, humid climate attracts a wide range of pests. That's why we offer treatment and prevention services for all major infestations, including:",
-      "fs_photo_alt": "Pest control technician in {city} {SS}",
-      "fs_star_text": "5 Star Services",
-      "fs_bg_color": "#f3f6f7",
-      "fs_accent": "#fd783b",
-      "fs_image_side": "left",
-      "fs_mobile_order": "text_first",
-      "fs_photo": "sites/pest-template/uploads/media/about-katy_7007ec.webp",
-      "fs_items": [
-        {
-          "icon": "",
-          "alt": "Ants pest control {city} {SS}",
-          "heading": "Ants",
-          "text": "Social insects that form colonies and enter homes in search of food and moisture."
-        },
-        {
-          "icon": "",
-          "alt": "Cockroaches pest control {city} {SS}",
-          "heading": "Cockroaches",
-          "text": "Nocturnal pests that spread bacteria and trigger allergies, often hiding in kitchens and bathrooms."
-        },
-        {
-          "icon": "",
-          "alt": "Termites pest control {city} {SS}",
-          "heading": "Termites",
-          "text": "Wood-destroying insects that silently cause structural damage by feeding on cellulose-based materials."
-        },
-        {
-          "icon": "",
-          "alt": "Rodents pest control {city} {SS}",
-          "heading": "Rodents (Mice and Rats)",
-          "text": "Disease-carrying mammals that gnaw through wires, contaminate food, and reproduce quickly."
-        },
-        {
-          "icon": "",
-          "alt": "Spiders pest control {city} {SS}",
-          "heading": "Spiders",
-          "text": "Arachnids that often enter homes in search of insects to prey on; some species can bite."
-        },
-        {
-          "icon": "",
-          "alt": "Bed bugs pest control {city} {SS}",
-          "heading": "Bed Bugs",
-          "text": "Blood-feeding insects that hide in mattresses and furniture, causing itchy bites and sleep disruption."
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "split_cta",
-      "sc_left_heading": "Serving the Greater {city_state} Area",
-      "sc_left_text": "Whether you're a homeowner, business owner, or property manager, we offer solutions that fit your property and your budget. Every job is backed by clear communication, transparent pricing, and high-quality workmanship.",
-      "sc_right_label": "Call The {business} Team",
-      "sc_right_phone": "{phone}",
-      "sc_right_phone_url": "tel:{tel}",
-      "sc_left_bg": "accent",
-      "sc_right_bg": "header",
-      "sc_left_bg_custom": "#fd783b",
-      "sc_right_bg_custom": "#120575"
-    },
-    {
-      "type": "tab_services",
-      "ts_badge1": "{business}",
-      "ts_badge2": "SERVICES {city}, {SS}",
-      "ts_heading": "Fleas, Ticks, Wasps & Mosquitoes",
-      "ts_active_bg": "header",
-      "ts_active_bg_custom": "#120575",
-      "ts_tabs": [
-        {
-          "label": "Fleas",
-          "icon": "sites/pest-template/uploads/media/tab-icon-fleas.png",
-          "photo": "sites/pest-template/uploads/media/fleas-katy_1eca46.webp",
-          "alt": "Flea pest control {city} {SS}",
-          "desc": "Small, jumping parasites that feed on pets and humans, causing skin irritation and spreading disease."
-        },
-        {
-          "label": "Ticks",
-          "icon": "sites/pest-template/uploads/media/tab-icon-ticks.png",
-          "photo": "sites/pest-template/uploads/media/ticks-katy_fd2b60.webp",
-          "alt": "Tick pest control {city} {SS}",
-          "desc": "Blood-feeding arachnids that latch onto skin and can transmit Lyme disease and other illnesses."
-        },
-        {
-          "label": "Wasps",
-          "icon": "sites/pest-template/uploads/media/tab-icon-wasps.png",
-          "photo": "sites/pest-template/uploads/media/wasps-katy_cbff6b.webp",
-          "alt": "Wasp pest control {city} {SS}",
-          "desc": "Stinging insects that build nests around homes and can be aggressive when threatened."
-        },
-        {
-          "label": "Mosquitoes",
-          "icon": "sites/pest-template/uploads/media/tab-icon-mosquitoes.png",
-          "photo": "sites/pest-template/uploads/media/mosquito-katy_aa45f9.webp",
-          "alt": "Mosquito pest control {city} {SS}",
-          "desc": "Flying insects known for their itchy bites and ability to transmit diseases like West Nile Virus."
-        }
-      ],
-      "skin": "light"
-    },
-    {
-      "type": "hero_grid",
-      "hg_label": "{business}",
-      "hg_heading": "The Pests We Deal With Most in {city_state}",
-      "hg_body": "<p>Our experienced pest control providers will tailor a solution based on the pest type, severity of the infestation, and the specific needs of your home to restore comfort and safety. Our technicians are trained professionals who follow integrated pest management strategies for long-term results and minimal disruption to your household or operations.</p>",
-      "hg_btn_text": "Call Us",
-      "hg_btn_url": "tel:{tel}",
-      "hg_photo_alt": "Top-notch pest control in {city} {SS}",
-      "hg_photo": "sites/pest-template/uploads/media/top-notch-pest-control-katy_e7cc66.webp",
-      "hg_color1": "accent",
-      "hg_color2": "header",
-      "hg_color1_custom": "#fd783b",
-      "hg_color2_custom": "#120575",
-      "hg_items": [
-        {
-          "icon": "ant",
-          "label": "Ants",
-          "alt": "Ant control {city} {SS}",
-          "desc": "Trailing colonies that invade kitchens and pantries hunting for food and moisture."
-        },
-        {
-          "icon": "beetle",
-          "label": "Beetles",
-          "alt": "Beetle control {city} {SS}",
-          "desc": "Destructive beetles whose larvae chew through carpets, fabrics, and stored dry goods."
-        },
-        {
-          "icon": "cockroach",
-          "label": "Cockroaches",
-          "alt": "Cockroach control {city} {SS}",
-          "desc": "Nocturnal pests that spread bacteria and trigger allergies, hiding in kitchens and baths."
-        },
-        {
-          "icon": "mosquito",
-          "label": "Mosquitoes",
-          "alt": "Mosquito control {city} {SS}",
-          "desc": "Biting insects that breed in standing water and can carry disease through warm months."
-        },
-        {
-          "icon": "rat",
-          "label": "Rats",
-          "alt": "Rat control {city} {SS}",
-          "desc": "Disease-carrying rodents that gnaw wires and contaminate food while nesting in walls and attics."
-        },
-        {
-          "icon": "spider",
-          "label": "Spiders",
-          "alt": "Spider control {city} {SS}",
-          "desc": "Web-building arachnids that slip indoors hunting insects; some species can bite."
-        }
-      ],
-      "hg_flip": true
-    },
-    {
-      "type": "service_cards",
-      "sc_badge": "PROFESSIONAL {city}, {SS} COMPANY",
-      "sc_heading": "",
-      "sc_cols": 4,
-      "sc_badge_bg": "accent",
-      "sc_head_color": "header",
-      "sc_badge_bg_custom": "#fd783b",
-      "sc_head_color_custom": "#120575",
-      "sc_icon_bg": "#fef0e7",
-      "sc_items": [
-        {
-          "icon": "",
-          "alt": "Roach control {city} {SS}",
-          "heading": "Roach Control & Extermination in {city_state}",
-          "text": "Cockroaches are stubborn invaders. Our experts use gel baiting, perimeter sprays, and entry-point sealing to eliminate them safely and effectively.",
-          "url": ""
-        },
-        {
-          "icon": "",
-          "alt": "Ant control {city} {SS}",
-          "heading": "Ant Control & Removal Solutions in {city_state}",
-          "text": "We identify ant colonies and use proven baiting and barrier methods for lasting protection against fire ants, carpenter ants, and more.",
-          "url": ""
-        },
-        {
-          "icon": "",
-          "alt": "Termite treatment {city} {SS}",
-          "heading": "Termite Treatment & Prevention in {city_state}",
-          "text": "Our termite specialists provide detailed inspections, baiting systems, and barrier applications to stop damage and prevent future infestations.",
-          "url": ""
-        },
-        {
-          "icon": "",
-          "alt": "Rodent control {city} {SS}",
-          "heading": "Rodent Control for Homes & Businesses in {city_state}",
-          "text": "We offer trapping, exclusion, and sanitation to remove mice and rats, protecting your property and health from costly and unsafe damage.",
-          "url": ""
-        },
-        {
-          "icon": "",
-          "alt": "Mosquito control {city} {SS}",
-          "heading": "Mosquito Reduction Services in {city_state}",
-          "text": "Using barrier sprays and larvicide treatments, we target breeding areas to cut mosquito populations and improve outdoor comfort.",
-          "url": ""
-        },
-        {
-          "icon": "",
-          "alt": "Bed bug treatment {city} {SS}",
-          "heading": "Bed Bug Inspection & Treatment in {city_state}",
-          "text": "Our team uses heat and chemical treatments to completely remove bed bugs, ensuring your home is pest-free and your rest uninterrupted.",
-          "url": ""
-        },
-        {
-          "icon": "",
-          "alt": "Flea tick control {city} {SS}",
-          "heading": "Flea & Tick Removal Services in {city_state}",
-          "text": "We apply indoor and outdoor treatments to eliminate fleas and ticks, keeping your pets and family safe all year long.",
-          "url": ""
-        },
-        {
-          "icon": "",
-          "alt": "Wasp spider control {city} {SS}",
-          "heading": "Wasp, Hornet & Spider Control in {city_state}",
-          "text": "Our trained professionals remove nests and seal entry points to protect your home from stinging insects and venomous spiders.",
-          "url": ""
-        },
-        {
-          "icon": "",
-          "alt": "Wildlife removal {city} {SS}",
-          "heading": "Wildlife Removal & Exclusion in {city_state}",
-          "text": "We humanely remove raccoons, opossums, and other wildlife, repairing and sealing entry areas to prevent their return.",
-          "url": ""
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "wide_banner",
-      "wb_badge": "{city}, {state}'S SPECIALISTS",
-      "wb_heading": "Treated Once, Monitored After — Not a One-Off Spray",
-      "wb_subtext": "",
-      "wb_btn_text": "Call Us",
-      "wb_btn_url": "tel:{tel}",
-      "wb_btn_style": "filled",
-      "wb_centered": false,
-      "wb_photo_alt": "Pest control services in {city} {SS}",
-      "wb_overlay": "0.50",
-      "wb_bg_color": "#1a1a2e",
-      "wb_badge_bg": "accent",
-      "wb_badge_bg_custom": "#fd783b",
-      "wb_photo": "sites/pest-template/uploads/media/bg-4-katy_home.webp",
-      "skin": "dark"
-    },
-    {
-      "type": "image_features",
-      "if_heading": "Quality Pest Prevention",
-      "if_intro": "Effective pest control is an ongoing process, not a one-time event. Our comprehensive services provide continuous protection by creating a durable defensive barrier around your home to stop pests before they enter.",
-      "if_closing": "Services are delivered by a reliable and thoroughly trained technician team, giving you peace of mind throughout every season.",
-      "if_phone_label": "Call Us 24/7",
-      "if_phone": "{phone}",
-      "if_phone_url": "tel:{tel}",
-      "if_photo_alt": "Quality pest prevention in {city} {SS}",
-      "if_bg_color": "#f3f6f7",
-      "if_check_color": "accent",
-      "if_head_color": "header",
-      "if_check_color_custom": "#fd783b",
-      "if_head_color_custom": "#120575",
-      "if_photo": "sites/pest-template/uploads/media/about-big-katy_260678.webp",
-      "if_features": [
-        "Exterior treatments",
-        "Emergency services",
-        "Specialty pest services",
-        "Entry point inspections and sealing"
-      ],
-      "skin": "light"
-    },
-    {
-      "id": "home_seasonal",
-      "type": "ai_block",
-      "ai_type_id": "seasonal_calendar",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-sonnet-5",
-      "skin": "light",
-      "steps_heading": "Littleton's Four Seasons of Pest Activity",
-      "steps_items": [
-        {
-          "heading": "Spring Ant Emergence",
-          "text": "<p>As snowmelt saturates yards from Ken Caryl to Southbridge, ants and spiders reawaken and seek entry points around foundations. Littleton Pest Pros inspects vulnerable areas and applies targeted treatments to help homeowners stay ahead of these early-season invaders.</p>"
-        },
-        {
-          "heading": "Summer Wasp Surge",
-          "text": "<p>Warm, dry summer days bring wasps, mosquitoes, and occasional rodent activity near Chatfield's open spaces and neighborhood parks. Our team addresses nests and breeding sites promptly, helping families and pets enjoy outdoor time with reduced risk of stings or bites.</p>"
-        },
-        {
-          "heading": "Fall Rodent Intrusion",
-          "text": "<p>Cooling temperatures push mice and other rodents toward homes in search of warmth, particularly in older properties around Historic Littleton. Littleton Pest Pros seals entry points and sets up monitoring to help reduce the chance of an indoor infestation before winter.</p>"
-        },
-        {
-          "heading": "Winter Indoor Pests",
-          "text": "<p>Colorado's cold winters drive spiders, rodents, and overwintering insects into crawlspaces and basements throughout the region. We provide inspections and interior treatments designed to help keep homes more comfortable and pest activity in check until spring arrives.</p>"
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-23T15:55:51.148419Z",
-      "_ai_model": "claude-sonnet-5",
-      "_ai_type": "seasonal_calendar",
-      "_ai_input_hash": "c63935dc19b202fc",
-      "_ai_locked": true
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "FAQs – Pest Control in {city}",
-      "fq_bg_color": "#ffffff",
-      "fq_item_bg": "#f0f2f8",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#120575",
-      "fq_icon_bg_custom": "#fd783b",
-      "fq_items": [
-        {
-          "question": "What should I expect during a professional pest treatment visit?",
-          "answer": "<p>Our technician will inspect your home inside and out to locate entry points, nesting areas, and activity signs. We'll discuss findings with you, explain the treatment approach, and apply targeted solutions to affected areas. You'll receive clear instructions on how to prepare your home before the visit and what to do afterward to ensure effectiveness. The process typically takes one to three hours depending on your home's size and the infestation extent.</p>"
-        },
-        {
-          "question": "How many visits does it usually take to eliminate a pest infestation?",
-          "answer": "<p>Most infestations require two to four visits spaced one to two weeks apart. The first visit addresses the active problem, and follow-up appointments target newly hatched insects and any remaining populations. Some cases resolve in a single treatment, while severe infestations may need additional visits. We'll outline a customized schedule during your initial inspection based on what we find.</p>"
-        },
-        {
-          "question": "When is pest season in Littleton and the Denver area?",
-          "answer": "<p>In Colorado, spring through fall are peak months, with late spring and summer seeing the highest activity. Many pests become most visible in June and July. However, problems like rodents often intensify in fall as creatures seek warmth indoors before winter. Year-round monitoring is wise since some infestations thrive even during cooler months if they've entered your home.</p>"
-        },
-        {
-          "question": "Is the treatment safe for my kids and pets?",
-          "answer": "<p>We prioritize safety and use methods and products appropriate for homes with children and animals. You'll receive detailed guidance on keeping family members away from treated areas during application and for a short period afterward. Always follow our post-treatment instructions carefully. If anyone in your home has sensitivities or concerns, mention them when you call—we can discuss options that work for your situation.</p>"
-        },
-        {
-          "question": "What signs indicate my Littleton home needs pest treatment?",
-          "answer": "<p>Watch for droppings, shed skins, odd odors, or visible insects and rodents. Damaged wood, chewed wires, or unexplained holes in walls are red flags. You might hear scratching in walls or attics, especially at night. Bite marks on skin or damage to stored food are also telling. If you notice any of these, contact us promptly—early intervention prevents infestations from spreading.</p>"
-        },
-        {
-          "question": "How do I prepare my home before a treatment appointment?",
-          "answer": "<p>Remove clutter and ensure the technician can access all areas, including under sinks, behind appliances, and in basements or crawl spaces. Vacuum thoroughly and clean up food debris. Put away toys, dishes, and open foods. Close interior doors to contain the treatment. Move pet food and water bowls. Our team will give you a full prep checklist when you schedule—following it ensures the treatment works as effectively as possible.</p>"
-        },
-        {
-          "question": "What's the difference between DIY pest products and professional treatment?",
-          "answer": "<p>Over-the-counter products target visible pests but often miss hidden colonies and entry points. Professionals have access to stronger, more targeted solutions and the training to apply them safely and strategically. We identify root causes—cracks, moisture, food sources—that DIY approaches overlook. Professional treatment also comes with follow-up support and accountability if the problem returns, giving you peace of mind that DIY rarely provides.</p>"
-        },
-        {
-          "question": "What happens if pests come back after treatment?",
-          "answer": "<p>We stand behind our work. If the same infestation returns within the guaranteed timeframe, we'll retreat your home at no additional charge. This guarantee applies when you follow our prevention advice and maintenance plan. We'll also help you identify what may have caused the return—new entry points, attractants you missed, or seasonal pressures—so we can prevent it happening again.</p>"
-        }
-      ],
-      "id": "home_faq",
-      "ai_type_id": "faq_local",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-23T15:56:02.117278Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "651122e14423745a",
-      "_ai_locked": true,
-      "skin": "dark",
-      "fq_open": true
-    },
-    {
-      "id": "home_local_rel",
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-sonnet-5",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Local Pest Control Serving Littleton and Nearby Areas",
-      "text": "<p>Littleton's mix of housing styles calls for a flexible approach to pest control. In Historic Littleton, mature trees and older construction create shaded, moisture-prone spots along foundations and rooflines where ants, spiders, and rodents often seek entry as temperatures cool. Newer subdivisions near Ken Caryl tend to have tighter building envelopes, but landscaping still close to the home and irrigation systems can draw in insects during the warmer months, especially with Colorado's dry summers pushing pests toward any available water source.</p><p>Seasonal swings along the Front Range, from freezing winters to hot, dry stretches, shape when and how infestations develop. Properties near open space or foothill-adjacent areas like those around Southbridge may see more seasonal wildlife and insect activity as pests move toward shelter. Understanding these property-level differences allows us to tailor inspections and treatments to each home's construction, landscaping, and surroundings, rather than applying a one-size-fits-all plan across the area.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-07-18T23:56:46.603610Z",
-      "_ai_model": "claude-sonnet-5",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "e56b0d69ebe7f536",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "24/7 Pest Control Services in {city_state}",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "accent",
-      "cb_bg_custom": "#fd783b",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal",
-      "skin": "accent"
-    },
-    {
-      "type": "custom_html",
-      "html": "[services_links]"
-    },
-    {
-      "type": "cta_card",
-      "cc_heading": "Contact {city}'s Top Pest Control Company Today",
-      "cc_text": "Don't wait for pests to take over. Call {business} today to schedule your timely inspection. With hundreds of successful treatments and our 5-star service for customers, we're the go-to pest control provider in {city_state}.",
-      "cc_btn_text": "{phone}",
-      "cc_btn_url": "tel:{tel}",
-      "cc_btn_style": "outline",
-      "cc_align": "split",
-      "cc_bg": "accent",
-      "cc_bg_custom": "#fd783b",
-      "cc_radius": 12,
-      "skin": "dark"
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "{city_spotlight}",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#120575",
-      "mi_info_photo": "{city_image}",
-      "skin": "light"
-    },
-    {
-      "type": "cta_card",
-      "cc_heading": "The Values That Make Us {city}’s Most Trusted Pest Control Experts",
-      "cc_text": "We’re known in {city} for more than just effective pest control — we’re trusted for how we do it. With reliable service, honest pricing, and safe, family-friendly treatments, we deliver results you can count on. Our trained professionals uphold the highest standards of professionalism, and your satisfaction is always our top priority. That’s why so many local homeowners choose us—and stay with us.",
-      "cc_btn_text": "",
-      "cc_btn_url": "",
-      "cc_btn_style": "outline",
-      "cc_align": "center",
-      "cc_bg": "accent",
-      "cc_bg_custom": "#fd783b",
-      "cc_radius": 0,
-      "skin": "accent"
-    },
-    {
-      "type": "links_grid",
-      "lg_heading": "Browse Every Service We Cover in {city_state}",
-      "lg_subtext": "",
-      "lg_sublabel": "Top Rated {city_state} Pest Experts",
-      "lg_photo_alt": "",
-      "lg_style": "light",
-      "lg_cols": 4,
-      "lg_overlay": "0.00",
-      "lg_bg_color": "#ffffff",
-      "lg_accent": "accent",
-      "lg_accent_custom": "#fd783b",
-      "lg_photo": "sites/pest-template/uploads/media/pest-katy_home_a1b2c3.webp",
-      "lg_links": [
-        {
-          "label": "Termite Treatment",
-          "url": "/termite-treatment-{city_slug}"
-        },
-        {
-          "label": "Mosquito Control",
-          "url": "/mosquito-control-{city_slug}"
-        },
-        {
-          "label": "Bed Bug Treatment",
-          "url": "/bed-bug-treatment-{city_slug}"
-        },
-        {
-          "label": "Flea Control",
-          "url": "/flea-control-{city_slug}"
-        },
-        {
-          "label": "Flea Treatment",
-          "url": "/flea-treatment-{city_slug}"
-        },
-        {
-          "label": "Flea Exterminator",
-          "url": "/flea-exterminator-{city_slug}"
-        },
-        {
-          "label": "Rat Exterminator",
-          "url": "/rat-exterminator-{city_slug}"
-        },
-        {
-          "label": "Ant Exterminator",
-          "url": "/ant-exterminator-{city_slug}"
-        }
-      ],
-      "skin": "dark"
-    }
-  ],
-  "seo": {
-    "seo_title": "Pest Control {city} {SS} | Local Exterminator | {business}",
-    "canonical_url": "",
-    "meta_description": "Expert pest control in {city_state}. Fast, eco-friendly solutions for roaches, ants, termites, rodents & more. Trusted, licensed local exterminators ready 24/7.",
-    "meta_keywords": "pest control {city} {SS}, exterminator {city} {SS}, roach control {city}, termite treatment {city} {SS}",
-    "og_title": "{city} Pest Control | Local Pest Exterminator in {city_state}",
-    "og_description": "Protect your home with expert pest control in {city_state}. Our local team provides fast, eco-friendly solutions for roaches, ants, termites, rodents, and more. Trusted by homeowners for safe, effective service.",
-    "og_image": "sites/pest-template/uploads/media/about-big-katy_260678.webp",
-    "service_name": "Pest Control",
-    "service_type": "",
-    "service_area": "",
-    "service_description": "",
-    "bc_label": "",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"PestControlService\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"description\": \"{business} provides professional pest control services across {state}, including cockroach, termite, mosquito, rodent, and wildlife control for homes and businesses in the communities we serve.\",\n            \"areaServed\": {\n                \"@type\": \"State\",\n                \"name\": \"{state}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Fr 08:00-18:00, Sa 09:00-13:00\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
-    "primary_keyword": "Pest Control",
-    "secondary_keywords": ""
-  },
-  "footer": {
-    "logo": "",
-    "phone": "{phone}",
-    "columns": [
-      {
-        "type": "text",
-        "title": "About {business}",
-        "text": "<p>We connect homeowners with trained, experienced {city} pest control specialists through our advertising network. Our providers have years of on-the-job experience in safe, effective long-standing solutions to homes and businesses in {city}. Whether it’s ants and roaches, rodents, or termites, we handle every infestation with precision, care, and professionalism. We believe in honest service, upfront pricing, and long-term results &mdash; because your peace of mind is our priority.</p>"
-      },
-      {
-        "type": "links",
-        "title": "Quick Link",
-        "links": [
-          {
-            "label": "Termite Treatment",
-            "url": "/termite-treatment-{city_slug}"
-          },
-          {
-            "label": "Mosquito Control",
-            "url": "/mosquito-control-{city_slug}"
-          },
-          {
-            "label": "Bed Bug Treatment",
-            "url": "/bed-bug-treatment-{city_slug}"
-          },
-          {
-            "label": "Rat Exterminator",
-            "url": "/rat-exterminator-{city_slug}"
-          },
-          {
-            "label": "Privacy Policy",
-            "url": "/privacy-policy"
-          },
-          {
-            "label": "Terms and Conditions",
-            "url": "/terms-and-conditions"
-          },
-          {
-            "label": "Contact Us & Advertising",
-            "url": "/contact-us"
-          },
-          {
-            "label": "Blog",
-            "url": "/blog"
-          }
+    "header": {
+        "site_name": "{business}",
+        "logo": "uploads/logo_littleton-pest-pros.png",
+        "phone": "{phone}",
+        "city": "{city_state}",
+        "topbar_text": "",
+        "topbar_link": "",
+        "menu": [
+            {
+                "label": "Home",
+                "url": "/",
+                "children": []
+            },
+            {
+                "label": "Pest Services",
+                "url": "#pest_services",
+                "children": []
+            }
         ],
-        "text": ""
-      },
-      {
-        "type": "contact",
-        "title": "Contact Info",
-        "contact_extras": [],
-        "text": ""
-      }
-    ],
-    "copyright": "© Copyright {business}. All Rights Reserved.",
-    "bottom_links": [
-      {
-        "label": "Privacy Policy",
-        "url": "/privacy-policy"
-      },
-      {
-        "label": "Terms and Conditions",
-        "url": "/terms-and-conditions"
-      }
-    ],
-    "disclaimer": "<p>Disclaimer: {business_domain} is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and {business_domain} does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. It is the responsibility of the homeowner to ask the pest control contractor about the pest control solution to ensure it meets the homeowner's family and pet safety requirements. All persons depicted in a photo or video are actors or models and not contractors listed on {business_domain}. Any advertiser relationships are clearly marked as \"Sponsored\" or \"Ad\". See Terms and Conditions for further details.</p>",
-    "sticky_bar_text": "24/7 Support Line - Call Now",
-    "sticky_bar_info": "Calls are answered by our advertising partners who can help match you with a suitable provider.",
-    "logo_in_copyright_bar": true,
-    "col_count": 3,
-    "socials": {
-      "facebook": "",
-      "instagram": "",
-      "linkedin": "",
-      "youtube": "",
-      "twitter": ""
-    }
-  },
-  "pages": {
-    "page_8845f40cd5d04": {
-      "title": "Privacy Policy | {business}",
-      "slug": "privacy-policy",
-      "page_type": "other",
-      "content_blocks": [
-        {
-          "type": "text",
-          "heading_level": "h1",
-          "text": "Privacy Policy\n<p>{business} respects your privacy and is committed to protecting it. This Privacy Policy explains what information we collect when you use {website} (the &ldquo;Website&rdquo;), how we use and share that information, and the choices available to you. The Website connects homeowners with independent pest control providers and does not itself perform pest control services.</p><p>By accessing or using the Website, you agree to the practices described in this policy. We may update this policy from time to time; continuing to use the Website after changes are posted means you accept the updated policy.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+        "socials": {
+            "facebook": "",
+            "instagram": "",
+            "twitter": "",
+            "youtube": "",
+            "linkedin": "",
+            "tiktok": "",
+            "yelp": ""
         },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "A. Information We Collect\n<p>We collect information in a few different ways: information you give us directly, information collected automatically as you browse, and information generated when you call a number listed on the Website.</p><p><strong>Information you provide:</strong> name, phone number, address, email, and any details you submit through a form or request on the Website.</p><p><strong>Automatically collected information:</strong> browser type, device type, IP address, approximate location, pages viewed, search terms, and the date and time of your visit.</p><p><strong>Call information:</strong> if you call a number displayed on the Website, we and our call-tracking partners may record the date, time, duration, and content of that call for quality assurance and to route you to an appropriate provider.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "B. How We Use Information\n<p>We use the information we collect to operate and improve the Website, connect you with relevant pest control providers, respond to your inquiries, personalize the content and offers you see, measure and improve the performance of our advertising, detect and prevent fraud or abuse, and comply with legal obligations.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "C. Cookies and Similar Technologies\n<p>The Website uses cookies and similar tracking technologies (such as web beacons and pixel tags) for purposes including:</p><ul><li><strong>Functionality</strong> &mdash; remembering your preferences and keeping the Website working correctly</li><li><strong>Security</strong> &mdash; detecting and preventing fraudulent or unauthorized activity</li><li><strong>Analytics</strong> &mdash; understanding how visitors use the Website so we can improve it</li><li><strong>Advertising</strong> &mdash; showing you relevant ads on this Website and others, and measuring how well our ads perform</li></ul><p>Most browsers let you block or delete cookies through their settings. Doing so may limit some features of the Website. If your browser sends a \"do not track\" signal, please note we do not currently respond differently to that signal.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "D. How We Share Information\n<p>We may share information about you with:</p><ul><li><strong>Pest control providers</strong> &mdash; so they can respond to your request or call</li><li><strong>Service vendors</strong> &mdash; companies that host the Website, track and route calls, support our advertising, or otherwise help us operate the Website, under obligations to protect your information</li><li><strong>Advertising partners</strong> &mdash; who may use cookies to show you relevant ads based on your visit to the Website</li><li><strong>Successors</strong> &mdash; if {business} is involved in a merger, acquisition, or sale of assets, your information may transfer as part of that transaction</li><li><strong>Legal authorities</strong> &mdash; when required by law, subpoena, or other legal process, or to protect the rights, safety, or property of {business}, our users, or the public</li></ul><p>We do not sell your personal information to third parties for them to market their own unrelated products or services without your consent.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "E. Data Security\n<p>We use reasonable administrative and technical safeguards to protect the information we collect. However, no method of transmitting or storing data over the internet is completely secure, and we cannot guarantee absolute security. You share information with us at your own risk.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "F. Data Retention\n<p>We keep information for as long as needed to provide the Website, fulfill the purposes described in this policy, and meet our legal and accounting obligations. When information is no longer needed for these purposes, we take reasonable steps to delete or anonymize it.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "G. Children's Privacy\n<p>The Website is intended for adults and is not directed to children under 18. We do not knowingly collect personal information from anyone under 18. If you believe a child has provided us with personal information, please contact us at info@{business_domain} so we can remove it.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "H. International Visitors\n<p>The Website is intended for use by residents of the United States. If you access the Website from outside the United States, your information may be transferred to and processed in the United States, which may not provide the same level of data protection as your home country. By using the Website, you consent to this transfer.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "I. Your Privacy Rights\n<p>Depending on where you live, you may have rights to know what personal information we hold about you, request a copy of it, ask us to correct or delete it, and opt out of certain uses such as targeted advertising or the sale of personal information. To exercise any of these rights, contact us at info@{business_domain}. We will respond to verified requests consistent with applicable law.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "J. Contact Us\n<p>Questions or concerns about this Privacy Policy can be sent to info@{business_domain} or by calling {phone}.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "K. Changes to This Policy\n<p>We may revise this Privacy Policy periodically. The version posted on the Website is always the most current, and changes take effect as soon as they are posted. We encourage you to review this page from time to time.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "custom_html",
-          "html": "[services_links]"
-        }
-      ],
-      "seo": {
-        "meta_keywords": "",
-        "meta_description": "Read the {business} Privacy Policy to learn how we collect, use, and protect your information when you visit {website} or call our helpline.",
-        "og_title": "Privacy Policy | {business}",
-        "og_description": "How {business} collects, uses, and protects your information.",
-        "og_image": "",
-        "schema": "",
-        "canonical_url": "{website}/privacy-policy/",
-        "service_name": "",
-        "service_type": "",
-        "service_area": "",
-        "service_description": "",
-        "bc_label": "Privacy Policy",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "primary_keyword": "",
-        "secondary_keywords": ""
-      }
+        "nav_bg": "accent",
+        "nav_text": "#ffffff",
+        "phone_btn_style": "outline",
+        "sticky": true,
+        "info_items": [
+            {
+                "icon": "🇺🇸",
+                "text": "Proudly American"
+            },
+            {
+                "icon": "",
+                "text": "Call for Great Service!"
+            }
+        ],
+        "logo_max_height": 72,
+        "phone_label": "Helpline:",
+        "show_sponsored": true,
+        "cta_text": "",
+        "cta_url": "",
+        "favicon": "uploads/favicon_littleton-pest-pros.png",
+        "header_layout": "standard",
+        "sr_bar_height": 64
     },
-    "page_5ecf42631f084": {
-      "title": "Terms and Conditions | {business}",
-      "slug": "terms-and-conditions",
-      "page_type": "other",
-      "content_blocks": [
+    "content_blocks": [
         {
-          "type": "text",
-          "heading_level": "h1",
-          "text": "Terms and Conditions\n<p>These Terms and Conditions (the &ldquo;Terms&rdquo;) govern your use of {website} (the &ldquo;Website&rdquo;). By accessing or using the Website, you agree to be bound by these Terms. If you do not agree, please do not use the Website.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "hero_split",
+            "hs_heading": "Trusted Local Pest Control in {city_state}",
+            "hs_subtext": "<p>Colorado's Front Range climate brings predictable pest pressures each season, and Littleton homeowners know that early intervention makes the difference. Littleton Pest Pros addresses active infestations with trained, locally-informed pest control tailored to your home's specific situation. Taking action now protects your property and gives you peace of mind without the uncertainty of DIY approaches.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Pest control services in {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f3f6f7",
+            "hs_photo": "sites/pest-template/uploads/media/about-whitefly-treatment-katy_93c79d.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+            "hs_mobile_order": "",
+            "id": "home_hero",
+            "ai_type_id": "hero_subtext",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-23T15:55:37.503936Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "b4a593b09b1b4ba5",
+            "_ai_locked": true
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "A. Who We Are\n<p>{business} operates the Website as a free service that helps homeowners find independent pest control providers in their area. We do not own, operate, or control any pest control business, and we do not perform pest control services ourselves. Any photos or videos of technicians shown on the Website are for illustration only and may depict models or stock imagery rather than an actual provider.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "id": "home_city_intro",
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-sonnet-5",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Littleton Pest Control Solutions For Every Season",
+            "text": "<p>Littleton homeowners face a unique mix of pest pressures shaped by Colorado's shifting seasons, from dry summer heat that pushes ants and spiders indoors seeking moisture to cooling autumn temperatures that send rodents and other invaders looking for warm shelter. Neighborhoods like Ken Caryl and Governor's Ranch, with their proximity to open space and foothills terrain, often see more wildlife-adjacent pest activity, while established areas such as Historic Littleton deal with older homes that can offer easy entry points through aging foundations and utility lines. Without consistent attention, small pest issues in Littleton can escalate quickly once the weather turns.</p><p>Littleton Pest Pros approaches every pest control visit with a thorough inspection first, identifying entry points, nesting areas, and conditions that attract pests before any treatment begins. Our trained technicians tailor each plan to the specific property and pest pressure at hand, rather than applying a one-size-fits-all solution, and we follow up to monitor results and adjust as needed. While our focus stays on comprehensive pest control, we also recognize that homes can face a range of related invaders throughout the year. As Littleton continues to grow, we remain committed to helping local homeowners stay ahead of pest problems season after season.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-23T15:55:44.020264Z",
+            "_ai_model": "claude-sonnet-5",
+            "_ai_type": "city_intro",
+            "_ai_input_hash": "ffc7e431f16fb786",
+            "_ai_locked": true
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "B. Eligibility and Acceptance\n<p>The Website is intended for use by individuals 18 years of age or older who reside in the United States. By using the Website, you represent that you meet these requirements and agree to be bound by these Terms.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "feature_split",
+            "fs_heading": "Full-Service Pest Management for Common {city} Pests",
+            "fs_subtext": "{city}'s warm, humid climate attracts a wide range of pests. That's why we offer treatment and prevention services for all major infestations, including:",
+            "fs_photo_alt": "Pest control technician in {city} {SS}",
+            "fs_star_text": "5 Star Services",
+            "fs_bg_color": "#f3f6f7",
+            "fs_accent": "#fd783b",
+            "fs_image_side": "left",
+            "fs_mobile_order": "text_first",
+            "fs_photo": "sites/pest-template/uploads/media/about-katy_7007ec.webp",
+            "fs_items": [
+                {
+                    "icon": "",
+                    "alt": "Ants pest control {city} {SS}",
+                    "heading": "Ants",
+                    "text": "Social insects that form colonies and enter homes in search of food and moisture."
+                },
+                {
+                    "icon": "",
+                    "alt": "Cockroaches pest control {city} {SS}",
+                    "heading": "Cockroaches",
+                    "text": "Nocturnal pests that spread bacteria and trigger allergies, often hiding in kitchens and bathrooms."
+                },
+                {
+                    "icon": "",
+                    "alt": "Termites pest control {city} {SS}",
+                    "heading": "Termites",
+                    "text": "Wood-destroying insects that silently cause structural damage by feeding on cellulose-based materials."
+                },
+                {
+                    "icon": "",
+                    "alt": "Rodents pest control {city} {SS}",
+                    "heading": "Rodents (Mice and Rats)",
+                    "text": "Disease-carrying mammals that gnaw through wires, contaminate food, and reproduce quickly."
+                },
+                {
+                    "icon": "",
+                    "alt": "Spiders pest control {city} {SS}",
+                    "heading": "Spiders",
+                    "text": "Arachnids that often enter homes in search of insects to prey on; some species can bite."
+                },
+                {
+                    "icon": "",
+                    "alt": "Bed bugs pest control {city} {SS}",
+                    "heading": "Bed Bugs",
+                    "text": "Blood-feeding insects that hide in mattresses and furniture, causing itchy bites and sleep disruption."
+                }
+            ],
+            "skin": "subtle"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "C. Content Is Informational Only\n<p>Content on the Website &mdash; including articles, service descriptions, and pricing information &mdash; is provided for general informational purposes only and is not a substitute for advice from a licensed pest control professional. We make reasonable efforts to keep information accurate and current, but it may not always reflect the latest pricing, availability, or local regulations. You should confirm details directly with any provider before hiring them.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "split_cta",
+            "sc_left_heading": "Serving the Greater {city_state} Area",
+            "sc_left_text": "Whether you're a homeowner, business owner, or property manager, we offer solutions that fit your property and your budget. Every job is backed by clear communication, transparent pricing, and high-quality workmanship.",
+            "sc_right_label": "Call The {business} Team",
+            "sc_right_phone": "{phone}",
+            "sc_right_phone_url": "tel:{tel}",
+            "sc_left_bg": "accent",
+            "sc_right_bg": "header",
+            "sc_left_bg_custom": "#fd783b",
+            "sc_right_bg_custom": "#120575"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "D. Connecting You With Providers\n<p>When you call a number listed on the Website or submit a request, you direct us to share your information with one or more pest control providers so they can contact you about your request. {business} may receive compensation from providers for these introductions. This compensation does not affect the price you pay or the quality of service you receive, and you are never charged anything by {business} for using the Website.</p><p>We make no guarantee about the suitability, licensing, insurance, or quality of any provider. It is your responsibility to verify a provider's credentials, licensing, and insurance before hiring them. {business} is not a party to any agreement between you and a provider and is not responsible for the services a provider performs or fails to perform.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "tab_services",
+            "ts_badge1": "{business}",
+            "ts_badge2": "SERVICES {city}, {SS}",
+            "ts_heading": "Fleas, Ticks, Wasps & Mosquitoes",
+            "ts_active_bg": "header",
+            "ts_active_bg_custom": "#120575",
+            "ts_tabs": [
+                {
+                    "label": "Fleas",
+                    "icon": "sites/pest-template/uploads/media/tab-icon-fleas.png",
+                    "photo": "sites/pest-template/uploads/media/fleas-katy_1eca46.webp",
+                    "alt": "Flea pest control {city} {SS}",
+                    "desc": "Small, jumping parasites that feed on pets and humans, causing skin irritation and spreading disease."
+                },
+                {
+                    "label": "Ticks",
+                    "icon": "sites/pest-template/uploads/media/tab-icon-ticks.png",
+                    "photo": "sites/pest-template/uploads/media/ticks-katy_fd2b60.webp",
+                    "alt": "Tick pest control {city} {SS}",
+                    "desc": "Blood-feeding arachnids that latch onto skin and can transmit Lyme disease and other illnesses."
+                },
+                {
+                    "label": "Wasps",
+                    "icon": "sites/pest-template/uploads/media/tab-icon-wasps.png",
+                    "photo": "sites/pest-template/uploads/media/wasps-katy_cbff6b.webp",
+                    "alt": "Wasp pest control {city} {SS}",
+                    "desc": "Stinging insects that build nests around homes and can be aggressive when threatened."
+                },
+                {
+                    "label": "Mosquitoes",
+                    "icon": "sites/pest-template/uploads/media/tab-icon-mosquitoes.png",
+                    "photo": "sites/pest-template/uploads/media/mosquito-katy_aa45f9.webp",
+                    "alt": "Mosquito pest control {city} {SS}",
+                    "desc": "Flying insects known for their itchy bites and ability to transmit diseases like West Nile Virus."
+                }
+            ],
+            "skin": "light"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "E. Prohibited Conduct\n<p>When using the Website, you agree not to:</p><ul><li>Use the Website for any unlawful, fraudulent, or misleading purpose</li><li>Post or submit fake reviews, or offer or accept payment in exchange for reviews</li><li>Attempt to interfere with, disable, or gain unauthorized access to the Website or its systems</li><li>Use automated tools to scrape, crawl, or copy content from the Website without our written permission</li><li>Upload or transmit viruses, malicious code, or content that infringes another person's rights</li><li>Impersonate any person or misrepresent your affiliation with any person or entity</li></ul><p>We may suspend or terminate your access to the Website if we believe, in our reasonable judgment, that you have violated these Terms.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "hero_grid",
+            "hg_label": "{business}",
+            "hg_heading": "The Pests We Deal With Most in {city_state}",
+            "hg_body": "<p>Our experienced pest control providers will tailor a solution based on the pest type, severity of the infestation, and the specific needs of your home to restore comfort and safety. Our technicians are trained professionals who follow integrated pest management strategies for long-term results and minimal disruption to your household or operations.</p>",
+            "hg_btn_text": "Call Us",
+            "hg_btn_url": "tel:{tel}",
+            "hg_photo_alt": "Top-notch pest control in {city} {SS}",
+            "hg_photo": "sites/pest-template/uploads/media/top-notch-pest-control-katy_e7cc66.webp",
+            "hg_color1": "accent",
+            "hg_color2": "header",
+            "hg_color1_custom": "#fd783b",
+            "hg_color2_custom": "#120575",
+            "hg_items": [
+                {
+                    "icon": "ant",
+                    "label": "Ants",
+                    "alt": "Ant control {city} {SS}",
+                    "desc": "Trailing colonies that invade kitchens and pantries hunting for food and moisture."
+                },
+                {
+                    "icon": "beetle",
+                    "label": "Beetles",
+                    "alt": "Beetle control {city} {SS}",
+                    "desc": "Destructive beetles whose larvae chew through carpets, fabrics, and stored dry goods."
+                },
+                {
+                    "icon": "cockroach",
+                    "label": "Cockroaches",
+                    "alt": "Cockroach control {city} {SS}",
+                    "desc": "Nocturnal pests that spread bacteria and trigger allergies, hiding in kitchens and baths."
+                },
+                {
+                    "icon": "mosquito",
+                    "label": "Mosquitoes",
+                    "alt": "Mosquito control {city} {SS}",
+                    "desc": "Biting insects that breed in standing water and can carry disease through warm months."
+                },
+                {
+                    "icon": "rat",
+                    "label": "Rats",
+                    "alt": "Rat control {city} {SS}",
+                    "desc": "Disease-carrying rodents that gnaw wires and contaminate food while nesting in walls and attics."
+                },
+                {
+                    "icon": "spider",
+                    "label": "Spiders",
+                    "alt": "Spider control {city} {SS}",
+                    "desc": "Web-building arachnids that slip indoors hunting insects; some species can bite."
+                }
+            ],
+            "hg_flip": true
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "F. Disclaimer of Warranties\n<p>The Website is provided \"as is\" and \"as available,\" without warranties of any kind, whether express or implied. We do not warrant that the Website will be uninterrupted, error-free, or that any information on it is complete or accurate. Your use of the Website is at your own risk.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "service_cards",
+            "sc_badge": "PROFESSIONAL {city}, {SS} COMPANY",
+            "sc_heading": "",
+            "sc_cols": 4,
+            "sc_badge_bg": "accent",
+            "sc_head_color": "header",
+            "sc_badge_bg_custom": "#fd783b",
+            "sc_head_color_custom": "#120575",
+            "sc_icon_bg": "#fef0e7",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Roach control {city} {SS}",
+                    "heading": "Roach Control & Extermination in {city_state}",
+                    "text": "Cockroaches are stubborn invaders. Our experts use gel baiting, perimeter sprays, and entry-point sealing to eliminate them safely and effectively.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Ant control {city} {SS}",
+                    "heading": "Ant Control & Removal Solutions in {city_state}",
+                    "text": "We identify ant colonies and use proven baiting and barrier methods for lasting protection against fire ants, carpenter ants, and more.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Termite treatment {city} {SS}",
+                    "heading": "Termite Treatment & Prevention in {city_state}",
+                    "text": "Our termite specialists provide detailed inspections, baiting systems, and barrier applications to stop damage and prevent future infestations.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Rodent control {city} {SS}",
+                    "heading": "Rodent Control for Homes & Businesses in {city_state}",
+                    "text": "We offer trapping, exclusion, and sanitation to remove mice and rats, protecting your property and health from costly and unsafe damage.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Mosquito control {city} {SS}",
+                    "heading": "Mosquito Reduction Services in {city_state}",
+                    "text": "Using barrier sprays and larvicide treatments, we target breeding areas to cut mosquito populations and improve outdoor comfort.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Bed bug treatment {city} {SS}",
+                    "heading": "Bed Bug Inspection & Treatment in {city_state}",
+                    "text": "Our team uses heat and chemical treatments to completely remove bed bugs, ensuring your home is pest-free and your rest uninterrupted.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Flea tick control {city} {SS}",
+                    "heading": "Flea & Tick Removal Services in {city_state}",
+                    "text": "We apply indoor and outdoor treatments to eliminate fleas and ticks, keeping your pets and family safe all year long.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Wasp spider control {city} {SS}",
+                    "heading": "Wasp, Hornet & Spider Control in {city_state}",
+                    "text": "Our trained professionals remove nests and seal entry points to protect your home from stinging insects and venomous spiders.",
+                    "url": ""
+                },
+                {
+                    "icon": "",
+                    "alt": "Wildlife removal {city} {SS}",
+                    "heading": "Wildlife Removal & Exclusion in {city_state}",
+                    "text": "We humanely remove raccoons, opossums, and other wildlife, repairing and sealing entry areas to prevent their return.",
+                    "url": ""
+                }
+            ],
+            "skin": "subtle"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "G. Limitation of Liability\n<p>To the fullest extent permitted by law, {business} and its officers, employees, and affiliates will not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Website, or from the acts or omissions of any pest control provider you connect with through the Website. Our total liability for any claim relating to the Website is limited to $150. Any claim must be brought within one year of the event giving rise to it.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "wide_banner",
+            "wb_badge": "{city}, {state}'S SPECIALISTS",
+            "wb_heading": "Treated Once, Monitored After — Not a One-Off Spray",
+            "wb_subtext": "",
+            "wb_btn_text": "Call Us",
+            "wb_btn_url": "tel:{tel}",
+            "wb_btn_style": "filled",
+            "wb_centered": false,
+            "wb_photo_alt": "Pest control services in {city} {SS}",
+            "wb_overlay": "0.50",
+            "wb_bg_color": "#1a1a2e",
+            "wb_badge_bg": "accent",
+            "wb_badge_bg_custom": "#fd783b",
+            "wb_photo": "sites/pest-template/uploads/media/bg-4-katy_home.webp",
+            "skin": "dark"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "H. Indemnification\n<p>You agree to defend and hold {business} harmless from any claims, losses, or damages arising from your misuse of the Website, your violation of these Terms, or content you submit through the Website.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "image_features",
+            "if_heading": "Quality Pest Prevention",
+            "if_intro": "Effective pest control is an ongoing process, not a one-time event. Our comprehensive services provide continuous protection by creating a durable defensive barrier around your home to stop pests before they enter.",
+            "if_closing": "Services are delivered by a reliable and thoroughly trained technician team, giving you peace of mind throughout every season.",
+            "if_phone_label": "Call Us 24/7",
+            "if_phone": "{phone}",
+            "if_phone_url": "tel:{tel}",
+            "if_photo_alt": "Quality pest prevention in {city} {SS}",
+            "if_bg_color": "#f3f6f7",
+            "if_check_color": "accent",
+            "if_head_color": "header",
+            "if_check_color_custom": "#fd783b",
+            "if_head_color_custom": "#120575",
+            "if_photo": "sites/pest-template/uploads/media/about-big-katy_260678.webp",
+            "if_features": [
+                "Exterior treatments",
+                "Emergency services",
+                "Specialty pest services",
+                "Entry point inspections and sealing"
+            ],
+            "skin": "light"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "I. Intellectual Property\n<p>All content on the Website &mdash; including text, graphics, logos, and images &mdash; is owned by {business} or its licensors and protected by copyright and trademark law. You may view and print pages from the Website for your own personal, non-commercial use. You may not copy, republish, modify, or create derivative works from any part of the Website, or use it for any commercial purpose, without our prior written consent.</p><p>If you believe content on the Website infringes your copyright, please contact us at info@{business_domain} with details of the alleged infringement so we can investigate.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "id": "home_seasonal",
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-sonnet-5",
+            "skin": "light",
+            "steps_heading": "Littleton's Four Seasons of Pest Activity",
+            "steps_items": [
+                {
+                    "heading": "Spring Ant Emergence",
+                    "text": "<p>As snowmelt saturates yards from Ken Caryl to Southbridge, ants and spiders reawaken and seek entry points around foundations. Littleton Pest Pros inspects vulnerable areas and applies targeted treatments to help homeowners stay ahead of these early-season invaders.</p>"
+                },
+                {
+                    "heading": "Summer Wasp Surge",
+                    "text": "<p>Warm, dry summer days bring wasps, mosquitoes, and occasional rodent activity near Chatfield's open spaces and neighborhood parks. Our team addresses nests and breeding sites promptly, helping families and pets enjoy outdoor time with reduced risk of stings or bites.</p>"
+                },
+                {
+                    "heading": "Fall Rodent Intrusion",
+                    "text": "<p>Cooling temperatures push mice and other rodents toward homes in search of warmth, particularly in older properties around Historic Littleton. Littleton Pest Pros seals entry points and sets up monitoring to help reduce the chance of an indoor infestation before winter.</p>"
+                },
+                {
+                    "heading": "Winter Indoor Pests",
+                    "text": "<p>Colorado's cold winters drive spiders, rodents, and overwintering insects into crawlspaces and basements throughout the region. We provide inspections and interior treatments designed to help keep homes more comfortable and pest activity in check until spring arrives.</p>"
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-23T15:55:51.148419Z",
+            "_ai_model": "claude-sonnet-5",
+            "_ai_type": "seasonal_calendar",
+            "_ai_input_hash": "c63935dc19b202fc",
+            "_ai_locked": true
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "J. Relationship to Our Privacy Policy\n<p>Your use of the Website is also governed by our <a href=\"/privacy-policy\">Privacy Policy</a>, which explains how we collect, use, and share information about you.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "faq_two_col",
+            "fq_heading": "FAQs – Pest Control in {city}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#f0f2f8",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "fq_items": [
+                {
+                    "question": "What should I expect during a professional pest treatment visit?",
+                    "answer": "<p>Our technician will inspect your home inside and out to locate entry points, nesting areas, and activity signs. We'll discuss findings with you, explain the treatment approach, and apply targeted solutions to affected areas. You'll receive clear instructions on how to prepare your home before the visit and what to do afterward to ensure effectiveness. The process typically takes one to three hours depending on your home's size and the infestation extent.</p>"
+                },
+                {
+                    "question": "How many visits does it usually take to eliminate a pest infestation?",
+                    "answer": "<p>Most infestations require two to four visits spaced one to two weeks apart. The first visit addresses the active problem, and follow-up appointments target newly hatched insects and any remaining populations. Some cases resolve in a single treatment, while severe infestations may need additional visits. We'll outline a customized schedule during your initial inspection based on what we find.</p>"
+                },
+                {
+                    "question": "When is pest season in Littleton and the Denver area?",
+                    "answer": "<p>In Colorado, spring through fall are peak months, with late spring and summer seeing the highest activity. Many pests become most visible in June and July. However, problems like rodents often intensify in fall as creatures seek warmth indoors before winter. Year-round monitoring is wise since some infestations thrive even during cooler months if they've entered your home.</p>"
+                },
+                {
+                    "question": "Is the treatment safe for my kids and pets?",
+                    "answer": "<p>We prioritize safety and use methods and products appropriate for homes with children and animals. You'll receive detailed guidance on keeping family members away from treated areas during application and for a short period afterward. Always follow our post-treatment instructions carefully. If anyone in your home has sensitivities or concerns, mention them when you call—we can discuss options that work for your situation.</p>"
+                },
+                {
+                    "question": "What signs indicate my Littleton home needs pest treatment?",
+                    "answer": "<p>Watch for droppings, shed skins, odd odors, or visible insects and rodents. Damaged wood, chewed wires, or unexplained holes in walls are red flags. You might hear scratching in walls or attics, especially at night. Bite marks on skin or damage to stored food are also telling. If you notice any of these, contact us promptly—early intervention prevents infestations from spreading.</p>"
+                },
+                {
+                    "question": "How do I prepare my home before a treatment appointment?",
+                    "answer": "<p>Remove clutter and ensure the technician can access all areas, including under sinks, behind appliances, and in basements or crawl spaces. Vacuum thoroughly and clean up food debris. Put away toys, dishes, and open foods. Close interior doors to contain the treatment. Move pet food and water bowls. Our team will give you a full prep checklist when you schedule—following it ensures the treatment works as effectively as possible.</p>"
+                },
+                {
+                    "question": "What's the difference between DIY pest products and professional treatment?",
+                    "answer": "<p>Over-the-counter products target visible pests but often miss hidden colonies and entry points. Professionals have access to stronger, more targeted solutions and the training to apply them safely and strategically. We identify root causes—cracks, moisture, food sources—that DIY approaches overlook. Professional treatment also comes with follow-up support and accountability if the problem returns, giving you peace of mind that DIY rarely provides.</p>"
+                },
+                {
+                    "question": "What happens if pests come back after treatment?",
+                    "answer": "<p>We stand behind our work. If the same infestation returns within the guaranteed timeframe, we'll retreat your home at no additional charge. This guarantee applies when you follow our prevention advice and maintenance plan. We'll also help you identify what may have caused the return—new entry points, attractants you missed, or seasonal pressures—so we can prevent it happening again.</p>"
+                }
+            ],
+            "id": "home_faq",
+            "ai_type_id": "faq_local",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-23T15:56:02.117278Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "651122e14423745a",
+            "_ai_locked": true,
+            "skin": "dark",
+            "fq_open": true
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "K. Governing Law\n<p>These Terms are governed by the laws of the State of {state}, without regard to conflict-of-law rules that would apply the law of any other jurisdiction.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "id": "home_local_rel",
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-sonnet-5",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Local Pest Control Serving Littleton and Nearby Areas",
+            "text": "<p>Littleton's mix of housing styles calls for a flexible approach to pest control. In Historic Littleton, mature trees and older construction create shaded, moisture-prone spots along foundations and rooflines where ants, spiders, and rodents often seek entry as temperatures cool. Newer subdivisions near Ken Caryl tend to have tighter building envelopes, but landscaping still close to the home and irrigation systems can draw in insects during the warmer months, especially with Colorado's dry summers pushing pests toward any available water source.</p><p>Seasonal swings along the Front Range, from freezing winters to hot, dry stretches, shape when and how infestations develop. Properties near open space or foothill-adjacent areas like those around Southbridge may see more seasonal wildlife and insect activity as pests move toward shelter. Understanding these property-level differences allows us to tailor inspections and treatments to each home's construction, landscaping, and surroundings, rather than applying a one-size-fits-all plan across the area.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-18T23:56:46.603610Z",
+            "_ai_model": "claude-sonnet-5",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "e56b0d69ebe7f536",
+            "_ai_locked": true
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "L. Dispute Resolution\n<p>If a dispute arises out of your use of the Website, we encourage you to contact us first at info@{business_domain} so we can try to resolve it informally. If a dispute cannot be resolved informally within 45 days, you and {business} agree that it will be resolved by binding individual arbitration rather than in court, except that either party may bring a claim in small claims court if it qualifies. You and {business} each waive the right to a jury trial and to participate in any class, mass, or representative action against the other.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "cta_banner",
+            "cb_text": "24/7 Pest Control Services in {city_state}",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#fd783b",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal",
+            "skin": "accent"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "M. Changes to These Terms\n<p>We may update these Terms from time to time by posting a revised version on the Website. Continuing to use the Website after a revised version is posted means you accept the updated Terms. If any provision of these Terms is found unenforceable, the remaining provisions will remain in effect.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "custom_html",
+            "html": "[services_links]"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "N. Contact Us\n<p>Questions about these Terms can be directed to info@{business_domain} or by calling {phone}.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "cta_card",
+            "cc_heading": "Contact {city}'s Top Pest Control Company Today",
+            "cc_text": "Don't wait for pests to take over. Call {business} today to schedule your timely inspection. With hundreds of successful treatments and our 5-star service for customers, we're the go-to pest control provider in {city_state}.",
+            "cc_btn_text": "{phone}",
+            "cc_btn_url": "tel:{tel}",
+            "cc_btn_style": "outline",
+            "cc_align": "split",
+            "cc_bg": "accent",
+            "cc_bg_custom": "#fd783b",
+            "cc_radius": 12,
+            "skin": "dark"
         },
         {
-          "type": "custom_html",
-          "html": "[services_links]"
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "skin": "light"
+        },
+        {
+            "type": "cta_card",
+            "cc_heading": "The Values That Make Us {city}’s Most Trusted Pest Control Experts",
+            "cc_text": "We’re known in {city} for more than just effective pest control — we’re trusted for how we do it. With reliable service, honest pricing, and safe, family-friendly treatments, we deliver results you can count on. Our trained professionals uphold the highest standards of professionalism, and your satisfaction is always our top priority. That’s why so many local homeowners choose us—and stay with us.",
+            "cc_btn_text": "",
+            "cc_btn_url": "",
+            "cc_btn_style": "outline",
+            "cc_align": "center",
+            "cc_bg": "accent",
+            "cc_bg_custom": "#fd783b",
+            "cc_radius": 0,
+            "skin": "accent"
         }
-      ],
-      "seo": {
-        "meta_keywords": "",
-        "meta_description": "Read the {business} Terms and Conditions governing your use of {website}, our advertising network, and our helpline.",
-        "og_title": "Terms and Conditions | {business}",
-        "og_description": "The terms governing your use of {website}.",
-        "og_image": "",
-        "schema": "",
-        "canonical_url": "{website}/terms-and-conditions/",
-        "service_name": "",
-        "service_type": "",
-        "service_area": "",
-        "service_description": "",
-        "bc_label": "Terms and Conditions",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "primary_keyword": "",
-        "secondary_keywords": ""
-      }
-    },
-    "page_6a30c3339c03d": {
-      "title": "Contact Us",
-      "slug": "contact-us",
-      "page_type": "other",
-      "content_blocks": [
-        {
-          "type": "text",
-          "heading_level": "h1",
-          "text": "Contact Us\n<p>If you are interested in becoming part of our advertising network or have questions, give us a call or send us an email below.</p><p style=\"margin-top:24px;\"><a href=\"tel:{tel}\" class=\"cta-btn\">Call {phone}</a></p><p>Email: <a href=\"mailto:info@{business_domain}\">info@{business_domain}</a></p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "custom_html",
-          "html": "[services_links]"
-        }
-      ],
-      "seo": {
-        "meta_keywords": "",
-        "meta_description": "Contact {business} — call our free 24/7 helpline or email us to connect with a trusted pest control specialist in {city_state}.",
-        "og_title": "Contact Us | {business}",
-        "og_description": "Get in touch with {business} — call our free 24/7 helpline or send us an email.",
-        "og_image": "",
-        "schema": "",
-        "canonical_url": "{website}/contact-us/",
-        "service_name": "",
-        "service_type": "",
-        "service_area": "",
-        "service_description": "",
-        "bc_label": "Contact Us",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "primary_keyword": "",
-        "secondary_keywords": ""
-      }
-    }
-  },
-  "popups": {
-    "info": {
-      "enabled": true,
-      "heading": "How Your Calls Are Handled",
-      "image": "sites/pest-template/uploads/media/how-your-calls-are-handled_f90e0e.webp",
-      "body": "<p>We offer a free, 24/7 confidential helpline to connect you with trusted pest control professionals tailored to your needs. This call routing service is sponsored advertising. {website} does not provide pest control services. Calls to our main helpline are answered by one of our advertising partners who can help match you with a suitable provider. By using {website} and calling, you agree to our terms and conditions. You'll never be charged for these calls or pressured to choose any particular service. Neither we nor our partners earn commissions from your choices. <strong>Notice of Call Recording and Data Use:</strong> By using {website} and calling, you agree to our Privacy Policy. To explore more pest control options, visit our {website} or call us anytime at {phone}.</p>"
-    }
-  },
-  "local_business": {
-    "lb_name": "{business}",
-    "lb_type": "PestControlService",
-    "lb_url": "{website}",
-    "lb_phone": "{phone}",
-    "lb_street": "",
-    "lb_city": "{city}",
-    "lb_state": "{SS}",
-    "lb_zip": "{zip}",
-    "lb_country": "US",
-    "lb_lat": "31.3382",
-    "lb_lng": "-94.7291",
-    "lb_price_range": "$$",
-    "lb_hours": "Mo-Fr 08:00-18:00, Sa 09:00-13:00",
-    "lb_description": "{business} provides professional pest control services in {city_state} including cockroach extermination, termite treatment, mosquito control, and more.",
-    "lb_logo": "{website}/uploads/logo_littleton-pest-pros.png",
-    "lb_rating": "4.8",
-    "lb_review_count": "534"
-  },
-  "site_vars": {
-    "city": "Littleton",
-    "state": "Colorado",
-    "SS": "CO",
-    "city_slug": "littleton-co",
-    "business": "Littleton Pest Pros",
-    "phone": "720-201-5555",
-    "zip": "80127",
-    "website": "https://p.q111.xyz",
-    "tel": "+17202015555",
-    "city_image": "sites/pest-template/uploads/media/city-scenic-littleton-co.webp",
-    "city_image_alt": "West Main St 2015-06 864 in Littleton, CO",
-    "city_image_credit": "Photo: Chris Light, CC BY-SA 4.0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:West_Main_St_2015-06_864.jpg",
-    "email": "contact@yourbusiness.com",
-    "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots."
-  },
-  "posts": {
-    "post_6a30bb2590334": {
-      "title": "Fire Ant Control in {city}: How to Get Rid of Fire Ants for Good",
-      "slug": "fire-ant-control",
-      "status": "published",
-      "published_at": "2026-06-16",
-      "updated_at": "2026-07-17",
-      "author": "{business} Team",
-      "tag": "Fire Ant Control",
-      "excerpt": "How to identify, treat, and prevent fire ant mounds in {city} — plus why professional fire ant control outlasts DIY mound treatments.",
-      "featured_image": "sites/pest-template/uploads/media/ant-control-katy_41c015.webp",
-      "featured_image_alt": "Fire ants swarming on a leaf in a {city} yard",
-      "content_blocks": [
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "Why Fire Ants Are Such a Problem in {city}\n\n<p>Fire ants thrive in the warm, humid climate of {city_state}, building mounds in lawns, flower beds, and along sidewalks. Unlike many household pests, fire ants are an outdoor threat that can turn a yard, playground, or patio into a hazard &mdash; their sting is painful, and for some people, dangerous.</p><p>Because fire ant colonies can quickly spread across a property and rebuild after a disturbed mound, getting rid of them usually takes more than a single store-bought treatment.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "How to Identify a Fire Ant Infestation\n\n<p>Signs that fire ants have moved into your {city} yard include:</p><ul><li>Dome-shaped dirt mounds in the lawn, often near sidewalks, patios, or the base of trees</li><li>Mounds that appear suddenly after rain, when ants move closer to the surface</li><li>Aggressive swarming when a mound is disturbed</li><li>Painful, burning stings that leave small white blisters</li><li>Reddish-brown ants about 1/8 to 1/4 inch long, smaller than most other ant species</li></ul><p>If you notice mounds appearing in multiple areas of the yard, it's a sign of an established colony rather than a single isolated nest.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "Why Fire Ant Stings Are More Than Just an Inconvenience\n\n<p>Fire ants attack in groups, often stinging multiple times within seconds of a mound being disturbed. For most people, this means painful welts that itch and burn for several days. For children, pets, and anyone with a sting allergy, fire ant encounters can be far more serious, sometimes requiring medical attention.</p><p>This is one of the main reasons fire ant control isn't something to put off &mdash; especially in yards where kids or pets spend time outdoors.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "image_right",
-          "heading_level": "h2",
-          "text": "<h2 class=\"block-heading\">How Professional Fire Ant Control Works</h2><p>{business} treats fire ant infestations in {city} using a two-part approach:</p><ul><li><strong>Broadcast bait treatment</strong> across the lawn, which worker ants carry back to the colony and queen, eliminating the nest from the inside out</li><li><strong>Direct mound treatment</strong> for active or visible mounds, for faster knockdown of aggressive colonies</li></ul><p>This combination controls existing mounds while also preventing new colonies from establishing elsewhere on the property &mdash; something DIY mound-by-mound treatments usually miss.</p>",
-          "photo": "sites/pest-template/uploads/media/best-ant-control-katy_5c655c.webp",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": "Pest control technician applying an ant control treatment along a baseboard in a {city} home"
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "DIY Fire Ant Treatments vs. Professional Control\n\n<p>Mound-killer powders and home remedies can knock down a single visible mound, but fire ant colonies often have satellite nests connected underground that never get treated. Disturbing a mound without eliminating the queen can even cause the colony to split and spread further across the yard.</p><p>Professional treatments are formulated to reach the entire colony, including nests that aren't visible above ground, which is why professional fire ant control tends to last far longer than DIY options.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "How Often Should {city} Yards Be Treated for Fire Ants?\n\n<p>Most {city} properties benefit from fire ant treatments every 60 to 90 days, since new colonies can move in from neighboring yards or undeveloped land at any time. Pairing fire ant control with a broader perimeter pest control plan helps keep both the yard and the home itself protected year-round.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "Get Fire Ant Control in {city} Today\n\n<p>{business} provides fast, effective fire ant control throughout {city_state}, knocking down active mounds and treating colonies at the source so they don't come back. Call <a href=\"tel:{tel}\">{phone}</a> today to schedule a free yard inspection.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        }
-      ],
-      "seo": {
-        "meta_keywords": "fire ant control {city}, fire ant treatment {city}, fire ant exterminator {city}",
-        "meta_description": "Fire ant control in {city}: how to spot mounds, why stings are dangerous, and how professional treatment gets rid of colonies for good.",
-        "og_title": "Fire Ant Control in {city}: How to Get Rid of Fire Ants for Good",
-        "og_description": "Stop fire ant mounds from taking over your {city} yard. See how professional treatment works and how often to treat.",
-        "og_image": "",
-        "schema": "",
+    ],
+    "seo": {
+        "seo_title": "Pest Control {city} {SS} | Local Exterminator | {business}",
         "canonical_url": "",
-        "service_name": "",
+        "meta_description": "Expert pest control in {city_state}. Fast, eco-friendly solutions for roaches, ants, termites, rodents & more. Trusted, licensed local exterminators ready 24/7.",
+        "meta_keywords": "pest control {city} {SS}, exterminator {city} {SS}, roach control {city}, termite treatment {city} {SS}",
+        "og_title": "{city} Pest Control | Local Pest Exterminator in {city_state}",
+        "og_description": "Protect your home with expert pest control in {city_state}. Our local team provides fast, eco-friendly solutions for roaches, ants, termites, rodents, and more. Trusted by homeowners for safe, effective service.",
+        "og_image": "sites/pest-template/uploads/media/about-big-katy_260678.webp",
+        "service_name": "Pest Control",
         "service_type": "",
         "service_area": "",
         "service_description": "",
         "bc_label": "",
-        "bc_mid_label": "Blog",
-        "bc_mid_url": "/blog",
-        "primary_keyword": "fire ant control {city}",
-        "secondary_keywords": "fire ant treatment {city}, fire ant exterminator {city}, how to get rid of fire ants {city}"
-      }
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"PestControlService\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"description\": \"{business} provides professional pest control services across {state}, including cockroach, termite, mosquito, rodent, and wildlife control for homes and businesses in the communities we serve.\",\n            \"areaServed\": {\n                \"@type\": \"State\",\n                \"name\": \"{state}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Fr 08:00-18:00, Sa 09:00-13:00\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
+        "primary_keyword": "Pest Control",
+        "secondary_keywords": ""
+    },
+    "footer": {
+        "logo": "uploads/logo_littleton-pest-pros.png",
+        "phone": "{phone}",
+        "columns": [
+            {
+                "type": "text",
+                "title": "About {business}",
+                "text": "<p>We connect homeowners with trained, experienced {city} pest control specialists through our advertising network. Our providers have years of on-the-job experience in safe, effective long-standing solutions to homes and businesses in {city}. Whether it’s ants and roaches, rodents, or termites, we handle every infestation with precision, care, and professionalism. We believe in honest service, upfront pricing, and long-term results &mdash; because your peace of mind is our priority.</p>"
+            },
+            {
+                "type": "links",
+                "title": "Quick Link",
+                "links": [
+                    {
+                        "label": "Termite Treatment",
+                        "url": "/termite-treatment-{city_slug}"
+                    },
+                    {
+                        "label": "Mosquito Control",
+                        "url": "/mosquito-control-{city_slug}"
+                    },
+                    {
+                        "label": "Bed Bug Treatment",
+                        "url": "/bed-bug-treatment-{city_slug}"
+                    },
+                    {
+                        "label": "Rat Exterminator",
+                        "url": "/rat-exterminator-{city_slug}"
+                    },
+                    {
+                        "label": "Privacy Policy",
+                        "url": "/privacy-policy"
+                    },
+                    {
+                        "label": "Terms and Conditions",
+                        "url": "/terms-and-conditions"
+                    },
+                    {
+                        "label": "Contact Us & Advertising",
+                        "url": "/contact-us"
+                    },
+                    {
+                        "label": "Blog",
+                        "url": "/blog"
+                    }
+                ],
+                "text": ""
+            },
+            {
+                "type": "contact",
+                "title": "Contact Info",
+                "contact_extras": [],
+                "text": ""
+            }
+        ],
+        "copyright": "© Copyright {business}. All Rights Reserved.",
+        "bottom_links": [
+            {
+                "label": "Privacy Policy",
+                "url": "/privacy-policy"
+            },
+            {
+                "label": "Terms and Conditions",
+                "url": "/terms-and-conditions"
+            }
+        ],
+        "disclaimer": "<p>Disclaimer: {business_domain} is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and {business_domain} does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. It is the responsibility of the homeowner to ask the pest control contractor about the pest control solution to ensure it meets the homeowner's family and pet safety requirements. All persons depicted in a photo or video are actors or models and not contractors listed on {business_domain}. Any advertiser relationships are clearly marked as \"Sponsored\" or \"Ad\". See Terms and Conditions for further details.</p>",
+        "sticky_bar_text": "24/7 Support Line - Call Now",
+        "sticky_bar_info": "Calls are answered by our advertising partners who can help match you with a suitable provider.",
+        "logo_in_copyright_bar": false,
+        "col_count": 3,
+        "socials": {
+            "facebook": "",
+            "instagram": "",
+            "linkedin": "",
+            "youtube": "",
+            "twitter": ""
+        },
+        "logo_in_contact_column": true
+    },
+    "pages": {
+        "page_8845f40cd5d04": {
+            "title": "Privacy Policy | {business}",
+            "slug": "privacy-policy",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h1",
+                    "text": "Privacy Policy\n<p>{business} respects your privacy and is committed to protecting it. This Privacy Policy explains what information we collect when you use {website} (the &ldquo;Website&rdquo;), how we use and share that information, and the choices available to you. The Website connects homeowners with independent pest control providers and does not itself perform pest control services.</p><p>By accessing or using the Website, you agree to the practices described in this policy. We may update this policy from time to time; continuing to use the Website after changes are posted means you accept the updated policy.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "A. Information We Collect\n<p>We collect information in a few different ways: information you give us directly, information collected automatically as you browse, and information generated when you call a number listed on the Website.</p><p><strong>Information you provide:</strong> name, phone number, address, email, and any details you submit through a form or request on the Website.</p><p><strong>Automatically collected information:</strong> browser type, device type, IP address, approximate location, pages viewed, search terms, and the date and time of your visit.</p><p><strong>Call information:</strong> if you call a number displayed on the Website, we and our call-tracking partners may record the date, time, duration, and content of that call for quality assurance and to route you to an appropriate provider.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "B. How We Use Information\n<p>We use the information we collect to operate and improve the Website, connect you with relevant pest control providers, respond to your inquiries, personalize the content and offers you see, measure and improve the performance of our advertising, detect and prevent fraud or abuse, and comply with legal obligations.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "C. Cookies and Similar Technologies\n<p>The Website uses cookies and similar tracking technologies (such as web beacons and pixel tags) for purposes including:</p><ul><li><strong>Functionality</strong> &mdash; remembering your preferences and keeping the Website working correctly</li><li><strong>Security</strong> &mdash; detecting and preventing fraudulent or unauthorized activity</li><li><strong>Analytics</strong> &mdash; understanding how visitors use the Website so we can improve it</li><li><strong>Advertising</strong> &mdash; showing you relevant ads on this Website and others, and measuring how well our ads perform</li></ul><p>Most browsers let you block or delete cookies through their settings. Doing so may limit some features of the Website. If your browser sends a \"do not track\" signal, please note we do not currently respond differently to that signal.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "D. How We Share Information\n<p>We may share information about you with:</p><ul><li><strong>Pest control providers</strong> &mdash; so they can respond to your request or call</li><li><strong>Service vendors</strong> &mdash; companies that host the Website, track and route calls, support our advertising, or otherwise help us operate the Website, under obligations to protect your information</li><li><strong>Advertising partners</strong> &mdash; who may use cookies to show you relevant ads based on your visit to the Website</li><li><strong>Successors</strong> &mdash; if {business} is involved in a merger, acquisition, or sale of assets, your information may transfer as part of that transaction</li><li><strong>Legal authorities</strong> &mdash; when required by law, subpoena, or other legal process, or to protect the rights, safety, or property of {business}, our users, or the public</li></ul><p>We do not sell your personal information to third parties for them to market their own unrelated products or services without your consent.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "E. Data Security\n<p>We use reasonable administrative and technical safeguards to protect the information we collect. However, no method of transmitting or storing data over the internet is completely secure, and we cannot guarantee absolute security. You share information with us at your own risk.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "F. Data Retention\n<p>We keep information for as long as needed to provide the Website, fulfill the purposes described in this policy, and meet our legal and accounting obligations. When information is no longer needed for these purposes, we take reasonable steps to delete or anonymize it.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "G. Children's Privacy\n<p>The Website is intended for adults and is not directed to children under 18. We do not knowingly collect personal information from anyone under 18. If you believe a child has provided us with personal information, please contact us at info@{business_domain} so we can remove it.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "H. International Visitors\n<p>The Website is intended for use by residents of the United States. If you access the Website from outside the United States, your information may be transferred to and processed in the United States, which may not provide the same level of data protection as your home country. By using the Website, you consent to this transfer.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "I. Your Privacy Rights\n<p>Depending on where you live, you may have rights to know what personal information we hold about you, request a copy of it, ask us to correct or delete it, and opt out of certain uses such as targeted advertising or the sale of personal information. To exercise any of these rights, contact us at info@{business_domain}. We will respond to verified requests consistent with applicable law.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "J. Contact Us\n<p>Questions or concerns about this Privacy Policy can be sent to info@{business_domain} or by calling {phone}.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "K. Changes to This Policy\n<p>We may revise this Privacy Policy periodically. The version posted on the Website is always the most current, and changes take effect as soon as they are posted. We encourage you to review this page from time to time.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "custom_html",
+                    "html": "[services_links]"
+                }
+            ],
+            "seo": {
+                "meta_keywords": "",
+                "meta_description": "Read the {business} Privacy Policy to learn how we collect, use, and protect your information when you visit {website} or call our helpline.",
+                "og_title": "Privacy Policy | {business}",
+                "og_description": "How {business} collects, uses, and protects your information.",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "{website}/privacy-policy/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "Privacy Policy",
+                "bc_mid_label": "",
+                "bc_mid_url": "",
+                "primary_keyword": "",
+                "secondary_keywords": ""
+            }
+        },
+        "page_5ecf42631f084": {
+            "title": "Terms and Conditions | {business}",
+            "slug": "terms-and-conditions",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h1",
+                    "text": "Terms and Conditions\n<p>These Terms and Conditions (the &ldquo;Terms&rdquo;) govern your use of {website} (the &ldquo;Website&rdquo;). By accessing or using the Website, you agree to be bound by these Terms. If you do not agree, please do not use the Website.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "A. Who We Are\n<p>{business} operates the Website as a free service that helps homeowners find independent pest control providers in their area. We do not own, operate, or control any pest control business, and we do not perform pest control services ourselves. Any photos or videos of technicians shown on the Website are for illustration only and may depict models or stock imagery rather than an actual provider.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "B. Eligibility and Acceptance\n<p>The Website is intended for use by individuals 18 years of age or older who reside in the United States. By using the Website, you represent that you meet these requirements and agree to be bound by these Terms.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "C. Content Is Informational Only\n<p>Content on the Website &mdash; including articles, service descriptions, and pricing information &mdash; is provided for general informational purposes only and is not a substitute for advice from a licensed pest control professional. We make reasonable efforts to keep information accurate and current, but it may not always reflect the latest pricing, availability, or local regulations. You should confirm details directly with any provider before hiring them.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "D. Connecting You With Providers\n<p>When you call a number listed on the Website or submit a request, you direct us to share your information with one or more pest control providers so they can contact you about your request. {business} may receive compensation from providers for these introductions. This compensation does not affect the price you pay or the quality of service you receive, and you are never charged anything by {business} for using the Website.</p><p>We make no guarantee about the suitability, licensing, insurance, or quality of any provider. It is your responsibility to verify a provider's credentials, licensing, and insurance before hiring them. {business} is not a party to any agreement between you and a provider and is not responsible for the services a provider performs or fails to perform.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "E. Prohibited Conduct\n<p>When using the Website, you agree not to:</p><ul><li>Use the Website for any unlawful, fraudulent, or misleading purpose</li><li>Post or submit fake reviews, or offer or accept payment in exchange for reviews</li><li>Attempt to interfere with, disable, or gain unauthorized access to the Website or its systems</li><li>Use automated tools to scrape, crawl, or copy content from the Website without our written permission</li><li>Upload or transmit viruses, malicious code, or content that infringes another person's rights</li><li>Impersonate any person or misrepresent your affiliation with any person or entity</li></ul><p>We may suspend or terminate your access to the Website if we believe, in our reasonable judgment, that you have violated these Terms.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "F. Disclaimer of Warranties\n<p>The Website is provided \"as is\" and \"as available,\" without warranties of any kind, whether express or implied. We do not warrant that the Website will be uninterrupted, error-free, or that any information on it is complete or accurate. Your use of the Website is at your own risk.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "G. Limitation of Liability\n<p>To the fullest extent permitted by law, {business} and its officers, employees, and affiliates will not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Website, or from the acts or omissions of any pest control provider you connect with through the Website. Our total liability for any claim relating to the Website is limited to $150. Any claim must be brought within one year of the event giving rise to it.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "H. Indemnification\n<p>You agree to defend and hold {business} harmless from any claims, losses, or damages arising from your misuse of the Website, your violation of these Terms, or content you submit through the Website.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "I. Intellectual Property\n<p>All content on the Website &mdash; including text, graphics, logos, and images &mdash; is owned by {business} or its licensors and protected by copyright and trademark law. You may view and print pages from the Website for your own personal, non-commercial use. You may not copy, republish, modify, or create derivative works from any part of the Website, or use it for any commercial purpose, without our prior written consent.</p><p>If you believe content on the Website infringes your copyright, please contact us at info@{business_domain} with details of the alleged infringement so we can investigate.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "J. Relationship to Our Privacy Policy\n<p>Your use of the Website is also governed by our <a href=\"/privacy-policy\">Privacy Policy</a>, which explains how we collect, use, and share information about you.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "K. Governing Law\n<p>These Terms are governed by the laws of the State of {state}, without regard to conflict-of-law rules that would apply the law of any other jurisdiction.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "L. Dispute Resolution\n<p>If a dispute arises out of your use of the Website, we encourage you to contact us first at info@{business_domain} so we can try to resolve it informally. If a dispute cannot be resolved informally within 45 days, you and {business} agree that it will be resolved by binding individual arbitration rather than in court, except that either party may bring a claim in small claims court if it qualifies. You and {business} each waive the right to a jury trial and to participate in any class, mass, or representative action against the other.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "M. Changes to These Terms\n<p>We may update these Terms from time to time by posting a revised version on the Website. Continuing to use the Website after a revised version is posted means you accept the updated Terms. If any provision of these Terms is found unenforceable, the remaining provisions will remain in effect.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "N. Contact Us\n<p>Questions about these Terms can be directed to info@{business_domain} or by calling {phone}.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "custom_html",
+                    "html": "[services_links]"
+                }
+            ],
+            "seo": {
+                "meta_keywords": "",
+                "meta_description": "Read the {business} Terms and Conditions governing your use of {website}, our advertising network, and our helpline.",
+                "og_title": "Terms and Conditions | {business}",
+                "og_description": "The terms governing your use of {website}.",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "{website}/terms-and-conditions/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "Terms and Conditions",
+                "bc_mid_label": "",
+                "bc_mid_url": "",
+                "primary_keyword": "",
+                "secondary_keywords": ""
+            }
+        },
+        "page_6a30c3339c03d": {
+            "title": "Contact Us",
+            "slug": "contact-us",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h1",
+                    "text": "Contact Us\n<p>If you are interested in becoming part of our advertising network or have questions, give us a call or send us an email below.</p><p style=\"margin-top:24px;\"><a href=\"tel:{tel}\" class=\"cta-btn\">Call {phone}</a></p><p>Email: <a href=\"mailto:info@{business_domain}\">info@{business_domain}</a></p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "custom_html",
+                    "html": "[services_links]"
+                }
+            ],
+            "seo": {
+                "meta_keywords": "",
+                "meta_description": "Contact {business} — call our free 24/7 helpline or email us to connect with a trusted pest control specialist in {city_state}.",
+                "og_title": "Contact Us | {business}",
+                "og_description": "Get in touch with {business} — call our free 24/7 helpline or send us an email.",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "{website}/contact-us/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "Contact Us",
+                "bc_mid_label": "",
+                "bc_mid_url": "",
+                "primary_keyword": "",
+                "secondary_keywords": ""
+            }
+        }
+    },
+    "popups": {
+        "info": {
+            "enabled": true,
+            "heading": "How Your Calls Are Handled",
+            "image": "sites/pest-template/uploads/media/how-your-calls-are-handled_f90e0e.webp",
+            "body": "<p>We offer a free, 24/7 confidential helpline to connect you with trusted pest control professionals tailored to your needs. This call routing service is sponsored advertising. {website} does not provide pest control services. Calls to our main helpline are answered by one of our advertising partners who can help match you with a suitable provider. By using {website} and calling, you agree to our terms and conditions. You'll never be charged for these calls or pressured to choose any particular service. Neither we nor our partners earn commissions from your choices. <strong>Notice of Call Recording and Data Use:</strong> By using {website} and calling, you agree to our Privacy Policy. To explore more pest control options, visit our {website} or call us anytime at {phone}.</p>"
+        }
+    },
+    "local_business": {
+        "lb_name": "{business}",
+        "lb_type": "PestControlService",
+        "lb_url": "{website}",
+        "lb_phone": "{phone}",
+        "lb_street": "",
+        "lb_city": "{city}",
+        "lb_state": "{SS}",
+        "lb_zip": "{zip}",
+        "lb_country": "US",
+        "lb_lat": "31.3382",
+        "lb_lng": "-94.7291",
+        "lb_price_range": "$$",
+        "lb_hours": "Mo-Fr 08:00-18:00, Sa 09:00-13:00",
+        "lb_description": "{business} provides professional pest control services in {city_state} including cockroach extermination, termite treatment, mosquito control, and more.",
+        "lb_logo": "{website}/uploads/logo_littleton-pest-pros.png",
+        "lb_rating": "4.8",
+        "lb_review_count": "534"
+    },
+    "site_vars": {
+        "city": "Littleton",
+        "state": "Colorado",
+        "SS": "CO",
+        "city_slug": "littleton-co",
+        "business": "Littleton Pest Pros",
+        "phone": "720-201-5555",
+        "zip": "80127",
+        "website": "https://p.q111.xyz",
+        "tel": "+17202015555",
+        "city_image": "sites/pest-template/uploads/media/city-scenic-littleton-co.webp",
+        "city_image_alt": "West Main St 2015-06 864 in Littleton, CO",
+        "city_image_credit": "Photo: Chris Light, CC BY-SA 4.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:West_Main_St_2015-06_864.jpg",
+        "email": "contact@yourbusiness.com",
+        "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots."
+    },
+    "posts": {
+        "post_6a30bb2590334": {
+            "title": "Fire Ant Control in {city}: How to Get Rid of Fire Ants for Good",
+            "slug": "fire-ant-control",
+            "status": "published",
+            "published_at": "2026-06-16",
+            "updated_at": "2026-07-17",
+            "author": "{business} Team",
+            "tag": "Fire Ant Control",
+            "excerpt": "How to identify, treat, and prevent fire ant mounds in {city} — plus why professional fire ant control outlasts DIY mound treatments.",
+            "featured_image": "sites/pest-template/uploads/media/ant-control-katy_41c015.webp",
+            "featured_image_alt": "Fire ants swarming on a leaf in a {city} yard",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "Why Fire Ants Are Such a Problem in {city}\n\n<p>Fire ants thrive in the warm, humid climate of {city_state}, building mounds in lawns, flower beds, and along sidewalks. Unlike many household pests, fire ants are an outdoor threat that can turn a yard, playground, or patio into a hazard &mdash; their sting is painful, and for some people, dangerous.</p><p>Because fire ant colonies can quickly spread across a property and rebuild after a disturbed mound, getting rid of them usually takes more than a single store-bought treatment.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "How to Identify a Fire Ant Infestation\n\n<p>Signs that fire ants have moved into your {city} yard include:</p><ul><li>Dome-shaped dirt mounds in the lawn, often near sidewalks, patios, or the base of trees</li><li>Mounds that appear suddenly after rain, when ants move closer to the surface</li><li>Aggressive swarming when a mound is disturbed</li><li>Painful, burning stings that leave small white blisters</li><li>Reddish-brown ants about 1/8 to 1/4 inch long, smaller than most other ant species</li></ul><p>If you notice mounds appearing in multiple areas of the yard, it's a sign of an established colony rather than a single isolated nest.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "Why Fire Ant Stings Are More Than Just an Inconvenience\n\n<p>Fire ants attack in groups, often stinging multiple times within seconds of a mound being disturbed. For most people, this means painful welts that itch and burn for several days. For children, pets, and anyone with a sting allergy, fire ant encounters can be far more serious, sometimes requiring medical attention.</p><p>This is one of the main reasons fire ant control isn't something to put off &mdash; especially in yards where kids or pets spend time outdoors.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "image_right",
+                    "heading_level": "h2",
+                    "text": "<h2 class=\"block-heading\">How Professional Fire Ant Control Works</h2><p>{business} treats fire ant infestations in {city} using a two-part approach:</p><ul><li><strong>Broadcast bait treatment</strong> across the lawn, which worker ants carry back to the colony and queen, eliminating the nest from the inside out</li><li><strong>Direct mound treatment</strong> for active or visible mounds, for faster knockdown of aggressive colonies</li></ul><p>This combination controls existing mounds while also preventing new colonies from establishing elsewhere on the property &mdash; something DIY mound-by-mound treatments usually miss.</p>",
+                    "photo": "sites/pest-template/uploads/media/best-ant-control-katy_5c655c.webp",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": "Pest control technician applying an ant control treatment along a baseboard in a {city} home"
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "DIY Fire Ant Treatments vs. Professional Control\n\n<p>Mound-killer powders and home remedies can knock down a single visible mound, but fire ant colonies often have satellite nests connected underground that never get treated. Disturbing a mound without eliminating the queen can even cause the colony to split and spread further across the yard.</p><p>Professional treatments are formulated to reach the entire colony, including nests that aren't visible above ground, which is why professional fire ant control tends to last far longer than DIY options.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "How Often Should {city} Yards Be Treated for Fire Ants?\n\n<p>Most {city} properties benefit from fire ant treatments every 60 to 90 days, since new colonies can move in from neighboring yards or undeveloped land at any time. Pairing fire ant control with a broader perimeter pest control plan helps keep both the yard and the home itself protected year-round.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "Get Fire Ant Control in {city} Today\n\n<p>{business} provides fast, effective fire ant control throughout {city_state}, knocking down active mounds and treating colonies at the source so they don't come back. Call <a href=\"tel:{tel}\">{phone}</a> today to schedule a free yard inspection.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                }
+            ],
+            "seo": {
+                "meta_keywords": "fire ant control {city}, fire ant treatment {city}, fire ant exterminator {city}",
+                "meta_description": "Fire ant control in {city}: how to spot mounds, why stings are dangerous, and how professional treatment gets rid of colonies for good.",
+                "og_title": "Fire Ant Control in {city}: How to Get Rid of Fire Ants for Good",
+                "og_description": "Stop fire ant mounds from taking over your {city} yard. See how professional treatment works and how often to treat.",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "",
+                "bc_mid_label": "Blog",
+                "bc_mid_url": "/blog",
+                "primary_keyword": "fire ant control {city}",
+                "secondary_keywords": "fire ant treatment {city}, fire ant exterminator {city}, how to get rid of fire ants {city}"
+            }
+        }
+    },
+    "blog_settings": {
+        "blog_heading": "Pest Control Tips & News for {city}",
+        "blog_intro": "",
+        "posts_per_page": 9
+    },
+    "services_links": {
+        "services": [
+            {
+                "name": "Cockroach Extermination",
+                "url": "/cockroach-exterminator-{city_slug}"
+            },
+            {
+                "name": "Ant Pest Control",
+                "url": "/ant-pest-control-{city_slug}"
+            },
+            {
+                "name": "Fire Ant Control",
+                "url": "/fire-ant-control-{city_slug}"
+            },
+            {
+                "name": "Carpenter Ant Control",
+                "url": "/carpenter-ant-control-{city_slug}"
+            },
+            {
+                "name": "Bed Bug Control",
+                "url": "/bed-bug-control-{city_slug}"
+            },
+            {
+                "name": "Termite Treatment",
+                "url": "/termite-treatment-{city_slug}"
+            },
+            {
+                "name": "Mosquito Control",
+                "url": "/mosquito-control-{city_slug}"
+            },
+            {
+                "name": "Flea Pest Control",
+                "url": "/flea-pest-control-{city_slug}"
+            },
+            {
+                "name": "Tick Treatment",
+                "url": "/tick-treatment-{city_slug}"
+            },
+            {
+                "name": "Rat Exterminator",
+                "url": "/rat-exterminator-{city_slug}"
+            },
+            {
+                "name": "Mouse Exterminator",
+                "url": "/mouse-exterminator-{city_slug}"
+            },
+            {
+                "name": "Spider Pest Control",
+                "url": "/spider-pest-control-{city_slug}"
+            },
+            {
+                "name": "Scorpion Pest Control",
+                "url": "/scorpion-pest-control-{city_slug}"
+            },
+            {
+                "name": "Wasp Exterminator",
+                "url": "/wasp-exterminator-{city_slug}"
+            },
+            {
+                "name": "Yellow Jacket Control",
+                "url": "/yellow-jacket-control-{city_slug}"
+            },
+            {
+                "name": "Silverfish Control",
+                "url": "/silverfish-control-{city_slug}"
+            },
+            {
+                "name": "Centipede Control",
+                "url": "/centipede-control-{city_slug}"
+            },
+            {
+                "name": "Cricket Control",
+                "url": "/cricket-control-{city_slug}"
+            },
+            {
+                "name": "Stink Bug Control",
+                "url": "/stink-bug-control-{city_slug}"
+            },
+            {
+                "name": "Wasp Nest Removal",
+                "url": "/wasp-nest-removal-{city_slug}"
+            },
+            {
+                "name": "Hornet Removal",
+                "url": "/hornet-removal-{city_slug}"
+            },
+            {
+                "name": "Bee Removal",
+                "url": "/bee-removal-{city_slug}"
+            },
+            {
+                "name": "Termite Inspection",
+                "url": "/termite-inspection-{city_slug}"
+            },
+            {
+                "name": "Pest Inspection",
+                "url": "/pest-inspection-{city_slug}"
+            },
+            {
+                "name": "WDI Inspection",
+                "url": "/wdi-inspection-{city_slug}"
+            },
+            {
+                "name": "Residential Pest Control",
+                "url": "/residential-pest-control-{city_slug}"
+            },
+            {
+                "name": "Commercial Pest Control",
+                "url": "/commercial-pest-control-{city_slug}"
+            },
+            {
+                "name": "Emergency Pest Control",
+                "url": "/emergency-pest-control-{city_slug}"
+            },
+            {
+                "name": "Restaurant Pest Control",
+                "url": "/restaurant-pest-control-{city_slug}"
+            },
+            {
+                "name": "Pest Control Plans",
+                "url": "/pest-control-plans-{city_slug}"
+            }
+        ],
+        "url_pattern": "/{service_slug}-{city_slug}",
+        "heading": "Our Pest Control Services in {city_state}",
+        "sublabel": "",
+        "subtext": "We offer a full range of pest control services in {city_state}, including treatments for cockroaches, termites, mosquitoes, fleas, rodents, ants, spiders, and bed bugs. Our local exterminators provide fast and effective solutions to remove pests and prevent them from returning, keeping your property safe and pest-free all year long.",
+        "style": "dark",
+        "cols": 5,
+        "bg_photo": "sites/pest-template/uploads/media/pest-katy_home_a1b2c3.webp",
+        "overlay": "0.20",
+        "bg_color": "#ffffff",
+        "accent": "accent",
+        "accent_custom": "#fd783b",
+        "anchor": "pest_services"
+    },
+    "breadcrumbs": {
+        "enabled": true,
+        "hero_bg_mode": "auto",
+        "hero_bg_color": ""
     }
-  },
-  "blog_settings": {
-    "blog_heading": "Pest Control Tips & News for {city}",
-    "blog_intro": "",
-    "posts_per_page": 9
-  },
-  "services_links": {
-    "services": [
-      {
-        "name": "Cockroach Extermination",
-        "url": "/cockroach-exterminator-{city_slug}"
-      },
-      {
-        "name": "Ant Pest Control",
-        "url": "/ant-pest-control-{city_slug}"
-      },
-      {
-        "name": "Fire Ant Control",
-        "url": "/fire-ant-control-{city_slug}"
-      },
-      {
-        "name": "Carpenter Ant Control",
-        "url": "/carpenter-ant-control-{city_slug}"
-      },
-      {
-        "name": "Bed Bug Control",
-        "url": "/bed-bug-control-{city_slug}"
-      },
-      {
-        "name": "Termite Treatment",
-        "url": "/termite-treatment-{city_slug}"
-      },
-      {
-        "name": "Mosquito Control",
-        "url": "/mosquito-control-{city_slug}"
-      },
-      {
-        "name": "Flea Pest Control",
-        "url": "/flea-pest-control-{city_slug}"
-      },
-      {
-        "name": "Tick Treatment",
-        "url": "/tick-treatment-{city_slug}"
-      },
-      {
-        "name": "Rat Exterminator",
-        "url": "/rat-exterminator-{city_slug}"
-      },
-      {
-        "name": "Mouse Exterminator",
-        "url": "/mouse-exterminator-{city_slug}"
-      },
-      {
-        "name": "Spider Pest Control",
-        "url": "/spider-pest-control-{city_slug}"
-      },
-      {
-        "name": "Scorpion Pest Control",
-        "url": "/scorpion-pest-control-{city_slug}"
-      },
-      {
-        "name": "Wasp Exterminator",
-        "url": "/wasp-exterminator-{city_slug}"
-      },
-      {
-        "name": "Yellow Jacket Control",
-        "url": "/yellow-jacket-control-{city_slug}"
-      },
-      {
-        "name": "Silverfish Control",
-        "url": "/silverfish-control-{city_slug}"
-      },
-      {
-        "name": "Centipede Control",
-        "url": "/centipede-control-{city_slug}"
-      },
-      {
-        "name": "Cricket Control",
-        "url": "/cricket-control-{city_slug}"
-      },
-      {
-        "name": "Stink Bug Control",
-        "url": "/stink-bug-control-{city_slug}"
-      },
-      {
-        "name": "Wasp Nest Removal",
-        "url": "/wasp-nest-removal-{city_slug}"
-      },
-      {
-        "name": "Hornet Removal",
-        "url": "/hornet-removal-{city_slug}"
-      },
-      {
-        "name": "Bee Removal",
-        "url": "/bee-removal-{city_slug}"
-      },
-      {
-        "name": "Termite Inspection",
-        "url": "/termite-inspection-{city_slug}"
-      },
-      {
-        "name": "Pest Inspection",
-        "url": "/pest-inspection-{city_slug}"
-      },
-      {
-        "name": "WDI Inspection",
-        "url": "/wdi-inspection-{city_slug}"
-      },
-      {
-        "name": "Residential Pest Control",
-        "url": "/residential-pest-control-{city_slug}"
-      },
-      {
-        "name": "Commercial Pest Control",
-        "url": "/commercial-pest-control-{city_slug}"
-      },
-      {
-        "name": "Emergency Pest Control",
-        "url": "/emergency-pest-control-{city_slug}"
-      },
-      {
-        "name": "Restaurant Pest Control",
-        "url": "/restaurant-pest-control-{city_slug}"
-      },
-      {
-        "name": "Pest Control Plans",
-        "url": "/pest-control-plans-{city_slug}"
-      }
-    ],
-    "url_pattern": "/{service_slug}-{city_slug}",
-    "heading": "Our Pest Control Services in {city_state}",
-    "sublabel": "",
-    "subtext": "We offer a full range of pest control services in {city_state}, including treatments for cockroaches, termites, mosquitoes, fleas, rodents, ants, spiders, and bed bugs. Our local exterminators provide fast and effective solutions to remove pests and prevent them from returning, keeping your property safe and pest-free all year long.",
-    "style": "dark",
-    "cols": 5,
-    "bg_photo": "sites/pest-template/uploads/media/pest-katy_home_a1b2c3.webp",
-    "overlay": "0.20",
-    "bg_color": "#ffffff",
-    "accent": "accent",
-    "accent_custom": "#fd783b",
-    "anchor": "pest_services"
-  },
-  "breadcrumbs": {
-    "enabled": true,
-    "hero_bg_mode": "auto",
-    "hero_bg_color": ""
-  }
 }

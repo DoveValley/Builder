@@ -1,1182 +1,1134 @@
 {
-  "theme": {
-    "header_bg": "#14532d",
-    "header_text": "#ffffff",
-    "content_bg": "#ffffff",
-    "content_text": "#888c92",
-    "footer_bg": "#14532d",
-    "footer_text": "#ffffff",
-    "accent_color": "#16a34a",
-    "primary_font": "Nunito, sans-serif",
-    "button_radius": "10",
-    "analytics_head": "",
-    "facebook_pixel": "",
-    "font_family": "sans-serif",
-    "header_top_bg": "#ffffff",
-    "heading_color": "#14532d",
-    "font_size_body": 16,
-    "font_size_h1": 3,
-    "font_size_h2": 2.25,
-    "font_size_h3": 1.63,
-    "font_size_h4": 1.5,
-    "heading_font": "",
-    "accent2_color": "#15803d",
-    "btn_text": "#ffffff",
-    "border_color": "#e5e7eb",
-    "skins": {
-      "light": {
-        "bg": "#ffffff",
-        "heading": "#14532d",
-        "text": "#555e6d"
-      },
-      "dark": {
-        "bg": "#0e3320",
-        "heading": "#ffffff",
-        "text": "#e2e8f0"
-      },
-      "accent": {
-        "bg": "#16a34a",
-        "heading": "#ffffff",
-        "text": "#f0fdf4"
-      },
-      "subtle": {
-        "bg": "#f1f8f3",
-        "heading": "#14532d",
-        "text": "#555e6d"
-      }
+    "theme": {
+        "header_bg": "#14532d",
+        "header_text": "#ffffff",
+        "content_bg": "#ffffff",
+        "content_text": "#888c92",
+        "footer_bg": "#14532d",
+        "footer_text": "#ffffff",
+        "accent_color": "#16a34a",
+        "primary_font": "Nunito, sans-serif",
+        "button_radius": "10",
+        "analytics_head": "",
+        "facebook_pixel": "",
+        "font_family": "sans-serif",
+        "header_top_bg": "#ffffff",
+        "heading_color": "#14532d",
+        "font_size_body": 16,
+        "font_size_h1": 3,
+        "font_size_h2": 2.25,
+        "font_size_h3": 1.63,
+        "font_size_h4": 1.5,
+        "heading_font": "",
+        "accent2_color": "#15803d",
+        "btn_text": "#ffffff",
+        "border_color": "#e5e7eb",
+        "skins": {
+            "light": {
+                "bg": "#ffffff",
+                "heading": "#14532d",
+                "text": "#555e6d"
+            },
+            "dark": {
+                "bg": "#0e3320",
+                "heading": "#ffffff",
+                "text": "#e2e8f0"
+            },
+            "accent": {
+                "bg": "#16a34a",
+                "heading": "#ffffff",
+                "text": "#f0fdf4"
+            },
+            "subtle": {
+                "bg": "#f1f8f3",
+                "heading": "#14532d",
+                "text": "#555e6d"
+            }
+        },
+        "head_extra": "<style>\n/* sticky footer — match pest style: FA phone-in-circle + FA info \"i\", bigger text, phone not bold */\n.sticky-phone-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#0e3320;flex:0 0 44px;margin-right:8px;}\n.sticky-phone-icon svg{display:none;}\n.sticky-phone-icon::before{content:\"\";display:inline-block;width:22px;height:22px;background:#fff;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n.sticky-info-trigger svg{display:none;}\n.sticky-info-trigger::before{content:\"\";display:inline-block;width:26px;height:26px;vertical-align:middle;background:currentColor;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n.sticky-bar-text{font-size:1.4rem !important;}\n.sticky-phone-number{font-size:1.75rem !important;font-weight:400 !important;}\n\n/* header info items — match pest: even spacing, regular weight, 1.05rem, sized icons */\n.header-info-items{justify-content:space-between !important;padding-left:72px !important;}\n.header-info-item{font-weight:400 !important;font-size:1.05rem !important;}\n.header-info-item:last-child{margin-left:0 !important;}\n.header-info-item .info-icon{font-size:2rem !important;line-height:1;}\n.header-info-item:first-child .info-icon{font-size:1.5rem !important;}\n.header-info-item:nth-child(2) .info-icon{font-size:1.6rem !important;}\n.header-info-item:nth-child(3) .info-icon{font-size:1.6rem !important;}\n\n/* nav strip — match pest: 40% taller + 2x phone icon + FA info \"i\" */\n.header-nav-inner{min-height:73px;}\n.header-phone-btn svg{display:none;}\n.header-phone-btn{font-size:1.5rem !important;font-weight:400 !important;}\n.helpline-sponsored .info-trigger svg{display:none;}\n.helpline-sponsored .info-trigger::before{content:\"\";display:inline-block;width:1.1em;height:1.1em;margin-right:5px;vertical-align:middle;background:currentColor;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n/* bigger nav links (match pest) */\n.header-nav-row .site-nav ul li a{font-size:1.15rem !important;}\n/* helpline/sponsored/i like pest (katypestpros.com) */\n.header-helpline{font-size:1.1rem !important;text-align:left !important;}\n.helpline-label{font-weight:400 !important;}\n.helpline-sponsored{opacity:1 !important;}\n/* footer contact: phone like sticky (FA phone in brand circle) + bigger globe */\n.contact-icon-phone{background:#0e3320 !important;font-size:0 !important;}\n.contact-icon-phone::before{content:\"\";display:inline-block;width:16px;height:16px;background:#fff;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n.contact-icon-city{font-size:1.6rem !important;}\n</style>"
     },
-    "head_extra": "<style>\n/* sticky footer — match pest style: FA phone-in-circle + FA info \"i\", bigger text, phone not bold */\n.sticky-phone-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#0e3320;flex:0 0 44px;margin-right:8px;}\n.sticky-phone-icon svg{display:none;}\n.sticky-phone-icon::before{content:\"\";display:inline-block;width:22px;height:22px;background:#fff;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n.sticky-info-trigger svg{display:none;}\n.sticky-info-trigger::before{content:\"\";display:inline-block;width:26px;height:26px;vertical-align:middle;background:currentColor;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n.sticky-bar-text{font-size:1.4rem !important;}\n.sticky-phone-number{font-size:1.75rem !important;font-weight:400 !important;}\n\n/* header info items — match pest: even spacing, regular weight, 1.05rem, sized icons */\n.header-info-items{justify-content:space-between !important;padding-left:72px !important;}\n.header-info-item{font-weight:400 !important;font-size:1.05rem !important;}\n.header-info-item:last-child{margin-left:0 !important;}\n.header-info-item .info-icon{font-size:2rem !important;line-height:1;}\n.header-info-item:first-child .info-icon{font-size:1.5rem !important;}\n.header-info-item:nth-child(2) .info-icon{font-size:1.6rem !important;}\n.header-info-item:nth-child(3) .info-icon{font-size:1.6rem !important;}\n\n/* nav strip — match pest: 40% taller + 2x phone icon + FA info \"i\" */\n.header-nav-inner{min-height:73px;}\n.header-phone-btn svg{display:none;}\n.header-phone-btn{font-size:1.5rem !important;font-weight:400 !important;}\n.helpline-sponsored .info-trigger svg{display:none;}\n.helpline-sponsored .info-trigger::before{content:\"\";display:inline-block;width:1.1em;height:1.1em;margin-right:5px;vertical-align:middle;background:currentColor;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n/* bigger nav links (match pest) */\n.header-nav-row .site-nav ul li a{font-size:1.15rem !important;}\n/* helpline/sponsored/i like pest (katypestpros.com) */\n.header-helpline{font-size:1.1rem !important;text-align:left !important;}\n.helpline-label{font-weight:400 !important;}\n.helpline-sponsored{opacity:1 !important;}\n/* footer contact: phone like sticky (FA phone in brand circle) + bigger globe */\n.contact-icon-phone{background:#0e3320 !important;font-size:0 !important;}\n.contact-icon-phone::before{content:\"\";display:inline-block;width:16px;height:16px;background:#fff;-webkit-mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;mask:url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E\") center/contain no-repeat;}\n.contact-icon-city{font-size:1.6rem !important;}\n</style>"
-  },
-  "header": {
-    "logo": "uploads/logo_elk-mold-pros.png",
-    "phone": "{phone}",
-    "city": "",
-    "topbar_text": "",
-    "topbar_link": "",
-    "menu": [
-      {
-        "label": "Home",
-        "url": "/",
-        "children": []
-      },
-      {
-        "label": "Services",
-        "url": "#mold_services",
-        "children": []
-      }
-    ],
-    "socials": {
-      "facebook": "",
-      "instagram": "",
-      "twitter": "",
-      "youtube": "",
-      "linkedin": "",
-      "tiktok": "",
-      "yelp": ""
-    },
-    "nav_bg": "accent",
-    "nav_text": "#ffffff",
-    "phone_btn_style": "outline",
-    "sticky": true,
-    "info_items": [
-      {
-        "icon": "🌐",
-        "text": "{city_state}"
-      },
-      {
-        "icon": "🇺🇸",
-        "text": "Proudly American"
-      },
-      {
-        "icon": "",
-        "text": "Call for Great Service!"
-      }
-    ],
-    "logo_max_height": 72,
-    "phone_label": "24/7 Line:",
-    "show_sponsored": true,
-    "cta_text": "",
-    "cta_url": "",
-    "favicon": "uploads/favicon_elk-mold-pros.png",
-    "site_name": "{business}",
-    "header_layout": "standard",
-    "sr_bar_height": 64
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "Mold Remediation in {city_state}",
-      "hs_subtext": "<p>East Texas's warm, humid climate and seasonal rainfall create ideal conditions for mold growth in homes and businesses throughout the Lufkin area, particularly in basements, crawl spaces, and bathrooms where moisture accumulates. Elk Mold Pros specializes in mold remediation—identifying affected areas, containing the problem safely, and removing mold colonies to restore indoor air quality and protect your property. Professional remediation addresses the source of moisture and eliminates existing mold, giving property owners confidence that their home or business is clean and healthy.</p>",
-      "hs_btn_text": "{phone}",
-      "hs_btn_url": "tel:{tel}",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "Mold remediation in {city}, {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0fdf4",
-      "hs_photo": "sites/mold-site/uploads/media/mold-remediation-technician-cleaning-moldy-wall.webp",
-      "hs_bg_photo": "sites/mold-site/uploads/media/hero-bg-light.webp",
-      "hs_mobile_order": "",
-      "id": "home_hero",
-      "ai_type_id": "hero_subtext",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-23T15:42:40.616917Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_locked": true,
-      "_ai_input_hash": "e45256220dcf1cda"
-    },
-    {
-      "id": "home_city_intro",
-      "type": "ai_block",
-      "ai_type_id": "city_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-sonnet-5",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Lufkin Property Owners Rely On Mold Remediation Help",
-      "text": "<p>East Texas humidity, combined with Lufkin's warm summers and frequent seasonal rainfall, creates ideal conditions for indoor mold growth in both homes and businesses. Properties near Fuller Springs and Copeland Springs, where mature tree cover and moisture-retaining soil are common, can be especially prone to lingering dampness around foundations and crawl spaces. When humidity seeps into walls, attics, or bathrooms and isn't addressed, mold can take hold quickly, potentially affecting indoor air quality and causing discomfort for sensitive occupants. Regular mold inspection and prompt attention to leaks or condensation help Lufkin property owners stay ahead of these seasonal moisture patterns before small issues become larger concerns.</p><p>Elk Mold Pros approaches mold remediation with a methodical process that begins with thorough mold testing and assessment to understand the scope of an issue before any work begins. Our team uses safe containment practices during mold removal to help limit spread while addressing the source of moisture driving the problem. Whether the affected area is in a Downtown Lufkin business or a Crown Colony residence, we focus on careful, thorough mold mitigation and follow-up guidance so property owners feel informed throughout the process. Beyond mold, our team is equipped to address other property concerns as they arise. As Lufkin's climate continues to bring humid stretches and heavy rain, we remain ready to help residents protect their indoor spaces.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-23T15:42:49.352444Z",
-      "_ai_model": "claude-sonnet-5",
-      "_ai_type": "city_intro",
-      "_ai_locked": true,
-      "_ai_input_hash": "72f598bba449032b"
-    },
-    {
-      "type": "feature_split",
-      "fs_heading": "Mold Problems We Handle in {city}",
-      "fs_subtext": "{city}’s humidity, plumbing leaks, and water intrusion create ideal conditions for mold. We handle every type, including:",
-      "fs_photo_alt": "Mold remediation technician in {city}, {SS}",
-      "fs_star_text": "5 Star Service",
-      "fs_bg_color": "#f0fdf4",
-      "fs_accent": "#16a34a",
-      "fs_image_side": "left",
-      "fs_mobile_order": "text_first",
-      "fs_photo": "sites/mold-site/uploads/media/mold-inspection-mold-growth-on-wall.webp",
-      "fs_items": [
-        {
-          "icon": "",
-          "alt": "Black mold removal {city} {SS}",
-          "heading": "Black & Toxic Mold",
-          "text": "Stachybotrys and other toxic mold behind walls and in damp spaces that need safe containment and removal."
-        },
-        {
-          "icon": "",
-          "alt": "Bathroom and shower mold {city} {SS}",
-          "heading": "Bathroom & Shower Mold",
-          "text": "Mold on tile, grout, ceilings, and drywall in high-moisture bathrooms and showers."
-        },
-        {
-          "icon": "",
-          "alt": "Attic mold removal {city} {SS}",
-          "heading": "Attic & Roof Mold",
-          "text": "Mold from roof leaks and poor ventilation growing on sheathing, rafters, and insulation."
-        },
-        {
-          "icon": "",
-          "alt": "Crawl space and basement mold {city} {SS}",
-          "heading": "Crawl Space & Basement Mold",
-          "text": "Chronic below-grade moisture that fuels mold threatening structure and indoor air quality."
-        },
-        {
-          "icon": "",
-          "alt": "HVAC and air conditioner mold {city} {SS}",
-          "heading": "HVAC & Air Duct Mold",
-          "text": "Mold in air conditioners, vents, and ductwork that circulates spores throughout the property."
-        },
-        {
-          "icon": "",
-          "alt": "Water damage mold {city} {SS}",
-          "heading": "Water Damage Mold",
-          "text": "Mold that develops after leaks, floods, or burst pipes when moisture isn’t fully dried."
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "split_cta",
-      "sc_left_heading": "Serving the Greater {city_state} Area",
-      "sc_left_text": "Whether you’re a homeowner, business owner, or property manager, mold needs prompt, professional attention. Every job is backed by certified technicians, clear communication, transparent pricing, and thorough removal — done right the first time.",
-      "sc_right_label": "Call The {business} Team",
-      "sc_right_phone": "{phone}",
-      "sc_right_phone_url": "tel:{tel}",
-      "sc_left_bg": "accent",
-      "sc_right_bg": "header",
-      "sc_left_bg_custom": "#16a34a",
-      "sc_right_bg_custom": "#14532d"
-    },
-    {
-      "type": "tab_services",
-      "ts_badge1": "{business}",
-      "ts_badge2": "MOLD SERVICES {city}, {SS}",
-      "ts_heading": "Inspection, Testing, Containment & Drying",
-      "ts_active_bg": "header",
-      "ts_active_bg_custom": "#14532d",
-      "ts_tabs": [
-        {
-          "label": "Mold Inspection",
-          "icon": "",
-          "photo": "sites/mold-site/uploads/media/mold-inspection-and-testing.webp",
-          "alt": "Mold inspection {city} {SS}",
-          "desc": "A thorough inspection locates visible and hidden mold and the moisture source feeding it."
-        },
-        {
-          "label": "Mold Testing",
-          "icon": "",
-          "photo": "sites/mold-site/uploads/media/mold-inspection-mold-growth-on-wall.webp",
-          "alt": "Mold testing {city} {SS}",
-          "desc": "Air and surface sampling with lab analysis identifies the mold type and spore levels present."
-        },
-        {
-          "label": "Containment & Removal",
-          "icon": "",
-          "photo": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp",
-          "alt": "Mold removal {city} {SS}",
-          "desc": "Sealed containment, HEPA filtration, and safe removal of mold-infested materials."
-        },
-        {
-          "label": "Drying & Prevention",
-          "icon": "",
-          "photo": "sites/mold-site/uploads/media/mold-prevention-and-maintenance.webp",
-          "alt": "Mold prevention {city} {SS}",
-          "desc": "Correcting the moisture source and drying the space to keep mold from returning."
-        }
-      ],
-      "skin": "light"
-    },
-    {
-      "type": "hero_grid",
-      "hg_label": "{business}",
-      "hg_heading": "Where Mold Turns Up in {city_state} Homes",
-      "hg_body": "<p>When mold appears, our providers identify the type, extent, and moisture source to build the right remediation plan. Certified specialists follow proven containment and removal standards for safe, thorough results &mdash; protecting your property and your indoor air quality.</p>",
-      "hg_btn_text": "Call Us",
-      "hg_btn_url": "tel:{tel}",
-      "hg_photo_alt": "Mold remediation in {city}, {SS}",
-      "hg_photo": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp",
-      "hg_color1": "accent",
-      "hg_color2": "header",
-      "hg_color1_custom": "#16a34a",
-      "hg_color2_custom": "#14532d",
-      "hg_items": [
-        {
-          "icon": "",
-          "label": "Black Mold Removal",
-          "alt": "Black mold removal {city} {SS}"
-        },
-        {
-          "icon": "",
-          "label": "Attic Mold",
-          "alt": "Attic mold removal {city} {SS}"
-        },
-        {
-          "icon": "",
-          "label": "Crawl Space Mold",
-          "alt": "Crawl space mold {city} {SS}"
-        },
-        {
-          "icon": "",
-          "label": "Basement Mold",
-          "alt": "Basement mold {city} {SS}"
-        },
-        {
-          "icon": "",
-          "label": "Bathroom & Shower Mold",
-          "alt": "Bathroom mold {city} {SS}"
-        },
-        {
-          "icon": "",
-          "label": "HVAC & AC Mold",
-          "alt": "HVAC mold {city} {SS}"
-        }
-      ]
-    },
-    {
-      "type": "service_cards",
-      "sc_badge": "PROFESSIONAL {city}, {SS} MOLD SERVICES",
-      "sc_heading": "Our Full Range of Mold Services in {city_state}",
-      "sc_cols": 4,
-      "sc_badge_bg": "accent",
-      "sc_head_color": "header",
-      "sc_badge_bg_custom": "#16a34a",
-      "sc_head_color_custom": "#14532d",
-      "sc_icon_bg": "#f0fdf4",
-      "sc_items": [
-        {
-          "icon": "",
-          "alt": "Mold removal {city} {SS}",
-          "heading": "Mold Removal in {city_state}",
-          "text": "Certified removal of mold from walls, floors, and hidden spaces — safely and completely.",
-          "url": "/mold-removal-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Black mold removal {city} {SS}",
-          "heading": "Black Mold Removal in {city_state}",
-          "text": "Safe containment and removal of toxic black mold to protect your health and property.",
-          "url": "/black-mold-removal-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Mold inspection {city} {SS}",
-          "heading": "Mold Inspection in {city_state}",
-          "text": "Thorough inspection to find visible and hidden mold and the moisture source behind it.",
-          "url": "/mold-inspection-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Mold testing {city} {SS}",
-          "heading": "Mold Testing in {city_state}",
-          "text": "Air and surface sampling with lab analysis to confirm mold type and spore levels.",
-          "url": "/mold-testing-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Mold mitigation {city} {SS}",
-          "heading": "Mold Mitigation in {city_state}",
-          "text": "Emergency containment and moisture control to stop mold from spreading further.",
-          "url": "/mold-mitigation-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Mold damage restoration {city} {SS}",
-          "heading": "Mold Damage Restoration in {city_state}",
-          "text": "Repair and restoration of drywall, structure, and finishes damaged by mold.",
-          "url": "/mold-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Attic mold removal {city} {SS}",
-          "heading": "Attic Mold Removal in {city_state}",
-          "text": "Removal of mold from attic sheathing, rafters, and insulation, plus ventilation fixes.",
-          "url": "/attic-mold-removal-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Crawl space mold removal {city} {SS}",
-          "heading": "Crawl Space Mold Removal in {city_state}",
-          "text": "Below-grade mold removal and moisture control to protect structure and air quality.",
-          "url": "/crawl-space-mold-removal-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Commercial mold remediation {city} {SS}",
-          "heading": "Commercial Mold Remediation in {city_state}",
-          "text": "Remediation for offices, retail, and multi-unit properties with minimal downtime.",
-          "url": "/commercial-mold-remediation-{city_slug}"
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "wide_banner",
-      "wb_badge": "{city}, {SS} MOLD SPECIALISTS",
-      "wb_heading": "Contained Work Areas and Verified Results, Every Job",
-      "wb_subtext": "",
-      "wb_btn_text": "Call Us",
-      "wb_btn_url": "tel:{tel}",
-      "wb_btn_style": "filled",
-      "wb_centered": false,
-      "wb_photo_alt": "Mold remediation in {city}, {SS}",
-      "wb_overlay": "0.50",
-      "wb_bg_color": "#14532d",
-      "wb_badge_bg": "accent",
-      "wb_badge_bg_custom": "#16a34a",
-      "wb_photo": "sites/mold-site/uploads/media/home-banner.webp",
-      "skin": "dark"
-    },
-    {
-      "type": "image_features",
-      "if_heading": "Safe, Thorough Mold Removal",
-      "if_intro": "Mold spreads and degrades your air quality the longer it’s left untreated. Our providers act fast to contain the area, remove mold at the source, and correct the moisture problem — so it doesn’t come back.",
-      "if_closing": "Every job is handled by trained, certified mold remediation technicians, giving you peace of mind from inspection through final clearance.",
-      "if_phone_label": "Call Us 24/7",
-      "if_phone": "{phone}",
-      "if_phone_url": "tel:{tel}",
-      "if_photo_alt": "Mold remediation in {city}, {SS}",
-      "if_bg_color": "#f0fdf4",
-      "if_check_color": "accent",
-      "if_head_color": "header",
-      "if_check_color_custom": "#16a34a",
-      "if_head_color_custom": "#14532d",
-      "if_photo": "sites/mold-site/uploads/media/mold-removal-and-remediation.webp",
-      "if_features": [
-        "Free mold inspection & testing",
-        "Sealed containment & HEPA filtration",
-        "Safe removal of mold-infested materials",
-        "Moisture control & prevention"
-      ],
-      "skin": "light"
-    },
-    {
-      "id": "home_seasonal",
-      "type": "ai_block",
-      "ai_type_id": "seasonal_calendar",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-sonnet-5",
-      "skin": "light",
-      "steps_heading": "Lufkin's Seasonal Mold Remediation Guide Year-Round",
-      "steps_items": [
-        {
-          "heading": "Spring Rain Surge",
-          "text": "<p>Spring showers and rising humidity around Lufkin, including Downtown Lufkin and Kurth, saturate soil and push moisture into crawl spaces and walls. Elk Mold Pros inspects vulnerable areas early, helping homeowners address hidden dampness before it develops into a lasting indoor air quality concern.</p>"
-        },
-        {
-          "heading": "Summer Humidity Buildup",
-          "text": "<p>East Texas summers bring thick humidity and stronger air conditioning use, which can create condensation around vents and windows in neighborhoods like Crown Colony. Elk Mold Pros evaluates ventilation and moisture sources, offering safe containment and removal support to help keep indoor environments more comfortable and controlled.</p>"
-        },
-        {
-          "heading": "Fall Moisture Shift",
-          "text": "<p>As temperatures cool, fluctuating humidity and occasional heavy rain can leave attics and basements in areas such as Fuller Springs holding excess moisture. Elk Mold Pros checks these transition-season trouble spots, providing thorough assessments and remediation guidance to reduce conditions that allow mold to take hold.</p>"
-        },
-        {
-          "heading": "Winter Condensation Watch",
-          "text": "<p>Mild, damp winters in the Lufkin region can cause condensation on cooler surfaces, especially in less-ventilated interior spaces near Copeland Springs and Brentwood. Elk Mold Pros offers careful inspection and safe remediation practices to help property owners manage moisture and support healthier indoor conditions through the season.</p>"
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-23T15:42:58.094782Z",
-      "_ai_model": "claude-sonnet-5",
-      "_ai_type": "seasonal_calendar",
-      "_ai_locked": true,
-      "_ai_input_hash": "a15355cd66773476"
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "Mold Remediation FAQs — {city_state}",
-      "fq_bg_color": "#ffffff",
-      "fq_item_bg": "#f0f2f8",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#120575",
-      "fq_icon_bg_custom": "#fd783b",
-      "fq_items": [
-        {
-          "question": "What exactly happens during professional mold removal in my Lufkin home?",
-          "answer": "<p>Professional mold removal involves identifying affected areas, containing the space to prevent spore spread, removing contaminated materials safely, cleaning and treating surfaces, and restoring proper moisture control. Our team uses industry-standard containment and removal practices to address the problem thoroughly. The specific approach depends on the extent and location of the growth in your home.</p>"
-        },
-        {
-          "question": "How quickly can Elk Mold Pros respond to a mold problem in Lufkin?",
-          "answer": "<p>We understand mold concerns are urgent. Contact us to discuss your situation, and we'll work to schedule an assessment promptly. Response times vary based on current demand and the complexity of your property's needs. Call to speak with our team about availability in your area.</p>"
-        },
-        {
-          "question": "What factors affect the cost of mold remediation for a Lufkin property?",
-          "answer": "<p>Cost depends on several factors: the affected area's size, how deep the contamination extends, materials involved, and whether hidden moisture sources need addressing. Accessible surface mold costs less than removal requiring drywall replacement or structural drying. We assess your specific situation to provide an informed estimate.</p>"
-        },
-        {
-          "question": "How should I prepare my Lufkin house before the mold removal process begins?",
-          "answer": "<p>Clear the affected areas of personal belongings when possible. Seal off rooms if recommended to contain spores. Our team will guide you on any other steps. Avoid disturbing visible mold yourself—let professionals handle containment and removal. We'll communicate expectations so you know what to expect during the work.</p>"
-        },
-        {
-          "question": "What can I do after mold removal to prevent it from returning in Lufkin?",
-          "answer": "<p>Control moisture by fixing leaks promptly, ensuring proper drainage around your foundation, and maintaining indoor humidity below 50% when possible. Ventilate bathrooms and kitchens well. In areas like Crown Colony or Fuller Springs, monitor basements and crawlspaces during heavy rain seasons. Good air circulation and prompt attention to wet spots help keep the environment unfavorable for regrowth.</p>"
-        },
-        {
-          "question": "Why does mold grow so easily in East Texas homes during certain seasons?",
-          "answer": "<p>The Lufkin region's humidity, seasonal rainfall, and warm temperatures create ideal conditions for mold. Summer heat combined with high moisture, spring storms, and inadequate ventilation in older or tightly sealed homes promote growth. Basements, attics, and areas with poor drainage are especially vulnerable. Understanding these regional patterns helps explain why addressing moisture and ventilation is critical year-round.</p>"
-        }
-      ],
-      "id": "home_faq",
-      "ai_type_id": "faq_local",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-23T15:43:05.944298Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_locked": true,
-      "_ai_input_hash": "079a6e7e9b029b48",
-      "skin": "dark",
-      "fq_open": true
-    },
-    {
-      "id": "home_local_rel",
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-sonnet-5",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Serving Lufkin and the Surrounding East Texas Area",
-      "text": "<p>Lufkin's mix of mature, tree-lined streets and newer developments means mold remediation needs can look different from one property to the next. In established areas like Downtown Lufkin and Kurth, older construction, aging plumbing, and dense tree cover can trap moisture around foundations and rooflines, creating conditions where hidden mold growth takes hold. Newer subdivisions, including parts of Crown Colony, aren't immune either—modern building materials and tighter construction can trap humidity indoors if ventilation isn't properly balanced.</p><p>Across the region, East Texas humidity and heavy seasonal rainfall put steady moisture pressure on homes and businesses alike, from crawl spaces to attics. Our approach starts with a careful mold inspection and mold testing to understand what's happening behind walls and under floors, followed by safe containment and thorough mold removal, including black mold removal when present. Whether you need mold mitigation for a single room or a larger structure, our team focuses on protecting indoor air quality and supporting a healthier living or working environment.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-23T15:43:12.961140Z",
-      "_ai_model": "claude-sonnet-5",
-      "_ai_type": "local_relevance",
-      "_ai_locked": true,
-      "_ai_input_hash": "facb26ae26fcafe9"
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Certified Mold Remediation in {city_state}",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "accent",
-      "cb_bg_custom": "#16a34a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal",
-      "skin": "accent"
-    },
-    {
-      "type": "custom_html",
-      "html": "[services_links]"
-    },
-    {
-      "type": "cta_card",
-      "cc_heading": "Mold in Your {city} Property? Call for a Free Inspection",
-      "cc_text": "Don’t let mold spread — it damages your property and your air quality. Call {business} to connect with certified {city_state} mold specialists for inspection, testing, safe removal, and prevention. Fast response and honest pricing.",
-      "cc_btn_text": "{phone}",
-      "cc_btn_url": "tel:{tel}",
-      "cc_btn_style": "outline",
-      "cc_align": "split",
-      "cc_bg": "accent",
-      "cc_bg_custom": "#16a34a",
-      "cc_radius": 12,
-      "skin": "dark"
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "{city_spotlight}",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#14532d",
-      "mi_info_photo": "{city_image}",
-      "skin": "light"
-    },
-    {
-      "type": "cta_card",
-      "cc_heading": "The Values That Make Us {city}’s Most Trusted Mold Team",
-      "cc_text": "We’re trusted across {city} for more than just mold removal — it’s how we work. Clear communication, honest pricing, and proven containment and remediation standards deliver results you can count on. Certified providers who treat your property with care — because getting your home safe and healthy is always the priority. That’s why local property owners choose us and refer us.",
-      "cc_btn_text": "",
-      "cc_btn_url": "",
-      "cc_btn_style": "outline",
-      "cc_align": "center",
-      "cc_bg": "accent",
-      "cc_bg_custom": "#16a34a",
-      "cc_radius": 0,
-      "skin": "accent"
-    },
-    {
-      "type": "links_grid",
-      "lg_heading": "Browse Every Service We Cover in {city_state}",
-      "lg_subtext": "",
-      "lg_sublabel": "Trusted {city_state} Mold Removal & Remediation",
-      "lg_photo_alt": "",
-      "lg_style": "light",
-      "lg_cols": 4,
-      "lg_overlay": "0.00",
-      "lg_bg_color": "#ffffff",
-      "lg_accent": "accent",
-      "lg_accent_custom": "#16a34a",
-      "lg_photo": "sites/mold-site/uploads/media/water-damage-services-bg.webp",
-      "lg_links": [
-        {
-          "label": "Mold Removal",
-          "url": "/mold-removal-{city_slug}"
-        },
-        {
-          "label": "Black Mold Removal",
-          "url": "/black-mold-removal-{city_slug}"
-        },
-        {
-          "label": "Mold Inspection",
-          "url": "/mold-inspection-{city_slug}"
-        },
-        {
-          "label": "Mold Testing",
-          "url": "/mold-testing-{city_slug}"
-        },
-        {
-          "label": "Mold Mitigation",
-          "url": "/mold-mitigation-{city_slug}"
-        },
-        {
-          "label": "Attic Mold Removal",
-          "url": "/attic-mold-removal-{city_slug}"
-        },
-        {
-          "label": "Crawl Space Mold Removal",
-          "url": "/crawl-space-mold-removal-{city_slug}"
-        },
-        {
-          "label": "Basement Mold Removal",
-          "url": "/basement-mold-removal-{city_slug}"
-        }
-      ],
-      "skin": "dark"
-    }
-  ],
-  "seo": {
-    "seo_title": "Mold Remediation in {city_state} | {business}",
-    "canonical_url": "",
-    "meta_description": "Certified mold remediation in {city_state}. Mold inspection, testing, black mold removal, safe containment, and prevention for homes & businesses. Call {phone} for a free inspection.",
-    "meta_keywords": "mold remediation {city} {SS}, mold removal {city}, black mold removal {city} {SS}, mold inspection {city}, mold testing {city} {SS}",
-    "og_title": "Mold Remediation in {city_state} | {business}",
-    "og_description": "Certified mold remediation in {city_state} — inspection, testing, black mold removal, safe containment, and prevention. Fast local response.",
-    "og_image": "sites/mold-site/uploads/media/home-banner.webp",
-    "service_name": "Mold Remediation",
-    "service_type": "Mold Remediation",
-    "service_area": "{city_state} and surrounding areas",
-    "service_description": "Professional mold inspection, testing, remediation, and removal — including black mold, attic, crawl space, and basement mold — plus moisture control and prevention for homes and businesses in {city_state}.",
-    "bc_label": "",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"HomeAndConstructionBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"description\": \"{business} connects {state} property owners with certified mold inspection and remediation specialists, providing mold testing, black mold removal, safe containment, and moisture control for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"State\",\n                \"name\": \"{state}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Su 00:00-23:59\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
-    "primary_keyword": "Mold Remediation",
-    "secondary_keywords": "mold removal, black mold removal, mold inspection, mold testing, mold mitigation"
-  },
-  "footer": {
-    "logo": "",
-    "phone": "{phone}",
-    "columns": [
-      {
-        "type": "text",
-        "title": "About {business}",
-        "text": "<p>We connect {city} property owners with trained, certified mold specialists through our advertising network. Our providers bring years of hands-on experience in mold inspection, mold testing, air-quality assessment, and safe mold removal and remediation for homes and businesses across {city}. Whether it is black mold behind a wall, musty attic growth, or a lingering moisture problem, every job is handled with speed, care, and professionalism. We believe in honest service, clear communication, and restoring a clean, healthy indoor environment fast &mdash; because your peace of mind is our priority.</p>"
-      },
-      {
-        "type": "links",
-        "title": "Quick Links",
-        "links": [
-          {
-            "label": "Mold Removal",
-            "url": "/mold-removal-{city_slug}"
-          },
-          {
-            "label": "Mold Inspection",
-            "url": "/mold-inspection-{city_slug}"
-          },
-          {
-            "label": "Black Mold Removal",
-            "url": "/black-mold-removal-{city_slug}"
-          },
-          {
-            "label": "Mold Testing",
-            "url": "/mold-testing-{city_slug}"
-          },
-          {
-            "label": "Mold Remediation",
-            "url": "/mold-mitigation-{city_slug}"
-          },
-          {
-            "label": "Privacy Policy",
-            "url": "/privacy-policy"
-          },
-          {
-            "label": "Terms and Conditions",
-            "url": "/terms-and-conditions"
-          },
-          {
-            "label": "Contact Us & Advertising",
-            "url": "/contact-us"
-          },
-          {
-            "label": "Blog",
-            "url": "/blog"
-          }
+    "header": {
+        "logo": "uploads/logo_elk-mold-pros.png",
+        "phone": "{phone}",
+        "city": "",
+        "topbar_text": "",
+        "topbar_link": "",
+        "menu": [
+            {
+                "label": "Home",
+                "url": "/",
+                "children": []
+            },
+            {
+                "label": "Services",
+                "url": "#mold_services",
+                "children": []
+            }
         ],
-        "text": ""
-      },
-      {
-        "type": "contact",
-        "title": "Contact Info",
-        "contact_extras": [],
-        "text": ""
-      }
-    ],
-    "copyright": "© Copyright {business}. All Rights Reserved.",
-    "bottom_links": [
-      {
-        "label": "Privacy Policy",
-        "url": "/privacy-policy"
-      },
-      {
-        "label": "Terms and Conditions",
-        "url": "/terms-and-conditions"
-      }
-    ],
-    "disclaimer": "<p>Disclaimer: {business_domain} is a free service that helps property owners connect with local mold service providers. All contractors and providers are independent, and {business_domain} does not warrant or guarantee any work performed. It is the property owner&rsquo;s responsibility to verify that any hired contractor carries the license and insurance required for the work being performed, and to confirm the scope of mold work &mdash; including mold inspection, testing, remediation and removal, containment, and air-quality assessment &mdash; before work begins. All persons depicted in any photo or video are actors or models and not contractors listed on {business_domain}. Any advertiser relationships are clearly marked as &ldquo;Sponsored&rdquo; or &ldquo;Ad&rdquo;. See our Terms and Conditions for further details.</p>",
-    "sticky_bar_text": "24/7 Support Line - Call Now",
-    "sticky_bar_info": "Calls are answered by our advertising partners who can help match you with a suitable provider.",
-    "logo_in_copyright_bar": true,
-    "col_count": 3,
-    "socials": {
-      "facebook": "",
-      "instagram": "",
-      "linkedin": "",
-      "youtube": "",
-      "twitter": ""
-    }
-  },
-  "pages": {
-    "page_8845f40cd5d04": {
-      "title": "Privacy Policy | {business}",
-      "slug": "privacy-policy",
-      "page_type": "other",
-      "content_blocks": [
-        {
-          "type": "text",
-          "heading_level": "h1",
-          "text": "Privacy Policy\n<p>{business} respects your privacy and is committed to protecting it. This Privacy Policy explains what information we collect when you use {website} (the &ldquo;Website&rdquo;), how we use and share that information, and the choices available to you. The Website connects homeowners with independent mold inspection and remediation providers and does not itself perform mold inspection or remediation services.</p><p>By accessing or using the Website, you agree to the practices described in this policy. We may update this policy from time to time; continuing to use the Website after changes are posted means you accept the updated policy.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+        "socials": {
+            "facebook": "",
+            "instagram": "",
+            "twitter": "",
+            "youtube": "",
+            "linkedin": "",
+            "tiktok": "",
+            "yelp": ""
         },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "A. Information We Collect\n<p>We collect information in a few different ways: information you give us directly, information collected automatically as you browse, and information generated when you call a number listed on the Website.</p><p><strong>Information you provide:</strong> name, phone number, address, email, and any details you submit through a form or request on the Website.</p><p><strong>Automatically collected information:</strong> browser type, device type, IP address, approximate location, pages viewed, search terms, and the date and time of your visit.</p><p><strong>Call information:</strong> if you call a number displayed on the Website, we and our call-tracking partners may record the date, time, duration, and content of that call for quality assurance and to route you to an appropriate provider.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "B. How We Use Information\n<p>We use the information we collect to operate and improve the Website, connect you with relevant mold inspection and remediation providers, respond to your inquiries, personalize the content and offers you see, measure and improve the performance of our advertising, detect and prevent fraud or abuse, and comply with legal obligations.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "C. Cookies and Similar Technologies\n<p>The Website uses cookies and similar tracking technologies (such as web beacons and pixel tags) for purposes including:</p><ul><li><strong>Functionality</strong> &mdash; remembering your preferences and keeping the Website working correctly</li><li><strong>Security</strong> &mdash; detecting and preventing fraudulent or unauthorized activity</li><li><strong>Analytics</strong> &mdash; understanding how visitors use the Website so we can improve it</li><li><strong>Advertising</strong> &mdash; showing you relevant ads on this Website and others, and measuring how well our ads perform</li></ul><p>Most browsers let you block or delete cookies through their settings. Doing so may limit some features of the Website. If your browser sends a \"do not track\" signal, please note we do not currently respond differently to that signal.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "D. How We Share Information\n<p>We may share information about you with:</p><ul><li><strong>Mold inspection and remediation providers</strong> &mdash; so they can respond to your request or call</li><li><strong>Service vendors</strong> &mdash; companies that host the Website, track and route calls, support our advertising, or otherwise help us operate the Website, under obligations to protect your information</li><li><strong>Advertising partners</strong> &mdash; who may use cookies to show you relevant ads based on your visit to the Website</li><li><strong>Successors</strong> &mdash; if {business} is involved in a merger, acquisition, or sale of assets, your information may transfer as part of that transaction</li><li><strong>Legal authorities</strong> &mdash; when required by law, subpoena, or other legal process, or to protect the rights, safety, or property of {business}, our users, or the public</li></ul><p>We do not sell your personal information to third parties for them to market their own unrelated products or services without your consent.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "E. Data Security\n<p>We use reasonable administrative and technical safeguards to protect the information we collect. However, no method of transmitting or storing data over the internet is completely secure, and we cannot guarantee absolute security. You share information with us at your own risk.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "F. Data Retention\n<p>We keep information for as long as needed to provide the Website, fulfill the purposes described in this policy, and meet our legal and accounting obligations. When information is no longer needed for these purposes, we take reasonable steps to delete or anonymize it.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "G. Children's Privacy\n<p>The Website is intended for adults and is not directed to children under 18. We do not knowingly collect personal information from anyone under 18. If you believe a child has provided us with personal information, please contact us at info@{business_domain} so we can remove it.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "H. International Visitors\n<p>The Website is intended for use by residents of the United States. If you access the Website from outside the United States, your information may be transferred to and processed in the United States, which may not provide the same level of data protection as your home country. By using the Website, you consent to this transfer.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "I. Your Privacy Rights\n<p>Depending on where you live, you may have rights to know what personal information we hold about you, request a copy of it, ask us to correct or delete it, and opt out of certain uses such as targeted advertising or the sale of personal information. To exercise any of these rights, contact us at info@{business_domain}. We will respond to verified requests consistent with applicable law.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "J. Contact Us\n<p>Questions or concerns about this Privacy Policy can be sent to info@{business_domain} or by calling {phone}.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "K. Changes to This Policy\n<p>We may revise this Privacy Policy periodically. The version posted on the Website is always the most current, and changes take effect as soon as they are posted. We encourage you to review this page from time to time.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "custom_html",
-          "html": "[services_links]"
-        }
-      ],
-      "seo": {
-        "meta_keywords": "",
-        "meta_description": "Read the {business} Privacy Policy to learn how we collect, use, and protect your information when you visit {website} or call our helpline.",
-        "og_title": "Privacy Policy | {business}",
-        "og_description": "How {business} collects, uses, and protects your information.",
-        "og_image": "",
-        "schema": "",
-        "canonical_url": "{website}/privacy-policy/",
-        "service_name": "",
-        "service_type": "",
-        "service_area": "",
-        "service_description": "",
-        "bc_label": "Privacy Policy",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "primary_keyword": "",
-        "secondary_keywords": ""
-      }
+        "nav_bg": "accent",
+        "nav_text": "#ffffff",
+        "phone_btn_style": "outline",
+        "sticky": true,
+        "info_items": [
+            {
+                "icon": "🌐",
+                "text": "{city_state}"
+            },
+            {
+                "icon": "🇺🇸",
+                "text": "Proudly American"
+            },
+            {
+                "icon": "",
+                "text": "Call for Great Service!"
+            }
+        ],
+        "logo_max_height": 72,
+        "phone_label": "24/7 Line:",
+        "show_sponsored": true,
+        "cta_text": "",
+        "cta_url": "",
+        "favicon": "uploads/favicon_elk-mold-pros.png",
+        "site_name": "{business}",
+        "header_layout": "standard",
+        "sr_bar_height": 64
     },
-    "page_5ecf42631f084": {
-      "title": "Terms and Conditions | {business}",
-      "slug": "terms-and-conditions",
-      "page_type": "other",
-      "content_blocks": [
+    "content_blocks": [
         {
-          "type": "text",
-          "heading_level": "h1",
-          "text": "Terms and Conditions\n<p>These Terms and Conditions (the &ldquo;Terms&rdquo;) govern your use of {website} (the &ldquo;Website&rdquo;). By accessing or using the Website, you agree to be bound by these Terms. If you do not agree, please do not use the Website.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "hero_split",
+            "hs_heading": "Mold Remediation in {city_state}",
+            "hs_subtext": "<p>East Texas's warm, humid climate and seasonal rainfall create ideal conditions for mold growth in homes and businesses throughout the Lufkin area, particularly in basements, crawl spaces, and bathrooms where moisture accumulates. Elk Mold Pros specializes in mold remediation—identifying affected areas, containing the problem safely, and removing mold colonies to restore indoor air quality and protect your property. Professional remediation addresses the source of moisture and eliminates existing mold, giving property owners confidence that their home or business is clean and healthy.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Mold remediation in {city}, {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0fdf4",
+            "hs_photo": "sites/mold-site/uploads/media/mold-remediation-technician-cleaning-moldy-wall.webp",
+            "hs_bg_photo": "sites/mold-site/uploads/media/hero-bg-light.webp",
+            "hs_mobile_order": "",
+            "id": "home_hero",
+            "ai_type_id": "hero_subtext",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-23T15:42:40.616917Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_locked": true,
+            "_ai_input_hash": "e45256220dcf1cda"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "A. Who We Are\n<p>{business} operates the Website as a free service that helps homeowners find independent mold inspection and remediation providers in their area. We do not own, operate, or control any mold remediation business, and we do not perform mold inspection or remediation services ourselves. Any photos or videos of technicians shown on the Website are for illustration only and may depict models or stock imagery rather than an actual provider.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "id": "home_city_intro",
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-sonnet-5",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Lufkin Property Owners Rely On Mold Remediation Help",
+            "text": "<p>East Texas humidity, combined with Lufkin's warm summers and frequent seasonal rainfall, creates ideal conditions for indoor mold growth in both homes and businesses. Properties near Fuller Springs and Copeland Springs, where mature tree cover and moisture-retaining soil are common, can be especially prone to lingering dampness around foundations and crawl spaces. When humidity seeps into walls, attics, or bathrooms and isn't addressed, mold can take hold quickly, potentially affecting indoor air quality and causing discomfort for sensitive occupants. Regular mold inspection and prompt attention to leaks or condensation help Lufkin property owners stay ahead of these seasonal moisture patterns before small issues become larger concerns.</p><p>Elk Mold Pros approaches mold remediation with a methodical process that begins with thorough mold testing and assessment to understand the scope of an issue before any work begins. Our team uses safe containment practices during mold removal to help limit spread while addressing the source of moisture driving the problem. Whether the affected area is in a Downtown Lufkin business or a Crown Colony residence, we focus on careful, thorough mold mitigation and follow-up guidance so property owners feel informed throughout the process. Beyond mold, our team is equipped to address other property concerns as they arise. As Lufkin's climate continues to bring humid stretches and heavy rain, we remain ready to help residents protect their indoor spaces.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-23T15:42:49.352444Z",
+            "_ai_model": "claude-sonnet-5",
+            "_ai_type": "city_intro",
+            "_ai_locked": true,
+            "_ai_input_hash": "72f598bba449032b"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "B. Eligibility and Acceptance\n<p>The Website is intended for use by individuals 18 years of age or older who reside in the United States. By using the Website, you represent that you meet these requirements and agree to be bound by these Terms.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "feature_split",
+            "fs_heading": "Mold Problems We Handle in {city}",
+            "fs_subtext": "{city}’s humidity, plumbing leaks, and water intrusion create ideal conditions for mold. We handle every type, including:",
+            "fs_photo_alt": "Mold remediation technician in {city}, {SS}",
+            "fs_star_text": "5 Star Service",
+            "fs_bg_color": "#f0fdf4",
+            "fs_accent": "#16a34a",
+            "fs_image_side": "left",
+            "fs_mobile_order": "text_first",
+            "fs_photo": "sites/mold-site/uploads/media/mold-inspection-mold-growth-on-wall.webp",
+            "fs_items": [
+                {
+                    "icon": "",
+                    "alt": "Black mold removal {city} {SS}",
+                    "heading": "Black & Toxic Mold",
+                    "text": "Stachybotrys and other toxic mold behind walls and in damp spaces that need safe containment and removal."
+                },
+                {
+                    "icon": "",
+                    "alt": "Bathroom and shower mold {city} {SS}",
+                    "heading": "Bathroom & Shower Mold",
+                    "text": "Mold on tile, grout, ceilings, and drywall in high-moisture bathrooms and showers."
+                },
+                {
+                    "icon": "",
+                    "alt": "Attic mold removal {city} {SS}",
+                    "heading": "Attic & Roof Mold",
+                    "text": "Mold from roof leaks and poor ventilation growing on sheathing, rafters, and insulation."
+                },
+                {
+                    "icon": "",
+                    "alt": "Crawl space and basement mold {city} {SS}",
+                    "heading": "Crawl Space & Basement Mold",
+                    "text": "Chronic below-grade moisture that fuels mold threatening structure and indoor air quality."
+                },
+                {
+                    "icon": "",
+                    "alt": "HVAC and air conditioner mold {city} {SS}",
+                    "heading": "HVAC & Air Duct Mold",
+                    "text": "Mold in air conditioners, vents, and ductwork that circulates spores throughout the property."
+                },
+                {
+                    "icon": "",
+                    "alt": "Water damage mold {city} {SS}",
+                    "heading": "Water Damage Mold",
+                    "text": "Mold that develops after leaks, floods, or burst pipes when moisture isn’t fully dried."
+                }
+            ],
+            "skin": "subtle"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "C. Content Is Informational Only\n<p>Content on the Website &mdash; including articles, service descriptions, and pricing information &mdash; is provided for general informational purposes only and is not a substitute for advice from a licensed mold professional. We make reasonable efforts to keep information accurate and current, but it may not always reflect the latest pricing, availability, or local regulations. You should confirm details directly with any provider before hiring them.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "split_cta",
+            "sc_left_heading": "Serving the Greater {city_state} Area",
+            "sc_left_text": "Whether you’re a homeowner, business owner, or property manager, mold needs prompt, professional attention. Every job is backed by certified technicians, clear communication, transparent pricing, and thorough removal — done right the first time.",
+            "sc_right_label": "Call The {business} Team",
+            "sc_right_phone": "{phone}",
+            "sc_right_phone_url": "tel:{tel}",
+            "sc_left_bg": "accent",
+            "sc_right_bg": "header",
+            "sc_left_bg_custom": "#16a34a",
+            "sc_right_bg_custom": "#14532d"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "D. Connecting You With Providers\n<p>When you call a number listed on the Website or submit a request, you direct us to share your information with one or more mold inspection and remediation providers so they can contact you about your request. {business} may receive compensation from providers for these introductions. This compensation does not affect the price you pay or the quality of service you receive, and you are never charged anything by {business} for using the Website.</p><p>We make no guarantee about the suitability, licensing, insurance, or quality of any provider. It is your responsibility to verify a provider's credentials, licensing, and insurance before hiring them. {business} is not a party to any agreement between you and a provider and is not responsible for the services a provider performs or fails to perform.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "tab_services",
+            "ts_badge1": "{business}",
+            "ts_badge2": "MOLD SERVICES {city}, {SS}",
+            "ts_heading": "Inspection, Testing, Containment & Drying",
+            "ts_active_bg": "header",
+            "ts_active_bg_custom": "#14532d",
+            "ts_tabs": [
+                {
+                    "label": "Mold Inspection",
+                    "icon": "",
+                    "photo": "sites/mold-site/uploads/media/mold-inspection-and-testing.webp",
+                    "alt": "Mold inspection {city} {SS}",
+                    "desc": "A thorough inspection locates visible and hidden mold and the moisture source feeding it."
+                },
+                {
+                    "label": "Mold Testing",
+                    "icon": "",
+                    "photo": "sites/mold-site/uploads/media/mold-inspection-mold-growth-on-wall.webp",
+                    "alt": "Mold testing {city} {SS}",
+                    "desc": "Air and surface sampling with lab analysis identifies the mold type and spore levels present."
+                },
+                {
+                    "label": "Containment & Removal",
+                    "icon": "",
+                    "photo": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp",
+                    "alt": "Mold removal {city} {SS}",
+                    "desc": "Sealed containment, HEPA filtration, and safe removal of mold-infested materials."
+                },
+                {
+                    "label": "Drying & Prevention",
+                    "icon": "",
+                    "photo": "sites/mold-site/uploads/media/mold-prevention-and-maintenance.webp",
+                    "alt": "Mold prevention {city} {SS}",
+                    "desc": "Correcting the moisture source and drying the space to keep mold from returning."
+                }
+            ],
+            "skin": "light"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "E. Prohibited Conduct\n<p>When using the Website, you agree not to:</p><ul><li>Use the Website for any unlawful, fraudulent, or misleading purpose</li><li>Post or submit fake reviews, or offer or accept payment in exchange for reviews</li><li>Attempt to interfere with, disable, or gain unauthorized access to the Website or its systems</li><li>Use automated tools to scrape, crawl, or copy content from the Website without our written permission</li><li>Upload or transmit viruses, malicious code, or content that infringes another person's rights</li><li>Impersonate any person or misrepresent your affiliation with any person or entity</li></ul><p>We may suspend or terminate your access to the Website if we believe, in our reasonable judgment, that you have violated these Terms.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "hero_grid",
+            "hg_label": "{business}",
+            "hg_heading": "Where Mold Turns Up in {city_state} Homes",
+            "hg_body": "<p>When mold appears, our providers identify the type, extent, and moisture source to build the right remediation plan. Certified specialists follow proven containment and removal standards for safe, thorough results &mdash; protecting your property and your indoor air quality.</p>",
+            "hg_btn_text": "Call Us",
+            "hg_btn_url": "tel:{tel}",
+            "hg_photo_alt": "Mold remediation in {city}, {SS}",
+            "hg_photo": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp",
+            "hg_color1": "accent",
+            "hg_color2": "header",
+            "hg_color1_custom": "#16a34a",
+            "hg_color2_custom": "#14532d",
+            "hg_items": [
+                {
+                    "icon": "",
+                    "label": "Black Mold Removal",
+                    "alt": "Black mold removal {city} {SS}"
+                },
+                {
+                    "icon": "",
+                    "label": "Attic Mold",
+                    "alt": "Attic mold removal {city} {SS}"
+                },
+                {
+                    "icon": "",
+                    "label": "Crawl Space Mold",
+                    "alt": "Crawl space mold {city} {SS}"
+                },
+                {
+                    "icon": "",
+                    "label": "Basement Mold",
+                    "alt": "Basement mold {city} {SS}"
+                },
+                {
+                    "icon": "",
+                    "label": "Bathroom & Shower Mold",
+                    "alt": "Bathroom mold {city} {SS}"
+                },
+                {
+                    "icon": "",
+                    "label": "HVAC & AC Mold",
+                    "alt": "HVAC mold {city} {SS}"
+                }
+            ]
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "F. Disclaimer of Warranties\n<p>The Website is provided \"as is\" and \"as available,\" without warranties of any kind, whether express or implied. We do not warrant that the Website will be uninterrupted, error-free, or that any information on it is complete or accurate. Your use of the Website is at your own risk.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "service_cards",
+            "sc_badge": "PROFESSIONAL {city}, {SS} MOLD SERVICES",
+            "sc_heading": "Our Full Range of Mold Services in {city_state}",
+            "sc_cols": 4,
+            "sc_badge_bg": "accent",
+            "sc_head_color": "header",
+            "sc_badge_bg_custom": "#16a34a",
+            "sc_head_color_custom": "#14532d",
+            "sc_icon_bg": "#f0fdf4",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Mold removal {city} {SS}",
+                    "heading": "Mold Removal in {city_state}",
+                    "text": "Certified removal of mold from walls, floors, and hidden spaces — safely and completely.",
+                    "url": "/mold-removal-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Black mold removal {city} {SS}",
+                    "heading": "Black Mold Removal in {city_state}",
+                    "text": "Safe containment and removal of toxic black mold to protect your health and property.",
+                    "url": "/black-mold-removal-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Mold inspection {city} {SS}",
+                    "heading": "Mold Inspection in {city_state}",
+                    "text": "Thorough inspection to find visible and hidden mold and the moisture source behind it.",
+                    "url": "/mold-inspection-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Mold testing {city} {SS}",
+                    "heading": "Mold Testing in {city_state}",
+                    "text": "Air and surface sampling with lab analysis to confirm mold type and spore levels.",
+                    "url": "/mold-testing-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Mold mitigation {city} {SS}",
+                    "heading": "Mold Mitigation in {city_state}",
+                    "text": "Emergency containment and moisture control to stop mold from spreading further.",
+                    "url": "/mold-mitigation-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Mold damage restoration {city} {SS}",
+                    "heading": "Mold Damage Restoration in {city_state}",
+                    "text": "Repair and restoration of drywall, structure, and finishes damaged by mold.",
+                    "url": "/mold-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Attic mold removal {city} {SS}",
+                    "heading": "Attic Mold Removal in {city_state}",
+                    "text": "Removal of mold from attic sheathing, rafters, and insulation, plus ventilation fixes.",
+                    "url": "/attic-mold-removal-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Crawl space mold removal {city} {SS}",
+                    "heading": "Crawl Space Mold Removal in {city_state}",
+                    "text": "Below-grade mold removal and moisture control to protect structure and air quality.",
+                    "url": "/crawl-space-mold-removal-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Commercial mold remediation {city} {SS}",
+                    "heading": "Commercial Mold Remediation in {city_state}",
+                    "text": "Remediation for offices, retail, and multi-unit properties with minimal downtime.",
+                    "url": "/commercial-mold-remediation-{city_slug}"
+                }
+            ],
+            "skin": "subtle"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "G. Limitation of Liability\n<p>To the fullest extent permitted by law, {business} and its officers, employees, and affiliates will not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Website, or from the acts or omissions of any mold inspection or remediation provider you connect with through the Website. Our total liability for any claim relating to the Website is limited to $150. Any claim must be brought within one year of the event giving rise to it.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "wide_banner",
+            "wb_badge": "{city}, {SS} MOLD SPECIALISTS",
+            "wb_heading": "Contained Work Areas and Verified Results, Every Job",
+            "wb_subtext": "",
+            "wb_btn_text": "Call Us",
+            "wb_btn_url": "tel:{tel}",
+            "wb_btn_style": "filled",
+            "wb_centered": false,
+            "wb_photo_alt": "Mold remediation in {city}, {SS}",
+            "wb_overlay": "0.50",
+            "wb_bg_color": "#14532d",
+            "wb_badge_bg": "accent",
+            "wb_badge_bg_custom": "#16a34a",
+            "wb_photo": "sites/mold-site/uploads/media/home-banner.webp",
+            "skin": "dark"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "H. Indemnification\n<p>You agree to defend and hold {business} harmless from any claims, losses, or damages arising from your misuse of the Website, your violation of these Terms, or content you submit through the Website.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "image_features",
+            "if_heading": "Safe, Thorough Mold Removal",
+            "if_intro": "Mold spreads and degrades your air quality the longer it’s left untreated. Our providers act fast to contain the area, remove mold at the source, and correct the moisture problem — so it doesn’t come back.",
+            "if_closing": "Every job is handled by trained, certified mold remediation technicians, giving you peace of mind from inspection through final clearance.",
+            "if_phone_label": "Call Us 24/7",
+            "if_phone": "{phone}",
+            "if_phone_url": "tel:{tel}",
+            "if_photo_alt": "Mold remediation in {city}, {SS}",
+            "if_bg_color": "#f0fdf4",
+            "if_check_color": "accent",
+            "if_head_color": "header",
+            "if_check_color_custom": "#16a34a",
+            "if_head_color_custom": "#14532d",
+            "if_photo": "sites/mold-site/uploads/media/mold-removal-and-remediation.webp",
+            "if_features": [
+                "Free mold inspection & testing",
+                "Sealed containment & HEPA filtration",
+                "Safe removal of mold-infested materials",
+                "Moisture control & prevention"
+            ],
+            "skin": "light"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "I. Intellectual Property\n<p>All content on the Website &mdash; including text, graphics, logos, and images &mdash; is owned by {business} or its licensors and protected by copyright and trademark law. You may view and print pages from the Website for your own personal, non-commercial use. You may not copy, republish, modify, or create derivative works from any part of the Website, or use it for any commercial purpose, without our prior written consent.</p><p>If you believe content on the Website infringes your copyright, please contact us at info@{business_domain} with details of the alleged infringement so we can investigate.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "id": "home_seasonal",
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-sonnet-5",
+            "skin": "light",
+            "steps_heading": "Lufkin's Seasonal Mold Remediation Guide Year-Round",
+            "steps_items": [
+                {
+                    "heading": "Spring Rain Surge",
+                    "text": "<p>Spring showers and rising humidity around Lufkin, including Downtown Lufkin and Kurth, saturate soil and push moisture into crawl spaces and walls. Elk Mold Pros inspects vulnerable areas early, helping homeowners address hidden dampness before it develops into a lasting indoor air quality concern.</p>"
+                },
+                {
+                    "heading": "Summer Humidity Buildup",
+                    "text": "<p>East Texas summers bring thick humidity and stronger air conditioning use, which can create condensation around vents and windows in neighborhoods like Crown Colony. Elk Mold Pros evaluates ventilation and moisture sources, offering safe containment and removal support to help keep indoor environments more comfortable and controlled.</p>"
+                },
+                {
+                    "heading": "Fall Moisture Shift",
+                    "text": "<p>As temperatures cool, fluctuating humidity and occasional heavy rain can leave attics and basements in areas such as Fuller Springs holding excess moisture. Elk Mold Pros checks these transition-season trouble spots, providing thorough assessments and remediation guidance to reduce conditions that allow mold to take hold.</p>"
+                },
+                {
+                    "heading": "Winter Condensation Watch",
+                    "text": "<p>Mild, damp winters in the Lufkin region can cause condensation on cooler surfaces, especially in less-ventilated interior spaces near Copeland Springs and Brentwood. Elk Mold Pros offers careful inspection and safe remediation practices to help property owners manage moisture and support healthier indoor conditions through the season.</p>"
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-23T15:42:58.094782Z",
+            "_ai_model": "claude-sonnet-5",
+            "_ai_type": "seasonal_calendar",
+            "_ai_locked": true,
+            "_ai_input_hash": "a15355cd66773476"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "J. Relationship to Our Privacy Policy\n<p>Your use of the Website is also governed by our <a href=\"/privacy-policy\">Privacy Policy</a>, which explains how we collect, use, and share information about you.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "faq_two_col",
+            "fq_heading": "Mold Remediation FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#f0f2f8",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "fq_items": [
+                {
+                    "question": "What exactly happens during professional mold removal in my Lufkin home?",
+                    "answer": "<p>Professional mold removal involves identifying affected areas, containing the space to prevent spore spread, removing contaminated materials safely, cleaning and treating surfaces, and restoring proper moisture control. Our team uses industry-standard containment and removal practices to address the problem thoroughly. The specific approach depends on the extent and location of the growth in your home.</p>"
+                },
+                {
+                    "question": "How quickly can Elk Mold Pros respond to a mold problem in Lufkin?",
+                    "answer": "<p>We understand mold concerns are urgent. Contact us to discuss your situation, and we'll work to schedule an assessment promptly. Response times vary based on current demand and the complexity of your property's needs. Call to speak with our team about availability in your area.</p>"
+                },
+                {
+                    "question": "What factors affect the cost of mold remediation for a Lufkin property?",
+                    "answer": "<p>Cost depends on several factors: the affected area's size, how deep the contamination extends, materials involved, and whether hidden moisture sources need addressing. Accessible surface mold costs less than removal requiring drywall replacement or structural drying. We assess your specific situation to provide an informed estimate.</p>"
+                },
+                {
+                    "question": "How should I prepare my Lufkin house before the mold removal process begins?",
+                    "answer": "<p>Clear the affected areas of personal belongings when possible. Seal off rooms if recommended to contain spores. Our team will guide you on any other steps. Avoid disturbing visible mold yourself—let professionals handle containment and removal. We'll communicate expectations so you know what to expect during the work.</p>"
+                },
+                {
+                    "question": "What can I do after mold removal to prevent it from returning in Lufkin?",
+                    "answer": "<p>Control moisture by fixing leaks promptly, ensuring proper drainage around your foundation, and maintaining indoor humidity below 50% when possible. Ventilate bathrooms and kitchens well. In areas like Crown Colony or Fuller Springs, monitor basements and crawlspaces during heavy rain seasons. Good air circulation and prompt attention to wet spots help keep the environment unfavorable for regrowth.</p>"
+                },
+                {
+                    "question": "Why does mold grow so easily in East Texas homes during certain seasons?",
+                    "answer": "<p>The Lufkin region's humidity, seasonal rainfall, and warm temperatures create ideal conditions for mold. Summer heat combined with high moisture, spring storms, and inadequate ventilation in older or tightly sealed homes promote growth. Basements, attics, and areas with poor drainage are especially vulnerable. Understanding these regional patterns helps explain why addressing moisture and ventilation is critical year-round.</p>"
+                }
+            ],
+            "id": "home_faq",
+            "ai_type_id": "faq_local",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-23T15:43:05.944298Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_locked": true,
+            "_ai_input_hash": "079a6e7e9b029b48",
+            "skin": "dark",
+            "fq_open": true
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "K. Governing Law\n<p>These Terms are governed by the laws of the State of {state}, without regard to conflict-of-law rules that would apply the law of any other jurisdiction.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "id": "home_local_rel",
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-sonnet-5",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Serving Lufkin and the Surrounding East Texas Area",
+            "text": "<p>Lufkin's mix of mature, tree-lined streets and newer developments means mold remediation needs can look different from one property to the next. In established areas like Downtown Lufkin and Kurth, older construction, aging plumbing, and dense tree cover can trap moisture around foundations and rooflines, creating conditions where hidden mold growth takes hold. Newer subdivisions, including parts of Crown Colony, aren't immune either—modern building materials and tighter construction can trap humidity indoors if ventilation isn't properly balanced.</p><p>Across the region, East Texas humidity and heavy seasonal rainfall put steady moisture pressure on homes and businesses alike, from crawl spaces to attics. Our approach starts with a careful mold inspection and mold testing to understand what's happening behind walls and under floors, followed by safe containment and thorough mold removal, including black mold removal when present. Whether you need mold mitigation for a single room or a larger structure, our team focuses on protecting indoor air quality and supporting a healthier living or working environment.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-23T15:43:12.961140Z",
+            "_ai_model": "claude-sonnet-5",
+            "_ai_type": "local_relevance",
+            "_ai_locked": true,
+            "_ai_input_hash": "facb26ae26fcafe9"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "L. Dispute Resolution\n<p>If a dispute arises out of your use of the Website, we encourage you to contact us first at info@{business_domain} so we can try to resolve it informally. If a dispute cannot be resolved informally within 45 days, you and {business} agree that it will be resolved by binding individual arbitration rather than in court, except that either party may bring a claim in small claims court if it qualifies. You and {business} each waive the right to a jury trial and to participate in any class, mass, or representative action against the other.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "cta_banner",
+            "cb_text": "Certified Mold Remediation in {city_state}",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#16a34a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal",
+            "skin": "accent"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "M. Changes to These Terms\n<p>We may update these Terms from time to time by posting a revised version on the Website. Continuing to use the Website after a revised version is posted means you accept the updated Terms. If any provision of these Terms is found unenforceable, the remaining provisions will remain in effect.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "custom_html",
+            "html": "[services_links]"
         },
         {
-          "type": "text",
-          "heading_level": "h2",
-          "text": "N. Contact Us\n<p>Questions about these Terms can be directed to info@{business_domain} or by calling {phone}.</p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
+            "type": "cta_card",
+            "cc_heading": "Mold in Your {city} Property? Call for a Free Inspection",
+            "cc_text": "Don’t let mold spread — it damages your property and your air quality. Call {business} to connect with certified {city_state} mold specialists for inspection, testing, safe removal, and prevention. Fast response and honest pricing.",
+            "cc_btn_text": "{phone}",
+            "cc_btn_url": "tel:{tel}",
+            "cc_btn_style": "outline",
+            "cc_align": "split",
+            "cc_bg": "accent",
+            "cc_bg_custom": "#16a34a",
+            "cc_radius": 12,
+            "skin": "dark"
         },
         {
-          "type": "custom_html",
-          "html": "[services_links]"
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#14532d",
+            "mi_info_photo": "{city_image}",
+            "skin": "light"
+        },
+        {
+            "type": "cta_card",
+            "cc_heading": "The Values That Make Us {city}’s Most Trusted Mold Team",
+            "cc_text": "We’re trusted across {city} for more than just mold removal — it’s how we work. Clear communication, honest pricing, and proven containment and remediation standards deliver results you can count on. Certified providers who treat your property with care — because getting your home safe and healthy is always the priority. That’s why local property owners choose us and refer us.",
+            "cc_btn_text": "",
+            "cc_btn_url": "",
+            "cc_btn_style": "outline",
+            "cc_align": "center",
+            "cc_bg": "accent",
+            "cc_bg_custom": "#16a34a",
+            "cc_radius": 0,
+            "skin": "accent"
         }
-      ],
-      "seo": {
-        "meta_keywords": "",
-        "meta_description": "Read the {business} Terms and Conditions governing your use of {website}, our advertising network, and our helpline.",
-        "og_title": "Terms and Conditions | {business}",
-        "og_description": "The terms governing your use of {website}.",
-        "og_image": "",
-        "schema": "",
-        "canonical_url": "{website}/terms-and-conditions/",
-        "service_name": "",
-        "service_type": "",
-        "service_area": "",
-        "service_description": "",
-        "bc_label": "Terms and Conditions",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "primary_keyword": "",
-        "secondary_keywords": ""
-      }
-    },
-    "page_6a30c3339c03d": {
-      "title": "Contact Us",
-      "slug": "contact-us",
-      "page_type": "other",
-      "content_blocks": [
-        {
-          "type": "text",
-          "heading_level": "h1",
-          "text": "Contact Us\n<p>If you are interested in becoming part of our advertising network or have questions, give us a call or send us an email below.</p><p style=\"margin-top:24px;\"><a href=\"tel:{tel}\" class=\"cta-btn\">Call {phone}</a></p><p>Email: <a href=\"mailto:info@{business_domain}\">info@{business_domain}</a></p>",
-          "photo": "",
-          "photo_ratio": "landscape",
-          "photo_position": "center",
-          "photo_alt": ""
-        },
-        {
-          "type": "custom_html",
-          "html": "[services_links]"
-        }
-      ],
-      "seo": {
-        "meta_keywords": "",
-        "meta_description": "Contact {business} — call our free 24/7 helpline or email us to connect with a trusted mold inspection and remediation specialist in {city_state}.",
-        "og_title": "Contact Us | {business}",
-        "og_description": "Get in touch with {business} — call our free 24/7 helpline or send us an email.",
-        "og_image": "",
-        "schema": "",
-        "canonical_url": "{website}/contact-us/",
-        "service_name": "",
-        "service_type": "",
-        "service_area": "",
-        "service_description": "",
-        "bc_label": "Contact Us",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "primary_keyword": "",
-        "secondary_keywords": ""
-      }
-    }
-  },
-  "popups": {
-    "info": {
-      "enabled": true,
-      "heading": "How Your Calls Are Handled",
-      "image": "sites/mold-site/uploads/media/how-your-calls-are-handled.webp",
-      "body": "<p>We offer a free, 24/7 confidential helpline to connect you with trusted mold professionals tailored to your needs. This call routing service is sponsored advertising. {website} does not provide mold inspection or remediation services. Calls to our main helpline are answered by one of our advertising partners who can help match you with a suitable provider. By using {website} and calling, you agree to our terms and conditions. You'll never be charged for these calls or pressured to choose any particular service. Neither we nor our partners earn commissions from your choices. <strong>Notice of Call Recording and Data Use:</strong> By using {website} and calling, you agree to our Privacy Policy. To explore more mold inspection and removal options, visit our {website} or call us anytime at {phone}.</p>"
-    }
-  },
-  "local_business": {
-    "lb_name": "{business}",
-    "lb_type": "HomeAndConstructionBusiness",
-    "lb_url": "{website}",
-    "lb_phone": "{phone}",
-    "lb_street": "",
-    "lb_city": "{city}",
-    "lb_state": "{SS}",
-    "lb_zip": "{zip}",
-    "lb_country": "US",
-    "lb_lat": "31.3382",
-    "lb_lng": "-94.7291",
-    "lb_price_range": "$$",
-    "lb_hours": "Mo-Su 00:00-23:59",
-    "lb_description": "{business} connects {city_state} property owners with certified mold specialists — including mold inspection, mold testing, air-quality assessment, and safe mold removal and remediation.",
-    "lb_logo": "{website}/uploads/logo_elk-mold-pros.png",
-    "lb_rating": "",
-    "lb_review_count": ""
-  },
-  "site_vars": {
-    "city": "Lufkin",
-    "state": "Texas",
-    "SS": "TX",
-    "city_slug": "lufkin-tx",
-    "business": "Elk Mold Pros",
-    "phone": "936-555-0100",
-    "zip": "75901",
-    "website": "https://m.q111.xyz",
-    "tel": "+19365550100",
-    "city_image": "sites/mold-site/uploads/media/city-scenic-lufkin-tx.webp",
-    "city_image_alt": "Downtown Lufkin, TX",
-    "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
-    "email": "contact@m.q111.xyz",
-    "city_spotlight": "Tucked deep in the Piney Woods of East Texas, Lufkin has long served as the anchor city for the surrounding region, with roots that run straight back to the timber trade. That forestry heritage still shows in the wood products and manufacturing base that shapes the local economy, joined over the years by oil field equipment production, healthcare, and education as steady economic pillars. As the Angelina County seat, government and retail activity add further balance to the mix.\n\nHome to around 34,000 residents, Lufkin carries the feel of a close-knit community rather than a sprawling city. Neighborhoods like Crown Colony and Kurth reflect the settled, tree-shaded character that defines everyday life here, where longtime employers and generations of families give the town its steady, working sense of place.",
-    "business_domain": "m.q111.xyz"
-  },
-  "posts": [],
-  "blog_settings": {
-    "blog_heading": "Mold Tips & News for {city}",
-    "blog_intro": "",
-    "posts_per_page": 9
-  },
-  "services_links": {
-    "services": [
-      {
-        "name": "Mold Removal",
-        "url": "/mold-removal-{city_slug}"
-      },
-      {
-        "name": "Black Mold Removal",
-        "url": "/black-mold-removal-{city_slug}"
-      },
-      {
-        "name": "Mold Inspection",
-        "url": "/mold-inspection-{city_slug}"
-      },
-      {
-        "name": "Mold Testing",
-        "url": "/mold-testing-{city_slug}"
-      },
-      {
-        "name": "Mold Mitigation",
-        "url": "/mold-mitigation-{city_slug}"
-      },
-      {
-        "name": "Mold Damage Restoration",
-        "url": "/mold-damage-restoration-{city_slug}"
-      },
-      {
-        "name": "Commercial Mold Remediation",
-        "url": "/commercial-mold-remediation-{city_slug}"
-      },
-      {
-        "name": "Attic Mold Removal",
-        "url": "/attic-mold-removal-{city_slug}"
-      },
-      {
-        "name": "Crawl Space Mold Removal",
-        "url": "/crawl-space-mold-removal-{city_slug}"
-      },
-      {
-        "name": "Basement Mold Removal",
-        "url": "/basement-mold-removal-{city_slug}"
-      },
-      {
-        "name": "Air Conditioner Mold Removal",
-        "url": "/air-conditioner-mold-removal-{city_slug}"
-      },
-      {
-        "name": "Mold Prevention",
-        "url": "/mold-prevention-{city_slug}"
-      },
-      {
-        "name": "Indoor Air Quality Testing",
-        "url": "/air-quality-testing-{city_slug}"
-      }
     ],
-    "url_pattern": "/{service_slug}-{city_slug}",
-    "heading": "Our Mold Remediation Services in {city_state}",
-    "sublabel": "",
-    "subtext": "We connect {city_state} property owners with certified specialists for the full range of mold services — from inspection and testing to black mold removal, containment, and prevention. Fast, reliable local response.",
-    "style": "dark",
-    "cols": 5,
-    "bg_photo": "sites/mold-site/uploads/media/two-story-family-home.webp",
-    "overlay": "0.20",
-    "bg_color": "#ffffff",
-    "accent": "accent",
-    "accent_custom": "#16a34a",
-    "anchor": "mold_services"
-  },
-  "breadcrumbs": {
-    "enabled": true,
-    "hero_bg_mode": "auto",
-    "hero_bg_color": ""
-  }
+    "seo": {
+        "seo_title": "Mold Remediation in {city_state} | {business}",
+        "canonical_url": "",
+        "meta_description": "Certified mold remediation in {city_state}. Mold inspection, testing, black mold removal, safe containment, and prevention for homes & businesses. Call {phone} for a free inspection.",
+        "meta_keywords": "mold remediation {city} {SS}, mold removal {city}, black mold removal {city} {SS}, mold inspection {city}, mold testing {city} {SS}",
+        "og_title": "Mold Remediation in {city_state} | {business}",
+        "og_description": "Certified mold remediation in {city_state} — inspection, testing, black mold removal, safe containment, and prevention. Fast local response.",
+        "og_image": "sites/mold-site/uploads/media/home-banner.webp",
+        "service_name": "Mold Remediation",
+        "service_type": "Mold Remediation",
+        "service_area": "{city_state} and surrounding areas",
+        "service_description": "Professional mold inspection, testing, remediation, and removal — including black mold, attic, crawl space, and basement mold — plus moisture control and prevention for homes and businesses in {city_state}.",
+        "bc_label": "",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"HomeAndConstructionBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"description\": \"{business} connects {state} property owners with certified mold inspection and remediation specialists, providing mold testing, black mold removal, safe containment, and moisture control for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"State\",\n                \"name\": \"{state}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Su 00:00-23:59\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
+        "primary_keyword": "Mold Remediation",
+        "secondary_keywords": "mold removal, black mold removal, mold inspection, mold testing, mold mitigation"
+    },
+    "footer": {
+        "logo": "uploads/logo_elk-mold-pros.png",
+        "phone": "{phone}",
+        "columns": [
+            {
+                "type": "text",
+                "title": "About {business}",
+                "text": "<p>We connect {city} property owners with trained, certified mold specialists through our advertising network. Our providers bring years of hands-on experience in mold inspection, mold testing, air-quality assessment, and safe mold removal and remediation for homes and businesses across {city}. Whether it is black mold behind a wall, musty attic growth, or a lingering moisture problem, every job is handled with speed, care, and professionalism. We believe in honest service, clear communication, and restoring a clean, healthy indoor environment fast &mdash; because your peace of mind is our priority.</p>"
+            },
+            {
+                "type": "links",
+                "title": "Quick Links",
+                "links": [
+                    {
+                        "label": "Mold Removal",
+                        "url": "/mold-removal-{city_slug}"
+                    },
+                    {
+                        "label": "Mold Inspection",
+                        "url": "/mold-inspection-{city_slug}"
+                    },
+                    {
+                        "label": "Black Mold Removal",
+                        "url": "/black-mold-removal-{city_slug}"
+                    },
+                    {
+                        "label": "Mold Testing",
+                        "url": "/mold-testing-{city_slug}"
+                    },
+                    {
+                        "label": "Mold Remediation",
+                        "url": "/mold-mitigation-{city_slug}"
+                    },
+                    {
+                        "label": "Privacy Policy",
+                        "url": "/privacy-policy"
+                    },
+                    {
+                        "label": "Terms and Conditions",
+                        "url": "/terms-and-conditions"
+                    },
+                    {
+                        "label": "Contact Us & Advertising",
+                        "url": "/contact-us"
+                    },
+                    {
+                        "label": "Blog",
+                        "url": "/blog"
+                    }
+                ],
+                "text": ""
+            },
+            {
+                "type": "contact",
+                "title": "Contact Info",
+                "contact_extras": [],
+                "text": ""
+            }
+        ],
+        "copyright": "© Copyright {business}. All Rights Reserved.",
+        "bottom_links": [
+            {
+                "label": "Privacy Policy",
+                "url": "/privacy-policy"
+            },
+            {
+                "label": "Terms and Conditions",
+                "url": "/terms-and-conditions"
+            }
+        ],
+        "disclaimer": "<p>Disclaimer: {business_domain} is a free service that helps property owners connect with local mold service providers. All contractors and providers are independent, and {business_domain} does not warrant or guarantee any work performed. It is the property owner&rsquo;s responsibility to verify that any hired contractor carries the license and insurance required for the work being performed, and to confirm the scope of mold work &mdash; including mold inspection, testing, remediation and removal, containment, and air-quality assessment &mdash; before work begins. All persons depicted in any photo or video are actors or models and not contractors listed on {business_domain}. Any advertiser relationships are clearly marked as &ldquo;Sponsored&rdquo; or &ldquo;Ad&rdquo;. See our Terms and Conditions for further details.</p>",
+        "sticky_bar_text": "24/7 Support Line - Call Now",
+        "sticky_bar_info": "Calls are answered by our advertising partners who can help match you with a suitable provider.",
+        "logo_in_copyright_bar": false,
+        "col_count": 3,
+        "socials": {
+            "facebook": "",
+            "instagram": "",
+            "linkedin": "",
+            "youtube": "",
+            "twitter": ""
+        },
+        "logo_in_contact_column": true
+    },
+    "pages": {
+        "page_8845f40cd5d04": {
+            "title": "Privacy Policy | {business}",
+            "slug": "privacy-policy",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h1",
+                    "text": "Privacy Policy\n<p>{business} respects your privacy and is committed to protecting it. This Privacy Policy explains what information we collect when you use {website} (the &ldquo;Website&rdquo;), how we use and share that information, and the choices available to you. The Website connects homeowners with independent mold inspection and remediation providers and does not itself perform mold inspection or remediation services.</p><p>By accessing or using the Website, you agree to the practices described in this policy. We may update this policy from time to time; continuing to use the Website after changes are posted means you accept the updated policy.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "A. Information We Collect\n<p>We collect information in a few different ways: information you give us directly, information collected automatically as you browse, and information generated when you call a number listed on the Website.</p><p><strong>Information you provide:</strong> name, phone number, address, email, and any details you submit through a form or request on the Website.</p><p><strong>Automatically collected information:</strong> browser type, device type, IP address, approximate location, pages viewed, search terms, and the date and time of your visit.</p><p><strong>Call information:</strong> if you call a number displayed on the Website, we and our call-tracking partners may record the date, time, duration, and content of that call for quality assurance and to route you to an appropriate provider.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "B. How We Use Information\n<p>We use the information we collect to operate and improve the Website, connect you with relevant mold inspection and remediation providers, respond to your inquiries, personalize the content and offers you see, measure and improve the performance of our advertising, detect and prevent fraud or abuse, and comply with legal obligations.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "C. Cookies and Similar Technologies\n<p>The Website uses cookies and similar tracking technologies (such as web beacons and pixel tags) for purposes including:</p><ul><li><strong>Functionality</strong> &mdash; remembering your preferences and keeping the Website working correctly</li><li><strong>Security</strong> &mdash; detecting and preventing fraudulent or unauthorized activity</li><li><strong>Analytics</strong> &mdash; understanding how visitors use the Website so we can improve it</li><li><strong>Advertising</strong> &mdash; showing you relevant ads on this Website and others, and measuring how well our ads perform</li></ul><p>Most browsers let you block or delete cookies through their settings. Doing so may limit some features of the Website. If your browser sends a \"do not track\" signal, please note we do not currently respond differently to that signal.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "D. How We Share Information\n<p>We may share information about you with:</p><ul><li><strong>Mold inspection and remediation providers</strong> &mdash; so they can respond to your request or call</li><li><strong>Service vendors</strong> &mdash; companies that host the Website, track and route calls, support our advertising, or otherwise help us operate the Website, under obligations to protect your information</li><li><strong>Advertising partners</strong> &mdash; who may use cookies to show you relevant ads based on your visit to the Website</li><li><strong>Successors</strong> &mdash; if {business} is involved in a merger, acquisition, or sale of assets, your information may transfer as part of that transaction</li><li><strong>Legal authorities</strong> &mdash; when required by law, subpoena, or other legal process, or to protect the rights, safety, or property of {business}, our users, or the public</li></ul><p>We do not sell your personal information to third parties for them to market their own unrelated products or services without your consent.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "E. Data Security\n<p>We use reasonable administrative and technical safeguards to protect the information we collect. However, no method of transmitting or storing data over the internet is completely secure, and we cannot guarantee absolute security. You share information with us at your own risk.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "F. Data Retention\n<p>We keep information for as long as needed to provide the Website, fulfill the purposes described in this policy, and meet our legal and accounting obligations. When information is no longer needed for these purposes, we take reasonable steps to delete or anonymize it.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "G. Children's Privacy\n<p>The Website is intended for adults and is not directed to children under 18. We do not knowingly collect personal information from anyone under 18. If you believe a child has provided us with personal information, please contact us at info@{business_domain} so we can remove it.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "H. International Visitors\n<p>The Website is intended for use by residents of the United States. If you access the Website from outside the United States, your information may be transferred to and processed in the United States, which may not provide the same level of data protection as your home country. By using the Website, you consent to this transfer.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "I. Your Privacy Rights\n<p>Depending on where you live, you may have rights to know what personal information we hold about you, request a copy of it, ask us to correct or delete it, and opt out of certain uses such as targeted advertising or the sale of personal information. To exercise any of these rights, contact us at info@{business_domain}. We will respond to verified requests consistent with applicable law.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "J. Contact Us\n<p>Questions or concerns about this Privacy Policy can be sent to info@{business_domain} or by calling {phone}.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "K. Changes to This Policy\n<p>We may revise this Privacy Policy periodically. The version posted on the Website is always the most current, and changes take effect as soon as they are posted. We encourage you to review this page from time to time.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "custom_html",
+                    "html": "[services_links]"
+                }
+            ],
+            "seo": {
+                "meta_keywords": "",
+                "meta_description": "Read the {business} Privacy Policy to learn how we collect, use, and protect your information when you visit {website} or call our helpline.",
+                "og_title": "Privacy Policy | {business}",
+                "og_description": "How {business} collects, uses, and protects your information.",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "{website}/privacy-policy/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "Privacy Policy",
+                "bc_mid_label": "",
+                "bc_mid_url": "",
+                "primary_keyword": "",
+                "secondary_keywords": ""
+            }
+        },
+        "page_5ecf42631f084": {
+            "title": "Terms and Conditions | {business}",
+            "slug": "terms-and-conditions",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h1",
+                    "text": "Terms and Conditions\n<p>These Terms and Conditions (the &ldquo;Terms&rdquo;) govern your use of {website} (the &ldquo;Website&rdquo;). By accessing or using the Website, you agree to be bound by these Terms. If you do not agree, please do not use the Website.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "A. Who We Are\n<p>{business} operates the Website as a free service that helps homeowners find independent mold inspection and remediation providers in their area. We do not own, operate, or control any mold remediation business, and we do not perform mold inspection or remediation services ourselves. Any photos or videos of technicians shown on the Website are for illustration only and may depict models or stock imagery rather than an actual provider.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "B. Eligibility and Acceptance\n<p>The Website is intended for use by individuals 18 years of age or older who reside in the United States. By using the Website, you represent that you meet these requirements and agree to be bound by these Terms.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "C. Content Is Informational Only\n<p>Content on the Website &mdash; including articles, service descriptions, and pricing information &mdash; is provided for general informational purposes only and is not a substitute for advice from a licensed mold professional. We make reasonable efforts to keep information accurate and current, but it may not always reflect the latest pricing, availability, or local regulations. You should confirm details directly with any provider before hiring them.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "D. Connecting You With Providers\n<p>When you call a number listed on the Website or submit a request, you direct us to share your information with one or more mold inspection and remediation providers so they can contact you about your request. {business} may receive compensation from providers for these introductions. This compensation does not affect the price you pay or the quality of service you receive, and you are never charged anything by {business} for using the Website.</p><p>We make no guarantee about the suitability, licensing, insurance, or quality of any provider. It is your responsibility to verify a provider's credentials, licensing, and insurance before hiring them. {business} is not a party to any agreement between you and a provider and is not responsible for the services a provider performs or fails to perform.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "E. Prohibited Conduct\n<p>When using the Website, you agree not to:</p><ul><li>Use the Website for any unlawful, fraudulent, or misleading purpose</li><li>Post or submit fake reviews, or offer or accept payment in exchange for reviews</li><li>Attempt to interfere with, disable, or gain unauthorized access to the Website or its systems</li><li>Use automated tools to scrape, crawl, or copy content from the Website without our written permission</li><li>Upload or transmit viruses, malicious code, or content that infringes another person's rights</li><li>Impersonate any person or misrepresent your affiliation with any person or entity</li></ul><p>We may suspend or terminate your access to the Website if we believe, in our reasonable judgment, that you have violated these Terms.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "F. Disclaimer of Warranties\n<p>The Website is provided \"as is\" and \"as available,\" without warranties of any kind, whether express or implied. We do not warrant that the Website will be uninterrupted, error-free, or that any information on it is complete or accurate. Your use of the Website is at your own risk.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "G. Limitation of Liability\n<p>To the fullest extent permitted by law, {business} and its officers, employees, and affiliates will not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Website, or from the acts or omissions of any mold inspection or remediation provider you connect with through the Website. Our total liability for any claim relating to the Website is limited to $150. Any claim must be brought within one year of the event giving rise to it.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "H. Indemnification\n<p>You agree to defend and hold {business} harmless from any claims, losses, or damages arising from your misuse of the Website, your violation of these Terms, or content you submit through the Website.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "I. Intellectual Property\n<p>All content on the Website &mdash; including text, graphics, logos, and images &mdash; is owned by {business} or its licensors and protected by copyright and trademark law. You may view and print pages from the Website for your own personal, non-commercial use. You may not copy, republish, modify, or create derivative works from any part of the Website, or use it for any commercial purpose, without our prior written consent.</p><p>If you believe content on the Website infringes your copyright, please contact us at info@{business_domain} with details of the alleged infringement so we can investigate.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "J. Relationship to Our Privacy Policy\n<p>Your use of the Website is also governed by our <a href=\"/privacy-policy\">Privacy Policy</a>, which explains how we collect, use, and share information about you.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "K. Governing Law\n<p>These Terms are governed by the laws of the State of {state}, without regard to conflict-of-law rules that would apply the law of any other jurisdiction.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "L. Dispute Resolution\n<p>If a dispute arises out of your use of the Website, we encourage you to contact us first at info@{business_domain} so we can try to resolve it informally. If a dispute cannot be resolved informally within 45 days, you and {business} agree that it will be resolved by binding individual arbitration rather than in court, except that either party may bring a claim in small claims court if it qualifies. You and {business} each waive the right to a jury trial and to participate in any class, mass, or representative action against the other.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "M. Changes to These Terms\n<p>We may update these Terms from time to time by posting a revised version on the Website. Continuing to use the Website after a revised version is posted means you accept the updated Terms. If any provision of these Terms is found unenforceable, the remaining provisions will remain in effect.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "text",
+                    "heading_level": "h2",
+                    "text": "N. Contact Us\n<p>Questions about these Terms can be directed to info@{business_domain} or by calling {phone}.</p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "custom_html",
+                    "html": "[services_links]"
+                }
+            ],
+            "seo": {
+                "meta_keywords": "",
+                "meta_description": "Read the {business} Terms and Conditions governing your use of {website}, our advertising network, and our helpline.",
+                "og_title": "Terms and Conditions | {business}",
+                "og_description": "The terms governing your use of {website}.",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "{website}/terms-and-conditions/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "Terms and Conditions",
+                "bc_mid_label": "",
+                "bc_mid_url": "",
+                "primary_keyword": "",
+                "secondary_keywords": ""
+            }
+        },
+        "page_6a30c3339c03d": {
+            "title": "Contact Us",
+            "slug": "contact-us",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "heading_level": "h1",
+                    "text": "Contact Us\n<p>If you are interested in becoming part of our advertising network or have questions, give us a call or send us an email below.</p><p style=\"margin-top:24px;\"><a href=\"tel:{tel}\" class=\"cta-btn\">Call {phone}</a></p><p>Email: <a href=\"mailto:info@{business_domain}\">info@{business_domain}</a></p>",
+                    "photo": "",
+                    "photo_ratio": "landscape",
+                    "photo_position": "center",
+                    "photo_alt": ""
+                },
+                {
+                    "type": "custom_html",
+                    "html": "[services_links]"
+                }
+            ],
+            "seo": {
+                "meta_keywords": "",
+                "meta_description": "Contact {business} — call our free 24/7 helpline or email us to connect with a trusted mold inspection and remediation specialist in {city_state}.",
+                "og_title": "Contact Us | {business}",
+                "og_description": "Get in touch with {business} — call our free 24/7 helpline or send us an email.",
+                "og_image": "",
+                "schema": "",
+                "canonical_url": "{website}/contact-us/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_label": "Contact Us",
+                "bc_mid_label": "",
+                "bc_mid_url": "",
+                "primary_keyword": "",
+                "secondary_keywords": ""
+            }
+        }
+    },
+    "popups": {
+        "info": {
+            "enabled": true,
+            "heading": "How Your Calls Are Handled",
+            "image": "sites/mold-site/uploads/media/how-your-calls-are-handled.webp",
+            "body": "<p>We offer a free, 24/7 confidential helpline to connect you with trusted mold professionals tailored to your needs. This call routing service is sponsored advertising. {website} does not provide mold inspection or remediation services. Calls to our main helpline are answered by one of our advertising partners who can help match you with a suitable provider. By using {website} and calling, you agree to our terms and conditions. You'll never be charged for these calls or pressured to choose any particular service. Neither we nor our partners earn commissions from your choices. <strong>Notice of Call Recording and Data Use:</strong> By using {website} and calling, you agree to our Privacy Policy. To explore more mold inspection and removal options, visit our {website} or call us anytime at {phone}.</p>"
+        }
+    },
+    "local_business": {
+        "lb_name": "{business}",
+        "lb_type": "HomeAndConstructionBusiness",
+        "lb_url": "{website}",
+        "lb_phone": "{phone}",
+        "lb_street": "",
+        "lb_city": "{city}",
+        "lb_state": "{SS}",
+        "lb_zip": "{zip}",
+        "lb_country": "US",
+        "lb_lat": "31.3382",
+        "lb_lng": "-94.7291",
+        "lb_price_range": "$$",
+        "lb_hours": "Mo-Su 00:00-23:59",
+        "lb_description": "{business} connects {city_state} property owners with certified mold specialists — including mold inspection, mold testing, air-quality assessment, and safe mold removal and remediation.",
+        "lb_logo": "{website}/uploads/logo_elk-mold-pros.png",
+        "lb_rating": "",
+        "lb_review_count": ""
+    },
+    "site_vars": {
+        "city": "Lufkin",
+        "state": "Texas",
+        "SS": "TX",
+        "city_slug": "lufkin-tx",
+        "business": "Elk Mold Pros",
+        "phone": "936-555-0100",
+        "zip": "75901",
+        "website": "https://m.q111.xyz",
+        "tel": "+19365550100",
+        "city_image": "sites/mold-site/uploads/media/city-scenic-lufkin-tx.webp",
+        "city_image_alt": "Downtown Lufkin, TX",
+        "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+        "email": "contact@m.q111.xyz",
+        "city_spotlight": "Tucked deep in the Piney Woods of East Texas, Lufkin has long served as the anchor city for the surrounding region, with roots that run straight back to the timber trade. That forestry heritage still shows in the wood products and manufacturing base that shapes the local economy, joined over the years by oil field equipment production, healthcare, and education as steady economic pillars. As the Angelina County seat, government and retail activity add further balance to the mix.\n\nHome to around 34,000 residents, Lufkin carries the feel of a close-knit community rather than a sprawling city. Neighborhoods like Crown Colony and Kurth reflect the settled, tree-shaded character that defines everyday life here, where longtime employers and generations of families give the town its steady, working sense of place.",
+        "business_domain": "m.q111.xyz"
+    },
+    "posts": [],
+    "blog_settings": {
+        "blog_heading": "Mold Tips & News for {city}",
+        "blog_intro": "",
+        "posts_per_page": 9
+    },
+    "services_links": {
+        "services": [
+            {
+                "name": "Mold Removal",
+                "url": "/mold-removal-{city_slug}"
+            },
+            {
+                "name": "Black Mold Removal",
+                "url": "/black-mold-removal-{city_slug}"
+            },
+            {
+                "name": "Mold Inspection",
+                "url": "/mold-inspection-{city_slug}"
+            },
+            {
+                "name": "Mold Testing",
+                "url": "/mold-testing-{city_slug}"
+            },
+            {
+                "name": "Mold Mitigation",
+                "url": "/mold-mitigation-{city_slug}"
+            },
+            {
+                "name": "Mold Damage Restoration",
+                "url": "/mold-damage-restoration-{city_slug}"
+            },
+            {
+                "name": "Commercial Mold Remediation",
+                "url": "/commercial-mold-remediation-{city_slug}"
+            },
+            {
+                "name": "Attic Mold Removal",
+                "url": "/attic-mold-removal-{city_slug}"
+            },
+            {
+                "name": "Crawl Space Mold Removal",
+                "url": "/crawl-space-mold-removal-{city_slug}"
+            },
+            {
+                "name": "Basement Mold Removal",
+                "url": "/basement-mold-removal-{city_slug}"
+            },
+            {
+                "name": "Air Conditioner Mold Removal",
+                "url": "/air-conditioner-mold-removal-{city_slug}"
+            },
+            {
+                "name": "Mold Prevention",
+                "url": "/mold-prevention-{city_slug}"
+            },
+            {
+                "name": "Indoor Air Quality Testing",
+                "url": "/air-quality-testing-{city_slug}"
+            }
+        ],
+        "url_pattern": "/{service_slug}-{city_slug}",
+        "heading": "Our Mold Remediation Services in {city_state}",
+        "sublabel": "",
+        "subtext": "We connect {city_state} property owners with certified specialists for the full range of mold services — from inspection and testing to black mold removal, containment, and prevention. Fast, reliable local response.",
+        "style": "dark",
+        "cols": 5,
+        "bg_photo": "sites/mold-site/uploads/media/two-story-family-home.webp",
+        "overlay": "0.20",
+        "bg_color": "#ffffff",
+        "accent": "accent",
+        "accent_custom": "#16a34a",
+        "anchor": "mold_services"
+    },
+    "breadcrumbs": {
+        "enabled": true,
+        "hero_bg_mode": "auto",
+        "hero_bg_color": ""
+    }
 }
