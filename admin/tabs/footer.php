@@ -30,6 +30,13 @@
                     </label>
                 </div>
                 <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="logo_in_contact_column" value="1"
+                               <?= !empty($footer['logo_in_contact_column']) ? 'checked' : '' ?>>
+                        Also show logo below the Contact column (on a white background box)
+                    </label>
+                </div>
+                <div class="form-group">
                     <label>Phone number (used in Contact column + sticky bar)</label>
                     <input type="tel" name="footer_phone" value="<?= h($footer['phone'] ?? '') ?>" placeholder="+1 (555) 123-4567">
                 </div>

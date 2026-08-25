@@ -110,6 +110,7 @@ function default_data() {
         'footer' => [
             'logo'                  => '',
             'logo_in_copyright_bar' => false,
+            'logo_in_contact_column' => false,
             'phone'           => '+1 (555) 123-4567',
             'col_count'       => 3,
             'disclaimer'      => '',

@@ -419,6 +419,11 @@ if ($firstBlockHero) {
                             </li>
                         <?php endforeach; ?>
                     </ul>
+                    <?php if (!empty($footer['logo']) && !empty($footer['logo_in_contact_column'])): ?>
+                        <div class="footer-col-logo-box">
+                            <img class="footer-col-logo" src="<?= h(admin_upload_url($footer['logo'])) ?>" alt="<?= h(($__footColLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footColLogoAlt : SITE_TITLE) ?>">
+                        </div>
+                    <?php endif; ?>
                 <?php endif; ?>
             </div>
             <?php endforeach; ?>

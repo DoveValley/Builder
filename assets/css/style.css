@@ -2176,6 +2176,22 @@ body { padding-bottom: 70px; }
 }
 .footer-col-links li a:hover { opacity: 1; }
 
+/* Logo below a footer column — white box so the logo's own colors (built for
+   a light background) stay legible against a dark footer background. */
+.footer-col-logo-box {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 16px;
+    background: #ffffff;
+    border-radius: 8px;
+}
+.footer-col-logo {
+    display: block;
+    max-height: 40px;
+    max-width: 100%;
+    width: auto;
+}
+
 @media (max-width: 768px) {
     .footer-cols-2,
     .footer-cols-3,
