@@ -42,6 +42,17 @@ $llDark   = '#120575';
 foreach (['heading_color', 'footer_bg', 'header_bg'] as $f) {
     if (preg_match('/^#[0-9a-fA-F]{6}$/', $theme[$f] ?? '')) { $llDark = $theme[$f]; break; }
 }
+
+// This site's REAL two-row header colors (top row + colored nav row), so the
+// sample header below each config isn't a generic mockup — it's what THIS
+// site's actual header.php would show. nav_bg is either 'accent' (follow the
+// brand accent, the common case) or a stored custom hex — same resolution
+// genvisual.php's own nav-bar color field uses just above this card.
+$llTopBg  = preg_match('/^#[0-9a-fA-F]{6}$/', $theme['header_top_bg'] ?? '') ? $theme['header_top_bg'] : '#ffffff';
+$llNavBg  = (($header['nav_bg'] ?? 'accent') === 'accent' || ($header['nav_bg'] ?? '') === '')
+    ? $llAccent
+    : (preg_match('/^#[0-9a-fA-F]{6}$/', $header['nav_bg']) ? $header['nav_bg'] : $llAccent);
+$llNavTxt = preg_match('/^#[0-9a-fA-F]{6}$/', $header['nav_text'] ?? '') ? $header['nav_text'] : ($theme['header_text'] ?? '#ffffff');
 ?>
 <div class="card" id="ll-visual">
     <h2 style="margin-top:0;">Logo Library</h2>
@@ -71,6 +82,9 @@ foreach (['heading_color', 'footer_bg', 'header_bg'] as $f) {
 <script>
 var LL        = <?= json_encode($llLogos, JSON_UNESCAPED_SLASHES) ?>;
 var LL_ICONS  = <?= json_encode($llIcons, JSON_UNESCAPED_SLASHES) ?>;
+var LL_TOPBG  = <?= json_encode($llTopBg) ?>;
+var LL_NAVBG  = <?= json_encode($llNavBg) ?>;
+var LL_NAVTXT = <?= json_encode($llNavTxt) ?>;
 var LL_CSRF   = <?= json_encode($csrfToken ?? '') ?>;
 var LL_ACCENT = <?= json_encode($llAccent) ?>;
 var LL_DARK   = <?= json_encode($llDark) ?>;
@@ -92,7 +106,9 @@ function llPreviewSrc(i, type){
 function llPreview(i){
     var card = document.querySelector('.ll-card[data-i="'+i+'"]'); if(!card) return;
     llBust++;
-    card.querySelector('.ll-logo').src = llPreviewSrc(i,'logo');
+    var src = llPreviewSrc(i,'logo');
+    card.querySelector('.ll-logo').src = src;
+    card.querySelector('.ll-logo-mini').src = src;
     var fav = card.querySelector('.ll-fav');
     if (LL[i].icon){ fav.style.display=''; fav.src = llPreviewSrc(i,'favicon'); } else { fav.style.display='none'; }
 }
@@ -111,6 +127,16 @@ function llCardHtml(i){
     return '<div class="ll-card" data-i="'+i+'" style="border:1px solid '+(isSingle?'#2563eb':'#e2e8f0')+';border-radius:8px;padding:14px;margin-bottom:12px;display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;'+(isSingle?'box-shadow:0 0 0 2px #dbeafe;':'')+'">'
       + '<div style="flex:0 0 250px;">'
       +   '<img class="ll-logo" alt="logo" style="width:100%;background:#fff;border:1px solid #eee;border-radius:6px;padding:8px;min-height:56px;">'
+      +   '<div class="hint" style="margin-top:8px;margin-bottom:3px;">Sample header</div>'
+      +   '<div style="border:1px solid #e2e8f0;border-radius:6px;overflow:hidden;">'
+      +     '<div style="background:'+llEsc(LL_TOPBG)+';padding:6px 8px;">'
+      +       '<img class="ll-logo-mini" alt="logo" style="max-height:26px;max-width:100%;display:block;">'
+      +     '</div>'
+      +     '<div style="background:'+llEsc(LL_NAVBG)+';padding:5px 8px;display:flex;align-items:center;justify-content:space-between;gap:8px;">'
+      +       '<span style="color:'+llEsc(LL_NAVTXT)+';font-size:.68rem;font-weight:600;white-space:nowrap;">Home&nbsp;&nbsp;Services&nbsp;&nbsp;Contact</span>'
+      +       '<span style="color:'+llEsc(LL_NAVTXT)+';font-size:.65rem;font-weight:700;border:1px solid currentColor;border-radius:4px;padding:2px 6px;white-space:nowrap;">Call Now</span>'
+      +     '</div>'
+      +   '</div>'
       +   '<div style="margin-top:8px;display:flex;align-items:center;gap:8px;"><img class="ll-fav" alt="favicon" width="44" height="44" style="border-radius:9px;border:1px solid #eee;"><span class="hint">favicon</span></div>'
       +   '<div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;">'
       +     (isSingle
