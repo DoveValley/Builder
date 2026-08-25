@@ -164,7 +164,12 @@
                 <?php if (!$iconList): ?>
                     <span class="hint">No icons yet — upload SVGs below. (Presets render a wordmark + monogram favicon until you add some.)</span>
                 <?php else: foreach ($iconList as $ic):
-                    $prev = 'visual_preview.php?type=favicon&icon=' . urlencode($ic) . '&accent=%23334155&dark=%231e293b&name=x'; ?>
+                    // White silhouette on a dark tile — a fixed, deliberately high-contrast
+                    // preview color pair (not any real site's theme) so the icon shape is
+                    // always clearly visible here regardless of which icon it is. The
+                    // previous #334155-on-#1e293b pairing was two near-identical dark
+                    // slate tones, so every icon was almost invisible against its own tile.
+                    $prev = 'visual_preview.php?type=favicon&icon=' . urlencode($ic) . '&accent=%23ffffff&dark=%231e293b&name=x'; ?>
                     <div style="text-align:center;width:88px;">
                         <img src="<?= h($prev) ?>" alt="<?= h($ic) ?>" width="60" height="60" loading="lazy" style="border:1px solid #e5e7eb;border-radius:12px;background:#fff;">
                         <div class="hint" style="font-size:.72rem;word-break:break-all;margin:3px 0 1px;"><?= h(preg_replace('/\.svg$/', '', $ic)) ?></div>
