@@ -3,7 +3,9 @@
 // Runs in save.php scope ($data loaded, saved after). Given a preset id from the
 // site's own theme_presets.json: merges the preset's colors (+ font/buttons when
 // "apply_typography" is on) into $data['theme'], regenerates the logo + favicon in
-// those colors, points the LocalBusiness logo at it, and records single_preset_id.
+// the NEW colors (text/icon from this site's own Logo Config, unaffected — see
+// admin/tabs/logo_library.php), points the LocalBusiness logo at it, and
+// records single_preset_id.
 require_once __DIR__ . '/../../includes/multisite/visual.php'; // ms_apply_theme_preset(), ms_generate_logo(), ms_convert_*()
 
 $activeTab = 'genvisual';
@@ -35,39 +37,35 @@ if (!$applyType) {
 // 1. Merge the preset's theme + header fragments into the site.
 ms_apply_theme_preset($data, $preset);
 
-// 2. Regenerate logo (+ bug-tile favicon if the preset has an icon) in the preset colors.
-$business = trim($data['site_vars']['business'] ?? '');
-if ($business === '') { $message = 'error:Set+a+business+name+first+(Header+tab).'; return; }
-$iconFile = trim((string)($preset['icon'] ?? ''));
-$iconPath = $iconFile !== '' ? ACTIVE_SITE_DIR . '/multisite/icons/' . basename($iconFile) : null;
-if ($iconPath && !is_file($iconPath)) $iconPath = null;
-$logo = ms_generate_logo($data, ACTIVE_SITE_DIR, $business, 'brand', $iconPath);
+// 2. Regenerate the logo in the preset's new colors — text/icon come from this
+// site's own Logo Config (single_logo_id in logo_configs.json), a fully
+// independent choice from which theme preset was just applied. A theme
+// preset's own `icon` field no longer drives the real logo (kept only for
+// that preset's own mini-preview in the library above).
+$siteVars = [
+    'business' => trim((string)($data['site_vars']['business'] ?? '')),
+    'city'     => trim((string)($data['site_vars']['city']     ?? '')),
+    'state'    => trim((string)($data['site_vars']['state']    ?? '')),
+    'SS'       => trim((string)($data['site_vars']['SS']       ?? '')),
+];
+if ($siteVars['business'] === '') { $message = 'error:Set+a+business+name+first+(Header+tab).'; return; }
 
-// 3. Favicon fallback (preset has no bug icon → monogram tile, like the Brand card).
-if ($logo && empty($iconPath)) {
-    $bin  = ms_convert_bin();
-    $font = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf';
-    $tile = preg_match('/^#[0-9a-fA-F]{6}$/', $data['theme']['header_bg'] ?? '')
-            ? $data['theme']['header_bg']
-            : (preg_match('/^#[0-9a-fA-F]{6}$/', $data['theme']['heading_color'] ?? '') ? $data['theme']['heading_color'] : '#1e5fa8');
-    $letter = strtoupper(mb_substr($business, 0, 1));
-    $slug   = trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($business)), '-') ?: 'site';
-    $favRel = 'uploads/favicon_' . $slug . '.png';
-    if (is_file($font) && ms_convert_run([
-            $bin, '-size', '128x128', 'xc:none',
-            '-fill', $tile, '-draw', 'roundrectangle 0,0,127,127,24,24',
-            '-gravity', 'center', '-font', $font, '-pointsize', '78', '-fill', '#ffffff',
-            '-annotate', '0', $letter, '-strip', ACTIVE_SITE_DIR . '/' . $favRel], ACTIVE_SITE_DIR . '/' . $favRel)) {
-        $data['header']['favicon'] = $favRel;
-    }
+$logoDoc     = @json_decode((string)@file_get_contents(ACTIVE_SITE_DIR . '/multisite/logo_configs.json'), true) ?: [];
+$logoConfigs = is_array($logoDoc['logos'] ?? null) ? $logoDoc['logos'] : [];
+$singleLogoId = (int)($logoDoc['single_logo_id'] ?? 0);
+$logoConfig = null;
+foreach ($logoConfigs as $idx => $l) {
+    if ((int)($l['id'] ?? ($idx + 1)) === $singleLogoId) { $logoConfig = $l; break; }
 }
+$lines = ms_resolve_logo_lines($logoConfig, $siteVars, ACTIVE_SITE_ID);
+$logo  = ms_generate_logo($data, ACTIVE_SITE_DIR, $lines['line1'], $lines['line2'], 'brand', $lines['iconPath']);
 
-// 4. Point the LocalBusiness schema logo at the generated file.
+// 3. Point the LocalBusiness schema logo at the generated file.
 if ($logo && isset($data['local_business'])) {
     $data['local_business']['lb_logo'] = '{website}/' . $logo;
 }
 
-// 5. Record which preset this site now uses (persist single_preset_id).
+// 4. Record which preset this site now uses (persist single_preset_id).
 $doc['single_preset_id'] = $presetId;
 $tmp = $presetsFile . '.tmp.' . getmypid();
 if (@file_put_contents($tmp, json_encode($doc, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)) !== false) {

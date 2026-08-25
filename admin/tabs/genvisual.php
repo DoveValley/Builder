@@ -82,6 +82,17 @@
         foreach ($gvPresets as $i => $p) {
             if ((int)($p['id'] ?? ($i + 1)) === $gvSingleId) { $gvSingle = trim((string)($p['name'] ?? '')); break; }
         }
+
+        // Same numbers, for the independent Logo Library rotation pool.
+        $gvLogoDoc     = @json_decode((string)@file_get_contents(ACTIVE_SITE_DIR . '/multisite/logo_configs.json'), true) ?: [];
+        $gvLogos       = is_array($gvLogoDoc['logos'] ?? null) ? $gvLogoDoc['logos'] : [];
+        $gvLogoRotating = 0;
+        foreach ($gvLogos as $l) if (($l['in_rotation'] ?? true) !== false) $gvLogoRotating++;
+        $gvSingleLogoId = (int)($gvLogoDoc['single_logo_id'] ?? 0);
+        $gvSingleLogo   = '';
+        foreach ($gvLogos as $i => $l) {
+            if ((int)($l['id'] ?? ($i + 1)) === $gvSingleLogoId) { $gvSingleLogo = trim((string)($l['name'] ?? '')); break; }
+        }
         ?>
 
         <!-- How it works -->
@@ -124,6 +135,22 @@
                     <strong><?= count($iconList) ?></strong> brand icon<?= count($iconList) === 1 ? '' : 's' ?>
                 <?php else: ?>
                     <span style="color:#b45309;">no brand icons</span>
+                <?php endif; ?>
+                <br>
+                <strong><?= count($gvLogos) ?></strong> logo config<?= count($gvLogos) === 1 ? '' : 's' ?> in the Logo Library
+                &nbsp;·&nbsp;
+                <?php if (!$gvLogos): ?>
+                    <span style="color:#b45309;">none yet &mdash; add one below</span>
+                <?php elseif ($gvLogoRotating === 0): ?>
+                    <span style="color:#b45309;"><strong>0</strong> flagged in rotation</span> &mdash; falls back to rotating through <strong>all <?= count($gvLogos) ?></strong>
+                <?php else: ?>
+                    <strong><?= $gvLogoRotating ?></strong> in the batch rotation
+                <?php endif; ?>
+                &nbsp;·&nbsp;
+                <?php if ($gvSingleLogo !== ''): ?>
+                    this site's own logo: <strong><?= h($gvSingleLogo) ?></strong>
+                <?php else: ?>
+                    <span style="color:#64748b;">this site has no logo config applied &mdash; using the plain business/city default</span>
                 <?php endif; ?>
             </p>
         </div>
@@ -180,6 +207,10 @@
              brand, flag the multisite rotation. Sits OUTSIDE the theme form. -->
         <?php require __DIR__ . '/multisite_visual.php'; ?>
 
+        <!-- Logo Library: icon + line1/line2 text arrangement, a fully independent
+             rotation pool from the color presets above. Sits OUTSIDE the theme form. -->
+        <?php require __DIR__ . '/logo_library.php'; ?>
+
         <?= $gvBand('This master&rsquo;s own look', 'Applying a preset above overwrites part of what follows. Everything a preset does <em>not</em> carry is inherited, unchanged, by every domain in every batch.') ?>
 
         <form action="save.php" method="post" id="theme-form">
@@ -204,37 +235,6 @@
                 ];
                 foreach ($brandFields as $key => [$label, $hint, $def]) $colorField($key, $label, $theme[$key] ?? $def, $hint);
                 ?>
-            </div>
-
-            <!-- Brand assets: generated logo + favicon (palette -> assets cascade) -->
-            <div class="card">
-                <h2>Brand — Logo &amp; Favicon <?= $gvTag('domain') ?></h2>
-                <p class="hint" style="margin-bottom:12px;">
-                    <em>This master's</em> logo and favicon. Every generated domain gets its own pair built the same way, from its
-                    own business name in its own preset's colors &mdash; so what you generate here is never shipped to a clone.<br>
-                    Generate a two-tone wordmark logo + a monogram favicon from your business name
-                    (<code><?= h($data['site_vars']['business'] ?? '(set business name in Header)') ?></code>)
-                    in the palette above. Change colors, then click Generate — it saves the palette <em>and</em> regenerates both.
-                    (Prefer your own artwork? Upload it on the <strong>Header</strong> tab instead.)
-                </p>
-                <div style="display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap;margin-bottom:14px;">
-                    <div>
-                        <div class="hint" style="margin-bottom:4px;">Current logo</div>
-                        <?php if (!empty($data['header']['logo'])): ?>
-                            <img src="<?= h(admin_upload_url($data['header']['logo'])) ?>?v=<?= time() ?>" alt="logo" style="max-height:52px;max-width:300px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:6px;" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'hint',textContent:'(set — preview unavailable)'}))">
-                        <?php else: ?><span class="hint">none yet</span><?php endif; ?>
-                    </div>
-                    <div>
-                        <div class="hint" style="margin-bottom:4px;">Favicon</div>
-                        <?php if (!empty($data['header']['favicon'])): ?>
-                            <img src="<?= h(admin_upload_url($data['header']['favicon'])) ?>?v=<?= time() ?>" alt="favicon" style="width:44px;height:44px;border:1px solid #e5e7eb;border-radius:6px;" onerror="this.style.display='none'">
-                        <?php else: ?><span class="hint">none yet</span><?php endif; ?>
-                    </div>
-                </div>
-                <button type="button" class="btn" onclick="var f=document.getElementById('theme-form'); f.querySelector('[name=section]').value='generate_brand'; f.submit();">
-                    &#9881; Generate logo &amp; favicon from name + colors
-                </button>
-                <span class="hint" style="display:block;margin-top:6px;">Needs ImageMagick on the server. The wordmark uses the first word in the accent color and the rest in the heading color.</span>
             </div>
 
             <!-- ② HEADER & FOOTER -->

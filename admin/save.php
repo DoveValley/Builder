@@ -44,6 +44,10 @@ switch ($section) {
         require __DIR__ . '/save/generate_brand.php';
         break;
 
+    case 'apply_logo':
+        require __DIR__ . '/save/apply_logo.php';
+        break;
+
     /* ---- CONTENT (home page + landing pages) ---- */
     case 'content':
         require __DIR__ . '/save/content.php';

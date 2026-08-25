@@ -3,14 +3,21 @@
  * Per-site visual identity for the multisite build (coordinated).
  *
  * One step, run after ms_differentiate_working_dir() and before the 4c image
- * prune, so anything it generates exists and is referenced:
- *   1. Pick a Theme Preset  — `theme_preset` CSV column (id or name),
- *      else a deterministic hash rotate off the domain (ms_variant, salt 'theme').
- *   2. Apply it             — merge preset.theme→data['theme'], preset.header→data['header'].
- *   3. Generate logo        — (added next) raster wordmark from {business} in preset colors.
- *   4. Generate favicon      — (added next) monogram tile in preset colors.
+ * prune, so anything it generates exists and is referenced. TWO independent
+ * rotation axes, picked separately so color variety and logo variety don't
+ * move in lockstep:
+ *   1. Pick a Theme Preset  — `theme_preset` CSV column (id or name), else a
+ *      deterministic hash rotate off the domain (ms_variant, salt 'theme').
+ *      Apply it — merge preset.theme→data['theme'], preset.header→data['header'].
+ *   2. Pick a Logo Config   — `logo_config` CSV column, else a hash rotate off
+ *      the domain (ms_variant, salt 'logo'). Resolves line1/line2 text from
+ *      {business}/{city}/custom and an icon, independent of which theme preset
+ *      this domain got — see ms_pick_logo_config()/ms_resolve_logo_lines().
+ *   3. Generate logo + favicon — two-tone wordmark (+ bug-tile mark/favicon if
+ *      the Logo Config has an icon) in the Theme Preset's colors.
  *
- * Presets live per-niche at sites/{master}/multisite/theme_presets.json.
+ * Presets live per-niche at sites/{master}/multisite/theme_presets.json;
+ * Logo Configs at sites/{master}/multisite/logo_configs.json.
  * Everything is deterministic per domain so rebuilds stay byte-identical.
  */
 
@@ -51,6 +58,86 @@ function ms_pick_theme_preset(string $masterId, array $params): ?array {
     $domain = preg_replace('#^https?://#i', '', rtrim($params['domain'] ?? '', '/'));
     $idx = ms_variant($domain, count($pool), 'theme');
     return $pool[$idx] ?? $pool[0];
+}
+
+/** Load this master's Logo Library (array, or []). */
+function ms_load_logo_configs(string $masterId): array {
+    $file = BASE_DIR . '/sites/' . $masterId . '/multisite/logo_configs.json';
+    $ld = @json_decode((string)@file_get_contents($file), true);
+    return is_array($ld['logos'] ?? null) ? array_values($ld['logos']) : [];
+}
+
+/**
+ * Choose the Logo Config for this row — same shape of logic as
+ * ms_pick_theme_preset(), a fully independent rotation pool (a domain's logo
+ * arrangement and its color theme vary on separate axes on purpose). Explicit
+ * `logo_config` (matches an id or a name, case-insensitive; a bare number is a
+ * 1-based index) wins; blank falls back to a deterministic hash rotate off the
+ * domain, salted differently ('logo' vs theme's 'theme') so the two rotations
+ * don't move in lockstep. Null means "no library yet" — callers fall back to
+ * the zero-config default (see ms_resolve_logo_lines()).
+ */
+function ms_pick_logo_config(string $masterId, array $params): ?array {
+    $logos = ms_load_logo_configs($masterId);
+    if (!$logos) return null;
+
+    $sel = trim((string)($params['logo_config'] ?? ''));
+    if ($sel !== '') {
+        foreach ($logos as $l) {
+            if ((string)($l['id'] ?? '') === $sel)                 return $l;
+            if (strcasecmp((string)($l['name'] ?? ''), $sel) === 0) return $l;
+        }
+        if (ctype_digit($sel)) { $i = (int)$sel - 1; if (isset($logos[$i])) return $logos[$i]; }
+    }
+
+    $pool = array_values(array_filter($logos, fn($l) => ($l['in_rotation'] ?? true) !== false));
+    if (!$pool) $pool = $logos;
+    $domain = preg_replace('#^https?://#i', '', rtrim($params['domain'] ?? '', '/'));
+    $idx = ms_variant($domain, count($pool), 'logo');
+    return $pool[$idx] ?? $pool[0];
+}
+
+/** {business}/{city}/custom → the literal text for one logo line. Custom text
+ *  gets a small, self-contained token substitution against the SAME $siteVars
+ *  passed in — not includes/shortcodes.php's resolve_shortcodes(), which reads
+ *  a global $data and would silently resolve against the wrong site during a
+ *  multisite batch build (each domain has its own, non-global site_vars here). */
+function ms_resolve_logo_text(string $source, string $custom, array $siteVars): string {
+    if ($source === 'city')     return (string)($siteVars['city'] ?? '');
+    if ($source === 'business') return (string)($siteVars['business'] ?? '');
+    if (strpos($custom, '{') === false) return $custom;
+    $city = (string)($siteVars['city'] ?? ''); $state = (string)($siteVars['state'] ?? ''); $ss = (string)($siteVars['SS'] ?? '');
+    return strtr($custom, [
+        '{business}'   => (string)($siteVars['business'] ?? ''),
+        '{city}'       => $city,
+        '{state}'      => $state,
+        '{SS}'         => $ss,
+        '{city_state}' => $city && $ss ? "{$city}, {$ss}" : $city . $ss,
+    ]);
+}
+
+/**
+ * Resolve a Logo Config (or null, meaning "no library set up yet") into the
+ * concrete line1/line2 strings + absolute icon path ms_generate_logo() needs.
+ * The single place both single-site and multisite call sites go through, so
+ * the zero-config fallback (line1=business, line2=city, no icon — the closest
+ * honest replacement for the old auto-split, since it's the one arrangement
+ * that's exactly right whenever the business name doesn't already start with
+ * the city) is defined exactly once.
+ */
+function ms_resolve_logo_lines(?array $config, array $siteVars, string $masterId): array {
+    $line1Source = (string)($config['line1_source'] ?? 'business');
+    $line2Source = (string)($config['line2_source'] ?? 'city');
+    $line1Custom = (string)($config['line1_custom'] ?? '');
+    $line2Custom = (string)($config['line2_custom'] ?? '');
+    $icon = trim((string)($config['icon'] ?? ''));
+    $iconPath = $icon !== '' ? BASE_DIR . '/sites/' . $masterId . '/multisite/icons/' . basename($icon) : null;
+    if ($iconPath && !is_file($iconPath)) $iconPath = null;
+    return [
+        'line1'    => ms_resolve_logo_text($line1Source, $line1Custom, $siteVars),
+        'line2'    => ms_resolve_logo_text($line2Source, $line2Custom, $siteVars),
+        'iconPath' => $iconPath,
+    ];
 }
 
 /** Perceived-luminance test — true if the color is light (→ use dark text on it). */
@@ -95,17 +182,21 @@ function ms_render_bug_tile(string $iconPath, string $accent, string $dark, int 
 
 /**
  * Generate the per-site logo (+ favicon) in the applied preset's colors:
- *   • two-tone wordmark — first word (line 1) in the ACCENT color, remaining words
- *     (line 2) in the DARK color, left-justified, like the master's "KATY / PEST PROS"
+ *   • two-tone wordmark — $line1 in the ACCENT color, $line2 in the DARK color,
+ *     left-justified. What text ends up on each line is the CALLER's decision
+ *     (see ms_resolve_logo_lines() — a Logo Config's line1/line2 source, or the
+ *     zero-config default) — this function only renders, it never derives text
+ *     from a business name itself anymore.
  *   • a bug mark (accent silhouette on a dark tile) to the LEFT of the wordmark
  *   • the same bug tile written as the favicon (128px)
  * Sets header.logo (+ header.favicon). Returns the logo path or null.
- * Each file is inherently unique per site (name + colors + bug); a seeded pointsize
- * jitter adds byte/dimension variance. $iconPath null → wordmark only.
+ * Each file is inherently unique per site (text + colors + bug); a seeded
+ * pointsize jitter adds byte/dimension variance. $iconPath null → wordmark only.
  */
-function ms_generate_logo(array &$data, string $workingDir, string $business, string $seed, ?string $iconPath = null): ?string {
-    $business = trim($business);
-    if ($business === '' || ms_convert_bin() === null) return null;
+function ms_generate_logo(array &$data, string $workingDir, string $line1, string $line2, string $seed, ?string $iconPath = null): ?string {
+    $line1 = trim($line1); $line2 = trim($line2);
+    if ($line1 === '' && $line2 === '') return null;
+    if (ms_convert_bin() === null) return null;
     $bin  = ms_convert_bin();
     $font = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf';
     if (!is_file($font)) return null;
@@ -129,24 +220,25 @@ function ms_generate_logo(array &$data, string $workingDir, string $business, st
     ms_materialize_uploads($workingDir);   // uploads/ may be a symlink to the shared master
     $upl = $workingDir . '/uploads';
     @mkdir($upl, 0775, true);
-    $slug = trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($business)), '-') ?: 'wordmark';
+    $slug = trim(preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($line1 . ' ' . $line2))), '-') ?: 'wordmark';
     $rel  = 'uploads/logo_' . $slug . '.png';
     $out  = $workingDir . '/' . $rel;
     $tmp  = $upl . '/_lg_' . getmypid();
 
-    // ── two-tone wordmark (line 1 accent, line 2 dark), left-justified ──
-    $words = preg_split('/\s+/', $business);
-    $line1 = $words[0];
-    $line2 = count($words) > 1 ? implode(' ', array_slice($words, 1)) : '';
-    $wm    = $tmp . '_wm.png';
-    if ($line2 !== '') {
+    // ── two-tone wordmark (line 1 accent, line 2 dark), left-justified. Color
+    // follows the LOGICAL line (1 or 2), not position — if one line is blank,
+    // the other still renders in its own color, not the blank line's slot. ──
+    $wm = $tmp . '_wm.png';
+    if ($line1 !== '' && $line2 !== '') {
         $l1 = $tmp . '_l1.png'; $l2 = $tmp . '_l2.png';
         ms_convert_run([$bin, '-background', 'none', '-fill', $line1Color, '-font', $font, '-pointsize', (string)$pointsize, '-gravity', 'west', 'label:' . $line1, $l1], $l1);
         ms_convert_run([$bin, '-background', 'none', '-fill', $line2Color, '-font', $font, '-pointsize', (string)$pointsize, '-gravity', 'west', 'label:' . $line2, $l2], $l2);
         ms_convert_run([$bin, $l1, $l2, '-background', 'none', '-gravity', 'west', '-append', $wm], $wm);
         @unlink($l1); @unlink($l2);
-    } else {
+    } elseif ($line1 !== '') {
         ms_convert_run([$bin, '-background', 'none', '-fill', $line1Color, '-font', $font, '-pointsize', (string)$pointsize, '-gravity', 'west', 'label:' . $line1, $wm], $wm);
+    } else {
+        ms_convert_run([$bin, '-background', 'none', '-fill', $line2Color, '-font', $font, '-pointsize', (string)$pointsize, '-gravity', 'west', 'label:' . $line2, $wm], $wm);
     }
     if (!is_file($wm)) return null;
     $wmDim = getimagesize($wm); $wmH = (int)($wmDim[1] ?? $pointsize);
@@ -208,12 +300,21 @@ function ms_apply_visual_identity(string $workingDir, array $params, string $mas
     // 2. Theme.
     ms_apply_theme_preset($data, $preset);
 
-    // 3-4. Logo (two-tone wordmark + bug mark) + favicon, in the preset's colors.
-    $business = trim((string)($params['business'] ?? ($data['site_vars']['business'] ?? '')));
+    // 3-4. Logo (two-tone wordmark + bug mark) + favicon, in the preset's colors
+    // but with text/icon from this domain's Logo Config — a fully independent
+    // rotation axis from the theme preset (see ms_pick_logo_config()). A theme
+    // preset's own `icon` field no longer drives the real logo; it's kept only
+    // for that preset's own mini-preview in the Visual Identity library.
     $domain   = preg_replace('#^https?://#i', '', rtrim($params['domain'] ?? '', '/'));
-    $iconFile = trim((string)($preset['icon'] ?? ''));
-    $iconPath = $iconFile !== '' ? BASE_DIR . '/sites/' . $masterId . '/multisite/icons/' . basename($iconFile) : null;
-    $logoRel  = ms_generate_logo($data, $workingDir, $business, $domain, $iconPath);
+    $siteVars = [
+        'business' => trim((string)($params['business'] ?? ($data['site_vars']['business'] ?? ''))),
+        'city'     => trim((string)($params['city']     ?? ($data['site_vars']['city']     ?? ''))),
+        'state'    => trim((string)($params['state']    ?? ($data['site_vars']['state']    ?? ''))),
+        'SS'       => trim((string)($params['SS']       ?? ($data['site_vars']['SS']       ?? ''))),
+    ];
+    $logoConfig = ms_pick_logo_config($masterId, $params);
+    $lines      = ms_resolve_logo_lines($logoConfig, $siteVars, $masterId);
+    $logoRel    = ms_generate_logo($data, $workingDir, $lines['line1'], $lines['line2'], $domain, $lines['iconPath']);
 
     $tmp = $sf . '.tmp.' . getmypid();
     file_put_contents($tmp, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));

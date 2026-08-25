@@ -19,6 +19,13 @@ if (!$presets) { http_response_code(400); header('Content-Type: text/plain'); ex
 
 $data0 = @json_decode((string)@file_get_contents(DATA_FILE), true);
 $name  = trim($data0['site_vars']['business'] ?? '') ?: 'Your Business';
+// This montage visualizes PRESET colors/icons, not Logo Configs (a separate,
+// independent axis now — see includes/multisite/visual.php) — same "first
+// word / rest" split as visual_preview.php's own legacy fallback, so every
+// preset cell shows the same sample text for a fair side-by-side comparison.
+$words = preg_split('/\s+/', mb_substr($name, 0, 40));
+$mLine1 = $words[0];
+$mLine2 = count($words) > 1 ? implode(' ', array_slice($words, 1)) : '';
 
 $bin  = ms_convert_bin();
 $mont = is_file('/usr/bin/montage') ? '/usr/bin/montage' : trim((string)@shell_exec('command -v montage'));
@@ -39,7 +46,7 @@ foreach ($presets as $idx => $p) {
 
     $wd = $base . '/p' . $idx; @mkdir($wd . '/uploads', 0775, true);
     $d  = ['theme' => ['accent_color' => $accent, 'heading_color' => $dark, 'header_top_bg' => '#ffffff'], 'header' => []];
-    $logoRel = ms_generate_logo($d, $wd, $name, 'montage' . $idx, $iconPath);
+    $logoRel = ms_generate_logo($d, $wd, $mLine1, $mLine2, 'montage' . $idx, $iconPath);
     if (!$logoRel || !is_file($wd . '/' . $logoRel)) continue;
     $logo = $wd . '/' . $logoRel;
 
