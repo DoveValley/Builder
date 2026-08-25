@@ -9,14 +9,14 @@ function render_local_business_editor(array $lb) {
         <p class="hint" style="margin-bottom:18px;">Used for the canonical URL fallback, admin display name, and the <code>{rating}</code> / <code>{review_count}</code> shortcodes.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
             <div class="form-group">
-                <label>Business name</label>
+                <label>Business name <span class="hint">(admin label only)</span></label>
                 <input type="text" name="lb_name" value="<?= h($lb['lb_name'] ?? '') ?>" placeholder="e.g. Katy Pest Pros">
-                <span class="hint">Shown as the site name in the admin when no other name is set.</span>
+                <span class="hint">Only shown as this site's name inside the admin panel. Not the same as the <code>{business}</code> shortcode — that's set on the Header tab and controls on-page/schema text.</span>
             </div>
             <div class="form-group">
-                <label>Website URL</label>
+                <label>Website URL <span class="hint">(canonical fallback only)</span></label>
                 <input type="text" name="lb_url" value="<?= h($lb['lb_url'] ?? '') ?>" placeholder="https://katypestpros.com">
-                <span class="hint">Used as the canonical URL base when a page has no explicit canonical set.</span>
+                <span class="hint">Only used to build a page's canonical URL when that page hasn't set one explicitly. Not the same as the <code>{website}</code> shortcode — that's set on the Header tab.</span>
             </div>
             <div class="form-group">
                 <label for="lb_rating">Average rating <span class="hint">(1–5) — shortcode <code>{rating}</code></span></label>
