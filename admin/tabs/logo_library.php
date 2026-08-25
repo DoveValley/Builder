@@ -53,6 +53,14 @@ $llNavBg  = (($header['nav_bg'] ?? 'accent') === 'accent' || ($header['nav_bg'] 
     ? $llAccent
     : (preg_match('/^#[0-9a-fA-F]{6}$/', $header['nav_bg']) ? $header['nav_bg'] : $llAccent);
 $llNavTxt = preg_match('/^#[0-9a-fA-F]{6}$/', $header['nav_text'] ?? '') ? $header['nav_text'] : ($theme['header_text'] ?? '#ffffff');
+
+// This site's REAL business name/city — ms_resolve_logo_text() (the function
+// the actual build calls) reads these exact site_vars keys for a 'business'/
+// 'city' line source. Previewing with generic placeholders instead of them
+// was a real bug: every card looked right in the abstract but never showed
+// what THIS site would actually get.
+$llBusiness = trim((string)($siteVars['business'] ?? '')) ?: 'Acme Pest Control';
+$llCity     = trim((string)($siteVars['city']     ?? '')) ?: 'Lufkin';
 ?>
 <div class="card" id="ll-visual">
     <h2 style="margin-top:0;">Logo Library</h2>
@@ -85,6 +93,8 @@ var LL_ICONS  = <?= json_encode($llIcons, JSON_UNESCAPED_SLASHES) ?>;
 var LL_TOPBG  = <?= json_encode($llTopBg) ?>;
 var LL_NAVBG  = <?= json_encode($llNavBg) ?>;
 var LL_NAVTXT = <?= json_encode($llNavTxt) ?>;
+var LL_BIZ    = <?= json_encode($llBusiness) ?>;
+var LL_CITY   = <?= json_encode($llCity) ?>;
 var LL_CSRF   = <?= json_encode($csrfToken ?? '') ?>;
 var LL_ACCENT = <?= json_encode($llAccent) ?>;
 var LL_DARK   = <?= json_encode($llDark) ?>;
@@ -99,8 +109,8 @@ function llPreviewSrc(i, type){
         + '&accent=' + encodeURIComponent(LL_ACCENT)
         + '&dark='   + encodeURIComponent(LL_DARK)
         + '&icon='   + encodeURIComponent(p.icon || '')
-        + '&line1='  + encodeURIComponent(p.line1_source === 'custom' ? p.line1_custom : (p.line1_source === 'city' ? 'Lufkin' : 'Acme Pest Control'))
-        + '&line2='  + encodeURIComponent(p.line2_source === 'custom' ? p.line2_custom : (p.line2_source === 'city' ? 'Lufkin' : 'Acme Pest Control'))
+        + '&line1='  + encodeURIComponent(p.line1_source === 'custom' ? p.line1_custom : (p.line1_source === 'city' ? LL_CITY : LL_BIZ))
+        + '&line2='  + encodeURIComponent(p.line2_source === 'custom' ? p.line2_custom : (p.line2_source === 'city' ? LL_CITY : LL_BIZ))
         + '&_='      + llBust;
 }
 function llPreview(i){
