@@ -1291,7 +1291,7 @@ function render_content_block($block, $pathPrefix = '') {
                 }
                 echo '<div class="step-body">';
                 if ($stepHead) echo '<h3 class="step-heading">' . h($stepHead) . '</h3>';
-                if ($stepText) echo '<p class="step-text">' . h($stepText) . '</p>';
+                if ($stepText) echo '<div class="step-text">' . text_to_html($stepText) . '</div>';
                 echo '</div>';
                 echo '</div>';
             }
