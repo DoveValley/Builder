@@ -261,36 +261,43 @@
             "hg_color2_custom": "#14532d",
             "hg_items": [
                 {
-                    "icon": "",
+                    "icon": "biohazard.svg",
                     "label": "Black Mold Removal",
-                    "alt": "Black mold removal {city} {SS}"
+                    "alt": "Black mold removal {city} {SS}",
+                    "desc": "Toxic black mold thrives in damp, hidden areas and requires safe containment and removal to protect indoor air quality."
                 },
                 {
-                    "icon": "",
+                    "icon": "home-search.svg",
                     "label": "Attic Mold",
-                    "alt": "Attic mold removal {city} {SS}"
+                    "alt": "Attic mold removal {city} {SS}",
+                    "desc": "Poor ventilation and roof leaks let moisture build in attics, feeding mold growth across insulation and framing."
                 },
                 {
-                    "icon": "",
+                    "icon": "magnify.svg",
                     "label": "Crawl Space Mold",
-                    "alt": "Crawl space mold {city} {SS}"
+                    "alt": "Crawl space mold {city} {SS}",
+                    "desc": "Chronic below-grade moisture in crawl spaces creates ideal mold conditions that can spread into the home above."
                 },
                 {
-                    "icon": "",
+                    "icon": "water-alert.svg",
                     "label": "Basement Mold",
-                    "alt": "Basement mold {city} {SS}"
+                    "alt": "Basement mold {city} {SS}",
+                    "desc": "Basements trap humidity and groundwater seepage, making them one of the most common places mold takes hold."
                 },
                 {
-                    "icon": "",
+                    "icon": "spray-bottle.svg",
                     "label": "Bathroom & Shower Mold",
-                    "alt": "Bathroom mold {city} {SS}"
+                    "alt": "Bathroom mold {city} {SS}",
+                    "desc": "Daily steam and standing moisture on tile, grout, and drywall make bathrooms a prime spot for recurring mold."
                 },
                 {
-                    "icon": "",
+                    "icon": "fan.svg",
                     "label": "HVAC & AC Mold",
-                    "alt": "HVAC mold {city} {SS}"
+                    "alt": "HVAC mold {city} {SS}",
+                    "desc": "Mold in air ducts and vents circulates spores throughout the property every time the system runs."
                 }
-            ]
+            ],
+            "hg_flip": true
         },
         {
             "type": "service_cards",

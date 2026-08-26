@@ -274,43 +274,43 @@
             "hg_color2": "header",
             "hg_color1_custom": "#2563eb",
             "hg_color2_custom": "#0d2340",
-            "hg_flip": false,
+            "hg_flip": true,
             "hg_items": [
                 {
-                    "icon": "",
+                    "icon": "water-alert.svg",
                     "label": "Water Heater Leaks",
                     "alt": "Water heater leak {city} {SS}",
-                    "desc": ""
+                    "desc": "Aging tanks and worn valves can leak slowly for weeks, soaking flooring and drywall before the damage is ever noticed."
                 },
                 {
-                    "icon": "",
+                    "icon": "burst-pipe.svg",
                     "label": "Frozen Pipe Bursts",
                     "alt": "Frozen pipe burst {city} {SS}",
-                    "desc": ""
+                    "desc": "Freezing temperatures expand water inside pipes until they crack, releasing gallons of water once they thaw."
                 },
                 {
-                    "icon": "",
+                    "icon": "water-damage.svg",
                     "label": "Ceiling Water Damage",
                     "alt": "Ceiling water damage {city} {SS}",
-                    "desc": ""
+                    "desc": "Roof leaks and upstairs plumbing failures soak through drywall, leaving stains, sagging, and hidden mold risk overhead."
                 },
                 {
-                    "icon": "",
+                    "icon": "waves.svg",
                     "label": "Hardwood Floor Damage",
                     "alt": "Hardwood floor water damage {city} {SS}",
-                    "desc": ""
+                    "desc": "Standing water and humidity warp, cup, and stain hardwood floors, often requiring full board replacement if not dried fast."
                 },
                 {
-                    "icon": "",
+                    "icon": "storm-rain.svg",
                     "label": "Attic Water Damage",
                     "alt": "Attic water damage {city} {SS}",
-                    "desc": ""
+                    "desc": "Roof damage and condensation let water into insulation and framing, weakening structure and inviting mold in hard-to-reach spaces."
                 },
                 {
-                    "icon": "",
+                    "icon": "flooded-home.svg",
                     "label": "Crawl Space Water",
                     "alt": "Crawl space water damage {city} {SS}",
-                    "desc": ""
+                    "desc": "Poor drainage and grading push groundwater beneath the home, fueling mold, wood rot, and musty odors indoors."
                 }
             ],
             "id": "hero_grid_1"
@@ -435,27 +435,6 @@
                 "Full repairs & reconstruction"
             ],
             "id": "image_features_1"
-        },
-        {
-            "type": "ai_block",
-            "skin": "light",
-            "ai_type_id": "seasonal_calendar",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_prompt_override": "",
-            "ai_inject_target": "previous",
-            "ai_inject_field": "",
-            "ai_inject_mode": "append",
-            "heading_text": "",
-            "heading_level": "h2",
-            "text": "",
-            "_ai_locked": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T14:24:14.299629Z",
-            "_ai_model": "claude-sonnet-5",
-            "_ai_type": "seasonal_calendar",
-            "id": "ai_block_2"
         },
         {
             "type": "faq_two_col",
