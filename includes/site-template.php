@@ -187,6 +187,7 @@ if (empty($seo['og_image'])) {
         'Nunito'       => 'Nunito:wght@400;600;700;800;900',
         'Mulish'       => 'Mulish:wght@400;600;700;800;900',
         'Inter'        => 'Inter:wght@400;500;600;700;800;900',
+        'Outfit'       => 'Outfit:wght@400;500;600;700;800;900',
         'Source Sans Pro' => 'Source+Sans+3:wght@400;600;700;800;900',
         'Inclusive Sans'  => 'Inclusive+Sans:ital@0;1',
         'Playfair Display'=> 'Playfair+Display:wght@400;700;800;900',
@@ -303,7 +304,24 @@ $mainStyleAttr = $mainStyle ? ' style="' . implode(';', $mainStyle) . '"' : '';
 $bcHeroInlineStyle = '';
 if ($firstBlockHero) {
     $bcBg = ($bcHeroBgMode === 'custom' && $bcHeroBgColor) ? $bcHeroBgColor : $firstHeroBg;
-    if ($bcBg) $bcHeroInlineStyle = ' style="background:' . h($bcBg) . ';border-bottom-color:rgba(255,255,255,0.12);"';
+    if ($bcBg) {
+        $bcStyle = 'background:' . h($bcBg) . ';border-bottom-color:rgba(255,255,255,0.12);';
+        // .breadcrumb-bar--hero hardcodes white text, correct when the hero is dark (the
+        // common case) — but a hero can be light (e.g. a light-blue hero_split background),
+        // which makes that white text invisible. Perceived-luminance check (same formula as
+        // ms_is_light_color() in includes/multisite/visual.php) picks dark text instead when
+        // the hero itself is light, via CSS vars the stylesheet already falls back from.
+        $bcHex = ltrim($bcBg, '#');
+        if (strlen($bcHex) === 3) $bcHex = $bcHex[0].$bcHex[0].$bcHex[1].$bcHex[1].$bcHex[2].$bcHex[2];
+        if (strlen($bcHex) === 6 && ctype_xdigit($bcHex)) {
+            $r = hexdec(substr($bcHex, 0, 2)); $g = hexdec(substr($bcHex, 2, 2)); $bl = hexdec(substr($bcHex, 4, 2));
+            if (0.299 * $r + 0.587 * $g + 0.114 * $bl > 150) {
+                $bcStyle .= '--bc-text-color:#475569;--bc-link-color:var(--color-accent,#1a2e5a);'
+                          . '--bc-link-hover-color:var(--color-heading,#1a2e5a);--bc-current-color:#1a2e5a;--bc-sep-color:#94a3b8;';
+            }
+        }
+        $bcHeroInlineStyle = ' style="' . $bcStyle . '"';
+    }
 }
 ?>
 <main class="site-main"<?= $mainStyleAttr ?>>

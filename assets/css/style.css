@@ -190,11 +190,14 @@ a:hover {
     background: var(--color-header-bg, #0d1b3e);
     border-bottom: 1px solid rgba(255,255,255,0.12);
 }
-.breadcrumb-bar--hero .breadcrumb-list { color: rgba(255,255,255,0.7); }
-.breadcrumb-bar--hero .breadcrumb-list a { color: rgba(255,255,255,0.75); }
-.breadcrumb-bar--hero .breadcrumb-list a:hover { color: #fff; }
-.breadcrumb-bar--hero .breadcrumb-list [aria-current="page"] { color: rgba(255,255,255,0.9); font-weight: 500; }
-.breadcrumb-bar--hero .breadcrumb-sep { color: rgba(255,255,255,0.4); }
+/* Text defaults to white (correct when the hero is dark, the common case). When the
+   hero's actual background is light, site-template.php sets --bc-text/-link/-current/
+   -sep inline so the breadcrumb stays readable instead of white-on-white. */
+.breadcrumb-bar--hero .breadcrumb-list { color: var(--bc-text-color, rgba(255,255,255,0.7)); }
+.breadcrumb-bar--hero .breadcrumb-list a { color: var(--bc-link-color, rgba(255,255,255,0.75)); }
+.breadcrumb-bar--hero .breadcrumb-list a:hover { color: var(--bc-link-hover-color, #fff); }
+.breadcrumb-bar--hero .breadcrumb-list [aria-current="page"] { color: var(--bc-current-color, rgba(255,255,255,0.9)); font-weight: 500; }
+.breadcrumb-bar--hero .breadcrumb-sep { color: var(--bc-sep-color, rgba(255,255,255,0.4)); }
 
 .content-block {
     display: flex;

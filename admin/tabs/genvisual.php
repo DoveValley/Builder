@@ -401,6 +401,7 @@
                             'Montserrat, sans-serif'   => 'Montserrat ★',
                             'Poppins, sans-serif'      => 'Poppins ★',
                             'Inter, sans-serif'        => 'Inter ★',
+                            'Outfit, sans-serif'       => 'Outfit ★',
                         ];
                         foreach ($hfonts as $val => $label):
                             if ($label === null): ?>
@@ -434,6 +435,23 @@
                     </div>
                     <span class="hint" style="margin-top:6px;display:block;">rem units relative to body size. H1 default 2.5, H2 2, H3 1.75, H4 1.5.</span>
                 </div>
+                <div class="form-group" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;">
+                    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+                        <button type="button" class="btn btn-secondary btn-small" onclick="gvSetTypographyPreset('Inter, sans-serif','Inter, sans-serif',2,1.75,1.17,1)">Home Serv Head &amp; Body Font</button>
+                        <button type="button" class="btn btn-secondary btn-small" onclick="gvSetTypographyPreset('Open Sans, sans-serif','Noto Serif, serif',3.88,2.88,2.38,1.62)">Training Head &amp; Body Font</button>
+                    </div>
+                    <span class="hint" style="margin-top:6px;display:block;">Quick-fills body font, heading font, and the H1&ndash;H4 sizes above &mdash; matches what firstcallappliances.com / granitepmacademy.com actually use (heading <em>weight</em> is not changed by either button; it stays whatever this site already has). Still requires Save Theme below.</span>
+                </div>
+                <script>
+                function gvSetTypographyPreset(bodyFont, headFont, h1, h2, h3, h4) {
+                    document.getElementById('primary_font').value = bodyFont;
+                    document.getElementById('heading_font').value = headFont;
+                    document.getElementById('font_size_h1').value = h1;
+                    document.getElementById('font_size_h2').value = h2;
+                    document.getElementById('font_size_h3').value = h3;
+                    document.getElementById('font_size_h4').value = h4;
+                }
+                </script>
                 <div class="form-group">
                     <label>Supporting-text sizes (rem)</label>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;">
