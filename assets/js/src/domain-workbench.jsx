@@ -560,6 +560,7 @@ const CSS = `
 function DomainWorkbench() {
   const [state, setState] = useState(null);
   const [busy, setBusy] = useState(false);
+  const [sendingToDbuy, setSendingToDbuy] = useState(false);
   const [err, setErr] = useState("");
   const [toast, setToast] = useState("");
   const [paste, setPaste] = useState("");
@@ -1090,6 +1091,64 @@ Each "why" must be under 12 words and say something about the caller, not about 
     setCsv({ text, lines, scope: onlyShortlist ? "shortlist" : "everything" });
     setToast(`${lines} rows ready`);
   };
+
+  /* Sends every shortlisted candidate across ALL niches (same scope as "Export
+     shortlist" above) into D.Buy's own domains table via the server route,
+     which uses the exact same additive primitive the paste-box loader does —
+     a domain already tracked there is left completely untouched, never reset
+     or reordered. Once the server confirms each domain is actually present in
+     D.Buy (newly added OR already there from before), it moves OUT of the
+     Shortlist tab here too — into the "purchased" status this app already
+     defines (STATUSES.purchased, the "Claimed" stamp) but never had a real
+     trigger for until now. That is a genuine move, just split into two steps
+     so a failed request never claims a shortlist entry that never actually
+     reached D.Buy. */
+  async function sendShortlistToDbuy() {
+    const items = [];
+    state.niches.forEach((n) =>
+      n.candidates
+        .filter((c) => c.status === "shortlist")
+        .forEach((c) => items.push({ domain: c.domain, niche: n.name }))
+    );
+    if (!items.length) return setToast("Nothing shortlisted yet");
+
+    setSendingToDbuy(true);
+    setErr("");
+    try {
+      const body = new FormData();
+      body.append("csrf", DW.csrf);
+      body.append("items", JSON.stringify(items));
+      const res = await fetch(DW.dbuyUrl, { method: "POST", body, credentials: "same-origin" });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `Send failed (${res.status})`);
+
+      const confirmed = new Set([...(data.added || []), ...(data.duplicates || [])]);
+      if (confirmed.size) {
+        setState((s) => ({
+          ...s,
+          niches: s.niches.map((n) => ({
+            ...n,
+            candidates: n.candidates.map((c) =>
+              c.status === "shortlist" && confirmed.has(c.domain) ? { ...c, status: "purchased" } : c
+            ),
+          })),
+        }));
+      }
+
+      setToast(
+        `${data.added_count} added to D.Buy` +
+          (data.duplicate_count ? ` · ${data.duplicate_count} already there` : "") +
+          (confirmed.size ? ` · ${confirmed.size} moved out of Shortlist` : "") +
+          (data.invalid_count ? ` · ${data.invalid_count} skipped (bad domain)` : "")
+      );
+    } catch (e) {
+      const msg = e.message || "Send failed. Try again.";
+      setErr(msg);
+      setToast(msg);
+    } finally {
+      setSendingToDbuy(false);
+    }
+  }
 
   const askStrip = (key) => {
     if (!ask || ask.key !== key) return null;
@@ -1831,6 +1890,9 @@ Each "why" must be under 12 words and say something about the caller, not about 
               <option value={12}>12 at a time</option>
               <option value={20}>20 at a time</option>
             </select>
+            <button className="dw-btn ghost" onClick={sendShortlistToDbuy} disabled={sendingToDbuy}>
+              {sendingToDbuy ? "Sending…" : "Move items in Shortlist to D.Buy"}
+            </button>
           </div>
 
           <div className="dw-tabs">

@@ -439,6 +439,7 @@ const CSS = `
 function DomainWorkbench() {
   const [state, setState] = useState(null);
   const [busy, setBusy] = useState(false);
+  const [sendingToDbuy, setSendingToDbuy] = useState(false);
   const [err, setErr] = useState("");
   const [toast, setToast] = useState("");
   const [paste, setPaste] = useState("");
@@ -888,6 +889,44 @@ Each "why" must be under 12 words and say something about the caller, not about 
     setCsv({ text, lines, scope: onlyShortlist ? "shortlist" : "everything" });
     setToast(`${lines} rows ready`);
   };
+  async function sendShortlistToDbuy() {
+    const items = [];
+    state.niches.forEach(
+      (n) => n.candidates.filter((c) => c.status === "shortlist").forEach((c) => items.push({ domain: c.domain, niche: n.name }))
+    );
+    if (!items.length) return setToast("Nothing shortlisted yet");
+    setSendingToDbuy(true);
+    setErr("");
+    try {
+      const body = new FormData();
+      body.append("csrf", DW.csrf);
+      body.append("items", JSON.stringify(items));
+      const res = await fetch(DW.dbuyUrl, { method: "POST", body, credentials: "same-origin" });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `Send failed (${res.status})`);
+      const confirmed = /* @__PURE__ */ new Set([...data.added || [], ...data.duplicates || []]);
+      if (confirmed.size) {
+        setState((s) => ({
+          ...s,
+          niches: s.niches.map((n) => ({
+            ...n,
+            candidates: n.candidates.map(
+              (c) => c.status === "shortlist" && confirmed.has(c.domain) ? { ...c, status: "purchased" } : c
+            )
+          }))
+        }));
+      }
+      setToast(
+        `${data.added_count} added to D.Buy` + (data.duplicate_count ? ` \xB7 ${data.duplicate_count} already there` : "") + (confirmed.size ? ` \xB7 ${confirmed.size} moved out of Shortlist` : "") + (data.invalid_count ? ` \xB7 ${data.invalid_count} skipped (bad domain)` : "")
+      );
+    } catch (e) {
+      const msg = e.message || "Send failed. Try again.";
+      setErr(msg);
+      setToast(msg);
+    } finally {
+      setSendingToDbuy(false);
+    }
+  }
   const askStrip = (key) => {
     if (!ask || ask.key !== key) return null;
     return /* @__PURE__ */ React.createElement("div", { className: "dw-ask" }, /* @__PURE__ */ React.createElement("span", { className: "dw-ask-t" }, ask.title), ask.input !== void 0 && /* @__PURE__ */ React.createElement(
@@ -1104,7 +1143,7 @@ Each "why" must be under 12 words and say something about the caller, not about 
     const tone = use ? STATUSES[use.status].tone : "dead";
     const count = (nameUses[sn] || []).length;
     return /* @__PURE__ */ React.createElement("div", { className: "dw-reg-row", key: sn, "data-free": free ? "1" : "0" }, /* @__PURE__ */ React.createElement("span", { className: "dw-reg-name", "data-free": free ? "1" : "0" }, sn), /* @__PURE__ */ React.createElement("span", { className: "dw-tag", "data-tone": free ? "good" : tone }, free ? "Free to reuse" : reason), /* @__PURE__ */ React.createElement("code", { className: "dw-reg-dom" }, use ? use.domain : meta.domain, count > 1 ? ` +${count - 1}` : ""), /* @__PURE__ */ React.createElement("span", { className: "dw-reg-niche" }, use ? use.niche : meta.niche), /* @__PURE__ */ React.createElement("span", { className: "dw-reg-note" }, use?.note || ""), /* @__PURE__ */ React.createElement("button", { className: "dw-mini", onClick: () => releaseName(sn), title: "Remove from this list" }, "\xD7"));
-  })) : /* @__PURE__ */ React.createElement("p", { className: "dw-hint" }, "Empty. Every name is still in circulation.")), /* @__PURE__ */ React.createElement("div", { className: "dw-grid" }, /* @__PURE__ */ React.createElement("main", { className: "dw-col" }, /* @__PURE__ */ React.createElement("div", { className: "dw-row", style: { justifyContent: "space-between", marginBottom: 4 } }, /* @__PURE__ */ React.createElement("h1", { className: "dw-h" }, niche.name), /* @__PURE__ */ React.createElement("button", { className: "dw-btn ghost tiny", onClick: deleteNiche }, "Delete niche")), askStrip("del-niche"), err && /* @__PURE__ */ React.createElement("div", { className: "dw-err", style: { marginTop: 12 } }, err), /* @__PURE__ */ React.createElement("div", { className: "dw-row", style: { margin: "12px 0 16px" } }, /* @__PURE__ */ React.createElement("button", { className: "dw-btn", onClick: generate, disabled: busy }, busy ? "Searching\u2026" : "Find domains"), /* @__PURE__ */ React.createElement("select", { className: "dw-sel", value: batch, onChange: (e) => setBatch(Number(e.target.value)) }, /* @__PURE__ */ React.createElement("option", { value: 8 }, "8 at a time"), /* @__PURE__ */ React.createElement("option", { value: 12 }, "12 at a time"), /* @__PURE__ */ React.createElement("option", { value: 20 }, "20 at a time"))), /* @__PURE__ */ React.createElement("div", { className: "dw-tabs" }, [["all", "All"], ...STATUS_ORDER.map((k) => [k, STATUSES[k].label])].map(([k, label]) => {
+  })) : /* @__PURE__ */ React.createElement("p", { className: "dw-hint" }, "Empty. Every name is still in circulation.")), /* @__PURE__ */ React.createElement("div", { className: "dw-grid" }, /* @__PURE__ */ React.createElement("main", { className: "dw-col" }, /* @__PURE__ */ React.createElement("div", { className: "dw-row", style: { justifyContent: "space-between", marginBottom: 4 } }, /* @__PURE__ */ React.createElement("h1", { className: "dw-h" }, niche.name), /* @__PURE__ */ React.createElement("button", { className: "dw-btn ghost tiny", onClick: deleteNiche }, "Delete niche")), askStrip("del-niche"), err && /* @__PURE__ */ React.createElement("div", { className: "dw-err", style: { marginTop: 12 } }, err), /* @__PURE__ */ React.createElement("div", { className: "dw-row", style: { margin: "12px 0 16px" } }, /* @__PURE__ */ React.createElement("button", { className: "dw-btn", onClick: generate, disabled: busy }, busy ? "Searching\u2026" : "Find domains"), /* @__PURE__ */ React.createElement("select", { className: "dw-sel", value: batch, onChange: (e) => setBatch(Number(e.target.value)) }, /* @__PURE__ */ React.createElement("option", { value: 8 }, "8 at a time"), /* @__PURE__ */ React.createElement("option", { value: 12 }, "12 at a time"), /* @__PURE__ */ React.createElement("option", { value: 20 }, "20 at a time")), /* @__PURE__ */ React.createElement("button", { className: "dw-btn ghost", onClick: sendShortlistToDbuy, disabled: sendingToDbuy }, sendingToDbuy ? "Sending\u2026" : "Move items in Shortlist to D.Buy")), /* @__PURE__ */ React.createElement("div", { className: "dw-tabs" }, [["all", "All"], ...STATUS_ORDER.map((k) => [k, STATUSES[k].label])].map(([k, label]) => {
     const n = k === "all" ? niche.candidates.length : tallyMap[k];
     return /* @__PURE__ */ React.createElement(
       "button",

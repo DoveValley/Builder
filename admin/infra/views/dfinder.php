@@ -48,6 +48,7 @@ infra_header('dfinder');
     stateUrl: 'actions/dfinder_state.php',
     aiUrl:    'actions/dfinder_ai.php',
     checkUrl: 'actions/dfinder_check.php',
+    dbuyUrl:  'actions/dfinder_send_to_dbuy.php',
     csrf:     <?= json_encode(infra_csrf()) ?>
   };
 </script>
