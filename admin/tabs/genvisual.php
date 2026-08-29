@@ -31,12 +31,16 @@
                  . ($note !== '' ? '<span class="hint" style="display:block;margin-top:6px;">' . $note . '</span>' : '');
         };
 
-        // Band heading between the two groups of cards.
-        $gvBand = function (string $title, string $sub): string {
-            return '<h3 style="margin:30px 0 12px;font-size:.82rem;color:#1e3a5f;text-transform:uppercase;letter-spacing:.07em;'
-                 . 'border-bottom:2px solid #e2e8f0;padding-bottom:7px;">' . $title
-                 . '<span class="hint" style="display:block;text-transform:none;letter-spacing:0;font-size:.8rem;'
-                 . 'font-weight:400;margin-top:5px;">' . $sub . '</span></h3>';
+        // Section heading between the tab's three top-level areas (Niche Identity /
+        // Niche Defaults / Tracking) — deliberately louder than a card <h2> so the
+        // three-way split reads as the page's actual structure, not just a hint.
+        $gvBand = function (int $num, string $title, string $sub): string {
+            return '<h2 style="margin:34px 0 4px;font-size:1.15rem;color:#0f172a;'
+                 . 'border-bottom:3px solid #2563eb;padding-bottom:10px;display:flex;align-items:baseline;gap:10px;">'
+                 . '<span style="background:#2563eb;color:#fff;border-radius:999px;width:26px;height:26px;'
+                 . 'display:inline-flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;">' . $num . '</span>'
+                 . $title . '</h2>'
+                 . '<p class="hint" style="margin:0 0 16px;">' . $sub . '</p>';
         };
 
         // Reusable color-field renderer (picker + synced text input).
@@ -93,6 +97,29 @@
         foreach ($gvLogos as $i => $l) {
             if ((int)($l['id'] ?? ($i + 1)) === $gvSingleLogoId) { $gvSingleLogo = trim((string)($l['name'] ?? '')); break; }
         }
+
+        // Niche switcher: a fixed 10 slots, in order, from multisite/niche_slots.json —
+        // NOT a scan of sites/* (some master sites, e.g. a QA scratch site or a
+        // different product line entirely, are deliberately not part of this list).
+        // A slot's `title` is a cosmetic switcher label only, independent of that
+        // master's niche_brief.json `niche` field (the AI content-generation
+        // vocabulary) — renaming a slot here never touches that file.
+        $gvSlotsFile = BASE_DIR . '/multisite/niche_slots.json';
+        $gvSlotsDoc  = @json_decode((string)@file_get_contents($gvSlotsFile), true) ?: [];
+        $gvSlots     = is_array($gvSlotsDoc['slots'] ?? null) ? array_values($gvSlotsDoc['slots']) : [];
+        while (count($gvSlots) < 10) $gvSlots[] = ['site_id' => null, 'title' => ''];
+        $gvSlots = array_slice($gvSlots, 0, 10);
+        $gvNiches = [];
+        foreach ($gvSlots as $gvIdx => $gvSlot) {
+            $gvSid = $gvSlot['site_id'] ?? null;
+            $gvHasSite = $gvSid !== null && $gvSid !== '' && is_dir(BASE_DIR . '/sites/' . $gvSid);
+            $gvTitle = trim((string)($gvSlot['title'] ?? ''));
+            $gvNiches[] = [
+                'index' => $gvIdx,
+                'id'    => $gvHasSite ? $gvSid : null,
+                'label' => $gvTitle !== '' ? $gvTitle : ($gvHasSite ? ucwords(str_replace(['-', '_'], ' ', $gvSid)) : ''),
+            ];
+        }
         ?>
 
         <!-- How it works -->
@@ -108,7 +135,65 @@
             </p>
         </div>
 
-        <?= $gvBand('Brand identity &mdash; the preset library', 'The master-level library a batch rotates through. Nothing here changes this site on its own until you apply a preset to it.') ?>
+        <?= $gvBand(1, 'Niche Identity', 'Pick the niche you\'re working on &mdash; its own palette library, logos and icons appear below. Switching niches here does not affect any other niche.') ?>
+
+        <!-- Niche switcher: 10 fixed slots. Assigned slots switch the active site;
+             blank slots are reserved, nameable placeholders with no site yet. -->
+        <div class="card" id="niche-switcher">
+            <h2 style="margin-top:0;">Niche <span class="hint" style="font-weight:400;">— 10 slots, <?= count(array_filter($gvNiches, fn($n) => $n['id'] !== null)) ?> in use</span></h2>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <?php foreach ($gvNiches as $gvN):
+                    $gvIsActive = $gvN['id'] !== null && $gvN['id'] === ACTIVE_SITE_ID;
+                    $gvLabelJs  = json_encode($gvN['label']);
+                ?>
+                    <?php if ($gvN['id'] !== null): ?>
+                        <span style="display:inline-flex;align-items:stretch;border-radius:6px;overflow:hidden;">
+                            <button type="button" class="btn <?= $gvIsActive ? '' : 'btn-secondary' ?>" style="border-radius:0;"
+                                    onclick="gvSwitchNiche('<?= h(addslashes($gvN['id'])) ?>')"
+                                    <?= $gvIsActive ? 'disabled' : '' ?>>
+                                <?= $gvIsActive ? '&#9679; ' : '' ?><?= h($gvN['label'] !== '' ? $gvN['label'] : $gvN['id']) ?>
+                            </button>
+                            <button type="button" class="btn btn-secondary" title="Rename this niche's label"
+                                    style="border-radius:0;border-left:1px solid rgba(0,0,0,.12);padding-left:8px;padding-right:8px;"
+                                    onclick="gvRenameNiche(<?= (int)$gvN['index'] ?>, <?= h($gvLabelJs) ?>)">&#9998;</button>
+                        </span>
+                    <?php else: ?>
+                        <button type="button" class="btn btn-secondary" style="border:1px dashed #cbd5e1;color:#64748b;"
+                                onclick="gvRenameNiche(<?= (int)$gvN['index'] ?>, <?= h($gvLabelJs) ?>)">
+                            <?= $gvN['label'] !== '' ? h($gvN['label']) . ' (no site yet)' : '+ Name this niche' ?>
+                        </button>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+            <p class="hint" style="margin:10px 0 0;">Each niche is a separate master site &mdash; its own 10 color palettes, 10 logos and icon set, with nothing shared between niches. A niche's label here is just a switcher name; it does not change that site's AI content-generation niche vocabulary (Niche Brief tab). Blank slots have no master site built yet &mdash; you can still name the slot now and build it out later.</p>
+        </div>
+        <script>
+        function gvSwitchNiche(siteId){
+            var fd = new FormData();
+            fd.append('csrf_token', <?= json_encode($csrfToken) ?>);
+            fd.append('action', 'select');
+            fd.append('site_id', siteId);
+            fetch('site_api.php', {method:'POST', body:fd}).then(function(r){ return r.json(); }).then(function(d){
+                if (d.success) { window.location.href = 'index.php?tab=genvisual'; }
+                else { alert('Could not switch niche: ' + (d.error || 'unknown error')); }
+            }).catch(function(){ alert('Network error switching niche.'); });
+        }
+        function gvRenameNiche(index, currentTitle){
+            var name = prompt('Niche label (switcher display only):', currentTitle || '');
+            if (name === null) return;
+            name = name.trim();
+            if (name === '') { alert('Name cannot be blank.'); return; }
+            var fd = new FormData();
+            fd.append('csrf_token', <?= json_encode($csrfToken) ?>);
+            fd.append('action', 'rename');
+            fd.append('index', index);
+            fd.append('title', name);
+            fetch('niche_slots_save.php', {method:'POST', body:fd}).then(function(r){ return r.json(); }).then(function(d){
+                if (d.success) { window.location.reload(); }
+                else { alert('Could not rename: ' + (d.error || 'unknown error')); }
+            }).catch(function(){ alert('Network error renaming niche.'); });
+        }
+        </script>
 
         <!-- At a glance: the state you'd otherwise have to infer by scanning checkboxes -->
         <div class="card">
@@ -216,7 +301,7 @@
              rotation pool from the color presets above. Sits OUTSIDE the theme form. -->
         <?php require __DIR__ . '/logo_library.php'; ?>
 
-        <?= $gvBand('This master&rsquo;s own look', 'Applying a preset above overwrites part of what follows. Everything a preset does <em>not</em> carry is inherited, unchanged, by every domain in every batch.') ?>
+        <?= $gvBand(2, 'Niche Defaults', 'Settings that look the same no matter which of this niche&rsquo;s palettes is applied. Applying a palette overwrites some of what&rsquo;s in Advanced below &mdash; open it only to fine-tune by hand.') ?>
 
         <form action="save.php" method="post" id="theme-form">
             <input type="hidden" name="section" value="theme">
@@ -224,58 +309,6 @@
                  the programmatic f.submit() used by the Generate button below — so carry it here. -->
             <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
             <div style="margin-bottom:16px;"><button type="submit" class="btn">Save Theme</button></div>
-
-            <!-- ① BRAND COLORS -->
-            <div class="card">
-                <h2>① Brand colors <?= $gvTag('mixed') ?></h2>
-                <p class="hint" style="margin-bottom:14px;">Your signature colors. Buttons, links, badges and icons all follow the accent.
-                    <strong>Primary accent</strong> is one of the 10 settings a preset carries, so a generated domain uses its
-                    preset's accent instead of this one; <strong>Highlight</strong> and <strong>Button text</strong> are not, so
-                    every domain inherits exactly what you set here.</p>
-                <?php
-                $brandFields = [
-                    'accent_color'  => ['Primary accent', 'Drives links, buttons, icon backgrounds, badges, and the Accent section mood — all from one color.', '#2563eb'],
-                    'accent2_color' => ['Highlight',       'A contrasting color for standout words or decorative bits. Use as <code>var(--color-highlight)</code>.', '#f5a623'],
-                    'btn_text'      => ['Button text',     'Almost always white. Change only if your accent is light enough that white text is unreadable.', '#ffffff'],
-                ];
-                foreach ($brandFields as $key => [$label, $hint, $def]) $colorField($key, $label, $theme[$key] ?? $def, $hint);
-                ?>
-            </div>
-
-            <!-- ② HEADER & FOOTER -->
-            <div class="card">
-                <h2>② Header &amp; Footer <?= $gvTag('mixed') ?></h2>
-                <p class="hint" style="margin-bottom:14px;">The colored bars at the very top and bottom of every page.
-                    A preset carries the header bar color, the announcement strip and both footer colors, so a generated domain
-                    gets its own. <strong>Header bar text</strong> is the exception &mdash; it drives two separate values, and only
-                    the menu-link half is carried by a preset; the bar's own text color stays whatever you set here, fleet-wide.</p>
-
-                <div class="form-group">
-                    <label>Header bar color</label>
-                    <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
-                        <label style="font-weight:400;display:flex;align-items:center;gap:6px;cursor:pointer;">
-                            <input type="radio" name="nav_bg_mode" value="accent" <?= $navIsAccent ? 'checked' : '' ?> onchange="navBgModeToggle()"> Match brand accent
-                        </label>
-                        <label style="font-weight:400;display:flex;align-items:center;gap:6px;cursor:pointer;">
-                            <input type="radio" name="nav_bg_mode" value="custom" <?= $navIsAccent ? '' : 'checked' ?> onchange="navBgModeToggle()"> Custom
-                        </label>
-                        <span id="nav_bg_custom_wrap" class="color-field" style="<?= $navIsAccent ? 'display:none;' : '' ?>">
-                            <input type="color" id="nav_bg_custom_picker" value="<?= h($navHex) ?>"
-                                   oninput="document.getElementById('nav_bg_custom').value=this.value;"
-                                   onchange="document.getElementById('nav_bg_custom').value=this.value;">
-                            <input type="text" id="nav_bg_custom" name="nav_bg_custom" value="<?= h($navHex) ?>"
-                                   oninput="var p=document.getElementById('nav_bg_custom_picker'); if(/^#[0-9a-fA-F]{6}$/.test(this.value))p.value=this.value;">
-                        </span>
-                    </div>
-                    <span class="hint">The nav bar and the sticky “call now” bar. “Match brand accent” keeps them on-brand automatically.</span>
-                </div>
-
-                <?php $colorField('nav_text', 'Header bar text', $navTextCur, 'Menu links and the phone button in the header bar.'); ?>
-                <?php $colorField('header_top_bg', 'Top announcement bar', $theme['header_top_bg'] ?? '#ffffff', 'The thin strip above the nav bar (often white).'); ?>
-                <hr style="border:none;border-top:1px solid #e5e7eb;margin:18px 0;">
-                <?php $colorField('footer_bg', 'Footer background', $theme['footer_bg'] ?? '#120575', 'The large footer block at the bottom of every page.'); ?>
-                <?php $colorField('footer_text', 'Footer text', $theme['footer_text'] ?? '#ffffff', 'Text and links inside the footer.'); ?>
-            </div>
 
             <!-- ③ SECTION MOODS (BLOCK SKINS) -->
             <div class="card" style="background:#f8fafc;border-left:3px solid #64748b;">
@@ -333,6 +366,66 @@
                     Neither is preset-carried, so both are inherited by every generated domain.</p>
                 <?php $colorField('content_bg', 'Page background', $theme['content_bg'] ?? '#ffffff', 'The base background behind every section. Usually white.'); ?>
                 <?php $colorField('border_color', 'Border / divider', $theme['border_color'] ?? '#e5e7eb', 'Footer divider lines and structural borders. Use as <code>var(--color-border)</code>.'); ?>
+            </div>
+
+            <!-- ADVANCED: fields that overlap with the palette library above — hand-editing
+                 here only makes sense to fine-tune one thing without swapping the whole
+                 palette; applying a palette card overwrites whatever's in here. Collapsed
+                 by default so the main flow (pick niche → pick palette) isn't cluttered. -->
+            <details style="margin-top:8px;">
+                <summary style="cursor:pointer;font-weight:600;color:#1e3a5f;padding:10px 4px;">Advanced &mdash; fine-tune this niche&rsquo;s current colors &amp; fonts by hand</summary>
+                <div style="margin-top:12px;">
+
+            <!-- ① BRAND COLORS -->
+            <div class="card">
+                <h2>① Brand colors <?= $gvTag('mixed') ?></h2>
+                <p class="hint" style="margin-bottom:14px;">Your signature colors. Buttons, links, badges and icons all follow the accent.
+                    <strong>Primary accent</strong> is one of the 10 settings a preset carries, so a generated domain uses its
+                    preset's accent instead of this one; <strong>Highlight</strong> and <strong>Button text</strong> are not, so
+                    every domain inherits exactly what you set here.</p>
+                <?php
+                $brandFields = [
+                    'accent_color'  => ['Primary accent', 'Drives links, buttons, icon backgrounds, badges, and the Accent section mood — all from one color.', '#2563eb'],
+                    'accent2_color' => ['Highlight',       'A contrasting color for standout words or decorative bits. Use as <code>var(--color-highlight)</code>.', '#f5a623'],
+                    'btn_text'      => ['Button text',     'Almost always white. Change only if your accent is light enough that white text is unreadable.', '#ffffff'],
+                ];
+                foreach ($brandFields as $key => [$label, $hint, $def]) $colorField($key, $label, $theme[$key] ?? $def, $hint);
+                ?>
+            </div>
+
+            <!-- ② HEADER & FOOTER -->
+            <div class="card">
+                <h2>② Header &amp; Footer <?= $gvTag('mixed') ?></h2>
+                <p class="hint" style="margin-bottom:14px;">The colored bars at the very top and bottom of every page.
+                    A preset carries the header bar color, the announcement strip and both footer colors, so a generated domain
+                    gets its own. <strong>Header bar text</strong> is the exception &mdash; it drives two separate values, and only
+                    the menu-link half is carried by a preset; the bar's own text color stays whatever you set here, fleet-wide.</p>
+
+                <div class="form-group">
+                    <label>Header bar color</label>
+                    <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
+                        <label style="font-weight:400;display:flex;align-items:center;gap:6px;cursor:pointer;">
+                            <input type="radio" name="nav_bg_mode" value="accent" <?= $navIsAccent ? 'checked' : '' ?> onchange="navBgModeToggle()"> Match brand accent
+                        </label>
+                        <label style="font-weight:400;display:flex;align-items:center;gap:6px;cursor:pointer;">
+                            <input type="radio" name="nav_bg_mode" value="custom" <?= $navIsAccent ? '' : 'checked' ?> onchange="navBgModeToggle()"> Custom
+                        </label>
+                        <span id="nav_bg_custom_wrap" class="color-field" style="<?= $navIsAccent ? 'display:none;' : '' ?>">
+                            <input type="color" id="nav_bg_custom_picker" value="<?= h($navHex) ?>"
+                                   oninput="document.getElementById('nav_bg_custom').value=this.value;"
+                                   onchange="document.getElementById('nav_bg_custom').value=this.value;">
+                            <input type="text" id="nav_bg_custom" name="nav_bg_custom" value="<?= h($navHex) ?>"
+                                   oninput="var p=document.getElementById('nav_bg_custom_picker'); if(/^#[0-9a-fA-F]{6}$/.test(this.value))p.value=this.value;">
+                        </span>
+                    </div>
+                    <span class="hint">The nav bar and the sticky “call now” bar. “Match brand accent” keeps them on-brand automatically.</span>
+                </div>
+
+                <?php $colorField('nav_text', 'Header bar text', $navTextCur, 'Menu links and the phone button in the header bar.'); ?>
+                <?php $colorField('header_top_bg', 'Top announcement bar', $theme['header_top_bg'] ?? '#ffffff', 'The thin strip above the nav bar (often white).'); ?>
+                <hr style="border:none;border-top:1px solid #e5e7eb;margin:18px 0;">
+                <?php $colorField('footer_bg', 'Footer background', $theme['footer_bg'] ?? '#120575', 'The large footer block at the bottom of every page.'); ?>
+                <?php $colorField('footer_text', 'Footer text', $theme['footer_text'] ?? '#ffffff', 'Text and links inside the footer.'); ?>
             </div>
 
             <!-- ⑤ TYPOGRAPHY & BUTTONS -->
@@ -475,7 +568,10 @@
                 </div>
             </div>
 
-            <?= $gvBand('Not visual &mdash; tracking', 'Saved by the same button, but nothing here affects how a site looks. It lives on this tab because it is part of the same <code>theme</code> record.') ?>
+                </div>
+            </details>
+
+            <?= $gvBand(3, 'Tracking', 'Not visual &mdash; saved by the same button, but nothing here affects how a site looks.') ?>
 
             <!-- TRACKING -->
             <div class="card">

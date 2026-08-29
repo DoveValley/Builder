@@ -1,0 +1,45 @@
+{
+    "_about": "The 10 niche slots shown on Gen-Visual, in display order. `title` is a COSMETIC label for the switcher pill only \u2014 it is independent of niche_brief.json's `niche` field (the AI content-generation vocabulary) and editing it here never touches that file. Assigned slots (site_id set) point at a real master site under sites/; blank slots (site_id null) have no site yet and exist purely as a reserved, nameable placeholder.",
+    "slots": [
+        {
+            "site_id": "appliance-site",
+            "title": "Appliance Repair"
+        },
+        {
+            "site_id": "mold-site",
+            "title": "Mold Remediation"
+        },
+        {
+            "site_id": "pest-template",
+            "title": "Pest Control"
+        },
+        {
+            "site_id": "water-site",
+            "title": "Water Restoration"
+        },
+        {
+            "site_id": null,
+            "title": ""
+        },
+        {
+            "site_id": null,
+            "title": "sdsdsd"
+        },
+        {
+            "site_id": null,
+            "title": ""
+        },
+        {
+            "site_id": null,
+            "title": ""
+        },
+        {
+            "site_id": null,
+            "title": ""
+        },
+        {
+            "site_id": null,
+            "title": ""
+        }
+    ]
+}
