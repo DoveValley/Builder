@@ -5,13 +5,16 @@
  * be pasted into a Claude Code conversation for the assistant to read off the VPS.
  * Persistent-ish scratch: pruned after 7 days so it never accumulates.
  *
- * Images are validated by real content (getimagesize). Everything else is
- * validated against a whitelist of safe document/data extensions — executable
- * and script types (php, phtml, phar, cgi, pl, py, sh, svg, html, ...) are never
+ * Images are validated by real content (getimagesize). SVG is accepted too, but
+ * only after sanitize_svg() strips <script>/handlers/javascript: URIs — the
+ * SANITIZED content is what gets written, never the raw upload. Everything else
+ * is validated against a whitelist of safe document/data extensions — executable
+ * and script types (php, phtml, phar, cgi, pl, py, sh, html, ...) are never
  * accepted, since this folder is web-served.
  */
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/convo_uploads.php';   // the accepted-types list, shared with the picker
+require_once __DIR__ . '/../includes/helpers.php';          // sanitize_svg()
 header('Content-Type: application/json');
 
 if (empty($_SESSION['admin_logged_in']))   { http_response_code(403); echo json_encode(['error' => 'Not authenticated.']); exit; }
@@ -53,19 +56,33 @@ if ($f['size'] > 20 * 1024 * 1024) { echo json_encode(['error' => 'File too larg
 $info      = @getimagesize($f['tmp_name']);
 $imgTypes  = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp', 'image/gif' => 'gif'];
 $isImage   = $info && isset($imgTypes[$info['mime']]);
+$rawExt    = strtolower(pathinfo($f['name'] ?? '', PATHINFO_EXTENSION));
+$isSvg     = false;
+$svgClean  = null;
 
 if ($isImage) {
     $ext = $imgTypes[$info['mime']];
+} elseif ($rawExt === 'svg') {
+    // Not an image by getimagesize() (SVG is XML, not raster) — sanitize the raw
+    // content the same way the Brand Icons upload does (includes/helpers.php),
+    // stripping <script>/handlers/javascript: URIs, before it ever touches disk.
+    // The SANITIZED string is what gets saved below, never the original upload.
+    $raw = @file_get_contents($f['tmp_name']);
+    $svgClean = $raw !== false ? sanitize_svg($raw) : false;
+    if ($svgClean === false) {
+        echo json_encode(['error' => 'Invalid or unsafe SVG content — could not sanitize.']); exit;
+    }
+    $isSvg = true;
+    $ext = 'svg';
 } else {
-    // Not an image → allow document/data/source formats by extension. The list is
-    // in includes/convo_uploads.php, shared with the file input's accept="" on the
-    // Test Lab page, because two copies of it had already disagreed: .jsx was added
-    // here and the picker still would not let one be selected.
+    // Not an image or SVG → allow document/data/source formats by extension. The
+    // list is in includes/convo_uploads.php, shared with the file input's accept=""
+    // on the Test Lab page, because two copies of it had already disagreed: .jsx was
+    // added here and the picker still would not let one be selected.
     //
     // This check is the one that matters. accept="" is a hint the file dialog
     // applies; drag-and-drop and paste go straight past it.
     $docExts = convo_doc_exts();
-    $rawExt  = strtolower(pathinfo($f['name'] ?? '', PATHINFO_EXTENSION));
     if (!in_array($rawExt, $docExts, true)) {
         echo json_encode(['error' => 'Unsupported file type (.' . $rawExt . '). Allowed: ' . convo_accept_note() . '.']); exit;
     }
@@ -86,7 +103,14 @@ $origBase = preg_replace('/[^a-zA-Z0-9_-]+/', '-', (string)$origBase);
 $origBase = trim(substr($origBase, 0, 40), '-');
 $name = date('YmdHis') . '_' . bin2hex(random_bytes(2)) . ($origBase !== '' ? '_' . $origBase : '') . '.' . $ext;
 $dest = $dir . '/' . $name;
-if (!move_uploaded_file($f['tmp_name'], $dest)) { echo json_encode(['error' => 'Could not save the uploaded file.']); exit; }
+if ($isSvg) {
+    // Write the SANITIZED string, not the original upload — move_uploaded_file()
+    // would put the raw (pre-sanitize) bytes on disk instead.
+    if (@file_put_contents($dest, $svgClean) === false) { echo json_encode(['error' => 'Could not save the uploaded file.']); exit; }
+    @unlink($f['tmp_name']);
+} elseif (!move_uploaded_file($f['tmp_name'], $dest)) {
+    echo json_encode(['error' => 'Could not save the uploaded file.']); exit;
+}
 @chmod($dest, 0664);
 
 echo json_encode([

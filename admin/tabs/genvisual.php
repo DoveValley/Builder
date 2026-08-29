@@ -267,6 +267,9 @@
                 <input type="file" id="icon-files" accept=".svg,image/svg+xml" multiple>
                 <button type="button" class="btn btn-secondary" onclick="iconUpload()">Upload SVG icons</button>
                 <a class="btn btn-secondary" href="visual_montage.php" target="_blank" rel="noopener">Export logos + favicons ↗</a>
+                <?php if ($iconList): ?>
+                <a class="btn btn-secondary" href="icons_export.php">Export icon SVGs (.zip) ↓</a>
+                <?php endif; ?>
                 <span id="icon-msg" class="hint" style="margin-left:2px;"></span>
             </div>
             <p class="hint" style="margin:8px 0 0;">SVG only, ≤512&nbsp;KB each. The same icons drive the multisite build's per-site logos.</p>
