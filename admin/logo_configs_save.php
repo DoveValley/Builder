@@ -6,8 +6,9 @@
  * color theme are picked independently (see ms_pick_logo_config() /
  * ms_pick_theme_preset() in includes/multisite/visual.php).
  *
- * POST: csrf_token, logos = JSON [{name, icon, line1_source, line1_custom,
- *       line2_source, line2_custom, in_rotation}, …], single_logo_id
+ * POST: csrf_token, logos = JSON [{name, icon, icon_bg, line1_source, line1_custom,
+ *       line1_color, line2_source, line2_custom, line2_color, in_rotation}, …],
+ *       single_logo_id
  */
 require_once __DIR__ . '/../config.php';
 header('Content-Type: application/json');
@@ -20,7 +21,7 @@ if (!is_array($in) || count($in) < 1)  { echo json_encode(['ok' => false, 'error
 if (count($in) > 10)                   { echo json_encode(['ok' => false, 'error' => 'Maximum 10 logo configs.']); exit; }
 
 $iconDir = ACTIVE_SITE_DIR . '/multisite/icons/';
-$validSources = ['business', 'city', 'custom'];
+$validSources = ['business', 'business_word1', 'business_rest', 'city', 'custom'];
 $logos = [];
 $i = 0;
 foreach ($in as $l) {
@@ -34,6 +35,9 @@ foreach ($in as $l) {
     $line2Source = in_array($l['line2_source'] ?? '', $validSources, true) ? $l['line2_source'] : 'city';
     $line1Custom = mb_substr(trim((string)($l['line1_custom'] ?? '')), 0, 60);
     $line2Custom = mb_substr(trim((string)($l['line2_custom'] ?? '')), 0, 60);
+    $line1Color  = ($l['line1_color'] ?? '') === 'dark'   ? 'dark'   : 'accent';
+    $line2Color  = ($l['line2_color'] ?? '') === 'accent' ? 'accent' : 'dark';
+    $iconBg      = ($l['icon_bg'] ?? '') === 'accent' ? 'accent' : 'dark';
 
     // Multisite rotation pool membership (default true = in the pool).
     $inRotation = array_key_exists('in_rotation', $l) ? (bool)$l['in_rotation'] : true;
@@ -42,10 +46,13 @@ foreach ($in as $l) {
         'id'           => $i,
         'name'         => $name,
         'icon'         => $icon,
+        'icon_bg'      => $iconBg,
         'line1_source' => $line1Source,
         'line1_custom' => $line1Custom,
+        'line1_color'  => $line1Color,
         'line2_source' => $line2Source,
         'line2_custom' => $line2Custom,
+        'line2_color'  => $line2Color,
         'in_rotation'  => $inRotation,
     ];
 }

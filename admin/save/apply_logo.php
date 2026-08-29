@@ -37,7 +37,7 @@ $siteVars = [
 if ($siteVars['business'] === '') { $message = 'error:Set+a+business+name+first+(Header+tab).'; return; }
 
 $lines = ms_resolve_logo_lines($config, $siteVars, ACTIVE_SITE_ID);
-$logo  = ms_generate_logo($data, ACTIVE_SITE_DIR, $lines['line1'], $lines['line2'], 'brand', $lines['iconPath']);
+$logo  = ms_generate_logo($data, ACTIVE_SITE_DIR, $lines['line1'], $lines['line2'], 'brand', $lines['iconPath'], $lines['line1Color'], $lines['line2Color'], $lines['iconBg']);
 
 // Point the LocalBusiness schema logo at the generated file.
 if ($logo && isset($data['local_business'])) {

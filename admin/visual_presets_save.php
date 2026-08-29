@@ -4,7 +4,7 @@
  * theme_presets.json from the posted preset list (1–10). Isolated endpoint —
  * same CSRF pattern as the other admin POST handlers. Returns JSON.
  *
- * POST: csrf_token, presets = JSON [{name, accent, dark, font, radius, icon}, …]
+ * POST: csrf_token, presets = JSON [{name, accent, dark, font, radius}, …]
  */
 require_once __DIR__ . '/../config.php';
 header('Content-Type: application/json');
@@ -16,7 +16,6 @@ $in = json_decode($_POST['presets'] ?? '', true);
 if (!is_array($in) || count($in) < 1)  { echo json_encode(['ok' => false, 'error' => 'No presets supplied.']); exit; }
 if (count($in) > 10)                   { echo json_encode(['ok' => false, 'error' => 'Maximum 10 presets.']); exit; }
 
-$iconDir = ACTIVE_SITE_DIR . '/multisite/icons/';
 $presets = [];
 $i = 0;
 foreach ($in as $p) {
@@ -27,15 +26,12 @@ foreach ($in as $p) {
     $dark   = preg_match('/^#[0-9a-fA-F]{6}$/', $p['dark']   ?? '') ? $p['dark']   : '#111111';
     $font   = (isset($p['font']) && preg_match('/^[a-zA-Z0-9 ,\-]+$/', $p['font'])) ? trim($p['font']) : 'Inclusive Sans, sans-serif';
     $radius = (string)max(0, min(50, (int)($p['radius'] ?? 5)));
-    $icon   = basename((string)($p['icon'] ?? ''));
-    if ($icon !== '' && !is_file($iconDir . $icon)) $icon = '';   // drop a missing icon
     // Multisite rotation pool membership (default true = in the pool).
     $inRotation = array_key_exists('in_rotation', $p) ? (bool)$p['in_rotation'] : true;
     $presets[] = [
         'id'   => $i,
         'name' => $name,
         'note' => trim((string)($p['note'] ?? '')),
-        'icon' => $icon,
         'in_rotation' => $inRotation,
         'theme' => [
             'accent_color'  => $accent,
@@ -63,7 +59,7 @@ $singleId = isset($_POST['single_preset_id']) && ctype_digit((string)$_POST['sin
 if ($singleId > count($presets)) $singleId = 0;   // stale id (preset removed) → clear
 
 $doc = [
-    '_about'  => $existing['_about'] ?? 'Per-site Visual Identity library. Each preset = colors + font + button radius + bug icon → drives the theme, logo, and favicon. `single_preset_id` = the preset applied to THIS site; `in_rotation` per preset = whether the multisite build rotates through it when generating clones.',
+    '_about'  => $existing['_about'] ?? 'Per-site Visual Identity library. Each preset = colors + font + button radius → drives the theme, logo, and favicon colors (icon/text come from the Logo Library instead). `single_preset_id` = the preset applied to THIS site; `in_rotation` per preset = whether the multisite build rotates through it when generating clones.',
     'niche'   => $existing['niche'] ?? '',
     'single_preset_id' => $singleId,
     'presets' => $presets,

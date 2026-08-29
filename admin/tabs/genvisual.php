@@ -243,7 +243,7 @@
         <!-- Brand icons: upload/manage the SVG icon library that feeds the presets -->
         <div class="card" id="brand-icons">
             <h2 style="margin-top:0;">Brand icons <span class="hint" style="font-weight:400;">— SVG marks for logos &amp; favicons</span></h2>
-            <p class="hint" style="margin-bottom:12px;">Upload simple <strong>single-color silhouette SVGs</strong> (a wrench, house, leaf, tool…). Each preset below picks one — it becomes the colored mark in that preset's generated <strong>logo + favicon</strong>. Upload ~10 (one per preset), then click <strong>Auto-assign</strong>.</p>
+            <p class="hint" style="margin-bottom:12px;">Upload simple <strong>single-color silhouette SVGs</strong> (a wrench, house, leaf, tool…). Each config in the <strong>Logo Library</strong> below picks one — it becomes the colored mark in your site's generated <strong>logo + favicon</strong>.</p>
 
             <div id="icon-grid" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:14px;">
                 <?php if (!$iconList): ?>
@@ -266,7 +266,6 @@
             <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
                 <input type="file" id="icon-files" accept=".svg,image/svg+xml" multiple>
                 <button type="button" class="btn btn-secondary" onclick="iconUpload()">Upload SVG icons</button>
-                <button type="button" class="btn btn-secondary" onclick="msvAutoAssignIcons()">Auto-assign to presets</button>
                 <a class="btn btn-secondary" href="visual_montage.php" target="_blank" rel="noopener">Export logos + favicons ↗</a>
                 <span id="icon-msg" class="hint" style="margin-left:2px;"></span>
             </div>

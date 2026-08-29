@@ -10,6 +10,7 @@
  *
  * GET: accent=#hex dark=#hex icon=name.svg type=logo|favicon
  *      + either line1=...&line2=... (explicit) or name=Business (legacy split)
+ *      + optional line1_color=accent|dark, line2_color=accent|dark, icon_bg=dark|accent (Logo Library only)
  */
 require_once __DIR__ . '/../config.php';
 if (empty($_SESSION['admin_logged_in'])) { http_response_code(403); header('Content-Type: text/plain'); exit('Not authenticated.'); }
@@ -33,6 +34,10 @@ if (isset($_GET['line1']) || isset($_GET['line2'])) {
     $line2 = count($words) > 1 ? implode(' ', array_slice($words, 1)) : '';
 }
 
+$line1Color = ($_GET['line1_color'] ?? '') === 'dark'   ? 'dark'   : 'accent';
+$line2Color = ($_GET['line2_color'] ?? '') === 'accent' ? 'accent' : 'dark';
+$iconBg     = ($_GET['icon_bg']    ?? '') === 'accent' ? 'accent' : 'dark';
+
 // Icon restricted to this master's icons/ dir (basename only, must exist).
 $icon     = basename((string)($_GET['icon'] ?? ''));
 $iconPath = ($icon !== '' && preg_match('/\.svg$/i', $icon)) ? ACTIVE_SITE_DIR . '/multisite/icons/' . $icon : null;
@@ -44,7 +49,7 @@ if (ms_convert_bin() === null) { http_response_code(500); header('Content-Type: 
 $wd = sys_get_temp_dir() . '/ms_vp_' . getmypid() . '_' . mt_rand(1000, 9999999);
 @mkdir($wd . '/uploads', 0775, true);
 $data = ['theme' => ['accent_color' => $accent, 'heading_color' => $dark, 'header_top_bg' => '#ffffff'], 'header' => []];
-$logoRel = ms_generate_logo($data, $wd, $line1, $line2, 'preview', $iconPath);
+$logoRel = ms_generate_logo($data, $wd, $line1, $line2, 'preview', $iconPath, $line1Color, $line2Color, $iconBg);
 
 $rel  = $type === 'favicon' ? ($data['header']['favicon'] ?? '') : ($logoRel ?? '');
 $file = $rel !== '' ? $wd . '/' . $rel : '';

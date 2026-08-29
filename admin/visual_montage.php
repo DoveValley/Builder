@@ -1,9 +1,10 @@
 <?php
 /**
  * Export the site's Visual Identity presets as ONE image — each preset's generated
- * logo + favicon (in its colors, with its brand icon), labeled, tiled 2-up. Reuses
- * the real ms_generate_logo() via throwaway temp dirs, then `montage`s the cells.
- * Auth required; read-only (no writes to the site). Streams image/png.
+ * logo + favicon (in its colors, with this site's real Logo Config icon/text),
+ * labeled, tiled 2-up. Reuses the real ms_generate_logo() via throwaway temp dirs,
+ * then `montage`s the cells. Auth required; read-only (no writes to the site).
+ * Streams image/png.
  */
 require_once __DIR__ . '/../config.php';
 if (empty($_SESSION['admin_logged_in'])) { http_response_code(403); header('Content-Type: text/plain'); exit('Not authenticated.'); }
@@ -19,13 +20,27 @@ if (!$presets) { http_response_code(400); header('Content-Type: text/plain'); ex
 
 $data0 = @json_decode((string)@file_get_contents(DATA_FILE), true);
 $name  = trim($data0['site_vars']['business'] ?? '') ?: 'Your Business';
-// This montage visualizes PRESET colors/icons, not Logo Configs (a separate,
-// independent axis now — see includes/multisite/visual.php) — same "first
-// word / rest" split as visual_preview.php's own legacy fallback, so every
-// preset cell shows the same sample text for a fair side-by-side comparison.
-$words = preg_split('/\s+/', mb_substr($name, 0, 40));
-$mLine1 = $words[0];
-$mLine2 = count($words) > 1 ? implode(' ', array_slice($words, 1)) : '';
+
+// This montage visualizes PRESET COLORS only — icon, line text, and line
+// colors are constant across every cell, taken from this site's REAL active
+// Logo Config (same source the live preview on Gen-Visual uses), so every
+// cell shows "this preset's colors applied to my actual logo", not a
+// separate cosmetic guess. A preset's own `icon` field is no longer read here.
+$siteVars = [
+    'business' => trim((string)($data0['site_vars']['business'] ?? '')),
+    'city'     => trim((string)($data0['site_vars']['city']     ?? '')),
+    'state'    => trim((string)($data0['site_vars']['state']    ?? '')),
+    'SS'       => trim((string)($data0['site_vars']['SS']       ?? '')),
+];
+$logoDoc      = @json_decode((string)@file_get_contents(ACTIVE_SITE_DIR . '/multisite/logo_configs.json'), true) ?: [];
+$logoConfigs  = is_array($logoDoc['logos'] ?? null) ? $logoDoc['logos'] : [];
+$singleLogoId = (int)($logoDoc['single_logo_id'] ?? 0);
+$logoConfig   = null;
+foreach ($logoConfigs as $idx => $l) {
+    if ((int)($l['id'] ?? ($idx + 1)) === $singleLogoId) { $logoConfig = $l; break; }
+}
+$mLines = ms_resolve_logo_lines($logoConfig, $siteVars, ACTIVE_SITE_ID);
+$mLine1 = $mLines['line1']; $mLine2 = $mLines['line2'];
 
 $bin  = ms_convert_bin();
 $mont = is_file('/usr/bin/montage') ? '/usr/bin/montage' : trim((string)@shell_exec('command -v montage'));
@@ -40,13 +55,10 @@ foreach ($presets as $idx => $p) {
     $t      = $p['theme'] ?? [];
     $accent = $t['accent_color'] ?? '#333333';
     $dark   = $t['heading_color'] ?? ($t['header_bg'] ?? '#111111');
-    $iconF  = trim((string)($p['icon'] ?? ''));
-    $iconPath = $iconF !== '' ? ACTIVE_SITE_DIR . '/multisite/icons/' . basename($iconF) : null;
-    if ($iconPath && !is_file($iconPath)) $iconPath = null;
 
     $wd = $base . '/p' . $idx; @mkdir($wd . '/uploads', 0775, true);
     $d  = ['theme' => ['accent_color' => $accent, 'heading_color' => $dark, 'header_top_bg' => '#ffffff'], 'header' => []];
-    $logoRel = ms_generate_logo($d, $wd, $mLine1, $mLine2, 'montage' . $idx, $iconPath);
+    $logoRel = ms_generate_logo($d, $wd, $mLine1, $mLine2, 'montage' . $idx, $mLines['iconPath'], $mLines['line1Color'], $mLines['line2Color'], $mLines['iconBg']);
     if (!$logoRel || !is_file($wd . '/' . $logoRel)) continue;
     $logo = $wd . '/' . $logoRel;
 

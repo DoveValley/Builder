@@ -105,6 +105,10 @@ function ms_pick_logo_config(string $masterId, array $params): ?array {
 function ms_resolve_logo_text(string $source, string $custom, array $siteVars): string {
     if ($source === 'city')     return (string)($siteVars['city'] ?? '');
     if ($source === 'business') return (string)($siteVars['business'] ?? '');
+    if ($source === 'business_word1' || $source === 'business_rest') {
+        $parts = preg_split('/\s+/', trim((string)($siteVars['business'] ?? '')), 2);
+        return $source === 'business_word1' ? ($parts[0] ?? '') : ($parts[1] ?? '');
+    }
     if (strpos($custom, '{') === false) return $custom;
     $city = (string)($siteVars['city'] ?? ''); $state = (string)($siteVars['state'] ?? ''); $ss = (string)($siteVars['SS'] ?? '');
     return strtr($custom, [
@@ -130,13 +134,23 @@ function ms_resolve_logo_lines(?array $config, array $siteVars, string $masterId
     $line2Source = (string)($config['line2_source'] ?? 'city');
     $line1Custom = (string)($config['line1_custom'] ?? '');
     $line2Custom = (string)($config['line2_custom'] ?? '');
+    // Per-line color mode ('accent'/'dark') — default preserves the historical
+    // fixed pairing (line1=accent, line2=dark) for configs saved before this existed.
+    $line1Color = ($config['line1_color'] ?? 'accent') === 'dark' ? 'dark' : 'accent';
+    $line2Color = ($config['line2_color'] ?? 'dark')   === 'accent' ? 'accent' : 'dark';
+    // Icon tile background ('dark'/'accent') — default preserves the historical
+    // dark-tile+accent-drawing pairing for configs saved before this existed.
+    $iconBg = ($config['icon_bg'] ?? 'dark') === 'accent' ? 'accent' : 'dark';
     $icon = trim((string)($config['icon'] ?? ''));
     $iconPath = $icon !== '' ? BASE_DIR . '/sites/' . $masterId . '/multisite/icons/' . basename($icon) : null;
     if ($iconPath && !is_file($iconPath)) $iconPath = null;
     return [
-        'line1'    => ms_resolve_logo_text($line1Source, $line1Custom, $siteVars),
-        'line2'    => ms_resolve_logo_text($line2Source, $line2Custom, $siteVars),
-        'iconPath' => $iconPath,
+        'line1'      => ms_resolve_logo_text($line1Source, $line1Custom, $siteVars),
+        'line2'      => ms_resolve_logo_text($line2Source, $line2Custom, $siteVars),
+        'line1Color' => $line1Color,
+        'line2Color' => $line2Color,
+        'iconBg'     => $iconBg,
+        'iconPath'   => $iconPath,
     ];
 }
 
@@ -157,43 +171,66 @@ function ms_convert_run(array $cmd, string $out): bool {
 }
 
 /**
- * Render a bug icon as an ACCENT-colored silhouette centered on a DARK rounded tile
- * (both preset colors). $iconPath = an SVG in the master's multisite/icons/. Used for
- * the logo mark + the favicon. Returns true on success.
+ * Render a bug icon as a silhouette centered on a rounded tile (both preset
+ * colors). $bgMode picks which color is the TILE and which is the silhouette:
+ * 'dark' (default, historical behavior) = dark tile + accent silhouette;
+ * 'accent' = accent tile + dark silhouette — always the opposite pair, never
+ * independently chosen, so the two colors can't collide into no contrast.
+ * $iconPath = an SVG in the master's multisite/icons/. Used for the logo mark
+ * + the favicon. Returns true on success.
  */
-function ms_render_bug_tile(string $iconPath, string $accent, string $dark, int $size, string $out): bool {
+function ms_render_bug_tile(string $iconPath, string $accent, string $dark, int $size, string $out, string $bgMode = 'dark'): bool {
     if (ms_convert_bin() === null || !is_file($iconPath)) return false;
     $bin = ms_convert_bin();
+    $bg  = $bgMode === 'accent' ? $accent : $dark;
+    $fg  = $bgMode === 'accent' ? $dark   : $accent;
     $r   = max(6, (int)round($size * 0.22));   // corner radius
     $bug = (int)round($size * 0.64);           // bug fills ~64% of the tile
     $tmpBug = $out . '.bug.png';
-    // 1. bug SVG → solid accent silhouette (alpha preserved)
+    // 1. bug SVG → solid $fg silhouette (alpha preserved)
     if (!ms_convert_run([$bin, '-background', 'none', $iconPath, '-resize', $bug . 'x' . $bug,
-                         '-channel', 'RGB', '-fill', $accent, '-colorize', '100', '+channel', $tmpBug], $tmpBug)) {
+                         '-channel', 'RGB', '-fill', $fg, '-colorize', '100', '+channel', $tmpBug], $tmpBug)) {
         return false;
     }
-    // 2. dark rounded tile + composite the bug centered
+    // 2. $bg rounded tile + composite the bug centered
     $ok = ms_convert_run([$bin, '-size', $size . 'x' . $size, 'xc:none',
-                          '-fill', $dark, '-draw', 'roundrectangle 0,0,' . ($size - 1) . ',' . ($size - 1) . ',' . $r . ',' . $r,
+                          '-fill', $bg, '-draw', 'roundrectangle 0,0,' . ($size - 1) . ',' . ($size - 1) . ',' . $r . ',' . $r,
                           $tmpBug, '-gravity', 'center', '-composite', '-strip', $out], $out);
     @unlink($tmpBug);
     return $ok;
 }
 
 /**
+ * Resolve a line's color MODE ('accent' or 'dark') into the concrete hex to
+ * paint it with. 'accent' is always literally the accent color — mirrors the
+ * historical line-1 behavior, no contrast adjustment. 'dark' mirrors the
+ * historical line-2 behavior: the dark brand color, but falls back to white
+ * when $topBg is itself dark (dark-on-dark would be invisible where the
+ * wordmark sits on the header's top bar).
+ */
+function ms_resolve_line_color(string $mode, string $accent, string $dark, string $topBg): string {
+    if ($mode === 'dark') return ms_is_light_color($topBg) ? $dark : '#ffffff';
+    return $accent;
+}
+
+/**
  * Generate the per-site logo (+ favicon) in the applied preset's colors:
- *   • two-tone wordmark — $line1 in the ACCENT color, $line2 in the DARK color,
- *     left-justified. What text ends up on each line is the CALLER's decision
- *     (see ms_resolve_logo_lines() — a Logo Config's line1/line2 source, or the
- *     zero-config default) — this function only renders, it never derives text
- *     from a business name itself anymore.
- *   • a bug mark (accent silhouette on a dark tile) to the LEFT of the wordmark
- *   • the same bug tile written as the favicon (128px)
+ *   • two-tone wordmark — $line1/$line2 each independently ACCENT or DARK per
+ *     $line1Color/$line2Color (see ms_resolve_logo_lines() — a Logo Config's
+ *     per-line color mode, default line1=accent/line2=dark, the historical
+ *     fixed pairing), left-justified. What text ends up on each line is also
+ *     the CALLER's decision (line1/2 source) — this function only renders, it
+ *     never derives text from a business name itself anymore.
+ *   • a bug mark to the LEFT of the wordmark, and the same bug tile written as
+ *     the favicon (128px) — $iconBgMode picks dark-tile+accent-drawing
+ *     (default, historical) or accent-tile+dark-drawing (see
+ *     ms_render_bug_tile()); always the opposite pair, so it toggles as one
+ *     unit rather than needing the two colors picked independently.
  * Sets header.logo (+ header.favicon). Returns the logo path or null.
  * Each file is inherently unique per site (text + colors + bug); a seeded
  * pointsize jitter adds byte/dimension variance. $iconPath null → wordmark only.
  */
-function ms_generate_logo(array &$data, string $workingDir, string $line1, string $line2, string $seed, ?string $iconPath = null): ?string {
+function ms_generate_logo(array &$data, string $workingDir, string $line1, string $line2, string $seed, ?string $iconPath = null, string $line1ColorMode = 'accent', string $line2ColorMode = 'dark', string $iconBgMode = 'dark'): ?string {
     $line1 = trim($line1); $line2 = trim($line2);
     if ($line1 === '' && $line2 === '') return null;
     if (ms_convert_bin() === null) return null;
@@ -210,10 +247,11 @@ function ms_generate_logo(array &$data, string $workingDir, string $line1, strin
     foreach (['heading_color', 'footer_bg', 'header_bg'] as $f) {
         if (preg_match('/^#[0-9a-fA-F]{6}$/', $theme[$f] ?? '')) { $dark = $theme[$f]; break; }
     }
-    // Wordmark: line 1 = accent; line 2 = dark on a light top bar, else white.
+    // Wordmark: each line independently accent or dark (dark falls back to
+    // white on a dark top bar — see ms_resolve_line_color()).
     $topBg      = (string)($theme['header_top_bg'] ?? '#ffffff');
-    $line1Color = $accent;
-    $line2Color = ms_is_light_color($topBg) ? $dark : '#ffffff';
+    $line1Color = ms_resolve_line_color($line1ColorMode, $accent, $dark, $topBg);
+    $line2Color = ms_resolve_line_color($line2ColorMode, $accent, $dark, $topBg);
 
     $pointsize = 68 + ms_seed_int($seed . '|logo_size', 9);   // 68..76
 
@@ -247,14 +285,14 @@ function ms_generate_logo(array &$data, string $workingDir, string $line1, strin
     $composited = false;
     if ($iconPath && is_file($iconPath)) {
         $tile = $tmp . '_tile.png';
-        if (ms_render_bug_tile($iconPath, $accent, $dark, $wmH, $tile)) {
+        if (ms_render_bug_tile($iconPath, $accent, $dark, $wmH, $tile, $iconBgMode)) {
             $gap = (int)round($wmH * 0.16);
             // tile (padded on the right by the gap) + wordmark, appended left→right
             $composited = ms_convert_run([$bin, $tile, '-background', 'none', '-gravity', 'west', '-extent', ($wmH + $gap) . 'x' . $wmH,
                                           $wm, '-background', 'none', '-gravity', 'west', '+append', '-strip', $out], $out);
             @unlink($tile);
             $favRel = 'uploads/favicon_' . $slug . '.png';
-            if (ms_render_bug_tile($iconPath, $accent, $dark, 128, $workingDir . '/' . $favRel)) {
+            if (ms_render_bug_tile($iconPath, $accent, $dark, 128, $workingDir . '/' . $favRel, $iconBgMode)) {
                 $data['header']['favicon'] = $favRel;
             }
         }
@@ -314,7 +352,7 @@ function ms_apply_visual_identity(string $workingDir, array $params, string $mas
     ];
     $logoConfig = ms_pick_logo_config($masterId, $params);
     $lines      = ms_resolve_logo_lines($logoConfig, $siteVars, $masterId);
-    $logoRel    = ms_generate_logo($data, $workingDir, $lines['line1'], $lines['line2'], $domain, $lines['iconPath']);
+    $logoRel    = ms_generate_logo($data, $workingDir, $lines['line1'], $lines['line2'], $domain, $lines['iconPath'], $lines['line1Color'], $lines['line2Color'], $lines['iconBg']);
 
     $tmp = $sf . '.tmp.' . getmypid();
     file_put_contents($tmp, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));

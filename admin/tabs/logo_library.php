@@ -23,10 +23,13 @@ foreach (($llDoc['logos'] ?? []) as $l) {
     $llLogos[] = [
         'name'         => (string)($l['name'] ?? ''),
         'icon'         => (string)($l['icon'] ?? ''),
+        'icon_bg'      => ($l['icon_bg'] ?? 'dark') === 'accent' ? 'accent' : 'dark',
         'line1_source' => (string)($l['line1_source'] ?? 'business'),
         'line1_custom' => (string)($l['line1_custom'] ?? ''),
+        'line1_color'  => ($l['line1_color'] ?? 'accent') === 'dark' ? 'dark' : 'accent',
         'line2_source' => (string)($l['line2_source'] ?? 'city'),
         'line2_custom' => (string)($l['line2_custom'] ?? ''),
+        'line2_color'  => ($l['line2_color'] ?? 'dark') === 'accent' ? 'accent' : 'dark',
         'in_rotation'  => array_key_exists('in_rotation', $l) ? (bool)$l['in_rotation'] : true,
     ];
 }
@@ -103,14 +106,26 @@ var llBust    = 0;
 
 function llEsc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
+function llBizWord1(){ return LL_BIZ.trim().split(/\s+/)[0] || ''; }
+function llBizRest(){ return LL_BIZ.trim().split(/\s+/).slice(1).join(' '); }
+function llResolveSource(source, custom){
+    if (source === 'custom')         return custom;
+    if (source === 'city')           return LL_CITY;
+    if (source === 'business_word1') return llBizWord1();
+    if (source === 'business_rest')  return llBizRest();
+    return LL_BIZ;
+}
 function llPreviewSrc(i, type){
     var p = LL[i];
     return 'visual_preview.php?type=' + type
         + '&accent=' + encodeURIComponent(LL_ACCENT)
         + '&dark='   + encodeURIComponent(LL_DARK)
         + '&icon='   + encodeURIComponent(p.icon || '')
-        + '&line1='  + encodeURIComponent(p.line1_source === 'custom' ? p.line1_custom : (p.line1_source === 'city' ? LL_CITY : LL_BIZ))
-        + '&line2='  + encodeURIComponent(p.line2_source === 'custom' ? p.line2_custom : (p.line2_source === 'city' ? LL_CITY : LL_BIZ))
+        + '&line1='  + encodeURIComponent(llResolveSource(p.line1_source, p.line1_custom))
+        + '&line2='  + encodeURIComponent(llResolveSource(p.line2_source, p.line2_custom))
+        + '&line1_color=' + encodeURIComponent(p.line1_color || 'accent')
+        + '&line2_color=' + encodeURIComponent(p.line2_color || 'dark')
+        + '&icon_bg='     + encodeURIComponent(p.icon_bg || 'dark')
         + '&_='      + llBust;
 }
 function llPreview(i){
@@ -125,8 +140,20 @@ function llPreview(i){
 function llAllPreviews(){ LL.forEach(function(_,i){ llPreview(i); }); }
 
 function llSourceSelect(i, which, val){
-    var opts = [['business','Business name'],['city','City'],['custom','Custom text']];
+    var opts = [['business','Business name'],['business_word1','Business name — word 1'],['business_rest','Business name — after word 1'],['city','City'],['custom','Custom text']];
     return '<select class="ll-f" data-i="'+i+'" data-k="'+which+'_source">'
+        + opts.map(function(o){ return '<option value="'+o[0]+'"'+(o[0]===val?' selected':'')+'>'+o[1]+'</option>'; }).join('')
+        + '</select>';
+}
+function llColorSelect(i, which, val){
+    var opts = [['accent','Accent'],['dark','Dark']];
+    return '<select class="ll-f" data-i="'+i+'" data-k="'+which+'_color">'
+        + opts.map(function(o){ return '<option value="'+o[0]+'"'+(o[0]===val?' selected':'')+'>'+o[1]+'</option>'; }).join('')
+        + '</select>';
+}
+function llIconBgSelect(i, val){
+    var opts = [['dark','Dark tile, accent icon'],['accent','Accent tile, dark icon']];
+    return '<select class="ll-f" data-i="'+i+'" data-k="icon_bg">'
         + opts.map(function(o){ return '<option value="'+o[0]+'"'+(o[0]===val?' selected':'')+'>'+o[1]+'</option>'; }).join('')
         + '</select>';
 }
@@ -134,7 +161,8 @@ function llCardHtml(i){
     var p = LL[i];
     var icons = '<option value="">— none —</option>' + LL_ICONS.map(function(ic){ return '<option value="'+llEsc(ic)+'"'+(ic===p.icon?' selected':'')+'>'+llEsc(ic.replace(/\.svg$/,''))+'</option>'; }).join('');
     var isSingle = (LL_SINGLE === i);
-    return '<div class="ll-card" data-i="'+i+'" style="border:1px solid '+(isSingle?'#2563eb':'#e2e8f0')+';border-radius:8px;padding:14px;margin-bottom:12px;display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;'+(isSingle?'box-shadow:0 0 0 2px #dbeafe;':'')+'">'
+    return '<div class="ll-card" data-i="'+i+'" style="position:relative;border:1px solid '+(isSingle?'#2563eb':'#e2e8f0')+';border-radius:8px;padding:14px;margin-bottom:12px;display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;'+(isSingle?'box-shadow:0 0 0 2px #dbeafe;':'')+'">'
+      + '<span style="position:absolute;top:-10px;left:12px;background:#2563eb;color:#fff;border-radius:999px;min-width:22px;height:22px;padding:0 6px;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;">'+(i+1)+'</span>'
       + '<div style="flex:0 0 250px;">'
       +   '<img class="ll-logo" alt="logo" style="width:100%;background:#fff;border:1px solid #eee;border-radius:6px;padding:8px;min-height:56px;">'
       +   '<div class="hint" style="margin-top:8px;margin-bottom:3px;">Sample header</div>'
@@ -151,6 +179,7 @@ function llCardHtml(i){
       +   '<div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;">'
       +     (isSingle
                  ? '<div style="font-size:.85rem;color:#2563eb;font-weight:700;">★ This site’s logo</div>'
+                   + '<button type="button" class="btn btn-secondary" style="padding:4px 8px;font-size:.78rem;align-self:flex-start;" onclick="llUse('+i+')" title="Re-generate the live logo + favicon from this config\'s current settings">↻ Regenerate</button>'
                  : '<button type="button" class="btn btn-secondary" style="padding:5px 10px;font-size:.85rem;align-self:flex-start;" onclick="llUse('+i+')">Use for this site →</button>')
       +     '<label style="margin:0;font-weight:400;display:flex;align-items:center;gap:7px;cursor:pointer;font-size:.9rem;">'
       +       '<input type="checkbox" class="ll-rot" data-i="'+i+'"'+(p.in_rotation!==false?' checked':'')+'> In multisite rotation</label>'
@@ -160,14 +189,17 @@ function llCardHtml(i){
       +   '<label style="margin-top:0;">Config name</label><input type="text" class="ll-f" data-i="'+i+'" data-k="name" value="'+llEsc(p.name)+'">'
       +   '<div style="display:flex;gap:14px;margin-top:8px;">'
       +     '<div style="flex:1;"><label style="margin-top:0;">Icon</label><select class="ll-f" data-i="'+i+'" data-k="icon">'+icons+'</select></div>'
+      +     '<div style="flex:1;"><label style="margin-top:0;">Icon colors</label>'+llIconBgSelect(i,p.icon_bg)+'</div>'
       +   '</div>'
       +   '<div style="display:flex;gap:14px;margin-top:8px;align-items:flex-end;">'
       +     '<div style="flex:1;"><label style="margin-top:0;">Line 1</label>'+llSourceSelect(i,'line1',p.line1_source)+'</div>'
       +     '<div style="flex:1;"><input type="text" class="ll-f" data-i="'+i+'" data-k="line1_custom" placeholder="Custom text…" value="'+llEsc(p.line1_custom)+'" style="'+(p.line1_source!=='custom'?'display:none;':'')+'"></div>'
+      +     '<div style="flex:0 0 90px;"><label style="margin-top:0;">Color</label>'+llColorSelect(i,'line1',p.line1_color)+'</div>'
       +   '</div>'
       +   '<div style="display:flex;gap:14px;margin-top:8px;align-items:flex-end;">'
       +     '<div style="flex:1;"><label style="margin-top:0;">Line 2</label>'+llSourceSelect(i,'line2',p.line2_source)+'</div>'
       +     '<div style="flex:1;"><input type="text" class="ll-f" data-i="'+i+'" data-k="line2_custom" placeholder="Custom text…" value="'+llEsc(p.line2_custom)+'" style="'+(p.line2_source!=='custom'?'display:none;':'')+'"></div>'
+      +     '<div style="flex:0 0 90px;"><label style="margin-top:0;">Color</label>'+llColorSelect(i,'line2',p.line2_color)+'</div>'
       +   '</div>'
       +   '<button type="button" onclick="llRemove('+i+')" style="margin-top:12px;background:none;border:0;color:#dc2626;cursor:pointer;font-size:.85rem;padding:0;">✕ Remove logo</button>'
       + '</div>'
@@ -193,8 +225,9 @@ function llRender(){
 }
 function llAdd(){
     if (LL.length >= 10) return;
-    LL.push({name:'Logo '+(LL.length+1), icon:(LL_ICONS[LL.length % Math.max(1,LL_ICONS.length)]||''),
-              line1_source:'business', line1_custom:'', line2_source:'city', line2_custom:'', in_rotation:true});
+    LL.push({name:'Logo '+(LL.length+1), icon:(LL_ICONS[LL.length % Math.max(1,LL_ICONS.length)]||''), icon_bg:'dark',
+              line1_source:'business', line1_custom:'', line1_color:'accent',
+              line2_source:'city', line2_custom:'', line2_color:'dark', in_rotation:true});
     llRender();
     llAutoSave();
 }
@@ -226,7 +259,11 @@ function llSave(cb){
 }
 function llUse(i){
     var p = LL[i];
-    if (!confirm('Make "'+(p.name||'this logo')+'" this site\'s logo?\n\nThis regenerates the logo + favicon in this site\'s current colors.')) return;
+    var isSingle = (LL_SINGLE === i);
+    var msg = isSingle
+        ? 'Regenerate this site\'s logo + favicon from this config\'s CURRENT settings?\n\nUseful after editing this config\'s icon/text/colors — editing alone only saves the config, it never refreshes the live files.'
+        : 'Make "'+(p.name||'this logo')+'" this site\'s logo?\n\nThis regenerates the logo + favicon in this site\'s current colors.';
+    if (!confirm(msg)) return;
     llSave(function(ok){
         if(!ok) return;
         document.getElementById('ll-apply-id').value = i + 1;

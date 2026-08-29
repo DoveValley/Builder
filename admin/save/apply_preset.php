@@ -58,7 +58,7 @@ foreach ($logoConfigs as $idx => $l) {
     if ((int)($l['id'] ?? ($idx + 1)) === $singleLogoId) { $logoConfig = $l; break; }
 }
 $lines = ms_resolve_logo_lines($logoConfig, $siteVars, ACTIVE_SITE_ID);
-$logo  = ms_generate_logo($data, ACTIVE_SITE_DIR, $lines['line1'], $lines['line2'], 'brand', $lines['iconPath']);
+$logo  = ms_generate_logo($data, ACTIVE_SITE_DIR, $lines['line1'], $lines['line2'], 'brand', $lines['iconPath'], $lines['line1Color'], $lines['line2Color'], $lines['iconBg']);
 
 // 3. Point the LocalBusiness schema logo at the generated file.
 if ($logo && isset($data['local_business'])) {
