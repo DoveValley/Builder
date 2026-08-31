@@ -1,406 +1,406 @@
 {
-  "template_id": "tpl_roof_tarping",
-  "city_id": "city_lufkin_tx",
-  "slug": "roof-tarping-lufkin-tx",
-  "title": "Roof Tarping in {city_state} | {business}",
-  "city_vars": {
-    "id": "city_lufkin_tx",
-    "city": "Lufkin",
-    "SS": "TX",
-    "state": "Texas",
-    "city_slug": "lufkin-tx",
-    "zip": "75901",
-    "tags": [],
-    "industries": [
-      "Forestry and timber/wood products manufacturing",
-      "Healthcare",
-      "Oil and gas equipment manufacturing",
-      "Education",
-      "Retail and distribution",
-      "Government/public administration"
+    "template_id": "tpl_roof_tarping",
+    "city_id": "city_lufkin_tx",
+    "slug": "roof-tarping-lufkin-tx",
+    "title": "Roof Tarping in {city_state} | {business}",
+    "city_vars": {
+        "id": "city_lufkin_tx",
+        "city": "Lufkin",
+        "SS": "TX",
+        "state": "Texas",
+        "city_slug": "lufkin-tx",
+        "zip": "75901",
+        "tags": [],
+        "industries": [
+            "Forestry and timber/wood products manufacturing",
+            "Healthcare",
+            "Oil and gas equipment manufacturing",
+            "Education",
+            "Retail and distribution",
+            "Government/public administration"
+        ],
+        "top_employers": [
+            "CHI St. Luke's Health Memorial",
+            "Lufkin Industries (Baker Hughes)",
+            "Angelina College",
+            "Lufkin Independent School District",
+            "Georgia-Pacific",
+            "Temple-Inland",
+            "Brookshire Brothers",
+            "City of Lufkin",
+            "Angelina County",
+            "Walmart Supercenter",
+            "Diboll Healthcare System",
+            "Southern Plastics"
+        ],
+        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+        "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep moisture levels high year-round — conditions that turn a small roof leak, slab seep, or failed supply line into structural water damage quickly.",
+        "neighborhoods": [
+            "Downtown Lufkin",
+            "Crown Colony",
+            "Fuller Springs",
+            "Kurth",
+            "Copeland Springs",
+            "Brentwood"
+        ],
+        "population": 34187,
+        "_researched": 1,
+        "city_spotlight": "Set among the pine forests of Deep East Texas, Lufkin has long served as the commercial anchor for Angelina County and the smaller communities that surround it. With roughly 34,500 residents, it's a city built on sawdust and steel — its identity shaped by generations of timber and forestry work alongside the oil-field manufacturing legacy of Lufkin Industries. That working heritage still shows in the rhythm of daily life here.\n\nToday's Lufkin has broadened well beyond its mill-town roots, with hospitals, schools, and retail centers now standing alongside the plants and lumber yards. Downtown Lufkin keeps its small-city warmth, while the Loop 287 corridor hums with the shops, distribution centers, and everyday commerce that keep the wider region running."
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Southeast Texas experiences heavy spring rains and occasional severe storms that can compromise roofs and leave properties exposed to secondary water intrusion. Freeman Restoration provides rapid roof tarping to seal active damage and prevent further water penetration into your structure. Immediate tarping protects your home or business while you plan permanent repairs and work through the restoration process.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Storm-damaged property — roof tarping in {city_state} by {business}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#eef4fb",
+            "hs_photo": "sites/water-site/uploads/media/roof-tarping-blue-tarp-lufkin-tx.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "text_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-31T20:51:57.925803Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "b3ab1e5d30318641",
+            "_hs_photo_orig": "sites/water-site/uploads/media/roof-tarp-blue-cover-lufkin-tx.webp"
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg": "accent",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": [
+                {
+                    "label": "Free Estimates",
+                    "icon": ""
+                },
+                {
+                    "label": "24/7 Response",
+                    "icon": ""
+                },
+                {
+                    "label": "Fast Local Response",
+                    "icon": ""
+                }
+            ],
+            "anchor": "trust_bar",
+            "tb_show_icons": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/water-site/uploads/media/roof-tarping-aerial-drone-view-lufkin-tx.webp",
+            "it_alt": "Storm-damaged property — emergency roof tarping in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Emergency Roof Tarping Services for Lufkin Homeowners",
+            "text": "<p>Lufkin homeowners face unique weather challenges that can compromise roof integrity year-round. Severe storms, heavy rainfall, and the freeze-thaw cycles common to East Texas can all leave roofs vulnerable to leaks and structural damage. When a tree limb tears through shingles, hail punctures the roof deck, or wind lifts flashing during a sudden downpour, water infiltration happens fast—and the damage spreads quickly inside your home. Whether you're in North Lufkin, South Lufkin, or elsewhere in the community, delaying protection allows moisture to seep into walls, ceilings, and insulation, creating conditions for mold growth and rot. A temporary roof tarp service stops that progression immediately, preventing interior damage while you arrange permanent repairs.</p><p>Freeman Restoration responds to emergency roof tarping calls with a methodical approach: we assess the damage, secure the affected area with heavy-duty tarping that withstands Lufkin's weather patterns, and ensure all entry points are sealed to prevent further water intrusion. Our team handles the job thoroughly, from properly anchoring the tarp to checking gutters and downspouts so water drains safely away from your foundation. We document what we find and coordinate with your insurance adjuster, then stay engaged through follow-up inspections to confirm the temporary solution is holding. Once you're ready to move forward with permanent roof repair or replacement, we're here to guide the transition. Quick emergency roof tarp installation buys you time and protects your investment when it matters most.</p>",
+            "_ai_generated_at": "2026-08-31T20:52:03.013520Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_intro",
+            "_ai_input_hash": "f32164d77b254345",
+            "_it_photo_orig": "sites/water-site/uploads/media/roof-tarping-aerial-drone-view-2-lufkin-tx.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Trained Technicians, Fast Response",
+                    "text": "<p>Freeman's crew arrives equipped and ready to deploy emergency roof tarping quickly after storms strike. Trained technicians assess damage thoroughly and secure your property to prevent further water intrusion while permanent repairs are arranged.</p>"
+                },
+                {
+                    "heading": "Thorough Damage Assessment",
+                    "text": "<p>Our team inspects roof damage comprehensively—identifying leaks, structural concerns, and secondary water damage inside. Detailed documentation supports your insurance claim and ensures no damage is overlooked during temporary or permanent restoration.</p>"
+                },
+                {
+                    "heading": "Guaranteed Workmanship",
+                    "text": "<p>Freeman stands behind its roof tarp service with professional guarantees on workmanship. You can trust that temporary protection meets industry standards and holds securely until your roof is fully repaired or replaced.</p>"
+                },
+                {
+                    "heading": "East Texas Storm Season Readiness",
+                    "text": "<p>Lufkin's spring and summer bring severe storms, hail, and wind that damage roofs regularly. Freeman understands regional weather risks and keeps resources ready year-round for rapid emergency response when Texas storms strike your home.</p>"
+                }
+            ],
+            "_ai_generated_at": "2026-08-31T20:52:07.072128Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "381178beb233fb1c"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our {service} Process Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Call Our {city} Team",
+                    "text": "Tell us what happened. We work to get {service} started fast, often the same day."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "On-Site Assessment",
+                    "text": "Specialists inspect the damage, identify the water source and category, and plan the work."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Mitigation & Drying",
+                    "text": "Water extraction, structural drying, and cleanup to stop the damage from spreading."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Restoration & Repairs",
+                    "text": "Cleaning, sanitizing, and repairs to return your property to normal."
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need {service} in {city}? Get fast, professional help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#2563eb",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "sites/water-site/uploads/media/restoration-consultation-clipboard-lufkin-tx.webp",
+            "it_alt": "Flooded basement — roof tarp service in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Roof Tarping Needs Across Lufkin",
+            "text": "<p>Lufkin's mix of older established neighborhoods and newer residential areas face distinct roof tarping challenges tied to East Texas weather patterns. Mature trees common in well-developed sections like Fairview create ongoing risks—branches can accumulate on roofs, damage shingles during storms, and complicate water drainage. Older construction in these areas often means roofing systems are more vulnerable to wind damage and leaks when storms strike. Conversely, newer subdivisions typically feature modern roof designs better equipped to shed water, though they're not immune to the heavy rainfall and severe thunderstorms that regularly impact the region.</p><p>Seasonal freeze-thaw cycles in the Lufkin area add another layer of urgency. Winter moisture that penetrates damaged roofing can expand when temperatures drop, widening cracks and accelerating deterioration. Whether your property sits in an older neighborhood or a newer development, prompt emergency roof tarp service following storm damage helps prevent secondary water intrusion into walls, ceilings, and interiors while permanent repairs are arranged. Freeman Restoration understands how regional weather patterns and the age of local structures shape damage severity, and we're equipped to respond quickly with temporary roof tarp solutions that protect your property from additional harm.</p>",
+            "_ai_generated_at": "2026-08-31T20:52:11.313951Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "6256e409145caa92",
+            "_it_photo_orig": "sites/water-site/uploads/media/restoration-consultation-clipboard-2-lufkin-tx.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "steps_heading": "Seasonal Water and Storm Damage: Lufkin's Year-Round Roof Tarping Guide",
+            "steps_items": [
+                {
+                    "heading": "Spring: Storm Season Readiness",
+                    "text": "Spring storms bring heavy rainfall and occasional severe weather to the Lufkin area, creating roof damage and water intrusion risks. Freeman Restoration responds quickly to emergency tarping and water extraction, preventing further interior damage while you arrange permanent repairs."
+                },
+                {
+                    "heading": "Summer: Heat and Humidity Challenges",
+                    "text": "Texas summer heat accelerates mold growth in water-damaged structures. Prolonged humidity in homes like those in North Lufkin increases drying time and secondary damage risk. Freeman Restoration provides rapid water removal and structural drying to minimize moisture-related problems."
+                },
+                {
+                    "heading": "Fall: Wind and Moisture Concerns",
+                    "text": "Fall storms can strip roofing and create openings for wind-driven rain throughout properties in the Lufkin region. Prompt roof tarping and water mitigation are essential. Freeman Restoration deploys emergency tarping and begins water extraction before permanent restoration begins."
+                },
+                {
+                    "heading": "Winter: Freeze-Thaw and Pipe Risks",
+                    "text": "Winter freezes in Texas occasionally cause pipe ruptures and water damage inside homes and businesses. Rapid response limits water spread and structural harm. Freeman Restoration handles emergency water removal and drying to prevent secondary damage during colder months."
+                }
+            ],
+            "_ai_generated_at": "2026-08-31T20:52:15.616149Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "seasonal_calendar",
+            "_ai_input_hash": "1b01d12e640d38f8"
+        },
+        {
+            "type": "service_cards",
+            "anchor": "related_services",
+            "sc_badge": "",
+            "sc_heading": "Other Water Restoration Services in {city_state}",
+            "sc_cols": 4,
+            "sc_badge_bg": "accent",
+            "sc_head_color": "header",
+            "sc_badge_bg_custom": "#fd783b",
+            "sc_head_color_custom": "#120575",
+            "sc_icon_bg": "#f4f6f8",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Water Damage Repair {city} {SS}",
+                    "heading": "Water Damage Repair",
+                    "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
+                    "url": "/water-damage-repair-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Flood Damage Restoration {city} {SS}",
+                    "heading": "Flood Damage Restoration",
+                    "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/flood-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Storm Damage Restoration {city} {SS}",
+                    "heading": "Storm Damage Restoration",
+                    "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/storm-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Water Mitigation {city} {SS}",
+                    "heading": "Water Mitigation",
+                    "text": "Professional Water Mitigation for {city_state} homes and businesses.",
+                    "url": "/water-mitigation-{city_slug}"
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [
+                {
+                    "question": "What exactly happens when Freeman Restoration tarps a damaged roof in Lufkin?",
+                    "answer": "<p>Our team assesses the damage extent, then securely fastens heavy-duty tarping material over the affected area to prevent further water intrusion. We ensure proper slope and drainage so rain doesn't pool on the tarp itself. This temporary weatherproofing buys time for insurance adjusters to inspect and for permanent repairs to be scheduled, protecting your interior from ongoing exposure.</p>"
+                },
+                {
+                    "question": "How quickly can Freeman Restoration respond to roof damage in Lufkin, Texas?",
+                    "answer": "<p>After major storms in the Lufkin area, our crews prioritize emergency calls and work to reach properties as rapidly as possible. Storm season often brings high demand, so calling immediately after damage occurs helps us schedule your emergency stabilization. We understand that every hour of exposure increases interior water damage and mold risk.</p>"
+                },
+                {
+                    "question": "What factors affect the cost of tarping a roof after a storm?",
+                    "answer": "<p>Pricing depends on damage size, roof pitch and complexity, tarp material grade, labor intensity, and accessibility. Steep or multi-level roofs take longer to secure safely. Additional factors include whether scaffolding or equipment rental is needed and local material availability. We provide transparent assessment and estimates before work begins.</p>"
+                },
+                {
+                    "question": "Should I try to cover my roof myself or wait for a professional?",
+                    "answer": "<p>Roof work involves serious fall hazards and electrical risks from downed lines. Improper tarping can trap moisture or create worse damage. Professional crews have proper safety equipment, materials rated for high wind, and experience securing coverage that actually sheds water. It's safer and more effective to let trained technicians handle this emergency response.</p>"
+                },
+                {
+                    "question": "Can roof tarping prevent future storm damage to my Lufkin home?",
+                    "answer": "<p>Tarping is emergency repair, not prevention. However, once permanent repairs are completed, a well-maintained roof—with regular inspections and prompt damage fixes—resists future storm impact better. East Texas experiences spring and summer severe weather, so keeping gutters clear, trees trimmed, and roof integrity strong reduces vulnerability year-round.</p>"
+                },
+                {
+                    "question": "When is roof damage from storms most common in the Lufkin region?",
+                    "answer": "<p>Spring and early summer bring severe thunderstorms, hail, and wind to East Texas, making this peak season for roof damage calls. Fall can also bring tropical system impacts. Freeze-thaw cycles in winter may expose existing vulnerabilities. Year-round preparedness and quick response to any damage—whether seasonal or unexpected—minimizes water intrusion and secondary damage inside your home.</p>"
+                }
+            ],
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-31T20:52:24.615925Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "99d9eaba039d1970",
+            "skin": "dark",
+            "fq_open": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#0d2340",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "pest_services",
+            "html": "[services_links]"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "skin": "light"
+        }
     ],
-    "top_employers": [
-      "CHI St. Luke's Health Memorial",
-      "Lufkin Industries (Baker Hughes)",
-      "Angelina College",
-      "Lufkin Independent School District",
-      "Georgia-Pacific",
-      "Temple-Inland",
-      "Brookshire Brothers",
-      "City of Lufkin",
-      "Angelina County",
-      "Walmart Supercenter",
-      "Diboll Healthcare System",
-      "Southern Plastics"
-    ],
-    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-    "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep moisture levels high year-round — conditions that turn a small roof leak, slab seep, or failed supply line into structural water damage quickly.",
-    "neighborhoods": [
-      "Downtown Lufkin",
-      "Crown Colony",
-      "Fuller Springs",
-      "Kurth",
-      "Copeland Springs",
-      "Brentwood"
-    ],
-    "population": 34187,
-    "_researched": 1,
-    "city_spotlight": "Set among the pine forests of Deep East Texas, Lufkin has long served as the commercial anchor for Angelina County and the smaller communities that surround it. With roughly 34,500 residents, it's a city built on sawdust and steel — its identity shaped by generations of timber and forestry work alongside the oil-field manufacturing legacy of Lufkin Industries. That working heritage still shows in the rhythm of daily life here.\n\nToday's Lufkin has broadened well beyond its mill-town roots, with hospitals, schools, and retail centers now standing alongside the plants and lumber yards. Downtown Lufkin keeps its small-city warmth, while the Loop 287 corridor hums with the shops, distribution centers, and everyday commerce that keep the wider region running."
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Southeast Texas experiences heavy spring rains and occasional severe storms that can compromise roofs and leave properties exposed to secondary water intrusion. Freeman Restoration provides rapid roof tarping to seal active damage and prevent further water penetration into your structure. Immediate tarping protects your home or business while you plan permanent repairs and work through the restoration process.</p>",
-      "hs_btn_text": "{phone}",
-      "hs_btn_url": "tel:{tel}",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "Storm-damaged property — roof tarping in {city_state} by {business}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#eef4fb",
-      "hs_photo": "sites/water-site/uploads/media/istock-1543976862_58c3d8-lufkin-tx__tpl_roof_tarping_city_lufkin_tx_abe3009c.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "text_first",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-31T20:51:57.925803Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "b3ab1e5d30318641",
-      "_hs_photo_orig": "sites/water-site/uploads/media/istock-1543976862_58c3d8.webp"
+    "seo": {
+        "seo_title": "Roof Tarping in {city_state} | {business}",
+        "canonical_url": "{website}/roof-tarping-lufkin-tx/",
+        "meta_description": "Roof Tarping in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
+        "meta_keywords": "roof tarping Lufkin TX, emergency roof tarping Lufkin, roof tarp service Lufkin, temporary roof tarp Lufkin",
+        "og_title": "Roof Tarping in {city_state} | {business}",
+        "og_description": "24/7 roof tarping in {city_state}. Fast, professional local response.",
+        "og_image": "sites/water-site/uploads/media/roof-tarp-blue-cover-lufkin-tx.webp",
+        "service_name": "Roof Tarping",
+        "service_type": "Roof Tarping",
+        "service_area": "{city_state} and surrounding areas",
+        "service_description": "Roof tarping for homes and businesses in {city_state}, including emergency roof tarping, roof tarp service and temporary roof tarp.",
+        "bc_label": "Roof Tarping",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Roof Tarping\",\n    \"name\": \"Roof Tarping in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 roof tarping in Lufkin, TX — emergency roof tarping, roof tarp service and temporary roof tarp.\"\n}",
+        "primary_keyword": "Roof Tarping",
+        "secondary_keywords": "emergency roof tarping, roof tarp service, temporary roof tarp"
     },
-    {
-      "type": "trust_bar",
-      "tb_bg": "accent",
-      "tb_bg_custom": "#f3f6f7",
-      "tb_items": [
-        {
-          "label": "Free Estimates",
-          "icon": ""
-        },
-        {
-          "label": "24/7 Response",
-          "icon": ""
-        },
-        {
-          "label": "Fast Local Response",
-          "icon": ""
-        }
-      ],
-      "anchor": "trust_bar",
-      "tb_show_icons": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "left",
-      "it_photo": "sites/water-site/uploads/media/istock-1701596561_84fff0-lufkin-tx.webp",
-      "it_alt": "Storm-damaged property — emergency roof tarping in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Emergency Roof Tarping Services for Lufkin Homeowners",
-      "text": "<p>Lufkin homeowners face unique weather challenges that can compromise roof integrity year-round. Severe storms, heavy rainfall, and the freeze-thaw cycles common to East Texas can all leave roofs vulnerable to leaks and structural damage. When a tree limb tears through shingles, hail punctures the roof deck, or wind lifts flashing during a sudden downpour, water infiltration happens fast—and the damage spreads quickly inside your home. Whether you're in North Lufkin, South Lufkin, or elsewhere in the community, delaying protection allows moisture to seep into walls, ceilings, and insulation, creating conditions for mold growth and rot. A temporary roof tarp service stops that progression immediately, preventing interior damage while you arrange permanent repairs.</p><p>Freeman Restoration responds to emergency roof tarping calls with a methodical approach: we assess the damage, secure the affected area with heavy-duty tarping that withstands Lufkin's weather patterns, and ensure all entry points are sealed to prevent further water intrusion. Our team handles the job thoroughly, from properly anchoring the tarp to checking gutters and downspouts so water drains safely away from your foundation. We document what we find and coordinate with your insurance adjuster, then stay engaged through follow-up inspections to confirm the temporary solution is holding. Once you're ready to move forward with permanent roof repair or replacement, we're here to guide the transition. Quick emergency roof tarp installation buys you time and protects your investment when it matters most.</p>",
-      "_ai_generated_at": "2026-08-31T20:52:03.013520Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_intro",
-      "_ai_input_hash": "f32164d77b254345",
-      "_it_photo_orig": "sites/water-site/uploads/media/istock-1701596561_84fff0.webp"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "Trained Technicians, Fast Response",
-          "text": "<p>Freeman's crew arrives equipped and ready to deploy emergency roof tarping quickly after storms strike. Trained technicians assess damage thoroughly and secure your property to prevent further water intrusion while permanent repairs are arranged.</p>"
-        },
-        {
-          "heading": "Thorough Damage Assessment",
-          "text": "<p>Our team inspects roof damage comprehensively—identifying leaks, structural concerns, and secondary water damage inside. Detailed documentation supports your insurance claim and ensures no damage is overlooked during temporary or permanent restoration.</p>"
-        },
-        {
-          "heading": "Guaranteed Workmanship",
-          "text": "<p>Freeman stands behind its roof tarp service with professional guarantees on workmanship. You can trust that temporary protection meets industry standards and holds securely until your roof is fully repaired or replaced.</p>"
-        },
-        {
-          "heading": "East Texas Storm Season Readiness",
-          "text": "<p>Lufkin's spring and summer bring severe storms, hail, and wind that damage roofs regularly. Freeman understands regional weather risks and keeps resources ready year-round for rapid emergency response when Texas storms strike your home.</p>"
-        }
-      ],
-      "_ai_generated_at": "2026-08-31T20:52:07.072128Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "381178beb233fb1c"
-    },
-    {
-      "type": "steps",
-      "steps_heading": "How Our {service} Process Works",
-      "steps_items": [
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Call Our {city} Team",
-          "text": "Tell us what happened. We work to get {service} started fast, often the same day."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "On-Site Assessment",
-          "text": "Specialists inspect the damage, identify the water source and category, and plan the work."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Mitigation & Drying",
-          "text": "Water extraction, structural drying, and cleanup to stop the damage from spreading."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Restoration & Repairs",
-          "text": "Cleaning, sanitizing, and repairs to return your property to normal."
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "cta_banner",
-      "anchor": "mid_cta",
-      "cb_text": "Need {service} in {city}? Get fast, professional help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "header",
-      "cb_bg_custom": "#2563eb",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "right",
-      "it_photo": "sites/water-site/uploads/media/istock-2203659347_3e4558-lufkin-tx.webp",
-      "it_alt": "Flooded basement — roof tarp service in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Roof Tarping Needs Across Lufkin",
-      "text": "<p>Lufkin's mix of older established neighborhoods and newer residential areas face distinct roof tarping challenges tied to East Texas weather patterns. Mature trees common in well-developed sections like Fairview create ongoing risks—branches can accumulate on roofs, damage shingles during storms, and complicate water drainage. Older construction in these areas often means roofing systems are more vulnerable to wind damage and leaks when storms strike. Conversely, newer subdivisions typically feature modern roof designs better equipped to shed water, though they're not immune to the heavy rainfall and severe thunderstorms that regularly impact the region.</p><p>Seasonal freeze-thaw cycles in the Lufkin area add another layer of urgency. Winter moisture that penetrates damaged roofing can expand when temperatures drop, widening cracks and accelerating deterioration. Whether your property sits in an older neighborhood or a newer development, prompt emergency roof tarp service following storm damage helps prevent secondary water intrusion into walls, ceilings, and interiors while permanent repairs are arranged. Freeman Restoration understands how regional weather patterns and the age of local structures shape damage severity, and we're equipped to respond quickly with temporary roof tarp solutions that protect your property from additional harm.</p>",
-      "_ai_generated_at": "2026-08-31T20:52:11.313951Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "6256e409145caa92",
-      "_it_photo_orig": "sites/water-site/uploads/media/istock-2203659347_3e4558.webp"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "seasonal_calendar",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "steps_heading": "Seasonal Water and Storm Damage: Lufkin's Year-Round Roof Tarping Guide",
-      "steps_items": [
-        {
-          "heading": "Spring: Storm Season Readiness",
-          "text": "Spring storms bring heavy rainfall and occasional severe weather to the Lufkin area, creating roof damage and water intrusion risks. Freeman Restoration responds quickly to emergency tarping and water extraction, preventing further interior damage while you arrange permanent repairs."
-        },
-        {
-          "heading": "Summer: Heat and Humidity Challenges",
-          "text": "Texas summer heat accelerates mold growth in water-damaged structures. Prolonged humidity in homes like those in North Lufkin increases drying time and secondary damage risk. Freeman Restoration provides rapid water removal and structural drying to minimize moisture-related problems."
-        },
-        {
-          "heading": "Fall: Wind and Moisture Concerns",
-          "text": "Fall storms can strip roofing and create openings for wind-driven rain throughout properties in the Lufkin region. Prompt roof tarping and water mitigation are essential. Freeman Restoration deploys emergency tarping and begins water extraction before permanent restoration begins."
-        },
-        {
-          "heading": "Winter: Freeze-Thaw and Pipe Risks",
-          "text": "Winter freezes in Texas occasionally cause pipe ruptures and water damage inside homes and businesses. Rapid response limits water spread and structural harm. Freeman Restoration handles emergency water removal and drying to prevent secondary damage during colder months."
-        }
-      ],
-      "_ai_generated_at": "2026-08-31T20:52:15.616149Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "seasonal_calendar",
-      "_ai_input_hash": "1b01d12e640d38f8"
-    },
-    {
-      "type": "service_cards",
-      "anchor": "related_services",
-      "sc_badge": "",
-      "sc_heading": "Other Water Restoration Services in {city_state}",
-      "sc_cols": 4,
-      "sc_badge_bg": "accent",
-      "sc_head_color": "header",
-      "sc_badge_bg_custom": "#fd783b",
-      "sc_head_color_custom": "#120575",
-      "sc_icon_bg": "#f4f6f8",
-      "sc_items": [
-        {
-          "icon": "",
-          "alt": "Water Damage Repair {city} {SS}",
-          "heading": "Water Damage Repair",
-          "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
-          "url": "/water-damage-repair-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Flood Damage Restoration {city} {SS}",
-          "heading": "Flood Damage Restoration",
-          "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
-          "url": "/flood-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Storm Damage Restoration {city} {SS}",
-          "heading": "Storm Damage Restoration",
-          "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
-          "url": "/storm-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Water Mitigation {city} {SS}",
-          "heading": "Water Mitigation",
-          "text": "Professional Water Mitigation for {city_state} homes and businesses.",
-          "url": "/water-mitigation-{city_slug}"
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "{primary_keyword} FAQs — {city_state}",
-      "fq_bg_color": "#ffffff",
-      "fq_item_bg": "#d9d9d9",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#120575",
-      "fq_icon_bg_custom": "#fd783b",
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "replace",
-      "fq_items": [
-        {
-          "question": "What exactly happens when Freeman Restoration tarps a damaged roof in Lufkin?",
-          "answer": "<p>Our team assesses the damage extent, then securely fastens heavy-duty tarping material over the affected area to prevent further water intrusion. We ensure proper slope and drainage so rain doesn't pool on the tarp itself. This temporary weatherproofing buys time for insurance adjusters to inspect and for permanent repairs to be scheduled, protecting your interior from ongoing exposure.</p>"
-        },
-        {
-          "question": "How quickly can Freeman Restoration respond to roof damage in Lufkin, Texas?",
-          "answer": "<p>After major storms in the Lufkin area, our crews prioritize emergency calls and work to reach properties as rapidly as possible. Storm season often brings high demand, so calling immediately after damage occurs helps us schedule your emergency stabilization. We understand that every hour of exposure increases interior water damage and mold risk.</p>"
-        },
-        {
-          "question": "What factors affect the cost of tarping a roof after a storm?",
-          "answer": "<p>Pricing depends on damage size, roof pitch and complexity, tarp material grade, labor intensity, and accessibility. Steep or multi-level roofs take longer to secure safely. Additional factors include whether scaffolding or equipment rental is needed and local material availability. We provide transparent assessment and estimates before work begins.</p>"
-        },
-        {
-          "question": "Should I try to cover my roof myself or wait for a professional?",
-          "answer": "<p>Roof work involves serious fall hazards and electrical risks from downed lines. Improper tarping can trap moisture or create worse damage. Professional crews have proper safety equipment, materials rated for high wind, and experience securing coverage that actually sheds water. It's safer and more effective to let trained technicians handle this emergency response.</p>"
-        },
-        {
-          "question": "Can roof tarping prevent future storm damage to my Lufkin home?",
-          "answer": "<p>Tarping is emergency repair, not prevention. However, once permanent repairs are completed, a well-maintained roof—with regular inspections and prompt damage fixes—resists future storm impact better. East Texas experiences spring and summer severe weather, so keeping gutters clear, trees trimmed, and roof integrity strong reduces vulnerability year-round.</p>"
-        },
-        {
-          "question": "When is roof damage from storms most common in the Lufkin region?",
-          "answer": "<p>Spring and early summer bring severe thunderstorms, hail, and wind to East Texas, making this peak season for roof damage calls. Fall can also bring tropical system impacts. Freeze-thaw cycles in winter may expose existing vulnerabilities. Year-round preparedness and quick response to any damage—whether seasonal or unexpected—minimizes water intrusion and secondary damage inside your home.</p>"
-        }
-      ],
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-31T20:52:24.615925Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "99d9eaba039d1970",
-      "skin": "dark",
-      "fq_open": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "accent",
-      "cb_bg_custom": "#0d2340",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "custom_html",
-      "anchor": "pest_services",
-      "html": "[services_links]"
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "{city_spotlight}",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#120575",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "skin": "light"
-    }
-  ],
-  "seo": {
-    "seo_title": "Roof Tarping in {city_state} | {business}",
-    "canonical_url": "{website}/roof-tarping-lufkin-tx/",
-    "meta_description": "Roof Tarping in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
-    "meta_keywords": "roof tarping Lufkin TX, emergency roof tarping Lufkin, roof tarp service Lufkin, temporary roof tarp Lufkin",
-    "og_title": "Roof Tarping in {city_state} | {business}",
-    "og_description": "24/7 roof tarping in {city_state}. Fast, professional local response.",
-    "og_image": "sites/water-site/uploads/media/istock-1543976862_58c3d8.webp",
-    "service_name": "Roof Tarping",
-    "service_type": "Roof Tarping",
-    "service_area": "{city_state} and surrounding areas",
-    "service_description": "Roof tarping for homes and businesses in {city_state}, including emergency roof tarping, roof tarp service and temporary roof tarp.",
-    "bc_label": "Roof Tarping",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Roof Tarping\",\n    \"name\": \"Roof Tarping in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 roof tarping in Lufkin, TX — emergency roof tarping, roof tarp service and temporary roof tarp.\"\n}",
-    "primary_keyword": "Roof Tarping",
-    "secondary_keywords": "emergency roof tarping, roof tarp service, temporary roof tarp"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-07-12T01:05:23+00:00",
-  "template_version": "2cd8101a885555b68d9c00898d4b712d"
+    "locked_blocks": [],
+    "generated_at": "2026-07-12T01:05:23+00:00",
+    "template_version": "2cd8101a885555b68d9c00898d4b712d"
 }

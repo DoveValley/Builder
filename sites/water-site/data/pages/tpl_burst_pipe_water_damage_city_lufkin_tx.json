@@ -1,406 +1,406 @@
 {
-  "template_id": "tpl_burst_pipe_water_damage",
-  "city_id": "city_lufkin_tx",
-  "slug": "burst-pipe-water-damage-lufkin-tx",
-  "title": "Burst Pipe Water Damage in {city_state} | {business}",
-  "city_vars": {
-    "id": "city_lufkin_tx",
-    "city": "Lufkin",
-    "SS": "TX",
-    "state": "Texas",
-    "city_slug": "lufkin-tx",
-    "zip": "75901",
-    "tags": [],
-    "industries": [
-      "Forestry and timber/wood products manufacturing",
-      "Healthcare",
-      "Oil and gas equipment manufacturing",
-      "Education",
-      "Retail and distribution",
-      "Government/public administration"
+    "template_id": "tpl_burst_pipe_water_damage",
+    "city_id": "city_lufkin_tx",
+    "slug": "burst-pipe-water-damage-lufkin-tx",
+    "title": "Burst Pipe Water Damage in {city_state} | {business}",
+    "city_vars": {
+        "id": "city_lufkin_tx",
+        "city": "Lufkin",
+        "SS": "TX",
+        "state": "Texas",
+        "city_slug": "lufkin-tx",
+        "zip": "75901",
+        "tags": [],
+        "industries": [
+            "Forestry and timber/wood products manufacturing",
+            "Healthcare",
+            "Oil and gas equipment manufacturing",
+            "Education",
+            "Retail and distribution",
+            "Government/public administration"
+        ],
+        "top_employers": [
+            "CHI St. Luke's Health Memorial",
+            "Lufkin Industries (Baker Hughes)",
+            "Angelina College",
+            "Lufkin Independent School District",
+            "Georgia-Pacific",
+            "Temple-Inland",
+            "Brookshire Brothers",
+            "City of Lufkin",
+            "Angelina County",
+            "Walmart Supercenter",
+            "Diboll Healthcare System",
+            "Southern Plastics"
+        ],
+        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+        "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep moisture levels high year-round — conditions that turn a small roof leak, slab seep, or failed supply line into structural water damage quickly.",
+        "neighborhoods": [
+            "Downtown Lufkin",
+            "Crown Colony",
+            "Fuller Springs",
+            "Kurth",
+            "Copeland Springs",
+            "Brentwood"
+        ],
+        "population": 34187,
+        "_researched": 1,
+        "city_spotlight": "Set among the pine forests of Deep East Texas, Lufkin has long served as the commercial anchor for Angelina County and the smaller communities that surround it. With roughly 34,500 residents, it's a city built on sawdust and steel — its identity shaped by generations of timber and forestry work alongside the oil-field manufacturing legacy of Lufkin Industries. That working heritage still shows in the rhythm of daily life here.\n\nToday's Lufkin has broadened well beyond its mill-town roots, with hospitals, schools, and retail centers now standing alongside the plants and lumber yards. Downtown Lufkin keeps its small-city warmth, while the Loop 287 corridor hums with the shops, distribution centers, and everyday commerce that keep the wider region running."
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>East Texas winters bring freeze-thaw cycles that strain pipes in homes throughout Lufkin, and when burst pipes release water into walls, ceilings, and foundations, rapid response prevents structural damage and costly secondary issues. Freeman Restoration addresses burst pipe water damage with trained technicians who extract standing water, dry affected areas thoroughly, and document conditions for your insurance claim. Quick professional intervention protects your property's integrity and reduces the scope of repairs you'll face down the road.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Standing water extraction — burst pipe water damage in {city_state} by {business}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#eef4fb",
+            "hs_photo": "sites/water-site/uploads/media/burst-pipe-water-damage-splashing-floor-lufkin-tx.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "text_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-31T20:51:02.087515Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "3d602937e9ee1fab",
+            "_hs_photo_orig": "sites/water-site/uploads/media/burst-pipe-water-damage-splashing-floor-2-lufkin-tx.webp"
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg": "accent",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": [
+                {
+                    "label": "Free Estimates",
+                    "icon": ""
+                },
+                {
+                    "label": "24/7 Response",
+                    "icon": ""
+                },
+                {
+                    "label": "Fast Local Response",
+                    "icon": ""
+                }
+            ],
+            "anchor": "trust_bar",
+            "tb_show_icons": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/water-site/uploads/media/restoration-technician-homeowner-handshake-3-lufkin-tx.webp",
+            "it_alt": "Standing water extraction — burst pipe cleanup in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Burst Pipe Water Damage Repair in Lufkin",
+            "text": "<p>Lufkin property owners face real risks from burst pipes, especially during the cold months when freezing temperatures can cause water lines to rupture without warning. Texas winters in the Lufkin area may be mild overall, but sudden temperature drops still pose a genuine threat to exposed or inadequately insulated pipes. When a water line break occurs, the resulting damage spreads quickly—saturating walls, ceilings, floors, and personal belongings within hours. Beyond the immediate destruction, standing water creates secondary problems that compound the crisis if not addressed promptly by trained professionals.</p><p>Freeman Restoration responds to burst pipe emergencies with a methodical, thorough approach designed to limit damage and restore your property. Our team arrives ready to locate the source, shut off water flow, extract standing water, and begin the drying process using industry-standard equipment and techniques. We document conditions carefully, work systematically through affected areas, and follow up to ensure moisture is fully removed—not just from visible surfaces, but from hidden cavities and structural materials where water can linger and cause long-term harm. When a broken pipe strikes your home or business in Lufkin, having a local restoration company you can trust makes all the difference in your recovery.</p>",
+            "_ai_generated_at": "2026-08-31T20:51:06.553165Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_intro",
+            "_ai_input_hash": "e2bda50af0facc68",
+            "_it_photo_orig": "sites/water-site/uploads/media/restoration-technician-homeowner-handshake-4-lufkin-tx.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Rapid Response When Pipes Burst",
+                    "text": "<p>Water damage from a burst pipe spreads fast. Freeman's trained technicians arrive quickly to stop active water loss, assess damage, and begin extraction and drying before secondary damage takes hold in your home.</p>"
+                },
+                {
+                    "heading": "Thorough Drying and Restoration",
+                    "text": "<p>A water line break or frozen pipe water damage requires complete moisture removal—not just surface cleanup. Freeman uses professional-grade equipment and systematic protocols to dry walls, floors, and cavities thoroughly, reducing mold and structural risk.</p>"
+                },
+                {
+                    "heading": "Trained Technicians You Can Trust",
+                    "text": "<p>Freeman's restoration specialists understand the complexities of water damage from broken pipes. They document damage carefully, work directly with your insurance company, and restore your property to safe, livable condition using proven methods.</p>"
+                },
+                {
+                    "heading": "East Texas Freeze-Thaw Expertise",
+                    "text": "<p>Lufkin's winter weather cycles create ideal conditions for frozen pipes. Freeman understands how seasonal temperature swings stress plumbing systems and the urgency of responding to water damage when it strikes during cold snaps or rapid thaws.</p>"
+                }
+            ],
+            "_ai_generated_at": "2026-08-31T20:51:10.779961Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "32e1cf9ce7176ab4"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our {service} Process Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Call Our {city} Team",
+                    "text": "Tell us what happened. We work to get {service} started fast, often the same day."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "On-Site Assessment",
+                    "text": "Specialists inspect the damage, identify the water source and category, and plan the work."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Mitigation & Drying",
+                    "text": "Water extraction, structural drying, and cleanup to stop the damage from spreading."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Restoration & Repairs",
+                    "text": "Cleaning, sanitizing, and repairs to return your property to normal."
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need {service} in {city}? Get fast, professional help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#2563eb",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "sites/water-site/uploads/media/traditional-home-exterior-brick-lufkin-tx.webp",
+            "it_alt": "Standing water extraction — water line break in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Burst Pipe Water Damage in Lufkin",
+            "text": "<p>Lufkin's mix of older, established neighborhoods and newer residential areas each face distinct risks when it comes to burst pipes and water line breaks. Mature trees common throughout South Lufkin and similar long-established sections can exert pressure on underground plumbing over decades, while aging construction materials in these areas may be more vulnerable to freeze-thaw cycles. Newer subdivisions often feature more modern piping, yet they are not immune—particularly during East Texas winters when temperatures can dip suddenly, exposing any inadequately insulated lines to freezing damage.</p><p>Winter cold snaps pose the most acute threat across the region, as frozen pipe water damage can occur rapidly when exposed or poorly protected lines freeze solid. Beyond winter, Lufkin's subtropical climate brings heavy seasonal rains and occasional severe storms that can saturate soil, shift foundations slightly, and stress buried water lines. Spring thaw cycles also create pressure shifts in the ground that may compromise pipe integrity. Whether you're in an older neighborhood near Downtown Lufkin or a newer area around the Loop 287 corridor, prompt response to any signs of water damage—discolored walls, soft flooring, or unexpected water pooling—is essential to limit structural harm and prevent secondary issues like mold growth.</p>",
+            "_ai_generated_at": "2026-08-31T20:51:15.912135Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "fbab5cc3206aa540",
+            "_it_photo_orig": "sites/water-site/uploads/media/traditional-home-exterior-brick-2-lufkin-tx.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "steps_heading": "Seasonal Water Damage Risks and Burst Pipe Prevention in Lufkin",
+            "steps_items": [
+                {
+                    "heading": "Spring: Heavy Rain and Flooding",
+                    "text": "Spring storms bring heavy rainfall and localized flooding across East Texas. Properties in areas like South Lufkin and the Loop 287 corridor face water intrusion, basement seepage, and overflow damage. Freeman Restoration responds quickly to extract standing water, assess structural damage, and begin drying before mold develops."
+                },
+                {
+                    "heading": "Summer: Heat and Humidity Challenges",
+                    "text": "Summer heat intensifies moisture problems from spring damage or hidden leaks. High humidity slows natural drying and complicates recovery. Freeman Restoration uses industrial dehumidifiers and air movement to prevent secondary damage and protect your property through the hottest months."
+                },
+                {
+                    "heading": "Fall: Storm Season Preparations",
+                    "text": "Fall brings tropical systems and severe thunderstorms that threaten roofs, windows, and foundations. Water intrusion from wind-driven rain requires immediate attention. Freeman Restoration helps protect and restore properties before fall weather intensifies, reducing risk of long-term structural or mold issues."
+                },
+                {
+                    "heading": "Winter: Frozen Pipes and Thaw Damage",
+                    "text": "Winter freezes can burst pipes in uninsulated areas, crawl spaces, and exterior walls throughout Lufkin and surrounding regions. Rapid thawing accelerates water release and flooding. Freeman Restoration handles emergency water extraction, pipe damage assessment, and drying to minimize interior damage and prevent costly repairs."
+                }
+            ],
+            "_ai_generated_at": "2026-08-31T20:51:20.579602Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "seasonal_calendar",
+            "_ai_input_hash": "9c99f62461f5de21"
+        },
+        {
+            "type": "service_cards",
+            "anchor": "related_services",
+            "sc_badge": "",
+            "sc_heading": "Other Water Restoration Services in {city_state}",
+            "sc_cols": 4,
+            "sc_badge_bg": "accent",
+            "sc_head_color": "header",
+            "sc_badge_bg_custom": "#fd783b",
+            "sc_head_color_custom": "#120575",
+            "sc_icon_bg": "#f4f6f8",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Water Damage Repair {city} {SS}",
+                    "heading": "Water Damage Repair",
+                    "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
+                    "url": "/water-damage-repair-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Flood Damage Restoration {city} {SS}",
+                    "heading": "Flood Damage Restoration",
+                    "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/flood-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Storm Damage Restoration {city} {SS}",
+                    "heading": "Storm Damage Restoration",
+                    "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/storm-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Water Mitigation {city} {SS}",
+                    "heading": "Water Mitigation",
+                    "text": "Professional Water Mitigation for {city_state} homes and businesses.",
+                    "url": "/water-mitigation-{city_slug}"
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [
+                {
+                    "question": "What exactly happens when a pipe bursts inside my Lufkin home?",
+                    "answer": "<p>When a pipe ruptures, water floods into walls, ceilings, floors, and personal belongings within minutes. The damage spreads quickly through drywall, insulation, and subflooring, creating conditions for structural decay and secondary problems. Freeman Restoration professionals assess the full scope—visible and hidden—to plan targeted water removal and drying before deterioration advances.</p>"
+                },
+                {
+                    "question": "How fast can Freeman Restoration respond to a burst pipe emergency in Lufkin?",
+                    "answer": "<p>Freeman Restoration operates locally in Lufkin and responds to active water emergencies with urgency. The faster water is removed and drying begins, the better the outcome. Contact us immediately when you discover a rupture or active leak—every hour matters to limit damage and prevent mold growth.</p>"
+                },
+                {
+                    "question": "What factors affect the cost of repairing water damage from a burst pipe?",
+                    "answer": "<p>The scope of your repair depends on the pipe's location, how long water ran before discovery, which materials absorbed it, and the square footage affected. Damage hidden in walls or crawl spaces costs more to address than surface-level flooding. Freeman Restoration provides a detailed assessment so you understand what drives the restoration plan and cost.</p>"
+                },
+                {
+                    "question": "What should I do immediately after discovering a burst pipe in my home?",
+                    "answer": "<p>Turn off your water at the main valve to stop the leak. Move valuables away from the water. Open windows and doors for airflow if safe to do so. Call Freeman Restoration right away—do not attempt to pump or remove standing water yourself, especially if there's any risk of electrical contact or contamination. Our team handles extraction and the cleanup safely.</p>"
+                },
+                {
+                    "question": "How can I prevent burst pipes during winter in the Lufkin area?",
+                    "answer": "<p>East Texas experiences freezing temperatures in winter, creating freeze-thaw cycles that stress pipes. Insulate exposed pipes in unheated spaces like attics and crawl spaces. Allow faucets to drip slightly during hard freezes to maintain water flow. Have aging or vulnerable plumbing inspected by a professional. These steps reduce the risk of ruptures and the costly water cleanup that follows.</p>"
+                },
+                {
+                    "question": "Is winter the only season for burst pipes in Lufkin, Texas?",
+                    "answer": "<p>While freezing weather in winter is the most common cause, pipes can rupture year-round due to age, corrosion, high water pressure, or ground settling. In East Texas, temperature swings during late fall and early spring also create stress on aging plumbing. Freeman Restoration handles these emergencies whenever they occur—don't assume you're safe just because it's warm outside.</p>"
+                }
+            ],
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-31T20:51:28.815957Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "c04c1e2482e7c35a",
+            "skin": "dark",
+            "fq_open": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#0d2340",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "pest_services",
+            "html": "[services_links]"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "skin": "light"
+        }
     ],
-    "top_employers": [
-      "CHI St. Luke's Health Memorial",
-      "Lufkin Industries (Baker Hughes)",
-      "Angelina College",
-      "Lufkin Independent School District",
-      "Georgia-Pacific",
-      "Temple-Inland",
-      "Brookshire Brothers",
-      "City of Lufkin",
-      "Angelina County",
-      "Walmart Supercenter",
-      "Diboll Healthcare System",
-      "Southern Plastics"
-    ],
-    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-    "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep moisture levels high year-round — conditions that turn a small roof leak, slab seep, or failed supply line into structural water damage quickly.",
-    "neighborhoods": [
-      "Downtown Lufkin",
-      "Crown Colony",
-      "Fuller Springs",
-      "Kurth",
-      "Copeland Springs",
-      "Brentwood"
-    ],
-    "population": 34187,
-    "_researched": 1,
-    "city_spotlight": "Set among the pine forests of Deep East Texas, Lufkin has long served as the commercial anchor for Angelina County and the smaller communities that surround it. With roughly 34,500 residents, it's a city built on sawdust and steel — its identity shaped by generations of timber and forestry work alongside the oil-field manufacturing legacy of Lufkin Industries. That working heritage still shows in the rhythm of daily life here.\n\nToday's Lufkin has broadened well beyond its mill-town roots, with hospitals, schools, and retail centers now standing alongside the plants and lumber yards. Downtown Lufkin keeps its small-city warmth, while the Loop 287 corridor hums with the shops, distribution centers, and everyday commerce that keep the wider region running."
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>East Texas winters bring freeze-thaw cycles that strain pipes in homes throughout Lufkin, and when burst pipes release water into walls, ceilings, and foundations, rapid response prevents structural damage and costly secondary issues. Freeman Restoration addresses burst pipe water damage with trained technicians who extract standing water, dry affected areas thoroughly, and document conditions for your insurance claim. Quick professional intervention protects your property's integrity and reduces the scope of repairs you'll face down the road.</p>",
-      "hs_btn_text": "{phone}",
-      "hs_btn_url": "tel:{tel}",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "Standing water extraction — burst pipe water damage in {city_state} by {business}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#eef4fb",
-      "hs_photo": "sites/water-site/uploads/media/istock-2148721464_0bc7b6-lufkin-tx__tpl_burst_pipe_water_damage_city_lufkin_tx_3fe7944a.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "text_first",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-31T20:51:02.087515Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "3d602937e9ee1fab",
-      "_hs_photo_orig": "sites/water-site/uploads/media/istock-2148721464_0bc7b6.webp"
+    "seo": {
+        "seo_title": "Burst Pipe Water Damage in {city_state} | {business}",
+        "canonical_url": "{website}/burst-pipe-water-damage-lufkin-tx/",
+        "meta_description": "Burst Pipe Water Damage in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
+        "meta_keywords": "burst pipe water damage Lufkin TX, burst pipe cleanup Lufkin, water line break Lufkin, frozen pipe water damage Lufkin",
+        "og_title": "Burst Pipe Water Damage in {city_state} | {business}",
+        "og_description": "24/7 burst pipe water damage in {city_state}. Fast, professional local response.",
+        "og_image": "sites/water-site/uploads/media/water-damage-repair-framing-crew-lufkin-tx.webp",
+        "service_name": "Burst Pipe Water Damage",
+        "service_type": "Burst Pipe Water Damage",
+        "service_area": "{city_state} and surrounding areas",
+        "service_description": "Burst pipe water damage for homes and businesses in {city_state}, including burst pipe cleanup, water line break and frozen pipe water damage.",
+        "bc_label": "Burst Pipe Water Damage",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Burst Pipe Water Damage\",\n    \"name\": \"Burst Pipe Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 burst pipe water damage in Lufkin, TX — burst pipe cleanup, water line break and frozen pipe water damage.\"\n}",
+        "primary_keyword": "Burst Pipe Water Damage",
+        "secondary_keywords": "burst pipe cleanup, water line break, frozen pipe water damage, broken pipe water damage"
     },
-    {
-      "type": "trust_bar",
-      "tb_bg": "accent",
-      "tb_bg_custom": "#f3f6f7",
-      "tb_items": [
-        {
-          "label": "Free Estimates",
-          "icon": ""
-        },
-        {
-          "label": "24/7 Response",
-          "icon": ""
-        },
-        {
-          "label": "Fast Local Response",
-          "icon": ""
-        }
-      ],
-      "anchor": "trust_bar",
-      "tb_show_icons": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "left",
-      "it_photo": "sites/water-site/uploads/media/istock-180726325_c51b9d-lufkin-tx.webp",
-      "it_alt": "Standing water extraction — burst pipe cleanup in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Burst Pipe Water Damage Repair in Lufkin",
-      "text": "<p>Lufkin property owners face real risks from burst pipes, especially during the cold months when freezing temperatures can cause water lines to rupture without warning. Texas winters in the Lufkin area may be mild overall, but sudden temperature drops still pose a genuine threat to exposed or inadequately insulated pipes. When a water line break occurs, the resulting damage spreads quickly—saturating walls, ceilings, floors, and personal belongings within hours. Beyond the immediate destruction, standing water creates secondary problems that compound the crisis if not addressed promptly by trained professionals.</p><p>Freeman Restoration responds to burst pipe emergencies with a methodical, thorough approach designed to limit damage and restore your property. Our team arrives ready to locate the source, shut off water flow, extract standing water, and begin the drying process using industry-standard equipment and techniques. We document conditions carefully, work systematically through affected areas, and follow up to ensure moisture is fully removed—not just from visible surfaces, but from hidden cavities and structural materials where water can linger and cause long-term harm. When a broken pipe strikes your home or business in Lufkin, having a local restoration company you can trust makes all the difference in your recovery.</p>",
-      "_ai_generated_at": "2026-08-31T20:51:06.553165Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_intro",
-      "_ai_input_hash": "e2bda50af0facc68",
-      "_it_photo_orig": "sites/water-site/uploads/media/istock-180726325_c51b9d.webp"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "Rapid Response When Pipes Burst",
-          "text": "<p>Water damage from a burst pipe spreads fast. Freeman's trained technicians arrive quickly to stop active water loss, assess damage, and begin extraction and drying before secondary damage takes hold in your home.</p>"
-        },
-        {
-          "heading": "Thorough Drying and Restoration",
-          "text": "<p>A water line break or frozen pipe water damage requires complete moisture removal—not just surface cleanup. Freeman uses professional-grade equipment and systematic protocols to dry walls, floors, and cavities thoroughly, reducing mold and structural risk.</p>"
-        },
-        {
-          "heading": "Trained Technicians You Can Trust",
-          "text": "<p>Freeman's restoration specialists understand the complexities of water damage from broken pipes. They document damage carefully, work directly with your insurance company, and restore your property to safe, livable condition using proven methods.</p>"
-        },
-        {
-          "heading": "East Texas Freeze-Thaw Expertise",
-          "text": "<p>Lufkin's winter weather cycles create ideal conditions for frozen pipes. Freeman understands how seasonal temperature swings stress plumbing systems and the urgency of responding to water damage when it strikes during cold snaps or rapid thaws.</p>"
-        }
-      ],
-      "_ai_generated_at": "2026-08-31T20:51:10.779961Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "32e1cf9ce7176ab4"
-    },
-    {
-      "type": "steps",
-      "steps_heading": "How Our {service} Process Works",
-      "steps_items": [
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Call Our {city} Team",
-          "text": "Tell us what happened. We work to get {service} started fast, often the same day."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "On-Site Assessment",
-          "text": "Specialists inspect the damage, identify the water source and category, and plan the work."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Mitigation & Drying",
-          "text": "Water extraction, structural drying, and cleanup to stop the damage from spreading."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Restoration & Repairs",
-          "text": "Cleaning, sanitizing, and repairs to return your property to normal."
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "cta_banner",
-      "anchor": "mid_cta",
-      "cb_text": "Need {service} in {city}? Get fast, professional help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "header",
-      "cb_bg_custom": "#2563eb",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "right",
-      "it_photo": "sites/water-site/uploads/media/burst-pipe-water-damage-3-lufkin-tx.webp",
-      "it_alt": "Standing water extraction — water line break in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Burst Pipe Water Damage in Lufkin",
-      "text": "<p>Lufkin's mix of older, established neighborhoods and newer residential areas each face distinct risks when it comes to burst pipes and water line breaks. Mature trees common throughout South Lufkin and similar long-established sections can exert pressure on underground plumbing over decades, while aging construction materials in these areas may be more vulnerable to freeze-thaw cycles. Newer subdivisions often feature more modern piping, yet they are not immune—particularly during East Texas winters when temperatures can dip suddenly, exposing any inadequately insulated lines to freezing damage.</p><p>Winter cold snaps pose the most acute threat across the region, as frozen pipe water damage can occur rapidly when exposed or poorly protected lines freeze solid. Beyond winter, Lufkin's subtropical climate brings heavy seasonal rains and occasional severe storms that can saturate soil, shift foundations slightly, and stress buried water lines. Spring thaw cycles also create pressure shifts in the ground that may compromise pipe integrity. Whether you're in an older neighborhood near Downtown Lufkin or a newer area around the Loop 287 corridor, prompt response to any signs of water damage—discolored walls, soft flooring, or unexpected water pooling—is essential to limit structural harm and prevent secondary issues like mold growth.</p>",
-      "_ai_generated_at": "2026-08-31T20:51:15.912135Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "fbab5cc3206aa540",
-      "_it_photo_orig": "sites/water-site/uploads/media/burst-pipe-water-damage-3.webp"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "seasonal_calendar",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "steps_heading": "Seasonal Water Damage Risks and Burst Pipe Prevention in Lufkin",
-      "steps_items": [
-        {
-          "heading": "Spring: Heavy Rain and Flooding",
-          "text": "Spring storms bring heavy rainfall and localized flooding across East Texas. Properties in areas like South Lufkin and the Loop 287 corridor face water intrusion, basement seepage, and overflow damage. Freeman Restoration responds quickly to extract standing water, assess structural damage, and begin drying before mold develops."
-        },
-        {
-          "heading": "Summer: Heat and Humidity Challenges",
-          "text": "Summer heat intensifies moisture problems from spring damage or hidden leaks. High humidity slows natural drying and complicates recovery. Freeman Restoration uses industrial dehumidifiers and air movement to prevent secondary damage and protect your property through the hottest months."
-        },
-        {
-          "heading": "Fall: Storm Season Preparations",
-          "text": "Fall brings tropical systems and severe thunderstorms that threaten roofs, windows, and foundations. Water intrusion from wind-driven rain requires immediate attention. Freeman Restoration helps protect and restore properties before fall weather intensifies, reducing risk of long-term structural or mold issues."
-        },
-        {
-          "heading": "Winter: Frozen Pipes and Thaw Damage",
-          "text": "Winter freezes can burst pipes in uninsulated areas, crawl spaces, and exterior walls throughout Lufkin and surrounding regions. Rapid thawing accelerates water release and flooding. Freeman Restoration handles emergency water extraction, pipe damage assessment, and drying to minimize interior damage and prevent costly repairs."
-        }
-      ],
-      "_ai_generated_at": "2026-08-31T20:51:20.579602Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "seasonal_calendar",
-      "_ai_input_hash": "9c99f62461f5de21"
-    },
-    {
-      "type": "service_cards",
-      "anchor": "related_services",
-      "sc_badge": "",
-      "sc_heading": "Other Water Restoration Services in {city_state}",
-      "sc_cols": 4,
-      "sc_badge_bg": "accent",
-      "sc_head_color": "header",
-      "sc_badge_bg_custom": "#fd783b",
-      "sc_head_color_custom": "#120575",
-      "sc_icon_bg": "#f4f6f8",
-      "sc_items": [
-        {
-          "icon": "",
-          "alt": "Water Damage Repair {city} {SS}",
-          "heading": "Water Damage Repair",
-          "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
-          "url": "/water-damage-repair-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Flood Damage Restoration {city} {SS}",
-          "heading": "Flood Damage Restoration",
-          "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
-          "url": "/flood-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Storm Damage Restoration {city} {SS}",
-          "heading": "Storm Damage Restoration",
-          "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
-          "url": "/storm-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Water Mitigation {city} {SS}",
-          "heading": "Water Mitigation",
-          "text": "Professional Water Mitigation for {city_state} homes and businesses.",
-          "url": "/water-mitigation-{city_slug}"
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "{primary_keyword} FAQs — {city_state}",
-      "fq_bg_color": "#ffffff",
-      "fq_item_bg": "#d9d9d9",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#120575",
-      "fq_icon_bg_custom": "#fd783b",
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "replace",
-      "fq_items": [
-        {
-          "question": "What exactly happens when a pipe bursts inside my Lufkin home?",
-          "answer": "<p>When a pipe ruptures, water floods into walls, ceilings, floors, and personal belongings within minutes. The damage spreads quickly through drywall, insulation, and subflooring, creating conditions for structural decay and secondary problems. Freeman Restoration professionals assess the full scope—visible and hidden—to plan targeted water removal and drying before deterioration advances.</p>"
-        },
-        {
-          "question": "How fast can Freeman Restoration respond to a burst pipe emergency in Lufkin?",
-          "answer": "<p>Freeman Restoration operates locally in Lufkin and responds to active water emergencies with urgency. The faster water is removed and drying begins, the better the outcome. Contact us immediately when you discover a rupture or active leak—every hour matters to limit damage and prevent mold growth.</p>"
-        },
-        {
-          "question": "What factors affect the cost of repairing water damage from a burst pipe?",
-          "answer": "<p>The scope of your repair depends on the pipe's location, how long water ran before discovery, which materials absorbed it, and the square footage affected. Damage hidden in walls or crawl spaces costs more to address than surface-level flooding. Freeman Restoration provides a detailed assessment so you understand what drives the restoration plan and cost.</p>"
-        },
-        {
-          "question": "What should I do immediately after discovering a burst pipe in my home?",
-          "answer": "<p>Turn off your water at the main valve to stop the leak. Move valuables away from the water. Open windows and doors for airflow if safe to do so. Call Freeman Restoration right away—do not attempt to pump or remove standing water yourself, especially if there's any risk of electrical contact or contamination. Our team handles extraction and the cleanup safely.</p>"
-        },
-        {
-          "question": "How can I prevent burst pipes during winter in the Lufkin area?",
-          "answer": "<p>East Texas experiences freezing temperatures in winter, creating freeze-thaw cycles that stress pipes. Insulate exposed pipes in unheated spaces like attics and crawl spaces. Allow faucets to drip slightly during hard freezes to maintain water flow. Have aging or vulnerable plumbing inspected by a professional. These steps reduce the risk of ruptures and the costly water cleanup that follows.</p>"
-        },
-        {
-          "question": "Is winter the only season for burst pipes in Lufkin, Texas?",
-          "answer": "<p>While freezing weather in winter is the most common cause, pipes can rupture year-round due to age, corrosion, high water pressure, or ground settling. In East Texas, temperature swings during late fall and early spring also create stress on aging plumbing. Freeman Restoration handles these emergencies whenever they occur—don't assume you're safe just because it's warm outside.</p>"
-        }
-      ],
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-31T20:51:28.815957Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "c04c1e2482e7c35a",
-      "skin": "dark",
-      "fq_open": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "accent",
-      "cb_bg_custom": "#0d2340",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "custom_html",
-      "anchor": "pest_services",
-      "html": "[services_links]"
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "{city_spotlight}",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#120575",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "skin": "light"
-    }
-  ],
-  "seo": {
-    "seo_title": "Burst Pipe Water Damage in {city_state} | {business}",
-    "canonical_url": "{website}/burst-pipe-water-damage-lufkin-tx/",
-    "meta_description": "Burst Pipe Water Damage in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
-    "meta_keywords": "burst pipe water damage Lufkin TX, burst pipe cleanup Lufkin, water line break Lufkin, frozen pipe water damage Lufkin",
-    "og_title": "Burst Pipe Water Damage in {city_state} | {business}",
-    "og_description": "24/7 burst pipe water damage in {city_state}. Fast, professional local response.",
-    "og_image": "sites/water-site/uploads/media/water-damage-repair.webp",
-    "service_name": "Burst Pipe Water Damage",
-    "service_type": "Burst Pipe Water Damage",
-    "service_area": "{city_state} and surrounding areas",
-    "service_description": "Burst pipe water damage for homes and businesses in {city_state}, including burst pipe cleanup, water line break and frozen pipe water damage.",
-    "bc_label": "Burst Pipe Water Damage",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Burst Pipe Water Damage\",\n    \"name\": \"Burst Pipe Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 burst pipe water damage in Lufkin, TX — burst pipe cleanup, water line break and frozen pipe water damage.\"\n}",
-    "primary_keyword": "Burst Pipe Water Damage",
-    "secondary_keywords": "burst pipe cleanup, water line break, frozen pipe water damage, broken pipe water damage"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-07-12T01:05:23+00:00",
-  "template_version": "1520d691362269c29716f1fbfce9e75c"
+    "locked_blocks": [],
+    "generated_at": "2026-07-12T01:05:23+00:00",
+    "template_version": "1520d691362269c29716f1fbfce9e75c"
 }

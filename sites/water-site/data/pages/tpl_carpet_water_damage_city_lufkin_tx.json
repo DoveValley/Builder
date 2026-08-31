@@ -1,406 +1,406 @@
 {
-  "template_id": "tpl_carpet_water_damage",
-  "city_id": "city_lufkin_tx",
-  "slug": "carpet-water-damage-lufkin-tx",
-  "title": "Carpet Water Damage in {city_state} | {business}",
-  "city_vars": {
-    "id": "city_lufkin_tx",
-    "city": "Lufkin",
-    "SS": "TX",
-    "state": "Texas",
-    "city_slug": "lufkin-tx",
-    "zip": "75901",
-    "tags": [],
-    "industries": [
-      "Forestry and timber/wood products manufacturing",
-      "Healthcare",
-      "Oil and gas equipment manufacturing",
-      "Education",
-      "Retail and distribution",
-      "Government/public administration"
+    "template_id": "tpl_carpet_water_damage",
+    "city_id": "city_lufkin_tx",
+    "slug": "carpet-water-damage-lufkin-tx",
+    "title": "Carpet Water Damage in {city_state} | {business}",
+    "city_vars": {
+        "id": "city_lufkin_tx",
+        "city": "Lufkin",
+        "SS": "TX",
+        "state": "Texas",
+        "city_slug": "lufkin-tx",
+        "zip": "75901",
+        "tags": [],
+        "industries": [
+            "Forestry and timber/wood products manufacturing",
+            "Healthcare",
+            "Oil and gas equipment manufacturing",
+            "Education",
+            "Retail and distribution",
+            "Government/public administration"
+        ],
+        "top_employers": [
+            "CHI St. Luke's Health Memorial",
+            "Lufkin Industries (Baker Hughes)",
+            "Angelina College",
+            "Lufkin Independent School District",
+            "Georgia-Pacific",
+            "Temple-Inland",
+            "Brookshire Brothers",
+            "City of Lufkin",
+            "Angelina County",
+            "Walmart Supercenter",
+            "Diboll Healthcare System",
+            "Southern Plastics"
+        ],
+        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+        "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep moisture levels high year-round — conditions that turn a small roof leak, slab seep, or failed supply line into structural water damage quickly.",
+        "neighborhoods": [
+            "Downtown Lufkin",
+            "Crown Colony",
+            "Fuller Springs",
+            "Kurth",
+            "Copeland Springs",
+            "Brentwood"
+        ],
+        "population": 34187,
+        "_researched": 1,
+        "city_spotlight": "Set among the pine forests of Deep East Texas, Lufkin has long served as the commercial anchor for Angelina County and the smaller communities that surround it. With roughly 34,500 residents, it's a city built on sawdust and steel — its identity shaped by generations of timber and forestry work alongside the oil-field manufacturing legacy of Lufkin Industries. That working heritage still shows in the rhythm of daily life here.\n\nToday's Lufkin has broadened well beyond its mill-town roots, with hospitals, schools, and retail centers now standing alongside the plants and lumber yards. Downtown Lufkin keeps its small-city warmth, while the Loop 287 corridor hums with the shops, distribution centers, and everyday commerce that keep the wider region running."
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>East Texas weather brings heavy spring storms, occasional winter freeze-thaw cycles, and humidity that lingers year-round—all conditions that put carpets at risk of water damage. When carpet absorbs water from storms, burst pipes, or plumbing failures, quick extraction and proper drying are essential to prevent mold growth and permanent loss. Freeman Restoration responds locally to remove standing water and restore carpet, helping property owners in Lufkin and surrounding areas avoid costly replacement and protect their homes.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Carpet water damage in {city_state} by {business}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#eef4fb",
+            "hs_photo": "sites/water-site/uploads/media/carpet-water-damage-drying-fan-lufkin-tx.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "text_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-31T20:51:01.982757Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "d6e6a461550accee",
+            "_hs_photo_orig": "sites/water-site/uploads/media/carpet-water-damage-drying-fan-2-lufkin-tx.webp"
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg": "accent",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": [
+                {
+                    "label": "Free Estimates",
+                    "icon": ""
+                },
+                {
+                    "label": "24/7 Response",
+                    "icon": ""
+                },
+                {
+                    "label": "Fast Local Response",
+                    "icon": ""
+                }
+            ],
+            "anchor": "trust_bar",
+            "tb_show_icons": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/water-site/uploads/media/hallway-drying-fans-equipment-lufkin-tx.webp",
+            "it_alt": "Water damaged carpet in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Carpet Water Damage Restoration in Lufkin, TX",
+            "text": "<p>Lufkin's subtropical climate and position in East Texas create conditions where carpet water damage is a real concern for homeowners and business owners alike. Heavy spring and summer storms, occasional flooding from saturated soil, and winter freeze-thaw cycles that can compromise foundations and pipes all pose risks to indoor flooring. When water intrusion happens—whether from a burst pipe, roof leak, or storm surge—carpets absorb moisture quickly and deeply. Without prompt professional extraction and drying, wet carpets become breeding grounds for mold and odor, and structural damage to underlayment and subflooring can escalate rapidly.</p><p>Freeman Restoration responds to carpet water damage emergencies across Lufkin with a thorough, methodical approach. Our team extracts standing water using specialized equipment, assesses the extent of saturation, and deploys targeted drying techniques to prevent secondary damage and microbial growth. We understand that every situation is unique—the source of water, the type of carpet, and the scope of affected area all influence the restoration strategy. Once drying is complete, we document the work and support your recovery process, whether your path forward includes carpet restoration or replacement. When water damage strikes your Lufkin property, rapid professional response makes the difference between recovery and long-term loss.</p>",
+            "_ai_generated_at": "2026-08-31T20:51:06.053623Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_intro",
+            "_ai_input_hash": "7645549cb212393f",
+            "_it_photo_orig": "sites/water-site/uploads/media/hallway-drying-fans-equipment-2-lufkin-tx.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Trained Water Damage Specialists",
+                    "text": "Freeman's technicians are trained to handle carpet water extraction and flood damage with precision. They understand moisture patterns, material responses, and extraction protocols that protect your home and restore carpets effectively."
+                },
+                {
+                    "heading": "Fast Response When Minutes Matter",
+                    "text": "Water damage spreads quickly. Freeman's rapid response to carpet flooding helps prevent secondary damage, mold growth, and material loss. Quick extraction and treatment are critical to salvaging your carpets and property."
+                },
+                {
+                    "heading": "Thorough Drying and Treatment",
+                    "text": "Beyond extraction, Freeman applies professional-grade drying and treatment to carpet water damage. Comprehensive moisture removal and deodorization address both visible and hidden water intrusion, restoring your home's comfort."
+                },
+                {
+                    "heading": "Ready for TX Storm and Freeze Risks",
+                    "text": "East Texas winters bring freeze-thaw cycles and spring storms that cause burst pipes and flooding. Freeman understands the region's seasonal water damage patterns and maintains readiness year-round for urgent carpet restoration needs."
+                }
+            ],
+            "_ai_generated_at": "2026-08-31T20:51:09.919320Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "f1e23aac7f5866c4"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our {service} Process Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Call Our {city} Team",
+                    "text": "Tell us what happened. We work to get {service} started fast, often the same day."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "On-Site Assessment",
+                    "text": "Specialists inspect the damage, identify the water source and category, and plan the work."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Mitigation & Drying",
+                    "text": "Water extraction, structural drying, and cleanup to stop the damage from spreading."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Restoration & Repairs",
+                    "text": "Cleaning, sanitizing, and repairs to return your property to normal."
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need {service} in {city}? Get fast, professional help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#2563eb",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "sites/water-site/uploads/media/restoration-technician-homeowner-handshake-lufkin-tx.webp",
+            "it_alt": "Carpet water extraction in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Water Damage to Carpets Across Lufkin",
+            "text": "<p>Lufkin's diverse housing stock—from established neighborhoods with mature trees to newer subdivisions—creates distinct carpet water damage challenges. Older, well-rooted properties in areas like Downtown Lufkin and the Kurth area often face water intrusion through aging foundations, worn roofing, and settled drainage patterns, while mature tree canopies can trap moisture and complicate drying. Newer construction in expanding areas typically features improved building standards, yet concentrated stormwater runoff and the region's heavy seasonal rainfall still pose significant flood risks to ground-level carpeting.</p><p>East Texas weather compounds these vulnerabilities year-round. Spring and summer storms bring sudden heavy downpours and occasional severe weather that overwhelm drainage systems; winter freeze-thaw cycles can crack foundations and compromise seals, allowing groundwater seepage when spring thaws arrive. Humidity and warm temperatures accelerate mold growth in damp carpet fibers, making prompt water extraction and professional drying essential regardless of neighborhood or home age. Whether dealing with carpet flood damage from storms or slow seepage from foundation issues, immediate attention prevents permanent loss and protects indoor air quality. Freeman Restoration responds quickly to active water emergencies throughout the Lufkin area to minimize carpet damage and restore your home.</p>",
+            "_ai_generated_at": "2026-08-31T20:51:14.479245Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "1316e7fc111a0aa8",
+            "_it_photo_orig": "sites/water-site/uploads/media/restoration-technician-homeowner-handshake-2-lufkin-tx.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "steps_heading": "Seasonal Water Damage Risks and Carpet Protection in Lufkin",
+            "steps_items": [
+                {
+                    "heading": "Spring: Heavy Rain and Flooding",
+                    "text": "Spring thunderstorms bring heavy rainfall and risk of flooding across the Lufkin region. Basements, crawl spaces, and low-lying areas in homes throughout South Lufkin and surrounding communities become vulnerable to water intrusion. Freeman Restoration responds quickly to extract standing water, dry affected carpets and structures, and help prevent secondary damage like mold growth."
+                },
+                {
+                    "heading": "Summer: Heat and Humidity",
+                    "text": "Summer humidity and occasional severe storms create conditions where water-damaged carpets and materials dry slowly, increasing mold and odor risks. Residents in the Loop 287 corridor and beyond face challenges when air conditioning systems fail or storms cause water entry. Freeman Restoration uses professional drying equipment to manage moisture before it compromises indoor air quality and structural integrity."
+                },
+                {
+                    "heading": "Fall: Wind Damage and Leaks",
+                    "text": "Fall storms can damage roofs, windows, and siding, allowing water into attics, walls, and living spaces. Carpet and flooring in homes throughout North Lufkin and the wider area may absorb water from roof leaks or wind-driven rain. Freeman Restoration identifies water entry points, removes damaged materials, and dries carpets and subfloors to restore safety."
+                },
+                {
+                    "heading": "Winter: Freeze-Thaw and Burst Pipes",
+                    "text": "Winter cold snaps pose freeze-thaw risks and can cause pipes to burst in homes across the region. Resulting water damage to carpets, drywall, and foundations requires immediate response to prevent ice formation and structural damage. Freeman Restoration extracts water, applies targeted drying, and documents damage for insurance purposes during these urgent winter events."
+                }
+            ],
+            "_ai_generated_at": "2026-08-31T20:51:20.280485Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "seasonal_calendar",
+            "_ai_input_hash": "02fd4fe42859c245"
+        },
+        {
+            "type": "service_cards",
+            "anchor": "related_services",
+            "sc_badge": "",
+            "sc_heading": "Other Water Restoration Services in {city_state}",
+            "sc_cols": 4,
+            "sc_badge_bg": "accent",
+            "sc_head_color": "header",
+            "sc_badge_bg_custom": "#fd783b",
+            "sc_head_color_custom": "#120575",
+            "sc_icon_bg": "#f4f6f8",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Water Damage Repair {city} {SS}",
+                    "heading": "Water Damage Repair",
+                    "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
+                    "url": "/water-damage-repair-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Flood Damage Restoration {city} {SS}",
+                    "heading": "Flood Damage Restoration",
+                    "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/flood-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Storm Damage Restoration {city} {SS}",
+                    "heading": "Storm Damage Restoration",
+                    "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/storm-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Water Mitigation {city} {SS}",
+                    "heading": "Water Mitigation",
+                    "text": "Professional Water Mitigation for {city_state} homes and businesses.",
+                    "url": "/water-mitigation-{city_slug}"
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [
+                {
+                    "question": "What exactly happens to carpet when it gets soaked with water?",
+                    "answer": "<p>When carpet absorbs water from flooding, burst pipes, or leaks, the fibers become saturated and the underlying pad traps moisture. This creates an environment where mold and mildew can develop within 24–48 hours. The carpet may also shrink, buckle, or develop odors. Quick extraction and drying are essential to prevent permanent damage and protect your home's subflooring.</p>"
+                },
+                {
+                    "question": "How quickly can Freeman Restoration respond to water damage in Lufkin?",
+                    "answer": "<p>Freeman Restoration serves the Lufkin area and responds to active water emergencies promptly. We understand that every hour matters when carpet is wet. Contact us immediately if you experience flooding, a burst pipe, or standing water. Our team will assess the damage and begin extraction and drying as fast as possible to minimize loss.</p>"
+                },
+                {
+                    "question": "What factors determine the cost to restore water-damaged carpet?",
+                    "answer": "<p>Restoration costs depend on carpet size, saturation level, how long water has been present, and whether the underlying pad can be salvaged or must be replaced. Water source also matters—clean water from a broken line differs from contaminated flooding. We evaluate each situation individually to provide an accurate estimate for your specific repair needs.</p>"
+                },
+                {
+                    "question": "What should I do to prepare before water damage restoration begins?",
+                    "answer": "<p>Move furniture and personal items away from the wet area if it is safe to do so. Turn off electrical appliances near the damage to prevent hazards. Avoid walking on soaked carpet more than necessary. Open windows and doors to improve airflow if weather permits. Our team will handle extraction, pad removal, and drying—just be ready to provide access and describe the damage source.</p>"
+                },
+                {
+                    "question": "Can I prevent carpet water damage from happening again in Lufkin?",
+                    "answer": "<p>Regular maintenance helps reduce risk: inspect under sinks and around water heaters, ensure gutters and downspouts direct water away from your foundation, and maintain your plumbing. In areas prone to heavy rain, consider sump pumps or improved drainage. After restoration, ask our team for specific prevention tips tailored to your home and local weather patterns.</p>"
+                },
+                {
+                    "question": "When does East Texas experience the worst carpet flooding and water damage seasons?",
+                    "answer": "<p>The Lufkin region sees heavy rainfall during spring and early summer, and tropical systems can bring intense moisture in late summer and fall. Winter freeze-thaw cycles also cause pipe bursts. Year-round humidity in this area supports rapid mold growth in wet carpet. Any season carries risk, so address leaks and standing water immediately whenever they occur.</p>"
+                }
+            ],
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-31T20:51:28.463649Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "8f5f438ffc0cf369",
+            "skin": "dark",
+            "fq_open": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#0d2340",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "pest_services",
+            "html": "[services_links]"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "skin": "light"
+        }
     ],
-    "top_employers": [
-      "CHI St. Luke's Health Memorial",
-      "Lufkin Industries (Baker Hughes)",
-      "Angelina College",
-      "Lufkin Independent School District",
-      "Georgia-Pacific",
-      "Temple-Inland",
-      "Brookshire Brothers",
-      "City of Lufkin",
-      "Angelina County",
-      "Walmart Supercenter",
-      "Diboll Healthcare System",
-      "Southern Plastics"
-    ],
-    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-    "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep moisture levels high year-round — conditions that turn a small roof leak, slab seep, or failed supply line into structural water damage quickly.",
-    "neighborhoods": [
-      "Downtown Lufkin",
-      "Crown Colony",
-      "Fuller Springs",
-      "Kurth",
-      "Copeland Springs",
-      "Brentwood"
-    ],
-    "population": 34187,
-    "_researched": 1,
-    "city_spotlight": "Set among the pine forests of Deep East Texas, Lufkin has long served as the commercial anchor for Angelina County and the smaller communities that surround it. With roughly 34,500 residents, it's a city built on sawdust and steel — its identity shaped by generations of timber and forestry work alongside the oil-field manufacturing legacy of Lufkin Industries. That working heritage still shows in the rhythm of daily life here.\n\nToday's Lufkin has broadened well beyond its mill-town roots, with hospitals, schools, and retail centers now standing alongside the plants and lumber yards. Downtown Lufkin keeps its small-city warmth, while the Loop 287 corridor hums with the shops, distribution centers, and everyday commerce that keep the wider region running."
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>East Texas weather brings heavy spring storms, occasional winter freeze-thaw cycles, and humidity that lingers year-round—all conditions that put carpets at risk of water damage. When carpet absorbs water from storms, burst pipes, or plumbing failures, quick extraction and proper drying are essential to prevent mold growth and permanent loss. Freeman Restoration responds locally to remove standing water and restore carpet, helping property owners in Lufkin and surrounding areas avoid costly replacement and protect their homes.</p>",
-      "hs_btn_text": "{phone}",
-      "hs_btn_url": "tel:{tel}",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "Carpet water damage in {city_state} by {business}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#eef4fb",
-      "hs_photo": "sites/water-site/uploads/media/istock-469661120_56992d-lufkin-tx__tpl_carpet_water_damage_city_lufkin_tx_08179eb5.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "text_first",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-31T20:51:01.982757Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "d6e6a461550accee",
-      "_hs_photo_orig": "sites/water-site/uploads/media/istock-469661120_56992d.webp"
+    "seo": {
+        "seo_title": "Carpet Water Damage in {city_state} | {business}",
+        "canonical_url": "{website}/carpet-water-damage-lufkin-tx/",
+        "meta_description": "Carpet Water Damage in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
+        "meta_keywords": "carpet water damage Lufkin TX, water damaged carpet Lufkin, carpet water extraction Lufkin, carpet flood damage Lufkin",
+        "og_title": "Carpet Water Damage in {city_state} | {business}",
+        "og_description": "24/7 carpet water damage in {city_state}. Fast, professional local response.",
+        "og_image": "sites/water-site/uploads/media/living-room-flooded-water-damage-lufkin-tx.webp",
+        "service_name": "Carpet Water Damage",
+        "service_type": "Carpet Water Damage",
+        "service_area": "{city_state} and surrounding areas",
+        "service_description": "Carpet water damage for homes and businesses in {city_state}, including water damaged carpet, carpet water extraction and carpet flood damage.",
+        "bc_label": "Carpet Water Damage",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Carpet Water Damage\",\n    \"name\": \"Carpet Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 carpet water damage in Lufkin, TX — water damaged carpet, carpet water extraction and carpet flood damage.\"\n}",
+        "primary_keyword": "Carpet Water Damage",
+        "secondary_keywords": "water damaged carpet, carpet water extraction, carpet flood damage"
     },
-    {
-      "type": "trust_bar",
-      "tb_bg": "accent",
-      "tb_bg_custom": "#f3f6f7",
-      "tb_items": [
-        {
-          "label": "Free Estimates",
-          "icon": ""
-        },
-        {
-          "label": "24/7 Response",
-          "icon": ""
-        },
-        {
-          "label": "Fast Local Response",
-          "icon": ""
-        }
-      ],
-      "anchor": "trust_bar",
-      "tb_show_icons": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "left",
-      "it_photo": "sites/water-site/uploads/media/istock-2219464877_64997f-lufkin-tx.webp",
-      "it_alt": "Water damaged carpet in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Carpet Water Damage Restoration in Lufkin, TX",
-      "text": "<p>Lufkin's subtropical climate and position in East Texas create conditions where carpet water damage is a real concern for homeowners and business owners alike. Heavy spring and summer storms, occasional flooding from saturated soil, and winter freeze-thaw cycles that can compromise foundations and pipes all pose risks to indoor flooring. When water intrusion happens—whether from a burst pipe, roof leak, or storm surge—carpets absorb moisture quickly and deeply. Without prompt professional extraction and drying, wet carpets become breeding grounds for mold and odor, and structural damage to underlayment and subflooring can escalate rapidly.</p><p>Freeman Restoration responds to carpet water damage emergencies across Lufkin with a thorough, methodical approach. Our team extracts standing water using specialized equipment, assesses the extent of saturation, and deploys targeted drying techniques to prevent secondary damage and microbial growth. We understand that every situation is unique—the source of water, the type of carpet, and the scope of affected area all influence the restoration strategy. Once drying is complete, we document the work and support your recovery process, whether your path forward includes carpet restoration or replacement. When water damage strikes your Lufkin property, rapid professional response makes the difference between recovery and long-term loss.</p>",
-      "_ai_generated_at": "2026-08-31T20:51:06.053623Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_intro",
-      "_ai_input_hash": "7645549cb212393f",
-      "_it_photo_orig": "sites/water-site/uploads/media/istock-2219464877_64997f.webp"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "Trained Water Damage Specialists",
-          "text": "Freeman's technicians are trained to handle carpet water extraction and flood damage with precision. They understand moisture patterns, material responses, and extraction protocols that protect your home and restore carpets effectively."
-        },
-        {
-          "heading": "Fast Response When Minutes Matter",
-          "text": "Water damage spreads quickly. Freeman's rapid response to carpet flooding helps prevent secondary damage, mold growth, and material loss. Quick extraction and treatment are critical to salvaging your carpets and property."
-        },
-        {
-          "heading": "Thorough Drying and Treatment",
-          "text": "Beyond extraction, Freeman applies professional-grade drying and treatment to carpet water damage. Comprehensive moisture removal and deodorization address both visible and hidden water intrusion, restoring your home's comfort."
-        },
-        {
-          "heading": "Ready for TX Storm and Freeze Risks",
-          "text": "East Texas winters bring freeze-thaw cycles and spring storms that cause burst pipes and flooding. Freeman understands the region's seasonal water damage patterns and maintains readiness year-round for urgent carpet restoration needs."
-        }
-      ],
-      "_ai_generated_at": "2026-08-31T20:51:09.919320Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "f1e23aac7f5866c4"
-    },
-    {
-      "type": "steps",
-      "steps_heading": "How Our {service} Process Works",
-      "steps_items": [
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Call Our {city} Team",
-          "text": "Tell us what happened. We work to get {service} started fast, often the same day."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "On-Site Assessment",
-          "text": "Specialists inspect the damage, identify the water source and category, and plan the work."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Mitigation & Drying",
-          "text": "Water extraction, structural drying, and cleanup to stop the damage from spreading."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Restoration & Repairs",
-          "text": "Cleaning, sanitizing, and repairs to return your property to normal."
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "cta_banner",
-      "anchor": "mid_cta",
-      "cb_text": "Need {service} in {city}? Get fast, professional help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "header",
-      "cb_bg_custom": "#2563eb",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "right",
-      "it_photo": "sites/water-site/uploads/media/istock-180726325_96b17f-lufkin-tx.webp",
-      "it_alt": "Carpet water extraction in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Water Damage to Carpets Across Lufkin",
-      "text": "<p>Lufkin's diverse housing stock—from established neighborhoods with mature trees to newer subdivisions—creates distinct carpet water damage challenges. Older, well-rooted properties in areas like Downtown Lufkin and the Kurth area often face water intrusion through aging foundations, worn roofing, and settled drainage patterns, while mature tree canopies can trap moisture and complicate drying. Newer construction in expanding areas typically features improved building standards, yet concentrated stormwater runoff and the region's heavy seasonal rainfall still pose significant flood risks to ground-level carpeting.</p><p>East Texas weather compounds these vulnerabilities year-round. Spring and summer storms bring sudden heavy downpours and occasional severe weather that overwhelm drainage systems; winter freeze-thaw cycles can crack foundations and compromise seals, allowing groundwater seepage when spring thaws arrive. Humidity and warm temperatures accelerate mold growth in damp carpet fibers, making prompt water extraction and professional drying essential regardless of neighborhood or home age. Whether dealing with carpet flood damage from storms or slow seepage from foundation issues, immediate attention prevents permanent loss and protects indoor air quality. Freeman Restoration responds quickly to active water emergencies throughout the Lufkin area to minimize carpet damage and restore your home.</p>",
-      "_ai_generated_at": "2026-08-31T20:51:14.479245Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "1316e7fc111a0aa8",
-      "_it_photo_orig": "sites/water-site/uploads/media/istock-180726325_96b17f.webp"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "seasonal_calendar",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "steps_heading": "Seasonal Water Damage Risks and Carpet Protection in Lufkin",
-      "steps_items": [
-        {
-          "heading": "Spring: Heavy Rain and Flooding",
-          "text": "Spring thunderstorms bring heavy rainfall and risk of flooding across the Lufkin region. Basements, crawl spaces, and low-lying areas in homes throughout South Lufkin and surrounding communities become vulnerable to water intrusion. Freeman Restoration responds quickly to extract standing water, dry affected carpets and structures, and help prevent secondary damage like mold growth."
-        },
-        {
-          "heading": "Summer: Heat and Humidity",
-          "text": "Summer humidity and occasional severe storms create conditions where water-damaged carpets and materials dry slowly, increasing mold and odor risks. Residents in the Loop 287 corridor and beyond face challenges when air conditioning systems fail or storms cause water entry. Freeman Restoration uses professional drying equipment to manage moisture before it compromises indoor air quality and structural integrity."
-        },
-        {
-          "heading": "Fall: Wind Damage and Leaks",
-          "text": "Fall storms can damage roofs, windows, and siding, allowing water into attics, walls, and living spaces. Carpet and flooring in homes throughout North Lufkin and the wider area may absorb water from roof leaks or wind-driven rain. Freeman Restoration identifies water entry points, removes damaged materials, and dries carpets and subfloors to restore safety."
-        },
-        {
-          "heading": "Winter: Freeze-Thaw and Burst Pipes",
-          "text": "Winter cold snaps pose freeze-thaw risks and can cause pipes to burst in homes across the region. Resulting water damage to carpets, drywall, and foundations requires immediate response to prevent ice formation and structural damage. Freeman Restoration extracts water, applies targeted drying, and documents damage for insurance purposes during these urgent winter events."
-        }
-      ],
-      "_ai_generated_at": "2026-08-31T20:51:20.280485Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "seasonal_calendar",
-      "_ai_input_hash": "02fd4fe42859c245"
-    },
-    {
-      "type": "service_cards",
-      "anchor": "related_services",
-      "sc_badge": "",
-      "sc_heading": "Other Water Restoration Services in {city_state}",
-      "sc_cols": 4,
-      "sc_badge_bg": "accent",
-      "sc_head_color": "header",
-      "sc_badge_bg_custom": "#fd783b",
-      "sc_head_color_custom": "#120575",
-      "sc_icon_bg": "#f4f6f8",
-      "sc_items": [
-        {
-          "icon": "",
-          "alt": "Water Damage Repair {city} {SS}",
-          "heading": "Water Damage Repair",
-          "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
-          "url": "/water-damage-repair-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Flood Damage Restoration {city} {SS}",
-          "heading": "Flood Damage Restoration",
-          "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
-          "url": "/flood-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Storm Damage Restoration {city} {SS}",
-          "heading": "Storm Damage Restoration",
-          "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
-          "url": "/storm-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Water Mitigation {city} {SS}",
-          "heading": "Water Mitigation",
-          "text": "Professional Water Mitigation for {city_state} homes and businesses.",
-          "url": "/water-mitigation-{city_slug}"
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "{primary_keyword} FAQs — {city_state}",
-      "fq_bg_color": "#ffffff",
-      "fq_item_bg": "#d9d9d9",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#120575",
-      "fq_icon_bg_custom": "#fd783b",
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "replace",
-      "fq_items": [
-        {
-          "question": "What exactly happens to carpet when it gets soaked with water?",
-          "answer": "<p>When carpet absorbs water from flooding, burst pipes, or leaks, the fibers become saturated and the underlying pad traps moisture. This creates an environment where mold and mildew can develop within 24–48 hours. The carpet may also shrink, buckle, or develop odors. Quick extraction and drying are essential to prevent permanent damage and protect your home's subflooring.</p>"
-        },
-        {
-          "question": "How quickly can Freeman Restoration respond to water damage in Lufkin?",
-          "answer": "<p>Freeman Restoration serves the Lufkin area and responds to active water emergencies promptly. We understand that every hour matters when carpet is wet. Contact us immediately if you experience flooding, a burst pipe, or standing water. Our team will assess the damage and begin extraction and drying as fast as possible to minimize loss.</p>"
-        },
-        {
-          "question": "What factors determine the cost to restore water-damaged carpet?",
-          "answer": "<p>Restoration costs depend on carpet size, saturation level, how long water has been present, and whether the underlying pad can be salvaged or must be replaced. Water source also matters—clean water from a broken line differs from contaminated flooding. We evaluate each situation individually to provide an accurate estimate for your specific repair needs.</p>"
-        },
-        {
-          "question": "What should I do to prepare before water damage restoration begins?",
-          "answer": "<p>Move furniture and personal items away from the wet area if it is safe to do so. Turn off electrical appliances near the damage to prevent hazards. Avoid walking on soaked carpet more than necessary. Open windows and doors to improve airflow if weather permits. Our team will handle extraction, pad removal, and drying—just be ready to provide access and describe the damage source.</p>"
-        },
-        {
-          "question": "Can I prevent carpet water damage from happening again in Lufkin?",
-          "answer": "<p>Regular maintenance helps reduce risk: inspect under sinks and around water heaters, ensure gutters and downspouts direct water away from your foundation, and maintain your plumbing. In areas prone to heavy rain, consider sump pumps or improved drainage. After restoration, ask our team for specific prevention tips tailored to your home and local weather patterns.</p>"
-        },
-        {
-          "question": "When does East Texas experience the worst carpet flooding and water damage seasons?",
-          "answer": "<p>The Lufkin region sees heavy rainfall during spring and early summer, and tropical systems can bring intense moisture in late summer and fall. Winter freeze-thaw cycles also cause pipe bursts. Year-round humidity in this area supports rapid mold growth in wet carpet. Any season carries risk, so address leaks and standing water immediately whenever they occur.</p>"
-        }
-      ],
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-31T20:51:28.463649Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "8f5f438ffc0cf369",
-      "skin": "dark",
-      "fq_open": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "accent",
-      "cb_bg_custom": "#0d2340",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "custom_html",
-      "anchor": "pest_services",
-      "html": "[services_links]"
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "{city_spotlight}",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#120575",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "skin": "light"
-    }
-  ],
-  "seo": {
-    "seo_title": "Carpet Water Damage in {city_state} | {business}",
-    "canonical_url": "{website}/carpet-water-damage-lufkin-tx/",
-    "meta_description": "Carpet Water Damage in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
-    "meta_keywords": "carpet water damage Lufkin TX, water damaged carpet Lufkin, carpet water extraction Lufkin, carpet flood damage Lufkin",
-    "og_title": "Carpet Water Damage in {city_state} | {business}",
-    "og_description": "24/7 carpet water damage in {city_state}. Fast, professional local response.",
-    "og_image": "sites/water-site/uploads/media/living-room-water-damage.webp",
-    "service_name": "Carpet Water Damage",
-    "service_type": "Carpet Water Damage",
-    "service_area": "{city_state} and surrounding areas",
-    "service_description": "Carpet water damage for homes and businesses in {city_state}, including water damaged carpet, carpet water extraction and carpet flood damage.",
-    "bc_label": "Carpet Water Damage",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Carpet Water Damage\",\n    \"name\": \"Carpet Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 carpet water damage in Lufkin, TX — water damaged carpet, carpet water extraction and carpet flood damage.\"\n}",
-    "primary_keyword": "Carpet Water Damage",
-    "secondary_keywords": "water damaged carpet, carpet water extraction, carpet flood damage"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-07-12T01:05:23+00:00",
-  "template_version": "9b8129bdd74e627015e3283b74c603ee"
+    "locked_blocks": [],
+    "generated_at": "2026-07-12T01:05:23+00:00",
+    "template_version": "9b8129bdd74e627015e3283b74c603ee"
 }

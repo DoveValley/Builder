@@ -1,406 +1,406 @@
 {
-  "template_id": "tpl_hardwood_floor_water_damage",
-  "city_id": "city_lufkin_tx",
-  "slug": "hardwood-floor-water-damage-lufkin-tx",
-  "title": "Hardwood Floor Water Damage in {city_state} | {business}",
-  "city_vars": {
-    "id": "city_lufkin_tx",
-    "city": "Lufkin",
-    "SS": "TX",
-    "state": "Texas",
-    "city_slug": "lufkin-tx",
-    "zip": "75901",
-    "tags": [],
-    "industries": [
-      "Forestry and timber/wood products manufacturing",
-      "Healthcare",
-      "Oil and gas equipment manufacturing",
-      "Education",
-      "Retail and distribution",
-      "Government/public administration"
+    "template_id": "tpl_hardwood_floor_water_damage",
+    "city_id": "city_lufkin_tx",
+    "slug": "hardwood-floor-water-damage-lufkin-tx",
+    "title": "Hardwood Floor Water Damage in {city_state} | {business}",
+    "city_vars": {
+        "id": "city_lufkin_tx",
+        "city": "Lufkin",
+        "SS": "TX",
+        "state": "Texas",
+        "city_slug": "lufkin-tx",
+        "zip": "75901",
+        "tags": [],
+        "industries": [
+            "Forestry and timber/wood products manufacturing",
+            "Healthcare",
+            "Oil and gas equipment manufacturing",
+            "Education",
+            "Retail and distribution",
+            "Government/public administration"
+        ],
+        "top_employers": [
+            "CHI St. Luke's Health Memorial",
+            "Lufkin Industries (Baker Hughes)",
+            "Angelina College",
+            "Lufkin Independent School District",
+            "Georgia-Pacific",
+            "Temple-Inland",
+            "Brookshire Brothers",
+            "City of Lufkin",
+            "Angelina County",
+            "Walmart Supercenter",
+            "Diboll Healthcare System",
+            "Southern Plastics"
+        ],
+        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+        "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep moisture levels high year-round — conditions that turn a small roof leak, slab seep, or failed supply line into structural water damage quickly.",
+        "neighborhoods": [
+            "Downtown Lufkin",
+            "Crown Colony",
+            "Fuller Springs",
+            "Kurth",
+            "Copeland Springs",
+            "Brentwood"
+        ],
+        "population": 34187,
+        "_researched": 1,
+        "city_spotlight": "Set among the pine forests of Deep East Texas, Lufkin has long served as the commercial anchor for Angelina County and the smaller communities that surround it. With roughly 34,500 residents, it's a city built on sawdust and steel — its identity shaped by generations of timber and forestry work alongside the oil-field manufacturing legacy of Lufkin Industries. That working heritage still shows in the rhythm of daily life here.\n\nToday's Lufkin has broadened well beyond its mill-town roots, with hospitals, schools, and retail centers now standing alongside the plants and lumber yards. Downtown Lufkin keeps its small-city warmth, while the Loop 287 corridor hums with the shops, distribution centers, and everyday commerce that keep the wider region running."
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>East Texas experiences heavy seasonal rainfall and occasional severe storms that put hardwood floors at risk of water absorption, cupping, and structural damage—problems that worsen quickly without prompt professional intervention. Freeman Restoration specializes in extracting standing water, stabilizing moisture levels, and addressing hardwood floor damage before permanent warping or mold growth occurs. Quick action protects both the integrity of your flooring investment and the safety of your home's interior.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Water-damaged hardwood floor — hardwood floor water damage in {city_state} by {business}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#eef4fb",
+            "hs_photo": "sites/water-site/uploads/media/hardwood-floor-water-damage-warped-planks-lufkin-tx.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "text_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-31T20:51:31.297417Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "cd046f2ce5226594",
+            "_hs_photo_orig": "sites/water-site/uploads/media/hardwood-floor-water-damage-warped-planks-2-lufkin-tx.webp"
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg": "accent",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": [
+                {
+                    "label": "Free Estimates",
+                    "icon": ""
+                },
+                {
+                    "label": "24/7 Response",
+                    "icon": ""
+                },
+                {
+                    "label": "Fast Local Response",
+                    "icon": ""
+                }
+            ],
+            "anchor": "trust_bar",
+            "tb_show_icons": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/water-site/uploads/media/emergency-water-damage-warped-hardwood-floor-lufkin-tx.webp",
+            "it_alt": "Water-damaged hardwood floor — wood floor water damage in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Hardwood Floor Water Damage Restoration in Lufkin",
+            "text": "<p>Lufkin homeowners face unique risks to hardwood floors from the region's heavy spring storms, occasional severe weather events, and the freeze-thaw cycles that can occur during East Texas winters. When pipes burst, roofs leak, or flash flooding affects a property, water damage to hardwood floors can develop quickly, warping boards, lifting finishes, and creating conditions that threaten the structural integrity of your flooring. The longer wet wood floors remain untreated, the greater the risk of permanent cupping, buckling, or mold growth. Whether damage occurs in North Lufkin, South Lufkin, or anywhere in the community, prompt professional intervention is essential to prevent costly replacement.</p><p>Freeman Restoration responds to hardwood floor water damage with a methodical, thorough approach designed to stabilize and preserve your flooring whenever possible. Our team assesses moisture levels in affected wood, removes standing water, manages humidity and drying conditions, and works to halt progression of water damaged hardwood floors before structural loss becomes irreversible. We handle the full scope of restoration—not just drying, but also documentation and coordination with your insurance process. When restoration of wet wood floors is no longer feasible, we guide you toward next steps. Time is critical in water emergencies; contacting Freeman Restoration immediately after discovering hardwood floor water damage gives your home the best chance at preservation.</p>",
+            "_ai_generated_at": "2026-08-31T20:51:35.646877Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_intro",
+            "_ai_input_hash": "7946a1fb1dba3269",
+            "_it_photo_orig": "sites/water-site/uploads/media/emergency-water-damage-warped-hardwood-floor-2-lufkin-tx.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Trained Hardwood Floor Specialists",
+                    "text": "<p>Freeman's team understands wood floor water damage from assessment through restoration. Trained technicians evaluate moisture depth, structural integrity, and salvageability to determine the best path forward for your wet wood floors.</p>"
+                },
+                {
+                    "heading": "Rapid Response When Minutes Matter",
+                    "text": "<p>Water damage to hardwood floors accelerates quickly. Freeman's local presence means faster arrival and immediate action to remove standing water, begin drying, and prevent mold growth and permanent warping.</p>"
+                },
+                {
+                    "heading": "Thorough Drying and Documentation",
+                    "text": "<p>Hardwood floor water damage repair requires more than surface cleanup. Freeman uses industrial equipment and systematic monitoring to dry structural layers completely, with detailed records to support insurance claims and protect your investment.</p>"
+                },
+                {
+                    "heading": "Storm and Freeze-Thaw Ready",
+                    "text": "<p>East Texas experiences heavy seasonal rains and winter freeze-thaw cycles that stress foundations and plumbing. Freeman understands regional water damage patterns and keeps resources ready year-round for storm damage and flooding emergencies affecting wood floors throughout the area.</p>"
+                }
+            ],
+            "_ai_generated_at": "2026-08-31T20:51:39.764352Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "26b8badee0ae93f4"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our {service} Process Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Call Our {city} Team",
+                    "text": "Tell us what happened. We work to get {service} started fast, often the same day."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "On-Site Assessment",
+                    "text": "Specialists inspect the damage, identify the water source and category, and plan the work."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Mitigation & Drying",
+                    "text": "Water extraction, structural drying, and cleanup to stop the damage from spreading."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Restoration & Repairs",
+                    "text": "Cleaning, sanitizing, and repairs to return your property to normal."
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need {service} in {city}? Get fast, professional help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#2563eb",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "sites/water-site/uploads/media/craftsman-home-with-flowers-lufkin-tx.webp",
+            "it_alt": "Water-damaged hardwood floor — water damaged hardwood floors in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Hardwood Floor Water Damage Across Lufkin",
+            "text": "<p>Lufkin's mix of established neighborhoods and newer developments each face distinct hardwood floor water damage risks. Older homes in areas like Downtown Lufkin and South Lufkin often feature original or period hardwood installations that, while charming, are particularly vulnerable to moisture penetration due to aging subflooring and less modern water barriers. Mature tree canopies in these mature neighborhoods can also trap moisture and complicate drainage patterns during heavy rains. Conversely, newer subdivisions may have engineered hardwood or modern installations with better moisture resistance, yet they too can suffer wet wood floor damage from the region's intense spring and summer storms, burst pipes, or foundation settling that compromises seals.</p><p>East Texas experiences significant seasonal rainfall and occasional severe weather that puts all Lufkin properties at risk. Freeze-thaw cycles in winter can crack foundations and cause plumbing failures that lead to slow leaks—often undetected until wood floor water damage becomes visible. Additionally, high humidity and warm temperatures year-round create ideal conditions for moisture to linger beneath flooring, potentially causing cupping, warping, or structural compromise if not addressed quickly. Whether your home sits in a longtime neighborhood or a newer section of town, prompt water extraction and professional assessment are essential to prevent permanent loss of hardwood floors and underlying materials.</p>",
+            "_ai_generated_at": "2026-08-31T20:51:44.461391Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "acf764d0daa85819",
+            "_it_photo_orig": "sites/water-site/uploads/media/craftsman-home-with-flowers-2-lufkin-tx.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "steps_heading": "Seasonal Water Threats to Lufkin Hardwood Floors",
+            "steps_items": [
+                {
+                    "heading": "Spring: Storm Season Readiness",
+                    "text": "<p>Spring in East Texas brings severe thunderstorms and heavy rainfall that can overwhelm drainage systems and cause sudden water intrusion into homes and businesses. Hardwood floors are especially vulnerable to rapid moisture absorption during these months. Freeman Restoration responds quickly to storm and water damage, extracting standing water and beginning the drying process before structural damage and mold growth take hold.</p>"
+                },
+                {
+                    "heading": "Summer: Heat and Humidity Stress",
+                    "text": "<p>Summer's high heat and humidity levels in the Lufkin region can mask slow leaks from air conditioning units, plumbing, or roof damage. By the time water damage becomes visible on hardwood floors, moisture may already be trapped beneath the surface. Freeman Restoration uses moisture detection equipment to identify hidden water damage early and applies professional drying techniques to prevent cupping, warping, and long-term floor deterioration.</p>"
+                },
+                {
+                    "heading": "Fall: Drainage and Roof Issues",
+                    "text": "<p>Fall weather patterns bring moderate rainfall and leaf debris that clogs gutters and downspouts, causing water to pool around foundations and seep into basements and crawl spaces. Damaged or aging roofs may begin leaking during these storms. Freeman Restoration addresses water damage to hardwood floors and subfloors caused by drainage failures, using specialized equipment to dry affected areas thoroughly and prevent secondary damage.</p>"
+                },
+                {
+                    "heading": "Winter: Freeze-Thaw and Pipe Breaks",
+                    "text": "<p>Although winters in the Lufkin area are generally mild, occasional freezes can burst water pipes and cause significant indoor flooding. Rapid temperature swings increase stress on plumbing systems, leading to leaks that damage hardwood floors over time. Freeman Restoration handles emergency water extraction and drying for frozen-pipe damage, helping property owners minimize loss and begin repairs as quickly as possible.</p>"
+                }
+            ],
+            "_ai_generated_at": "2026-08-31T20:51:50.600925Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "seasonal_calendar",
+            "_ai_input_hash": "57b87c577711ff08"
+        },
+        {
+            "type": "service_cards",
+            "anchor": "related_services",
+            "sc_badge": "",
+            "sc_heading": "Other Water Restoration Services in {city_state}",
+            "sc_cols": 4,
+            "sc_badge_bg": "accent",
+            "sc_head_color": "header",
+            "sc_badge_bg_custom": "#fd783b",
+            "sc_head_color_custom": "#120575",
+            "sc_icon_bg": "#f4f6f8",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Water Damage Repair {city} {SS}",
+                    "heading": "Water Damage Repair",
+                    "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
+                    "url": "/water-damage-repair-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Flood Damage Restoration {city} {SS}",
+                    "heading": "Flood Damage Restoration",
+                    "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/flood-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Storm Damage Restoration {city} {SS}",
+                    "heading": "Storm Damage Restoration",
+                    "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/storm-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Water Mitigation {city} {SS}",
+                    "heading": "Water Mitigation",
+                    "text": "Professional Water Mitigation for {city_state} homes and businesses.",
+                    "url": "/water-mitigation-{city_slug}"
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [
+                {
+                    "question": "What happens to hardwood floors when water damage occurs in Lufkin?",
+                    "answer": "<p>Water penetration causes wood to absorb moisture, leading to cupping (edges raised higher than center), crowning (center swells), warping, and discoloration. Boards may buckle or separate at seams. The longer moisture persists, the more structural damage occurs. Professional assessment determines whether floors can be dried and restored or require replacement.</p>"
+                },
+                {
+                    "question": "How quickly can Freeman Restoration respond to water damage in Lufkin TX?",
+                    "answer": "<p>Freeman Restoration is locally based and available to assess hardwood floor damage promptly after a leak, burst pipe, or storm event. Fast response limits moisture absorption and swelling. Contact us immediately when damage occurs—early intervention significantly improves restoration potential and reduces overall project scope.</p>"
+                },
+                {
+                    "question": "What factors affect the cost of hardwood floor restoration after water damage?",
+                    "answer": "<p>Repair costs depend on affected square footage, moisture depth, wood species, whether boards can be salvaged or replaced, and drying time required. Cupping may resolve with proper dehumidification; severe warping typically requires board replacement. An on-site inspection determines the scope and associated expenses for your specific situation.</p>"
+                },
+                {
+                    "question": "What should I do immediately after discovering water damage on hardwood floors?",
+                    "answer": "<p>Stop the water source if safe to do so. Remove standing water and move furniture away from affected areas. Increase air circulation with open windows and fans. Avoid walking on wet floors unnecessarily. Contact Freeman Restoration right away—we'll extract moisture, deploy dehumidifiers, and monitor moisture levels to prevent secondary damage and mold growth.</p>"
+                },
+                {
+                    "question": "How can Lufkin homeowners prevent water damage to hardwood floors?",
+                    "answer": "<p>Maintain gutters and downspouts to direct water away from foundations. Seal entry points around windows and doors. Use dehumidifiers in humid conditions and promptly fix plumbing leaks. Install water detection devices near water heaters and appliances. Keep gutters clear especially during heavy rain seasons so water doesn't back up into the home.</p>"
+                },
+                {
+                    "question": "Are hardwood floors in Lufkin at higher risk during certain seasons?",
+                    "answer": "<p>East Texas experiences significant rainfall in spring and heavy summer thunderstorms that can cause flooding and burst pipes. Winter freeze-thaw cycles can stress plumbing lines and cause cracks leading to leaks. Fall brings tropical moisture and storm systems. Year-round vigilance and proper drainage maintenance help protect wooden floors from seasonal weather patterns.</p>"
+                }
+            ],
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-31T20:51:57.959367Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "b16b0abf7fc27bef",
+            "skin": "dark",
+            "fq_open": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#0d2340",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "pest_services",
+            "html": "[services_links]"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "skin": "light"
+        }
     ],
-    "top_employers": [
-      "CHI St. Luke's Health Memorial",
-      "Lufkin Industries (Baker Hughes)",
-      "Angelina College",
-      "Lufkin Independent School District",
-      "Georgia-Pacific",
-      "Temple-Inland",
-      "Brookshire Brothers",
-      "City of Lufkin",
-      "Angelina County",
-      "Walmart Supercenter",
-      "Diboll Healthcare System",
-      "Southern Plastics"
-    ],
-    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-    "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep moisture levels high year-round — conditions that turn a small roof leak, slab seep, or failed supply line into structural water damage quickly.",
-    "neighborhoods": [
-      "Downtown Lufkin",
-      "Crown Colony",
-      "Fuller Springs",
-      "Kurth",
-      "Copeland Springs",
-      "Brentwood"
-    ],
-    "population": 34187,
-    "_researched": 1,
-    "city_spotlight": "Set among the pine forests of Deep East Texas, Lufkin has long served as the commercial anchor for Angelina County and the smaller communities that surround it. With roughly 34,500 residents, it's a city built on sawdust and steel — its identity shaped by generations of timber and forestry work alongside the oil-field manufacturing legacy of Lufkin Industries. That working heritage still shows in the rhythm of daily life here.\n\nToday's Lufkin has broadened well beyond its mill-town roots, with hospitals, schools, and retail centers now standing alongside the plants and lumber yards. Downtown Lufkin keeps its small-city warmth, while the Loop 287 corridor hums with the shops, distribution centers, and everyday commerce that keep the wider region running."
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>East Texas experiences heavy seasonal rainfall and occasional severe storms that put hardwood floors at risk of water absorption, cupping, and structural damage—problems that worsen quickly without prompt professional intervention. Freeman Restoration specializes in extracting standing water, stabilizing moisture levels, and addressing hardwood floor damage before permanent warping or mold growth occurs. Quick action protects both the integrity of your flooring investment and the safety of your home's interior.</p>",
-      "hs_btn_text": "{phone}",
-      "hs_btn_url": "tel:{tel}",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "Water-damaged hardwood floor — hardwood floor water damage in {city_state} by {business}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#eef4fb",
-      "hs_photo": "sites/water-site/uploads/media/hardwood-floor-water-damage-2_473473-lufkin-tx__tpl_hardwood_floor_water_damage_city_lufkin_tx_d714fdc2.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "text_first",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-31T20:51:31.297417Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "cd046f2ce5226594",
-      "_hs_photo_orig": "sites/water-site/uploads/media/hardwood-floor-water-damage-2_473473.webp"
+    "seo": {
+        "seo_title": "Hardwood Floor Water Damage in {city_state} | {business}",
+        "canonical_url": "{website}/hardwood-floor-water-damage-lufkin-tx/",
+        "meta_description": "Hardwood Floor Water Damage in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
+        "meta_keywords": "hardwood floor water damage Lufkin TX, wood floor water damage Lufkin, water damaged hardwood floors Lufkin, hardwood floor water damage repair Lufkin",
+        "og_title": "Hardwood Floor Water Damage in {city_state} | {business}",
+        "og_description": "24/7 hardwood floor water damage in {city_state}. Fast, professional local response.",
+        "og_image": "sites/water-site/uploads/media/living-room-restoration-after-lufkin-tx.webp",
+        "service_name": "Hardwood Floor Water Damage",
+        "service_type": "Hardwood Floor Water Damage",
+        "service_area": "{city_state} and surrounding areas",
+        "service_description": "Hardwood floor water damage for homes and businesses in {city_state}, including wood floor water damage, water damaged hardwood floors and hardwood floor water damage repair.",
+        "bc_label": "Hardwood Floor Water Damage",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Hardwood Floor Water Damage\",\n    \"name\": \"Hardwood Floor Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 hardwood floor water damage in Lufkin, TX — wood floor water damage, water damaged hardwood floors and hardwood floor water damage repair.\"\n}",
+        "primary_keyword": "Hardwood Floor Water Damage",
+        "secondary_keywords": "wood floor water damage, water damaged hardwood floors, hardwood floor water damage repair, wet wood floor"
     },
-    {
-      "type": "trust_bar",
-      "tb_bg": "accent",
-      "tb_bg_custom": "#f3f6f7",
-      "tb_items": [
-        {
-          "label": "Free Estimates",
-          "icon": ""
-        },
-        {
-          "label": "24/7 Response",
-          "icon": ""
-        },
-        {
-          "label": "Fast Local Response",
-          "icon": ""
-        }
-      ],
-      "anchor": "trust_bar",
-      "tb_show_icons": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "left",
-      "it_photo": "sites/water-site/uploads/media/emergency-water-damage-2_cc0afe-lufkin-tx.webp",
-      "it_alt": "Water-damaged hardwood floor — wood floor water damage in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Hardwood Floor Water Damage Restoration in Lufkin",
-      "text": "<p>Lufkin homeowners face unique risks to hardwood floors from the region's heavy spring storms, occasional severe weather events, and the freeze-thaw cycles that can occur during East Texas winters. When pipes burst, roofs leak, or flash flooding affects a property, water damage to hardwood floors can develop quickly, warping boards, lifting finishes, and creating conditions that threaten the structural integrity of your flooring. The longer wet wood floors remain untreated, the greater the risk of permanent cupping, buckling, or mold growth. Whether damage occurs in North Lufkin, South Lufkin, or anywhere in the community, prompt professional intervention is essential to prevent costly replacement.</p><p>Freeman Restoration responds to hardwood floor water damage with a methodical, thorough approach designed to stabilize and preserve your flooring whenever possible. Our team assesses moisture levels in affected wood, removes standing water, manages humidity and drying conditions, and works to halt progression of water damaged hardwood floors before structural loss becomes irreversible. We handle the full scope of restoration—not just drying, but also documentation and coordination with your insurance process. When restoration of wet wood floors is no longer feasible, we guide you toward next steps. Time is critical in water emergencies; contacting Freeman Restoration immediately after discovering hardwood floor water damage gives your home the best chance at preservation.</p>",
-      "_ai_generated_at": "2026-08-31T20:51:35.646877Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_intro",
-      "_ai_input_hash": "7946a1fb1dba3269",
-      "_it_photo_orig": "sites/water-site/uploads/media/emergency-water-damage-2_cc0afe.webp"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "Trained Hardwood Floor Specialists",
-          "text": "<p>Freeman's team understands wood floor water damage from assessment through restoration. Trained technicians evaluate moisture depth, structural integrity, and salvageability to determine the best path forward for your wet wood floors.</p>"
-        },
-        {
-          "heading": "Rapid Response When Minutes Matter",
-          "text": "<p>Water damage to hardwood floors accelerates quickly. Freeman's local presence means faster arrival and immediate action to remove standing water, begin drying, and prevent mold growth and permanent warping.</p>"
-        },
-        {
-          "heading": "Thorough Drying and Documentation",
-          "text": "<p>Hardwood floor water damage repair requires more than surface cleanup. Freeman uses industrial equipment and systematic monitoring to dry structural layers completely, with detailed records to support insurance claims and protect your investment.</p>"
-        },
-        {
-          "heading": "Storm and Freeze-Thaw Ready",
-          "text": "<p>East Texas experiences heavy seasonal rains and winter freeze-thaw cycles that stress foundations and plumbing. Freeman understands regional water damage patterns and keeps resources ready year-round for storm damage and flooding emergencies affecting wood floors throughout the area.</p>"
-        }
-      ],
-      "_ai_generated_at": "2026-08-31T20:51:39.764352Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "26b8badee0ae93f4"
-    },
-    {
-      "type": "steps",
-      "steps_heading": "How Our {service} Process Works",
-      "steps_items": [
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Call Our {city} Team",
-          "text": "Tell us what happened. We work to get {service} started fast, often the same day."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "On-Site Assessment",
-          "text": "Specialists inspect the damage, identify the water source and category, and plan the work."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Mitigation & Drying",
-          "text": "Water extraction, structural drying, and cleanup to stop the damage from spreading."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Restoration & Repairs",
-          "text": "Cleaning, sanitizing, and repairs to return your property to normal."
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "cta_banner",
-      "anchor": "mid_cta",
-      "cb_text": "Need {service} in {city}? Get fast, professional help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "header",
-      "cb_bg_custom": "#2563eb",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "right",
-      "it_photo": "sites/water-site/uploads/media/hardwood-floor-water-damage-3-lufkin-tx.webp",
-      "it_alt": "Water-damaged hardwood floor — water damaged hardwood floors in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Hardwood Floor Water Damage Across Lufkin",
-      "text": "<p>Lufkin's mix of established neighborhoods and newer developments each face distinct hardwood floor water damage risks. Older homes in areas like Downtown Lufkin and South Lufkin often feature original or period hardwood installations that, while charming, are particularly vulnerable to moisture penetration due to aging subflooring and less modern water barriers. Mature tree canopies in these mature neighborhoods can also trap moisture and complicate drainage patterns during heavy rains. Conversely, newer subdivisions may have engineered hardwood or modern installations with better moisture resistance, yet they too can suffer wet wood floor damage from the region's intense spring and summer storms, burst pipes, or foundation settling that compromises seals.</p><p>East Texas experiences significant seasonal rainfall and occasional severe weather that puts all Lufkin properties at risk. Freeze-thaw cycles in winter can crack foundations and cause plumbing failures that lead to slow leaks—often undetected until wood floor water damage becomes visible. Additionally, high humidity and warm temperatures year-round create ideal conditions for moisture to linger beneath flooring, potentially causing cupping, warping, or structural compromise if not addressed quickly. Whether your home sits in a longtime neighborhood or a newer section of town, prompt water extraction and professional assessment are essential to prevent permanent loss of hardwood floors and underlying materials.</p>",
-      "_ai_generated_at": "2026-08-31T20:51:44.461391Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "acf764d0daa85819",
-      "_it_photo_orig": "sites/water-site/uploads/media/hardwood-floor-water-damage-3.webp"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "seasonal_calendar",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "steps_heading": "Seasonal Water Threats to Lufkin Hardwood Floors",
-      "steps_items": [
-        {
-          "heading": "Spring: Storm Season Readiness",
-          "text": "<p>Spring in East Texas brings severe thunderstorms and heavy rainfall that can overwhelm drainage systems and cause sudden water intrusion into homes and businesses. Hardwood floors are especially vulnerable to rapid moisture absorption during these months. Freeman Restoration responds quickly to storm and water damage, extracting standing water and beginning the drying process before structural damage and mold growth take hold.</p>"
-        },
-        {
-          "heading": "Summer: Heat and Humidity Stress",
-          "text": "<p>Summer's high heat and humidity levels in the Lufkin region can mask slow leaks from air conditioning units, plumbing, or roof damage. By the time water damage becomes visible on hardwood floors, moisture may already be trapped beneath the surface. Freeman Restoration uses moisture detection equipment to identify hidden water damage early and applies professional drying techniques to prevent cupping, warping, and long-term floor deterioration.</p>"
-        },
-        {
-          "heading": "Fall: Drainage and Roof Issues",
-          "text": "<p>Fall weather patterns bring moderate rainfall and leaf debris that clogs gutters and downspouts, causing water to pool around foundations and seep into basements and crawl spaces. Damaged or aging roofs may begin leaking during these storms. Freeman Restoration addresses water damage to hardwood floors and subfloors caused by drainage failures, using specialized equipment to dry affected areas thoroughly and prevent secondary damage.</p>"
-        },
-        {
-          "heading": "Winter: Freeze-Thaw and Pipe Breaks",
-          "text": "<p>Although winters in the Lufkin area are generally mild, occasional freezes can burst water pipes and cause significant indoor flooding. Rapid temperature swings increase stress on plumbing systems, leading to leaks that damage hardwood floors over time. Freeman Restoration handles emergency water extraction and drying for frozen-pipe damage, helping property owners minimize loss and begin repairs as quickly as possible.</p>"
-        }
-      ],
-      "_ai_generated_at": "2026-08-31T20:51:50.600925Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "seasonal_calendar",
-      "_ai_input_hash": "57b87c577711ff08"
-    },
-    {
-      "type": "service_cards",
-      "anchor": "related_services",
-      "sc_badge": "",
-      "sc_heading": "Other Water Restoration Services in {city_state}",
-      "sc_cols": 4,
-      "sc_badge_bg": "accent",
-      "sc_head_color": "header",
-      "sc_badge_bg_custom": "#fd783b",
-      "sc_head_color_custom": "#120575",
-      "sc_icon_bg": "#f4f6f8",
-      "sc_items": [
-        {
-          "icon": "",
-          "alt": "Water Damage Repair {city} {SS}",
-          "heading": "Water Damage Repair",
-          "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
-          "url": "/water-damage-repair-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Flood Damage Restoration {city} {SS}",
-          "heading": "Flood Damage Restoration",
-          "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
-          "url": "/flood-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Storm Damage Restoration {city} {SS}",
-          "heading": "Storm Damage Restoration",
-          "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
-          "url": "/storm-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Water Mitigation {city} {SS}",
-          "heading": "Water Mitigation",
-          "text": "Professional Water Mitigation for {city_state} homes and businesses.",
-          "url": "/water-mitigation-{city_slug}"
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "{primary_keyword} FAQs — {city_state}",
-      "fq_bg_color": "#ffffff",
-      "fq_item_bg": "#d9d9d9",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#120575",
-      "fq_icon_bg_custom": "#fd783b",
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "replace",
-      "fq_items": [
-        {
-          "question": "What happens to hardwood floors when water damage occurs in Lufkin?",
-          "answer": "<p>Water penetration causes wood to absorb moisture, leading to cupping (edges raised higher than center), crowning (center swells), warping, and discoloration. Boards may buckle or separate at seams. The longer moisture persists, the more structural damage occurs. Professional assessment determines whether floors can be dried and restored or require replacement.</p>"
-        },
-        {
-          "question": "How quickly can Freeman Restoration respond to water damage in Lufkin TX?",
-          "answer": "<p>Freeman Restoration is locally based and available to assess hardwood floor damage promptly after a leak, burst pipe, or storm event. Fast response limits moisture absorption and swelling. Contact us immediately when damage occurs—early intervention significantly improves restoration potential and reduces overall project scope.</p>"
-        },
-        {
-          "question": "What factors affect the cost of hardwood floor restoration after water damage?",
-          "answer": "<p>Repair costs depend on affected square footage, moisture depth, wood species, whether boards can be salvaged or replaced, and drying time required. Cupping may resolve with proper dehumidification; severe warping typically requires board replacement. An on-site inspection determines the scope and associated expenses for your specific situation.</p>"
-        },
-        {
-          "question": "What should I do immediately after discovering water damage on hardwood floors?",
-          "answer": "<p>Stop the water source if safe to do so. Remove standing water and move furniture away from affected areas. Increase air circulation with open windows and fans. Avoid walking on wet floors unnecessarily. Contact Freeman Restoration right away—we'll extract moisture, deploy dehumidifiers, and monitor moisture levels to prevent secondary damage and mold growth.</p>"
-        },
-        {
-          "question": "How can Lufkin homeowners prevent water damage to hardwood floors?",
-          "answer": "<p>Maintain gutters and downspouts to direct water away from foundations. Seal entry points around windows and doors. Use dehumidifiers in humid conditions and promptly fix plumbing leaks. Install water detection devices near water heaters and appliances. Keep gutters clear especially during heavy rain seasons so water doesn't back up into the home.</p>"
-        },
-        {
-          "question": "Are hardwood floors in Lufkin at higher risk during certain seasons?",
-          "answer": "<p>East Texas experiences significant rainfall in spring and heavy summer thunderstorms that can cause flooding and burst pipes. Winter freeze-thaw cycles can stress plumbing lines and cause cracks leading to leaks. Fall brings tropical moisture and storm systems. Year-round vigilance and proper drainage maintenance help protect wooden floors from seasonal weather patterns.</p>"
-        }
-      ],
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-31T20:51:57.959367Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "b16b0abf7fc27bef",
-      "skin": "dark",
-      "fq_open": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "accent",
-      "cb_bg_custom": "#0d2340",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "custom_html",
-      "anchor": "pest_services",
-      "html": "[services_links]"
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "{city_spotlight}",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#120575",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "skin": "light"
-    }
-  ],
-  "seo": {
-    "seo_title": "Hardwood Floor Water Damage in {city_state} | {business}",
-    "canonical_url": "{website}/hardwood-floor-water-damage-lufkin-tx/",
-    "meta_description": "Hardwood Floor Water Damage in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
-    "meta_keywords": "hardwood floor water damage Lufkin TX, wood floor water damage Lufkin, water damaged hardwood floors Lufkin, hardwood floor water damage repair Lufkin",
-    "og_title": "Hardwood Floor Water Damage in {city_state} | {business}",
-    "og_description": "24/7 hardwood floor water damage in {city_state}. Fast, professional local response.",
-    "og_image": "sites/water-site/uploads/media/living-room-restoration-after.webp",
-    "service_name": "Hardwood Floor Water Damage",
-    "service_type": "Hardwood Floor Water Damage",
-    "service_area": "{city_state} and surrounding areas",
-    "service_description": "Hardwood floor water damage for homes and businesses in {city_state}, including wood floor water damage, water damaged hardwood floors and hardwood floor water damage repair.",
-    "bc_label": "Hardwood Floor Water Damage",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Hardwood Floor Water Damage\",\n    \"name\": \"Hardwood Floor Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 hardwood floor water damage in Lufkin, TX — wood floor water damage, water damaged hardwood floors and hardwood floor water damage repair.\"\n}",
-    "primary_keyword": "Hardwood Floor Water Damage",
-    "secondary_keywords": "wood floor water damage, water damaged hardwood floors, hardwood floor water damage repair, wet wood floor"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-07-12T01:05:23+00:00",
-  "template_version": "5f225dd0d9514b52ae3ea044c616e4e1"
+    "locked_blocks": [],
+    "generated_at": "2026-07-12T01:05:23+00:00",
+    "template_version": "5f225dd0d9514b52ae3ea044c616e4e1"
 }
