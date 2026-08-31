@@ -9,13 +9,10 @@
         "state": "Colorado",
         "SS": "CO",
         "city_slug": "littleton-co",
-        "phone": "2146633693",
-        "tel": "",
         "zip": "76092",
         "address": "1179 East Dove Rd",
         "lat": "",
         "lng": "",
-        "website": "",
         "tags": [],
         "industries": [
             "Aerospace & Defense",
@@ -388,8 +385,8 @@
     ],
     "seo": {
         "seo_title": "Termite Treatment in {city_state} | {business}",
-        "canonical_url": "https://pq111.xyz/termite-treatment-littleton-co/",
-        "meta_description": "Get rid of termites fast with a professional termite exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
+        "canonical_url": "{website}/termite-treatment-littleton-co/",
+        "meta_description": "Termite Treatment in {city_state} — {business} offers fast, guaranteed treatments. Call {phone}.",
         "meta_keywords": "termite treatment Littleton CO, termite control, termite exterminator, termite removal",
         "og_title": "Termite Exterminator in {city_state} | Fast, Guaranteed Termite Control",
         "og_description": "Get rid of termites fast with a professional termite exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -401,7 +398,7 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Termite Exterminator in Littleton, CO\",\"serviceType\":\"Termite Extermination\",\"description\":\"Professional termite exterminator services in Littleton, CO. Targeted termite control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://pq111.xyz/#localbusiness\",\"name\":\"Littleton Pest Pros\",\"telephone\":\"+17202015555\",\"url\":\"https://pq111.xyz\"}}]}",
+        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Termite Exterminator in Littleton, CO\",\"serviceType\":\"Termite Extermination\",\"description\":\"Professional termite exterminator services in Littleton, CO. Targeted termite control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
         "primary_keyword": "termite treatment",
         "secondary_keywords": "termite control, termite exterminator, termite removal, subterranean termite treatment, termite pest control, termite bond"
     },

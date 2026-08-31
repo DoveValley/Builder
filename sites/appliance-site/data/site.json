@@ -486,7 +486,7 @@
         "secondary_keywords": "appliance repair service, home appliance repair, same day appliance repair",
         "seo_title": "Appliance Repair in {city_state} | {business}",
         "canonical_url": "",
-        "meta_description": "Appliance repair in {city_state} from {business}. All major brands and appliances — refrigerators, washers, dryers, ovens, and more. Factory-trained, same-day, warranty. Call {phone}.",
+        "meta_description": "Appliance repair in {city_state} from {business} — all major brands, same-day service, warranty-backed repairs. Call {phone}.",
         "meta_keywords": "appliance repair {city} {SS}, appliance repair near me {city}",
         "og_title": "Appliance Repair in {city_state} | {business}",
         "og_description": "Appliance repair in {city_state} from {business}. All major brands and appliances — refrigerators, washers, dryers, ovens, and more. Factory-trained, same-day, warranty. Call {phone}.",
@@ -502,7 +502,7 @@
         "twitter_handle": "",
         "og_type": "website",
         "robots_noindex": false,
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"url\":\"{website}\",\"telephone\":\"{tel}\",\"description\":\"{business} provides appliance repair across {city_state} — all major brands and appliances, factory-trained technicians, same-day service, and warranty-backed repairs.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"priceRange\":\"$$\",\"openingHours\":\"Mo-Fr 08:00-18:00, Sa 09:00-13:00\"},{\"@type\":\"WebSite\",\"@id\":\"{website}/#website\",\"url\":\"{website}\",\"name\":\"{business}\",\"publisher\":{\"@id\":\"{website}/#localbusiness\"}}]}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"image\": \"{lb_logo}\",\n            \"description\": \"{business} provides appliance repair across {city_state} — all major brands and appliances, factory-trained technicians, same-day service, and warranty-backed repairs.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Fr 08:00-18:00, Sa 09:00-13:00\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}"
     },
     "footer": {
         "logo": "uploads/logo_wells-appliance-repair.png",

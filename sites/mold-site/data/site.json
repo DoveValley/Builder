@@ -576,7 +576,7 @@
     "seo": {
         "seo_title": "Mold Remediation in {city_state} | {business}",
         "canonical_url": "",
-        "meta_description": "Certified mold remediation in {city_state}. Mold inspection, testing, black mold removal, safe containment, and prevention for homes & businesses. Call {phone} for a free inspection.",
+        "meta_description": "Certified mold inspection and remediation in {city_state} from {business} — testing, removal, moisture control. Call {phone}.",
         "meta_keywords": "mold remediation {city} {SS}, mold removal {city}, black mold removal {city} {SS}, mold inspection {city}, mold testing {city} {SS}",
         "og_title": "Mold Remediation in {city_state} | {business}",
         "og_description": "Certified mold remediation in {city_state} — inspection, testing, black mold removal, safe containment, and prevention. Fast local response.",
@@ -588,7 +588,7 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"HomeAndConstructionBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"description\": \"{business} connects {state} property owners with certified mold inspection and remediation specialists, providing mold testing, black mold removal, safe containment, and moisture control for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"State\",\n                \"name\": \"{state}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Su 00:00-23:59\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"HomeAndConstructionBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"image\": \"{lb_logo}\",\n            \"description\": \"{business} connects {state} property owners with certified mold inspection and remediation specialists, providing mold testing, black mold removal, safe containment, and moisture control for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Su 00:00-23:59\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
         "primary_keyword": "Mold Remediation",
         "secondary_keywords": "mold removal, black mold removal, mold inspection, mold testing, mold mitigation"
     },

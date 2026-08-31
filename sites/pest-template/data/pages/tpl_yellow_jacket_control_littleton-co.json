@@ -9,13 +9,10 @@
         "state": "Colorado",
         "SS": "CO",
         "city_slug": "littleton-co",
-        "phone": "2146633693",
-        "tel": "",
         "zip": "76092",
         "address": "1179 East Dove Rd",
         "lat": "",
         "lng": "",
-        "website": "",
         "tags": [],
         "industries": [
             "Aerospace & Defense",
@@ -388,8 +385,8 @@
     ],
     "seo": {
         "seo_title": "Yellow Jacket Control in {city_state} | {business}",
-        "canonical_url": "https://pq111.xyz/yellow-jacket-control-littleton-co/",
-        "meta_description": "Get rid of yellow jackets fast with a professional yellow jacket exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee. Call {phone}.",
+        "canonical_url": "{website}/yellow-jacket-control-littleton-co/",
+        "meta_description": "Yellow Jacket Control in {city_state} — {business} offers fast, guaranteed treatments. Call {phone}.",
         "meta_keywords": "yellow jacket control Littleton CO, yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal",
         "og_title": "Yellow jacket Exterminator in {city_state} | Fast, Guaranteed Yellow jacket Control",
         "og_description": "Get rid of yellow jackets fast with a professional yellow jacket exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -401,7 +398,7 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Yellow jacket Exterminator in Littleton, CO\",\"serviceType\":\"Yellow jacket Extermination\",\"description\":\"Professional yellow jacket exterminator services in Littleton, CO. Targeted yellow jacket control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://pq111.xyz/#localbusiness\",\"name\":\"Littleton Pest Pros\",\"telephone\":\"+17202015555\",\"url\":\"https://pq111.xyz\"}}]}",
+        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Yellow jacket Exterminator in Littleton, CO\",\"serviceType\":\"Yellow jacket Extermination\",\"description\":\"Professional yellow jacket exterminator services in Littleton, CO. Targeted yellow jacket control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
         "primary_keyword": "yellow jacket control",
         "secondary_keywords": "yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal, get rid of yellow jackets"
     },

@@ -1,420 +1,417 @@
 {
-  "template_id": "tpl_mold_removal",
-  "city_id": "city_lufkin_tx",
-  "slug": "mold-removal-lufkin-tx",
-  "title": "Mold Removal in {city_state} | {business}",
-  "city_vars": {
-    "id": "city_lufkin_tx",
-    "city": "Lufkin",
-    "SS": "TX",
-    "state": "Texas",
-    "city_slug": "lufkin-tx",
-    "zip": "75901",
-    "phone": "(281) 888-8888",
-    "tel": "+12818888888",
-    "website": "https://elkpestpros.com",
-    "tags": [],
-    "industries": [
-      "Forestry and timber/wood products manufacturing",
-      "Healthcare",
-      "Oil and gas equipment manufacturing",
-      "Education",
-      "Retail and distribution",
-      "Government/public administration"
+    "template_id": "tpl_mold_removal",
+    "city_id": "city_lufkin_tx",
+    "slug": "mold-removal-lufkin-tx",
+    "title": "Mold Removal in {city_state} | {business}",
+    "city_vars": {
+        "id": "city_lufkin_tx",
+        "city": "Lufkin",
+        "SS": "TX",
+        "state": "Texas",
+        "city_slug": "lufkin-tx",
+        "zip": "75901",
+        "tags": [],
+        "industries": [
+            "Forestry and timber/wood products manufacturing",
+            "Healthcare",
+            "Oil and gas equipment manufacturing",
+            "Education",
+            "Retail and distribution",
+            "Government/public administration"
+        ],
+        "top_employers": [
+            "CHI St. Luke's Health Memorial",
+            "Lufkin Industries (Baker Hughes)",
+            "Angelina College",
+            "Lufkin Independent School District",
+            "Georgia-Pacific",
+            "Temple-Inland",
+            "Brookshire Brothers",
+            "City of Lufkin",
+            "Angelina County",
+            "Walmart Supercenter",
+            "Diboll Healthcare System",
+            "Southern Plastics"
+        ],
+        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+        "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep indoor humidity and moisture levels high year-round, creating ongoing conditions for mold growth in homes and businesses.",
+        "neighborhoods": [
+            "Downtown Lufkin",
+            "Crown Colony",
+            "Fuller Springs",
+            "Kurth",
+            "Copeland Springs",
+            "Brentwood"
+        ],
+        "population": 34187,
+        "_researched": 1,
+        "city_spotlight": "Tucked deep in the Piney Woods of East Texas, Lufkin has long served as the anchor city for the surrounding region, with roots that run straight back to the timber trade. That forestry heritage still shows in the wood products and manufacturing base that shapes the local economy, joined over the years by oil field equipment production, healthcare, and education as steady economic pillars. As the Angelina County seat, government and retail activity add further balance to the mix.\n\nHome to around 34,000 residents, Lufkin carries the feel of a close-knit community rather than a sprawling city. Neighborhoods like Crown Colony and Kurth reflect the settled, tree-shaded character that defines everyday life here, where longtime employers and generations of families give the town its steady, working sense of place."
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>The Lufkin area's warm, humid climate and seasonal rainfall create persistent moisture conditions that encourage mold growth in homes and businesses throughout the region. Elk Mold Pros specializes in thorough mold removal and remediation, using safe containment and inspection methods to identify affected areas and restore indoor air quality. Addressing mold promptly protects your property's structural integrity and helps maintain a healthier environment for occupants.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "{service} in {city}, {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#eef4fb",
+            "hs_photo": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "text_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-23T15:41:27.953869Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "16e61f13b7c8942c"
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg": "accent",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": [
+                {
+                    "icon": "",
+                    "label": "Free Inspections"
+                },
+                {
+                    "icon": "",
+                    "label": "Safe Containment"
+                },
+                {
+                    "icon": "",
+                    "label": "Fast Local Response"
+                }
+            ],
+            "anchor": "trust_bar",
+            "tb_show_icons": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/mold-site/uploads/media/mold-remediation-technician-cleaning-moldy-wall.webp",
+            "it_alt": "{business} technician performing {service} in a {city_state} home",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Professional Mold Removal Services in Lufkin",
+            "text": "<p>Lufkin's warm, humid climate and significant seasonal rainfall create ideal conditions for mold growth in homes and businesses throughout the area. The region's moisture-rich air, combined with Texas heat and occasional water intrusion from storms, means indoor mold thrives in bathrooms, basements, crawl spaces, and around windows and HVAC systems. Property owners in Lufkin frequently discover mold after roof leaks, plumbing issues, or high humidity levels compromise indoor air quality. Left unaddressed, mold can spread through wall cavities and insulation, affecting the structural integrity of your property and the health of occupants who spend time indoors.</p><p>Elk Mold Pros provides thorough mold removal and remediation tailored to Lufkin properties, using containment protocols and professional-grade techniques to safely eliminate affected materials and address underlying moisture sources. Our approach combines detailed inspection, careful removal of contaminated areas, and follow-up verification to help restore healthy indoor conditions. We handle mold cleanup and abatement with the precision and care your home or business deserves, and we're equipped to address related moisture and odor issues that often accompany mold discovery. Whether your property shows early signs of mold smell or visible growth, Elk Mold Pros is ready to assess the situation and guide you toward a lasting solution.</p>",
+            "_ai_generated_at": "2026-08-23T15:41:31.838432Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_intro",
+            "_ai_input_hash": "9b698826e034ef59"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "fc_heading": "Why Lufkin Property Owners Choose Elk Mold Pros",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Trained Technicians & Safe Containment",
+                    "text": "<p>Our certified team uses industry-standard containment and removal protocols to address mold safely. Proper isolation prevents spore spread during cleanup, protecting your home and indoor air quality throughout the process.</p>"
+                },
+                {
+                    "heading": "Thorough Inspection & Treatment",
+                    "text": "<p>We identify mold at its source—not just visible growth. Comprehensive assessment of moisture pathways and affected materials ensures treatment targets root causes, reducing the risk of recurrence and musty odor problems.</p>"
+                },
+                {
+                    "heading": "Responsive Local Service",
+                    "text": "<p>As a locally operating mold abatement company, we understand the urgency of moisture damage. Fast response and direct communication keep your remediation on track and your family's health concerns a priority.</p>"
+                },
+                {
+                    "heading": "East Texas Humidity Demands Expert Care",
+                    "text": "<p>Lufkin's warm, humid climate and seasonal rainfall create ideal conditions for indoor mold growth in bathrooms, crawl spaces, and wall cavities. Professional mold removal addresses moisture damage that DIY efforts often miss, protecting your property year-round.</p>"
+                }
+            ],
+            "_ai_generated_at": "2026-08-23T15:41:35.403885Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "17f9086ff8f85235"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our {service} Process Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Call Our {city} Team",
+                    "text": "Tell us what happened. We work to get {service} started fast, often the same day."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "On-Site Assessment",
+                    "text": "Specialists inspect the damage, identify the water source and category, and plan the work."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Mitigation & Drying",
+                    "text": "Water extraction, structural drying, and cleanup to stop the damage from spreading."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Restoration & Repairs",
+                    "text": "Cleaning, sanitizing, and repairs to return your property to normal."
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need {service} in {city}? Get fast, professional help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#2563eb",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "sites/mold-site/uploads/media/mold-remediation-completed-homeowners-outside-house.webp",
+            "it_alt": "A {city_state} home protected by professional {service} from {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Mold Removal Across Lufkin's Diverse Properties",
+            "text": "<p>Lufkin's mix of established neighborhoods and newer developments each present distinct moisture challenges that drive mold growth indoors. Older, tree-lined areas such as Crown Colony feature mature landscaping that can shade homes and retain ground moisture, while aging building materials and foundational settling may create small gaps where humidity enters. Newer subdivisions like Copeland Springs often have tighter construction but can still develop mold in bathrooms, crawl spaces, and attics when moisture control fails. The East Texas climate—with its warm, humid summers and seasonal rainfall—means that year-round moisture management is essential across all property types to prevent indoor air quality issues.</p><p>Whether you're dealing with bathroom mold removal, a musty odor in a basement, or mold cleanup after water intrusion, the underlying cause is typically excess humidity and poor ventilation. Lufkin's rainfall and high humidity create ideal conditions for mold to thrive on damp drywall, wood framing, and organic materials. Professional mold removal and abatement require careful containment, safe handling, and thorough drying—not just surface cleaning. Elk Mold Pros works with homeowners and businesses across the area to identify moisture sources, safely remove affected materials, and restore healthy indoor conditions without unnecessary alarm or guesswork.</p>",
+            "_ai_generated_at": "2026-08-23T15:41:40.013921Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "94482a86414ab253"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "steps_heading": "Seasonal Mold Challenges and Solutions in Lufkin",
+            "steps_items": [
+                {
+                    "heading": "Spring: Rain and Rising Humidity",
+                    "text": "Spring brings increased rainfall and humidity across East TX, creating ideal conditions for mold growth in basements, crawl spaces, and around windows. Elk Mold Pros inspects vulnerable areas, identifies moisture sources, and removes active mold to protect your property's air quality before summer arrives."
+                },
+                {
+                    "heading": "Summer: Heat and Humidity Peaks",
+                    "text": "Summer heat intensifies indoor humidity, especially in homes and businesses without proper ventilation or air conditioning maintenance. High moisture levels encourage mold in attics, HVAC systems, and bathrooms. Elk Mold Pros performs thorough inspections and remediation to restore healthy indoor environments during peak season."
+                },
+                {
+                    "heading": "Fall: Moisture Accumulation Begins",
+                    "text": "Fall weather transitions bring occasional heavy rains and moisture that seeps into foundations and attics. Mold often develops unnoticed during this season. Elk Mold Pros conducts comprehensive inspections in areas like Crown Colony and Fuller Springs to catch growth early before winter and prevents future spread."
+                },
+                {
+                    "heading": "Winter: Indoor Moisture Traps",
+                    "text": "Winter heating reduces outdoor air exchange, trapping indoor humidity and creating mold growth opportunities in poorly ventilated spaces. Condensation around windows and inadequate drainage issues compound moisture problems. Elk Mold Pros identifies and safely removes mold to maintain healthy indoor air quality year-round."
+                }
+            ],
+            "_ai_generated_at": "2026-08-23T15:41:44.657879Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "seasonal_calendar",
+            "_ai_input_hash": "76a07726d2b9c9d8"
+        },
+        {
+            "type": "service_cards",
+            "anchor": "related_services",
+            "sc_badge": "",
+            "sc_heading": "Other Mold Services in {city_state}",
+            "sc_cols": 4,
+            "sc_badge_bg": "accent",
+            "sc_head_color": "header",
+            "sc_badge_bg_custom": "#fd783b",
+            "sc_head_color_custom": "#120575",
+            "sc_icon_bg": "#f4f6f8",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Mold Inspection {city} {SS}",
+                    "heading": "Mold Inspection",
+                    "text": "Professional Mold Inspection for {city_state} homes and businesses.",
+                    "url": "/mold-inspection-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Black Mold Removal {city} {SS}",
+                    "heading": "Black Mold Removal",
+                    "text": "Professional Black Mold Removal for {city_state} homes and businesses.",
+                    "url": "/black-mold-removal-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Mold Testing {city} {SS}",
+                    "heading": "Mold Testing",
+                    "text": "Professional Mold Testing for {city_state} homes and businesses.",
+                    "url": "/mold-testing-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Mold Mitigation {city} {SS}",
+                    "heading": "Mold Mitigation",
+                    "text": "Professional Mold Mitigation for {city_state} homes and businesses.",
+                    "url": "/mold-mitigation-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Attic Mold Removal {city} {SS}",
+                    "heading": "Attic Mold Removal",
+                    "text": "Professional Attic Mold Removal for {city_state} homes and businesses.",
+                    "url": "/attic-mold-removal-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Crawl Space Mold Removal {city} {SS}",
+                    "heading": "Crawl Space Mold Removal",
+                    "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
+                    "url": "/crawl-space-mold-removal-{city_slug}"
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [
+                {
+                    "question": "What exactly does the mold removal process involve in Lufkin?",
+                    "answer": "<p>Our process begins with a thorough inspection to identify affected areas and moisture sources. We contain the problem to prevent spore spread, remove contaminated materials safely, treat surfaces, and address the underlying cause—often excess humidity or water intrusion. Finally, we verify the area has been properly dried and restored. Each property is unique, so the scope depends on what we find.</p>"
+                },
+                {
+                    "question": "How soon can Elk Mold Pros respond to mold issues in Lufkin, TX?",
+                    "answer": "<p>We understand mold problems need prompt attention. Contact us right away to schedule an inspection, and we'll work to address your situation as quickly as our schedule allows. The sooner you reach out, the sooner we can assess the extent of the problem and begin remediation work to protect your property and indoor air quality.</p>"
+                },
+                {
+                    "question": "What factors affect the cost of mold remediation work?",
+                    "answer": "<p>The cost depends on the size and location of affected areas, the type of materials involved, how deep the contamination runs, and what's causing the moisture. Accessible, surface-level mold costs less than extensive damage behind walls. We provide a clear assessment during inspection so you understand what's needed before work begins.</p>"
+                },
+                {
+                    "question": "How should I prepare my Lufkin home before mold remediation begins?",
+                    "answer": "<p>Before we arrive, remove personal items from the affected area if it's safe to do so, and keep children and pets away during the inspection and work. We'll let you know if any specific preparation is needed. During remediation, you may need to vacate briefly depending on the scope. We'll explain the process and timeline once we assess your situation.</p>"
+                },
+                {
+                    "question": "What can Lufkin homeowners do to prevent mold growth after removal?",
+                    "answer": "<p>Keep indoor humidity below 50% with proper ventilation and air conditioning. Fix leaks promptly, ensure gutters and downspouts drain away from your foundation, and maintain good air circulation in bathrooms and kitchens. In our region's humid climate, a dehumidifier or regular HVAC maintenance can help. Address any new signs of moisture quickly to prevent recurrence.</p>"
+                },
+                {
+                    "question": "Why is mold such a common problem in the Lufkin area?",
+                    "answer": "<p>East Texas, including Lufkin, experiences high humidity and significant seasonal rainfall, particularly in spring and early summer. These moisture-rich conditions create an ideal environment for mold growth indoors, especially in poorly ventilated spaces or after water events. Air conditioning systems and inadequate drainage can trap moisture, making prevention and prompt remediation essential in our region.</p>"
+                }
+            ],
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-23T15:41:53.125174Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "b909d869499dd588",
+            "skin": "dark",
+            "fq_open": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#0d2340",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "pest_services",
+            "html": "[services_links]"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "skin": "light"
+        }
     ],
-    "top_employers": [
-      "CHI St. Luke's Health Memorial",
-      "Lufkin Industries (Baker Hughes)",
-      "Angelina College",
-      "Lufkin Independent School District",
-      "Georgia-Pacific",
-      "Temple-Inland",
-      "Brookshire Brothers",
-      "City of Lufkin",
-      "Angelina County",
-      "Walmart Supercenter",
-      "Diboll Healthcare System",
-      "Southern Plastics"
-    ],
-    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
-    "neighborhoods": [
-      "Downtown Lufkin",
-      "Crown Colony",
-      "Fuller Springs",
-      "Kurth",
-      "Copeland Springs",
-      "Brentwood"
-    ],
-    "population": 34187,
-    "_researched": 1,
-    "city_spotlight": "Tucked deep in the Piney Woods of East Texas, Lufkin has long served as the anchor city for the surrounding region, with roots that run straight back to the timber trade. That forestry heritage still shows in the wood products and manufacturing base that shapes the local economy, joined over the years by oil field equipment production, healthcare, and education as steady economic pillars. As the Angelina County seat, government and retail activity add further balance to the mix.\n\nHome to around 34,000 residents, Lufkin carries the feel of a close-knit community rather than a sprawling city. Neighborhoods like Crown Colony and Kurth reflect the settled, tree-shaded character that defines everyday life here, where longtime employers and generations of families give the town its steady, working sense of place."
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>The Lufkin area's warm, humid climate and seasonal rainfall create persistent moisture conditions that encourage mold growth in homes and businesses throughout the region. Elk Mold Pros specializes in thorough mold removal and remediation, using safe containment and inspection methods to identify affected areas and restore indoor air quality. Addressing mold promptly protects your property's structural integrity and helps maintain a healthier environment for occupants.</p>",
-      "hs_btn_text": "{phone}",
-      "hs_btn_url": "tel:{tel}",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "{service} in {city}, {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#eef4fb",
-      "hs_photo": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "text_first",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-23T15:41:27.953869Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "16e61f13b7c8942c"
+    "seo": {
+        "seo_title": "Mold Removal in {city_state} | {business}",
+        "canonical_url": "{website}/mold-removal-lufkin-tx/",
+        "meta_description": "Mold Removal in {city_state}. {business} provides professional removal of mold from walls, floors, and hidden spaces. Call {phone} for a free inspection.",
+        "meta_keywords": "mold removal services Lufkin, professional mold removal Lufkin, mold removal near me Lufkin, mold cleanup Lufkin",
+        "og_title": "Mold Removal in {city_state} | {business}",
+        "og_description": "Mold Removal in {city_state} — certified, thorough, and local. Call {phone} for a free inspection.",
+        "og_image": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp",
+        "service_name": "Mold Removal",
+        "service_type": "Mold Removal",
+        "service_area": "{city_state} and surrounding areas",
+        "service_description": "Professional removal of mold from walls, floors, and hidden spaces, for homes and businesses in {city_state}.",
+        "bc_label": "Mold Removal",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Removal\",\n    \"name\": \"Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Mold Removal in Lufkin, TX \\u2014 professional removal of mold from walls, floors, and hidden spaces.\"\n}",
+        "primary_keyword": "Mold Removal",
+        "secondary_keywords": "mold removal services, professional mold removal, mold removal near me, mold cleanup, mold abatement, bathroom mold removal, shower mold removal, mold smell removal, musty odor removal"
     },
-    {
-      "type": "trust_bar",
-      "tb_bg": "accent",
-      "tb_bg_custom": "#f3f6f7",
-      "tb_items": [
-        {
-          "icon": "",
-          "label": "Free Inspections"
-        },
-        {
-          "icon": "",
-          "label": "Safe Containment"
-        },
-        {
-          "icon": "",
-          "label": "Fast Local Response"
-        }
-      ],
-      "anchor": "trust_bar",
-      "tb_show_icons": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "left",
-      "it_photo": "sites/mold-site/uploads/media/mold-remediation-technician-cleaning-moldy-wall.webp",
-      "it_alt": "{business} technician performing {service} in a {city_state} home",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Professional Mold Removal Services in Lufkin",
-      "text": "<p>Lufkin's warm, humid climate and significant seasonal rainfall create ideal conditions for mold growth in homes and businesses throughout the area. The region's moisture-rich air, combined with Texas heat and occasional water intrusion from storms, means indoor mold thrives in bathrooms, basements, crawl spaces, and around windows and HVAC systems. Property owners in Lufkin frequently discover mold after roof leaks, plumbing issues, or high humidity levels compromise indoor air quality. Left unaddressed, mold can spread through wall cavities and insulation, affecting the structural integrity of your property and the health of occupants who spend time indoors.</p><p>Elk Mold Pros provides thorough mold removal and remediation tailored to Lufkin properties, using containment protocols and professional-grade techniques to safely eliminate affected materials and address underlying moisture sources. Our approach combines detailed inspection, careful removal of contaminated areas, and follow-up verification to help restore healthy indoor conditions. We handle mold cleanup and abatement with the precision and care your home or business deserves, and we're equipped to address related moisture and odor issues that often accompany mold discovery. Whether your property shows early signs of mold smell or visible growth, Elk Mold Pros is ready to assess the situation and guide you toward a lasting solution.</p>",
-      "_ai_generated_at": "2026-08-23T15:41:31.838432Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_intro",
-      "_ai_input_hash": "9b698826e034ef59"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "fc_heading": "Why Lufkin Property Owners Choose Elk Mold Pros",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "Trained Technicians & Safe Containment",
-          "text": "<p>Our certified team uses industry-standard containment and removal protocols to address mold safely. Proper isolation prevents spore spread during cleanup, protecting your home and indoor air quality throughout the process.</p>"
-        },
-        {
-          "heading": "Thorough Inspection & Treatment",
-          "text": "<p>We identify mold at its source—not just visible growth. Comprehensive assessment of moisture pathways and affected materials ensures treatment targets root causes, reducing the risk of recurrence and musty odor problems.</p>"
-        },
-        {
-          "heading": "Responsive Local Service",
-          "text": "<p>As a locally operating mold abatement company, we understand the urgency of moisture damage. Fast response and direct communication keep your remediation on track and your family's health concerns a priority.</p>"
-        },
-        {
-          "heading": "East Texas Humidity Demands Expert Care",
-          "text": "<p>Lufkin's warm, humid climate and seasonal rainfall create ideal conditions for indoor mold growth in bathrooms, crawl spaces, and wall cavities. Professional mold removal addresses moisture damage that DIY efforts often miss, protecting your property year-round.</p>"
-        }
-      ],
-      "_ai_generated_at": "2026-08-23T15:41:35.403885Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "17f9086ff8f85235"
-    },
-    {
-      "type": "steps",
-      "steps_heading": "How Our {service} Process Works",
-      "steps_items": [
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Call Our {city} Team",
-          "text": "Tell us what happened. We work to get {service} started fast, often the same day."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "On-Site Assessment",
-          "text": "Specialists inspect the damage, identify the water source and category, and plan the work."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Mitigation & Drying",
-          "text": "Water extraction, structural drying, and cleanup to stop the damage from spreading."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Restoration & Repairs",
-          "text": "Cleaning, sanitizing, and repairs to return your property to normal."
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "cta_banner",
-      "anchor": "mid_cta",
-      "cb_text": "Need {service} in {city}? Get fast, professional help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "header",
-      "cb_bg_custom": "#2563eb",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "right",
-      "it_photo": "sites/mold-site/uploads/media/mold-remediation-completed-homeowners-outside-house.webp",
-      "it_alt": "A {city_state} home protected by professional {service} from {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Mold Removal Across Lufkin's Diverse Properties",
-      "text": "<p>Lufkin's mix of established neighborhoods and newer developments each present distinct moisture challenges that drive mold growth indoors. Older, tree-lined areas such as Crown Colony feature mature landscaping that can shade homes and retain ground moisture, while aging building materials and foundational settling may create small gaps where humidity enters. Newer subdivisions like Copeland Springs often have tighter construction but can still develop mold in bathrooms, crawl spaces, and attics when moisture control fails. The East Texas climate—with its warm, humid summers and seasonal rainfall—means that year-round moisture management is essential across all property types to prevent indoor air quality issues.</p><p>Whether you're dealing with bathroom mold removal, a musty odor in a basement, or mold cleanup after water intrusion, the underlying cause is typically excess humidity and poor ventilation. Lufkin's rainfall and high humidity create ideal conditions for mold to thrive on damp drywall, wood framing, and organic materials. Professional mold removal and abatement require careful containment, safe handling, and thorough drying—not just surface cleaning. Elk Mold Pros works with homeowners and businesses across the area to identify moisture sources, safely remove affected materials, and restore healthy indoor conditions without unnecessary alarm or guesswork.</p>",
-      "_ai_generated_at": "2026-08-23T15:41:40.013921Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "94482a86414ab253"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "seasonal_calendar",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "steps_heading": "Seasonal Mold Challenges and Solutions in Lufkin",
-      "steps_items": [
-        {
-          "heading": "Spring: Rain and Rising Humidity",
-          "text": "Spring brings increased rainfall and humidity across East TX, creating ideal conditions for mold growth in basements, crawl spaces, and around windows. Elk Mold Pros inspects vulnerable areas, identifies moisture sources, and removes active mold to protect your property's air quality before summer arrives."
-        },
-        {
-          "heading": "Summer: Heat and Humidity Peaks",
-          "text": "Summer heat intensifies indoor humidity, especially in homes and businesses without proper ventilation or air conditioning maintenance. High moisture levels encourage mold in attics, HVAC systems, and bathrooms. Elk Mold Pros performs thorough inspections and remediation to restore healthy indoor environments during peak season."
-        },
-        {
-          "heading": "Fall: Moisture Accumulation Begins",
-          "text": "Fall weather transitions bring occasional heavy rains and moisture that seeps into foundations and attics. Mold often develops unnoticed during this season. Elk Mold Pros conducts comprehensive inspections in areas like Crown Colony and Fuller Springs to catch growth early before winter and prevents future spread."
-        },
-        {
-          "heading": "Winter: Indoor Moisture Traps",
-          "text": "Winter heating reduces outdoor air exchange, trapping indoor humidity and creating mold growth opportunities in poorly ventilated spaces. Condensation around windows and inadequate drainage issues compound moisture problems. Elk Mold Pros identifies and safely removes mold to maintain healthy indoor air quality year-round."
-        }
-      ],
-      "_ai_generated_at": "2026-08-23T15:41:44.657879Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "seasonal_calendar",
-      "_ai_input_hash": "76a07726d2b9c9d8"
-    },
-    {
-      "type": "service_cards",
-      "anchor": "related_services",
-      "sc_badge": "",
-      "sc_heading": "Other Mold Services in {city_state}",
-      "sc_cols": 4,
-      "sc_badge_bg": "accent",
-      "sc_head_color": "header",
-      "sc_badge_bg_custom": "#fd783b",
-      "sc_head_color_custom": "#120575",
-      "sc_icon_bg": "#f4f6f8",
-      "sc_items": [
-        {
-          "icon": "",
-          "alt": "Mold Inspection {city} {SS}",
-          "heading": "Mold Inspection",
-          "text": "Professional Mold Inspection for {city_state} homes and businesses.",
-          "url": "/mold-inspection-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Black Mold Removal {city} {SS}",
-          "heading": "Black Mold Removal",
-          "text": "Professional Black Mold Removal for {city_state} homes and businesses.",
-          "url": "/black-mold-removal-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Mold Testing {city} {SS}",
-          "heading": "Mold Testing",
-          "text": "Professional Mold Testing for {city_state} homes and businesses.",
-          "url": "/mold-testing-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Mold Mitigation {city} {SS}",
-          "heading": "Mold Mitigation",
-          "text": "Professional Mold Mitigation for {city_state} homes and businesses.",
-          "url": "/mold-mitigation-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Attic Mold Removal {city} {SS}",
-          "heading": "Attic Mold Removal",
-          "text": "Professional Attic Mold Removal for {city_state} homes and businesses.",
-          "url": "/attic-mold-removal-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Crawl Space Mold Removal {city} {SS}",
-          "heading": "Crawl Space Mold Removal",
-          "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
-          "url": "/crawl-space-mold-removal-{city_slug}"
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "{primary_keyword} FAQs — {city_state}",
-      "fq_bg_color": "#ffffff",
-      "fq_item_bg": "#d9d9d9",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#120575",
-      "fq_icon_bg_custom": "#fd783b",
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "replace",
-      "fq_items": [
-        {
-          "question": "What exactly does the mold removal process involve in Lufkin?",
-          "answer": "<p>Our process begins with a thorough inspection to identify affected areas and moisture sources. We contain the problem to prevent spore spread, remove contaminated materials safely, treat surfaces, and address the underlying cause—often excess humidity or water intrusion. Finally, we verify the area has been properly dried and restored. Each property is unique, so the scope depends on what we find.</p>"
-        },
-        {
-          "question": "How soon can Elk Mold Pros respond to mold issues in Lufkin, TX?",
-          "answer": "<p>We understand mold problems need prompt attention. Contact us right away to schedule an inspection, and we'll work to address your situation as quickly as our schedule allows. The sooner you reach out, the sooner we can assess the extent of the problem and begin remediation work to protect your property and indoor air quality.</p>"
-        },
-        {
-          "question": "What factors affect the cost of mold remediation work?",
-          "answer": "<p>The cost depends on the size and location of affected areas, the type of materials involved, how deep the contamination runs, and what's causing the moisture. Accessible, surface-level mold costs less than extensive damage behind walls. We provide a clear assessment during inspection so you understand what's needed before work begins.</p>"
-        },
-        {
-          "question": "How should I prepare my Lufkin home before mold remediation begins?",
-          "answer": "<p>Before we arrive, remove personal items from the affected area if it's safe to do so, and keep children and pets away during the inspection and work. We'll let you know if any specific preparation is needed. During remediation, you may need to vacate briefly depending on the scope. We'll explain the process and timeline once we assess your situation.</p>"
-        },
-        {
-          "question": "What can Lufkin homeowners do to prevent mold growth after removal?",
-          "answer": "<p>Keep indoor humidity below 50% with proper ventilation and air conditioning. Fix leaks promptly, ensure gutters and downspouts drain away from your foundation, and maintain good air circulation in bathrooms and kitchens. In our region's humid climate, a dehumidifier or regular HVAC maintenance can help. Address any new signs of moisture quickly to prevent recurrence.</p>"
-        },
-        {
-          "question": "Why is mold such a common problem in the Lufkin area?",
-          "answer": "<p>East Texas, including Lufkin, experiences high humidity and significant seasonal rainfall, particularly in spring and early summer. These moisture-rich conditions create an ideal environment for mold growth indoors, especially in poorly ventilated spaces or after water events. Air conditioning systems and inadequate drainage can trap moisture, making prevention and prompt remediation essential in our region.</p>"
-        }
-      ],
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-23T15:41:53.125174Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "b909d869499dd588",
-      "skin": "dark",
-      "fq_open": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "accent",
-      "cb_bg_custom": "#0d2340",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "custom_html",
-      "anchor": "pest_services",
-      "html": "[services_links]"
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "{city_spotlight}",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#120575",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "skin": "light"
-    }
-  ],
-  "seo": {
-    "seo_title": "Mold Removal in {city_state} | {business}",
-    "canonical_url": "https://m.q111.xyz/mold-removal-lufkin-tx/",
-    "meta_description": "Mold Removal in {city_state}. {business} provides professional removal of mold from walls, floors, and hidden spaces. Call {phone} for a free inspection.",
-    "meta_keywords": "mold removal services Lufkin, professional mold removal Lufkin, mold removal near me Lufkin, mold cleanup Lufkin",
-    "og_title": "Mold Removal in {city_state} | {business}",
-    "og_description": "Mold Removal in {city_state} — certified, thorough, and local. Call {phone} for a free inspection.",
-    "og_image": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp",
-    "service_name": "Mold Removal",
-    "service_type": "Mold Removal",
-    "service_area": "{city_state} and surrounding areas",
-    "service_description": "Professional removal of mold from walls, floors, and hidden spaces, for homes and businesses in {city_state}.",
-    "bc_label": "Mold Removal",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Removal\",\n    \"name\": \"Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+12818888888\",\n        \"url\": \"https://elkpestpros.com\"\n    },\n    \"description\": \"Mold Removal in Lufkin, TX \\u2014 professional removal of mold from walls, floors, and hidden spaces.\"\n}",
-    "primary_keyword": "Mold Removal",
-    "secondary_keywords": "mold removal services, professional mold removal, mold removal near me, mold cleanup, mold abatement, bathroom mold removal, shower mold removal, mold smell removal, musty odor removal"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-07-12T05:02:32+00:00",
-  "template_version": "bda7f0932cd0f2844930c658e8e57664"
+    "locked_blocks": [],
+    "generated_at": "2026-07-12T05:02:32+00:00",
+    "template_version": "bda7f0932cd0f2844930c658e8e57664"
 }

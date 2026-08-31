@@ -1,420 +1,417 @@
 {
-  "template_id": "tpl_attic_mold_removal",
-  "city_id": "city_lufkin_tx",
-  "slug": "attic-mold-removal-lufkin-tx",
-  "title": "Attic Mold Removal in {city_state} | {business}",
-  "city_vars": {
-    "id": "city_lufkin_tx",
-    "city": "Lufkin",
-    "SS": "TX",
-    "state": "Texas",
-    "city_slug": "lufkin-tx",
-    "zip": "75901",
-    "phone": "(281) 888-8888",
-    "tel": "+12818888888",
-    "website": "https://elkpestpros.com",
-    "tags": [],
-    "industries": [
-      "Forestry and timber/wood products manufacturing",
-      "Healthcare",
-      "Oil and gas equipment manufacturing",
-      "Education",
-      "Retail and distribution",
-      "Government/public administration"
+    "template_id": "tpl_attic_mold_removal",
+    "city_id": "city_lufkin_tx",
+    "slug": "attic-mold-removal-lufkin-tx",
+    "title": "Attic Mold Removal in {city_state} | {business}",
+    "city_vars": {
+        "id": "city_lufkin_tx",
+        "city": "Lufkin",
+        "SS": "TX",
+        "state": "Texas",
+        "city_slug": "lufkin-tx",
+        "zip": "75901",
+        "tags": [],
+        "industries": [
+            "Forestry and timber/wood products manufacturing",
+            "Healthcare",
+            "Oil and gas equipment manufacturing",
+            "Education",
+            "Retail and distribution",
+            "Government/public administration"
+        ],
+        "top_employers": [
+            "CHI St. Luke's Health Memorial",
+            "Lufkin Industries (Baker Hughes)",
+            "Angelina College",
+            "Lufkin Independent School District",
+            "Georgia-Pacific",
+            "Temple-Inland",
+            "Brookshire Brothers",
+            "City of Lufkin",
+            "Angelina County",
+            "Walmart Supercenter",
+            "Diboll Healthcare System",
+            "Southern Plastics"
+        ],
+        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+        "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep indoor humidity and moisture levels high year-round, creating ongoing conditions for mold growth in homes and businesses.",
+        "neighborhoods": [
+            "Downtown Lufkin",
+            "Crown Colony",
+            "Fuller Springs",
+            "Kurth",
+            "Copeland Springs",
+            "Brentwood"
+        ],
+        "population": 34187,
+        "_researched": 1,
+        "city_spotlight": "Tucked deep in the Piney Woods of East Texas, Lufkin has long served as the anchor city for the surrounding region, with roots that run straight back to the timber trade. That forestry heritage still shows in the wood products and manufacturing base that shapes the local economy, joined over the years by oil field equipment production, healthcare, and education as steady economic pillars. As the Angelina County seat, government and retail activity add further balance to the mix.\n\nHome to around 34,000 residents, Lufkin carries the feel of a close-knit community rather than a sprawling city. Neighborhoods like Crown Colony and Kurth reflect the settled, tree-shaded character that defines everyday life here, where longtime employers and generations of families give the town its steady, working sense of place."
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>East Texas humidity and seasonal rainfall create persistent moisture conditions that make attics particularly vulnerable to mold growth, especially in older homes and structures where ventilation and insulation may trap moisture year-round. Elk Mold Pros specializes in attic mold removal, using safe containment and thorough remediation methods to address mold at its source and restore healthy indoor air quality. Addressing attic mold promptly helps protect your property's structural integrity and the air your family or employees breathe daily.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "{service} in {city}, {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#eef4fb",
+            "hs_photo": "sites/mold-site/uploads/media/mold-inspection-mold-growth-on-wall.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "text_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-23T15:41:01.111739Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "49bf380632d0719b"
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg": "accent",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": [
+                {
+                    "icon": "",
+                    "label": "Free Inspections"
+                },
+                {
+                    "icon": "",
+                    "label": "Safe Containment"
+                },
+                {
+                    "icon": "",
+                    "label": "Fast Local Response"
+                }
+            ],
+            "anchor": "trust_bar",
+            "tb_show_icons": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/mold-site/uploads/media/mold-remediation-technician-cleaning-moldy-wall.webp",
+            "it_alt": "{business} technician performing {service} in a {city_state} home",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Attic Mold Removal in Lufkin: Protect Your Home",
+            "text": "<p>Lufkin's humid subtropical climate and seasonal rainfall create ideal conditions for mold growth in attics, where poor ventilation and moisture accumulation often go unnoticed until damage spreads. The region's warm, wet springs and summers, combined with temperature swings between seasons, encourage condensation and moisture retention in attic spaces—especially in homes where ventilation is inadequate or roof leaks develop. Property owners throughout Lufkin frequently discover mold problems during routine inspections or only after noticing musty odors, visible growth, or signs of water damage. Left untreated, mold in the attic can compromise indoor air quality, affect structural integrity, and create concerns for household health, making prompt detection and removal essential.</p><p>Elk Mold Pros approaches attic mold removal with careful containment, thorough inspection, and safe remediation practices designed to address the source of moisture while removing affected materials and preventing recontamination. We assess ventilation, identify water entry points, and recommend practical steps to reduce future moisture risk. Our process prioritizes your family's safety and the long-term health of your home, with follow-up guidance to help maintain a dry, mold-resistant attic environment. If you suspect mold in your attic or need professional attic mold treatment, our team is ready to evaluate your situation and discuss the right solution.</p>",
+            "_ai_generated_at": "2026-08-23T15:41:05.130127Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_intro",
+            "_ai_input_hash": "a70311af018e9fe2"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "fc_heading": "Why Lufkin Property Owners Choose Elk Mold Pros",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Trained Attic Mold Specialists",
+                    "text": "<p>Our technicians are skilled in identifying and safely treating mold growth in attics. We understand the unique challenges of enclosed spaces and use containment and removal methods designed to protect your home and family during the remediation process.</p>"
+                },
+                {
+                    "heading": "Thorough Inspection and Treatment",
+                    "text": "<p>We inspect attics carefully to locate all affected areas and moisture sources. Our attic mold removal approach addresses both visible and hidden growth, with attention to ventilation and structural integrity to help prevent future issues.</p>"
+                },
+                {
+                    "heading": "Fast, Reliable Response",
+                    "text": "<p>When mold appears in your attic, quick action matters. We respond promptly to calls from Lufkin homeowners and businesses, arriving ready to assess the scope of treatment and discuss next steps with clarity and professionalism.</p>"
+                },
+                {
+                    "heading": "East Texas Humidity Demands Professional Care",
+                    "text": "<p>The warm, humid climate of deep East Texas creates ideal conditions for mold growth in poorly ventilated attics and crawl spaces. Seasonal rainfall and moisture in the air make professional attic mold treatment essential for maintaining safe indoor air quality year-round.</p>"
+                }
+            ],
+            "_ai_generated_at": "2026-08-23T15:41:08.728666Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "2d3d5aa5e4ccfa49"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our {service} Process Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Call Our {city} Team",
+                    "text": "Tell us what happened. We work to get {service} started fast, often the same day."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "On-Site Assessment",
+                    "text": "Specialists inspect the damage, identify the water source and category, and plan the work."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Mitigation & Drying",
+                    "text": "Water extraction, structural drying, and cleanup to stop the damage from spreading."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Restoration & Repairs",
+                    "text": "Cleaning, sanitizing, and repairs to return your property to normal."
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need {service} in {city}? Get fast, professional help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#2563eb",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "sites/mold-site/uploads/media/residential-mold-remediation-home-exterior.webp",
+            "it_alt": "A {city_state} home protected by professional {service} from {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Attic Mold Removal Across Lufkin",
+            "text": "<p>Lufkin's warm, humid climate and seasonal rainfall create ideal conditions for mold growth in attics throughout the area. Properties in established neighborhoods like Crown Colony and Fuller Springs often feature mature trees and older construction, which can trap moisture and reduce ventilation—factors that increase attic mold risk. Newer subdivisions may have better-sealed building envelopes, yet they are not immune; improper ventilation, roof leaks, or condensation from air-conditioning systems can still lead to mold colonization in attics. The region's hot, wet summers and occasional heavy downpours mean that roof penetrations, damaged gutters, and insufficient attic airflow become critical vulnerabilities year-round.</p><p>Attic mold treatment requires an understanding of how local moisture patterns affect different home types. Older properties may have compromised vapor barriers or outdated ventilation, while newer homes sometimes experience moisture issues from over-insulation or blocked soffit vents. Safe attic mold remediation begins with identifying the moisture source—whether it's a roof leak, condensation, or poor air circulation—before containment and removal can be effective. Professional inspection reveals the scope of the problem and ensures that remediation addresses root causes, protecting your home's structure and indoor air quality for years to come.</p>",
+            "_ai_generated_at": "2026-08-23T15:41:12.645185Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "4d81e6172f2264b3"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "steps_heading": "Seasonal Attic Mold Prevention Throughout Lufkin's Year",
+            "steps_items": [
+                {
+                    "heading": "Spring: Rain and Rising Moisture",
+                    "text": "Spring brings increased rainfall and humidity to the Lufkin region, creating ideal conditions for mold growth in attics and crawl spaces. Roof leaks, poor ventilation, and trapped moisture become common issues. Elk Mold Pros inspects your attic for early signs of mold and moisture damage, ensuring proper ventilation and identifying water entry points before they worsen."
+                },
+                {
+                    "heading": "Summer: Heat and Humidity Peaks",
+                    "text": "Texas summers bring intense heat and persistent humidity that can drive moisture into attics despite closed doors and windows. Air conditioning condensation, inadequate ventilation, and heat buildup create environments where mold thrives. Our team evaluates your attic's ventilation system and moisture barriers to prevent mold colonization during the hottest months."
+                },
+                {
+                    "heading": "Fall: Transition and Leaf Debris",
+                    "text": "Fall transitions bring occasional heavy rains and debris that can clog gutters and roof valleys, redirecting water into attics and wall cavities. Falling leaves and branches compromise ventilation intake. Elk Mold Pros clears inspection points, checks for water damage, and ensures your attic remains dry as seasonal weather patterns shift."
+                },
+                {
+                    "heading": "Winter: Cold, Condensation, and Gaps",
+                    "text": "Winter's temperature swings cause condensation buildup in poorly insulated or ventilated attics. Cold air meeting warm interior moisture creates the damp conditions mold needs. We assess insulation adequacy, seal air leaks, and verify attic ventilation so moisture escapes rather than collecting where mold can establish itself."
+                }
+            ],
+            "_ai_generated_at": "2026-08-23T15:41:17.251397Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "seasonal_calendar",
+            "_ai_input_hash": "1b19b2278d80e524"
+        },
+        {
+            "type": "service_cards",
+            "anchor": "related_services",
+            "sc_badge": "",
+            "sc_heading": "Other Mold Services in {city_state}",
+            "sc_cols": 4,
+            "sc_badge_bg": "accent",
+            "sc_head_color": "header",
+            "sc_badge_bg_custom": "#fd783b",
+            "sc_head_color_custom": "#120575",
+            "sc_icon_bg": "#f4f6f8",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Mold Inspection {city} {SS}",
+                    "heading": "Mold Inspection",
+                    "text": "Professional Mold Inspection for {city_state} homes and businesses.",
+                    "url": "/mold-inspection-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Black Mold Removal {city} {SS}",
+                    "heading": "Black Mold Removal",
+                    "text": "Professional Black Mold Removal for {city_state} homes and businesses.",
+                    "url": "/black-mold-removal-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Mold Testing {city} {SS}",
+                    "heading": "Mold Testing",
+                    "text": "Professional Mold Testing for {city_state} homes and businesses.",
+                    "url": "/mold-testing-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Mold Mitigation {city} {SS}",
+                    "heading": "Mold Mitigation",
+                    "text": "Professional Mold Mitigation for {city_state} homes and businesses.",
+                    "url": "/mold-mitigation-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Attic Mold Removal {city} {SS}",
+                    "heading": "Attic Mold Removal",
+                    "text": "Professional Attic Mold Removal for {city_state} homes and businesses.",
+                    "url": "/attic-mold-removal-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Crawl Space Mold Removal {city} {SS}",
+                    "heading": "Crawl Space Mold Removal",
+                    "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
+                    "url": "/crawl-space-mold-removal-{city_slug}"
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [
+                {
+                    "question": "What exactly happens during attic mold removal in Lufkin homes?",
+                    "answer": "<p>Our process begins with a thorough inspection to identify the extent of mold growth and any moisture sources feeding it. We then contain the affected area to prevent spore spread, remove contaminated insulation and materials safely, address the underlying moisture issue, and restore the space with new insulation and vapor barriers. Each step is designed to protect your home's structure and indoor air quality.</p>"
+                },
+                {
+                    "question": "How soon can Elk Mold Pros respond to mold in my Lufkin attic?",
+                    "answer": "<p>We understand mold discovery is stressful and aim to schedule inspections promptly. Response times depend on current demand and your location within the service area. Contact us directly to discuss your situation—we'll work to fit you into our schedule as quickly as possible and explain what to expect next.</p>"
+                },
+                {
+                    "question": "What factors affect the cost of removing mold from an attic?",
+                    "answer": "<p>Pricing depends on the size of the affected area, type and depth of contamination, extent of damaged materials requiring replacement, accessibility of the space, and whether moisture sources need repair. A detailed inspection allows us to provide an accurate estimate tailored to your specific situation rather than a generic quote.</p>"
+                },
+                {
+                    "question": "How should I prepare my home before attic mold removal begins?",
+                    "answer": "<p>Before work starts, we'll advise you on any steps to take—typically securing valuables away from the work zone, ensuring attic access is clear, and arranging for pets or family members to stay away during active remediation. Our crew will handle containment setup and protective measures. We'll give you clear guidance during your pre-work consultation.</p>"
+                },
+                {
+                    "question": "Can mold return to my attic after removal, and how do I prevent it?",
+                    "answer": "<p>Mold returns when moisture returns. Prevention in Texas requires controlling humidity, ensuring proper attic ventilation, fixing roof leaks promptly, and maintaining gutters and downspouts. In humid climates like ours, adequate airflow and vapor barriers are essential. We address root causes during remediation and can discuss long-term moisture management strategies with you.</p>"
+                },
+                {
+                    "question": "Why does East Texas humidity make attic mold more common in summer?",
+                    "answer": "<p>Lufkin's climate brings high humidity and significant seasonal rainfall, especially spring through fall. Warm, moist air combined with poor ventilation or roof leaks creates ideal conditions for mold growth in attics. Summer's heat intensifies moisture movement into upper spaces. Understanding your region's moisture patterns helps explain why prevention and timely repairs are critical year-round.</p>"
+                }
+            ],
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-23T15:41:25.101391Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "7a79567dd495d842",
+            "skin": "dark",
+            "fq_open": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#0d2340",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "pest_services",
+            "html": "[services_links]"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "skin": "light"
+        }
     ],
-    "top_employers": [
-      "CHI St. Luke's Health Memorial",
-      "Lufkin Industries (Baker Hughes)",
-      "Angelina College",
-      "Lufkin Independent School District",
-      "Georgia-Pacific",
-      "Temple-Inland",
-      "Brookshire Brothers",
-      "City of Lufkin",
-      "Angelina County",
-      "Walmart Supercenter",
-      "Diboll Healthcare System",
-      "Southern Plastics"
-    ],
-    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
-    "neighborhoods": [
-      "Downtown Lufkin",
-      "Crown Colony",
-      "Fuller Springs",
-      "Kurth",
-      "Copeland Springs",
-      "Brentwood"
-    ],
-    "population": 34187,
-    "_researched": 1,
-    "city_spotlight": "Tucked deep in the Piney Woods of East Texas, Lufkin has long served as the anchor city for the surrounding region, with roots that run straight back to the timber trade. That forestry heritage still shows in the wood products and manufacturing base that shapes the local economy, joined over the years by oil field equipment production, healthcare, and education as steady economic pillars. As the Angelina County seat, government and retail activity add further balance to the mix.\n\nHome to around 34,000 residents, Lufkin carries the feel of a close-knit community rather than a sprawling city. Neighborhoods like Crown Colony and Kurth reflect the settled, tree-shaded character that defines everyday life here, where longtime employers and generations of families give the town its steady, working sense of place."
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>East Texas humidity and seasonal rainfall create persistent moisture conditions that make attics particularly vulnerable to mold growth, especially in older homes and structures where ventilation and insulation may trap moisture year-round. Elk Mold Pros specializes in attic mold removal, using safe containment and thorough remediation methods to address mold at its source and restore healthy indoor air quality. Addressing attic mold promptly helps protect your property's structural integrity and the air your family or employees breathe daily.</p>",
-      "hs_btn_text": "{phone}",
-      "hs_btn_url": "tel:{tel}",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "{service} in {city}, {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#eef4fb",
-      "hs_photo": "sites/mold-site/uploads/media/mold-inspection-mold-growth-on-wall.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "text_first",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-23T15:41:01.111739Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "49bf380632d0719b"
+    "seo": {
+        "seo_title": "Attic Mold Removal in {city_state} | {business}",
+        "canonical_url": "{website}/attic-mold-removal-lufkin-tx/",
+        "meta_description": "Attic Mold Removal in {city_state}. {business} provides removal of mold from attic sheathing, rafters, and insulation. Call {phone} for a free inspection.",
+        "meta_keywords": "attic mold remediation Lufkin, attic mold treatment Lufkin, mold in attic Lufkin, attic mold removal near me Lufkin",
+        "og_title": "Attic Mold Removal in {city_state} | {business}",
+        "og_description": "Attic Mold Removal in {city_state} — certified, thorough, and local. Call {phone} for a free inspection.",
+        "og_image": "sites/mold-site/uploads/media/mold-inspection-mold-growth-on-wall.webp",
+        "service_name": "Attic Mold Removal",
+        "service_type": "Attic Mold Removal",
+        "service_area": "{city_state} and surrounding areas",
+        "service_description": "Removal of mold from attic sheathing, rafters, and insulation, for homes and businesses in {city_state}.",
+        "bc_label": "Attic Mold Removal",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Attic Mold Removal\",\n    \"name\": \"Attic Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Attic Mold Removal in Lufkin, TX \\u2014 removal of mold from attic sheathing, rafters, and insulation.\"\n}",
+        "primary_keyword": "Attic Mold Removal",
+        "secondary_keywords": "attic mold remediation, attic mold treatment, mold in attic, attic mold removal near me"
     },
-    {
-      "type": "trust_bar",
-      "tb_bg": "accent",
-      "tb_bg_custom": "#f3f6f7",
-      "tb_items": [
-        {
-          "icon": "",
-          "label": "Free Inspections"
-        },
-        {
-          "icon": "",
-          "label": "Safe Containment"
-        },
-        {
-          "icon": "",
-          "label": "Fast Local Response"
-        }
-      ],
-      "anchor": "trust_bar",
-      "tb_show_icons": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "left",
-      "it_photo": "sites/mold-site/uploads/media/mold-remediation-technician-cleaning-moldy-wall.webp",
-      "it_alt": "{business} technician performing {service} in a {city_state} home",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Attic Mold Removal in Lufkin: Protect Your Home",
-      "text": "<p>Lufkin's humid subtropical climate and seasonal rainfall create ideal conditions for mold growth in attics, where poor ventilation and moisture accumulation often go unnoticed until damage spreads. The region's warm, wet springs and summers, combined with temperature swings between seasons, encourage condensation and moisture retention in attic spaces—especially in homes where ventilation is inadequate or roof leaks develop. Property owners throughout Lufkin frequently discover mold problems during routine inspections or only after noticing musty odors, visible growth, or signs of water damage. Left untreated, mold in the attic can compromise indoor air quality, affect structural integrity, and create concerns for household health, making prompt detection and removal essential.</p><p>Elk Mold Pros approaches attic mold removal with careful containment, thorough inspection, and safe remediation practices designed to address the source of moisture while removing affected materials and preventing recontamination. We assess ventilation, identify water entry points, and recommend practical steps to reduce future moisture risk. Our process prioritizes your family's safety and the long-term health of your home, with follow-up guidance to help maintain a dry, mold-resistant attic environment. If you suspect mold in your attic or need professional attic mold treatment, our team is ready to evaluate your situation and discuss the right solution.</p>",
-      "_ai_generated_at": "2026-08-23T15:41:05.130127Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_intro",
-      "_ai_input_hash": "a70311af018e9fe2"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "fc_heading": "Why Lufkin Property Owners Choose Elk Mold Pros",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "Trained Attic Mold Specialists",
-          "text": "<p>Our technicians are skilled in identifying and safely treating mold growth in attics. We understand the unique challenges of enclosed spaces and use containment and removal methods designed to protect your home and family during the remediation process.</p>"
-        },
-        {
-          "heading": "Thorough Inspection and Treatment",
-          "text": "<p>We inspect attics carefully to locate all affected areas and moisture sources. Our attic mold removal approach addresses both visible and hidden growth, with attention to ventilation and structural integrity to help prevent future issues.</p>"
-        },
-        {
-          "heading": "Fast, Reliable Response",
-          "text": "<p>When mold appears in your attic, quick action matters. We respond promptly to calls from Lufkin homeowners and businesses, arriving ready to assess the scope of treatment and discuss next steps with clarity and professionalism.</p>"
-        },
-        {
-          "heading": "East Texas Humidity Demands Professional Care",
-          "text": "<p>The warm, humid climate of deep East Texas creates ideal conditions for mold growth in poorly ventilated attics and crawl spaces. Seasonal rainfall and moisture in the air make professional attic mold treatment essential for maintaining safe indoor air quality year-round.</p>"
-        }
-      ],
-      "_ai_generated_at": "2026-08-23T15:41:08.728666Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "2d3d5aa5e4ccfa49"
-    },
-    {
-      "type": "steps",
-      "steps_heading": "How Our {service} Process Works",
-      "steps_items": [
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Call Our {city} Team",
-          "text": "Tell us what happened. We work to get {service} started fast, often the same day."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "On-Site Assessment",
-          "text": "Specialists inspect the damage, identify the water source and category, and plan the work."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Mitigation & Drying",
-          "text": "Water extraction, structural drying, and cleanup to stop the damage from spreading."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Restoration & Repairs",
-          "text": "Cleaning, sanitizing, and repairs to return your property to normal."
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "cta_banner",
-      "anchor": "mid_cta",
-      "cb_text": "Need {service} in {city}? Get fast, professional help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "header",
-      "cb_bg_custom": "#2563eb",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "right",
-      "it_photo": "sites/mold-site/uploads/media/residential-mold-remediation-home-exterior.webp",
-      "it_alt": "A {city_state} home protected by professional {service} from {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Attic Mold Removal Across Lufkin",
-      "text": "<p>Lufkin's warm, humid climate and seasonal rainfall create ideal conditions for mold growth in attics throughout the area. Properties in established neighborhoods like Crown Colony and Fuller Springs often feature mature trees and older construction, which can trap moisture and reduce ventilation—factors that increase attic mold risk. Newer subdivisions may have better-sealed building envelopes, yet they are not immune; improper ventilation, roof leaks, or condensation from air-conditioning systems can still lead to mold colonization in attics. The region's hot, wet summers and occasional heavy downpours mean that roof penetrations, damaged gutters, and insufficient attic airflow become critical vulnerabilities year-round.</p><p>Attic mold treatment requires an understanding of how local moisture patterns affect different home types. Older properties may have compromised vapor barriers or outdated ventilation, while newer homes sometimes experience moisture issues from over-insulation or blocked soffit vents. Safe attic mold remediation begins with identifying the moisture source—whether it's a roof leak, condensation, or poor air circulation—before containment and removal can be effective. Professional inspection reveals the scope of the problem and ensures that remediation addresses root causes, protecting your home's structure and indoor air quality for years to come.</p>",
-      "_ai_generated_at": "2026-08-23T15:41:12.645185Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "4d81e6172f2264b3"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "seasonal_calendar",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "steps_heading": "Seasonal Attic Mold Prevention Throughout Lufkin's Year",
-      "steps_items": [
-        {
-          "heading": "Spring: Rain and Rising Moisture",
-          "text": "Spring brings increased rainfall and humidity to the Lufkin region, creating ideal conditions for mold growth in attics and crawl spaces. Roof leaks, poor ventilation, and trapped moisture become common issues. Elk Mold Pros inspects your attic for early signs of mold and moisture damage, ensuring proper ventilation and identifying water entry points before they worsen."
-        },
-        {
-          "heading": "Summer: Heat and Humidity Peaks",
-          "text": "Texas summers bring intense heat and persistent humidity that can drive moisture into attics despite closed doors and windows. Air conditioning condensation, inadequate ventilation, and heat buildup create environments where mold thrives. Our team evaluates your attic's ventilation system and moisture barriers to prevent mold colonization during the hottest months."
-        },
-        {
-          "heading": "Fall: Transition and Leaf Debris",
-          "text": "Fall transitions bring occasional heavy rains and debris that can clog gutters and roof valleys, redirecting water into attics and wall cavities. Falling leaves and branches compromise ventilation intake. Elk Mold Pros clears inspection points, checks for water damage, and ensures your attic remains dry as seasonal weather patterns shift."
-        },
-        {
-          "heading": "Winter: Cold, Condensation, and Gaps",
-          "text": "Winter's temperature swings cause condensation buildup in poorly insulated or ventilated attics. Cold air meeting warm interior moisture creates the damp conditions mold needs. We assess insulation adequacy, seal air leaks, and verify attic ventilation so moisture escapes rather than collecting where mold can establish itself."
-        }
-      ],
-      "_ai_generated_at": "2026-08-23T15:41:17.251397Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "seasonal_calendar",
-      "_ai_input_hash": "1b19b2278d80e524"
-    },
-    {
-      "type": "service_cards",
-      "anchor": "related_services",
-      "sc_badge": "",
-      "sc_heading": "Other Mold Services in {city_state}",
-      "sc_cols": 4,
-      "sc_badge_bg": "accent",
-      "sc_head_color": "header",
-      "sc_badge_bg_custom": "#fd783b",
-      "sc_head_color_custom": "#120575",
-      "sc_icon_bg": "#f4f6f8",
-      "sc_items": [
-        {
-          "icon": "",
-          "alt": "Mold Inspection {city} {SS}",
-          "heading": "Mold Inspection",
-          "text": "Professional Mold Inspection for {city_state} homes and businesses.",
-          "url": "/mold-inspection-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Black Mold Removal {city} {SS}",
-          "heading": "Black Mold Removal",
-          "text": "Professional Black Mold Removal for {city_state} homes and businesses.",
-          "url": "/black-mold-removal-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Mold Testing {city} {SS}",
-          "heading": "Mold Testing",
-          "text": "Professional Mold Testing for {city_state} homes and businesses.",
-          "url": "/mold-testing-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Mold Mitigation {city} {SS}",
-          "heading": "Mold Mitigation",
-          "text": "Professional Mold Mitigation for {city_state} homes and businesses.",
-          "url": "/mold-mitigation-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Attic Mold Removal {city} {SS}",
-          "heading": "Attic Mold Removal",
-          "text": "Professional Attic Mold Removal for {city_state} homes and businesses.",
-          "url": "/attic-mold-removal-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Crawl Space Mold Removal {city} {SS}",
-          "heading": "Crawl Space Mold Removal",
-          "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
-          "url": "/crawl-space-mold-removal-{city_slug}"
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "{primary_keyword} FAQs — {city_state}",
-      "fq_bg_color": "#ffffff",
-      "fq_item_bg": "#d9d9d9",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#120575",
-      "fq_icon_bg_custom": "#fd783b",
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "replace",
-      "fq_items": [
-        {
-          "question": "What exactly happens during attic mold removal in Lufkin homes?",
-          "answer": "<p>Our process begins with a thorough inspection to identify the extent of mold growth and any moisture sources feeding it. We then contain the affected area to prevent spore spread, remove contaminated insulation and materials safely, address the underlying moisture issue, and restore the space with new insulation and vapor barriers. Each step is designed to protect your home's structure and indoor air quality.</p>"
-        },
-        {
-          "question": "How soon can Elk Mold Pros respond to mold in my Lufkin attic?",
-          "answer": "<p>We understand mold discovery is stressful and aim to schedule inspections promptly. Response times depend on current demand and your location within the service area. Contact us directly to discuss your situation—we'll work to fit you into our schedule as quickly as possible and explain what to expect next.</p>"
-        },
-        {
-          "question": "What factors affect the cost of removing mold from an attic?",
-          "answer": "<p>Pricing depends on the size of the affected area, type and depth of contamination, extent of damaged materials requiring replacement, accessibility of the space, and whether moisture sources need repair. A detailed inspection allows us to provide an accurate estimate tailored to your specific situation rather than a generic quote.</p>"
-        },
-        {
-          "question": "How should I prepare my home before attic mold removal begins?",
-          "answer": "<p>Before work starts, we'll advise you on any steps to take—typically securing valuables away from the work zone, ensuring attic access is clear, and arranging for pets or family members to stay away during active remediation. Our crew will handle containment setup and protective measures. We'll give you clear guidance during your pre-work consultation.</p>"
-        },
-        {
-          "question": "Can mold return to my attic after removal, and how do I prevent it?",
-          "answer": "<p>Mold returns when moisture returns. Prevention in Texas requires controlling humidity, ensuring proper attic ventilation, fixing roof leaks promptly, and maintaining gutters and downspouts. In humid climates like ours, adequate airflow and vapor barriers are essential. We address root causes during remediation and can discuss long-term moisture management strategies with you.</p>"
-        },
-        {
-          "question": "Why does East Texas humidity make attic mold more common in summer?",
-          "answer": "<p>Lufkin's climate brings high humidity and significant seasonal rainfall, especially spring through fall. Warm, moist air combined with poor ventilation or roof leaks creates ideal conditions for mold growth in attics. Summer's heat intensifies moisture movement into upper spaces. Understanding your region's moisture patterns helps explain why prevention and timely repairs are critical year-round.</p>"
-        }
-      ],
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-23T15:41:25.101391Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "7a79567dd495d842",
-      "skin": "dark",
-      "fq_open": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "accent",
-      "cb_bg_custom": "#0d2340",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "custom_html",
-      "anchor": "pest_services",
-      "html": "[services_links]"
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "{city_spotlight}",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#120575",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "skin": "light"
-    }
-  ],
-  "seo": {
-    "seo_title": "Attic Mold Removal in {city_state} | {business}",
-    "canonical_url": "https://m.q111.xyz/attic-mold-removal-lufkin-tx/",
-    "meta_description": "Attic Mold Removal in {city_state}. {business} provides removal of mold from attic sheathing, rafters, and insulation. Call {phone} for a free inspection.",
-    "meta_keywords": "attic mold remediation Lufkin, attic mold treatment Lufkin, mold in attic Lufkin, attic mold removal near me Lufkin",
-    "og_title": "Attic Mold Removal in {city_state} | {business}",
-    "og_description": "Attic Mold Removal in {city_state} — certified, thorough, and local. Call {phone} for a free inspection.",
-    "og_image": "sites/mold-site/uploads/media/mold-inspection-mold-growth-on-wall.webp",
-    "service_name": "Attic Mold Removal",
-    "service_type": "Attic Mold Removal",
-    "service_area": "{city_state} and surrounding areas",
-    "service_description": "Removal of mold from attic sheathing, rafters, and insulation, for homes and businesses in {city_state}.",
-    "bc_label": "Attic Mold Removal",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Attic Mold Removal\",\n    \"name\": \"Attic Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+12818888888\",\n        \"url\": \"https://elkpestpros.com\"\n    },\n    \"description\": \"Attic Mold Removal in Lufkin, TX \\u2014 removal of mold from attic sheathing, rafters, and insulation.\"\n}",
-    "primary_keyword": "Attic Mold Removal",
-    "secondary_keywords": "attic mold remediation, attic mold treatment, mold in attic, attic mold removal near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-07-12T05:02:32+00:00",
-  "template_version": "dd55288fb8c22a89d782ec4162338696"
+    "locked_blocks": [],
+    "generated_at": "2026-07-12T05:02:32+00:00",
+    "template_version": "dd55288fb8c22a89d782ec4162338696"
 }

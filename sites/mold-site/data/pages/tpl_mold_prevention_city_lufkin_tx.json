@@ -1,420 +1,417 @@
 {
-  "template_id": "tpl_mold_prevention",
-  "city_id": "city_lufkin_tx",
-  "slug": "mold-prevention-lufkin-tx",
-  "title": "Mold Prevention in {city_state} | {business}",
-  "city_vars": {
-    "id": "city_lufkin_tx",
-    "city": "Lufkin",
-    "SS": "TX",
-    "state": "Texas",
-    "city_slug": "lufkin-tx",
-    "zip": "75901",
-    "phone": "(281) 888-8888",
-    "tel": "+12818888888",
-    "website": "https://elkpestpros.com",
-    "tags": [],
-    "industries": [
-      "Forestry and timber/wood products manufacturing",
-      "Healthcare",
-      "Oil and gas equipment manufacturing",
-      "Education",
-      "Retail and distribution",
-      "Government/public administration"
+    "template_id": "tpl_mold_prevention",
+    "city_id": "city_lufkin_tx",
+    "slug": "mold-prevention-lufkin-tx",
+    "title": "Mold Prevention in {city_state} | {business}",
+    "city_vars": {
+        "id": "city_lufkin_tx",
+        "city": "Lufkin",
+        "SS": "TX",
+        "state": "Texas",
+        "city_slug": "lufkin-tx",
+        "zip": "75901",
+        "tags": [],
+        "industries": [
+            "Forestry and timber/wood products manufacturing",
+            "Healthcare",
+            "Oil and gas equipment manufacturing",
+            "Education",
+            "Retail and distribution",
+            "Government/public administration"
+        ],
+        "top_employers": [
+            "CHI St. Luke's Health Memorial",
+            "Lufkin Industries (Baker Hughes)",
+            "Angelina College",
+            "Lufkin Independent School District",
+            "Georgia-Pacific",
+            "Temple-Inland",
+            "Brookshire Brothers",
+            "City of Lufkin",
+            "Angelina County",
+            "Walmart Supercenter",
+            "Diboll Healthcare System",
+            "Southern Plastics"
+        ],
+        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+        "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep indoor humidity and moisture levels high year-round, creating ongoing conditions for mold growth in homes and businesses.",
+        "neighborhoods": [
+            "Downtown Lufkin",
+            "Crown Colony",
+            "Fuller Springs",
+            "Kurth",
+            "Copeland Springs",
+            "Brentwood"
+        ],
+        "population": 34187,
+        "_researched": 1,
+        "city_spotlight": "Tucked deep in the Piney Woods of East Texas, Lufkin has long served as the anchor city for the surrounding region, with roots that run straight back to the timber trade. That forestry heritage still shows in the wood products and manufacturing base that shapes the local economy, joined over the years by oil field equipment production, healthcare, and education as steady economic pillars. As the Angelina County seat, government and retail activity add further balance to the mix.\n\nHome to around 34,000 residents, Lufkin carries the feel of a close-knit community rather than a sprawling city. Neighborhoods like Crown Colony and Kurth reflect the settled, tree-shaded character that defines everyday life here, where longtime employers and generations of families give the town its steady, working sense of place."
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>East Texas humidity and seasonal rainfall create persistent moisture conditions that favor mold growth in homes and businesses throughout the Lufkin area, particularly in basements, crawl spaces, and poorly ventilated bathrooms. Elk Mold Pros specializes in mold prevention and removal, using thorough inspection and containment methods to identify problem areas and safely remediate affected materials before conditions worsen. Addressing mold growth promptly helps protect your indoor air quality and preserve the integrity of your property.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "{service} in {city}, {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#eef4fb",
+            "hs_photo": "sites/mold-site/uploads/media/mold-prevention-and-maintenance.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "text_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-23T15:41:27.899500Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "a2b046453f9e0ecd"
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg": "accent",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": [
+                {
+                    "icon": "",
+                    "label": "Free Inspections"
+                },
+                {
+                    "icon": "",
+                    "label": "Safe Containment"
+                },
+                {
+                    "icon": "",
+                    "label": "Fast Local Response"
+                }
+            ],
+            "anchor": "trust_bar",
+            "tb_show_icons": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/mold-site/uploads/media/mold-inspection-and-testing.webp",
+            "it_alt": "{business} technician performing {service} in a {city_state} home",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Mold Prevention in Lufkin Protects Your Home",
+            "text": "<p>Lufkin's warm, humid climate and seasonal rainfall create ideal conditions for mold growth indoors. The region's moisture patterns mean that homes and businesses throughout the area face year-round risk of mold development in attics, basements, crawl spaces, and walls. Property owners in Lufkin often discover mold problems after water intrusion, poor ventilation, or high indoor humidity goes unchecked. Early mold prevention and moisture control are far more cost-effective and less disruptive than addressing a widespread infestation later. By taking a proactive approach now, you can protect your property's structure, preserve indoor air quality, and avoid the expense and stress of major remediation work.</p><p>Elk Mold Pros specializes in mold prevention for Lufkin residents and business owners through thorough moisture detection, targeted prevention strategies, and ongoing support. Our team conducts detailed inspections to identify areas where moisture accumulates and recommends practical measures to reduce humidity, improve drainage, and seal vulnerable entry points. We work to contain and eliminate existing mold while also addressing the root moisture issues that allow it to return. Rather than treating mold as a one-time problem, we emphasize sustained moisture management and follow-up guidance so your property stays protected. Whether you're concerned about a specific area or want comprehensive mold proofing for your entire building, we're committed to helping you maintain a healthier indoor environment for the long term.</p>",
+            "_ai_generated_at": "2026-08-23T15:41:32.575323Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_intro",
+            "_ai_input_hash": "0dee42d76d788568"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "fc_heading": "Why Lufkin Property Owners Choose Elk Mold Pros",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Trained Technicians, Thorough Results",
+                    "text": "<p>Our technicians follow systematic inspection and remediation protocols to identify mold at its source and remove it safely. Thorough treatment means addressing not just visible growth, but moisture conditions that allow it to return.</p>"
+                },
+                {
+                    "heading": "Fast, Reliable Service Response",
+                    "text": "<p>Mold spreads quickly in humid conditions. We prioritize rapid response to your inspection request and move promptly through assessment and containment, so your home or business regains safe indoor air quality without unnecessary delay.</p>"
+                },
+                {
+                    "heading": "Accountability & Professional Guarantee",
+                    "text": "<p>We stand behind our work with clear communication about what we find, what we'll do, and what ongoing moisture control steps protect your property. You work with a certified, locally operating team you can trust.</p>"
+                },
+                {
+                    "heading": "East Texas Humidity Demands Proactive Prevention",
+                    "text": "<p>The Lufkin area's warm, humid climate and seasonal rainfall create ideal conditions for mold growth indoors. Homes and businesses here benefit most from year-round moisture detection and preventive mold proofing to stay ahead of humidity-driven problems.</p>"
+                }
+            ],
+            "_ai_generated_at": "2026-08-23T15:41:36.911778Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "d1bf954c060b48db"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our {service} Process Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Call Our {city} Team",
+                    "text": "Tell us what happened. We work to get {service} started fast, often the same day."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "On-Site Assessment",
+                    "text": "Specialists inspect the damage, identify the water source and category, and plan the work."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Mitigation & Drying",
+                    "text": "Water extraction, structural drying, and cleanup to stop the damage from spreading."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Restoration & Repairs",
+                    "text": "Cleaning, sanitizing, and repairs to return your property to normal."
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need {service} in {city}? Get fast, professional help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#2563eb",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "sites/mold-site/uploads/media/mold-remediation-completed-homeowners-outside-house.webp",
+            "it_alt": "A {city_state} home protected by professional {service} from {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Mold Prevention Across Lufkin's Diverse Properties",
+            "text": "<p>Lufkin's humid East Texas climate creates year-round conditions favorable for mold growth, and the age and construction style of your property directly influence your moisture control needs. Established neighborhoods with mature trees and older homes often face unique challenges—dense canopies trap moisture, aging roof systems and foundations are more prone to leaks, and vintage construction materials absorb and retain water more readily. Properties like those in Crown Colony and Fuller Springs, which span different eras, require tailored moisture detection and assessment strategies to identify hidden problem areas before they develop into larger concerns.</p><p>Newer construction in subdivisions like Copeland Springs typically features modern building codes and materials designed for moisture resistance, yet they are not immune to mold risk. Summer humidity, spring rainfall, and occasional water intrusion from storms or plumbing issues can affect any home or business. Regular moisture control measures—proper grading, functional gutters, adequate ventilation, and prompt attention to leaks—are essential across all property types. Elk Mold Pros works with Lufkin property owners to assess your specific environmental factors and implement practical mold proofing strategies, helping you maintain healthy indoor air quality regardless of your home's age or location.</p>",
+            "_ai_generated_at": "2026-08-23T15:41:41.090173Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "6d2aebadda334773"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "steps_heading": "Seasonal Mold Prevention Guide for Lufkin Homes",
+            "steps_items": [
+                {
+                    "heading": "Spring: Rain & Rising Moisture",
+                    "text": "Spring rainfall and warming temperatures increase indoor humidity across Lufkin-area homes and businesses. Foundation seepage, roof leaks, and poor drainage create ideal mold conditions. Elk Mold Pros inspects vulnerable areas—basements, crawlspaces, and attics—to identify moisture sources early and prevent mold colonies from establishing."
+                },
+                {
+                    "heading": "Summer: Heat & High Humidity",
+                    "text": "Lufkin summers bring sustained heat and humidity that stress air conditioning and ventilation systems. Condensation accumulates on cool surfaces; AC drip lines back up; crawlspaces remain damp. We assess HVAC condensate drainage, evaluate indoor moisture levels, and recommend ventilation improvements to reduce mold risk in occupied spaces like Crown Colony and Fuller Springs."
+                },
+                {
+                    "heading": "Fall: Transitional Moisture Shifts",
+                    "text": "Fall temperature swings and occasional heavy rain create fluctuating indoor moisture. Gutters clog; foundation cracks allow seepage; attic ventilation becomes uneven. Elk Mold Pros conducts thorough inspections before winter to catch developing moisture problems and address water intrusion before conditions worsen in enclosed areas."
+                },
+                {
+                    "heading": "Winter: Cold & Condensation",
+                    "text": "Winter cold increases indoor-outdoor temperature differences, driving condensation on windows, pipes, and uninsulated surfaces. Heating systems dry some areas while poor ventilation traps moisture elsewhere. We identify condensation hotspots and moisture imbalances, then recommend targeted solutions—sealing leaks, improving airflow, and monitoring humidity—to protect your property year-round."
+                }
+            ],
+            "_ai_generated_at": "2026-08-23T15:41:46.175962Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "seasonal_calendar",
+            "_ai_input_hash": "defd35a2c17a2695"
+        },
+        {
+            "type": "service_cards",
+            "anchor": "related_services",
+            "sc_badge": "",
+            "sc_heading": "Other Mold Services in {city_state}",
+            "sc_cols": 4,
+            "sc_badge_bg": "accent",
+            "sc_head_color": "header",
+            "sc_badge_bg_custom": "#fd783b",
+            "sc_head_color_custom": "#120575",
+            "sc_icon_bg": "#f4f6f8",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Mold Inspection {city} {SS}",
+                    "heading": "Mold Inspection",
+                    "text": "Professional Mold Inspection for {city_state} homes and businesses.",
+                    "url": "/mold-inspection-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Black Mold Removal {city} {SS}",
+                    "heading": "Black Mold Removal",
+                    "text": "Professional Black Mold Removal for {city_state} homes and businesses.",
+                    "url": "/black-mold-removal-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Mold Testing {city} {SS}",
+                    "heading": "Mold Testing",
+                    "text": "Professional Mold Testing for {city_state} homes and businesses.",
+                    "url": "/mold-testing-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Mold Mitigation {city} {SS}",
+                    "heading": "Mold Mitigation",
+                    "text": "Professional Mold Mitigation for {city_state} homes and businesses.",
+                    "url": "/mold-mitigation-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Attic Mold Removal {city} {SS}",
+                    "heading": "Attic Mold Removal",
+                    "text": "Professional Attic Mold Removal for {city_state} homes and businesses.",
+                    "url": "/attic-mold-removal-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Crawl Space Mold Removal {city} {SS}",
+                    "heading": "Crawl Space Mold Removal",
+                    "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
+                    "url": "/crawl-space-mold-removal-{city_slug}"
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [
+                {
+                    "question": "What does mold prevention work actually involve for Lufkin homes?",
+                    "answer": "<p>Mold prevention involves identifying moisture sources, improving ventilation, and applying protective treatments to vulnerable areas. Our team inspects crawlspaces, attics, bathrooms, and basements—places where humidity and water intrusion commonly occur. We may recommend dehumidification, sealing, or drainage improvements tailored to your property's specific conditions.</p>"
+                },
+                {
+                    "question": "How quickly can Elk Mold Pros schedule a prevention assessment in Lufkin?",
+                    "answer": "<p>We work to accommodate Lufkin property owners with timely scheduling. Contact us directly to discuss your concerns and available appointment times. Response times vary by season and current demand, so reaching out as soon as you notice moisture issues or condensation helps ensure prompt attention.</p>"
+                },
+                {
+                    "question": "What factors affect the cost of mold prevention services?",
+                    "answer": "<p>Prevention costs depend on your property's size, the number of areas needing assessment, moisture source complexity, and the scope of recommended treatments. A small bathroom dehumidification upgrade differs greatly from crawlspace encapsulation or foundation drainage work. We provide transparent guidance during the initial inspection so you understand what's involved.</p>"
+                },
+                {
+                    "question": "How should I prepare before Elk Mold Pros arrives for prevention work?",
+                    "answer": "<p>Ensure our team has safe access to attics, crawlspaces, basements, and bathrooms. Clear clutter around suspected moisture areas and note any visible condensation, staining, or odors you've observed. Providing details about past water events, roof leaks, or plumbing issues helps us focus on the most vulnerable zones and develop a comprehensive strategy.</p>"
+                },
+                {
+                    "question": "What can I do to keep mold from returning after prevention measures?",
+                    "answer": "<p>Maintain proper ventilation by running exhaust fans during and after showers, keep gutters clear, and monitor indoor humidity—ideally 30 to 50 percent. Fix leaks promptly, ensure grading directs water away from your foundation, and regularly inspect areas we've treated. These habits significantly reduce the chance of moisture reaccumulation and new growth.</p>"
+                },
+                {
+                    "question": "Why is mold prevention especially important in Lufkin's humid climate?",
+                    "answer": "<p>East Texas experiences high humidity and substantial rainfall, especially spring through summer. These moisture-rich conditions create an ideal environment for mold growth indoors if humidity control and drainage are neglected. Properties in areas like Crown Colony and Fuller Springs benefit from proactive measures—dehumidification, ventilation upgrades, and moisture barriers—to keep indoor air dry and healthy year-round.</p>"
+                }
+            ],
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-08-23T15:41:53.408697Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "12997bf1478fe560",
+            "skin": "dark",
+            "fq_open": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#0d2340",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "pest_services",
+            "html": "[services_links]"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "skin": "light"
+        }
     ],
-    "top_employers": [
-      "CHI St. Luke's Health Memorial",
-      "Lufkin Industries (Baker Hughes)",
-      "Angelina College",
-      "Lufkin Independent School District",
-      "Georgia-Pacific",
-      "Temple-Inland",
-      "Brookshire Brothers",
-      "City of Lufkin",
-      "Angelina County",
-      "Walmart Supercenter",
-      "Diboll Healthcare System",
-      "Southern Plastics"
-    ],
-    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-    "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
-    "neighborhoods": [
-      "Downtown Lufkin",
-      "Crown Colony",
-      "Fuller Springs",
-      "Kurth",
-      "Copeland Springs",
-      "Brentwood"
-    ],
-    "population": 34187,
-    "_researched": 1,
-    "city_spotlight": "Tucked deep in the Piney Woods of East Texas, Lufkin has long served as the anchor city for the surrounding region, with roots that run straight back to the timber trade. That forestry heritage still shows in the wood products and manufacturing base that shapes the local economy, joined over the years by oil field equipment production, healthcare, and education as steady economic pillars. As the Angelina County seat, government and retail activity add further balance to the mix.\n\nHome to around 34,000 residents, Lufkin carries the feel of a close-knit community rather than a sprawling city. Neighborhoods like Crown Colony and Kurth reflect the settled, tree-shaded character that defines everyday life here, where longtime employers and generations of families give the town its steady, working sense of place."
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>East Texas humidity and seasonal rainfall create persistent moisture conditions that favor mold growth in homes and businesses throughout the Lufkin area, particularly in basements, crawl spaces, and poorly ventilated bathrooms. Elk Mold Pros specializes in mold prevention and removal, using thorough inspection and containment methods to identify problem areas and safely remediate affected materials before conditions worsen. Addressing mold growth promptly helps protect your indoor air quality and preserve the integrity of your property.</p>",
-      "hs_btn_text": "{phone}",
-      "hs_btn_url": "tel:{tel}",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "{service} in {city}, {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#eef4fb",
-      "hs_photo": "sites/mold-site/uploads/media/mold-prevention-and-maintenance.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "text_first",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-23T15:41:27.899500Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "a2b046453f9e0ecd"
+    "seo": {
+        "seo_title": "Mold Prevention in {city_state} | {business}",
+        "canonical_url": "{website}/mold-prevention-lufkin-tx/",
+        "meta_description": "Mold Prevention in {city_state}. {business} provides moisture control and prevention to keep mold from returning. Call {phone} for a free inspection.",
+        "meta_keywords": "mold prevention services Lufkin, moisture control Lufkin, moisture detection Lufkin, mold proofing Lufkin",
+        "og_title": "Mold Prevention in {city_state} | {business}",
+        "og_description": "Mold Prevention in {city_state} — certified, thorough, and local. Call {phone} for a free inspection.",
+        "og_image": "sites/mold-site/uploads/media/mold-prevention-and-maintenance.webp",
+        "service_name": "Mold Prevention",
+        "service_type": "Mold Prevention",
+        "service_area": "{city_state} and surrounding areas",
+        "service_description": "Moisture control and prevention to keep mold from returning, for homes and businesses in {city_state}.",
+        "bc_label": "Mold Prevention",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Prevention\",\n    \"name\": \"Mold Prevention in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Mold Prevention in Lufkin, TX \\u2014 moisture control and prevention to keep mold from returning.\"\n}",
+        "primary_keyword": "Mold Prevention",
+        "secondary_keywords": "mold prevention services, moisture control, moisture detection, mold proofing"
     },
-    {
-      "type": "trust_bar",
-      "tb_bg": "accent",
-      "tb_bg_custom": "#f3f6f7",
-      "tb_items": [
-        {
-          "icon": "",
-          "label": "Free Inspections"
-        },
-        {
-          "icon": "",
-          "label": "Safe Containment"
-        },
-        {
-          "icon": "",
-          "label": "Fast Local Response"
-        }
-      ],
-      "anchor": "trust_bar",
-      "tb_show_icons": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "left",
-      "it_photo": "sites/mold-site/uploads/media/mold-inspection-and-testing.webp",
-      "it_alt": "{business} technician performing {service} in a {city_state} home",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Mold Prevention in Lufkin Protects Your Home",
-      "text": "<p>Lufkin's warm, humid climate and seasonal rainfall create ideal conditions for mold growth indoors. The region's moisture patterns mean that homes and businesses throughout the area face year-round risk of mold development in attics, basements, crawl spaces, and walls. Property owners in Lufkin often discover mold problems after water intrusion, poor ventilation, or high indoor humidity goes unchecked. Early mold prevention and moisture control are far more cost-effective and less disruptive than addressing a widespread infestation later. By taking a proactive approach now, you can protect your property's structure, preserve indoor air quality, and avoid the expense and stress of major remediation work.</p><p>Elk Mold Pros specializes in mold prevention for Lufkin residents and business owners through thorough moisture detection, targeted prevention strategies, and ongoing support. Our team conducts detailed inspections to identify areas where moisture accumulates and recommends practical measures to reduce humidity, improve drainage, and seal vulnerable entry points. We work to contain and eliminate existing mold while also addressing the root moisture issues that allow it to return. Rather than treating mold as a one-time problem, we emphasize sustained moisture management and follow-up guidance so your property stays protected. Whether you're concerned about a specific area or want comprehensive mold proofing for your entire building, we're committed to helping you maintain a healthier indoor environment for the long term.</p>",
-      "_ai_generated_at": "2026-08-23T15:41:32.575323Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_intro",
-      "_ai_input_hash": "0dee42d76d788568"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "fc_heading": "Why Lufkin Property Owners Choose Elk Mold Pros",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "Trained Technicians, Thorough Results",
-          "text": "<p>Our technicians follow systematic inspection and remediation protocols to identify mold at its source and remove it safely. Thorough treatment means addressing not just visible growth, but moisture conditions that allow it to return.</p>"
-        },
-        {
-          "heading": "Fast, Reliable Service Response",
-          "text": "<p>Mold spreads quickly in humid conditions. We prioritize rapid response to your inspection request and move promptly through assessment and containment, so your home or business regains safe indoor air quality without unnecessary delay.</p>"
-        },
-        {
-          "heading": "Accountability & Professional Guarantee",
-          "text": "<p>We stand behind our work with clear communication about what we find, what we'll do, and what ongoing moisture control steps protect your property. You work with a certified, locally operating team you can trust.</p>"
-        },
-        {
-          "heading": "East Texas Humidity Demands Proactive Prevention",
-          "text": "<p>The Lufkin area's warm, humid climate and seasonal rainfall create ideal conditions for mold growth indoors. Homes and businesses here benefit most from year-round moisture detection and preventive mold proofing to stay ahead of humidity-driven problems.</p>"
-        }
-      ],
-      "_ai_generated_at": "2026-08-23T15:41:36.911778Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "d1bf954c060b48db"
-    },
-    {
-      "type": "steps",
-      "steps_heading": "How Our {service} Process Works",
-      "steps_items": [
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Call Our {city} Team",
-          "text": "Tell us what happened. We work to get {service} started fast, often the same day."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "On-Site Assessment",
-          "text": "Specialists inspect the damage, identify the water source and category, and plan the work."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Mitigation & Drying",
-          "text": "Water extraction, structural drying, and cleanup to stop the damage from spreading."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Restoration & Repairs",
-          "text": "Cleaning, sanitizing, and repairs to return your property to normal."
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "cta_banner",
-      "anchor": "mid_cta",
-      "cb_text": "Need {service} in {city}? Get fast, professional help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "header",
-      "cb_bg_custom": "#2563eb",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "right",
-      "it_photo": "sites/mold-site/uploads/media/mold-remediation-completed-homeowners-outside-house.webp",
-      "it_alt": "A {city_state} home protected by professional {service} from {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Mold Prevention Across Lufkin's Diverse Properties",
-      "text": "<p>Lufkin's humid East Texas climate creates year-round conditions favorable for mold growth, and the age and construction style of your property directly influence your moisture control needs. Established neighborhoods with mature trees and older homes often face unique challenges—dense canopies trap moisture, aging roof systems and foundations are more prone to leaks, and vintage construction materials absorb and retain water more readily. Properties like those in Crown Colony and Fuller Springs, which span different eras, require tailored moisture detection and assessment strategies to identify hidden problem areas before they develop into larger concerns.</p><p>Newer construction in subdivisions like Copeland Springs typically features modern building codes and materials designed for moisture resistance, yet they are not immune to mold risk. Summer humidity, spring rainfall, and occasional water intrusion from storms or plumbing issues can affect any home or business. Regular moisture control measures—proper grading, functional gutters, adequate ventilation, and prompt attention to leaks—are essential across all property types. Elk Mold Pros works with Lufkin property owners to assess your specific environmental factors and implement practical mold proofing strategies, helping you maintain healthy indoor air quality regardless of your home's age or location.</p>",
-      "_ai_generated_at": "2026-08-23T15:41:41.090173Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "6d2aebadda334773"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "seasonal_calendar",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "steps_heading": "Seasonal Mold Prevention Guide for Lufkin Homes",
-      "steps_items": [
-        {
-          "heading": "Spring: Rain & Rising Moisture",
-          "text": "Spring rainfall and warming temperatures increase indoor humidity across Lufkin-area homes and businesses. Foundation seepage, roof leaks, and poor drainage create ideal mold conditions. Elk Mold Pros inspects vulnerable areas—basements, crawlspaces, and attics—to identify moisture sources early and prevent mold colonies from establishing."
-        },
-        {
-          "heading": "Summer: Heat & High Humidity",
-          "text": "Lufkin summers bring sustained heat and humidity that stress air conditioning and ventilation systems. Condensation accumulates on cool surfaces; AC drip lines back up; crawlspaces remain damp. We assess HVAC condensate drainage, evaluate indoor moisture levels, and recommend ventilation improvements to reduce mold risk in occupied spaces like Crown Colony and Fuller Springs."
-        },
-        {
-          "heading": "Fall: Transitional Moisture Shifts",
-          "text": "Fall temperature swings and occasional heavy rain create fluctuating indoor moisture. Gutters clog; foundation cracks allow seepage; attic ventilation becomes uneven. Elk Mold Pros conducts thorough inspections before winter to catch developing moisture problems and address water intrusion before conditions worsen in enclosed areas."
-        },
-        {
-          "heading": "Winter: Cold & Condensation",
-          "text": "Winter cold increases indoor-outdoor temperature differences, driving condensation on windows, pipes, and uninsulated surfaces. Heating systems dry some areas while poor ventilation traps moisture elsewhere. We identify condensation hotspots and moisture imbalances, then recommend targeted solutions—sealing leaks, improving airflow, and monitoring humidity—to protect your property year-round."
-        }
-      ],
-      "_ai_generated_at": "2026-08-23T15:41:46.175962Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "seasonal_calendar",
-      "_ai_input_hash": "defd35a2c17a2695"
-    },
-    {
-      "type": "service_cards",
-      "anchor": "related_services",
-      "sc_badge": "",
-      "sc_heading": "Other Mold Services in {city_state}",
-      "sc_cols": 4,
-      "sc_badge_bg": "accent",
-      "sc_head_color": "header",
-      "sc_badge_bg_custom": "#fd783b",
-      "sc_head_color_custom": "#120575",
-      "sc_icon_bg": "#f4f6f8",
-      "sc_items": [
-        {
-          "icon": "",
-          "alt": "Mold Inspection {city} {SS}",
-          "heading": "Mold Inspection",
-          "text": "Professional Mold Inspection for {city_state} homes and businesses.",
-          "url": "/mold-inspection-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Black Mold Removal {city} {SS}",
-          "heading": "Black Mold Removal",
-          "text": "Professional Black Mold Removal for {city_state} homes and businesses.",
-          "url": "/black-mold-removal-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Mold Testing {city} {SS}",
-          "heading": "Mold Testing",
-          "text": "Professional Mold Testing for {city_state} homes and businesses.",
-          "url": "/mold-testing-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Mold Mitigation {city} {SS}",
-          "heading": "Mold Mitigation",
-          "text": "Professional Mold Mitigation for {city_state} homes and businesses.",
-          "url": "/mold-mitigation-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Attic Mold Removal {city} {SS}",
-          "heading": "Attic Mold Removal",
-          "text": "Professional Attic Mold Removal for {city_state} homes and businesses.",
-          "url": "/attic-mold-removal-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Crawl Space Mold Removal {city} {SS}",
-          "heading": "Crawl Space Mold Removal",
-          "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
-          "url": "/crawl-space-mold-removal-{city_slug}"
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "{primary_keyword} FAQs — {city_state}",
-      "fq_bg_color": "#ffffff",
-      "fq_item_bg": "#d9d9d9",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#120575",
-      "fq_icon_bg_custom": "#fd783b",
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "replace",
-      "fq_items": [
-        {
-          "question": "What does mold prevention work actually involve for Lufkin homes?",
-          "answer": "<p>Mold prevention involves identifying moisture sources, improving ventilation, and applying protective treatments to vulnerable areas. Our team inspects crawlspaces, attics, bathrooms, and basements—places where humidity and water intrusion commonly occur. We may recommend dehumidification, sealing, or drainage improvements tailored to your property's specific conditions.</p>"
-        },
-        {
-          "question": "How quickly can Elk Mold Pros schedule a prevention assessment in Lufkin?",
-          "answer": "<p>We work to accommodate Lufkin property owners with timely scheduling. Contact us directly to discuss your concerns and available appointment times. Response times vary by season and current demand, so reaching out as soon as you notice moisture issues or condensation helps ensure prompt attention.</p>"
-        },
-        {
-          "question": "What factors affect the cost of mold prevention services?",
-          "answer": "<p>Prevention costs depend on your property's size, the number of areas needing assessment, moisture source complexity, and the scope of recommended treatments. A small bathroom dehumidification upgrade differs greatly from crawlspace encapsulation or foundation drainage work. We provide transparent guidance during the initial inspection so you understand what's involved.</p>"
-        },
-        {
-          "question": "How should I prepare before Elk Mold Pros arrives for prevention work?",
-          "answer": "<p>Ensure our team has safe access to attics, crawlspaces, basements, and bathrooms. Clear clutter around suspected moisture areas and note any visible condensation, staining, or odors you've observed. Providing details about past water events, roof leaks, or plumbing issues helps us focus on the most vulnerable zones and develop a comprehensive strategy.</p>"
-        },
-        {
-          "question": "What can I do to keep mold from returning after prevention measures?",
-          "answer": "<p>Maintain proper ventilation by running exhaust fans during and after showers, keep gutters clear, and monitor indoor humidity—ideally 30 to 50 percent. Fix leaks promptly, ensure grading directs water away from your foundation, and regularly inspect areas we've treated. These habits significantly reduce the chance of moisture reaccumulation and new growth.</p>"
-        },
-        {
-          "question": "Why is mold prevention especially important in Lufkin's humid climate?",
-          "answer": "<p>East Texas experiences high humidity and substantial rainfall, especially spring through summer. These moisture-rich conditions create an ideal environment for mold growth indoors if humidity control and drainage are neglected. Properties in areas like Crown Colony and Fuller Springs benefit from proactive measures—dehumidification, ventilation upgrades, and moisture barriers—to keep indoor air dry and healthy year-round.</p>"
-        }
-      ],
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-08-23T15:41:53.408697Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "12997bf1478fe560",
-      "skin": "dark",
-      "fq_open": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "accent",
-      "cb_bg_custom": "#0d2340",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "custom_html",
-      "anchor": "pest_services",
-      "html": "[services_links]"
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "{city_spotlight}",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#120575",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "skin": "light"
-    }
-  ],
-  "seo": {
-    "seo_title": "Mold Prevention in {city_state} | {business}",
-    "canonical_url": "https://m.q111.xyz/mold-prevention-lufkin-tx/",
-    "meta_description": "Mold Prevention in {city_state}. {business} provides moisture control and prevention to keep mold from returning. Call {phone} for a free inspection.",
-    "meta_keywords": "mold prevention services Lufkin, moisture control Lufkin, moisture detection Lufkin, mold proofing Lufkin",
-    "og_title": "Mold Prevention in {city_state} | {business}",
-    "og_description": "Mold Prevention in {city_state} — certified, thorough, and local. Call {phone} for a free inspection.",
-    "og_image": "sites/mold-site/uploads/media/mold-prevention-and-maintenance.webp",
-    "service_name": "Mold Prevention",
-    "service_type": "Mold Prevention",
-    "service_area": "{city_state} and surrounding areas",
-    "service_description": "Moisture control and prevention to keep mold from returning, for homes and businesses in {city_state}.",
-    "bc_label": "Mold Prevention",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Prevention\",\n    \"name\": \"Mold Prevention in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+12818888888\",\n        \"url\": \"https://elkpestpros.com\"\n    },\n    \"description\": \"Mold Prevention in Lufkin, TX \\u2014 moisture control and prevention to keep mold from returning.\"\n}",
-    "primary_keyword": "Mold Prevention",
-    "secondary_keywords": "mold prevention services, moisture control, moisture detection, mold proofing"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-07-12T05:02:32+00:00",
-  "template_version": "79e22e6c3304cbda0e3e462de482d632"
+    "locked_blocks": [],
+    "generated_at": "2026-07-12T05:02:32+00:00",
+    "template_version": "79e22e6c3304cbda0e3e462de482d632"
 }
